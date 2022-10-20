@@ -1,0 +1,46 @@
+@use 'sass:math';
+@import '../../styles/bootstrap-utility/breakpoints';
+
+$modal-max-width: 1230px;
+
+.modal {
+  z-index: 20;
+  display: grid;
+  place-items: center;
+  background: rgb(0 0 0 / 25%);
+}
+
+.modal__inner {
+  width: calc(100vw - 2rem);
+  max-width: $modal-max-width;
+
+  @include media-breakpoint-up(lg) {
+    .modal--10 & {
+      width: math.div(10, 12) * 100%;
+      max-width: $modal-max-width * math.div(10, 12);
+    }
+
+    .modal--8 & {
+      width: math.div(8, 12) * 100%;
+      max-width: $modal-max-width * math.div(8, 12);
+    }
+
+    .modal--6 & {
+      width: math.div(6, 12) * 100%;
+      max-width: $modal-max-width * math.div(6, 12);
+    }
+  }
+}
+
+.close-button {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  color: var(--color-text-secondary);
+}
+
+.close-button .close-button-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  font-size: 1.5rem;
+}

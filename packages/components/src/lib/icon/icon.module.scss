@@ -1,0 +1,43 @@
+.icon {
+  display: block;
+  width: 1.5rem;
+  font-size: 1.5rem;
+}
+
+.icon.icon--12 {
+  width: 0.75rem;
+  font-size: 0.75rem;
+}
+
+.icon.icon--16 {
+  width: 1rem;
+  font-size: 1rem;
+}
+
+.icon.icon--18 {
+  width: 1.125rem;
+  font-size: 1.125rem;
+}
+
+.icon.icon--24 {
+  width: 1.5rem;
+  font-size: 1.5rem;
+}
+
+.icon.icon--36 {
+  width: 2.25rem;
+  font-size: 2.25rem;
+}
+
+.icon.icon--48 {
+  width: 3rem;
+  font-size: 3rem;
+}
+
+.icon.icon--block {
+  display: block;
+}
+
+.icon.icon--inline {
+  display: inline;
+}

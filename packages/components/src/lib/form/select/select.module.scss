@@ -1,0 +1,92 @@
+@import '../../../styles/mixins';
+
+.select--invalid .select__control {
+  border-color: var(--color-error);
+
+  &.select__control--focused {
+    box-shadow: 0 0 0 1px var(--color-error);
+  }
+}
+
+.select__arrow {
+  // -1px to account for border on top and bottom, making input height 40px
+  padding: calc(0.5rem - 1px) 2rem calc(0.5rem - 1px) 0.5rem;
+
+  .select__control--focused & {
+    color: var(--color-primary);
+  }
+
+  .select--invalid .select__control--focused & {
+    color: var(--color-error);
+  }
+}
+
+div.select__menu-portal {
+  z-index: 20;
+}
+
+div .select__menu {
+  margin: 1px 0 0;
+  overflow: hidden;
+  border-radius: 2px;
+}
+
+.select__menu .select__menu-list {
+  padding: 0;
+}
+
+.select__menu .select__menu-list-inner {
+  padding: 0;
+}
+
+.select__menu-list-footer {
+  padding: 1rem;
+  border-top: 1px solid var(--color-background-dark);
+}
+
+.select__menu .select__option {
+  font-size: 0.875rem;
+  color: var(--color-text-black);
+  cursor: pointer;
+  background-color: var(--color-white);
+
+  &--focused {
+    background-color: var(--color-background-dark);
+  }
+
+  &--selected {
+    color: var(--color-primary);
+    background-color: var(--color-primary-2);
+  }
+
+  &--disabled {
+    color: var(--color-text-disabled);
+    cursor: default;
+    background-color: var(--color-background-light);
+  }
+
+  &:active {
+    color: var(--color-primary);
+    background-color: var(--color-primary-2);
+  }
+}
+
+.select--small {
+  & .select__control {
+    min-height: 1.875rem;
+    font-size: 0.75rem;
+  }
+
+  & .select__input {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  & .select__arrow {
+    padding: 0;
+  }
+}
+
+.select__multi-value-remove {
+  cursor: pointer;
+}

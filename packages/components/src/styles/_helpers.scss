@@ -1,0 +1,93 @@
+// https://github.com/h5bp/main.css/blob/main/src/_helpers.css
+
+.hidden,
+[hidden] {
+  display: none !important;
+}
+
+.block {
+  display: block;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.visually-hidden.focusable:active,
+.visually-hidden.focusable:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: inherit;
+}
+
+.text-normal {
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--color-text);
+}
+
+.text-small {
+  font-size: 0.875rem;
+}
+
+.text-bold {
+  font-weight: 700;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-primary {
+  color: var(--color-primary);
+}
+
+.text-secondary {
+  color: var(--color-text-secondary);
+}
+
+.text-error {
+  color: var(--color-error);
+}
+
+.text-success {
+  color: var(--color-success);
+}
+
+.text-disabled {
+  color: var(--color-text-disabled);
+}
+
+.text-white {
+  color: var(--color-white);
+}
+
+.inactive {
+  opacity: 0.5;
+}

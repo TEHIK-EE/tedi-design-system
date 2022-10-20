@@ -1,0 +1,32 @@
+$spacing-size: (
+  '0': 0,
+  '0-25': 0.25em,
+  '0-5': 0.5em,
+  '0-75': 0.75em,
+  '1': 1em,
+  '1-25': 1.25em,
+  '1-5': 1.5em,
+  '1-75': 1.75em,
+  '2': 2em,
+  '2-5': 2.5em,
+);
+
+@each $spacing, $size in $spacing-size {
+  .vertical-spacing.vertical-spacing--#{$spacing} {
+    > * {
+      margin-bottom: $size;
+    }
+
+    > :last-child {
+      margin-bottom: 0;
+    }
+
+    > :first-of-type {
+      margin-top: 0;
+    }
+  }
+
+  .vertical-spacing > .vertical-spacing__item.vertical-spacing__item--#{$spacing} {
+    margin-bottom: $size;
+  }
+}

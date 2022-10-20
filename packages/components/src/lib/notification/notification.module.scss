@@ -1,0 +1,26 @@
+.notification {
+  padding: 1rem 1.25rem;
+  font-size: 0.875rem; // 14px
+  border: 1px solid;
+  border-radius: 5px;
+}
+
+.notification--info {
+  background-color: var(--color-primary-2);
+  border-color: var(--color-primary);
+}
+
+.notification--success {
+  background-color: var(--color-success-light);
+  border-color: var(--color-success);
+}
+
+.notification--warning {
+  background-color: var(--color-warning-light);
+  border-color: var(--color-warning);
+}
+
+.notification--error {
+  background-color: var(--color-error-light);
+  border-color: var(--color-error);
+}

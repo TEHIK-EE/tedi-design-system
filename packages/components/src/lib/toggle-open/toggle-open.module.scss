@@ -1,0 +1,14 @@
+.toggle--open {
+  margin-left: 0.5rem;
+  transition-timing-function: ease-in-out;
+  transition-duration: 600ms;
+  transition-property: transform;
+  transform: rotate(180deg);
+}
+
+.toggle--close {
+  margin-left: 0.5rem;
+  transition-timing-function: ease-in-out;
+  transition-duration: 600ms;
+  transition-property: transform;
+}

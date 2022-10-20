@@ -1,0 +1,89 @@
+@import '../../../styles/bootstrap-utility/breakpoints';
+
+.sidenav {
+  z-index: 20;
+  display: none;
+  flex-direction: column;
+  width: 65vw;
+  min-height: 100%;
+  margin: 0;
+  font-size: 0.875rem;
+  background: var(--color-primary);
+
+  @include media-breakpoint-up(lg) {
+    display: flex;
+    width: 8.75rem; // 140px
+    min-height: auto;
+  }
+
+  &--open {
+    display: flex;
+
+    @include media-breakpoint-down(lg) {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+}
+
+.sidenav__list {
+  margin: 0;
+  list-style: none;
+}
+
+.sidenav__item {
+  display: flex;
+  flex-direction: row;
+  border-top: 1px solid var(--color-secondary);
+
+  &:last-of-type {
+    border-bottom: 1px solid var(--color-secondary);
+  }
+}
+
+.sidenav__link {
+  display: flex;
+  flex-grow: 1;
+  gap: 1rem;
+  padding: 1rem;
+  color: var(--color-white);
+  text-align: center;
+  text-decoration: none;
+
+  @include media-breakpoint-up(lg) {
+    flex-direction: column;
+  }
+
+  &:hover {
+    background-color: var(--color-secondary);
+  }
+
+  .sidenav__item--current & {
+    background-color: var(--color-secondary);
+  }
+}
+
+.sidenav__icon {
+  color: var(--color-secondary-blue);
+
+  .sidenav__link:hover &,
+  .sidenav__item--current & {
+    color: var(--color-white);
+  }
+}
+
+.main-backdrop {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  display: none;
+  background: rgb(0 0 0 / 25%);
+
+  @include media-breakpoint-down(lg) {
+    display: block;
+  }
+}

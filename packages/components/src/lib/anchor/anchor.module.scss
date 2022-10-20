@@ -1,0 +1,9 @@
+.anchor {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.anchor:hover,
+.anchor:active {
+  text-decoration: underline;
+}

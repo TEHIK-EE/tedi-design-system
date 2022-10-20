@@ -1,0 +1,38 @@
+@import '../../../styles/mixins';
+
+.timepicker__popper {
+  z-index: 20;
+  padding: 0.5rem 0.75rem;
+  background-color: var(--color-background-light);
+  border: 1px solid var(--color-borders-dark);
+  border-radius: var(--input-border-radius);
+}
+
+.timepicker__col {
+  display: flex;
+  flex-direction: column;
+  max-width: 3.5rem;
+}
+
+.timepicker__col-input input {
+  text-align: center;
+}
+
+/* Chrome, Safari, Edge, Opera */
+.timepicker__col-input input::-webkit-outer-spin-button,
+.timepicker__col-input input::-webkit-inner-spin-button {
+  appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+.timepicker__col-input input[type='number'] {
+  appearance: textfield;
+}
+
+.timepicker__button {
+  @include button-reset;
+
+  display: flex;
+  justify-content: center;
+}

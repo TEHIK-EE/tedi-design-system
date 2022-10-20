@@ -1,0 +1,137 @@
+@mixin tag-variant($color, $background, $color-ghost, $border-ghost) {
+  color: $color;
+  background-color: $background;
+
+  &.tag--ghost {
+    color: $color-ghost;
+    background-color: var(--color-white);
+    border: 1px solid $border-ghost;
+  }
+
+  &.tag--invisible,
+  &.tag--icon {
+    padding: 0;
+  }
+
+  &.tag--invisible {
+    background-color: var(--color-transparent);
+    border-color: var(--color-transparent);
+  }
+}
+
+.tag {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.5rem;
+  height: 1.5rem;
+  padding: 0.125rem 0.5rem;
+  font-size: 0.875rem;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  vertical-align: bottom; // Removes extra pixel added to height by inline-flex
+  border-radius: 0.25rem;
+}
+
+.tag--small {
+  min-width: 1.3125rem;
+  height: 1.3125rem;
+  padding: 0;
+  font-size: 0.625rem;
+}
+
+.tag--medium {
+  min-width: 2.5rem;
+  height: 2.5rem;
+  font-size: 1rem;
+}
+
+.tag--default {
+  @include tag-variant(
+    var(--color-secondary-grey),
+    var(--color-background),
+    var(--color-secondary-grey),
+    var(--color-secondary-grey)
+  );
+}
+
+.tag--primary {
+  @include tag-variant(var(--color-white), var(--color-primary), var(--color-primary), var(--color-primary));
+}
+
+.tag--primary-accent {
+  @include tag-variant(
+    var(--color-white),
+    var(--color-primary-accent),
+    var(--color-primary-accent),
+    var(--color-primary-accent)
+  );
+}
+
+.tag--secondary {
+  @include tag-variant(
+    var(--color-primary),
+    var(--color-secondary-blue),
+    var(--color-secondary-grey),
+    var(--color-secondary-grey)
+  );
+}
+
+.tag--success {
+  @include tag-variant(var(--color-success), var(--color-success-light), var(--color-success), var(--color-success));
+}
+
+.tag--warning {
+  @include tag-variant(var(--color-warning), var(--color-warning-light), var(--color-warning), var(--color-warning));
+}
+
+.tag--important {
+  @include tag-variant(var(--color-error), var(--color-error-light), var(--color-error), var(--color-error));
+}
+
+.tag--with-arrow {
+  &::after {
+    position: absolute;
+    top: 2px;
+    right: 0;
+    content: '';
+    border-right: 4px solid var(--color-transparent);
+    border-bottom: 4px solid var(--color-white);
+    border-left: 4px solid var(--color-transparent);
+    transform: rotate(45deg);
+  }
+
+  &.tag--medium::after {
+    right: -1px;
+    border-width: 7px;
+  }
+}
+
+.tag--status-error,
+.tag--status-success,
+.tag--status-inactive {
+  &::before {
+    position: absolute;
+    top: -0.125rem;
+    right: -0.125rem;
+    width: 0.625rem;
+    height: 0.625rem;
+    content: '';
+    border: 1px solid var(--color-white);
+    border-radius: 50%;
+  }
+}
+
+.tag--status-success::before {
+  background-color: var(--color-success);
+}
+
+.tag--status-error::before {
+  background-color: var(--color-error);
+}
+
+.tag--status-inactive::before {
+  background-color: var(--color-text-disabled);
+}

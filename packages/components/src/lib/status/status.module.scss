@@ -1,0 +1,25 @@
+.status {
+  display: flex;
+  align-items: baseline;
+  font-size: 0.875rem;
+}
+
+.status__circle {
+  flex-shrink: 0;
+  width: 10px;
+  height: 10px;
+  margin-right: 10px;
+  border-radius: 5px;
+
+  .status--error & {
+    background-color: var(--color-error);
+  }
+
+  .status--success & {
+    background-color: var(--color-success);
+  }
+
+  .status--inactive & {
+    background-color: var(--color-text-disabled);
+  }
+}

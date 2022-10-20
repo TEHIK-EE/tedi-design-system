@@ -1,0 +1,25 @@
+@font-face {
+  font-family: Roboto;
+  src:
+    url('./assets/fonts/roboto-v29-latin-regular.ttf') format('truetype'),
+    url('./assets/fonts/roboto-v29-latin-regular.woff') format('woff'),
+    url('./assets/fonts/roboto-v29-latin-regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: Roboto;
+  font-weight: bold;
+  src:
+    url('./assets/fonts/roboto-v29-latin-700.ttf') format('truetype'),
+    url('./assets/fonts/roboto-v29-latin-700.woff') format('woff'),
+    url('./assets/fonts/roboto-v29-latin-700.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: Roboto;
+  font-weight: 300;
+  src:
+    url('./assets/fonts/roboto-v29-latin-300.ttf') format('truetype'),
+    url('./assets/fonts/roboto-v29-latin-300.woff') format('woff'),
+    url('./assets/fonts/roboto-v29-latin-300.woff2') format('woff2');
+}

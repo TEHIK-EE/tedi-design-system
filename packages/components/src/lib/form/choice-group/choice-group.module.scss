@@ -1,0 +1,15 @@
+.choice-group {
+  position: relative;
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+.choice-group__inner {
+  display: flex;
+  flex-wrap: wrap;
+
+  .choice-group--filter & {
+    margin: -0.25rem;
+  }
+}

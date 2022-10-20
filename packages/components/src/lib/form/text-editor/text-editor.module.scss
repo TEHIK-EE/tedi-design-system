@@ -1,0 +1,52 @@
+@import 'draft-js/dist/Draft.css';
+@import '../../../styles/mixins';
+
+.text-editor__inner {
+  display: flex;
+  flex-direction: column;
+  padding: 0.75rem 1rem;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-borders-dark);
+  border-radius: var(--input-border-radius);
+
+  .text-editor--invalid & {
+    border-color: var(--color-error);
+  }
+
+  .text-editor--focused & {
+    border-color: var(--color-secondary-light);
+    outline: none;
+    box-shadow: 0 0 0 1px var(--color-secondary-light);
+  }
+}
+
+.text-editor__controls {
+  display: flex;
+  column-gap: 0.25rem;
+}
+
+.text-editor__control-block {
+  display: flex;
+  column-gap: 0.25rem;
+}
+
+.text-editor__content {
+  padding-top: 1rem;
+  color: var(--color-text-secondary);
+}
+
+.style-button {
+  @include button-reset;
+
+  display: flex;
+  color: var(--color-secondary-grey);
+
+  &:hover {
+    color: var(--color-text);
+  }
+}
+
+.style-button--active {
+  background-color: var(--color-background);
+  border-radius: var(--input-border-radius);
+}

@@ -1,0 +1,9 @@
+.tabs {
+  background: var(--color-white);
+  border: 1px solid var(--color-background-dark);
+  border-radius: 4px;
+}
+
+.tabs__content {
+  transition: height 300ms cubic-bezier(0.22, 0.61, 0.35, 1);
+}

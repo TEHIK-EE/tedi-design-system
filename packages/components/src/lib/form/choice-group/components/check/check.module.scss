@@ -1,0 +1,57 @@
+@import '../../../../../styles/mixins';
+
+.check {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+
+  &:hover:not(.check--disabled) {
+    cursor: pointer;
+  }
+}
+
+.check__input {
+  @include visually-hidden;
+}
+
+.check__indicator {
+  display: inline-block;
+  width: 1.125rem;
+  height: 1.125rem;
+  margin-right: 0.625rem;
+  border: 1px solid var(--color-borders-dark);
+  border-radius: 2px;
+  transition: 150ms ease;
+  transition-property: background-color, border-color;
+
+  .check__input:hover:not(:disabled) + &,
+  .check__input:focus:not(:disabled) + & {
+    border-color: var(--color-primary);
+    outline: var(--color-primary) solid 1px;
+  }
+
+  [type='checkbox']:checked + & {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+  }
+
+  .check__input:disabled + & {
+    background-color: var(--color-borders-disabled);
+  }
+}
+
+.check__icon {
+  color: var(--color-white);
+  opacity: 0;
+  transition: opacity 150ms ease;
+
+  [type='checkbox']:checked + .check__indicator & {
+    opacity: 1;
+  }
+}
+
+.check__content {
+  .check--disabled & {
+    color: var(--color-text-disabled);
+  }
+}

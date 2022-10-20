@@ -1,0 +1,13 @@
+.ellipsis {
+  // -webkit-box is required for ellipsis currently, even though autoprefixer suggests flex in its place
+  display: -webkit-box; /* stylelint-disable-line */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.ellipsis__tooltip {
+  max-width: 200px;
+}

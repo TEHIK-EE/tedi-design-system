@@ -1,0 +1,13 @@
+.file-upload {
+  display: inline-block;
+  pointer-events: auto;
+  cursor: pointer;
+
+  & input[type='file'] {
+    display: none;
+  }
+
+  & button {
+    pointer-events: none;
+  }
+}

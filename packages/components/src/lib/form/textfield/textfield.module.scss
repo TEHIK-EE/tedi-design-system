@@ -1,0 +1,121 @@
+@import '../../../styles/mixins';
+
+@mixin textfield-focus($border-color: null) {
+  @if $border-color {
+    &:focus {
+      border-color: $border-color;
+      outline: none;
+      box-shadow: 0 0 0 1px $border-color;
+    }
+  } @else {
+    outline: none;
+    box-shadow: none;
+  }
+
+  @if $border-color {
+    &:active {
+      border-color: $border-color;
+      outline: none;
+      box-shadow: none;
+    }
+  } @else {
+    outline: none;
+    box-shadow: none;
+  }
+}
+
+.textfield {
+  width: 100%;
+  max-width: 100%;
+}
+
+.textfield__inner {
+  position: relative;
+}
+
+.textfield__input {
+  display: block;
+  width: 100%;
+  height: 2.5rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+  color: var(--color-text);
+  border: 1px solid var(--color-borders-dark);
+  border-radius: var(--input-border-radius);
+
+  @include textfield-focus(var(--color-secondary-light));
+
+  &:disabled {
+    background-color: var(--color-background-dark);
+    opacity: 0.6;
+  }
+
+  &[aria-invalid='true'] {
+    border-color: var(--color-error);
+
+    @include textfield-focus(var(--color-error));
+  }
+
+  .textfield--valid & {
+    border-color: var(--color-success);
+
+    @include textfield-focus(var(--color-success));
+  }
+
+  .textfield--with-icon & {
+    padding-right: 2rem;
+  }
+}
+
+.textfield__icon-wrapper {
+  @include button-reset;
+
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  padding: 0.75rem 0.5rem;
+  color: var(--color-borders-dark);
+  transition: color 0.2s ease;
+
+  &:not(div, :disabled):hover {
+    color: var(--color-text);
+  }
+
+  &:disabled {
+    cursor: initial;
+  }
+
+  .textfield--inline & {
+    padding: 2px 0.25rem;
+  }
+
+  .textfield--small & {
+    padding: 0.5rem;
+  }
+
+  .textfield__input[aria-invalid='true'] + & {
+    color: var(--color-error);
+  }
+}
+
+div.textfield__icon-wrapper {
+  cursor: initial;
+}
+
+.textfield__icon {
+  vertical-align: text-top;
+}
+
+/* Small */
+.textfield--small {
+  & .textfield__input {
+    height: 1.5rem;
+    padding-right: 0.25rem;
+    padding-left: 0.25rem;
+  }
+
+  &.textfield--with-icon .textfield__input {
+    padding-right: 1rem;
+  }
+}

@@ -1,0 +1,57 @@
+:root {
+  // Figma colors
+  --color-black: #000;
+  --color-white: #fff;
+  --color-white-rgb: 255, 255, 255;
+  --color-primary: #005aa3;
+  --color-primary-1: #e7f0f6;
+  --color-primary-2: #d0e1ee;
+  --color-primary-3: #b9d2e5;
+  --color-primary-4: #8bb4d5;
+  --color-primary-5: #73a5cc;
+  --color-primary-6: #5c96c4;
+  --color-primary-accent: #ff8000;
+  --color-secondary: #004277;
+  --color-secondary-blue: #a2c3dd;
+  --color-secondary-light: #4587bc;
+  --color-secondary-grey: #5d6071;
+  --color-success: #308653;
+  --color-success-hover: #006728;
+  --color-success-light: #ecf4ef;
+  --color-warning: #8e7300;
+  --color-warning-light: #fff1d3;
+  --color-error: #d73e3e;
+  --color-error-hover: #b50000;
+  --color-error-light: #fceeee;
+  --color-text: #1f1f1f;
+  --color-text-secondary: #4d4f5d;
+  --color-text-disabled: #9799a4;
+  --color-background-dark: #e1e2e5;
+  --color-background: #f0f0f2;
+  --color-background-light: #f9f9f9;
+  --color-borders-light: #d8d8d8;
+  --color-borders-dark: #8f91a8;
+  --color-borders-dark-rgb: 143, 145, 168;
+  --color-borders-disabled: #d2d3d8;
+
+  // Custom
+  --color-transparent: transparent;
+
+  // Gradients
+  --gradient-top-bottom: linear-gradient(140.44deg, #005295 -17.66%, #1769ab 71.2%);
+  --gradient-bottom-top: linear-gradient(140.44deg, #73a5cc -17.66%, #1769ab 71.2%);
+
+  // Card
+  --card-border-radius: 4px;
+
+  // Form
+  --input-border-radius: 4px;
+
+  // Button
+  --button-secondary-border: #4d4f5d;
+  --button-secondary-border-h: #dbdfe2;
+
+  // Footer
+  --footer-bg: #34394c;
+  --footer-icon-bg: rgb(255 255 255 / 20%);
+}

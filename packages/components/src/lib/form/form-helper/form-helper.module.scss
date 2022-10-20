@@ -1,0 +1,12 @@
+.form-helper {
+  font-size: 0.875rem;
+  color: var(--color-secondary-grey);
+}
+
+.form-helper--valid {
+  color: var(--color-success);
+}
+
+.form-helper--error {
+  color: var(--color-error);
+}

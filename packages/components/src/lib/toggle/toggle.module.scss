@@ -1,0 +1,38 @@
+@import '../../styles/mixins';
+
+.toggle {
+  @include button-reset;
+
+  position: relative;
+  width: 2rem;
+  height: 1.125rem;
+  background: var(--color-text-disabled);
+  border-radius: 1.5rem;
+
+  &:focus {
+    border-radius: 1.5rem;
+    outline: none;
+  }
+
+  &--active {
+    background: var(--color-primary);
+  }
+}
+
+.toggle__dot {
+  position: absolute;
+  top: 50%;
+  right: auto;
+  left: 3px;
+  width: 0.75rem;
+  height: 0.75rem;
+  background: var(--color-white);
+  border-radius: 1.5rem;
+  box-shadow: 0 1px 5px rgb(0 0 0 / 20%);
+  transform: translateY(-50%);
+
+  &--active {
+    right: 3px;
+    left: auto;
+  }
+}

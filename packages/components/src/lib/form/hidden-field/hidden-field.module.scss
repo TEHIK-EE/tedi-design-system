@@ -1,0 +1,27 @@
+@import '../../../styles/mixins';
+
+.hidden-field {
+  &--select {
+    padding: 0.0625rem;
+    border: none;
+  }
+
+  &--datetime {
+    padding: 0;
+    border: none;
+  }
+}
+
+.hidden-field-button {
+  @include button-reset;
+
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+
+  &:hover {
+    background-color: var(--color-background);
+  }
+}

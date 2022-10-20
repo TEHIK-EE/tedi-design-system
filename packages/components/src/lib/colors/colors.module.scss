@@ -1,0 +1,19 @@
+$colors: (
+  'background-dark',
+  'background',
+  'background-light',
+  'white',
+  'warning-light',
+  'primary',
+  'primary-1',
+  'primary-2',
+  'primary-3',
+  'error-light',
+  'success-light'
+);
+
+@each $color in $colors {
+  .bg-#{$color} {
+    background-color: var(--color-#{$color});
+  }
+}

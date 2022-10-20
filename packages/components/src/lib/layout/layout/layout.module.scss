@@ -1,0 +1,42 @@
+@import '../../../styles/bootstrap-utility/breakpoints';
+
+.container-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.container {
+  position: relative;
+  display: flex;
+  flex-grow: 1;
+  overflow: auto;
+  background: var(--color-background);
+}
+
+.main {
+  position: relative;
+  flex: 1;
+  max-width: 100vw;
+
+  @include media-breakpoint-up(lg) {
+    max-width: calc(100vw - 8.75rem); // 100vw - sidenav width
+  }
+}
+
+.main__breadcrumbs {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.main__content {
+  max-width: 95rem;
+  padding: 1.25rem 0 2.5rem;
+  margin: 0 auto;
+}
+
+.main__logos {
+  position: absolute;
+  top: 0.125rem;
+  right: 0;
+}

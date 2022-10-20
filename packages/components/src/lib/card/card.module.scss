@@ -1,0 +1,106 @@
+$border-colors: ('background-dark', 'background', 'background-light', 'white');
+
+.card {
+  position: relative;
+  background: var(--color-white);
+  border: 1px solid var(--color-background-dark);
+  border-radius: var(--card-border-radius);
+}
+
+.card--borderless {
+  border: none;
+  border-radius: 0;
+}
+
+.card--success,
+.card--warning,
+.card--error {
+  border-width: 2px;
+  border-top: none;
+  border-right: none;
+  border-bottom: none;
+  border-radius: 0;
+}
+
+.card--success,
+.card--success-top {
+  border-color: var(--color-success);
+}
+
+.card--warning,
+.card--warning-top {
+  border-color: var(--color-warning);
+}
+
+.card--error,
+.card--error-top {
+  border-color: var(--color-error);
+}
+
+.card--success-top,
+.card--warning-top,
+.card--error-top {
+  border-width: 2px;
+  border-right: none;
+  border-bottom: none;
+  border-left: none;
+  border-radius: 0;
+}
+
+@each $color in $border-colors {
+  .card--border-#{$color} {
+    border-color: var(--color-#{$color});
+  }
+}
+
+.card__content {
+  height: 100%;
+  padding: 1.5rem;
+
+  &--padding-none {
+    padding: 0;
+  }
+
+  &--padding-xsmall {
+    padding: 0.5rem;
+  }
+
+  &--padding-small {
+    padding: 0.75rem;
+  }
+
+  &--padding-medium {
+    padding: 1rem;
+  }
+
+  &--padding-large {
+    padding: 2rem;
+  }
+}
+
+.card__header--default {
+  color: var(--color-primary-1);
+  background: var(--gradient-top-bottom);
+}
+
+.card__header--white {
+  color: var(--color-secondary);
+  background: var(--color-white);
+  border-bottom: 1px solid var(--color-background-dark);
+}
+
+.card__header {
+  padding: 1rem 1.5rem;
+}
+
+.card__header:first-of-type,
+.card__content:first-of-type {
+  border-start-start-radius: var(--card-border-radius);
+  border-start-end-radius: var(--card-border-radius);
+}
+
+.card__header:last-child,
+.card__content:last-child {
+  border-end-start-radius: var(--card-border-radius);
+  border-end-end-radius: var(--card-border-radius);
+}

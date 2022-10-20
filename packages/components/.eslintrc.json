@@ -1,0 +1,13 @@
+{
+  "extends": ["plugin:@nrwl/nx/react-typescript", "../../.eslintrc.json"],
+  "ignorePatterns": ["!**/*"],
+  "overrides": [
+    { "files": ["*.ts", "*.tsx", "*.js", "*.jsx"], "rules": {} },
+    { "files": ["*.ts", "*.tsx"], "rules": {} },
+    { "files": ["*.js", "*.jsx"], "rules": {} }
+  ],
+  "rules": {
+    "@next/next/no-html-link-for-pages": 0,
+    "@next/next/no-img-element": 0
+  }
+}
