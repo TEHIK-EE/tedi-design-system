@@ -8,7 +8,7 @@ default:
     - |
       {
         echo $NPM_NPMRC_BASE64 | base64 -d
-        echo "@tehik:registry=${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/npm/"
+        echo "@tehik:registry=${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/npm/_authToken=\${CI_JOB_TOKEN}"
         echo "${CI_API_V4_URL#https?}/projects/${CI_PROJECT_ID}/packages/npm/:_authToken=\${CI_JOB_TOKEN}"
         echo "__NPM_AUTH_TOKEN__=${NPM_AUTH_TOKEN}"
         echo "__NPM_REGISTRY__=${NPM_REGISTRY}"
@@ -26,7 +26,6 @@ publish-library:
   script:
     - npm run build
     - cd ./dist/packages/components
-    - npm set @tehik:registry $ARTIFACTORY_NPM_API_URL$NPM_REPO_KEY_RELEASE
     # - npm run semantic-release
     - npm publish
   #TODO - npm publish
