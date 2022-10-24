@@ -16,7 +16,8 @@ default:
       } | tee -a .npmrc
   cache:
     key:
-      files: package-lock.json
+      files:
+        - package-lock.json
     paths:
       - .npm/
 
