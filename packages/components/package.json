@@ -2,7 +2,7 @@
   "name": "@tehik/react-components",
   "version": "0.0.1",
   "publishConfig": {
-    "registry": "https://gitlab.sotsiaalministeerium.ee/api/v4/packages/npm/"
+    "registry": "https://repo.tehik.ee/artifactory/api/npm/"
   },
   "peerDependencies": {
     "@emotion/react": "*",
