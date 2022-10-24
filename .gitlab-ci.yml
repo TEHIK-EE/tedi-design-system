@@ -23,9 +23,7 @@ publish-library:
   script:
     - npm run build
     - cd ./dist/packages/components
-    # - npm run semantic-release
-    - npm register --registry "https://${CI_SERVER_HOST}/api/v4/packages/npm/"
+    - npm adduser --registry "https://${CI_SERVER_HOST}/api/v4/packages/npm/"
     - npm publish --registry "https://${CI_SERVER_HOST}/api/v4/packages/npm/"
-  #TODO - npm publish
   rules:
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
