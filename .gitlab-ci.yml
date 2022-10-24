@@ -7,7 +7,7 @@ default:
     - npm ci --cache .npm --prefer-offline
     - |
       {
-        echo "@tehik:registry=https://${CI_SERVER_HOST}/api/v4/packages/npm/"
+        echo "@tehik:registry=https://${CI_SERVER_HOST}/api/v4/packages/npm/:_authToken=${CI_JOB_TOKEN}"
         echo "//${CI_SERVER_HOST}/api/v4/projects/${CI_PROJECT_ID}/packages/npm/:_authToken=${CI_JOB_TOKEN}"
         echo "//${CI_SERVER_HOST}/api/v4/packages/npm/:_authToken=${CI_JOB_TOKEN}"
       } | tee -a .npmrc
@@ -24,7 +24,7 @@ publish-library:
     - npm run build
     - cd ./dist/packages/components
     # - npm run semantic-release
-    - npm publish
+    - npm publish --registry "https://${CI_SERVER_HOST}/api/v4/packages/npm/:_authToken=${CI_JOB_TOKEN}"
   #TODO - npm publish
   rules:
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
