@@ -23,7 +23,6 @@ publish-library:
   script:
     - npm run build
     - cd ./dist/packages/components
-    - npm adduser --registry "https://${CI_SERVER_HOST}/api/v4/packages/npm/"
     - npm publish --registry "https://${CI_SERVER_HOST}/api/v4/packages/npm/"
   rules:
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
