@@ -7,10 +7,8 @@ default:
     - npm ci --cache .npm --prefer-offline
     - |
       {
-        echo "@tehik:registry=${ARTIFACTORY_NPM_API_URL}${NPM_REPO_KEY_RELEASE}"
-        echo "//${CI_SERVER_HOST}/api/v4/packages/npm/:_authToken=${CI_JOB_TOKEN}"
-        echo "//${CI_SERVER_HOST}/api/v4/projects/${CI_PROJECT_ID}/packages/npm/:_authToken=${CI_JOB_TOKEN}"
-        echo "___NPM_REGISTRY___=${ARTIFACTORY_NPM_API_URL}${NPM_REPO_KEY_VIRTUAL}"
+        echo "@tehik:registry=${ARTIFACTORY_NPM_API_URL}@tehik/react-components"
+        echo "//${ARTIFACTORY_NPM_API_URL}:_authToken=${CI_JOB_TOKEN}"
       } | tee -a .npmrc
   cache:
     key:
@@ -28,3 +26,15 @@ publish-library:
     - npm publish
   rules:
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+
+
+#     - export NPM_REGISTRY=$ARTIFACTORY_NPM_API_URL$NPM_REPO_KEY_VIRTUAL
+#    - echo $NPM_NPMRC_BASE64 | base64 -d > ~/.npmrc
+#    - sed -i "s,__NPM_AUTH_TOKEN__,$NPM_AUTH_TOKEN," ~/.npmrc
+#    - sed -i "s,__NPM_REGISTRY__,$NPM_REGISTRY," ~/.npmrc
+#    - sed -i "s,__NPM_EMAIL__,$NPM_EMAIL," ~/.npmrc
+#    - npm install
+#    - npm set @ria:registry $ARTIFACTORY_NPM_API_URL$NPM_REPO_KEY_RELEASE
+#    - npm run build
+#    - cd dist/ria-components-angular
+#    - npm publish
