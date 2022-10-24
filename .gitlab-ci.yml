@@ -22,6 +22,7 @@ publish-library:
   stage: publish
   script:
     - npm run build
+    - cp ./.npmrc ./dist/packages/components
     - cd ./dist/packages/components
     - npm publish
   rules:
