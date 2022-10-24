@@ -1,5 +1,5 @@
 {
-  "name": "@tehik/react-components",
+  "name": "@tehik-react/components",
   "version": "0.0.1",
   "publishConfig": {
     "registry": "https://gitlab.sotsiaalministeerium.ee/api/v4/packages/npm/"
