@@ -24,7 +24,7 @@ publish-library:
     - npm run build
     - cd ./dist/packages/components
     # - npm run semantic-release
-    - npm adduser --registry "https://${CI_SERVER_HOST}/api/v4/packages/npm/"
+    - npm register --registry "https://${CI_SERVER_HOST}/api/v4/packages/npm/"
     - npm publish --registry "https://${CI_SERVER_HOST}/api/v4/packages/npm/"
   #TODO - npm publish
   rules:
