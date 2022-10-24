@@ -10,8 +10,8 @@ default:
         echo $NPM_NPMRC_BASE64 | base64 -d
         echo "@tehik:registry=${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/npm/_authToken=\${CI_JOB_TOKEN}"
         echo "${CI_API_V4_URL#https?}/projects/${CI_PROJECT_ID}/packages/npm/:_authToken=\${CI_JOB_TOKEN}"
-        echo "__NPM_AUTH_TOKEN__=${NPM_AUTH_TOKEN}"
-        echo "__NPM_REGISTRY__=${NPM_REGISTRY}"
+        echo "__NPM_AUTH_TOKEN__=${CI_JOB_TOKEN}"
+        echo "__NPM_REGISTRY__=${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/npm/_authToken=\${CI_JOB_TOKEN}"
         echo "__NPM_EMAIL__=$NPM_EMAIL"
       } | tee -a .npmrc
   cache:
