@@ -1,0 +1,33 @@
+stages:
+  - publish
+
+default:
+  image: docker.repo.tehik.ee/node:lts-bullseye-slim
+  before_script:
+    - npm ci --cache .npm --prefer-offline
+    - |
+      {
+        echo $NPM_NPMRC_BASE64 | base64 -d
+        echo "@${CI_PROJECT_ROOT_NAMESPACE}:registry=${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/npm/"
+        echo "${CI_API_V4_URL#https?}/projects/${CI_PROJECT_ID}/packages/npm/:_authToken=\${CI_JOB_TOKEN}"
+        echo __NPM_AUTH_TOKEN__=$NPM_AUTH_TOKEN
+        echo __NPM_REGISTRY__=$NPM_REGISTRY
+        echo __NPM_EMAIL__=$NPM_EMAIL
+      } | tee -a .npmrc
+  cache:
+    key:
+      files: package-lock.json
+    paths:
+      - .npm/
+
+publish-library:
+  stage: publish
+  script:
+    - export NPM_REGISTRY=$ARTIFACTORY_NPM_API_URL$NPM_REPO_KEY_VIRTUAL
+    - npm run build
+    - npm set @tehik:registry $ARTIFACTORY_NPM_API_URL$NPM_REPO_KEY_RELEASE
+    # - npm run semantic-release
+    # - npm publish
+  #TODO - npm publish
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
