@@ -7,9 +7,10 @@ default:
     - npm ci --cache .npm --prefer-offline
     - |
       {
-        echo "@tehik:registry=https://${CI_SERVER_HOST}/api/v4/packages/npm/"
+        echo "@tehik:registry=${ARTIFACTORY_NPM_API_URL}${NPM_REPO_KEY_RELEASE}"
         echo "//${CI_SERVER_HOST}/api/v4/packages/npm/:_authToken=${CI_JOB_TOKEN}"
         echo "//${CI_SERVER_HOST}/api/v4/projects/${CI_PROJECT_ID}/packages/npm/:_authToken=${CI_JOB_TOKEN}"
+        echo "___NPM_REGISTRY___=${ARTIFACTORY_NPM_API_URL}${NPM_REPO_KEY_VIRTUAL}"
       } | tee -a .npmrc
   cache:
     key:
