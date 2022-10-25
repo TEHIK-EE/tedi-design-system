@@ -7,7 +7,7 @@ default:
     - npm ci --cache .npm --prefer-offline
     - |
       {
-        echo "@tehik:registry=https:$ARTIFACTORY_NPM_API_URL"
+        echo "@tehik:registry=https://$ARTIFACTORY_NPM_API_URL"
         echo "//$ARTIFACTORY_NPM_API_URL:_authToken=$NPM_AUTH_TOKEN"
         echo "email=$NPM_AUTH_EMAIL"
       } | tee -a .npmrc
