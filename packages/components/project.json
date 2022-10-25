@@ -37,7 +37,10 @@
         "external": ["react/jsx-runtime"],
         "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
         "compiler": "babel",
-        "assets": [{ "glob": "packages/components/README.md", "input": ".", "output": "." }]
+        "assets": [
+          { "glob": "packages/components/README.md", "input": ".", "output": "." },
+          { "glob": "packages/components/public", "input": ".", "output": "." }
+        ]
       }
     },
     "lint": {
