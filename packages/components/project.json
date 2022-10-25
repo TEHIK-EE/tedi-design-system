@@ -36,9 +36,7 @@
         "entryFile": "packages/components/src/index.ts",
         "external": ["react/jsx-runtime"],
         "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
-        "compiler": "babel",
-        "updateBuildableProjectDepsInPackageJson": true,
-        "buildableProjectDepsInPackageJsonType": "dependencies",
+        "compiler": "swc",
         "assets": [
           { "glob": "packages/components/README.md", "input": ".", "output": "." },
           { "glob": "packages/components/public", "input": ".", "output": "." }

@@ -1,7 +1,31 @@
 {
   "name": "@tehik/react-components",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "publishConfig": {
     "registry": "https://repo.tehik.ee/artifactory/api/npm/tehik-npm-release/"
+  },
+  "peerDependencies": {
+    "@emotion/react": "*",
+    "@emotion/styled": "*",
+    "@floating-ui/react-dom": "*",
+    "@floating-ui/react-dom-interactions": "*",
+    "@mui/material": "*",
+    "@mui/x-date-pickers": "*",
+    "@tanstack/react-table": "*",
+    "classnames": "*",
+    "dayjs": "*",
+    "debounce": "*",
+    "draft-js": "*",
+    "draftjs-md-converter": "*",
+    "formik": "*",
+    "jw-paginate": "*",
+    "next": "*",
+    "react": "*",
+    "react-animate-height": "*",
+    "react-dom": "*",
+    "react-select": "*",
+    "react-toastify": "*",
+    "what-input": "*",
+    "yup": "*"
   }
 }
