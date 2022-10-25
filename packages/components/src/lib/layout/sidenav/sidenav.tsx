@@ -2,7 +2,7 @@ import cn from 'classnames';
 import Link from 'next/link';
 import React from 'react';
 
-import { LayoutContext } from '../layout/layout';
+import { LayoutContext } from '../layout-context';
 import styles from './sidenav.module.scss';
 
 export interface SideNavItem<Privilege = string> {

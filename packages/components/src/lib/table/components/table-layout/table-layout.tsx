@@ -4,14 +4,14 @@ import React from 'react';
 
 import { Col, Row } from '../../../grid';
 import Icon from '../../../icon/icon';
-import { Skeleton } from '../../../skeleton';
-import { DefaultTData, TableContext } from '../../table';
 import styles from '../../table.module.scss';
+import { DefaultTData } from '../../table.types';
+import { TableContext } from '../../table-context';
 import TableFilter from '../table-filter/table-filter';
 import TableLoader from '../table-loader/table-loader';
 
 export function TableLayout<TData extends DefaultTData<TData>>(): JSX.Element | null {
-  const { table, id, renderSubComponent, isLoading, loadingLabel } = React.useContext(TableContext);
+  const { table, id, renderSubComponent, isLoading } = React.useContext(TableContext);
 
   if (table === null) {
     return null;

@@ -12,8 +12,8 @@ import Icon from '../../../icon/icon';
 import { useLabels } from '../../../label-provider';
 import { Tooltip, TooltipProvider, TooltipTrigger } from '../../../tooltip';
 import { VerticalSpacing } from '../../../vertical-spacing';
-import { DefaultTData } from '../../table';
 import styles from '../../table.module.scss';
+import { DefaultTData } from '../../table.types';
 
 export interface TableFilterProps<TData extends DefaultTData<TData>> {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any

@@ -2,7 +2,7 @@ import cn from 'classnames';
 import React from 'react';
 
 import styles from './grid.module.scss';
-import { RowContext } from './row';
+import { RowContext } from './row-context';
 
 export type NumberAttr = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
 

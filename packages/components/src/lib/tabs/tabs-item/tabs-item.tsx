@@ -2,7 +2,7 @@ import cn from 'classnames';
 import React from 'react';
 
 import HashTrigger from '../../hash-trigger/hash-trigger';
-import { TabsContext } from '../tabs/tabs';
+import { TabsContext } from '../tabs-context';
 import styles from './tabs-item.module.scss';
 
 export interface TabsItemProps {

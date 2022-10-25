@@ -5,7 +5,7 @@ import React from 'react';
 import Select, { ISelectOption, TSelectValue } from '../../../form/select/select';
 import { Icon } from '../../../icon/icon';
 import { useLabels } from '../../../label-provider';
-import { TableContext } from '../../table';
+import { TableContext } from '../../table-context';
 import styles from './pagination.module.scss';
 
 export interface PaginationProps {

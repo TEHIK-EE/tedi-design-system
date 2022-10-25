@@ -1,6 +1,7 @@
 import cn from 'classnames';
 import React from 'react';
 
+import { TabsContext } from '../tabs-context';
 import TabsItem, { TabsItemProps } from '../tabs-item/tabs-item';
 import TabsNav from '../tabs-nav/tabs-nav';
 import { TabsNavItemProps } from '../tabs-nav/tabs-nav-item';
@@ -33,16 +34,6 @@ export interface TabsProps {
    */
   'aria-labelledby': string;
 }
-
-interface ITabsContext {
-  currentTab: string;
-  setCurrentTab: (id: string) => void;
-}
-
-export const TabsContext = React.createContext<ITabsContext>({
-  currentTab: '',
-  setCurrentTab: () => null,
-});
 
 export const Tabs = (props: TabsProps): JSX.Element => {
   const { defaultCurrentTab, onTabChange, className, children } = props;

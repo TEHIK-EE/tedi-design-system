@@ -5,6 +5,7 @@ import Section from '../../section/section';
 import Breadcrumbs, { BreadcrumbsProps } from '../breadcrumbs/breadcrumbs';
 import { Footer, FooterProps } from '../footer/footer';
 import Header, { HeaderProps } from '../header/header';
+import { LayoutContext } from '../layout-context';
 import SideNav, { SideNavProps } from '../sidenav/sidenav';
 import styles from './layout.module.scss';
 
@@ -42,16 +43,6 @@ export interface ILayoutProps {
     style: React.CSSProperties;
   };
 }
-
-export interface ILayoutContext {
-  menuOpen: boolean;
-  toggleMenu: () => void;
-}
-
-export const LayoutContext = React.createContext<ILayoutContext>({
-  menuOpen: false,
-  toggleMenu: () => null,
-});
 
 export const Layout = (props: ILayoutProps): JSX.Element => {
   const { children, header, sideNav, breadcrumbsProps, footer, mainContentId = 'main-content', mainLogo } = props;

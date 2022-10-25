@@ -3,7 +3,8 @@ import React from 'react';
 
 import { Col } from '../../../../grid';
 import Icon from '../../../../icon/icon';
-import { ChoiceGroupContext, ChoiceGroupItemProps } from '../../choice-group';
+import { ChoiceGroupItemProps } from '../../choice-group.types';
+import { ChoiceGroupContext } from '../../choice-group-context';
 import styles from './check.module.scss';
 
 export const Check = (props: ChoiceGroupItemProps): JSX.Element => {

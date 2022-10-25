@@ -1,8 +1,8 @@
 import cn from 'classnames';
 import React from 'react';
 
-import { StepperContext } from './stepper';
 import styles from './stepper.module.scss';
+import { StepperContext } from './stepper-context';
 
 export interface StepProps {
   /**

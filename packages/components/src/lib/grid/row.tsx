@@ -4,6 +4,7 @@ import React from 'react';
 import { validateChildren } from '../helper';
 import { Col, ColProps } from './col';
 import styles from './grid.module.scss';
+import { RowContext } from './row-context';
 
 export type Cols = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 'auto';
 export type Spacer = 0 | 1 | 2 | 3 | 4 | 5;
@@ -101,14 +102,6 @@ export interface RowProps extends RowSpec {
 }
 
 const DEVICE_SIZES = ['xxl', 'xl', 'lg', 'md', 'sm', 'xs'] as const;
-
-interface IRowContext {
-  element: RowElement;
-}
-
-export const RowContext = React.createContext<IRowContext>({
-  element: 'div',
-});
 
 export const Row = (props: RowProps): JSX.Element => {
   const {

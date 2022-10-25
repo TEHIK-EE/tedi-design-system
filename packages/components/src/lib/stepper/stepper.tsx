@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Step, { StepProps } from './step';
+import { StepperContext } from './stepper-context';
 import StepperNav, { StepperNavItem } from './stepper-nav';
 
 export interface StepperProps {
@@ -35,16 +36,6 @@ export interface StepperProps {
    */
   notCompletedLabel?: string;
 }
-
-export interface IStepperContext {
-  activeStep: number;
-  onActiveStepChange: (step: number) => void;
-}
-
-export const StepperContext = React.createContext<IStepperContext>({
-  activeStep: 0,
-  onActiveStepChange: () => null,
-});
 
 export const Stepper = (props: StepperProps): JSX.Element => {
   const { activeStep, children, className, ariaLabel, completedLabel, notCompletedLabel, onActiveStepChange } = props;

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import SkeletonBlock from '../../../skeleton/skeleton-block/skeleton-block';
-import { TableContext } from '../../table';
+import { TableContext } from '../../table-context';
 
 export const TableLoader = (): JSX.Element => {
   const { table } = React.useContext(TableContext);

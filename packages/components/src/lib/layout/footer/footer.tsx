@@ -1,6 +1,9 @@
 import cn from 'classnames';
 
-import { Button, ButtonProps, Col, Icon, Row, VerticalSpacing } from '../../..';
+import Button, { ButtonProps } from '../../button/button';
+import { Col, Row } from '../../grid';
+import Icon from '../../icon/icon';
+import { VerticalSpacing } from '../../vertical-spacing';
 import styles from './footer.module.scss';
 
 export interface FooterCategory {

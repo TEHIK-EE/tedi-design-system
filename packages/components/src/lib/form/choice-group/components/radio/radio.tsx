@@ -2,7 +2,8 @@ import cn from 'classnames';
 import React from 'react';
 
 import { Col } from '../../../../grid';
-import { ChoiceGroupContext, ChoiceGroupItemProps } from '../../choice-group';
+import { ChoiceGroupItemProps } from '../../choice-group.types';
+import { ChoiceGroupContext } from '../../choice-group-context';
 import styles from './radio.module.scss';
 
 export const Radio = (props: ChoiceGroupItemProps): JSX.Element => {

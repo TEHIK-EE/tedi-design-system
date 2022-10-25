@@ -4,7 +4,7 @@ import React from 'react';
 import { Button } from '../../button/button';
 import { useLabels } from '../../label-provider';
 import SkipLinks, { SkipLinksProps } from '../../skip-links/skip-links';
-import { LayoutContext } from '../layout/layout';
+import { LayoutContext } from '../layout-context';
 import HeaderDropdown, { HeaderDropdownProps } from './components/header-dropdown/header-dropdown';
 import styles from './header.module.scss';
 
