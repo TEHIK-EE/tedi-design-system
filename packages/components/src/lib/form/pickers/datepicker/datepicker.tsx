@@ -1,4 +1,4 @@
-import { DatePicker } from '@mui/x-date-pickers';
+import { DatePicker as MuiDatePicker } from '@mui/x-date-pickers';
 import { DateValidationError } from '@mui/x-date-pickers/internals';
 import { Dayjs } from 'dayjs';
 import React from 'react';
@@ -6,23 +6,23 @@ import React from 'react';
 import { useLabels } from '../../../label-provider';
 import { TextFieldProps } from '../../textfield/textfield';
 import MuiInputTranstition from '../mui-input-transition/mui-input-transition';
-export type MuiDatepickerValue = Dayjs | null;
+export type DatepickerValue = Dayjs | null;
 
-export interface MuiDatePickerProps extends Omit<TextFieldProps, 'defaultValue' | 'value' | 'onChange'> {
+export interface DatePickerProps extends Omit<TextFieldProps, 'defaultValue' | 'value' | 'onChange'> {
   /**
    * Datepicker initial value. Accepts a dayjs date object.
    */
-  defaultValue?: MuiDatepickerValue;
+  defaultValue?: DatepickerValue;
   /**
    * Currently selected value. Accepts a dayjs date object.
    * Used only if onChange is also defined
    */
-  value?: MuiDatepickerValue;
+  value?: DatepickerValue;
   /**
    * onChange handler.
    * Triggers each time when new value is selected from datepicker.
    */
-  onChange?: (value: MuiDatepickerValue) => void;
+  onChange?: (value: DatepickerValue) => void;
   /**
    * minDate to set minDate user can select.
    * If want to disable past dates use disablePast boolean.
@@ -48,15 +48,15 @@ export interface MuiDatePickerProps extends Omit<TextFieldProps, 'defaultValue' 
   /**
    * Disable specific date.
    */
-  shouldDisableDate?: (day: MuiDatepickerValue) => boolean;
+  shouldDisableDate?: (day: DatepickerValue) => boolean;
   /**
    * Disable specific months dynamically. Works like shouldDisableDate but for month selection view
    */
-  shouldDisableMonth?: (month: MuiDatepickerValue) => boolean;
+  shouldDisableMonth?: (month: DatepickerValue) => boolean;
   /**
    * Disable specific years dynamically. Works like shouldDisableDate but for year selection view
    */
-  shouldDisableYear?: (month: MuiDatepickerValue) => boolean;
+  shouldDisableYear?: (month: DatepickerValue) => boolean;
   /**
    * Mobile picker title, displaying in the toolbar. Default from LabelProvider
    */
@@ -75,14 +75,14 @@ export interface MuiDatePickerProps extends Omit<TextFieldProps, 'defaultValue' 
    * This can be used to render appropriate form error.
    * Read the guide about form integration and error displaying (https://next.material-ui-pickers.dev/guides/forms).
    */
-  onError?: (reason: DateValidationError, value: MuiDatepickerValue) => void;
+  onError?: (reason: DateValidationError, value: DatepickerValue) => void;
   /**
    * Array of views to show.
    */
   views?: Array<'day' | 'month' | 'year'>;
 }
 
-export const MuiDatePicker = (props: MuiDatePickerProps): JSX.Element => {
+export const DatePicker = (props: DatePickerProps): JSX.Element => {
   const { getLabel } = useLabels();
   const {
     value,
@@ -105,14 +105,14 @@ export const MuiDatePicker = (props: MuiDatePickerProps): JSX.Element => {
     loading,
     ...rest
   } = props;
-  const [innerDate, setInnerDate] = React.useState<MuiDatepickerValue>(defaultValue || null);
+  const [innerDate, setInnerDate] = React.useState<DatepickerValue>(defaultValue || null);
   const [open, setOpen] = React.useState(false);
 
-  const getValue = React.useMemo((): MuiDatepickerValue => {
+  const getValue = React.useMemo((): DatepickerValue => {
     return onChange && typeof value !== 'undefined' ? value : innerDate;
   }, [innerDate, onChange, value]);
 
-  const onChangeHandler = (date: MuiDatepickerValue): void => {
+  const onChangeHandler = (date: DatepickerValue): void => {
     if (!date?.isValid() && date !== null) {
       return;
     }
@@ -125,7 +125,7 @@ export const MuiDatePicker = (props: MuiDatePickerProps): JSX.Element => {
   };
 
   return (
-    <DatePicker<MuiDatepickerValue>
+    <MuiDatePicker<DatepickerValue>
       value={getValue}
       onChange={onChangeHandler}
       renderInput={(props) => (
@@ -158,4 +158,4 @@ export const MuiDatePicker = (props: MuiDatePickerProps): JSX.Element => {
   );
 };
 
-export default MuiDatePicker;
+export default DatePicker;

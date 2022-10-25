@@ -67,6 +67,7 @@
               }
             }
 
+            // stylelint-disable-next-line annotation-no-unknown
             #{$property}: $value if($enable-important-utilities, !important, null);
           }
         }
@@ -74,6 +75,7 @@
         @each $pseudo in $state {
           .#{$property-class + $infix + $property-class-modifier}-#{$pseudo}:#{$pseudo} {
             @each $property in $properties {
+              // stylelint-disable-next-line annotation-no-unknown
               #{$property}: $value if($enable-important-utilities, !important, null);
             }
           }

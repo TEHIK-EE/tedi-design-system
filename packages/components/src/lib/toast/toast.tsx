@@ -2,7 +2,8 @@ import React from 'react';
 import { Slide, toast, ToastOptions } from 'react-toastify';
 
 import { Notification, NotificationProps } from '../notification/notification';
-import styles from './toast.module.scss';
+
+import 'react-toastify/dist/ReactToastify.css';
 
 const toastOptions: ToastOptions = {
   position: 'bottom-left',
@@ -20,7 +21,6 @@ const toastOptions: ToastOptions = {
 export const sendNotification = (props: NotificationProps) => {
   const id = toast(
     <Notification
-      className={styles['toast']}
       {...props}
       onClose={() => {
         props.onClose?.();

@@ -262,7 +262,7 @@ export function Table<TData extends DefaultTData<TData>>(props: TableProps<TData
   return (
     <TableContext.Provider value={{ table, id, renderSubComponent, loadingLabel, isLoading }}>
       <Card {...cardProps}>
-        <CardContent padding={cardProps?.type !== 'borderless' ? undefined : 'none'}>
+        <CardContent padding="none">
           <div className={cn(styles['table'], `table--vertical-align-${verticalAlign}`)}>
             <TableLayout<TData> />
           </div>

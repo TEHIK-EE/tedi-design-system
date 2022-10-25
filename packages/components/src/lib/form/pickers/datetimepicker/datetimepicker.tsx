@@ -1,4 +1,4 @@
-import { ClockPickerView, DateTimePicker } from '@mui/x-date-pickers';
+import { ClockPickerView, DateTimePicker as MuiDateTimePicker } from '@mui/x-date-pickers';
 import { DateTimeValidationError } from '@mui/x-date-pickers/internals/hooks/validation/useDateTimeValidation';
 import { Dayjs } from 'dayjs';
 import React from 'react';
@@ -6,23 +6,23 @@ import React from 'react';
 import { useLabels } from '../../../label-provider';
 import { TextFieldProps } from '../../textfield/textfield';
 import MuiInputTranstition from '../mui-input-transition/mui-input-transition';
-export type MuiDateTimepickerValue = Dayjs | null;
+export type DateTimepickerValue = Dayjs | null;
 
-export interface MuiDateTimePickerProps extends Omit<TextFieldProps, 'defaultValue' | 'value' | 'onChange'> {
+export interface DateTimePickerProps extends Omit<TextFieldProps, 'defaultValue' | 'value' | 'onChange'> {
   /**
    * DateTimepicker initial value. Accepts a dayjs date object.
    */
-  defaultValue?: MuiDateTimepickerValue;
+  defaultValue?: DateTimepickerValue;
   /**
    * Currently selected value. Accepts a dayjs date object.
    * Used only if onChange is also defined
    */
-  value?: MuiDateTimepickerValue;
+  value?: DateTimepickerValue;
   /**
    * onChange handler.
    * Triggers each time when new value is selected from datetimepicker.
    */
-  onChange?: (value: MuiDateTimepickerValue) => void;
+  onChange?: (value: DateTimepickerValue) => void;
   /**
    * Minimal selectable date.
    * If want to disable past dates use disablePast boolean.
@@ -68,11 +68,11 @@ export interface MuiDateTimePickerProps extends Omit<TextFieldProps, 'defaultVal
   /**
    * Disable specific date.
    */
-  shouldDisableDate?: (day: MuiDateTimepickerValue) => boolean;
+  shouldDisableDate?: (day: DateTimepickerValue) => boolean;
   /**
    * Disable specific months dynamically. Works like shouldDisableDate but for month selection view
    */
-  shouldDisableMonth?: (month: MuiDateTimepickerValue) => boolean;
+  shouldDisableMonth?: (month: DateTimepickerValue) => boolean;
   /**
    * Dynamically check if time is disabled or not. If returns false appropriate time point will ot be acceptable.
    */
@@ -80,7 +80,7 @@ export interface MuiDateTimePickerProps extends Omit<TextFieldProps, 'defaultVal
   /**
    * Disable specific years dynamically. Works like shouldDisableDate but for year selection view
    */
-  shouldDisableYear?: (month: MuiDateTimepickerValue) => boolean;
+  shouldDisableYear?: (month: DateTimepickerValue) => boolean;
   /**
    * Mobile picker title, displaying in the toolbar. Default from LabelProvider
    */
@@ -103,7 +103,7 @@ export interface MuiDateTimePickerProps extends Omit<TextFieldProps, 'defaultVal
    * This can be used to render appropriate form error.
    * Read the guide about form integration and error displaying (https://next.material-ui-pickers.dev/guides/forms).
    */
-  onError?: (reason: DateTimeValidationError, value: MuiDateTimepickerValue) => void;
+  onError?: (reason: DateTimeValidationError, value: DateTimepickerValue) => void;
   /**
    * Array of views to show.
    */
@@ -120,7 +120,7 @@ export interface MuiDateTimePickerProps extends Omit<TextFieldProps, 'defaultVal
   ampm?: boolean;
 }
 
-export const MuiDateTimePicker = (props: MuiDateTimePickerProps): JSX.Element => {
+export const DateTimePicker = (props: DateTimePickerProps): JSX.Element => {
   const { getLabel } = useLabels();
   const {
     value,
@@ -151,14 +151,14 @@ export const MuiDateTimePicker = (props: MuiDateTimePickerProps): JSX.Element =>
     ampm = false,
     ...rest
   } = props;
-  const [innerDate, setInnerDate] = React.useState<MuiDateTimepickerValue>(defaultValue || null);
+  const [innerDate, setInnerDate] = React.useState<DateTimepickerValue>(defaultValue || null);
   const [open, setOpen] = React.useState(false);
 
-  const getValue = React.useMemo((): MuiDateTimepickerValue => {
+  const getValue = React.useMemo((): DateTimepickerValue => {
     return onChange && typeof value !== 'undefined' ? value : innerDate;
   }, [innerDate, onChange, value]);
 
-  const onChangeHandler = (date: MuiDateTimepickerValue): void => {
+  const onChangeHandler = (date: DateTimepickerValue): void => {
     if (!date?.isValid() && date !== null) {
       return;
     }
@@ -171,7 +171,7 @@ export const MuiDateTimePicker = (props: MuiDateTimePickerProps): JSX.Element =>
   };
 
   return (
-    <DateTimePicker<MuiDateTimepickerValue>
+    <MuiDateTimePicker<DateTimepickerValue>
       value={getValue}
       onChange={onChangeHandler}
       renderInput={(props) => (
@@ -212,4 +212,4 @@ export const MuiDateTimePicker = (props: MuiDateTimePickerProps): JSX.Element =>
   );
 };
 
-export default MuiDateTimePicker;
+export default DateTimePicker;

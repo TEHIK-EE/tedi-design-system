@@ -1,6 +1,5 @@
-import { ClockPickerView } from '@mui/x-date-pickers';
+import { ClockPickerView, TimePicker as MuiTimePicker } from '@mui/x-date-pickers';
 import { TimeValidationError } from '@mui/x-date-pickers/internals/hooks/validation/useTimeValidation';
-import { TimePicker } from '@mui/x-date-pickers/TimePicker';
 import { Dayjs } from 'dayjs';
 import React from 'react';
 
@@ -8,23 +7,23 @@ import { useLabels } from '../../../label-provider';
 import { TextFieldProps } from '../../textfield/textfield';
 import MuiInputTranstition from '../mui-input-transition/mui-input-transition';
 
-export type MuiTimePickerValue = Dayjs | null;
+export type TimePickerValue = Dayjs | null;
 
-export interface MuiTimePickerProps extends Omit<TextFieldProps, 'defaultValue' | 'value' | 'onChange'> {
+export interface TimePickerProps extends Omit<TextFieldProps, 'defaultValue' | 'value' | 'onChange'> {
   /**
    * TimePicker initial value. Accepts a dayjs date object.
    */
-  defaultValue?: MuiTimePickerValue;
+  defaultValue?: TimePickerValue;
   /**
    * Currently selected value. Accepts a dayjs date object.
    * Used only if onChange is also defined
    */
-  value?: MuiTimePickerValue;
+  value?: TimePickerValue;
   /**
    * onChange handler.
    * Triggers each time when new value is selected from TimePicker.
    */
-  onChange?: (value: MuiTimePickerValue) => void;
+  onChange?: (value: TimePickerValue) => void;
   /**
    * Format string. Defaults to HH:mm
    */
@@ -36,11 +35,11 @@ export interface MuiTimePickerProps extends Omit<TextFieldProps, 'defaultValue' 
   /**
    * Max time acceptable time. For input validation date part of passed object will be ignored.
    */
-  maxTime?: MuiTimePickerValue;
+  maxTime?: TimePickerValue;
   /**
    * Min time acceptable time. For input validation date part of passed object will be ignored.
    */
-  minTime?: MuiTimePickerValue;
+  minTime?: TimePickerValue;
   /**
    * Step over minutes. Defaults to 1
    */
@@ -51,7 +50,7 @@ export interface MuiTimePickerProps extends Omit<TextFieldProps, 'defaultValue' 
    * This can be used to render appropriate form error.
    * Read the guide about form integration and error displaying (https://next.material-ui-pickers.dev/guides/forms).
    */
-  onError?: (reason: TimeValidationError, value: MuiTimePickerValue) => void;
+  onError?: (reason: TimeValidationError, value: TimePickerValue) => void;
   /**
    * Dynamically check if time is disabled or not. If returns false appropriate time point will ot be acceptable.
    * timeValue: The value to check.
@@ -70,7 +69,7 @@ export interface MuiTimePickerProps extends Omit<TextFieldProps, 'defaultValue' 
   ampm?: boolean;
 }
 
-export const MuiTimePicker = (props: MuiTimePickerProps): JSX.Element => {
+export const TimePicker = (props: TimePickerProps): JSX.Element => {
   const { getLabel } = useLabels();
 
   const {
@@ -90,14 +89,14 @@ export const MuiTimePicker = (props: MuiTimePickerProps): JSX.Element => {
     ampm = false,
     ...rest
   } = props;
-  const [innerTime, setInnerTime] = React.useState<MuiTimePickerValue>(defaultValue || null);
+  const [innerTime, setInnerTime] = React.useState<TimePickerValue>(defaultValue || null);
   const [open, setOpen] = React.useState(false);
 
-  const getValue = React.useMemo((): MuiTimePickerValue => {
+  const getValue = React.useMemo((): TimePickerValue => {
     return onChange && typeof value !== 'undefined' ? value : innerTime;
   }, [innerTime, onChange, value]);
 
-  const onChangeHandler = (time: MuiTimePickerValue): void => {
+  const onChangeHandler = (time: TimePickerValue): void => {
     if (!time?.isValid() && time !== null) {
       return;
     }
@@ -110,7 +109,7 @@ export const MuiTimePicker = (props: MuiTimePickerProps): JSX.Element => {
   };
 
   return (
-    <TimePicker<MuiTimePickerValue>
+    <MuiTimePicker<TimePickerValue>
       value={getValue}
       onChange={onChangeHandler}
       open={open}
@@ -140,4 +139,4 @@ export const MuiTimePicker = (props: MuiTimePickerProps): JSX.Element => {
   );
 };
 
-export default MuiTimePicker;
+export default TimePicker;

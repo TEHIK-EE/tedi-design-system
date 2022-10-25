@@ -2,15 +2,15 @@ import { Meta, Story } from '@storybook/react';
 import dayjs, { Dayjs } from 'dayjs';
 import React from 'react';
 
-import { Button, Col, Row } from '../../../../';
-import MuiTimePicker, { MuiTimePickerProps } from './mui-timepicker';
+import { Button, Col, Row } from '../../../..';
+import TimePicker, { TimePickerProps } from './timepicker';
 
 export default {
-  title: 'components/Form/Pickers/MuiTimePicker',
-  component: MuiTimePicker,
+  title: 'components/Form/Pickers/TimePicker',
+  component: TimePicker,
 } as Meta;
 
-const Template: Story<MuiTimePickerProps> = (args) => <MuiTimePicker {...args} label="Vali kellaeg" />;
+const Template: Story<TimePickerProps> = (args) => <TimePicker {...args} label="Vali kellaeg" />;
 const numberOne = 1; // https://github.com/storybookjs/storybook/issues/12208
 
 export const Default = Template.bind({});
@@ -106,7 +106,7 @@ export const Controlled = () => {
           <Button text="00:00" type="link" onClick={() => setTime(dayjs().set('hours', 0).set('minute', 0))} />
         </Col>
       </Row>
-      <MuiTimePicker label="Vali kellaeg" id="timepicker-controlled" value={time} onChange={setTime} />
+      <TimePicker label="Vali kellaeg" id="timepicker-controlled" value={time} onChange={setTime} />
       <p>Current time is: {time?.format('HH:mm')}</p>
     </>
   );
