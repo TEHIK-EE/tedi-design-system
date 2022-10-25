@@ -1,29 +1,25 @@
 stages:
   - publish
 
-default:
-  image: docker.repo.tehik.ee/node:lts-bullseye-slim
-  before_script:
-    - npm ci --cache .npm --prefer-offline
+publish-library:
+  stage: publish
+  image:
+    name: docker.repo.tehik.ee/docker:stable
+  services:
+    - name: docker:dind
+      alias: dockerdaemon
+  variables:
+    DOCKER_HOST: tcp://dockerdaemon:2375/
+    DOCKER_DRIVER: overlay2
+    DOCKER_TLS_CERTDIR: ''
+  script:
     - |
       {
         echo "@tehik:registry=https://$ARTIFACTORY_NPM_API_URL"
         echo "//$ARTIFACTORY_NPM_API_URL:_authToken=$NPM_AUTH_TOKEN"
         echo "email=$NPM_AUTH_EMAIL"
       } | tee -a .npmrc
-  cache:
-    key:
-      files:
-        - package-lock.json
-    paths:
-      - .npm/
-
-publish-library:
-  stage: publish
-  script:
-    - npm run build
-    - cp ./.npmrc ./dist/packages/components
-    - cd ./dist/packages/components
-    - npm publish
+    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" "$CI_REGISTRY"
+    - docker build .
   rules:
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH

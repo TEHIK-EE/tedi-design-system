@@ -1,12 +1,13 @@
 .skeleton-block {
   display: block;
   /* stylelint-disable-next-line max-line-length */
-  background: linear-gradient(
-    to right,
-    rgb(127 128 135 / 20%) 8%,
-    rgb(127 128 135 / 30%) 18%,
-    rgb(127 128 135 / 20%) 33%
-  );
+  background:
+    linear-gradient(
+      to right,
+      rgb(127 128 135 / 20%) 8%,
+      rgb(127 128 135 / 30%) 18%,
+      rgb(127 128 135 / 20%) 33%
+    );
   background-size: 1000px 100px;
   border-radius: 4px;
   animation: wave-lines 2s infinite ease-in-out;
