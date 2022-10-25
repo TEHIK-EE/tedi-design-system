@@ -7,6 +7,6 @@ RUN npm ci
 COPY ./ /workspace/
 
 RUN npm run build
-# COPY ./.npmrc ./dist/packages/components
+COPY ./.npmrc ./dist/packages/components
 WORKDIR /workspace/dist/packages/components
 RUN npm publish
