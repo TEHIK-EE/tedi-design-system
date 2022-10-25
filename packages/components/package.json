@@ -2,7 +2,7 @@
   "name": "@tehik/react-components",
   "version": "0.0.1",
   "publishConfig": {
-    "registry": "https://repo.tehik.ee/artifactory/api/npm/"
+    "registry": "https://repo.tehik.ee/artifactory/api/npm/tehik-npm-release/"
   },
   "peerDependencies": {
     "@emotion/react": "*",
@@ -22,7 +22,6 @@
     "next": "*",
     "react": "*",
     "react-animate-height": "*",
-    "react-datepicker": "*",
     "react-dom": "*",
     "react-select": "*",
     "react-toastify": "*",

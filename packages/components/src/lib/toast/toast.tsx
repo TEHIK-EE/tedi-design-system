@@ -3,8 +3,6 @@ import { Slide, toast, ToastOptions } from 'react-toastify';
 
 import { Notification, NotificationProps } from '../notification/notification';
 
-import 'react-toastify/dist/ReactToastify.css';
-
 const toastOptions: ToastOptions = {
   position: 'bottom-left',
   autoClose: 5000,
