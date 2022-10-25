@@ -34,9 +34,11 @@
         "tsConfig": "packages/components/tsconfig.lib.json",
         "project": "packages/components/package.json",
         "entryFile": "packages/components/src/index.ts",
-        "external": ["react", "react-dom", "next"],
+        "external": ["react/jsx-runtime"],
         "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
         "compiler": "babel",
+        "updateBuildableProjectDepsInPackageJson": true,
+        "buildableProjectDepsInPackageJsonType": "dependencies",
         "assets": [
           { "glob": "packages/components/README.md", "input": ".", "output": "." },
           { "glob": "packages/components/public", "input": ".", "output": "." }
