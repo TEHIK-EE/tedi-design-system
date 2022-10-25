@@ -2,10 +2,10 @@
 
 Usage:
 
-- Add `"@somewhere/tehik-react-components": "gitlab-registry-url-somewhere"`to your package.json
+- Add `"@tehik/react-components": "gitlab-registry-url-somewhere"`to your package.json
   - TODO Or maybe .npmrc?, have to look into it
-- Add `import @somewhere/tehik-react-components/main.scss` to your root, \_app.tsx or something along those lines
-- Use the components: `import { Button } from '@somewhere/tehik-react-components'`
+- Add `import @tehik/react-components/main.scss` to your root, \_app.tsx or something along those lines
+- Use the components: `import { Button } from '@tehik/react-components'`
 
 ## Development
 
