@@ -18,6 +18,13 @@ TODO:
 - Publishing (auto-publish on main probably)
 - Setting up storybook on a public? URL
 
+- debugging
+  - `npm run build`
+  - `cd dist/packages/components && npm link`
+  - In target project:
+    - `npm link @tehik/react-components --save`
+    - Afterrr
+
 Future ideas:
 
 - Publishing every component separately

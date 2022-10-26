@@ -34,7 +34,6 @@
         "outputPath": "dist/packages/components",
         "tsConfig": "packages/components/tsconfig.lib.json",
         "project": "packages/components/package.json",
-        "external": ["react", "react-dom", "next"],
         "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
         "compiler": "babel",
         "assets": [
