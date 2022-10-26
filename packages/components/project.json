@@ -34,7 +34,7 @@
         "tsConfig": "packages/components/tsconfig.lib.json",
         "project": "packages/components/package.json",
         "entryFile": "packages/components/src/index.ts",
-        "external": ["react", "react-dom"],
+        "external": ["react", "react-dom", "next"],
         "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
         "compiler": "swc",
         "assets": [
