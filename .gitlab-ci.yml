@@ -1,20 +1,11 @@
 stages:
   - publish
 
-default:
-  image: docker.repo.tehik.ee/node:lts-bullseye-slim
-  before_script:
-    - npm ci --cache .npm --prefer-offline
-  cache:
-    key:
-      files:
-        - package-lock.json
-    paths:
-      - .npm/
-
 publish-library:
+  image: docker.repo.tehik.ee/node:lts-bullseye-slim
   stage: publish
   script:
+    - npm ci
     - npm run build
     - |
       {
