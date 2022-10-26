@@ -34,12 +34,13 @@
         "tsConfig": "packages/components/tsconfig.lib.json",
         "project": "packages/components/package.json",
         "entryFile": "packages/components/src/index.ts",
-        "external": ["react/jsx-runtime"],
+        "external": ["react", "react-dom"],
         "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
         "compiler": "swc",
         "assets": [
           { "glob": "packages/components/README.md", "input": ".", "output": "." },
-          { "glob": "packages/components/public", "input": ".", "output": "." }
+          { "glob": "packages/components/public", "input": ".", "output": "." },
+          { "glob": "packages/components/src/styles/", "input": ".", "output": "." }
         ]
       }
     },

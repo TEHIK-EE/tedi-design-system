@@ -1,6 +1,6 @@
 {
   "name": "@tehik/react-components",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "publishConfig": {
     "registry": "https://repo.tehik.ee/artifactory/api/npm/tehik-npm-release/"
   },

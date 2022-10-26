@@ -6,7 +6,7 @@
     "semantic-release": "semantic-release",
     "start": "nx start",
     "test": "nx test",
-    "build": "cross-env NODE_ENV=production nx build",
+    "build": "cross-env NODE_ENV=production nx build --with-deps",
     "build:sb": "cross-env NODE_ENV=production nx build:storybook",
     "lint": "npx stylelint \"**/*.scss\" --fix && nx affected:lint --all --fix",
     "lint:ci": "npx stylelint \"**/*.scss\" && nx affected:lint --all"
