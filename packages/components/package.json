@@ -1,10 +1,9 @@
 {
   "name": "@tehik/react-components",
-  "version": "0.0.24",
+  "version": "0.0.27",
   "publishConfig": {
     "registry": "https://repo.tehik.ee/artifactory/api/npm/tehik-npm-release/"
   },
-  "type": "module",
   "dependencies": {
     "@emotion/react": "*",
     "@emotion/styled": "*",

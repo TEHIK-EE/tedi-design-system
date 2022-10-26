@@ -34,13 +34,14 @@
         "outputPath": "dist/packages/components",
         "tsConfig": "packages/components/tsconfig.lib.json",
         "project": "packages/components/package.json",
+        "external": ["react/jsx-runtime"],
         "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
-        "compiler": "babel",
         "assets": [
           { "glob": "packages/components/README.md", "input": ".", "output": "." },
           { "glob": "packages/components/public", "input": ".", "output": "." },
           { "glob": "packages/components/src/styles/", "input": ".", "output": "." }
-        ]
+        ],
+        "formats": ["esm"]
       }
     },
     "lint": {
