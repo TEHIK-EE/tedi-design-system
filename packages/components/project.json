@@ -30,14 +30,13 @@
       "executor": "@nrwl/web:rollup",
       "outputs": ["{options.outputPath}"],
       "options": {
+        "entryFile": "packages/components/src/index.ts",
         "outputPath": "dist/packages/components",
-        "importPath": "@tehik/react-components",
         "tsConfig": "packages/components/tsconfig.lib.json",
         "project": "packages/components/package.json",
-        "entryFile": "packages/components/src/index.ts",
         "external": ["react", "react-dom", "next"],
         "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
-        "compiler": "swc",
+        "compiler": "babel",
         "assets": [
           { "glob": "packages/components/README.md", "input": ".", "output": "." },
           { "glob": "packages/components/public", "input": ".", "output": "." },
