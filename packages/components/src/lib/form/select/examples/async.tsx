@@ -1,6 +1,5 @@
 import React from 'react';
 
-import { assertIsString } from '../../../helper/assertions/assert-is-string';
 import Select, { ISelectOption } from '../select';
 
 const colourOptions: ISelectOption[] = [
@@ -18,8 +17,10 @@ const colourOptions: ISelectOption[] = [
 
 const filterColors = (inputValue: string) => {
   return colourOptions.filter((i) => {
-    assertIsString(i.label);
-    return i.label.toLowerCase().includes(inputValue.toLowerCase());
+    if (typeof i.label === 'string') {
+      return i.label.toLowerCase().includes(inputValue.toLowerCase());
+    }
+    return;
   });
 };
 
