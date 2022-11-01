@@ -13,7 +13,7 @@ export default defineConfig({
       entry: path.resolve(__dirname, 'src/index.ts'),
       name: '@tehik/react-components',
       fileName: 'index',
-      formats: ['es'],
+      formats: ['es', 'cjs'],
     },
     rollupOptions: {
       external: ['react', 'react-dom'],
