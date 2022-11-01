@@ -20,6 +20,8 @@ import BlockStyleControls from './components/block-style-controls';
 import InlineStyleControls from './components/inline-style-controls';
 import styles from './text-editor.module.scss';
 
+import 'draft-js/dist/Draft.css';
+
 export interface TextEditorProps extends FormLabelProps {
   /**
    * ID attribute.
