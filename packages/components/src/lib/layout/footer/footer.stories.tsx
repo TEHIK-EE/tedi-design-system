@@ -1,7 +1,7 @@
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
 
-import useBreakpoint from '../../helper/hooks/use-breakpoint';
+import useBreakpoint from '../../../helpers/hooks/use-breakpoint';
 import Footer, { FooterProps } from './footer';
 
 export default {

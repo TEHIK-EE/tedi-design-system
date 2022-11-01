@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import React from 'react';
 
-import { useLabels } from '../label-provider';
+import { useLabels } from '../../providers/label-provider';
 import styles from './stepper.module.scss';
 import { StepperContext } from './stepper-context';
 

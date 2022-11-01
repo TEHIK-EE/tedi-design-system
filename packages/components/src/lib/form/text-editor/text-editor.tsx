@@ -13,7 +13,7 @@ import {
 import { draftjsToMd, mdToDraftjs } from 'draftjs-md-converter';
 import React from 'react';
 
-import { useIsMounted } from '../../helper';
+import { useIsMounted } from '../../../helpers';
 import FormHelper, { FormHelperProps } from '../form-helper/form-helper';
 import FormLabel, { FormLabelProps } from '../form-label/form-label';
 import BlockStyleControls from './components/block-style-controls';

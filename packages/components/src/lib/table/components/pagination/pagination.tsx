@@ -2,9 +2,9 @@ import cn from 'classnames';
 import paginate from 'jw-paginate';
 import React from 'react';
 
+import { useLabels } from '../../../../providers/label-provider';
 import Select, { ISelectOption, TSelectValue } from '../../../form/select/select';
 import { Icon } from '../../../icon/icon';
-import { useLabels } from '../../../label-provider';
 import { TableContext } from '../../table-context';
 import styles from './pagination.module.scss';
 

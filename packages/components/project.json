@@ -26,24 +26,6 @@
       },
       "configurations": { "ci": { "quiet": true } }
     },
-    "build": {
-      "executor": "@nrwl/web:rollup",
-      "outputs": ["{options.outputPath}"],
-      "options": {
-        "entryFile": "packages/components/src/index.ts",
-        "outputPath": "dist/packages/components",
-        "tsConfig": "packages/components/tsconfig.lib.json",
-        "project": "packages/components/package.json",
-        "external": ["react/jsx-runtime"],
-        "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
-        "assets": [
-          { "glob": "packages/components/README.md", "input": ".", "output": "." },
-          { "glob": "packages/components/public", "input": ".", "output": "." },
-          { "glob": "packages/components/src/styles/", "input": ".", "output": "." }
-        ],
-        "formats": ["esm"]
-      }
-    },
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],

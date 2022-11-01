@@ -15,8 +15,8 @@ import {
 import cn from 'classnames';
 import React from 'react';
 
+import { useLabels } from '../../providers/label-provider';
 import { Card, CardContent } from '../card';
-import { useLabels } from '../label-provider';
 import Pagination from './components/pagination/pagination';
 import TableLayout from './components/table-layout/table-layout';
 import styles from './table.module.scss';

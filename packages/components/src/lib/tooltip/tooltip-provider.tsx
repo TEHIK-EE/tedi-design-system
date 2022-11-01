@@ -18,7 +18,7 @@ import {
 } from '@floating-ui/react-dom-interactions';
 import React from 'react';
 
-import { useIsMounted } from '../helper';
+import { useIsMounted } from '../../helpers';
 
 export type TooltipOpenWith = 'click' | 'hover';
 

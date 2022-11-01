@@ -2,9 +2,9 @@ import { FloatingFocusManager, FloatingOverlay, FloatingPortal } from '@floating
 import cn from 'classnames';
 import React from 'react';
 
+import { useLabels } from '../../providers/label-provider';
 import Button from '../button/button';
 import Card, { CardProps } from '../card/card';
-import { useLabels } from '../label-provider';
 import styles from './modal.module.scss';
 import ModalCloser from './modal-closer';
 import { ModalContext } from './modal-provider';

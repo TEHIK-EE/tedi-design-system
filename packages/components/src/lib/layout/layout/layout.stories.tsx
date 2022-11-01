@@ -1,8 +1,8 @@
 import { Meta } from '@storybook/react';
 
+import { useBreakpoint } from '../../../helpers';
 import Button from '../../button/button';
 import { DropdownItem } from '../../dropdown/dropdown';
-import { useBreakpoint } from '../../helper';
 import Section from '../../section/section';
 import { VerticalSpacing } from '../../vertical-spacing';
 import Breadcrumbs from '../breadcrumbs/breadcrumbs';

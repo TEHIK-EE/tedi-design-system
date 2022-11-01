@@ -4,12 +4,12 @@ import { useFormik } from 'formik';
 import React from 'react';
 import * as Yup from 'yup';
 
+import { useLabels } from '../../../../providers/label-provider';
 import Button from '../../../button/button';
 import { Card, CardContent } from '../../../card';
 import TextField from '../../../form/textfield/textfield';
 import { Col, Row } from '../../../grid';
 import Icon from '../../../icon/icon';
-import { useLabels } from '../../../label-provider';
 import { Tooltip, TooltipProvider, TooltipTrigger } from '../../../tooltip';
 import { VerticalSpacing } from '../../../vertical-spacing';
 import styles from '../../table.module.scss';

@@ -1,11 +1,11 @@
 import React from 'react';
 
+import { useLabels } from '../../../providers/label-provider';
 import Button, { ButtonProps } from '../../button/button';
 import { Card, CardContent } from '../../card';
 import CloseButton from '../../close-button/close-button';
 import Ellipsis from '../../ellipsis/ellipsis';
 import { Col, Row } from '../../grid';
-import { useLabels } from '../../label-provider';
 import FormHelper, { FormHelperProps } from '../form-helper/form-helper';
 import FormLabel, { FormLabelProps } from '../form-label/form-label';
 import styles from './file-upload.module.scss';

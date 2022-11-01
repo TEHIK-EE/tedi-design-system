@@ -1,6 +1,5 @@
-// TODO Global CSS cannot be imported from node_modules
-@import '~draft-js/dist/Draft.css';
-@import '~react-toastify/dist/ReactToastify.css';
+@import 'draft-js/dist/Draft.css';
+@import 'react-toastify/dist/ReactToastify.css';
 @import 'bootstrap-utility/breakpoints';
 @import 'bootstrap-utility/grid';
 @import 'bootstrap-variables';

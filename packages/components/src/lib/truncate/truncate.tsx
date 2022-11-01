@@ -1,8 +1,8 @@
 import React from 'react';
 
+import { useFirstRender } from '../../helpers';
+import { useLabels } from '../../providers/label-provider';
 import { Button, ButtonProps } from '../button/button';
-import { useFirstRender } from '../helper';
-import { useLabels } from '../label-provider';
 
 export interface TruncateProps {
   /**

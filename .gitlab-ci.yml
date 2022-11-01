@@ -13,8 +13,8 @@ publish-library:
         echo "//$ARTIFACTORY_NPM_API_URL:_authToken=$NPM_AUTH_TOKEN"
         echo "email=$NPM_AUTH_EMAIL"
       } | tee -a .npmrc
-    - cp ./.npmrc ./dist/packages/components
-    - cd ./dist/packages/components
+    - cp ./.npmrc ./dist
+    - cd ./dist
     - npm publish
   rules:
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH

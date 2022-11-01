@@ -3,7 +3,7 @@ import { TimeValidationError } from '@mui/x-date-pickers/internals/hooks/validat
 import { Dayjs } from 'dayjs';
 import React from 'react';
 
-import { useLabels } from '../../../label-provider';
+import { useLabels } from '../../../../providers/label-provider';
 import { TextFieldProps } from '../../textfield/textfield';
 import MuiInputTranstition from '../mui-input-transition/mui-input-transition';
 

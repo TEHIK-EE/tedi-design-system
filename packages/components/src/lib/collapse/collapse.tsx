@@ -2,10 +2,10 @@ import cn from 'classnames';
 import React from 'react';
 import AnimateHeight from 'react-animate-height';
 
+import { useLabels } from '../../providers/label-provider';
 import { Col, Row } from '../grid';
 import Heading, { HeadingProps } from '../heading/heading';
 import Icon from '../icon/icon';
-import { useLabels } from '../label-provider';
 import styles from './collapse.module.scss';
 
 export interface CollapseProps {

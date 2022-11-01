@@ -1,9 +1,9 @@
 import { ColumnDef, ColumnFiltersState, PaginationState, SortingState } from '@tanstack/react-table';
 import React from 'react';
 
+import { LabelContext } from '../../../providers/label-provider';
 import ChoiceGroup from '../../form/choice-group/choice-group';
 import Icon from '../../icon/icon';
-import { LabelContext } from '../../label-provider';
 import Tag from '../../tag/tag';
 import styles from '../table.module.scss';
 

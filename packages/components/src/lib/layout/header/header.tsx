@@ -1,8 +1,8 @@
 import cn from 'classnames';
 import React from 'react';
 
+import { useLabels } from '../../../providers/label-provider';
 import { Button } from '../../button/button';
-import { useLabels } from '../../label-provider';
 import SkipLinks, { SkipLinksProps } from '../../skip-links/skip-links';
 import { LayoutContext } from '../layout-context';
 import HeaderDropdown, { HeaderDropdownProps } from './components/header-dropdown/header-dropdown';

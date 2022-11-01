@@ -1,6 +1,6 @@
 import { ArgsTable, Primary, PRIMARY_STORY, Stories, Subtitle, Title } from '@storybook/addon-docs';
 
-import { VerticalSpacing } from '../vertical-spacing';
+import VerticalSpacing from '../../lib/vertical-spacing/vertical-spacing';
 
 export const LabelProviderPage = (): JSX.Element => (
   <>

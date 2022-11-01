@@ -14,7 +14,6 @@ export * from './lib/ellipsis/ellipsis';
 export * from './lib/layout/footer/footer';
 export * from './lib/dropdown/dropdown';
 export * from './lib/grid';
-export * from './lib/helper';
 export * from './lib/layout/layout/layout';
 export * from './lib/scrollfade/scroll-fade';
 export * from './lib/section/section';
@@ -22,7 +21,6 @@ export * from './lib/stepper';
 export * from './lib/separator/separator';
 export * from './lib/card';
 export * from './lib/icon/icon';
-export * from './lib/label-provider';
 export * from './lib/form/hidden-field/hidden-field';
 export * from './lib/form/choice-group/components/check/check';
 export * from './lib/form/choice-group/choice-group';
@@ -50,3 +48,8 @@ export * from './lib/toggle-open/toggle-open';
 export * from './lib/modal';
 export * from './lib/layout/breadcrumbs/breadcrumbs';
 export * from './lib/toggle/toggle';
+
+export * from './helpers';
+
+export * from './providers/label-provider';
+export * from './providers/style-provider/style-provider';

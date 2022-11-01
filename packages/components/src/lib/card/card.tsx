@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import React, { forwardRef } from 'react';
 
-import { validateChildren } from '../helper';
+import { validateChildren } from '../../helpers';
 import styles from './card.module.scss';
 import CardContent, { CardContentProps } from './card-content/card-content';
 import CardHeader, { CardHeaderProps } from './card-header/card-header';

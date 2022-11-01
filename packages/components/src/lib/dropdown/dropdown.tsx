@@ -3,9 +3,9 @@ import cn from 'classnames';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import { useIsMounted } from '../../helpers';
 import Anchor, { AnchorProps } from '../anchor/anchor';
 import { Button, ButtonProps } from '../button/button';
-import { useIsMounted } from '../helper';
 import styles from './dropdown.module.scss';
 
 export interface DropdownItem extends Omit<AnchorProps, 'children'> {

@@ -1,5 +1,5 @@
+import { useLabels } from '../../providers/label-provider';
 import Icon, { IconProps } from '../icon/icon';
-import { useLabels } from '../label-provider';
 import styles from './close-button.module.scss';
 
 export interface CloseButtonProps {

@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import React from 'react';
 
-import { validateChildren } from '../helper';
+import { validateChildren } from '../../helpers';
 import { Col, ColProps } from './col';
 import styles from './grid.module.scss';
 import { RowContext } from './row-context';
