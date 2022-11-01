@@ -69,7 +69,7 @@ const validateTypes = (
   }
 
   // Check if object is an element, if not and it has children, rerun the function
-  if (!ReactIs.isElement(props) && 'children' in props) {
+  if (props && !ReactIs.isElement(props) && 'children' in props) {
     return validateTypes(props['children'], isAllowed);
   }
 
@@ -84,7 +84,7 @@ const validateTypes = (
   }
 
   // Check for invalid components in the file tree, else keep going deeper
-  if ('nodeType' in props) {
+  if (props && 'nodeType' in props) {
     // Wrapping components are allowed, so revalidate the children
     if (props?.['nodeType'] === 'component') {
       return validateTypes(props?.['rendered'], isAllowed);
