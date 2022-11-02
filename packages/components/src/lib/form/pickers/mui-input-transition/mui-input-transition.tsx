@@ -4,7 +4,7 @@ import React from 'react';
 
 import TextField, { TextFieldForwardRef, TextFieldProps } from '../../textfield/textfield';
 
-export interface MuiInputTranstitionProps {
+export interface MuiInputTransitionProps {
   muiTextfieldProps: MuiTextFieldPropsType;
   textfieldProps: TextFieldProps;
   inputFormat: string;
@@ -12,7 +12,7 @@ export interface MuiInputTranstitionProps {
   type?: 'date' | 'time';
 }
 
-const MuiInputTranstition = (props: MuiInputTranstitionProps) => {
+const MuiInputTransition = (props: MuiInputTransitionProps) => {
   const { muiTextfieldProps, textfieldProps, inputFormat, onChangeHandler, type = 'date' } = props;
   const { ref, inputRef, inputProps, InputProps, value, size, onChange, error, disabled, ...muiRest } =
     muiTextfieldProps;
@@ -56,4 +56,4 @@ const MuiInputTranstition = (props: MuiInputTranstitionProps) => {
   );
 };
 
-export default MuiInputTranstition;
+export default MuiInputTransition;

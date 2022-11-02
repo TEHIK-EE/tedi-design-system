@@ -1,11 +1,13 @@
 import { ClockPickerView, TimePicker as MuiTimePicker } from '@mui/x-date-pickers';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { TimeValidationError } from '@mui/x-date-pickers/internals/hooks/validation/useTimeValidation';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { Dayjs } from 'dayjs';
 import React from 'react';
 
 import { useLabels } from '../../../../providers/label-provider';
 import { TextFieldProps } from '../../textfield/textfield';
-import MuiInputTranstition from '../mui-input-transition/mui-input-transition';
+import MuiInputTransition from '../mui-input-transition/mui-input-transition';
 
 export type TimePickerValue = Dayjs | null;
 
@@ -109,33 +111,35 @@ export const TimePicker = (props: TimePickerProps): JSX.Element => {
   };
 
   return (
-    <MuiTimePicker<TimePickerValue>
-      value={getValue}
-      onChange={onChangeHandler}
-      open={open}
-      onOpen={() => setOpen(true)}
-      onClose={() => setOpen(false)}
-      renderInput={(props) => (
-        <MuiInputTranstition
-          muiTextfieldProps={props}
-          inputFormat={inputFormat}
-          onChangeHandler={onChangeHandler}
-          textfieldProps={{ ...rest, onIconClick: !readOnly ? () => setOpen((open) => !open) : undefined }}
-          type="time"
-        />
-      )}
-      disabled={disabled}
-      readOnly={readOnly}
-      inputFormat={inputFormat}
-      toolbarTitle={toolbarTitle}
-      maxTime={maxTime}
-      minTime={minTime}
-      minutesStep={minutesStep}
-      onError={onError}
-      shouldDisableTime={shouldDisableTime}
-      views={views}
-      ampm={ampm}
-    />
+    <LocalizationProvider dateAdapter={AdapterDayjs}>
+      <MuiTimePicker<TimePickerValue>
+        value={getValue}
+        onChange={onChangeHandler}
+        open={open}
+        onOpen={() => setOpen(true)}
+        onClose={() => setOpen(false)}
+        renderInput={(props) => (
+          <MuiInputTransition
+            muiTextfieldProps={props}
+            inputFormat={inputFormat}
+            onChangeHandler={onChangeHandler}
+            textfieldProps={{ ...rest, onIconClick: !readOnly ? () => setOpen((open) => !open) : undefined }}
+            type="time"
+          />
+        )}
+        disabled={disabled}
+        readOnly={readOnly}
+        inputFormat={inputFormat}
+        toolbarTitle={toolbarTitle}
+        maxTime={maxTime}
+        minTime={minTime}
+        minutesStep={minutesStep}
+        onError={onError}
+        shouldDisableTime={shouldDisableTime}
+        views={views}
+        ampm={ampm}
+      />
+    </LocalizationProvider>
   );
 };
 
