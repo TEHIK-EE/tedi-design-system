@@ -2,9 +2,11 @@
 
 Usage:
 
-- Add `"@tehik/react-components": "gitlab-registry-url-somewhere"`to your package.json
-  - TODO Or maybe .npmrc?, have to look into it
-- Add `import @tehik/react-components/main.scss` to your root, \_app.tsx or something along those lines
+- Add the following line to your package.json
+  - `@tehik:registry=https://repo.tehik.ee/artifactory/api/npm/tehik-npm-release/`
+- Afterwards follow the directions described in [here](https://repo.tehik.ee/ui/repos/tree/General/tehik-npm-release) under "Set Me Up"
+- Add `import @tehik/react-components/style.css` to your root, \_app.tsx
+- Add any necessary providers around your app, like LabelProvider and StyleProvider
 - Use the components: `import { Button } from '@tehik/react-components'`
 
 ## Development
@@ -23,9 +25,9 @@ TODO:
   - `cd dist/packages/components && npm link`
   - In target project:
     - `npm link @tehik/react-components --save`
-    - Afterrr
 
 Future ideas:
 
 - Publishing every component separately
+- More tests
 - ...
