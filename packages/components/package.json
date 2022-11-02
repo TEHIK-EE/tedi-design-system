@@ -1,6 +1,6 @@
 {
   "name": "@tehik/react-components",
-  "version": "0.0.40",
+  "version": "0.0.41",
   "publishConfig": {
     "registry": "https://repo.tehik.ee/artifactory/api/npm/tehik-npm-release/"
   },
@@ -8,7 +8,7 @@
   "main": "index.js",
   "module": "index.js",
   "types": "index.d.ts",
-  "dependencies": {
+  "peerDependencies": {
     "@emotion/react": "*",
     "@emotion/styled": "*",
     "@floating-ui/react-dom": "*",
