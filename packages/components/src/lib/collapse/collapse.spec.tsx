@@ -4,7 +4,13 @@ import Collapse, { CollapseProps } from './collapse';
 
 const getComponent = (props?: Partial<CollapseProps>) =>
   render(
-    <Collapse id="collapse-1" heading={{ title: 'heading' }} openText="Näita rohkem" closeText="Näita vähem" {...props}>
+    <Collapse
+      id="collapse-1"
+      heading={{ children: 'heading' }}
+      openText="Näita rohkem"
+      closeText="Näita vähem"
+      {...props}
+    >
       Collapse content
     </Collapse>
   );

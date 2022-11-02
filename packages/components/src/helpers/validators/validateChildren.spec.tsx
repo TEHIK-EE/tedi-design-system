@@ -1,6 +1,6 @@
-import Card from '../../card/card';
-import CardContent from '../../card/card-content/card-content';
-import CardHeader from '../../card/card-header/card-header';
+import Card from '../../lib/card/card';
+import CardContent from '../../lib/card/card-content/card-content';
+import CardHeader from '../../lib/card/card-header/card-header';
 
 describe('Validate Children', () => {
   beforeEach(() => {

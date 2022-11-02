@@ -13,9 +13,13 @@ export interface ILabelContext {
   getLabel: (key: LabelKeys, params?: Record<LabelKeys, string>) => string;
 }
 
+const isTestEnvironment = process.env['JEST_WORKER_ID'] !== undefined;
+
 export const defaultContext: ILabelContext = {
   getLabel: (key) => {
-    console.error('LabelProvider missing! Application must be wrapped with <LabelProvider>');
+    if (!isTestEnvironment) {
+      console.error('LabelProvider missing! Application must be wrapped with <LabelProvider>');
+    }
     return key;
   },
 };
