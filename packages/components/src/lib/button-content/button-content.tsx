@@ -28,9 +28,9 @@ export interface ButtonContentSharedProps {
    */
   type?: ButtonTypes;
   /**
-   * Color schema for button
+   * Color schema for button. PS text-color works only with link type links.
    */
-  color?: 'default' | 'error' | 'success' | 'inverted';
+  color?: 'default' | 'error' | 'success' | 'inverted' | 'text-color';
   /**
    * Button size
    */

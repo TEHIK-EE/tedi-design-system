@@ -32,7 +32,7 @@ const Template: Story<AnchorProps> = (args) => {
 
   const getRow = (name: string, rowProps?: Partial<AnchorProps>): JSX.Element => (
     <Row gutterX={5} alignItems="center">
-      <Col width={1} className={args['color'] === 'inverted' ? 'text-white' : undefined}>
+      <Col width={1} className={args.color === 'inverted' ? 'text-white' : undefined}>
         {name}
       </Col>
       <Col width="auto">
@@ -80,6 +80,11 @@ Inverted.args = {
 };
 Inverted.parameters = {
   backgrounds: { default: 'black' },
+};
+
+export const TextColor = Template.bind({});
+TextColor.args = {
+  color: 'text-color',
 };
 
 export const AsPrimaryButton = Template.bind({});

@@ -1,30 +1,27 @@
 import { useLabels } from '../../providers/label-provider';
-import Icon, { IconProps } from '../icon/icon';
+import Button, { ButtonProps } from '../button/button';
 import styles from './close-button.module.scss';
 
-export interface CloseButtonProps {
-  /**
-   * On button click handler
-   */
-  onClick: () => void;
+export interface CloseButtonProps extends Omit<ButtonProps, 'text'> {
   /**
    * text label for screen readers.
    */
-  label?: string;
-  /**
-   * icon props
-   */
-  icon?: Omit<IconProps, 'name'>;
+  text?: string;
 }
 
 export const CloseButton = (props: CloseButtonProps): JSX.Element => {
   const { getLabel } = useLabels();
-  const { onClick, label, icon } = props;
+  const { onClick, text } = props;
+
   return (
-    <button type="button" className={styles['close-button']} onClick={onClick}>
-      <span className="visually-hidden">{label || getLabel('close')}</span>
-      <Icon name="close" {...icon} />
-    </button>
+    <Button
+      className={styles['close-button']}
+      onClick={onClick}
+      text={text || getLabel('close')}
+      icon="close"
+      type="link"
+      color="text-color"
+    />
   );
 };
 

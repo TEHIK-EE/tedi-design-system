@@ -1,13 +1,6 @@
 @import '../../styles/mixins';
 
 .close-button {
-  @include button-reset;
-
   display: block;
   border-radius: 50%;
-  transition: 150ms ease color;
-
-  &:hover {
-    color: var(--color-text-secondary);
-  }
 }

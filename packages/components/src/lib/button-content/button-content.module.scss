@@ -233,6 +233,12 @@
   }
 }
 
+.btn--text-color {
+  &.btn--link {
+    @include link-variant(inherit, var(--color-text-secondary), var(--color-text-disabled));
+  }
+}
+
 .btn--link {
   padding: 0;
   color: var(--color-primary);
