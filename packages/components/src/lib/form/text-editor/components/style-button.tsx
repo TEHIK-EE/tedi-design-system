@@ -21,7 +21,7 @@ export const StyleButton = (props: StyleButtonProps): JSX.Element => {
   };
 
   return (
-    <button className={BEM} onClick={onToggleHandler}>
+    <button type="button" className={BEM} onClick={onToggleHandler}>
       <Icon name={label} size={24} />
     </button>
   );

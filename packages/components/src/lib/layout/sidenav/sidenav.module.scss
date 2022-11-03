@@ -42,11 +42,12 @@
   }
 }
 
-.sidenav__link {
+a.sidenav__link {
   display: flex;
   flex-grow: 1;
   gap: 1rem;
   padding: 1rem;
+  font: inherit;
   color: var(--color-white);
   text-align: center;
   text-decoration: none;
@@ -55,7 +56,9 @@
     flex-direction: column;
   }
 
-  &:hover {
+  &[role='menuitem']:hover {
+    font: inherit;
+    color: var(--color-white);
     background-color: var(--color-secondary);
   }
 

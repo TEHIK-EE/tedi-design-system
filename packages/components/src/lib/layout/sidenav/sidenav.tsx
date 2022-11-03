@@ -1,7 +1,7 @@
 import cn from 'classnames';
-import Link from 'next/link';
 import React from 'react';
 
+import Anchor from '../../anchor/anchor';
 import { LayoutContext } from '../layout-context';
 import styles from './sidenav.module.scss';
 
@@ -66,12 +66,16 @@ function SideNavItem<Privilege = string>(props: SideNavItem<Privilege>) {
 
   return (
     <li className={SideNavItemBEM}>
-      <Link href={href}>
-        <a className={styles['sidenav__link']} role="menuitem">
-          <span className={`${styles['sidenav__icon']} material-icons-outlined`}>{icon}</span>
-          <span className={styles['sidenav__title']}>{title}</span>
-        </a>
-      </Link>
+      <Anchor
+        className={styles['sidenav__link']}
+        notVisual={true}
+        url={href}
+        text={title}
+        attributes={{ role: 'menuitem' }}
+      >
+        <span className={`${styles['sidenav__icon']} material-icons-outlined`}>{icon}</span>
+        <span className={styles['sidenav__title']}>{title}</span>
+      </Anchor>
     </li>
   );
 }

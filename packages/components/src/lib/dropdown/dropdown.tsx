@@ -8,7 +8,7 @@ import Anchor, { AnchorProps } from '../anchor/anchor';
 import { Button, ButtonProps } from '../button/button';
 import styles from './dropdown.module.scss';
 
-export interface DropdownItem extends Omit<AnchorProps, 'text'> {
+export interface DropdownItem extends Omit<AnchorProps, 'text' | 'children' | 'notVisual'> {
   /**
    * Label of item
    */

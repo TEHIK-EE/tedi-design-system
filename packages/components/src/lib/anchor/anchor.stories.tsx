@@ -30,7 +30,7 @@ export default {
 const Template: Story<AnchorProps> = (args) => {
   const { text = 'Link', url = '#' } = args;
 
-  const getRow = (name: string, rowProps?: Partial<AnchorProps>): JSX.Element => (
+  const getRow = (name: string, rowProps?: Omit<Partial<AnchorProps>, 'children' | 'notVisual'>): JSX.Element => (
     <Row gutterX={5} alignItems="center">
       <Col width={1} className={args.color === 'inverted' ? 'text-white' : undefined}>
         {name}
@@ -96,6 +96,25 @@ AsPrimaryButton.parameters = {
     description: {
       story:
         'You can render any visual button type as link because they share same visual and rendering logic in the back',
+    },
+  },
+};
+
+const NotVisualTemplate: Story<AnchorProps> = (args) => <Anchor {...args} />;
+
+export const NotVisualAnchor = NotVisualTemplate.bind({});
+NotVisualAnchor.args = {
+  notVisual: true,
+  text: 'neti.ee',
+  url: 'https://www.neti.ee/',
+  children: <img src="https://www.neti.ee/img/neti-logo-2015-1.png" alt="neti.ee" />,
+  target: '_blank',
+};
+NotVisualAnchor.parameters = {
+  docs: {
+    description: {
+      story:
+        'Use when u need to wrap link to some component for example logo img, that should not use same visual as other links.',
     },
   },
 };

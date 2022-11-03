@@ -76,12 +76,14 @@ export interface ButtonContentSharedProps {
 export interface ButtonContentButtonProps extends ButtonContentSharedProps {
   element: 'button';
   attributes?: React.ButtonHTMLAttributes<HTMLButtonElement>;
+  children?: undefined;
 }
 
 export interface ButtonContentAnchorProps extends ButtonContentSharedProps {
   element: 'a';
   href?: string; // Passed by next/link
   attributes?: React.AnchorHTMLAttributes<HTMLAnchorElement>;
+  children?: React.ReactNode; // only allowed when not visual link is used
 }
 
 export type ButtonContentProps = ButtonContentButtonProps | ButtonContentAnchorProps;
@@ -106,6 +108,7 @@ export const ButtonContent = forwardRef<HTMLButtonElement | HTMLAnchorElement, B
       isHovered,
       disabled,
       element,
+      children,
     } = props;
 
     const ButtonContentBEM = cn(
@@ -136,6 +139,13 @@ export const ButtonContent = forwardRef<HTMLButtonElement | HTMLAnchorElement, B
         <span className={styles['btn__text']}>{text}</span>
         {iconRight && getIcon('right', iconRight)}
       </span>
+    );
+
+    const renderNotVisualContent = (): JSX.Element => (
+      <>
+        <span className="visually-hidden">{text}</span>
+        {children}
+      </>
     );
 
     const isButton = (props: ButtonContentProps): props is ButtonContentButtonProps => {
@@ -170,7 +180,7 @@ export const ButtonContent = forwardRef<HTMLButtonElement | HTMLAnchorElement, B
         onClick={onClick}
         onTouchStart={onTouchStart}
       >
-        {renderContent()}
+        {children ? renderNotVisualContent() : renderContent()}
       </a>
     );
   }

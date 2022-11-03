@@ -3,7 +3,7 @@ import cn from 'classnames';
 import Anchor, { AnchorProps } from '../../anchor/anchor';
 import styles from './tabs-nav.module.scss';
 
-export interface TabsNavItemProps extends Omit<AnchorProps, 'text'> {
+export interface TabsNavItemProps extends Omit<AnchorProps, 'text' | 'children' | 'notVisual'> {
   /**
    * Content
    */
