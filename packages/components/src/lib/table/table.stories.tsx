@@ -3,6 +3,7 @@ import { ColumnDef, createColumnHelper } from '@tanstack/react-table';
 import React from 'react';
 
 import Anchor from '../anchor/anchor';
+import Button from '../button/button';
 import { Card, CardContent } from '../card';
 import { getBackgroundColorClass } from '../colors/colors';
 import Heading from '../heading/heading';
@@ -16,7 +17,8 @@ import {
   useDefaultPagination,
   useDefaultSorting,
 } from './index';
-import Table, { TableProps } from './table';
+import Table from './table';
+import { TableProps } from './table.types';
 
 export default {
   title: 'components/Table',
@@ -265,7 +267,7 @@ export const FullWidthSubComponent = Template.bind({});
 FullWidthSubComponent.args = {
   data,
   columns: [getExpandColumn(), ...columns],
-  renderSubComponent: (row) => {
+  renderSubComponent: (row: any) => {
     return (
       <tr>
         <td colSpan={row.getVisibleCells().length}>
@@ -283,7 +285,7 @@ FullWidthSubComponent.args = {
       </tr>
     );
   },
-  getRowCanExpand: (row) => row.index % 4 !== 0,
+  getRowCanExpand: (row: any) => row.index % 4 !== 0,
   id: 'table-2',
 };
 
@@ -292,7 +294,7 @@ export const WithSubComponent = Template.bind({});
 WithSubComponent.args = {
   data,
   columns: [getExpandColumn(), ...columns],
-  renderSubComponent: (row) => {
+  renderSubComponent: () => {
     return (
       <tr>
         <td></td>
@@ -314,7 +316,7 @@ WithSubComponent.args = {
       </tr>
     );
   },
-  getRowCanExpand: (row) => row.index % 4 !== 0,
+  getRowCanExpand: (row: any) => row.index % 4 !== 0,
   id: 'table-3',
 };
 
@@ -332,7 +334,7 @@ WithSubRow.args = {
   data,
   columns: [getExpandColumn(), ...columns],
   id: 'table-4',
-  getRowCanExpand: (row) => !!row.original.subRows?.length,
+  getRowCanExpand: (row: any) => !!row.original.subRows?.length,
 };
 export const WithCustomizedCells = Template.bind({});
 
@@ -366,17 +368,27 @@ WithCustomizedRows.args = {
 
 export const WithClickableRows = Template.bind({});
 
-const handleClick = (row: Person) => {
-  console.log(row);
-};
+const clickableRowColumns = [...columns];
+clickableRowColumns[0] = columnHelper.accessor((row) => `${row.firstName} ${row.lastName}`, {
+  id: 'personName',
+  header: () => 'Laps',
+});
+clickableRowColumns.push(
+  columnHelper.accessor((row) => `${row.firstName}-${row.age}`, {
+    id: 'view',
+    cell: () => <Button text="Vaata" iconLeft="visibility" type="link" url="#" />,
+    header: () => <span className="visually-hidden">Ava profiil</span>,
+    enableSorting: false,
+  })
+);
 
 WithClickableRows.args = {
   data: data.map((entity) => ({
     ...entity,
-    onClick: entity.status === 'In Relationship' ? handleClick : undefined,
+    onClick: (row: Person) => console.log(row),
   })),
-  columns: [...columns],
-  id: 'clicable-rows-table',
+  columns: clickableRowColumns,
+  id: 'clickable-rows-table',
 };
 
 export const ServerSidePaginationAndSorting = (): JSX.Element => {
