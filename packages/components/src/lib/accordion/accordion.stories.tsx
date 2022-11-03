@@ -5,6 +5,7 @@ import AccordionItem from './accordion-item/accordion-item';
 import AccordionItemContent from './accordion-item-content/accordion-item-content';
 import AccordionItemHeader from './accordion-item-header/accordion-item-header';
 import { OpenAll } from './examples/openAll';
+import { PrimaryBorder } from './examples/primaryBorder';
 
 export default {
   title: 'components/Accordion',
@@ -96,4 +97,4 @@ export const DefaultOpen = () => {
   );
 };
 
-export { OpenAll };
+export { OpenAll, PrimaryBorder };

@@ -22,6 +22,10 @@ export interface AccordionItemProps {
    * Is the item disabled?
    */
   disabled?: boolean;
+  /**
+   * The element border type attribute specifies the color of accordion item border.
+   */
+  borderType?: 'primary' | 'secondary';
 }
 
 export interface IAccordionItemContext {
@@ -35,14 +39,14 @@ export const AccordionItemContext = React.createContext<IAccordionItemContext>({
 });
 
 export const AccordionItem = (props: AccordionItemProps): JSX.Element => {
-  const { children, className, id, disabled = false } = props;
+  const { children, className, id, disabled = false, borderType = 'secondary' } = props;
   const { onToggle } = React.useContext(AccordionContext);
 
   const onMatch = (id: string) => {
     if (!disabled) onToggle(id);
   };
 
-  const AccordionItemBEM = cn(styles['accordion__item'], className, {
+  const AccordionItemBEM = cn(styles['accordion__item'], styles[`accordion__item--border-${borderType}`], className, {
     [styles['accordion__item--disabled']]: disabled,
   });
 
