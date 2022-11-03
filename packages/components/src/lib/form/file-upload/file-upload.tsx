@@ -119,7 +119,7 @@ export const FileUpload = (props: FileUploadProps): JSX.Element => {
                     <Ellipsis lineClamp={1}>{file.name}</Ellipsis>
                   </Col>
                   <Col width="auto">
-                    <CloseButton onClick={() => onFileRemove(file)} label={getLabel('remove')} icon={{ size: 16 }} />
+                    <CloseButton onClick={() => onFileRemove(file)} text={getLabel('remove')} />
                   </Col>
                 </Row>
               </CardContent>
