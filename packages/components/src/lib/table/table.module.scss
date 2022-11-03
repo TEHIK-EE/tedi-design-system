@@ -59,6 +59,10 @@
         border-bottom: 0.01px solid var(--color-secondary-grey);
       }
 
+      &.table__row--border-hidden {
+        border: none;
+      }
+
       &.table__row--clickable:hover {
         cursor: pointer;
         background-color: var(--color-background-light);

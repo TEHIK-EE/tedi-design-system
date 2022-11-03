@@ -9,6 +9,7 @@ interface ITableContext<TData> {
   loadingLabel?: string;
   renderSubComponent?: (row: Row<TData>) => React.ReactElement;
   rowClassName?: string;
+  hideRowBorder: boolean;
 }
 
 // eslint-disable-next-line
@@ -16,4 +17,5 @@ export const TableContext = React.createContext<ITableContext<any>>({
   isLoading: false,
   table: null,
   id: '',
+  hideRowBorder: false,
 });

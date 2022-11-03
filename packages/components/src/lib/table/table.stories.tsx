@@ -236,9 +236,17 @@ Borderless.args = {
   data,
   columns,
   id: 'table-borderless',
-  cardProps: {
-    type: 'borderless',
-  },
+  hideCardBorder: true,
+};
+
+export const RowsBorderless = Template.bind({});
+RowsBorderless.args = {
+  data,
+  columns: columns.map((column) => ({ ...column, enableSorting: false })),
+  id: 'borderless-table',
+  hidePagination: true,
+  hideRowBorder: true,
+  hideCardBorder: true,
 };
 
 export const Loading = Template.bind({});
@@ -267,7 +275,7 @@ export const FullWidthSubComponent = Template.bind({});
 FullWidthSubComponent.args = {
   data,
   columns: [getExpandColumn(), ...columns],
-  renderSubComponent: (row: any) => {
+  renderSubComponent: (row) => {
     return (
       <tr>
         <td colSpan={row.getVisibleCells().length}>
@@ -285,7 +293,7 @@ FullWidthSubComponent.args = {
       </tr>
     );
   },
-  getRowCanExpand: (row: any) => row.index % 4 !== 0,
+  getRowCanExpand: (row) => row.index % 4 !== 0,
   id: 'table-2',
 };
 
@@ -294,7 +302,7 @@ export const WithSubComponent = Template.bind({});
 WithSubComponent.args = {
   data,
   columns: [getExpandColumn(), ...columns],
-  renderSubComponent: () => {
+  renderSubComponent: (row) => {
     return (
       <tr>
         <td></td>
@@ -316,7 +324,7 @@ WithSubComponent.args = {
       </tr>
     );
   },
-  getRowCanExpand: (row: any) => row.index % 4 !== 0,
+  getRowCanExpand: (row) => row.index % 4 !== 0,
   id: 'table-3',
 };
 
@@ -334,7 +342,7 @@ WithSubRow.args = {
   data,
   columns: [getExpandColumn(), ...columns],
   id: 'table-4',
-  getRowCanExpand: (row: any) => !!row.original.subRows?.length,
+  getRowCanExpand: (row) => !!row.original.subRows?.length,
 };
 export const WithCustomizedCells = Template.bind({});
 

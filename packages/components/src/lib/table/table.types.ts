@@ -95,7 +95,7 @@ export interface TableProps<TData extends DefaultTData<TData>> {
    */
   getRowCanExpand?: (row: Row<TData>) => boolean;
   /**
-   * Should all the rows can be expanded from the heading
+   * Should all the rows cab be expanded from the heading
    */
   showExpandAll?: boolean;
   /**
@@ -115,4 +115,12 @@ export interface TableProps<TData extends DefaultTData<TData>> {
    * Default to false, because TableFilter is not yet final and we cant add filtering to every table.
    */
   enableFilters?: boolean;
+  /**
+   * Should show borders between rows. Default to false.
+   */
+  hideRowBorder?: boolean;
+  /**
+   * Should hide card border. Over-ridden with CardProps
+   */
+  hideCardBorder?: boolean;
 }

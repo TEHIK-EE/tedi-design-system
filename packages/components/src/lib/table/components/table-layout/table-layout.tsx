@@ -11,7 +11,7 @@ import TableFilter from '../table-filter/table-filter';
 import TableLoader from '../table-loader/table-loader';
 
 export function TableLayout<TData extends DefaultTData<TData>>(): JSX.Element | null {
-  const { table, id, renderSubComponent, isLoading } = React.useContext(TableContext);
+  const { table, id, renderSubComponent, isLoading, hideRowBorder } = React.useContext(TableContext);
 
   if (table === null) {
     return null;
@@ -67,6 +67,7 @@ export function TableLayout<TData extends DefaultTData<TData>>(): JSX.Element | 
                 key={row.id}
                 className={cn(row.original.rowClassName, {
                   [styles['table__row--clickable']]: !!row.original.onClick,
+                  [styles['table__row--border-hidden']]: hideRowBorder,
                 })}
                 onClick={() => row.original.onClick?.(row.original)}
               >

@@ -46,6 +46,8 @@ export function Table<TData extends DefaultTData<TData>>(props: TableProps<TData
     loadingLabel = getLabel('table.loading'),
     verticalAlign = 'middle',
     enableFilters = false,
+    hideRowBorder = false,
+    hideCardBorder,
   } = props;
 
   const [{ pageIndex, pageSize }, setPagination] = React.useState<PaginationState>({
@@ -135,8 +137,8 @@ export function Table<TData extends DefaultTData<TData>>(props: TableProps<TData
   });
 
   return (
-    <TableContext.Provider value={{ table, id, renderSubComponent, loadingLabel, isLoading }}>
-      <Card {...cardProps}>
+    <TableContext.Provider value={{ table, id, renderSubComponent, loadingLabel, isLoading, hideRowBorder }}>
+      <Card type={hideCardBorder ? 'borderless' : undefined} {...cardProps}>
         <CardContent padding="none">
           <div className={cn(styles['table'], `table--vertical-align-${verticalAlign}`)}>
             <TableLayout<TData> />
