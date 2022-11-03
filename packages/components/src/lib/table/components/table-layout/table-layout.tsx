@@ -44,12 +44,12 @@ export function TableLayout<TData extends DefaultTData<TData>>(): JSX.Element | 
                     <Col onClick={header.column.getToggleSortingHandler()}>
                       {flexRender(header.column.columnDef.header, header.getContext())}
                     </Col>
+                    {header.column.getCanFilter() ? <TableFilter<TData> column={header.column} /> : null}
                     {header.column.getCanSort() && (
                       <Col align="center" width="auto" onClick={header.column.getToggleSortingHandler()}>
                         {getSortIcon(header.column.getIsSorted())}
                       </Col>
                     )}
-                    {header.column.getCanFilter() ? <TableFilter<TData> column={header.column} /> : null}
                   </Row>
                 )}
               </th>
