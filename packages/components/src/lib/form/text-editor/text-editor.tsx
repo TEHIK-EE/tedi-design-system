@@ -54,7 +54,7 @@ export interface TextEditorProps extends FormLabelProps {
   inlineStyleControls?: DraftInlineStyleType[];
   /**
    * Select which inlineStyleControls should be visible.
-   * Defaults to ['blockquote', 'unordered-list-item'].
+   * Defaults to ['unordered-list-item'].
    */
   blockStyleControls?: DraftBlockType[];
   /**
@@ -77,8 +77,8 @@ export interface TextEditorProps extends FormLabelProps {
 
 export const TextEditor = (props: TextEditorProps): JSX.Element => {
   const {
-    inlineStyleControls,
-    blockStyleControls,
+    inlineStyleControls = ['BOLD', 'ITALIC', 'UNDERLINE'],
+    blockStyleControls = ['unordered-list-item'],
     label,
     id,
     required,
