@@ -27,7 +27,8 @@ const TestComponent = (): JSX.Element => {
     <>
       <p>{getLabel('close')}</p>
       <p>
-        {getLabel('missing.label')} -{' '}
+        {/* Intentional missing label to showcase error in console */}
+        {getLabel('missing.label' as any)} -{' '}
         <span className="text-secondary text-small">
           (Error in console that label is missing for key: missing.label)
         </span>
