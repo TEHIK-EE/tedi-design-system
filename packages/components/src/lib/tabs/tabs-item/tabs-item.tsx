@@ -33,7 +33,7 @@ export const TabsItem = (props: TabsItemProps): JSX.Element => {
   return (
     <HashTrigger id={id} onMatch={() => setCurrentTab(id)}>
       {isCurrent && (
-        <div className={TabsItemBEM} id={id} tabIndex={0} role="tabpanel" aria-labelledby={`${id}-nav-item`}>
+        <div className={TabsItemBEM} tabIndex={0} role="tabpanel" aria-labelledby={id}>
           {children}
         </div>
       )}

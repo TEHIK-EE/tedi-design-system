@@ -64,9 +64,12 @@ export const Tabs = (props: TabsProps): JSX.Element => {
 
         return {
           ...rest,
-          id: `${id}-nav-item`,
+          id,
           current: currentTab === id,
-          onClick: () => setCurrentTab(id),
+          onClick: (event) => {
+            event.preventDefault();
+            setCurrentTab(id);
+          },
           label,
           url: `#${id}`,
           'aria-controls': id,

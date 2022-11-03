@@ -19,7 +19,7 @@ export const TabsNavItem = (props: TabsNavItemProps): JSX.Element => {
   const TabsNavItemBEM = cn(styles['tabs__nav-item'], { [styles['tabs__nav-item--current']]: current });
 
   return (
-    <li className={TabsNavItemBEM}>
+    <li className={TabsNavItemBEM} role="presentation">
       <Anchor {...rest} className={styles['tabs__nav-link']} role="tab">
         {label}
       </Anchor>
