@@ -30,7 +30,7 @@ const Template: Story<CardStory> = (args) => {
     <CardContent padding="none">
       <Row gutter={0}>
         <Col width={4}>
-          <Card>
+          <Card type="borderless">
             <CardContent>
               <p>Left</p>
               <p>
@@ -44,7 +44,7 @@ const Template: Story<CardStory> = (args) => {
           </Card>
         </Col>
         <Col width={8}>
-          <Card>
+          <Card type="borderless">
             <CardContent background="background-light">right</CardContent>
           </Card>
         </Col>
