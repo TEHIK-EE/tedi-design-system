@@ -72,9 +72,12 @@ export const Tabs = (props: TabsProps): JSX.Element => {
           },
           label,
           url: `#${id}`,
-          'aria-controls': id,
-          'aria-label': label,
-          'aria-selected': currentTab === id,
+          attributes: {
+            role: 'tab',
+            'aria-controls': id,
+            'aria-label': label,
+            'aria-selected': currentTab === id,
+          },
         };
       });
   };

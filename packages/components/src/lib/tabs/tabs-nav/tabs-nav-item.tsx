@@ -3,7 +3,7 @@ import cn from 'classnames';
 import Anchor, { AnchorProps } from '../../anchor/anchor';
 import styles from './tabs-nav.module.scss';
 
-export interface TabsNavItemProps extends Omit<AnchorProps, 'children'> {
+export interface TabsNavItemProps extends Omit<AnchorProps, 'text'> {
   /**
    * Content
    */
@@ -20,9 +20,7 @@ export const TabsNavItem = (props: TabsNavItemProps): JSX.Element => {
 
   return (
     <li className={TabsNavItemBEM} role="presentation">
-      <Anchor {...rest} className={styles['tabs__nav-link']} role="tab">
-        {label}
-      </Anchor>
+      <Anchor {...rest} className={styles['tabs__nav-link']} text={label} />
     </li>
   );
 };

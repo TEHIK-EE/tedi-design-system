@@ -3,7 +3,6 @@ import { ColumnDef, createColumnHelper } from '@tanstack/react-table';
 import React from 'react';
 
 import Anchor from '../anchor/anchor';
-import Button from '../button/button';
 import { Card, CardContent } from '../card';
 import { getBackgroundColorClass } from '../colors/colors';
 import Heading from '../heading/heading';
@@ -178,7 +177,7 @@ const columns: ColumnDef<Person, any>[] = [
   columnHelper.accessor((row) => `${row.firstName} ${row.lastName}`, {
     id: 'personName',
     cell: (info) => {
-      return <Anchor url="#">{`${info.row.original.firstName} ${info.row.original.lastName}`}</Anchor>;
+      return <Anchor url="#" text={`${info.row.original.firstName} ${info.row.original.lastName}`} />;
     },
     header: () => 'Laps',
     sortingFn: (a, b) => {
@@ -353,7 +352,7 @@ WithCustomizedCells.args = {
       id: 'personName',
       cell: (info) => (
         <CustomizeTableCell className={getBackgroundColorClass('primary-1')}>
-          <Anchor url="#">{`${info.row.original.firstName} ${info.row.original.lastName}`}</Anchor>
+          <Anchor text={`${info.row.original.firstName} ${info.row.original.lastName}`} url="#" />
         </CustomizeTableCell>
       ),
       header: () => 'Laps',
@@ -384,7 +383,7 @@ clickableRowColumns[0] = columnHelper.accessor((row) => `${row.firstName} ${row.
 clickableRowColumns.push(
   columnHelper.accessor((row) => `${row.firstName}-${row.age}`, {
     id: 'view',
-    cell: () => <Button text="Vaata" iconLeft="visibility" type="link" url="#" />,
+    cell: () => <Anchor text="Vaata" iconLeft="visibility" type="link" url="#" />,
     header: () => <span className="visually-hidden">Ava profiil</span>,
     enableSorting: false,
   })

@@ -29,7 +29,7 @@ const Crumb = (props: CrumbProps): JSX.Element => {
 
   return (
     <li className={BEM}>
-      <Anchor url={path}>{label}</Anchor>
+      <Anchor url={path} text={label} />
       <Icon className={styles['breadcrumbs__separator']} size={16} name="keyboard_arrow_right" />
     </li>
   );

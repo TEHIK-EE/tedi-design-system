@@ -105,7 +105,7 @@ export function TableFilter<TData extends DefaultTData<TData>>(props: TableFilte
                       <Button text={getLabel('cancel')} type="secondary" onClick={handleReset} fullWidth />
                     </Col>
                     <Col>
-                      <Button elementType="submit" text={getLabel('table.filter')} fullWidth />
+                      <Button attributes={{ type: 'submit' }} text={getLabel('table.filter')} fullWidth />
                     </Col>
                   </Row>
                 </VerticalSpacing>

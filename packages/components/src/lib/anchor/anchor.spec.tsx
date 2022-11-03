@@ -4,7 +4,7 @@ import Anchor from './anchor';
 
 describe('Anchor', () => {
   it('should render successfully', () => {
-    const { baseElement } = render(<Anchor url="#">Link</Anchor>);
+    const { baseElement } = render(<Anchor url="#" text="Anchor" />);
     expect(baseElement).toBeTruthy();
   });
 });

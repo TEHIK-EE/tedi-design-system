@@ -1,6 +1,6 @@
 import cn from 'classnames';
 
-import Button, { ButtonProps } from '../../button/button';
+import { Anchor, AnchorProps } from '../../anchor/anchor';
 import { Col, Row } from '../../grid';
 import Icon from '../../icon/icon';
 import { VerticalSpacing } from '../../vertical-spacing';
@@ -8,7 +8,7 @@ import styles from './footer.module.scss';
 
 export interface FooterCategory {
   heading: string;
-  links: ButtonProps[];
+  links: AnchorProps[];
   icon?: string;
 }
 
@@ -56,14 +56,7 @@ const FooterCategory = (props: FooterCategory): JSX.Element => {
           </p>
           {links.map((link, key) => (
             <p key={key}>
-              <Button
-                className={styles['footer__link']}
-                type="link"
-                color="inverted"
-                size="small"
-                underline
-                {...link}
-              />
+              <Anchor className={styles['footer__link']} color="inverted" size="small" underline {...link} />
             </p>
           ))}
         </VerticalSpacing>

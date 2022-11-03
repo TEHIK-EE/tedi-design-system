@@ -66,9 +66,11 @@ function SideNavItem<Privilege = string>(props: SideNavItem<Privilege>) {
 
   return (
     <li className={SideNavItemBEM}>
-      <Link href={href} className={styles['sidenav__link']} role="menuitem">
-        <span className={`${styles['sidenav__icon']} material-icons-outlined`}>{icon}</span>
-        <span className={styles['sidenav__title']}>{title}</span>
+      <Link href={href}>
+        <a className={styles['sidenav__link']} role="menuitem">
+          <span className={`${styles['sidenav__icon']} material-icons-outlined`}>{icon}</span>
+          <span className={styles['sidenav__title']}>{title}</span>
+        </a>
       </Link>
     </li>
   );

@@ -8,7 +8,7 @@ import Anchor, { AnchorProps } from '../anchor/anchor';
 import { Button, ButtonProps } from '../button/button';
 import styles from './dropdown.module.scss';
 
-export interface DropdownItem extends Omit<AnchorProps, 'children'> {
+export interface DropdownItem extends Omit<AnchorProps, 'text'> {
   /**
    * Label of item
    */
@@ -116,9 +116,7 @@ export const Dropdown = (props: DropdownProps) => {
 
   const renderDropdownItem = (item: DropdownItem, key: number): JSX.Element => (
     <li className={DropdownItemBEM(item)} key={key} role="option" aria-selected={item.isActive}>
-      <Anchor className={styles['dropdown__link']} {...item}>
-        {item.label}
-      </Anchor>
+      <Anchor className={styles['dropdown__link']} {...item} text={item.label} />
     </li>
   );
 
