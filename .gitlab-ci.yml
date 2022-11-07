@@ -23,6 +23,7 @@ lint:
   script:
     - npm ci --cache .npm --prefer-offline
     - npm run lint:ci
+  interruptible: true
 
 test:
   image: docker.repo.tehik.ee/node:lts-bullseye-slim
@@ -37,6 +38,7 @@ test:
   script:
     - npm ci --cache .npm --prefer-offline
     - npm run test
+  interruptible: true
 
 build:
   image: docker.repo.tehik.ee/node:lts-bullseye-slim
@@ -51,6 +53,7 @@ build:
   script:
     - npm ci --cache .npm --prefer-offline
     - npm run build
+  interruptible: true
 
 build-sb:
   image: docker.repo.tehik.ee/node:lts-bullseye-slim
@@ -65,6 +68,7 @@ build-sb:
   script:
     - npm ci --cache .npm --prefer-offline
     - npm run build:sb
+  interruptible: true
 
 publish-library:
   image: docker.repo.tehik.ee/node:lts-bullseye-slim
