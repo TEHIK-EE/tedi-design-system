@@ -70,16 +70,6 @@ export default {
                 import &apos;dayjs/locale/et&apos;; <br />
                 dayjs.locale(&apos;et&apos;); // use locale globally
               </pre>
-              <h4>2. Wrap your application with LocalizationProvider</h4>
-              <pre>
-                {'import {AdapterDayjs} from "@mui/x-date-pickers/AdapterDayjs";'} <br />
-                {'import {LocalizationProvider} from "@mui/x-date-pickers/LocalizationProvider";'} <br /> <br />
-                {'<LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="ee">'}
-                <br />
-                {'  <LabelProvider labels={defaultEELabels}><YourApp /></LabelProvider>'}
-                <br />
-                {'</LocalizationProvider>'}
-              </pre>
             </VerticalSpacing>
           </VerticalSpacing>
         </>

@@ -68,6 +68,7 @@ build-sb:
 
 publish-library:
   image: docker.repo.tehik.ee/node:lts-bullseye-slim
+  when: manual
   stage: publish
   script:
     - npm ci --cache .npm --prefer-offline
