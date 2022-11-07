@@ -5,12 +5,10 @@ import { useLabels } from '../../../providers/label-provider';
 import { Button } from '../../button/button';
 import SkipLinks, { SkipLinksProps } from '../../skip-links/skip-links';
 import { LayoutContext } from '../layout-context';
-import HeaderDropdown, { HeaderDropdownProps } from './components/header-dropdown/header-dropdown';
 import styles from './header.module.scss';
 
 export interface HeaderProps {
-  languageSelection?: Required<Omit<HeaderDropdownProps, 'className'>>;
-  roleSelection?: Required<Omit<HeaderDropdownProps, 'className'>>;
+  children?: React.ReactNode;
   skipLinks?: SkipLinksProps;
   logo?: string;
   onLogoutClick: () => void;
@@ -18,7 +16,7 @@ export interface HeaderProps {
 
 export const Header = (props: HeaderProps) => {
   const { getLabel } = useLabels();
-  const { languageSelection, roleSelection, skipLinks, logo = '/logo.svg', onLogoutClick } = props;
+  const { skipLinks, logo = '/logo.svg', onLogoutClick, children } = props;
   const { toggleMenu, menuOpen } = React.useContext(LayoutContext);
 
   return (
@@ -35,24 +33,7 @@ export const Header = (props: HeaderProps) => {
           {menuOpen ? getLabel('header.close') : getLabel('header.open')}
         </Button>
         <img src={logo} alt="Logo" className={styles['header__logo']} />
-        {languageSelection && <HeaderDropdown className={styles['header__language']} {...languageSelection} />}
-        {roleSelection && <HeaderDropdown className={styles['header__role']} {...roleSelection} />}
-        {roleSelection && (
-          <HeaderDropdown
-            className={cn(styles['header__role'], styles['header__role--mobile'])}
-            dropdown={{
-              ...roleSelection.dropdown,
-              button: {
-                ...roleSelection.dropdown.button,
-                icon: 'account_circle_rounded',
-                iconRight: '',
-                children: roleSelection.label,
-                className: styles['header__role-button'],
-                classNameIcon: styles['header__role-icon-button'],
-              },
-            }}
-          />
-        )}
+        <div className={styles['header__content']}>{children}</div>
         <Button
           className={cn(styles['header__logout'], styles['header__logout--mobile'])}
           classNameIcon={styles['header__logout-icon']}

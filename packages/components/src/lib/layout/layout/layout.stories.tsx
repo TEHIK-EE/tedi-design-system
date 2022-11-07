@@ -2,7 +2,6 @@ import { Meta } from '@storybook/react';
 
 import { useBreakpoint } from '../../../helpers';
 import Button from '../../button/button';
-import { DropdownItem } from '../../dropdown/dropdown';
 import Section from '../../section/section';
 import { VerticalSpacing } from '../../vertical-spacing';
 import Breadcrumbs from '../breadcrumbs/breadcrumbs';
@@ -19,18 +18,6 @@ export default {
     layout: 'fullscreen',
   },
 } as Meta;
-
-const roleOptions: DropdownItem[] = [
-  { children: 'Roll1', isActive: false, onClick: () => console.log('Roll valitud'), href: '#' },
-  { children: 'Roll2', isActive: true, onClick: () => console.log('Roll valitud'), href: '#' },
-  { children: 'Roll3', isActive: false, onClick: () => console.log('Roll valitud'), href: '#' },
-];
-
-const langOptions: DropdownItem[] = [
-  { children: 'EST', isActive: false, onClick: () => console.log('Keel valitud'), href: '#' },
-  { children: 'RUS', isActive: true, onClick: () => console.log('Keel valitud'), href: '#' },
-  { children: 'ENG', isActive: false, onClick: () => console.log('Keel valitud'), href: '#' },
-];
 
 const navItems: SideNavItem[] = [
   { href: '#', children: 'Avaleht', icon: 'home' },
@@ -94,17 +81,10 @@ export const Default = () => {
     <Layout
       header={{
         onLogoutClick: () => console.log('Logi välja'),
-        languageSelection: {
-          label: 'Keel:',
-          dropdown: { button: { children: 'EST' }, items: langOptions },
-        },
-        roleSelection: {
-          label: 'Minu Roll:',
-          dropdown: { button: { children: roleOptions[1].children }, items: roleOptions },
-        },
         skipLinks: {
           links: [{ children: 'Liigu edasi põhisisu juurde', href: '#main-content' }],
         },
+        children: <span className="text-secondary">Kaspar Suvi - Tartu Linnavalitsus</span>,
       }}
       sideNav={{
         navItems,
