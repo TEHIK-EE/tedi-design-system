@@ -6,6 +6,12 @@ import { defineConfig } from 'vite';
 export default defineConfig({
   mode: 'production',
   plugins: [reactPlugin()],
+  css: {
+    modules: {
+      generateScopedName: '[local]-[hash:8]',
+      localsConvention: null,
+    },
+  },
   build: {
     outDir: '../../dist',
     emptyOutDir: true,
