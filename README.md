@@ -1,13 +1,12 @@
 # React Shared Libraries
 
-Usage:
+Usage of tehik scope packages:
 
-- Add the following line to your package.json
+- Add the following line to your `.npmrc`
   - `@tehik:registry=https://repo.tehik.ee/artifactory/api/npm/tehik-npm-release/`
 - Afterwards follow the directions described in [here](https://repo.tehik.ee/ui/repos/tree/General/tehik-npm-release) under "Set Me Up"
-- Add `import @tehik/react-components/style.css` to your root, \_app.tsx
-- Add any necessary providers around your app, like LabelProvider and StyleProvider
-- Use the components: `import { Button } from '@tehik/react-components'`
+
+Steps to use `@tehik/react-components` are described [here](https://star2-storybook.netlify.app/?path=/docs/documentation-usage--usage).
 
 ## Development
 

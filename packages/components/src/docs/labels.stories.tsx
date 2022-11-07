@@ -1,8 +1,8 @@
-import { Subtitle, Title } from '@storybook/addon-docs';
+import { Description, Subtitle, Title } from '@storybook/addon-docs';
 import { Meta } from '@storybook/react';
 import { ColumnDef, createColumnHelper } from '@tanstack/react-table';
 
-import { Table } from '..';
+import { Separator, Table } from '..';
 
 export default {
   title: 'Documentation/Labels',
@@ -12,6 +12,10 @@ export default {
         <>
           <Title />
           <Subtitle>Here you can find all labels used inside components.</Subtitle>
+          <p>
+            <code>@tehik/react-components</code> exports <code>defaultEELabels</code> to use default labels.
+          </p>
+          <Separator spacing={1.5} />
           <Labels />
         </>
       ),

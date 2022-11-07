@@ -3,7 +3,7 @@ import React from 'react';
 
 import Heading from '../heading/heading';
 import { VerticalSpacing } from '../vertical-spacing';
-import { Tabs, TabsItem, TabsProps } from './';
+import { Tabs, TabsItem, TabsProps } from '.';
 
 export default {
   title: 'components/Tabs',

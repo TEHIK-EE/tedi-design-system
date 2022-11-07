@@ -1,9 +1,7 @@
 import { Subtitle, Title } from '@storybook/addon-docs';
 import { Meta } from '@storybook/react';
 
-import Button from '../lib/button/button';
-import { Col, Row } from '../lib/grid';
-import { VerticalSpacing } from '../lib/vertical-spacing';
+import { Anchor, Col, Row, VerticalSpacing } from '..';
 
 export default {
   title: 'Documentation/Welcome',
@@ -20,28 +18,31 @@ export default {
             <h2>Resources</h2>
             <Row alignItems="center">
               <Col width="auto">
-                <Button
-                  type="link"
+                <Anchor
+                  visualType="link"
                   target="_blank"
-                  text="Figma"
-                  url="https://www.figma.com/file/vkcvISaaYkZJVQU8VFw9kC/TEHIK-STAR-LAEH?node-id=9387%3A25923"
-                />
+                  href="https://www.figma.com/file/vkcvISaaYkZJVQU8VFw9kC/TEHIK-STAR-LAEH?node-id=9387%3A25923"
+                >
+                  Figma
+                </Anchor>
               </Col>
               <Col width="auto">
-                <Button
-                  type="link"
+                <Anchor
+                  visualType="link"
                   target="_blank"
-                  text="Gitlab"
-                  url="https://gitlab.sotsiaalministeerium.ee/star/star2-frontend"
-                />
+                  href="https://gitlab.sotsiaalministeerium.ee/star/star2-frontend"
+                >
+                  Gitlab
+                </Anchor>
               </Col>
               <Col width="auto">
-                <Button
-                  type="link"
+                <Anchor
+                  visualType="link"
                   target="_blank"
-                  text="Jira"
-                  url="https://smjira.sm.ee/secure/RapidBoard.jspa?rapidView=515&projectKey=STARLA"
-                />
+                  href="https://smjira.sm.ee/secure/RapidBoard.jspa?rapidView=515&projectKey=STARLA"
+                >
+                  Jira
+                </Anchor>
               </Col>
             </Row>
           </VerticalSpacing>

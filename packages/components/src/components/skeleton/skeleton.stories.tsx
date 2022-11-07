@@ -2,7 +2,7 @@ import { Meta, Story } from '@storybook/react';
 import React from 'react';
 
 import { VerticalSpacing } from '../vertical-spacing';
-import { Skeleton, SkeletonBlock, SkeletonProps } from './';
+import { Skeleton, SkeletonBlock, SkeletonProps } from '.';
 
 export default {
   title: 'components/Skeleton',
