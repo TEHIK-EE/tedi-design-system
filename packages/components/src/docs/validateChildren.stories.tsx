@@ -1,7 +1,7 @@
 import { Subtitle, Title } from '@storybook/addon-docs';
 import { Meta } from '@storybook/react';
 
-import { VerticalSpacing } from '../lib/vertical-spacing';
+import { VerticalSpacing } from '..';
 
 export default {
   title: 'Documentation',
