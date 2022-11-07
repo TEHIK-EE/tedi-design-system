@@ -1,11 +1,60 @@
 stages:
+  - test
+  - build
   - publish
+
+cache:
+  key:
+    files:
+      - package-lock.json
+  paths:
+    - .npm/
+
+.lint:
+  stage: test
+  needs: []
+  cache:
+    key:
+      files:
+        - package-lock.json
+    paths:
+      - .npm/
+  script:
+    - npm ci --cache .npm --prefer-offline
+    - npm run lint:ci
+
+.nx-test:
+  stage: test
+  needs: []
+  cache:
+    key:
+      files:
+        - package-lock.json
+    paths:
+      - .npm/
+  script:
+    - npm ci --cache .npm --prefer-offline
+    - npm run test
+
+.build:
+  stage: build
+  cache:
+    key:
+      files:
+        - package-lock.json
+    paths:
+      - .npm/
+  needs: []
+  script:
+    - npm ci --cache .npm --prefer-offline
+    - npm run build:sb
+    - npm run build
 
 publish-library:
   image: docker.repo.tehik.ee/node:lts-bullseye-slim
   stage: publish
   script:
-    - npm ci
+    - npm ci --cache .npm --prefer-offline
     - npm run build
     - |
       {
