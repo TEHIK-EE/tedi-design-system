@@ -10,7 +10,8 @@ cache:
   paths:
     - .npm/
 
-.lint:
+lint:
+  image: docker.repo.tehik.ee/node:lts-bullseye-slim
   stage: test
   needs: []
   cache:
@@ -23,7 +24,8 @@ cache:
     - npm ci --cache .npm --prefer-offline
     - npm run lint:ci
 
-.nx-test:
+test:
+  image: docker.repo.tehik.ee/node:lts-bullseye-slim
   stage: test
   needs: []
   cache:
@@ -36,7 +38,22 @@ cache:
     - npm ci --cache .npm --prefer-offline
     - npm run test
 
-.build:
+build:
+  image: docker.repo.tehik.ee/node:lts-bullseye-slim
+  stage: build
+  cache:
+    key:
+      files:
+        - package-lock.json
+    paths:
+      - .npm/
+  needs: []
+  script:
+    - npm ci --cache .npm --prefer-offline
+    - npm run build
+
+build-sb:
+  image: docker.repo.tehik.ee/node:lts-bullseye-slim
   stage: build
   cache:
     key:
@@ -48,7 +65,6 @@ cache:
   script:
     - npm ci --cache .npm --prefer-offline
     - npm run build:sb
-    - npm run build
 
 publish-library:
   image: docker.repo.tehik.ee/node:lts-bullseye-slim
