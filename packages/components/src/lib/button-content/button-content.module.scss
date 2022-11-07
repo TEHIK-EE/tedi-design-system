@@ -18,19 +18,19 @@
   background-color: $background;
   border-color: $border;
 
-  &.btn--is-hovered:not(.btn--disabled),
-  &:hover:not(.btn--disabled) {
+  &.btn--is-hovered:not(:disabled),
+  &:hover:not(:disabled) {
     background-color: $background-h;
     border-color: $border-h;
   }
 
-  &.btn--is-active:not(.btn--disabled),
-  &:active:not(.btn--disabled) {
+  &.btn--is-active:not(:disabled),
+  &:active:not(:disabled) {
     background-color: $background-a;
     border-color: $border-a;
   }
 
-  &.btn--disabled {
+  &:disabled {
     color: $color-d;
     background-color: $background-d;
     border-color: $border-d;
@@ -57,14 +57,14 @@
 @mixin link-variant($color, $color-h, $color-d) {
   color: $color;
 
-  &.btn--is-hovered:not(.btn--disabled),
-  &.btn--is-active:not(.btn--disabled),
-  &:hover:not(.btn--disabled),
-  &:active:not(.btn--disabled) {
+  &.btn--is-hovered:not(:disabled),
+  &.btn--is-active:not(:disabled),
+  &:hover:not(:disabled),
+  &:active:not(:disabled) {
     color: $color-h;
   }
 
-  &.btn--disabled {
+  &:disabled {
     color: $color-d;
   }
 }
@@ -253,10 +253,10 @@
 .btn__text {
   text-align: start;
 
-  .btn--link.btn--is-hovered:not(.btn--disabled) &,
-  .btn--link.btn--is-active:not(.btn--disabled) &,
-  .btn--link:hover:not(.btn--disabled) &,
-  .btn--link:active:not(.btn--disabled) & {
+  .btn--link.btn--is-hovered:not(:disabled) &,
+  .btn--link.btn--is-active:not(:disabled) &,
+  .btn--link:hover:not(:disabled) &,
+  .btn--link:active:not(:disabled) & {
     text-decoration: underline;
   }
 }
@@ -303,4 +303,8 @@
 
 .btn--icon-only .btn__text {
   @include visually-hidden;
+}
+
+.btn--no-style {
+  @include button-reset;
 }

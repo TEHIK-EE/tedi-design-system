@@ -56,12 +56,13 @@ export const Modal = (props: ModalProps): JSX.Element | null => {
               <Card {...cardProps}>
                 <ModalCloser>
                   <Button
-                    text={getLabel('modal.close')}
                     icon="close"
                     classNameIcon={styles['close-button-icon']}
-                    type="link"
+                    visualType="link"
                     className={styles['close-button']}
-                  />
+                  >
+                    {getLabel('modal.close')}
+                  </Button>
                 </ModalCloser>
                 {children}
               </Card>

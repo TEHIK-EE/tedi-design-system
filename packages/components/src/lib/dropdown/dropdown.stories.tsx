@@ -8,13 +8,13 @@ export default {
 } as Meta;
 
 const items: DropdownItem[] = [
-  { label: 'EST', onClick: () => null, isActive: true, url: '#' },
-  { label: 'RUS', onClick: () => null, url: '#' },
-  { label: 'ENG', onClick: () => null, url: '#' },
+  { children: 'EST', onClick: () => null, isActive: true, href: '#' },
+  { children: 'RUS', onClick: () => null, href: '#' },
+  { children: 'ENG', onClick: () => null, href: '#' },
 ];
 
 const Template: Story<DropdownProps> = (args) => {
-  return <Dropdown button={{ text: 'EST', type: 'link', iconRight: 'expand_more' }} items={items} />;
+  return <Dropdown button={{ children: 'EST', visualType: 'link', iconRight: 'expand_more' }} items={items} />;
 };
 
 export const Primary = Template.bind({});

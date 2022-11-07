@@ -13,42 +13,19 @@ export default {
 const Template: Story<HeaderProps> = (args) => <Header {...args} />;
 
 const langOptions: DropdownItem[] = [
-  {
-    label: 'EST',
-    isActive: false,
-    onClick: () => console.log('Keel valitud'),
-    url: '#',
-  },
-  {
-    label: 'RUS',
-    isActive: true,
-    onClick: () => console.log('Keel valitud'),
-    url: '#',
-  },
-  {
-    label: 'ENG',
-    isActive: false,
-    onClick: () => console.log('Keel valitud'),
-    url: '#',
-  },
+  { children: 'EST', isActive: false, onClick: () => console.log('Keel valitud'), href: '#' },
+  { children: 'RUS', isActive: true, onClick: () => console.log('Keel valitud'), href: '#' },
+  { children: 'ENG', isActive: false, onClick: () => console.log('Keel valitud'), href: '#' },
 ];
 
 export const Default = Template.bind({});
 Default.args = {
   languageSelection: {
     label: 'Keel:',
-    dropdown: {
-      button: { text: 'EST' },
-      items: langOptions,
-    },
+    dropdown: { button: { children: 'EST' }, items: langOptions },
   },
   skipLinks: {
-    links: [
-      {
-        children: 'Liigu edasi põhisisu juurde',
-        url: '#main-content',
-      },
-    ],
+    links: [{ children: 'Liigu edasi põhisisu juurde', href: '#main-content' }],
   },
 };
 

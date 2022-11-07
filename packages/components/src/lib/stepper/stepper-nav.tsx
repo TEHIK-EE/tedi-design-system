@@ -58,6 +58,7 @@ export const StepperNav = (props: StepperNavProps): JSX.Element => {
     return (
       <li className={StepperNavItemBEM}>
         <button
+          type="button"
           role="tab"
           aria-selected={isCurrent}
           aria-controls={id}

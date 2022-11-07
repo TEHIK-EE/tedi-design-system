@@ -97,19 +97,29 @@ export const Controlled = () => {
     <>
       <Row>
         <Col width="auto">
-          <Button text="clear" type="link" onClick={() => setDate(null)} />
+          <Button visualType="link" onClick={() => setDate(null)}>
+            Clear
+          </Button>
         </Col>
         <Col width="auto">
-          <Button text="today" type="link" onClick={() => setDate(dayjs())} />
+          <Button visualType="link" onClick={() => setDate(dayjs())}>
+            today
+          </Button>
         </Col>
         <Col width="auto">
-          <Button text="tomorrow" type="link" onClick={() => setDate(dayjs().add(numberOne, 'day'))} />
+          <Button visualType="link" onClick={() => setDate(dayjs().add(numberOne, 'day'))}>
+            tomorrow
+          </Button>
         </Col>
         <Col width="auto">
-          <Button text="next month" type="link" onClick={() => setDate(dayjs().add(numberOne, 'month'))} />
+          <Button visualType="link" onClick={() => setDate(dayjs().add(numberOne, 'month'))}>
+            next month
+          </Button>
         </Col>
         <Col width="auto">
-          <Button text="minus year" type="link" onClick={() => setDate(dayjs().subtract(numberOne, 'year'))} />
+          <Button visualType="link" onClick={() => setDate(dayjs().subtract(numberOne, 'year'))}>
+            minus year
+          </Button>
         </Col>
       </Row>
       <DatePicker label="Vali kuupäev" id="datepicker-2" value={date} onChange={setDate} />

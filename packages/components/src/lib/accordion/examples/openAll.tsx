@@ -39,7 +39,9 @@ export const OpenAll = () => {
     <VerticalSpacing size={1}>
       <Row justifyContent="end">
         <Col width="auto">
-          <Button text={allOpen ? 'Sulge kõik' : 'Ava kõik'} type="secondary" onClick={onClick} />
+          <Button visualType="secondary" onClick={onClick}>
+            {allOpen ? 'Sulge kõik' : 'Ava kõik'}
+          </Button>
         </Col>
       </Row>
 

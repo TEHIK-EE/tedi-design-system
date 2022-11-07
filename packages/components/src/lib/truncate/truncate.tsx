@@ -44,7 +44,7 @@ export const Truncate = (props: TruncateProps): JSX.Element => {
     isOpen ? onOpen?.() : onClose?.();
   }, [firstRender, isOpen, onClose, onOpen]);
 
-  const handleOnClick = (event: React.MouseEvent<HTMLButtonElement> | React.MouseEvent<HTMLAnchorElement>): void => {
+  const handleOnClick = (event: React.MouseEvent<HTMLButtonElement>): void => {
     setIsOpen((isOpenLast) => !isOpenLast);
     button?.onClick?.(event);
   };
@@ -53,12 +53,9 @@ export const Truncate = (props: TruncateProps): JSX.Element => {
     <span>
       {getText()}{' '}
       {children.length >= maxLength && (
-        <Button
-          text={isOpen ? getLabel('truncate.see-less') : getLabel('truncate.see-more')}
-          type="link"
-          {...button}
-          onClick={handleOnClick}
-        />
+        <Button visualType="link" {...button} onClick={handleOnClick}>
+          {isOpen ? getLabel('truncate.see-less') : getLabel('truncate.see-more')}
+        </Button>
       )}
     </span>
   );

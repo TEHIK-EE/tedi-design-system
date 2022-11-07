@@ -115,10 +115,14 @@ const CustomMessageListFooter = (props: MenuListProps<ISelectOption, boolean>): 
     <VerticalSpacing className="text-center" size={0.75}>
       <Row justifyContent="center" gutterX={2}>
         <Col width="auto">
-          <Button text="Isik teadmata" size="small" type="secondary" />
+          <Button size="small" visualType="secondary">
+            Isik teadmata
+          </Button>
         </Col>
         <Col width="auto">
-          <Button text="Puudub Eesti isikukood" size="small" type="secondary" />
+          <Button size="small" visualType="secondary">
+            Puudub Eesti isikukood
+          </Button>
         </Col>
       </Row>
       <p className="text-small text-secondary">Rahvastikuregistri andmete päringuks sisesta isikukood täismahus.</p>

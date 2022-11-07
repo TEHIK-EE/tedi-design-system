@@ -84,7 +84,7 @@ OuterControlled.args = {
 export const TriggerButton = Template.bind({});
 TriggerButton.args = {
   ...Default.args,
-  trigger: <Button text="Hover me" />,
+  trigger: <Button>Hover me</Button>,
 };
 
 export const TriggerCardCustomContent = Template.bind({});
@@ -104,7 +104,7 @@ TriggerCardCustomContent.args = {
       </Col>
       <Col width="auto">
         <Heading>You can add any content to Tooltip!</Heading>
-        <Anchor url="https://www.w3schools.com" target="_blank">
+        <Anchor href="https://www.w3schools.com" target="_blank">
           Even links!
         </Anchor>
       </Col>

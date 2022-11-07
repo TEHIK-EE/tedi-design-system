@@ -24,7 +24,10 @@ export const HeaderDropdown = (props: HeaderDropdownProps) => {
     <div className={cn(styles['header-dropdown'], className)}>
       {label && <p className={`text-small text-secondary ${styles['header-dropdown__label']}`}>{label}</p>}
       {dropdown && (
-        <Dropdown button={{ type: 'link', iconRight: 'expand_more', ...dropdown.button }} items={dropdown.items} />
+        <Dropdown
+          button={{ visualType: 'link', iconRight: 'expand_more', ...dropdown.button }}
+          items={dropdown.items}
+        />
       )}
     </div>
   );

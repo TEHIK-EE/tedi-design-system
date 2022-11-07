@@ -1,26 +1,85 @@
 import cn from 'classnames';
-import { forwardRef } from 'react';
+import React from 'react';
 
-import ButtonContent, { ButtonContentButtonProps } from '../button-content/button-content';
+import { PolymorphicRef } from '../../helpers/polymorphic/types';
+import ButtonContent, { ButtonContentProps } from '../button-content/button-content';
 import styles from './button.module.scss';
 
-export type ButtonTypes = 'primary' | 'secondary' | 'link';
-
-export interface ButtonProps extends Omit<ButtonContentButtonProps, 'element'> {
+export interface IInternalButtonProps {
   /**
    * If button should take all the space it has
    */
   fullWidth?: boolean;
 }
 
-export const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref): JSX.Element => {
-  const { fullWidth, className, ...rest } = props;
+type AllowedTags = 'button';
 
-  const ButtonBEM = cn(className, { [styles['btn--full-width']]: fullWidth });
+export type ButtonProps<C extends React.ElementType = 'button'> = ButtonContentProps<
+  C,
+  IInternalButtonProps,
+  AllowedTags
+>;
 
-  return <ButtonContent {...rest} element="button" className={ButtonBEM} />;
-});
+export type ButtonComponent = <C extends React.ElementType = 'button'>(
+  props: ButtonProps<C>
+) => React.ReactElement | null;
 
-Button.displayName = 'Button';
+const InternalButton = React.forwardRef(
+  <C extends React.ElementType = 'button'>(
+    {
+      children,
+      as,
+      className,
+      classNameIcon,
+      visualType,
+      color,
+      size,
+      icon,
+      iconLeft,
+      iconRight,
+      underline,
+      isHovered,
+      isActive,
+      noStyle,
+      fullWidth,
+      ...rest
+    }: ButtonProps<C>,
+    ref?: PolymorphicRef<C>
+  ) => {
+    const ComponentAs = as || 'button';
+
+    const BEM = cn(className, { [styles['btn--full-width']]: fullWidth });
+
+    return (
+      <ButtonContent
+        {...rest}
+        type={rest.type || 'button'}
+        ref={ref}
+        as={ComponentAs}
+        className={BEM}
+        classNameIcon={classNameIcon}
+        visualType={visualType}
+        color={color}
+        size={size}
+        icon={icon}
+        iconLeft={iconLeft}
+        iconRight={iconRight}
+        underline={underline}
+        isHovered={isHovered}
+        isActive={isActive}
+        noStyle={noStyle}
+      >
+        {children}
+      </ButtonContent>
+    );
+  }
+);
+
+InternalButton.displayName = 'Button';
+
+/**
+ * Renders a `<button>` tag and has all of its props plus our own defined props
+ */
+export const Button: ButtonComponent = InternalButton;
 
 export default Button;

@@ -21,29 +21,29 @@ export default {
 } as Meta;
 
 const roleOptions: DropdownItem[] = [
-  { label: 'Roll1', isActive: false, onClick: () => console.log('Roll valitud'), url: '#' },
-  { label: 'Roll2', isActive: true, onClick: () => console.log('Roll valitud'), url: '#' },
-  { label: 'Roll3', isActive: false, onClick: () => console.log('Roll valitud'), url: '#' },
+  { children: 'Roll1', isActive: false, onClick: () => console.log('Roll valitud'), href: '#' },
+  { children: 'Roll2', isActive: true, onClick: () => console.log('Roll valitud'), href: '#' },
+  { children: 'Roll3', isActive: false, onClick: () => console.log('Roll valitud'), href: '#' },
 ];
 
 const langOptions: DropdownItem[] = [
-  { label: 'EST', isActive: false, onClick: () => console.log('Keel valitud'), url: '#' },
-  { label: 'RUS', isActive: true, onClick: () => console.log('Keel valitud'), url: '#' },
-  { label: 'ENG', isActive: false, onClick: () => console.log('Keel valitud'), url: '#' },
+  { children: 'EST', isActive: false, onClick: () => console.log('Keel valitud'), href: '#' },
+  { children: 'RUS', isActive: true, onClick: () => console.log('Keel valitud'), href: '#' },
+  { children: 'ENG', isActive: false, onClick: () => console.log('Keel valitud'), href: '#' },
 ];
 
 const navItems: SideNavItem[] = [
-  { href: '#', title: 'Avaleht', icon: 'home' },
-  { href: '#', title: 'Kliendid', icon: 'account_box' },
-  { href: '/', title: 'Lapsed', icon: 'child_care', current: true },
-  { href: '#', title: 'Menetlused', icon: 'assignment' },
-  { href: '#', title: 'Menetlused', icon: 'assignment' },
-  { href: '#', title: 'Menetlused', icon: 'assignment' },
-  { href: '#', title: 'Menetlused', icon: 'assignment' },
-  { href: '#', title: 'Menetlused', icon: 'assignment' },
-  { href: '#', title: 'Menetlused', icon: 'assignment' },
-  { href: '#', title: 'Menetlused', icon: 'assignment' },
-  { href: '#', title: 'Menetlused', icon: 'assignment' },
+  { href: '#', children: 'Avaleht', icon: 'home' },
+  { href: '#', children: 'Kliendid', icon: 'account_box' },
+  { href: '/', children: 'Lapsed', icon: 'child_care', isActive: true },
+  { href: '#', children: 'Menetlused', icon: 'assignment' },
+  { href: '#', children: 'Menetlused', icon: 'assignment' },
+  { href: '#', children: 'Menetlused', icon: 'assignment' },
+  { href: '#', children: 'Menetlused', icon: 'assignment' },
+  { href: '#', children: 'Menetlused', icon: 'assignment' },
+  { href: '#', children: 'Menetlused', icon: 'assignment' },
+  { href: '#', children: 'Menetlused', icon: 'assignment' },
+  { href: '#', children: 'Menetlused', icon: 'assignment' },
 ];
 
 const footerProps: FooterProps = {
@@ -52,27 +52,27 @@ const footerProps: FooterProps = {
       heading: 'Category',
       icon: 'call_made',
       links: [
-        { text: 'Text link', url: '#' },
-        { text: 'Text link', url: '#' },
-        { text: 'Text link', url: '#' },
+        { children: 'Text link', href: '#' },
+        { children: 'Text link', href: '#' },
+        { children: 'Text link', href: '#' },
       ],
     },
     {
       heading: 'Category',
       icon: 'call_made',
       links: [
-        { text: 'Text link', url: '#' },
-        { text: 'Text link', url: '#' },
-        { text: 'Text link', url: '#' },
+        { children: 'Text link', href: '#' },
+        { children: 'Text link', href: '#' },
+        { children: 'Text link', href: '#' },
       ],
     },
     {
       heading: 'Category',
       icon: 'call_made',
       links: [
-        { text: 'Text link', url: '#' },
-        { text: 'Text link', url: '#' },
-        { text: 'Text link', url: '#' },
+        { children: 'Text link', href: '#' },
+        { children: 'Text link', href: '#' },
+        { children: 'Text link', href: '#' },
       ],
     },
   ],
@@ -96,14 +96,14 @@ export const Default = () => {
         onLogoutClick: () => console.log('Logi välja'),
         languageSelection: {
           label: 'Keel:',
-          dropdown: { button: { text: 'EST' }, items: langOptions },
+          dropdown: { button: { children: 'EST' }, items: langOptions },
         },
         roleSelection: {
           label: 'Minu Roll:',
-          dropdown: { button: { text: roleOptions[1].label }, items: roleOptions },
+          dropdown: { button: { children: roleOptions[1].children }, items: roleOptions },
         },
         skipLinks: {
-          links: [{ children: 'Liigu edasi põhisisu juurde', url: '#main-content' }],
+          links: [{ children: 'Liigu edasi põhisisu juurde', href: '#main-content' }],
         },
       }}
       sideNav={{
@@ -112,9 +112,9 @@ export const Default = () => {
       }}
       breadcrumbsProps={{
         crumbs: [
-          { path: '#', label: 'Home' },
-          { path: '/volunteers', label: 'Volunteers' },
-          { path: '/volunteers/20', label: '20', isLast: true },
+          { href: '#', children: 'Home' },
+          { href: '/volunteers', children: 'Volunteers' },
+          { href: '/volunteers/20', children: '20', isLast: true },
         ],
       }}
       footer={{ ...footerProps, logo: footerLogo }}
@@ -127,7 +127,7 @@ export const Default = () => {
       <Section>
         <VerticalSpacing>
           <h1>Page title & content</h1>
-          <Button text="Focusable item" />
+          <Button>Focusable item</Button>
         </VerticalSpacing>
       </Section>
     </Layout>

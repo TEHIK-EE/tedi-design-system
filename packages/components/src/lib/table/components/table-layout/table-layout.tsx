@@ -81,7 +81,6 @@ export function TableLayout<TData extends DefaultTData<TData>>(): JSX.Element | 
             </React.Fragment>
           ))
         )}
-        {}
       </tbody>
     </table>
   );

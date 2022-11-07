@@ -10,8 +10,6 @@ export default {
 } as Meta;
 
 const Template: Story<ButtonProps> = (args) => {
-  const { text = 'Button' } = args;
-
   const getRow = (name: string, rowProps?: Partial<ButtonProps>): JSX.Element => (
     <Row gutterX={5} alignItems="center">
       <Col width={1} className={args.color === 'inverted' ? 'text-white' : undefined}>
@@ -20,26 +18,38 @@ const Template: Story<ButtonProps> = (args) => {
       <Col width="auto">
         <Row>
           <Col width="auto">
-            <Button {...args} {...rowProps} text={text} />
+            <Button {...args} {...rowProps}>
+              Button
+            </Button>
           </Col>
           <Col width="auto">
-            <Button {...args} {...rowProps} text={text} iconRight="north_east" />
+            <Button {...args} {...rowProps} iconRight="north_east">
+              Button
+            </Button>
           </Col>
           <Col width="auto">
-            <Button {...args} {...rowProps} text={text} icon="north_east" />
+            <Button {...args} {...rowProps} icon="north_east">
+              Button
+            </Button>
           </Col>
         </Row>
       </Col>
       <Col width="auto">
         <Row>
           <Col width="auto">
-            <Button {...args} {...rowProps} text={text} size="small" />
+            <Button {...args} {...rowProps} size="small">
+              Button
+            </Button>
           </Col>
           <Col width="auto">
-            <Button {...args} {...rowProps} text={text} iconRight="north_east" size="small" />
+            <Button {...args} {...rowProps} iconRight="north_east" size="small">
+              Button
+            </Button>
           </Col>
           <Col width="auto">
-            <Button {...args} {...rowProps} text={text} icon="north_east" size="small" />
+            <Button {...args} {...rowProps} icon="north_east" size="small">
+              Button
+            </Button>
           </Col>
         </Row>
       </Col>
@@ -59,7 +69,7 @@ const Template: Story<ButtonProps> = (args) => {
 export const Default = Template.bind({});
 export const Secondary = Template.bind({});
 Secondary.args = {
-  type: 'secondary',
+  visualType: 'secondary',
 };
 
 export const Error = Template.bind({});
@@ -69,7 +79,7 @@ Error.args = {
 };
 ErrorSecondary.args = {
   ...Error.args,
-  type: 'secondary',
+  visualType: 'secondary',
 };
 
 export const Success = Template.bind({});
@@ -79,7 +89,7 @@ Success.args = {
 };
 SuccessSecondary.args = {
   ...Success.args,
-  type: 'secondary',
+  visualType: 'secondary',
 };
 
 export const Inverted = Template.bind({});
@@ -89,7 +99,7 @@ Inverted.args = {
 };
 InvertedSecondary.args = {
   ...Inverted.args,
-  type: 'secondary',
+  visualType: 'secondary',
 };
 
 Inverted.parameters = {
@@ -101,8 +111,7 @@ InvertedSecondary.parameters = {
 
 export const Link = Template.bind({});
 Link.args = {
-  type: 'link',
-  text: 'Text link',
+  visualType: 'link',
 };
 
 export const InvertedLink = Template.bind({});
@@ -113,3 +122,12 @@ InvertedLink.args = {
 InvertedLink.parameters = {
   backgrounds: { default: 'black' },
 };
+
+const NoStyleTemplate: Story<ButtonProps> = (args) => {
+  return (
+    <Button {...args} noStyle={true}>
+      Button without styles
+    </Button>
+  );
+};
+export const NoStyle = NoStyleTemplate.bind({});

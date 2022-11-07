@@ -46,6 +46,7 @@ export const AccordionItemHeader = (props: AccordionItemHeaderProps): JSX.Elemen
 
   return (
     <div
+      role="button"
       className={AccordionItemHeaderBEM}
       onClick={onClick}
       onMouseEnter={() => setHovered(true)}
@@ -60,7 +61,7 @@ export const AccordionItemHeader = (props: AccordionItemHeaderProps): JSX.Elemen
               closeText={closeText}
               isActive={isHovered}
               isOpen={isOpen(id)}
-              type="link"
+              visualType="link"
             />
           </Col>
         </Row>

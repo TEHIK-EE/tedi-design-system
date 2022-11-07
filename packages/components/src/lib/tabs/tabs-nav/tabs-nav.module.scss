@@ -13,7 +13,7 @@
   border-top-right-radius: 4px;
 }
 
-.tabs__nav-link {
+a.tabs__nav-link:not(:disabled) {
   display: inline-block;
   padding: 1rem;
   color: var(--color-text);
@@ -23,7 +23,7 @@
     color: var(--color-primary);
   }
 
-  &:hover {
+  &:hover:not(:disabled) span span {
     text-decoration: none;
   }
 

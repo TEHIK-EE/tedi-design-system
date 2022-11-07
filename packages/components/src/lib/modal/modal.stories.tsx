@@ -61,7 +61,7 @@ const Template: Story<TemplateProps> = (args: TemplateProps): JSX.Element => {
   return (
     <ModalProvider {...modalProvider}>
       <ModalTrigger>
-        <Button text="Ava Modal" />
+        <Button>Ava Modal</Button>
       </ModalTrigger>
       <Modal {...modal} aria-labelledby="label">
         {renderHeader && (
@@ -74,7 +74,7 @@ const Template: Story<TemplateProps> = (args: TemplateProps): JSX.Element => {
           <p>{content}</p>
           {renderModalCloser && (
             <ModalCloser>
-              <Button text="Sulge" onClick={() => console.log('Im called')} />
+              <Button onClick={() => console.log('Im called')}>Sulge</Button>
             </ModalCloser>
           )}
         </CardContent>
@@ -149,18 +149,18 @@ export const ControlledOutSide = () => {
       <Col width="auto">
         <ModalProvider open={isOpen} onToggle={setIsOpen}>
           <ModalTrigger>
-            <Button text="Open modal from trigger" />
+            <Button>Open modal from trigger</Button>
           </ModalTrigger>
           <Modal aria-labelledby="controlled-outside">
             <CardContent>
               <p id="controlled-outside">Mind saab kontrollida väljaspoolt komponenti!</p>
             </CardContent>
-            <Button text="close modal without ModalCloser" onClick={() => setIsOpen(false)} />
+            <Button onClick={() => setIsOpen(false)}>close modal without ModalCloser</Button>
           </Modal>
         </ModalProvider>
       </Col>
       <Col width="auto">
-        <Button text="Open modal from outside modal" onClick={() => setIsOpen(true)} />
+        <Button onClick={() => setIsOpen(true)}>Open modal from outside modal</Button>
       </Col>
     </Row>
   );

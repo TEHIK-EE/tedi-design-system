@@ -4,34 +4,39 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import { useIsMounted } from '../../helpers';
+import { AllowedHTMLTags } from '../../helpers/polymorphic/types';
 import Anchor, { AnchorProps } from '../anchor/anchor';
 import { Button, ButtonProps } from '../button/button';
 import styles from './dropdown.module.scss';
 
-export interface DropdownItem extends Omit<AnchorProps, 'text' | 'children' | 'notVisual'> {
-  /**
-   * Label of item
-   */
-  label: string;
-  /**
-   * If the item is active
-   */
-  isActive?: boolean;
-}
+export type DropdownItem<C extends React.ElementType = 'a'> = AnchorProps<C>;
 
-export interface DropdownProps {
+type ConditionalTypes<C extends React.ElementType = 'a'> =
+  | {
+      /**
+       * Render all links as this component<br />
+       * See [Anchor/CustomComponent](/?path=/docs/components-anchor--custom-component) for an example
+       */
+      linkAs: AllowedHTMLTags<C, 'a' | React.ComponentType<any>>;
+      /**
+       * dropdown items
+       */
+      items: DropdownItem<C>[];
+    }
+  | {
+      linkAs?: never;
+      items: DropdownItem<any>[];
+    };
+
+export type DropdownProps<C extends React.ElementType = 'a'> = ConditionalTypes<C> & {
   /**
    * Dropdown trigger props
    */
   button: ButtonProps;
-  /**
-   * Dropdown items
-   */
-  items: DropdownItem[];
-}
+};
 
-export const Dropdown = (props: DropdownProps) => {
-  const { button, items } = props;
+export const Dropdown = <C extends React.ElementType = 'a'>(props: DropdownProps<C>) => {
+  const { button, items, linkAs } = props;
 
   const [isOpen, setIsOpen] = React.useState(false);
   const isMounted = useIsMounted();
@@ -105,18 +110,20 @@ export const Dropdown = (props: DropdownProps) => {
         className={styles['dropdown-wrapper']}
       >
         <ul className={styles['dropdown']} role="listbox">
-          {items.map((item, key) => renderDropdownItem(item, key))}
+          {(items as DropdownItem<C>[]).map((item, key) => renderDropdownItem(item, key))}
         </ul>
       </div>
     );
   };
 
-  const DropdownItemBEM = (item: DropdownItem) =>
+  const DropdownItemBEM = (item: DropdownItem<C>) =>
     cn(styles['dropdown__item'], { [styles['dropdown__item--active']]: item.isActive });
 
-  const renderDropdownItem = (item: DropdownItem, key: number): JSX.Element => (
+  const renderDropdownItem = (item: DropdownItem<C>, key: number): JSX.Element => (
     <li className={DropdownItemBEM(item)} key={key} role="option" aria-selected={item.isActive}>
-      <Anchor className={styles['dropdown__link']} {...item} text={item.label} />
+      <Anchor as={linkAs} className={styles['dropdown__link']} {...item}>
+        {item.children}
+      </Anchor>
     </li>
   );
 

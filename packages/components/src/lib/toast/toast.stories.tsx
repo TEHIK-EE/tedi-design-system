@@ -37,28 +37,30 @@ const Template: Story<NotificationProps> = (args) => (
     <Row>
       <Col width="auto">
         <Button
-          text="Success"
           color="success"
           onClick={() => sendNotification({ type: 'success', title: 'Teade', children: 'Miskit õnnestus!', ...args })}
-        />
+        >
+          Success
+        </Button>
       </Col>
       <Col width="auto">
         <Button
-          text="Warning"
           color="error"
           onClick={() => sendNotification({ type: 'warning', title: 'Teade', children: 'Hoiatus!', ...args })}
-        />
+        >
+          Warning
+        </Button>
       </Col>
       <Col width="auto">
         <Button
-          text="Error"
           color="error"
           onClick={() => sendNotification({ type: 'error', title: 'Teade', children: 'Miskit läks valesti!', ...args })}
-        />
+        >
+          Error
+        </Button>
       </Col>
       <Col width="auto">
         <Button
-          text="Info"
           onClick={() =>
             sendNotification({
               type: 'info',
@@ -67,7 +69,9 @@ const Template: Story<NotificationProps> = (args) => (
               ...args,
             })
           }
-        />
+        >
+          Info
+        </Button>
       </Col>
     </Row>
   </>

@@ -1,22 +1,40 @@
 import cn from 'classnames';
 
+import { AllowedHTMLTags } from '../../../helpers/polymorphic/types';
 import { Anchor, AnchorProps } from '../../anchor/anchor';
 import { Col, Row } from '../../grid';
 import Icon from '../../icon/icon';
 import { VerticalSpacing } from '../../vertical-spacing';
 import styles from './footer.module.scss';
 
-export interface FooterCategory {
-  heading: string;
-  links: AnchorProps[];
-  icon?: string;
-}
-
-export interface FooterProps {
+export type FooterCategory<C extends React.ElementType = 'a'> = {
   /**
-   * List of categories, maximum amount of categories is 3
+   * Category links
    */
-  categories: FooterCategory[];
+  links: AnchorProps<C>[];
+  heading: string;
+  icon?: string;
+  linkAs?: C;
+};
+
+type ConditionalTypesFooter<C extends React.ElementType = 'a'> =
+  | {
+      /**
+       * Render all links as this component<br />
+       * See [Anchor/CustomComponent](/?path=/docs/components-anchor--custom-component) for an example
+       */
+      linkAs: AllowedHTMLTags<C, 'a' | React.ComponentType<any>>;
+      /**
+       * Category links
+       */
+      categories: FooterCategory<C>[];
+    }
+  | {
+      linkAs?: never;
+      categories: FooterCategory<any>[];
+    };
+
+export type FooterProps<C extends React.ElementType = 'a'> = ConditionalTypesFooter<C> & {
   /**
    * Src and styles of logo to show
    */
@@ -25,22 +43,22 @@ export interface FooterProps {
     alt: string;
     style?: React.CSSProperties;
   };
-}
+};
 
-export const Footer = (props: FooterProps): JSX.Element => {
-  const { logo, categories } = props;
+export const Footer = <C extends React.ElementType = 'a'>(props: FooterProps<C>): JSX.Element => {
+  const { logo, categories, linkAs } = props;
 
   return (
     <footer className={styles['footer']}>
       {categories.map((c, key) => (
-        <FooterCategory {...c} key={key} />
+        <FooterCategory linkAs={linkAs} {...c} key={key} />
       ))}
       {logo && <img className={styles['footer__logo']} src={logo.src} alt={logo.alt} style={logo.style} />}
     </footer>
   );
 };
 
-const FooterCategory = (props: FooterCategory): JSX.Element => {
+const FooterCategory = <C extends React.ElementType = 'a'>(props: FooterCategory<C>): JSX.Element => {
   const { heading, links, icon } = props;
   return (
     <Row>

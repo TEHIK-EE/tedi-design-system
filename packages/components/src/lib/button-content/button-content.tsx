@@ -2,127 +2,121 @@ import cn from 'classnames';
 import { forwardRef } from 'react';
 
 import { Icon } from '../..';
+import { AllowedHTMLTags, PolymorphicComponentPropWithRef, PolymorphicRef } from '../../helpers/polymorphic/types';
 import styles from './button-content.module.scss';
 
 export type ButtonTypes = 'primary' | 'secondary' | 'link';
 
-export interface ButtonContentSharedProps {
-  /**
-   * Button text
-   */
-  text: string;
-  /**
-   * Additional custom class name.
-   */
-  className?: string;
-  /**
-   * Additional custom class name for Icon.
-   */
-  classNameIcon?: string;
-  /**
-   * ID attribute.
-   */
-  id?: string;
-  /**
-   * Button visual type
-   */
-  type?: ButtonTypes;
-  /**
-   * Color schema for button. PS text-color works only with link type links.
-   */
-  color?: 'default' | 'error' | 'success' | 'inverted' | 'text-color';
-  /**
-   * Button size
-   */
-  size?: 'small';
-  /**
-   * onClick handler.
-   */
-  onClick?: (event: React.MouseEvent<HTMLButtonElement> | React.MouseEvent<HTMLAnchorElement>) => void;
-  /**
-   * onTouchStart handler.
-   */
-  onTouchStart?: (event: React.TouchEvent<HTMLButtonElement> | React.TouchEvent<HTMLAnchorElement>) => void;
-  /**
-   * Name of the icon when button only has an icon in it.
-   */
-  icon?: string;
-  /**
-   * Name of the icon we want to show on the left.
-   */
-  iconLeft?: string;
-  /**
-   * Name of the icon we want to show on the right.
-   */
-  iconRight?: string;
-  /**
-   * Underline the button text
-   */
-  underline?: boolean;
-  /**
-   * If button is active and should keep its hover state.
-   */
-  isHovered?: boolean;
-  /**
-   * If button is active and should keep it's active state.
-   */
-  isActive?: boolean;
-  /**
-   * If button is disabled
-   */
-  disabled?: boolean;
-}
+export type ButtonContentProps<
+  C extends React.ElementType,
+  P extends Record<string, any>,
+  A
+> = PolymorphicComponentPropWithRef<
+  AllowedHTMLTags<C, A>,
+  {
+    /**
+     * Button children
+     */
+    children: React.ReactNode;
+    /**
+     * Additional custom class name.
+     */
+    className?: string;
+    /**
+     * Additional custom class name for Icon.
+     */
+    classNameIcon?: string;
+    /**
+     * Button visual type
+     */
+    visualType?: ButtonTypes;
+    /**
+     * Color schema for button. PS text-color works only with link type links.
+     */
+    color?: 'default' | 'error' | 'success' | 'inverted' | 'text-color';
+    /**
+     * Button size
+     */
+    size?: 'small';
+    /**
+     * Name of the icon when button only has an icon in it.
+     */
+    icon?: string;
+    /**
+     * Name of the icon we want to show on the left.
+     */
+    iconLeft?: string;
+    /**
+     * Name of the icon we want to show on the right.
+     */
+    iconRight?: string;
+    /**
+     * Underline the button text
+     */
+    underline?: boolean;
+    /**
+     * If button is active and should keep its hover state.
+     */
+    isHovered?: boolean;
+    /**
+     * If button is active and should keep it's active state.
+     */
+    isActive?: boolean;
+    /**
+     * Skip applying button/link styles
+     * Useful when you just want to use Button or Anchor logic without the styles
+     * In this case icon, iconLeft and iconRight are ignored
+     */
+    noStyle?: boolean;
+    /**
+     *
+     */
+    renderWrapperElement?: unknown;
+  } & P
+>;
 
-export interface ButtonContentButtonProps extends ButtonContentSharedProps {
-  element: 'button';
-  attributes?: React.ButtonHTMLAttributes<HTMLButtonElement>;
-  children?: undefined;
-}
+export type ButtonContentComponent = <C extends React.ElementType, P extends Record<string, any>, A>(
+  props: ButtonContentProps<C, P, A>
+) => React.ReactElement | null;
 
-export interface ButtonContentAnchorProps extends ButtonContentSharedProps {
-  element: 'a';
-  href?: string; // Passed by next/link
-  attributes?: React.AnchorHTMLAttributes<HTMLAnchorElement>;
-  children?: React.ReactNode; // only allowed when not visual link is used
-}
-
-export type ButtonContentProps = ButtonContentButtonProps | ButtonContentAnchorProps;
-
-export const ButtonContent = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonContentProps>(
-  (props, ref): JSX.Element => {
-    const {
+const InternalButtonContent = forwardRef(
+  <C extends React.ElementType, P extends Record<string, any>, A>(
+    {
+      children,
+      as,
       text,
-      icon,
       className,
       classNameIcon,
-      id,
-      type = 'primary',
-      size,
+      visualType = 'primary',
       color = 'default',
-      onClick,
-      onTouchStart,
+      size,
+      icon,
       iconLeft,
       iconRight,
       underline = false,
-      isActive,
       isHovered,
-      disabled,
-      element,
-      children,
-    } = props;
+      isActive,
+      noStyle,
+      renderWrapperElement,
+      ...rest
+    }: ButtonContentProps<C, P, A>,
+    ref?: PolymorphicRef<C>
+  ) => {
+    const Component = as || 'button';
 
-    const ButtonContentBEM = cn(
-      styles['btn'],
-      styles[`btn--${type}`],
-      styles[`btn--${color}`],
-      className,
-      { [styles[`btn--${size}`]]: size },
-      { [styles['btn--underline']]: underline },
-      { [styles['btn--is-hovered']]: isHovered },
-      { [styles['btn--is-active']]: isActive },
-      { [styles['btn--icon-only']]: icon },
-      { [styles['btn--disabled']]: disabled && element === 'button' }
-    );
+    const BEM = !noStyle
+      ? cn(
+          styles['btn'],
+          styles[`btn--${visualType}`],
+          styles[`btn--${color}`],
+          className,
+          { [styles[`btn--${size}`]]: size },
+          { [styles['btn--underline']]: underline },
+          { [styles['btn--is-hovered']]: isHovered },
+          { [styles['btn--is-active']]: isActive },
+          { [styles['btn--icon-only']]: icon }
+        )
+      : cn(styles['btn--no-style'], className);
 
     const getIcon = (location: string, name: string): JSX.Element => (
       <Icon
@@ -136,56 +130,24 @@ export const ButtonContent = forwardRef<HTMLButtonElement | HTMLAnchorElement, B
       <span className={styles['btn__inner']}>
         {icon && getIcon('centre', icon)}
         {iconLeft && getIcon('left', iconLeft)}
-        <span className={styles['btn__text']}>{text}</span>
+        <span className={styles['btn__text']}>{children}</span>
         {iconRight && getIcon('right', iconRight)}
       </span>
     );
 
-    const renderNotVisualContent = (): JSX.Element => (
-      <>
-        <span className="visually-hidden">{text}</span>
-        {children}
-      </>
-    );
-
-    const isButton = (props: ButtonContentProps): props is ButtonContentButtonProps => {
-      return props.element === 'button';
-    };
-
-    if (isButton(props)) {
-      return (
-        <button
-          {...props.attributes}
-          id={id}
-          className={ButtonContentBEM}
-          ref={ref as any}
-          onClick={onClick}
-          onTouchStart={onTouchStart}
-          // button specific attributes
-          type={(props.attributes && props.attributes.type) || 'button'}
-          disabled={disabled}
-        >
-          {renderContent()}
-        </button>
-      );
-    }
-
     return (
-      <a
-        {...props.attributes}
-        id={id}
-        href={props.href}
-        className={ButtonContentBEM}
-        ref={ref as any}
-        onClick={onClick}
-        onTouchStart={onTouchStart}
-      >
-        {children ? renderNotVisualContent() : renderContent()}
-      </a>
+      <Component {...rest} ref={ref} className={BEM}>
+        {!noStyle ? renderContent() : children}
+      </Component>
     );
   }
 );
 
-ButtonContent.displayName = 'ButtonContent';
+InternalButtonContent.displayName = 'ButtonContent';
+
+/**
+ * Shares the rendering logic between `Anchor` and `Button`. We don't export it from the component library.
+ */
+const ButtonContent: ButtonContentComponent = InternalButtonContent;
 
 export default ButtonContent;

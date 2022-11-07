@@ -1,7 +1,9 @@
 import { Meta, Story } from '@storybook/react';
+import Link from 'next/link';
 import React from 'react';
 
 import useBreakpoint from '../../../helpers/hooks/use-breakpoint';
+import { LinkBehaviour } from '../../anchor/anchor-helpers';
 import Footer, { FooterProps } from './footer';
 
 export default {
@@ -9,7 +11,7 @@ export default {
   component: Footer,
 } as Meta;
 
-const Template: Story<FooterProps> = (args) => {
+const Template: Story<FooterProps<typeof Link>> = (args) => {
   const breakpoint = useBreakpoint();
   const isMobileLayout = ['xs', 'sm'].includes(breakpoint || '');
 
@@ -38,27 +40,27 @@ Default.args = {
       heading: 'Category',
       icon: 'call_made',
       links: [
-        { text: 'Text link', url: '#' },
-        { text: 'Text link', url: '#' },
-        { text: 'Text link', url: '#' },
+        { children: 'Text link', href: '#' },
+        { children: 'Text link', href: '#' },
+        { children: 'Text link', href: '#' },
       ],
     },
     {
       heading: 'Category',
       icon: 'call_made',
       links: [
-        { text: 'Text link', url: '#' },
-        { text: 'Text link', url: '#' },
-        { text: 'Text link', url: '#' },
+        { children: 'Text link', href: '#' },
+        { children: 'Text link', href: '#' },
+        { children: 'Text link', href: '#' },
       ],
     },
     {
       heading: 'Category',
       icon: 'call_made',
       links: [
-        { text: 'Text link', url: '#' },
-        { text: 'Text link', url: '#' },
-        { text: 'Text link', url: '#' },
+        { children: 'Text link', href: '#' },
+        { children: 'Text link', href: '#' },
+        { children: 'Text link', href: '#' },
       ],
     },
   ],
@@ -67,13 +69,17 @@ Default.args = {
 export const Laeh = Template.bind({});
 Laeh.args = {
   ...Default.args,
+  linkAs: LinkBehaviour,
   categories: [
     {
       heading: 'STAR kasutajatugi',
       icon: 'call_made',
       links: [
-        { text: 'starteenusetugi@sotsiaalkindlustusamet.ee', url: 'mailto:starteenusetugi@sotsiaalkindlustusamet.ee' },
-        { text: '+372 794 3906', url: 'tel:+3727943906' },
+        {
+          children: 'starteenusetugi@sotsiaalkindlustusamet.ee',
+          href: 'mailto:starteenusetugi@sotsiaalkindlustusamet.ee',
+        },
+        { children: '+372 794 3906', href: 'tel:+3727943906' },
       ],
     },
   ],

@@ -27,12 +27,13 @@ export const Header = (props: HeaderProps) => {
       <header className={styles['header']}>
         <Button
           icon={menuOpen ? 'close' : 'menu'}
-          type="primary"
-          text={menuOpen ? getLabel('header.close') : getLabel('header.open')}
+          visualType="primary"
           className={styles['header__toggle']}
           classNameIcon={styles['header__toggle-icon']}
           onClick={toggleMenu}
-        />
+        >
+          {menuOpen ? getLabel('header.close') : getLabel('header.open')}
+        </Button>
         <img src={logo} alt="Logo" className={styles['header__logo']} />
         {languageSelection && <HeaderDropdown className={styles['header__language']} {...languageSelection} />}
         {roleSelection && <HeaderDropdown className={styles['header__role']} {...roleSelection} />}
@@ -45,7 +46,7 @@ export const Header = (props: HeaderProps) => {
                 ...roleSelection.dropdown.button,
                 icon: 'account_circle_rounded',
                 iconRight: '',
-                text: roleSelection.label,
+                children: roleSelection.label,
                 className: styles['header__role-button'],
                 classNameIcon: styles['header__role-icon-button'],
               },
@@ -56,16 +57,14 @@ export const Header = (props: HeaderProps) => {
           className={cn(styles['header__logout'], styles['header__logout--mobile'])}
           classNameIcon={styles['header__logout-icon']}
           icon="logout"
-          type="link"
-          text={getLabel('header.logout')}
+          visualType="link"
           onClick={onLogoutClick}
-        />
-        <Button
-          className={styles['header__logout']}
-          type="link"
-          text={getLabel('header.logout')}
-          onClick={onLogoutClick}
-        />
+        >
+          {getLabel('header.logout')}
+        </Button>
+        <Button className={styles['header__logout']} visualType="link" onClick={onLogoutClick}>
+          {getLabel('header.logout')}
+        </Button>
       </header>
     </>
   );

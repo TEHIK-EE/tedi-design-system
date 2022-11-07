@@ -9,7 +9,11 @@ import { LayoutContext } from '../layout-context';
 import SideNav, { SideNavProps } from '../sidenav/sidenav';
 import styles from './layout.module.scss';
 
-export interface ILayoutProps {
+export interface ILayoutProps<
+  B extends React.ElementType = 'a',
+  F extends React.ElementType = 'a',
+  S extends React.ElementType = 'a'
+> {
   /**
    * Main content of the application
    */
@@ -21,7 +25,7 @@ export interface ILayoutProps {
   /**
    * SideNav props passed to SideNav component
    */
-  sideNav: SideNavProps;
+  sideNav: SideNavProps<S>;
   /**
    * Main content id, used to navigate from skip-links
    */
@@ -29,11 +33,11 @@ export interface ILayoutProps {
   /**
    * Footer props passed to Footer component
    */
-  footer?: FooterProps;
+  footer?: FooterProps<F>;
   /**
    * Breadcrumbs props passed to Breadcrumbs component
    */
-  breadcrumbsProps?: BreadcrumbsProps;
+  breadcrumbsProps?: BreadcrumbsProps<B>;
   /**
    * Logo shown on top-right of the main content area
    */
@@ -44,7 +48,13 @@ export interface ILayoutProps {
   };
 }
 
-export const Layout = (props: ILayoutProps): JSX.Element => {
+export const Layout = <
+  B extends React.ElementType = 'a',
+  F extends React.ElementType = 'a',
+  S extends React.ElementType = 'a'
+>(
+  props: ILayoutProps<B, F, S>
+): JSX.Element => {
   const { children, header, sideNav, breadcrumbsProps, footer, mainContentId = 'main-content', mainLogo } = props;
   const [menuOpen, setMenuOpen] = React.useState(false);
 

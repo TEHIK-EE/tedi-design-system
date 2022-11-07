@@ -95,13 +95,9 @@ export const FileUpload = (props: FileUploadProps): JSX.Element => {
         >
           <FormLabel id={id} {...rest} renderWithoutLabel={true} />
           <input id={id} type="file" name={name} accept={accept} onChange={onFileChange} multiple={multiple} />
-          <Button
-            text={getLabel('file-upload.add')}
-            type="secondary"
-            iconLeft="file_upload"
-            {...button}
-            isActive={hovered}
-          />
+          <Button visualType="secondary" iconLeft="file_upload" {...button} isActive={hovered}>
+            {getLabel('file-upload.add')}
+          </Button>
         </label>
       </Col>
       {helper && (
@@ -119,7 +115,9 @@ export const FileUpload = (props: FileUploadProps): JSX.Element => {
                     <Ellipsis lineClamp={1}>{file.name}</Ellipsis>
                   </Col>
                   <Col width="auto">
-                    <CloseButton onClick={() => onFileRemove(file)} text={getLabel('remove')} />
+                    <CloseButton onClick={() => onFileRemove(file)} size="small">
+                      {getLabel('remove')}
+                    </CloseButton>
                   </Col>
                 </Row>
               </CardContent>

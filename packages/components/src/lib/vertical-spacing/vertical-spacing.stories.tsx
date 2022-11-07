@@ -22,7 +22,7 @@ const Template: Story<VerticalSpacingProps> = (args) => (
       <p>Use VerticalSpacingItem to overwrite one element spacing.</p>
     </VerticalSpacingItem>
 
-    <Button text="Button text" />
+    <Button>Button text</Button>
 
     <p className="text-small text-secondary">
       Some tiny text. Morbi et velit enim. Nulla facilisi. Curabitur tincidunt viverra nulla, a varius leo pharetra

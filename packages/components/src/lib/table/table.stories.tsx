@@ -177,7 +177,7 @@ const columns: ColumnDef<Person, any>[] = [
   columnHelper.accessor((row) => `${row.firstName} ${row.lastName}`, {
     id: 'personName',
     cell: (info) => {
-      return <Anchor url="#" text={`${info.row.original.firstName} ${info.row.original.lastName}`} />;
+      return <Anchor href="#">{`${info.row.original.firstName} ${info.row.original.lastName}`}</Anchor>;
     },
     header: () => 'Laps',
     sortingFn: (a, b) => {
@@ -352,7 +352,7 @@ WithCustomizedCells.args = {
       id: 'personName',
       cell: (info) => (
         <CustomizeTableCell className={getBackgroundColorClass('primary-1')}>
-          <Anchor text={`${info.row.original.firstName} ${info.row.original.lastName}`} url="#" />
+          <Anchor href="#">{`${info.row.original.firstName} ${info.row.original.lastName}`}</Anchor>
         </CustomizeTableCell>
       ),
       header: () => 'Laps',
@@ -383,7 +383,11 @@ clickableRowColumns[0] = columnHelper.accessor((row) => `${row.firstName} ${row.
 clickableRowColumns.push(
   columnHelper.accessor((row) => `${row.firstName}-${row.age}`, {
     id: 'view',
-    cell: () => <Anchor text="Vaata" iconLeft="visibility" type="link" url="#" />,
+    cell: () => (
+      <Anchor iconLeft="visibility" visualType="link" href="#">
+        Vaata
+      </Anchor>
+    ),
     header: () => <span className="visually-hidden">Ava profiil</span>,
     enableSorting: false,
   })

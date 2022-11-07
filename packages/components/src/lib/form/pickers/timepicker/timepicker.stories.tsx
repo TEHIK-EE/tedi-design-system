@@ -91,19 +91,29 @@ export const Controlled = () => {
     <>
       <Row>
         <Col width="auto">
-          <Button text="clear" type="link" onClick={() => setTime(null)} />
+          <Button visualType="link" onClick={() => setTime(null)}>
+            clear
+          </Button>
         </Col>
         <Col width="auto">
-          <Button text="current" type="link" onClick={() => setTime(dayjs())} />
+          <Button visualType="link" onClick={() => setTime(dayjs())}>
+            current
+          </Button>
         </Col>
         <Col width="auto">
-          <Button text="next hour" type="link" onClick={() => setTime(dayjs().add(numberOne, 'hour'))} />
+          <Button visualType="link" onClick={() => setTime(dayjs().add(numberOne, 'hour'))}>
+            next hour
+          </Button>
         </Col>
         <Col width="auto">
-          <Button text="next minute" type="link" onClick={() => setTime(dayjs().add(numberOne, 'minute'))} />
+          <Button visualType="link" onClick={() => setTime(dayjs().add(numberOne, 'minute'))}>
+            next minute
+          </Button>
         </Col>
         <Col width="auto">
-          <Button text="00:00" type="link" onClick={() => setTime(dayjs().set('hours', 0).set('minute', 0))} />
+          <Button visualType="link" onClick={() => setTime(dayjs().set('hours', 0).set('minute', 0))}>
+            00:00
+          </Button>
         </Col>
       </Row>
       <TimePicker label="Vali kellaeg" id="timepicker-controlled" value={time} onChange={setTime} />

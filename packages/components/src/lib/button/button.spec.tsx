@@ -4,7 +4,7 @@ import userEvent from '@testing-library/user-event';
 import Button, { ButtonProps } from './button';
 
 const getComponent = (props?: Partial<ButtonProps>) => {
-  return <Button text="Click me" {...props} />;
+  return <Button {...props}>Click me</Button>;
 };
 
 describe('Button', () => {

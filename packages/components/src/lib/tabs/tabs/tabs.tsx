@@ -65,19 +65,17 @@ export const Tabs = (props: TabsProps): JSX.Element => {
         return {
           ...rest,
           id,
-          current: currentTab === id,
+          isActive: currentTab === id,
           onClick: (event) => {
             event.preventDefault();
             setCurrentTab(id);
           },
-          label,
-          url: `#${id}`,
-          attributes: {
-            role: 'tab',
-            'aria-controls': id,
-            'aria-label': label,
-            'aria-selected': currentTab === id,
-          },
+          children: label,
+          href: `#${id}`,
+          role: 'tab',
+          'aria-controls': id,
+          'aria-label': label,
+          'aria-selected': currentTab === id,
         };
       });
   };

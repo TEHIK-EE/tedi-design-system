@@ -43,7 +43,7 @@ Default.args = {
   children: (
     <p>
       Suunatud e-postile kasutaja kairi.sarapuu@gmail.com. Soovi korral muuda suunamine kohe siin või vasak menüüst “
-      <Anchor url="#">Minu andmed”</Anchor> - “Suunamine.
+      <Anchor href="#">Minu andmed”</Anchor> - “Suunamine.
     </p>
   ),
 };

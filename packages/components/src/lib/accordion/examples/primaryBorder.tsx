@@ -18,21 +18,9 @@ interface AccordionItemProp {
 }
 
 const accordionItems: AccordionItemProp[] = [
-  {
-    id: 'first',
-    header: 'First',
-    content: ACCORDION_ITEM_CONTENT,
-  },
-  {
-    id: 'second',
-    header: 'Second',
-    content: ACCORDION_ITEM_CONTENT,
-  },
-  {
-    id: 'third',
-    header: 'Third',
-    content: ACCORDION_ITEM_CONTENT,
-  },
+  { id: 'first', header: 'First', content: ACCORDION_ITEM_CONTENT },
+  { id: 'second', header: 'Second', content: ACCORDION_ITEM_CONTENT },
+  { id: 'third', header: 'Third', content: ACCORDION_ITEM_CONTENT },
 ];
 
 export const PrimaryBorder = () => {
@@ -52,10 +40,12 @@ export const PrimaryBorder = () => {
     <Row justifyContent="between" alignItems="center">
       <Col>{headerLabel}</Col>
       <Col width="auto">
-        {activeAccordionItemId === id && <Button iconLeft="checked" text="Valitud" />}
+        {activeAccordionItemId === id && <Button iconLeft="checked">Valitud</Button>}
 
         {activeAccordionItemId !== id && (
-          <Button text="Vali" type="secondary" onClick={(event) => handleChoiceButtonClick(event, id)} />
+          <Button visualType="secondary" onClick={(event) => handleChoiceButtonClick(event, id)}>
+            Vali
+          </Button>
         )}
       </Col>
     </Row>

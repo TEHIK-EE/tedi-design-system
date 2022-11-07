@@ -20,12 +20,14 @@ const Template: Story<StepperProps> = (args) => {
     <Row justifyContent={currentStep === 0 ? 'end' : currentStep === 2 ? 'start' : 'between'}>
       {currentStep > 0 && (
         <Col width="auto">
-          <Button text="Tagasi" type="secondary" onClick={() => setCurrentStep((prev) => prev - 1)} />
+          <Button visualType="secondary" onClick={() => setCurrentStep((prev) => prev - 1)}>
+            Tagasi
+          </Button>{' '}
         </Col>
       )}
       {currentStep < 2 && (
         <Col width="auto">
-          <Button text="Edasi" onClick={() => setCurrentStep((prev) => prev + 1)} />
+          <Button onClick={() => setCurrentStep((prev) => prev + 1)}>Edasi</Button>
         </Col>
       )}
     </Row>

@@ -4,7 +4,7 @@ import React from 'react';
 import Button, { ButtonProps } from '../button/button';
 import styles from './toggle-open.module.scss';
 
-export interface ToggleOpenProps extends Omit<ButtonProps, 'text' | 'iconRight'> {
+export interface ToggleOpenProps extends Omit<ButtonProps, 'children' | 'iconRight'> {
   /**
    * Name on the button to open the item
    */
@@ -23,7 +23,9 @@ export const ToggleOpen = ({ openText, closeText, isOpen, classNameIcon, ...rest
   const ToggleOpenBEM = cn({ [styles['toggle--open']]: isOpen }, { [styles['toggle--close']]: !isOpen }, classNameIcon);
 
   return (
-    <Button text={isOpen ? closeText : openText} iconRight="expand_more" classNameIcon={ToggleOpenBEM} {...rest} />
+    <Button iconRight="expand_more" classNameIcon={ToggleOpenBEM} {...rest}>
+      {isOpen ? closeText : openText}
+    </Button>
   );
 };
 

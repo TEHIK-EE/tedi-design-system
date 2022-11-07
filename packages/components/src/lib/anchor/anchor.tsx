@@ -1,51 +1,42 @@
-import cn from 'classnames';
-import Link, { LinkProps } from 'next/link';
+import React from 'react';
 
-import ButtonContent, { ButtonContentAnchorProps } from '../button-content/button-content';
-import styles from './anchor.module.scss';
+import { PolymorphicRef } from '../../helpers/polymorphic/types';
+import ButtonContent, { ButtonContentProps } from '../button-content/button-content';
 
-export interface AnchorSharedProps extends Omit<ButtonContentAnchorProps, 'element' | 'disabled' | 'href'> {
+export interface InternalAnchorProps {
   /**
-   * URL the anchor should link to.
+   * If button should take all the space it has
    */
-  url: LinkProps['href'];
-  /**
-   * Target attribute.
-   */
-  target?: string;
+  fullWidth?: boolean;
 }
 
-export interface AnchorVisualProps extends AnchorSharedProps {
-  /**
-   * If anchor is not visual anchor. For example link is needed to wrap logo.
-   */
-  notVisual?: never;
-  children?: never;
-}
+type AllowedTags = 'a' | React.ComponentType<any>;
 
-export interface AnchorNotVisualProps extends AnchorSharedProps {
-  /**
-   * If anchor is not visual anchor. For example link is needed to wrap logo.
-   */
-  notVisual: true;
-  children: React.ReactNode;
-}
+export type AnchorProps<C extends React.ElementType = 'a'> = ButtonContentProps<C, InternalAnchorProps, AllowedTags>;
 
-export type AnchorProps = AnchorNotVisualProps | AnchorVisualProps;
+export type AnchorComponent = <C extends React.ElementType = 'a'>(props: AnchorProps<C>) => React.ReactElement | null;
 
-export const Anchor = (props: AnchorProps) => {
-  const { url, target, attributes, type = 'link', children, notVisual, className, ...rest } = props;
+const InternalAnchor = React.forwardRef(
+  <C extends React.ElementType = 'a'>(props: AnchorProps<C>, ref?: PolymorphicRef<C>) => {
+    const { visualType = 'link', as, children, ...rest } = props;
 
-  const anchorBem = cn(className, { [styles['anchor--not-visual']]: notVisual });
+    const ComponentAs = as || 'a';
 
-  // TODO: Remove NextLink logic
-  return (
-    <Link href={url} passHref legacyBehavior>
-      <ButtonContent attributes={{ ...attributes, target }} {...rest} element="a" type={type} className={anchorBem}>
-        {notVisual ? children : undefined}
+    return (
+      <ButtonContent {...(rest as any)} ref={ref} as={ComponentAs} visualType={visualType}>
+        {children}
       </ButtonContent>
-    </Link>
-  );
-};
+    );
+  }
+);
+
+InternalAnchor.displayName = 'Anchor';
+
+/**
+ * By default, the navigation is performed with a native `<a>` element. You can customize it to use your own router. For instance, using Next.js's Link or react-router.<br />
+ * Inherits all props from the component passed into `as`. If `as` is omitted, then the default is native `<a>` tag
+ */
+
+export const Anchor: AnchorComponent = InternalAnchor;
 
 export default Anchor;

@@ -31,7 +31,7 @@ export const Default = () => {
       closeText="Sulgen"
       isActive={false}
       isOpen={open}
-      type="secondary"
+      visualType="secondary"
       onClick={() => setOpen(!open)}
       classNameIcon="text-bold"
     />
