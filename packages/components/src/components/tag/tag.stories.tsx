@@ -10,23 +10,15 @@ export default {
   title: 'components/Tag',
   component: Tag,
   argTypes: {
-    array: {
-      table: {
-        disable: true,
-      },
-    },
-    property: {
-      table: {
-        disable: true,
-      },
-    },
+    array: { table: { disable: true } },
+    property: { table: { disable: true } },
   },
 } as Meta;
 
 const TagColors: TagColor[] = ['default', 'primary', 'primary-accent', 'secondary', 'success', 'warning', 'important'];
 const TagTypes: TagType[] = ['default', 'ghost', 'icon', 'invisible'];
 const TagStatuses: TagStatus[] = ['error', 'inactive', 'success'];
-const TagSizes: TagSize[] = ['default', 'medium', 'small'];
+const TagSizes: TagSize[] = ['small', 'default', 'medium'];
 
 const Capitalize = ({ children }: { children: React.ReactNode }) => (
   <span className="text-small text-secondary" style={{ textTransform: 'capitalize' }}>
@@ -51,18 +43,30 @@ const Template: Story<TagTemplateProps> = (args) => (
     </Row>
 
     {args.array.map((type, key) => (
-      <Row key={key}>
-        <Col>
-          <Capitalize>{type}</Capitalize>
-        </Col>
-        {TagColors.map((color, index) => (
-          <Col key={index}>
-            <Tag color={color} {...{ [args.property]: type }}>
-              {type === 'icon' ? <Icon name="circle" type="filled" size={12} /> : 'J'}
-            </Tag>
+      <>
+        <Row key={key}>
+          <Col>
+            <Capitalize>{type}</Capitalize>
           </Col>
-        ))}
-      </Row>
+          {TagColors.map((color, index) => (
+            <Col key={index}>
+              <Tag color={color} {...{ [args.property]: type }}>
+                {type === 'icon' ? <Icon name="circle" type="filled" size={12} /> : 'J'}
+              </Tag>
+            </Col>
+          ))}
+        </Row>
+        <Row>
+          <Col></Col>
+          {TagColors.map((color, index) => (
+            <Col key={index}>
+              <Tag rounded color={color} {...{ [args.property]: type }}>
+                {type === 'icon' ? <Icon name="circle" type="filled" size={12} /> : 'J'}
+              </Tag>
+            </Col>
+          ))}
+        </Row>
+      </>
     ))}
   </VerticalSpacing>
 );

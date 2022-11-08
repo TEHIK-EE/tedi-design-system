@@ -38,6 +38,10 @@ export interface TagProps {
    * Title if Tag is Abbreviation.
    */
   title?: string;
+  /*
+   * If tag is rounded
+   * */
+  rounded?: boolean;
   /**
    * If Tag has arrow on top-right corner
    */
@@ -49,7 +53,7 @@ export interface TagProps {
 }
 
 export const Tag = forwardRef<HTMLDivElement, TagProps>((props, ref): JSX.Element => {
-  const { children, size, className, title, color = 'default', status, type, hasArrow, isLoading } = props;
+  const { children, size, className, title, color = 'default', status, type, rounded, hasArrow, isLoading } = props;
 
   const TagElement = isLoading ? SkeletonBlock : title ? 'abbr' : 'div';
 
@@ -60,6 +64,7 @@ export const Tag = forwardRef<HTMLDivElement, TagProps>((props, ref): JSX.Elemen
     { [styles[`tag--${type}`]]: type },
     { [styles[`tag--${color}`]]: color },
     { [styles[`tag--status-${status}`]]: status },
+    { [styles['tag--rounded']]: rounded },
     { [styles['tag--with-arrow']]: hasArrow }
   );
 
