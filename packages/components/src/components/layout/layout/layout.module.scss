@@ -17,10 +17,10 @@
 .main {
   position: relative;
   flex: 1;
-  max-width: 100vw;
+  max-width: 100%; // 100% is width without scrollbar, vw is with the scrollbar
 
   @include media-breakpoint-up(lg) {
-    max-width: calc(100vw - 8.75rem); // 100vw - sidenav width
+    max-width: calc(100% - 8.75rem); // 100% - sidenav width
   }
 }
 
@@ -30,6 +30,7 @@
 }
 
 .main__content {
+  min-width: 375px;
   max-width: 95rem;
   padding: 1.25rem 0 2.5rem;
   margin: 0 auto;
