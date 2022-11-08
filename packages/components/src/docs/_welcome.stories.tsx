@@ -11,37 +11,44 @@ export default {
         <>
           <Title>Tehik Design System</Title>
           <Subtitle>
-            Here you can find our design guidelines, component documentation, and resources for building apps with Tehik
-            Design System.
+            <>
+              Here you can find our design guidelines, component documentation, and resources for building apps with{' '}
+              <code>@tehik/react-components</code>.
+            </>
           </Subtitle>
           <VerticalSpacing size={0.5}>
             <h2>Resources</h2>
             <Row alignItems="center">
               <Col width="auto">
                 <Anchor
-                  visualType="link"
                   target="_blank"
-                  href="https://www.figma.com/file/vkcvISaaYkZJVQU8VFw9kC/TEHIK-STAR-LAEH?node-id=9387%3A25923"
+                  href="https://www.figma.com/file/aw4UVf6HRaZEv0rQmED2cf/%F0%9F%9A%A7-TEHIK-Design-System"
                 >
                   Figma
                 </Anchor>
               </Col>
               <Col width="auto">
                 <Anchor
-                  visualType="link"
                   target="_blank"
-                  href="https://gitlab.sotsiaalministeerium.ee/star/star2-frontend"
+                  href="https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components"
                 >
                   Gitlab
                 </Anchor>
               </Col>
               <Col width="auto">
                 <Anchor
-                  visualType="link"
                   target="_blank"
-                  href="https://smjira.sm.ee/secure/RapidBoard.jspa?rapidView=515&projectKey=STARLA"
+                  href="https://smjira.sm.ee/secure/RapidBoard.jspa?rapidView=978&projectKey=TEHVEER&view=detail"
                 >
                   Jira
+                </Anchor>
+              </Col>
+              <Col width="auto">
+                <Anchor
+                  target="_blank"
+                  href="https://join.slack.com/t/stararendus/shared_invite/zt-1jddufgmr-BYaTtRfzp16YjOhJ3r2ifQ"
+                >
+                  Slack
                 </Anchor>
               </Col>
             </Row>
