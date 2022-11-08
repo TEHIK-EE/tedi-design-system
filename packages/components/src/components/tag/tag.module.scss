@@ -135,3 +135,7 @@
 .tag--status-inactive::before {
   background-color: var(--color-text-disabled);
 }
+
+.tag--rounded {
+  border-radius: 100%;
+}
