@@ -1,5 +1,5 @@
 import React from 'react';
-import { Slide, toast, ToastOptions } from 'react-toastify';
+import { Slide, toast, ToastContainer, ToastOptions } from 'react-toastify';
 
 import { Notification, NotificationProps } from '../notification/notification';
 
@@ -32,3 +32,5 @@ export const sendNotification = (props: NotificationProps) => {
     toastOptions
   );
 };
+
+export { ToastContainer };
