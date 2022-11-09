@@ -19,7 +19,7 @@ export default {
           <Subtitle>Toast helper function to call taost notifications.</Subtitle>
           <Description>
             Toast exports `sendNotification` function that takes notification props as input and when called shows Toast
-            on bottom-left of the page. `ToastContainer` component from react-toastify has to be added to index of
+            on bottom-left of the page. `ToastContainer` component is also exported and has to be added to index of
             application.
           </Description>
           <Primary />
