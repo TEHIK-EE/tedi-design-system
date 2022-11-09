@@ -1,5 +1,7 @@
 import { PickersDay, PickersDayProps } from '@mui/x-date-pickers';
 import { CalendarPicker } from '@mui/x-date-pickers';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { Dayjs } from 'dayjs';
 import React from 'react';
 
@@ -135,25 +137,27 @@ export const Calendar = (props: CalendarProps): JSX.Element => {
   };
 
   return (
-    <CalendarPicker<CalendarValue>
-      date={getValue}
-      onChange={onChangeHandler}
-      disabled={disabled}
-      disableFuture={disableFuture}
-      disableHighlightToday={disableHighlightToday}
-      disablePast={disablePast}
-      loading={loading}
-      minDate={minDate}
-      maxDate={maxDate}
-      readOnly={readOnly}
-      renderDay={dayRenderer}
-      shouldDisableDate={shouldDisableDate}
-      shouldDisableMonth={shouldDisableMonth}
-      shouldDisableYear={shouldDisableYear}
-      showDaysOutsideCurrentMonth={showDaysOutsideCurrentMonth}
-      view={view}
-      views={views}
-    />
+    <LocalizationProvider dateAdapter={AdapterDayjs}>
+      <CalendarPicker<CalendarValue>
+        date={getValue}
+        onChange={onChangeHandler}
+        disabled={disabled}
+        disableFuture={disableFuture}
+        disableHighlightToday={disableHighlightToday}
+        disablePast={disablePast}
+        loading={loading}
+        minDate={minDate}
+        maxDate={maxDate}
+        readOnly={readOnly}
+        renderDay={dayRenderer}
+        shouldDisableDate={shouldDisableDate}
+        shouldDisableMonth={shouldDisableMonth}
+        shouldDisableYear={shouldDisableYear}
+        showDaysOutsideCurrentMonth={showDaysOutsideCurrentMonth}
+        view={view}
+        views={views}
+      />
+    </LocalizationProvider>
   );
 };
 
