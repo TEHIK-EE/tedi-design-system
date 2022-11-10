@@ -2,6 +2,7 @@ import {
   arrow,
   autoUpdate,
   flip,
+  FloatingContext,
   offset,
   Placement,
   ReferenceType,
@@ -70,6 +71,7 @@ export interface ITooltipContext {
     centerOffset?: number | undefined;
   };
   placement: Placement;
+  context: FloatingContext<ReferenceType>;
 }
 
 export const TooltipContext = React.createContext<ITooltipContext>({
@@ -90,6 +92,7 @@ export const TooltipContext = React.createContext<ITooltipContext>({
     centerOffset: 0,
   },
   placement: 'top',
+  context: {} as FloatingContext,
 });
 
 export const TooltipProvider = (props: TooltipProviderProps): JSX.Element => {
@@ -139,7 +142,9 @@ export const TooltipProvider = (props: TooltipProviderProps): JSX.Element => {
     useClick(context, {
       enabled: openWith === 'click',
     }),
-    useFocus(context),
+    useFocus(context, {
+      enabled: openWith === 'hover',
+    }),
     useRole(context, { role: 'tooltip' }),
     useDismiss(context),
   ]);
@@ -161,6 +166,7 @@ export const TooltipProvider = (props: TooltipProviderProps): JSX.Element => {
         arrow: {
           ...middlewareData.arrow,
         },
+        context,
         placement,
       }}
     >

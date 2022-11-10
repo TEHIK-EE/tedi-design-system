@@ -1,3 +1,4 @@
+import { FloatingFocusManager } from '@floating-ui/react-dom-interactions';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
@@ -13,30 +14,32 @@ export interface TooltipProps {
 
 export const Tooltip = (props: TooltipProps): JSX.Element | null => {
   const { children } = props;
-  const { isMounted, open, x, y, strategy, floating, arrowRef, getFloatingProps, arrow, placement } =
+  const { isMounted, open, x, y, strategy, floating, arrowRef, getFloatingProps, arrow, placement, context } =
     React.useContext(TooltipContext);
 
   const renderTooltip = (): JSX.Element | null => {
     const content = (
-      <div
-        {...getFloatingProps({
-          ref: floating,
-          style: {
-            position: strategy,
-            left: x ?? 0,
-            top: y ?? 0,
-          },
-          className: styles['tooltip'],
-        })}
-        data-placement={placement}
-      >
+      <FloatingFocusManager context={context}>
         <div
-          ref={(el) => (arrowRef.current = el)}
-          className={styles['tooltip__arrow']}
-          style={{ left: arrow?.x ? arrow?.x : undefined, top: arrow?.y ? arrow?.y : undefined }}
-        />
-        {children}
-      </div>
+          {...getFloatingProps({
+            ref: floating,
+            style: {
+              position: strategy,
+              left: x ?? 0,
+              top: y ?? 0,
+            },
+            className: styles['tooltip'],
+          })}
+          data-placement={placement}
+        >
+          <div
+            ref={(el) => (arrowRef.current = el)}
+            className={styles['tooltip__arrow']}
+            style={{ left: arrow?.x ? arrow?.x : undefined, top: arrow?.y ? arrow?.y : undefined }}
+          />
+          {children}
+        </div>
+      </FloatingFocusManager>
     );
 
     return !isMounted || open ? content : null;
