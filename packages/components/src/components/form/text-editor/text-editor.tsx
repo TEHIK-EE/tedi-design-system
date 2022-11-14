@@ -77,7 +77,7 @@ export interface TextEditorProps extends FormLabelProps {
 
 export const TextEditor = (props: TextEditorProps): JSX.Element => {
   const {
-    inlineStyleControls = ['BOLD', 'ITALIC', 'UNDERLINE'],
+    inlineStyleControls = ['BOLD', 'ITALIC'],
     blockStyleControls = ['unordered-list-item'],
     label,
     id,
