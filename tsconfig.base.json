@@ -17,7 +17,15 @@
     "baseUrl": ".",
     "paths": {
       "@tehik/react-components": ["packages/components/src/index.ts"]
-    }
+    },
+    "plugins": [
+      {
+        "name": "typescript-plugin-css-modules",
+        "options": {
+          "customTemplate": "../../customTemplate.cjs"
+        }
+      }
+    ]
   },
   "exclude": ["node_modules", "tmp"]
 }
