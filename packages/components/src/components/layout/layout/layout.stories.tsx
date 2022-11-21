@@ -113,3 +113,40 @@ export const Default = () => {
     </Layout>
   );
 };
+
+export const Simple = () => {
+  const breakpoint = useBreakpoint();
+  const isMobileLayout = ['xs', 'sm'].includes(breakpoint || '');
+
+  const footerLogo: FooterProps['logo'] = {
+    src: isMobileLayout ? '/sf_logod.jpg' : '/sf_logod_vertikaalne.jpg',
+    alt: 'logo',
+    style: isMobileLayout
+      ? { width: '9rem', height: '5.25rem', borderRadius: '0.25rem' }
+      : { width: '3.75rem', height: '7rem', borderRadius: '0.25rem' },
+  };
+
+  return (
+    <Layout
+      header={{
+        hideToggle: true,
+        skipLinks: {
+          links: [{ children: 'Liigu edasi põhisisu juurde', href: '#main-content' }],
+        },
+      }}
+      footer={{ ...footerProps, logo: footerLogo }}
+      mainLogo={{
+        src: '/sf_logod.jpg',
+        alt: 'Euroopa struktuuri- ja investeerimisfondide logo',
+        style: { width: '6.625rem', height: '4rem', borderRadius: '0.25rem' },
+      }}
+    >
+      <Section>
+        <VerticalSpacing>
+          <h1>Page title & content</h1>
+          <Button>Focusable item</Button>
+        </VerticalSpacing>
+      </Section>
+    </Layout>
+  );
+};

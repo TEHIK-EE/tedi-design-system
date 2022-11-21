@@ -25,7 +25,7 @@ export interface ILayoutProps<
   /**
    * SideNav props passed to SideNav component
    */
-  sideNav: SideNavProps<S>;
+  sideNav?: SideNavProps<S>;
   /**
    * Main content id, used to navigate from skip-links
    */
@@ -63,7 +63,7 @@ export const Layout = <
       <div className={styles['container-wrapper']}>
         <Header {...header} />
         <div className={cn(styles['container'], { [styles['container--menu-open']]: menuOpen })}>
-          <SideNav {...sideNav} />
+          {sideNav && <SideNav {...sideNav} />}
           <div className={styles['main']}>
             {mainLogo && (
               <img className={styles['main__logos']} src={mainLogo.src} alt={mainLogo.alt} style={mainLogo.style} />
