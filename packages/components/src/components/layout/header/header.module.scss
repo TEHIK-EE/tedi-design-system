@@ -3,6 +3,7 @@
 .header {
   z-index: 20;
   display: flex;
+  min-height: 3.125rem;
   overflow: hidden;
 
   @include media-breakpoint-up(lg) {
