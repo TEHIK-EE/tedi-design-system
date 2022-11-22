@@ -177,3 +177,12 @@ PaddingXSmall.args = {
     padding: 'xsmall',
   },
 };
+
+export const PaddingFromCard = Template.bind({});
+PaddingFromCard.args = {
+  ...Default.args,
+  cardHeader: false,
+  card: {
+    padding: 'large',
+  },
+};

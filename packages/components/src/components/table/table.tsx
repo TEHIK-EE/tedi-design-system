@@ -31,7 +31,7 @@ export function Table<TData extends DefaultTData<TData>>(props: TableProps<TData
     columns,
     columnFilters: columnFiltersOuter,
     onColumnFiltersChange,
-    cardProps,
+    cardProps: { padding: cardPadding = 'none', ...restCardProps } = {},
     hidePagination,
     pagination,
     sorting: sortingOuter,
@@ -138,8 +138,8 @@ export function Table<TData extends DefaultTData<TData>>(props: TableProps<TData
 
   return (
     <TableContext.Provider value={{ table, id, renderSubComponent, loadingLabel, isLoading, hideRowBorder }}>
-      <Card type={hideCardBorder ? 'borderless' : undefined} {...cardProps}>
-        <CardContent padding="none">
+      <Card type={hideCardBorder ? 'borderless' : undefined} padding={cardPadding} {...restCardProps}>
+        <CardContent>
           <div className={cn(styles['table'], `table--vertical-align-${verticalAlign}`)}>
             <TableLayout<TData> />
           </div>
