@@ -4,9 +4,10 @@ import React, { forwardRef } from 'react';
 import { validateChildren } from '../../helpers';
 import styles from './card.module.scss';
 import CardContent, { CardContentProps } from './card-content/card-content';
+import { CardContext } from './card-context';
 import CardHeader, { CardHeaderProps } from './card-header/card-header';
 
-export interface CardProps {
+export type CardProps = {
   /**
    * CardHeader and/or CardContent.
    */
@@ -22,14 +23,16 @@ export interface CardProps {
    * Type of card.
    */
   type?: 'success' | 'warning' | 'error' | 'borderless' | 'success-top' | 'warning-top' | 'error-top';
-}
+} & Pick<CardContentProps, 'padding'>;
 
 export const Card = forwardRef<HTMLDivElement, CardProps>((props, ref): JSX.Element => {
-  const { children, className, type } = props;
+  const { children, className, padding, type } = props;
   return (
-    <div className={cn(styles['card'], className, { [styles[`card--${type}`]]: type })} ref={ref}>
-      {children}
-    </div>
+    <CardContext.Provider value={{ padding }}>
+      <div className={cn(styles['card'], className, { [styles[`card--${type}`]]: type })} ref={ref}>
+        {children}
+      </div>
+    </CardContext.Provider>
   );
 });
 
