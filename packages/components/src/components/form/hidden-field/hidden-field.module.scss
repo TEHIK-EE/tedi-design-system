@@ -1,4 +1,4 @@
-@import '../../../styles/mixins';
+@use '../../../styles/mixins';
 
 .hidden-field {
   &--select {
@@ -13,7 +13,7 @@
 }
 
 .hidden-field-button {
-  @include button-reset;
+  @include mixins.button-reset;
 
   display: flex;
   align-items: flex-start;

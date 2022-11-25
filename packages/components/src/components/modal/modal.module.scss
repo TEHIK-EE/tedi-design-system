@@ -1,5 +1,5 @@
 @use 'sass:math';
-@import '../../styles/bootstrap-utility/breakpoints';
+@use '../../styles/bootstrap-utility/breakpoints';
 
 $modal-max-width: 1230px;
 
@@ -14,7 +14,7 @@ $modal-max-width: 1230px;
   width: calc(100vw - 2rem);
   max-width: $modal-max-width;
 
-  @include media-breakpoint-up(lg) {
+  @include breakpoints.media-breakpoint-up(lg) {
     .modal--10 & {
       width: math.div(10, 12) * 100%;
       max-width: $modal-max-width * math.div(10, 12);

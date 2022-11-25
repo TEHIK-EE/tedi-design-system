@@ -1,5 +1,5 @@
-@import '../../styles/mixins';
-@import '../../styles/bootstrap-utility/breakpoints';
+@use '../../styles/mixins';
+@use '../../styles/bootstrap-utility/breakpoints';
 
 .stepper__nav {
   display: flex;
@@ -31,7 +31,7 @@
 }
 
 .stepper__nav-item-inner {
-  @include button-reset;
+  @include mixins.button-reset;
 
   display: flex;
   align-items: center;
@@ -68,7 +68,7 @@
   display: none;
   padding: 1rem 0;
 
-  @include media-breakpoint-up(lg) {
+  @include breakpoints.media-breakpoint-up(lg) {
     padding: 1.5rem;
   }
 

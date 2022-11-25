@@ -1,11 +1,11 @@
-@import '../../styles/mixins';
+@use '../../styles/mixins';
 
 .collapse__heading {
   width: 100%;
   margin-bottom: 0.5rem;
   cursor: pointer;
 
-  @include button-reset;
+  @include mixins.button-reset;
 }
 
 .collapse__title {
@@ -25,5 +25,5 @@
 }
 
 .collapse__text--visually-hidden {
-  @include visually-hidden;
+  @include mixins.visually-hidden;
 }

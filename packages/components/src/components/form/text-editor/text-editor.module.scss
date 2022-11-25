@@ -1,4 +1,4 @@
-@import '../../../styles/mixins';
+@use '../../../styles/mixins';
 
 .text-editor__inner {
   display: flex;
@@ -35,7 +35,7 @@
 }
 
 .style-button {
-  @include button-reset;
+  @include mixins.button-reset;
 
   display: flex;
   color: var(--color-secondary-grey);
