@@ -8,6 +8,11 @@ Usage of tehik scope packages:
 
 Steps to use `@tehik/react-components` are described [here](https://star2-storybook.netlify.app/?path=/docs/documentation-usage--usage).
 
+## Naming conventions
+
+- interactive/click events are prefixed by `on`, for example `onClick`
+- boolean values are prefixed by `is`, for example `isMenuVisible`
+
 ## Development
 
 TODO:
