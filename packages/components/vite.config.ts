@@ -4,6 +4,9 @@ import { defineConfig } from 'vite';
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  define: {
+    'process.env.JEST_WORKER_ID': JSON.stringify(process.env.JEST_WORKER_ID),
+  },
   mode: 'production',
   plugins: [reactPlugin()],
   css: {
