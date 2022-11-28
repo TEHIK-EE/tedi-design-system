@@ -13,7 +13,7 @@ export interface ILabelContext {
   getLabel: (key: LabelKeys, params?: Record<LabelKeys, string>) => string;
 }
 
-const isTestEnvironment = process.env['JEST_WORKER_ID'] !== undefined;
+const isTestEnvironment = process.env.JEST_WORKER_ID !== undefined;
 
 export const defaultContext: ILabelContext = {
   getLabel: (key) => {
