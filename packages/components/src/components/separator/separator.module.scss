@@ -1,3 +1,5 @@
+@use '../../styles/variables';
+
 $sizes: (
   '0': 0,
   '0-25': 0.25rem,
@@ -12,28 +14,79 @@ $sizes: (
 );
 
 .separator {
+  position: relative;
   display: block;
   margin: 0;
   border: 0;
   border-top: 1px solid var(--color-background-dark);
+
+  &--vertical {
+    height: 100%;
+    border-top: 0;
+    border-left: 1px solid var(--color-background-dark);
+  }
+}
+
+.separator--accent {
+  border-color: var(--color-primary-accent);
+}
+
+.separator--dotted,
+.separator--dotted-small {
+  &::before {
+    position: absolute;
+    top: 1rem;
+    display: block;
+    width: 1rem;
+    height: 1rem;
+    content: '';
+    background-color: var(--color-background-dark);
+    border-radius: 100%;
+    transform: translateX(-50%);
+  }
+
+  &.separator--accent::before {
+    background-color: var(--color-primary-accent);
+  }
+}
+
+.separator--dotted-small::before {
+  width: 0.6rem;
+  height: 0.6rem;
 }
 
 .separator--full-width {
-  margin-right: -1.5rem;
-  margin-left: -1.5rem;
+  margin-right: calc(var(--card-padding-default) * -1);
+  margin-left: calc(var(--card-padding-default) * -1);
+
+  &.separator--vertical {
+    height: calc(100% + var(--card-padding-default) * 2);
+    margin: calc(var(--card-padding-default) * -1) 0;
+  }
+
+  @each $spacing in variables.$card-spacing {
+    [data-padding='#{$spacing}'] & {
+      margin-right: calc(var(--card-padding-#{$spacing}) * -1);
+      margin-left: calc(var(--card-padding-#{$spacing}) * -1);
+    }
+    [data-padding='#{$spacing}'] &.separator--vertical {
+      height: calc(100% + (var(--card-padding-#{$spacing}) * 2));
+      margin: calc(var(--card-padding-#{$spacing}) * -1) 0;
+    }
+  }
 }
 
-@each $spacing, $size in $sizes {
-  .separator.separator--top-#{$spacing} {
-    margin-top: #{$size};
+@each $size, $value in $sizes {
+  .separator.separator--top-#{$size} {
+    margin-top: #{$value};
   }
 
-  .separator.separator--bottom-#{$spacing} {
-    margin-bottom: #{$size};
+  .separator.separator--bottom-#{$size} {
+    margin-bottom: #{$value};
   }
 
-  .separator.separator--spacing-#{$spacing} {
-    margin-top: #{$size};
-    margin-bottom: #{$size};
+  .separator.separator--spacing-#{$size} {
+    margin-top: #{$value};
+    margin-bottom: #{$value};
   }
 }

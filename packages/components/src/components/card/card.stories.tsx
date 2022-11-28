@@ -2,6 +2,7 @@ import { Meta, Story } from '@storybook/react';
 
 import { Col, Row } from '../grid';
 import Heading from '../heading/heading';
+import Separator from '../separator/separator';
 import { Card, CardProps } from './card';
 import CardContent, { CardContentProps } from './card-content/card-content';
 import CardHeader, { CardHeaderProps } from './card-header/card-header';
@@ -160,21 +161,21 @@ PaddingNone.args = {
   },
 };
 
-export const PaddingSmall = Template.bind({});
-PaddingSmall.args = {
-  ...Default.args,
-  cardHeader: false,
-  cardContent: {
-    padding: 'small',
-  },
-};
-
 export const PaddingXSmall = Template.bind({});
 PaddingXSmall.args = {
   ...Default.args,
   cardHeader: false,
   cardContent: {
     padding: 'xsmall',
+  },
+};
+
+export const PaddingSmall = Template.bind({});
+PaddingSmall.args = {
+  ...Default.args,
+  cardHeader: false,
+  cardContent: {
+    padding: 'small',
   },
 };
 
@@ -186,3 +187,24 @@ PaddingFromCard.args = {
     padding: 'large',
   },
 };
+
+const Timeline: Story<CardProps> = (args) => (
+  <Card {...args}>
+    <CardContent>
+      <Row>
+        <Col width={3}>
+          <p>Card content</p>
+        </Col>
+        <Col width="auto">
+          <Separator axis="vertical" color="accent" variant="dotted-small" fullWidth />
+        </Col>
+        <Col>
+          <p>Card content</p>
+        </Col>
+      </Row>
+    </CardContent>
+  </Card>
+);
+
+export const TimelineCard = Timeline.bind({});
+TimelineCard.args = {};

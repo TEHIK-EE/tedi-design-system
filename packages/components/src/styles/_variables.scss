@@ -1,3 +1,6 @@
+$card-border-colors: ('background-dark', 'background', 'background-light', 'white');
+$card-spacing: ('none', 'xsmall', 'small', 'medium', 'large');
+
 :root {
   // Figma colors
   --color-black: #000;
@@ -43,6 +46,12 @@
 
   // Card
   --card-border-radius: 4px;
+  --card-padding-default: 1.5rem;
+  --card-padding-none: 0;
+  --card-padding-xsmall: 0.5rem;
+  --card-padding-small: 0.75rem;
+  --card-padding-medium: 1rem;
+  --card-padding-large: 2rem;
 
   // Form
   --input-border-radius: 4px;

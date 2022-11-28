@@ -29,13 +29,39 @@ export interface SeparatorProps {
    * Spacing on bottom of separator. Ignored when spacing is also used
    */
   bottomSpacing?: SeparatorSpacing;
+  /*
+   * X/Y axis
+   * */
+  axis?: 'vertical'; // and 'horizontal', which is default
+  /*
+   * Color
+   * */
+  color?: 'accent';
+  /*
+   * Variant of separator
+   * */
+  variant?: 'dotted' | 'dotted-small';
 }
 
 export const Separator = (props: SeparatorProps): JSX.Element => {
-  const { className, element: Element = 'div', fullWidth, spacing, topSpacing, bottomSpacing } = props;
+  const {
+    className,
+    element: Element = 'div',
+    fullWidth,
+    spacing,
+    topSpacing,
+    bottomSpacing,
+    axis,
+    color,
+    variant,
+  } = props;
+
   const SeparatorBEM = cn(
     styles['separator'],
     className,
+    { [styles[`separator--${color}`]]: color },
+    { [styles['separator--vertical']]: axis === 'vertical' },
+    { [styles[`separator--${variant}`]]: variant },
     { [styles['separator--full-width']]: fullWidth },
     { [styles[`separator--spacing-${spacing}`.replace('.', '-')]]: spacing },
     { [styles[`separator--top-${topSpacing}`.replace('.', '-')]]: !spacing && topSpacing },

@@ -32,7 +32,11 @@ export const CardContent = (props: CardContentProps): JSX.Element => {
     [getBackgroundColorClass(background)]: background,
   });
 
-  return <div className={CardContentBEM}>{children}</div>;
+  return (
+    <div data-padding={padding} className={CardContentBEM}>
+      {children}
+    </div>
+  );
 };
 
 export default CardContent;

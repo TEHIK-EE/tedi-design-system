@@ -1,4 +1,4 @@
-$border-colors: ('background-dark', 'background', 'background-light', 'white');
+@use '../../styles/variables';
 
 .card {
   position: relative;
@@ -47,7 +47,7 @@ $border-colors: ('background-dark', 'background', 'background-light', 'white');
   border-radius: 0;
 }
 
-@each $color in $border-colors {
+@each $color in variables.$card-border-colors {
   .card--border-#{$color} {
     border-color: var(--color-#{$color});
   }
@@ -55,26 +55,12 @@ $border-colors: ('background-dark', 'background', 'background-light', 'white');
 
 .card__content {
   height: 100%;
-  padding: 1.5rem;
+  padding: var(--card-padding-default);
 
-  &--padding-none {
-    padding: 0;
-  }
-
-  &--padding-xsmall {
-    padding: 0.5rem;
-  }
-
-  &--padding-small {
-    padding: 0.75rem;
-  }
-
-  &--padding-medium {
-    padding: 1rem;
-  }
-
-  &--padding-large {
-    padding: 2rem;
+  @each $spacing in variables.$card-spacing {
+    &--padding-#{$spacing} {
+      padding: var(--card-padding-#{$spacing});
+    }
   }
 }
 
