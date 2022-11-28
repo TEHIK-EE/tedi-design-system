@@ -37,6 +37,14 @@
   }
 }
 
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.text-capitalize-first::first-letter {
+  text-transform: capitalize;
+}
+
 .text-normal {
   font-family: Roboto, Arial, Helvetica, sans-serif;
   font-size: 1rem;
@@ -75,6 +83,10 @@
 
 .text-error {
   color: var(--color-error);
+}
+
+.text-warning {
+  color: var(--color-warning);
 }
 
 .text-success {
