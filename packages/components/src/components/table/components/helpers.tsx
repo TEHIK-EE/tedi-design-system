@@ -14,7 +14,7 @@ export function getExpandColumn<TData>(id = 'expander', showExpandAll?: boolean)
     header: () => (showExpandAll ? <span>all</span> : null),
     cell: ({ row }) =>
       row.getCanExpand() && (
-        <button className={styles['table__expand']} onClick={row.getToggleExpandedHandler()}>
+        <button type="button" className={styles['table__expand']} onClick={row.getToggleExpandedHandler()}>
           <span className="visually-hidden">
             <LabelContext.Consumer>
               {({ getLabel }) =>

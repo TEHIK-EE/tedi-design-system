@@ -50,6 +50,26 @@ export default {
               <p>
                 Add <code>import &apos;@tehik/react-components/style.css&apos;;</code> to the root of application.
               </p>
+              <h4>3. Load Material icons css</h4>
+              <p>
+                Load the required icons by defining a Material Icons link in <code>{'<head>'}</code>
+              </p>
+              <p>
+                <pre>
+                  {
+                    '<link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined&display=swap" rel="stylesheet" />'
+                  }
+                </pre>
+              </p>
+              <p>or import it in your css</p>
+              <p>
+                <pre>
+                  {/* eslint-disable-next-line prettier/prettier,react/jsx-curly-brace-presence */}
+                  {
+                    '@import url("https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined&display=swap");'
+                  }
+                </pre>
+              </p>
             </VerticalSpacing>
             <Separator spacing={2} />
             <VerticalSpacing size={0.5}>

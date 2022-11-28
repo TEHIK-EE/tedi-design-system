@@ -17,3 +17,23 @@
   background-color: var(--color-transparent);
   border: none;
 }
+
+@mixin table-cell-selector($selector: 'all') {
+  @if $selector == 'thead' or $selector == 'all' {
+    & > thead > tr > th {
+      @content;
+    }
+  }
+
+  @if $selector == 'tbody' or $selector == 'all' {
+    & > tbody > tr > td {
+      @content;
+    }
+  }
+
+  @if $selector == 'tfoot' or $selector == 'all' {
+    & > tfoot > tr > th {
+      @content;
+    }
+  }
+}

@@ -1,4 +1,4 @@
-import { flexRender, HeaderGroup, SortDirection } from '@tanstack/react-table';
+import { flexRender, Header, HeaderGroup, Row as TSRow, SortDirection } from '@tanstack/react-table';
 import cn from 'classnames';
 import React from 'react';
 
@@ -6,18 +6,19 @@ import { Col, Row } from '../../../grid';
 import Icon from '../../../icon/icon';
 import styles from '../../table.module.scss';
 import { DefaultTData } from '../../table.types';
-import { TableContext } from '../../table-context';
+import { ITableContext, TableContext } from '../../table-context';
 import TableFilter from '../table-filter/table-filter';
 import TableLoader from '../table-loader/table-loader';
 
 export function TableLayout<TData extends DefaultTData<TData>>(): JSX.Element | null {
-  const { table, id, renderSubComponent, isLoading, hideRowBorder } = React.useContext(TableContext);
+  const { table, id, renderSubComponent, isFooterVisible, renderGroupHeading, isLoading, hideRowBorder } =
+    React.useContext<ITableContext<TData>>(TableContext);
 
   if (table === null) {
     return null;
   }
 
-  const { getHeaderGroups, getRowModel } = table;
+  const { getHeaderGroups, getFooterGroups, getRowModel } = table;
 
   const getSortIcon = (sortingDirection: false | SortDirection): JSX.Element => {
     const SortIconBEM = cn('text-disabled', {
@@ -26,6 +27,44 @@ export function TableLayout<TData extends DefaultTData<TData>>(): JSX.Element | 
       [styles['sorted__icon--asc']]: sortingDirection === 'asc',
     });
     return <Icon name={sortingDirection ? 'expand_more' : 'unfold_more'} className={SortIconBEM} />;
+  };
+
+  const footerColSpan = (headers: Header<TData, unknown>[]) => {
+    const index = headers?.findIndex((h) => h.column.columnDef.footer);
+
+    return (index !== -1 ? index : headers?.length) + 1;
+  };
+
+  const groupedRows = (): TSRow<TData>[] => {
+    let lastKey: string | undefined;
+
+    // find rows that should be in a group
+    return getRowModel().rows.map((r, index) => {
+      const { rowGroupKey, ...rest } = r.original;
+      const newRow = (original: TData) => ({
+        ...r,
+        original: {
+          ...original,
+          rowClassName: cn(
+            original.rowClassName,
+            styles['table__row--group-item'],
+            { [styles['table__row--last-group-item']]: getRowModel().rows[index + 1]?.original.rowGroupKey !== lastKey } // if row is last group item
+          ),
+        },
+      });
+
+      if (rowGroupKey && lastKey !== rowGroupKey) {
+        lastKey = rowGroupKey;
+        // group headers
+        return newRow(r.original);
+      } else if (rowGroupKey) {
+        // group items
+        return newRow(rest as typeof r.original);
+      }
+
+      lastKey = rowGroupKey;
+      return r;
+    });
   };
 
   return (
@@ -61,10 +100,28 @@ export function TableLayout<TData extends DefaultTData<TData>>(): JSX.Element | 
         {isLoading ? (
           <TableLoader />
         ) : (
-          getRowModel().rows.map((row) => (
+          groupedRows().map((row) => (
             <React.Fragment key={row.id}>
+              {row.original.rowGroupKey && (
+                <tr
+                  className={cn(
+                    row.original.rowClassName
+                      ?.replace(styles['table__row--group-item'], '')
+                      .replace(styles['table__row--last-group-item'], ''),
+                    styles['table__row--group-header'],
+                    {
+                      [styles['table__row--border-hidden']]: hideRowBorder,
+                    }
+                  )}
+                >
+                  {renderGroupHeading ? (
+                    renderGroupHeading(row)
+                  ) : (
+                    <td colSpan={row.getVisibleCells().length}>{row.original.rowGroupKey}</td>
+                  )}
+                </tr>
+              )}
               <tr
-                key={row.id}
                 className={cn(row.original.rowClassName, {
                   [styles['table__row--clickable']]: !!row.original.onClick,
                   [styles['table__row--border-hidden']]: hideRowBorder,
@@ -82,6 +139,21 @@ export function TableLayout<TData extends DefaultTData<TData>>(): JSX.Element | 
           ))
         )}
       </tbody>
+      {isFooterVisible && (
+        <tfoot>
+          {(getFooterGroups() as HeaderGroup<TData>[]).map((footerGroup) => (
+            <tr key={footerGroup.id}>
+              {footerGroup.headers.map((header, index) =>
+                header.column.columnDef.footer ? (
+                  <th key={header.id} colSpan={footerColSpan(footerGroup.headers.slice(index + 1))}>
+                    {header.isPlaceholder ? null : flexRender(header.column.columnDef.footer, header.getContext())}
+                  </th>
+                ) : null
+              )}
+            </tr>
+          ))}
+        </tfoot>
+      )}
     </table>
   );
 }
