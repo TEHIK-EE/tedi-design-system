@@ -1,4 +1,4 @@
-@import '../../../styles/bootstrap-utility/breakpoints';
+@use '../../../styles/bootstrap-utility/breakpoints';
 
 .container-wrapper {
   display: flex;
@@ -19,7 +19,7 @@
   flex: 1;
   max-width: 100%; // 100% is width without scrollbar, vw is with the scrollbar
 
-  @include media-breakpoint-up(lg) {
+  @include breakpoints.media-breakpoint-up(lg) {
     max-width: calc(100% - 8.75rem); // 100% - sidenav width
   }
 }

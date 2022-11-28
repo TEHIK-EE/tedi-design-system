@@ -1,15 +1,15 @@
-@import '../../styles/bootstrap-utility/breakpoints';
+@use '../../styles/bootstrap-utility/breakpoints';
 
 .section {
   padding: 0 0.5rem;
   overflow: hidden;
   background: var(--color-background);
 
-  @include media-breakpoint-up(md) {
+  @include breakpoints.media-breakpoint-up(md) {
     padding: 0 1rem;
   }
 
-  @include media-breakpoint-up(lg) {
+  @include breakpoints.media-breakpoint-up(lg) {
     padding: 0 2.5rem;
   }
 }

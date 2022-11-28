@@ -1,7 +1,7 @@
-@import '../../styles/mixins';
+@use '../../styles/mixins';
 
 .toggle {
-  @include button-reset;
+  @include mixins.button-reset;
 
   position: relative;
   width: 2rem;

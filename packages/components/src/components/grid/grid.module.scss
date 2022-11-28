@@ -1,13 +1,13 @@
-@import '../../styles/bootstrap-utility/grid';
+@use '../../styles/bootstrap-utility/grid';
 
 .row {
   list-style: none;
 
-  @include make-row;
+  @include grid.make-row;
 }
 
 .col {
-  @include make-col-ready;
+  @include grid.make-col-ready;
 }
 
-@include make-grid-columns;
+@include grid.make-grid-columns;

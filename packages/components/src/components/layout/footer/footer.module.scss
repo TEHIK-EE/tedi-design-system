@@ -1,4 +1,4 @@
-@import '../../../styles/bootstrap-utility/breakpoints';
+@use '../../../styles/bootstrap-utility/breakpoints';
 
 .footer {
   display: flex;
@@ -9,11 +9,11 @@
   padding: 2.5rem;
   background-color: var(--footer-bg);
 
-  @include media-breakpoint-up(lg) {
+  @include breakpoints.media-breakpoint-up(lg) {
     justify-content: space-around;
   }
 
-  @include media-breakpoint-up(md) {
+  @include breakpoints.media-breakpoint-up(md) {
     flex-direction: row;
   }
 }
@@ -21,7 +21,7 @@
 .footer__category {
   text-align: center;
 
-  @include media-breakpoint-up(md) {
+  @include breakpoints.media-breakpoint-up(md) {
     text-align: left;
   }
 }
@@ -35,7 +35,7 @@
   background-color: var(--footer-icon-bg);
   border-radius: 50%;
 
-  @include media-breakpoint-up(lg) {
+  @include breakpoints.media-breakpoint-up(lg) {
     display: flex;
   }
 }

@@ -1,4 +1,4 @@
-@import '../../../../../styles/mixins';
+@use '../../../../../styles/mixins';
 
 .radio {
   display: inline-flex;
@@ -10,7 +10,7 @@
 }
 
 .radio__input {
-  @include visually-hidden;
+  @include mixins.visually-hidden;
 }
 
 .radio__indicator {

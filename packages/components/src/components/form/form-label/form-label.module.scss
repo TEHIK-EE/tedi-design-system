@@ -1,10 +1,10 @@
-@import '../../../styles/mixins';
+@use '../../../styles/mixins';
 
 .form-label {
   display: block;
 
   &--hidden {
-    @include visually-hidden;
+    @include mixins.visually-hidden;
   }
 
   &--hidden-keep-space {

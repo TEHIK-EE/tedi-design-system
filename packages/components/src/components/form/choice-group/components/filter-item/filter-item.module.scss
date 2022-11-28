@@ -1,11 +1,11 @@
-@import '../../../../../styles/mixins';
+@use '../../../../../styles/mixins';
 
 .filter-item {
   margin: 0.25rem;
 }
 
 .filter-item__input {
-  @include visually-hidden;
+  @include mixins.visually-hidden;
 }
 
 .filter-item__label {

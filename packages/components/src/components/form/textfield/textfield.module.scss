@@ -1,4 +1,4 @@
-@import '../../../styles/mixins';
+@use '../../../styles/mixins';
 
 @mixin textfield-focus($border-color: null) {
   @if $border-color {
@@ -68,7 +68,7 @@
 }
 
 .textfield__icon-wrapper {
-  @include button-reset;
+  @include mixins.button-reset;
 
   position: absolute;
   top: 0;

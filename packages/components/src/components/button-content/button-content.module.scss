@@ -1,4 +1,4 @@
-@import '../../styles/mixins';
+@use '../../styles/mixins';
 
 @mixin button-variant(
   $background,
@@ -302,9 +302,9 @@
 }
 
 .btn--icon-only .btn__text {
-  @include visually-hidden;
+  @include mixins.visually-hidden;
 }
 
 .btn--no-style {
-  @include button-reset;
+  @include mixins.button-reset;
 }

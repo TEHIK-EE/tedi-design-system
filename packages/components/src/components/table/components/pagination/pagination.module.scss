@@ -1,4 +1,4 @@
-@import '../../../../styles/bootstrap-utility/breakpoints';
+@use '../../../../styles/bootstrap-utility/breakpoints';
 
 .pagination__wrapper {
   display: flex;
@@ -44,7 +44,7 @@
     background-color: var(--color-secondary);
   }
 
-  @include media-breakpoint-up(md) {
+  @include breakpoints.media-breakpoint-up(md) {
     display: block;
   }
 }
