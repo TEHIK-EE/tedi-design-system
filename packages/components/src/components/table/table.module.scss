@@ -1,78 +1,114 @@
 @use '../../styles/mixins';
 
 .table {
+  --table-bottom-border: 0.01px solid var(--color-secondary-grey);
+  --table-cell-horizontal-padding: 0.875rem;
+  --table-cell-vertical-padding: 0.75rem;
+  --table-cell-padding: var(--table-cell-vertical-padding) var(--table-cell-horizontal-padding);
+
+  // 0.01px fix https://bugs.chromium.org/p/chromium/issues/detail?id=1201762
+  --table-row-border: 0.01px solid var(--color-borders-disabled);
+
   width: 100%;
   overflow-x: auto;
 }
 
-.table table {
+.table > table {
   width: 100%;
   padding: 0;
   border-spacing: 0;
   border-collapse: collapse;
   border: 0;
 
-  td,
-  th {
-    padding: 0.75rem 0.875rem;
+  @include mixins.table-cell-selector {
+    padding: var(--table-cell-padding);
+  }
 
-    .table--vertical-align-base-line & {
-      vertical-align: baseline;
+  @include mixins.table-cell-selector(thead) {
+    font-weight: 400;
+    color: var(--color-text-secondary);
+    text-align: left;
+
+    &.th--sortable {
+      cursor: pointer;
+    }
+
+    .sorted__icon--desc {
+      color: var(--color-secondary);
+      transition-duration: 600ms;
+      transition-property: transform;
+      transform: rotate(180deg);
+    }
+
+    .sorted__icon--asc {
+      color: var(--color-secondary);
+      transition-duration: 600ms;
+      transition-property: transform;
     }
   }
 
-  thead {
-    th {
-      font-weight: 400;
-      color: var(--color-text-secondary);
-      text-align: left;
+  & > tbody > tr {
+    // 0.01px fix https://bugs.chromium.org/p/chromium/issues/detail?id=1201762
+    border-top: var(--table-row-border);
 
-      &.th--sortable {
-        cursor: pointer;
-      }
+    &:first-of-type {
+      border-color: var(--color-secondary-grey);
+    }
 
-      .sorted__icon--desc {
-        color: var(--color-secondary);
-        transition-duration: 600ms;
-        transition-property: transform;
-        transform: rotate(180deg);
-      }
+    &:last-child {
+      border-bottom: var(--table-bottom-border);
+    }
 
-      .sorted__icon--asc {
-        color: var(--color-secondary);
-        transition-duration: 600ms;
-        transition-property: transform;
-      }
+    &.table__row--border-hidden {
+      --table-row-border: none;
+      --table-bottom-border: none;
+    }
+
+    &.table__row--clickable:hover {
+      cursor: pointer;
+      background-color: var(--color-background-light);
     }
   }
 
-  tbody {
-    tr {
-      // 0.01px fix https://bugs.chromium.org/p/chromium/issues/detail?id=1201762
-      border-top: 0.01px solid #d2d3d8;
-
-      &:first-of-type {
-        border-color: var(--color-secondary-grey);
-      }
-
-      &:last-child {
-        border-bottom: 0.01px solid var(--color-secondary-grey);
-      }
-
-      &.table__row--border-hidden {
-        border: none;
-      }
-
-      &.table__row--clickable:hover {
-        cursor: pointer;
-        background-color: var(--color-background-light);
-      }
-    }
+  @include mixins.table-cell-selector(tfoot) {
+    font-weight: normal;
+    text-align: left;
   }
+}
+
+.table--vertical-align-base-line > table {
+  @include mixins.table-cell-selector {
+    vertical-align: baseline;
+  }
+}
+
+.table--hidden-bottom-border {
+  --table-bottom-border: none;
+}
+
+.table--small {
+  --table-cell-vertical-padding: 0.25rem;
+  --table-cell-horizontal-padding: 0.5rem;
 }
 
 .table__expand {
   @include mixins.button-reset;
+}
+
+.table__row--group-header {
+  --table-cell-padding: var(--table-cell-vertical-padding) var(--table-cell-horizontal-padding) 0;
+
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+}
+
+.table__row--group-item {
+  --table-row-border: none;
+  --table-cell-padding: 0 var(--table-cell-horizontal-padding);
+}
+
+.table__row--last-group-item {
+  --table-cell-padding: 0 var(--table-cell-horizontal-padding) var(--table-cell-vertical-padding);
 }
 
 .filter-icon {

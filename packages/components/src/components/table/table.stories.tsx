@@ -33,6 +33,7 @@ type Person = {
   progress: number;
   subRows?: Person[];
   rowClassName?: string;
+  rowGroupKey?: string;
 };
 
 const data: Person[] = [
@@ -121,20 +122,20 @@ const data: Person[] = [
     progress: 10,
   },
   {
-    firstName: 'tanner',
-    lastName: 'linsley',
-    age: 24,
-    visits: 100,
-    status: 'In Relationship',
-    progress: 50,
-  },
-  {
     firstName: 'tandy',
     lastName: 'miller',
     age: 40,
     visits: 40,
     status: 'Single',
     progress: 80,
+  },
+  {
+    firstName: 'joe',
+    lastName: 'dirte',
+    age: 45,
+    visits: 20,
+    status: 'Complicated',
+    progress: 10,
   },
   {
     firstName: 'joe',
@@ -153,12 +154,28 @@ const data: Person[] = [
     progress: 50,
   },
   {
+    firstName: 'tanner',
+    lastName: 'linsley',
+    age: 55,
+    visits: 100,
+    status: 'In Relationship',
+    progress: 50,
+  },
+  {
     firstName: 'tandy',
     lastName: 'miller',
     age: 22,
     visits: 40,
     status: 'Single',
     progress: 80,
+  },
+  {
+    firstName: 'tandy',
+    lastName: 'miller',
+    age: 101,
+    visits: 20,
+    status: 'Complicated',
+    progress: 10,
   },
   {
     firstName: 'joe',
@@ -179,7 +196,7 @@ const columns: ColumnDef<Person, any>[] = [
     cell: (info) => {
       return <Anchor href="#">{`${info.row.original.firstName} ${info.row.original.lastName}`}</Anchor>;
     },
-    header: () => 'Laps',
+    header: () => 'Child',
     sortingFn: (a, b) => {
       return `${a.original.firstName} ${a.original.lastName}`.localeCompare(
         `${b.original.firstName} ${b.original.lastName}`
@@ -223,7 +240,6 @@ const CardTemplate: Story<TableProps<Person>> = (args) => (
 );
 
 export const Default = Template.bind({});
-
 Default.args = {
   data,
   columns,
@@ -355,7 +371,7 @@ WithCustomizedCells.args = {
           <Anchor href="#">{`${info.row.original.firstName} ${info.row.original.lastName}`}</Anchor>
         </CustomizeTableCell>
       ),
-      header: () => 'Laps',
+      header: () => 'Child',
     }),
     ...columns.slice(1),
   ],
@@ -378,7 +394,7 @@ export const WithClickableRows = Template.bind({});
 const clickableRowColumns = [...columns];
 clickableRowColumns[0] = columnHelper.accessor((row) => `${row.firstName} ${row.lastName}`, {
   id: 'personName',
-  header: () => 'Laps',
+  header: () => 'Child',
 });
 clickableRowColumns.push(
   columnHelper.accessor((row) => `${row.firstName}-${row.age}`, {
@@ -406,7 +422,7 @@ export const ServerSidePaginationAndSorting = (): JSX.Element => {
   const { page, pagination, setPagination, size } = useDefaultPagination();
   const { sorting, setSorting } = useDefaultSorting();
 
-  const getData = React.useMemo(() => data.slice(page * size, page * size), [page, size]);
+  const getData = React.useMemo(() => data.slice((page - 1) * size, page * size), [page, size]);
 
   return (
     <Table<Person>
@@ -422,11 +438,112 @@ export const ServerSidePaginationAndSorting = (): JSX.Element => {
   );
 };
 
-export const WithFilters = Template.bind({});
+export const Small = Template.bind({});
+Small.args = {
+  data,
+  columns,
+  id: 'small-table',
+  size: 'small',
+};
 
+export const GroupedRows = Template.bind({});
+GroupedRows.args = {
+  data,
+  columns: [...columns],
+  id: 'grouped-rows-table',
+  cardProps: {
+    padding: 'medium',
+  },
+  enableSorting: false,
+  groupRowsBy: 'status',
+  renderGroupHeading: (row) => (
+    <td>
+      <span className="sr-only">Status group: </span>
+      <span>{row.original.rowGroupKey}</span>
+    </td>
+  ),
+};
+GroupedRows.parameters = {
+  docs: {
+    description: {
+      story:
+        'Grouped rows render a group header row and make grouped rows more compact. Rows, that match `groupRowsBy` condition, are grouped in place of first occurrance without modifying the order of rest of the data.',
+    },
+  },
+};
+
+export const GroupedRowsFromData = Template.bind({});
+GroupedRowsFromData.args = {
+  data: data.map((entity, index) => ({
+    ...entity,
+    rowGroupKey:
+      entity.age < 10
+        ? '0 - 9'
+        : entity.age >= 10 && entity.age < 30
+        ? '10 - 29'
+        : entity.age >= 30 && entity.age < 100
+        ? '30 - 99'
+        : undefined,
+  })),
+  columns: [...columns],
+  id: 'grouped-rows-from-data-table',
+  cardProps: {
+    padding: 'medium',
+  },
+  enableSorting: false,
+  renderGroupHeading: (row) => <td>Age group: {row.original.rowGroupKey}</td>,
+};
+GroupedRowsFromData.parameters = {
+  docs: {
+    description: {
+      story:
+        'Row grouping can also achieved by having rowGroupKey in data objects. It is possible to group only some of the rows.',
+    },
+  },
+};
+
+export const WithFilters = Template.bind({});
 WithFilters.args = {
   data,
   columns: [...columns],
   id: 'row-selection-table',
   enableFilters: true,
+};
+
+export const DisableSorting = Template.bind({});
+DisableSorting.args = {
+  data,
+  columns,
+  id: 'disabled-sort-table',
+  enableSorting: false,
+};
+DisableSorting.parameters = {
+  docs: {
+    description: {
+      story:
+        'Sorting can be disabled for all columns using `<Table enableSorting={false} />` or by defining `enableSorting: false` in individual column',
+    },
+  },
+};
+
+export const WithFooter = Template.bind({});
+WithFooter.args = {
+  id: 'footer-table',
+  hidePagination: true,
+  data,
+  columns: [
+    ...columns.slice(0, 1).map((c) => ({ ...c, footer: () => <strong>Average profile progress</strong> } as typeof c)),
+    ...columns.slice(1, 4),
+    ...columns.slice(4).map(
+      (c) =>
+        ({
+          ...c,
+          footer: (info) => {
+            const rows = info.table.getRowModel()?.rows;
+            const sum = rows?.reduce((a, c) => a + c.original.progress, 0);
+            return Math.round((sum / rows?.length) * 10) / 10;
+          },
+        } as typeof c)
+    ),
+  ],
 };

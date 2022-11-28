@@ -6,6 +6,7 @@ import {
   getFilteredRowModel,
   getPaginationRowModel,
   getSortedRowModel,
+  HeaderGroup,
   PaginationState,
   RowSelectionState,
   SortingState,
@@ -27,7 +28,7 @@ export function Table<TData extends DefaultTData<TData>>(props: TableProps<TData
   const { getLabel } = useLabels();
   const {
     id,
-    data,
+    data = [],
     columns,
     columnFilters: columnFiltersOuter,
     onColumnFiltersChange,
@@ -42,17 +43,21 @@ export function Table<TData extends DefaultTData<TData>>(props: TableProps<TData
     totalRows,
     renderSubComponent,
     getRowCanExpand,
+    groupRowsBy,
+    renderGroupHeading,
     isLoading = false,
     loadingLabel = getLabel('table.loading'),
     verticalAlign = 'middle',
     enableFilters = false,
+    enableSorting = true,
     hideRowBorder = false,
+    size = 'medium',
     hideCardBorder,
   } = props;
 
   const [{ pageIndex, pageSize }, setPagination] = React.useState<PaginationState>({
     pageIndex: 0,
-    pageSize: 10,
+    pageSize: hidePagination ? 10000 : 10, // when pagination is hidden display all the rows
   });
   const [sorting, setSorting] = React.useState<SortingState>([]);
   const [expanded, setExpanded] = React.useState<ExpandedState>({});
@@ -107,8 +112,39 @@ export function Table<TData extends DefaultTData<TData>>(props: TableProps<TData
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [onRowSelectionChange, rowSelection]);
 
+  const groupedData = React.useMemo(() => {
+    // add rowGroupKey when using groupRowsBy
+    const groupList =
+      data?.map((r) => {
+        if (typeof groupRowsBy === 'string') {
+          return { ...r, rowGroupKey: r[groupRowsBy] };
+        } else if (groupRowsBy) {
+          return { ...r, rowGroupKey: groupRowsBy(r) };
+        }
+
+        return r;
+      }) ?? [];
+
+    // group rows with same rowGroupKeys but keep original array order
+    return groupList.reduce<{ keys: string[]; list: TData[] }>(
+      (a, c) => {
+        if (c.rowGroupKey && a.keys.includes(c.rowGroupKey)) {
+          return a;
+        } else if (c.rowGroupKey) {
+          a.keys = [...a.keys, c.rowGroupKey];
+          a.list = [...a.list, ...groupList.filter((g) => g.rowGroupKey === c.rowGroupKey)];
+        } else {
+          a.list = [...a.list, c];
+        }
+
+        return a;
+      },
+      { keys: [], list: [] }
+    ).list;
+  }, [data, groupRowsBy]);
+
   const table = useReactTable({
-    data,
+    data: groupedData,
     columns,
     state: {
       rowSelection,
@@ -134,16 +170,38 @@ export function Table<TData extends DefaultTData<TData>>(props: TableProps<TData
     getSubRows: (row) => row.subRows,
     manualPagination: !!pagination,
     enableFilters,
+    enableSorting,
+  });
+
+  const isFooterVisible = !!(table.getFooterGroups() as HeaderGroup<TData>[]).find(
+    (g) => !!g.headers.find((h) => h.column.columnDef.footer)
+  );
+
+  const hideBottomBorder = !!(!hideCardBorder && hidePagination && !isFooterVisible);
+
+  const tableBEM = cn(styles['table'], styles[`table--vertical-align-${verticalAlign}`], styles[`table--${size}`], {
+    [styles['table--hidden-bottom-border']]: hideBottomBorder,
   });
 
   return (
-    <TableContext.Provider value={{ table, id, renderSubComponent, loadingLabel, isLoading, hideRowBorder }}>
+    <TableContext.Provider
+      value={{
+        table,
+        id,
+        renderSubComponent,
+        isFooterVisible,
+        renderGroupHeading,
+        loadingLabel,
+        isLoading,
+        hideRowBorder,
+      }}
+    >
       <Card type={hideCardBorder ? 'borderless' : undefined} padding={cardPadding} {...restCardProps}>
         <CardContent>
-          <div className={cn(styles['table'], `table--vertical-align-${verticalAlign}`)}>
+          <div className={tableBEM}>
             <TableLayout<TData> />
           </div>
-          {!hidePagination && <Pagination totalRows={totalRows || data.length} />}
+          {!hidePagination && <Pagination totalRows={totalRows || table.getFilteredRowModel().rows.length} />}
         </CardContent>
       </Card>
     </TableContext.Provider>

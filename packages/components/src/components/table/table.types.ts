@@ -18,6 +18,10 @@ export interface DefaultTData<TData> {
    */
   subRows?: TData[];
   /**
+   * Rows are grouped by this key
+   */
+  rowGroupKey?: string;
+  /**
    * Added to Row
    */
   rowClassName?: string;
@@ -29,7 +33,7 @@ export interface DefaultTData<TData> {
 
 export interface TableProps<TData extends DefaultTData<TData>> {
   /**
-   * id of table
+   * Id of table
    */
   id: string;
   /**
@@ -50,35 +54,35 @@ export interface TableProps<TData extends DefaultTData<TData>> {
    */
   cardProps?: CardProps;
   /**
-   * Pagination data to server-side pagination use with onPaginationChange and totalRows
+   * Pagination data to server-side pagination use with `onPaginationChange` and `totalRows`
    */
   pagination?: PaginationState;
   /**
-   * callback on Pagination data change. Use combined with pagination and totalRows props to make server-side pagination
+   * Callback on Pagination data change. Use combined with `pagination` and `totalRows` props to make server-side pagination
    */
   onPaginationChange?: (state: PaginationState) => void;
   /**
-   * sorting data to server-side pagination use with onSortingChange
+   * Sorting data to server-side pagination use with onSortingChange
    */
   sorting?: SortingState;
   /**
-   * callback on Sorting data change. Use combined with sorting prop to make server-side sorting.
+   * Callback on Sorting data change. Use combined with sorting prop to make server-side sorting.
    */
   onSortingChange?: (state: SortingState) => void;
   /**
-   * sorting data to server-side pagination use with onSortingChange
+   * Sorting data to server-side pagination use with `onSortingChange`
    */
   columnFilters?: ColumnFiltersState;
   /**
-   * callback on Sorting data change. Use combined with sorting prop to make server-side sorting.
+   * Callback on Sorting data change. Use combined with `sorting` prop to make server-side sorting.
    */
   onColumnFiltersChange?: (state: ColumnFiltersState) => void;
   /**
-   * callback on row selection data change
+   * Callback on row selection data change
    */
   onRowSelectionChange?: (state: RowSelectionState, flatRows: Row<TData>[]) => void;
   /**
-   * default selected rows
+   * Default selected rows
    */
   defaultRowSelection?: RowSelectionState;
   /**
@@ -87,7 +91,7 @@ export interface TableProps<TData extends DefaultTData<TData>> {
   totalRows?: number;
   /**
    * Callback to render subComponent to expanded row.
-   * Component will be rendered inside td and spanned to whole row.
+   * Component will be rendered inside `<tbody>` and spanned to whole row.
    */
   renderSubComponent?: (row: Row<TData>) => React.ReactElement;
   /**
@@ -95,7 +99,7 @@ export interface TableProps<TData extends DefaultTData<TData>> {
    */
   getRowCanExpand?: (row: Row<TData>) => boolean;
   /**
-   * Should all the rows cab be expanded from the heading
+   * Should all the rows be expandable from the heading
    */
   showExpandAll?: boolean;
   /**
@@ -103,24 +107,44 @@ export interface TableProps<TData extends DefaultTData<TData>> {
    */
   isLoading?: boolean;
   /**
-   * label for the table loader skeleton
+   * Label for the table loader skeleton
    */
   loadingLabel?: string;
+  /**
+   * Controls cell padding to conserve space.
+   * Useful when nesting tables.
+   */
+  size?: 'small' | 'medium';
+  /**
+   * Group rows by key or comparison function that returns a group key.
+   */
+  groupRowsBy?: Extract<keyof TData, string> | ((row: TData) => string);
+  /**
+   * Callback to render row groups header.
+   * Component will be rendered inside group headers `<tr>`.
+   * If omitted, then the `rowGroupKey` (inferred from `groupRowsBy`) value is rendered by default
+   */
+  renderGroupHeading?: (row: Row<TData & Pick<DefaultTData<TData>, 'rowGroupKey'>>) => React.ReactElement;
   /**
    * Vertical align of columns
    */
   verticalAlign?: 'base-line' | 'middle';
   /**
    * Should table allow filtering columns.
-   * Default to false, because TableFilter is not yet final and we cant add filtering to every table.
+   * Defaults to false, because TableFilter is not yet final and we cant add filtering to every table.
    */
   enableFilters?: boolean;
+  /**
+   * Should table allow sorting columns.
+   * When false then `enableSorting` in column props are ignored
+   */
+  enableSorting?: boolean;
   /**
    * Should show borders between rows. Default to false.
    */
   hideRowBorder?: boolean;
   /**
-   * Should hide card border. Over-ridden with CardProps
+   * Should hide card border. Over-ridden with `cardProps`
    */
   hideCardBorder?: boolean;
 }
