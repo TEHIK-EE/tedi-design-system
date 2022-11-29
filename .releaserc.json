@@ -1,19 +1,9 @@
 {
-  "branches": ["master", "next"],
+  "branches": ["master"],
   "plugins": [
     "@semantic-release/commit-analyzer",
     "@semantic-release/release-notes-generator",
-    [
-      "@semantic-release/changelog",
-      {
-        "changeLogFile": "./CHANGELOG.md"
-      }
-    ],
-    [
-      "@semantic-release/gitlab",
-      {
-        "assets": ["./CHANGELOG.md", "./dist"]
-      }
-    ]
+    ["@semantic-release/changelog", { "changeLogFile": "./CHANGELOG.md" }],
+    "@semantic-release/npm"
   ]
 }
