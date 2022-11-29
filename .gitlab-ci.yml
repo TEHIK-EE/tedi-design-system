@@ -4,7 +4,7 @@ stages:
   - publish
 
 image:
-  name: docker.repo.tehik.ee/node:lts-bullseye
+  name: docker.repo.tehik.ee/node:lts-bullseye-slim
   pull_policy: if-not-present
 
 cache:
@@ -54,6 +54,7 @@ publish-library:
   when: manual
   stage: publish
   script:
+    - apt-get update && apt-get install -y --no-install-recommends git-core ca-certificates
     - npm run build
     - |
       {
