@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://gitlab.sotsiaalministeerium.ee/TEHIK/terviseportaal/frontend.git"
+    "url": "https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components.git"
   },
   "engines": {
     "npm": ">=8.0.0",
