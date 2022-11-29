@@ -8,7 +8,16 @@ import { ChoiceGroupContext } from '../../choice-group-context';
 import styles from './check.module.scss';
 
 export const Check = (props: ChoiceGroupItemProps): JSX.Element => {
-  const { id, label, value, disabled, colProps = { width: 12 }, onChange: onChangeItem, hideLabel } = props;
+  const {
+    id,
+    label,
+    value,
+    disabled,
+    colProps = { width: 12 },
+    onChange: onChangeItem,
+    hideLabel,
+    extraContent,
+  } = props;
   const { currentValue, inputType, name, onChange } = React.useContext(ChoiceGroupContext);
 
   const isChecked = !currentValue
@@ -42,6 +51,7 @@ export const Check = (props: ChoiceGroupItemProps): JSX.Element => {
         </span>
         <span className={cn(styles['check__content'], { 'visually-hidden': hideLabel })}>{label}</span>
       </label>
+      {extraContent && <div className={styles['check__extra-content']}>{extraContent}</div>}
     </Col>
   );
 };

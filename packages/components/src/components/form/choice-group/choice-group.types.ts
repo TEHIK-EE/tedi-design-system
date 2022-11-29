@@ -78,4 +78,9 @@ export interface ChoiceGroupItemProps {
    * Item col element props. Use to set width of item.
    */
   colProps?: ColProps;
+  /**
+   * Possibility to add extra content after label. ExtraContent is not clickable like label
+   * Can only be used with Radio and Checkbox.
+   */
+  extraContent?: React.ReactNode;
 }
