@@ -15,7 +15,7 @@ cache:
     - .npm/
 
 before_script:
-  - npm ci --cache .npm --prefer-offline
+  - HUSKY=0 npm ci --cache .npm --prefer-offline
 
 workflow:
   rules:
