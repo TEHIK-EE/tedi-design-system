@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "prepare": "husky install",
+    "postversion": "cp -r package.json .. && cp -r package-lock.json .. && cp -r CHANGELOG.md ..",
     "semantic-release": "semantic-release",
     "start": "nx start",
     "test": "nx test",
@@ -57,6 +58,7 @@
     "@nrwl/web": "^15.2.1",
     "@nrwl/workspace": "^15.2.1",
     "@semantic-release/changelog": "^6.0.2",
+    "@semantic-release/git": "^10.0.1",
     "@semantic-release/npm": "^9.0.1",
     "@storybook/addon-essentials": "^6.5.13",
     "@storybook/builder-webpack5": "^6.5.13",

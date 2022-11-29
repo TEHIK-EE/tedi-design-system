@@ -4,6 +4,7 @@
     "@semantic-release/commit-analyzer",
     "@semantic-release/release-notes-generator",
     ["@semantic-release/changelog", { "changeLogFile": "./CHANGELOG.md" }],
-    "@semantic-release/npm"
+    ["@semantic-release/npm", { "pkgRoot": "dist" }],
+    ["@semantic-release/git", { "assets": ["package.json", "package-lock.json", "CHANGELOG.md"] }]
   ]
 }
