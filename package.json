@@ -3,8 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "prepare": "husky install",
-    "postversion": "cp -r package.json .. && cp -r package-lock.json .. && cp -r CHANGELOG.md ..",
-    "semantic-release": "semantic-release",
+    "semantic-release": "cross-env CI=true semantic-release",
     "start": "nx start",
     "test": "nx test",
     "build": "cd packages/components && vite build && tsc --project tsconfig.lib.json && cd ../../ && cp -a dist/packages/components/src/. dist/ && rm -rf dist/packages && cp packages/components/package.json dist",
