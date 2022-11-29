@@ -3,7 +3,9 @@ stages:
   - build
   - publish
 
-image: docker.repo.tehik.ee/node:lts-bullseye-slim
+image:
+  name: docker.repo.tehik.ee/node:lts-bullseye-slim
+  pull_policy: if-not-present
 
 cache:
   key:
@@ -59,8 +61,6 @@ publish-library:
         echo "//$ARTIFACTORY_NPM_API_URL:_authToken=$NPM_AUTH_TOKEN"
         echo "email=$NPM_AUTH_EMAIL"
       } | tee -a .npmrc
-    - cp ./.npmrc ./dist
-    - cd ./dist
-    - npm publish
+    - npm run semantic-release
   rules:
     - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
