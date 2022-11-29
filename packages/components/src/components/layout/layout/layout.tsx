@@ -7,6 +7,7 @@ import { Footer, FooterProps } from '../footer/footer';
 import Header, { HeaderProps } from '../header/header';
 import { LayoutContext } from '../layout-context';
 import SideNav, { SideNavProps } from '../sidenav/sidenav';
+import { sidenav } from '../sidenav/sidenav.module.scss';
 import styles from './layout.module.scss';
 
 export interface ILayoutProps<
@@ -58,13 +59,15 @@ export const Layout = <
   const { children, header, sideNav, breadcrumbsProps, footer, mainContentId = 'main-content', mainLogo } = props;
   const [menuOpen, setMenuOpen] = React.useState(false);
 
+  const mainBem = cn(styles['main'], { [styles['main--with-sidenav']]: !!props.sideNav });
+
   return (
     <LayoutContext.Provider value={{ menuOpen, toggleMenu: () => setMenuOpen((o) => !o) }}>
       <div className={styles['container-wrapper']}>
         <Header {...header} />
         <div className={cn(styles['container'], { [styles['container--menu-open']]: menuOpen })}>
           {sideNav && <SideNav {...sideNav} />}
-          <div className={styles['main']}>
+          <div className={mainBem}>
             {mainLogo && (
               <img className={styles['main__logos']} src={mainLogo.src} alt={mainLogo.alt} style={mainLogo.style} />
             )}
