@@ -27,10 +27,6 @@ const navItems: SideNavItem[] = [
   { href: '#', children: 'Menetlused', icon: 'assignment' },
   { href: '#', children: 'Menetlused', icon: 'assignment' },
   { href: '#', children: 'Menetlused', icon: 'assignment' },
-  { href: '#', children: 'Menetlused', icon: 'assignment' },
-  { href: '#', children: 'Menetlused', icon: 'assignment' },
-  { href: '#', children: 'Menetlused', icon: 'assignment' },
-  { href: '#', children: 'Menetlused', icon: 'assignment' },
 ];
 
 const footerProps: FooterProps = {
