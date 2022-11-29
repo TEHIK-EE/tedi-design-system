@@ -7,7 +7,6 @@ import { Footer, FooterProps } from '../footer/footer';
 import Header, { HeaderProps } from '../header/header';
 import { LayoutContext } from '../layout-context';
 import SideNav, { SideNavProps } from '../sidenav/sidenav';
-import { sidenav } from '../sidenav/sidenav.module.scss';
 import styles from './layout.module.scss';
 
 export interface ILayoutProps<
