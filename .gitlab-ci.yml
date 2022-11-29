@@ -4,7 +4,7 @@ stages:
   - publish
 
 image:
-  name: docker.repo.tehik.ee/node:lts-bullseye-slim
+  name: docker.repo.tehik.ee/node:lts-bullseye
   pull_policy: if-not-present
 
 cache:
