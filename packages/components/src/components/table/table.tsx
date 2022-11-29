@@ -35,6 +35,7 @@ export function Table<TData extends DefaultTData<TData>>(props: TableProps<TData
     cardProps: { padding: cardPadding = 'none', ...restCardProps } = {},
     hidePagination,
     pagination,
+    manualPagination,
     sorting: sortingOuter,
     onPaginationChange,
     onSortingChange,
@@ -168,7 +169,7 @@ export function Table<TData extends DefaultTData<TData>>(props: TableProps<TData
     getExpandedRowModel: getExpandedRowModel(),
     getRowCanExpand,
     getSubRows: (row) => row.subRows,
-    manualPagination: !!pagination,
+    manualPagination: manualPagination ?? !!pagination,
     enableFilters,
     enableSorting,
   });

@@ -58,6 +58,11 @@ export interface TableProps<TData extends DefaultTData<TData>> {
    */
   pagination?: PaginationState;
   /**
+   * If internal pagination logic is ignored. If true, then pagination must be handled in the app.
+   * If omitted, then the value is inherited from `!!pagination` prop.
+   */
+  manualPagination?: boolean;
+  /**
    * Callback on Pagination data change. Use combined with `pagination` and `totalRows` props to make server-side pagination
    */
   onPaginationChange?: (state: PaginationState) => void;
