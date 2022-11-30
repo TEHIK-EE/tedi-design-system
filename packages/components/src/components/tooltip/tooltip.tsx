@@ -42,7 +42,7 @@ export const Tooltip = (props: TooltipProps): JSX.Element | null => {
       </FloatingFocusManager>
     );
 
-    return !isMounted || open ? content : null;
+    return open ? content : null;
   };
 
   return isMounted ? ReactDOM.createPortal(renderTooltip(), document.body) : renderTooltip();
