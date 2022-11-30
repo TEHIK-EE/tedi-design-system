@@ -2,7 +2,8 @@ import { ArgsTable, CURRENT_SELECTION, Description, Stories, Title } from '@stor
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
 
-import ChoiceGroup, { ChoiceGroupItemProps, ChoiceGroupProps } from './choice-group';
+import ChoiceGroup from './choice-group';
+import { ChoiceGroupItemProps, ChoiceGroupProps } from './choice-group.types';
 
 export default {
   title: 'components/Form/ChoiceGroup',
@@ -27,9 +28,19 @@ export default {
 
 const Template: Story<ChoiceGroupProps> = (args) => <ChoiceGroup {...args} />;
 
-const generateItems = (index: number): ChoiceGroupItemProps[] => [
+const generateItems = (index: number, extraContent?: boolean): ChoiceGroupItemProps[] => [
   { id: `value-${index * 3}`, label: 'Valik 1', value: `value-${index * 3}` },
-  { id: `value-${index * 3 + 1}`, label: 'Valik 2', value: `value-${index * 3 + 1}` },
+  {
+    id: `value-${index * 3 + 1}`,
+    label: 'Valik 2',
+    value: `value-${index * 3 + 1}`,
+    extraContent: extraContent ? (
+      <span className="text-secondary">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis scelerisque quis augue sit amet semper. Donec
+        porttitor mauris neque, quis feugiat erat malesuada ac. Cras vel mauris a est pretium egestas.
+      </span>
+    ) : undefined,
+  },
   { id: `value-${index * 3 + 2}`, label: 'Valik 3', value: `value-${index * 3 + 2}`, disabled: true },
 ];
 
@@ -102,4 +113,19 @@ WithDefaultValue.args = {
   label: 'I have second item selected by default:',
   items: generateItems(6),
   defaultValue: ['value-19'],
+};
+
+export const WithExtraContent = Template.bind({});
+WithExtraContent.args = {
+  ...Check.args,
+  inputType: 'radio',
+  label: 'I have extra content after label:',
+  items: generateItems(7, true),
+};
+WithExtraContent.parameters = {
+  docs: {
+    description: {
+      story: 'ExtraContent prop can only be used with check and radio inputType',
+    },
+  },
 };

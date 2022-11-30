@@ -7,7 +7,7 @@ import { ChoiceGroupContext } from '../../choice-group-context';
 import styles from './radio.module.scss';
 
 export const Radio = (props: ChoiceGroupItemProps): JSX.Element => {
-  const { id, label, value, disabled, colProps = { width: 12 }, onChange: onChangeItem } = props;
+  const { id, label, value, disabled, colProps = { width: 12 }, onChange: onChangeItem, extraContent } = props;
   const { currentValue, inputType, name, onChange } = React.useContext(ChoiceGroupContext);
 
   const isChecked = !currentValue
@@ -40,6 +40,7 @@ export const Radio = (props: ChoiceGroupItemProps): JSX.Element => {
 
         <span className={styles['radio__content']}>{label}</span>
       </label>
+      {extraContent && <div className={styles['radio__extra-content']}>{extraContent}</div>}
     </Col>
   );
 };
