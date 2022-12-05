@@ -11,16 +11,16 @@ export default {
 } as Meta;
 
 const navItems: SideNavItem[] = [
-  { href: '#', title: 'Avaleht', icon: 'home' },
-  { href: '#', title: 'Kliendid', icon: 'account_box' },
-  { href: '/', title: 'Lapsed', icon: 'child_care', current: true },
-  { href: '#', title: 'Menetlused', icon: 'assignment' },
+  { href: '#', children: 'Avaleht', icon: 'home' },
+  { href: '#', children: 'Kliendid', icon: 'account_box' },
+  { href: '/', children: 'Lapsed', icon: 'child_care', isActive: true },
+  { href: '#', children: 'Menetlused', icon: 'assignment' },
 ];
 
 const Template: Story<SideNavProps> = (args) => <Sidenav {...args} />;
 
-export const Primary = Template.bind({});
-Primary.args = {
+export const Default = Template.bind({});
+Default.args = {
   navItems,
   ariaLabel: 'Menu title',
 };
