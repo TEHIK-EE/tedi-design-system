@@ -1,7 +1,9 @@
 import { Subtitle, Title } from '@storybook/addon-docs';
 import { Meta } from '@storybook/react';
 
-import { Anchor, Col, Row, VerticalSpacing } from '..';
+import Anchor from '../components/anchor/anchor';
+import { Col, Row } from '../components/grid';
+import { VerticalSpacing } from '../components/vertical-spacing';
 
 export default {
   title: 'Documentation/Welcome',

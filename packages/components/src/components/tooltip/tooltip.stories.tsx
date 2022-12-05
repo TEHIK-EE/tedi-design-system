@@ -1,10 +1,12 @@
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
 
-import { Anchor, Heading, Icon } from '../..';
+import Anchor from '../anchor/anchor';
 import Button from '../button/button';
 import { Card, CardContent } from '../card';
 import { Col, Row } from '../grid';
+import Heading from '../heading/heading';
+import Icon from '../icon/icon';
 import Tooltip from './tooltip';
 import TooltipProvider, { TooltipProviderProps } from './tooltip-provider';
 import TooltipTrigger from './tooltip-trigger';

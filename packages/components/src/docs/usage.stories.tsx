@@ -1,7 +1,9 @@
 import { Subtitle, Title } from '@storybook/addon-docs';
 import { Meta } from '@storybook/react';
 
-import { Anchor, Separator, VerticalSpacing } from '..';
+import Anchor from '../components/anchor/anchor';
+import Separator from '../components/separator/separator';
+import { VerticalSpacing } from '../components/vertical-spacing';
 
 export default {
   title: 'Documentation/Usage',
