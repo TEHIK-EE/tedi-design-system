@@ -83,7 +83,9 @@ export function TableLayout<TData extends DefaultTData<TData>>(): JSX.Element | 
                     <Col onClick={header.column.getToggleSortingHandler()}>
                       {flexRender(header.column.columnDef.header, header.getContext())}
                     </Col>
-                    {header.column.getCanFilter() ? <TableFilter<TData> column={header.column} /> : null}
+                    {header.column.getCanFilter() ? (
+                      <TableFilter<TData> column={header.column} rows={table?.getCoreRowModel()?.rows} />
+                    ) : null}
                     {header.column.getCanSort() && (
                       <Col align="center" width="auto" onClick={header.column.getToggleSortingHandler()}>
                         {getSortIcon(header.column.getIsSorted())}
@@ -109,9 +111,7 @@ export function TableLayout<TData extends DefaultTData<TData>>(): JSX.Element | 
                       ?.replace(styles['table__row--group-item'], '')
                       .replace(styles['table__row--last-group-item'], ''),
                     styles['table__row--group-header'],
-                    {
-                      [styles['table__row--border-hidden']]: hideRowBorder,
-                    }
+                    { [styles['table__row--border-hidden']]: hideRowBorder }
                   )}
                 >
                   {renderGroupHeading ? (

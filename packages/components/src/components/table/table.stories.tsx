@@ -449,7 +449,7 @@ Small.args = {
 export const GroupedRows = Template.bind({});
 GroupedRows.args = {
   data,
-  columns: [...columns],
+  columns,
   id: 'grouped-rows-table',
   cardProps: {
     padding: 'medium',
@@ -485,7 +485,7 @@ GroupedRowsFromData.args = {
         ? '30 - 99'
         : undefined,
   })),
-  columns: [...columns],
+  columns,
   id: 'grouped-rows-from-data-table',
   cardProps: {
     padding: 'medium',
@@ -497,7 +497,7 @@ GroupedRowsFromData.parameters = {
   docs: {
     description: {
       story:
-        'Row grouping can also achieved by having rowGroupKey in data objects. It is possible to group only some of the rows.',
+        'Row grouping can also be achieved by having rowGroupKey in data objects. It is possible to group only some of the rows.',
     },
   },
 };
@@ -505,7 +505,15 @@ GroupedRowsFromData.parameters = {
 export const WithFilters = Template.bind({});
 WithFilters.args = {
   data,
-  columns: [...columns],
+  columns,
+  id: 'row-selection-table',
+  enableFilters: true,
+};
+
+export const WithSelectFilters = Template.bind({});
+WithSelectFilters.args = {
+  data,
+  columns: columns.map((column) => ({ ...column, meta: { filterType: 'select' } })),
   id: 'row-selection-table',
   enableFilters: true,
 };
