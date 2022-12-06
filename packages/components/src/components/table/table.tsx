@@ -66,17 +66,17 @@ export function Table<TData extends DefaultTData<TData>>(props: TableProps<TData
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([]);
 
   const getPagination = React.useMemo(() => {
-    // If pagination is controlled out-side do not use local state
+    // If pagination is controlled outside, don't use local state
     return pagination || { pageIndex, pageSize };
   }, [pageIndex, pageSize, pagination]);
 
   const getSorting = React.useMemo(() => {
-    // If sorting is controlled out-side do not use local state
+    // If sorting is controlled outside, don't use local state
     return sortingOuter || sorting;
   }, [sorting, sortingOuter]);
 
   const getColumnFilter = React.useMemo(() => {
-    // If sorting is controlled out-side do not use local state
+    // If filtering is controlled outside, don't use local state
     return columnFiltersOuter || columnFilters;
   }, [columnFilters, columnFiltersOuter]);
 
