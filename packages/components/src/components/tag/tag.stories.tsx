@@ -51,7 +51,7 @@ const Template: Story<TagTemplateProps> = (args) => (
           {TagColors.map((color, index) => (
             <Col key={index}>
               <Tag color={color} {...{ [args.property]: type }}>
-                {type === 'icon' ? <Icon name="circle" type="filled" size={12} /> : 'J'}
+                {type === 'icon' ? <Icon name="circle" filled size={12} /> : 'J'}
               </Tag>
             </Col>
           ))}
@@ -61,7 +61,7 @@ const Template: Story<TagTemplateProps> = (args) => (
           {TagColors.map((color, index) => (
             <Col key={index}>
               <Tag rounded color={color} {...{ [args.property]: type }}>
-                {type === 'icon' ? <Icon name="circle" type="filled" size={12} /> : 'J'}
+                {type === 'icon' ? <Icon name="circle" filled size={12} /> : 'J'}
               </Tag>
             </Col>
           ))}
