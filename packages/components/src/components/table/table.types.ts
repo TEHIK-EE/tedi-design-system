@@ -3,12 +3,26 @@ import {
   ColumnFiltersState,
   PaginationState,
   Row,
+  RowData,
   RowSelectionState,
   SortingState,
 } from '@tanstack/react-table';
 import React from 'react';
 
 import { CardProps } from '../card';
+
+declare module '@tanstack/table-core' {
+  interface ColumnMeta<TData extends RowData, TValue> {
+    /*
+     * Change filter input type
+     * */
+    filterType?: 'text' | 'select'; // 'text' is default
+    /*
+     * Replace default filter altogether
+     * */
+    // TODO renderCustomFilter(): void;
+  }
+}
 
 export interface DefaultTData<TData> {
   // To fix Type 'TableRowType' has no properties in common with type DefaultData<TableRowType>
@@ -33,7 +47,7 @@ export interface DefaultTData<TData> {
 
 export interface TableProps<TData extends DefaultTData<TData>> {
   /**
-   * Id of table
+   * ID of table
    */
   id: string;
   /**
@@ -75,11 +89,11 @@ export interface TableProps<TData extends DefaultTData<TData>> {
    */
   onSortingChange?: (state: SortingState) => void;
   /**
-   * Sorting data to server-side pagination use with `onSortingChange`
+   * Sorting data to server-side pagination use with `onColumnFiltersChange`
    */
   columnFilters?: ColumnFiltersState;
   /**
-   * Callback on Sorting data change. Use combined with `sorting` prop to make server-side sorting.
+   * Callback on Sorting data change. Use combined with `columnFilters` prop to make server-side sorting.
    */
   onColumnFiltersChange?: (state: ColumnFiltersState) => void;
   /**
@@ -136,7 +150,7 @@ export interface TableProps<TData extends DefaultTData<TData>> {
   verticalAlign?: 'base-line' | 'middle';
   /**
    * Should table allow filtering columns.
-   * Defaults to false, because TableFilter is not yet final and we cant add filtering to every table.
+   * Defaults to false, because TableFilter is not yet final, and we cant add filtering to every table.
    */
   enableFilters?: boolean;
   /**
