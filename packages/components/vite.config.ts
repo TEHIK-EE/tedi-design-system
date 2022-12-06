@@ -25,7 +25,7 @@ export default defineConfig({
       formats: ['es'],
     },
     sourcemap: 'inline',
-    minify: false,
+    minify: true,
     rollupOptions: {
       external: ['react', 'react-dom'],
       output: {
