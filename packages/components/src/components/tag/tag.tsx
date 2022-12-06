@@ -4,8 +4,8 @@ import React, { forwardRef } from 'react';
 import { SkeletonBlock } from '../skeleton';
 import styles from './tag.module.scss';
 
-export type TagColor = 'primary' | 'primary-accent' | 'secondary' | 'success' | 'warning' | 'important' | 'default';
-export type TagType = 'ghost' | 'default' | 'icon' | 'invisible';
+export type TagColor = 'default' | 'primary' | 'primary-accent' | 'success' | 'warning' | 'important';
+export type TagType = 'default' | 'secondary' | 'ghost' | 'invisible';
 export type TagSize = 'small' | 'medium' | 'default';
 export type TagStatus = 'error' | 'success' | 'inactive';
 
@@ -42,6 +42,10 @@ export interface TagProps {
    * If tag is rounded
    * */
   rounded?: boolean;
+  /*
+   * If tag has icon only
+   * */
+  iconOnly?: boolean;
   /**
    * If Tag has arrow on top-right corner
    */
@@ -50,10 +54,27 @@ export interface TagProps {
    * If Tag should be skeleton
    */
   isLoading?: boolean;
+  /*
+   * If tag is disabled
+   * */
+  isDisabled?: boolean;
 }
 
 export const Tag = forwardRef<HTMLDivElement, TagProps>((props, ref): JSX.Element => {
-  const { children, size, className, title, color = 'default', status, type, rounded, hasArrow, isLoading } = props;
+  const {
+    children,
+    size,
+    className,
+    title,
+    color = 'default',
+    status,
+    type = 'default',
+    rounded,
+    hasArrow,
+    isLoading,
+    isDisabled,
+    iconOnly,
+  } = props;
 
   const TagElement = isLoading ? SkeletonBlock : title ? 'abbr' : 'div';
 
@@ -61,10 +82,12 @@ export const Tag = forwardRef<HTMLDivElement, TagProps>((props, ref): JSX.Elemen
     styles['tag'],
     className,
     { [styles[`tag--${size}`]]: size },
-    { [styles[`tag--${type}`]]: type },
-    { [styles[`tag--${color}`]]: color },
+    { [styles[`tag--type-${type}`]]: type },
+    { [styles[`tag--color-${color}`]]: color },
     { [styles[`tag--status-${status}`]]: status },
     { [styles['tag--rounded']]: rounded },
+    { [styles['tag--icon-only']]: iconOnly },
+    { [styles['tag--disabled']]: isDisabled },
     { [styles['tag--with-arrow']]: hasArrow }
   );
 

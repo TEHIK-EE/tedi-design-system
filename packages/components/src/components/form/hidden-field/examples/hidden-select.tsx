@@ -21,7 +21,7 @@ export const HiddenSelect = () => {
       content={
         <Row alignItems="end" gutter={2}>
           <Col width="auto">
-            <Tag color="warning" type="icon">
+            <Tag color="warning" type="secondary" iconOnly={true}>
               <Icon size={12} name="circle" type="filled" />
             </Tag>
           </Col>

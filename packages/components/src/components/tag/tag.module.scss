@@ -1,21 +1,31 @@
-@mixin tag-variant($color, $background, $color-ghost, $border-ghost) {
-  color: $color;
-  background-color: $background;
+@mixin tag-variant($bg, $secondary-bg, $secondary-text) {
+  color: var(--color-white);
+  background-color: $bg;
 
-  &.tag--ghost {
-    color: $color-ghost;
-    background-color: var(--color-white);
-    border: 1px solid $border-ghost;
+  &.tag--type-secondary {
+    color: $secondary-text;
+    background-color: $secondary-bg;
   }
 
-  &.tag--invisible,
-  &.tag--icon {
+  &.tag--type-ghost {
+    color: $bg;
+    background-color: var(--color-white);
+    border: 1px solid $bg;
+  }
+
+  &.tag--type-invisible,
+  &.tag--icon-only {
     padding: 0;
   }
 
-  &.tag--invisible {
+  &.tag--type-invisible {
+    color: $bg;
     background-color: var(--color-transparent);
     border-color: var(--color-transparent);
+  }
+
+  &.tag--disabled {
+    opacity: 0.5;
   }
 }
 
@@ -33,6 +43,10 @@
   white-space: nowrap;
   vertical-align: bottom; // Removes extra pixel added to height by inline-flex
   border-radius: 0.25rem;
+
+  &.tag--type-ghost {
+    padding: calc(0.125rem - 1px) calc(0.5rem - 1px); // padding - ghost border
+  }
 }
 
 .tag--small {
@@ -40,6 +54,10 @@
   height: 1.3125rem;
   padding: 0;
   font-size: 0.625rem;
+
+  &.tag--type-ghost {
+    padding: 0;
+  }
 }
 
 .tag--medium {
@@ -48,47 +66,28 @@
   font-size: 1rem;
 }
 
-.tag--default {
-  @include tag-variant(
-    var(--color-secondary-grey),
-    var(--color-background),
-    var(--color-secondary-grey),
-    var(--color-secondary-grey)
-  );
+.tag--color-default {
+  @include tag-variant(var(--color-secondary-grey), var(--color-background), var(--color-secondary-grey));
 }
 
-.tag--primary {
-  @include tag-variant(var(--color-white), var(--color-primary), var(--color-primary), var(--color-primary));
+.tag--color-primary {
+  @include tag-variant(var(--color-primary), var(--color-secondary-blue), var(--color-primary));
 }
 
-.tag--primary-accent {
-  @include tag-variant(
-    var(--color-white),
-    var(--color-primary-accent),
-    var(--color-primary-accent),
-    var(--color-primary-accent)
-  );
+.tag--color-primary-accent {
+  @include tag-variant(var(--color-primary-accent), var(--color-primary-accent-1), var(--color-primary-accent));
 }
 
-.tag--secondary {
-  @include tag-variant(
-    var(--color-primary),
-    var(--color-secondary-blue),
-    var(--color-secondary-grey),
-    var(--color-secondary-grey)
-  );
+.tag--color-success {
+  @include tag-variant(var(--color-success), var(--color-success-light), var(--color-success));
 }
 
-.tag--success {
-  @include tag-variant(var(--color-success), var(--color-success-light), var(--color-success), var(--color-success));
+.tag--color-warning {
+  @include tag-variant(var(--color-warning), var(--color-warning-light), var(--color-warning));
 }
 
-.tag--warning {
-  @include tag-variant(var(--color-warning), var(--color-warning-light), var(--color-warning), var(--color-warning));
-}
-
-.tag--important {
-  @include tag-variant(var(--color-error), var(--color-error-light), var(--color-error), var(--color-error));
+.tag--color-important {
+  @include tag-variant(var(--color-error), var(--color-error-light), var(--color-error));
 }
 
 .tag--with-arrow {
