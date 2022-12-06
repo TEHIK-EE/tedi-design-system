@@ -23,7 +23,7 @@ export const HiddenMultiselect = () => {
         <Row gutter={2}>
           {state.map((keyword, index) => (
             <Col key={index} width="auto">
-              <Tag>{keyword.label}</Tag>
+              <Tag type="secondary">{keyword.label}</Tag>
             </Col>
           ))}
         </Row>

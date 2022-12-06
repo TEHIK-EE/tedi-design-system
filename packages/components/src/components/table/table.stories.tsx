@@ -334,7 +334,7 @@ WithSubComponent.args = {
           <div>Lorem ipsum dolor sit amet</div>
         </td>
         <td>
-          <Tag>Aktiivne</Tag>
+          <Tag type="secondary">Aktiivne</Tag>
         </td>
       </tr>
     );
