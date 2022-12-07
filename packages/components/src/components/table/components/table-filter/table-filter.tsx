@@ -149,7 +149,6 @@ export function TableFilter<TData extends DefaultTData<TData>>(props: TableFilte
             <Icon
               className={cn(styles['filter-icon'], { [styles['filter-icon--active']]: !!values.filter || open })}
               name="filter_alt"
-              type="outlined"
             />
           </div>
         </TooltipTrigger>

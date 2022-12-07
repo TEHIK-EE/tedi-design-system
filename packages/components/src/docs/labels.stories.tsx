@@ -1,8 +1,9 @@
-import { Description, Subtitle, Title } from '@storybook/addon-docs';
+import { Subtitle, Title } from '@storybook/addon-docs';
 import { Meta } from '@storybook/react';
 import { ColumnDef, createColumnHelper } from '@tanstack/react-table';
 
-import { Separator, Table } from '..';
+import Separator from '../components/separator/separator';
+import { Table } from '../components/table';
 
 export default {
   title: 'Documentation/Labels',

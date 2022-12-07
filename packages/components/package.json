@@ -23,6 +23,7 @@
     "draftjs-md-converter": "*",
     "formik": "*",
     "jw-paginate": "*",
+    "material-symbols": "*",
     "next": "*",
     "react": "*",
     "react-animate-height": "*",

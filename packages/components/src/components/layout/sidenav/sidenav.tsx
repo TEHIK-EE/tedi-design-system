@@ -3,6 +3,7 @@ import React from 'react';
 
 import { AllowedHTMLTags } from '../../../helpers/polymorphic/types';
 import Anchor, { AnchorProps } from '../../anchor/anchor';
+import Icon from '../../icon/icon';
 import { LayoutContext } from '../layout-context';
 import styles from './sidenav.module.scss';
 
@@ -69,7 +70,7 @@ function SideNavItem<C extends React.ElementType = 'a', Privilege = string>(prop
   return (
     <li className={SideNavItemBEM}>
       <Anchor {...rest} className={styles['sidenav__link']} noStyle={true} role="menuitem">
-        <span className={`${styles['sidenav__icon']} material-icons-outlined`}>{icon}</span>
+        {icon && <Icon name={icon} className={styles['sidenav__icon']} />}
         <span className={styles['sidenav__title']}>{children}</span>
       </Anchor>
     </li>

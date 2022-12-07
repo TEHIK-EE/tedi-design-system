@@ -2,7 +2,8 @@ import { Meta, Story } from '@storybook/react';
 import dayjs, { Dayjs } from 'dayjs';
 import React from 'react';
 
-import { Button, Col, Row } from '../../../..';
+import Button from '../../../button/button';
+import { Col, Row } from '../../../grid';
 import TimePicker, { TimePickerProps } from './timepicker';
 
 export default {
