@@ -5,8 +5,8 @@ import styles from './icon.module.scss';
 
 export interface IconProps {
   /**
-   * Name of material icons icon.
-   * https://fonts.google.com/icons?selected=Material+Icons
+   * Name of material symbols icon.
+   * https://fonts.google.com/icons?icon.set=Material+Symbols
    */
   name: string;
   /**
@@ -14,37 +14,49 @@ export interface IconProps {
    */
   className?: string;
   /**
-   * Type of icon
+   * Type of icon.
+   * It is recommended to only use one type throughout your app.
+   * This ensures that only one icon font is downloaded.
    */
-  type?: 'outlined' | 'filled' | 'round' | 'sharp' | 'two-tone';
+  type?: 'outlined' | 'rounded' | 'sharp';
+  /**
+   * Render a filled variant of the icon.
+   */
+  filled?: boolean;
+  /**
+   * Stroke weight. 600 by default.
+   */
+  weight?: 100 | 200 | 300 | 400 | 500 | 600 | 700;
   /**
    * Size of the icon.
    */
-  size?: 12 | 16 | 18 | 24 | 36 | 48;
+  size?: 12 | 14 | 16 | 18 | 24 | 36 | 48;
   /**
-   * Type of display. block by default
+   * Type of display. block by default.
    */
   display?: 'block' | 'inline';
 }
 
-export const Icon = forwardRef<HTMLDivElement, IconProps>((props, ref): JSX.Element => {
-  const { className, name, type = 'outlined', size, display = 'block' } = props;
+export const Icon = forwardRef<HTMLDivElement, IconProps>(
+  (
+    { className, name, filled = false, type = 'outlined', weight = 600, size = 24, display = 'block' },
+    ref
+  ): JSX.Element => {
+    const iconBEM = cn(styles['icon'], styles[`icon--${display}`], { [`material-symbols-${type}`]: type }, className);
 
-  const IconBEM = cn(
-    styles['icon'],
-    styles[`icon--${display}`],
-    { [`material-icons-${type}`]: type && type !== 'filled' },
-    { 'material-icons': type && type === 'filled' },
-    { [styles[`icon--${size}`]]: size },
-    className
-  );
+    const iconVariant = {
+      ...(size ? { '--icon-variation-size': `${size / 16}rem` } : {}),
+      ...(filled ? { '--icon-variation-fill': 1 } : {}),
+      ...(weight ? { '--icon-variation-weight': weight } : {}),
+    } as React.CSSProperties;
 
-  return (
-    <span className={IconBEM} ref={ref}>
-      {name}
-    </span>
-  );
-});
+    return (
+      <span className={iconBEM} style={iconVariant} ref={ref}>
+        {name}
+      </span>
+    );
+  }
+);
 
 Icon.displayName = 'Icon';
 

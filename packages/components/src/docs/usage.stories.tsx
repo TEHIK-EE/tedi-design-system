@@ -1,7 +1,9 @@
 import { Subtitle, Title } from '@storybook/addon-docs';
 import { Meta } from '@storybook/react';
 
-import { Anchor, Separator, VerticalSpacing } from '..';
+import Anchor from '../components/anchor/anchor';
+import Separator from '../components/separator/separator';
+import { VerticalSpacing } from '../components/vertical-spacing';
 
 export default {
   title: 'Documentation/Usage',
@@ -49,26 +51,6 @@ export default {
               <h4>2. Add styles import to the root</h4>
               <p>
                 Add <code>import &apos;@tehik/react-components/style.css&apos;;</code> to the root of application.
-              </p>
-              <h4>3. Load Material icons css</h4>
-              <p>
-                Load the required icons by defining a Material Icons link in <code>{'<head>'}</code>
-              </p>
-              <p>
-                <pre>
-                  {
-                    '<link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined&display=swap" rel="stylesheet" />'
-                  }
-                </pre>
-              </p>
-              <p>or import it in your css</p>
-              <p>
-                <pre>
-                  {/* eslint-disable-next-line prettier/prettier,react/jsx-curly-brace-presence */}
-                  {
-                    '@import url("https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined&display=swap");'
-                  }
-                </pre>
               </p>
             </VerticalSpacing>
             <Separator spacing={2} />

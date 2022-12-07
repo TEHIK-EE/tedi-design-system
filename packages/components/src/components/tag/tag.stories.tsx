@@ -53,7 +53,7 @@ const Template: Story<TagTemplateProps> = (args) => {
             {TagColors.map((color, index) => (
               <Col key={index}>
                 <Tag color={color} {...{ [property]: type }} {...tagProps}>
-                  {property === 'iconOnly' || tagProps.iconOnly ? <Icon name="circle" type="filled" size={12} /> : 'J'}
+                  {property === 'iconOnly' || tagProps.iconOnly ? <Icon name="circle" filled size={12} /> : 'J'}
                 </Tag>
               </Col>
             ))}

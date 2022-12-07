@@ -1,8 +1,8 @@
 import cn from 'classnames';
 import { forwardRef } from 'react';
 
-import { Icon } from '../..';
 import { AllowedHTMLTags, PolymorphicComponentPropWithRef, PolymorphicRef } from '../../helpers/polymorphic/types';
+import Icon from '../icon/icon';
 import styles from './button-content.module.scss';
 
 export type ButtonTypes = 'primary' | 'secondary' | 'link';

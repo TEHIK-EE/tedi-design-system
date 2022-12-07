@@ -4,7 +4,7 @@ import dayjs from 'dayjs';
 import weekday from 'dayjs/plugin/weekday';
 import React from 'react';
 
-import { defaultEELabels, LabelProvider } from '../src';
+import { defaultEELabels, LabelProvider } from '../src/providers/label-provider';
 dayjs.extend(weekday);
 
 import 'dayjs/locale/et';

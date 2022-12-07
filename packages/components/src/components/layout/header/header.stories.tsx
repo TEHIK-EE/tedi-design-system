@@ -1,7 +1,6 @@
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
 
-import { DropdownItem } from '../../dropdown/dropdown';
 import Header, { HeaderProps } from './header';
 
 export default {

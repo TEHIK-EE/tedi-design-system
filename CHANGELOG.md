@@ -1,3 +1,16 @@
+# [1.1.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v1.0.0...v1.1.0) (2022-12-07)
+
+
+### Bug Fixes
+
+* **icons:** TEHVEER-13 - Make sure font files are not bundled in the css ([fd3194e](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/fd3194e7a3cbac2b9cced87af334bec995c24207))
+* **sidenav:** TEHVEER-13 - Fix sidenav story ([1bdb144](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/1bdb144b99fa89313f83a4b71a867a07464d987c))
+
+
+### Features
+
+* **icons:** TEHVEER-13 - Migrate to material symbols ([8484af3](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/8484af3415df35bdff5cd0bcec1272db379885e7))
+
 # 1.0.0 (2022-11-30)
 
 

@@ -1,6 +1,6 @@
 import { ArgsTable, CURRENT_SELECTION, Description, Primary, Stories, Title } from '@storybook/addon-docs';
 import { Meta, Story } from '@storybook/react';
-import Link, { LinkProps } from 'next/link';
+import Link from 'next/link';
 import React from 'react';
 
 import { Col, Row } from '../grid';
