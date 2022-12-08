@@ -147,7 +147,12 @@ export function TableFilter<TData extends DefaultTData<TData>>(props: TableFilte
 
   return (
     <Col width="auto">
-      <TooltipProvider openWith="click" open={open} onToggle={setOpen}>
+      <TooltipProvider
+        openWith="click"
+        open={open}
+        onToggle={setOpen}
+        focusManager={{ order: ['content'], modal: true }}
+      >
         <TooltipTrigger>
           <Button
             visualType="link"

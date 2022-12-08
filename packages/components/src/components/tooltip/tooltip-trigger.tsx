@@ -16,6 +16,7 @@ export const TooltipTrigger = (props: TooltipTriggerProps): JSX.Element => {
     children,
     getReferenceProps({
       ref: reference,
+      tabIndex: 0,
       ...children.props,
       className: cn(
         styles['tooltip__trigger'],

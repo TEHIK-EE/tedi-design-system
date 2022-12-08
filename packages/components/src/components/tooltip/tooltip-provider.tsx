@@ -3,6 +3,7 @@ import {
   autoUpdate,
   flip,
   FloatingContext,
+  FloatingFocusManager,
   offset,
   Placement,
   ReferenceType,
@@ -38,6 +39,10 @@ export interface TooltipProviderProps {
    */
   openWith?: TooltipOpenWith;
   /**
+   * Props passed to FloatingFocusManager
+   */
+  focusManager?: Omit<React.ComponentProps<typeof FloatingFocusManager>, 'context' | 'children'>;
+  /**
    * Should Tooltip be initially shown. Won't work with open and onToggle.
    */
   defaultOpen?: boolean;
@@ -57,6 +62,7 @@ export interface ITooltipContext {
   open: boolean;
   isMounted: boolean;
   openWith: TooltipOpenWith;
+  focusManager?: TooltipProviderProps['focusManager'];
   reference: (node: ReferenceType | null) => void;
   floating: (node: HTMLElement | null) => void;
   arrowRef: React.MutableRefObject<HTMLElement | null>;
@@ -80,6 +86,7 @@ export const TooltipContext = React.createContext<ITooltipContext>({
   openWith: 'hover',
   reference: () => null,
   floating: () => null,
+  focusManager: {},
   arrowRef: { current: null },
   x: null,
   y: null,
@@ -104,6 +111,13 @@ export const TooltipProvider = (props: TooltipProviderProps): JSX.Element => {
     open: openOuter,
     onToggle,
   } = props;
+  const {
+    order = ['reference', 'content'],
+    visuallyHiddenDismiss = true,
+    initialFocus = -1,
+    modal = false,
+    ...restFocusManager
+  } = props.focusManager ?? {};
   const [open, setOpen] = React.useState(defaultOpen);
   const arrowRef = React.useRef<HTMLElement | null>(null);
 
@@ -158,6 +172,13 @@ export const TooltipProvider = (props: TooltipProviderProps): JSX.Element => {
         reference,
         floating,
         arrowRef,
+        focusManager: {
+          order,
+          initialFocus,
+          modal,
+          visuallyHiddenDismiss,
+          ...restFocusManager,
+        },
         x,
         y,
         strategy,
