@@ -38,6 +38,13 @@ export const AccordionItemHeader = (props: AccordionItemHeaderProps): JSX.Elemen
     if (!disabled) onToggle(id);
   };
 
+  const onKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    if ((e.code === 'Enter' || e.code === 'Space') && !e.repeat) {
+      e.preventDefault();
+      onClick();
+    }
+  };
+
   const setHovered = (isHovered: boolean) => {
     if (!disabled) setIsHovered(isHovered);
   };
@@ -47,10 +54,14 @@ export const AccordionItemHeader = (props: AccordionItemHeaderProps): JSX.Elemen
   return (
     <div
       role="button"
+      tabIndex={disabled ? -1 : 0}
       className={AccordionItemHeaderBEM}
       onClick={onClick}
+      onKeyDown={onKeyDown}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
+      aria-expanded={isOpen(id)}
+      aria-controls={id}
     >
       {openText && closeText && !disabled ? (
         <Row justifyContent="between" alignItems="center">
