@@ -1,3 +1,10 @@
+# [1.2.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v1.1.0...v1.2.0) (2022-12-08)
+
+
+### Features
+
+* **layout,anchor:** Change layout padding to what it is in the design, fix anchor story ([22f0f9a](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/22f0f9ac0b8737bf9eaf67880c7e561da354daca))
+
 # [1.1.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v1.0.0...v1.1.0) (2022-12-07)
 
 
