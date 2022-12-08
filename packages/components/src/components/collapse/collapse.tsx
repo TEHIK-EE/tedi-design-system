@@ -60,13 +60,24 @@ export const Collapse = (props: CollapseProps): JSX.Element => {
     );
   };
 
+  const onClick = () => setIsOpen((prev) => !prev);
+
+  const onKeyDown = (e: React.KeyboardEvent<HTMLButtonElement>) => {
+    if ((e.code === 'Enter' || e.code === 'Space') && !e.repeat) {
+      e.preventDefault();
+      onClick();
+    }
+  };
+
   return (
     <div className={cn(styles['collapse'], className, { [styles['collapse--is-open']]: isOpen })}>
       <button
+        type="button"
         className={styles['collapse__heading']}
         aria-expanded={isOpen}
         aria-controls={id}
-        onClick={() => setIsOpen((prev) => !prev)}
+        onKeyDown={onKeyDown}
+        onClick={onClick}
       >
         <Row element="div" justifyContent="between" alignItems="center">
           {renderHeading()}
@@ -87,10 +98,8 @@ export const Collapse = (props: CollapseProps): JSX.Element => {
           </Col>
         </Row>
       </button>
-      <AnimateHeight duration={300} height={isOpen ? 'auto' : 0}>
-        <div className={styles['collapse__inner']} id={id} aria-hidden={!isOpen} data-testid="collapse-inner">
-          {children}
-        </div>
+      <AnimateHeight duration={300} id={id} height={isOpen ? 'auto' : 0} data-testid="collapse-inner">
+        {children}
       </AnimateHeight>
     </div>
   );
