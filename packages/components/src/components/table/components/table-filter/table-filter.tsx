@@ -104,13 +104,18 @@ export function TableFilter<TData extends DefaultTData<TData>>(props: TableFilte
           }
         });
       const options: ISelectOption[] = rowValues?.map((i) => ({ label: String(i), value: String(i) }));
+      // selected value must have a JS reference to one of the options. Otherwise, we don't have a correct focus on the selected item when menu is opened with a tab
+      const selectedValue = options.find((o) => o.value === String(values.filter)) ?? {
+        value: String(values.filter),
+        label: String(values.filter),
+      };
 
       return (
         <Select
           id={id}
           label={label}
           placeholder={placeholder}
-          value={{ label: String(values.filter), value: String(values.filter) }}
+          value={selectedValue}
           isSearchable={false}
           closeMenuOnSelect={true}
           options={options}

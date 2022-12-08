@@ -12,17 +12,19 @@ export default {
 
 const Template: Story<SelectProps> = (args) => <Select {...args} />;
 
+const options = [
+  { value: 'option-1', label: 'Option 1' },
+  { value: 'option-2', label: 'Option 2', isDisabled: true },
+  { value: 'option-3', label: 'Option 3' },
+  { value: 'option-4', label: 'Option 4' },
+];
+
 export const Default = Template.bind({});
 Default.args = {
   id: 'example-1',
   label: 'Label',
-  defaultValue: { value: 'option-1', label: 'Option 1' },
-  options: [
-    { value: 'option-1', label: 'Option 1' },
-    { value: 'option-2', label: 'Option 2', isDisabled: true },
-    { value: 'option-3', label: 'Option 3' },
-    { value: 'option-4', label: 'Option 4' },
-  ],
+  defaultValue: options[2],
+  options: options,
 };
 
 export const Small = Template.bind({});
