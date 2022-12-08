@@ -10,7 +10,6 @@ import { Card, CardContent } from '../../../card';
 import Select, { ISelectOption } from '../../../form/select/select';
 import TextField from '../../../form/textfield/textfield';
 import { Col, Row } from '../../../grid';
-import Icon from '../../../icon/icon';
 import { Tooltip, TooltipProvider, TooltipTrigger } from '../../../tooltip';
 import { VerticalSpacing } from '../../../vertical-spacing';
 import styles from '../../table.module.scss';
@@ -150,12 +149,14 @@ export function TableFilter<TData extends DefaultTData<TData>>(props: TableFilte
     <Col width="auto">
       <TooltipProvider openWith="click" open={open} onToggle={setOpen}>
         <TooltipTrigger>
-          <div>
-            <Icon
-              className={cn(styles['filter-icon'], { [styles['filter-icon--active']]: !!values.filter || open })}
-              name="filter_alt"
-            />
-          </div>
+          <Button
+            visualType="link"
+            icon="filter_alt"
+            className={styles['filter__button']}
+            classNameIcon={cn(styles['filter__icon'], { [styles['filter__icon--active']]: !!values.filter || open })}
+          >
+            <span className="sr-only">{getLabel('table.filter')}</span>
+          </Button>
         </TooltipTrigger>
         <Tooltip>
           <Card type="borderless">

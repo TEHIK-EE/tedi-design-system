@@ -45,9 +45,9 @@ export const Icon = forwardRef<HTMLDivElement, IconProps>(
     const iconBEM = cn(styles['icon'], styles[`icon--${display}`], { [`material-symbols-${type}`]: type }, className);
 
     const iconVariant = {
-      ...(size ? { '--icon-variation-size': `${size / 16}rem` } : {}),
-      ...(filled ? { '--icon-variation-fill': 1 } : {}),
-      ...(weight ? { '--icon-variation-weight': weight } : {}),
+      ...(size ? { '--icon-internal-variation-size': `${size / 16}rem` } : {}),
+      ...(filled ? { '--icon-internal-variation-fill': 1 } : {}),
+      ...(weight ? { '--icon-internal-variation-weight': weight } : {}),
     } as React.CSSProperties;
 
     return (
