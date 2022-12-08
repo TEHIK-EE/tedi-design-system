@@ -1,9 +1,20 @@
-import { getOverflowAncestors, shift, useFloating } from '@floating-ui/react-dom';
+import {
+  autoUpdate,
+  flip,
+  FloatingFocusManager,
+  FloatingPortal,
+  shift,
+  useClick,
+  useDismiss,
+  useFloating,
+  useFloatingNodeId,
+  useInteractions,
+  useListNavigation,
+  useRole,
+} from '@floating-ui/react-dom-interactions';
 import cn from 'classnames';
 import React from 'react';
-import ReactDOM from 'react-dom';
 
-import { useIsMounted } from '../../helpers';
 import { AllowedHTMLTags } from '../../helpers/polymorphic/types';
 import Anchor, { AnchorProps } from '../anchor/anchor';
 import { Button, ButtonProps } from '../button/button';
@@ -33,104 +44,124 @@ export type DropdownProps<C extends React.ElementType = 'a'> = ConditionalTypes<
    * Dropdown trigger props
    */
   button: ButtonProps;
+  /**
+   * Callback when one of the items is clicked
+   */
+  onItemClick?: (item: DropdownItem<C>, index: number, e: React.MouseEvent) => void;
+  /**
+   * Close menu when item is clicked. default is true
+   */
+  closeMenuOnClick?: boolean;
+  /**
+   * Props passed to FloatingFocusManager
+   */
+  focusManager?: Omit<React.ComponentProps<typeof FloatingFocusManager>, 'context' | 'children'>;
 };
 
 export const Dropdown = <C extends React.ElementType = 'a'>(props: DropdownProps<C>) => {
-  const { button, items, linkAs } = props;
-
+  const { button, items, linkAs, onItemClick, closeMenuOnClick = true } = props;
+  const { visuallyHiddenDismiss = true, initialFocus = -1, ...restFocusManager } = props.focusManager ?? {};
+  const nodeId = useFloatingNodeId();
+  const listItemsRef = React.useRef<Array<HTMLAnchorElement | null>>([]);
   const [isOpen, setIsOpen] = React.useState(false);
-  const isMounted = useIsMounted();
+  const [activeIndex, setActiveIndex] = React.useState<number | null>(null);
 
-  const { x, y, reference, floating, strategy, update, refs } = useFloating({
+  const { x, y, strategy, floating, placement, context, reference } = useFloating({
     placement: 'bottom-start',
-    middleware: [shift()],
+    nodeId,
+    open: isOpen,
+    onOpenChange: setIsOpen,
+    middleware: [flip(), shift()],
+    whileElementsMounted: autoUpdate,
   });
 
-  // Handle click outside
-  React.useEffect(() => {
-    document.addEventListener('mousedown', onClickOutside);
+  const firstSelectedItemIndex = (items as DropdownItem<C>[]).findIndex((i) => i.isActive);
 
-    return () => {
-      document.removeEventListener('mousedown', onClickOutside);
-    };
-  });
+  const { getReferenceProps, getFloatingProps, getItemProps } = useInteractions([
+    useClick(context),
+    useListNavigation(context, {
+      listRef: listItemsRef,
+      activeIndex,
+      selectedIndex: firstSelectedItemIndex,
+      onNavigate: setActiveIndex,
+      loop: true,
+    }),
+    useRole(context, { role: 'listbox' }),
+    useDismiss(context),
+  ]);
 
-  // Update on scroll and resize for all relevant nodes
-  React.useEffect(() => {
-    if (!refs.reference.current || !refs.floating.current) {
-      return;
-    }
-
-    // refs.reference.current is a VirtualElement, not a Node
-    // So this component could do with a refactor
-
-    const parents = [
-      ...getOverflowAncestors(refs.reference.current as unknown as Node),
-      ...getOverflowAncestors(refs.floating.current),
-    ];
-
-    parents.forEach((parent) => {
-      parent.addEventListener('scroll', update);
-      parent.addEventListener('resize', update);
-    });
-
-    return () => {
-      parents.forEach((parent) => {
-        parent.removeEventListener('scroll', update);
-        parent.removeEventListener('resize', update);
-      });
-    };
-  }, [refs.reference, refs.floating, update]);
-
-  const onClickOutside = (event: MouseEvent): void => {
-    const clickedOnDropdown =
-      refs.floating.current && event.target instanceof Node && refs.floating.current.contains(event.target);
-    const clickedOnTrigger =
-      refs.reference.current &&
-      event.target instanceof Node &&
-      (refs.reference.current as unknown as any).contains(event.target); // eslint-disable-line @typescript-eslint/no-explicit-any
-
-    if (clickedOnDropdown || clickedOnTrigger) {
-      return;
-    }
-
-    setIsOpen(false);
-  };
-
-  const renderDropdown = (): JSX.Element => {
-    return (
-      <div
-        ref={floating}
-        style={{
-          position: strategy,
-          top: y ?? '',
-          left: x ?? '',
-          display: isOpen ? 'block' : 'none',
-        }}
-        className={styles['dropdown-wrapper']}
+  const renderDropdown = (): JSX.Element | null => {
+    const content = (
+      <FloatingFocusManager
+        context={context}
+        initialFocus={initialFocus}
+        visuallyHiddenDismiss={visuallyHiddenDismiss}
+        {...restFocusManager}
       >
-        <ul className={styles['dropdown']} role="listbox">
+        <div
+          {...getFloatingProps({
+            ref: floating,
+            style: {
+              position: strategy,
+              left: x ?? 0,
+              top: y ?? 0,
+            },
+            className: styles['dropdown'],
+            onKeyDown(event) {
+              if (event.key === 'Tab') {
+                setIsOpen(false);
+              }
+            },
+          })}
+          data-placement={placement}
+        >
           {(items as DropdownItem<C>[]).map((item, key) => renderDropdownItem(item, key))}
-        </ul>
-      </div>
+        </div>
+      </FloatingFocusManager>
     );
+
+    return isOpen ? content : null;
   };
 
   const DropdownItemBEM = (item: DropdownItem<C>) =>
     cn(styles['dropdown__item'], { [styles['dropdown__item--active']]: item.isActive });
 
+  const onClick = (item: DropdownItem<C>, index: number, e: React.MouseEvent) => {
+    onItemClick?.(item, index, e);
+    item?.onClick?.(e);
+
+    closeMenuOnClick && setIsOpen(false);
+  };
+
   const renderDropdownItem = (item: DropdownItem<C>, key: number): JSX.Element => (
-    <li className={DropdownItemBEM(item)} key={key} role="option" aria-selected={item.isActive}>
-      <Anchor as={linkAs} className={styles['dropdown__link']} {...item}>
-        {item.children}
-      </Anchor>
-    </li>
+    <Anchor
+      as={linkAs}
+      key={key}
+      {...item}
+      {...getItemProps({
+        tabIndex: activeIndex === key ? 0 : -1,
+        role: 'option',
+        className: DropdownItemBEM(item),
+        onClick: (e) => onClick(item, key, e),
+        ref(node: HTMLAnchorElement) {
+          listItemsRef.current[key] = node;
+        },
+      })}
+    >
+      {item.children}
+    </Anchor>
   );
 
   return (
     <>
-      <Button {...button} onClick={() => setIsOpen((currentIsOpen) => !currentIsOpen)} ref={reference} />
-      {isMounted && isOpen ? ReactDOM.createPortal(renderDropdown(), document.body) : renderDropdown()}
+      <Button
+        {...button}
+        {...getReferenceProps({
+          ref: reference,
+          tabIndex: 0,
+        })}
+      />
+      <FloatingPortal>{renderDropdown()}</FloatingPortal>
     </>
   );
 };

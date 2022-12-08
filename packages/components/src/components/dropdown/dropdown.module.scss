@@ -1,32 +1,25 @@
-.dropdown-wrapper {
-  z-index: 20;
-}
-
 .dropdown {
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
   margin: 0;
-  list-style: none;
   background: var(--color-white);
   border: 1px solid #dbdfe2;
-  border-radius: 3px;
+  border-radius: 4px;
 }
 
 .dropdown__item {
   padding: 0.5rem 0.75rem;
-  cursor: pointer;
+  color: var(--color-black);
+  border-radius: 0;
 
   &--active {
     background-color: var(--color-primary-3);
   }
 
-  &:hover {
+  &:hover,
+  &:focus-visible {
     background-color: var(--color-primary-1);
-  }
-}
-
-.dropdown__link {
-  color: var(--color-black);
-
-  &:hover {
-    text-decoration: none;
+    outline: 0;
   }
 }
