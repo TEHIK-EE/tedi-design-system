@@ -1,3 +1,10 @@
+## [1.2.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v1.2.0...v1.2.1) (2022-12-08)
+
+
+### Bug Fixes
+
+* **helper:** Add text capitalize helper ([dd91cfc](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/dd91cfce5705dff6337cb687720a7f2daede4fb7))
+
 # [1.2.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v1.1.0...v1.2.0) (2022-12-08)
 
 
