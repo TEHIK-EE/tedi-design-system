@@ -24,7 +24,7 @@ export interface IconProps {
    */
   filled?: boolean;
   /**
-   * Stroke weight. 600 by default.
+   * Stroke weight. 400 by default.
    */
   weight?: 100 | 200 | 300 | 400 | 500 | 600 | 700;
   /**
@@ -39,7 +39,7 @@ export interface IconProps {
 
 export const Icon = forwardRef<HTMLDivElement, IconProps>(
   (
-    { className, name, filled = false, type = 'outlined', weight = 600, size = 24, display = 'block' },
+    { className, name, filled = false, type = 'outlined', weight = 400, size = 24, display = 'block' },
     ref
   ): JSX.Element => {
     const iconBEM = cn(styles['icon'], styles[`icon--${display}`], { [`material-symbols-${type}`]: type }, className);
