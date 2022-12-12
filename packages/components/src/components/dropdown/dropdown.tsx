@@ -16,6 +16,7 @@ import cn from 'classnames';
 import React from 'react';
 
 import { AllowedHTMLTags } from '../../helpers/polymorphic/types';
+import { useLabels } from '../../providers/label-provider';
 import Anchor, { AnchorProps } from '../anchor/anchor';
 import { Button, ButtonProps } from '../button/button';
 import styles from './dropdown.module.scss';
@@ -59,8 +60,10 @@ export type DropdownProps<C extends React.ElementType = 'a'> = ConditionalTypes<
 };
 
 export const Dropdown = <C extends React.ElementType = 'a'>(props: DropdownProps<C>) => {
+  const { getLabel } = useLabels();
   const { button, items, linkAs, onItemClick, closeMenuOnClick = true } = props;
-  const { visuallyHiddenDismiss = true, initialFocus = -1, ...restFocusManager } = props.focusManager ?? {};
+  const { initialFocus = -1, modal = false, ...restFocusManager } = props.focusManager ?? {};
+  const { visuallyHiddenDismiss = modal ? getLabel('close') : false } = restFocusManager ?? {};
   const nodeId = useFloatingNodeId();
   const listItemsRef = React.useRef<Array<HTMLAnchorElement | null>>([]);
   const [isOpen, setIsOpen] = React.useState(false);
@@ -96,6 +99,7 @@ export const Dropdown = <C extends React.ElementType = 'a'>(props: DropdownProps
         context={context}
         initialFocus={initialFocus}
         visuallyHiddenDismiss={visuallyHiddenDismiss}
+        modal={modal}
         {...restFocusManager}
       >
         <div

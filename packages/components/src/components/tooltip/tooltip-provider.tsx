@@ -21,6 +21,7 @@ import {
 import React from 'react';
 
 import { useIsMounted } from '../../helpers';
+import { useLabels } from '../../providers/label-provider';
 
 export type TooltipOpenWith = 'click' | 'hover';
 
@@ -103,6 +104,7 @@ export const TooltipContext = React.createContext<ITooltipContext>({
 });
 
 export const TooltipProvider = (props: TooltipProviderProps): JSX.Element => {
+  const { getLabel } = useLabels();
   const {
     children,
     placement: placementDefault = 'bottom',
@@ -113,11 +115,11 @@ export const TooltipProvider = (props: TooltipProviderProps): JSX.Element => {
   } = props;
   const {
     order = ['reference', 'content'],
-    visuallyHiddenDismiss = true,
-    initialFocus = -1,
     modal = false,
+    initialFocus = -1,
     ...restFocusManager
   } = props.focusManager ?? {};
+  const { visuallyHiddenDismiss = modal ? getLabel('close') : false } = restFocusManager ?? {};
   const [open, setOpen] = React.useState(defaultOpen);
   const arrowRef = React.useRef<HTMLElement | null>(null);
 
