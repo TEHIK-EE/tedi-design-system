@@ -38,10 +38,7 @@ export interface IconProps {
 }
 
 export const Icon = forwardRef<HTMLDivElement, IconProps>(
-  (
-    { className, name, filled = false, type = 'outlined', weight = 400, size = 24, display = 'block' },
-    ref
-  ): JSX.Element => {
+  ({ className, name, filled = false, type = 'outlined', weight, size = 24, display = 'block' }, ref): JSX.Element => {
     const iconBEM = cn(styles['icon'], styles[`icon--${display}`], { [`material-symbols-${type}`]: type }, className);
 
     const iconVariant = {
