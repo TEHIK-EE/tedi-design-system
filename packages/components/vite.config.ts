@@ -12,7 +12,7 @@ export default defineConfig({
   css: {
     modules: {
       generateScopedName: '[local]-[hash:8]',
-      localsConvention: null,
+      localsConvention: undefined,
     },
   },
   build: {
