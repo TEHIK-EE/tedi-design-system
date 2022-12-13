@@ -1,3 +1,22 @@
+# [1.3.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v1.2.1...v1.3.0) (2022-12-13)
+
+
+### Bug Fixes
+
+* **card:** TEHVEER-5 - Pass tabIndex to card when used as tooltip trigger ([65b1791](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/65b17917f2a03212b0b4aa8ea067bc8bedc9b8c3))
+* **pagination:** TEHVEER-5 - Make plain button type as button by default ([7813585](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/78135851d4203052af9c8ee26bfb7301bba2c5b0))
+
+
+### Features
+
+* **accordion:** TEHVEER-5 - Improve accordion accessibility ([48f9fef](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/48f9fef794a1ebc3b8ddcba952aee91d29fd48f8))
+* **collapse:** TEHVEER-5 - Improve collapse accessibility ([e3c2e02](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/e3c2e0284fdd233337d6b2e2d1addc41532b6dca))
+* **dropdown:** TEHVEER-5 - Improve dropdown accessibility ([362c2e2](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/362c2e2962444da8d11198fe2152f703879593fb))
+* **icon:** TEHVEER-26 - Set default icon weight to 400 ([e0df342](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/e0df3426b0dca13578bf72eda5af7cc664d1d418))
+* **select:** TEHVEER-5 - Improve select accessibility ([e84919f](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/e84919f8a7be457d66b7137cd8ee505973d78696))
+* **table:** TEHVEER-5 - Improve table accessibility ([420b9d7](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/420b9d75ec5a7bb0f21ea4091d8ec0ee481594e8))
+* **tooltip:** TEHVEER-5 - Improve tooltip accessibility ([c655344](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/c655344d23cb13a50c063fccef4a84134ad59bc2))
+
 ## [1.2.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v1.2.0...v1.2.1) (2022-12-08)
 
 
