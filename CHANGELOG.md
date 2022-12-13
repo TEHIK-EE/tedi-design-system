@@ -1,3 +1,16 @@
+# [1.4.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v1.3.0...v1.4.0) (2022-12-13)
+
+
+### Bug Fixes
+
+* **build:** Don't add sourcemaps to bundle, update fonts ([341ec29](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/341ec2997cece0f7439641dd845a8071a10660b1))
+* **sidenav:** Fix long text in sidenav ([3e6ef49](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/3e6ef49b9424f63314096d229a8fcd5754e5cc85))
+
+
+### Features
+
+* **icon:** Inherit icon weight from text by default ([16ced75](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/16ced75a971d2ce3f3c4fa14455953e62a531006))
+
 # [1.3.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v1.2.1...v1.3.0) (2022-12-13)
 
 
