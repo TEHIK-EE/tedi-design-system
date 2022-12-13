@@ -134,36 +134,36 @@ export const InText: Story<IconProps> = (args) => {
     <div>
       <div>
         <Heading level={1}>
-          <Icon name={args.name} display="inline" weight={500} size={36} />
-          This is level 2 heading with inline <Icon name={args.name} display="inline" weight={500} size={36} /> icon
+          <Icon name={args.name} display="inline" size={36} />
+          This is level 2 heading with inline <Icon name={args.name} display="inline" size={36} /> icon
         </Heading>
         <Heading level={2}>
-          <Icon name={args.name} display="inline" weight={600} size={36} />
-          This is level 2 heading with inline <Icon name={args.name} display="inline" weight={600} size={36} /> icon
+          <Icon name={args.name} display="inline" size={36} />
+          This is level 2 heading with inline <Icon name={args.name} display="inline" size={36} /> icon
         </Heading>
         <Heading level={3}>
-          <Icon name={args.name} display="inline" weight={600} size={24} />
-          This is level 3 heading with inline <Icon name={args.name} display="inline" weight={600} size={24} /> icon
+          <Icon name={args.name} display="inline" size={24} />
+          This is level 3 heading with inline <Icon name={args.name} display="inline" size={24} /> icon
         </Heading>
         <Heading level={4}>
-          <Icon name={args.name} display="inline" weight={600} size={24} />
-          This is level 4 heading with inline <Icon name={args.name} display="inline" weight={600} size={24} /> icon
+          <Icon name={args.name} display="inline" size={24} />
+          This is level 4 heading with inline <Icon name={args.name} display="inline" size={24} /> icon
         </Heading>
         <Heading level={5}>
-          <Icon name={args.name} display="inline" weight={600} size={18} />
-          This is level 5 heading with inline <Icon name={args.name} display="inline" weight={600} size={18} /> icon
+          <Icon name={args.name} display="inline" size={18} />
+          This is level 5 heading with inline <Icon name={args.name} display="inline" size={18} /> icon
         </Heading>
         <Heading level={6}>
-          <Icon name={args.name} display="inline" weight={600} size={16} />
-          This is level 6 heading with inline <Icon name={args.name} display="inline" weight={600} size={16} /> icon
+          <Icon name={args.name} display="inline" size={16} />
+          This is level 6 heading with inline <Icon name={args.name} display="inline" size={16} /> icon
         </Heading>
         <p>
-          <Icon name={args.name} display="inline" weight={600} size={16} />
-          This is paragraph text with inline <Icon name={args.name} display="inline" weight={600} size={16} /> icon
+          <Icon name={args.name} display="inline" size={16} />
+          This is paragraph text with inline <Icon name={args.name} display="inline" size={16} /> icon
         </p>
         <small>
-          <Icon name={args.name} display="inline" weight={600} size={16} />
-          This is small text with inline <Icon name={args.name} display="inline" weight={600} size={16} /> icon
+          <Icon name={args.name} display="inline" size={16} />
+          This is small text with inline <Icon name={args.name} display="inline" size={16} /> icon
         </small>
       </div>
     </div>
@@ -176,11 +176,11 @@ InText.parameters = {
   docs: {
     description: {
       story: `Aligning icons with text can be achieved in two ways:<br/>
-        a) Use \`<Row>\` and \`<Col>\` components and place icon and text in separate columns.<br/>
+        a) Use \`<Row>\` and \`<Col>\` components and place icon and text in separate columns. With <br/>
         b) Use \`inline={true}\` prop and place the icon as a text sibling. (Shown in this example)<br/>
-        For both methods the \`size\` and \`weight\` of the icon should be manually set to visually match the text.
-        Icon \`weight\` should be 2 steps larger than text weight and icon \`size\` should be rounded up from text size.
-        E.g. When text has \`font-size: 32px\` and  \`font-weight: 300\`, then the icon should have \`size={36}\` and \`weight={500}\`
+        For both methods the \`size\` of the icon should be manually set to visually match the text.
+        Icon \`size\` should be rounded up from text size.
+        E.g. When text has \`font-size: 32px\`, then the icon should have \`size={36}\`
         `,
     },
   },
