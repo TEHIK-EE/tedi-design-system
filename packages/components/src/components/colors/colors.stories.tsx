@@ -2,21 +2,34 @@ import { Meta } from '@storybook/react';
 
 import { Card } from '../card';
 import CardContent from '../card/card-content/card-content';
+import { TColorsBackground } from '../commonTypes';
 
 export default {
   title: 'components/Color',
 } as Meta;
 
+const colors: TColorsBackground[] = [
+  'white',
+  'background-light',
+  'background',
+  'background-dark',
+  'warning-light',
+  'success-light',
+  'error-light',
+  'primary-1',
+  'primary-2',
+  'primary-3',
+  'primary',
+];
+
 export const BackgroundColors = () => {
   return (
     <Card>
-      <CardContent background="white">White</CardContent>
-      <CardContent background="background-light">Background-light</CardContent>
-      <CardContent background="background">Background</CardContent>
-      <CardContent background="background-dark">Background-dark</CardContent>
-      <CardContent background="warning-light">Warning-light</CardContent>
-      <CardContent background="error-light">Error-light</CardContent>
-      <CardContent background="success-light">Success-light</CardContent>
+      {colors.map((i, index) => (
+        <CardContent key={index} background={i}>
+          <p className="text-capitalize">{i}</p>
+        </CardContent>
+      ))}
     </Card>
   );
 };
