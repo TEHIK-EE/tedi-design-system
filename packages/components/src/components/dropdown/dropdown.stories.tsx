@@ -1,4 +1,5 @@
 import { Meta, Story } from '@storybook/react';
+import { useState } from 'react';
 
 import { Dropdown, DropdownItem, DropdownProps } from './dropdown';
 
@@ -8,13 +9,28 @@ export default {
 } as Meta;
 
 const items: DropdownItem[] = [
-  { children: 'EST', onClick: () => null, isActive: true, href: '#' },
-  { children: 'RUS', onClick: () => null, href: '#' },
-  { children: 'ENG', onClick: () => null, href: '#' },
+  { children: 'EST', href: '#' },
+  { children: 'RUS', href: '#' },
+  { children: 'ENG', href: '#' },
 ];
 
 const Template: Story<DropdownProps> = (args) => {
-  return <Dropdown button={{ children: 'EST', visualType: 'link', iconRight: 'expand_more' }} items={items} />;
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  return (
+    <Dropdown
+      button={{
+        children: items.find((i, index) => index === activeIndex)?.children,
+        visualType: 'link',
+        iconRight: 'expand_more',
+      }}
+      onItemClick={(item, index, e) => {
+        e.preventDefault();
+        setActiveIndex(index);
+      }}
+      items={items.map((i, index) => ({ ...i, isActive: index === activeIndex }))}
+    />
+  );
 };
 
-export const Primary = Template.bind({});
+export const Default = Template.bind({});

@@ -1,6 +1,5 @@
-import { FloatingFocusManager } from '@floating-ui/react-dom-interactions';
+import { FloatingFocusManager, FloatingPortal } from '@floating-ui/react-dom-interactions';
 import React from 'react';
-import ReactDOM from 'react-dom';
 
 import styles from './tooltip.module.scss';
 import { TooltipContext } from './tooltip-provider';
@@ -14,12 +13,12 @@ export interface TooltipProps {
 
 export const Tooltip = (props: TooltipProps): JSX.Element | null => {
   const { children } = props;
-  const { isMounted, open, x, y, strategy, floating, arrowRef, getFloatingProps, arrow, placement, context } =
+  const { open, x, y, strategy, focusManager, floating, arrowRef, getFloatingProps, arrow, placement, context } =
     React.useContext(TooltipContext);
 
   const renderTooltip = (): JSX.Element | null => {
     const content = (
-      <FloatingFocusManager context={context}>
+      <FloatingFocusManager {...focusManager} context={context}>
         <div
           {...getFloatingProps({
             ref: floating,
@@ -45,7 +44,7 @@ export const Tooltip = (props: TooltipProps): JSX.Element | null => {
     return open ? content : null;
   };
 
-  return isMounted ? ReactDOM.createPortal(renderTooltip(), document.body) : renderTooltip();
+  return <FloatingPortal>{renderTooltip()}</FloatingPortal>;
 };
 
 export default Tooltip;

@@ -32,8 +32,19 @@ const Pagination = (props: PaginationProps): JSX.Element | null => {
     toggleAllRowsExpanded,
   } = table;
   const { pageIndex, pageSize } = getState().pagination;
+  const paginationOptions = [
+    { value: '5', label: '5' },
+    { value: '10', label: '10' },
+    { value: '20', label: '20' },
+  ];
 
   const pagesToShow = paginate(props.totalRows || 1, pageIndex, pageSize, 6).pages;
+
+  // selected value must have a JS reference to one of the options. Otherwise, we don't have a correct focus on the selected item when menu is opened with a tab
+  const selectedValue = paginationOptions.find((o) => o.value === String(pageSize)) ?? {
+    value: String(pageSize),
+    label: String(pageSize),
+  };
 
   const changePageSize = (option: TSelectValue) => {
     const value = parseInt((option as ISelectOption)?.value || '10');
@@ -50,6 +61,7 @@ const Pagination = (props: PaginationProps): JSX.Element | null => {
           <ul className={styles['pagination__pages']}>
             <li className={styles['pagination__arrow-item']}>
               <button
+                type="button"
                 className={styles['pagination__arrow']}
                 disabled={!getCanPreviousPage()}
                 onClick={() => {
@@ -64,6 +76,7 @@ const Pagination = (props: PaginationProps): JSX.Element | null => {
             {pagesToShow.map((p, index) => (
               <li key={index}>
                 <button
+                  type="button"
                   className={cn(styles['pagination__page'], {
                     [styles['pagination__page--current']]: p - 1 === pageIndex,
                   })}
@@ -78,6 +91,7 @@ const Pagination = (props: PaginationProps): JSX.Element | null => {
             ))}
             <li className={styles['pagination__arrow-item']}>
               <button
+                type="button"
                 className={styles['pagination__arrow']}
                 disabled={!getCanNextPage()}
                 onClick={() => {
@@ -99,13 +113,9 @@ const Pagination = (props: PaginationProps): JSX.Element | null => {
         isSearchable={false}
         isClearable={false}
         onChange={(value) => changePageSize(value)}
-        value={{ value: pageSize.toString(), label: pageSize.toString() }}
+        value={selectedValue}
         size="small"
-        options={[
-          { value: '5', label: '5' },
-          { value: '10', label: '10' },
-          { value: '20', label: '20' },
-        ]}
+        options={paginationOptions}
       />
     </div>
   );

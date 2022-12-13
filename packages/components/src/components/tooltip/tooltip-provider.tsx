@@ -3,6 +3,7 @@ import {
   autoUpdate,
   flip,
   FloatingContext,
+  FloatingFocusManager,
   offset,
   Placement,
   ReferenceType,
@@ -20,6 +21,7 @@ import {
 import React from 'react';
 
 import { useIsMounted } from '../../helpers';
+import { useLabels } from '../../providers/label-provider';
 
 export type TooltipOpenWith = 'click' | 'hover';
 
@@ -37,6 +39,10 @@ export interface TooltipProviderProps {
    * Defaults to hover
    */
   openWith?: TooltipOpenWith;
+  /**
+   * Props passed to FloatingFocusManager
+   */
+  focusManager?: Omit<React.ComponentProps<typeof FloatingFocusManager>, 'context' | 'children'>;
   /**
    * Should Tooltip be initially shown. Won't work with open and onToggle.
    */
@@ -57,6 +63,7 @@ export interface ITooltipContext {
   open: boolean;
   isMounted: boolean;
   openWith: TooltipOpenWith;
+  focusManager?: TooltipProviderProps['focusManager'];
   reference: (node: ReferenceType | null) => void;
   floating: (node: HTMLElement | null) => void;
   arrowRef: React.MutableRefObject<HTMLElement | null>;
@@ -80,6 +87,7 @@ export const TooltipContext = React.createContext<ITooltipContext>({
   openWith: 'hover',
   reference: () => null,
   floating: () => null,
+  focusManager: {},
   arrowRef: { current: null },
   x: null,
   y: null,
@@ -96,6 +104,7 @@ export const TooltipContext = React.createContext<ITooltipContext>({
 });
 
 export const TooltipProvider = (props: TooltipProviderProps): JSX.Element => {
+  const { getLabel } = useLabels();
   const {
     children,
     placement: placementDefault = 'bottom',
@@ -104,6 +113,13 @@ export const TooltipProvider = (props: TooltipProviderProps): JSX.Element => {
     open: openOuter,
     onToggle,
   } = props;
+  const {
+    order = ['reference', 'content'],
+    modal = false,
+    initialFocus = -1,
+    ...restFocusManager
+  } = props.focusManager ?? {};
+  const { visuallyHiddenDismiss = modal ? getLabel('close') : false } = restFocusManager ?? {};
   const [open, setOpen] = React.useState(defaultOpen);
   const arrowRef = React.useRef<HTMLElement | null>(null);
 
@@ -158,6 +174,13 @@ export const TooltipProvider = (props: TooltipProviderProps): JSX.Element => {
         reference,
         floating,
         arrowRef,
+        focusManager: {
+          order,
+          initialFocus,
+          modal,
+          visuallyHiddenDismiss,
+          ...restFocusManager,
+        },
         x,
         y,
         strategy,

@@ -6,5 +6,7 @@ For storybook the assets should be absolute urls. For component library they sho
 
 Affected files are \_icons.scss, \_fonts.scss. Fonts folder in src/public and build script in package.json
 
+When we want to use the latest icons, we have to manually update material-symbols font files in public/fonts folder. They can be copy/pasted from node_modules/material-symbols after that package has been updated.
+
 https://github.com/vitejs/vite/issues/4454
 https://github.com/vitejs/vite/issues/3295

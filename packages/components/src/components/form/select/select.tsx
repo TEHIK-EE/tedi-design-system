@@ -82,6 +82,7 @@ export interface SelectProps extends FormLabelProps {
   defaultValue?: TSelectValue;
   /**
    * Value of select to control select value from outside of component.
+   * Should be an actual JS reference to one of the options.
    * Do not use with defaultValue
    */
   value?: TSelectValue;
@@ -129,13 +130,21 @@ export interface SelectProps extends FormLabelProps {
    * If multiple option can be selected
    */
   multiple?: boolean;
-  /*
+  /**
+   * If menu should open when select is focused. defaults to false
+   */
+  openMenuOnFocus?: boolean;
+  /**
+   * If pressing tab inside menu should select currently focused option. defaults to false
+   */
+  tabSelectsValue?: boolean;
+  /**
    * Close menu on select
-   * */
+   */
   closeMenuOnSelect?: boolean;
-  /*
+  /**
    * Auto focus
-   * */
+   */
   autoFocus?: boolean;
   /**
    * If select can be clearable, defaults to true
@@ -204,6 +213,8 @@ export const Select = forwardRef<any, SelectProps>((props, ref): JSX.Element => 
     onInputChange,
     inputValue,
     loadOptions,
+    openMenuOnFocus = false,
+    tabSelectsValue = false,
     disabled,
     className,
     hideLabel,
@@ -318,7 +329,8 @@ export const Select = forwardRef<any, SelectProps>((props, ref): JSX.Element => 
         isDisabled={disabled}
         isSearchable={isSearchable}
         menuIsOpen={menuIsOpen}
-        openMenuOnFocus={true}
+        openMenuOnFocus={openMenuOnFocus}
+        tabSelectsValue={tabSelectsValue}
         onMenuClose={onMenuClose}
         onMenuOpen={onMenuOpen}
         placeholder={placeholder || ''}

@@ -2,8 +2,9 @@ import { flexRender, Header, HeaderGroup, Row as TSRow, SortDirection } from '@t
 import cn from 'classnames';
 import React from 'react';
 
+import { useLabels } from '../../../../providers/label-provider';
+import Button from '../../../button/button';
 import { Col, Row } from '../../../grid';
-import Icon from '../../../icon/icon';
 import styles from '../../table.module.scss';
 import { DefaultTData } from '../../table.types';
 import { ITableContext, TableContext } from '../../table-context';
@@ -11,6 +12,7 @@ import TableFilter from '../table-filter/table-filter';
 import TableLoader from '../table-loader/table-loader';
 
 export function TableLayout<TData extends DefaultTData<TData>>(): JSX.Element | null {
+  const { getLabel } = useLabels();
   const { table, id, renderSubComponent, isFooterVisible, renderGroupHeading, isLoading, hideRowBorder } =
     React.useContext<ITableContext<TData>>(TableContext);
 
@@ -20,13 +22,29 @@ export function TableLayout<TData extends DefaultTData<TData>>(): JSX.Element | 
 
   const { getHeaderGroups, getFooterGroups, getRowModel } = table;
 
-  const getSortIcon = (sortingDirection: false | SortDirection): JSX.Element => {
+  const getSortIcon = (sortingDirection: false | SortDirection, cb?: (event: unknown) => void): JSX.Element => {
     const SortIconBEM = cn('text-disabled', {
       [styles['sort__icon']]: true,
       [styles['sorted__icon--desc']]: sortingDirection === 'desc',
       [styles['sorted__icon--asc']]: sortingDirection === 'asc',
     });
-    return <Icon name={sortingDirection ? 'expand_more' : 'unfold_more'} className={SortIconBEM} />;
+    return (
+      <Button
+        visualType="link"
+        icon={sortingDirection ? 'expand_more' : 'unfold_more'}
+        className={styles['sort__button']}
+        classNameIcon={SortIconBEM}
+        onClick={cb}
+      >
+        <span className="sr-only">
+          {sortingDirection === 'asc'
+            ? getLabel('table.sort.desc')
+            : sortingDirection === 'desc'
+            ? getLabel('table.sort.remove')
+            : getLabel('table.sort.asc')}
+        </span>
+      </Button>
+    );
   };
 
   const footerColSpan = (headers: Header<TData, unknown>[]) => {
@@ -77,6 +95,13 @@ export function TableLayout<TData extends DefaultTData<TData>>(): JSX.Element | 
                 key={header.id}
                 style={{ width: header.getSize() }}
                 className={cn({ [styles['th--sortable']]: header.column.getCanSort() })}
+                aria-sort={
+                  header.column.getIsSorted() === 'asc'
+                    ? 'ascending'
+                    : header.column.getIsSorted() === 'desc'
+                    ? 'descending'
+                    : undefined
+                }
               >
                 {header.isPlaceholder ? null : (
                   <Row gutterX={0} alignItems="center" wrap="nowrap">
@@ -87,8 +112,8 @@ export function TableLayout<TData extends DefaultTData<TData>>(): JSX.Element | 
                       <TableFilter<TData> column={header.column} rows={table?.getCoreRowModel()?.rows} />
                     ) : null}
                     {header.column.getCanSort() && (
-                      <Col align="center" width="auto" onClick={header.column.getToggleSortingHandler()}>
-                        {getSortIcon(header.column.getIsSorted())}
+                      <Col align="center" width="auto">
+                        {getSortIcon(header.column.getIsSorted(), header.column.getToggleSortingHandler())}
                       </Col>
                     )}
                   </Row>

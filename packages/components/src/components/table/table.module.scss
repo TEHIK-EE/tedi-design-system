@@ -33,17 +33,31 @@
       cursor: pointer;
     }
 
-    .sorted__icon--desc {
-      color: var(--color-secondary);
-      transition-duration: 600ms;
-      transition-property: transform;
-      transform: rotate(180deg);
+    .sort__button {
+      display: block;
+    }
+
+    .sort__icon {
+      --icon-variation-size: 1.5rem;
+
+      transition: 200ms ease;
+      transition-property: color;
+
+      &:hover {
+        color: var(--color-secondary);
+      }
     }
 
     .sorted__icon--asc {
       color: var(--color-secondary);
+      transform: rotate(180deg);
+    }
+
+    .sorted__icon--desc {
+      color: var(--color-secondary);
       transition-duration: 600ms;
       transition-property: transform;
+      transform: rotate(0);
     }
   }
 
@@ -111,7 +125,13 @@
   --table-cell-padding: 0 var(--table-cell-horizontal-padding) var(--table-cell-vertical-padding);
 }
 
-.filter-icon {
+.filter__button {
+  display: block;
+}
+
+.filter__icon {
+  --icon-variation-size: 1.5rem;
+
   color: var(--color-text-disabled);
   transition: 200ms ease;
   transition-property: color;

@@ -10,7 +10,6 @@ import { Card, CardContent } from '../../../card';
 import Select, { ISelectOption } from '../../../form/select/select';
 import TextField from '../../../form/textfield/textfield';
 import { Col, Row } from '../../../grid';
-import Icon from '../../../icon/icon';
 import { Tooltip, TooltipProvider, TooltipTrigger } from '../../../tooltip';
 import { VerticalSpacing } from '../../../vertical-spacing';
 import styles from '../../table.module.scss';
@@ -104,13 +103,18 @@ export function TableFilter<TData extends DefaultTData<TData>>(props: TableFilte
           }
         });
       const options: ISelectOption[] = rowValues?.map((i) => ({ label: String(i), value: String(i) }));
+      // selected value must have a JS reference to one of the options. Otherwise, we don't have a correct focus on the selected item when menu is opened with a tab
+      const selectedValue = options.find((o) => o.value === String(values.filter)) ?? {
+        value: String(values.filter),
+        label: String(values.filter),
+      };
 
       return (
         <Select
           id={id}
           label={label}
           placeholder={placeholder}
-          value={{ label: String(values.filter), value: String(values.filter) }}
+          value={selectedValue}
           isSearchable={false}
           closeMenuOnSelect={true}
           options={options}
@@ -143,14 +147,21 @@ export function TableFilter<TData extends DefaultTData<TData>>(props: TableFilte
 
   return (
     <Col width="auto">
-      <TooltipProvider openWith="click" open={open} onToggle={setOpen}>
+      <TooltipProvider
+        openWith="click"
+        open={open}
+        onToggle={setOpen}
+        focusManager={{ order: ['content'], modal: true }}
+      >
         <TooltipTrigger>
-          <div>
-            <Icon
-              className={cn(styles['filter-icon'], { [styles['filter-icon--active']]: !!values.filter || open })}
-              name="filter_alt"
-            />
-          </div>
+          <Button
+            visualType="link"
+            icon="filter_alt"
+            className={styles['filter__button']}
+            classNameIcon={cn(styles['filter__icon'], { [styles['filter__icon--active']]: !!values.filter || open })}
+          >
+            <span className="sr-only">{getLabel('table.filter')}</span>
+          </Button>
         </TooltipTrigger>
         <Tooltip>
           <Card type="borderless">

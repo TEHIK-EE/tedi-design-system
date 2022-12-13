@@ -15,7 +15,7 @@ const colourOptions: ISelectOption[] = [
   { value: 'silver', label: 'Silver' },
 ];
 
-const defaultOptions: TSelectValue = [{ value: 'ocean', label: 'Ocean' }];
+const defaultOptions: TSelectValue = [colourOptions[0]];
 
 export const MultipleHandled = () => {
   const [inputValue, setInputValue] = React.useState<TSelectValue>(defaultOptions);

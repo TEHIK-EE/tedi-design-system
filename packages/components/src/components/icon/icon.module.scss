@@ -1,9 +1,9 @@
 // we increase specificity to override default material-symbols-xxx class
 span.icon {
-  width: var(--icon-variation-size, 1.5rem);
-  font-size: var(--icon-variation-size, 1.5rem);
-  font-variation-settings: 'FILL' var(--icon-variation-fill, 0);
-  font-weight: var(--icon-variation-weight, inherit);
+  width: var(--icon-variation-size, var(--icon-internal-variation-size, 1.5rem));
+  font-size: var(--icon-variation-size, var(--icon-internal-variation-size, 1.5rem));
+  font-variation-settings: 'FILL' var(--icon-variation-fill, var(--icon-internal-variation-fill, 0));
+  font-weight: var(--icon-varation-weight, var(--icon-internal-variation-weight, inherit));
   font-optical-sizing: auto;
 }
 
