@@ -23,7 +23,7 @@ const navItems: SideNavItem[] = [
   { href: '#', children: 'Avaleht', icon: 'home' },
   { href: '#', children: 'Kliendid', icon: 'account_box' },
   { href: '/', children: 'Lapsed', icon: 'child_care', isActive: true },
-  { href: '#', children: 'Menetlused', icon: 'assignment' },
+  { href: '#', children: 'Mingi väga pikk tekst miseimahukuidagigisiiaära', icon: 'assignment' },
   { href: '#', children: 'Menetlused', icon: 'assignment' },
   { href: '#', children: 'Menetlused', icon: 'assignment' },
   { href: '#', children: 'Menetlused', icon: 'assignment' },

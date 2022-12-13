@@ -52,6 +52,7 @@ a.sidenav__link {
   color: var(--color-white);
   text-align: center;
   text-decoration: none;
+  word-break: break-word;
 
   @include breakpoints.media-breakpoint-up(lg) {
     flex-direction: column;
