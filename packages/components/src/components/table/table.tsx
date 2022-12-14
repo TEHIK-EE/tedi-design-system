@@ -47,6 +47,12 @@ export function Table<TData extends DefaultTData<TData>>(props: TableProps<TData
     groupRowsBy,
     renderGroupHeading,
     isLoading = false,
+    placeholder: {
+      children: placeholderChildren = getLabel('table.empty'),
+      isNested: placeholderIsNested = true,
+      cardProps: { padding: placeholderCardPropsPadding = 'medium', ...restPlaceholderCardProps } = {},
+      ...restPlaceholder
+    } = {},
     loadingLabel = getLabel('table.loading'),
     verticalAlign = 'middle',
     enableFilters = false,
@@ -192,6 +198,12 @@ export function Table<TData extends DefaultTData<TData>>(props: TableProps<TData
         renderSubComponent,
         isFooterVisible,
         renderGroupHeading,
+        placeholder: {
+          children: placeholderChildren,
+          isNested: placeholderIsNested,
+          cardProps: { padding: placeholderCardPropsPadding, ...restPlaceholderCardProps },
+          ...restPlaceholder,
+        },
         loadingLabel,
         isLoading,
         hideRowBorder,

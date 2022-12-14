@@ -27,6 +27,7 @@ export const defaultEELabels = {
   'table.sort.asc': 'Sorteeri kasvavalt',
   'table.sort.desc': 'Sorteeri kahanevalt',
   'table.sort.remove': 'Eemalda sorteerimine',
+  'table.empty': 'Tulemused puuduvad',
   'pagination.prev-page': 'Eelmine leht',
   'pagination.next-page': 'Järgmine leht',
   'pagination.results': 'tulemust',
