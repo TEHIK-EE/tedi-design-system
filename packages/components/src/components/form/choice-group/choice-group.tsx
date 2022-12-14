@@ -7,9 +7,9 @@ import FormLabel from '../form-label/form-label';
 import styles from './choice-group.module.scss';
 import { ChoiceGroupProps } from './choice-group.types';
 import { ChoiceGroupContext, IChoiceGroupContext } from './choice-group-context';
-import Check from './components/check/check';
+import ChoiceGroupCheck from './components/choice-group-check/choice-group-check';
+import ChoiceGroupRadio from './components/choice-group-radio/choice-group-radio';
 import FilterItem from './components/filter-item/filter-item';
-import Radio from './components/radio/radio';
 import { SelectorItem } from './components/selector-item/selector-item';
 
 export type TChoiceGroupValue = string | string[] | null;
@@ -75,11 +75,15 @@ export const ChoiceGroup = (props: ChoiceGroupProps): JSX.Element => {
     currentValue: currentValue,
   };
 
-  let ChoiceGroupItemElement: typeof Check | typeof Radio | typeof SelectorItem | typeof FilterItem = FilterItem;
+  let ChoiceGroupItemElement:
+    | typeof ChoiceGroupCheck
+    | typeof ChoiceGroupRadio
+    | typeof SelectorItem
+    | typeof FilterItem = FilterItem;
 
   switch (type) {
     case 'default':
-      ChoiceGroupItemElement = inputType === 'checkbox' ? Check : Radio;
+      ChoiceGroupItemElement = inputType === 'checkbox' ? ChoiceGroupCheck : ChoiceGroupRadio;
       break;
     case 'selector':
       ChoiceGroupItemElement = SelectorItem;

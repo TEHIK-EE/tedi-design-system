@@ -80,7 +80,7 @@ export interface ChoiceGroupItemProps {
   colProps?: ColProps;
   /**
    * Possibility to add extra content after label. ExtraContent is not clickable like label
-   * Can only be used with Radio and Checkbox.
+   * Can only be used with ChoiceGroupRadio and Checkbox.
    */
   extraContent?: React.ReactNode;
 }

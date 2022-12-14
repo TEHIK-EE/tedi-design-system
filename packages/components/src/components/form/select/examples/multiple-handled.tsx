@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { Col, Row } from '../../../grid';
 import Select, { ISelectOption, TSelectValue } from '../select';
 
 const colourOptions: ISelectOption[] = [
@@ -21,21 +22,23 @@ export const MultipleHandled = () => {
   const [inputValue, setInputValue] = React.useState<TSelectValue>(defaultOptions);
 
   const handleInputChange = (newValue: TSelectValue) => {
-    console.log(newValue);
     setInputValue(newValue);
     return inputValue;
   };
 
   return (
-    <div>
-      <Select
-        options={colourOptions}
-        id="multiple-handled-example"
-        label="Multiple Select"
-        multiple={true}
-        onChange={(value) => handleInputChange(value)}
-        value={inputValue}
-      />
-    </div>
+    <Row>
+      <Col width={4}>
+        <Select
+          options={colourOptions}
+          id="multiple-handled-example"
+          label="Multiple Select"
+          multiple={true}
+          closeMenuOnSelect={false}
+          onChange={(value) => handleInputChange(value)}
+          value={inputValue}
+        />
+      </Col>
+    </Row>
   );
 };

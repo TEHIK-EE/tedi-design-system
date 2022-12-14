@@ -1,4 +1,4 @@
-@use '../../../../../styles/mixins';
+@use '../../../styles/mixins';
 
 .check {
   position: relative;
@@ -24,6 +24,7 @@
   transition: 150ms ease;
   transition-property: background-color, border-color;
 
+  .check__input:not(:disabled) + &--hover,
   .check__input:hover:not(:disabled) + &,
   .check__input:focus:not(:disabled) + & {
     border-color: var(--color-primary);
