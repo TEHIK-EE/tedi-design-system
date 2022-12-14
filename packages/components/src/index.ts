@@ -46,6 +46,7 @@ export * from './components/toggle-open/toggle-open';
 export * from './components/modal';
 export * from './components/layout/breadcrumbs/breadcrumbs';
 export * from './components/toggle/toggle';
+export * from './components/placeholder/placeholder';
 
 export * from './helpers';
 
