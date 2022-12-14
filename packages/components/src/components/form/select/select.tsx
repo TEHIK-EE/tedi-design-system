@@ -7,15 +7,18 @@ import ReactSelect, {
   InputProps,
   MenuListProps,
   MenuProps,
-  MultiValueRemoveProps,
+  MultiValueProps,
   OnChangeValue,
   OptionProps,
   SelectComponentsConfig,
+  ValueContainerProps,
 } from 'react-select';
 import AsyncSelect from 'react-select/async';
 import { MenuPortalProps } from 'react-select/dist/declarations/src/components/Menu';
 
 import { Icon } from '../../icon/icon';
+import Tag from '../../tag/tag';
+import Check from '../check/check';
 import FormHelper, { FormHelperProps } from '../form-helper/form-helper';
 import FormLabel, { FormLabelProps } from '../form-label/form-label';
 import styles from './select.module.scss';
@@ -265,7 +268,34 @@ export const Select = forwardRef<any, SelectProps>((props, ref): JSX.Element => 
     </div>
   );
 
-  const getOption = (props: OptionProps<ISelectOption, boolean>): JSX.Element => {
+  const getMultiOption = (props: OptionProps<ISelectOption, boolean>): JSX.Element => {
+    const OptionBEM = cn(
+      styles['select__option'],
+      { [styles['select__option--disabled']]: props.isDisabled },
+      { [styles['select__option--focused']]: props.isFocused }
+    );
+
+    return (
+      <ReactSelectComponents.Option {...props} className={OptionBEM}>
+        {renderOption ? (
+          renderOption(props)
+        ) : (
+          <Check
+            id={props.data.value}
+            label={props.label}
+            value={props.data.value}
+            name={props.data.value}
+            checked={props.isSelected}
+            onChange={(value, checked) => null}
+            disabled={props.isDisabled}
+            hover={props.isFocused}
+          />
+        )}
+      </ReactSelectComponents.Option>
+    );
+  };
+
+  const getSingleOption = (props: OptionProps<ISelectOption, boolean>): JSX.Element => {
     const OptionBEM = cn(
       styles['select__option'],
       { [styles['select__option--disabled']]: props.isDisabled },
@@ -279,11 +309,22 @@ export const Select = forwardRef<any, SelectProps>((props, ref): JSX.Element => 
       </ReactSelectComponents.Option>
     );
   };
-  const getMultiValueRemove = ({ innerProps, ...rest }: MultiValueRemoveProps<ISelectOption, boolean>): JSX.Element => {
-    const MultiValueBEM = cn(innerProps.className, styles['select__multi-value-remove']);
 
+  const getOption = (props: OptionProps<ISelectOption, boolean>): JSX.Element => {
+    return multiple ? getMultiOption(props) : getSingleOption(props);
+  };
+
+  const getMultiValue = ({ children, ...rest }: MultiValueProps<ISelectOption>): JSX.Element => {
     return (
-      <ReactSelectComponents.MultiValueRemove {...rest} innerProps={{ ...innerProps, className: MultiValueBEM }} />
+      <Tag
+        color="default"
+        type="secondary"
+        className={cn(styles['select__multi-value-item'], {
+          [styles['select__multi-value-item--big']]: size !== 'small',
+        })}
+      >
+        {children}
+      </Tag>
     );
   };
 
@@ -298,7 +339,8 @@ export const Select = forwardRef<any, SelectProps>((props, ref): JSX.Element => 
       Option: getOption,
       Control: CustomControl,
       Input: CustomInput,
-      MultiValueRemove: getMultiValueRemove,
+      MultiValue: getMultiValue,
+      MultiValueRemove: () => null,
     };
 
     const ReactSelectElement = async ? AsyncSelect : ReactSelect;
@@ -339,6 +381,7 @@ export const Select = forwardRef<any, SelectProps>((props, ref): JSX.Element => 
         backspaceRemovesValue={true}
         menuShouldScrollIntoView={true}
         isMulti={multiple}
+        hideSelectedOptions={false}
         closeMenuOnSelect={closeMenuOnSelect}
         menuPlacement="auto"
         theme={(theme) => ({

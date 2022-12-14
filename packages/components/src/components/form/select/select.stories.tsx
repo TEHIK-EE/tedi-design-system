@@ -34,4 +34,13 @@ Small.args = {
   size: 'small',
 };
 
-export { CustomOptionSelect, AsyncSelect, MultipleHandled };
+export const MultipleSmall = Template.bind({});
+MultipleSmall.args = {
+  ...Default.args,
+  id: 'example-multiple-small',
+  size: 'small',
+  multiple: true,
+  closeMenuOnSelect: false,
+};
+
+export { MultipleHandled, CustomOptionSelect, AsyncSelect };

@@ -1,3 +1,5 @@
+@import '../../../styles/mixins';
+
 .select--invalid .select__control {
   border-color: var(--color-error);
 
@@ -85,6 +87,11 @@ div .select__menu {
   }
 }
 
-.select__multi-value-remove {
-  cursor: pointer;
+div.select__multi-value-item {
+  display: inline-block;
+  margin-right: 0.25rem;
+
+  &--big {
+    margin-bottom: 0.25rem;
+  }
 }
