@@ -65,3 +65,13 @@ publish-library:
     - HUSKY=0 npm run semantic-release
   rules:
     - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
+
+publish-storybook:
+  when: always
+  stage: publish
+  script:
+    - npm run build:sb
+    - npm install netlify-cli -g
+    - npx netlify deploy --auth $NETLIFY_AUTH_TOKEN --site $NETLIFY_SITE_ID --dir ./dist/storybook/components --prod
+  rules:
+    - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
