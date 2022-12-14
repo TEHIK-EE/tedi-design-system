@@ -1,3 +1,15 @@
+# [1.5.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v1.4.0...v1.5.0) (2022-12-14)
+
+
+### Bug Fixes
+
+* **colors:** Add all colors from storybook ([9c44adf](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/9c44adfa282e98dca95ee8ae8ebe7eefbcf240ff))
+
+
+### Features
+
+* **select:** Multiselect design updated - TEHVEER-22 ([cd06a4b](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/cd06a4b953bed6632b85eb12df402caa3f4dc66c))
+
 # [1.4.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v1.3.0...v1.4.0) (2022-12-13)
 
 ### Bug Fixes
