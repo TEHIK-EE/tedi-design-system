@@ -1,9 +1,9 @@
 import {
   ColumnDef,
   ColumnFiltersState,
+  FilterFn,
   PaginationState,
   Row,
-  RowData,
   RowSelectionState,
   SortingState,
 } from '@tanstack/react-table';
@@ -12,15 +12,10 @@ import React from 'react';
 import { CardProps } from '../card';
 
 declare module '@tanstack/table-core' {
-  interface ColumnMeta<TData extends RowData, TValue> {
-    /*
-     * Change filter input type
-     * */
-    filterType?: 'text' | 'select'; // 'text' is default
-    /*
-     * Replace default filter altogether
-     * */
-    // TODO renderCustomFilter(): void;
+  interface FilterFns {
+    text: FilterFn<unknown>;
+    select: FilterFn<unknown>;
+    'multi-select': FilterFn<unknown>;
   }
 }
 
