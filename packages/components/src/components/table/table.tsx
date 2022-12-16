@@ -34,9 +34,14 @@ export function Table<TData extends DefaultTData<TData>>(props: TableProps<TData
     onColumnFiltersChange,
     cardProps: { padding: cardPadding = 'none', ...restCardProps } = {},
     hidePagination,
+    defaultPagination = {
+      pageIndex: 0,
+      pageSize: hidePagination ? 10000 : 10, // when pagination is hidden display all the rows
+    },
     pagination,
     manualPagination,
     sorting: sortingOuter,
+    defaultSorting = [],
     onPaginationChange,
     onSortingChange,
     onRowSelectionChange,
@@ -56,11 +61,8 @@ export function Table<TData extends DefaultTData<TData>>(props: TableProps<TData
     hideCardBorder,
   } = props;
 
-  const [{ pageIndex, pageSize }, setPagination] = React.useState<PaginationState>({
-    pageIndex: 0,
-    pageSize: hidePagination ? 10000 : 10, // when pagination is hidden display all the rows
-  });
-  const [sorting, setSorting] = React.useState<SortingState>([]);
+  const [{ pageIndex, pageSize }, setPagination] = React.useState<PaginationState>(defaultPagination);
+  const [sorting, setSorting] = React.useState<SortingState>(defaultSorting);
   const [expanded, setExpanded] = React.useState<ExpandedState>({});
   const [rowSelection, setRowSelection] = React.useState<RowSelectionState>(defaultRowSelection || {});
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([]);
