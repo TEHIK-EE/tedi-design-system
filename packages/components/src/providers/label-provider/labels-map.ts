@@ -1,3 +1,9 @@
+import type { CalendarPickerView, ClockPickerView } from '@mui/x-date-pickers';
+import { MuiPickersAdapter } from '@mui/x-date-pickers/internals/models';
+
+import type { TimePickerValue } from '../../components/form/pickers';
+import { DatepickerValue } from '../../components/form/pickers';
+
 interface SharedLabel {
   description: string;
   components: string[];
@@ -8,14 +14,16 @@ interface StringLabel extends SharedLabel {
   en: string;
 }
 
-interface FunctionLabel<T> extends SharedLabel {
-  et: (...args: T[]) => string;
-  en: (...args: T[]) => string;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+interface FunctionLabel<T extends any[]> extends SharedLabel {
+  et: (...args: T) => string;
+  en: (...args: T) => string;
 }
 
 type OverloadLabel = {
   (params: StringLabel): typeof params;
-  <T>(params: FunctionLabel<T>): typeof params;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  <T extends any[]>(params: FunctionLabel<T>): typeof params;
 };
 
 const validateLabel: OverloadLabel = <T>(map: T) => map;
@@ -24,6 +32,9 @@ const validateLabel: OverloadLabel = <T>(map: T) => map;
  * Language keys that we support
  */
 type SupportedLanguages = 'et' | 'en';
+
+const muiTranslationsUrl =
+  'https://github.com/mui/mui-x/blob/HEAD/packages/x-date-pickers/src/locales/utils/pickersLocaleTextApi.ts';
 
 /**
  * Creates a map of default translations.
@@ -221,6 +232,184 @@ export const labelsMap = {
     components: ['DateTimePicker'],
     et: 'Vali kuupäev ja kellaeg',
     en: 'Select date and time',
+  }),
+  'pickers.previousMonth': validateLabel({
+    description: `Translation for ${muiTranslationsUrl}`,
+    components: ['Pickers'],
+    et: 'Eelmine kuu',
+    en: 'Previous month',
+  }),
+  'pickers.nextMonth': validateLabel({
+    description: `Translation for ${muiTranslationsUrl}`,
+    components: ['Pickers'],
+    et: 'Järgmine kuu',
+    en: 'Next month',
+  }),
+  'pickers.openPreviousView': validateLabel({
+    description: `Translation for ${muiTranslationsUrl}`,
+    components: ['Pickers'],
+    et: 'Ava eelmine vaade',
+    en: 'Open previous view',
+  }),
+  'pickers.openNextView': validateLabel({
+    description: `Translation for ${muiTranslationsUrl}`,
+    components: ['Pickers'],
+    et: 'Ava järgmine vaade',
+    en: 'Open next view',
+  }),
+  'pickers.cancelButtonLabel': validateLabel({
+    description: `Translation for ${muiTranslationsUrl}`,
+    components: ['Pickers'],
+    et: 'Tühista',
+    en: 'Cancel',
+  }),
+  'pickers.clearButtonLabel': validateLabel({
+    description: `Translation for ${muiTranslationsUrl}`,
+    components: ['Pickers'],
+    et: 'Tühjenda',
+    en: 'Clear',
+  }),
+  'pickers.okButtonLabel': validateLabel({
+    description: `Translation for ${muiTranslationsUrl}`,
+    components: ['Pickers'],
+    et: 'Kinnita',
+    en: 'Confirm',
+  }),
+  'pickers.todayButtonLabel': validateLabel({
+    description: `Translation for ${muiTranslationsUrl}`,
+    components: ['Pickers'],
+    et: 'Täna',
+    en: 'Today',
+  }),
+  'pickers.start': validateLabel({
+    description: `Translation for ${muiTranslationsUrl}`,
+    components: ['Pickers'],
+    et: 'Algus',
+    en: 'Start',
+  }),
+  'pickers.end': validateLabel({
+    description: `Translation for ${muiTranslationsUrl}`,
+    components: ['Pickers'],
+    et: 'Lõpp',
+    en: 'End',
+  }),
+  'pickers.calendarViewSwitchingButtonAriaLabel': validateLabel({
+    description: `Translation for ${muiTranslationsUrl}`,
+    components: ['Pickers'],
+    et: (currentView: CalendarPickerView) =>
+      currentView === 'day'
+        ? 'Kalendri vaade on lahti, lülitu aasta vaatesse'
+        : currentView === 'month'
+        ? 'Kuu vaade on lahti, lülitu aasta vaatesse'
+        : 'Aasta vaade on lahti, lülitu kalendri vaatesse',
+    en: (currentView: CalendarPickerView) =>
+      currentView === 'day'
+        ? 'Calendar view is open, switch to year view'
+        : currentView === 'month'
+        ? 'Month view is open, switch to year view'
+        : 'Year view is open, switch to calendar view',
+  }),
+  'pickers.inputModeToggleButtonAriaLabel': validateLabel({
+    description: `Translation for ${muiTranslationsUrl}`,
+    components: ['Pickers'],
+    et: (isKeyboardInputOpen: boolean, viewType: 'calendar' | 'clock') =>
+      isKeyboardInputOpen
+        ? `Teksti välja vaade on lahti, mine ${viewType === 'calendar' ? 'kalendri' : 'kella'} vaatesse`
+        : `${viewType === 'calendar' ? 'Kalendri' : 'Kella'} vaade on lahti, mine teksti välja vaatesse`,
+    en: (isKeyboardInputOpen: boolean, viewType: 'calendar' | 'clock') =>
+      isKeyboardInputOpen
+        ? `Text input view is open, go to ${viewType === 'calendar' ? 'calendar' : 'clock'} view`
+        : `${viewType === 'calendar' ? 'Calendar' : 'Clock'} view is open, got to text input view`,
+  }),
+  'pickers.clockLabelText': validateLabel({
+    description: `Translation for ${muiTranslationsUrl}`,
+    components: ['Pickers'],
+    et: (view: ClockPickerView, time: TimePickerValue, adapter: MuiPickersAdapter<TimePickerValue>) =>
+      `Vali ${view === 'hours' ? 'tunnid' : view === 'minutes' ? 'minutid' : 'sekundid'}. ${
+        time === null ? 'Aega pole valitud' : `Valitud aeg on ${adapter.format(time, 'fullTime')}`
+      }`,
+    en: (view: ClockPickerView, time: TimePickerValue, adapter: MuiPickersAdapter<TimePickerValue>) =>
+      `Select ${view === 'hours' ? 'hours' : view === 'minutes' ? 'minutes' : 'seconds'}. ${
+        time === null ? 'No time selected' : `Selected time is ${adapter.format(time, 'fullTime')}`
+      }`,
+  }),
+  'pickers.hoursClockNumberText': validateLabel({
+    description: `Translation for ${muiTranslationsUrl}`,
+    components: ['Pickers'],
+    et: (hours: string) => `${hours} tundi`,
+    en: (hours: string) => `${hours} hours`,
+  }),
+  'pickers.minutesClockNumberText': validateLabel({
+    description: `Translation for ${muiTranslationsUrl}`,
+    components: ['Pickers'],
+    et: (hours: string) => `${hours} minutit`,
+    en: (hours: string) => `${hours} minutes`,
+  }),
+  'pickers.secondsClockNumberText': validateLabel({
+    description: `Translation for ${muiTranslationsUrl}`,
+    components: ['Pickers'],
+    et: (hours: string) => `${hours} sekundit`,
+    en: (hours: string) => `${hours} seconds`,
+  }),
+  'pickers.openDatePickerDialogue': validateLabel({
+    description: `Translation for ${muiTranslationsUrl}`,
+    components: ['Pickers'],
+    et: (date: DatepickerValue, utils: MuiPickersAdapter<DatepickerValue>) =>
+      date !== null && utils.isValid(date)
+        ? `Vali kuupäev, valitud kuupäev on ${utils.format(date, 'fullDate')}`
+        : 'Vali kuupäev',
+    en: (date: DatepickerValue, utils: MuiPickersAdapter<DatepickerValue>) =>
+      date !== null && utils.isValid(date)
+        ? `Choose date, selected date is ${utils.format(date, 'fullDate')}`
+        : 'Choose date',
+  }),
+  'pickers.openTimePickerDialogue': validateLabel({
+    description: `Translation for ${muiTranslationsUrl}`,
+    components: ['Pickers'],
+    et: (date: TimePickerValue, utils: MuiPickersAdapter<TimePickerValue>) =>
+      date !== null && utils.isValid(date)
+        ? `Vali kellaaeg, valitud kellaaeg on ${utils.format(date, 'fullTime')}`
+        : 'Vali kellaaeg',
+    en: (date: TimePickerValue, utils: MuiPickersAdapter<TimePickerValue>) =>
+      date !== null && utils.isValid(date)
+        ? `Choose time, selected time is ${utils.format(date, 'fullTime')}`
+        : 'Choose time',
+  }),
+  'pickers.timeTableLabel': validateLabel({
+    description: `Translation for ${muiTranslationsUrl}`,
+    components: ['Pickers'],
+    et: 'Vali kellaaeg',
+    en: 'Pick time',
+  }),
+  'pickers.dateTableLabel': validateLabel({
+    description: `Translation for ${muiTranslationsUrl}`,
+    components: ['Pickers'],
+    et: 'Vali kuupäev',
+    en: 'Pick date',
+  }),
+  'pickers.datePickerDefaultToolbarTitle': validateLabel({
+    description: `Translation for ${muiTranslationsUrl}`,
+    components: ['Pickers'],
+    et: 'Kuupäeva valik',
+    en: 'Date picker',
+  }),
+  'pickers.dateTimePickerDefaultToolbarTitle': validateLabel({
+    description: `Translation for ${muiTranslationsUrl}`,
+    components: ['Pickers'],
+    et: 'Kuupäeva ja kellaaja valik',
+    en: 'Date Time picker',
+  }),
+  'pickers.timePickerDefaultToolbarTitle': validateLabel({
+    description: `Translation for ${muiTranslationsUrl}`,
+    components: ['Pickers'],
+    et: 'Kellaaja valik',
+    en: 'Time picker',
+  }),
+  'pickers.dateRangePickerDefaultToolbarTitle': validateLabel({
+    description: `Translation for ${muiTranslationsUrl}`,
+    components: ['Pickers'],
+    et: 'Kuupäeva vahemiku valik',
+    en: 'Date Range picker',
   }),
 };
 

@@ -1,4 +1,5 @@
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { PickersLocaleText } from '@mui/x-date-pickers/locales/utils/pickersLocaleTextApi';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import dayjs from 'dayjs';
 import updateLocale from 'dayjs/plugin/updateLocale';
@@ -72,9 +73,26 @@ export const LabelProvider = (props: LabelProviderProps): JSX.Element => {
     return label;
   };
 
+  // find all labels that we need to pass into LocalizationProvider
+  const muiLabels = Object.keys(mergedLabels).reduce((a, c) => {
+    return {
+      ...a,
+      ...(c.startsWith('pickers.')
+        ? {
+            [c.replace('pickers.', '')]: mergedLabels[c as keyof LabelsMapType],
+          }
+        : {}),
+    };
+  }, {} as Partial<PickersLocaleText<unknown>>);
+
   return (
     <LabelContext.Provider value={{ getLabel: getLabel as ILabelContext['getLabel'], dayjsInstance: dateLibInstance }}>
-      <LocalizationProvider dateAdapter={AdapterDayjs} dateLibInstance={dateLibInstance} adapterLocale={locale}>
+      <LocalizationProvider
+        dateAdapter={AdapterDayjs}
+        dateLibInstance={dateLibInstance}
+        localeText={muiLabels}
+        adapterLocale={locale}
+      >
         {children}
       </LocalizationProvider>
     </LabelContext.Provider>

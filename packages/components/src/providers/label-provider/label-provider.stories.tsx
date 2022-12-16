@@ -47,7 +47,7 @@ Default.args = {
   locale: 'en',
   labels: {
     close: 'Pane kinni',
-    'pagination.results': (count?: number) => (count === 1 ? 'nimi' : 'nime'),
+    'pagination.results': (count) => (count === 1 ? 'nimi' : 'nime'),
   },
 };
 Default.parameters = {

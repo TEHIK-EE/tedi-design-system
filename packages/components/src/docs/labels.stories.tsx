@@ -1,9 +1,11 @@
 import { Subtitle, Title } from '@storybook/addon-docs';
 import { Meta } from '@storybook/react';
 import { ColumnDef, createColumnHelper } from '@tanstack/react-table';
+import linkifyStr from 'linkify-string';
 
 import Separator from '../components/separator/separator';
 import { Table } from '../components/table';
+import { Tooltip, TooltipProvider, TooltipTrigger } from '../components/tooltip';
 import { VerticalSpacing } from '../components/vertical-spacing';
 import { LabelProvider } from '../providers/label-provider';
 import { labelsMap } from '../providers/label-provider/labels-map';
@@ -45,6 +47,28 @@ interface LabelRow {
 
 const labels: LabelRow[] = Object.keys(labelsMap).map((k) => ({ key: k, ...(labelsMap as any)[k] }));
 
+const renderLabelColumn = (label: string | ((...args: unknown[]) => string)) => {
+  return (
+    <p className="text-small">
+      {typeof label === 'string' ? (
+        label
+      ) : (
+        <>
+          <span>String or </span>
+          <TooltipProvider>
+            <TooltipTrigger>
+              <span className="text-primary">function</span>
+            </TooltipTrigger>
+            <Tooltip>
+              <span className="function">{String(label)}</span>
+            </Tooltip>
+          </TooltipProvider>
+        </>
+      )}
+    </p>
+  );
+};
+
 export const Labels = () => {
   const columnHelper = createColumnHelper<LabelRow>();
 
@@ -52,7 +76,7 @@ export const Labels = () => {
   const columns: ColumnDef<LabelRow, any>[] = [
     columnHelper.accessor('key', {
       header: () => 'Label',
-      cell: (info) => info.renderValue(),
+      cell: (info) => <p className="text-small">{info.renderValue()}</p>,
     }),
     columnHelper.accessor('components', {
       header: () => 'Components',
@@ -60,13 +84,22 @@ export const Labels = () => {
     }),
     columnHelper.accessor('description', {
       header: () => 'Description',
-      cell: ({ row: { original } }) => <p className="text-small">{original.description}</p>,
+      cell: ({ row: { original } }) => (
+        <p
+          className="text-small"
+          dangerouslySetInnerHTML={{
+            __html: linkifyStr(original.description, { format: (value) => 'MUI Pickers', target: '_blank' }),
+          }}
+        />
+      ),
     }),
     columnHelper.accessor('et', {
       header: () => 'Est',
+      cell: ({ row: { original } }) => renderLabelColumn(original.et),
     }),
     columnHelper.accessor('en', {
       header: () => 'Eng',
+      cell: ({ row: { original } }) => renderLabelColumn(original.en),
     }),
   ];
 
