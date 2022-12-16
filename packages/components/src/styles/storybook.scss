@@ -29,3 +29,13 @@ code {
   background-color: var(--color-primary-1);
   border-radius: 4px;
 }
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+
+  &:hover,
+  &:focus-visible {
+    text-decoration: underline;
+  }
+}

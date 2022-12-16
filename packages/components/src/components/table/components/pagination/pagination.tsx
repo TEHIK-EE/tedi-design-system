@@ -15,6 +15,7 @@ export interface PaginationProps {
 const Pagination = (props: PaginationProps): JSX.Element | null => {
   const { getLabel } = useLabels();
   const { table, id } = React.useContext(TableContext);
+  const resultsLabel = getLabel('pagination.results');
 
   if (table === null) {
     return null;
@@ -54,7 +55,7 @@ const Pagination = (props: PaginationProps): JSX.Element | null => {
   return (
     <div className={styles['pagination__wrapper']}>
       <div className="text-small text-secondary">
-        {props.totalRows} {getLabel('pagination.results')}
+        {props.totalRows} {typeof resultsLabel === 'string' ? resultsLabel : resultsLabel(props.totalRows)}
       </div>
       {getPageCount() > 1 && (
         <div className={styles['pagination']}>

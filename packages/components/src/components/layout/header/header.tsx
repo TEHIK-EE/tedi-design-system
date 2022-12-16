@@ -34,6 +34,7 @@ export const Header = (props: HeaderProps) => {
   const { getLabel } = useLabels();
   const { skipLinks, logo = '/logo.svg', onLogoutClick, children, hideToggle } = props;
   const { toggleMenu, menuOpen } = React.useContext(LayoutContext);
+  const toggleLabel = getLabel('header.toggle');
 
   return (
     <>
@@ -47,7 +48,7 @@ export const Header = (props: HeaderProps) => {
             classNameIcon={styles['header__toggle-icon']}
             onClick={toggleMenu}
           >
-            {menuOpen ? getLabel('header.close') : getLabel('header.open')}
+            {typeof toggleLabel === 'string' ? toggleLabel : toggleLabel(menuOpen)}
           </Button>
         )}
         {logo && <img src={logo} alt="Logo" className={styles['header__logo']} />}

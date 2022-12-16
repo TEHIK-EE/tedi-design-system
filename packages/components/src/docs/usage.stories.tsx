@@ -24,12 +24,14 @@ export default {
               <p>
                 Tehik react-components use labels that are provided with <b>{'<LabelProvider>'}</b> component. Every
                 application should be wrapped with LabelProvider to provider all necessary labels for users (mostly for
-                accessibility). See all labels under Documentation/Labels. More documentation about LabelProvider can be
-                found under components.
+                accessibility). See all labels under{' '}
+                <a href="/?path=/docs/documentation-labels--labels">Documentation/Labels</a>. More documentation about
+                LabelProvider can be found under <a href="/?path=/docs/components-labelprovider--default">components</a>
+                .
               </p>
               <h4>1. Wrap Application with LabelProvider</h4>
               <pre>
-                {'<LabelProvider labels={labels}>'}
+                {'<LabelProvider labels={labels} locale="et">'}
                 {'<YourApp />'}
                 {'</LabelProvider>'}
               </pre>
