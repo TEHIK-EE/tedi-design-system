@@ -114,6 +114,18 @@ export const labelsMap = {
     et: 'Filtreeri',
     en: 'Filter',
   }),
+  'table.filter.select-all': validateLabel({
+    description: 'Label for selecting all',
+    components: ['Table', 'TableFilter'],
+    et: 'Vali kõik',
+    en: 'Select all',
+  }),
+  'table.filter.remove-all': validateLabel({
+    description: 'Label for removing all',
+    components: ['Table', 'TableFilter'],
+    et: 'Eemalda valikud',
+    en: 'Remove selection',
+  }),
   'table.no-spaces': validateLabel({
     description: 'Filter validation error - Text can not start with spaces',
     components: ['Table', 'TableFilter'],

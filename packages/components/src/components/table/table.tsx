@@ -83,31 +83,27 @@ export function Table<TData extends DefaultTData<TData>>(props: TableProps<TData
   }, [columnFilters, columnFiltersOuter]);
 
   const handlePaginationChange = (data: Updater<PaginationState>): void => {
-    if (typeof data === 'function') {
-      const newData = data(getPagination);
-      pagination && onPaginationChange ? onPaginationChange(newData) : setPagination(newData);
-    }
+    if (typeof data !== 'function') return;
+    const newData = data(getPagination);
+    pagination && onPaginationChange ? onPaginationChange(newData) : setPagination(newData);
   };
 
   const handleSortingChange = (data: Updater<SortingState>): void => {
-    if (typeof data === 'function') {
-      const newData = data(getSorting);
-      sortingOuter && onSortingChange ? onSortingChange(newData) : setSorting(newData);
-    }
+    if (typeof data !== 'function') return;
+    const newData = data(getSorting);
+    sortingOuter && onSortingChange ? onSortingChange(newData) : setSorting(newData);
   };
 
   const rowSelectionChange = (data: Updater<RowSelectionState>): void => {
-    if (typeof data === 'function') {
-      const newData = data(rowSelection);
-      setRowSelection(newData);
-    }
+    if (typeof data !== 'function') return;
+    const newData = data(rowSelection);
+    setRowSelection(newData);
   };
 
   const handleColumnFilteringChange = (data: Updater<ColumnFiltersState>): void => {
-    if (typeof data === 'function') {
-      const newData = data(getColumnFilter);
-      columnFiltersOuter && onColumnFiltersChange ? onColumnFiltersChange(newData) : setColumnFilters(newData);
-    }
+    if (typeof data !== 'function') return;
+    const newData = data(getColumnFilter);
+    columnFiltersOuter && onColumnFiltersChange ? onColumnFiltersChange(newData) : setColumnFilters(newData);
   };
 
   React.useEffect(() => {
@@ -174,6 +170,12 @@ export function Table<TData extends DefaultTData<TData>>(props: TableProps<TData
     manualPagination: manualPagination ?? !!pagination,
     enableFilters,
     enableSorting,
+    filterFns: {
+      text: (row, columnId, filterValue: string) => filterValue?.includes(row?.getValue?.(columnId)),
+      select: (row, columnId, filterValue: string) => filterValue === row?.getValue?.(columnId),
+      'multi-select': (row, columnId, filterValue: string[]) =>
+        filterValue?.some((i) => i === row?.getValue?.(columnId)),
+    },
   });
 
   const isFooterVisible = !!(table.getFooterGroups() as HeaderGroup<TData>[]).find(

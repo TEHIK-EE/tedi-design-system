@@ -125,6 +125,12 @@
   --table-cell-padding: 0 var(--table-cell-horizontal-padding) var(--table-cell-vertical-padding);
 }
 
+.filter__content {
+  max-width: 20rem;
+  max-height: 16rem;
+  overflow: auto;
+}
+
 .filter__button {
   display: block;
 }

@@ -119,6 +119,15 @@ Loading.args = {
   isLoading: true,
 };
 
+export const LoadingRoundMedium = SeparateTemplate.bind({});
+LoadingRoundMedium.args = {
+  children: 'J',
+  isLoading: true,
+  rounded: true,
+  size: 'medium',
+  type: 'secondary',
+};
+
 export const Disabled = Template.bind({});
 Disabled.args = {
   array: TagTypes,
