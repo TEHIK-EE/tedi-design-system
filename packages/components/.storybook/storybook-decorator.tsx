@@ -8,8 +8,6 @@ import 'dayjs/locale/et';
 
 dayjs.extend(weekday);
 
-dayjs.locale('et'); // use locale globally
-
 interface StorybookDecoratorProps {
   children: React.ReactNode;
   locale?: string;

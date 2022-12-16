@@ -100,6 +100,7 @@
     "prettier": "^2.8.1",
     "react-test-renderer": "^18.2.0",
     "replace-in-file": "^6.3.5",
+    "rollup-plugin-visualizer": "^5.8.3",
     "sass": "^1.56.2",
     "semantic-release": "^19.0.5",
     "showdown": "^2.1.0",

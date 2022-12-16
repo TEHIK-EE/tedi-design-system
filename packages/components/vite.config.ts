@@ -1,6 +1,7 @@
 import reactPlugin from '@vitejs/plugin-react';
 import path from 'node:path';
-import { defineConfig, UserConfig } from 'vite';
+import { visualizer } from 'rollup-plugin-visualizer';
+import { defineConfig, PluginOption, UserConfig } from 'vite';
 
 // https://vitejs.dev/config/
 
@@ -9,7 +10,13 @@ const config: UserConfig = {
     'process.env.JEST_WORKER_ID': JSON.stringify(process.env.JEST_WORKER_ID),
   },
   mode: 'production',
-  plugins: [reactPlugin()],
+  plugins: [
+    reactPlugin(),
+    visualizer({
+      filename: '../../dist/bundle-stats.html',
+      title: '@tehik/react-components bundle stats',
+    }) as PluginOption,
+  ],
   css: {
     modules: {
       generateScopedName: '[local]-[hash:8]',
@@ -28,12 +35,13 @@ const config: UserConfig = {
       formats: ['es'],
     },
     rollupOptions: {
-      external: ['react', 'react-dom', 'next'],
+      external: ['react', 'react-dom', 'next', 'dayjs'],
       output: {
         globals: {
           react: 'React',
           'react-dom': 'ReactDOM',
           next: 'next',
+          dayjs: 'dayjs',
         },
       },
     },

@@ -1,6 +1,6 @@
 import { ClockPickerView, TimePicker as MuiTimePicker } from '@mui/x-date-pickers';
 import { TimeValidationError } from '@mui/x-date-pickers/internals/hooks/validation/useTimeValidation';
-import { Dayjs } from 'dayjs';
+import type { Dayjs } from 'dayjs';
 import React from 'react';
 
 import { useLabels } from '../../../../providers/label-provider';

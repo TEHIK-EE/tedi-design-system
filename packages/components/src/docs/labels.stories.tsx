@@ -18,8 +18,8 @@ export default {
           <Subtitle>Here you can find all labels used inside components.</Subtitle>
           <VerticalSpacing>
             <p>
-              You have to wrap your app in <code>{'<LabelProvider labels={labels} locale="et">'}</code> and pass in your
-              own labels.
+              You have to wrap your app in <code>{'<LabelProvider labels={labels} locale={locale}>'}</code> and pass in
+              your own labels.
             </p>
             <p>
               However components fall back to translations defined in the library itself. Currently we have default

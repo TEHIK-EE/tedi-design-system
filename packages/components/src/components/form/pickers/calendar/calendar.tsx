@@ -1,5 +1,5 @@
 import { CalendarPicker, PickersDay, PickersDayProps } from '@mui/x-date-pickers';
-import { Dayjs } from 'dayjs';
+import type { Dayjs } from 'dayjs';
 import React from 'react';
 
 export type CalendarValue = Dayjs | null;

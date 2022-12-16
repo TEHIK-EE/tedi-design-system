@@ -1,5 +1,6 @@
 import { ArgsTable, Primary, PRIMARY_STORY, Stories, Subtitle, Title } from '@storybook/addon-docs';
 
+import Anchor from '../../components/anchor/anchor';
 import VerticalSpacing from '../../components/vertical-spacing/vertical-spacing';
 
 export const LabelProviderPage = (): JSX.Element => (
@@ -8,7 +9,7 @@ export const LabelProviderPage = (): JSX.Element => (
     <Subtitle>
       <>
         This component provides the labels helper function to other components via context api. Currently defined labels
-        can be found <a href="/?path=/docs/documentation-labels--labels">here</a>
+        can be found <Anchor href="/?path=/docs/documentation-labels--labels">here</Anchor>
       </>
     </Subtitle>
     <Primary />
