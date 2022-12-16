@@ -18,6 +18,8 @@ export const defaultEELabels = {
   'stepper.not-completed': 'Lõpetamata',
   'table.loading': 'Tabel laeb',
   'table.filter': 'Filtreeri',
+  'table.filter.select-all': 'Vali kõik',
+  'table.filter.remove-all': 'Eemalda valikud',
   'table.no-spaces': 'Tekst ei tohi alata tühikutega',
   'table.min-length': 'Sisesta vähemalt 3 tähemärki',
   'table.open-sub-row': 'Ava alamrida',

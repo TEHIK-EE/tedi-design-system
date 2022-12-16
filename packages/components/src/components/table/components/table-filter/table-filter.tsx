@@ -1,193 +1,67 @@
 import { Column, Row as TableRow } from '@tanstack/react-table';
 import cn from 'classnames';
-import { useFormik } from 'formik';
 import React from 'react';
-import * as Yup from 'yup';
 
 import { useLabels } from '../../../../providers/label-provider';
 import Button from '../../../button/button';
 import { Card, CardContent } from '../../../card';
-import Select, { ISelectOption } from '../../../form/select/select';
-import TextField from '../../../form/textfield/textfield';
-import { Col, Row } from '../../../grid';
+import { Col } from '../../../grid';
 import { Tooltip, TooltipProvider, TooltipTrigger } from '../../../tooltip';
-import { VerticalSpacing } from '../../../vertical-spacing';
 import styles from '../../table.module.scss';
 import { DefaultTData } from '../../table.types';
+import { TableSelectFilter } from './components/table-select-filter';
+import { TableTextFilter } from './components/table-text-filter';
+import { TableFilterContext, TableFilterFields } from './table-filter-context';
 
 export interface TableFilterProps<TData extends DefaultTData<TData>> {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  column: Column<TData, any>;
+  column: Column<TData, unknown>;
   rows: TableRow<TData>[];
 }
-
-interface TableFilterFields {
-  filter: string;
-}
-
-const initialValues: TableFilterFields = { filter: '' };
 
 export function TableFilter<TData extends DefaultTData<TData>>(props: TableFilterProps<TData>): JSX.Element | null {
   const { column, rows } = props;
   const [open, setOpen] = React.useState(false);
   const { getLabel } = useLabels();
+  const inputType = column.columnDef.filterFn;
+  const filterValue = column.getFilterValue() as string | string[];
 
-  const validationSchema: Yup.SchemaOf<TableFilterFields> = Yup.object().shape({
-    filter: Yup.string()
-      .matches(/^(?!\s+$).*/, getLabel('table.no-spaces'))
-      .when([], {
-        is: () => column?.columnDef?.meta?.filterType === 'text',
-        then: Yup.string().min(3, getLabel('table.min-length')),
-        otherwise: Yup.string(),
-      })
-      .required(getLabel('required')),
-  });
-
-  const { values, setFieldValue, handleReset, handleSubmit, touched, errors } = useFormik({
-    validationSchema,
-    initialValues,
-    onSubmit: (values: TableFilterFields) => {
-      if (!values.filter) return;
-      column.setFilterValue(values.filter);
-      setOpen(false);
-    },
-    onReset: () => {
-      column.setFilterValue('');
-      setOpen(false);
-    },
-  });
-
-  React.useEffect(() => {
-    if (open && !values.filter) {
-      const filterField = document.getElementById(`filter-${column.id}`);
-      filterField?.focus?.({ preventScroll: true });
-    }
-  }, [column.id, values.filter, open]);
-
-  // TODO Show other filters if input is date for example
-  const renderInput = (): JSX.Element => {
-    const id = `filter-${column.id}`;
-    const label = getLabel('table.filter');
-    const placeholder = getLabel('search');
-
-    const inputType = column.columnDef.meta?.filterType;
-    const isSelect = inputType === 'select';
-
-    if (isSelect) {
-      const columnIDArray = Object.keys(rows?.map((i) => i?.original)?.[0]);
-      if (!columnIDArray?.includes(column?.columnDef?.id || '')) {
-        console.error(
-          `Violating id: ${column?.columnDef?.id}
-          Select filters use the column id to get the data,
-          - change the id correspondingly,
-          - make additions to the logic,
-          - or use a custom filter TODO`
-        );
-      }
-
-      const rowValues = rows
-        // Get all values for the corresponding column id
-        ?.map((i) => (column?.columnDef?.id ? i?.original?.[column?.columnDef?.id] : undefined))
-        // Filter out undefined values
-        ?.filter(Boolean)
-        // Filter out non-unique values
-        ?.filter((item, index, array) => array?.indexOf(item) === index)
-        // Basic sort for strings and numbers
-        ?.sort((a, b) => {
-          if (typeof a === 'number') {
-            return a - b;
-          } else if (typeof a === 'string') {
-            return a?.localeCompare?.(b);
-          } else {
-            return 0;
-          }
-        });
-      const options: ISelectOption[] = rowValues?.map((i) => ({ label: String(i), value: String(i) }));
-      // selected value must have a JS reference to one of the options. Otherwise, we don't have a correct focus on the selected item when menu is opened with a tab
-      const selectedValue = options.find((o) => o.value === String(values.filter)) ?? {
-        value: String(values.filter),
-        label: String(values.filter),
-      };
-
-      return (
-        <Select
-          id={id}
-          label={label}
-          placeholder={placeholder}
-          value={selectedValue}
-          isSearchable={false}
-          closeMenuOnSelect={true}
-          options={options}
-          onChange={(item) => setFieldValue('filter', (item as any)?.value)}
-          helper={touched.filter && errors.filter ? { text: errors.filter, type: 'error' } : { text: '' }}
-        />
-      );
-    }
-    // else if(isMultiSelect){
-    // TODO
-    // }
-
-    return (
-      <TextField
-        id={id}
-        label={label}
-        placeholder={placeholder}
-        icon="close"
-        onIconClick={handleReset}
-        value={values.filter}
-        onChange={(value) => setFieldValue('filter', value)}
-        helper={
-          touched.filter && errors.filter
-            ? { text: errors.filter, type: 'error' }
-            : { text: getLabel('table.min-length') }
-        }
-      />
-    );
+  const values: TableFilterFields = {
+    filter: inputType !== 'select' && inputType !== 'multi-select' && !!filterValue ? (filterValue as string) : '',
+    selectField: inputType === 'select' && !!filterValue ? (filterValue as string) : '',
+    multiSelectField: inputType === 'multi-select' && filterValue?.length ? (filterValue as string[]) : [],
   };
 
   return (
-    <Col width="auto">
-      <TooltipProvider
-        openWith="click"
-        open={open}
-        onToggle={setOpen}
-        focusManager={{ order: ['content'], modal: true }}
-      >
-        <TooltipTrigger>
-          <Button
-            visualType="link"
-            icon="filter_alt"
-            className={styles['filter__button']}
-            classNameIcon={cn(styles['filter__icon'], { [styles['filter__icon--active']]: !!values.filter || open })}
-          >
-            <span className="sr-only">{getLabel('table.filter')}</span>
-          </Button>
-        </TooltipTrigger>
-        <Tooltip>
-          <Card type="borderless">
-            <CardContent padding="xsmall">
-              <form onSubmit={handleSubmit}>
-                <VerticalSpacing>
-                  {renderInput()}
-                  <Row gutter={2}>
-                    <Col width="auto">
-                      <Button visualType="secondary" onClick={handleReset} fullWidth>
-                        {getLabel('cancel')}
-                      </Button>
-                    </Col>
-                    <Col width="auto">
-                      <Button type="submit" fullWidth>
-                        {getLabel('table.filter')}
-                      </Button>
-                    </Col>
-                  </Row>
-                </VerticalSpacing>
-              </form>
-            </CardContent>
-          </Card>
-        </Tooltip>
-      </TooltipProvider>
-    </Col>
+    <TableFilterContext.Provider value={{ column, rows, values, open, setOpen }}>
+      <Col width="auto">
+        <TooltipProvider
+          openWith="click"
+          open={open}
+          onToggle={setOpen}
+          focusManager={{ order: ['content'], modal: true }}
+        >
+          <TooltipTrigger>
+            <Button
+              visualType="link"
+              icon="filter_alt"
+              className={styles['filter__button']}
+              classNameIcon={cn(styles['filter__icon'], {
+                [styles['filter__icon--active']]: !!column.getFilterValue() || open,
+              })}
+            >
+              <span className="sr-only">{getLabel('table.filter')}</span>
+            </Button>
+          </TooltipTrigger>
+          <Tooltip>
+            <Card type="borderless">
+              <CardContent padding="xsmall">
+                {inputType === 'multi-select' || inputType === 'select' ? <TableSelectFilter /> : <TableTextFilter />}
+              </CardContent>
+            </Card>
+          </Tooltip>
+        </TooltipProvider>
+      </Col>
+    </TableFilterContext.Provider>
   );
 }
 
