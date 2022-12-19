@@ -35,10 +35,17 @@ export interface IconProps {
    * Type of display. block by default.
    */
   display?: 'block' | 'inline';
+  /**
+   * Icons label for screen-readers
+   */
+  label?: string;
 }
 
 export const Icon = forwardRef<HTMLDivElement, IconProps>(
-  ({ className, name, filled = false, type = 'outlined', weight, size = 24, display = 'block' }, ref): JSX.Element => {
+  (
+    { className, name, filled = false, label, type = 'outlined', weight, size = 24, display = 'block' },
+    ref
+  ): JSX.Element => {
     const iconBEM = cn(styles['icon'], styles[`icon--${display}`], { [`material-symbols-${type}`]: type }, className);
 
     const iconVariant = {
@@ -48,7 +55,7 @@ export const Icon = forwardRef<HTMLDivElement, IconProps>(
     } as React.CSSProperties;
 
     return (
-      <span className={iconBEM} style={iconVariant} ref={ref}>
+      <span className={iconBEM} style={iconVariant} ref={ref} aria-label={label}>
         {name}
       </span>
     );
