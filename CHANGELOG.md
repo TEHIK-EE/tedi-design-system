@@ -1,3 +1,16 @@
+# [1.7.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v1.6.0...v1.7.0) (2022-12-19)
+
+
+### Bug Fixes
+
+* **label-provider:** TEHVEER-39 - Remove duplicate labels for pickers ([ad1b6c8](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/ad1b6c8f08429296770442492f2e6befd9f3277a))
+
+
+### Features
+
+* **label-provider:** TEHVEER-39 - Improve default labels ([0795715](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/0795715d1239af3da2ecea356132c404ba923b25))
+* **pickers:** TEHVEER-39 - Allow setting aria label for icon ([9dc0381](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/9dc038181d61c49441427eb0ba24cc20f95785ed))
+
 # [1.6.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v1.5.0...v1.6.0) (2022-12-19)
 
 
