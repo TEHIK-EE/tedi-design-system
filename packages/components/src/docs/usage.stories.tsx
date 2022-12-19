@@ -24,12 +24,14 @@ export default {
               <p>
                 Tehik react-components use labels that are provided with <b>{'<LabelProvider>'}</b> component. Every
                 application should be wrapped with LabelProvider to provider all necessary labels for users (mostly for
-                accessibility). See all labels under Documentation/Labels. More documentation about LabelProvider can be
-                found under components.
+                accessibility). See all labels under{' '}
+                <Anchor href="/?path=/docs/documentation-labels--labels">Documentation/Labels</Anchor>. More
+                documentation about LabelProvider can be found under{' '}
+                <Anchor href="/?path=/docs/components-labelprovider--default">components</Anchor>.
               </p>
               <h4>1. Wrap Application with LabelProvider</h4>
               <pre>
-                {'<LabelProvider labels={labels}>'}
+                {'<LabelProvider labels={labels} locale={locale} dateLibInstance={dayjs}>'}
                 {'<YourApp />'}
                 {'</LabelProvider>'}
               </pre>
@@ -65,12 +67,14 @@ export default {
                 <Anchor href="https://mui.com/x/introduction/" target="_blank">
                   Mui x
                 </Anchor>
-                , to successfully use all components do:
+                . Make sure you have imported the corresponding translations for dayjs when passing a locale string to{' '}
+                <code>locale</code> prop.
               </p>
               <h4>1. Set locale</h4>
               <pre>
+                import dayjs from &apos;dayjs&apos;; <br />
                 import &apos;dayjs/locale/et&apos;; <br />
-                dayjs.locale(&apos;et&apos;); // use locale globally
+                {'<LabelProvider locale="et" dateLibInstance={dayjs}>'}
               </pre>
             </VerticalSpacing>
           </VerticalSpacing>

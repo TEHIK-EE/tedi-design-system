@@ -67,6 +67,10 @@ export interface TableProps<TData extends DefaultTData<TData>> {
    */
   pagination?: PaginationState;
   /**
+   * Initial internal pagination state on render. This only applies when `pagination` prop is not defined.
+   */
+  defaultPagination?: PaginationState;
+  /**
    * If internal pagination logic is ignored. If true, then pagination must be handled in the app.
    * If omitted, then the value is inherited from `!!pagination` prop.
    */
@@ -79,6 +83,10 @@ export interface TableProps<TData extends DefaultTData<TData>> {
    * Sorting data to server-side pagination use with onSortingChange
    */
   sorting?: SortingState;
+  /**
+   * Initial internal sorting state on render. This only applies when `sorting` prop is not defined.
+   */
+  defaultSorting?: SortingState;
   /**
    * Callback on Sorting data change. Use combined with sorting prop to make server-side sorting.
    */

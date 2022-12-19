@@ -1,13 +1,12 @@
 import { DatePicker as MuiDatePicker } from '@mui/x-date-pickers';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DateValidationError } from '@mui/x-date-pickers/internals';
-import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import { Dayjs } from 'dayjs';
+import type { Dayjs } from 'dayjs';
 import React from 'react';
 
 import { useLabels } from '../../../../providers/label-provider';
 import { TextFieldProps } from '../../textfield/textfield';
 import MuiInputTransition from '../mui-input-transition/mui-input-transition';
+
 export type DatepickerValue = Dayjs | null;
 
 export interface DatePickerProps extends Omit<TextFieldProps, 'defaultValue' | 'value' | 'onChange'> {
@@ -127,38 +126,36 @@ export const DatePicker = (props: DatePickerProps): JSX.Element => {
   };
 
   return (
-    <LocalizationProvider dateAdapter={AdapterDayjs}>
-      <MuiDatePicker<DatepickerValue>
-        value={getValue}
-        onChange={onChangeHandler}
-        renderInput={(props) => (
-          <MuiInputTransition
-            muiTextfieldProps={props}
-            inputFormat={inputFormat}
-            onChangeHandler={onChangeHandler}
-            textfieldProps={{ ...rest, onIconClick: !readOnly ? () => setOpen((open) => !open) : undefined }}
-          />
-        )}
-        open={open}
-        inputFormat={inputFormat}
-        onOpen={() => setOpen(true)}
-        onClose={() => setOpen(false)}
-        disabled={disabled}
-        disableFuture={disableFuture}
-        disablePast={disablePast}
-        shouldDisableDate={shouldDisableDate}
-        shouldDisableMonth={shouldDisableMonth}
-        shouldDisableYear={shouldDisableYear}
-        disableHighlightToday={disableHighlightToday}
-        readOnly={readOnly}
-        minDate={minDate}
-        maxDate={maxDate}
-        toolbarTitle={toolbarTitle}
-        onError={onError}
-        loading={loading}
-        views={views}
-      />
-    </LocalizationProvider>
+    <MuiDatePicker<DatepickerValue>
+      value={getValue}
+      onChange={onChangeHandler}
+      renderInput={(props) => (
+        <MuiInputTransition
+          muiTextfieldProps={props}
+          inputFormat={inputFormat}
+          onChangeHandler={onChangeHandler}
+          textfieldProps={{ ...rest, onIconClick: !readOnly ? () => setOpen((open) => !open) : undefined }}
+        />
+      )}
+      open={open}
+      inputFormat={inputFormat}
+      onOpen={() => setOpen(true)}
+      onClose={() => setOpen(false)}
+      disabled={disabled}
+      disableFuture={disableFuture}
+      disablePast={disablePast}
+      shouldDisableDate={shouldDisableDate}
+      shouldDisableMonth={shouldDisableMonth}
+      shouldDisableYear={shouldDisableYear}
+      disableHighlightToday={disableHighlightToday}
+      readOnly={readOnly}
+      minDate={minDate}
+      maxDate={maxDate}
+      toolbarTitle={toolbarTitle}
+      onError={onError}
+      loading={loading}
+      views={views}
+    />
   );
 };
 

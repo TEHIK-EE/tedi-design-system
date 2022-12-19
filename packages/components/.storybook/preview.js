@@ -20,11 +20,16 @@ export const parameters = {
 };
 
 export const decorators = [
-  (Story) => (
-    <StorybookDecorator>
+  (Story, options) => {
+    // prevent LabelProvider for label story, because it sets its own provider
+    return options.componentId === 'components-labelprovider' ? (
       <Story />
-    </StorybookDecorator>
-  ),
+    ) : (
+      <StorybookDecorator>
+        <Story />
+      </StorybookDecorator>
+    );
+  },
 ];
 
 // Hacky way of clicking on Docs button on first load of page.

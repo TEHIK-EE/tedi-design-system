@@ -1,13 +1,12 @@
 import { ClockPickerView, DateTimePicker as MuiDateTimePicker } from '@mui/x-date-pickers';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DateTimeValidationError } from '@mui/x-date-pickers/internals/hooks/validation/useDateTimeValidation';
-import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import { Dayjs } from 'dayjs';
+import type { Dayjs } from 'dayjs';
 import React from 'react';
 
 import { useLabels } from '../../../../providers/label-provider';
 import { TextFieldProps } from '../../textfield/textfield';
 import MuiInputTransition from '../mui-input-transition/mui-input-transition';
+
 export type DateTimepickerValue = Dayjs | null;
 
 export interface DateTimePickerProps extends Omit<TextFieldProps, 'defaultValue' | 'value' | 'onChange'> {
@@ -173,46 +172,44 @@ export const DateTimePicker = (props: DateTimePickerProps): JSX.Element => {
   };
 
   return (
-    <LocalizationProvider dateAdapter={AdapterDayjs}>
-      <MuiDateTimePicker<DateTimepickerValue>
-        value={getValue}
-        onChange={onChangeHandler}
-        renderInput={(props) => (
-          <MuiInputTransition
-            muiTextfieldProps={props}
-            inputFormat={inputFormat}
-            onChangeHandler={onChangeHandler}
-            textfieldProps={{ ...rest, onIconClick: !readOnly ? () => setOpen((open) => !open) : undefined }}
-          />
-        )}
-        open={open}
-        inputFormat={inputFormat}
-        onOpen={() => setOpen(true)}
-        onClose={() => setOpen(false)}
-        disabled={disabled}
-        disableFuture={disableFuture}
-        disablePast={disablePast}
-        shouldDisableDate={shouldDisableDate}
-        shouldDisableMonth={shouldDisableMonth}
-        shouldDisableYear={shouldDisableYear}
-        disableHighlightToday={disableHighlightToday}
-        readOnly={readOnly}
-        minDate={minDate}
-        minDateTime={minDateTime}
-        minTime={minTime}
-        maxDate={maxDate}
-        maxDateTime={maxDateTime}
-        maxTime={maxTime}
-        toolbarTitle={toolbarTitle}
-        toolbarFormat={toolbarFormat}
-        onError={onError}
-        loading={loading}
-        views={views}
-        mask={mask}
-        minutesStep={minutesStep}
-        ampm={ampm}
-      />
-    </LocalizationProvider>
+    <MuiDateTimePicker<DateTimepickerValue>
+      value={getValue}
+      onChange={onChangeHandler}
+      renderInput={(props) => (
+        <MuiInputTransition
+          muiTextfieldProps={props}
+          inputFormat={inputFormat}
+          onChangeHandler={onChangeHandler}
+          textfieldProps={{ ...rest, onIconClick: !readOnly ? () => setOpen((open) => !open) : undefined }}
+        />
+      )}
+      open={open}
+      inputFormat={inputFormat}
+      onOpen={() => setOpen(true)}
+      onClose={() => setOpen(false)}
+      disabled={disabled}
+      disableFuture={disableFuture}
+      disablePast={disablePast}
+      shouldDisableDate={shouldDisableDate}
+      shouldDisableMonth={shouldDisableMonth}
+      shouldDisableYear={shouldDisableYear}
+      disableHighlightToday={disableHighlightToday}
+      readOnly={readOnly}
+      minDate={minDate}
+      minDateTime={minDateTime}
+      minTime={minTime}
+      maxDate={maxDate}
+      maxDateTime={maxDateTime}
+      maxTime={maxTime}
+      toolbarTitle={toolbarTitle}
+      toolbarFormat={toolbarFormat}
+      onError={onError}
+      loading={loading}
+      views={views}
+      mask={mask}
+      minutesStep={minutesStep}
+      ampm={ampm}
+    />
   );
 };
 
