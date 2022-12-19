@@ -109,8 +109,6 @@ export function useDefaultPagination(initial: PaginationState = { pageIndex: 0, 
 export function useDefaultSorting(initial: SortingState = []) {
   const [sorting, setSorting] = React.useState<SortingState>(initial);
 
-  console.log(sorting);
-
   const sort = sorting.length ? sorting.map((sort) => `${sort.id}:${sort.desc ? 'desc' : 'asc'}`) : undefined;
 
   return { sorting, setSorting, sort };
