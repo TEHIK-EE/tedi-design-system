@@ -215,24 +215,6 @@ export const labelsMap = {
     et: 'Näita vähem',
     en: 'Show less',
   }),
-  'datepicker.toolbarTitle': validateLabel({
-    description: 'Mobile picker title, displaying in the toolbar. ',
-    components: ['Datepicker'],
-    et: 'Vali kuupäev',
-    en: 'Select date',
-  }),
-  'timepicker.toolbarTitle': validateLabel({
-    description: 'Mobile picker title, displaying in the toolbar. ',
-    components: ['TimePicker'],
-    et: 'Vali kellaeg',
-    en: 'Select time',
-  }),
-  'datetimepicker.toolbarTitle': validateLabel({
-    description: 'Mobile picker title, displaying in the toolbar. ',
-    components: ['DateTimePicker'],
-    et: 'Vali kuupäev ja kellaeg',
-    en: 'Select date and time',
-  }),
   'pickers.previousMonth': validateLabel({
     description: `Translation for ${muiTranslationsUrl}`,
     components: ['Pickers'],
@@ -390,26 +372,26 @@ export const labelsMap = {
   'pickers.datePickerDefaultToolbarTitle': validateLabel({
     description: `Translation for ${muiTranslationsUrl}`,
     components: ['Pickers'],
-    et: 'Kuupäeva valik',
-    en: 'Date picker',
+    et: 'Vali kuupäev',
+    en: 'Pick date',
   }),
   'pickers.dateTimePickerDefaultToolbarTitle': validateLabel({
     description: `Translation for ${muiTranslationsUrl}`,
     components: ['Pickers'],
-    et: 'Kuupäeva ja kellaaja valik',
-    en: 'Date Time picker',
+    et: 'Vali kuupäev ja kellaaeg',
+    en: 'Pick date and time',
   }),
   'pickers.timePickerDefaultToolbarTitle': validateLabel({
     description: `Translation for ${muiTranslationsUrl}`,
     components: ['Pickers'],
-    et: 'Kellaaja valik',
-    en: 'Time picker',
+    et: 'Vali kellaaeg',
+    en: 'Pick time',
   }),
   'pickers.dateRangePickerDefaultToolbarTitle': validateLabel({
     description: `Translation for ${muiTranslationsUrl}`,
     components: ['Pickers'],
-    et: 'Kuupäeva vahemiku valik',
-    en: 'Date Range picker',
+    et: 'Vali kuupäeva vahemik',
+    en: 'Pick date range',
   }),
 };
 
