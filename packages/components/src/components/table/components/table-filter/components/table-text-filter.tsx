@@ -18,11 +18,13 @@ export const TableTextFilter = () => {
   const filterId = `text-filter-${column?.id}`;
   const filterLabel = getLabel('table.filter');
   const filterPlaceholder = getLabel('search');
+  const filterMinLengthVal = getLabel('table.filter.validation.min-length');
+  const filterMinLength = typeof filterMinLengthVal === 'string' ? filterMinLengthVal : filterMinLengthVal(3);
 
   const validationSchema: Yup.SchemaOf<typeof initialValues> = Yup.object().shape({
     filter: Yup.string()
-      .matches(/^(?!\s+$).*/, getLabel('table.no-spaces'))
-      .min(3, getLabel('table.min-length'))
+      .matches(/^(?!\s+$).*/, getLabel('table.filter.validation.no-spaces'))
+      .min(3, filterMinLength)
       .required(getLabel('required')),
   });
 
@@ -58,11 +60,7 @@ export const TableTextFilter = () => {
           onIconClick={handleReset}
           value={values.filter as string}
           onChange={(value) => setFieldValue('filter', value)}
-          helper={
-            touched.filter && errors.filter
-              ? { text: errors.filter, type: 'error' }
-              : { text: getLabel('table.min-length') }
-          }
+          helper={touched.filter && errors.filter ? { text: errors.filter, type: 'error' } : { text: filterMinLength }}
         />
         <Row gutter={2}>
           <Col width="auto">

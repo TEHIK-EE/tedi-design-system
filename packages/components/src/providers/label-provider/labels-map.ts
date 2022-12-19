@@ -137,17 +137,17 @@ export const labelsMap = {
     et: 'Eemalda valikud',
     en: 'Remove selection',
   }),
-  'table.no-spaces': validateLabel({
+  'table.filter.validation.no-spaces': validateLabel({
     description: 'Filter validation error - Text can not start with spaces',
     components: ['Table', 'TableFilter'],
     et: 'Tekst ei tohi alata tühikutega',
     en: 'Filter text cant start with spaces',
   }),
-  'table.min-length': validateLabel({
+  'table.filter.validation.min-length': validateLabel({
     description: 'Filter validation error - Text is too short',
     components: ['Table', 'TableFilter'],
-    et: 'Sisesta vähemalt 3 tähemärki',
-    en: 'Min length is 3 chars',
+    et: (count: number) => (count === 1 ? `Sisesta vähemalt ${count} tähemärk` : `Sisesta vähemalt ${count} tähemärki`),
+    en: (count: number) => (count === 1 ? `Min length is ${count} char` : `Min length is ${count} chars`),
   }),
   'table.toggle-sub-row': validateLabel({
     description: 'Toggle sub row button (Visually hidden)',
