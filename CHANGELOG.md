@@ -1,3 +1,20 @@
+# [1.6.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v1.5.0...v1.6.0) (2022-12-19)
+
+
+### Bug Fixes
+
+* **pickers:** TEHVEER-34 - Fix pickers locale ([cda9b55](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/cda9b55f7768afec2313078c075ced7e0e5e9b48))
+* **tag:** Fix Tag size when isLoading is true - TEHVEER-36 ([64a6573](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/64a6573442f7a9f9f24c051c7ad5d1b775a8a531))
+
+
+### Features
+
+* **chore:** add netlify deploy ([22f1bc8](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/22f1bc8434f63727fff229a6cb0bcbe3c5813811))
+* **label-provider:** TEHVEER-35 - Add function support to labels ([7918ff5](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/7918ff51b56e444f03dd2dc0746c4a2872616883))
+* **pickers:** TEHVEER-34 - Add picker translations to LabelProvider ([b9976d2](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/b9976d2dd61cfa27e9225e3c12bd952116a76d3d))
+* **table-filter:** Add select and multiselect options to filter - TEHVEER-3 ([59de00f](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/59de00f378c548d577c0f4051c30b88333db6b59))
+* **table:** TEHVEER-35 - Add default sorting and pagination props to table ([ef4205e](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/ef4205ef8827ff47b094b0e9d15865bb10de2962))
+
 # [1.5.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v1.4.0...v1.5.0) (2022-12-14)
 
 
