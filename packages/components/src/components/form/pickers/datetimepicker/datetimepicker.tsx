@@ -3,7 +3,6 @@ import { DateTimeValidationError } from '@mui/x-date-pickers/internals/hooks/val
 import type { Dayjs } from 'dayjs';
 import React from 'react';
 
-import { useLabels } from '../../../../providers/label-provider';
 import { TextFieldProps } from '../../textfield/textfield';
 import MuiInputTransition from '../mui-input-transition/mui-input-transition';
 
@@ -122,7 +121,6 @@ export interface DateTimePickerProps extends Omit<TextFieldProps, 'defaultValue'
 }
 
 export const DateTimePicker = (props: DateTimePickerProps): JSX.Element => {
-  const { getLabel } = useLabels();
   const {
     value,
     defaultValue,
@@ -136,7 +134,7 @@ export const DateTimePicker = (props: DateTimePickerProps): JSX.Element => {
     minutesStep = 1,
     disabled,
     readOnly,
-    toolbarTitle = getLabel('datetimepicker.toolbarTitle'),
+    toolbarTitle,
     toolbarFormat,
     disableFuture,
     disablePast,

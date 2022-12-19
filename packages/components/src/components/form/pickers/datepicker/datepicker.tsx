@@ -3,7 +3,6 @@ import { DateValidationError } from '@mui/x-date-pickers/internals';
 import type { Dayjs } from 'dayjs';
 import React from 'react';
 
-import { useLabels } from '../../../../providers/label-provider';
 import { TextFieldProps } from '../../textfield/textfield';
 import MuiInputTransition from '../mui-input-transition/mui-input-transition';
 
@@ -84,7 +83,6 @@ export interface DatePickerProps extends Omit<TextFieldProps, 'defaultValue' | '
 }
 
 export const DatePicker = (props: DatePickerProps): JSX.Element => {
-  const { getLabel } = useLabels();
   const {
     value,
     defaultValue,
@@ -93,7 +91,7 @@ export const DatePicker = (props: DatePickerProps): JSX.Element => {
     maxDate,
     disabled,
     readOnly,
-    toolbarTitle = getLabel('datepicker.toolbarTitle'),
+    toolbarTitle,
     disableFuture,
     disablePast,
     shouldDisableDate,

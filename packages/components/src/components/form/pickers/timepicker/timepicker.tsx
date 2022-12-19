@@ -3,7 +3,6 @@ import { TimeValidationError } from '@mui/x-date-pickers/internals/hooks/validat
 import type { Dayjs } from 'dayjs';
 import React from 'react';
 
-import { useLabels } from '../../../../providers/label-provider';
 import { TextFieldProps } from '../../textfield/textfield';
 import MuiInputTransition from '../mui-input-transition/mui-input-transition';
 
@@ -70,8 +69,6 @@ export interface TimePickerProps extends Omit<TextFieldProps, 'defaultValue' | '
 }
 
 export const TimePicker = (props: TimePickerProps): JSX.Element => {
-  const { getLabel } = useLabels();
-
   const {
     defaultValue,
     onChange,
@@ -79,7 +76,7 @@ export const TimePicker = (props: TimePickerProps): JSX.Element => {
     disabled,
     readOnly,
     inputFormat = 'HH:mm',
-    toolbarTitle = getLabel('timepicker.toolbarTitle'),
+    toolbarTitle,
     maxTime,
     minTime,
     minutesStep = 1,
