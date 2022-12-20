@@ -34,9 +34,14 @@ export function Table<TData extends DefaultTData<TData>>(props: TableProps<TData
     onColumnFiltersChange,
     cardProps: { padding: cardPadding = 'none', ...restCardProps } = {},
     hidePagination,
+    defaultPagination = {
+      pageIndex: 0,
+      pageSize: hidePagination ? 10000 : 10, // when pagination is hidden display all the rows
+    },
     pagination,
     manualPagination,
     sorting: sortingOuter,
+    defaultSorting = [],
     onPaginationChange,
     onSortingChange,
     onRowSelectionChange,
@@ -62,11 +67,8 @@ export function Table<TData extends DefaultTData<TData>>(props: TableProps<TData
     hideCardBorder,
   } = props;
 
-  const [{ pageIndex, pageSize }, setPagination] = React.useState<PaginationState>({
-    pageIndex: 0,
-    pageSize: hidePagination ? 10000 : 10, // when pagination is hidden display all the rows
-  });
-  const [sorting, setSorting] = React.useState<SortingState>([]);
+  const [{ pageIndex, pageSize }, setPagination] = React.useState<PaginationState>(defaultPagination);
+  const [sorting, setSorting] = React.useState<SortingState>(defaultSorting);
   const [expanded, setExpanded] = React.useState<ExpandedState>({});
   const [rowSelection, setRowSelection] = React.useState<RowSelectionState>(defaultRowSelection || {});
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([]);
@@ -87,31 +89,27 @@ export function Table<TData extends DefaultTData<TData>>(props: TableProps<TData
   }, [columnFilters, columnFiltersOuter]);
 
   const handlePaginationChange = (data: Updater<PaginationState>): void => {
-    if (typeof data === 'function') {
-      const newData = data(getPagination);
-      pagination && onPaginationChange ? onPaginationChange(newData) : setPagination(newData);
-    }
+    if (typeof data !== 'function') return;
+    const newData = data(getPagination);
+    pagination && onPaginationChange ? onPaginationChange(newData) : setPagination(newData);
   };
 
   const handleSortingChange = (data: Updater<SortingState>): void => {
-    if (typeof data === 'function') {
-      const newData = data(getSorting);
-      sortingOuter && onSortingChange ? onSortingChange(newData) : setSorting(newData);
-    }
+    if (typeof data !== 'function') return;
+    const newData = data(getSorting);
+    sortingOuter && onSortingChange ? onSortingChange(newData) : setSorting(newData);
   };
 
   const rowSelectionChange = (data: Updater<RowSelectionState>): void => {
-    if (typeof data === 'function') {
-      const newData = data(rowSelection);
-      setRowSelection(newData);
-    }
+    if (typeof data !== 'function') return;
+    const newData = data(rowSelection);
+    setRowSelection(newData);
   };
 
   const handleColumnFilteringChange = (data: Updater<ColumnFiltersState>): void => {
-    if (typeof data === 'function') {
-      const newData = data(getColumnFilter);
-      columnFiltersOuter && onColumnFiltersChange ? onColumnFiltersChange(newData) : setColumnFilters(newData);
-    }
+    if (typeof data !== 'function') return;
+    const newData = data(getColumnFilter);
+    columnFiltersOuter && onColumnFiltersChange ? onColumnFiltersChange(newData) : setColumnFilters(newData);
   };
 
   React.useEffect(() => {
@@ -178,6 +176,12 @@ export function Table<TData extends DefaultTData<TData>>(props: TableProps<TData
     manualPagination: manualPagination ?? !!pagination,
     enableFilters,
     enableSorting,
+    filterFns: {
+      text: (row, columnId, filterValue: string) => filterValue?.includes(row?.getValue?.(columnId)),
+      select: (row, columnId, filterValue: string) => filterValue === row?.getValue?.(columnId),
+      'multi-select': (row, columnId, filterValue: string[]) =>
+        filterValue?.some((i) => i === row?.getValue?.(columnId)),
+    },
   });
 
   const isFooterVisible = !!(table.getFooterGroups() as HeaderGroup<TData>[]).find(

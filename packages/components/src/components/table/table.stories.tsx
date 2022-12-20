@@ -523,8 +523,16 @@ WithFilters.args = {
 export const WithSelectFilters = Template.bind({});
 WithSelectFilters.args = {
   data,
-  columns: columns.map((column) => ({ ...column, meta: { filterType: 'select' } })),
+  columns: columns.map((column) => ({ ...column, filterFn: 'select' })),
   id: 'with-selected-filters-table',
+  enableFilters: true,
+};
+
+export const WithMultiSelectFilters = Template.bind({});
+WithMultiSelectFilters.args = {
+  data,
+  columns: columns.map((column) => ({ ...column, filterFn: 'multi-select' })),
+  id: 'with-multi-selected-filters-table',
   enableFilters: true,
 };
 

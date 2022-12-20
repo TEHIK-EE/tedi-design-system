@@ -49,7 +49,7 @@ WithMinMaxTime.args = {
   id: 'datetimepicker-max-time',
   maxTime: dayjs().set('hours', 16).set('minute', 30),
   minTime: dayjs().set('hours', 8).set('minute', 0),
-  shouldDisableDate: (date) => date?.weekday() === 5 || date?.weekday() === 6,
+  shouldDisableDate: (date) => date?.weekday() === 6 || date?.weekday() === 7,
 };
 WithMinMaxTime.parameters = {
   docs: {
@@ -62,8 +62,8 @@ WithMinMaxTime.parameters = {
 export const CustomDisabledDays = Template.bind({});
 CustomDisabledDays.args = {
   id: 'datetimepicker-custom-disabled-days',
-  defaultValue: dayjs().weekday(4),
-  shouldDisableDate: (date) => date?.weekday() !== 4,
+  defaultValue: dayjs().weekday(5),
+  shouldDisableDate: (date) => date?.weekday() !== 5,
   disableHighlightToday: true,
 };
 CustomDisabledDays.parameters = {

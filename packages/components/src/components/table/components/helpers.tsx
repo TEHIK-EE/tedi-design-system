@@ -17,9 +17,10 @@ export function getExpandColumn<TData>(id = 'expander', showExpandAll?: boolean)
         <button type="button" className={styles['table__expand']} onClick={row.getToggleExpandedHandler()}>
           <span className="visually-hidden">
             <LabelContext.Consumer>
-              {({ getLabel }) =>
-                row.getIsExpanded() ? getLabel('table.close-sub-row') : getLabel('table.open-sub-row')
-              }
+              {({ getLabel }) => {
+                const toggleLabel = getLabel('table.toggle-sub-row');
+                return typeof toggleLabel === 'string' ? toggleLabel : toggleLabel(row.getIsExpanded());
+              }}
             </LabelContext.Consumer>
           </span>
           <Tag color="default" type="ghost" size="small">
@@ -94,8 +95,8 @@ export function getRowSelectionColumn<TData>(id = 'row-selection', showSelectAll
   };
 }
 
-export function useDefaultPagination() {
-  const [pagination, setPagination] = React.useState<PaginationState>({ pageIndex: 0, pageSize: 10 });
+export function useDefaultPagination(initial: PaginationState = { pageIndex: 0, pageSize: 10 }) {
+  const [pagination, setPagination] = React.useState<PaginationState>(initial);
 
   return {
     pagination,
@@ -105,16 +106,16 @@ export function useDefaultPagination() {
   };
 }
 
-export function useDefaultSorting() {
-  const [sorting, setSorting] = React.useState<SortingState>([]);
+export function useDefaultSorting(initial: SortingState = []) {
+  const [sorting, setSorting] = React.useState<SortingState>(initial);
 
   const sort = sorting.length ? sorting.map((sort) => `${sort.id}:${sort.desc ? 'desc' : 'asc'}`) : undefined;
 
   return { sorting, setSorting, sort };
 }
 
-export function useDefaultFiltering() {
-  const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([]);
+export function useDefaultFiltering(initial: ColumnFiltersState = []) {
+  const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(initial);
   const [filter, setFilter] = React.useState({});
 
   React.useEffect(() => {

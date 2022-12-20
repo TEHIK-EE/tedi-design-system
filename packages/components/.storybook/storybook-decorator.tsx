@@ -1,20 +1,22 @@
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import dayjs from 'dayjs';
 import weekday from 'dayjs/plugin/weekday';
 import React from 'react';
 
-import { defaultEELabels, LabelProvider } from '../src/providers/label-provider';
-dayjs.extend(weekday);
+import { LabelProvider } from '../src/providers/label-provider';
 
 import 'dayjs/locale/et';
 
-dayjs.locale('et'); // use locale globally
+dayjs.extend(weekday);
 
-const StorybookDecorator = ({ children }: { children: React.ReactNode }) => (
-  <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="ee">
-    <LabelProvider labels={defaultEELabels}>{children}</LabelProvider>
-  </LocalizationProvider>
+interface StorybookDecoratorProps {
+  children: React.ReactNode;
+  locale?: string;
+}
+
+const StorybookDecorator = ({ children, locale = 'et', ...rest }: StorybookDecoratorProps) => (
+  <LabelProvider locale={locale} {...rest}>
+    {children}
+  </LabelProvider>
 );
 
 export default StorybookDecorator;

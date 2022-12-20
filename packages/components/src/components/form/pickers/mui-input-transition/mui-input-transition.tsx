@@ -1,7 +1,8 @@
 import { TextFieldProps as MuiTextFieldPropsType } from '@mui/material/TextField';
-import dayjs, { Dayjs } from 'dayjs';
+import type { Dayjs } from 'dayjs';
 import React from 'react';
 
+import { useLabels } from '../../../../providers/label-provider';
 import TextField, { TextFieldForwardRef, TextFieldProps } from '../../textfield/textfield';
 
 export interface MuiInputTransitionProps {
@@ -13,6 +14,7 @@ export interface MuiInputTransitionProps {
 }
 
 const MuiInputTransition = (props: MuiInputTransitionProps) => {
+  const { dayjsInstance } = useLabels();
   const { muiTextfieldProps, textfieldProps, inputFormat, onChangeHandler, type = 'date' } = props;
   const { ref, inputRef, inputProps, InputProps, value, size, onChange, error, disabled, ...muiRest } =
     muiTextfieldProps;
@@ -41,13 +43,17 @@ const MuiInputTransition = (props: MuiInputTransitionProps) => {
       ref={textfieldRef}
       input={inputProps}
       invalid={error}
-      icon={type === 'date' ? 'today' : 'schedule'}
+      icon={{
+        name: type === 'date' ? 'today' : 'schedule',
+        // TODO https://github.com/mui/mui-x/issues/6330
+        label: (muiTextfieldProps?.InputProps as any)?.endAdornment?.props?.children?.props?.['aria-label'],
+      }}
       onBlur={(e) => {
         textfieldRest.onBlur?.(e);
         muiRest.onBlur?.(e);
 
         // If date is not valid on blur then clear value and call onChange with null
-        if (!dayjs(e.currentTarget.value, inputFormat, true).isValid()) {
+        if (!dayjsInstance(e.currentTarget.value, inputFormat, true).isValid()) {
           onChangeHandler(null);
           inputProps?.onChange?.({ ...e, target: { ...e.target, value: '' } as EventTarget & HTMLInputElement });
         }
