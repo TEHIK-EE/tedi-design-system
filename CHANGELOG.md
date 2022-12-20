@@ -1,44 +1,38 @@
 # [1.7.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v1.6.0...v1.7.0) (2022-12-19)
 
-
 ### Bug Fixes
 
-* **label-provider:** TEHVEER-39 - Remove duplicate labels for pickers ([ad1b6c8](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/ad1b6c8f08429296770442492f2e6befd9f3277a))
-
+- **label-provider:** TEHVEER-39 - Remove duplicate labels for pickers ([ad1b6c8](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/ad1b6c8f08429296770442492f2e6befd9f3277a))
 
 ### Features
 
-* **label-provider:** TEHVEER-39 - Improve default labels ([0795715](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/0795715d1239af3da2ecea356132c404ba923b25))
-* **pickers:** TEHVEER-39 - Allow setting aria label for icon ([9dc0381](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/9dc038181d61c49441427eb0ba24cc20f95785ed))
+- **label-provider:** TEHVEER-39 - Improve default labels ([0795715](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/0795715d1239af3da2ecea356132c404ba923b25))
+- **pickers:** TEHVEER-39 - Allow setting aria label for icon ([9dc0381](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/9dc038181d61c49441427eb0ba24cc20f95785ed))
 
 # [1.6.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v1.5.0...v1.6.0) (2022-12-19)
 
-
 ### Bug Fixes
 
-* **pickers:** TEHVEER-34 - Fix pickers locale ([cda9b55](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/cda9b55f7768afec2313078c075ced7e0e5e9b48))
-* **tag:** Fix Tag size when isLoading is true - TEHVEER-36 ([64a6573](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/64a6573442f7a9f9f24c051c7ad5d1b775a8a531))
-
+- **pickers:** TEHVEER-34 - Fix pickers locale ([cda9b55](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/cda9b55f7768afec2313078c075ced7e0e5e9b48))
+- **tag:** Fix Tag size when isLoading is true - TEHVEER-36 ([64a6573](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/64a6573442f7a9f9f24c051c7ad5d1b775a8a531))
 
 ### Features
 
-* **chore:** add netlify deploy ([22f1bc8](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/22f1bc8434f63727fff229a6cb0bcbe3c5813811))
-* **label-provider:** TEHVEER-35 - Add function support to labels ([7918ff5](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/7918ff51b56e444f03dd2dc0746c4a2872616883))
-* **pickers:** TEHVEER-34 - Add picker translations to LabelProvider ([b9976d2](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/b9976d2dd61cfa27e9225e3c12bd952116a76d3d))
-* **table-filter:** Add select and multiselect options to filter - TEHVEER-3 ([59de00f](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/59de00f378c548d577c0f4051c30b88333db6b59))
-* **table:** TEHVEER-35 - Add default sorting and pagination props to table ([ef4205e](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/ef4205ef8827ff47b094b0e9d15865bb10de2962))
+- **chore:** add netlify deploy ([22f1bc8](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/22f1bc8434f63727fff229a6cb0bcbe3c5813811))
+- **label-provider:** TEHVEER-35 - Add function support to labels ([7918ff5](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/7918ff51b56e444f03dd2dc0746c4a2872616883))
+- **pickers:** TEHVEER-34 - Add picker translations to LabelProvider ([b9976d2](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/b9976d2dd61cfa27e9225e3c12bd952116a76d3d))
+- **table-filter:** Add select and multiselect options to filter - TEHVEER-3 ([59de00f](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/59de00f378c548d577c0f4051c30b88333db6b59))
+- **table:** TEHVEER-35 - Add default sorting and pagination props to table ([ef4205e](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/ef4205ef8827ff47b094b0e9d15865bb10de2962))
 
 # [1.5.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v1.4.0...v1.5.0) (2022-12-14)
 
-
 ### Bug Fixes
 
-* **colors:** Add all colors from storybook ([9c44adf](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/9c44adfa282e98dca95ee8ae8ebe7eefbcf240ff))
-
+- **colors:** Add all colors from storybook ([9c44adf](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/9c44adfa282e98dca95ee8ae8ebe7eefbcf240ff))
 
 ### Features
 
-* **select:** Multiselect design updated - TEHVEER-22 ([cd06a4b](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/cd06a4b953bed6632b85eb12df402caa3f4dc66c))
+- **select:** Multiselect design updated - TEHVEER-22 ([cd06a4b](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/cd06a4b953bed6632b85eb12df402caa3f4dc66c))
 
 # [1.4.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v1.3.0...v1.4.0) (2022-12-13)
 

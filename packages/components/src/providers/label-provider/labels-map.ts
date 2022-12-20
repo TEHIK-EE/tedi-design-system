@@ -1,8 +1,8 @@
 import type { CalendarPickerView, ClockPickerView } from '@mui/x-date-pickers';
-import { MuiPickersAdapter } from '@mui/x-date-pickers/internals/models';
+import type { MuiPickersAdapter } from '@mui/x-date-pickers/internals/models';
 
 import type { TimePickerValue } from '../../components/form/pickers';
-import { DatepickerValue } from '../../components/form/pickers';
+import type { DatepickerValue } from '../../components/form/pickers';
 
 interface SharedLabel {
   description: string;
@@ -119,6 +119,12 @@ export const labelsMap = {
     et: 'Table is loading',
     en: 'Tabel laeb',
   }),
+  'table.empty': validateLabel({
+    description: 'Shown when table is empty',
+    components: ['Table'],
+    et: 'Tulemused puuduvad',
+    en: 'No results',
+  }),
   'table.filter': validateLabel({
     description: 'Label for filter toggle',
     components: ['Table', 'TableFilter'],
@@ -178,6 +184,18 @@ export const labelsMap = {
         : 'Sorteeri kasvavalt',
     en: (direction: 'asc' | 'desc' | false) =>
       direction === 'asc' ? 'Sort decending' : direction === 'desc' ? 'Remove sorting' : 'Sort ascending',
+  }),
+  'pagination.title': validateLabel({
+    description: 'Label of the pagination',
+    components: ['Table', 'Pagination'],
+    et: 'Pagineerimine',
+    en: 'Pagination',
+  }),
+  'pagination.page': validateLabel({
+    description: 'Label of individual page numbers',
+    components: ['Table', 'Pagination'],
+    et: (page: number, isCurrent?: boolean) => (isCurrent ? `Aktiivne leht, leht ${page}` : `Mine lehele ${page}`),
+    en: (page: number, isCurrent?: boolean) => (isCurrent ? `Current page, page ${page}` : `Go to page ${page}`),
   }),
   'pagination.prev-page': validateLabel({
     description: 'Previous page button label',

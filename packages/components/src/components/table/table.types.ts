@@ -10,6 +10,7 @@ import {
 import React from 'react';
 
 import { CardProps } from '../card';
+import { PlaceholderProps } from '../placeholder/placeholder';
 
 declare module '@tanstack/table-core' {
   interface FilterFns {
@@ -128,6 +129,10 @@ export interface TableProps<TData extends DefaultTData<TData>> {
    * Is the table currently loading
    */
   isLoading?: boolean;
+  /**
+   * Props for the `<PlaceholderBlock>` that is displayed when table is empty
+   */
+  placeholder?: PlaceholderProps;
   /**
    * Label for the table loader skeleton
    */

@@ -5,6 +5,7 @@ import React from 'react';
 import { useLabels } from '../../../../providers/label-provider';
 import Button from '../../../button/button';
 import { Col, Row } from '../../../grid';
+import Placeholder from '../../../placeholder/placeholder';
 import styles from '../../table.module.scss';
 import { DefaultTData } from '../../table.types';
 import { ITableContext, TableContext } from '../../table-context';
@@ -13,7 +14,7 @@ import TableLoader from '../table-loader/table-loader';
 
 export function TableLayout<TData extends DefaultTData<TData>>(): JSX.Element | null {
   const { getLabel } = useLabels();
-  const { table, id, renderSubComponent, isFooterVisible, renderGroupHeading, isLoading, hideRowBorder } =
+  const { table, id, renderSubComponent, isFooterVisible, renderGroupHeading, isLoading, hideRowBorder, placeholder } =
     React.useContext<ITableContext<TData>>(TableContext);
 
   if (table === null) {
@@ -123,7 +124,7 @@ export function TableLayout<TData extends DefaultTData<TData>>(): JSX.Element | 
       <tbody>
         {isLoading ? (
           <TableLoader />
-        ) : (
+        ) : groupedRows()?.length ? (
           groupedRows().map((row) => (
             <React.Fragment key={row.id}>
               {row.original.rowGroupKey && (
@@ -159,6 +160,12 @@ export function TableLayout<TData extends DefaultTData<TData>>(): JSX.Element | 
               {row.getIsExpanded() && renderSubComponent && renderSubComponent(row)}
             </React.Fragment>
           ))
+        ) : (
+          <tr>
+            <td colSpan={table?.getAllColumns().length}>
+              <Placeholder {...placeholder} />
+            </td>
+          </tr>
         )}
       </tbody>
       {isFooterVisible && (

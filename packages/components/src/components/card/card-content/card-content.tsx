@@ -26,8 +26,8 @@ export interface CardContentProps {
 }
 
 export const CardContent = (props: CardContentProps): JSX.Element => {
-  const { padding: rootPadding } = React.useContext(CardContext);
-  const { children, className, padding = rootPadding, background } = props;
+  const { padding: rootPadding, background: rootBackground } = React.useContext(CardContext);
+  const { children, className, padding = rootPadding, background = rootBackground } = props;
   const CardContentBEM = cn(styles['card__content'], className, styles[`card__content--padding-${padding}`], {
     [getBackgroundColorClass(background)]: background,
   });

@@ -16,6 +16,7 @@ const Pagination = (props: PaginationProps): JSX.Element | null => {
   const { getLabel } = useLabels();
   const { table, id } = React.useContext(TableContext);
   const resultsLabel = getLabel('pagination.results');
+  const pageLabel = getLabel('pagination.page');
 
   if (table === null) {
     return null;
@@ -58,7 +59,7 @@ const Pagination = (props: PaginationProps): JSX.Element | null => {
         {props.totalRows} {typeof resultsLabel === 'string' ? resultsLabel : resultsLabel(props.totalRows)}
       </div>
       {getPageCount() > 1 && (
-        <div className={styles['pagination']}>
+        <nav role="navigation" aria-label={getLabel('pagination.title')} className={styles['pagination']}>
           <ul className={styles['pagination__pages']}>
             <li className={styles['pagination__arrow-item']}>
               <button
@@ -81,6 +82,8 @@ const Pagination = (props: PaginationProps): JSX.Element | null => {
                   className={cn(styles['pagination__page'], {
                     [styles['pagination__page--current']]: p - 1 === pageIndex,
                   })}
+                  aria-label={typeof pageLabel === 'string' ? pageLabel : pageLabel(p, p - 1 === pageIndex)}
+                  aria-current={p - 1 === pageIndex}
                   onClick={() => {
                     setPageIndex(p - 1);
                     toggleAllRowsExpanded(false);
@@ -105,7 +108,7 @@ const Pagination = (props: PaginationProps): JSX.Element | null => {
               </button>
             </li>
           </ul>
-        </div>
+        </nav>
       )}
       <Select
         id={`page-size-${id}`}

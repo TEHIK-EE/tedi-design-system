@@ -1,5 +1,5 @@
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import { PickersLocaleText } from '@mui/x-date-pickers/locales/utils/pickersLocaleTextApi';
+import type { PickersLocaleText } from '@mui/x-date-pickers/locales/utils/pickersLocaleTextApi';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import dayjs from 'dayjs';
 import updateLocale from 'dayjs/plugin/updateLocale';

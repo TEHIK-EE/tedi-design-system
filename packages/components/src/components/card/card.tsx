@@ -24,12 +24,12 @@ export type CardProps = {
    * Type of card.
    */
   type?: 'success' | 'warning' | 'error' | 'borderless' | 'success-top' | 'warning-top' | 'error-top';
-} & Pick<CardContentProps, 'padding'>;
+} & Pick<CardContentProps, 'padding' | 'background'>;
 
 export const Card = forwardRef<HTMLDivElement, CardProps>((props, ref): JSX.Element => {
-  const { children, className, padding, type, ...rest } = props;
+  const { children, className, padding, background, type, ...rest } = props;
   return (
-    <CardContext.Provider value={{ padding }}>
+    <CardContext.Provider value={{ padding, background }}>
       <div className={cn(styles['card'], className, { [styles[`card--${type}`]]: type })} ref={ref} {...rest}>
         {children}
       </div>

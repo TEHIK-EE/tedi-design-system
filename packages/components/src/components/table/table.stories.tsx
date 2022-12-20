@@ -502,11 +502,21 @@ GroupedRowsFromData.parameters = {
   },
 };
 
+export const Empty = Template.bind({});
+Empty.args = {
+  data: [],
+  columns,
+  id: 'empty-table',
+  placeholder: {
+    children: 'Table is empty',
+  },
+};
+
 export const WithFilters = Template.bind({});
 WithFilters.args = {
   data,
   columns,
-  id: 'row-selection-table',
+  id: 'with-filters-table',
   enableFilters: true,
 };
 
@@ -514,7 +524,7 @@ export const WithSelectFilters = Template.bind({});
 WithSelectFilters.args = {
   data,
   columns: columns.map((column) => ({ ...column, filterFn: 'select' })),
-  id: 'row-selection-table',
+  id: 'with-selected-filters-table',
   enableFilters: true,
 };
 
@@ -522,7 +532,7 @@ export const WithMultiSelectFilters = Template.bind({});
 WithMultiSelectFilters.args = {
   data,
   columns: columns.map((column) => ({ ...column, filterFn: 'multi-select' })),
-  id: 'row-selection-table',
+  id: 'with-multi-selected-filters-table',
   enableFilters: true,
 };
 
