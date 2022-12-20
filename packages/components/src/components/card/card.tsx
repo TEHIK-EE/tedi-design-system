@@ -2,6 +2,7 @@ import cn from 'classnames';
 import React, { forwardRef } from 'react';
 
 import { validateChildren } from '../../helpers';
+import { ModalCloser } from '../modal';
 import styles from './card.module.scss';
 import CardContent, { CardContentProps } from './card-content/card-content';
 import { CardContext } from './card-context';
@@ -39,7 +40,8 @@ export const Card = forwardRef<HTMLDivElement, CardProps>((props, ref): JSX.Elem
 Card.displayName = 'Card';
 
 Card.propTypes = {
-  children: (props) => validateChildren(props, { custom: [CardHeader.name, CardContent.name], fragment: true }),
+  children: (props) =>
+    validateChildren(props, { custom: [CardHeader.name, CardContent.name, ModalCloser.name], fragment: true }),
 };
 
 export default Card;

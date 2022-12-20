@@ -30,10 +30,14 @@ export interface ModalProps {
    * card props to pass down to card components
    */
   cardProps?: CardProps;
+  /**
+   * Hide close button. Make sure there is another button that closes the modal.
+   */
+  hideCloseButton?: boolean;
 }
 
 export const Modal = (props: ModalProps): JSX.Element | null => {
-  const { children, size = 6, cardProps } = props;
+  const { children, size = 6, cardProps, hideCloseButton } = props;
   const { getLabel } = useLabels();
   const labelId = props['aria-labelledby'];
   const descriptionId = props['aria-describedby'];
@@ -54,16 +58,18 @@ export const Modal = (props: ModalProps): JSX.Element | null => {
               })}
             >
               <Card {...cardProps}>
-                <ModalCloser>
-                  <Button
-                    icon="close"
-                    classNameIcon={styles['close-button-icon']}
-                    visualType="link"
-                    className={styles['close-button']}
-                  >
-                    {getLabel('modal.close')}
-                  </Button>
-                </ModalCloser>
+                {!hideCloseButton && (
+                  <ModalCloser>
+                    <Button
+                      icon="close"
+                      classNameIcon={styles['close-button-icon']}
+                      visualType="link"
+                      className={styles['close-button']}
+                    >
+                      {getLabel('modal.close')}
+                    </Button>
+                  </ModalCloser>
+                )}
                 {children}
               </Card>
             </div>
