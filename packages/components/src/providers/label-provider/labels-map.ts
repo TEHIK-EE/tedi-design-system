@@ -119,6 +119,12 @@ export const labelsMap = {
     et: 'Table is loading',
     en: 'Tabel laeb',
   }),
+  'table.empty': validateLabel({
+    description: 'Shown when table is empty',
+    components: ['Table'],
+    et: 'Tulemused puuduvad',
+    en: 'No results',
+  }),
   'table.filter': validateLabel({
     description: 'Label for filter toggle',
     components: ['Table', 'TableFilter'],
