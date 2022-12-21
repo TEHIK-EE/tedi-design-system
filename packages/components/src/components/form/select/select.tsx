@@ -10,8 +10,8 @@ import ReactSelect, {
   MultiValueProps,
   OnChangeValue,
   OptionProps,
+  PlaceholderProps,
   SelectComponentsConfig,
-  ValueContainerProps,
 } from 'react-select';
 import AsyncSelect from 'react-select/async';
 import { MenuPortalProps } from 'react-select/dist/declarations/src/components/Menu';
@@ -257,6 +257,10 @@ export const Select = forwardRef<any, SelectProps>((props, ref): JSX.Element => 
     <ReactSelectComponents.Menu {...props} className={cn(props.className, styles['select__menu'])} />
   );
 
+  const getPlaceholder = (props: PlaceholderProps<ISelectOption>): JSX.Element => (
+    <ReactSelectComponents.Placeholder {...props} className={cn(props.className, 'inline-block')} />
+  );
+
   const getMenuList = (props: MenuListProps<ISelectOption, boolean>): JSX.Element => (
     <div className={styles['select__menu-list-wrapper']}>
       <ReactSelectComponents.MenuList {...props} className={cn(props.className, styles['select__menu-list'])}>
@@ -341,6 +345,7 @@ export const Select = forwardRef<any, SelectProps>((props, ref): JSX.Element => 
       Input: CustomInput,
       MultiValue: getMultiValue,
       MultiValueRemove: () => null,
+      Placeholder: getPlaceholder,
     };
 
     const ReactSelectElement = async ? AsyncSelect : ReactSelect;

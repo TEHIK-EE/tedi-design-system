@@ -41,6 +41,8 @@ MultipleSmall.args = {
   size: 'small',
   multiple: true,
   closeMenuOnSelect: false,
+  defaultValue: undefined,
+  placeholder: 'Placeholder',
 };
 
 export { MultipleHandled, CustomOptionSelect, AsyncSelect };
