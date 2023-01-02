@@ -28,7 +28,7 @@ export interface AccordionItemHeaderProps {
 }
 
 export const AccordionItemHeader = (props: AccordionItemHeaderProps): JSX.Element => {
-  const { children, className, openText, closeText } = props;
+  const { children, className, openText, closeText, ...rest } = props;
   const [isHovered, setIsHovered] = React.useState(false);
 
   const { onToggle, isOpen } = React.useContext(AccordionContext);
@@ -54,6 +54,7 @@ export const AccordionItemHeader = (props: AccordionItemHeaderProps): JSX.Elemen
   return (
     <div
       data-name="accordion-item-header"
+      {...rest}
       role="button"
       tabIndex={disabled ? -1 : 0}
       className={AccordionItemHeaderBEM}

@@ -41,26 +41,32 @@ export interface IconProps {
   label?: string;
 }
 
-export const Icon = forwardRef<HTMLDivElement, IconProps>(
-  (
-    { className, name, filled = false, label, type = 'outlined', weight, size = 24, display = 'block' },
-    ref
-  ): JSX.Element => {
-    const iconBEM = cn(styles['icon'], styles[`icon--${display}`], { [`material-symbols-${type}`]: type }, className);
+export const Icon = forwardRef<HTMLDivElement, IconProps>((props, ref): JSX.Element => {
+  const {
+    className,
+    name,
+    filled = false,
+    label,
+    type = 'outlined',
+    weight,
+    size = 24,
+    display = 'block',
+    ...rest
+  } = props;
+  const iconBEM = cn(styles['icon'], styles[`icon--${display}`], { [`material-symbols-${type}`]: type }, className);
 
-    const iconVariant = {
-      ...(size ? { '--icon-internal-variation-size': `${size / 16}rem` } : {}),
-      ...(filled ? { '--icon-internal-variation-fill': 1 } : {}),
-      ...(weight ? { '--icon-internal-variation-weight': weight } : {}),
-    } as React.CSSProperties;
+  const iconVariant = {
+    ...(size ? { '--icon-internal-variation-size': `${size / 16}rem` } : {}),
+    ...(filled ? { '--icon-internal-variation-fill': 1 } : {}),
+    ...(weight ? { '--icon-internal-variation-weight': weight } : {}),
+  } as React.CSSProperties;
 
-    return (
-      <span data-name="icon" className={iconBEM} style={iconVariant} ref={ref} aria-label={label}>
-        {name}
-      </span>
-    );
-  }
-);
+  return (
+    <span data-name="icon" {...rest} className={iconBEM} style={iconVariant} ref={ref} aria-label={label}>
+      {name}
+    </span>
+  );
+});
 
 Icon.displayName = 'Icon';
 

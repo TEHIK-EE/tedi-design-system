@@ -32,14 +32,14 @@ export interface HeaderProps {
 
 export const Header = (props: HeaderProps) => {
   const { getLabel } = useLabels();
-  const { skipLinks, logo = '/logo.svg', onLogoutClick, children, hideToggle } = props;
+  const { skipLinks, logo = '/logo.svg', onLogoutClick, children, hideToggle, ...rest } = props;
   const { toggleMenu, menuOpen } = React.useContext(LayoutContext);
   const toggleLabel = getLabel('header.toggle');
 
   return (
     <>
       {skipLinks && <SkipLinks {...skipLinks} />}
-      <header data-name="header" className={styles['header']}>
+      <header data-name="header" {...rest} className={styles['header']}>
         {!hideToggle && (
           <Button
             icon={menuOpen ? 'close' : 'menu'}

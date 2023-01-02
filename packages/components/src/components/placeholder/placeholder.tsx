@@ -37,14 +37,8 @@ export interface PlaceholderProps {
  * Placeholder is used to indicate, that there is no data to show. It can be used on its own or inside other components, like a `<CardContent>`.
  * Other components also use it internally for displaying empty state. (E.g. `<Table>`)
  */
-export const Placeholder = ({
-  icon = 'spa',
-  className,
-  children,
-  iconProps,
-  cardProps,
-  isNested,
-}: PlaceholderProps): JSX.Element => {
+export const Placeholder = (props: PlaceholderProps): JSX.Element => {
+  const { icon = 'spa', className, children, iconProps, cardProps, isNested, ...rest } = props;
   const breakpoint = useBreakpoint();
   const isMobileLayout = ['xs', 'sm'].includes(breakpoint || '');
 
@@ -57,7 +51,15 @@ export const Placeholder = ({
   } = cardProps ?? {};
 
   return (
-    <Card className={className} type={type} padding={padding} background={background} {...restCardProps}>
+    <Card
+      data-name="placeholder"
+      {...rest}
+      className={className}
+      type={type}
+      padding={padding}
+      background={background}
+      {...restCardProps}
+    >
       <CardContent>
         <Row direction="column" alignItems="center" gutter={2}>
           <Col width="auto">

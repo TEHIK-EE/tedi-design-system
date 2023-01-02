@@ -20,11 +20,11 @@ export interface HeadingProps {
 }
 
 export const Heading = (props: HeadingProps) => {
-  const { children, className, id, level = 1 } = props;
+  const { children, className, id, level = 1, ...rest } = props;
   const Element = `h${level}` as const;
 
   return (
-    <Element data-name="heading" id={id} className={className}>
+    <Element data-name="heading" {...rest} id={id} className={className}>
       {children}
     </Element>
   );

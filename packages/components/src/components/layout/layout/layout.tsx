@@ -55,14 +55,23 @@ export const Layout = <
 >(
   props: ILayoutProps<B, F, S>
 ): JSX.Element => {
-  const { children, header, sideNav, breadcrumbsProps, footer, mainContentId = 'main-content', mainLogo } = props;
+  const {
+    children,
+    header,
+    sideNav,
+    breadcrumbsProps,
+    footer,
+    mainContentId = 'main-content',
+    mainLogo,
+    ...rest
+  } = props;
   const [menuOpen, setMenuOpen] = React.useState(false);
 
   const mainBem = cn(styles['main'], { [styles['main--with-sidenav']]: !!props.sideNav });
 
   return (
     <LayoutContext.Provider value={{ menuOpen, toggleMenu: () => setMenuOpen((o) => !o) }}>
-      <div data-name="layout" className={styles['container-wrapper']}>
+      <div data-name="layout" {...rest} className={styles['container-wrapper']}>
         <Header {...header} />
         <div className={cn(styles['container'], { [styles['container--menu-open']]: menuOpen })}>
           {sideNav && <SideNav {...sideNav} />}

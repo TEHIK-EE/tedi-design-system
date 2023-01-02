@@ -48,6 +48,7 @@ export const FormLabel = (props: FormLabelProps): JSX.Element => {
     className,
     renderWithoutLabel,
     size = 'default',
+    ...rest
   } = props;
   const FormLabelBEM = cn(styles['form-label'], className, styles[`form-label--${size}`], {
     [styles[`form-label--hidden${hideLabel === 'keep-space' ? '-keep-space' : ''}`]]: hideLabel,
@@ -56,7 +57,7 @@ export const FormLabel = (props: FormLabelProps): JSX.Element => {
   const Element = renderWithoutLabel ? 'span' : 'label';
 
   return (
-    <Element data-name="form-label" className={FormLabelBEM} htmlFor={id}>
+    <Element data-name="form-label" {...rest} className={FormLabelBEM} htmlFor={id}>
       <span className={styles['form-label__inner']}>{label}</span>
       {required && <span className={styles['form-label__required']}>{requiredLabel}</span>}
     </Element>

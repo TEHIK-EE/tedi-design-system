@@ -65,6 +65,7 @@ export function Table<TData extends DefaultTData<TData>>(props: TableProps<TData
     hideRowBorder = false,
     size = 'medium',
     hideCardBorder,
+    ...rest
   } = props;
 
   const [{ pageIndex, pageSize }, setPagination] = React.useState<PaginationState>(defaultPagination);
@@ -213,7 +214,13 @@ export function Table<TData extends DefaultTData<TData>>(props: TableProps<TData
         hideRowBorder,
       }}
     >
-      <Card data-name="table" type={hideCardBorder ? 'borderless' : undefined} padding={cardPadding} {...restCardProps}>
+      <Card
+        data-name="table"
+        {...rest}
+        type={hideCardBorder ? 'borderless' : undefined}
+        padding={cardPadding}
+        {...restCardProps}
+      >
         <CardContent>
           <div className={tableBEM}>
             <TableLayout<TData> />

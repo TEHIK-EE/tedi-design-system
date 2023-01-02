@@ -7,13 +7,14 @@ import styles from './textarea.module.scss';
 export type TextAreaProps = TextFieldProps;
 
 export const TextArea = (props: TextAreaProps): JSX.Element => {
+  const { className, ...rest } = props;
   return (
     <TextField
-      {...props}
+      {...rest}
       data-name="textarea"
       inputClassName={styles['textarea__input']}
       isTextArea={true}
-      className={cn(styles['textarea'], props.className)}
+      className={cn(styles['textarea'], className)}
     />
   );
 };

@@ -30,10 +30,10 @@ export type BreadcrumbsProps<C extends React.ElementType = 'a'> = ConditionalTyp
 };
 
 export const Breadcrumbs = <C extends React.ElementType = 'a'>(props: BreadcrumbsProps<C>): JSX.Element => {
-  const { className, crumbs, linkAs } = props;
+  const { className, crumbs, linkAs, ...rest } = props;
 
   return (
-    <ol data-name="breadcrumbs" className={cn(className, styles['breadcrumbs'])}>
+    <ol data-name="breadcrumbs" {...rest} className={cn(className, styles['breadcrumbs'])}>
       {crumbs.map((crumb, idx) => {
         return <Crumb as={linkAs} key={idx} {...crumb} />;
       })}
