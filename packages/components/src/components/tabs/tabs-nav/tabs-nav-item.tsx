@@ -10,7 +10,7 @@ export const TabsNavItem = <C extends React.ElementType = 'a'>(props: TabsNavIte
   const TabsNavItemBEM = cn(styles['tabs__nav-item'], { [styles['tabs__nav-item--current']]: isActive });
 
   return (
-    <li className={TabsNavItemBEM} role="presentation">
+    <li data-name="tabs-nav-item" className={TabsNavItemBEM} role="presentation">
       <Anchor {...rest} className={styles['tabs__nav-link']}>
         {children}
       </Anchor>

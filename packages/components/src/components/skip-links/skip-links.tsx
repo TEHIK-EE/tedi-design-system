@@ -24,7 +24,7 @@ export type SkipLinksProps<C extends React.ElementType = 'a'> = ConditionalTypes
 export const SkipLinks = <C extends React.ElementType = 'a'>(props: SkipLinksProps<C>): JSX.Element => {
   const { links, linkAs } = props;
   return (
-    <div className={styles['skip-links']}>
+    <div data-name="skip-links" className={styles['skip-links']}>
       <ul>
         {links.map((link, index) => (
           <Anchor as={linkAs} {...link} key={index} />

@@ -33,7 +33,7 @@ export const Breadcrumbs = <C extends React.ElementType = 'a'>(props: Breadcrumb
   const { className, crumbs, linkAs } = props;
 
   return (
-    <ol className={cn(className, styles['breadcrumbs'])}>
+    <ol data-name="breadcrumbs" className={cn(className, styles['breadcrumbs'])}>
       {crumbs.map((crumb, idx) => {
         return <Crumb as={linkAs} key={idx} {...crumb} />;
       })}

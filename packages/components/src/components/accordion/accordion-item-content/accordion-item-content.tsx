@@ -24,7 +24,9 @@ export const AccordionItemContent = (props: AccordionItemContentProps): JSX.Elem
 
   return (
     <AnimateHeight duration={300} height={isOpen(id) ? 'auto' : 0}>
-      <div className={cn(styles['accordion__item-content'], className)}>{children}</div>
+      <div data-name="accordion-item-content" className={cn(styles['accordion__item-content'], className)}>
+        {children}
+      </div>
     </AnimateHeight>
   );
 };

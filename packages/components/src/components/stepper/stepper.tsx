@@ -71,7 +71,7 @@ export const Stepper = (props: StepperProps): JSX.Element => {
 
   return (
     <StepperContext.Provider value={contextValue}>
-      <div className={className}>
+      <div data-name="stepper" className={className}>
         <StepperNav
           items={getNavItems()}
           ariaLabel={ariaLabel}

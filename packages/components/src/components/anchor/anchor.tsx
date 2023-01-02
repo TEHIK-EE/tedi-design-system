@@ -23,7 +23,7 @@ const InternalAnchor = React.forwardRef(
     const ComponentAs = as || 'a';
 
     return (
-      <ButtonContent {...(rest as any)} ref={ref} as={ComponentAs} visualType={visualType}>
+      <ButtonContent data-name="anchor" {...(rest as any)} ref={ref} as={ComponentAs} visualType={visualType}>
         {children}
       </ButtonContent>
     );

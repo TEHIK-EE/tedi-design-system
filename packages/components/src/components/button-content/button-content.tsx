@@ -136,7 +136,7 @@ const InternalButtonContent = forwardRef(
     );
 
     return (
-      <Component {...rest} ref={ref} className={BEM}>
+      <Component data-name="button-content" {...rest} ref={ref} className={BEM}>
         {!noStyle ? renderContent() : children}
       </Component>
     );

@@ -69,7 +69,7 @@ export const Radio = (props: RadioProps): JSX.Element => {
   const LabelBEM = cn(styles['radio'], { [styles['radio--disabled']]: disabled });
 
   return (
-    <div>
+    <div data-name="radio">
       <label className={LabelBEM} htmlFor={id}>
         <input
           id={id}

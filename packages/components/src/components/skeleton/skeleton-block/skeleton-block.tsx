@@ -31,7 +31,7 @@ export const SkeletonBlock = (props: SkeletonBlockProps) => {
     className
   );
 
-  return <span className={SkeletonBlockBEM} style={style} />;
+  return <span data-name="skeleton-block" className={SkeletonBlockBEM} style={style} />;
 };
 
 export default SkeletonBlock;

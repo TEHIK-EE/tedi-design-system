@@ -410,7 +410,7 @@ export const Select = forwardRef<any, SelectProps>((props, ref): JSX.Element => 
   );
 
   return (
-    <div className={SelectBEM}>
+    <div data-name="select" className={SelectBEM}>
       <div className={styles['select__inner']}>
         <FormLabel id={id} label={label} requiredLabel={requiredLabel} required={required} hideLabel={hideLabel} />
         {renderReactSelect()}

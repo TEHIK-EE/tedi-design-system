@@ -40,7 +40,7 @@ export const Notification = (props: NotificationProps): JSX.Element => {
   const NotificationBEM = cn(styles['notification'], styles[`notification--${type}`], className);
 
   return (
-    <div className={NotificationBEM}>
+    <div data-name="notification" className={NotificationBEM}>
       <VerticalSpacing size={0.25}>
         <Row justifyContent="between">
           {(title || icon) && (

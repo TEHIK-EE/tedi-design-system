@@ -70,7 +70,7 @@ export const Check = (props: CheckProps): JSX.Element => {
   const LabelBEM = cn(styles['check'], { [styles['check--disabled']]: disabled });
 
   return (
-    <div>
+    <div data-name="check">
       <label className={LabelBEM} htmlFor={id}>
         <input
           id={id}

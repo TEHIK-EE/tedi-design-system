@@ -70,7 +70,7 @@ export const Collapse = (props: CollapseProps): JSX.Element => {
   };
 
   return (
-    <div className={cn(styles['collapse'], className, { [styles['collapse--is-open']]: isOpen })}>
+    <div data-name="collapse" className={cn(styles['collapse'], className, { [styles['collapse--is-open']]: isOpen })}>
       <button
         type="button"
         className={styles['collapse__heading']}

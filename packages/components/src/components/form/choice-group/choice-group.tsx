@@ -102,7 +102,7 @@ export const ChoiceGroup = (props: ChoiceGroupProps): JSX.Element => {
 
   return (
     <ChoiceGroupContext.Provider value={ContextValue}>
-      <fieldset className={FieldSetBEM} id={id} name={name}>
+      <fieldset data-name="choice-group" className={FieldSetBEM} id={id} name={name}>
         <FormLabel id={id} label={label} requiredLabel={requiredLabel} required={required} hideLabel={hideLabel} />
         <Row className={styles['choice-group__inner']} gutter={0}>
           {items.map((item, key) => (

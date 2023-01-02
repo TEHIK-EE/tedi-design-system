@@ -40,7 +40,14 @@ export const Toggle = (props: ToggleProps): JSX.Element => {
   };
 
   return (
-    <button className={ToggleBEM} aria-label={ariaLabel} type="button" aria-pressed={isActive} onClick={handleClick}>
+    <button
+      data-name="toggle"
+      className={ToggleBEM}
+      aria-label={ariaLabel}
+      type="button"
+      aria-pressed={isActive}
+      onClick={handleClick}
+    >
       <span className={DotBEM} />
     </button>
   );

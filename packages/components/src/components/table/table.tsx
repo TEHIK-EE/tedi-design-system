@@ -213,7 +213,7 @@ export function Table<TData extends DefaultTData<TData>>(props: TableProps<TData
         hideRowBorder,
       }}
     >
-      <Card type={hideCardBorder ? 'borderless' : undefined} padding={cardPadding} {...restCardProps}>
+      <Card data-name="table" type={hideCardBorder ? 'borderless' : undefined} padding={cardPadding} {...restCardProps}>
         <CardContent>
           <div className={tableBEM}>
             <TableLayout<TData> />

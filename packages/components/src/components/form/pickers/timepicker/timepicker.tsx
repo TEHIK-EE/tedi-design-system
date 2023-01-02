@@ -107,6 +107,7 @@ export const TimePicker = (props: TimePickerProps): JSX.Element => {
 
   return (
     <MuiTimePicker<TimePickerValue>
+      data-name="timepicker"
       value={getValue}
       onChange={onChangeHandler}
       open={open}

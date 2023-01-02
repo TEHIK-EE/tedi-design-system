@@ -71,6 +71,7 @@ export const HiddenField = (props: HiddenFieldProps): JSX.Element => {
     return (
       <TextField
         {...rest}
+        data-name="hidden-field"
         hideLabel
         size="small"
         className={TextFieldBEM}

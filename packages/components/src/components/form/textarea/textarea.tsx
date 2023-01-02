@@ -10,6 +10,7 @@ export const TextArea = (props: TextAreaProps): JSX.Element => {
   return (
     <TextField
       {...props}
+      data-name="textarea"
       inputClassName={styles['textarea__input']}
       isTextArea={true}
       className={cn(styles['textarea'], props.className)}

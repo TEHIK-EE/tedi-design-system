@@ -171,6 +171,7 @@ export const DateTimePicker = (props: DateTimePickerProps): JSX.Element => {
 
   return (
     <MuiDateTimePicker<DateTimepickerValue>
+      data-name="datetimepicker"
       value={getValue}
       onChange={onChangeHandler}
       renderInput={(props) => (

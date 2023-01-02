@@ -21,6 +21,7 @@ const toastOptions: ToastOptions = {
 export const sendNotification = (props: NotificationProps) => {
   const id = toast(
     <Notification
+      data-name="toast"
       {...props}
       onClose={() => {
         props.onClose?.();

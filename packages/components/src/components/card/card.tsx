@@ -30,7 +30,12 @@ export const Card = forwardRef<HTMLDivElement, CardProps>((props, ref): JSX.Elem
   const { children, className, padding, background, type, ...rest } = props;
   return (
     <CardContext.Provider value={{ padding, background }}>
-      <div className={cn(styles['card'], className, { [styles[`card--${type}`]]: type })} ref={ref} {...rest}>
+      <div
+        data-name="card"
+        className={cn(styles['card'], className, { [styles[`card--${type}`]]: type })}
+        ref={ref}
+        {...rest}
+      >
         {children}
       </div>
     </CardContext.Provider>

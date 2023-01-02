@@ -113,7 +113,7 @@ export const ScrollFade = forwardRef<HTMLDivElement, ScrollFadeProps>((props, re
   );
 
   return (
-    <div className={ScrollFadeBEM}>
+    <div data-name="scroll-fade" className={ScrollFadeBEM}>
       <div className={styles['scroll-fade__inner']} ref={element} onScroll={onScroll}>
         {children}
       </div>

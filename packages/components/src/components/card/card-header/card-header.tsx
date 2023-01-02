@@ -19,7 +19,11 @@ export interface CardHeaderProps {
 
 export const CardHeader = (props: CardHeaderProps): JSX.Element => {
   const { children, className, style = 'default' } = props;
-  return <div className={cn(styles['card__header'], styles[`card__header--${style}`], className)}>{children}</div>;
+  return (
+    <div data-name="card-header" className={cn(styles['card__header'], styles[`card__header--${style}`], className)}>
+      {children}
+    </div>
+  );
 };
 
 export default CardHeader;

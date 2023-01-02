@@ -16,7 +16,7 @@ export const TabsNav = (props: TabsNavProps): JSX.Element => {
   const { items } = props;
 
   return (
-    <ul className={styles['tabs__nav']} role="tablist" aria-labelledby={props['aria-labelledby']}>
+    <ul data-name="tabs-nav" className={styles['tabs__nav']} role="tablist" aria-labelledby={props['aria-labelledby']}>
       {items.map((item, index) => (
         <TabsNavItem {...item} key={index} />
       ))}

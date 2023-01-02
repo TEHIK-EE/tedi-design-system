@@ -52,6 +52,7 @@ const InternalButton = React.forwardRef(
 
     return (
       <ButtonContent
+        data-name="button"
         {...rest}
         type={rest.type || 'button'}
         ref={ref}

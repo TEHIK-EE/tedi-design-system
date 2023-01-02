@@ -135,6 +135,7 @@ export const Calendar = (props: CalendarProps): JSX.Element => {
 
   return (
     <CalendarPicker<CalendarValue>
+      data-name="calendar"
       date={getValue}
       onChange={onChangeHandler}
       disabled={disabled}

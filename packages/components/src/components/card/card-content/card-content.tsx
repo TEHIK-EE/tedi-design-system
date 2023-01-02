@@ -33,7 +33,7 @@ export const CardContent = (props: CardContentProps): JSX.Element => {
   });
 
   return (
-    <div data-padding={padding} className={CardContentBEM}>
+    <div data-name="card-content" data-padding={padding} className={CardContentBEM}>
       {children}
     </div>
   );
