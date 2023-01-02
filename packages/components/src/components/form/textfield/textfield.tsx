@@ -145,6 +145,7 @@ export const TextField = forwardRef<TextFieldForwardRef, TextFieldProps>((props,
     helper,
     input,
     name,
+    ...rest
   } = props;
   const inputRef = React.useRef<HTMLInputElement | HTMLTextAreaElement | null>(null);
   const innerRef = React.useRef<HTMLDivElement | null>(null);
@@ -247,7 +248,7 @@ export const TextField = forwardRef<TextFieldForwardRef, TextFieldProps>((props,
   );
 
   return (
-    <div data-name="textfield" className={TextFieldBEM}>
+    <div data-name="textfield" {...rest} className={TextFieldBEM}>
       <FormLabel
         id={id}
         label={label}

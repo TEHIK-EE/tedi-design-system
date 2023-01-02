@@ -61,7 +61,7 @@ export type DropdownProps<C extends React.ElementType = 'a'> = ConditionalTypes<
 
 export const Dropdown = <C extends React.ElementType = 'a'>(props: DropdownProps<C>) => {
   const { getLabel } = useLabels();
-  const { button, items, linkAs, onItemClick, closeMenuOnClick = true } = props;
+  const { button, items, linkAs, onItemClick, closeMenuOnClick = true, ...rest } = props;
   const { initialFocus = -1, modal = false, ...restFocusManager } = props.focusManager ?? {};
   const { visuallyHiddenDismiss = modal ? getLabel('close') : false } = restFocusManager ?? {};
   const nodeId = useFloatingNodeId();
@@ -160,6 +160,7 @@ export const Dropdown = <C extends React.ElementType = 'a'>(props: DropdownProps
     <>
       <Button
         data-name="dropdown"
+        {...rest}
         {...button}
         {...getReferenceProps({
           ref: reference,

@@ -23,7 +23,7 @@ export interface VerticalSpacingItemProps {
 }
 
 export const VerticalSpacingItem = (props: VerticalSpacingItemProps): JSX.Element => {
-  const { children, className, element: Element = 'div', size = 1 } = props;
+  const { children, className, element: Element = 'div', size = 1, ...rest } = props;
   const VerticalSpacingItemBEM = cn(
     styles['vertical-spacing__item'],
     styles[`vertical-spacing__item--${size}`.replace('.', '-')],
@@ -31,7 +31,7 @@ export const VerticalSpacingItem = (props: VerticalSpacingItemProps): JSX.Elemen
   );
 
   return (
-    <Element data-name="vertical-spacing-item" className={VerticalSpacingItemBEM}>
+    <Element data-name="vertical-spacing-item" {...rest} className={VerticalSpacingItemBEM}>
       {children}
     </Element>
   );

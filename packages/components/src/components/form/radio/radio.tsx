@@ -52,7 +52,20 @@ export interface RadioProps {
 }
 
 export const Radio = (props: RadioProps): JSX.Element => {
-  const { id, label, value, disabled, onChange, hideLabel, extraContent, checked, defaultChecked, hover, name } = props;
+  const {
+    id,
+    label,
+    value,
+    disabled,
+    onChange,
+    hideLabel,
+    extraContent,
+    checked,
+    defaultChecked,
+    hover,
+    name,
+    ...rest
+  } = props;
   const [innerChecked, setInnerChecked] = React.useState<boolean>(defaultChecked || false);
 
   const getChecked = React.useMemo((): boolean => {
@@ -69,7 +82,7 @@ export const Radio = (props: RadioProps): JSX.Element => {
   const LabelBEM = cn(styles['radio'], { [styles['radio--disabled']]: disabled });
 
   return (
-    <div data-name="radio">
+    <div data-name="radio" {...rest}>
       <label className={LabelBEM} htmlFor={id}>
         <input
           id={id}

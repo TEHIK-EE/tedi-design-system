@@ -39,7 +39,7 @@ export const AccordionItemContext = React.createContext<IAccordionItemContext>({
 });
 
 export const AccordionItem = (props: AccordionItemProps): JSX.Element => {
-  const { children, className, id, disabled = false, borderType = 'secondary' } = props;
+  const { children, className, id, disabled = false, borderType = 'secondary', ...rest } = props;
   const { onToggle } = React.useContext(AccordionContext);
 
   const onMatch = (id: string) => {
@@ -53,7 +53,7 @@ export const AccordionItem = (props: AccordionItemProps): JSX.Element => {
   return (
     <AccordionItemContext.Provider value={{ id, disabled }}>
       <HashTrigger id={id} onMatch={() => onMatch(id)}>
-        <div data-name="accordion-item" className={AccordionItemBEM} id={id}>
+        <div data-name="accordion-item" {...rest} className={AccordionItemBEM} id={id}>
           {children}
         </div>
       </HashTrigger>

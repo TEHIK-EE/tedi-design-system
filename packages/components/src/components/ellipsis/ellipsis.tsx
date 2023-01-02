@@ -16,7 +16,7 @@ export interface EllipsisProps {
 }
 
 export const Ellipsis = (props: EllipsisProps): JSX.Element => {
-  const { children, lineClamp } = props;
+  const { children, lineClamp, ...rest } = props;
   const elementRef = React.useRef<HTMLDivElement>(null);
   const [showTooltip, setShowTooltip] = React.useState(false);
 
@@ -29,6 +29,7 @@ export const Ellipsis = (props: EllipsisProps): JSX.Element => {
   const ellipsis = (
     <div
       data-name="ellipsis"
+      {...rest}
       ref={elementRef}
       className={styles['ellipsis']}
       style={{ lineClamp, WebkitLineClamp: lineClamp }}

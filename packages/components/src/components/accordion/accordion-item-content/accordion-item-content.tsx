@@ -18,13 +18,13 @@ export interface AccordionItemContentProps {
 }
 
 export const AccordionItemContent = (props: AccordionItemContentProps): JSX.Element => {
-  const { children, className } = props;
+  const { children, className, ...rest } = props;
   const { isOpen } = React.useContext(AccordionContext);
   const { id } = React.useContext(AccordionItemContext);
 
   return (
     <AnimateHeight duration={300} height={isOpen(id) ? 'auto' : 0}>
-      <div data-name="accordion-item-content" className={cn(styles['accordion__item-content'], className)}>
+      <div data-name="accordion-item-content" {...rest} className={cn(styles['accordion__item-content'], className)}>
         {children}
       </div>
     </AnimateHeight>

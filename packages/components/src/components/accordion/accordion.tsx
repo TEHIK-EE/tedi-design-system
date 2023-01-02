@@ -38,7 +38,7 @@ export const AccordionContext = React.createContext<IAccordionContext>({
 });
 
 export const Accordion = (props: AccordionProps): JSX.Element => {
-  const { children, className, openItem, onToggleItem, defaultOpenItem = [] } = props;
+  const { children, className, openItem, onToggleItem, defaultOpenItem = [], ...rest } = props;
   const openValues = openItem ? openItem : defaultOpenItem;
   const [innerOpenItem, setOpen] = React.useState<string[]>(openValues);
 
@@ -71,7 +71,7 @@ export const Accordion = (props: AccordionProps): JSX.Element => {
 
   return (
     <AccordionContext.Provider value={{ isOpen, onToggle }}>
-      <div data-name="accordion" className={cn(styles['accordion'], className)}>
+      <div data-name="accordion" {...rest} className={cn(styles['accordion'], className)}>
         {children}
       </div>
     </AccordionContext.Provider>

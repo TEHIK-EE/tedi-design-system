@@ -54,6 +54,7 @@ export const Separator = (props: SeparatorProps): JSX.Element => {
     axis,
     color,
     variant,
+    ...rest
   } = props;
 
   const SeparatorBEM = cn(
@@ -68,7 +69,7 @@ export const Separator = (props: SeparatorProps): JSX.Element => {
     { [styles[`separator--bottom-${bottomSpacing}`.replace('.', '-')]]: !spacing && bottomSpacing }
   );
 
-  return <Element data-name="separator" className={SeparatorBEM} />;
+  return <Element data-name="separator" {...rest} className={SeparatorBEM} />;
 };
 
 export default Separator;

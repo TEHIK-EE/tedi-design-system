@@ -44,14 +44,14 @@ export type SideNavItem<C extends React.ElementType = 'a', Privilege = string> =
 };
 
 export function SideNav<C extends React.ElementType = 'a', Privilege = string>(props: SideNavProps<C, Privilege>) {
-  const { navItems, ariaLabel, linkAs } = props;
+  const { navItems, ariaLabel, linkAs, ...rest } = props;
   const { menuOpen, toggleMenu } = React.useContext(LayoutContext);
 
   const BEM = cn(styles['sidenav'], { [styles['sidenav--open']]: menuOpen });
 
   return (
     <>
-      <nav data-name="sidenav" className={BEM} aria-label={ariaLabel}>
+      <nav data-name="sidenav" {...rest} className={BEM} aria-label={ariaLabel}>
         <ul className={styles['sidenav__list']} role="menubar" aria-label={ariaLabel}>
           {navItems.map((item, key) => (
             <SideNavItem as={linkAs} {...item} key={key} />

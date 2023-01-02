@@ -23,11 +23,11 @@ export interface StatusProps {
 }
 
 export const Status = (props: StatusProps): JSX.Element => {
-  const { children, type, className, tooltipContent } = props;
+  const { children, type, className, tooltipContent, ...rest } = props;
   const StatusBEM = cn(styles['status'], className, styles[`status--${type}`]);
 
   return (
-    <div data-name="status" className={StatusBEM}>
+    <div data-name="status" {...rest} className={StatusBEM}>
       {tooltipContent ? (
         <TooltipProvider>
           <TooltipTrigger>

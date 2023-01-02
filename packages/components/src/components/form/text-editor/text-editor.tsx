@@ -92,6 +92,7 @@ export const TextEditor = (props: TextEditorProps): JSX.Element => {
     onBlur,
     onFocus,
     invalid,
+    ...rest
   } = props;
 
   const isMounted = useIsMounted();
@@ -150,7 +151,7 @@ export const TextEditor = (props: TextEditorProps): JSX.Element => {
   );
 
   return (
-    <div data-name="text-editor" className={TextEditorBEM}>
+    <div data-name="text-editor" {...rest} className={TextEditorBEM}>
       <FormLabel id={id} label={label} requiredLabel={requiredLabel} required={required} hideLabel={hideLabel} />
       <div
         className={styles['text-editor__inner']}

@@ -23,7 +23,7 @@ export const Skeleton = (props: SkeletonProps): JSX.Element => {
   const SkeletonBEM = cn(styles['skeleton'], className);
 
   return (
-    <div data-name="skeleton" className={SkeletonBEM} aria-label={label} {...rest}>
+    <div data-name="skeleton" {...rest} className={SkeletonBEM} aria-label={label}>
       {children}
     </div>
   );

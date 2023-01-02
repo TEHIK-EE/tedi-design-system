@@ -49,8 +49,10 @@ export const Collapse = (props: CollapseProps): JSX.Element => {
     openText = getLabel('open'),
     closeText = getLabel('close'),
     hideCollapseText = false,
+    ...rest
   } = props;
   const [isOpen, setIsOpen] = React.useState(false);
+  const BEM = cn(styles['collapse'], className, { [styles['collapse--is-open']]: isOpen });
 
   const renderHeading = (): JSX.Element => {
     return (
@@ -70,7 +72,7 @@ export const Collapse = (props: CollapseProps): JSX.Element => {
   };
 
   return (
-    <div data-name="collapse" className={cn(styles['collapse'], className, { [styles['collapse--is-open']]: isOpen })}>
+    <div data-name="collapse" {...rest} className={BEM}>
       <button
         type="button"
         className={styles['collapse__heading']}

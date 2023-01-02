@@ -24,10 +24,11 @@ export interface FormHelperProps {
 }
 
 export const FormHelper = (props: FormHelperProps): JSX.Element => {
-  const { text, id, className, type = 'help' } = props;
+  const { text, id, className, type = 'help', ...rest } = props;
   return (
     <div
       data-name="form-helper"
+      {...rest}
       id={id}
       className={cn(styles['form-helper'], styles[`form-helper--${type}`], className)}
     >

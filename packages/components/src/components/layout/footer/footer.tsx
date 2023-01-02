@@ -46,10 +46,10 @@ export type FooterProps<C extends React.ElementType = 'a'> = ConditionalTypesFoo
 };
 
 export const Footer = <C extends React.ElementType = 'a'>(props: FooterProps<C>): JSX.Element => {
-  const { logo, categories, linkAs } = props;
+  const { logo, categories, linkAs, ...rest } = props;
 
   return (
-    <footer data-name="footer" className={styles['footer']}>
+    <footer data-name="footer" {...rest} className={styles['footer']}>
       {categories.map((c, key) => (
         <FooterCategory linkAs={linkAs} {...c} key={key} />
       ))}

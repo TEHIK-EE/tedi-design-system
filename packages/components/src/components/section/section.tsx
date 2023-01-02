@@ -10,11 +10,11 @@ export interface SectionProps {
 }
 
 export const Section = (props: SectionProps): JSX.Element => {
-  const { children } = props;
+  const { children, ...rest } = props;
   const SectionBEM = cn(styles['section']);
 
   return (
-    <div data-name="section" className={SectionBEM}>
+    <div data-name="section" {...rest} className={SectionBEM}>
       {children}
     </div>
   );

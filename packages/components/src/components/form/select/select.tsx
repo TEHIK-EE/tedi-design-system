@@ -239,6 +239,7 @@ export const Select = forwardRef<any, SelectProps>((props, ref): JSX.Element => 
     onMenuClose,
     onMenuOpen,
     onBlur,
+    ...rest
   } = props;
 
   const onChangeHandler = (option: OnChangeValue<ISelectOption, boolean>) => {
@@ -410,7 +411,7 @@ export const Select = forwardRef<any, SelectProps>((props, ref): JSX.Element => 
   );
 
   return (
-    <div data-name="select" className={SelectBEM}>
+    <div data-name="select" {...rest} className={SelectBEM}>
       <div className={styles['select__inner']}>
         <FormLabel id={id} label={label} requiredLabel={requiredLabel} required={required} hideLabel={hideLabel} />
         {renderReactSelect()}

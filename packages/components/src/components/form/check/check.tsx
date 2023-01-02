@@ -53,7 +53,20 @@ export interface CheckProps {
 }
 
 export const Check = (props: CheckProps): JSX.Element => {
-  const { id, label, value, disabled, onChange, hideLabel, extraContent, checked, defaultChecked, hover, name } = props;
+  const {
+    id,
+    label,
+    value,
+    disabled,
+    onChange,
+    hideLabel,
+    extraContent,
+    checked,
+    defaultChecked,
+    hover,
+    name,
+    ...rest
+  } = props;
   const [innerChecked, setInnerChecked] = React.useState<boolean>(defaultChecked || false);
 
   const getChecked = React.useMemo((): boolean => {
@@ -70,7 +83,7 @@ export const Check = (props: CheckProps): JSX.Element => {
   const LabelBEM = cn(styles['check'], { [styles['check--disabled']]: disabled });
 
   return (
-    <div data-name="check">
+    <div data-name="check" {...rest}>
       <label className={LabelBEM} htmlFor={id}>
         <input
           id={id}

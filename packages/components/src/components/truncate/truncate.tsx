@@ -28,7 +28,7 @@ export interface TruncateProps {
 }
 
 export const Truncate = (props: TruncateProps): JSX.Element => {
-  const { children, maxLength = 200, onClose, onOpen, button } = props;
+  const { children, maxLength = 200, onClose, onOpen, button, ...rest } = props;
   const [isOpen, setIsOpen] = React.useState(false);
   const firstRender = useFirstRender();
   const { getLabel } = useLabels();
@@ -50,7 +50,7 @@ export const Truncate = (props: TruncateProps): JSX.Element => {
   };
 
   return (
-    <span data-name="truncate">
+    <span data-name="truncate" {...rest}>
       {getText()}{' '}
       {children.length >= maxLength && (
         <Button visualType="link" {...button} onClick={handleOnClick}>
