@@ -38,7 +38,7 @@ export const Step = (props: StepProps): JSX.Element | null => {
   const StepBEM = cn(styles['stepper__step'], className, { [styles['stepper__step--current']]: activeStep === index });
 
   return activeStep === index ? (
-    <div id={id} role="tabpanel" className={StepBEM}>
+    <div data-name="step" id={id} role="tabpanel" className={StepBEM}>
       {children}
     </div>
   ) : null;

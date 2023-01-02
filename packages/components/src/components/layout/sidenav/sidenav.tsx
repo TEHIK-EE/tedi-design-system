@@ -51,7 +51,7 @@ export function SideNav<C extends React.ElementType = 'a', Privilege = string>(p
 
   return (
     <>
-      <nav className={BEM} aria-label={ariaLabel}>
+      <nav data-name="sidenav" className={BEM} aria-label={ariaLabel}>
         <ul className={styles['sidenav__list']} role="menubar" aria-label={ariaLabel}>
           {navItems.map((item, key) => (
             <SideNavItem as={linkAs} {...item} key={key} />
@@ -68,7 +68,7 @@ function SideNavItem<C extends React.ElementType = 'a', Privilege = string>(prop
   const SideNavItemBEM = cn(styles['sidenav__item'], { [styles['sidenav__item--current']]: isActive });
 
   return (
-    <li className={SideNavItemBEM}>
+    <li data-name="sidenav-item" className={SideNavItemBEM}>
       <Anchor {...rest} className={styles['sidenav__link']} noStyle={true} role="menuitem">
         {icon && <Icon name={icon} className={styles['sidenav__icon']} />}
         <span className={styles['sidenav__title']}>{children}</span>

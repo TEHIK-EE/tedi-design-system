@@ -39,7 +39,7 @@ export const Header = (props: HeaderProps) => {
   return (
     <>
       {skipLinks && <SkipLinks {...skipLinks} />}
-      <header className={styles['header']}>
+      <header data-name="header" className={styles['header']}>
         {!hideToggle && (
           <Button
             icon={menuOpen ? 'close' : 'menu'}

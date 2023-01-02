@@ -50,7 +50,7 @@ export const Truncate = (props: TruncateProps): JSX.Element => {
   };
 
   return (
-    <span>
+    <span data-name="truncate">
       {getText()}{' '}
       {children.length >= maxLength && (
         <Button visualType="link" {...button} onClick={handleOnClick}>

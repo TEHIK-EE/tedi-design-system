@@ -9,7 +9,14 @@ export const CloseButton = (props: CloseButtonProps): JSX.Element => {
   const { children, ...rest } = props;
 
   return (
-    <Button {...rest} className={styles['close-button']} icon="close" visualType="link" color="text-color">
+    <Button
+      data-name="close-button"
+      {...rest}
+      className={styles['close-button']}
+      icon="close"
+      visualType="link"
+      color="text-color"
+    >
       {children || getLabel('close')}
     </Button>
   );

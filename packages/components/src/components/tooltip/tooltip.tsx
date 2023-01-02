@@ -44,7 +44,7 @@ export const Tooltip = (props: TooltipProps): JSX.Element | null => {
     return open ? content : null;
   };
 
-  return <FloatingPortal>{renderTooltip()}</FloatingPortal>;
+  return <FloatingPortal data-name="tooltip">{renderTooltip()}</FloatingPortal>;
 };
 
 export default Tooltip;

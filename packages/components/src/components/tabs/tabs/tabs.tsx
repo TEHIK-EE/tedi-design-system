@@ -87,7 +87,7 @@ export const Tabs = (props: TabsProps): JSX.Element => {
         setCurrentTab,
       }}
     >
-      <div className={cn(styles['tabs'], className)}>
+      <div data-name="tabs" className={cn(styles['tabs'], className)}>
         <TabsNav items={getNavItems()} aria-labelledby={props['aria-labelledby']} />
         <div className={styles['tabs__content']}>{children}</div>
       </div>

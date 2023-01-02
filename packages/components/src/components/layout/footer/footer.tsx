@@ -49,7 +49,7 @@ export const Footer = <C extends React.ElementType = 'a'>(props: FooterProps<C>)
   const { logo, categories, linkAs } = props;
 
   return (
-    <footer className={styles['footer']}>
+    <footer data-name="footer" className={styles['footer']}>
       {categories.map((c, key) => (
         <FooterCategory linkAs={linkAs} {...c} key={key} />
       ))}

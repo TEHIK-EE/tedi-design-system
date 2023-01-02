@@ -92,7 +92,7 @@ export const Tag = forwardRef<HTMLDivElement, TagProps>((props, ref): JSX.Elemen
   );
 
   return (
-    <TagElement className={TagsBEM} title={title} ref={ref}>
+    <TagElement data-name="tag" className={TagsBEM} title={title} ref={ref}>
       {children}
     </TagElement>
   );

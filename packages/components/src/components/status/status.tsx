@@ -27,7 +27,7 @@ export const Status = (props: StatusProps): JSX.Element => {
   const StatusBEM = cn(styles['status'], className, styles[`status--${type}`]);
 
   return (
-    <div className={StatusBEM}>
+    <div data-name="status" className={StatusBEM}>
       {tooltipContent ? (
         <TooltipProvider>
           <TooltipTrigger>

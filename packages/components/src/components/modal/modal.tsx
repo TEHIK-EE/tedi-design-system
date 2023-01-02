@@ -44,7 +44,7 @@ export const Modal = (props: ModalProps): JSX.Element | null => {
   const { isOpen, floating, getFloatingProps, context } = React.useContext(ModalContext);
 
   return (
-    <FloatingPortal>
+    <FloatingPortal data-name="modal">
       {isOpen && (
         <FloatingOverlay lockScroll className={cn(styles['modal'], styles[`modal--${size}`])}>
           <FloatingFocusManager context={context}>

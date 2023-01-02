@@ -55,7 +55,7 @@ export const Icon = forwardRef<HTMLDivElement, IconProps>(
     } as React.CSSProperties;
 
     return (
-      <span className={iconBEM} style={iconVariant} ref={ref} aria-label={label}>
+      <span data-name="icon" className={iconBEM} style={iconVariant} ref={ref} aria-label={label}>
         {name}
       </span>
     );

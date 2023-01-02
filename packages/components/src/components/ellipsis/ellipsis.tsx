@@ -27,7 +27,12 @@ export const Ellipsis = (props: EllipsisProps): JSX.Element => {
   }, [elementRef]);
 
   const ellipsis = (
-    <div ref={elementRef} className={styles['ellipsis']} style={{ lineClamp, WebkitLineClamp: lineClamp }}>
+    <div
+      data-name="ellipsis"
+      ref={elementRef}
+      className={styles['ellipsis']}
+      style={{ lineClamp, WebkitLineClamp: lineClamp }}
+    >
       {children}
     </div>
   );

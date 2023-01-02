@@ -24,7 +24,7 @@ export const Heading = (props: HeadingProps) => {
   const Element = `h${level}` as const;
 
   return (
-    <Element id={id} className={className}>
+    <Element data-name="heading" id={id} className={className}>
       {children}
     </Element>
   );

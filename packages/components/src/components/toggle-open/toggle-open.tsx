@@ -23,7 +23,7 @@ export const ToggleOpen = ({ openText, closeText, isOpen, classNameIcon, ...rest
   const ToggleOpenBEM = cn({ [styles['toggle--open']]: isOpen }, { [styles['toggle--close']]: !isOpen }, classNameIcon);
 
   return (
-    <Button iconRight="expand_more" classNameIcon={ToggleOpenBEM} {...rest}>
+    <Button data-name="button" iconRight="expand_more" classNameIcon={ToggleOpenBEM} {...rest}>
       {isOpen ? closeText : openText}
     </Button>
   );

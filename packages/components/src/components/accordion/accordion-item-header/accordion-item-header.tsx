@@ -53,6 +53,7 @@ export const AccordionItemHeader = (props: AccordionItemHeaderProps): JSX.Elemen
 
   return (
     <div
+      data-name="accordion-item-header"
       role="button"
       tabIndex={disabled ? -1 : 0}
       className={AccordionItemHeaderBEM}

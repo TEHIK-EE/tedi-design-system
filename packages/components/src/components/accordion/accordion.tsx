@@ -71,7 +71,9 @@ export const Accordion = (props: AccordionProps): JSX.Element => {
 
   return (
     <AccordionContext.Provider value={{ isOpen, onToggle }}>
-      <div className={cn(styles['accordion'], className)}>{children}</div>
+      <div data-name="accordion" className={cn(styles['accordion'], className)}>
+        {children}
+      </div>
     </AccordionContext.Provider>
   );
 };

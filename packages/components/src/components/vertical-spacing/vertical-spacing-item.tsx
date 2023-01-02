@@ -30,7 +30,11 @@ export const VerticalSpacingItem = (props: VerticalSpacingItemProps): JSX.Elemen
     className
   );
 
-  return <Element className={VerticalSpacingItemBEM}>{children}</Element>;
+  return (
+    <Element data-name="vertical-spacing-item" className={VerticalSpacingItemBEM}>
+      {children}
+    </Element>
+  );
 };
 
 export default VerticalSpacingItem;

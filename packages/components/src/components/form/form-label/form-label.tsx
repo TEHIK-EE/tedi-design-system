@@ -56,7 +56,7 @@ export const FormLabel = (props: FormLabelProps): JSX.Element => {
   const Element = renderWithoutLabel ? 'span' : 'label';
 
   return (
-    <Element className={FormLabelBEM} htmlFor={id}>
+    <Element data-name="form-label" className={FormLabelBEM} htmlFor={id}>
       <span className={styles['form-label__inner']}>{label}</span>
       {required && <span className={styles['form-label__required']}>{requiredLabel}</span>}
     </Element>

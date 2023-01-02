@@ -62,7 +62,7 @@ export const Layout = <
 
   return (
     <LayoutContext.Provider value={{ menuOpen, toggleMenu: () => setMenuOpen((o) => !o) }}>
-      <div className={styles['container-wrapper']}>
+      <div data-name="layout" className={styles['container-wrapper']}>
         <Header {...header} />
         <div className={cn(styles['container'], { [styles['container--menu-open']]: menuOpen })}>
           {sideNav && <SideNav {...sideNav} />}

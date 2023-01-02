@@ -150,7 +150,7 @@ export const TextEditor = (props: TextEditorProps): JSX.Element => {
   );
 
   return (
-    <div className={TextEditorBEM}>
+    <div data-name="text-editor" className={TextEditorBEM}>
       <FormLabel id={id} label={label} requiredLabel={requiredLabel} required={required} hideLabel={hideLabel} />
       <div
         className={styles['text-editor__inner']}
