@@ -1,3 +1,10 @@
+## [1.8.3](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v1.8.2...v1.8.3) (2023-01-03)
+
+
+### Bug Fixes
+
+* **general:** Fix empty placeholder breaking tables ([1d77676](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/1d776765777c888347ce0bdfd0d436844e3b5314))
+
 ## [1.8.2](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v1.8.1...v1.8.2) (2023-01-03)
 
 
