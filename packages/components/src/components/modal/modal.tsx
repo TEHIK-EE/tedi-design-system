@@ -37,7 +37,7 @@ export interface ModalProps {
 }
 
 export const Modal = (props: ModalProps): JSX.Element | null => {
-  const { children, size = 6, cardProps, hideCloseButton } = props;
+  const { children, size = 6, cardProps = {}, hideCloseButton } = props;
   const { getLabel } = useLabels();
   const labelId = props['aria-labelledby'];
   const descriptionId = props['aria-describedby'];

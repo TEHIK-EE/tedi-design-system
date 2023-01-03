@@ -145,8 +145,9 @@ export const TextField = forwardRef<TextFieldForwardRef, TextFieldProps>((props,
     helper,
     input,
     name,
+    isTextArea,
     ...rest
-  } = props;
+  } = props || {};
   const inputRef = React.useRef<HTMLInputElement | HTMLTextAreaElement | null>(null);
   const innerRef = React.useRef<HTMLDivElement | null>(null);
 
@@ -199,14 +200,14 @@ export const TextField = forwardRef<TextFieldForwardRef, TextFieldProps>((props,
     props: TextFieldProps,
     ref: React.ForwardedRef<any> // eslint-disable-line  @typescript-eslint/no-explicit-any
   ): ref is React.ForwardedRef<HTMLTextAreaElement> => {
-    return !!props.isTextArea;
+    return !!isTextArea;
   };
 
   const isInputRef = (
     props: TextFieldProps,
     ref: React.ForwardedRef<any> // eslint-disable-line  @typescript-eslint/no-explicit-any
   ): ref is React.ForwardedRef<HTMLInputElement> => {
-    return !props.isTextArea;
+    return !isTextArea;
   };
 
   const renderInputElement = (): JSX.Element | null => {
