@@ -1,3 +1,10 @@
+## [1.8.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v1.8.0...v1.8.1) (2023-01-03)
+
+
+### Bug Fixes
+
+* **general:** Use some defaults for spread ([8af2ec5](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/8af2ec5710915110a522042c4893c9422571cab2))
+
 # [1.8.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v1.7.0...v1.8.0) (2023-01-02)
 
 
