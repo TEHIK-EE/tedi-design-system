@@ -122,10 +122,6 @@ export interface TableProps<TData extends DefaultTData<TData>> {
    */
   getRowCanExpand?: (row: Row<TData>) => boolean;
   /**
-   * Should all the rows be expandable from the heading
-   */
-  showExpandAll?: boolean;
-  /**
    * Is the table currently loading
    */
   isLoading?: boolean;
