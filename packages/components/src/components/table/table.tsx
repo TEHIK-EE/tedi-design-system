@@ -57,7 +57,7 @@ export function Table<TData extends DefaultTData<TData>>(props: TableProps<TData
       isNested: placeholderIsNested = true,
       cardProps: { padding: placeholderCardPropsPadding = 'medium', ...restPlaceholderCardProps } = {},
       ...restPlaceholder
-    } = {},
+    } = { cardProps: {} },
     loadingLabel = getLabel('table.loading'),
     verticalAlign = 'middle',
     enableFilters = false,
