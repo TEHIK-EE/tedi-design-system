@@ -1,3 +1,10 @@
+## [1.8.4](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v1.8.3...v1.8.4) (2023-01-03)
+
+
+### Bug Fixes
+
+* **table:** Remove unused property showExpandAll ([5ed2ee5](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/5ed2ee552b04cb9dc51c6c8a2b68e4b0d2cab8f4))
+
 ## [1.8.3](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v1.8.2...v1.8.3) (2023-01-03)
 
 
