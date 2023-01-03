@@ -1,3 +1,22 @@
+# [1.8.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v1.7.0...v1.8.0) (2023-01-02)
+
+
+### Bug Fixes
+
+* **card:** TEHVEER-40 - Allow ModalCloser as direct child of Card ([43c83ad](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/43c83ad6bf616a9d6c3daba4e9020e2767205aaa))
+* **select:** Placeholder display fixed ([980b7d4](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/980b7d43ca91f3c906a390e263e7a873f75f92cc))
+* **table:** TEHVEER-5 - Improve table loader accessibility ([304dd5b](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/304dd5b23589af54297720e1b168881a04512ce8))
+
+
+### Features
+
+* **card:** TEHVEER-25 - Allow passing background prop from Card to CardContent ([6498ae0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/6498ae0f172750b4912667a845cd3b3c2dc34a75))
+* **modal:** TEHVEER-40 - Allow hiding modal close ([6525ac4](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/6525ac41744a6ff829e7cd1ce5502d107b07a341))
+* **pagination:** TEHVEER-31 - Improve pagination accessibility ([33b5d41](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/33b5d41f6a0bacea4ff4921fbd15486c56a4998a))
+* **placeholder:** TEHVEER-25 - Add placeholder component ([52e6e73](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/52e6e73dc6155c3847e22180e062cb67f3ba96b2))
+* **table:** TEHVEER-25 - Add empty state to table ([00246cf](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/00246cfb1322801a306ed2e381b24b597ad307e6))
+* **table:** TEHVEER-25 - Empty table default translations ([ade1ff9](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/ade1ff91da1b45a00e099962adb949a845cee932))
+
 # [1.7.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v1.6.0...v1.7.0) (2022-12-19)
 
 ### Bug Fixes
