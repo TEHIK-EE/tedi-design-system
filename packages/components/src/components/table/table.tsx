@@ -52,12 +52,7 @@ export function Table<TData extends DefaultTData<TData>>(props: TableProps<TData
     groupRowsBy,
     renderGroupHeading,
     isLoading = false,
-    placeholder: {
-      children: placeholderChildren = getLabel('table.empty'),
-      isNested: placeholderIsNested = true,
-      cardProps: { padding: placeholderCardPropsPadding = 'medium', ...restPlaceholderCardProps } = {},
-      ...restPlaceholder
-    } = { cardProps: {} },
+    placeholder,
     loadingLabel = getLabel('table.loading'),
     verticalAlign = 'middle',
     enableFilters = false,
@@ -67,6 +62,13 @@ export function Table<TData extends DefaultTData<TData>>(props: TableProps<TData
     hideCardBorder,
     ...rest
   } = props;
+
+  const {
+    children: placeholderChildren = getLabel('table.empty'),
+    isNested: placeholderIsNested = true,
+    cardProps: { padding: placeholderCardPropsPadding = 'medium', ...restPlaceholderCardProps } = {},
+    ...restPlaceholder
+  } = placeholder || { cardProps: {} };
 
   const [{ pageIndex, pageSize }, setPagination] = React.useState<PaginationState>(defaultPagination);
   const [sorting, setSorting] = React.useState<SortingState>(defaultSorting);
