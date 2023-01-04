@@ -1,3 +1,10 @@
+## [1.8.5](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v1.8.4...v1.8.5) (2023-01-04)
+
+
+### Bug Fixes
+
+* **radio, check:** Fix radio and check indicator width when long label ([ac721b5](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/ac721b5d6f83308f9e2b3fa226406c731e1553f4))
+
 ## [1.8.4](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v1.8.3...v1.8.4) (2023-01-03)
 
 
