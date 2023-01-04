@@ -32,7 +32,7 @@ const generateItems = (index: number, extraContent?: boolean): ChoiceGroupItemPr
   { id: `value-${index * 3}`, label: 'Valik 1', value: `value-${index * 3}` },
   {
     id: `value-${index * 3 + 1}`,
-    label: 'Valik 2',
+    label: 'Valik 2, mis on teistest veidi pikem',
     value: `value-${index * 3 + 1}`,
     extraContent: extraContent ? (
       <span className="text-secondary">

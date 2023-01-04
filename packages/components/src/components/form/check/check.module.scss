@@ -16,7 +16,7 @@
 
 .check__indicator {
   display: inline-block;
-  width: 1.125rem;
+  min-width: 1.125rem;
   height: 1.125rem;
   margin-right: 0.625rem;
   border: 1px solid var(--color-borders-dark);
