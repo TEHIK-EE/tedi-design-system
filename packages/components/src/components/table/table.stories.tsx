@@ -536,6 +536,16 @@ WithMultiSelectFilters.args = {
   enableFilters: true,
 };
 
+export const WithFiltersControlledFromOutside = Template.bind({});
+WithFiltersControlledFromOutside.args = {
+  id: 'with-multi-selected-filters-table-controlled-from-outside',
+  data,
+  columnFilters: [{ id: 'age', value: ['1', '10'] }],
+  onColumnFiltersChange: (data) => console.log(data),
+  columns: columns.map((column) => ({ ...column, filterFn: 'multi-select' })),
+  enableFilters: true,
+};
+
 export const DisableSorting = Template.bind({});
 DisableSorting.args = {
   data,
