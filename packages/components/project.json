@@ -15,6 +15,15 @@
       },
       "configurations": { "ci": { "quiet": true } }
     },
+    "build": {
+      "executor": "@nrwl/vite:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist/"
+      },
+      "configurations": { "ci": { "quiet": true } }
+    },
     "build:storybook": {
       "executor": "@nrwl/storybook:build",
       "outputs": ["{options.outputPath}"],

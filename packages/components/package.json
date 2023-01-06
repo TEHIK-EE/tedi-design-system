@@ -29,6 +29,7 @@
     "react-animate-height": "*",
     "react-dom": "*",
     "react-select": "*",
+    "react-test-renderer": "*",
     "react-toastify": "*",
     "what-input": "*",
     "yup": "*"

@@ -1,4 +1,4 @@
-import { FloatingFocusManager, FloatingOverlay, FloatingPortal } from '@floating-ui/react-dom-interactions';
+import { FloatingFocusManager, FloatingOverlay, FloatingPortal } from '@floating-ui/react';
 import cn from 'classnames';
 import React from 'react';
 

@@ -1,4 +1,4 @@
-import { FloatingFocusManager, FloatingPortal } from '@floating-ui/react-dom-interactions';
+import { FloatingFocusManager, FloatingPortal } from '@floating-ui/react';
 import React from 'react';
 
 import styles from './tooltip.module.scss';

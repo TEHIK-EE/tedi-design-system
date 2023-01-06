@@ -6,7 +6,7 @@ import {
   useFloating,
   useInteractions,
   useRole,
-} from '@floating-ui/react-dom-interactions';
+} from '@floating-ui/react';
 import React from 'react';
 
 export interface ModalProviderProps {

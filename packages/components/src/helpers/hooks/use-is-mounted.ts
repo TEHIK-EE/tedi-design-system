@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 
 export const useIsMounted = (): boolean => {
   const [isMounted, setIsMounted] = React.useState(false);
