@@ -1,3 +1,10 @@
+## [1.8.6](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v1.8.5...v1.8.6) (2023-01-06)
+
+
+### Bug Fixes
+
+* **table:** Get filter initial state from outside if available ([fe2524b](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/fe2524be097efc5e27578946f97a05bcdcbde6a5))
+
 ## [1.8.5](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v1.8.4...v1.8.5) (2023-01-04)
 
 
