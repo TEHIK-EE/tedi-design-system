@@ -66,7 +66,6 @@ const config: UserConfig = {
         'draftjs-md-converter',
         'formik',
         'jw-paginate',
-        // 'material-symbols',
         'next',
         'react',
         'react-is',
