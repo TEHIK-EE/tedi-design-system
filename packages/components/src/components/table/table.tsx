@@ -156,7 +156,7 @@ export function Table<TData extends DefaultTData<TData>>(props: TableProps<TData
     columns,
     state: {
       rowSelection,
-      columnFilters,
+      columnFilters: getColumnFilter,
       pagination: getPagination,
       sorting: getSorting,
       expanded,
