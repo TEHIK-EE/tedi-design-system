@@ -170,7 +170,7 @@ export function TableLayout<TData extends DefaultTData<TData>>(): JSX.Element | 
       </tbody>
       {isFooterVisible && (
         <tfoot>
-          {(getFooterGroups() as HeaderGroup<TData>[]).map((footerGroup) => (
+          {getFooterGroups().map((footerGroup) => (
             <tr key={footerGroup.id}>
               {footerGroup.headers.map((header, index) =>
                 header.column.columnDef.footer ? (
