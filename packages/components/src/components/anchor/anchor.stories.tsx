@@ -22,7 +22,7 @@ export default {
           </Description>
           <Primary />
           <ArgsTable story={CURRENT_SELECTION} />
-          <Stories title="Usecases" />
+          <Stories />
         </>
       ),
     },

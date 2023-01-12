@@ -1,4 +1,4 @@
-import { ArgsTable, CURRENT_SELECTION, Description, Stories, Title } from '@storybook/addon-docs';
+import { ArgsTable, CURRENT_SELECTION, Description, Primary, Stories, Title } from '@storybook/addon-docs';
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
 
@@ -18,8 +18,9 @@ export default {
             show/hide FormLabel of `fieldset` and show FormHelper to whole `fieldset`. Possibile visual variatsions are:
             Check/Radio/Filter/Selector.
           </Description>
-          <Stories includePrimary={true} title="Usecases" />
+          <Primary />
           <ArgsTable story={CURRENT_SELECTION} />
+          <Stories />
         </>
       ),
     },
