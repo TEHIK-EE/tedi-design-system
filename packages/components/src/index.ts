@@ -23,6 +23,8 @@ export * from './components/card';
 export * from './components/icon/icon';
 export * from './components/form/hidden-field/hidden-field';
 export * from './components/form/choice-group';
+export * from './components/form/check/check';
+export * from './components/form/radio/radio';
 export * from './components/form/pickers';
 export * from './components/form/file-upload';
 export * from './components/form/select/select';
