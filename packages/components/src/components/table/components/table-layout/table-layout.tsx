@@ -107,7 +107,9 @@ export function TableLayout<TData extends DefaultTData<TData>>(): JSX.Element | 
                       {flexRender(header.column.columnDef.header, header.getContext())}
                     </Col>
                     {header.column.getCanFilter() ? (
-                      <TableFilter<TData> column={header.column} rows={table?.getCoreRowModel()?.rows} />
+                      <Col>
+                        <TableFilter<TData> column={header.column} rows={table?.getCoreRowModel()?.rows} />
+                      </Col>
                     ) : null}
                     {header.column.getCanSort() && (
                       <Col align="center" width="auto">

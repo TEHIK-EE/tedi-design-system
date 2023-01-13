@@ -98,7 +98,9 @@ const validateTypes = (
   console.error = () => {
     // Suppress errors from rendering the component tree specifically
   };
-  const children = TestRenderer.create(props as any).toTree();
+  const renderer = TestRenderer.create(props as any);
+  const children = renderer.toTree();
+  renderer.unmount();
   console.error = errorWithoutExceptions;
 
   // Validate the component tree
