@@ -48,7 +48,7 @@ export const CustomDisabledDays = Template.bind({});
 CustomDisabledDays.args = {
   id: 'datepicker-custom-disabled-days',
   defaultValue: dayjs().weekday(5),
-  shouldDisableDate: (date) => date?.weekday() !== 5,
+  shouldDisableDate: (date) => date?.weekday() !== 4,
   disableHighlightToday: true,
 };
 CustomDisabledDays.parameters = {
