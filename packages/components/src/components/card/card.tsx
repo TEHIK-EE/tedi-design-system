@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import React, { forwardRef } from 'react';
 
-import { validateChildren } from '../../helpers';
+import { validateChildren } from '../../helpers/validators/validateChildren';
 import { ModalCloser } from '../modal';
 import styles from './card.module.scss';
 import CardContent, { CardContentProps } from './card-content/card-content';

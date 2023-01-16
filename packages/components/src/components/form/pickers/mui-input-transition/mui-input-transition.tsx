@@ -1,4 +1,4 @@
-import { TextFieldProps as MuiTextFieldPropsType } from '@mui/material/TextField';
+import type { TextFieldProps as MuiTextFieldPropsType } from '@mui/material';
 import type { Dayjs } from 'dayjs';
 import React from 'react';
 
