@@ -1,3 +1,10 @@
+## [2.0.3](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.0.2...v2.0.3) (2023-01-16)
+
+
+### Bug Fixes
+
+* **general:** Build only CJS version of the package ([f838f3e](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/f838f3e1e6cdf8d703e71d6d02fe53f50d5176cf))
+
 ## [2.0.2](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.0.1...v2.0.2) (2023-01-16)
 
 
