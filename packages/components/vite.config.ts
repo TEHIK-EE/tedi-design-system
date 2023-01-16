@@ -40,7 +40,7 @@ const config: UserConfig = {
       entry: path.resolve(__dirname, 'src/index.ts'),
       name: '@tehik/react-components',
       fileName: 'index',
-      formats: ['es', 'cjs'],
+      formats: ['cjs'],
     },
     rollupOptions: {
       external: [
