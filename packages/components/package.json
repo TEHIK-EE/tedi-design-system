@@ -11,8 +11,7 @@
   "peerDependencies": {
     "@emotion/react": "*",
     "@emotion/styled": "*",
-    "@floating-ui/react-dom": "*",
-    "@floating-ui/react-dom-interactions": "*",
+    "@floating-ui/react": "*",
     "@mui/material": "*",
     "@mui/x-date-pickers": "*",
     "@tanstack/react-table": "*",
