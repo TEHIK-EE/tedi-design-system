@@ -1,3 +1,12 @@
+## [1.8.7](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v1.8.6...v1.8.7) (2023-01-16)
+
+
+### Bug Fixes
+
+* **datepicker:** Fix custom disabled days storie ([32a0039](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/32a0039d14dd61209ad4405e34a5f0ade7a2c2b2))
+* **radio:** TEHVEER-43 - Export Check and Radio component ([765d186](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/765d1863e5f4aca10821b47a9021b6008fa61746))
+* **validateChildren:** TEHVEER-43 - Unmount testrenderer tree to prevent memory leak from html tags ([fe2d0d2](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/fe2d0d2272f1fecb6d28ce920c114f646bbada65))
+
 ## [1.8.6](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v1.8.5...v1.8.6) (2023-01-06)
 
 
