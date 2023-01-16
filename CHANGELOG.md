@@ -1,3 +1,16 @@
+# [2.0.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v1.8.7...v2.0.0) (2023-01-16)
+
+
+### Features
+
+* **build:** Rename style file from style.css to index.css ([342ae72](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/342ae7281807f3dfbed9e0df27ff46cc9b1471e7))
+* **build:** TEHVEER-41 reduce bundle size and refactor to use nx build ([8d1dbe2](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/8d1dbe2995a2f969d4912560cef89ce25ff2f2b6))
+
+
+### BREAKING CHANGES
+
+* **build:** The component library style import has to be changed to index.css
+
 ## [1.8.7](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v1.8.6...v1.8.7) (2023-01-16)
 
 
