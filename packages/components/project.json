@@ -31,8 +31,7 @@
         "uiFramework": "@storybook/react",
         "outputPath": "dist/storybook/components",
         "config": { "configFolder": "packages/components/.storybook" },
-        "staticDir": ["packages/components/public"],
-        "configDir": ["packages/components/.storybook"]
+        "staticDir": ["packages/components/public"]
       },
       "configurations": { "ci": { "quiet": true } }
     },
