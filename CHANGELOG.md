@@ -1,3 +1,10 @@
+## [2.0.2](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.0.1...v2.0.2) (2023-01-16)
+
+
+### Bug Fixes
+
+* **general:** Build both ESM and CJS formats for the library ([74da3e5](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/74da3e568d214b150e0ad7b99cdf8265626703ec))
+
 ## [2.0.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.0.0...v2.0.1) (2023-01-16)
 
 
