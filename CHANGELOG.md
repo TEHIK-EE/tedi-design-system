@@ -1,3 +1,12 @@
+## [2.0.4](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.0.3...v2.0.4) (2023-01-16)
+
+
+### Bug Fixes
+
+* **general:** Build both versions of the package and include some required internal packages ([d3d05d6](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/d3d05d69ebbb2523760ec29bc397ae612c45861c))
+* **general:** Build ESM version of the package and include some required internal packages ([fe86487](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/fe86487bd3c04a3a5aa0bd7647fa952eb1ca0c63))
+* **general:** Make nx package versions static ([92ace0c](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/92ace0cf4f445494663ccd0f911a3b59a6c3bb44))
+
 ## [2.0.3](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.0.2...v2.0.3) (2023-01-16)
 
 
