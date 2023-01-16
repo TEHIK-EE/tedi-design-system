@@ -1,3 +1,11 @@
+## [2.0.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.0.0...v2.0.1) (2023-01-16)
+
+
+### Bug Fixes
+
+* **general:** Add configDir to storybook build ([c824380](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/c824380529f80f4f67acd266cf46ada73c014483))
+* **general:** Add correct peer-dependency to library package.json ([726807f](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/726807f537950c990fd2703877bbd4eaed1a0998))
+
 # [2.0.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v1.8.7...v2.0.0) (2023-01-16)
 
 
