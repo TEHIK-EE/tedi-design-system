@@ -1,3 +1,10 @@
+# [2.1.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.0.6...v2.1.0) (2023-01-17)
+
+
+### Features
+
+* **validate-children:** Add component name to error, remove console.logs - TEHVEER-7 ([a168126](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/a168126113c1e839d0dcff6ce7930845e4035c59))
+
 ## [2.0.6](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.0.5...v2.0.6) (2023-01-17)
 
 
