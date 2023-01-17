@@ -1,3 +1,10 @@
+## [2.0.6](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.0.5...v2.0.6) (2023-01-17)
+
+
+### Bug Fixes
+
+* **general:** Remove only non-essentials from excluded list ([59d74c1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/59d74c13171f025e3e6b2cb1f365d68d844c9330))
+
 ## [2.0.5](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.0.4...v2.0.5) (2023-01-17)
 
 
