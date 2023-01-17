@@ -43,7 +43,10 @@ Card.displayName = 'Card';
 
 Card.propTypes = {
   children: (props) =>
-    validateChildren(props, { custom: [CardHeader.name, CardContent.name, ModalCloser.name], fragment: true }),
+    validateChildren('Card', props, {
+      custom: [CardHeader.name, CardContent.name, ModalCloser.name],
+      fragment: true,
+    }),
 };
 
 export default Card;
