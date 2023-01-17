@@ -1,3 +1,10 @@
+## [2.0.5](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.0.4...v2.0.5) (2023-01-17)
+
+
+### Bug Fixes
+
+* **general:** Remove packages from excluded list that might not be usable unless they're bundled ([5dea927](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/5dea9276fa730a0537fcc94953473fcf0ca5a1ee))
+
 ## [2.0.4](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.0.3...v2.0.4) (2023-01-16)
 
 
