@@ -10,8 +10,7 @@
       "options": {
         "uiFramework": "@storybook/react",
         "port": 4400,
-        "config": { "configFolder": "packages/components/.storybook" },
-        "staticDir": ["packages/components/public"]
+        "config": { "configFolder": "packages/components/.storybook" }
       },
       "configurations": { "ci": { "quiet": true } }
     },
@@ -30,8 +29,7 @@
       "options": {
         "uiFramework": "@storybook/react",
         "outputPath": "dist/storybook/components",
-        "config": { "configFolder": "packages/components/.storybook" },
-        "staticDir": ["packages/components/public"]
+        "config": { "configFolder": "packages/components/.storybook" }
       },
       "configurations": { "ci": { "quiet": true } }
     },
