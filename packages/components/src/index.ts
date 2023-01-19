@@ -41,6 +41,7 @@ export * from './components/tooltip';
 export * from './components/skeleton';
 export * from './components/skip-links/skip-links';
 export * from './components/status/status';
+export * from './components/stretch-content/stretch-content';
 export * from './components/vertical-spacing';
 export * from './components/colors/colors';
 export * from './components/accordion';
