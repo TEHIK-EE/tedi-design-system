@@ -3,6 +3,7 @@ import { Meta, Story } from '@storybook/react';
 import { Col, Row } from '../grid';
 import Heading from '../heading/heading';
 import Separator from '../separator/separator';
+import { CardsExample } from '../stretch-content/stretch-content.stories';
 import { Card, CardProps } from './card';
 import CardContent, { CardContentProps } from './card-content/card-content';
 import CardHeader, { CardHeaderProps } from './card-header/card-header';
@@ -186,6 +187,10 @@ PaddingFromCard.args = {
   card: {
     padding: 'large',
   },
+};
+
+export const EqualHeight: Story<CardProps> = () => {
+  return <CardsExample {...CardsExample.args} />;
 };
 
 const Timeline: Story<CardProps> = (args) => (
