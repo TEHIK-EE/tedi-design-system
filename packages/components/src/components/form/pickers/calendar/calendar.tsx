@@ -1,8 +1,12 @@
 import { CalendarPicker, PickersDay, PickersDayProps } from '@mui/x-date-pickers';
+import cn from 'classnames';
 import type { Dayjs } from 'dayjs';
 import React from 'react';
 
+import styles from './calendar.module.scss';
+
 export type CalendarValue = Dayjs | null;
+export type CalendarStatus = 'error' | 'success' | 'inactive';
 
 export interface CalendarProps {
   /**
@@ -81,6 +85,10 @@ export interface CalendarProps {
    * Disable specific years dynamically. Works like shouldDisableDate but for year selection view
    */
   shouldDisableYear?: (month: CalendarValue) => boolean;
+  /**
+   * Shows status on date. Return the status type or undefined
+   */
+  shouldShowStatusOnDate?: (day: CalendarValue) => CalendarStatus | undefined;
 }
 
 export const Calendar = (props: CalendarProps): JSX.Element => {
@@ -103,6 +111,7 @@ export const Calendar = (props: CalendarProps): JSX.Element => {
     shouldDisableDate,
     shouldDisableMonth,
     shouldDisableYear,
+    shouldShowStatusOnDate,
   } = props;
 
   const [innerDate, setInnerDate] = React.useState<CalendarValue>(defaultValue || null);
@@ -129,8 +138,14 @@ export const Calendar = (props: CalendarProps): JSX.Element => {
 
   const dayRenderer = (day: CalendarValue, _: CalendarValue[], pickersDayProps: PickersDayProps<CalendarValue>) => {
     const isHighlightedDay = shouldHighlightDate?.(day);
+    const statusOnDay: CalendarStatus | undefined = shouldShowStatusOnDate?.(day);
 
-    return <PickersDay className={isHighlightedDay ? 'Mui-highlighted' : ''} {...pickersDayProps} />;
+    const dayBEM = cn(
+      { 'Mui-highlighted': isHighlightedDay },
+      { [styles[`calendar__day--status-${statusOnDay}`]]: statusOnDay }
+    );
+
+    return <PickersDay className={dayBEM} {...pickersDayProps} />;
   };
 
   return (
