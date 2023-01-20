@@ -1,3 +1,4 @@
+import cn from 'classnames';
 import React from 'react';
 
 import { useBreakpoint } from '../../helpers';
@@ -11,17 +12,13 @@ export interface PlaceholderProps {
    */
   children?: React.ReactNode;
   /**
-   * When icon is a string we render a `<Icon>`
+   * Placeholder icon name, IconProps object or ReactNode(e.g SVG)
    */
-  icon?: string | React.ReactNode;
+  icon?: string | IconProps | React.ReactNode;
   /**
    * Additional class name.
    */
   className?: string;
-  /**
-   * Icon props that get passed to `<Icon>`. Only used when `icon` is a string.
-   */
-  iconProps?: Omit<IconProps, 'name'>;
   /**
    * Card props that get passed to `<Card>`
    */
@@ -38,17 +35,33 @@ export interface PlaceholderProps {
  * Other components also use it internally for displaying empty state. (E.g. `<Table>`)
  */
 export const Placeholder = (props: PlaceholderProps): JSX.Element => {
-  const { icon = 'spa', className, children, iconProps, cardProps, isNested, ...rest } = props;
+  const { icon = 'spa', className, children, cardProps, isNested, ...rest } = props;
   const breakpoint = useBreakpoint();
   const isMobileLayout = ['xs', 'sm'].includes(breakpoint || '');
 
-  const { size = 36, ...restIconProps } = iconProps ?? {};
   const {
     type = isNested ? 'borderless' : undefined,
     padding = isNested ? 'none' : isMobileLayout ? 'medium' : 'large',
     background = isNested ? undefined : isMobileLayout ? 'background' : 'white',
     ...restCardProps
   } = cardProps ?? {};
+
+  const getIcon = (icon: string | IconProps | React.ReactNode) => {
+    const iconBEM = cn('text-primary');
+    const defaultIconProps: Partial<IconProps> = { size: 36, className: iconBEM };
+    const iconProps: IconProps | undefined =
+      typeof icon === 'string'
+        ? { ...defaultIconProps, name: icon }
+        : typeof icon === 'object' && !React.isValidElement(icon)
+        ? {
+            ...defaultIconProps,
+            ...(icon as IconProps),
+            className: cn(defaultIconProps.className, (icon as IconProps)?.className),
+          }
+        : undefined;
+
+    return iconProps ? <Icon {...iconProps} /> : (icon as React.ReactNode);
+  };
 
   return (
     <Card
@@ -62,13 +75,7 @@ export const Placeholder = (props: PlaceholderProps): JSX.Element => {
     >
       <CardContent>
         <Row direction="column" alignItems="center" gutter={2}>
-          <Col width="auto">
-            {typeof icon === 'string' ? (
-              <Icon name={icon} size={size} className="text-primary" {...restIconProps} />
-            ) : (
-              icon
-            )}
-          </Col>
+          {icon && <Col width="auto">{getIcon(icon)}</Col>}
           <Col width="auto" className="text-center text-secondary">
             {children}
           </Col>
