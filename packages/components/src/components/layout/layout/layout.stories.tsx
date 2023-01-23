@@ -7,6 +7,7 @@ import { VerticalSpacing } from '../../vertical-spacing';
 import Breadcrumbs from '../breadcrumbs/breadcrumbs';
 import Footer, { FooterProps } from '../footer/footer';
 import Header from '../header/header';
+import { Default as HeaderDefault } from '../header/header.stories';
 import SideNav, { SideNavItem } from '../sidenav/sidenav';
 import { Layout } from './layout';
 
@@ -16,6 +17,7 @@ export default {
   subcomponents: { Header, SideNav, Footer, Breadcrumbs },
   parameters: {
     layout: 'fullscreen',
+    backgrounds: { default: 'light' },
   },
 } as Meta;
 
@@ -75,13 +77,7 @@ export const Default = () => {
 
   return (
     <Layout
-      header={{
-        onLogoutClick: () => console.log('Logi välja'),
-        skipLinks: {
-          links: [{ children: 'Liigu edasi põhisisu juurde', href: '#main-content' }],
-        },
-        children: <span className="text-secondary">Kaspar Suvi - Tartu Linnavalitsus</span>,
-      }}
+      header={HeaderDefault.args ?? {}}
       sideNav={{
         navItems,
         ariaLabel: 'Menüü',

@@ -11,10 +11,10 @@ export const parameters = {
   backgrounds: {
     default: 'default',
     values: [
-      { name: 'default', value: '#ffffff' },
-      { name: 'light', value: '#f0f0f2' },
-      { name: 'dark', value: '#8f91a8' },
-      { name: 'black', value: '#000000' },
+      { name: 'default', value: 'var(--color-white)' },
+      { name: 'light', value: 'var(--color-background)' },
+      { name: 'dark', value: 'var(--color-borders-dark)' },
+      { name: 'black', value: 'var(--color-black)' },
     ],
   },
 };
