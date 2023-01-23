@@ -59,7 +59,7 @@ export const Footer = <C extends React.ElementType = 'a'>(props: FooterProps<C>)
 };
 
 const FooterCategory = <C extends React.ElementType = 'a'>(props: FooterCategory<C>): JSX.Element => {
-  const { heading, links, icon } = props;
+  const { heading, links, linkAs, icon } = props;
 
   const getIcon = (icon: string | IconProps) => {
     const defaultIconProps: Partial<IconProps> = { size: 16 };
@@ -83,7 +83,14 @@ const FooterCategory = <C extends React.ElementType = 'a'>(props: FooterCategory
           </p>
           {links.map((link, key) => (
             <p key={key}>
-              <Anchor className={styles['footer__link']} color="inverted" size="small" underline {...link} />
+              <Anchor
+                className={styles['footer__link']}
+                color="inverted"
+                size="small"
+                as={linkAs}
+                underline
+                {...link}
+              />
             </p>
           ))}
         </VerticalSpacing>

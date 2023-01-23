@@ -1,5 +1,4 @@
 import { Meta, Story } from '@storybook/react';
-import Link from 'next/link';
 import React from 'react';
 
 import useBreakpoint from '../../../helpers/hooks/use-breakpoint';
@@ -11,7 +10,7 @@ export default {
   component: Footer,
 } as Meta;
 
-const Template: Story<FooterProps<typeof Link>> = (args) => {
+const Template: Story<FooterProps<typeof LinkBehaviour>> = (args) => {
   const breakpoint = useBreakpoint();
   const isMobileLayout = ['xs', 'sm'].includes(breakpoint || '');
 
@@ -35,6 +34,7 @@ const Template: Story<FooterProps<typeof Link>> = (args) => {
 
 export const Default = Template.bind({});
 Default.args = {
+  linkAs: LinkBehaviour,
   categories: [
     {
       heading: 'Category',
