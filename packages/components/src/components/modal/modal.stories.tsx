@@ -141,6 +141,49 @@ warningTopModal.args = {
   renderModalCloser: false,
 };
 
+export const Position: Story<ModalProps> = () => {
+  const ipsum = (
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores culpa dolore ipsam mollitia numquam sapiente!
+      At consequuntur cupiditate est excepturi facere facilis fugit maiores, nihil odio pariatur quam vel vero. Lorem
+      ipsum dolor sit amet, consectetur adipisicing elit. Asperiores culpa dolore ipsam mollitia numquam sapiente! At
+      consequuntur cupiditate est excepturi facere facilis fugit maiores, nihil odio pariatur quam vel vero.
+    </p>
+  );
+
+  const content = (
+    <VerticalSpacing>
+      {ipsum}
+      {ipsum}
+      {ipsum}
+      <ModalCloser>
+        <Button>Close</Button>
+      </ModalCloser>
+    </VerticalSpacing>
+  );
+
+  const modal = (position?: ModalProps['position']) => (
+    <ModalProvider>
+      <ModalTrigger>
+        <Button className="text-capitalize">{position}</Button>
+      </ModalTrigger>
+      <Modal aria-labelledby="open-center" position={position}>
+        <CardHeader style="white">
+          <h1>Modal with longer content to test out scrolling</h1>
+        </CardHeader>
+        <CardContent>{content}</CardContent>
+      </Modal>
+    </ModalProvider>
+  );
+
+  return (
+    <Row>
+      <Col width="auto">{modal('center')}</Col>
+      <Col width="auto">{modal('right')}</Col>
+    </Row>
+  );
+};
+
 export const ControlledOutSide = () => {
   const [isOpen, setIsOpen] = React.useState(false);
 

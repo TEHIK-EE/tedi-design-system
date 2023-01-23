@@ -1,0 +1,34 @@
+@use '../../styles/bootstrap-utility/breakpoints';
+
+@mixin feedback() {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+
+  .feedback__trigger {
+    pointer-events: auto;
+    border-bottom: none;
+    border-radius: 0.25rem 0.25rem 0 0;
+    transform: translateX(50%) rotate(-90deg);
+    transform-origin: center bottom;
+  }
+}
+
+.feedback--both,
+.feedback--desktop {
+  @include breakpoints.media-breakpoint-up(md) {
+    @include feedback;
+  }
+}
+
+.feedback--both,
+.feedback--mobile {
+  @include breakpoints.media-breakpoint-down(md) {
+    @include feedback;
+  }
+}

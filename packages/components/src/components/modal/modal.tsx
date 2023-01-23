@@ -34,10 +34,14 @@ export interface ModalProps {
    * Hide close button. Make sure there is another button that closes the modal.
    */
   hideCloseButton?: boolean;
+  /**
+   * Modal position on the screen
+   */
+  position?: 'center' | 'right';
 }
 
 export const Modal = (props: ModalProps): JSX.Element | null => {
-  const { children, size = 6, cardProps = {}, hideCloseButton } = props;
+  const { children, size = 6, cardProps = {}, hideCloseButton, position } = props;
   const { getLabel } = useLabels();
   const labelId = props['aria-labelledby'];
   const descriptionId = props['aria-describedby'];
@@ -46,7 +50,10 @@ export const Modal = (props: ModalProps): JSX.Element | null => {
   return (
     <FloatingPortal data-name="modal">
       {isOpen && (
-        <FloatingOverlay lockScroll className={cn(styles['modal'], styles[`modal--${size}`])}>
+        <FloatingOverlay
+          lockScroll
+          className={cn(styles['modal'], styles[`modal--${size}`], styles[`modal--${position}`])}
+        >
           <FloatingFocusManager context={context}>
             <div
               {...getFloatingProps({
@@ -57,7 +64,7 @@ export const Modal = (props: ModalProps): JSX.Element | null => {
                 'aria-modal': true,
               })}
             >
-              <Card {...cardProps}>
+              <Card {...cardProps} className={cn(styles['modal__card'], cardProps?.className)}>
                 {!hideCloseButton && (
                   <ModalCloser>
                     <Button

@@ -10,9 +10,18 @@ $modal-max-width: 1230px;
   background: rgb(0 0 0 / 25%);
 }
 
+.modal--right {
+  place-items: flex-end;
+}
+
 .modal__inner {
   width: calc(100vw - 2rem);
   max-width: $modal-max-width;
+
+  .modal--right & {
+    width: 100%;
+    height: 100%;
+  }
 
   @include breakpoints.media-breakpoint-up(lg) {
     .modal--10 & {
@@ -29,6 +38,12 @@ $modal-max-width: 1230px;
       width: math.div(6, 12) * 100%;
       max-width: $modal-max-width * math.div(6, 12);
     }
+  }
+}
+
+.modal__card {
+  .modal--right & {
+    height: 100%;
   }
 }
 
