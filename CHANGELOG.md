@@ -1,3 +1,23 @@
+# [2.3.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.2.1...v2.3.0) (2023-01-23)
+
+
+### Bug Fixes
+
+* **button:** TEHVEER-55 - Reduce global focus specificity ([e2c5b5b](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/e2c5b5bb95735664dc6d3bf46e35d2ed1ceef343))
+* **button:** TEHVEER-55 - Remove border-radius from global focus style ([1711b25](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/1711b2596338ce5eddd0ea4362395bf4ca31ee1f))
+
+
+### Features
+
+* **style:** Adjust breadcrumbs margin and add text helper class ([b23de4c](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/b23de4c88a55f5c89f368875deff4fab5bb021eb))
+
+## [2.2.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.2.0...v2.2.1) (2023-01-23)
+
+
+### Bug Fixes
+
+* **feedback:** TEHVEER-54 - Use correct icon for feedback trigger ([a0b8c3b](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/a0b8c3b26eadcbd0ac513859d7897745a5ef2a74))
+
 # [2.2.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.1.0...v2.2.0) (2023-01-23)
 
 

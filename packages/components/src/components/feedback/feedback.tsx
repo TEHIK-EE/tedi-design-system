@@ -40,7 +40,7 @@ export const Feedback = ({
   ...rest
 }: FeedbackProps): JSX.Element => {
   const {
-    iconLeft = 'star',
+    iconLeft = { name: 'star', filled: true },
     size,
     id: feedbackId = 'feedback-trigger',
     className: triggerClassName,
