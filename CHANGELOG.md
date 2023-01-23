@@ -1,3 +1,10 @@
+## [2.2.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.2.0...v2.2.1) (2023-01-23)
+
+
+### Bug Fixes
+
+* **feedback:** TEHVEER-54 - Use correct icon for feedback trigger ([a0b8c3b](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/a0b8c3b26eadcbd0ac513859d7897745a5ef2a74))
+
 # [2.2.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.1.0...v2.2.0) (2023-01-23)
 
 
