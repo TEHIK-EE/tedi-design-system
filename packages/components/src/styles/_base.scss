@@ -19,7 +19,8 @@ body {
   box-sizing: inherit;
 }
 
-*:focus {
+*:where(:focus) {
+  border-radius: 0.25rem;
   outline: 2px solid var(--color-primary);
   outline-offset: 1px;
 
