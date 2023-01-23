@@ -7,7 +7,7 @@ import { VerticalSpacing } from '../../vertical-spacing';
 import Breadcrumbs from '../breadcrumbs/breadcrumbs';
 import Footer, { FooterProps } from '../footer/footer';
 import Header from '../header/header';
-import { Default as HeaderDefault } from '../header/header.stories';
+import { Default as HeaderDefault, renderCustomHeader } from '../header/header.stories';
 import SideNav, { SideNavItem } from '../sidenav/sidenav';
 import { Layout } from './layout';
 
@@ -65,7 +65,7 @@ const footerProps: FooterProps = {
 
 export const Default = () => {
   const breakpoint = useBreakpoint();
-  const isMobileLayout = ['xs', 'sm'].includes(breakpoint || '');
+  const isMobileLayout = ['xs', 'sm', 'md'].includes(breakpoint || '');
 
   const footerLogo: FooterProps['logo'] = {
     src: isMobileLayout ? '/sf_logod.jpg' : '/sf_logod_vertikaalne.jpg',
@@ -77,7 +77,7 @@ export const Default = () => {
 
   return (
     <Layout
-      header={HeaderDefault.args ?? {}}
+      header={{ ...HeaderDefault.args, children: renderCustomHeader(isMobileLayout) }}
       sideNav={{
         navItems,
         ariaLabel: 'Menüü',
@@ -122,6 +122,8 @@ export const Simple = () => {
     <Layout
       header={{
         hideToggle: true,
+        logoAnchor: { href: '#' },
+        onLogoutClick: () => console.log('Logging out'),
         skipLinks: {
           links: [{ children: 'Liigu edasi põhisisu juurde', href: '#main-content' }],
         },

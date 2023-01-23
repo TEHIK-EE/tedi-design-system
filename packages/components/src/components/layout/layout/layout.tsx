@@ -12,7 +12,8 @@ import styles from './layout.module.scss';
 export interface ILayoutProps<
   B extends React.ElementType = 'a',
   F extends React.ElementType = 'a',
-  S extends React.ElementType = 'a'
+  S extends React.ElementType = 'a',
+  H extends React.ElementType = 'a'
 > {
   /**
    * Main content of the application
@@ -21,7 +22,7 @@ export interface ILayoutProps<
   /**
    * Header props passed to Header component
    */
-  header: HeaderProps;
+  header: HeaderProps<H>;
   /**
    * SideNav props passed to SideNav component
    */
@@ -51,9 +52,10 @@ export interface ILayoutProps<
 export const Layout = <
   B extends React.ElementType = 'a',
   F extends React.ElementType = 'a',
-  S extends React.ElementType = 'a'
+  S extends React.ElementType = 'a',
+  H extends React.ElementType = 'a'
 >(
-  props: ILayoutProps<B, F, S>
+  props: ILayoutProps<B, F, S, H>
 ): JSX.Element => {
   const {
     children,
