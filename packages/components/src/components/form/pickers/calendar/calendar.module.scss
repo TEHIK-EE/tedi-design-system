@@ -1,0 +1,26 @@
+.calendar__day--status-error,
+.calendar__day--status-success,
+.calendar__day--status-inactive {
+  &::before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0.625rem;
+    height: 0.625rem;
+    content: '';
+    border: 1px solid var(--color-white);
+    border-radius: 50%;
+  }
+}
+
+.calendar__day--status-success::before {
+  background-color: var(--color-success);
+}
+
+.calendar__day--status-error::before {
+  background-color: var(--color-error);
+}
+
+.calendar__day--status-inactive::before {
+  background-color: var(--color-text-disabled);
+}

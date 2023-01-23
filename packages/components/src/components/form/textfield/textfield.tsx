@@ -71,6 +71,8 @@ export interface TextFieldProps extends FormLabelProps {
   onClick?: React.MouseEventHandler<HTMLDivElement>;
   /**
    * Custom icon className.
+   * This can also be achieved by passing an object to the icon props.
+   * @deprecated - Pass an IconProps object to icon instead
    */
   iconClassName?: string;
   /**
@@ -127,6 +129,7 @@ export const TextField = forwardRef<TextFieldForwardRef, TextFieldProps>((props,
     requiredLabel,
     hideLabel,
     invalid,
+    iconClassName,
     readOnly,
     icon,
     onIconClick,
@@ -169,12 +172,14 @@ export const TextField = forwardRef<TextFieldForwardRef, TextFieldProps>((props,
   }, [invalid, helper]);
 
   const getIcon = (icon: string | IconProps): JSX.Element => {
-    const defaultIconProps: IconProps = {
+    const defaultIconProps: Partial<IconProps> = {
       size: 16,
-      name: typeof icon === 'string' ? icon : icon.name,
-      className: styles['textfield__icon'],
+      className: cn(styles['textfield__icon'], iconClassName),
     };
-    const iconProps: IconProps = typeof icon === 'string' ? defaultIconProps : { ...defaultIconProps, ...icon };
+    const iconProps: IconProps =
+      typeof icon === 'string'
+        ? { ...defaultIconProps, name: icon }
+        : { ...defaultIconProps, ...icon, className: cn(defaultIconProps.className, icon?.className) };
     const iconComponent = <Icon {...iconProps} />;
     const WrapperElement = onIconClick ? 'button' : 'div';
 

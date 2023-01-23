@@ -3,7 +3,7 @@ import cn from 'classnames';
 import { AllowedHTMLTags } from '../../../helpers/polymorphic/types';
 import { Anchor, AnchorProps } from '../../anchor/anchor';
 import { Col, Row } from '../../grid';
-import Icon from '../../icon/icon';
+import Icon, { IconProps } from '../../icon/icon';
 import { VerticalSpacing } from '../../vertical-spacing';
 import styles from './footer.module.scss';
 
@@ -13,7 +13,7 @@ export type FooterCategory<C extends React.ElementType = 'a'> = {
    */
   links: AnchorProps<C>[];
   heading: string;
-  icon?: string;
+  icon?: string | IconProps;
   linkAs?: C;
 };
 
@@ -60,11 +60,20 @@ export const Footer = <C extends React.ElementType = 'a'>(props: FooterProps<C>)
 
 const FooterCategory = <C extends React.ElementType = 'a'>(props: FooterCategory<C>): JSX.Element => {
   const { heading, links, icon } = props;
+
+  const getIcon = (icon: string | IconProps) => {
+    const defaultIconProps: Partial<IconProps> = { size: 16 };
+    const iconProps: IconProps =
+      typeof icon === 'string' ? { ...defaultIconProps, name: icon } : { ...defaultIconProps, ...icon };
+
+    return <Icon {...iconProps} />;
+  };
+
   return (
     <Row>
       {icon && (
         <Col width="auto" className={cn('text-white', styles['footer__category-icon'])}>
-          <Icon name={icon} size={16} />
+          {getIcon(icon)}
         </Col>
       )}
       <Col width="auto">

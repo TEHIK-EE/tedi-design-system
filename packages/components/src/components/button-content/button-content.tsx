@@ -2,7 +2,7 @@ import cn from 'classnames';
 import { forwardRef } from 'react';
 
 import { AllowedHTMLTags, PolymorphicComponentPropWithRef, PolymorphicRef } from '../../helpers/polymorphic/types';
-import Icon from '../icon/icon';
+import Icon, { IconProps } from '../icon/icon';
 import styles from './button-content.module.scss';
 
 export type ButtonTypes = 'primary' | 'secondary' | 'link';
@@ -24,6 +24,8 @@ export type ButtonContentProps<
     className?: string;
     /**
      * Additional custom class name for Icon.
+     * This can also be achieved by passing an object to one of the icon props.
+     * @deprecated - Pass an IconProps object to icon/iconLeft/iconRight instead
      */
     classNameIcon?: string;
     /**
@@ -41,15 +43,15 @@ export type ButtonContentProps<
     /**
      * Name of the icon when button only has an icon in it.
      */
-    icon?: string;
+    icon?: string | IconProps;
     /**
      * Name of the icon we want to show on the left.
      */
-    iconLeft?: string;
+    iconLeft?: string | IconProps;
     /**
      * Name of the icon we want to show on the right.
      */
-    iconRight?: string;
+    iconRight?: string | IconProps;
     /**
      * Underline the button text
      */
@@ -118,13 +120,16 @@ const InternalButtonContent = forwardRef(
         )
       : cn(styles['btn--no-style'], className);
 
-    const getIcon = (location: string, name: string): JSX.Element => (
-      <Icon
-        name={name}
-        size={16}
-        className={cn(styles['btn__icon'], styles[`btn__icon--${location}`], classNameIcon)}
-      />
-    );
+    const getIcon = (location: string, icon: string | IconProps): JSX.Element => {
+      const iconBEM = cn(styles['btn__icon'], styles[`btn__icon--${location}`], classNameIcon);
+      const defaultIconProps: Partial<IconProps> = { size: 16, className: iconBEM };
+      const iconProps: IconProps =
+        typeof icon === 'string'
+          ? { ...defaultIconProps, name: icon }
+          : { ...defaultIconProps, ...icon, className: cn(defaultIconProps.className, icon?.className) };
+
+      return <Icon {...iconProps} />;
+    };
 
     const renderContent = (): JSX.Element => (
       <span className={styles['btn__inner']}>

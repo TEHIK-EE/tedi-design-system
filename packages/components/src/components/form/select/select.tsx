@@ -59,9 +59,9 @@ export interface SelectProps extends FormLabelProps {
    * Additional classes.
    */
   className?: string;
-  /*
+  /**
    * What icon to use for dropdown
-   * */
+   */
   iconName?: 'arrow_drop_down' | 'search';
   /**
    * onChange callback handler.
