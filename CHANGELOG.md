@@ -1,3 +1,19 @@
+# [2.2.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.1.0...v2.2.0) (2023-01-23)
+
+
+### Bug Fixes
+
+* **storybook:** Fix warning about staticDirs being deprecated in Storybook CLI ([4bdbdc9](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/4bdbdc93125fc03b393370fad7c277d184adcd8b))
+
+
+### Features
+
+* **calendar:** add status to highlighted days - TEHVEER-47 ([66750f7](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/66750f7102f065c7b007bd0b8a400cdac4481acf))
+* **feedback:** TEHVEER-44 - Added feedback component ([57f0bf4](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/57f0bf495c5b1f9fab322f05ddd9939c9771e765))
+* **icon:** TEHVEER-50 - Allow passing IconProps object to other components ([136ac00](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/136ac00ee7a0f98f07e2def8aff68b0cc65b22a0))
+* **modal:** TEHVEER-44 - Added modal position prop ([79e4ba1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/79e4ba1958e42c489166c85dd27f1b16bcb41473))
+* **StretchContent:** TEHVEER-48 - Added StretchContent component ([7b6deab](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/7b6deab9d941573d71cf4f29e698f29c9a6ad29b))
+
 # [2.1.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.0.6...v2.1.0) (2023-01-17)
 
 
