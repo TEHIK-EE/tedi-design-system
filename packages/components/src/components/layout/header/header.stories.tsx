@@ -7,6 +7,7 @@ import Button from '../../button/button';
 import { CardContent } from '../../card';
 import Dropdown from '../../dropdown/dropdown';
 import { Col, Row } from '../../grid';
+import Icon from '../../icon/icon';
 import Modal from '../../modal/modal';
 import ModalProvider from '../../modal/modal-provider';
 import ModalTrigger from '../../modal/modal-trigger';
@@ -44,7 +45,7 @@ export const renderCustomHeader = (isMobileLayout: boolean) => {
         <Dropdown
           button={{ children: 'EST', visualType: 'link', iconRight: 'expand_more' }}
           items={[
-            { children: 'EST', href: '#' },
+            { children: 'EST', href: '#', isActive: true },
             { children: 'ENG', href: '#' },
             { children: 'RUS', href: '#' },
           ]}
@@ -61,11 +62,11 @@ export const renderCustomHeader = (isMobileLayout: boolean) => {
       <Col width="auto">
         <ModalProvider>
           <ModalTrigger>
-            <Button icon={{ name: 'account_circle', size: 24 }} className="block" visualType="link">
-              Toggle
+            <Button icon={{ name: 'account_circle', size: 24 }} id="account-toggle" className="block" visualType="link">
+              Account
             </Button>
           </ModalTrigger>
-          <Modal aria-labelledby="open-center" position="right">
+          <Modal aria-labelledby="account-toggle" position="right">
             <CardContent>
               <Row direction="column">
                 <Col>
@@ -80,12 +81,12 @@ export const renderCustomHeader = (isMobileLayout: boolean) => {
                 <Col>
                   Role: <Anchor href="#">Kairi Sarapuu</Anchor>
                 </Col>
-                <Col>
+                <Col width="auto">
                   <Separator fullWidth spacing={1.5} />
                 </Col>
                 <Col>
                   <Row>
-                    <Col width="auto">Language: </Col>
+                    <Col width="auto">Language:</Col>
                     <Col width="auto">
                       <Anchor href="#" isActive>
                         EST
@@ -100,7 +101,7 @@ export const renderCustomHeader = (isMobileLayout: boolean) => {
                   </Row>
                 </Col>
                 <Col>
-                  <Separator fullWidth topSpacing={1} bottomSpacing={1.5} />
+                  <Separator fullWidth spacing={1.5} />
                 </Col>
                 <Col>
                   <Button visualType="link" onClick={() => console.log('Logging out')}>

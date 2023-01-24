@@ -16,6 +16,10 @@ export default {
   component: Layout,
   subcomponents: { Header, SideNav, Footer, Breadcrumbs },
   parameters: {
+    docs: {
+      inlineStories: false,
+      iframeHeight: 700,
+    },
     layout: 'fullscreen',
     backgrounds: { default: 'light' },
   },
@@ -121,7 +125,6 @@ export const Simple = () => {
   return (
     <Layout
       header={{
-        hideToggle: true,
         logoAnchor: { href: '#' },
         onLogoutClick: () => console.log('Logging out'),
         skipLinks: {

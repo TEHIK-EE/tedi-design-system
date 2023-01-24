@@ -1,6 +1,8 @@
+import { FloatingFocusManager, FloatingOverlay } from '@floating-ui/react';
 import cn from 'classnames';
 import React from 'react';
 
+import { useBreakpoint } from '../../../helpers';
 import { AllowedHTMLTags } from '../../../helpers/polymorphic/types';
 import Anchor, { AnchorProps } from '../../anchor/anchor';
 import Icon, { IconProps } from '../../icon/icon';
@@ -29,6 +31,10 @@ export type SideNavProps<C extends React.ElementType = 'a', Privilege = string> 
    * SideNav menu aria-label used for
    */
   ariaLabel: string;
+  /**
+   * Id of the navigation
+   */
+  id?: string;
 };
 
 export type SideNavItem<C extends React.ElementType = 'a', Privilege = string> = AnchorProps<C> & {
@@ -45,26 +51,45 @@ export type SideNavItem<C extends React.ElementType = 'a', Privilege = string> =
 
 export function SideNav<C extends React.ElementType = 'a', Privilege = string>(props: SideNavProps<C, Privilege>) {
   const { navItems, ariaLabel, linkAs, ...rest } = props;
-  const { menuOpen, toggleMenu } = React.useContext(LayoutContext);
+  const breakpoint = useBreakpoint();
+  const isMobileLayout = ['xs', 'sm', 'md'].includes(breakpoint || '');
+  const { menuOpen, context, getFloatingProps, floating, y } = React.useContext(LayoutContext);
 
-  const BEM = cn(styles['sidenav'], { [styles['sidenav--open']]: menuOpen });
-
-  return (
-    <>
-      <nav data-name="sidenav" {...rest} className={BEM} aria-label={ariaLabel}>
-        <ul className={styles['sidenav__list']} role="menubar" aria-label={ariaLabel}>
-          {navItems.map((item, key) => (
-            <SideNavItem as={linkAs} {...item} key={key} />
-          ))}
-        </ul>
-      </nav>
-      {menuOpen && <div className={styles['main-backdrop']} onClick={toggleMenu} />}
-    </>
+  const renderSidebar = (className?: string) => (
+    <nav data-name="sidenav" {...rest} className={className} aria-label={ariaLabel}>
+      <ul className={styles['sidenav__list']} role="menubar" aria-label={ariaLabel}>
+        {navItems.map((item, key) => (
+          <SideNavItem as={linkAs} {...item} key={key} />
+        ))}
+      </ul>
+    </nav>
   );
+
+  return !isMobileLayout ? (
+    renderSidebar(styles['sidenav'])
+  ) : menuOpen ? (
+    <FloatingOverlay lockScroll className={styles['sidenav__overlay']}>
+      <FloatingFocusManager context={context} order={['reference', 'content']}>
+        <div
+          {...getFloatingProps({
+            ref: floating,
+            style: {
+              paddingTop: y ?? 0,
+            },
+            className: styles['sidenav'],
+            'aria-label': ariaLabel,
+          })}
+        >
+          {renderSidebar()}
+        </div>
+      </FloatingFocusManager>
+    </FloatingOverlay>
+  ) : null;
 }
 
 function SideNavItem<C extends React.ElementType = 'a', Privilege = string>(props: SideNavItem<C, Privilege>) {
-  const { icon, allowedPrivileges, children, isActive, ...rest } = props;
+  const { icon, allowedPrivileges, children, isActive, onClick, ...rest } = props;
+  const { toggleMenu } = React.useContext(LayoutContext);
   const SideNavItemBEM = cn(styles['sidenav__item'], { [styles['sidenav__item--current']]: isActive });
 
   const getIcon = (icon: string | IconProps) => {
@@ -78,9 +103,14 @@ function SideNavItem<C extends React.ElementType = 'a', Privilege = string>(prop
     return <Icon {...iconProps} />;
   };
 
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    onClick?.(e);
+    toggleMenu();
+  };
+
   return (
     <li data-name="sidenav-item" className={SideNavItemBEM}>
-      <Anchor {...rest} className={styles['sidenav__link']} noStyle={true} role="menuitem">
+      <Anchor {...rest} onClick={handleClick} className={styles['sidenav__link']} noStyle={true} role="menuitem">
         {icon && getIcon(icon)}
         <span className={styles['sidenav__title']}>{children}</span>
       </Anchor>

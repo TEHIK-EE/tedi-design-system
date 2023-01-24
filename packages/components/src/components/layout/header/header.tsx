@@ -30,7 +30,8 @@ export interface HeaderProps<H extends React.ElementType = 'a'> {
    */
   onLogoutClick?: () => void;
   /**
-   * Use when no sidenav is need, so in mobile there is no toggle icon for sidenav.
+   * Use when no sidenav is needed, so in mobile there is no toggle icon for sidenav.
+   * @deprecated - When no navItems for sideNav are defined, then we hide the toggle anyway.
    */
   hideToggle?: boolean;
 }
@@ -38,7 +39,7 @@ export interface HeaderProps<H extends React.ElementType = 'a'> {
 export const Header = <H extends React.ElementType = 'a'>(props: HeaderProps<H>) => {
   const { getLabel } = useLabels();
   const { skipLinks, logo = '/logo.svg', logoAnchor, onLogoutClick, children, hideToggle, ...rest } = props;
-  const { toggleMenu, menuOpen } = React.useContext(LayoutContext);
+  const { menuOpen, reference, getReferenceProps, hasSidenavItems } = React.useContext(LayoutContext);
   const toggleLabel = getLabel('header.toggle');
   const LogoWrapper = logoAnchor ? Anchor : React.Fragment;
 
@@ -46,17 +47,17 @@ export const Header = <H extends React.ElementType = 'a'>(props: HeaderProps<H>)
     <>
       {skipLinks && <SkipLinks {...skipLinks} />}
       <header data-name="header" {...rest} className={styles['header']}>
-        {!hideToggle && (
+        {!hideToggle && hasSidenavItems ? (
           <Button
+            {...getReferenceProps({ ref: reference })}
             icon={menuOpen ? 'close' : 'menu'}
             visualType="primary"
             className={styles['header__toggle']}
             classNameIcon={styles['header__toggle-icon']}
-            onClick={toggleMenu}
           >
             {typeof toggleLabel === 'string' ? toggleLabel : toggleLabel(menuOpen)}
           </Button>
-        )}
+        ) : null}
         {logo && (
           <div className={styles['header__logo-wrapper']}>
             <LogoWrapper {...(logoAnchor as AnchorProps<H>)}>
