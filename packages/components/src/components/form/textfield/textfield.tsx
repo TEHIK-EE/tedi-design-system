@@ -110,7 +110,7 @@ export interface TextFieldProps extends FormLabelProps {
   /**
    * Additional input attributes.
    */
-  input?: React.InputHTMLAttributes<HTMLInputElement | HTMLTextAreaElement>;
+  input?: React.InputHTMLAttributes<HTMLInputElement> | React.TextareaHTMLAttributes<HTMLTextAreaElement>;
 }
 
 export interface TextFieldForwardRef {
@@ -234,11 +234,11 @@ export const TextField = forwardRef<TextFieldForwardRef, TextFieldProps>((props,
     };
 
     if (isTextAreaRef(props, inputRef)) {
-      return <textarea {...sharedProps} ref={inputRef} />;
+      return <textarea {...(sharedProps as React.TextareaHTMLAttributes<HTMLTextAreaElement>)} ref={inputRef} />;
     }
 
     if (isInputRef(props, inputRef)) {
-      return <input {...sharedProps} ref={inputRef} />;
+      return <input {...(sharedProps as React.InputHTMLAttributes<HTMLInputElement>)} ref={inputRef} />;
     }
 
     return null;
