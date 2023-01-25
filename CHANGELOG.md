@@ -1,3 +1,18 @@
+# [2.4.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.3.0...v2.4.0) (2023-01-25)
+
+
+### Bug Fixes
+
+* **footer:** TEHVEER-53 - Pass linkAs to footer links ([dbc94fe](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/dbc94feb802aa19dac3bfe21602829311497e6b8))
+
+
+### Features
+
+* **css:** TEHVEER-53 - Move background color to body tag ([b9dafa4](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/b9dafa4217f72357d84b6afa1ca3097fd6ee7d72))
+* **header:** TEHVEER-53 - Adjust header design ([49547f9](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/49547f9ca64889e800120d37efd7ae6970383bb3))
+* **header:** TEHVEER-53 - Improve header accessibility ([8dbbe84](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/8dbbe84afa1b0f3e4657b82090edddd31f15d18d))
+* **textarea:** TEHVEER-56 - allow passing row to textarea through input prop ([62d900b](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/62d900ba7e4bb854056f004d150f82879cdd4fc4))
+
 # [2.3.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.2.1...v2.3.0) (2023-01-23)
 
 
