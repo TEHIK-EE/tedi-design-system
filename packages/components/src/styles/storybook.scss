@@ -38,8 +38,8 @@ a {
   color: var(--color-primary);
   text-decoration: none;
 
-  &:hover,
-  &:focus-visible {
+  &:where(:hover),
+  &:where(:focus-visible) {
     text-decoration: underline;
   }
 }
