@@ -55,8 +55,8 @@ export function SideNav<C extends React.ElementType = 'a', Privilege = string>(p
   const isMobileLayout = ['xs', 'sm', 'md'].includes(breakpoint || '');
   const { menuOpen, context, getFloatingProps, floating, y } = React.useContext(LayoutContext);
 
-  const renderSidebar = (className?: string) => (
-    <nav data-name="sidenav" {...rest} className={className} aria-label={ariaLabel}>
+  const renderSidebar = (
+    <nav data-name="sidenav" {...rest} className={cn({ [styles['sidenav']]: !isMobileLayout })} aria-label={ariaLabel}>
       <ul className={styles['sidenav__list']} role="menubar" aria-label={ariaLabel}>
         {navItems.map((item, key) => (
           <SideNavItem as={linkAs} {...item} key={key} />
@@ -66,7 +66,7 @@ export function SideNav<C extends React.ElementType = 'a', Privilege = string>(p
   );
 
   return !isMobileLayout ? (
-    renderSidebar(styles['sidenav'])
+    renderSidebar
   ) : menuOpen ? (
     <FloatingOverlay lockScroll className={styles['sidenav__overlay']}>
       <FloatingFocusManager context={context} order={['reference', 'content']}>
@@ -80,7 +80,7 @@ export function SideNav<C extends React.ElementType = 'a', Privilege = string>(p
             'aria-label': ariaLabel,
           })}
         >
-          {renderSidebar()}
+          {renderSidebar}
         </div>
       </FloatingFocusManager>
     </FloatingOverlay>
