@@ -105,6 +105,10 @@ export interface TableProps<TData extends DefaultTData<TData>> {
    */
   onRowSelectionChange?: (state: RowSelectionState, flatRows: Row<TData>[]) => void;
   /**
+   * Called when row is clicked
+   */
+  onRowClick?: (row: TData) => void;
+  /**
    * Default selected rows
    */
   defaultRowSelection?: RowSelectionState;

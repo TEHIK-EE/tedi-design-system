@@ -45,6 +45,7 @@ export function Table<TData extends DefaultTData<TData>>(props: TableProps<TData
     onPaginationChange,
     onSortingChange,
     onRowSelectionChange,
+    onRowClick,
     defaultRowSelection,
     totalRows,
     renderSubComponent,
@@ -202,6 +203,7 @@ export function Table<TData extends DefaultTData<TData>>(props: TableProps<TData
       value={{
         table,
         id,
+        onRowClick,
         renderSubComponent,
         isFooterVisible,
         renderGroupHeading,

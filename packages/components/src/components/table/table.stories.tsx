@@ -400,7 +400,15 @@ clickableRowColumns.push(
   columnHelper.accessor((row) => `${row.firstName}-${row.age}`, {
     id: 'view',
     cell: () => (
-      <Anchor iconLeft="visibility" visualType="link" href="#">
+      <Anchor
+        iconLeft="visibility"
+        visualType="link"
+        href="#"
+        onClick={(e: any) => {
+          e.stopPropagation();
+          console.log('Clicking link in cell. Row click is not called');
+        }}
+      >
         Vaata
       </Anchor>
     ),
@@ -410,10 +418,8 @@ clickableRowColumns.push(
 );
 
 WithClickableRows.args = {
-  data: data.map((entity) => ({
-    ...entity,
-    onClick: (row: Person) => console.log(row),
-  })),
+  data,
+  onRowClick: (row: Person) => console.log(row),
   columns: clickableRowColumns,
   id: 'clickable-rows-table',
 };

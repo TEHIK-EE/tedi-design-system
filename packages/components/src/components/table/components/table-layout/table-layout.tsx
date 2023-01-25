@@ -14,8 +14,17 @@ import TableLoader from '../table-loader/table-loader';
 
 export function TableLayout<TData extends DefaultTData<TData>>(): JSX.Element | null {
   const { getLabel } = useLabels();
-  const { table, id, renderSubComponent, isFooterVisible, renderGroupHeading, isLoading, hideRowBorder, placeholder } =
-    React.useContext<ITableContext<TData>>(TableContext);
+  const {
+    table,
+    id,
+    renderSubComponent,
+    isFooterVisible,
+    renderGroupHeading,
+    onRowClick,
+    isLoading,
+    hideRowBorder,
+    placeholder,
+  } = React.useContext<ITableContext<TData>>(TableContext);
 
   if (table === null) {
     return null;
@@ -83,6 +92,11 @@ export function TableLayout<TData extends DefaultTData<TData>>(): JSX.Element | 
     });
   };
 
+  const handleRowClick = (row: TSRow<TData>) => {
+    row.original.onClick?.(row.original);
+    onRowClick?.(row.original);
+  };
+
   return (
     <table id={id}>
       <thead>
@@ -148,10 +162,10 @@ export function TableLayout<TData extends DefaultTData<TData>>(): JSX.Element | 
               )}
               <tr
                 className={cn(row.original.rowClassName, {
-                  [styles['table__row--clickable']]: !!row.original.onClick,
+                  [styles['table__row--clickable']]: !!row.original.onClick || !!onRowClick,
                   [styles['table__row--border-hidden']]: hideRowBorder,
                 })}
-                onClick={() => row.original.onClick?.(row.original)}
+                onClick={() => handleRowClick(row)}
               >
                 {row.getVisibleCells().map((cell) => (
                   <td key={cell.id} style={{ width: cell.column.getSize() }}>
