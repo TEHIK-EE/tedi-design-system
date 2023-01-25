@@ -33,7 +33,7 @@ export const renderCustomHeader = (isMobileLayout: boolean) => {
       <Col width="auto">
         <Separator axis="vertical" />
       </Col>
-      <Col width="auto">
+      <Col width="auto" shrink={1}>
         <p>Role:</p>
         <Anchor href="#">Kairi Sarapuu</Anchor>
       </Col>
