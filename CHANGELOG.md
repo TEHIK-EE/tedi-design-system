@@ -1,3 +1,16 @@
+# [2.5.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.4.0...v2.5.0) (2023-01-25)
+
+
+### Bug Fixes
+
+* **header:** TEHVEER-53 - Add header box-shadow ([609b753](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/609b7534c5f185c9dd48bc3c519359b8b8f25da3))
+* **header:** TEHVEER-53 - Improve Header story to support longer username ([828f346](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/828f346632787ea08cbaa7091e67e1f58b8b73b5))
+
+
+### Features
+
+* **table:** TEHVEER-11 - Add onRowClick prop to table ([fd76548](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/fd7654854f26b468369c11e629c285cc1cb1efe5))
+
 # [2.4.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.3.0...v2.4.0) (2023-01-25)
 
 
