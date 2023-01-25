@@ -1,6 +1,7 @@
 import cn from 'classnames';
 import React, { forwardRef } from 'react';
 import ReactSelect, {
+  ClearIndicatorProps,
   components as ReactSelectComponents,
   ControlProps,
   GroupBase,
@@ -154,6 +155,10 @@ export interface SelectProps extends FormLabelProps {
    */
   isClearable?: boolean;
   /**
+   * If select displays an indicator to clear selected values, defaults to false
+   */
+  isClearIndicatorVisible?: boolean;
+  /**
    * If select can be searched, defaults to true
    */
   isSearchable?: boolean;
@@ -234,6 +239,7 @@ export const Select = forwardRef<any, SelectProps>((props, ref): JSX.Element => 
     closeMenuOnSelect = true,
     autoFocus = false,
     isClearable = true,
+    isClearIndicatorVisible = false,
     isSearchable = true,
     menuIsOpen,
     onMenuClose,
@@ -333,9 +339,12 @@ export const Select = forwardRef<any, SelectProps>((props, ref): JSX.Element => 
     );
   };
 
+  const getClearIndicator = (props: ClearIndicatorProps<ISelectOption>) =>
+    isClearIndicatorVisible ? <ReactSelectComponents.ClearIndicator {...props} /> : null;
+
   const renderReactSelect = (): JSX.Element => {
     const customComponents: SelectComponentsConfig<ISelectOption, boolean, GroupBase<ISelectOption>> = {
-      ClearIndicator: () => null,
+      ClearIndicator: getClearIndicator,
       DropdownIndicator: getDropDownIndicator,
       IndicatorSeparator: () => null,
       MenuPortal: getMenuPortal,

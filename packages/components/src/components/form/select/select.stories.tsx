@@ -45,4 +45,10 @@ MultipleSmall.args = {
   placeholder: 'Placeholder',
 };
 
+export const ClearIndicatorVisible = Template.bind({});
+ClearIndicatorVisible.args = {
+  ...Default.args,
+  isClearIndicatorVisible: true,
+};
+
 export { MultipleHandled, CustomOptionSelect, AsyncSelect };
