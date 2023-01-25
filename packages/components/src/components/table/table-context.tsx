@@ -15,6 +15,7 @@ export interface ITableContext<TData> {
   rowClassName?: string;
   hideRowBorder: boolean;
   isFooterVisible?: boolean;
+  onRowClick?: (row: TData) => void;
 }
 
 // eslint-disable-next-line
