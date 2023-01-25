@@ -7,6 +7,7 @@ import { VerticalSpacing } from '../../vertical-spacing';
 import Breadcrumbs from '../breadcrumbs/breadcrumbs';
 import Footer, { FooterProps } from '../footer/footer';
 import Header from '../header/header';
+import { Default as HeaderDefault, renderCustomHeader } from '../header/header.stories';
 import SideNav, { SideNavItem } from '../sidenav/sidenav';
 import { Layout } from './layout';
 
@@ -15,7 +16,12 @@ export default {
   component: Layout,
   subcomponents: { Header, SideNav, Footer, Breadcrumbs },
   parameters: {
+    docs: {
+      inlineStories: false,
+      iframeHeight: 700,
+    },
     layout: 'fullscreen',
+    backgrounds: { default: 'light' },
   },
 } as Meta;
 
@@ -63,7 +69,7 @@ const footerProps: FooterProps = {
 
 export const Default = () => {
   const breakpoint = useBreakpoint();
-  const isMobileLayout = ['xs', 'sm'].includes(breakpoint || '');
+  const isMobileLayout = ['xs', 'sm', 'md'].includes(breakpoint || '');
 
   const footerLogo: FooterProps['logo'] = {
     src: isMobileLayout ? '/sf_logod.jpg' : '/sf_logod_vertikaalne.jpg',
@@ -75,13 +81,7 @@ export const Default = () => {
 
   return (
     <Layout
-      header={{
-        onLogoutClick: () => console.log('Logi välja'),
-        skipLinks: {
-          links: [{ children: 'Liigu edasi põhisisu juurde', href: '#main-content' }],
-        },
-        children: <span className="text-secondary">Kaspar Suvi - Tartu Linnavalitsus</span>,
-      }}
+      header={{ ...HeaderDefault.args, children: renderCustomHeader(isMobileLayout) }}
       sideNav={{
         navItems,
         ariaLabel: 'Menüü',
@@ -125,7 +125,8 @@ export const Simple = () => {
   return (
     <Layout
       header={{
-        hideToggle: true,
+        logoAnchor: { href: '#' },
+        onLogoutClick: () => console.log('Logging out'),
         skipLinks: {
           links: [{ children: 'Liigu edasi põhisisu juurde', href: '#main-content' }],
         },

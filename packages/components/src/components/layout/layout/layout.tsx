@@ -1,3 +1,4 @@
+import { autoUpdate, useClick, useDismiss, useFloating, useInteractions, useRole } from '@floating-ui/react';
 import cn from 'classnames';
 import React from 'react';
 
@@ -12,7 +13,8 @@ import styles from './layout.module.scss';
 export interface ILayoutProps<
   B extends React.ElementType = 'a',
   F extends React.ElementType = 'a',
-  S extends React.ElementType = 'a'
+  S extends React.ElementType = 'a',
+  H extends React.ElementType = 'a'
 > {
   /**
    * Main content of the application
@@ -21,7 +23,7 @@ export interface ILayoutProps<
   /**
    * Header props passed to Header component
    */
-  header: HeaderProps;
+  header: HeaderProps<H>;
   /**
    * SideNav props passed to SideNav component
    */
@@ -51,9 +53,10 @@ export interface ILayoutProps<
 export const Layout = <
   B extends React.ElementType = 'a',
   F extends React.ElementType = 'a',
-  S extends React.ElementType = 'a'
+  S extends React.ElementType = 'a',
+  H extends React.ElementType = 'a'
 >(
-  props: ILayoutProps<B, F, S>
+  props: ILayoutProps<B, F, S, H>
 ): JSX.Element => {
   const {
     children,
@@ -67,10 +70,35 @@ export const Layout = <
   } = props;
   const [menuOpen, setMenuOpen] = React.useState(false);
 
+  const { y, reference, floating, context } = useFloating({
+    placement: 'bottom-start',
+    open: menuOpen,
+    onOpenChange: setMenuOpen,
+    whileElementsMounted: (...args) => autoUpdate(...args, { ancestorScroll: false }),
+  });
+
+  const { getReferenceProps, getFloatingProps } = useInteractions([
+    useClick(context),
+    useRole(context, { role: 'dialog' }),
+    useDismiss(context),
+  ]);
+
   const mainBem = cn(styles['main'], { [styles['main--with-sidenav']]: !!props.sideNav });
 
   return (
-    <LayoutContext.Provider value={{ menuOpen, toggleMenu: () => setMenuOpen((o) => !o) }}>
+    <LayoutContext.Provider
+      value={{
+        y,
+        menuOpen,
+        toggleMenu: () => setMenuOpen((o) => !o),
+        reference,
+        floating,
+        context,
+        getReferenceProps,
+        getFloatingProps,
+        hasSidenavItems: !!sideNav?.navItems?.length,
+      }}
+    >
       <div data-name="layout" {...rest} className={styles['container-wrapper']}>
         <Header {...header} />
         <div className={cn(styles['container'], { [styles['container--menu-open']]: menuOpen })}>

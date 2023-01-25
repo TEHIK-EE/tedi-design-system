@@ -11,6 +11,7 @@ html {
 html,
 body {
   height: 100%;
+  background-color: var(--color-background);
 }
 
 *,
@@ -21,8 +22,8 @@ body {
 
 *:where(:focus) {
   border-radius: 0.25rem;
-  outline: 2px solid var(--color-primary);
-  outline-offset: 1px;
+  outline: 2px solid var(--global-outline-color, var(--color-primary));
+  outline-offset: var(--global-outline-offset, 1px);
 
   html:not([data-whatintent='keyboard']) & {
     outline: none;

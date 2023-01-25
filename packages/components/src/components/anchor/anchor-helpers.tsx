@@ -8,12 +8,10 @@ import { Anchor, AnchorProps } from './anchor';
 
 // reuse this function when you want to pass it into other components that accept Anchor props (E.g Logo, Header etc)
 const LinkBehaviour = React.forwardRef<HTMLAnchorElement, React.ComponentProps<typeof Link>>(
-  ({ children, className, ...rest }, ref) => {
+  ({ children, className, href, ...rest }, ref) => {
     return (
-      <Link passHref {...rest}>
-        <a ref={ref} className={className}>
-          {children}
-        </a>
+      <Link ref={ref} href={href} className={className} {...rest}>
+        {children}
       </Link>
     );
   }

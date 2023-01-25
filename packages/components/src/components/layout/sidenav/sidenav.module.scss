@@ -2,29 +2,27 @@
 
 .sidenav {
   z-index: 20;
-  display: none;
+  display: flex;
   flex-direction: column;
   width: 65vw;
+  min-width: 20rem;
+  max-width: 25rem;
   min-height: 100%;
   margin: 0;
   font-size: 0.875rem;
   background: var(--color-primary);
 
   @include breakpoints.media-breakpoint-up(lg) {
-    display: flex;
     width: 8.75rem; // 140px
+    min-width: 0;
+    max-width: none;
     min-height: auto;
   }
+}
 
-  &--open {
-    display: flex;
-
-    @include breakpoints.media-breakpoint-down(lg) {
-      position: absolute;
-      top: 0;
-      left: 0;
-    }
-  }
+.sidenav__overlay {
+  z-index: 1;
+  background: rgb(0 0 0 / 25%);
 }
 
 .sidenav__list {
@@ -50,12 +48,16 @@ a.sidenav__link {
   padding: 1rem;
   font: inherit;
   color: var(--color-white);
-  text-align: center;
   text-decoration: none;
   word-break: break-word;
+  border-radius: 0;
+
+  --global-outline-color: var(--color-white);
+  --global-outline-offset: -2px;
 
   @include breakpoints.media-breakpoint-up(lg) {
     flex-direction: column;
+    text-align: center;
   }
 
   &[role='menuitem']:hover {
@@ -75,20 +77,5 @@ a.sidenav__link {
   .sidenav__link:hover &,
   .sidenav__item--current & {
     color: var(--color-white);
-  }
-}
-
-.main-backdrop {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 10;
-  display: none;
-  background: rgb(0 0 0 / 25%);
-
-  @include breakpoints.media-breakpoint-down(lg) {
-    display: block;
   }
 }

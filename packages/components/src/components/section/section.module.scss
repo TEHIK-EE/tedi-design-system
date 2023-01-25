@@ -3,7 +3,6 @@
 .section {
   padding: 0 0.5rem;
   overflow: hidden;
-  background: var(--color-background);
 
   @include breakpoints.media-breakpoint-up(md) {
     padding: 0 1rem;
