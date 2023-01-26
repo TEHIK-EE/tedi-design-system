@@ -1,3 +1,10 @@
+# [2.6.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.5.0...v2.6.0) (2023-01-26)
+
+
+### Features
+
+* **select:** TEHVEER-51 - add isClearIndicatorVisible prop to select ([384ce01](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/384ce013d20f577d3281687e4437993d5e2a8f1d))
+
 # [2.5.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.4.0...v2.5.0) (2023-01-25)
 
 
