@@ -19,7 +19,7 @@ export interface VerticalSpacingItemProps {
    * size of spacing {size}em unit of margin-bottom
    *
    */
-  size?: 0 | 0.25 | 0.5 | 0.75 | 1 | 1.25 | 1.5 | 1.75 | 2;
+  size?: 0 | 0.25 | 0.5 | 0.75 | 1 | 1.25 | 1.5 | 1.75 | 2 | 2.5;
 }
 
 export const VerticalSpacingItem = (props: VerticalSpacingItemProps): JSX.Element => {
