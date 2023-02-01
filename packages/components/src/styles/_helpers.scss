@@ -10,7 +10,11 @@
 }
 
 .inline-block {
-  display: inline-block;
+  display: inline-block !important;
+}
+
+.flex {
+  display: flex !important;
 }
 
 .visually-hidden,
@@ -37,8 +41,18 @@
   }
 }
 
+.no-print {
+  @media print {
+    display: none !important;
+  }
+}
+
 .text-uppercase {
   text-transform: uppercase;
+}
+
+.text-lowercase {
+  text-transform: lowercase;
 }
 
 .text-capitalize {
