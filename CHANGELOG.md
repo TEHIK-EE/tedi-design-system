@@ -1,3 +1,12 @@
+# [2.7.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.6.0...v2.7.0) (2023-02-01)
+
+
+### Features
+
+* Add missing size option to vertical-spacing-item ([e515402](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/e515402c29332eb8a511c4a31a085179b9c656b0))
+* Make breadcrumbs margin even ([8d29e64](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/8d29e646231ae5ee4f6b3a25fb70fe299b0dbd99))
+* TEHVEER-57 add some utility classes and make display ones !important ([67399ff](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/67399ff708d378ff227f80c6a2043db5ed7c7b7a))
+
 # [2.6.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.5.0...v2.6.0) (2023-01-26)
 
 
