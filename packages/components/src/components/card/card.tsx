@@ -24,11 +24,23 @@ export type CardProps = {
    * Type of card.
    */
   type?: 'success' | 'warning' | 'error' | 'borderless' | 'success-top' | 'warning-top' | 'error-top';
+  /*
+   * Turn off border-radius for specific corners
+   * Follows the order in border-radius CSS property
+   * Top-left / Top-right / Bottom-right / Bottom-left
+   * */
+  borderRadius?: { top?: boolean; right?: boolean; bottom?: boolean; left?: boolean };
 } & Pick<CardContentProps, 'padding' | 'background'>;
 
 export const Card = forwardRef<HTMLDivElement, CardProps>((props, ref): JSX.Element => {
-  const { children, className, padding, background, type, ...rest } = props;
-  const BEM = cn(styles['card'], className, { [styles[`card--${type}`]]: type });
+  const { children, className, padding, background, type, borderRadius, ...rest } = props;
+  const BEM = cn(styles['card'], className, {
+    [styles[`card--${type}`]]: type,
+    [styles['card--no-border-radius-top']]: borderRadius?.top === false,
+    [styles['card--no-border-radius-right']]: borderRadius?.right === false,
+    [styles['card--no-border-radius-bottom']]: borderRadius?.bottom === false,
+    [styles['card--no-border-radius-left']]: borderRadius?.left === false,
+  });
 
   return (
     <CardContext.Provider value={{ padding, background }}>

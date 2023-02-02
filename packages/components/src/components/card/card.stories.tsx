@@ -1,7 +1,9 @@
 import { Meta, Story } from '@storybook/react';
 
+import Collapse from '../collapse/collapse';
 import { Col, Row } from '../grid';
 import Heading from '../heading/heading';
+import Icon from '../icon/icon';
 import Separator from '../separator/separator';
 import { CardsExample } from '../stretch-content/stretch-content.stories';
 import { Card, CardProps } from './card';
@@ -213,3 +215,28 @@ const Timeline: Story<CardProps> = (args) => (
 
 export const TimelineCard = Timeline.bind({});
 TimelineCard.args = {};
+
+const TwoToned: Story<CardProps> = (args) => (
+  <Row gutter={0}>
+    <Col width="auto" className="flex">
+      <Card borderRadius={{ right: false, bottom: false }}>
+        <CardContent background="background-light">
+          <Icon name="straighten" className="text-disabled"></Icon>
+        </CardContent>
+      </Card>
+    </Col>
+    <Col width="auto" className="flex">
+      <Card borderRadius={{ left: false, top: false }}>
+        <CardContent>
+          <p className="text-bold">Some statistic: x kg</p>
+          <Collapse id="collapse-1234567" heading={{}} openText="Näita rohkem" closeText="Näita vähem">
+            <p>Some description</p>
+          </Collapse>
+        </CardContent>
+      </Card>
+    </Col>
+  </Row>
+);
+
+export const TwoTonedCard = TwoToned.bind({});
+TwoTonedCard.args = {};
