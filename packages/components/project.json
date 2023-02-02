@@ -10,9 +10,13 @@
       "options": {
         "uiFramework": "@storybook/react",
         "port": 4400,
-        "config": { "configFolder": "packages/components/.storybook" }
+        "configDir": "packages/components/.storybook"
       },
-      "configurations": { "ci": { "quiet": true } }
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
     },
     "build": {
       "executor": "@nrwl/vite:build",
@@ -21,27 +25,40 @@
       "options": {
         "outputPath": "dist/"
       },
-      "configurations": { "ci": { "quiet": true } }
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
     },
     "build:storybook": {
       "executor": "@nrwl/storybook:build",
-      "outputs": ["{options.outputPath}"],
+      "outputs": ["{options.outputDir}"],
       "options": {
         "uiFramework": "@storybook/react",
-        "outputPath": "dist/storybook/components",
-        "config": { "configFolder": "packages/components/.storybook" }
+        "configDir": "packages/components/.storybook",
+        "outputDir": "dist/storybook/components"
       },
-      "configurations": { "ci": { "quiet": true } }
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
     },
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
-      "options": { "lintFilePatterns": ["packages/components/**/*.{ts,tsx,js,jsx}"] }
+      "options": {
+        "lintFilePatterns": ["packages/components/**/*.{ts,tsx,js,jsx}"]
+      }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
-      "options": { "jestConfig": "packages/components/jest.config.ts", "passWithNoTests": true }
+      "options": {
+        "jestConfig": "packages/components/jest.config.ts",
+        "passWithNoTests": true
+      }
     }
   }
 }
