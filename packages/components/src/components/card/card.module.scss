@@ -14,6 +14,22 @@
   border-radius: 0;
 }
 
+.card--no-border-radius-top {
+  border-top-left-radius: 0;
+}
+
+.card--no-border-radius-right {
+  border-top-right-radius: 0;
+}
+
+.card--no-border-radius-bottom {
+  border-bottom-right-radius: 0;
+}
+
+.card--no-border-radius-left {
+  border-bottom-left-radius: 0;
+}
+
 .card--success,
 .card--warning,
 .card--error {
