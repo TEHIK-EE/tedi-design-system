@@ -47,3 +47,14 @@ a {
 iframe {
   display: block;
 }
+
+.not-found {
+  background: linear-gradient(137.5deg, rgb(255 248 233 / 0%) 33.36%, #fff1d3 88.42%);
+}
+
+.not-found__image {
+  display: block;
+  align-self: flex-end;
+  max-height: 50rem;
+  object-fit: cover;
+}
