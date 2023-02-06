@@ -1,3 +1,11 @@
+# [2.8.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.7.0...v2.8.0) (2023-02-06)
+
+
+### Features
+
+* **card:** Allow turning border-radius off for specific corners & create story of use-case ([2622b42](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/2622b42bb34442e87f46e97bb888f3ecda132655))
+* **layout:** TEHVEER-62 - Added prop to handle main content grow ([e9d2ce6](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/e9d2ce6ff128ab1fe1823b92988a2d6ddfc881b9))
+
 # [2.7.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.6.0...v2.7.0) (2023-02-01)
 
 
