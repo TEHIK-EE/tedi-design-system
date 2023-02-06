@@ -18,6 +18,10 @@ export interface ScrollFadeProps {
    */
   scrollType?: 'default' | 'custom';
   /**
+   * Size of fade in percentages. Default to 20%
+   */
+  fadeSize?: '10' | '20';
+  /**
    * Called when element is scrolled to top
    */
   onScrollToTop?: () => void;
@@ -28,7 +32,7 @@ export interface ScrollFadeProps {
 }
 
 export const ScrollFade = forwardRef<HTMLDivElement, ScrollFadeProps>((props, ref): JSX.Element => {
-  const { children, className, scrollType = 'custom', onScrollToBottom, onScrollToTop } = props;
+  const { children, className, scrollType = 'custom', onScrollToBottom, onScrollToTop, fadeSize = '20' } = props;
   const [fadeTop, setFadeTop] = React.useState(false);
   const [fadeBottom, setFadeBottom] = React.useState(false);
   const element = React.useRef<HTMLDivElement>(null);
@@ -107,8 +111,8 @@ export const ScrollFade = forwardRef<HTMLDivElement, ScrollFadeProps>((props, re
   const ScrollFadeBEM = cn(
     styles['scroll-fade'],
     className,
-    { [styles['has-scrolled-to-top']]: fadeBottom },
-    { [styles['has-scrolled-to-bottom']]: fadeTop },
+    { [styles[`has-scrolled-to-top-${fadeSize}`]]: fadeBottom },
+    { [styles[`has-scrolled-to-bottom-${fadeSize}`]]: fadeTop },
     { [styles[`scroll-fade--${scrollType}-scroll`]]: scrollType === 'custom' }
   );
 
