@@ -37,6 +37,10 @@ export interface ILayoutProps<
    */
   footer?: FooterProps<F>;
   /**
+   * Remove max-width and padding from main. Allows the content to take all available space.
+   */
+  growMainContent?: boolean;
+  /**
    * Breadcrumbs props passed to Breadcrumbs component
    */
   breadcrumbsProps?: BreadcrumbsProps<B>;
@@ -66,6 +70,7 @@ export const Layout = <
     footer,
     mainContentId = 'main-content',
     mainLogo,
+    growMainContent,
     ...rest
   } = props;
   const [menuOpen, setMenuOpen] = React.useState(false);
@@ -83,7 +88,10 @@ export const Layout = <
     useDismiss(context),
   ]);
 
-  const mainBem = cn(styles['main'], { [styles['main--with-sidenav']]: !!props.sideNav });
+  const mainBem = cn(styles['main'], {
+    [styles['main--with-sidenav']]: !!props.sideNav,
+    [styles['main--grow']]: growMainContent,
+  });
 
   return (
     <LayoutContext.Provider
