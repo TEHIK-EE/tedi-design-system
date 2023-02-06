@@ -23,3 +23,9 @@ export const Default = Template.bind({});
 Default.args = {
   scrollType: 'custom',
 };
+
+export const SmallFade = Template.bind({});
+SmallFade.args = {
+  scrollType: 'custom',
+  fadeSize: '10',
+};

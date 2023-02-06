@@ -14,15 +14,27 @@
     content: '';
   }
 
-  &.has-scrolled-to-top {
+  &.has-scrolled-to-top-20 {
     &::before {
       background: linear-gradient(to top, #fff 0, rgba(255, 255, 255, 0) 20%); /* stylelint-disable-line */
     }
   }
 
-  &.has-scrolled-to-bottom {
+  &.has-scrolled-to-bottom-20 {
     &::after {
       background: linear-gradient(to bottom, #fff 0, rgba(255, 255, 255, 0) 20%); /* stylelint-disable-line */
+    }
+  }
+
+  &.has-scrolled-to-top-10 {
+    &::before {
+      background: linear-gradient(to top, #fff 0, rgba(255, 255, 255, 0) 10%); /* stylelint-disable-line */
+    }
+  }
+
+  &.has-scrolled-to-bottom-10 {
+    &::after {
+      background: linear-gradient(to bottom, #fff 0, rgba(255, 255, 255, 0) 10%); /* stylelint-disable-line */
     }
   }
 }
