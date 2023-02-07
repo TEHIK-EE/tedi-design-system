@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 
 import { PolymorphicRef } from '../../helpers/polymorphic/types';
 import ButtonContent, { ButtonContentProps } from '../button-content/button-content';
@@ -16,7 +16,7 @@ export type AnchorProps<C extends React.ElementType = 'a'> = ButtonContentProps<
 
 export type AnchorComponent = <C extends React.ElementType = 'a'>(props: AnchorProps<C>) => React.ReactElement | null;
 
-const InternalAnchor = React.forwardRef(
+const InternalAnchor = forwardRef(
   <C extends React.ElementType = 'a'>(props: AnchorProps<C>, ref?: PolymorphicRef<C>) => {
     const { visualType = 'link', as, children, ...rest } = props;
 

@@ -1,5 +1,5 @@
 import cn from 'classnames';
-import React from 'react';
+import React, { forwardRef } from 'react';
 
 import { PolymorphicRef } from '../../helpers/polymorphic/types';
 import ButtonContent, { ButtonContentProps } from '../button-content/button-content';
@@ -24,9 +24,9 @@ export type ButtonComponent = <C extends React.ElementType = 'button'>(
   props: ButtonProps<C>
 ) => React.ReactElement | null;
 
-const InternalButton = React.forwardRef(
-  <C extends React.ElementType = 'button'>(
-    {
+const InternalButton = forwardRef(
+  <C extends React.ElementType = 'button'>(props: ButtonProps<C>, ref?: PolymorphicRef<C>) => {
+    const {
       children,
       as,
       className,
@@ -43,9 +43,7 @@ const InternalButton = React.forwardRef(
       noStyle,
       fullWidth,
       ...rest
-    }: ButtonProps<C>,
-    ref?: PolymorphicRef<C>
-  ) => {
+    } = props;
     const ComponentAs = as || 'button';
 
     const BEM = cn(className, { [styles['btn--full-width']]: fullWidth });

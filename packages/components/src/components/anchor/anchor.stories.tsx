@@ -1,7 +1,7 @@
 import { ArgsTable, CURRENT_SELECTION, Description, Primary, Stories, Title } from '@storybook/addon-docs';
 import { Meta, Story } from '@storybook/react';
 import Link from 'next/link';
-import React from 'react';
+import React, { forwardRef } from 'react';
 
 import { Col, Row } from '../grid';
 import { VerticalSpacing } from '../vertical-spacing';
@@ -124,7 +124,7 @@ const NotVisualTemplate: Story<AnchorProps> = (args) => <Anchor {...args} />;
 
 export const CustomComponent: Story<AnchorProps> = () => {
   // reuse this function when you want to pass it into other components that accept Anchor props (E.g. Logo, Header etc)
-  const LinkBehaviour = React.forwardRef<HTMLAnchorElement, React.ComponentProps<typeof Link>>(
+  const LinkBehaviour = forwardRef<HTMLAnchorElement, React.ComponentProps<typeof Link>>(
     ({ children, className, ...rest }, ref) => {
       return (
         <Link ref={ref} className={className} {...rest}>

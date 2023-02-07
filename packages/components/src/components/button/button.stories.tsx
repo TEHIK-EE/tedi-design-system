@@ -7,7 +7,7 @@ import { Button, ButtonProps } from './button';
 export default {
   title: 'components/Button',
   component: Button,
-} as Meta;
+} as Meta<ButtonProps>;
 
 const Template: Story<ButtonProps> = (args) => {
   const getRow = (name: string, rowProps?: Partial<ButtonProps>): JSX.Element => (
