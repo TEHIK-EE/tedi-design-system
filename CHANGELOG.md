@@ -1,3 +1,10 @@
+# [2.10.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.9.0...v2.10.0) (2023-02-07)
+
+
+### Features
+
+* TEHVEER-65 - Change notification title prop type ([02f54c6](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/02f54c6f1761e4ec17c1b4fffb97aea25fe1cbeb))
+
 # [2.9.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.8.0...v2.9.0) (2023-02-07)
 
 
