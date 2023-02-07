@@ -1,3 +1,16 @@
+# [2.9.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.8.0...v2.9.0) (2023-02-07)
+
+
+### Bug Fixes
+
+* **accordion-example:** Fix accordion example icons ([57f7a2c](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/57f7a2cf001d78adb362de70a33eea215b65b962))
+
+
+### Features
+
+* **print:** TEHVEER-45 - Add print styles for components ([85cec41](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/85cec41e3d22fb0738cbf0d69ebf38c74fa84c42))
+* **scrollbar:** added option for smaller fade size ([6322edc](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/6322edc3ed79fdf462f37ad3a1afa76e170192ee))
+
 # [2.8.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.7.0...v2.8.0) (2023-02-06)
 
 
