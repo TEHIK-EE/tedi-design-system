@@ -1,3 +1,4 @@
+@use '../../../styles/mixins';
 @use '../../../styles/bootstrap-utility/breakpoints';
 
 .sidenav {
@@ -11,6 +12,8 @@
   margin: 0;
   font-size: 0.875rem;
   background: var(--color-primary);
+
+  @include mixins.print-grayscale;
 
   @include breakpoints.media-breakpoint-up(lg) {
     width: 8.75rem; // 140px

@@ -2,10 +2,12 @@ import cn from 'classnames';
 import React from 'react';
 import AnimateHeight from 'react-animate-height';
 
+import { usePrint } from '../../helpers';
 import { useLabels } from '../../providers/label-provider';
 import { Col, Row } from '../grid';
 import Heading, { HeadingProps } from '../heading/heading';
 import Icon from '../icon/icon';
+import Print from '../print/print';
 import styles from './collapse.module.scss';
 
 export interface CollapseProps {
@@ -51,7 +53,9 @@ export const Collapse = (props: CollapseProps): JSX.Element => {
     hideCollapseText = false,
     ...rest
   } = props;
-  const [isOpen, setIsOpen] = React.useState(false);
+  const [isOpenState, setIsOpen] = React.useState(false);
+  const isPrint = usePrint();
+  const isOpen = isOpenState || isPrint;
   const BEM = cn(styles['collapse'], className, { [styles['collapse--is-open']]: isOpen });
 
   const renderHeading = (): JSX.Element => {
@@ -85,14 +89,16 @@ export const Collapse = (props: CollapseProps): JSX.Element => {
           {renderHeading()}
           <Col width="auto">
             <Row element="div" gutter={1}>
-              <Col
-                width="auto"
-                className={cn('text-small', 'text-primary', 'text-bold', {
-                  [styles['collapse__text--visually-hidden']]: hideCollapseText,
-                })}
-              >
-                {isOpen ? closeText : openText}
-              </Col>
+              <Print visibility="hide">
+                <Col
+                  width="auto"
+                  className={cn('text-small', 'text-primary', 'text-bold', {
+                    [styles['collapse__text--visually-hidden']]: hideCollapseText,
+                  })}
+                >
+                  {isOpen ? closeText : openText}
+                </Col>
+              </Print>
               <Col width="auto">
                 <Icon className={styles['collapse__icon']} name="expand_more" />
               </Col>
@@ -100,9 +106,13 @@ export const Collapse = (props: CollapseProps): JSX.Element => {
           </Col>
         </Row>
       </button>
-      <AnimateHeight duration={300} id={id} height={isOpen ? 'auto' : 0} data-testid="collapse-inner">
-        {children}
-      </AnimateHeight>
+      {isPrint ? (
+        children
+      ) : (
+        <AnimateHeight duration={300} id={id} height={isOpen ? 'auto' : 0} data-testid="collapse-inner">
+          {children}
+        </AnimateHeight>
+      )}
     </div>
   );
 };

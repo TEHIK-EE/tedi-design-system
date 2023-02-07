@@ -1,4 +1,10 @@
+@use '../mixins';
+
 /* Mui datepicker */
+div.MuiClockPointer-root {
+  @include mixins.print-grayscale;
+}
+
 div.MuiClockPointer-root,
 div.MuiClock-pin,
 div.PrivatePickersYear-root button.Mui-selected,

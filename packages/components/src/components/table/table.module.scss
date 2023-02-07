@@ -29,6 +29,8 @@
     color: var(--color-text-secondary);
     text-align: left;
 
+    @include mixins.print-grayscale;
+
     &.th--sortable {
       cursor: pointer;
     }

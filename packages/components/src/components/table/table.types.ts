@@ -56,6 +56,10 @@ export interface TableProps<TData extends DefaultTData<TData>> {
    */
   columns: ColumnDef<TData, any>[]; // eslint-disable-line
   /**
+   * Additional classname
+   */
+  className?: string;
+  /**
    * Hide pagination
    */
   hidePagination?: boolean;

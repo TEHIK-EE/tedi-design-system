@@ -1,3 +1,5 @@
+@use './mixins';
+
 // https://github.com/h5bp/main.css/blob/main/src/_helpers.css
 
 .hidden,
@@ -38,12 +40,6 @@
     overflow: visible;
     clip: auto;
     white-space: inherit;
-  }
-}
-
-.no-print {
-  @media print {
-    display: none !important;
   }
 }
 
@@ -93,22 +89,32 @@
 
 .text-primary {
   color: var(--color-primary);
+
+  @include mixins.print-grayscale;
 }
 
 .text-secondary {
   color: var(--color-text-secondary);
+
+  @include mixins.print-grayscale;
 }
 
 .text-error {
   color: var(--color-error);
+
+  @include mixins.print-grayscale;
 }
 
 .text-warning {
   color: var(--color-warning);
+
+  @include mixins.print-grayscale;
 }
 
 .text-success {
   color: var(--color-success);
+
+  @include mixins.print-grayscale;
 }
 
 .text-disabled {

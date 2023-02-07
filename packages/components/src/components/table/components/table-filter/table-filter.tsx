@@ -44,7 +44,7 @@ export function TableFilter<TData extends DefaultTData<TData>>(props: TableFilte
             <Button
               visualType="link"
               icon="filter_alt"
-              className={styles['filter__button']}
+              className={cn(styles['filter__button'], 'show-print')}
               classNameIcon={cn(styles['filter__icon'], {
                 [styles['filter__icon--active']]: !!column.getFilterValue() || open,
               })}

@@ -24,3 +24,10 @@
   background-color: var(--color-error-light);
   border-color: var(--color-error);
 }
+
+@media print {
+  .notification {
+    background-color: var(--color-white);
+    border-color: var(--color-background-dark);
+  }
+}

@@ -1,3 +1,5 @@
+@use '../../styles/mixins';
+
 .accordion__item {
   margin-bottom: 0.5rem;
   border: 1px solid var(--color-background-dark);
@@ -13,6 +15,8 @@
   color: var(--color-secondary);
   background: var(--color-white);
   border-radius: var(--card-border-radius);
+
+  @include mixins.print-grayscale;
 
   .accordion__item:not(.accordion__item--disabled) &:hover {
     color: var(--color-secondary-light);

@@ -1,0 +1,34 @@
+$breaks: ('auto', 'avoid', 'avoid-column', 'avoid-page', 'avoid-region');
+
+@media print {
+  html {
+    font-size: 14px;
+  }
+
+  body {
+    background-color: var(--color-white);
+    print-color-adjust: exact;
+  }
+
+  a {
+    filter: grayscale(1);
+  }
+
+  .no-print:not(.show-print) {
+    display: none !important;
+  }
+
+  @each $break in $breaks {
+    .break-before-#{$break} {
+      break-before: #{$break};
+    }
+
+    .break-after-#{$break} {
+      break-after: #{$break};
+    }
+
+    .break-inside-#{$break} {
+      break-inside: #{$break};
+    }
+  }
+}

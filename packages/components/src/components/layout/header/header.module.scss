@@ -1,3 +1,4 @@
+@use '../../../styles/mixins';
 @use '../../../styles/bootstrap-utility/breakpoints';
 
 .header {
@@ -7,6 +8,8 @@
   overflow: hidden;
   background: var(--color-white);
   box-shadow: 0 1px 2px rgb(0 0 0 / 14%);
+
+  @include mixins.print-grayscale;
 
   @include breakpoints.media-breakpoint-up(lg) {
     padding: 1rem 2.5rem;

@@ -5,6 +5,8 @@
   display: inline-flex;
   align-items: center;
 
+  @include mixins.print-grayscale;
+
   &:hover:not(.check--disabled) {
     cursor: pointer;
   }

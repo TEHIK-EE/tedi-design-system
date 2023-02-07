@@ -1,3 +1,4 @@
+import { debounce } from 'debounce';
 import { useEffect, useState } from 'react';
 
 export type Breakpoint = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
@@ -5,13 +6,14 @@ export type Breakpoint = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
 export const useBreakpoint = (): Breakpoint | null => {
   const [breakpoint, setBreakpoint] = useState(getBreakpoint());
 
-  const resizeEvent = (): void => {
-    setBreakpoint(getBreakpoint());
-  };
-
   useEffect(() => {
+    const resizeEvent = debounce((): void => {
+      setBreakpoint(getBreakpoint());
+    }, 50);
+
     window.addEventListener('resize', resizeEvent);
     return () => {
+      resizeEvent.clear();
       window.removeEventListener('resize', resizeEvent);
     };
   }, []);

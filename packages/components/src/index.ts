@@ -32,6 +32,7 @@ export * from './components/form/select/select';
 export * from './components/form/text-editor/text-editor';
 export * from './components/form/textfield/textfield';
 export * from './components/form/textarea/textarea';
+export * from './components/print/print';
 export * from './components/truncate/truncate';
 export * from './components/form/form-helper/form-helper';
 export * from './components/table';

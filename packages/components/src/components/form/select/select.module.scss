@@ -1,4 +1,8 @@
-@import '../../../styles/mixins';
+@use '../../../styles/mixins';
+
+.select__control {
+  @include mixins.print-grayscale;
+}
 
 .select--invalid .select__control {
   border-color: var(--color-error);
@@ -29,6 +33,8 @@ div .select__menu {
   margin: 1px 0 0;
   overflow: hidden;
   border-radius: 2px;
+
+  @include mixins.print-grayscale;
 }
 
 .select__menu .select__menu-list {

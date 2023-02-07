@@ -9,6 +9,8 @@
   background: var(--color-text-disabled);
   border-radius: 1.5rem;
 
+  @include mixins.print-grayscale;
+
   &:focus {
     border-radius: 1.5rem;
     outline: none;

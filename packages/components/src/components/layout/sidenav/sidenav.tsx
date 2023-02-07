@@ -6,6 +6,7 @@ import { useBreakpoint } from '../../../helpers';
 import { AllowedHTMLTags } from '../../../helpers/polymorphic/types';
 import Anchor, { AnchorProps } from '../../anchor/anchor';
 import Icon, { IconProps } from '../../icon/icon';
+import Print from '../../print/print';
 import { LayoutContext } from '../layout-context';
 import styles from './sidenav.module.scss';
 
@@ -56,13 +57,20 @@ export function SideNav<C extends React.ElementType = 'a', Privilege = string>(p
   const { menuOpen, context, getFloatingProps, floating, y } = React.useContext(LayoutContext);
 
   const renderSidebar = (
-    <nav data-name="sidenav" {...rest} className={cn({ [styles['sidenav']]: !isMobileLayout })} aria-label={ariaLabel}>
-      <ul className={styles['sidenav__list']} role="menubar" aria-label={ariaLabel}>
-        {navItems.map((item, key) => (
-          <SideNavItem as={linkAs} {...item} key={key} />
-        ))}
-      </ul>
-    </nav>
+    <Print visibility="hide">
+      <nav
+        data-name="sidenav"
+        {...rest}
+        className={cn({ [styles['sidenav']]: !isMobileLayout })}
+        aria-label={ariaLabel}
+      >
+        <ul className={styles['sidenav__list']} role="menubar" aria-label={ariaLabel}>
+          {navItems.map((item, key) => (
+            <SideNavItem as={linkAs} {...item} key={key} />
+          ))}
+        </ul>
+      </nav>
+    </Print>
   );
 
   return !isMobileLayout ? (
