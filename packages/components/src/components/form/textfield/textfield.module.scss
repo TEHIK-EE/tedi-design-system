@@ -27,6 +27,8 @@
 .textfield {
   width: 100%;
   max-width: 100%;
+
+  @include mixins.print-grayscale;
 }
 
 .textfield__inner {

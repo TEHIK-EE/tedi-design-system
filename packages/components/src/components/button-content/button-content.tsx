@@ -3,6 +3,7 @@ import { forwardRef } from 'react';
 
 import { AllowedHTMLTags, PolymorphicComponentPropWithRef, PolymorphicRef } from '../../helpers/polymorphic/types';
 import Icon, { IconProps } from '../icon/icon';
+import Print from '../print/print';
 import styles from './button-content.module.scss';
 
 export type ButtonTypes = 'primary' | 'secondary' | 'link';
@@ -141,9 +142,11 @@ const InternalButtonContent = forwardRef(
     );
 
     return (
-      <Component data-name="button-content" {...rest} ref={ref} className={BEM}>
-        {!noStyle ? renderContent() : children}
-      </Component>
+      <Print visibility="hide">
+        <Component data-name="button-content" {...rest} ref={ref} className={BEM}>
+          {!noStyle ? renderContent() : children}
+        </Component>
+      </Print>
     );
   }
 );

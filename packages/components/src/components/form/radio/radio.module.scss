@@ -4,6 +4,8 @@
   display: inline-flex;
   align-items: center;
 
+  @include mixins.print-grayscale;
+
   &:hover:not(.radio--disabled) {
     cursor: pointer;
   }

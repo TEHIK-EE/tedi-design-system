@@ -4,6 +4,7 @@ import { AllowedHTMLTags } from '../../../helpers/polymorphic/types';
 import { Anchor, AnchorProps } from '../../anchor/anchor';
 import { Col, Row } from '../../grid';
 import Icon, { IconProps } from '../../icon/icon';
+import Print from '../../print/print';
 import { VerticalSpacing } from '../../vertical-spacing';
 import styles from './footer.module.scss';
 
@@ -43,18 +44,26 @@ export type FooterProps<C extends React.ElementType = 'a'> = ConditionalTypesFoo
     alt: string;
     style?: React.CSSProperties;
   };
+  /**
+   * Additional classname
+   */
+  className?: string;
 };
 
 export const Footer = <C extends React.ElementType = 'a'>(props: FooterProps<C>): JSX.Element => {
-  const { logo, categories, linkAs, ...rest } = props;
+  const { logo, categories, className, linkAs, ...rest } = props;
+
+  const BEM = cn(styles['footer'], className);
 
   return (
-    <footer data-name="footer" {...rest} className={styles['footer']}>
-      {categories.map((c, key) => (
-        <FooterCategory linkAs={linkAs} {...c} key={key} />
-      ))}
-      {logo && <img className={styles['footer__logo']} src={logo.src} alt={logo.alt} style={logo.style} />}
-    </footer>
+    <Print visibility="hide">
+      <footer data-name="footer" {...rest} className={BEM}>
+        {categories.map((c, key) => (
+          <FooterCategory linkAs={linkAs} {...c} key={key} />
+        ))}
+        {logo && <img className={styles['footer__logo']} src={logo.src} alt={logo.alt} style={logo.style} />}
+      </footer>
+    </Print>
   );
 };
 

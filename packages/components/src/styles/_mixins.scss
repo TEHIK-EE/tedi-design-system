@@ -37,3 +37,9 @@
     }
   }
 }
+
+@mixin print-grayscale {
+  @media print {
+    filter: grayscale(1);
+  }
+}

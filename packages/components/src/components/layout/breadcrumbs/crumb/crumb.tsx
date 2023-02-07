@@ -2,6 +2,7 @@ import cn from 'classnames';
 
 import { Anchor, AnchorProps } from '../../../anchor/anchor';
 import Icon from '../../../icon/icon';
+import Print from '../../../print/print';
 import styles from '../breadcrumbs.module.scss';
 
 export type CrumbProps<C extends React.ElementType = 'a'> = {
@@ -21,7 +22,9 @@ const Crumb = <C extends React.ElementType = 'a'>(props: CrumbProps<C>): JSX.Ele
 
   return (
     <li data-name="crumb" className={BEM}>
-      <Anchor {...rest}>{children}</Anchor>
+      <Print visibility="show">
+        <Anchor {...rest}>{children}</Anchor>
+      </Print>
       <Icon className={styles['breadcrumbs__separator']} size={16} name="keyboard_arrow_right" />
     </li>
   );

@@ -2,6 +2,7 @@ import cn from 'classnames';
 import React from 'react';
 
 import { AllowedHTMLTags } from '../../../helpers/polymorphic/types';
+import Print from '../../print/print';
 import styles from './breadcrumbs.module.scss';
 import Crumb, { CrumbProps } from './crumb/crumb';
 
@@ -33,11 +34,13 @@ export const Breadcrumbs = <C extends React.ElementType = 'a'>(props: Breadcrumb
   const { className, crumbs, linkAs, ...rest } = props;
 
   return (
-    <ol data-name="breadcrumbs" {...rest} className={cn(className, styles['breadcrumbs'])}>
-      {crumbs.map((crumb, idx) => {
-        return <Crumb as={linkAs} key={idx} {...crumb} />;
-      })}
-    </ol>
+    <Print visibility="hide">
+      <ol data-name="breadcrumbs" {...rest} className={cn(className, styles['breadcrumbs'])}>
+        {crumbs.map((crumb, idx) => {
+          return <Crumb as={linkAs} key={idx} {...crumb} />;
+        })}
+      </ol>
+    </Print>
   );
 };
 

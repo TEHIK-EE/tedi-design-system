@@ -1,3 +1,5 @@
+@use '../../styles/mixins';
+
 @mixin tag-variant($bg, $secondary-bg, $secondary-text) {
   color: var(--color-white);
   background-color: $bg;
@@ -43,6 +45,8 @@
   white-space: nowrap;
   vertical-align: bottom; // Removes extra pixel added to height by inline-flex
   border-radius: 0.25rem;
+
+  @include mixins.print-grayscale;
 
   &.tag--type-ghost {
     padding: calc(0.125rem - 1px) calc(0.5rem - 1px); // padding - ghost border

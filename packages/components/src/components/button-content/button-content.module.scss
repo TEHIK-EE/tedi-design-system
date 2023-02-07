@@ -86,6 +86,8 @@
   border-radius: 3rem;
   transition: 150ms ease;
   transition-property: background-color, border-color;
+
+  @include mixins.print-grayscale;
 }
 
 .btn--disabled {

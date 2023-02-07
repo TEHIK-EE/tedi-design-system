@@ -58,3 +58,8 @@ iframe {
   max-height: 50rem;
   object-fit: cover;
 }
+
+li > ul,
+li > ol {
+  padding-left: 1.5rem;
+}

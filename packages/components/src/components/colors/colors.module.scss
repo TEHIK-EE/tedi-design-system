@@ -15,5 +15,9 @@ $colors: (
 @each $color in $colors {
   .bg-#{$color} {
     background-color: var(--color-#{$color});
+
+    @media print {
+      background-color: var(--color-white);
+    }
   }
 }

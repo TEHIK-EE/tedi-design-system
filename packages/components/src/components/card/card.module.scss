@@ -1,4 +1,5 @@
 @use '../../styles/variables';
+@use '../../styles/mixins';
 
 .card {
   position: relative;
@@ -43,16 +44,28 @@
 .card--success,
 .card--success-top {
   border-color: var(--color-success);
+
+  @media print {
+    border-color: var(--color-borders-dark);
+  }
 }
 
 .card--warning,
 .card--warning-top {
   border-color: var(--color-warning);
+
+  @media print {
+    border-color: var(--color-borders-dark);
+  }
 }
 
 .card--error,
 .card--error-top {
   border-color: var(--color-error);
+
+  @media print {
+    border-color: var(--color-borders-dark);
+  }
 }
 
 .card--success-top,
@@ -95,6 +108,12 @@
 
 .card__header {
   padding: 1rem 1.5rem;
+
+  @media print {
+    color: var(--color-black);
+    background: var(--color-white);
+    border-bottom: 1px solid var(--color-background-dark);
+  }
 }
 
 .card__header:first-of-type,

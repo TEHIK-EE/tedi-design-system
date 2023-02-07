@@ -2,6 +2,7 @@ import cn from 'classnames';
 import React from 'react';
 import AnimateHeight from 'react-animate-height';
 
+import { usePrint } from '../../../helpers';
 import { AccordionContext } from '../accordion';
 import styles from '../accordion.module.scss';
 import { AccordionItemContext } from '../accordion-item/accordion-item';
@@ -20,13 +21,20 @@ export interface AccordionItemContentProps {
 export const AccordionItemContent = (props: AccordionItemContentProps): JSX.Element => {
   const { children, className, ...rest } = props;
   const { isOpen } = React.useContext(AccordionContext);
-  const { id } = React.useContext(AccordionItemContext);
+  const { id, disabled } = React.useContext(AccordionItemContext);
+  const isPrinting = usePrint();
 
-  return (
+  const content = (
+    <div data-name="accordion-item-content" {...rest} className={cn(styles['accordion__item-content'], className)}>
+      {children}
+    </div>
+  );
+
+  return isPrinting && !disabled ? (
+    content
+  ) : (
     <AnimateHeight duration={300} height={isOpen(id) ? 'auto' : 0}>
-      <div data-name="accordion-item-content" {...rest} className={cn(styles['accordion__item-content'], className)}>
-        {children}
-      </div>
+      {content}
     </AnimateHeight>
   );
 };

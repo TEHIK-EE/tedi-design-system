@@ -1,3 +1,5 @@
+@use '../../styles/mixins';
+
 .status {
   display: flex;
   align-items: baseline;
@@ -10,6 +12,8 @@
   height: 10px;
   margin-right: 10px;
   border-radius: 5px;
+
+  @include mixins.print-grayscale;
 
   .status--error & {
     background-color: var(--color-error);

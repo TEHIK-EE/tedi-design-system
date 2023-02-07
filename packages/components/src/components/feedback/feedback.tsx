@@ -55,6 +55,7 @@ export const Feedback = ({
       <ModalProvider {...restProvider}>
         <ModalTrigger>
           <Button
+            data-name="feedback-trigger"
             {...restTrigger}
             id={feedbackId}
             className={cn(styles['feedback__trigger'], triggerClassName)}
@@ -64,7 +65,7 @@ export const Feedback = ({
             {triggerChildren}
           </Button>
         </ModalTrigger>
-        <Modal {...restModal} aria-labelledby={labelledBy} position={position}>
+        <Modal data-name="feedback-modal" {...restModal} aria-labelledby={labelledBy} position={position}>
           {children}
         </Modal>
       </ModalProvider>

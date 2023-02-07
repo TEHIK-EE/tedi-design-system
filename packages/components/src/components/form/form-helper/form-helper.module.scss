@@ -1,6 +1,10 @@
+@use '../../../styles/mixins';
+
 .form-helper {
   font-size: 0.875rem;
   color: var(--color-secondary-grey);
+
+  @include mixins.print-grayscale;
 }
 
 .form-helper--valid {

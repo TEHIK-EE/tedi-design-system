@@ -6,6 +6,7 @@ import { useLabels } from '../../../../providers/label-provider';
 import Button from '../../../button/button';
 import { Col, Row } from '../../../grid';
 import Placeholder from '../../../placeholder/placeholder';
+import Print from '../../../print/print';
 import styles from '../../table.module.scss';
 import { DefaultTData } from '../../table.types';
 import { ITableContext, TableContext } from '../../table-context';
@@ -40,17 +41,19 @@ export function TableLayout<TData extends DefaultTData<TData>>(): JSX.Element | 
       [styles['sorted__icon--asc']]: sortingDirection === 'asc',
     });
     return (
-      <Button
-        visualType="link"
-        icon={sortingDirection ? 'expand_more' : 'unfold_more'}
-        className={styles['sort__button']}
-        classNameIcon={SortIconBEM}
-        onClick={cb}
-      >
-        <span className="sr-only">
-          {typeof sortingLabel === 'string' ? sortingLabel : sortingLabel(sortingDirection)}
-        </span>
-      </Button>
+      <Print visibility="show">
+        <Button
+          visualType="link"
+          icon={sortingDirection ? 'expand_more' : 'unfold_more'}
+          className={cn(styles['sort__button'])}
+          classNameIcon={SortIconBEM}
+          onClick={cb}
+        >
+          <span className="sr-only">
+            {typeof sortingLabel === 'string' ? sortingLabel : sortingLabel(sortingDirection)}
+          </span>
+        </Button>
+      </Print>
     );
   };
 
