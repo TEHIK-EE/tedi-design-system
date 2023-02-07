@@ -32,5 +32,8 @@
     "react-toastify": "*",
     "what-input": "*",
     "yup": "*"
+  },
+  "overrides": {
+    "dayjs": "$dayjs"
   }
 }
