@@ -1,3 +1,10 @@
+# [2.11.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.10.0...v2.11.0) (2023-02-07)
+
+
+### Features
+
+* **dayjs:** Add dayjs to external packages,  remove dayjsInstance from labelProvider - TEHVEER-60 ([d12f4a7](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/d12f4a733fcd4e7d6ea69857b73a87669706fc06))
+
 # [2.10.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.9.0...v2.10.0) (2023-02-07)
 
 
