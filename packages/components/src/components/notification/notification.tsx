@@ -1,4 +1,5 @@
 import cn from 'classnames';
+import React from 'react';
 
 import CloseButton from '../close-button/close-button';
 import { Col, Row } from '../grid';
@@ -16,7 +17,7 @@ export interface NotificationProps {
   /**
    * Title of notification
    */
-  title?: string;
+  title?: React.ReactNode;
   /**
    * Additional class.
    */
