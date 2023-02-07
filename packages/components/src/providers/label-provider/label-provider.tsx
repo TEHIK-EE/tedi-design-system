@@ -7,17 +7,23 @@ import React from 'react';
 
 import { defaultEELabels, defaultENLabels, FlatLabelsMap, LabelsMapType } from './labels-map';
 
+import 'dayjs/locale/et';
+import 'dayjs/locale/ru';
+dayjs.extend(updateLocale);
+// Start en locale week with monday
+dayjs.updateLocale('en', {
+  weekStart: 1,
+});
+
 const isTestEnvironment = process.env.JEST_WORKER_ID !== undefined;
 
 type DefaultLabelsMap = FlatLabelsMap<LabelsMapType, 'en'>;
 
 export interface ILabelContext {
-  dayjsInstance: typeof dayjs;
   getLabel: <T extends DefaultLabelsMap, K extends keyof T>(key: K) => K | T[K];
 }
 
 const defaultContext: ILabelContext = {
-  dayjsInstance: dayjs,
   getLabel: (key) => {
     if (!isTestEnvironment) {
       console.error('LabelProvider missing! Application must be wrapped with <LabelProvider>');
@@ -35,16 +41,12 @@ export interface LabelProviderProps {
    */
   labels?: Partial<DefaultLabelsMap>;
   /**
-   * Currently used locale.
+   * Currently used locale. Supported languages are:
    * et - Estonian
    * en - English
+   * ru - Russian
    */
-  locale?: string;
-  /**
-   * Dayjs instance. Pass you apps dayjs instance.
-   * Must be set so components in library and app use the same dayjs instance.
-   */
-  dateLibInstance?: typeof dayjs;
+  locale?: 'en' | 'et' | 'ru';
   /**
    * Rest of the App code
    */
@@ -52,15 +54,12 @@ export interface LabelProviderProps {
 }
 
 export const LabelProvider = (props: LabelProviderProps): JSX.Element => {
-  const { labels = {}, children, locale = 'en', dateLibInstance = dayjs } = props;
+  const { labels = {}, children, locale = 'en' } = props;
   const mergedLabels = { ...(locale === 'et' ? defaultEELabels : defaultENLabels), ...labels };
 
-  // configure dayjs instance
-  dateLibInstance?.extend(updateLocale);
-  dateLibInstance?.locale?.(locale);
-  dateLibInstance?.updateLocale('en', {
-    weekStart: 1,
-  });
+  React.useEffect(() => {
+    dayjs.locale(locale);
+  }, [locale]);
 
   const getLabel = (key: keyof DefaultLabelsMap) => {
     const label = mergedLabels[key];
@@ -86,10 +85,10 @@ export const LabelProvider = (props: LabelProviderProps): JSX.Element => {
   }, {} as Partial<PickersLocaleText<unknown>>);
 
   return (
-    <LabelContext.Provider value={{ getLabel: getLabel as ILabelContext['getLabel'], dayjsInstance: dateLibInstance }}>
+    <LabelContext.Provider value={{ getLabel: getLabel as ILabelContext['getLabel'] }}>
       <LocalizationProvider
         dateAdapter={AdapterDayjs}
-        dateLibInstance={dateLibInstance}
+        dateLibInstance={dayjs}
         localeText={muiLabels}
         adapterLocale={locale}
       >

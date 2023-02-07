@@ -31,7 +31,7 @@ export default {
               </p>
               <h4>1. Wrap Application with LabelProvider</h4>
               <pre>
-                {'<LabelProvider labels={labels} locale={locale} dateLibInstance={dayjs}>'}
+                {'<LabelProvider labels={labels} locale={locale}>'}
                 {'<YourApp />'}
                 {'</LabelProvider>'}
               </pre>
@@ -67,15 +67,10 @@ export default {
                 <Anchor href="https://mui.com/x/introduction/" target="_blank">
                   Mui x
                 </Anchor>
-                . Make sure you have imported the corresponding translations for dayjs when passing a locale string to{' '}
-                <code>locale</code> prop.
+                . Dayjs must be application dependencie, so its recommended to use dayjs to handle dates.{' '}
+                <code>&apos;en&apos;</code> locale have one overwritten rule, that sets weekStart to monday, currently
+                it isn’t supported to override it. Contact slack if u need to override it.
               </p>
-              <h4>1. Set locale</h4>
-              <pre>
-                import dayjs from &apos;dayjs&apos;; <br />
-                import &apos;dayjs/locale/et&apos;; <br />
-                {'<LabelProvider locale="et" dateLibInstance={dayjs}>'}
-              </pre>
             </VerticalSpacing>
           </VerticalSpacing>
         </>
