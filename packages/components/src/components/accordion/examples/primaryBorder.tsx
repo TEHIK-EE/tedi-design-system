@@ -40,7 +40,7 @@ export const PrimaryBorder = () => {
     <Row justifyContent="between" alignItems="center">
       <Col>{headerLabel}</Col>
       <Col width="auto">
-        {activeAccordionItemId === id && <Button iconLeft="checked">Valitud</Button>}
+        {activeAccordionItemId === id && <Button iconLeft="check">Valitud</Button>}
 
         {activeAccordionItemId !== id && (
           <Button visualType="secondary" onClick={(event) => handleChoiceButtonClick(event, id)}>
