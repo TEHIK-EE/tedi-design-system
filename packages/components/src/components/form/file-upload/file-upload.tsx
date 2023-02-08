@@ -68,7 +68,7 @@ export const FileUpload = (props: FileUploadProps): JSX.Element => {
     const fileTypes = accept?.replace(/,/g, '').split('.') || [];
     // Todo: Handle error handling
 
-    const fileType = file.name.split('.').pop();
+    const fileType = file.name.split('.').pop()?.toLowerCase();
     return !!fileType && fileTypes.includes(fileType);
   };
 
