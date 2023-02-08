@@ -1,3 +1,11 @@
+## [2.11.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.11.0...v2.11.1) (2023-02-08)
+
+
+### Bug Fixes
+
+* **file-upload:** Check if fileType is in upperCase - STARLA-524 ([f55a788](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/f55a788acc0e4c557dd84ec8024c499b2fe1567b))
+* TEHVEER-29 - Show Button and Anchor argTable in storybook ([1a4a03e](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/1a4a03ec0de6c2f624e77b8ce81b7f69fbd03588))
+
 # [2.11.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.10.0...v2.11.0) (2023-02-07)
 
 
