@@ -1,5 +1,5 @@
 import cn from 'classnames';
-import { forwardRef } from 'react';
+import React, { forwardRef } from 'react';
 
 import { AllowedHTMLTags, PolymorphicComponentPropWithRef, PolymorphicRef } from '../../helpers/polymorphic/types';
 import Icon, { IconProps } from '../icon/icon';

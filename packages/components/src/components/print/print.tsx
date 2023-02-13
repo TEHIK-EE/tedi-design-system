@@ -1,5 +1,5 @@
 import cn from 'classnames';
-import React from 'react';
+import React, { forwardRef } from 'react';
 
 export type BreakTypes = 'auto' | 'avoid' | 'avoid-column' | 'avoid-page' | 'avoid-region';
 
@@ -27,7 +27,7 @@ export interface PrintProps {
   breakInside?: BreakTypes;
 }
 
-export const Print = React.forwardRef<HTMLElement, PrintProps>((props, ref): JSX.Element | null => {
+export const Print = forwardRef<HTMLElement, PrintProps>((props, ref): JSX.Element | null => {
   const { children, visibility, breakBefore, breakInside, breakAfter } = props;
 
   const renderChild = (child?: JSX.Element, key?: number) => {
