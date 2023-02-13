@@ -135,7 +135,7 @@ export const InText: Story<IconProps> = (args) => {
       <div>
         <Heading level={1}>
           <Icon name={args.name} display="inline" size={36} />
-          This is level 2 heading with inline <Icon name={args.name} display="inline" size={36} /> icon
+          This is level 1 heading with inline <Icon name={args.name} display="inline" size={36} /> icon
         </Heading>
         <Heading level={2}>
           <Icon name={args.name} display="inline" size={36} />

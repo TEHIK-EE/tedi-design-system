@@ -24,10 +24,6 @@ export interface IconProps {
    */
   filled?: boolean;
   /**
-   * Stroke weight. 400 by default.
-   */
-  weight?: 100 | 200 | 300 | 400 | 500 | 600 | 700;
-  /**
    * Size of the icon.
    */
   size?: 12 | 14 | 16 | 18 | 24 | 36 | 48;
@@ -42,23 +38,12 @@ export interface IconProps {
 }
 
 export const Icon = forwardRef<HTMLDivElement, IconProps>((props, ref): JSX.Element => {
-  const {
-    className,
-    name,
-    filled = false,
-    label,
-    type = 'outlined',
-    weight,
-    size = 24,
-    display = 'block',
-    ...rest
-  } = props;
+  const { className, name, filled = false, label, type = 'outlined', size = 24, display = 'block', ...rest } = props;
   const iconBEM = cn(styles['icon'], styles[`icon--${display}`], { [`material-symbols-${type}`]: type }, className);
 
   const iconVariant = {
     ...(size ? { '--icon-internal-variation-size': `${size / 16}rem` } : {}),
     ...(filled ? { '--icon-internal-variation-fill': 1 } : {}),
-    ...(weight ? { '--icon-internal-variation-weight': weight } : {}),
   } as React.CSSProperties;
 
   return (
