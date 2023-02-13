@@ -15,13 +15,19 @@ Steps to use `@tehik/react-components` are described [here](https://star2-storyb
 
 ## Development
 
+### Publishing
+
+- PR'i mergemisel ehitatakse master branch
+- Selle sammu juures on optional samm, mida maintainer rolliga inimesed saavad triggerdada
+  ![img.png](publish.png)
+- publish-library jooksutamisel tekib uus versioon semantic-version abil, mis tekitab uue versiooni commit'ide põhjal
+
 TODO:
 
 - CI jobs
 - Gitlab rules
 - Commit rules (Breaking changes etc.)
 - Who oversees changes, how is everything shared across projects
-- Publishing (auto-publish on main probably)
 - Setting up storybook on a public? URL
 
 - debugging
