@@ -27,7 +27,9 @@ export const SkipLinks = <C extends React.ElementType = 'a'>(props: SkipLinksPro
     <div data-name="skip-links" className={styles['skip-links']}>
       <ul>
         {links.map((link, index) => (
-          <Anchor as={linkAs} {...link} key={index} />
+          <li key={index}>
+            <Anchor as={linkAs} {...link} />
+          </li>
         ))}
       </ul>
     </div>
