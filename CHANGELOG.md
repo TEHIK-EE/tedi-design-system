@@ -1,3 +1,11 @@
+# [2.12.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.11.1...v2.12.0) (2023-02-13)
+
+
+### Features
+
+* **icon:** Update Icon font files to reduce size. Remove weight prop - STARV23IG-120 ([dec5f9b](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/dec5f9b15d0edd1355654300dd94211f8c52f75c))
+* TEHVEER-68 - add support for aligning modal to bottom ([b4ea80e](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/b4ea80e4d140daac7e3ee048c3e7bb8315b2b1eb))
+
 ## [2.11.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.11.0...v2.11.1) (2023-02-08)
 
 
