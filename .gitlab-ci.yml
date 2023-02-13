@@ -36,23 +36,17 @@ test:
   script:
     - npm run test
 
-# use "build" tag to use different runners
 build:
   stage: build
   when: always
   interruptible: true
-  tags:
-    - build
   script:
     - npm run build
 
-# use "build" tag to use different runners
 build-sb:
   stage: build
   when: always
   interruptible: true
-  tags:
-    - build
   script:
     - npm run build:sb
 
