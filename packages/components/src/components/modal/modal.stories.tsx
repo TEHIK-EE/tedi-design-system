@@ -180,6 +180,7 @@ export const Position: Story<ModalProps> = () => {
     <Row>
       <Col width="auto">{modal('center')}</Col>
       <Col width="auto">{modal('right')}</Col>
+      <Col width="auto">{modal('bottom')}</Col>
     </Row>
   );
 };

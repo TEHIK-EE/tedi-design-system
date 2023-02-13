@@ -37,7 +37,7 @@ export interface ModalProps {
   /**
    * Modal position on the screen
    */
-  position?: 'center' | 'right';
+  position?: 'center' | 'right' | 'bottom';
 }
 
 export const Modal = (props: ModalProps): JSX.Element | null => {

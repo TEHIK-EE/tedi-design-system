@@ -14,6 +14,11 @@ $modal-max-width: 1230px;
   place-items: flex-end;
 }
 
+.modal--bottom {
+  place-items: flex-end center;
+  padding-bottom: 1rem;
+}
+
 .modal__inner {
   width: calc(100vw - 2rem);
   max-width: $modal-max-width;
