@@ -25,7 +25,7 @@ export default {
               </li>
             </ul>
             <p>
-              <strong>UI can be adjusted using using the following methods:</strong>
+              <strong>UI can be adjusted using the following methods:</strong>
             </p>
             <h3>
               <code>{'<Print>'}</code> component
