@@ -1,3 +1,10 @@
+# [2.13.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.12.0...v2.13.0) (2023-02-14)
+
+
+### Features
+
+* **Table:** add support for metadata filterOptions ([503c230](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/503c230b55bdde4359734ce573f2888f4d198608))
+
 # [2.12.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.11.1...v2.12.0) (2023-02-13)
 
 
