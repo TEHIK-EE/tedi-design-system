@@ -6,7 +6,6 @@ import { useLabels } from '../../../../../providers/label-provider';
 import Button from '../../../../button/button';
 import Card from '../../../../card/card';
 import CardContent from '../../../../card/card-content/card-content';
-import { ChoiceGroupItemProps } from '../../../../form/choice-group';
 import ChoiceGroup, { TChoiceGroupValue } from '../../../../form/choice-group/choice-group';
 import Col from '../../../../grid/col';
 import Row from '../../../../grid/row';
@@ -14,6 +13,29 @@ import Heading from '../../../../heading/heading';
 import VerticalSpacing from '../../../../vertical-spacing/vertical-spacing';
 import styles from '../../../table.module.scss';
 import { TableFilterContext } from '../table-filter-context';
+
+interface TableSelectColumnMeta {
+  filterOptions: string[];
+}
+
+const sanitizeRowValues = (rowValues: unknown[]): unknown[] => {
+  return (
+    rowValues
+      ?.filter(Boolean)
+      // Filter out non-unique values
+      ?.filter((item, index, array) => array?.indexOf(item) === index)
+      // Basic sort for strings and numbers
+      ?.sort((a, b) => {
+        if (typeof a === 'number' && typeof b === 'number') {
+          return a - b;
+        } else if (typeof a === 'string' && typeof b === 'string') {
+          return a?.localeCompare?.(b);
+        } else {
+          return 0;
+        }
+      })
+  );
+};
 
 export const TableSelectFilter = () => {
   const { getLabel } = useLabels();
@@ -28,28 +50,20 @@ export const TableSelectFilter = () => {
     multiSelectFilter: contextValues?.multiSelectField,
   };
 
-  const rowValues = rows
-    // Get all values for the corresponding column id
-    ?.map((i) => {
-      if (!column?.columnDef?.id) return;
-      return i?.getValue?.(column?.columnDef?.id);
-    })
-    // Filter out undefined values
-    ?.filter(Boolean)
-    // Filter out non-unique values
-    ?.filter((item, index, array) => array?.indexOf(item) === index)
-    // Basic sort for strings and numbers
-    ?.sort((a, b) => {
-      if (typeof a === 'number' && typeof b === 'number') {
-        return a - b;
-      } else if (typeof a === 'string' && typeof b === 'string') {
-        return a?.localeCompare?.(b);
-      } else {
-        return 0;
-      }
-    });
+  const meta = column?.columnDef?.meta as TableSelectColumnMeta;
+  const externalRowValues = meta?.filterOptions;
 
-  const options: ChoiceGroupItemProps[] =
+  const internalRowValues =
+    // Get all values for the corresponding column id
+    rows?.length && typeof column?.columnDef?.id === 'string'
+      ? rows.map((i) => i?.getValue?.(column?.columnDef?.id as string))
+      : [];
+
+  const rowValues = externalRowValues?.length
+    ? sanitizeRowValues(externalRowValues)
+    : sanitizeRowValues(internalRowValues);
+
+  const options =
     rowValues?.map((i, index) => ({
       id: `${column?.columnDef?.id}-choice-${index}`,
       label: String(i),
