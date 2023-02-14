@@ -548,7 +548,11 @@ WithFiltersControlledFromOutside.args = {
   data,
   columnFilters: [{ id: 'age', value: ['1', '10'] }],
   onColumnFiltersChange: (data) => console.log(data),
-  columns: columns.map((column) => ({ ...column, filterFn: 'multi-select' })),
+  columns: columns.map((column) => ({
+    ...column,
+    filterFn: 'multi-select',
+    meta: { filterOptions: data.map((row) => row[column.id as keyof Person]).slice(0, 5) },
+  })),
   enableFilters: true,
 };
 
