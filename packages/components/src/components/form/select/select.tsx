@@ -366,7 +366,6 @@ export const Select = forwardRef<any, SelectProps>((props, ref): JSX.Element => 
         autoFocus={autoFocus}
         ref={ref}
         instanceId={id}
-        aria-labelledby={`${id}-label`}
         className="select__wrapper"
         name={name}
         options={options}
@@ -378,6 +377,7 @@ export const Select = forwardRef<any, SelectProps>((props, ref): JSX.Element => 
         onInputChange={onInputChange}
         onBlur={onBlur}
         inputValue={inputValue}
+        inputId={`${id}-input`}
         loadOptions={loadOptions}
         noOptionsMessage={noOptionsMessage}
         loadingMessage={loadingMessage}
@@ -422,7 +422,13 @@ export const Select = forwardRef<any, SelectProps>((props, ref): JSX.Element => 
   return (
     <div data-name="select" {...rest} className={SelectBEM}>
       <div className={styles['select__inner']}>
-        <FormLabel id={id} label={label} requiredLabel={requiredLabel} required={required} hideLabel={hideLabel} />
+        <FormLabel
+          id={`${id}-input`}
+          label={label}
+          requiredLabel={requiredLabel}
+          required={required}
+          hideLabel={hideLabel}
+        />
         {renderReactSelect()}
       </div>
       {helper && <FormHelper {...helper} />}

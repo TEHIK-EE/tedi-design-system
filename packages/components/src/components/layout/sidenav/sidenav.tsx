@@ -117,8 +117,8 @@ function SideNavItem<C extends React.ElementType = 'a', Privilege = string>(prop
   };
 
   return (
-    <li data-name="sidenav-item" className={SideNavItemBEM}>
-      <Anchor {...rest} onClick={handleClick} className={styles['sidenav__link']} noStyle={true} role="menuitem">
+    <li data-name="sidenav-item" className={SideNavItemBEM} role="menuitem">
+      <Anchor {...rest} onClick={handleClick} className={styles['sidenav__link']} noStyle={true}>
         {icon && getIcon(icon)}
         <span className={styles['sidenav__title']}>{children}</span>
       </Anchor>
