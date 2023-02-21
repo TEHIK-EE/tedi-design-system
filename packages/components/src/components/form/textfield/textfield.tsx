@@ -78,7 +78,7 @@ export interface TextFieldProps extends FormLabelProps {
   /**
    * Input textfield size.
    */
-  size?: 'small' | 'default';
+  size?: 'small';
   /**
    * If textfield is disabled.
    */
@@ -133,7 +133,7 @@ export const TextField = forwardRef<TextFieldForwardRef, TextFieldProps>((props,
     readOnly,
     icon,
     onIconClick,
-    size = 'default',
+    size,
     placeholder,
     onChange,
     onChangeEvent,
