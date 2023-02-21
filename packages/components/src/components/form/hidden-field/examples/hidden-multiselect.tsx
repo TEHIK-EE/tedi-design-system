@@ -1,3 +1,4 @@
+import { Story } from '@storybook/react';
 import React from 'react';
 
 import { Col } from '../../../grid/col';
@@ -14,7 +15,7 @@ const keywords = [
   { label: 'Variant F', value: 'F' },
 ];
 
-export const HiddenMultiselect = () => {
+export const HiddenMultiselect: Story = (args) => {
   const [state, setState] = React.useState([keywords[0], keywords[1], keywords[2]]);
 
   return (

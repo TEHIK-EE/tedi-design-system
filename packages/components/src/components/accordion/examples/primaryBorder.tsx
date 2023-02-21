@@ -1,3 +1,4 @@
+import { Story } from '@storybook/react';
 import React from 'react';
 
 import Button from '../../button/button';
@@ -23,7 +24,7 @@ const accordionItems: AccordionItemProp[] = [
   { id: 'third', header: 'Third', content: ACCORDION_ITEM_CONTENT },
 ];
 
-export const PrimaryBorder = () => {
+export const PrimaryBorder: Story = (args) => {
   const [activeAccordionItemId, setActiveAccordionItemId] = React.useState<string>('');
 
   const handleChoiceButtonClick = (

@@ -1,3 +1,4 @@
+import { Story } from '@storybook/react';
 import React from 'react';
 
 import Button from '../../button/button';
@@ -11,7 +12,7 @@ import AccordionItemHeader from '../accordion-item-header/accordion-item-header'
 
 const allIDs = ['first', 'second', 'third'];
 
-export const OpenAll = () => {
+export const OpenAll: Story = (args) => {
   const [allOpen, setAllOpen] = React.useState(false);
   const [open, setOpen] = React.useState<string[]>([]);
 

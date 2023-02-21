@@ -1,3 +1,4 @@
+import { Story } from '@storybook/react';
 import { MenuListProps, OptionProps } from 'react-select';
 
 import Button from '../../../button/button';
@@ -70,7 +71,7 @@ const searchResults: AppealData[] = [
   },
 ];
 
-export const CustomOptionSelect = () => {
+export const CustomOptionSelect: Story = (args) => {
   const selectOptions: ISelectOption[] = searchResults.map((option) => ({
     label: option.name,
     value: option.id,

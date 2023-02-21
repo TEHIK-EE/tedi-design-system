@@ -6,6 +6,11 @@ import { Breadcrumbs, BreadcrumbsProps } from './breadcrumbs';
 export default {
   component: Breadcrumbs,
   title: 'components/Layout/Breadcrumbs',
+  argTypes: {
+    linkAs: {
+      type: 'function',
+    },
+  },
 } as Meta<BreadcrumbsProps>;
 
 const Template: Story<BreadcrumbsProps<typeof LinkBehaviour>> = (args) => <Breadcrumbs {...args} />;

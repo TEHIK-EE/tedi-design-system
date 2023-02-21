@@ -1,3 +1,4 @@
+import { Story } from '@storybook/react';
 import React from 'react';
 
 import { Col, Row } from '../../../grid';
@@ -18,7 +19,7 @@ const colourOptions: ISelectOption[] = [
 
 const defaultOptions: TSelectValue = [colourOptions[0]];
 
-export const MultipleHandled = () => {
+export const MultipleHandled: Story = (args) => {
   const [inputValue, setInputValue] = React.useState<TSelectValue>(defaultOptions);
 
   const handleInputChange = (newValue: TSelectValue) => {
