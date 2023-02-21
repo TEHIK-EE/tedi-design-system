@@ -2,10 +2,10 @@ import cn from 'classnames';
 import React from 'react';
 
 import { Row } from '../../grid';
-import FormHelper from '../form-helper/form-helper';
-import FormLabel from '../form-label/form-label';
+import FormHelper, { FormHelperProps } from '../form-helper/form-helper';
+import FormLabel, { FormLabelProps } from '../form-label/form-label';
 import styles from './choice-group.module.scss';
-import { ChoiceGroupProps } from './choice-group.types';
+import { ChoiceGroupItemProps } from './choice-group.types';
 import { ChoiceGroupContext, IChoiceGroupContext } from './choice-group-context';
 import ChoiceGroupCheck from './components/choice-group-check/choice-group-check';
 import ChoiceGroupRadio from './components/choice-group-radio/choice-group-radio';
@@ -14,6 +14,51 @@ import { SelectorItem } from './components/selector-item/selector-item';
 
 export type TChoiceGroupValue = string | string[] | null;
 export type TChoiceGroupType = 'radio' | 'checkbox';
+
+export interface ChoiceGroupProps extends FormLabelProps {
+  /**
+   * ID of choice-group.
+   */
+  id: string;
+  /**
+   * Item props array
+   */
+  items: ChoiceGroupItemProps[];
+  /**
+   * Name property on inputs
+   */
+  name: string;
+  /**
+   * Input type
+   * @default radio
+   */
+  inputType?: TChoiceGroupType;
+  /**
+   * Form helper props
+   */
+  helper?: FormHelperProps;
+  /**
+   * Custom class
+   */
+  className?: string;
+  /**
+   * Default value of ChoiceGroup. Won't work with value and onChange.
+   */
+  defaultValue?: TChoiceGroupValue;
+  /**
+   * The value of ChoiceGroup. Use to control value outside of component. Should use with onChange prop.
+   */
+  value?: TChoiceGroupValue;
+  /**
+   * onChange handler
+   */
+  onChange?: (value: TChoiceGroupValue) => void;
+  /**
+   * Type of ChoiceGroup
+   * @default default
+   */
+  type?: 'selector' | 'filter' | 'default';
+}
 
 export const ChoiceGroup = (props: ChoiceGroupProps): JSX.Element => {
   const {

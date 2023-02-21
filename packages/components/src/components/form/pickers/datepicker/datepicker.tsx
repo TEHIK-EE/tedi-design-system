@@ -62,7 +62,8 @@ export interface DatePickerProps extends Omit<TextFieldProps, 'defaultValue' | '
    */
   toolbarTitle?: string;
   /**
-   * Format string. Defaults to DD.MM.YYYY
+   * Format string.
+   * @Default DD.MM.YYYY
    */
   inputFormat?: string;
   /**
@@ -78,6 +79,7 @@ export interface DatePickerProps extends Omit<TextFieldProps, 'defaultValue' | '
   onError?: (reason: DateValidationError, value: DatepickerValue) => void;
   /**
    * Array of views to show.
+   * @default ['year', 'day']
    */
   views?: Array<'day' | 'month' | 'year'>;
 }

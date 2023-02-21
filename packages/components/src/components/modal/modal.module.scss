@@ -3,7 +3,8 @@
 
 $modal-max-width: 1230px;
 
-.modal {
+.modal,
+.modal--center {
   z-index: 20;
   display: grid;
   place-items: center;

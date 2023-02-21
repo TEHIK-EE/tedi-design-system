@@ -33,6 +33,7 @@ export interface CollapseProps {
   closeText?: string;
   /**
    * Should collapse open/close toggle button render text
+   * @default false
    */
   hideCollapseText?: boolean;
   /**

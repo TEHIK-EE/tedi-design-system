@@ -17,10 +17,12 @@ export interface CardContentProps {
   className?: string;
   /**
    * Card content padding
+   * @default Padding of Card
    */
   padding?: 'none' | 'xsmall' | 'small' | 'medium' | 'large';
   /**
    * Background color of card content
+   * @default Background of Card
    */
   background?: TColorsBackground;
 }

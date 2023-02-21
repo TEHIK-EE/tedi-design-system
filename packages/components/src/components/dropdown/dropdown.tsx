@@ -50,7 +50,8 @@ export type DropdownProps<C extends React.ElementType = 'a'> = ConditionalTypes<
    */
   onItemClick?: (item: DropdownItem<C>, index: number, e: React.MouseEvent) => void;
   /**
-   * Close menu when item is clicked. default is true
+   * Close menu when item is clicked.
+   * @default true
    */
   closeMenuOnClick?: boolean;
   /**

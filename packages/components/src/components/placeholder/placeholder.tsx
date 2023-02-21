@@ -13,6 +13,7 @@ export interface PlaceholderProps {
   children?: React.ReactNode;
   /**
    * Placeholder icon name, IconProps object or ReactNode(e.g SVG)
+   * @default spa
    */
   icon?: string | IconProps | React.ReactNode;
   /**

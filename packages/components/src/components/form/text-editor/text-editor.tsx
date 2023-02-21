@@ -49,12 +49,12 @@ export interface TextEditorProps extends FormLabelProps {
   className?: string;
   /**
    * Select which inlineStyleControls should be visible.
-   * Defaults to ['BOLD', 'ITALIC', 'UNDERLINE'].
+   * @default ['BOLD', 'ITALIC']
    */
   inlineStyleControls?: DraftInlineStyleType[];
   /**
    * Select which inlineStyleControls should be visible.
-   * Defaults to ['unordered-list-item'].
+   * @default unordered-list-item
    */
   blockStyleControls?: DraftBlockType[];
   /**

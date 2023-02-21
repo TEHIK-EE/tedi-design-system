@@ -59,14 +59,17 @@ export interface CalendarProps {
   readOnly?: boolean;
   /**
    * Controlled open view.
+   * @default day
    */
   view?: 'day' | 'month' | 'year';
   /**
    * Views for calendar picker.
+   * @default [day]
    */
   views?: Array<'day' | 'month' | 'year'>;
   /**
    * If true, days that have outsideCurrentMonth={true} are displayed.
+   * @default false
    */
   showDaysOutsideCurrentMonth?: boolean;
   /**

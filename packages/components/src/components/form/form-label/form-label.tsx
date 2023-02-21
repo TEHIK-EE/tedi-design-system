@@ -18,6 +18,7 @@ export interface FormLabelProps {
   hideLabel?: boolean | 'keep-space';
   /**
    * Label shown when input is required.
+   * @default *
    */
   requiredLabel?: string;
   /**
@@ -34,6 +35,7 @@ export interface FormLabelProps {
   renderWithoutLabel?: boolean;
   /**
    * Size of label
+   * @default default
    */
   size?: 'small' | 'default' | 'large';
 }

@@ -16,6 +16,7 @@ export interface ModalProps {
   children: React.ReactNode;
   /**
    * Size of the modal.
+   * @default 6
    */
   size?: 12 | 10 | 8 | 6;
   /**
@@ -36,6 +37,7 @@ export interface ModalProps {
   hideCloseButton?: boolean;
   /**
    * Modal position on the screen
+   * @default center
    */
   position?: 'center' | 'right' | 'bottom';
 }

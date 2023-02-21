@@ -13,7 +13,8 @@ export interface StretchContentProps {
    */
   className?: string;
   /**
-   * Which axis to stretch. Defaults to both
+   * Which axis to stretch.
+   * @default both
    */
   direction?: 'both' | 'horizontal' | 'vertical';
 }

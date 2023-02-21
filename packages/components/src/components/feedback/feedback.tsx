@@ -21,7 +21,8 @@ export interface FeedbackProps extends Pick<ModalProps, 'children'> {
    */
   modalProps?: Omit<ModalProps, 'children'>;
   /**
-   * Fix trigger on the right side of the screen. Defaults to desktop
+   * Fix trigger on the right side of the screen.
+   * @default desktop
    */
   fixedTrigger?: 'both' | 'desktop' | 'mobile';
   /**

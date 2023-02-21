@@ -30,6 +30,7 @@ export interface ILayoutProps<
   sideNav?: SideNavProps<S>;
   /**
    * Main content id, used to navigate from skip-links
+   * @default main-content
    */
   mainContentId?: string;
   /**

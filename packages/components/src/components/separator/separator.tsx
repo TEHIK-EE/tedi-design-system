@@ -11,6 +11,7 @@ export interface SeparatorProps {
   className?: string;
   /**
    * Rendered HTML element.
+   * @default div
    */
   element?: 'hr' | 'div' | 'span';
   /**

@@ -24,6 +24,7 @@ export interface HeaderProps<H extends React.ElementType = 'a'> {
   skipLinks?: SkipLinksProps;
   /**
    * Url to logo
+   * @default /logo.svg
    */
   logo?: string;
   /**

@@ -14,7 +14,8 @@ interface HashTriggerProps {
    */
   onMatch?: (id: string, fromHashTrigger: boolean, callback?: () => void) => void;
   /**
-   * Scroll to element on match. Defaults to true
+   * Scroll to element on match.
+   * @default true
    */
   scrollOnMatch?: boolean;
 }
@@ -36,7 +37,7 @@ export const getHashArray = (): string[] | false => {
     return hash
       .split('/')
       .filter((i) => i.indexOf('?') !== 0 && i.length !== 1 && i.length !== 0)
-      .map((i) => (i.charAt(0) === '#' ? i.substr(1) : i));
+      .map((i) => (i.charAt(0) === '#' ? i.substring(1) : i));
   } else {
     return false;
   }

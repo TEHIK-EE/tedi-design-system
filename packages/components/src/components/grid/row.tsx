@@ -67,6 +67,7 @@ export interface RowProps extends RowSpec {
   className?: string;
   /**
    * Base element.
+   * @default div
    */
   element?: RowElement;
   /**

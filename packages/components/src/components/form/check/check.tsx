@@ -23,10 +23,12 @@ export interface CheckProps {
   name: string;
   /**
    * is the label hidden
+   * @default false
    */
   hideLabel?: boolean;
   /**
    * If the option is disabled
+   * @default false
    */
   disabled?: boolean;
   /**
@@ -57,9 +59,9 @@ export const Check = (props: CheckProps): JSX.Element => {
     id,
     label,
     value,
-    disabled,
+    disabled = false,
     onChange,
-    hideLabel,
+    hideLabel = false,
     extraContent,
     checked,
     defaultChecked,
