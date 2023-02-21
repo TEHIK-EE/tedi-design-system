@@ -1,3 +1,5 @@
+@use '../../styles/variables';
+
 .tooltip {
   z-index: 20;
   padding: 0.25rem 0.5rem;
@@ -5,6 +7,12 @@
   background-color: var(--color-white);
   filter: drop-shadow(0 4px 10px rgb(0 0 0 / 14%));
   border-radius: 4px;
+}
+
+@each $width in variables.$tooltip-max-width {
+  .tooltip--#{$width} {
+    max-width: var(--tooltip-max-width-#{$width});
+  }
 }
 
 .tooltip__arrow {
