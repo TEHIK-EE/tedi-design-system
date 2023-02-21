@@ -1,4 +1,5 @@
 import { FloatingFocusManager, FloatingPortal } from '@floating-ui/react';
+import cn from 'classnames';
 import React from 'react';
 
 import styles from './tooltip.module.scss';
@@ -9,10 +10,15 @@ export interface TooltipProps {
    * Content.
    */
   children: React.ReactNode;
+  /**
+   * Tooltips max width
+   * @default medium
+   */
+  maxWidth?: 'none' | 'small' | 'medium' | 'large';
 }
 
 export const Tooltip = (props: TooltipProps): JSX.Element | null => {
-  const { children } = props;
+  const { children, maxWidth = 'medium' } = props;
   const { open, x, y, strategy, focusManager, floating, arrowRef, getFloatingProps, arrow, placement, context } =
     React.useContext(TooltipContext);
 
@@ -27,7 +33,7 @@ export const Tooltip = (props: TooltipProps): JSX.Element | null => {
               left: x ?? 0,
               top: y ?? 0,
             },
-            className: styles['tooltip'],
+            className: cn(styles['tooltip'], { [styles[`tooltip--${maxWidth}`]]: maxWidth }),
           })}
           data-placement={placement}
         >

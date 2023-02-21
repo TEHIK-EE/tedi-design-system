@@ -113,3 +113,41 @@ TriggerCardCustomContent.args = {
     </Row>
   ),
 };
+
+export const TooltipWidth: Story = () => {
+  const tooltiptext = `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque commodi consectetur cupiditate dolorum ex
+          facere harum id, impedit in maxime minus provident, ratione rem rerum sint unde veritatis voluptatibus
+          voluptatum!`;
+
+  return (
+    <div className="text-center">
+      <TooltipProvider>
+        <TooltipTrigger>
+          <Button>Tooltip with no width limit</Button>
+        </TooltipTrigger>
+        <Tooltip maxWidth="none">{tooltiptext}</Tooltip>
+      </TooltipProvider>
+
+      <TooltipProvider>
+        <TooltipTrigger>
+          <Button>Small tooltip width</Button>
+        </TooltipTrigger>
+        <Tooltip maxWidth="small">{tooltiptext}</Tooltip>
+      </TooltipProvider>
+
+      <TooltipProvider>
+        <TooltipTrigger>
+          <Button>Medium tooltip width</Button>
+        </TooltipTrigger>
+        <Tooltip>{tooltiptext}</Tooltip>
+      </TooltipProvider>
+
+      <TooltipProvider>
+        <TooltipTrigger>
+          <Button>Large tooltip width</Button>
+        </TooltipTrigger>
+        <Tooltip maxWidth="large">{tooltiptext}</Tooltip>
+      </TooltipProvider>
+    </div>
+  );
+};

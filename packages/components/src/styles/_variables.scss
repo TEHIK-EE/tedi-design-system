@@ -1,5 +1,6 @@
 $card-border-colors: ('background-dark', 'background', 'background-light', 'white');
 $card-spacing: ('none', 'xsmall', 'small', 'medium', 'large');
+$tooltip-max-width: ('none', 'small', 'medium', 'large');
 
 :root {
   // Figma colors
@@ -64,4 +65,10 @@ $card-spacing: ('none', 'xsmall', 'small', 'medium', 'large');
   // Footer
   --footer-bg: #34394c;
   --footer-icon-bg: rgb(255 255 255 / 20%);
+
+  // Tooltip
+  --tooltip-max-width-none: none;
+  --tooltip-max-width-small: 10rem;
+  --tooltip-max-width-medium: 15rem;
+  --tooltip-max-width-large: 30rem;
 }
