@@ -14,7 +14,7 @@ export type JustifyContent = 'start' | 'center' | 'end' | 'between' | 'around' |
 export type AlignItems = 'start' | 'center' | 'end' | 'baseline' | 'stretch';
 export type Direction = 'row' | 'row-reverse' | 'column' | 'column-reverse';
 export type Wrap = 'wrap' | 'nowrap' | 'wrap-reverse';
-export type RowElement = 'div' | 'ul' | 'ol' | 'span';
+export type RowElement = 'div' | 'ul' | 'ol' | 'span' | 'dl';
 
 interface RowSpec {
   /**

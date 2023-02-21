@@ -10,6 +10,7 @@ export type ColOrderNumber = number | '1' | '2' | '3' | '4' | '5';
 export type ColOrder = ColOrderNumber | 'first' | 'last';
 export type ColSize = 'auto' | NumberAttr;
 export type ColAlign = 'start' | 'center' | 'end';
+export type ColElement = 'dt' | 'dd';
 
 export interface ColSpec {
   /**
@@ -49,6 +50,11 @@ export interface ColProps extends ColSpec {
    * Col children.
    */
   children?: React.ReactNode;
+  /**
+   * Base element.
+   * @default div
+   */
+  element?: ColElement;
   /**
    * Additional class.
    */
@@ -92,20 +98,24 @@ export interface ColProps extends ColSpec {
 const DEVICE_SIZES = ['xxl', 'xl', 'lg', 'md', 'sm', 'xs'] as const;
 
 export const Col = (props: ColProps): JSX.Element => {
-  const { className, children, width, offset, order, align, grow, shrink, onClick, ...rest } = props;
+  const { className, children, element, width, offset, order, align, grow, shrink, onClick, ...rest } = props;
   const { element: rootElement } = React.useContext(RowContext);
-  let Element: 'li' | 'span' | 'div';
+  let Element: ColElement | 'div' | 'span' | 'li';
 
-  switch (rootElement) {
-    case 'ol':
-    case 'ul':
-      Element = 'li';
-      break;
-    case 'span':
-      Element = 'span';
-      break;
-    default:
-      Element = 'div';
+  if (element) {
+    Element = element;
+  } else {
+    switch (rootElement) {
+      case 'ol':
+      case 'ul':
+        Element = 'li';
+        break;
+      case 'span':
+        Element = 'span';
+        break;
+      default:
+        Element = 'div';
+    }
   }
 
   const colSpecBEM = (colSpec: ColSpec, infix = ''): string => {
