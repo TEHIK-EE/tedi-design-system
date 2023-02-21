@@ -1,3 +1,4 @@
+import { Story } from '@storybook/react';
 import React from 'react';
 
 import Select, { ISelectOption } from '../select';
@@ -31,7 +32,7 @@ const loadOptions = (inputValue: string, callback: (options: ISelectOption[]) =>
   }, 1000);
 };
 
-export const AsyncSelect = () => {
+export const AsyncSelect: Story = (args) => {
   const [inputValue, setInputValue] = React.useState('');
 
   const handleInputChange = (newValue: string) => {

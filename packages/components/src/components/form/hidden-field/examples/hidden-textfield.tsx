@@ -1,8 +1,9 @@
+import { Story } from '@storybook/react';
 import React from 'react';
 
 import { HiddenField } from '../hidden-field';
 
-export const HiddenTextField = () => {
+export const HiddenTextField: Story = (args) => {
   const [state, setState] = React.useState('Vaba tekst');
 
   return (

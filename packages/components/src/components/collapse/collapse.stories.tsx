@@ -7,6 +7,11 @@ import Collapse, { CollapseProps } from './collapse';
 export default {
   title: 'components/Collapse',
   component: Collapse,
+  argTypes: {
+    children: {
+      control: { type: 'function' },
+    },
+  },
 } as Meta;
 
 const Template: Story<CollapseProps> = (args) => <Collapse {...args} />;

@@ -8,6 +8,11 @@ import Footer, { FooterProps } from './footer';
 export default {
   title: 'components/Layout/Footer',
   component: Footer,
+  argTypes: {
+    linkAs: {
+      type: 'function',
+    },
+  },
 } as Meta;
 
 const Template: Story<FooterProps<typeof LinkBehaviour>> = (args) => {
