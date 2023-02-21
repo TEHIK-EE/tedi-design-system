@@ -17,18 +17,22 @@ export interface IconProps {
    * Type of icon.
    * It is recommended to only use one type throughout your app.
    * This ensures that only one icon font is downloaded.
+   * @default outlined
    */
   type?: 'outlined' | 'rounded' | 'sharp';
   /**
    * Render a filled variant of the icon.
+   * @default false
    */
   filled?: boolean;
   /**
    * Size of the icon.
+   * @default 24
    */
   size?: 12 | 14 | 16 | 18 | 24 | 36 | 48;
   /**
    * Type of display. block by default.
+   * @default block
    */
   display?: 'block' | 'inline';
   /**

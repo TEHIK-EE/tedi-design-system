@@ -20,10 +20,12 @@ export interface TagProps {
   className?: string;
   /**
    * Color of Tag.
+   * @default default
    */
   color?: TagColor;
   /**
    * Type of Tag.
+   * @default default
    */
   type?: TagType;
   /**
@@ -32,31 +34,37 @@ export interface TagProps {
   status?: TagStatus;
   /**
    * Size of Tag.
+   * @default default
    */
   size?: TagSize;
   /**
    * Title if Tag is Abbreviation.
    */
   title?: string;
-  /*
+  /**
    * If tag is rounded
-   * */
+   * @default false
+   */
   rounded?: boolean;
-  /*
+  /**
    * If tag has icon only
-   * */
+   * @default false
+   */
   iconOnly?: boolean;
   /**
    * If Tag has arrow on top-right corner
+   * @default false
    */
   hasArrow?: boolean;
   /**
    * If Tag should be skeleton
+   * @default false
    */
   isLoading?: boolean;
-  /*
+  /**
    * If tag is disabled
-   * */
+   * @default false
+   */
   isDisabled?: boolean;
 }
 
@@ -69,11 +77,11 @@ export const Tag = forwardRef<HTMLDivElement, TagProps>((props, ref): JSX.Elemen
     color = 'default',
     status,
     type = 'default',
-    rounded,
-    hasArrow,
-    isLoading,
-    isDisabled,
-    iconOnly,
+    rounded = false,
+    hasArrow = false,
+    isLoading = false,
+    isDisabled = false,
+    iconOnly = false,
   } = props;
 
   const TagElement = isLoading ? SkeletonBlock : title ? 'abbr' : 'div';

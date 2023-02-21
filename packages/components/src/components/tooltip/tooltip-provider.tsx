@@ -31,12 +31,13 @@ export interface TooltipProviderProps {
    */
   children: React.ReactNode | React.ReactNode[];
   /**
-   * Placement of tooltip, defaults to bottom
+   * Placement of tooltip
+   * @default bottom
    */
   placement?: Placement;
   /**
    * Adds correct event listeners that change the open state
-   * Defaults to hover
+   * @default hover
    */
   openWith?: TooltipOpenWith;
   /**
@@ -45,6 +46,7 @@ export interface TooltipProviderProps {
   focusManager?: Omit<React.ComponentProps<typeof FloatingFocusManager>, 'context' | 'children'>;
   /**
    * Should Tooltip be initially shown. Won't work with open and onToggle.
+   * @default false
    */
   defaultOpen?: boolean;
   /**

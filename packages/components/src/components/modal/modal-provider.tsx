@@ -16,6 +16,7 @@ export interface ModalProviderProps {
   children: React.ReactNode | React.ReactNode[];
   /**
    * Should modal be initially shown. Won't work with open and onToggle.
+   * @default false
    */
   defaultOpen?: boolean;
   /**

@@ -15,6 +15,7 @@ export interface HeadingProps {
   id?: string;
   /**
    * Heading level. 1-5 are allowed values.
+   * @default 1
    */
   level?: HeadingLevel;
 }

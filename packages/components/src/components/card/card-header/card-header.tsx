@@ -17,7 +17,6 @@ export interface CardHeaderProps {
    * Style of CardHeader. !!Deprecated - use variant prop instead
    * @default default
    * @deprecated - Use variant prop instead - TEHVEER-66
-   *
    */
   style?: CardHeaderVariant;
   /**

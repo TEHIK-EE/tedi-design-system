@@ -19,6 +19,7 @@ export interface FormHelperProps {
   className?: string;
   /**
    * Type of form-helper.
+   * @default help
    */
   type?: FormHelperType;
 }

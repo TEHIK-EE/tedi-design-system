@@ -19,11 +19,13 @@ export interface AccordionItemProps {
    */
   className?: string;
   /**
-   * Is the item disabled?
+   * Is the item disabled.
+   * @default false
    */
   disabled?: boolean;
   /**
    * The element border type attribute specifies the color of accordion item border.
+   * @default primary
    */
   borderType?: 'primary' | 'secondary';
 }

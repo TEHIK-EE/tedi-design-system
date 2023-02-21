@@ -51,6 +51,7 @@ export interface DateTimePickerProps extends Omit<TextFieldProps, 'defaultValue'
   maxTime?: Dayjs;
   /**
    * Step over minutes.
+   * @default 1
    */
   minutesStep?: number;
   /**
@@ -90,7 +91,8 @@ export interface DateTimePickerProps extends Omit<TextFieldProps, 'defaultValue'
    */
   toolbarFormat?: string;
   /**
-   * Format string. Defaults to DD.MM.YYYY HH:mm
+   * Format string.
+   * @default DD.MM.YYYY HH:mm
    */
   inputFormat?: string;
   /**
@@ -106,16 +108,17 @@ export interface DateTimePickerProps extends Omit<TextFieldProps, 'defaultValue'
   onError?: (reason: DateTimeValidationError, value: DateTimepickerValue) => void;
   /**
    * Array of views to show.
+   * @default ['year', 'day', 'hours', 'minutes']
    */
   views?: Array<'day' | 'hours' | 'minutes' | 'month' | 'seconds' | 'year'>;
   /**
    * Custom mask. Can be used to override generate from format. (e.g. __/__/____ __:__ or __/__/____ __:__ _M).
-   * Defaults to __.__.____ __:__
+   * @default __.__.____ __:__
    */
   mask?: string;
   /**
    * 12h/24h view for hour selection clock.
-   * Defaults to false,
+   * @default false,
    */
   ampm?: boolean;
 }

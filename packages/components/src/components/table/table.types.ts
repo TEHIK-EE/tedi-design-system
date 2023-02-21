@@ -47,7 +47,8 @@ export interface TableProps<TData extends DefaultTData<TData>> {
    */
   id: string;
   /**
-   * Default table data,
+   * Default table data
+   * @default []
    */
   data: TData[];
   /**
@@ -158,20 +159,24 @@ export interface TableProps<TData extends DefaultTData<TData>> {
   renderGroupHeading?: (row: Row<TData & Pick<DefaultTData<TData>, 'rowGroupKey'>>) => React.ReactElement;
   /**
    * Vertical align of columns
+   * @default 'middle
    */
   verticalAlign?: 'base-line' | 'middle';
   /**
    * Should table allow filtering columns.
    * Defaults to false, because TableFilter is not yet final, and we cant add filtering to every table.
+   * @default false
    */
   enableFilters?: boolean;
   /**
    * Should table allow sorting columns.
    * When false then `enableSorting` in column props are ignored
+   * @default true
    */
   enableSorting?: boolean;
   /**
-   * Should show borders between rows. Default to false.
+   * Should show borders between rows.
+   * @default false
    */
   hideRowBorder?: boolean;
   /**

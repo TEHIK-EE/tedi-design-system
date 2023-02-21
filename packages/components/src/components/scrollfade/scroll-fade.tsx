@@ -15,10 +15,12 @@ export interface ScrollFadeProps {
   className?: string;
   /**
    * Scrollbar type
+   * @default custom
    */
   scrollType?: 'default' | 'custom';
   /**
-   * Size of fade in percentages. Default to 20%
+   * Size of fade in percentages.
+   * @default 20
    */
   fadeSize?: '10' | '20';
   /**

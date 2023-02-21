@@ -62,6 +62,7 @@ export interface SelectProps extends FormLabelProps {
   className?: string;
   /**
    * What icon to use for dropdown
+   * @default arrow_drop_down
    */
   iconName?: 'arrow_drop_down' | 'search';
   /**
@@ -92,6 +93,7 @@ export interface SelectProps extends FormLabelProps {
   value?: TSelectValue;
   /**
    * If select is disabled.
+   * @default false
    */
   disabled?: boolean;
   /**
@@ -112,6 +114,7 @@ export interface SelectProps extends FormLabelProps {
   size?: 'small';
   /**
    * If select should load options async
+   * @default false
    */
   async?: boolean;
   /**
@@ -135,11 +138,13 @@ export interface SelectProps extends FormLabelProps {
    */
   multiple?: boolean;
   /**
-   * If menu should open when select is focused. defaults to false
+   * If menu should open when select is focused.
+   * @default false
    */
   openMenuOnFocus?: boolean;
   /**
-   * If pressing tab inside menu should select currently focused option. defaults to false
+   * If pressing tab inside menu should select currently focused option.
+   * @default false
    */
   tabSelectsValue?: boolean;
   /**
@@ -151,15 +156,18 @@ export interface SelectProps extends FormLabelProps {
    */
   autoFocus?: boolean;
   /**
-   * If select can be clearable, defaults to true
+   * If select can be clearable
+   * @default true
    */
   isClearable?: boolean;
   /**
-   * If select displays an indicator to clear selected values, defaults to false
+   * If select displays an indicator to clear selected values
+   * @default false
    */
   isClearIndicatorVisible?: boolean;
   /**
-   * If select can be searched, defaults to true
+   * If select can be searched
+   * @defaults true
    */
   isSearchable?: boolean;
   /**
@@ -223,9 +231,9 @@ export const Select = forwardRef<any, SelectProps>((props, ref): JSX.Element => 
     loadOptions,
     openMenuOnFocus = false,
     tabSelectsValue = false,
-    disabled,
+    disabled = false,
     className,
-    hideLabel,
+    hideLabel = false,
     helper,
     placeholder,
     invalid,

@@ -23,6 +23,7 @@ export interface AccordionProps {
   onToggleItem?: (id: string) => void;
   /**
    * The list of IDs items that should be open by default
+   * @default []
    */
   defaultOpenItem?: string[];
 }

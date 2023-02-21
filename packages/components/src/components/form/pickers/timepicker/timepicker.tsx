@@ -24,7 +24,8 @@ export interface TimePickerProps extends Omit<TextFieldProps, 'defaultValue' | '
    */
   onChange?: (value: TimePickerValue) => void;
   /**
-   * Format string. Defaults to HH:mm
+   * Format string.
+   * @default HH:mm
    */
   inputFormat?: string;
   /**
@@ -40,7 +41,8 @@ export interface TimePickerProps extends Omit<TextFieldProps, 'defaultValue' | '
    */
   minTime?: TimePickerValue;
   /**
-   * Step over minutes. Defaults to 1
+   * Step over minutes.
+   * @default 1
    */
   minutesStep?: number;
   /**
@@ -59,11 +61,12 @@ export interface TimePickerProps extends Omit<TextFieldProps, 'defaultValue' | '
   shouldDisableTime?: (timeValue: number, clockType: ClockPickerView) => boolean;
   /**
    * Array of views to show.
+   * @default ['hours', 'minutes']
    */
   views?: Array<'hours' | 'minutes' | 'seconds'>;
   /**
    * 12h/24h view for hour selection clock.
-   * Defaults to false,
+   * @default false
    */
   ampm?: boolean;
 }

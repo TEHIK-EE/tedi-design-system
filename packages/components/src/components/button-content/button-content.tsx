@@ -31,10 +31,12 @@ export type ButtonContentProps<
     classNameIcon?: string;
     /**
      * Button visual type
+     * @default primary
      */
     visualType?: ButtonTypes;
     /**
      * Color schema for button. PS text-color works only with link type links.
+     * @default default
      */
     color?: 'default' | 'error' | 'success' | 'inverted' | 'text-color';
     /**

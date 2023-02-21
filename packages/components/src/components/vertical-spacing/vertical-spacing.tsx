@@ -8,7 +8,8 @@ export interface VerticalSpacingProps {
    */
   children: React.ReactNode | React.ReactNode[];
   /**
-   * Rendered HTML Element. Defaults to "div".
+   * Rendered HTML Element.
+   * @default div
    */
   element?: keyof JSX.IntrinsicElements;
   /**
@@ -17,7 +18,8 @@ export interface VerticalSpacingProps {
   className?: string;
   /**
    * size of spacing
-   * All children elements are getting {size}em unit of margin-bottom
+   * All children elements are getting {size}em unit of margin-bottom.
+   * @default 1
    */
   size?: 0.25 | 0.5 | 0.75 | 1 | 1.25 | 1.5 | 1.75 | 2 | 2.5;
 }

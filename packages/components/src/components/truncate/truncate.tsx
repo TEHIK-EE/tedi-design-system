@@ -10,7 +10,8 @@ export interface TruncateProps {
    */
   children: string;
   /**
-   * Max length of text, when truncated. Defaults to 200.
+   * Max length of text, when truncated.
+   * @default 200
    */
   maxLength?: number;
   /**

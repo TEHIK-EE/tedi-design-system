@@ -24,6 +24,7 @@ export interface NotificationProps {
   className?: string;
   /**
    * Type of notification
+   * @default info
    */
   type?: NotificationType;
   /**

@@ -8,7 +8,7 @@ import styles from '../breadcrumbs.module.scss';
 export type CrumbProps<C extends React.ElementType = 'a'> = {
   /**
    * If crumb is last/current page;
-   * Defaults to false
+   * @default false
    */
   isLast?: boolean;
 } & AnchorProps<C>;

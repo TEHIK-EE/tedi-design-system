@@ -11,12 +11,13 @@ export interface EllipsisProps {
   children: React.ReactNode;
   /**
    * What is max lines before Ellipsis
+   * @default 2
    */
   lineClamp?: number;
 }
 
 export const Ellipsis = (props: EllipsisProps): JSX.Element => {
-  const { children, lineClamp, ...rest } = props;
+  const { children, lineClamp = 2, ...rest } = props;
   const elementRef = React.useRef<HTMLDivElement>(null);
   const [showTooltip, setShowTooltip] = React.useState(false);
 
