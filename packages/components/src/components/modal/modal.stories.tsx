@@ -65,7 +65,7 @@ const Template: Story<TemplateProps> = (args: TemplateProps): JSX.Element => {
       </ModalTrigger>
       <Modal {...modal} aria-labelledby="label">
         {renderHeader && (
-          <CardHeader style="white">
+          <CardHeader variant="white">
             <h1 id="default-label">{heading}</h1>
           </CardHeader>
         )}
@@ -168,7 +168,7 @@ export const Position: Story<ModalProps> = () => {
         <Button className="text-capitalize">{position}</Button>
       </ModalTrigger>
       <Modal aria-labelledby="open-center" position={position}>
-        <CardHeader style="white">
+        <CardHeader variant="white">
           <h1>Modal with longer content to test out scrolling</h1>
         </CardHeader>
         <CardContent>{content}</CardContent>

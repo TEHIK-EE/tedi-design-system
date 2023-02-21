@@ -42,7 +42,7 @@ const Template: Story<FeedbackProps> = (args) => {
         voluptas?
       </p>
       <Feedback {...args}>
-        <CardHeader style="white">
+        <CardHeader variant="white">
           <Heading className="h4">Feedback</Heading>
         </CardHeader>
         <CardContent>

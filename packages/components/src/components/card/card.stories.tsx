@@ -87,17 +87,13 @@ const Template: Story<CardStory> = (args) => {
 };
 
 export const Default = Template.bind({});
-Default.args = {
-  cardHeader: {
-    style: 'default',
-  },
-};
+Default.args = {};
 
 export const WhiteHeader = Template.bind({});
 WhiteHeader.args = {
   ...Default.args,
   cardHeader: {
-    style: 'white',
+    variant: 'white',
   },
 };
 
