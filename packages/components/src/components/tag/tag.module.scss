@@ -1,8 +1,11 @@
 @use '../../styles/mixins';
 
 @mixin tag-variant($bg, $secondary-bg, $secondary-text) {
-  color: var(--color-white);
-  background-color: $bg;
+  &,
+  &.tag--type-default {
+    color: var(--color-white);
+    background-color: $bg;
+  }
 
   &.tag--type-secondary {
     color: $secondary-text;
@@ -31,7 +34,8 @@
   }
 }
 
-.tag {
+.tag,
+.tag--default {
   position: relative;
   display: inline-flex;
   align-items: center;

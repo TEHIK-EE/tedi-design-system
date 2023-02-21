@@ -117,6 +117,12 @@ export const Row = (props: RowProps): JSX.Element => {
     gutterX,
     wrap,
     direction,
+    xs,
+    sm,
+    md,
+    lg,
+    xl,
+    xxl,
     ...rest
   } = props;
 
@@ -128,18 +134,27 @@ export const Row = (props: RowProps): JSX.Element => {
       { [styles[`row-cols${infix}-${cols}`]]: cols },
       { [styles[`justify-content${infix}-${justifyContent}`]]: justifyContent },
       { [styles[`align-items${infix}-${alignItems}`]]: alignItems },
-      { [styles[`gap${infix}-${gap}`]]: typeof gap !== undefined },
-      { [styles[`g${infix}-${gutter}`]]: typeof gutter !== undefined },
-      { [styles[`gx${infix}-${gutterX}`]]: typeof gutterX !== undefined },
-      { [styles[`gy${infix}-${gutterY}`]]: typeof gutterY !== undefined },
+      { [styles[`gap${infix}-${gap}`]]: gap || gap === 0 },
+      { [styles[`g${infix}-${gutter}`]]: gutter || gutter === 0 },
+      { [styles[`gx${infix}-${gutterX}`]]: gutterX || gutterX === 0 },
+      { [styles[`gy${infix}-${gutterY}`]]: gutterY || gutterY === 0 },
       { [`flex${infix}-${direction}`]: direction },
       { [styles[`flex${infix}-${wrap}`]]: wrap }
     );
   };
 
   const BEM = (): string => {
+    const breakPoints = {
+      xs,
+      sm,
+      md,
+      lg,
+      xl,
+      xxl,
+    };
+
     const deviceSpecificClassnames = DEVICE_SIZES.map((breakPoint) => {
-      const deviceSpecificValue = rest[breakPoint];
+      const deviceSpecificValue = breakPoints[breakPoint];
       const deviceSpecificInfix = breakPoint !== 'xs' ? `-${breakPoint}` : '';
 
       return !deviceSpecificValue

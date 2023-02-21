@@ -28,7 +28,7 @@ export const TabsItem = (props: TabsItemProps): JSX.Element => {
   const { className, id, children } = props;
   const { currentTab, setCurrentTab } = React.useContext(TabsContext);
   const isCurrent = id === currentTab;
-  const TabsItemBEM = cn(styles['tabs__item'], { [styles['tabs__item--current']]: isCurrent }, className);
+  const TabsItemBEM = cn(styles['tabs__item'], className);
 
   return (
     <HashTrigger data-name="tabs-item" id={id} onMatch={() => setCurrentTab(id)}>

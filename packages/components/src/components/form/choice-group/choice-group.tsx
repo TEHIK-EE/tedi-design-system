@@ -95,12 +95,7 @@ export const ChoiceGroup = (props: ChoiceGroupProps): JSX.Element => {
       break;
   }
 
-  const FieldSetBEM = cn(
-    styles['choice-group'],
-    className,
-    { [styles['choice-group--invalid']]: helper?.type === 'error' },
-    { [styles[`choice-group--${type}`]]: type }
-  );
+  const FieldSetBEM = cn(styles['choice-group'], className);
 
   return (
     <ChoiceGroupContext.Provider value={ContextValue}>

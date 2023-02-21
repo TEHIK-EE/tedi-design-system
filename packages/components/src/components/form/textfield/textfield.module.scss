@@ -52,6 +52,7 @@
     opacity: 0.6;
   }
 
+  .textfield--invalid &,
   &[aria-invalid='true'] {
     border-color: var(--color-error);
 
