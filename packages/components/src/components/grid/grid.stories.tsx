@@ -1,7 +1,9 @@
 import { ArgsTable, Description, Primary, Stories, Subtitle, Title } from '@storybook/addon-docs';
 import { Meta, Story } from '@storybook/react';
 
+import Heading from '../heading/heading';
 import Notification from '../notification/notification';
+import { VerticalSpacing } from '../vertical-spacing';
 import { Col } from './col';
 import { Row, RowProps } from './row';
 
@@ -70,3 +72,56 @@ const Template: Story<RowProps> = (args) => (
 );
 
 export const Default = Template.bind({});
+
+export const CustomTags: Story = () => (
+  <VerticalSpacing size={2}>
+    <VerticalSpacing size={0.5}>
+      <Heading level={4}>Label/Value pairs</Heading>
+      <Row>
+        <Col>
+          {/* Grouped rows */}
+          <dl>
+            <Row>
+              <Col element="dt" width={2}>
+                <strong>Label</strong>
+              </Col>
+              <Col element="dd">Value</Col>
+            </Row>
+            <Row>
+              <Col element="dt" width={2}>
+                <strong>Label</strong>
+              </Col>
+              <Col element="dd">Value</Col>
+            </Row>
+          </dl>
+        </Col>
+
+        {/* Non grouped rows */}
+        <Col>
+          <Row element="dl">
+            <Col element="dt" width={2}>
+              <strong>Label</strong>
+            </Col>
+            <Col element="dd" width={10}>
+              Value
+            </Col>
+            <Col element="dt" width={2}>
+              <strong>Label</strong>
+            </Col>
+            <Col element="dd" width={10}>
+              Value
+            </Col>
+          </Row>
+        </Col>
+      </Row>
+    </VerticalSpacing>
+
+    <VerticalSpacing size={0.5}>
+      <Heading level={4}>Lists</Heading>
+      <Row element="ul" direction="column">
+        <Col>Item 1</Col>
+        <Col>Item 2</Col>
+      </Row>
+    </VerticalSpacing>
+  </VerticalSpacing>
+);
