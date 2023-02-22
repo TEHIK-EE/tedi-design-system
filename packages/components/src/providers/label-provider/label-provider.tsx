@@ -5,7 +5,7 @@ import dayjs from 'dayjs';
 import updateLocale from 'dayjs/plugin/updateLocale';
 import React from 'react';
 
-import { defaultEELabels, defaultENLabels, FlatLabelsMap, LabelsMapType } from './labels-map';
+import { defaultEELabels, defaultENLabels, defaultRULabels, FlatLabelsMap, LabelsMapType } from './labels-map';
 
 import 'dayjs/locale/et';
 import 'dayjs/locale/ru';
@@ -55,7 +55,12 @@ export interface LabelProviderProps {
 
 export const LabelProvider = (props: LabelProviderProps): JSX.Element => {
   const { labels = {}, children, locale = 'en' } = props;
-  const mergedLabels = { ...(locale === 'et' ? defaultEELabels : defaultENLabels), ...labels };
+  const mergedLabels = {
+    ...(locale === 'et' ? defaultEELabels : []),
+    ...(locale === 'en' ? defaultENLabels : []),
+    ...(locale === 'ru' ? defaultRULabels : []),
+    ...labels,
+  };
 
   React.useEffect(() => {
     dayjs.locale(locale);
