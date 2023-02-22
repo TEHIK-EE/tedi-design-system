@@ -1,3 +1,23 @@
+# [2.14.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.13.0...v2.14.0) (2023-02-22)
+
+
+### Bug Fixes
+
+* Remove undefined classNames from DOM - TEHVEER-73 ([90005a2](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/90005a299fe2a244e94f4c3d44abafa7d8d723de))
+* **scroll-fade:** Add correct aria-* to skeleton, a11y issue - TEHVEER-70 ([37ce009](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/37ce009b329bd2a769388956efeae8f4e6fd8fdb))
+* **scroll-fade:** add tabindex=0 to scrollable content, a11y issue - TEHVEER-70 ([ececb27](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/ececb2793d1ac6b21f6cda863ee33de03a170c15))
+* **select:** Fix Select label id, a11y issue - TEHVEER-70 ([e6814ce](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/e6814ceac68277fd57e4e6ebc60ecefb6b6c8f96))
+* **sidenav:** Fix menuitem role, a11y issue - TEHVEER-70 ([b5e0946](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/b5e09461d06b27acbe64a383a8f04a90bbaeeaf4))
+* **skip-links:** add li element under ul, a11y issue - TEHVEER-70 ([e799710](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/e7997103d29c4c295af7ad3fc16d20babcd2cda7))
+
+
+### Features
+
+* **card-header:** replace style prop with variant - TEHVEER-66 ([777bbff](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/777bbff5c6517a20308cc96ff5b7d815f81d3a9b))
+* **form-label:** Add form-label to styleguide ([0652c59](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/0652c59a14b106396268017c0e7f956343482d2c))
+* **grid:** TEHVEER-78 - Add element prop to Col ([7de1901](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/7de190155a87ec77fbb82a28f90d296cfd572b86))
+* **tooltip:** TEHVEER-74 - Tooltips max width ([0d56cdb](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/0d56cdb99a7a705553465f8a7fa1041254e27f5c))
+
 # [2.13.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.12.0...v2.13.0) (2023-02-14)
 
 
