@@ -147,36 +147,42 @@ export function TableLayout<TData extends DefaultTData<TData>>(): JSX.Element | 
           groupedRows().map((row) => (
             <React.Fragment key={row.id}>
               {row.original.rowGroupKey && (
-                <tr
-                  className={cn(
-                    row.original.rowClassName
-                      ?.replace(styles['table__row--group-item'], '')
-                      .replace(styles['table__row--last-group-item'], ''),
-                    styles['table__row--group-header'],
-                    { [styles['table__row--border-hidden']]: hideRowBorder }
-                  )}
-                >
-                  {renderGroupHeading ? (
-                    renderGroupHeading(row)
-                  ) : (
-                    <td colSpan={row.getVisibleCells().length}>{row.original.rowGroupKey}</td>
-                  )}
-                </tr>
+                <Print breakAfter="avoid">
+                  <tr
+                    className={cn(
+                      row.original.rowClassName
+                        ?.replace(styles['table__row--group-item'], '')
+                        .replace(styles['table__row--last-group-item'], ''),
+                      styles['table__row--group-header'],
+                      { [styles['table__row--border-hidden']]: hideRowBorder }
+                    )}
+                  >
+                    {renderGroupHeading ? (
+                      renderGroupHeading(row)
+                    ) : (
+                      <td colSpan={row.getVisibleCells().length}>{row.original.rowGroupKey}</td>
+                    )}
+                  </tr>
+                </Print>
               )}
-              <tr
-                className={cn(row.original.rowClassName, {
-                  [styles['table__row--clickable']]: !!row.original.onClick || !!onRowClick,
-                  [styles['table__row--border-hidden']]: hideRowBorder,
-                })}
-                onClick={() => handleRowClick(row)}
-              >
-                {row.getVisibleCells().map((cell) => (
-                  <td key={cell.id} style={{ width: cell.column.getSize() }}>
-                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                  </td>
-                ))}
-              </tr>
-              {row.getIsExpanded() && renderSubComponent && renderSubComponent(row)}
+              <Print breakInside="avoid">
+                <tr
+                  className={cn(row.original.rowClassName, {
+                    [styles['table__row--clickable']]: !!row.original.onClick || !!onRowClick,
+                    [styles['table__row--border-hidden']]: hideRowBorder,
+                  })}
+                  onClick={() => handleRowClick(row)}
+                >
+                  {row.getVisibleCells().map((cell) => (
+                    <td key={cell.id} style={{ width: cell.column.getSize() }}>
+                      {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                    </td>
+                  ))}
+                </tr>
+              </Print>
+              {row.getIsExpanded() && renderSubComponent ? (
+                <Print breakBefore="avoid">{renderSubComponent?.(row)}</Print>
+              ) : null}
             </React.Fragment>
           ))
         ) : (

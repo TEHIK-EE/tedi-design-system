@@ -14,12 +14,33 @@ export default {
           <VerticalSpacing>
             <ul>
               <li>Text color and some components are converted into grayscale</li>
-              <li>Background colors are set to white</li>
+              <li>Most background colors are set to white</li>
               <li>Base font size is 14px and all other font sizes and spacing is adjusted accordingly</li>
               <li>Some component are hidden by default (Buttons, Anchors, Header, Footer, Breadcrumbs, Sidenav)</li>
-              <li>Expandable components are open by default (Accordion, Collapse)</li>
+              <li>Expandable components are open by default (Accordion, Collapse, Table subRow/subComponent)</li>
               <li>
-                Tables are printed by default, but every table should be reviewed case by case. When table does not fit
+                Prevent page break in some components (Placeholder, Table rows). Rest of the page break locations should
+                be defined in the app using <code>{'<Print>'}</code> component.
+                <p>
+                  <strong>NB!</strong>{' '}
+                  <i>
+                    Page break does not work in Firefox.{' '}
+                    <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1807406" target="_blank" rel="noreferrer">
+                      Bug 1
+                    </a>
+                    ,{' '}
+                    <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1695475" target="_blank" rel="noreferrer">
+                      Bug 2
+                    </a>
+                    ,{' '}
+                    <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=939897" target="_blank" rel="noreferrer">
+                      Bug 3
+                    </a>
+                  </i>
+                </p>
+              </li>
+              <li>
+                Tables are printed by default. Every table should be reviewed case by case. When table does not fit
                 horizontally we have a scrollbar. This means that tables with many columns might not fit in the print
                 view.
               </li>
