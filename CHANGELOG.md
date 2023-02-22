@@ -1,3 +1,10 @@
+# [2.15.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.14.0...v2.15.0) (2023-02-22)
+
+
+### Features
+
+* **label-provider:** Implement ru label provider and general translations - TEHVEER-58 ([8ed0b5e](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/8ed0b5e1df0f8b99bf796abac92547a668cc0a33))
+
 # [2.14.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.13.0...v2.14.0) (2023-02-22)
 
 
