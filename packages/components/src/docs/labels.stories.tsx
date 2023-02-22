@@ -25,7 +25,7 @@ export default {
             </p>
             <p>
               However components fall back to translations defined in the library itself. Currently we have default
-              translations for Estonian and English. You can control what default translations are used with{' '}
+              translations for Estonian, English and Russian. You can control what default translations are used with{' '}
               <code>locale</code> prop. If <code>locale</code> prop is not set, then the default languages is English.
             </p>
           </VerticalSpacing>
@@ -43,6 +43,7 @@ interface LabelRow {
   description: string;
   et: string;
   en: string;
+  ru: string;
 }
 
 const labels: LabelRow[] = Object.keys(labelsMap).map((k) => ({ key: k, ...(labelsMap as any)[k] }));
@@ -100,6 +101,10 @@ export const Labels = () => {
     columnHelper.accessor('en', {
       header: () => 'Eng',
       cell: ({ row: { original } }) => renderLabelColumn(original.en),
+    }),
+    columnHelper.accessor('ru', {
+      header: () => 'Rus',
+      cell: ({ row: { original } }) => renderLabelColumn(original.ru),
     }),
   ];
 
