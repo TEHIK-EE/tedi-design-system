@@ -7,7 +7,7 @@ export interface PrintProps {
   /**
    * Content.
    */
-  children: JSX.Element | JSX.Element[];
+  children: JSX.Element | Array<JSX.Element | null | undefined | false | ''>;
   /**
    * Show or hide content during printing
    * Show is useful when the content is hidden by default during printing
@@ -43,7 +43,7 @@ export const Print = forwardRef<HTMLElement, PrintProps>((props, ref): JSX.Eleme
   };
 
   if (Array.isArray(children)) {
-    return <>{children?.map((child, index) => renderChild(child, index))}</>;
+    return <>{children?.map((child, index) => (child ? renderChild(child, index) : null))}</>;
   } else {
     return renderChild(children);
   }

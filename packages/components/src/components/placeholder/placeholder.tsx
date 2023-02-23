@@ -5,6 +5,7 @@ import { useBreakpoint } from '../../helpers';
 import { Card, CardContent, CardProps } from '../card';
 import { Col, Row } from '../grid';
 import Icon, { IconProps } from '../icon/icon';
+import Print from '../print/print';
 
 export interface PlaceholderProps {
   /**
@@ -65,24 +66,26 @@ export const Placeholder = (props: PlaceholderProps): JSX.Element => {
   };
 
   return (
-    <Card
-      data-name="placeholder"
-      {...rest}
-      className={className}
-      type={type}
-      padding={padding}
-      background={background}
-      {...restCardProps}
-    >
-      <CardContent>
-        <Row direction="column" alignItems="center" gutter={2}>
-          {icon && <Col width="auto">{getIcon(icon)}</Col>}
-          <Col width="auto" className="text-center text-secondary">
-            {children}
-          </Col>
-        </Row>
-      </CardContent>
-    </Card>
+    <Print breakInside="avoid">
+      <Card
+        data-name="placeholder"
+        {...rest}
+        className={className}
+        type={type}
+        padding={padding}
+        background={background}
+        {...restCardProps}
+      >
+        <CardContent>
+          <Row direction="column" alignItems="center" gutter={2}>
+            {icon && <Col width="auto">{getIcon(icon)}</Col>}
+            <Col width="auto" className="text-center text-secondary">
+              {children}
+            </Col>
+          </Row>
+        </CardContent>
+      </Card>
+    </Print>
   );
 };
 

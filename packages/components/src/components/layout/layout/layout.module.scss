@@ -10,7 +10,19 @@
   position: relative;
   display: flex;
   flex-grow: 1;
-  overflow: auto;
+
+  // This is required due to a bug in FF.
+  // If an element is a descendant of flexbox layout and is pre-paginated with break-inside: avoid,
+  // it will extend out of the flexbox area.
+  // This prevents the overflow from happening, but also causes break-inside: avoid; from having any effect in FF.
+  // Using this hack allows us to still have the benefits of break-inside: avoid; in Chrome and Edge
+  // TODO track progress of these bugs
+  // https://bugzilla.mozilla.org/show_bug.cgi?id=1807406
+  // https://bugzilla.mozilla.org/show_bug.cgi?id=1695475
+  // https://bugzilla.mozilla.org/show_bug.cgi?id=939897
+  @media print {
+    overflow: auto;
+  }
 }
 
 .main {

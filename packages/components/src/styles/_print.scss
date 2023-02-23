@@ -7,7 +7,8 @@ $breaks: ('auto', 'avoid', 'avoid-column', 'avoid-page', 'avoid-region');
 
   body {
     background-color: var(--color-white);
-    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact; // needed for Edge. Isn't added automatically by autoprefixer
   }
 
   a {

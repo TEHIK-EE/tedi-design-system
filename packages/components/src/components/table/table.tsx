@@ -16,6 +16,7 @@ import {
 import cn from 'classnames';
 import React from 'react';
 
+import usePrint from '../../helpers/hooks/use-print';
 import { useLabels } from '../../providers/label-provider';
 import { Card, CardContent } from '../card';
 import Pagination from './components/pagination/pagination';
@@ -71,11 +72,15 @@ export function Table<TData extends DefaultTData<TData>>(props: TableProps<TData
     ...restPlaceholder
   } = placeholder || { cardProps: {} };
 
+  const isPrinting = usePrint();
   const [{ pageIndex, pageSize }, setPagination] = React.useState<PaginationState>(defaultPagination);
   const [sorting, setSorting] = React.useState<SortingState>(defaultSorting);
   const [expanded, setExpanded] = React.useState<ExpandedState>({});
   const [rowSelection, setRowSelection] = React.useState<RowSelectionState>(defaultRowSelection || {});
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([]);
+
+  // during printing expand subRows/subComponents
+  const getExpanded = React.useMemo(() => (isPrinting ? true : expanded), [expanded, isPrinting]);
 
   const getPagination = React.useMemo(() => {
     // If pagination is controlled outside, don't use local state
@@ -160,7 +165,7 @@ export function Table<TData extends DefaultTData<TData>>(props: TableProps<TData
       columnFilters: getColumnFilter,
       pagination: getPagination,
       sorting: getSorting,
-      expanded,
+      expanded: getExpanded,
     },
     manualSorting: !!sortingOuter,
     manualFiltering: !!columnFiltersOuter,
