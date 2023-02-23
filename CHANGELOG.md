@@ -1,3 +1,11 @@
+# [2.16.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.15.0...v2.16.0) (2023-02-23)
+
+
+### Features
+
+* **colors:** TEHVEER-81 - Update colors ([b132d2e](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/b132d2e9ada865e9d433de0cbff2565bca026832))
+* **print:** TEHVEER-79 - Improve print styles ([bdc9832](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/bdc983262c5ed017026f594badd157554fcab168))
+
 # [2.15.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.14.0...v2.15.0) (2023-02-22)
 
 
