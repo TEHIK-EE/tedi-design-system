@@ -51,7 +51,7 @@ build-sb:
     - npm run build:sb
 
 publish-library:
-  when: manual
+  when: always
   stage: publish
   script:
     - apt-get update && apt-get install -y --no-install-recommends git-core ca-certificates
