@@ -1,6 +1,6 @@
 import { Meta, Story } from '@storybook/react';
 
-import { useBreakpoint } from '../../../helpers';
+import useLayout from '../../../helpers/hooks/use-layout';
 import Button from '../../button/button';
 import Section from '../../section/section';
 import StretchContent from '../../stretch-content/stretch-content';
@@ -69,20 +69,19 @@ const footerProps: FooterProps = {
 };
 
 export const Default: Story<ILayoutProps> = () => {
-  const breakpoint = useBreakpoint();
-  const isMobileLayout = ['xs', 'sm', 'md'].includes(breakpoint || '');
+  const isSmallLayout = useLayout(['mobile', 'tablet']);
 
   const footerLogo: FooterProps['logo'] = {
-    src: isMobileLayout ? '/sf_logod.jpg' : '/sf_logod_vertikaalne.jpg',
+    src: isSmallLayout ? '/sf_logod.jpg' : '/sf_logod_vertikaalne.jpg',
     alt: 'logo',
-    style: isMobileLayout
+    style: isSmallLayout
       ? { width: '9rem', height: '5.25rem', borderRadius: '0.25rem' }
       : { width: '3.75rem', height: '7rem', borderRadius: '0.25rem' },
   };
 
   return (
     <Layout
-      header={{ ...HeaderDefault.args, children: renderCustomHeader(isMobileLayout) }}
+      header={{ ...HeaderDefault.args, children: renderCustomHeader(isSmallLayout) }}
       sideNav={{
         navItems,
         ariaLabel: 'Menüü',
@@ -112,8 +111,7 @@ export const Default: Story<ILayoutProps> = () => {
 };
 
 export const Simple: Story<ILayoutProps> = () => {
-  const breakpoint = useBreakpoint();
-  const isMobileLayout = ['xs', 'sm'].includes(breakpoint || '');
+  const isMobileLayout = useLayout(['mobile']);
 
   const footerLogo: FooterProps['logo'] = {
     src: isMobileLayout ? '/sf_logod.jpg' : '/sf_logod_vertikaalne.jpg',
@@ -150,13 +148,12 @@ export const Simple: Story<ILayoutProps> = () => {
 };
 
 export const MainGrow: Story<ILayoutProps> = () => {
-  const breakpoint = useBreakpoint();
-  const isMobileLayout = ['xs', 'sm'].includes(breakpoint || '');
+  const isSmallLayout = useLayout(['mobile']);
 
   const footerLogo: FooterProps['logo'] = {
-    src: isMobileLayout ? '/sf_logod.jpg' : '/sf_logod_vertikaalne.jpg',
+    src: isSmallLayout ? '/sf_logod.jpg' : '/sf_logod_vertikaalne.jpg',
     alt: 'logo',
-    style: isMobileLayout
+    style: isSmallLayout
       ? { width: '9rem', height: '5.25rem', borderRadius: '0.25rem' }
       : { width: '3.75rem', height: '7rem', borderRadius: '0.25rem' },
   };

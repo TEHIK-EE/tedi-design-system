@@ -2,7 +2,7 @@ import { FloatingFocusManager, FloatingOverlay } from '@floating-ui/react';
 import cn from 'classnames';
 import React from 'react';
 
-import { useBreakpoint } from '../../../helpers';
+import useLayout from '../../../helpers/hooks/use-layout';
 import { AllowedHTMLTags } from '../../../helpers/polymorphic/types';
 import Anchor, { AnchorProps } from '../../anchor/anchor';
 import Icon, { IconProps } from '../../icon/icon';
@@ -52,18 +52,12 @@ export type SideNavItem<C extends React.ElementType = 'a', Privilege = string> =
 
 export function SideNav<C extends React.ElementType = 'a', Privilege = string>(props: SideNavProps<C, Privilege>) {
   const { navItems, ariaLabel, linkAs, ...rest } = props;
-  const breakpoint = useBreakpoint();
-  const isMobileLayout = ['xs', 'sm', 'md'].includes(breakpoint || '');
+  const isSmallLayout = useLayout(['mobile', 'tablet']);
   const { menuOpen, context, getFloatingProps, floating, y } = React.useContext(LayoutContext);
 
   const renderSidebar = (
     <Print visibility="hide">
-      <nav
-        data-name="sidenav"
-        {...rest}
-        className={cn({ [styles['sidenav']]: !isMobileLayout })}
-        aria-label={ariaLabel}
-      >
+      <nav data-name="sidenav" {...rest} className={cn({ [styles['sidenav']]: !isSmallLayout })} aria-label={ariaLabel}>
         <ul className={styles['sidenav__list']} role="menubar" aria-label={ariaLabel}>
           {navItems.map((item, key) => (
             <SideNavItem as={linkAs} {...item} key={key} />
@@ -73,7 +67,7 @@ export function SideNav<C extends React.ElementType = 'a', Privilege = string>(p
     </Print>
   );
 
-  return !isMobileLayout ? (
+  return !isSmallLayout ? (
     renderSidebar
   ) : menuOpen ? (
     <FloatingOverlay lockScroll className={styles['sidenav__overlay']}>

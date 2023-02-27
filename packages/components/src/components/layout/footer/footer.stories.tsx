@@ -2,6 +2,7 @@ import { Meta, Story } from '@storybook/react';
 import React from 'react';
 
 import useBreakpoint from '../../../helpers/hooks/use-breakpoint';
+import useLayout from '../../../helpers/hooks/use-layout';
 import { LinkBehaviour } from '../../anchor/anchor-helpers';
 import Footer, { FooterProps } from './footer';
 
@@ -16,8 +17,7 @@ export default {
 } as Meta;
 
 const Template: Story<FooterProps<typeof LinkBehaviour>> = (args) => {
-  const breakpoint = useBreakpoint();
-  const isMobileLayout = ['xs', 'sm'].includes(breakpoint || '');
+  const isMobileLayout = useLayout(['mobile']);
 
   const logo: FooterProps['logo'] = {
     src: isMobileLayout ? '/sf_logod.jpg' : '/sf_logod_vertikaalne.jpg',

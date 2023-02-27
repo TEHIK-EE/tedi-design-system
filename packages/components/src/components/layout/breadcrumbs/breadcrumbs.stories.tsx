@@ -28,3 +28,27 @@ Default.args = {
     },
   ],
 };
+
+export const ForcedMinimalCrumbs = Template.bind({});
+ForcedMinimalCrumbs.args = {
+  linkAs: LinkBehaviour,
+  showMinimalCrumbs: true,
+  crumbs: [
+    { href: '/', children: 'Home' },
+    { href: { pathname: '/volunteers' }, children: 'Volunteers' },
+    {
+      href: { pathname: '/volunteers/volunteer', query: { id: '20' } },
+      children: '20',
+      isLast: true,
+    },
+  ],
+};
+ForcedMinimalCrumbs.parameters = {
+  docs: {
+    description: {
+      story: `By default we only show last interactive crumb on mobile and tablet.
+      This can be controlled with \`showMinimalCrumbs\` prop. We can force the minimal view
+      or define our own layouts/breakpoints for when the switch happens`,
+    },
+  },
+};

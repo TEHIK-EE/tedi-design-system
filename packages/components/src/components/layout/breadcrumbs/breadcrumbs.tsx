@@ -1,6 +1,7 @@
 import cn from 'classnames';
 import React from 'react';
 
+import useLayout, { Layouts } from '../../../helpers/hooks/use-layout';
 import { AllowedHTMLTags } from '../../../helpers/polymorphic/types';
 import Print from '../../print/print';
 import styles from './breadcrumbs.module.scss';
@@ -28,16 +29,32 @@ export type BreadcrumbsProps<C extends React.ElementType = 'a'> = ConditionalTyp
    * Additional custom class.
    */
   className?: string;
+  /**
+   * Show only last interactive crumb.
+   * Can be defined as an array of layouts/breakpoints or boolean
+   * @default ['mobile', 'tablet']
+   */
+  showMinimalCrumbs?: boolean | Layouts;
 };
 
-export const Breadcrumbs = <C extends React.ElementType = 'a'>(props: BreadcrumbsProps<C>): JSX.Element => {
-  const { className, crumbs, linkAs, ...rest } = props;
+export const Breadcrumbs = <C extends React.ElementType = 'a'>(props: BreadcrumbsProps<C>): JSX.Element | null => {
+  const { className, crumbs, linkAs, showMinimalCrumbs = ['mobile', 'tablet'], ...rest } = props;
+  const isSmallLayout = useLayout(
+    showMinimalCrumbs === true ? ['mobile', 'tablet', 'desktop'] : showMinimalCrumbs || []
+  );
+  const minimalCrumbs = !!showMinimalCrumbs && isSmallLayout;
+
+  const filteredCrumbs = minimalCrumbs ? crumbs.filter((crumb) => !crumb.isLast).slice(-1) : crumbs;
+
+  if (!filteredCrumbs?.length) {
+    return null;
+  }
 
   return (
     <Print visibility="hide">
       <ol data-name="breadcrumbs" {...rest} className={cn(className, styles['breadcrumbs'])}>
-        {crumbs.map((crumb, idx) => {
-          return <Crumb as={linkAs} key={idx} {...crumb} />;
+        {filteredCrumbs.map((crumb, index) => {
+          return <Crumb as={linkAs} key={index} singleCrumb={minimalCrumbs} {...crumb} />;
         })}
       </ol>
     </Print>

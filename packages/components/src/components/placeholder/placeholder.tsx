@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import React from 'react';
 
-import { useBreakpoint } from '../../helpers';
+import useLayout from '../../helpers/hooks/use-layout';
 import { Card, CardContent, CardProps } from '../card';
 import { Col, Row } from '../grid';
 import Icon, { IconProps } from '../icon/icon';
@@ -38,13 +38,12 @@ export interface PlaceholderProps {
  */
 export const Placeholder = (props: PlaceholderProps): JSX.Element => {
   const { icon = 'spa', className, children, cardProps, isNested, ...rest } = props;
-  const breakpoint = useBreakpoint();
-  const isMobileLayout = ['xs', 'sm'].includes(breakpoint || '');
+  const isSmallLayout = useLayout(['mobile', 'tablet']);
 
   const {
     type = isNested ? 'borderless' : undefined,
-    padding = isNested ? 'none' : isMobileLayout ? 'medium' : 'large',
-    background = isNested ? undefined : isMobileLayout ? 'background' : 'white',
+    padding = isNested ? 'none' : isSmallLayout ? 'medium' : 'large',
+    background = isNested ? undefined : isSmallLayout ? 'background' : 'white',
     ...restCardProps
   } = cardProps ?? {};
 
