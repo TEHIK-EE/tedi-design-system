@@ -1,3 +1,10 @@
+# [2.17.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.16.0...v2.17.0) (2023-02-27)
+
+
+### Features
+
+* **breadcrumbs:** TEHVEER-83 - Added useLayout hook and switch to minimal breadcrumbs on mobile ([5c4ecb7](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/5c4ecb75237ac2219bab29da51a3ddc3b3599ed0))
+
 # [2.16.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.15.0...v2.16.0) (2023-02-23)
 
 
