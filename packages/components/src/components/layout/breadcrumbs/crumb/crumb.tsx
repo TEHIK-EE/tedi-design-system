@@ -13,8 +13,8 @@ export type CrumbProps<C extends React.ElementType = 'a'> = {
   isLast?: boolean;
 } & AnchorProps<C>;
 
-const Crumb = <C extends React.ElementType = 'a'>(props: CrumbProps<C>): JSX.Element => {
-  const { isLast = false, children, ...rest } = props;
+const Crumb = <C extends React.ElementType = 'a'>(props: CrumbProps<C> & { singleCrumb?: boolean }): JSX.Element => {
+  const { isLast = false, children, singleCrumb, ...rest } = props;
 
   const BEM = cn(styles['breadcrumbs__item'], { [styles['breadcrumbs__item--current']]: isLast });
 
@@ -23,9 +23,11 @@ const Crumb = <C extends React.ElementType = 'a'>(props: CrumbProps<C>): JSX.Ele
   return (
     <li data-name="crumb" className={BEM}>
       <Print visibility="show">
-        <Anchor {...rest}>{children}</Anchor>
+        <Anchor iconLeft={singleCrumb ? 'keyboard_arrow_left' : undefined} {...rest}>
+          {children}
+        </Anchor>
       </Print>
-      <Icon className={styles['breadcrumbs__separator']} size={16} name="keyboard_arrow_right" />
+      {!singleCrumb && <Icon className={styles['breadcrumbs__separator']} size={16} name="keyboard_arrow_right" />}
     </li>
   );
 };

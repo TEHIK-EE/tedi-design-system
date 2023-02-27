@@ -9,7 +9,7 @@ export const useBreakpoint = (): Breakpoint | null => {
   useEffect(() => {
     const resizeEvent = debounce((): void => {
       setBreakpoint(getBreakpoint());
-    }, 50);
+    }, 20);
 
     window.addEventListener('resize', resizeEvent);
     return () => {

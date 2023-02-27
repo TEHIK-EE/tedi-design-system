@@ -1,13 +1,12 @@
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
 
-import { useBreakpoint } from '../../../helpers';
+import useLayout from '../../../helpers/hooks/use-layout';
 import Anchor from '../../anchor/anchor';
 import Button from '../../button/button';
 import { CardContent } from '../../card';
 import Dropdown from '../../dropdown/dropdown';
 import { Col, Row } from '../../grid';
-import Icon from '../../icon/icon';
 import Modal from '../../modal/modal';
 import ModalProvider from '../../modal/modal-provider';
 import ModalTrigger from '../../modal/modal-trigger';
@@ -24,7 +23,7 @@ export default {
   excludeStories: /.*CustomHeader$/,
 } as Meta;
 
-export const renderCustomHeader = (isMobileLayout: boolean) => {
+export const renderCustomHeader = (isSmallLayout: boolean) => {
   const desktopLayout = (
     <Row>
       <Col width="auto" align="center">
@@ -119,14 +118,13 @@ export const renderCustomHeader = (isMobileLayout: boolean) => {
     </Row>
   );
 
-  return isMobileLayout ? mobileLayout : desktopLayout;
+  return isSmallLayout ? mobileLayout : desktopLayout;
 };
 
 export const Default: Story<HeaderProps> = (args) => {
-  const breakpoint = useBreakpoint();
-  const isMobileLayout = ['xs', 'sm', 'md'].includes(breakpoint || '');
+  const isSmallLayout = useLayout(['mobile', 'tablet']);
 
-  return <Header {...args}>{renderCustomHeader(isMobileLayout)}</Header>;
+  return <Header {...args}>{renderCustomHeader(isSmallLayout)}</Header>;
 };
 Default.args = {
   logoAnchor: { href: '#' },
