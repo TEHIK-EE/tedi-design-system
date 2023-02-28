@@ -1,3 +1,10 @@
+## [2.19.2](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.19.1...v2.19.2) (2023-02-28)
+
+
+### Bug Fixes
+
+* TEHVEER-80 - Trigger publish-storybook when pushing changelog update ([599c5fe](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/599c5fe02f118fdadc944eb9a97efbe1c91a3694))
+
 ## [2.19.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.19.0...v2.19.1) (2023-02-28)
 
 
