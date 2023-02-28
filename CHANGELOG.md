@@ -1,3 +1,10 @@
+# [2.20.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.19.2...v2.20.0) (2023-02-28)
+
+
+### Features
+
+* **modal:** TEHVEER-82 - add interaction props to modal ([47a8ad1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/47a8ad174eb5ad6a4c00ea92e26bbb5b5bbcca6c))
+
 ## [2.19.2](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.19.1...v2.19.2) (2023-02-28)
 
 
