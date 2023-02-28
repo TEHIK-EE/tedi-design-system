@@ -20,38 +20,53 @@ before_script:
 workflow:
   rules:
     - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
-    - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
+    - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
 
 lint:
   stage: test
-  when: always
   interruptible: true
   script:
     - npm run lint:ci
+  rules:
+    - if: $CI_COMMIT_AUTHOR	== "semantic-release-bot <semantic-release-bot@martynus.net>"
+      when: never
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+    - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
 
 test:
   stage: test
-  when: always
   interruptible: true
   script:
     - npm run test
+  rules:
+    - if: $CI_COMMIT_AUTHOR	== "semantic-release-bot <semantic-release-bot@martynus.net>"
+      when: never
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+    - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
 
 build:
   stage: build
-  when: always
   interruptible: true
   script:
     - npm run build
+  rules:
+    - if: $CI_COMMIT_AUTHOR	== "semantic-release-bot <semantic-release-bot@martynus.net>"
+      when: never
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+    - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
 
 build-sb:
   stage: build
-  when: always
   interruptible: true
   script:
     - npm run build:sb
+  rules:
+    - if: $CI_COMMIT_AUTHOR	== "semantic-release-bot <semantic-release-bot@martynus.net>"
+      when: never
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+    - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
 
 publish-library:
-  when: always
   stage: publish
   script:
     - apt-get update && apt-get install -y --no-install-recommends git-core ca-certificates
@@ -64,10 +79,11 @@ publish-library:
       } | tee -a .npmrc
     - HUSKY=0 npm run semantic-release
   rules:
+    - if: $CI_COMMIT_AUTHOR	== "semantic-release-bot <semantic-release-bot@martynus.net>"
+      when: never
     - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
 
 publish-storybook:
-  when: always
   stage: publish
   script:
     - npm run build:sb
