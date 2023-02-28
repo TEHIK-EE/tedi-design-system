@@ -1,3 +1,10 @@
+# [2.18.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.17.0...v2.18.0) (2023-02-28)
+
+
+### Features
+
+* **modal:** TEHVEER-82 - Add persistent modal prop ([7fe3bb4](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/7fe3bb4e0ee48d3498efbf1cdf0fea960f105850))
+
 # [2.17.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.16.0...v2.17.0) (2023-02-27)
 
 
