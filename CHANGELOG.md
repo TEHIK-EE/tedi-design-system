@@ -1,3 +1,10 @@
+## [2.19.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.19.0...v2.19.1) (2023-02-28)
+
+
+### Bug Fixes
+
+* **accordion:** TEHVEER-86 - fix accordion padding to match figma ([eac3eb7](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/eac3eb786b52d2ce8b2b99da6a748d6970db424e))
+
 # [2.19.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.18.0...v2.19.0) (2023-02-28)
 
 
