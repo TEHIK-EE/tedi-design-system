@@ -30,11 +30,10 @@ export interface ModalProviderProps {
    */
   onToggle?: (open: boolean) => void;
   /**
-   * Should modal stay on screen until explicitly closed.
-   * Page content will be accessible.
-   * @default false
+   * Should modal be dismissable by pressing escape or outside of the modal.
+   * @default true
    */
-  persist?: boolean;
+  isDismissable?: boolean;
 }
 
 export interface IModalContext {
@@ -45,7 +44,7 @@ export interface IModalContext {
   getFloatingProps: (userProps?: React.HTMLProps<HTMLElement> | undefined) => Record<string, unknown>;
   closeModal: () => void;
   context: FloatingContext<ReferenceType>;
-  persist: boolean;
+  isDismissable: boolean;
 }
 
 export const ModalContext = React.createContext<IModalContext>({
@@ -56,11 +55,11 @@ export const ModalContext = React.createContext<IModalContext>({
   getFloatingProps: () => ({}),
   closeModal: () => null,
   context: {} as FloatingContext<ReferenceType>,
-  persist: false,
+  isDismissable: true,
 });
 
 export const ModalProvider = (props: ModalProviderProps): JSX.Element => {
-  const { children, defaultOpen = false, onToggle, persist = false } = props;
+  const { children, defaultOpen = false, onToggle, isDismissable = true } = props;
   const [innerOpen, setInnerOpen] = React.useState(defaultOpen);
 
   const isOpen = onToggle && typeof props.open !== 'undefined' ? props.open : innerOpen;
@@ -72,8 +71,8 @@ export const ModalProvider = (props: ModalProviderProps): JSX.Element => {
 
   const { getReferenceProps, getFloatingProps } = useInteractions([
     useClick(context),
-    useRole(context, { role: persist ? undefined : 'dialog' }),
-    useDismiss(context, { escapeKey: !persist, enabled: !persist }),
+    useRole(context),
+    useDismiss(context, { enabled: isDismissable }),
   ]);
 
   const closeModal = () => {
@@ -102,7 +101,7 @@ export const ModalProvider = (props: ModalProviderProps): JSX.Element => {
         getFloatingProps,
         closeModal,
         context,
-        persist,
+        isDismissable,
       }}
     >
       {children}

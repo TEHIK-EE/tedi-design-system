@@ -88,15 +88,6 @@ Default.args = {
   heading: 'Modal width 6',
 };
 
-export const PersistModalOnBottomWithNoOverlay = Template.bind({});
-PersistModalOnBottomWithNoOverlay.args = {
-  heading: 'Persist bottom modal',
-  position: 'bottom',
-  modalProvider: {
-    persist: true,
-  },
-};
-
 export const Width12 = Template.bind({});
 Width12.args = {
   size: 12,
@@ -217,4 +208,50 @@ export const ControlledOutSide = () => {
       </Col>
     </Row>
   );
+};
+
+export const TrapFocusFalse = Template.bind({});
+TrapFocusFalse.args = {
+  heading: 'Modal does not trap focus',
+  content:
+    'This modal does not trap focus. Pressing tab will move focus outside of the modal resulting in the modal closing.',
+  trapFocus: false,
+};
+
+export const NotDismissableModal = Template.bind({});
+NotDismissableModal.args = {
+  heading: 'Modal is not dismissable',
+  content:
+    'This modal can not be dismissed by pressing escape or clicking outside of it. You can close it by pressing either close button.',
+  modalProvider: {
+    isDismissable: false,
+  },
+};
+
+export const ScrollNotLocked = Template.bind({});
+ScrollNotLocked.args = {
+  heading: 'Scrolling is not locked.',
+  content: 'You can scroll the main page while this modal is open.',
+  lockScroll: false,
+};
+
+export const NoOverlay = Template.bind({});
+NoOverlay.args = {
+  heading: 'No overlay',
+  content: 'This modal does not display an overlay on top of the page.',
+  overlay: 'none',
+};
+
+export const CookieConsentModal = Template.bind({});
+CookieConsentModal.args = {
+  heading: 'Cookie modal example',
+  content:
+    'This modal does not block the user from interacting with the rest of the page. This modal will only close when the user explicitly closes it via the close button or any other dedicated button. This modal combines all of the following props: trapFocus: false, isDismissable: false, scrollLocked: false, overlay: "none"',
+  trapFocus: false,
+  lockScroll: false,
+  overlay: 'none',
+  modalProvider: {
+    isDismissable: false,
+  },
+  position: 'bottom',
 };
