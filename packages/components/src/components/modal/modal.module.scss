@@ -9,6 +9,10 @@ $modal-max-width: 1230px;
   display: grid;
   place-items: center;
   background: rgb(0 0 0 / 25%);
+
+  &.modal--persist {
+    background: none;
+  }
 }
 
 .modal--right {
@@ -16,8 +20,24 @@ $modal-max-width: 1230px;
 }
 
 .modal--bottom {
+  bottom: 1rem;
   place-items: flex-end center;
-  padding-bottom: 1rem;
+}
+
+.modal--persist {
+  &.modal--bottom {
+    inset-inline: 0;
+  }
+
+  @include breakpoints.media-breakpoint-only(xs) {
+    &.modal--persist {
+      bottom: 0;
+    }
+
+    .modal__inner {
+      width: 100%;
+    }
+  }
 }
 
 .modal__inner {

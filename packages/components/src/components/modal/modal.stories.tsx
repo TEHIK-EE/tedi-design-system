@@ -88,6 +88,15 @@ Default.args = {
   heading: 'Modal width 6',
 };
 
+export const PersistModalOnBottomWithNoOverlay = Template.bind({});
+PersistModalOnBottomWithNoOverlay.args = {
+  heading: 'Persist bottom modal',
+  position: 'bottom',
+  modalProvider: {
+    persist: true,
+  },
+};
+
 export const Width12 = Template.bind({});
 Width12.args = {
   size: 12,
@@ -123,8 +132,8 @@ ErrorTopModal.args = {
   renderModalCloser: false,
 };
 
-export const successTopModal = Template.bind({});
-successTopModal.args = {
+export const SuccessTopModal = Template.bind({});
+SuccessTopModal.args = {
   heading: 'Success type modal',
   content: 'Use to display success notifications',
   cardProps: { type: 'success-top' },
@@ -132,8 +141,8 @@ successTopModal.args = {
   renderModalCloser: false,
 };
 
-export const warningTopModal = Template.bind({});
-warningTopModal.args = {
+export const WarningTopModal = Template.bind({});
+WarningTopModal.args = {
   heading: 'Warning type modal',
   content: 'Use to display Warning notifications',
   cardProps: { type: 'warning-top' },
