@@ -47,31 +47,33 @@ export const Modal = (props: ModalProps): JSX.Element | null => {
   const { getLabel } = useLabels();
   const labelId = props['aria-labelledby'];
   const descriptionId = props['aria-describedby'];
-  const { isOpen, floating, getFloatingProps, context } = React.useContext(ModalContext);
+  const { isOpen, floating, getFloatingProps, context, persist } = React.useContext(ModalContext);
 
   return (
     <FloatingPortal data-name="modal">
       {isOpen && (
         <FloatingOverlay
-          lockScroll
-          className={cn(styles['modal'], styles[`modal--${size}`], styles[`modal--${position}`])}
+          lockScroll={!persist}
+          className={cn(styles['modal'], styles[`modal--${size}`], styles[`modal--${position}`], {
+            [styles['modal--persist']]: persist,
+          })}
+          style={persist ? { inset: '' } : {}}
         >
-          <FloatingFocusManager context={context}>
+          <FloatingFocusManager context={context} closeOnFocusOut={!persist} modal={!persist}>
             <div
               {...getFloatingProps({
                 ref: floating,
                 className: styles['modal__inner'],
                 'aria-labelledby': labelId,
                 'aria-describedby': descriptionId,
-                'aria-modal': true,
+                'aria-modal': !persist,
               })}
             >
               <Card {...cardProps} className={cn(styles['modal__card'], cardProps?.className)}>
                 {!hideCloseButton && (
                   <ModalCloser>
                     <Button
-                      icon="close"
-                      classNameIcon={styles['close-button-icon']}
+                      icon={{ name: 'close', className: styles['close-button-icon'] }}
                       visualType="link"
                       className={styles['close-button']}
                     >
