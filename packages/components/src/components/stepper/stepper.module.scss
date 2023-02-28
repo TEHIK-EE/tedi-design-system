@@ -27,7 +27,11 @@
     border-radius: 4px 0 0 4px;
   }
 
-  &:not(:first-of-type) {
+  &--tablet:not(:first-of-type) {
+    padding-left: 0.5rem;
+  }
+
+  &--desktop:not(:first-of-type) {
     padding-left: 1.5rem;
   }
 }
