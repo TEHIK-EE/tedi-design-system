@@ -40,33 +40,55 @@ export interface ModalProps {
    * @default center
    */
   position?: 'center' | 'right' | 'bottom';
+  /**
+   * Should page be scrollable while modal is open.
+   * @default false
+   */
+  lockScroll?: boolean;
+  /**
+   * Should trap focus inside modal.
+   * @default true
+   */
+  trapFocus?: boolean;
+  /**
+   * Set style of overlay.
+   */
+  overlay?: 'none';
 }
 
 export const Modal = (props: ModalProps): JSX.Element | null => {
-  const { children, size = 6, cardProps = {}, hideCloseButton, position } = props;
+  const {
+    children,
+    size = 6,
+    cardProps = {},
+    hideCloseButton,
+    position,
+    lockScroll = true,
+    trapFocus = true,
+    overlay = undefined,
+  } = props;
   const { getLabel } = useLabels();
   const labelId = props['aria-labelledby'];
   const descriptionId = props['aria-describedby'];
-  const { isOpen, floating, getFloatingProps, context, persist } = React.useContext(ModalContext);
+  const { isOpen, floating, getFloatingProps, context, isDismissable } = React.useContext(ModalContext);
 
   return (
     <FloatingPortal data-name="modal">
       {isOpen && (
         <FloatingOverlay
-          lockScroll={!persist}
+          lockScroll={lockScroll}
           className={cn(styles['modal'], styles[`modal--${size}`], styles[`modal--${position}`], {
-            [styles['modal--persist']]: persist,
+            [styles['modal--no-overlay']]: overlay === 'none',
           })}
-          style={persist ? { inset: '' } : {}}
         >
-          <FloatingFocusManager context={context} closeOnFocusOut={!persist} modal={!persist}>
+          <FloatingFocusManager context={context} closeOnFocusOut={isDismissable} modal={trapFocus}>
             <div
               {...getFloatingProps({
                 ref: floating,
                 className: styles['modal__inner'],
                 'aria-labelledby': labelId,
                 'aria-describedby': descriptionId,
-                'aria-modal': !persist,
+                'aria-modal': trapFocus,
               })}
             >
               <Card {...cardProps} className={cn(styles['modal__card'], cardProps?.className)}>
