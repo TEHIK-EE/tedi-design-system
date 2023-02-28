@@ -11,7 +11,7 @@
 }
 
 .accordion__item-header {
-  padding: 1rem 1.5rem;
+  padding: 1rem;
   color: var(--color-secondary);
   background: var(--color-white);
   border-radius: var(--card-border-radius);
@@ -29,7 +29,7 @@
 }
 
 .accordion__item-content {
-  padding: 1.5rem;
+  padding: 1rem;
   background: var(--color-white);
   border-top: 1px solid var(--color-background-dark);
   border-bottom-right-radius: var(--card-border-radius);
