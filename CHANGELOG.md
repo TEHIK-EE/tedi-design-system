@@ -1,3 +1,10 @@
+# [2.19.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.18.0...v2.19.0) (2023-02-28)
+
+
+### Features
+
+* **stepper:** TEHVEER-85 - improve stepper navigation mobile and tablet view ([bdec984](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/bdec9847c04634a6e0868f749805476961eb4f4a))
+
 # [2.18.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.17.0...v2.18.0) (2023-02-28)
 
 
