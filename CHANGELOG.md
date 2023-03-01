@@ -1,3 +1,10 @@
+## [2.20.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.20.0...v2.20.1) (2023-03-01)
+
+
+### Bug Fixes
+
+* **scroll-fade:** TEHVEER-87 - add height 100% to scroll-fade__inner ([8cb55a1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/8cb55a1b304966d2c411d019918db981fc4732ec))
+
 # [2.20.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.19.2...v2.20.0) (2023-02-28)
 
 
