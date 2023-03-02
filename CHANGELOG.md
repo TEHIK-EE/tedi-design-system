@@ -1,3 +1,10 @@
+## [2.21.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.21.0...v2.21.1) (2023-03-02)
+
+
+### Bug Fixes
+
+* **ScreenLayout:** TEHVEER-89 - rename Layout to ScreenLayout ([f33f204](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/f33f204356be206c3ad058d8ba6b7877e745f6b5))
+
 # [2.21.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.20.1...v2.21.0) (2023-03-02)
 
 
