@@ -61,14 +61,6 @@ $sizes: (
 }
 
 .separator--full-width {
-  margin-right: calc(var(--card-padding-default) * -1);
-  margin-left: calc(var(--card-padding-default) * -1);
-
-  &.separator--vertical {
-    height: calc(100% + var(--card-padding-default) * 2);
-    margin: calc(var(--card-padding-default) * -1) 0;
-  }
-
   @each $spacing in variables.$card-spacing {
     [data-padding='#{$spacing}'] & {
       margin-right: calc(var(--card-padding-#{$spacing}) * -1);

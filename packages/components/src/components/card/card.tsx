@@ -8,6 +8,8 @@ import CardContent, { CardContentProps } from './card-content/card-content';
 import { CardContext } from './card-context';
 import CardHeader, { CardHeaderProps } from './card-header/card-header';
 
+export type CardPadding = 'none' | 'xsmall' | 'small' | 'medium' | 'large';
+
 export type CardProps = {
   /**
    * CardHeader and/or CardContent.
@@ -30,10 +32,15 @@ export type CardProps = {
    * Top-left / Top-right / Bottom-right / Bottom-left
    * */
   borderRadius?: { top?: boolean; right?: boolean; bottom?: boolean; left?: boolean };
-} & Pick<CardContentProps, 'padding' | 'background'>;
+  /**
+   * Card padding
+   * @default medium
+   */
+  padding?: CardPadding;
+} & Pick<CardContentProps, 'background'>;
 
 export const Card = forwardRef<HTMLDivElement, CardProps>((props, ref): JSX.Element => {
-  const { children, className, padding, background, type, borderRadius, ...rest } = props;
+  const { children, className, padding = 'medium', background, type, borderRadius, ...rest } = props;
   const BEM = cn(styles['card'], className, {
     [styles[`card--${type}`]]: type,
     [styles['card--no-border-radius-top']]: borderRadius?.top === false,

@@ -154,17 +154,17 @@ TypeSuccess.args = {
 export const PaddingNone = Template.bind({});
 PaddingNone.args = {
   ...Default.args,
-  cardHeader: false,
-  cardContent: {
+  card: {
     padding: 'none',
   },
+  cardHeader: true,
 };
 
 export const PaddingXSmall = Template.bind({});
 PaddingXSmall.args = {
   ...Default.args,
-  cardHeader: false,
-  cardContent: {
+  cardHeader: true,
+  card: {
     padding: 'xsmall',
   },
 };
@@ -172,16 +172,30 @@ PaddingXSmall.args = {
 export const PaddingSmall = Template.bind({});
 PaddingSmall.args = {
   ...Default.args,
-  cardHeader: false,
-  cardContent: {
+  cardHeader: true,
+  card: {
     padding: 'small',
   },
 };
 
-export const PaddingFromCard = Template.bind({});
-PaddingFromCard.args = {
+export const PaddingLarge = Template.bind({});
+PaddingLarge.args = {
   ...Default.args,
-  cardHeader: false,
+  cardHeader: {
+    variant: 'white',
+  },
+  card: {
+    padding: 'large',
+  },
+};
+
+export const OverridePaddingFromCard = Template.bind({});
+OverridePaddingFromCard.args = {
+  ...Default.args,
+  cardContent: {
+    padding: 'small',
+  },
+  cardHeader: true,
   card: {
     padding: 'large',
   },

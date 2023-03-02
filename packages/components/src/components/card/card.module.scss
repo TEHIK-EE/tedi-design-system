@@ -86,7 +86,6 @@
 
 .card__content {
   flex: 1 1 1px;
-  padding: var(--card-padding-default);
 
   @each $spacing in variables.$card-spacing {
     &--padding-#{$spacing} {
@@ -107,12 +106,16 @@
 }
 
 .card__header {
-  padding: 1rem 1.5rem;
-
   @media print {
     color: var(--color-black);
     background: var(--color-white);
     border-bottom: 1px solid var(--color-background-dark);
+  }
+
+  @each $spacing in variables.$card-spacing {
+    &--padding-#{$spacing} {
+      padding: var(--card-padding-#{$spacing});
+    }
   }
 }
 
