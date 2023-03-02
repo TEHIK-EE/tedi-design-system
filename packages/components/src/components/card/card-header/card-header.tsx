@@ -1,6 +1,9 @@
 import cn from 'classnames';
+import React from 'react';
 
+import { CardPadding } from '../card';
 import styles from '../card.module.scss';
+import { CardContext } from '../card-context';
 
 export type CardHeaderVariant = 'default' | 'white';
 
@@ -24,11 +27,22 @@ export interface CardHeaderProps {
    * @default default
    */
   variant?: CardHeaderVariant;
+  /**
+   * Card Header padding
+   * @default Padding of Card
+   */
+  padding?: CardPadding;
 }
 
 export const CardHeader = (props: CardHeaderProps): JSX.Element => {
-  const { children, className, style, variant = 'default', ...rest } = props;
-  const BEM = cn(styles['card__header'], styles[`card__header--${style || variant}`], className);
+  const { padding: rootPadding } = React.useContext(CardContext);
+  const { children, className, style, variant = 'default', padding = rootPadding, ...rest } = props;
+  const BEM = cn(
+    styles['card__header'],
+    styles[`card__header--${style || variant}`],
+    styles[`card__header--padding-${padding}`],
+    className
+  );
 
   return (
     <div data-name="card-header" {...rest} className={BEM}>

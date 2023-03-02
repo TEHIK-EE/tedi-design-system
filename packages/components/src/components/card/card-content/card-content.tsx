@@ -3,6 +3,7 @@ import React from 'react';
 
 import { getBackgroundColorClass } from '../../colors/colors';
 import { TColorsBackground } from '../../commonTypes';
+import { CardPadding } from '../card';
 import styles from '../card.module.scss';
 import { CardContext } from '../card-context';
 
@@ -19,7 +20,7 @@ export interface CardContentProps {
    * Card content padding
    * @default Padding of Card
    */
-  padding?: 'none' | 'xsmall' | 'small' | 'medium' | 'large';
+  padding?: CardPadding;
   /**
    * Background color of card content
    * @default Background of Card
@@ -30,9 +31,12 @@ export interface CardContentProps {
 export const CardContent = (props: CardContentProps): JSX.Element => {
   const { padding: rootPadding, background: rootBackground } = React.useContext(CardContext);
   const { children, className, padding = rootPadding, background = rootBackground, ...rest } = props;
-  const CardContentBEM = cn(styles['card__content'], className, styles[`card__content--padding-${padding}`], {
-    [getBackgroundColorClass(background)]: background,
-  });
+  const CardContentBEM = cn(
+    styles['card__content'],
+    styles[`card__content--padding-${padding}`],
+    { [getBackgroundColorClass(background)]: background },
+    className
+  );
 
   return (
     <div data-name="card-content" {...rest} data-padding={padding} className={CardContentBEM}>
