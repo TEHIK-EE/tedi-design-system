@@ -4,8 +4,8 @@ export const mobileBreakpoints: Breakpoint[] = ['xs', 'sm'];
 export const tabletBreakpoints: Breakpoint[] = ['md'];
 export const desktopBreakpoints: Breakpoint[] = ['lg', 'xl', 'xxl'];
 
-export type Layout = 'mobile' | 'tablet' | 'desktop';
-export type Layouts = Array<Breakpoint | Layout>;
+export type ScreenLayout = 'mobile' | 'tablet' | 'desktop';
+export type Layouts = Array<Breakpoint | ScreenLayout>;
 
 export const useLayout = (layouts: Layouts): boolean => {
   const breakpoint = useBreakpoint();
