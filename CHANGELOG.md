@@ -1,3 +1,10 @@
+# [2.21.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.20.1...v2.21.0) (2023-03-02)
+
+
+### Features
+
+* **card:** TEHVEER-88 - add paddings to card header ([98132c1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/98132c14aff844dd48dad43d16b60ef5c190711c))
+
 ## [2.20.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.20.0...v2.20.1) (2023-03-01)
 
 
