@@ -1,3 +1,10 @@
+## [2.21.2](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.21.1...v2.21.2) (2023-03-03)
+
+
+### Bug Fixes
+
+* **datepickers:** TEHVEER-90 - Fix double scroll on year picker view ([a21ca0d](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/a21ca0df81e20dbe879b06848caefd23b23532d8))
+
 ## [2.21.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.21.0...v2.21.1) (2023-03-02)
 
 
