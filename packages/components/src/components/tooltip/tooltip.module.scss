@@ -49,7 +49,7 @@
   }
 }
 
-.tooltip__trigger {
+.tooltip__trigger:not(button, a) {
   cursor: default;
   user-select: text;
 }

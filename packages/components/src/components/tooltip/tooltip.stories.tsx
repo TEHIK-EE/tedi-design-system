@@ -86,7 +86,13 @@ OuterControlled.args = {
 export const TriggerButton = Template.bind({});
 TriggerButton.args = {
   ...Default.args,
-  trigger: <Button>Hover me</Button>,
+  trigger: <Button onClick={() => console.log('onClick action triggered')}>Hover me</Button>,
+};
+
+export const TriggerAnchor = Template.bind({});
+TriggerAnchor.args = {
+  ...Default.args,
+  trigger: <Anchor onClick={() => console.log('onClick action triggered')}>Hover me</Anchor>,
 };
 
 export const TriggerCardCustomContent = Template.bind({});
@@ -120,34 +126,42 @@ export const TooltipWidth: Story = () => {
           voluptatum!`;
 
   return (
-    <div className="text-center">
-      <TooltipProvider>
-        <TooltipTrigger>
-          <Button>Tooltip with no width limit</Button>
-        </TooltipTrigger>
-        <Tooltip maxWidth="none">{tooltiptext}</Tooltip>
-      </TooltipProvider>
+    <Row justifyContent="center" gap={5}>
+      <Col width="auto">
+        <TooltipProvider>
+          <TooltipTrigger>
+            <p>Tooltip with no width limit</p>
+          </TooltipTrigger>
+          <Tooltip maxWidth="none">{tooltiptext}</Tooltip>
+        </TooltipProvider>
+      </Col>
 
-      <TooltipProvider>
-        <TooltipTrigger>
-          <Button>Small tooltip width</Button>
-        </TooltipTrigger>
-        <Tooltip maxWidth="small">{tooltiptext}</Tooltip>
-      </TooltipProvider>
+      <Col width="auto">
+        <TooltipProvider>
+          <TooltipTrigger>
+            <p>Small tooltip width</p>
+          </TooltipTrigger>
+          <Tooltip maxWidth="small">{tooltiptext}</Tooltip>
+        </TooltipProvider>
+      </Col>
 
-      <TooltipProvider>
-        <TooltipTrigger>
-          <Button>Medium tooltip width</Button>
-        </TooltipTrigger>
-        <Tooltip>{tooltiptext}</Tooltip>
-      </TooltipProvider>
+      <Col width="auto">
+        <TooltipProvider>
+          <TooltipTrigger>
+            <p>Medium tooltip width</p>
+          </TooltipTrigger>
+          <Tooltip>{tooltiptext}</Tooltip>
+        </TooltipProvider>
+      </Col>
 
-      <TooltipProvider>
-        <TooltipTrigger>
-          <Button>Large tooltip width</Button>
-        </TooltipTrigger>
-        <Tooltip maxWidth="large">{tooltiptext}</Tooltip>
-      </TooltipProvider>
-    </div>
+      <Col width="auto">
+        <TooltipProvider>
+          <TooltipTrigger>
+            <p>Large tooltip width</p>
+          </TooltipTrigger>
+          <Tooltip maxWidth="large">{tooltiptext}</Tooltip>
+        </TooltipProvider>
+      </Col>
+    </Row>
   );
 };
