@@ -9,11 +9,14 @@ export default {
   title: 'components/LabelProvider',
   component: LabelProvider,
   decorators: [
-    (Story, options) => (
-      <StorybookDecorator {...options.args}>
-        <Story />
-      </StorybookDecorator>
-    ),
+    (Story, options) => {
+      console.log(options.args);
+      return (
+        <StorybookDecorator {...options.args}>
+          <Story />
+        </StorybookDecorator>
+      );
+    },
   ],
   parameters: {
     docs: {
@@ -28,7 +31,10 @@ const Template: Story<LabelProviderProps> = (args) => {
 
   return (
     <>
-      <p>{getLabel('close')}</p>
+      <p>
+        {getLabel('close')}
+        <span className="text-secondary text-small"> (Custom label provided by Application)</span>
+      </p>
       <p>1 {typeof pluralLabel === 'string' ? pluralLabel : pluralLabel(1)}</p>
       <p>4 {typeof pluralLabel === 'string' ? pluralLabel : pluralLabel(4)}</p>
       <p>
@@ -46,8 +52,7 @@ export const Default = Template.bind({});
 Default.args = {
   locale: 'en',
   labels: {
-    close: 'Pane kinni',
-    'pagination.results': (count) => (count === 1 ? 'nimi' : 'nime'),
+    close: 'Close this',
   },
 };
 Default.parameters = {
