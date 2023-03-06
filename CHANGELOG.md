@@ -1,3 +1,10 @@
+## [2.21.3](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.21.2...v2.21.3) (2023-03-06)
+
+
+### Bug Fixes
+
+* **tooltip-trigger:** do not overwrite button and link cursor when wrapped in trigger - TEHVEER-92 ([5018b9a](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/5018b9a521d053cde1d8ad24fcd9c0c090146d6b))
+
 ## [2.21.2](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.21.1...v2.21.2) (2023-03-03)
 
 
