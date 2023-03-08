@@ -78,12 +78,6 @@
   border-radius: 0;
 }
 
-@each $color in variables.$card-border-colors {
-  .card--border-#{$color} {
-    border-color: var(--color-#{$color});
-  }
-}
-
 .card__content {
   flex: 1 1 1px;
 
