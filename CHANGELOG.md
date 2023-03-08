@@ -1,3 +1,16 @@
+## [2.21.4](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.21.3...v2.21.4) (2023-03-08)
+
+
+### Bug Fixes
+
+* **card:** Remove unused styles ([3513dba](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/3513dba53aa791154968484fe3ef7a0e28561b4c))
+* **classNameIcon:** Change deprecated prop ([e62378c](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/e62378c5d36c7692091e62a499d4124d28d77259))
+* **collapse:** fix button colors ([307c1a7](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/307c1a7f1f7cc37373249bb5bf9ef5bc9b01317b))
+* **dropdown:** Use variable not hex ([0da3e04](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/0da3e042974c89ed08059ceb1ee1fd6864fad579))
+* **no-release:** Fix color style issues ([a0da30d](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/a0da30df0571c7ea23b062f64a5c73e64098bd50))
+* **select:** remove variable not defined ([0047614](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/00476142bf361631c6cd694d57abf4ee821c56db))
+* **sidenav:** sync  item bg-color on hover ([4c54193](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/4c54193ce604e86b657614cfa33b0788a148e4b0))
+
 ## [2.21.3](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.21.2...v2.21.3) (2023-03-06)
 
 
