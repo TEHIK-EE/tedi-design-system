@@ -59,10 +59,12 @@ export const Header = <H extends React.ElementType = 'a'>(props: HeaderProps<H>)
           {!hideToggle && hasSidenavItems ? (
             <Button
               {...getReferenceProps({ ref: reference })}
-              icon={menuOpen ? 'close' : 'menu'}
+              icon={{
+                name: menuOpen ? 'close' : 'menu',
+                className: styles['header__toggle-icon'],
+              }}
               visualType="primary"
               className={styles['header__toggle']}
-              classNameIcon={styles['header__toggle-icon']}
             >
               {typeof toggleLabel === 'string' ? toggleLabel : toggleLabel(menuOpen)}
             </Button>

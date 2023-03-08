@@ -44,9 +44,11 @@ export function TableLayout<TData extends DefaultTData<TData>>(): JSX.Element | 
       <Print visibility="show">
         <Button
           visualType="link"
-          icon={sortingDirection ? 'expand_more' : 'unfold_more'}
+          icon={{
+            name: sortingDirection ? 'expand_more' : 'unfold_more',
+            className: SortIconBEM,
+          }}
           className={cn(styles['sort__button'])}
-          classNameIcon={SortIconBEM}
           onClick={cb}
         >
           <span className="sr-only">

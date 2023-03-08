@@ -43,11 +43,13 @@ export function TableFilter<TData extends DefaultTData<TData>>(props: TableFilte
           <TooltipTrigger>
             <Button
               visualType="link"
-              icon="filter_alt"
+              icon={{
+                name: 'filter_alt',
+                className: cn(styles['filter__icon'], {
+                  [styles['filter__icon--active']]: !!column.getFilterValue() || open,
+                }),
+              }}
               className={cn(styles['filter__button'], 'show-print')}
-              classNameIcon={cn(styles['filter__icon'], {
-                [styles['filter__icon--active']]: !!column.getFilterValue() || open,
-              })}
             >
               <span className="sr-only">{getLabel('table.filter')}</span>
             </Button>
