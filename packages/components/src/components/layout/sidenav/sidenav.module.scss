@@ -54,6 +54,8 @@ a.sidenav__link {
   text-decoration: none;
   word-break: break-word;
   border-radius: 0;
+  transition: 200ms ease;
+  transition-property: background-color, color;
 
   --global-outline-color: var(--color-white);
   --global-outline-offset: -2px;
@@ -63,7 +65,7 @@ a.sidenav__link {
     text-align: center;
   }
 
-  &[role='menuitem']:hover {
+  &:hover {
     font: inherit;
     color: var(--color-white);
     background-color: var(--color-secondary);
