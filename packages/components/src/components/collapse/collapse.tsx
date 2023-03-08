@@ -4,6 +4,7 @@ import AnimateHeight from 'react-animate-height';
 
 import { usePrint } from '../../helpers';
 import { useLabels } from '../../providers/label-provider';
+import { Button } from '../button/button';
 import { Col, Row } from '../grid';
 import Heading, { HeadingProps } from '../heading/heading';
 import Icon from '../icon/icon';
@@ -94,7 +95,7 @@ export const Collapse = (props: CollapseProps): JSX.Element => {
                 <Col
                   width="auto"
                   className={cn('text-small', 'text-primary', 'text-bold', {
-                    [styles['collapse__text--visually-hidden']]: hideCollapseText,
+                    'visually-hidden': hideCollapseText,
                   })}
                 >
                   {isOpen ? closeText : openText}

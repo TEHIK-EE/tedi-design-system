@@ -13,17 +13,10 @@
 }
 
 .collapse__icon {
+  color: var(--color-primary);
   transition: transform 0.3s ease-in-out;
-
-  .collapse--primary & {
-    color: var(--color-primary);
-  }
 
   .collapse--is-open & {
     transform: rotate(180deg);
   }
-}
-
-.collapse__text--visually-hidden {
-  @include mixins.visually-hidden;
 }
