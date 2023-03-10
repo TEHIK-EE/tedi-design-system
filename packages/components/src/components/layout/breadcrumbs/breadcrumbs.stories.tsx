@@ -13,35 +13,29 @@ export default {
   },
 } as Meta<BreadcrumbsProps>;
 
+// eslint-disable-next-line storybook/prefer-pascal-case
+const exampleCrumbs = [
+  { href: '/', children: 'Home' },
+  { href: { pathname: '/volunteers' }, children: 'Volunteers' },
+  {
+    href: { pathname: '/volunteers/volunteer', query: { id: '20' } },
+    children: '20',
+    isLast: true,
+  },
+];
+
 const Template: Story<BreadcrumbsProps<typeof LinkBehaviour>> = (args) => <Breadcrumbs {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
   linkAs: LinkBehaviour,
-  crumbs: [
-    { href: '/', children: 'Home' },
-    { href: { pathname: '/volunteers' }, children: 'Volunteers' },
-    {
-      href: { pathname: '/volunteers/volunteer', query: { id: '20' } },
-      children: '20',
-      isLast: true,
-    },
-  ],
+  crumbs: exampleCrumbs,
 };
 
 export const ForcedMinimalCrumbs = Template.bind({});
 ForcedMinimalCrumbs.args = {
-  linkAs: LinkBehaviour,
+  ...Default.args,
   showMinimalCrumbs: true,
-  crumbs: [
-    { href: '/', children: 'Home' },
-    { href: { pathname: '/volunteers' }, children: 'Volunteers' },
-    {
-      href: { pathname: '/volunteers/volunteer', query: { id: '20' } },
-      children: '20',
-      isLast: true,
-    },
-  ],
 };
 ForcedMinimalCrumbs.parameters = {
   docs: {

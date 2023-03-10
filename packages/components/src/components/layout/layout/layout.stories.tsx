@@ -5,17 +5,34 @@ import Button from '../../button/button';
 import Section from '../../section/section';
 import StretchContent from '../../stretch-content/stretch-content';
 import { VerticalSpacing } from '../../vertical-spacing';
-import Breadcrumbs from '../breadcrumbs/breadcrumbs';
+import Breadcrumbs, { BreadcrumbsProps } from '../breadcrumbs/breadcrumbs';
+import { Default as BreadcrumbsDefault } from '../breadcrumbs/breadcrumbs.stories';
 import Footer, { FooterProps } from '../footer/footer';
+import { Default as FooterDefault } from '../footer/footer.stories';
 import Header from '../header/header';
-import { Default as HeaderDefault, renderCustomHeader } from '../header/header.stories';
-import SideNav, { SideNavItem } from '../sidenav/sidenav';
+import { Default as HeaderDefault } from '../header/header.stories';
+import SideNav, { SideNavProps } from '../sidenav/sidenav';
+import { Default as SidenavDefault } from '../sidenav/sidenav.stories';
 import { ILayoutProps, Layout } from './layout';
+
+const defaultContent = (
+  <Section>
+    <VerticalSpacing>
+      <h1>Page title & content</h1>
+      <Button>Focusable item</Button>
+    </VerticalSpacing>
+  </Section>
+);
 
 export default {
   title: 'components/Layout/Layout',
   component: Layout,
   subcomponents: { Header, SideNav, Footer, Breadcrumbs },
+  argTypes: {
+    children: {
+      control: { type: 'function' },
+    },
+  },
   parameters: {
     docs: {
       inlineStories: false,
@@ -26,49 +43,7 @@ export default {
   },
 } as Meta;
 
-const navItems: SideNavItem[] = [
-  { href: '#', children: 'Avaleht', icon: 'home' },
-  { href: '#', children: 'Kliendid', icon: 'account_box' },
-  { href: '/', children: 'Lapsed', icon: 'child_care', isActive: true },
-  { href: '#', children: 'Mingi väga pikk tekst miseimahukuidagigisiiaära', icon: 'assignment' },
-  { href: '#', children: 'Menetlused', icon: 'assignment' },
-  { href: '#', children: 'Menetlused', icon: 'assignment' },
-  { href: '#', children: 'Menetlused', icon: 'assignment' },
-];
-
-const footerProps: FooterProps = {
-  categories: [
-    {
-      heading: 'Category',
-      icon: 'call_made',
-      links: [
-        { children: 'Text link', href: '#' },
-        { children: 'Text link', href: '#' },
-        { children: 'Text link', href: '#' },
-      ],
-    },
-    {
-      heading: 'Category',
-      icon: 'call_made',
-      links: [
-        { children: 'Text link', href: '#' },
-        { children: 'Text link', href: '#' },
-        { children: 'Text link', href: '#' },
-      ],
-    },
-    {
-      heading: 'Category',
-      icon: 'call_made',
-      links: [
-        { children: 'Text link', href: '#' },
-        { children: 'Text link', href: '#' },
-        { children: 'Text link', href: '#' },
-      ],
-    },
-  ],
-};
-
-export const Default: Story<ILayoutProps> = () => {
+const Template: Story<ILayoutProps> = (args) => {
   const isSmallLayout = useLayout(['mobile', 'tablet']);
 
   const footerLogo: FooterProps['logo'] = {
@@ -79,100 +54,51 @@ export const Default: Story<ILayoutProps> = () => {
       : { width: '3.75rem', height: '7rem', borderRadius: '0.25rem' },
   };
 
+  const footerProps = { ...args.footer, logo: footerLogo } as FooterProps;
+
   return (
-    <Layout
-      header={{ ...HeaderDefault.args, children: renderCustomHeader(isSmallLayout) }}
-      sideNav={{
-        navItems,
-        ariaLabel: 'Menüü',
-      }}
-      breadcrumbsProps={{
-        crumbs: [
-          { href: '#', children: 'Home' },
-          { href: '/volunteers', children: 'Volunteers' },
-          { href: '/volunteers/20', children: '20', isLast: true },
-        ],
-      }}
-      footer={{ ...footerProps, logo: footerLogo }}
-      mainLogo={{
-        src: '/sf_logod.jpg',
-        alt: 'Euroopa struktuuri- ja investeerimisfondide logo',
-        style: { width: '6.625rem', height: '4rem', borderRadius: '0.25rem' },
-      }}
-    >
-      <Section>
-        <VerticalSpacing>
-          <h1>Page title & content</h1>
-          <Button>Focusable item</Button>
-        </VerticalSpacing>
-      </Section>
+    <Layout {...args} footer={footerProps}>
+      {args.children}
     </Layout>
   );
 };
 
-export const Simple: Story<ILayoutProps> = () => {
-  const isMobileLayout = useLayout(['mobile']);
-
-  const footerLogo: FooterProps['logo'] = {
-    src: isMobileLayout ? '/sf_logod.jpg' : '/sf_logod_vertikaalne.jpg',
-    alt: 'logo',
-    style: isMobileLayout
-      ? { width: '9rem', height: '5.25rem', borderRadius: '0.25rem' }
-      : { width: '3.75rem', height: '7rem', borderRadius: '0.25rem' },
-  };
-
-  return (
-    <Layout
-      header={{
-        logoAnchor: { href: '#' },
-        onLogoutClick: () => console.log('Logging out'),
-        skipLinks: {
-          links: [{ children: 'Liigu edasi põhisisu juurde', href: '#main-content' }],
-        },
-      }}
-      footer={{ ...footerProps, logo: footerLogo }}
-      mainLogo={{
-        src: '/sf_logod.jpg',
-        alt: 'Euroopa struktuuri- ja investeerimisfondide logo',
-        style: { width: '6.625rem', height: '4rem', borderRadius: '0.25rem' },
-      }}
-    >
-      <Section>
-        <VerticalSpacing>
-          <h1>Page title & content</h1>
-          <Button>Focusable item</Button>
-        </VerticalSpacing>
-      </Section>
-    </Layout>
-  );
+export const Default = Template.bind({});
+Default.args = {
+  children: defaultContent,
+  header: HeaderDefault.args,
+  sideNav: SidenavDefault.args as SideNavProps,
+  footer: FooterDefault.args as FooterProps,
+  breadcrumbsProps: BreadcrumbsDefault.args as BreadcrumbsProps,
+  mainLogo: {
+    src: '/sf_logod.jpg',
+    alt: 'Euroopa struktuuri- ja investeerimisfondide logo',
+    style: { width: '6.625rem', height: '4rem', borderRadius: '0.25rem' },
+  },
 };
 
-export const MainGrow: Story<ILayoutProps> = () => {
-  const isSmallLayout = useLayout(['mobile']);
+export const Simple = Template.bind({});
+Simple.args = {
+  ...Default.args,
+  breadcrumbsProps: undefined,
+  sideNav: undefined,
+};
 
-  const footerLogo: FooterProps['logo'] = {
-    src: isSmallLayout ? '/sf_logod.jpg' : '/sf_logod_vertikaalne.jpg',
-    alt: 'logo',
-    style: isSmallLayout
-      ? { width: '9rem', height: '5.25rem', borderRadius: '0.25rem' }
-      : { width: '3.75rem', height: '7rem', borderRadius: '0.25rem' },
-  };
-
-  return (
-    <Layout
-      growMainContent
-      header={{
-        logoAnchor: { href: '#' },
-        onLogoutClick: () => console.log('Logging out'),
-      }}
-      footer={{ ...footerProps, logo: footerLogo }}
-    >
+export const MainGrow = Template.bind({});
+MainGrow.args = {
+  ...Default.args,
+  growMainContent: true,
+  sideNav: undefined,
+  breadcrumbsProps: undefined,
+  mainLogo: undefined,
+  children: (
+    <>
       {/* NB! This is only an example. Illustrations responsiveness must be implemented in app. */}
       <StretchContent className="not-found">
         <img alt="404 Page" src="/404.svg" className="not-found__image" />
       </StretchContent>
-    </Layout>
-  );
+    </>
+  ),
 };
 MainGrow.parameters = {
   docs: {
