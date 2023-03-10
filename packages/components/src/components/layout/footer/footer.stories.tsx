@@ -16,6 +16,36 @@ export default {
   },
 } as Meta;
 
+const exampleFooterCategories = [
+  {
+    heading: 'Category',
+    icon: 'call_made',
+    links: [
+      { children: 'Text link', href: '#' },
+      { children: 'Text link', href: '#' },
+      { children: 'Text link', href: '#' },
+    ],
+  },
+  {
+    heading: 'Category',
+    icon: 'call_made',
+    links: [
+      { children: 'Text link', href: '#' },
+      { children: 'Text link', href: '#' },
+      { children: 'Text link', href: '#' },
+    ],
+  },
+  {
+    heading: 'Category',
+    icon: 'call_made',
+    links: [
+      { children: 'Text link', href: '#' },
+      { children: 'Text link', href: '#' },
+      { children: 'Text link', href: '#' },
+    ],
+  },
+];
+
 const Template: Story<FooterProps<typeof LinkBehaviour>> = (args) => {
   const isMobileLayout = useLayout(['mobile']);
 
@@ -40,41 +70,12 @@ const Template: Story<FooterProps<typeof LinkBehaviour>> = (args) => {
 export const Default = Template.bind({});
 Default.args = {
   linkAs: LinkBehaviour,
-  categories: [
-    {
-      heading: 'Category',
-      icon: 'call_made',
-      links: [
-        { children: 'Text link', href: '#' },
-        { children: 'Text link', href: '#' },
-        { children: 'Text link', href: '#' },
-      ],
-    },
-    {
-      heading: 'Category',
-      icon: 'call_made',
-      links: [
-        { children: 'Text link', href: '#' },
-        { children: 'Text link', href: '#' },
-        { children: 'Text link', href: '#' },
-      ],
-    },
-    {
-      heading: 'Category',
-      icon: 'call_made',
-      links: [
-        { children: 'Text link', href: '#' },
-        { children: 'Text link', href: '#' },
-        { children: 'Text link', href: '#' },
-      ],
-    },
-  ],
+  categories: exampleFooterCategories,
 };
 
 export const Laeh = Template.bind({});
 Laeh.args = {
   ...Default.args,
-  linkAs: LinkBehaviour,
   categories: [
     {
       heading: 'STAR kasutajatugi',
