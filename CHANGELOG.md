@@ -1,3 +1,10 @@
+## [2.21.5](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.21.4...v2.21.5) (2023-03-10)
+
+
+### Bug Fixes
+
+* **layout:** TEHVEER-95 - change layout min-width to 320px ([b486253](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/b48625309a3af9332931e6b2dc15d7b671e09fb4))
+
 ## [2.21.4](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.21.3...v2.21.4) (2023-03-08)
 
 
