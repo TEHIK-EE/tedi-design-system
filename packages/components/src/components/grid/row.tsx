@@ -2,6 +2,7 @@ import cn from 'classnames';
 import React from 'react';
 
 import { validateChildren } from '../../helpers/validators/validateChildren';
+import { DEVICE_SIZES } from '../commonTypes';
 import { Col, ColProps } from './col';
 import styles from './grid.module.scss';
 import { RowContext } from './row-context';
@@ -101,8 +102,6 @@ export interface RowProps extends RowSpec {
    */
   xxl?: RowSpec | Cols;
 }
-
-const DEVICE_SIZES = ['xxl', 'xl', 'lg', 'md', 'sm', 'xs'] as const;
 
 export const Row = (props: RowProps): JSX.Element => {
   const {

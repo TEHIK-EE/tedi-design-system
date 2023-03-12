@@ -10,3 +10,5 @@ export type TColorsBackground =
   | 'primary-1'
   | 'primary-2'
   | 'primary-3';
+
+export const DEVICE_SIZES = ['xxl', 'xl', 'lg', 'md', 'sm', 'xs'] as const;
