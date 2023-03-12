@@ -1,6 +1,4 @@
-import { ArgsTable, Description, Primary, PRIMARY_STORY, Stories, Subtitle, Title } from '@storybook/addon-docs';
 import { Meta, Story } from '@storybook/react';
-import React from 'react';
 import { ToastContainer } from 'react-toastify';
 
 import Button from '../button/button';
@@ -13,20 +11,11 @@ export default {
   component: Notification,
   parameters: {
     docs: {
-      page: () => (
-        <>
-          <Title />
-          <Subtitle>Toast helper function to call taost notifications.</Subtitle>
-          <Description>
-            Toast exports `sendNotification` function that takes notification props as input and when called shows Toast
-            on bottom-left of the page. `ToastContainer` component is also exported and has to be added to index of
-            application.
-          </Description>
-          <Primary />
-          <ArgsTable story={PRIMARY_STORY} />
-          <Stories />
-        </>
-      ),
+      description: {
+        component: `Toast exports <code>sendNotification</code> function that takes notification props as input and when called shows Toast
+          on bottom-left of the page. <code>ToastContainer</code> component is also exported and has to be added to index of
+          application.`,
+      },
     },
   },
 } as Meta;

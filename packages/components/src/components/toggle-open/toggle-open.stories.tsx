@@ -1,4 +1,3 @@
-import { ArgsTable, Description, Primary, PRIMARY_STORY, Stories, Subtitle, Title } from '@storybook/addon-docs';
 import { Meta } from '@storybook/react';
 import React from 'react';
 
@@ -9,16 +8,10 @@ export default {
   component: ToggleOpen,
   parameters: {
     docs: {
-      page: () => (
-        <>
-          <Title />
-          <Subtitle>Toggle helper that toggles the button open-close with expand_more icon.</Subtitle>
-          <Description>Button is already used in Accordion component.</Description>
-          <Primary />
-          <ArgsTable story={PRIMARY_STORY} />
-          <Stories />
-        </>
-      ),
+      description: {
+        component:
+          'Toggle helper that toggles the button open-close with expand_more icon. Toggle is already used in Accordion component.',
+      },
     },
   },
 } as Meta;

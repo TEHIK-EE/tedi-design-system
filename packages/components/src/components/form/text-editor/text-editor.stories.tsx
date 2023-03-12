@@ -1,4 +1,3 @@
-import { ArgsTable, Description, Primary, PRIMARY_STORY, Stories, Title } from '@storybook/addon-docs';
 import { Meta, Story } from '@storybook/react';
 import dompurify from 'dompurify';
 import React from 'react';
@@ -13,20 +12,12 @@ export default {
   component: TextEditor,
   parameters: {
     docs: {
-      page: () => (
-        <>
-          <Title />
-          <Description>
-            TextEditor is built with [draft.js](https://draftjs.org/). It takes markdown string as input and outputs
-            also markdown string. In example we used [showdown.js](https://github.com/showdownjs/showdown) to get HTML
-            elements of markdown. It is **highly recommended** to use [dompurify](https://github.com/cure53/DOMPurify)
-            before using HTML content inside your app.
-          </Description>
-          <Primary />
-          <ArgsTable story={PRIMARY_STORY} />
-          <Stories />
-        </>
-      ),
+      description: {
+        component: `TextEditor is built with [draft.js](https://draftjs.org/). It takes markdown string as input and outputs
+          also markdown string. In example we used [showdown.js](https://github.com/showdownjs/showdown) to get HTML
+          elements of markdown. It is **highly recommended** to use [dompurify](https://github.com/cure53/DOMPurify)
+          before using HTML content inside your app.`,
+      },
     },
   },
 } as Meta;

@@ -1,4 +1,3 @@
-import { ArgsTable, CURRENT_SELECTION, Description, Primary, Stories, Title } from '@storybook/addon-docs';
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
 
@@ -9,18 +8,10 @@ export default {
   components: Check,
   parameters: {
     docs: {
-      page: () => (
-        <>
-          <Title />
-          <Description>
-            Most of the times you should use `ChoiceGroup` component. But we also export a single `Check` component for
-            custom use cases.
-          </Description>
-          <Primary />
-          <ArgsTable story={CURRENT_SELECTION} />
-          <Stories />
-        </>
-      ),
+      description: {
+        component:
+          'Most of the times you should use `ChoiceGroup` component. But we also export a single `Check` component for custom use cases.',
+      },
     },
   },
 } as Meta;

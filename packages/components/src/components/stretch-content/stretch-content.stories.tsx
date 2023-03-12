@@ -1,6 +1,4 @@
-import { ArgsTable, CURRENT_SELECTION, Description, Primary, Stories, Title } from '@storybook/addon-docs';
 import { Meta, Story } from '@storybook/react';
-import React from 'react';
 
 import Button from '../button/button';
 import { Card } from '../card';
@@ -15,19 +13,11 @@ export default {
   component: StretchContent,
   parameters: {
     docs: {
-      page: () => (
-        <>
-          <Title />
-          <Description>
-            StretchContent helps with cases where parent size is not defined by its children and you need to scale the
-            children to take all available space. A real world use-case would be multiple Cards in one row. Example for
-            that can be found in Equal Height Card stories.
-          </Description>
-          <Primary />
-          <ArgsTable story={CURRENT_SELECTION} />
-          <Stories />
-        </>
-      ),
+      description: {
+        component: `StretchContent helps with cases where parent size is not defined by its children and you need to scale the
+          children to take all available space. A real world use-case would be multiple Cards in one row. Example for
+          that can be found in Equal Height Card stories.`,
+      },
     },
   },
 } as Meta;

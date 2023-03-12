@@ -1,6 +1,4 @@
-import { ArgsTable, Description, Primary, PRIMARY_STORY, Title } from '@storybook/addon-docs';
 import { Meta, Story } from '@storybook/react';
-import React from 'react';
 
 import { Col, Row } from '../grid';
 import HashTrigger, { HashTriggerProps } from './hash-trigger';
@@ -10,17 +8,10 @@ export default {
   component: HashTrigger,
   parameters: {
     docs: {
-      page: () => (
-        <>
-          <Title />
-          <Description>
-            This component provides opportunity to navigate to a specific element that is defined in the hash of the
-            URL. Try to change hash to test-1 to see it in action.
-          </Description>
-          <Primary />
-          <ArgsTable story={PRIMARY_STORY} />
-        </>
-      ),
+      description: {
+        component: `This component provides opportunity to navigate to a specific element that is defined in the hash of the
+          URL. Try to change hash to test-1 to see it in action.`,
+      },
     },
   },
 } as Meta;

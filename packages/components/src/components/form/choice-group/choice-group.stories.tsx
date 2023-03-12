@@ -1,28 +1,19 @@
-import { ArgsTable, CURRENT_SELECTION, Description, Primary, Stories, Title } from '@storybook/addon-docs';
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
 
-import ChoiceGroup from './choice-group';
-import { ChoiceGroupItemProps, ChoiceGroupProps } from './choice-group.types';
+import ChoiceGroup, { ChoiceGroupProps } from './choice-group';
+import { ChoiceGroupItemProps } from './choice-group.types';
 
 export default {
   title: 'components/Form/ChoiceGroup',
   component: ChoiceGroup,
   parameters: {
     docs: {
-      page: () => (
-        <>
-          <Title />
-          <Description>
-            ChoiceGroup is created to handle state of input with role radio or checkbox. It also has possibilty to
-            show/hide FormLabel of `fieldset` and show FormHelper to whole `fieldset`. Possibile visual variatsions are:
-            Check/Radio/Filter/Selector.
-          </Description>
-          <Primary />
-          <ArgsTable story={CURRENT_SELECTION} />
-          <Stories />
-        </>
-      ),
+      description: {
+        component: `ChoiceGroup is created to handle state of input with role radio or checkbox. It also has possibilty to
+          show/hide FormLabel of <code>fieldset</code> and show FormHelper to whole <code>fieldset</code>. Possibile visual variatsions are:
+          Check/Radio/Filter/Selector.`,
+      },
     },
   },
 } as Meta;

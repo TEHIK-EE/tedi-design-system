@@ -1,4 +1,3 @@
-import { ArgsTable, CURRENT_SELECTION, Description, Primary, Stories, Title } from '@storybook/addon-docs';
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
 
@@ -16,19 +15,11 @@ export default {
   component: Feedback,
   parameters: {
     docs: {
-      page: () => (
-        <>
-          <Title />
-          <Description>
-            Feedback component contains everything to render a modal, including the trigger button. It adds some default
-            props to the trigger and modal and renders the button on the right side for desktop and inline for mobile.
-            Feedback component should be rendered after the main content to have the correct focus order.
-          </Description>
-          <Primary />
-          <ArgsTable story={CURRENT_SELECTION} />
-          <Stories />
-        </>
-      ),
+      description: {
+        component: `Feedback component contains everything to render a modal, including the trigger button. It adds some default
+          props to the trigger and modal and renders the button on the right side for desktop and inline for mobile.
+          Feedback component should be rendered after the main content to have the correct focus order.`,
+      },
     },
   },
 } as Meta;
