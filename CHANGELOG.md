@@ -1,3 +1,10 @@
+# [2.22.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.21.5...v2.22.0) (2023-03-12)
+
+
+### Features
+
+* **affix:** Add Affix component - TEHVEER-67 ([57af369](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/57af36945217a8feb39660a64d3751ea44c42218))
+
 ## [2.21.5](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.21.4...v2.21.5) (2023-03-10)
 
 

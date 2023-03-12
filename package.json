@@ -46,6 +46,7 @@
   },
   "devDependencies": {
     "@commitlint/config-conventional": "^17.4.0",
+    "@faker-js/faker": "^7.6.0",
     "@nrwl/cli": "15.6.3",
     "@nrwl/eslint-plugin-nx": "15.6.3",
     "@nrwl/jest": "15.6.3",
