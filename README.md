@@ -17,10 +17,15 @@ Steps to use `@tehik/react-components` are described [here](https://star2-storyb
 
 ### Publishing
 
-- PR'i mergemisel ehitatakse master branch
-- Selle sammu juures on optional samm, mida maintainer rolliga inimesed saavad triggerdada
-  ![img.png](publish.png)
-- publish-library jooksutamisel tekib uus versioon semantic-version abil, mis tekitab uue versiooni commit'ide põhjal
+- Creating a merge-request trigger pipelines that have to succeed before merge
+- When merging a pull-request to master, automatic deploy and versioning will be triggered
+- Using semantic-versioning new version will be generated using commits and published to registry
+- Changelog is generated and new code is deployed to storybook
+
+### Skipping new version
+
+To skip new version on commit use `docs` or `chore` prefix in commits. For example `docs(storybook): Fix storybook visual styles`,
+this ensures new version is not generated, but deploy to storybook is still made. (Use for changes that are not important for end users)
 
 TODO:
 
