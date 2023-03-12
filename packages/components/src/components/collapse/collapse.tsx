@@ -26,10 +26,12 @@ export interface CollapseProps {
   children: React.ReactNode;
   /**
    * Name on the button to open the item.
+   * @default getLabel('open')
    */
   openText?: string;
   /**
    * Name on the button to close the item.
+   * @default getLabel('close')
    */
   closeText?: string;
   /**
@@ -90,7 +92,7 @@ export const Collapse = (props: CollapseProps): JSX.Element => {
         <Row element="div" justifyContent="between" alignItems="center">
           {renderHeading()}
           <Col width="auto">
-            <Row element="div" gutter={1}>
+            <Row element="div" alignItems="center" gutter={1}>
               <Print visibility="hide">
                 <Col
                   width="auto"
