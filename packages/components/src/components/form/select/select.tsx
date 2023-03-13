@@ -134,7 +134,7 @@ export interface SelectProps extends FormLabelProps {
    */
   renderMessageListFooter?: (props: MenuListProps<ISelectOption, boolean>) => JSX.Element;
   /**
-   * If multiple option can be selected
+   * If multiple option can be selected. When true, then closeMenuOnSelect and blurInputOnSelect are set to false by default.
    */
   multiple?: boolean;
   /**
@@ -149,8 +149,14 @@ export interface SelectProps extends FormLabelProps {
   tabSelectsValue?: boolean;
   /**
    * Close menu on select
+   * @default true. If multiple select then defaults to false.
    */
   closeMenuOnSelect?: boolean;
+  /**
+   * Blur input in select. Use to close menu on select in mobile devices.
+   * @default true. If multiple select then defaults to false.
+   */
+  blurInputOnSelect?: boolean;
   /**
    * Auto focus
    */
@@ -244,7 +250,8 @@ export const Select = forwardRef<any, SelectProps>((props, ref): JSX.Element => 
     noOptionsMessage,
     loadingMessage,
     multiple = false,
-    closeMenuOnSelect = true,
+    closeMenuOnSelect = !multiple,
+    blurInputOnSelect = !multiple,
     autoFocus = false,
     isClearable = true,
     isClearIndicatorVisible = false,
@@ -406,6 +413,7 @@ export const Select = forwardRef<any, SelectProps>((props, ref): JSX.Element => 
         isMulti={multiple}
         hideSelectedOptions={false}
         closeMenuOnSelect={closeMenuOnSelect}
+        blurInputOnSelect={blurInputOnSelect}
         menuPlacement="auto"
         theme={(theme) => ({
           ...theme,

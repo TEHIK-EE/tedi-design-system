@@ -35,7 +35,6 @@ export const MultipleHandled: Story = (args) => {
           id="multiple-handled-example"
           label="Multiple Select"
           multiple={true}
-          closeMenuOnSelect={false}
           onChange={(value) => handleInputChange(value)}
           value={inputValue}
         />
