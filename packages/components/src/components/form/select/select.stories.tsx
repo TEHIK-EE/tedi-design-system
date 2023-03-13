@@ -40,7 +40,17 @@ MultipleSmall.args = {
   id: 'example-multiple-small',
   size: 'small',
   multiple: true,
-  closeMenuOnSelect: false,
+  defaultValue: undefined,
+  placeholder: 'Placeholder',
+};
+
+export const MultipleClosesOnSelect = Template.bind({});
+MultipleClosesOnSelect.args = {
+  ...Default.args,
+  id: 'example-multiple-closes-on-select',
+  multiple: true,
+  closeMenuOnSelect: true,
+  blurInputOnSelect: true,
   defaultValue: undefined,
   placeholder: 'Placeholder',
 };
