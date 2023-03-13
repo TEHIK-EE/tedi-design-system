@@ -4,6 +4,7 @@
     "esbenp.prettier-vscode",
     "firsttris.vscode-jest-runner",
     "dbaeumer.vscode-eslint",
-    "lokalise.i18n-ally"
+    "lokalise.i18n-ally",
+    "vivaxy.vscode-conventional-commits"
   ]
 }
