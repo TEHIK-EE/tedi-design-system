@@ -1,3 +1,10 @@
+## [2.22.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.22.0...v2.22.1) (2023-03-13)
+
+
+### Bug Fixes
+
+* **layout:** TEHVEER-97 - support small screens ([c91189f](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/c91189f5900af26cee65e0d1a4d4d2504d47b7a1))
+
 # [2.22.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.21.5...v2.22.0) (2023-03-12)
 
 
