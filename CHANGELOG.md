@@ -1,3 +1,10 @@
+# [2.23.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.22.1...v2.23.0) (2023-03-13)
+
+
+### Features
+
+* **select:** TEHVEER-94 - add blurInputOnSelect to select ([7ea99c8](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/7ea99c87fc467f473064301077bf7db7363907eb))
+
 ## [2.22.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.22.0...v2.22.1) (2023-03-13)
 
 
