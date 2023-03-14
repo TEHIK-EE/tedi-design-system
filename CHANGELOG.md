@@ -1,3 +1,10 @@
+## [2.23.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.23.0...v2.23.1) (2023-03-14)
+
+
+### Bug Fixes
+
+* **separator:** TEHVEER-99 - fix dotted separator dot positions ([726741b](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/726741b54deec628d13e00538047c4da748daf33))
+
 # [2.23.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.22.1...v2.23.0) (2023-03-13)
 
 
