@@ -46,15 +46,20 @@ FullWidthInsideCard.args = { fullWidth: true };
 const TemplateVertical: Story<SeparatorProps> = (args) => (
   <Card>
     <CardContent>
-      <Row direction="row">
-        <Col>
-          <p>Some content</p>
+      <Row>
+        <Col xs="auto" md={2}>
+          <p className="text-right">12.12.2012</p>
         </Col>
-        <Col width="auto" shrink={1}>
+        <Col width="auto">
           <Separator {...args} />
         </Col>
         <Col>
-          <p>Some Content</p>
+          <div className="h6">Card content title</div>
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem rem nisi quae? Rem, amet! Veritatis
+            laboriosam consectetur ipsum quae. Amet voluptatibus quod eaque at nostrum id provident? Cum, maiores
+            libero!
+          </p>
         </Col>
       </Row>
     </CardContent>
@@ -63,3 +68,9 @@ const TemplateVertical: Story<SeparatorProps> = (args) => (
 
 export const Vertical = TemplateVertical.bind({});
 Vertical.args = { axis: 'vertical', fullWidth: true };
+
+export const VerticalDotted = TemplateVertical.bind({});
+VerticalDotted.args = { axis: 'vertical', variant: 'dotted', color: 'accent', fullWidth: true };
+
+export const VerticalDottedSmall = TemplateVertical.bind({});
+VerticalDottedSmall.args = { axis: 'vertical', variant: 'dotted-small', color: 'accent', fullWidth: true };
