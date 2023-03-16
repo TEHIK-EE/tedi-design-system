@@ -1,3 +1,4 @@
+import { faker } from '@faker-js/faker';
 import { Meta, Story } from '@storybook/react';
 import { ColumnDef, createColumnHelper } from '@tanstack/react-table';
 import React from 'react';
@@ -22,6 +23,11 @@ import { TableProps } from './table.types';
 export default {
   title: 'components/Table',
   component: Table,
+  argTypes: {
+    data: {
+      control: false,
+    },
+  },
 } as Meta;
 
 type Person = {
@@ -36,156 +42,30 @@ type Person = {
   rowGroupKey?: string;
 };
 
-const data: Person[] = [
-  {
-    firstName: 'tanner',
-    lastName: 'linsley',
-    age: 1,
-    visits: 100,
-    status: 'In Relationship',
-    progress: 50,
-    subRows: [
-      {
-        firstName: 'Sub',
-        lastName: 'Row',
-        age: 2,
-        visits: 40,
-        status: 'Single',
-        progress: 80,
-      },
-    ],
-  },
-  {
-    firstName: 'tandy',
-    lastName: 'miller',
-    age: 2,
-    visits: 40,
-    status: 'Single',
-    progress: 80,
-  },
-  {
-    firstName: 'joe',
-    lastName: 'dirte',
-    age: 3,
-    visits: 20,
-    status: 'Complicated',
-    progress: 10,
-    subRows: [
-      {
-        firstName: 'Sub',
-        lastName: 'Row',
-        age: 2,
-        visits: 40,
-        status: 'Single',
-        progress: 80,
-      },
-      {
-        firstName: 'Sub',
-        lastName: 'Row',
-        age: 2,
-        visits: 40,
-        status: 'Single',
-        progress: 80,
-      },
-      {
-        firstName: 'Sub',
-        lastName: 'Row',
-        age: 2,
-        visits: 40,
-        status: 'Single',
-        progress: 80,
-      },
-    ],
-  },
-  {
-    firstName: 'tanner',
-    lastName: 'linsley',
-    age: 10,
-    visits: 100,
-    status: 'In Relationship',
-    progress: 50,
-  },
-  {
-    firstName: 'tandy',
-    lastName: 'miller',
-    age: 11,
-    visits: 40,
-    status: 'Single',
-    progress: 80,
-  },
-  {
-    firstName: 'joe',
-    lastName: 'dirte',
-    age: 12,
-    visits: 20,
-    status: 'Complicated',
-    progress: 10,
-  },
-  {
-    firstName: 'tandy',
-    lastName: 'miller',
-    age: 40,
-    visits: 40,
-    status: 'Single',
-    progress: 80,
-  },
-  {
-    firstName: 'joe',
-    lastName: 'dirte',
-    age: 45,
-    visits: 20,
-    status: 'Complicated',
-    progress: 10,
-  },
-  {
-    firstName: 'joe',
-    lastName: 'dirte',
-    age: 100,
-    visits: 20,
-    status: 'Complicated',
-    progress: 10,
-  },
-  {
-    firstName: 'tanner',
-    lastName: 'linsley',
-    age: 24,
-    visits: 100,
-    status: 'In Relationship',
-    progress: 50,
-  },
-  {
-    firstName: 'tanner',
-    lastName: 'linsley',
-    age: 55,
-    visits: 100,
-    status: 'In Relationship',
-    progress: 50,
-  },
-  {
-    firstName: 'tandy',
-    lastName: 'miller',
-    age: 22,
-    visits: 40,
-    status: 'Single',
-    progress: 80,
-  },
-  {
-    firstName: 'tandy',
-    lastName: 'miller',
-    age: 101,
-    visits: 20,
-    status: 'Complicated',
-    progress: 10,
-  },
-  {
-    firstName: 'joe',
-    lastName: 'dirte',
-    age: 20,
-    visits: 20,
-    status: 'Complicated',
-    progress: 10,
-  },
-];
+function calculateAge(birthday: Date) {
+  const ageDifMs = Date.now() - birthday.getTime();
+  const ageDate = new Date(ageDifMs);
+  return Math.abs(ageDate.getUTCFullYear() - 1970);
+}
+
+const createRandomPerson = (isSubRow: boolean): Person => ({
+  firstName: faker.name.firstName(),
+  lastName: faker.name.lastName(),
+  age: calculateAge(faker.date.birthdate()),
+  visits: Number(faker.random.numeric(2)),
+  status: faker.helpers.arrayElement(['Single', 'Complicated', 'In Relationship']),
+  progress: Math.floor(Math.random() * 101),
+  subRows: isSubRow
+    ? undefined
+    : faker.helpers.maybe(
+        () => faker.helpers.arrayElements(Array.from(Array(5).keys()).map(() => createRandomPerson(true))),
+        {
+          probability: 0.2,
+        }
+      ),
+});
+
+const data = (length = 507): Person[] => Array.from(Array(length).keys()).map(() => createRandomPerson(false));
 
 const columnHelper = createColumnHelper<Person>();
 
@@ -241,14 +121,14 @@ const CardTemplate: Story<TableProps<Person>> = (args) => (
 
 export const Default = Template.bind({});
 Default.args = {
-  data,
+  data: data(),
   columns,
   id: 'table-1',
 };
 
 export const Borderless = CardTemplate.bind({});
 Borderless.args = {
-  data,
+  data: data(),
   columns,
   id: 'table-borderless',
   hideCardBorder: true,
@@ -256,7 +136,7 @@ Borderless.args = {
 
 export const RowsBorderless = Template.bind({});
 RowsBorderless.args = {
-  data,
+  data: data(10),
   columns: columns.map((column) => ({ ...column, enableSorting: false })),
   id: 'borderless-table',
   hidePagination: true,
@@ -288,7 +168,7 @@ LoadingBorderless.args = {
 export const FullWidthSubComponent = Template.bind({});
 
 FullWidthSubComponent.args = {
-  data,
+  data: data(),
   columns: [getExpandColumn(), ...columns],
   renderSubComponent: (row) => {
     return (
@@ -315,7 +195,7 @@ FullWidthSubComponent.args = {
 export const WithSubComponent = Template.bind({});
 
 WithSubComponent.args = {
-  data,
+  data: data(),
   columns: [getExpandColumn(), ...columns],
   renderSubComponent: (row) => {
     return (
@@ -346,7 +226,7 @@ WithSubComponent.args = {
 export const RowSelection = Template.bind({});
 
 RowSelection.args = {
-  data,
+  data: data(),
   columns: [getRowSelectionColumn('test', true), ...columns],
   id: 'row-selection-table',
 };
@@ -354,7 +234,7 @@ RowSelection.args = {
 export const WithSubRow = Template.bind({});
 
 WithSubRow.args = {
-  data,
+  data: data(),
   columns: [getExpandColumn(), ...columns],
   id: 'table-4',
   getRowCanExpand: (row) => !!row.original.subRows?.length,
@@ -362,7 +242,7 @@ WithSubRow.args = {
 export const WithCustomizedCells = Template.bind({});
 
 WithCustomizedCells.args = {
-  data,
+  data: data(),
   columns: [
     columnHelper.accessor('firstName', {
       id: 'personName',
@@ -381,7 +261,7 @@ WithCustomizedCells.args = {
 export const WithCustomizedRows = Template.bind({});
 
 WithCustomizedRows.args = {
-  data: data.map((entity) => ({
+  data: data().map((entity) => ({
     ...entity,
     rowClassName: entity.status === 'In Relationship' ? getBackgroundColorClass('primary-1') : '',
   })),
@@ -418,7 +298,7 @@ clickableRowColumns.push(
 );
 
 WithClickableRows.args = {
-  data,
+  data: data(),
   onRowClick: (row: Person) => console.log(row),
   columns: clickableRowColumns,
   id: 'clickable-rows-table',
@@ -428,7 +308,8 @@ export const ServerSidePaginationAndSorting = (): JSX.Element => {
   const { page, pagination, setPagination, size } = useDefaultPagination();
   const { sorting, setSorting } = useDefaultSorting();
 
-  const getData = React.useMemo(() => data.slice((page - 1) * size, page * size), [page, size]);
+  const currentData = data(500);
+  const getData = React.useMemo(() => currentData.slice((page - 1) * size, page * size), [page, size]);
 
   return (
     <Table<Person>
@@ -437,7 +318,7 @@ export const ServerSidePaginationAndSorting = (): JSX.Element => {
       id="table-pagination"
       pagination={pagination}
       sorting={sorting}
-      totalRows={data.length}
+      totalRows={currentData.length}
       onPaginationChange={setPagination}
       onSortingChange={setSorting}
     />
@@ -446,7 +327,7 @@ export const ServerSidePaginationAndSorting = (): JSX.Element => {
 
 export const Small = Template.bind({});
 Small.args = {
-  data,
+  data: data(),
   columns,
   id: 'small-table',
   size: 'small',
@@ -454,7 +335,7 @@ Small.args = {
 
 export const GroupedRows = Template.bind({});
 GroupedRows.args = {
-  data,
+  data: data(50),
   columns,
   id: 'grouped-rows-table',
   cardProps: {
@@ -480,7 +361,7 @@ GroupedRows.parameters = {
 
 export const GroupedRowsFromData = Template.bind({});
 GroupedRowsFromData.args = {
-  data: data.map((entity, index) => ({
+  data: data(50).map((entity, index) => ({
     ...entity,
     rowGroupKey:
       entity.age < 10
@@ -520,7 +401,7 @@ Empty.args = {
 
 export const WithFilters = Template.bind({});
 WithFilters.args = {
-  data,
+  data: data(),
   columns,
   id: 'with-filters-table',
   enableFilters: true,
@@ -528,7 +409,7 @@ WithFilters.args = {
 
 export const WithSelectFilters = Template.bind({});
 WithSelectFilters.args = {
-  data,
+  data: data(),
   columns: columns.map((column) => ({ ...column, filterFn: 'select' })),
   id: 'with-selected-filters-table',
   enableFilters: true,
@@ -536,7 +417,7 @@ WithSelectFilters.args = {
 
 export const WithMultiSelectFilters = Template.bind({});
 WithMultiSelectFilters.args = {
-  data,
+  data: data(),
   columns: columns.map((column) => ({ ...column, filterFn: 'multi-select' })),
   id: 'with-multi-selected-filters-table',
   enableFilters: true,
@@ -545,20 +426,24 @@ WithMultiSelectFilters.args = {
 export const WithFiltersControlledFromOutside = Template.bind({});
 WithFiltersControlledFromOutside.args = {
   id: 'with-multi-selected-filters-table-controlled-from-outside',
-  data,
+  data: data(),
   columnFilters: [{ id: 'age', value: ['1', '10'] }],
   onColumnFiltersChange: (data) => console.log(data),
   columns: columns.map((column) => ({
     ...column,
     filterFn: 'multi-select',
-    meta: { filterOptions: data.map((row) => row[column.id as keyof Person]).slice(0, 5) },
+    meta: {
+      filterOptions: data()
+        .map((row) => row[column.id as keyof Person])
+        .slice(0, 5),
+    },
   })),
   enableFilters: true,
 };
 
 export const DisableSorting = Template.bind({});
 DisableSorting.args = {
-  data,
+  data: data(),
   columns,
   id: 'disabled-sort-table',
   enableSorting: false,
@@ -576,7 +461,7 @@ export const WithFooter = Template.bind({});
 WithFooter.args = {
   id: 'footer-table',
   hidePagination: true,
-  data,
+  data: data(10),
   columns: [
     ...columns.slice(0, 1).map((c) => ({ ...c, footer: () => <strong>Average profile progress</strong> } as typeof c)),
     ...columns.slice(1, 4),

@@ -18,7 +18,7 @@ export interface TableFilterProps<TData extends DefaultTData<TData>> {
   rows: TableRow<TData>[];
 }
 
-export function TableFilter<TData extends DefaultTData<TData>>(props: TableFilterProps<TData>): JSX.Element | null {
+const TableFilter = <TData extends DefaultTData<TData>>(props: TableFilterProps<TData>): JSX.Element | null => {
   const { column, rows } = props;
   const [open, setOpen] = React.useState(false);
   const { getLabel } = useLabels();
@@ -65,6 +65,6 @@ export function TableFilter<TData extends DefaultTData<TData>>(props: TableFilte
       </Col>
     </TableFilterContext.Provider>
   );
-}
+};
 
 export default TableFilter;

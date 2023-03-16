@@ -234,7 +234,9 @@ export function Table<TData extends DefaultTData<TData>>(props: TableProps<TData
           <div className={tableBEM}>
             <TableLayout<TData> />
           </div>
-          {!hidePagination && <Pagination totalRows={totalRows || table.getFilteredRowModel().rows.length} />}
+          {!hidePagination && table && (
+            <Pagination<TData> totalRows={totalRows || table.getFilteredRowModel().rows.length} />
+          )}
         </CardContent>
       </Card>
     </TableContext.Provider>
