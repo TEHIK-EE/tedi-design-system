@@ -65,7 +65,7 @@ const createRandomPerson = (isSubRow: boolean): Person => ({
       ),
 });
 
-const data = (length = 500): Person[] => Array.from(Array(length).keys()).map(() => createRandomPerson(false));
+const data = (length = 507): Person[] => Array.from(Array(length).keys()).map(() => createRandomPerson(false));
 
 const columnHelper = createColumnHelper<Person>();
 

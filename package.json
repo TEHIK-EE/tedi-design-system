@@ -32,7 +32,6 @@
     "draft-js": "^0.11.7",
     "draftjs-md-converter": "^1.5.2",
     "formik": "^2.2.9",
-    "jw-paginate": "^1.0.4",
     "material-symbols": "^0.4.3",
     "next": "^13.1.6",
     "react": "^18.2.0",
