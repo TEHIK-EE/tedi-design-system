@@ -1,3 +1,10 @@
+## [2.23.4](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.23.3...v2.23.4) (2023-03-16)
+
+
+### Bug Fixes
+
+* **table:** fix sorting and filtering button alignment - TEHVEER-105 ([861f093](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/861f093499961a0de541d91f585d568383b4b34c))
+
 ## [2.23.3](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.23.2...v2.23.3) (2023-03-16)
 
 
