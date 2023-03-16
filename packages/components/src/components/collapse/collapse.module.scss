@@ -1,15 +1,11 @@
 @use '../../styles/mixins';
 
-.collapse__heading {
+.collapse__title {
   width: 100%;
   margin-bottom: 0.5rem;
   cursor: pointer;
 
   @include mixins.button-reset;
-}
-
-.collapse__title {
-  color: var(--color-text-secondary);
 }
 
 .collapse__icon {
