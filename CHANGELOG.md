@@ -1,3 +1,10 @@
+## [2.23.3](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.23.2...v2.23.3) (2023-03-16)
+
+
+### Bug Fixes
+
+* **collapse:** TEHVEER-100 - support button text alignment ([f8f9897](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/f8f989789d50b8d32c1a53e7f945f05b0f11716b))
+
 ## [2.23.2](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.23.1...v2.23.2) (2023-03-16)
 
 
