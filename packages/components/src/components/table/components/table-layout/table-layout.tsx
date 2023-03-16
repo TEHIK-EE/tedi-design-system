@@ -102,6 +102,21 @@ export function TableLayout<TData extends DefaultTData<TData>>(): JSX.Element | 
     onRowClick?.(row.original);
   };
 
+  const renderTableFilterSortRow = (header: Header<TData, unknown>): JSX.Element => (
+    <Col width="auto">
+      <Row justifyContent="end" gutter={1}>
+        {header.column.getCanFilter() ? (
+          <TableFilter<TData> column={header.column} rows={table?.getCoreRowModel()?.rows} />
+        ) : null}
+        {header.column.getCanSort() && (
+          <Col align="center" width="auto">
+            {getSortIcon(header.column.getIsSorted(), header.column.getToggleSortingHandler())}
+          </Col>
+        )}
+      </Row>
+    </Col>
+  );
+
   return (
     <table id={id}>
       <thead>
@@ -121,20 +136,11 @@ export function TableLayout<TData extends DefaultTData<TData>>(): JSX.Element | 
                 }
               >
                 {header.isPlaceholder ? null : (
-                  <Row gutterX={0} alignItems="center" wrap="nowrap">
+                  <Row alignItems="center" justifyContent="between" wrap="nowrap">
                     <Col onClick={header.column.getToggleSortingHandler()}>
                       {flexRender(header.column.columnDef.header, header.getContext())}
                     </Col>
-                    {header.column.getCanFilter() ? (
-                      <Col>
-                        <TableFilter<TData> column={header.column} rows={table?.getCoreRowModel()?.rows} />
-                      </Col>
-                    ) : null}
-                    {header.column.getCanSort() && (
-                      <Col align="center" width="auto">
-                        {getSortIcon(header.column.getIsSorted(), header.column.getToggleSortingHandler())}
-                      </Col>
-                    )}
+                    {(header.column.getCanFilter() || header.column.getCanSort()) && renderTableFilterSortRow(header)}
                   </Row>
                 )}
               </th>
