@@ -1,3 +1,10 @@
+## [2.23.2](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.23.1...v2.23.2) (2023-03-16)
+
+
+### Bug Fixes
+
+* **select:** TEHVEER-102 - fix selected item text color ([153bdf8](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/153bdf81c5faa878b1850dfca6a97facb99919e0))
+
 ## [2.23.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.23.0...v2.23.1) (2023-03-14)
 
 
