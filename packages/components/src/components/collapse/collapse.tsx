@@ -4,8 +4,7 @@ import AnimateHeight from 'react-animate-height';
 
 import { usePrint } from '../../helpers';
 import { useLabels } from '../../providers/label-provider';
-import { Button } from '../button/button';
-import { Col, Row } from '../grid';
+import { AlignItems, Col, JustifyContent, Row, RowProps } from '../grid';
 import Heading, { HeadingProps } from '../heading/heading';
 import Icon from '../icon/icon';
 import Print from '../print/print';
@@ -18,8 +17,9 @@ export interface CollapseProps {
   id: string;
   /**
    * Add heading properties.
+   * @deprecated Use `title` to provide a custom Title for the Collapse.
    */
-  heading: HeadingProps;
+  heading?: HeadingProps;
   /**
    * Any content.
    */
@@ -43,6 +43,14 @@ export interface CollapseProps {
    * Custom class name.
    */
   className?: string;
+  /**
+   * Any content to be rendered as the title of the Collapse.
+   */
+  title?: JSX.Element;
+  /**
+   * Props for title row.
+   */
+  titleRowProps?: RowProps;
 }
 
 export const Collapse = (props: CollapseProps): JSX.Element => {
@@ -55,6 +63,8 @@ export const Collapse = (props: CollapseProps): JSX.Element => {
     openText = getLabel('open'),
     closeText = getLabel('close'),
     hideCollapseText = false,
+    title,
+    titleRowProps,
     ...rest
   } = props;
   const [isOpenState, setIsOpen] = React.useState(false);
@@ -62,10 +72,13 @@ export const Collapse = (props: CollapseProps): JSX.Element => {
   const isOpen = isOpenState || isPrint;
   const BEM = cn(styles['collapse'], className, { [styles['collapse--is-open']]: isOpen });
 
+  /**
+   * @deprecated
+   */
   const renderHeading = (): JSX.Element => {
     return (
       <Col width="auto">
-        <Heading level={5} {...heading} className={cn(styles['collapse__title'], heading.className)} />
+        <Heading level={5} {...heading} className={cn(styles['text-secondary'], heading?.className)} />
       </Col>
     );
   };
@@ -83,14 +96,14 @@ export const Collapse = (props: CollapseProps): JSX.Element => {
     <div data-name="collapse" {...rest} className={BEM}>
       <button
         type="button"
-        className={styles['collapse__heading']}
+        className={styles['collapse__title']}
         aria-expanded={isOpen}
         aria-controls={id}
         onKeyDown={onKeyDown}
         onClick={onClick}
       >
-        <Row element="div" justifyContent="between" alignItems="center">
-          {renderHeading()}
+        <Row justifyContent="between" alignItems="center" {...titleRowProps} element="span">
+          {(heading?.children && renderHeading()) || (title && <Col width="auto">{title}</Col>)}
           <Col width="auto">
             <Row element="div" alignItems="center" gutter={1}>
               <Print visibility="hide">

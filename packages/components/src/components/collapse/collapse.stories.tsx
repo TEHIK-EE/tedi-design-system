@@ -1,6 +1,8 @@
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
 
+import { Col } from '../grid';
+import Heading from '../heading/heading';
 import { VerticalSpacing } from '../vertical-spacing';
 import Collapse, { CollapseProps } from './collapse';
 
@@ -11,6 +13,9 @@ export default {
     children: {
       control: { type: 'function' },
     },
+    title: {
+      control: { type: 'function' },
+    },
   },
 } as Meta;
 
@@ -19,11 +24,13 @@ const Template: Story<CollapseProps> = (args) => <Collapse {...args} />;
 export const Primary = Template.bind({});
 Primary.args = {
   id: 'collapse-1',
-  heading: {
-    children: 'Juhtumi üldandmed',
-  },
   openText: 'Näita rohkem',
   closeText: 'Näita vähem',
+  title: (
+    <Heading level={5} className="text-secondary">
+      Juhtumi üldandmed
+    </Heading>
+  ),
   children: (
     <VerticalSpacing>
       <div>
@@ -46,17 +53,21 @@ export const WithHiddenCollapseText = Template.bind({});
 WithHiddenCollapseText.args = {
   ...Primary.args,
   hideCollapseText: true,
-  heading: {
-    children: 'Juhtumi üldandmed',
+};
+
+export const NoTitleStart = Template.bind({});
+NoTitleStart.args = {
+  ...Primary.args,
+  title: undefined,
+  titleRowProps: {
+    justifyContent: 'start',
   },
 };
 
-export const WithCustomHeadingSize = Template.bind({});
-WithCustomHeadingSize.args = {
+export const TitleRowReversed = Template.bind({});
+TitleRowReversed.args = {
   ...Primary.args,
-  heading: {
-    children: 'Juhtumi üldandmed',
-    level: 2,
-    className: 'text-small text-bold',
+  titleRowProps: {
+    direction: 'row-reverse',
   },
 };
