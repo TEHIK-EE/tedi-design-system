@@ -13,7 +13,7 @@ import { ITableContext, TableContext } from '../../table-context';
 import TableFilter from '../table-filter/table-filter';
 import TableLoader from '../table-loader/table-loader';
 
-export function TableLayout<TData extends DefaultTData<TData>>(): JSX.Element | null {
+const TableLayout = <TData extends DefaultTData<TData>>(): JSX.Element | null => {
   const { getLabel } = useLabels();
   const {
     table,
@@ -218,6 +218,6 @@ export function TableLayout<TData extends DefaultTData<TData>>(): JSX.Element | 
       )}
     </table>
   );
-}
+};
 
 export default TableLayout;

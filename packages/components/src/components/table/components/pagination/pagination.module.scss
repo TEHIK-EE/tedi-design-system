@@ -17,20 +17,25 @@
 
 .pagination__page {
   display: none;
-  width: 1.5rem;
-  height: 1.5rem;
-  padding: 0;
+  min-width: 1.5rem;
+  min-height: 1.5rem;
+  padding: 0 0.125rem;
   margin: 0 0.125rem;
   color: var(--color-text-secondary);
-  cursor: pointer;
+  text-align: center;
   background: var(--color-transparent);
-  border: none;
-  border-radius: 1.5rem;
-  transition-timing-function: ease;
-  transition-duration: 0.2s;
-  transition-property: color, background-color;
 
-  &:hover {
+  // Only styles applied to button elements (not ellipsis)
+  &:is(button) {
+    cursor: pointer;
+    border: none;
+    border-radius: 1.5rem;
+    transition-timing-function: ease;
+    transition-duration: 0.2s;
+    transition-property: color, background-color;
+  }
+
+  &:hover:is(button) {
     color: var(--color-primary);
     background-color: var(--color-background);
   }
