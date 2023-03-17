@@ -1,3 +1,13 @@
+## [2.23.5](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.23.4...v2.23.5) (2023-03-17)
+
+
+### Bug Fixes
+
+* **table:** fix table pagination logic and design to match figmas - TEHVEER-106 ([41b96cb](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/41b96cb62ef2d0cb9119c307826846a095c9ed19))
+* **table:** fix table pagination logic and design to match figmas - TEHVEER-106 ([157df0e](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/157df0ed6a5eabb113fba8d9a973908470f9a1da))
+* **table:** fix table pagination logic and design to match figmas - TEHVEER-106 ([cfb9905](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/cfb9905529283296de9b3efc3125f304285270ce))
+* **table:** generate better data for table stories - TEHVEER-105 ([bc66722](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/bc6672289520d3344d1586ba2b70bc59fa9df94f))
+
 ## [2.23.4](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.23.3...v2.23.4) (2023-03-16)
 
 
