@@ -23,8 +23,10 @@ const TableLayout = <TData extends DefaultTData<TData>>(): JSX.Element | null =>
     renderGroupHeading,
     onRowClick,
     isLoading,
+    isError,
     hideRowBorder,
     placeholder,
+    errorPlaceholder,
   } = React.useContext<ITableContext<TData>>(TableContext);
 
   if (table === null) {
@@ -117,6 +119,16 @@ const TableLayout = <TData extends DefaultTData<TData>>(): JSX.Element | null =>
     </Col>
   );
 
+  const renderPlaceholderRow = () => {
+    const children = isError ? <Placeholder {...errorPlaceholder} /> : <Placeholder {...placeholder} />;
+
+    return (
+      <tr>
+        <td colSpan={table?.getAllColumns().length}>{children}</td>
+      </tr>
+    );
+  };
+
   return (
     <table id={id}>
       <thead>
@@ -194,11 +206,7 @@ const TableLayout = <TData extends DefaultTData<TData>>(): JSX.Element | null =>
             </React.Fragment>
           ))
         ) : (
-          <tr>
-            <td colSpan={table?.getAllColumns().length}>
-              <Placeholder {...placeholder} />
-            </td>
-          </tr>
+          renderPlaceholderRow()
         )}
       </tbody>
       {isFooterVisible && (
