@@ -165,6 +165,14 @@ LoadingBorderless.args = {
   isLoading: true,
 };
 
+export const Error = Template.bind({});
+Error.args = {
+  data: [],
+  columns,
+  id: 'error-table',
+  isError: true,
+};
+
 export const FullWidthSubComponent = Template.bind({});
 
 FullWidthSubComponent.args = {

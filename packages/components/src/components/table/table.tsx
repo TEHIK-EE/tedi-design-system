@@ -19,6 +19,7 @@ import React from 'react';
 import usePrint from '../../helpers/hooks/use-print';
 import { useLabels } from '../../providers/label-provider';
 import { Card, CardContent } from '../card';
+import { PlaceholderProps } from '../placeholder/placeholder';
 import Pagination from './components/pagination/pagination';
 import TableLayout from './components/table-layout/table-layout';
 import styles from './table.module.scss';
@@ -54,7 +55,9 @@ export function Table<TData extends DefaultTData<TData>>(props: TableProps<TData
     groupRowsBy,
     renderGroupHeading,
     isLoading = false,
+    isError = false,
     placeholder,
+    errorPlaceholder,
     loadingLabel = getLabel('table.loading'),
     verticalAlign = 'middle',
     enableFilters = false,
@@ -64,13 +67,6 @@ export function Table<TData extends DefaultTData<TData>>(props: TableProps<TData
     hideCardBorder,
     ...rest
   } = props;
-
-  const {
-    children: placeholderChildren = getLabel('table.empty'),
-    isNested: placeholderIsNested = true,
-    cardProps: { padding: placeholderCardPropsPadding = 'medium', ...restPlaceholderCardProps } = {},
-    ...restPlaceholder
-  } = placeholder || { cardProps: {} };
 
   const isPrinting = usePrint();
   const [{ pageIndex, pageSize }, setPagination] = React.useState<PaginationState>(defaultPagination);
@@ -203,6 +199,24 @@ export function Table<TData extends DefaultTData<TData>>(props: TableProps<TData
     [styles['table--hidden-bottom-border']]: hideBottomBorder,
   });
 
+  const getPlaceholderProps = (type: 'error' | 'empty', props?: PlaceholderProps) => {
+    const {
+      children: placeholderChildren = getLabel(`table.${type}`),
+      isNested: placeholderIsNested = true,
+      icon: placeholderIcon = type === 'error' ? 'error' : undefined,
+      cardProps: { padding: placeholderCardPropsPadding = 'medium', ...restPlaceholderCardProps } = {},
+      ...restPlaceholder
+    } = props || { cardProps: {} };
+
+    return {
+      children: placeholderChildren,
+      isNested: placeholderIsNested,
+      icon: placeholderIcon,
+      cardProps: { padding: placeholderCardPropsPadding, ...restPlaceholderCardProps },
+      ...restPlaceholder,
+    };
+  };
+
   return (
     <TableContext.Provider
       value={{
@@ -212,14 +226,11 @@ export function Table<TData extends DefaultTData<TData>>(props: TableProps<TData
         renderSubComponent,
         isFooterVisible,
         renderGroupHeading,
-        placeholder: {
-          children: placeholderChildren,
-          isNested: placeholderIsNested,
-          cardProps: { padding: placeholderCardPropsPadding, ...restPlaceholderCardProps },
-          ...restPlaceholder,
-        },
+        placeholder: getPlaceholderProps('empty', placeholder),
+        errorPlaceholder: getPlaceholderProps('error', errorPlaceholder),
         loadingLabel,
         isLoading,
+        isError,
         hideRowBorder,
       }}
     >

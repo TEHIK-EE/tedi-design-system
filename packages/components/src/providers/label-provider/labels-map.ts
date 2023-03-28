@@ -141,6 +141,13 @@ export const labelsMap = {
     en: 'No results',
     ru: 'Нет результатов',
   }),
+  'table.error': validateLabel({
+    description: 'Shown when table is in error state',
+    components: ['Table'],
+    et: 'Tabeli andmete pärimisel tekkis viga',
+    en: 'An error occurred while retrieving table data',
+    ru: 'Произошла ошибка при получении данных таблицы',
+  }),
   'table.filter': validateLabel({
     description: 'Label for filter toggle',
     components: ['Table', 'TableFilter'],

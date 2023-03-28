@@ -135,9 +135,18 @@ export interface TableProps<TData extends DefaultTData<TData>> {
    */
   isLoading?: boolean;
   /**
+   * Is the table currently in error state
+   * When true errorPlaceholder is displayed
+   */
+  isError?: boolean;
+  /**
    * Props for the `<PlaceholderBlock>` that is displayed when table is empty
    */
   placeholder?: PlaceholderProps;
+  /**
+   * Props for the `<PlaceholderBlock>` that is displayed when table is in error state
+   */
+  errorPlaceholder?: PlaceholderProps;
   /**
    * Label for the table loader skeleton
    */
