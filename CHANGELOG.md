@@ -1,3 +1,10 @@
+# [2.24.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.23.5...v2.24.0) (2023-03-28)
+
+
+### Features
+
+* **table:** Add error state placeholder - TEHVEER-109 ([adc88a4](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/adc88a4e3a17689df648cb2c6504dee350945a8e))
+
 ## [2.23.5](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.23.4...v2.23.5) (2023-03-17)
 
 
