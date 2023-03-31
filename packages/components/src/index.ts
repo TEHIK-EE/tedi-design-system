@@ -33,6 +33,7 @@ export * from './components/form/select/select';
 export * from './components/form/text-editor/text-editor';
 export * from './components/form/textfield/textfield';
 export * from './components/form/textarea/textarea';
+export * from './components/form/toggle/toggle';
 export * from './components/print/print';
 export * from './components/truncate/truncate';
 export * from './components/form/form-helper/form-helper';
@@ -51,7 +52,6 @@ export * from './components/accordion';
 export * from './components/toggle-open/toggle-open';
 export * from './components/modal';
 export * from './components/layout/breadcrumbs/breadcrumbs';
-export * from './components/toggle/toggle';
 export * from './components/placeholder/placeholder';
 
 export * from './helpers';
