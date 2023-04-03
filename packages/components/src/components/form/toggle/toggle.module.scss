@@ -1,0 +1,203 @@
+@use '../../../styles/mixins';
+
+$dot-size-medium: 1rem;
+$toggle-width-medium: 2.5rem;
+$dot-size-large: 1.5rem;
+$toggle-width-large: 3.5rem;
+$toggle-padding: 0.125rem;
+$toggle-transition-duration: 170ms;
+$toggle-transition-timing-function: ease-out;
+
+@mixin toggle-size-variant($dot-size, $toggle-width) {
+  & {
+    width: $toggle-width;
+    height: calc($dot-size + 2 * $toggle-padding);
+  }
+
+  & .toggle__dot {
+    right: calc(100% - $toggle-padding - $dot-size);
+    width: $dot-size;
+    height: $dot-size;
+  }
+
+  &.toggle--active .toggle__dot {
+    right: $toggle-padding;
+  }
+}
+
+@mixin toggle-container-variant($bg, $bg-hover, $bg-active, $bg-hover-active) {
+  & {
+    background-color: $bg;
+    border-color: $bg;
+  }
+
+  &:hover:not(.toggle--disabled) {
+    background-color: $bg-hover;
+    border-color: $bg-hover;
+  }
+
+  &.toggle--active {
+    background-color: $bg-active;
+    border-color: $bg-active;
+
+    &:hover:not(.toggle--disabled) {
+      background-color: $bg-hover-active;
+      border-color: $bg-hover-active;
+    }
+  }
+
+  &.toggle--disabled {
+    cursor: auto;
+    background-color: var(--color-borders-disabled);
+    border-color: var(--color-borders-disabled);
+  }
+
+  // GHOST
+  &.toggle--ghost {
+    background-color: var(--color-transparent);
+    border-color: $bg;
+
+    &:hover:not(.toggle--disabled) {
+      background-color: var(--color-transparent);
+      border-color: $bg-hover;
+    }
+
+    &.toggle--active {
+      background-color: var(--color-transparent);
+      border-color: $bg-active;
+
+      &:hover:not(.toggle--disabled) {
+        background-color: var(--color-transparent);
+        border-color: $bg-hover-active;
+      }
+    }
+
+    &.toggle--disabled {
+      background-color: var(--color-background);
+      border-color: var(--color-borders-disabled);
+    }
+  }
+}
+
+@mixin toggle-dot-variant($bg, $bg-hover, $bg-active, $bg-hover-active, $bg-disabled) {
+  & .toggle__dot {
+    background-color: $bg;
+  }
+
+  &.toggle--active .toggle__dot {
+    background-color: $bg-active;
+  }
+
+  &:hover:not(.toggle--disabled) {
+    &.toggle__dot {
+      background-color: $bg-hover;
+    }
+
+    &.toggle--active .toggle__dot {
+      background-color: $bg-hover-active;
+    }
+  }
+
+  &.toggle--disabled .toggle__dot {
+    background-color: $bg-disabled;
+  }
+}
+
+@mixin toggle-icon-variant($color, $color-active, $color-disabled) {
+  & .toggle__icon {
+    color: $color;
+  }
+
+  &.toggle--active .toggle__icon {
+    color: $color-active;
+  }
+
+  &.toggle--disabled .toggle__icon {
+    color: $color-disabled;
+  }
+}
+
+@mixin toggle-color-variant(
+  $bg,
+  $bg-active,
+  $bg-hover,
+  $bg-active-hover,
+  $icon-color,
+  $icon-color-active,
+  $icon-color-ghost,
+  $icon-color-ghost-active
+) {
+  @include toggle-container-variant($bg, $bg-hover, $bg-active, $bg-active-hover);
+  @include toggle-dot-variant(
+    var(--color-white),
+    var(--color-white),
+    var(--color-white),
+    var(--color-white),
+    var(--color-text-disabled)
+  );
+  @include toggle-icon-variant($icon-color, $icon-color-active, var(--color-borders-disabled));
+
+  &.toggle--ghost {
+    @include toggle-dot-variant($bg, $bg-hover, $bg-active, $bg-active-hover, var(--color-borders-disabled));
+    @include toggle-icon-variant($icon-color-ghost, $icon-color-ghost-active, var(--color-text-disabled));
+  }
+}
+
+.toggle {
+  @include mixins.button-reset;
+
+  position: relative;
+  border: 0.1em solid;
+  border-radius: 1.5rem;
+  transition: background-color, $toggle-transition-duration, $toggle-transition-timing-function;
+
+  @include toggle-color-variant(
+    var(--color-borders-disabled),
+    var(--color-primary),
+    var(--color-text-disabled),
+    var(--color-secondary),
+    var(--color-text-disabled),
+    var(--color-primary),
+    var(--color-text-secondary),
+    var(--color-white)
+  );
+  @include mixins.print-grayscale;
+
+  &--medium {
+    @include toggle-size-variant($dot-size-medium, $toggle-width-medium);
+  }
+
+  &--large {
+    @include toggle-size-variant($dot-size-large, $toggle-width-large);
+  }
+
+  &--alternative {
+    @include toggle-color-variant(
+      var(--color-error),
+      var(--color-success),
+      var(--color-error-hover),
+      var(--color-success-hover),
+      var(--color-error),
+      var(--color-success),
+      var(--color-white),
+      var(--color-white)
+    );
+  }
+}
+
+.toggle__dot {
+  position: absolute;
+  top: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1.5rem;
+  transition-timing-function: $toggle-transition-timing-function;
+  transition-duration: $toggle-transition-duration;
+  transition-property: right, background-color, border-color;
+  transform: translate(0, -50%);
+}
+
+.toggle__icon {
+  transition: color, $toggle-transition-duration, $toggle-transition-timing-function;
+}
