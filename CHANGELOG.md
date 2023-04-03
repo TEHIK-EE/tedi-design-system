@@ -1,3 +1,12 @@
+## [2.25.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.25.0...v2.25.1) (2023-04-03)
+
+
+### Bug Fixes
+
+* **label-provider:** Do not log errors when test env - TEHVEER-98 ([0a9996f](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/0a9996fc2091fece30c7f22a0c0de5d49ea4183d))
+* **svg:** Remove overall svg height and width from base.scss ([8f85831](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/8f858312cd6aface43e10d2ec73c4a97567d7553))
+* **validateChildren:** Remove mocking console.log from validateChildren ([75f8038](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/75f803851ada1968dcd533183cc27d2cc0622b54))
+
 # [2.25.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.24.0...v2.25.0) (2023-04-03)
 
 
