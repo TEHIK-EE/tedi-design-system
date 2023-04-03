@@ -1,3 +1,10 @@
+# [2.25.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.24.0...v2.25.0) (2023-04-03)
+
+
+### Features
+
+* **toggle:** Add new sizes, type, color to toggle - TEHVEER-108 ([d869204](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/d86920409dc0e9dbda0dbe0d5c0013e7e22f483d))
+
 # [2.24.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.23.5...v2.24.0) (2023-03-28)
 
 
