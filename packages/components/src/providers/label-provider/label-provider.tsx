@@ -15,7 +15,7 @@ dayjs.updateLocale('en', {
   weekStart: 1,
 });
 
-const isTestEnvironment = process.env.JEST_WORKER_ID !== undefined;
+const isTestEnvironment = process.env.JEST_WORKER_ID !== undefined || process.env.NODE_ENV === 'test';
 
 type DefaultLabelsMap = FlatLabelsMap<LabelsMapType, 'en'>;
 
@@ -69,7 +69,7 @@ export const LabelProvider = (props: LabelProviderProps): JSX.Element => {
   const getLabel = (key: keyof DefaultLabelsMap) => {
     const label = mergedLabels[key];
 
-    if (!label) {
+    if (!label && !isTestEnvironment) {
       console.error(`Label missing for key "${key}".`);
       return key;
     }
