@@ -98,12 +98,8 @@ const validateTypes = (
   }
 
   const errorWithoutExceptions = console.error;
-  const logWithoutExceptions = console.log;
   console.error = () => {
     // Suppress errors from rendering the component tree specifically
-  };
-  console.log = () => {
-    // remove logging while rendering TestRenderer - because for example nextRouter is not present there and will console.log errors.
   };
 
   const renderer = TestRenderer.create(props as any);
@@ -111,7 +107,6 @@ const validateTypes = (
   renderer.unmount();
 
   console.error = errorWithoutExceptions;
-  console.log = logWithoutExceptions;
 
   // Validate the component tree
   return validateTypes(componentName, children, isAllowed);
