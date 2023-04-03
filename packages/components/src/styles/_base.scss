@@ -67,11 +67,6 @@ img {
   height: auto;
 }
 
-svg {
-  width: 1rem;
-  height: 1rem;
-}
-
 .scroll-disabled {
   @include media-breakpoint-down(lg) {
     height: 100%;
