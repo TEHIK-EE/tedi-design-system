@@ -54,20 +54,20 @@ $toggle-transition-timing-function: ease-out;
 
   // GHOST
   &.toggle--ghost {
-    background-color: var(--color-transparent);
+    background-color: var(--new-color-transparent);
     border-color: $bg;
 
     &:hover:not(.toggle--disabled) {
-      background-color: var(--color-transparent);
+      background-color: var(--new-color-transparent);
       border-color: $bg-hover;
     }
 
     &.toggle--active {
-      background-color: var(--color-transparent);
+      background-color: var(--new-color-transparent);
       border-color: $bg-active;
 
       &:hover:not(.toggle--disabled) {
-        background-color: var(--color-transparent);
+        background-color: var(--new-color-transparent);
         border-color: $bg-hover-active;
       }
     }

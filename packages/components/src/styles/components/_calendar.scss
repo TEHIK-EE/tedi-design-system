@@ -4,7 +4,7 @@
 
 div.MuiCalendarPicker-root {
   margin: initial;
-  border-radius: var(--input-border-radius);
+  border-radius: var(--border-radius-default);
   box-shadow: 0 2px 4px rgb(0 0 0 / 8%);
 
   @include mixins.print-grayscale;
@@ -17,13 +17,13 @@ div.MuiCalendarPicker-root {
 
   button.MuiPickersDay-root.Mui-highlighted {
     font-weight: 700;
-    color: var(--color-primary);
-    background-color: var(--color-primary-2);
+    color: var(--new-color-primary-main);
+    background-color: var(--new-color-primary-highlight-subtle);
   }
 
   button.MuiPickersDay-root.Mui-selected {
     font-weight: 700;
-    color: var(--color-white);
-    background-color: var(--color-primary);
+    color: var(--new-color-white);
+    background-color: var(--new-color-primary-main);
   }
 }

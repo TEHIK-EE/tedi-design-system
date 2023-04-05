@@ -8,7 +8,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 2.5rem;
-  background-color: var(--footer-bg);
+  background-color: var(--new-color-bg-inverted);
 
   @include mixins.print-grayscale;
 
@@ -30,6 +30,8 @@
 }
 
 .footer__category-icon {
+  --footer-icon-bg: rgb(255 255 255 / 20%);
+
   display: none;
   align-items: center;
   justify-content: center;

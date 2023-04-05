@@ -126,6 +126,10 @@
   }
 
   &.btn--secondary {
+    // variables Button
+    --button-secondary-border: var(--color-text-secondary);
+    --button-secondary-border-h: #dbdfe2;
+
     @include button-secondary-variant(
       var(--button-secondary-border),
       var(--color-text-secondary),
@@ -224,7 +228,7 @@
       var(--color-white),
       var(--color-white),
       var(--color-white),
-      var(--color-transparent),
+      var(--new-color-transparent),
       var(--color-borders-disabled),
       var(--color-text-disabled)
     );
