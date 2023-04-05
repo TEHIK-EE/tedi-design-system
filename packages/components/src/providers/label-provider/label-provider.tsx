@@ -71,10 +71,9 @@ export const LabelProvider = (props: LabelProviderProps): JSX.Element => {
 
     if (!label && !isTestEnvironment) {
       console.error(`Label missing for key "${key}".`);
-      return key;
     }
 
-    return label;
+    return label ? label : key;
   };
 
   // find all labels that we need to pass into LocalizationProvider
