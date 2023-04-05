@@ -5,7 +5,7 @@ stages:
 
 image:
   name: docker.repo.tehik.ee/node:lts-bullseye-slim
-  pull_policy: if-not-present
+  pull_policy: always
 
 cache:
   key:
