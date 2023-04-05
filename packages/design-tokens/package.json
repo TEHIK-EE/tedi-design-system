@@ -1,0 +1,8 @@
+{
+  "name": "@tehik/design-tokens",
+  "version": "0.0.1",
+  "main": "tokens.json",
+  "scripts": {
+    "generate-variables": "node generate-variables.js tokens.json"
+  }
+}

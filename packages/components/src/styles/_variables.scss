@@ -1,5 +1,12 @@
-$card-spacing: ('none', 'xsmall', 'small', 'medium', 'large');
-$tooltip-max-width: ('none', 'small', 'medium', 'large');
+/* stylelint-disable */
+$card-spacing: (
+  'none': 0rem,
+  'xsmall': 0.5rem,
+  'small': 0.75rem,
+  'medium': 1rem,
+  'large': 1.5rem,
+);
+/* stylelint-enable */
 
 :root {
   // Figma colors
@@ -43,30 +50,18 @@ $tooltip-max-width: ('none', 'small', 'medium', 'large');
 
   // Gradients
   --gradient-top-bottom: linear-gradient(140.44deg, #005295 -17.66%, #1769ab 71.2%);
-  --gradient-bottom-top: linear-gradient(140.44deg, #73a5cc -17.66%, #1769ab 71.2%);
 
   // Card
   --card-border-radius: 4px;
-  --card-padding-none: 0;
-  --card-padding-xsmall: 0.5rem;
-  --card-padding-small: 0.75rem;
-  --card-padding-medium: 1rem;
-  --card-padding-large: 1.5rem;
 
   // Form
   --input-border-radius: 4px;
 
   // Button
-  --button-secondary-border: #4d4f5d;
+  --button-secondary-border: var(--color-text-secondary);
   --button-secondary-border-h: #dbdfe2;
 
   // Footer
   --footer-bg: #34394c;
   --footer-icon-bg: rgb(255 255 255 / 20%);
-
-  // Tooltip
-  --tooltip-max-width-none: none;
-  --tooltip-max-width-small: 10rem;
-  --tooltip-max-width-medium: 15rem;
-  --tooltip-max-width-large: 30rem;
 }
