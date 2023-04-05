@@ -3,15 +3,16 @@
 
 html {
   box-sizing: border-box;
-  font-family: Roboto, Arial, Helvetica, sans-serif;
-  line-height: 1.5;
-  color: var(--color-text);
+  font-family: var(--new-font-family);
+  font-size: var(--new-font-size-base);
+  line-height: var(--new-font-line-height-base);
+  color: var(--new-color-text-default);
 }
 
 html,
 body {
   height: 100%;
-  background-color: var(--color-background);
+  background-color: var(--new-color-bg-subtle);
 }
 
 *,
@@ -20,9 +21,13 @@ body {
   box-sizing: inherit;
 }
 
+/**
+ * To overwrite behavior of focus outline
+ * Set '--global-outline-color' and '--global-outline-offset' inside component scope
+ */
 *:where(:focus) {
   border-radius: 0.25rem;
-  outline: 2px solid var(--global-outline-color, var(--color-primary));
+  outline: 2px solid var(--global-outline-color, var(--new-color-primary-main));
   outline-offset: var(--global-outline-offset, 1px);
 
   html:not([data-whatintent='keyboard']) & {
