@@ -1,47 +1,167 @@
+@use './mixins';
+
 h1,
 .h1 {
-  font-family: Roboto, Arial, Helvetica, sans-serif;
-  font-size: 2rem;
-  font-weight: 300;
-  line-height: 3rem;
+  font-size: var(--new-font-size-h1);
+  font-weight: var(--new-font-weight-h1);
+  line-height: var(--new-font-line-height-h1);
 }
 
 h2,
 .h2 {
-  font-size: 1.75rem;
-  font-weight: 400;
-  line-height: 2.5rem;
+  font-size: var(--new-font-size-h2);
+  font-weight: var(--new-font-weight-h2);
+  line-height: var(--new-font-line-height-h2);
 }
 
 h3,
 .h3 {
-  font-size: 1.5rem;
-  font-weight: 400;
-  line-height: 2.25rem;
+  font-size: var(--new-font-size-h3);
+  font-weight: var(--new-font-weight-h3);
+  line-height: var(--new-font-line-height-h3);
 }
 
 h4,
 .h4 {
-  font-size: 1.25rem;
-  font-weight: 400;
-  line-height: 1.875rem;
+  font-size: var(--new-font-size-h4);
+  font-weight: var(--new-font-weight-h4);
+  line-height: var(--new-font-line-height-h4);
 }
 
 h5,
 .h5 {
-  font-size: 1.125rem;
-  font-weight: 400;
-  line-height: 1.75rem;
+  font-size: var(--new-font-size-h5);
+  font-weight: var(--new-font-weight-h5);
+  line-height: var(--new-font-line-height-h5);
 }
 
 h6,
 .h6 {
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.5rem;
-  color: var(--color-text-secondary);
+  font-size: var(--new-font-size-h6);
+  font-weight: var(--new-font-weight-h6);
+  line-height: var(--new-font-line-height-h6);
+  color: var(--new-color-text-muted);
 }
 
 .text-nowrap {
   white-space: nowrap;
+}
+
+.text-break-all {
+  word-break: break-all;
+}
+
+.text-break-word {
+  word-break: break-word;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.text-lowercase {
+  text-transform: lowercase;
+}
+
+.text-capitalize {
+  text-transform: capitalize;
+}
+
+.text-capitalize-first::first-letter {
+  text-transform: capitalize;
+}
+
+.text-normal {
+  font-family: var(--new-font-family);
+  font-size: var(--new-font-size-base);
+  font-weight: 400;
+  line-height: var(--new-font-line-height-base);
+  color: var(--new-color-text-default);
+}
+
+small,
+.text-small {
+  font-size: var(--new-font-size-small);
+}
+
+b,
+strong,
+.text-bold {
+  font-weight: 700;
+}
+
+i,
+.text-italic {
+  font-style: italic;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+// @deprecated: text-black is deprecated, use @text-default instead
+.text-default,
+.text-black {
+  color: var(--new-color-text-default);
+}
+
+.text-primary {
+  color: var(--new-color-primary-main);
+
+  @include mixins.print-grayscale;
+}
+
+// @deprecated: text-secondary is deprecated, use @text-muted instead
+.text-muted,
+.text-secondary {
+  color: var(--new-color-text-muted);
+}
+
+.text-subtle {
+  color: var(--new-color-text-subtle);
+}
+
+.text-disabled {
+  color: var(--new-color-text-disabled);
+}
+
+// @deprecated: text-white is deprecated, use @text-inverted instead
+.text-inverted,
+.text-white {
+  color: var(--new-color-text-inverted);
+}
+
+// @deprecated: text-success is deprecated, use @text-positive instead
+.text-positive,
+.text-success {
+  color: var(--new-color-positive-main);
+
+  @include mixins.print-grayscale;
+}
+
+// @deprecated: text-error is deprecated, use @text-important instead
+.text-important,
+.text-error {
+  color: var(--new-color-important-main);
+
+  @include mixins.print-grayscale;
+}
+
+.text-warning {
+  color: var(--new-color-warning-main);
+
+  @include mixins.print-grayscale;
+}
+
+// @deprecated: Do not use!
+.inactive {
+  opacity: 0.5;
 }
