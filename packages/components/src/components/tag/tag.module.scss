@@ -25,8 +25,8 @@
 
   &.tag--type-invisible {
     color: $bg;
-    background-color: var(--color-transparent);
-    border-color: var(--color-transparent);
+    background-color: var(--new-color-transparent);
+    border-color: var(--new-color-transparent);
   }
 
   &.tag--disabled {
@@ -104,9 +104,9 @@
     top: 2px;
     right: 0;
     content: '';
-    border-right: 4px solid var(--color-transparent);
+    border-right: 4px solid var(--new-color-transparent);
     border-bottom: 4px solid var(--color-white);
-    border-left: 4px solid var(--color-transparent);
+    border-left: 4px solid var(--new-color-transparent);
     transform: rotate(45deg);
   }
 

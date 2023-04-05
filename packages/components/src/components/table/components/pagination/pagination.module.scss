@@ -23,7 +23,7 @@
   margin: 0 0.125rem;
   color: var(--color-text-secondary);
   text-align: center;
-  background: var(--color-transparent);
+  background: var(--new-color-transparent);
 
   // Only styles applied to button elements (not ellipsis)
   &:is(button) {
@@ -82,7 +82,7 @@
   font-weight: 700;
   color: var(--color-text-secondary);
   cursor: pointer;
-  background-color: var(--color-transparent);
+  background-color: var(--new-color-transparent);
   border: none;
   transition: color 0.2s ease;
 

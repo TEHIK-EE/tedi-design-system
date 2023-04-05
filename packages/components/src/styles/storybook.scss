@@ -23,7 +23,7 @@ body {
 pre {
   padding: 1rem;
   white-space: pre-line;
-  border: 1px solid var(--color-borders-dark);
+  border: 1px solid var(--new-color-border-contrast);
   border-radius: 3px;
 }
 
@@ -34,12 +34,12 @@ pre {
 code {
   padding: 4px;
   white-space: nowrap;
-  background-color: var(--color-primary-1);
+  background-color: var(--new-color-primary-highlight);
   border-radius: 4px;
 }
 
 a {
-  color: var(--color-primary);
+  color: var(--new-color-primary-main);
   text-decoration: none;
 
   &:where(:hover),
