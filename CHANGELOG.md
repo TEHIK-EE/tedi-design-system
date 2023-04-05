@@ -1,3 +1,10 @@
+# [2.26.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.25.1...v2.26.0) (2023-04-05)
+
+
+### Features
+
+* **typography:** Add helper typography component, use new variables, deprecate old classes - TEHVEER-111 ([c0b808c](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/c0b808cd0eb43b166a0604dfdf54d0b9a9e02d88))
+
 ## [2.25.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.25.0...v2.25.1) (2023-04-03)
 
 
