@@ -7,11 +7,15 @@ export interface SectionProps {
    * Section content
    */
   children?: React.ReactNode;
+  /**
+   * Additional class names
+   */
+  className?: string;
 }
 
 export const Section = (props: SectionProps): JSX.Element => {
-  const { children, ...rest } = props;
-  const SectionBEM = cn(styles['section']);
+  const { children, className, ...rest } = props;
+  const SectionBEM = cn(styles['section'], className);
 
   return (
     <div data-name="section" {...rest} className={SectionBEM}>

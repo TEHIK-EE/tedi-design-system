@@ -81,9 +81,9 @@
 .card__content {
   flex: 1 1 1px;
 
-  @each $spacing in variables.$card-spacing {
-    &--padding-#{$spacing} {
-      padding: var(--card-padding-#{$spacing});
+  @each $name, $spacing in variables.$card-spacing {
+    &--padding-#{$name} {
+      padding: $spacing;
     }
   }
 }
@@ -106,9 +106,9 @@
     border-bottom: 1px solid var(--color-background-dark);
   }
 
-  @each $spacing in variables.$card-spacing {
-    &--padding-#{$spacing} {
-      padding: var(--card-padding-#{$spacing});
+  @each $name, $spacing in variables.$card-spacing {
+    &--padding-#{$name} {
+      padding: $spacing;
     }
   }
 }

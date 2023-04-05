@@ -70,14 +70,14 @@ $sizes: (
 }
 
 .separator--full-width {
-  @each $spacing in variables.$card-spacing {
-    [data-padding='#{$spacing}'] & {
-      margin-right: calc(var(--card-padding-#{$spacing}) * -1);
-      margin-left: calc(var(--card-padding-#{$spacing}) * -1);
+  @each $name, $spacing in variables.$card-spacing {
+    [data-padding='#{$name}'] & {
+      margin-right: calc($spacing * -1);
+      margin-left: calc($spacing * -1);
     }
-    [data-padding='#{$spacing}'] &.separator--vertical {
-      height: calc(100% + (var(--card-padding-#{$spacing}) * 2));
-      margin: calc(var(--card-padding-#{$spacing}) * -1) 0;
+    [data-padding='#{$name}'] &.separator--vertical {
+      height: calc(100% + ($spacing * 2));
+      margin: calc($spacing * -1) 0;
     }
   }
 }

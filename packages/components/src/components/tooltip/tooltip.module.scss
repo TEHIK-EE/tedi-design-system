@@ -1,4 +1,9 @@
-@use '../../styles/variables';
+$tooltip-max-width: (
+  'none': none,
+  'small': 10rem,
+  'medium': 15rem,
+  'large': 30rem,
+);
 
 .tooltip {
   z-index: 20;
@@ -9,9 +14,9 @@
   border-radius: 4px;
 }
 
-@each $width in variables.$tooltip-max-width {
-  .tooltip--#{$width} {
-    max-width: var(--tooltip-max-width-#{$width});
+@each $name, $width in $tooltip-max-width {
+  .tooltip--#{$name} {
+    max-width: $width;
   }
 }
 
