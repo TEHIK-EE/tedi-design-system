@@ -1,3 +1,10 @@
+## [2.26.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.26.0...v2.26.1) (2023-04-05)
+
+
+### Bug Fixes
+
+* **label-provider:** Fix label-provider failing in unit tests ([1c91bf8](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/1c91bf85f60f7a6287fcf1fe270b3e5b994b97d2))
+
 # [2.26.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.25.1...v2.26.0) (2023-04-05)
 
 
