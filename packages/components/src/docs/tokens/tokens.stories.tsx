@@ -13,6 +13,11 @@ export default {
       'storybook/docs/panel': {
         hidden: true,
       },
+      options: {
+        withKnobs: {
+          disabled: true,
+        },
+      },
     },
   },
 } as Meta;

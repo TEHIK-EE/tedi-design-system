@@ -14,7 +14,6 @@ const colorsDeprecated: TColorsBackground[] = [
 ];
 
 export const getBackgroundColorClass = (type?: TColorsBackground): string => {
-  console.log(type);
   if (type && colorsDeprecated.includes(type)) {
     switch (type) {
       case 'white':
