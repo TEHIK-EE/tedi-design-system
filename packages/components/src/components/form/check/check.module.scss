@@ -39,7 +39,7 @@
   }
 
   .check__input:disabled + & {
-    background-color: var(--new-color-border-default);
+    background-color: var(--new-color-bg-disabled);
   }
 }
 
@@ -50,12 +50,6 @@
 
   [type='checkbox']:checked + .check__indicator & {
     opacity: 1;
-  }
-}
-
-.check__content {
-  .check--disabled & {
-    color: var(--color-text-disabled);
   }
 }
 
