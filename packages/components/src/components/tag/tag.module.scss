@@ -3,7 +3,7 @@
 @mixin tag-variant($bg, $secondary-bg, $secondary-text) {
   &,
   &.tag--type-default {
-    color: var(--color-white);
+    color: var(--new-color-text-inverted);
     background-color: $bg;
   }
 
@@ -14,7 +14,7 @@
 
   &.tag--type-ghost {
     color: $bg;
-    background-color: var(--color-white);
+    background-color: var(--new-color-bg-default);
     border: 1px solid $bg;
   }
 
@@ -48,7 +48,7 @@
   text-decoration: none;
   white-space: nowrap;
   vertical-align: bottom; // Removes extra pixel added to height by inline-flex
-  border-radius: 0.25rem;
+  border-radius: var(--border-radius-default);
 
   @include mixins.print-grayscale;
 
@@ -75,27 +75,45 @@
 }
 
 .tag--color-default {
-  @include tag-variant(var(--color-secondary-grey), var(--color-background), var(--color-secondary-grey));
+  @include tag-variant(var(--new-color-bg-inverted), var(--new-color-bg-muted), var(--new-color-text-subtle));
 }
 
 .tag--color-primary {
-  @include tag-variant(var(--color-primary), var(--color-secondary-blue), var(--color-primary));
+  @include tag-variant(
+    var(--new-color-primary-main),
+    var(--new-color-primary-highlight-subtle),
+    var(--new-color-primary-main)
+  );
 }
 
+.tag--color-accent,
 .tag--color-primary-accent {
-  @include tag-variant(var(--color-primary-accent), var(--color-primary-accent-1), var(--color-primary-accent));
+  @include tag-variant(var(--new-color-accent-main), var(--new-color-accent-highlight), var(--new-color-accent-main));
 }
 
+.tag--color-positive,
 .tag--color-success {
-  @include tag-variant(var(--color-success), var(--color-success-light), var(--color-success));
+  @include tag-variant(
+    var(--new-color-positive-main),
+    var(--new-color-positive-highlight),
+    var(--new-color-positive-main)
+  );
 }
 
 .tag--color-warning {
-  @include tag-variant(var(--color-warning), var(--color-warning-light), var(--color-warning));
+  @include tag-variant(
+    var(--new-color-warning-main),
+    var(--new-color-warning-highlight),
+    var(--new-color-warning-main)
+  );
 }
 
 .tag--color-important {
-  @include tag-variant(var(--color-error), var(--color-error-light), var(--color-error));
+  @include tag-variant(
+    var(--new-color-important-main),
+    var(--new-color-important-highlight),
+    var(--new-color-important-main)
+  );
 }
 
 .tag--with-arrow {
@@ -105,7 +123,7 @@
     right: 0;
     content: '';
     border-right: 4px solid var(--new-color-transparent);
-    border-bottom: 4px solid var(--color-white);
+    border-bottom: 4px solid var(--new-color-bg-default);
     border-left: 4px solid var(--new-color-transparent);
     transform: rotate(45deg);
   }
@@ -126,21 +144,21 @@
     width: 0.625rem;
     height: 0.625rem;
     content: '';
-    border: 1px solid var(--color-white);
+    border: 1px solid var(--new-color-bg-default);
     border-radius: 50%;
   }
 }
 
 .tag--status-success::before {
-  background-color: var(--color-success);
+  background-color: var(--new-color-positive-main);
 }
 
 .tag--status-error::before {
-  background-color: var(--color-error);
+  background-color: var(--new-color-important-main);
 }
 
 .tag--status-inactive::before {
-  background-color: var(--color-text-disabled);
+  background-color: var(--new-color-text-disabled);
 }
 
 .tag--rounded {
