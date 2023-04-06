@@ -5,8 +5,8 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  background: var(--color-white);
-  border: 1px solid var(--color-background-dark);
+  background: var(--new-color-bg-default);
+  border: 1px solid var(--new-color-border-default);
   border-radius: var(--border-radius-default);
 }
 
@@ -43,28 +43,28 @@
 
 .card--success,
 .card--success-top {
-  border-color: var(--color-success);
+  border-color: var(--new-color-positive-main);
 
   @media print {
-    border-color: var(--color-borders-dark);
+    border-color: var(--new-color-border-contrast);
   }
 }
 
 .card--warning,
 .card--warning-top {
-  border-color: var(--color-warning);
+  border-color: var(--new-color-warning-main);
 
   @media print {
-    border-color: var(--color-borders-dark);
+    border-color: var(--new-color-border-contrast);
   }
 }
 
 .card--error,
 .card--error-top {
-  border-color: var(--color-error);
+  border-color: var(--new-color-important-main);
 
   @media print {
-    border-color: var(--color-borders-dark);
+    border-color: var(--new-color-border-contrast);
   }
 }
 
@@ -89,21 +89,21 @@
 }
 
 .card__header--default {
-  color: var(--color-primary-1);
+  color: var(--new-color-text-inverted);
   background: var(--new-color-gradient-main);
 }
 
 .card__header--white {
-  color: var(--color-secondary);
-  background: var(--color-white);
-  border-bottom: 1px solid var(--color-background-dark);
+  color: var(--new-color-text-muted);
+  background: var(--new-color-bg-default);
+  border-bottom: 1px solid var(--new-color-border-default);
 }
 
 .card__header {
   @media print {
-    color: var(--color-black);
-    background: var(--color-white);
-    border-bottom: 1px solid var(--color-background-dark);
+    color: var(--new-color-text-default);
+    background: var(--new-color-bg-default);
+    border-bottom: 1px solid var(--new-color-border-default);
   }
 
   @each $name, $spacing in variables.$card-spacing {
