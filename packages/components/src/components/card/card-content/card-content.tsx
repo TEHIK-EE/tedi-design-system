@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import React from 'react';
 
-import { getBackgroundColorClass } from '../../colors/colors';
+import { getBackgroundColorClass } from '../../background-colors/background-colors';
 import { TColorsBackground } from '../../commonTypes';
 import { CardPadding } from '../card';
 import styles from '../card.module.scss';

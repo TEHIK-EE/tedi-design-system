@@ -1,5 +1,5 @@
 import { TColorsBackground } from '../commonTypes';
-import styles from './colors.module.scss';
+import styles from './background-colors.module.scss';
 
 export const getBackgroundColorClass = (type?: TColorsBackground): string => {
   if (type) {
