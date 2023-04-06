@@ -5,10 +5,10 @@
 }
 
 .select--invalid .select__control {
-  border-color: var(--new-color-important-main);
+  border-color: var(--color-important-main);
 
   &.select__control--focused {
-    box-shadow: 0 0 0 1px var(--new-color-important-main);
+    box-shadow: 0 0 0 1px var(--color-important-main);
   }
 }
 
@@ -17,11 +17,11 @@
   padding: calc(0.5rem - 1px) 2rem calc(0.5rem - 1px) 0.5rem;
 
   .select__control--focused & {
-    color: var(--new-color-primary-main);
+    color: var(--color-primary-main);
   }
 
   .select--invalid .select__control--focused & {
-    color: var(--new-color-important-main);
+    color: var(--color-important-main);
   }
 }
 
@@ -47,29 +47,29 @@ div .select__menu {
 
 .select__menu-list-footer {
   padding: 1rem;
-  border-top: 1px solid var(--new-color-border-default);
+  border-top: 1px solid var(--color-border-default);
 }
 
 .select__menu .select__option {
   font-size: 0.875rem;
-  color: var(--color-text);
+  color: var(--color-text-default);
   cursor: pointer;
-  background-color: var(--new-color-bg-default);
+  background-color: var(--color-bg-default);
 
   &--focused {
-    background-color: var(--new-color-bg-subtle);
+    background-color: var(--color-bg-subtle);
   }
 
   &:active,
   &--selected {
-    color: var(--new-color-primary-main);
-    background-color: var(--new-color-primary-highlight);
+    color: var(--color-primary-main);
+    background-color: var(--color-primary-highlight);
   }
 
   &--disabled {
     color: var(--color-text-disabled);
     cursor: default;
-    background-color: var(--new-color-bg-disabled);
+    background-color: var(--color-bg-disabled);
   }
 }
 

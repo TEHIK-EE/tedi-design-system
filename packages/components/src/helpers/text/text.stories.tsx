@@ -25,7 +25,7 @@ const ColorsTemplate: Story<{ examples: Array<{ color: TextProps['color']; text:
   return (
     <VerticalSpacing>
       {examples.map(({ color, text }, key) => (
-        <div key={key} style={color === 'inverted' ? { background: 'var(--new-color-bg-inverted)' } : undefined}>
+        <div key={key} style={color === 'inverted' ? { background: 'var(--color-bg-inverted)' } : undefined}>
           <Text color={color}>{text}</Text>
         </div>
       ))}

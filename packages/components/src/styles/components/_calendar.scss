@@ -17,13 +17,13 @@ div.MuiCalendarPicker-root {
 
   button.MuiPickersDay-root.Mui-highlighted {
     font-weight: 700;
-    color: var(--new-color-primary-main);
-    background-color: var(--new-color-primary-highlight-subtle);
+    color: var(--color-primary-main);
+    background-color: var(--color-primary-highlight-subtle);
   }
 
   button.MuiPickersDay-root.Mui-selected {
     font-weight: 700;
-    color: var(--new-color-white);
-    background-color: var(--new-color-primary-main);
+    color: var(--color-white);
+    background-color: var(--color-primary-main);
   }
 }

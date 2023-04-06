@@ -18,9 +18,9 @@ const colors: TColorsBackground[] = [
   'warning-highlight',
   'important-highlight',
   'positive-highlight',
-  'primary-main',
-  'primary-highlight-subtle',
   'primary-highlight',
+  'primary-highlight-subtle',
+  'primary-main',
 ];
 
 export const BackgroundColors = () => {
@@ -46,7 +46,6 @@ const colorsDeprecated: TColorsBackground[] = [
   'primary-2',
   'primary',
 ];
-
 export const DeprecatedColorsNaming = () => {
   return (
     <Card>

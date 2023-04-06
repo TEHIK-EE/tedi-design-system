@@ -16,14 +16,14 @@
   @include mixins.print-grayscale;
 
   .status--error & {
-    background-color: var(--new-color-important-main);
+    background-color: var(--color-important-main);
   }
 
   .status--success & {
-    background-color: var(--new-color-positive-main);
+    background-color: var(--color-positive-main);
   }
 
   .status--inactive & {
-    background-color: var(--new-color-text-disabled);
+    background-color: var(--color-text-disabled);
   }
 }

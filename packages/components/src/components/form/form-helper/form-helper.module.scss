@@ -2,15 +2,15 @@
 
 .form-helper {
   font-size: 0.875rem;
-  color: var(--new-color-text-subtle);
+  color: var(--color-text-subtle);
 
   @include mixins.print-grayscale;
 }
 
 .form-helper--valid {
-  color: var(--new-color-positive-main);
+  color: var(--color-positive-main);
 }
 
 .form-helper--error {
-  color: var(--new-color-important-main);
+  color: var(--color-important-main);
 }

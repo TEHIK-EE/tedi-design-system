@@ -7,9 +7,9 @@
   $background-h,
   $border-h,
   $color-h,
-  $background-d: var(--new-color-bg-disabled),
-  $border-d: var(--new-color-bg-disabled),
-  $color-d: var(--new-color-text-disabled)
+  $background-d: var(--color-bg-disabled),
+  $border-d: var(--color-bg-disabled),
+  $color-d: var(--color-text-disabled)
 ) {
   color: $color;
   background-color: $background;
@@ -34,9 +34,9 @@
   $border,
   $color,
   $border-h,
-  $background-d: var(--new-color-bg-disabled),
-  $border-d: var(--new-color-bg-disabled),
-  $color-d: var(--new-color-text-disabled)
+  $background-d: var(--color-bg-disabled),
+  $border-d: var(--color-bg-disabled),
+  $color-d: var(--color-text-disabled)
 ) {
   @include button-variant(
     transparent,
@@ -107,21 +107,21 @@
 .btn--default {
   &.btn--primary {
     @include button-variant(
-      var(--new-color-primary-main),
-      var(--new-color-primary-main),
-      var(--new-color-text-inverted),
-      var(--new-color-primary-active),
-      var(--new-color-primary-active),
-      var(--new-color-text-inverted)
+      var(--color-primary-main),
+      var(--color-primary-main),
+      var(--color-text-inverted),
+      var(--color-primary-active),
+      var(--color-primary-active),
+      var(--color-text-inverted)
     );
   }
 
   &.btn--secondary {
     @include button-secondary-variant(
       // used text color as border, because we don't want to add new border variable
-      var(--new-color-text-muted),
-      var(--new-color-text-muted),
-      var(--new-color-border-default)
+      var(--color-text-muted),
+      var(--color-text-muted),
+      var(--color-border-default)
     );
   }
 }
@@ -129,20 +129,20 @@
 .btn--error {
   &.btn--primary {
     @include button-variant(
-      var(--new-color-important-main),
-      var(--new-color-important-main),
-      var(--new-color-text-inverted),
-      var(--new-color-important-active),
-      var(--new-color-important-active),
-      var(--new-color-text-inverted)
+      var(--color-important-main),
+      var(--color-important-main),
+      var(--color-text-inverted),
+      var(--color-important-active),
+      var(--color-important-active),
+      var(--color-text-inverted)
     );
   }
 
   &.btn--secondary {
     @include button-secondary-variant(
-      var(--new-color-important-main),
-      var(--new-color-important-main),
-      var(--new-color-border-default)
+      var(--color-important-main),
+      var(--color-important-main),
+      var(--color-border-default)
     );
   }
 }
@@ -150,20 +150,20 @@
 .btn--success {
   &.btn--primary {
     @include button-variant(
-      var(--new-color-positive-main),
-      var(--new-color-positive-main),
-      var(--new-color-text-inverted),
-      var(--new-color-positive-active),
-      var(--new-color-positive-active),
-      var(--new-color-text-inverted)
+      var(--color-positive-main),
+      var(--color-positive-main),
+      var(--color-text-inverted),
+      var(--color-positive-active),
+      var(--color-positive-active),
+      var(--color-text-inverted)
     );
   }
 
   &.btn--secondary {
     @include button-secondary-variant(
-      var(--new-color-positive-main),
-      var(--new-color-positive-main),
-      var(--new-color-border-default)
+      var(--color-positive-main),
+      var(--color-positive-main),
+      var(--color-border-default)
     );
   }
 }
@@ -171,51 +171,47 @@
 .btn--inverted {
   &.btn--primary {
     @include button-variant(
-      var(--new-color-bg-default),
-      var(--new-color-bg-default),
-      var(--new-color-primary-main),
-      var(--new-color-bg-subtle),
-      var(--new-color-bg-subtle),
-      var(--new-color-primary-active)
+      var(--color-bg-default),
+      var(--color-bg-default),
+      var(--color-primary-main),
+      var(--color-bg-subtle),
+      var(--color-bg-subtle),
+      var(--color-primary-active)
     );
   }
 
   &.btn--secondary {
     @include button-secondary-variant(
       // used text color as border, because we don't want to add new border variable
-      var(--new-color-text-inverted),
-      var(--new-color-text-inverted),
-      var(--new-color-text-inverted),
-      var(--new-color-transparent),
-      var(--new-color-bg-disabled),
-      var(--new-color-text-disabled)
+      var(--color-text-inverted),
+      var(--color-text-inverted),
+      var(--color-text-inverted),
+      var(--color-transparent),
+      var(--color-bg-disabled),
+      var(--color-text-disabled)
     );
   }
 
   &.btn--link {
-    @include link-variant(
-      var(--new-color-text-inverted),
-      var(--new-color-text-inverted),
-      var(--new-color-text-disabled)
-    );
+    @include link-variant(var(--color-text-inverted), var(--color-text-inverted), var(--color-text-disabled));
   }
 }
 
 .btn--text-color {
   &.btn--link {
-    @include link-variant(inherit, var(--new-color-text-subtle), var(--new-color-text-disabled));
+    @include link-variant(inherit, var(--color-text-subtle), var(--color-text-disabled));
   }
 }
 
 .btn--link {
   padding: 0;
-  color: var(--new-color-primary-main);
+  color: var(--color-primary-main);
   text-decoration: none;
   background: none;
   border: none;
   border-radius: 3px;
 
-  @include link-variant(var(--new-color-primary-main), var(--new-color-primary-active), var(--new-color-text-disabled));
+  @include link-variant(var(--color-primary-main), var(--color-primary-active), var(--color-text-disabled));
 }
 
 .btn__text {

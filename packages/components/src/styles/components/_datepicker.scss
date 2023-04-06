@@ -9,14 +9,14 @@ div.MuiClockPointer-root,
 div.MuiClock-pin,
 div.PrivatePickersYear-root button.Mui-selected,
 div.MuiDayPicker-weekContainer button.Mui-selected {
-  background-color: var(--new-color-primary-main);
+  background-color: var(--color-primary-main);
 }
 
 div.MuiClockPointer-thumb {
-  border-color: var(--new-color-primary-main);
+  border-color: var(--color-primary-main);
 }
 
 div.PrivatePickersYear-root button.Mui-selected:hover,
 div.MuiDayPicker-weekContainer button.Mui-selected:hover {
-  background-color: var(--new-color-primary-active);
+  background-color: var(--color-primary-active);
 }

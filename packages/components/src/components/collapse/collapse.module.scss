@@ -9,7 +9,7 @@
 }
 
 .collapse__icon {
-  color: var(--new-color-primary-main);
+  color: var(--color-primary-main);
   transition: transform 0.3s ease-in-out;
 
   .collapse--is-open & {

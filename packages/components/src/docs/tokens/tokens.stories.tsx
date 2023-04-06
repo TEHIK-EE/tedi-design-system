@@ -2,7 +2,7 @@ import { Meta } from '@storybook/react';
 import * as tokens from '@tehik/design-tokens/tokens.json';
 import React from 'react';
 
-import { Col, Row, Section, Separator, Tag, VerticalSpacing, VerticalSpacingItem } from '../..';
+import { Col, Row, Section, Separator, VerticalSpacing, VerticalSpacingItem } from '../..';
 import styles from './tokens.module.scss';
 
 export default {
@@ -49,7 +49,7 @@ const mapToColors = (obj: { [key: string]: string }, prefix: string): IColor[] =
     return {
       name: name,
       hex: value.includes('gradient') ? '-' : (value as string).toUpperCase(),
-      variable: `var(--new-${name})`,
+      variable: `var(--${name})`,
     };
   });
 
@@ -59,11 +59,11 @@ const jsonSections: ISection[] = [
     groups: [
       {
         title: 'Primary',
-        colors: mapToColors(tokens['new-color'].primary, 'color-primary'),
+        colors: mapToColors(tokens['color'].primary, 'color-primary'),
       },
       {
         title: 'Accent',
-        colors: mapToColors(tokens['new-color'].accent, 'color-accent'),
+        colors: mapToColors(tokens['color'].accent, 'color-accent'),
       },
     ],
   },
@@ -72,19 +72,19 @@ const jsonSections: ISection[] = [
     groups: [
       {
         title: 'Text',
-        colors: mapToColors(tokens['new-color'].text, 'color-text'),
+        colors: mapToColors(tokens['color'].text, 'color-text'),
       },
       {
         title: 'Background',
-        colors: mapToColors(tokens['new-color'].bg, 'color-bg'),
+        colors: mapToColors(tokens['color'].bg, 'color-bg'),
       },
       {
         title: 'Border (separators)',
-        colors: mapToColors(tokens['new-color'].border, 'color-border'),
+        colors: mapToColors(tokens['color'].border, 'color-border'),
       },
       {
         title: 'Shades',
-        colors: mapToColors({ black: tokens['new-color'].black, white: tokens['new-color'].white }, 'color'),
+        colors: mapToColors({ black: tokens['color'].black, white: tokens['color'].white }, 'color'),
       },
     ],
   },
@@ -93,23 +93,23 @@ const jsonSections: ISection[] = [
     groups: [
       {
         title: 'Positive',
-        colors: mapToColors(tokens['new-color'].positive, 'color-positive'),
+        colors: mapToColors(tokens['color'].positive, 'color-positive'),
       },
       {
         title: 'Important',
-        colors: mapToColors(tokens['new-color'].important, 'color-important'),
+        colors: mapToColors(tokens['color'].important, 'color-important'),
       },
       {
         title: 'Info',
-        colors: mapToColors(tokens['new-color'].info, 'color-info'),
+        colors: mapToColors(tokens['color'].info, 'color-info'),
       },
       {
         title: 'Warning',
-        colors: mapToColors(tokens['new-color'].warning, 'color-warning'),
+        colors: mapToColors(tokens['color'].warning, 'color-warning'),
       },
       {
         title: 'Gradients',
-        colors: mapToColors(tokens['new-color'].gradient, 'color-gradient'),
+        colors: mapToColors(tokens['color'].gradient, 'color-gradient'),
       },
     ],
   },
@@ -163,9 +163,6 @@ const Color = ({ name, variable, hex }: IColor) => (
 export const Tokens = () => {
   return (
     <Section className={styles['colors-wrapper']}>
-      <Tag color="warning" size="medium">
-        Work in progress!
-      </Tag>
       <VerticalSpacing size={2}>
         <VerticalSpacingItem size={0.5}>
           <h1>Design Tokens</h1>

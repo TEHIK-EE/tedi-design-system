@@ -2,45 +2,45 @@
 
 h1,
 .h1 {
-  font-size: var(--new-font-size-h1);
-  font-weight: var(--new-font-weight-h1);
-  line-height: var(--new-font-line-height-h1);
+  font-size: var(--font-size-h1);
+  font-weight: var(--font-weight-h1);
+  line-height: var(--font-line-height-h1);
 }
 
 h2,
 .h2 {
-  font-size: var(--new-font-size-h2);
-  font-weight: var(--new-font-weight-h2);
-  line-height: var(--new-font-line-height-h2);
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-h2);
+  line-height: var(--font-line-height-h2);
 }
 
 h3,
 .h3 {
-  font-size: var(--new-font-size-h3);
-  font-weight: var(--new-font-weight-h3);
-  line-height: var(--new-font-line-height-h3);
+  font-size: var(--font-size-h3);
+  font-weight: var(--font-weight-h3);
+  line-height: var(--font-line-height-h3);
 }
 
 h4,
 .h4 {
-  font-size: var(--new-font-size-h4);
-  font-weight: var(--new-font-weight-h4);
-  line-height: var(--new-font-line-height-h4);
+  font-size: var(--font-size-h4);
+  font-weight: var(--font-weight-h4);
+  line-height: var(--font-line-height-h4);
 }
 
 h5,
 .h5 {
-  font-size: var(--new-font-size-h5);
-  font-weight: var(--new-font-weight-h5);
-  line-height: var(--new-font-line-height-h5);
+  font-size: var(--font-size-h5);
+  font-weight: var(--font-weight-h5);
+  line-height: var(--font-line-height-h5);
 }
 
 h6,
 .h6 {
-  font-size: var(--new-font-size-h6);
-  font-weight: var(--new-font-weight-h6);
-  line-height: var(--new-font-line-height-h6);
-  color: var(--new-color-text-muted);
+  font-size: var(--font-size-h6);
+  font-weight: var(--font-weight-h6);
+  line-height: var(--font-line-height-h6);
+  color: var(--color-text-muted);
 }
 
 .text-nowrap {
@@ -72,16 +72,16 @@ h6,
 }
 
 .text-normal {
-  font-family: var(--new-font-family);
-  font-size: var(--new-font-size-base);
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
   font-weight: 400;
-  line-height: var(--new-font-line-height-base);
-  color: var(--new-color-text-default);
+  line-height: var(--font-line-height-base);
+  color: var(--color-text-default);
 }
 
 small,
 .text-small {
-  font-size: var(--new-font-size-small);
+  font-size: var(--font-size-small);
 }
 
 b,
@@ -110,11 +110,11 @@ i,
 // @deprecated: text-black is deprecated, use @text-default instead
 .text-default,
 .text-black {
-  color: var(--new-color-text-default);
+  color: var(--color-text-default);
 }
 
 .text-primary {
-  color: var(--new-color-primary-main);
+  color: var(--color-primary-main);
 
   @include mixins.print-grayscale;
 }
@@ -122,27 +122,27 @@ i,
 // @deprecated: text-secondary is deprecated, use @text-muted instead
 .text-muted,
 .text-secondary {
-  color: var(--new-color-text-muted);
+  color: var(--color-text-muted);
 }
 
 .text-subtle {
-  color: var(--new-color-text-subtle);
+  color: var(--color-text-subtle);
 }
 
 .text-disabled {
-  color: var(--new-color-text-disabled);
+  color: var(--color-text-disabled);
 }
 
 // @deprecated: text-white is deprecated, use @text-inverted instead
 .text-inverted,
 .text-white {
-  color: var(--new-color-text-inverted);
+  color: var(--color-text-inverted);
 }
 
 // @deprecated: text-success is deprecated, use @text-positive instead
 .text-positive,
 .text-success {
-  color: var(--new-color-positive-main);
+  color: var(--color-positive-main);
 
   @include mixins.print-grayscale;
 }
@@ -150,13 +150,13 @@ i,
 // @deprecated: text-error is deprecated, use @text-important instead
 .text-important,
 .text-error {
-  color: var(--new-color-important-main);
+  color: var(--color-important-main);
 
   @include mixins.print-grayscale;
 }
 
 .text-warning {
-  color: var(--new-color-warning-main);
+  color: var(--color-warning-main);
 
   @include mixins.print-grayscale;
 }

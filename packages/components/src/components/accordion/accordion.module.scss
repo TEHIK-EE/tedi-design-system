@@ -2,36 +2,36 @@
 
 .accordion__item {
   margin-bottom: 0.5rem;
-  border: 1px solid var(--new-color-border-default);
+  border: 1px solid var(--color-border-default);
   border-radius: var(--border-radius-default);
 
   &--border-primary {
-    border-color: var(--new-color-primary-main);
+    border-color: var(--color-primary-main);
   }
 }
 
 .accordion__item-header {
   padding: 1rem;
-  color: var(--new-color-text-default);
-  background: var(--new-color-bg-default);
+  color: var(--color-text-default);
+  background: var(--color-bg-default);
   border-radius: var(--border-radius-default);
 
   @include mixins.print-grayscale;
 
   .accordion__item:not(.accordion__item--disabled) &:hover {
-    color: var(--new-color-primary-active);
+    color: var(--color-primary-active);
     cursor: pointer;
   }
 }
 
 .accordion__item--disabled .accordion__item-header {
-  color: var(--new-color-text-disabled);
+  color: var(--color-text-disabled);
 }
 
 .accordion__item-content {
   padding: 1rem;
-  background: var(--new-color-bg-default);
-  border-top: 1px solid var(--new-color-border-default);
+  background: var(--color-bg-default);
+  border-top: 1px solid var(--color-border-default);
   border-bottom-right-radius: var(--border-radius-default);
   border-bottom-left-radius: var(--border-radius-default);
 }

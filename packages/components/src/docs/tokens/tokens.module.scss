@@ -30,7 +30,7 @@
   transition: transform 0.2s ease-in;
 
   &:hover {
-    color: var(--new-color-black);
+    color: var(--color-black);
     transform: scale(1.05);
   }
 }

@@ -16,11 +16,11 @@
   width: 100%;
   padding: 0 1.25rem;
   font-size: 0.875rem;
-  color: var(--new-color-text-muted);
+  color: var(--color-text-muted);
   white-space: nowrap;
   cursor: pointer;
-  background-color: var(--new-color-bg-subtle);
-  border: 1px solid var(--new-color-border-contrast);
+  background-color: var(--color-bg-subtle);
+  border: 1px solid var(--color-border-contrast);
 
   .selector__item:first-of-type & {
     margin-left: 0;
@@ -36,13 +36,13 @@
   .selector__item--disabled & {
     color: var(--color-text-disabled);
     cursor: unset;
-    background-color: var(--new-color-bg-disabled);
+    background-color: var(--color-bg-disabled);
   }
 
   .selector__item--checked & {
-    color: var(--new-color-text-inverted);
-    background-color: var(--new-color-primary-main);
-    border-top-color: var(--new-color-primary-main);
-    border-bottom-color: var(--new-color-primary-main);
+    color: var(--color-text-inverted);
+    background-color: var(--color-primary-main);
+    border-top-color: var(--color-primary-main);
+    border-bottom-color: var(--color-primary-main);
   }
 }

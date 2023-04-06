@@ -5,8 +5,8 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  background: var(--new-color-bg-default);
-  border: 1px solid var(--new-color-border-default);
+  background: var(--color-bg-default);
+  border: 1px solid var(--color-border-default);
   border-radius: var(--border-radius-default);
 }
 
@@ -43,28 +43,28 @@
 
 .card--success,
 .card--success-top {
-  border-color: var(--new-color-positive-main);
+  border-color: var(--color-positive-main);
 
   @media print {
-    border-color: var(--new-color-border-contrast);
+    border-color: var(--color-border-contrast);
   }
 }
 
 .card--warning,
 .card--warning-top {
-  border-color: var(--new-color-warning-main);
+  border-color: var(--color-warning-main);
 
   @media print {
-    border-color: var(--new-color-border-contrast);
+    border-color: var(--color-border-contrast);
   }
 }
 
 .card--error,
 .card--error-top {
-  border-color: var(--new-color-important-main);
+  border-color: var(--color-important-main);
 
   @media print {
-    border-color: var(--new-color-border-contrast);
+    border-color: var(--color-border-contrast);
   }
 }
 
@@ -89,21 +89,21 @@
 }
 
 .card__header--default {
-  color: var(--new-color-text-inverted);
-  background: var(--new-color-gradient-main);
+  color: var(--color-text-inverted);
+  background: var(--color-gradient-main);
 }
 
 .card__header--white {
-  color: var(--new-color-text-muted);
-  background: var(--new-color-bg-default);
-  border-bottom: 1px solid var(--new-color-border-default);
+  color: var(--color-text-muted);
+  background: var(--color-bg-default);
+  border-bottom: 1px solid var(--color-border-default);
 }
 
 .card__header {
   @media print {
-    color: var(--new-color-text-default);
-    background: var(--new-color-bg-default);
-    border-bottom: 1px solid var(--new-color-border-default);
+    color: var(--color-text-default);
+    background: var(--color-bg-default);
+    border-bottom: 1px solid var(--color-border-default);
   }
 
   @each $name, $spacing in variables.$card-spacing {

@@ -4,18 +4,18 @@
   display: flex;
   flex-direction: column;
   padding: 0.75rem 1rem;
-  background-color: var(--new-color-bg-default);
-  border: 1px solid var(--new-color-border-contrast);
+  background-color: var(--color-bg-default);
+  border: 1px solid var(--color-border-contrast);
   border-radius: var(--border-radius-default);
 
   .text-editor--invalid & {
-    border-color: var(--new-color-important-main);
+    border-color: var(--color-important-main);
   }
 
   .text-editor--focused & {
-    border-color: var(--new-color-primary-active-subtle);
+    border-color: var(--color-primary-active-subtle);
     outline: none;
-    box-shadow: 0 0 0 1px var(--new-color-primary-active-subtle);
+    box-shadow: 0 0 0 1px var(--color-primary-active-subtle);
   }
 }
 
@@ -31,22 +31,22 @@
 
 .text-editor__content {
   padding-top: 1rem;
-  color: var(--new-color-text-default);
+  color: var(--color-text-default);
 }
 
 .style-button {
   @include mixins.button-reset;
 
   display: flex;
-  color: var(--new-color-text-muted);
+  color: var(--color-text-muted);
 
   &:hover {
-    color: var(--new-color-text-default);
+    color: var(--color-text-default);
   }
 }
 
 .style-button--active {
-  color: var(--new-color-text-default);
-  background-color: var(--new-color-bg-subtle);
+  color: var(--color-text-default);
+  background-color: var(--color-bg-subtle);
   border-radius: var(--border-radius-default);
 }

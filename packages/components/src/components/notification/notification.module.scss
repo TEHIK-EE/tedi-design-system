@@ -6,28 +6,28 @@
 }
 
 .notification--info {
-  background-color: var(--new-color-primary-highlight);
-  border-color: var(--new-color-primary-main);
+  background-color: var(--color-primary-highlight);
+  border-color: var(--color-primary-main);
 }
 
 .notification--success {
-  background-color: var(--new-color-positive-highlight);
-  border-color: var(--new-color-positive-main);
+  background-color: var(--color-positive-highlight);
+  border-color: var(--color-positive-main);
 }
 
 .notification--warning {
-  background-color: var(--new-color-warning-highlight);
-  border-color: var(--new-color-warning-main);
+  background-color: var(--color-warning-highlight);
+  border-color: var(--color-warning-main);
 }
 
 .notification--error {
-  background-color: var(--new-color-important-highlight);
-  border-color: var(--new-color-important-main);
+  background-color: var(--color-important-highlight);
+  border-color: var(--color-important-main);
 }
 
 @media print {
   .notification {
-    background-color: var(--new-color-bg-default);
-    border-color: var(--new-color-border-default);
+    background-color: var(--color-bg-default);
+    border-color: var(--color-border-default);
   }
 }

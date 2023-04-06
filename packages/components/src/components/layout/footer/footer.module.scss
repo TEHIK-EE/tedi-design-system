@@ -8,7 +8,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 2.5rem;
-  background-color: var(--new-color-bg-inverted);
+  background-color: var(--color-bg-inverted);
 
   @include mixins.print-grayscale;
 

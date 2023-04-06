@@ -21,9 +21,9 @@
   min-height: 1.5rem;
   padding: 0 0.125rem;
   margin: 0 0.125rem;
-  color: var(--new-color-text-muted);
+  color: var(--color-text-muted);
   text-align: center;
-  background: var(--new-color-transparent);
+  background: var(--color-transparent);
 
   // Only styles applied to button elements (not ellipsis)
   &:is(button) {
@@ -36,13 +36,13 @@
   }
 
   &:hover:is(button) {
-    color: var(--new-color-primary-main);
-    background-color: var(--new-color-bg-subtle);
+    color: var(--color-primary-main);
+    background-color: var(--color-bg-subtle);
   }
 
   @media print {
-    color: var(--new-color-text-muted);
-    background-color: var(--new-color-bg-subtle);
+    color: var(--color-text-muted);
+    background-color: var(--color-bg-subtle);
   }
 
   &:focus {
@@ -51,12 +51,12 @@
 
   &--current {
     display: block;
-    color: var(--new-color-text-inverted);
-    background-color: var(--new-color-primary-active);
+    color: var(--color-text-inverted);
+    background-color: var(--color-primary-active);
 
     @media print {
-      color: var(--new-color-text-inverted) !important;
-      background-color: var(--new-color-text-muted);
+      color: var(--color-text-inverted) !important;
+      background-color: var(--color-text-muted);
     }
   }
 
@@ -80,18 +80,18 @@
 .pagination__arrow {
   height: 1rem;
   font-weight: 700;
-  color: var(--new-color-text-muted);
+  color: var(--color-text-muted);
   cursor: pointer;
-  background-color: var(--new-color-transparent);
+  background-color: var(--color-transparent);
   border: none;
   transition: color 0.2s ease;
 
   &:disabled {
-    color: var(--new-color-text-disabled);
+    color: var(--color-text-disabled);
     cursor: initial;
   }
 
   &:hover:not(:disabled) {
-    color: var(--new-color-primary-active);
+    color: var(--color-primary-active);
   }
 }

@@ -48,33 +48,33 @@ $toggle-transition-timing-function: ease-out;
 
   &.toggle--disabled {
     cursor: auto;
-    background-color: var(--new-color-bg-disabled);
-    border-color: var(--new-color-bg-disabled);
+    background-color: var(--color-bg-disabled);
+    border-color: var(--color-bg-disabled);
   }
 
   // GHOST
   &.toggle--ghost {
-    background-color: var(--new-color-transparent);
+    background-color: var(--color-transparent);
     border-color: $bg;
 
     &:hover:not(.toggle--disabled) {
-      background-color: var(--new-color-transparent);
+      background-color: var(--color-transparent);
       border-color: $bg-hover;
     }
 
     &.toggle--active {
-      background-color: var(--new-color-transparent);
+      background-color: var(--color-transparent);
       border-color: $bg-active;
 
       &:hover:not(.toggle--disabled) {
-        background-color: var(--new-color-transparent);
+        background-color: var(--color-transparent);
         border-color: $bg-hover-active;
       }
     }
 
     &.toggle--disabled {
-      background-color: var(--new-color-bg-subtle);
-      border-color: var(--new-color-border-contrast);
+      background-color: var(--color-bg-subtle);
+      border-color: var(--color-border-contrast);
     }
   }
 }
@@ -129,17 +129,17 @@ $toggle-transition-timing-function: ease-out;
 ) {
   @include toggle-container-variant($bg, $bg-hover, $bg-active, $bg-active-hover);
   @include toggle-dot-variant(
-    var(--new-color-text-inverted),
-    var(--new-color-text-inverted),
-    var(--new-color-text-inverted),
-    var(--new-color-text-inverted),
-    var(--new-color-text-disabled)
+    var(--color-text-inverted),
+    var(--color-text-inverted),
+    var(--color-text-inverted),
+    var(--color-text-inverted),
+    var(--color-text-disabled)
   );
-  @include toggle-icon-variant($icon-color, $icon-color-active, var(--new-color-bg-disabled));
+  @include toggle-icon-variant($icon-color, $icon-color-active, var(--color-bg-disabled));
 
   &.toggle--ghost {
-    @include toggle-dot-variant($bg, $bg-hover, $bg-active, $bg-active-hover, var(--new-color-bg-disabled));
-    @include toggle-icon-variant($icon-color-ghost, $icon-color-ghost-active, var(--new-color-text-disabled));
+    @include toggle-dot-variant($bg, $bg-hover, $bg-active, $bg-active-hover, var(--color-bg-disabled));
+    @include toggle-icon-variant($icon-color-ghost, $icon-color-ghost-active, var(--color-text-disabled));
   }
 }
 
@@ -152,14 +152,14 @@ $toggle-transition-timing-function: ease-out;
   transition: background-color, $toggle-transition-duration, $toggle-transition-timing-function;
 
   @include toggle-color-variant(
-    var(--new-color-bg-disabled),
-    var(--new-color-primary-main),
-    var(--new-color-text-disabled),
-    var(--new-color-primary-active),
-    var(--new-color-text-disabled),
-    var(--new-color-primary-main),
-    var(--new-color-text-muted),
-    var(--new-color-text-inverted)
+    var(--color-bg-disabled),
+    var(--color-primary-main),
+    var(--color-text-disabled),
+    var(--color-primary-active),
+    var(--color-text-disabled),
+    var(--color-primary-main),
+    var(--color-text-muted),
+    var(--color-text-inverted)
   );
   @include mixins.print-grayscale;
 
@@ -173,14 +173,14 @@ $toggle-transition-timing-function: ease-out;
 
   &--alternative {
     @include toggle-color-variant(
-      var(--new-color-important-main),
-      var(--new-color-positive-main),
-      var(--new-color-important-active),
-      var(--new-color-positive-active),
-      var(--new-color-important-main),
-      var(--new-color-positive-main),
-      var(--new-color-text-inverted),
-      var(--new-color-text-inverted)
+      var(--color-important-main),
+      var(--color-positive-main),
+      var(--color-important-active),
+      var(--color-positive-active),
+      var(--color-important-main),
+      var(--color-positive-main),
+      var(--color-text-inverted),
+      var(--color-text-inverted)
     );
   }
 }

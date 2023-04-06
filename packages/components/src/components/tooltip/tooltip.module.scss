@@ -9,7 +9,7 @@ $tooltip-max-width: (
   z-index: 20;
   padding: 0.25rem 0.5rem;
   word-break: break-word;
-  background-color: var(--new-color-bg-default);
+  background-color: var(--color-bg-default);
   filter: drop-shadow(0 4px 10px rgb(0 0 0 / 14%));
   border-radius: var(--border-radius-default);
 }
@@ -29,36 +29,28 @@ $tooltip-max-width: (
   .tooltip[data-placement='top-start'] &,
   .tooltip[data-placement='top-end'] & {
     bottom: -12px;
-    border-color:
-      var(--new-color-bg-default) var(--new-color-transparent) var(--new-color-transparent)
-      var(--new-color-transparent);
+    border-color: var(--color-bg-default) var(--color-transparent) var(--color-transparent) var(--color-transparent);
   }
 
   .tooltip[data-placement='bottom'] &,
   .tooltip[data-placement='bottom-start'] &,
   .tooltip[data-placement='bottom-end'] & {
     top: -12px;
-    border-color:
-      var(--new-color-transparent) var(--new-color-transparent) var(--new-color-bg-default)
-      var(--new-color-transparent);
+    border-color: var(--color-transparent) var(--color-transparent) var(--color-bg-default) var(--color-transparent);
   }
 
   .tooltip[data-placement='right'] &,
   .tooltip[data-placement='right-start'] &,
   .tooltip[data-placement='right-end'] & {
     left: -12px;
-    border-color:
-      var(--new-color-transparent) var(--new-color-bg-default) var(--new-color-transparent)
-      var(--new-color-transparent);
+    border-color: var(--color-transparent) var(--color-bg-default) var(--color-transparent) var(--color-transparent);
   }
 
   .tooltip[data-placement='left'] &,
   .tooltip[data-placement='left-start'] &,
   .tooltip[data-placement='left-end'] & {
     right: -12px;
-    border-color:
-      var(--new-color-transparent) var(--new-color-transparent) var(--new-color-transparent)
-      var(--new-color-bg-default);
+    border-color: var(--color-transparent) var(--color-transparent) var(--color-transparent) var(--color-bg-default);
   }
 }
 

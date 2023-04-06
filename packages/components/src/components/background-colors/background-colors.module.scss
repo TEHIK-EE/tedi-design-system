@@ -11,34 +11,11 @@ $colors: (
 );
 
 @each $color in $colors {
-  .bg-#{$color} {
-    background-color: var(--new-color-#{$color});
-
-    @media print {
-      background-color: var(--new-color-bg-default);
-    }
-  }
-}
-
-// @deprecated
-$colors-old: (
-  'white',
-  'background-light',
-  'background',
-  'warning-light',
-  'success-light',
-  'error-light',
-  'primary-1',
-  'primary-2',
-  'primary'
-);
-
-@each $color in $colors-old {
-  .bg-#{$color} {
+  .#{$color} {
     background-color: var(--color-#{$color});
 
     @media print {
-      background-color: var(--new-color-bg-default);
+      background-color: var(--color-bg-default);
     }
   }
 }

@@ -1,13 +1,13 @@
 @use '../../styles/mixins';
 
 .table {
-  --table-bottom-border: 0.01px solid var(--new-color-border-contrast);
+  --table-bottom-border: 0.01px solid var(--color-border-contrast);
   --table-cell-horizontal-padding: 0.875rem;
   --table-cell-vertical-padding: 0.75rem;
   --table-cell-padding: var(--table-cell-vertical-padding) var(--table-cell-horizontal-padding);
 
   // 0.01px fix https://bugs.chromium.org/p/chromium/issues/detail?id=1201762
-  --table-row-border: 0.01px solid var(--new-color-border-default);
+  --table-row-border: 0.01px solid var(--color-border-default);
 
   width: 100%;
   overflow-x: auto;
@@ -26,7 +26,7 @@
 
   @include mixins.table-cell-selector(thead) {
     font-weight: 400;
-    color: var(--new-color-text-muted);
+    color: var(--color-text-muted);
     text-align: left;
 
     @include mixins.print-grayscale;
@@ -46,17 +46,17 @@
       transition-property: color;
 
       &:hover {
-        color: var(--new-color-primary-active);
+        color: var(--color-primary-active);
       }
     }
 
     .sorted__icon--asc {
-      color: var(--new-color-primary-active);
+      color: var(--color-primary-active);
       transform: rotate(180deg);
     }
 
     .sorted__icon--desc {
-      color: var(--new-color-primary-active);
+      color: var(--color-primary-active);
       transition-duration: 600ms;
       transition-property: transform;
       transform: rotate(0);
@@ -68,7 +68,7 @@
     border-top: var(--table-row-border);
 
     &:first-of-type {
-      border-color: var(--new-color-border-contrast);
+      border-color: var(--color-border-contrast);
     }
 
     &:last-child {
@@ -82,7 +82,7 @@
 
     &.table__row--clickable:hover {
       cursor: pointer;
-      background-color: var(--new-color-bg-subtle);
+      background-color: var(--color-bg-subtle);
     }
   }
 
@@ -115,7 +115,7 @@
   --table-cell-padding: var(--table-cell-vertical-padding) var(--table-cell-horizontal-padding) 0;
 
   font-size: 0.875rem;
-  color: var(--new-color-text-muted);
+  color: var(--color-text-muted);
 }
 
 .table__row--group-item {
@@ -140,12 +140,12 @@
 .filter__icon {
   --icon-variation-size: 1.5rem;
 
-  color: var(--new-color-text-disabled);
+  color: var(--color-text-disabled);
   transition: 200ms ease;
   transition-property: color;
 
   &:hover,
   &--active {
-    color: var(--new-color-primary-active);
+    color: var(--color-primary-active);
   }
 }
