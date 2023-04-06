@@ -14,18 +14,19 @@
   justify-content: center;
   padding: 0.25rem 0.5rem;
   font-size: 1rem;
-  color: var(--color-secondary-grey);
+  color: var(--new-color-text-muted);
   cursor: pointer;
-  background: var(--color-background);
-  border-radius: 4px;
+  background: var(--new-color-bg-subtle);
+  border-radius: var(--border-radius-default);
 
   .filter-item--disabled & {
+    color: var(--color-text-disabled);
     cursor: unset;
-    background-color: var(--color-background-dark);
+    background-color: var(--new-color-bg-disabled);
   }
 
   .filter-item--checked & {
-    color: var(--color-white);
-    background-color: var(--color-primary);
+    color: var(--new-color-text-inverted);
+    background-color: var(--new-color-primary-main);
   }
 }
