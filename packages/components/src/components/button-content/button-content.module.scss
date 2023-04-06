@@ -117,12 +117,9 @@
   }
 
   &.btn--secondary {
-    // variables Button
-    --button-secondary-border: var(--color-text-secondary);
-    --button-secondary-border-h: #dbdfe2;
-
     @include button-secondary-variant(
-      var(--new-color-border-contrast-high),
+      // used text color as border, because we don't want to add new border variable
+      var(--new-color-text-muted),
       var(--new-color-text-muted),
       var(--new-color-border-default)
     );
@@ -185,9 +182,10 @@
 
   &.btn--secondary {
     @include button-secondary-variant(
-      var(--new-color-bg-default),
+      // used text color as border, because we don't want to add new border variable
       var(--new-color-text-inverted),
-      var(--new-color-bg-default),
+      var(--new-color-text-inverted),
+      var(--new-color-text-inverted),
       var(--new-color-transparent),
       var(--new-color-bg-disabled),
       var(--new-color-text-disabled)
