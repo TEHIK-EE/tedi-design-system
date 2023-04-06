@@ -2,32 +2,32 @@
   padding: 1rem 1.25rem;
   font-size: 0.875rem; // 14px
   border: 1px solid;
-  border-radius: 0.25;
+  border-radius: var(--border-radius-default);
 }
 
 .notification--info {
-  background-color: var(--color-primary-2);
-  border-color: var(--color-primary);
+  background-color: var(--new-color-primary-highlight);
+  border-color: var(--new-color-primary-main);
 }
 
 .notification--success {
-  background-color: var(--color-success-light);
-  border-color: var(--color-success);
+  background-color: var(--new-color-positive-highlight);
+  border-color: var(--new-color-positive-main);
 }
 
 .notification--warning {
-  background-color: var(--color-warning-light);
-  border-color: var(--color-warning);
+  background-color: var(--new-color-warning-highlight);
+  border-color: var(--new-color-warning-main);
 }
 
 .notification--error {
-  background-color: var(--color-error-light);
-  border-color: var(--color-error);
+  background-color: var(--new-color-important-highlight);
+  border-color: var(--new-color-important-main);
 }
 
 @media print {
   .notification {
-    background-color: var(--color-white);
-    border-color: var(--color-background-dark);
+    background-color: var(--new-color-bg-default);
+    border-color: var(--new-color-border-default);
   }
 }
