@@ -1,3 +1,16 @@
+# [3.0.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.26.2...v3.0.0) (2023-04-06)
+
+
+### Features
+
+* **colors:** :art: Implement new color variables, delete old ones ([14a2c0f](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/14a2c0fe066a2f6171e3297d459f61a6fb6bfb3f))
+
+
+### BREAKING CHANGES
+
+* **colors:** New color-tokens implemented, check slack for more info!
+* **colors:** New color-tokens implemented, check slack for more info!
+
 ## [2.26.2](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.26.1...v2.26.2) (2023-04-06)
 
 ### Bug Fixes
