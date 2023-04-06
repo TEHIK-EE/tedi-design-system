@@ -1,3 +1,10 @@
+## [2.26.2](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.26.1...v2.26.2) (2023-04-06)
+
+
+### Bug Fixes
+
+* **button:** Move button to new variables, fix disabled hover - TEHVEER-112 ([66b1191](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/66b1191795a6ac63aacf1caf97f379e248442e41))
+
 ## [2.26.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.26.0...v2.26.1) (2023-04-05)
 
 ### Bug Fixes
