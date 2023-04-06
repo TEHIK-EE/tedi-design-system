@@ -59,7 +59,6 @@ const Template: Story<ButtonProps> = (args) => {
   return (
     <VerticalSpacing size={0.5}>
       {getRow('Default')}
-      {getRow('Hover', { isHovered: true })}
       {getRow('Active', { isActive: true })}
       {getRow('Disabled', { disabled: true })}
     </VerticalSpacing>
