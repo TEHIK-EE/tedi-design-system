@@ -75,7 +75,7 @@
 }
 
 .tag--color-default {
-  @include tag-variant(var(--new-color-bg-inverted), var(--new-color-bg-muted), var(--new-color-text-subtle));
+  @include tag-variant(var(--new-color-bg-inverted), var(--new-color-bg-subtle), var(--new-color-text-subtle));
 }
 
 .tag--color-primary {
@@ -123,7 +123,7 @@
     right: 0;
     content: '';
     border-right: 4px solid var(--new-color-transparent);
-    border-bottom: 4px solid var(--new-color-bg-default);
+    border-bottom: 4px solid var(--new-color-text-inverted);
     border-left: 4px solid var(--new-color-transparent);
     transform: rotate(45deg);
   }
