@@ -8,7 +8,7 @@
 
 .breadcrumbs__separator {
   margin: 0 0.25rem;
-  color: var(--color-primary);
+  color: var(--new-color-primary-main);
 }
 
 .breadcrumbs__item {
@@ -16,6 +16,6 @@
   align-items: center;
 
   &--current {
-    color: var(--color-text-secondary);
+    color: var(--new-color-text-muted);
   }
 }
