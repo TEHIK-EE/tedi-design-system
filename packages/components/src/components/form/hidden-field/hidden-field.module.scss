@@ -19,9 +19,9 @@
   align-items: flex-start;
   width: 100%;
   padding: 0.25rem;
-  border-radius: 0.25rem;
+  border-radius: var(--border-radius-default);
 
   &:hover {
-    background-color: var(--color-background);
+    background-color: var(--new-color-bg-default);
   }
 }
