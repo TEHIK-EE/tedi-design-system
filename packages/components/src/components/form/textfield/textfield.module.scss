@@ -41,28 +41,28 @@
   height: 2.5rem;
   padding: 0.5rem;
   font-size: 1rem;
-  color: var(--color-text);
-  border: 1px solid var(--color-borders-dark);
+  color: var(--new-color-text-default);
+  border: 1px solid var(--new-color-border-contrast);
   border-radius: var(--border-radius-default);
 
-  @include textfield-focus(var(--color-secondary-light));
+  @include textfield-focus(var(--new-color-primary-active-subtle));
 
   &:disabled {
-    background-color: var(--color-background-dark);
-    opacity: 0.6;
+    color: var(--new-color-text-disabled);
+    background-color: var(--new-color-bg-disabled);
   }
 
   .textfield--invalid &,
   &[aria-invalid='true'] {
-    border-color: var(--color-error);
+    border-color: var(--new-color-important-main);
 
-    @include textfield-focus(var(--color-error));
+    @include textfield-focus(var(--new-color-important-main));
   }
 
   .textfield--valid & {
-    border-color: var(--color-success);
+    border-color: var(--new-color-positive-main);
 
-    @include textfield-focus(var(--color-success));
+    @include textfield-focus(var(--new-color-positive-main));
   }
 
   .textfield--with-icon & {
@@ -78,11 +78,11 @@
   right: 0;
   height: 100%;
   padding: 0.75rem 0.5rem;
-  color: var(--color-borders-dark);
+  color: var(--new-color-text-muted);
   transition: color 0.2s ease;
 
   &:not(div, :disabled):hover {
-    color: var(--color-text);
+    color: var(--new-color-text-default);
   }
 
   &:disabled {
@@ -98,7 +98,7 @@
   }
 
   .textfield__input[aria-invalid='true'] + & {
-    color: var(--color-error);
+    color: var(--new-color-important-main);
   }
 }
 
