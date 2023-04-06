@@ -5,22 +5,22 @@
   display: flex;
   margin: 0;
   overflow-x: auto;
-  background-color: var(--color-background);
+  background-color: var(--new-color-bg-subtle);
   border-radius: 4px;
 }
 
 .stepper__nav-item {
   display: flex;
   align-items: center;
-  color: var(--color-text);
+  color: var(--new-color-text-default);
   white-space: nowrap;
 
   @include mixins.print-grayscale;
 
   &--completed,
   &--current {
-    color: var(--color-white);
-    background-color: var(--color-primary);
+    color: var(--new-color-text-inverted);
+    background-color: var(--new-color-primary-main);
   }
 
   &:first-of-type {
@@ -52,8 +52,8 @@
   height: 1.25rem;
   font-size: 0.875rem;
   font-weight: 700;
-  color: var(--color-secondary-grey);
-  background-color: var(--color-white);
+  color: var(--new-color-text-subtle);
+  background-color: var(--new-color-bg-default);
   border-radius: 10rem;
 }
 
@@ -64,10 +64,10 @@
 }
 
 .stepper__nav-item-arrow {
-  background-color: var(--color-background);
+  background-color: var(--new-color-bg-subtle);
   border: 20px solid var(--new-color-transparent);
   border-right: 0;
-  border-left-color: var(--color-primary);
+  border-left-color: var(--new-color-primary-main);
 }
 
 .stepper__step {
