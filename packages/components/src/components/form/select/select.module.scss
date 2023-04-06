@@ -5,10 +5,10 @@
 }
 
 .select--invalid .select__control {
-  border-color: var(--color-error);
+  border-color: var(--new-color-important-main);
 
   &.select__control--focused {
-    box-shadow: 0 0 0 1px var(--color-error);
+    box-shadow: 0 0 0 1px var(--new-color-important-main);
   }
 }
 
@@ -17,11 +17,11 @@
   padding: calc(0.5rem - 1px) 2rem calc(0.5rem - 1px) 0.5rem;
 
   .select__control--focused & {
-    color: var(--color-primary);
+    color: var(--new-color-primary-main);
   }
 
   .select--invalid .select__control--focused & {
-    color: var(--color-error);
+    color: var(--new-color-important-main);
   }
 }
 
@@ -32,7 +32,7 @@ div.select__menu-portal {
 div .select__menu {
   margin: 1px 0 0;
   overflow: hidden;
-  border-radius: 2px;
+  border-radius: var(--border-radius-default);
 
   @include mixins.print-grayscale;
 }
@@ -47,33 +47,29 @@ div .select__menu {
 
 .select__menu-list-footer {
   padding: 1rem;
-  border-top: 1px solid var(--color-background-dark);
+  border-top: 1px solid var(--new-color-border-default);
 }
 
 .select__menu .select__option {
   font-size: 0.875rem;
   color: var(--color-text);
   cursor: pointer;
-  background-color: var(--color-white);
+  background-color: var(--new-color-bg-default);
 
   &--focused {
-    background-color: var(--color-background-dark);
+    background-color: var(--new-color-bg-subtle);
   }
 
+  &:active,
   &--selected {
-    color: var(--color-primary);
-    background-color: var(--color-primary-2);
+    color: var(--new-color-primary-main);
+    background-color: var(--new-color-primary-highlight);
   }
 
   &--disabled {
     color: var(--color-text-disabled);
     cursor: default;
-    background-color: var(--color-background-light);
-  }
-
-  &:active {
-    color: var(--color-primary);
-    background-color: var(--color-primary-2);
+    background-color: var(--new-color-bg-disabled);
   }
 }
 
