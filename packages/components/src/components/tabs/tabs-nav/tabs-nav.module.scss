@@ -4,23 +4,23 @@
   margin: 0;
   overflow-y: auto;
   list-style: none;
-  background-color: var(--color-background);
+  background-color: var(--new-color-bg-muted);
 }
 
 .tabs__nav-item--current {
-  background-color: var(--color-white);
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
+  background-color: var(--new-color-bg-default);
+  border-top-left-radius: var(--border-radius-default);
+  border-top-right-radius: var(--border-radius-default);
 }
 
 a.tabs__nav-link:not(:disabled) {
   display: inline-block;
   padding: 1rem;
-  color: var(--color-text);
+  color: var(--new-color-text-default);
   white-space: nowrap;
 
   .tabs__nav-item--current & {
-    color: var(--color-primary);
+    color: var(--new-color-primary-main);
   }
 
   &:hover:not(:disabled) span span {
@@ -28,6 +28,6 @@ a.tabs__nav-link:not(:disabled) {
   }
 
   .tabs__nav-item:not(.tabs__nav-item--current) &:hover {
-    background-color: var(--color-background-dark);
+    background-color: var(--new-color-bg-subtle);
   }
 }
