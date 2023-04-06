@@ -7,27 +7,20 @@
   $background-h,
   $border-h,
   $color-h,
-  $background-a,
-  $border-a,
-  $color-a,
-  $background-d,
-  $border-d,
-  $color-d
+  $background-d: var(--new-color-bg-disabled),
+  $border-d: var(--new-color-bg-disabled),
+  $color-d: var(--new-color-text-disabled)
 ) {
   color: $color;
   background-color: $background;
   border-color: $border;
 
+  &.btn--is-active:not(:disabled),
+  &:active:not(:disabled),
   &.btn--is-hovered:not(:disabled),
   &:hover:not(:disabled) {
     background-color: $background-h;
     border-color: $border-h;
-  }
-
-  &.btn--is-active:not(:disabled),
-  &:active:not(:disabled) {
-    background-color: $background-a;
-    border-color: $border-a;
   }
 
   &:disabled {
@@ -37,16 +30,20 @@
   }
 }
 
-@mixin button-secondary-variant($border, $color, $border-h, $border-a, $background-d, $border-d, $color-d) {
+@mixin button-secondary-variant(
+  $border,
+  $color,
+  $border-h,
+  $background-d: var(--new-color-bg-disabled),
+  $border-d: var(--new-color-bg-disabled),
+  $color-d: var(--new-color-text-disabled)
+) {
   @include button-variant(
     transparent,
     $border,
     $color,
     transparent,
     $border-h,
-    $color,
-    transparent,
-    $border-a,
     $color,
     $background-d,
     $border-d,
@@ -90,7 +87,7 @@
   @include mixins.print-grayscale;
 }
 
-.btn--disabled {
+.btn:disabled {
   cursor: auto;
 }
 
@@ -110,18 +107,12 @@
 .btn--default {
   &.btn--primary {
     @include button-variant(
-      var(--color-primary),
-      var(--color-primary),
-      var(--color-white),
-      var(--color-secondary),
-      var(--color-secondary),
-      var(--color-white),
-      var(--color-secondary),
-      var(--color-secondary),
-      var(--color-white),
-      var(--color-background-dark),
-      var(--color-background-dark),
-      var(--color-text-disabled)
+      var(--new-color-primary-main),
+      var(--new-color-primary-main),
+      var(--new-color-text-inverted),
+      var(--new-color-primary-active),
+      var(--new-color-primary-active),
+      var(--new-color-text-inverted)
     );
   }
 
@@ -131,13 +122,9 @@
     --button-secondary-border-h: #dbdfe2;
 
     @include button-secondary-variant(
-      var(--button-secondary-border),
-      var(--color-text-secondary),
-      var(--button-secondary-border-h),
-      var(--button-secondary-border-h),
-      var(--color-borders-disabled),
-      var(--color-borders-disabled),
-      var(--color-text-disabled)
+      var(--new-color-border-contrast-high),
+      var(--new-color-text-muted),
+      var(--new-color-border-default)
     );
   }
 }
@@ -145,30 +132,20 @@
 .btn--error {
   &.btn--primary {
     @include button-variant(
-      var(--color-error),
-      var(--color-error),
-      var(--color-white),
-      var(--color-error-hover),
-      var(--color-error-hover),
-      var(--color-white),
-      var(--color-error-hover),
-      var(--color-error-hover),
-      var(--color-white),
-      var(--color-borders-disabled),
-      var(--color-borders-disabled),
-      var(--color-text-disabled)
+      var(--new-color-important-main),
+      var(--new-color-important-main),
+      var(--new-color-text-inverted),
+      var(--new-color-important-active),
+      var(--new-color-important-active),
+      var(--new-color-text-inverted)
     );
   }
 
   &.btn--secondary {
     @include button-secondary-variant(
-      var(--color-error),
-      var(--color-error),
-      var(--button-secondary-border-h),
-      var(--button-secondary-border-h),
-      var(--color-borders-disabled),
-      var(--color-borders-disabled),
-      var(--color-text-disabled)
+      var(--new-color-important-main),
+      var(--new-color-important-main),
+      var(--new-color-border-default)
     );
   }
 }
@@ -176,30 +153,20 @@
 .btn--success {
   &.btn--primary {
     @include button-variant(
-      var(--color-success),
-      var(--color-success),
-      var(--color-white),
-      var(--color-success-hover),
-      var(--color-success-hover),
-      var(--color-white),
-      var(--color-success-hover),
-      var(--color-success-hover),
-      var(--color-white),
-      var(--color-borders-disabled),
-      var(--color-borders-disabled),
-      var(--color-text-disabled)
+      var(--new-color-positive-main),
+      var(--new-color-positive-main),
+      var(--new-color-text-inverted),
+      var(--new-color-positive-active),
+      var(--new-color-positive-active),
+      var(--new-color-text-inverted)
     );
   }
 
   &.btn--secondary {
     @include button-secondary-variant(
-      var(--color-success),
-      var(--color-success),
-      var(--button-secondary-border-h),
-      var(--button-secondary-border-h),
-      var(--color-borders-disabled),
-      var(--color-borders-disabled),
-      var(--color-text-disabled)
+      var(--new-color-positive-main),
+      var(--new-color-positive-main),
+      var(--new-color-border-default)
     );
   }
 }
@@ -207,53 +174,50 @@
 .btn--inverted {
   &.btn--primary {
     @include button-variant(
-      var(--color-white),
-      var(--color-white),
-      var(--color-primary),
-      var(--color-background-dark),
-      var(--color-background-dark),
-      var(--color-secondary),
-      var(--color-background-dark),
-      var(--color-background-dark),
-      var(--color-secondary),
-      var(--color-borders-disabled),
-      var(--color-borders-disabled),
-      var(--color-text-disabled)
+      var(--new-color-bg-default),
+      var(--new-color-bg-default),
+      var(--new-color-primary-main),
+      var(--new-color-bg-subtle),
+      var(--new-color-bg-subtle),
+      var(--new-color-primary-active)
     );
   }
 
   &.btn--secondary {
     @include button-secondary-variant(
-      var(--color-white),
-      var(--color-white),
-      var(--color-white),
-      var(--color-white),
+      var(--new-color-bg-default),
+      var(--new-color-text-inverted),
+      var(--new-color-bg-default),
       var(--new-color-transparent),
-      var(--color-borders-disabled),
-      var(--color-text-disabled)
+      var(--new-color-bg-disabled),
+      var(--new-color-text-disabled)
     );
   }
 
   &.btn--link {
-    @include link-variant(var(--color-white), var(--color-white), var(--color-text-disabled));
+    @include link-variant(
+      var(--new-color-text-inverted),
+      var(--new-color-text-inverted),
+      var(--new-color-text-disabled)
+    );
   }
 }
 
 .btn--text-color {
   &.btn--link {
-    @include link-variant(inherit, var(--color-text-secondary), var(--color-text-disabled));
+    @include link-variant(inherit, var(--new-color-text-subtle), var(--new-color-text-disabled));
   }
 }
 
 .btn--link {
   padding: 0;
-  color: var(--color-primary);
+  color: var(--new-color-primary-main);
   text-decoration: none;
   background: none;
   border: none;
   border-radius: 3px;
 
-  @include link-variant(var(--color-primary), var(--color-secondary), var(--color-text-disabled));
+  @include link-variant(var(--new-color-primary-main), var(--new-color-primary-active), var(--new-color-text-disabled));
 }
 
 .btn__text {
@@ -264,15 +228,6 @@
   .btn--link:hover:not(:disabled) &,
   .btn--link:active:not(:disabled) & {
     text-decoration: underline;
-  }
-}
-
-.btn:focus:not(.btn--link) {
-  outline: 2px solid var(--btn-outline-color, var(--color-primary));
-  outline-offset: var(--btn-outline-offset, 1px);
-
-  html:not([data-whatintent='keyboard']) & {
-    outline: none;
   }
 }
 
