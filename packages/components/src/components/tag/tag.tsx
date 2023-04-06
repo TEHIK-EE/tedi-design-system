@@ -4,7 +4,15 @@ import React, { forwardRef } from 'react';
 import { SkeletonBlock } from '../skeleton';
 import styles from './tag.module.scss';
 
-export type TagColor = 'default' | 'primary' | 'primary-accent' | 'success' | 'warning' | 'important';
+export type TagColor =
+  | 'default'
+  | 'primary'
+  | 'accent'
+  | 'primary-accent'
+  | 'positive'
+  | 'success'
+  | 'warning'
+  | 'important';
 export type TagType = 'default' | 'secondary' | 'ghost' | 'invisible';
 export type TagSize = 'small' | 'medium' | 'default';
 export type TagStatus = 'error' | 'success' | 'inactive';
@@ -20,6 +28,7 @@ export interface TagProps {
   className?: string;
   /**
    * Color of Tag.
+   * "success" and "primary-accent" are deprecated. Use "positive" and "accent" instead.
    * @default default
    */
   color?: TagColor;

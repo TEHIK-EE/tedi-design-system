@@ -15,15 +15,13 @@ export default {
   },
 } as Meta;
 
-const TagColors: TagColor[] = ['default', 'primary', 'primary-accent', 'success', 'warning', 'important'];
+const TagColors: TagColor[] = ['default', 'primary', 'accent', 'positive', 'warning', 'important'];
 const TagTypes: TagType[] = ['default', 'secondary', 'ghost', 'invisible'];
 const TagStatuses: TagStatus[] = ['error', 'inactive', 'success'];
 const TagSizes: TagSize[] = ['small', 'default', 'medium'];
 
 const Capitalize = ({ children }: { children: React.ReactNode }) => (
-  <span className="text-small text-secondary" style={{ textTransform: 'capitalize' }}>
-    {children}
-  </span>
+  <span className="text-small text-muted text-capitalize">{children}</span>
 );
 
 interface TagTemplateProps<Type = string | boolean> extends TagProps {
