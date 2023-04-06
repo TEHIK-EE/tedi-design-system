@@ -1,3 +1,10 @@
+## [3.0.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.0.0...v3.0.1) (2023-04-06)
+
+
+### Bug Fixes
+
+* hide addons on tokens documentation ([5cff201](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/5cff201ddeb4506befc1a952c4d3488eae20ac3d))
+
 # [3.0.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.26.2...v3.0.0) (2023-04-06)
 
 
