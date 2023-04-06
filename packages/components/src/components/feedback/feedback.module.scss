@@ -13,7 +13,7 @@
   .feedback__trigger {
     pointer-events: auto;
     border-bottom: none;
-    border-radius: 0.25rem 0.25rem 0 0;
+    border-radius: var(--border-radius-default) var(--border-radius-default) 0 0;
     transform: translateX(50%) rotate(-90deg);
     transform-origin: center bottom;
   }
