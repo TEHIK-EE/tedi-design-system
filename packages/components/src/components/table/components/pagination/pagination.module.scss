@@ -21,7 +21,7 @@
   min-height: 1.5rem;
   padding: 0 0.125rem;
   margin: 0 0.125rem;
-  color: var(--color-text-secondary);
+  color: var(--new-color-text-muted);
   text-align: center;
   background: var(--new-color-transparent);
 
@@ -36,13 +36,13 @@
   }
 
   &:hover:is(button) {
-    color: var(--color-primary);
-    background-color: var(--color-background);
+    color: var(--new-color-primary-main);
+    background-color: var(--new-color-bg-subtle);
   }
 
   @media print {
-    color: var(--color-text-secondary);
-    background-color: var(--color-background);
+    color: var(--new-color-text-muted);
+    background-color: var(--new-color-bg-subtle);
   }
 
   &:focus {
@@ -51,12 +51,12 @@
 
   &--current {
     display: block;
-    color: var(--color-white);
-    background-color: var(--color-secondary);
+    color: var(--new-color-text-inverted);
+    background-color: var(--new-color-primary-active);
 
     @media print {
-      color: var(--color-white) !important;
-      background-color: var(--color-text-secondary);
+      color: var(--new-color-text-inverted) !important;
+      background-color: var(--new-color-text-muted);
     }
   }
 
@@ -80,18 +80,18 @@
 .pagination__arrow {
   height: 1rem;
   font-weight: 700;
-  color: var(--color-text-secondary);
+  color: var(--new-color-text-muted);
   cursor: pointer;
   background-color: var(--new-color-transparent);
   border: none;
   transition: color 0.2s ease;
 
   &:disabled {
-    color: var(--color-secondary-grey);
+    color: var(--new-color-text-disabled);
     cursor: initial;
   }
 
   &:hover:not(:disabled) {
-    color: var(--color-secondary);
+    color: var(--new-color-primary-active);
   }
 }
