@@ -16,25 +16,29 @@
 
   &.has-scrolled-to-top-20 {
     &::before {
-      background: linear-gradient(to top, #fff 0, rgba(255, 255, 255, 0) 20%); /* stylelint-disable-line */
+      /* stylelint-disable-next-line */
+      background: linear-gradient(to top, var(--new-color-bg-default) 0, rgba(255, 255, 255, 0) 20%);
     }
   }
 
   &.has-scrolled-to-bottom-20 {
     &::after {
-      background: linear-gradient(to bottom, #fff 0, rgba(255, 255, 255, 0) 20%); /* stylelint-disable-line */
+      /* stylelint-disable-next-line */
+      background: linear-gradient(to bottom, var(--new-color-bg-default) 0, rgba(255, 255, 255, 0) 20%);
     }
   }
 
   &.has-scrolled-to-top-10 {
     &::before {
-      background: linear-gradient(to top, #fff 0, rgba(255, 255, 255, 0) 10%); /* stylelint-disable-line */
+      /* stylelint-disable-next-line */
+      background: linear-gradient(to top, var(--new-color-bg-default) 0, rgba(255, 255, 255, 0) 10%);
     }
   }
 
   &.has-scrolled-to-bottom-10 {
     &::after {
-      background: linear-gradient(to bottom, #fff 0, rgba(255, 255, 255, 0) 10%); /* stylelint-disable-line */
+      /* stylelint-disable-next-line */
+      background: linear-gradient(to bottom, var(--new-color-bg-default) 0, rgba(255, 255, 255, 0) 10%);
     }
   }
 }
@@ -49,11 +53,11 @@
   .scroll-fade--custom-scroll & {
     &::-webkit-scrollbar {
       width: 6px;
-      background-color: var(--color-white);
+      background-color: var(--new-color-bg-default);
     }
 
     &::-webkit-scrollbar-thumb {
-      background: var(--color-borders-dark);
+      background: var(--new-color-border-contrast);
       border-radius: 100px;
 
       &:hover {
@@ -62,7 +66,7 @@
     }
 
     &::-webkit-scrollbar-track {
-      background-color: var(--color-white);
+      background-color: var(--new-color-bg-default);
     }
   }
 }
