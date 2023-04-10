@@ -1,12 +1,15 @@
 .skeleton-block {
+  // skeleton color as rgb, same as --color-border-contrast & --color-text-disabled
+  --color-bg-skeleton-rgb: 146 147 164;
+
   display: block;
   /* stylelint-disable-next-line max-line-length */
   background:
     linear-gradient(
       to right,
-      rgb(127 128 135 / 20%) 8%,
-      rgb(127 128 135 / 30%) 18%,
-      rgb(127 128 135 / 20%) 33%
+      rgb(var(--color-bg-skeleton-rgb) / 20%) 8%,
+      rgb(var(--color-bg-skeleton-rgb) / 30%) 18%,
+      rgb(var(--color-bg-skeleton-rgb) / 20%) 33%
     );
   background-size: 1000px 100px;
   border-radius: 4px;
