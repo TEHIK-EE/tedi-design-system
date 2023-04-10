@@ -1,3 +1,10 @@
+## [3.0.2](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.0.1...v3.0.2) (2023-04-10)
+
+
+### Bug Fixes
+
+* **skeleton:** Move skeleton to new variables - TEHVEER-112 ([3e1e6f5](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/3e1e6f552444648acb15d767c829423e84816c74))
+
 ## [3.0.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.0.0...v3.0.1) (2023-04-06)
 
 
