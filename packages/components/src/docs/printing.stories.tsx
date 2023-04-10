@@ -1,6 +1,7 @@
 import { Subtitle, Title } from '@storybook/addon-docs';
 import { Meta } from '@storybook/react';
 
+import Section from '../components/section/section';
 import { VerticalSpacing } from '../components/vertical-spacing';
 
 export default {
@@ -8,7 +9,7 @@ export default {
   parameters: {
     docs: {
       page: () => (
-        <>
+        <Section>
           <Title />
           <Subtitle>Components have a built-in styles for printing</Subtitle>
           <VerticalSpacing>
@@ -96,7 +97,7 @@ export default {
               </li>
             </ul>
           </VerticalSpacing>
-        </>
+        </Section>
       ),
     },
   },

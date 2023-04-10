@@ -3,8 +3,8 @@ import { Meta, Story } from '@storybook/react';
 import { ColumnDef, createColumnHelper } from '@tanstack/react-table';
 import React from 'react';
 
+import { getBackgroundColorClass } from '../../helpers/background-colors/background-colors';
 import Anchor from '../anchor/anchor';
-import { getBackgroundColorClass } from '../background-colors/background-colors';
 import { Card, CardContent } from '../card';
 import Heading from '../heading/heading';
 import Status from '../status/status';

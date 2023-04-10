@@ -3,6 +3,7 @@ import { Meta } from '@storybook/react';
 
 import Anchor from '../components/anchor/anchor';
 import { Col, Row } from '../components/grid';
+import Section from '../components/section/section';
 import { VerticalSpacing } from '../components/vertical-spacing';
 
 export default {
@@ -10,7 +11,7 @@ export default {
   parameters: {
     docs: {
       page: () => (
-        <>
+        <Section>
           <Title>Tehik Design System</Title>
           <Subtitle>
             <>
@@ -55,7 +56,7 @@ export default {
               </Col>
             </Row>
           </VerticalSpacing>
-        </>
+        </Section>
       ),
     },
   },

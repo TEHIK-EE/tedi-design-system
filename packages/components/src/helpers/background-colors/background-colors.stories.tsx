@@ -1,11 +1,11 @@
 import { Meta } from '@storybook/react';
 
-import { Card } from '../card';
-import CardContent from '../card/card-content/card-content';
-import { TColorsBackground } from '../commonTypes';
+import { Card } from '../../components/card';
+import CardContent from '../../components/card/card-content/card-content';
+import { TColorsBackground } from '../../components/commonTypes';
 
 export default {
-  title: 'components/Background-colors',
+  title: 'components/helpers/Background-colors',
   parameters: {
     layout: 'fullscreen',
   },

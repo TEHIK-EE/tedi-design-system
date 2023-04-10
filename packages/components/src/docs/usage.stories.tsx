@@ -2,6 +2,7 @@ import { Subtitle, Title } from '@storybook/addon-docs';
 import { Meta } from '@storybook/react';
 
 import Anchor from '../components/anchor/anchor';
+import Section from '../components/section/section';
 import Separator from '../components/separator/separator';
 import { VerticalSpacing } from '../components/vertical-spacing';
 
@@ -10,7 +11,7 @@ export default {
   parameters: {
     docs: {
       page: () => (
-        <>
+        <Section>
           <Title />
           <Subtitle>Get started with Tehik react-components.</Subtitle>
           <VerticalSpacing>
@@ -73,7 +74,7 @@ export default {
               </p>
             </VerticalSpacing>
           </VerticalSpacing>
-        </>
+        </Section>
       ),
     },
   },

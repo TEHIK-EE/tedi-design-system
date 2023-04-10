@@ -1,5 +1,6 @@
-/* Helper classes for storybook examples */
+@use 'mixins';
 
+/* Helper classes for storybook examples */
 body {
   height: auto;
 }
@@ -66,4 +67,36 @@ iframe {
 li > ul,
 li > ol {
   padding-left: 1.5rem;
+}
+
+/* Color examples */
+
+.color {
+  width: 200px;
+}
+
+.color__example {
+  width: 100%;
+  height: 120px;
+  border-radius: 0.25rem;
+  transition: transform 0.2s ease-in;
+
+  &:hover {
+    box-shadow: 0 4px 4px rgb(0 0 0 / 25%);
+    transform: scale(1.025);
+  }
+
+  @include mixins.button-reset;
+}
+
+.color__text {
+  @include mixins.button-reset;
+
+  text-align: left;
+  transition: transform 0.2s ease-in;
+
+  &:hover {
+    color: var(--color-black);
+    transform: scale(1.05);
+  }
 }

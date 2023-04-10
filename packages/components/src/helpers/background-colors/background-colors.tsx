@@ -1,4 +1,4 @@
-import { TColorsBackground } from '../commonTypes';
+import { TColorsBackground } from '../../components/commonTypes';
 import styles from './background-colors.module.scss';
 
 const colorsDeprecated: TColorsBackground[] = [
