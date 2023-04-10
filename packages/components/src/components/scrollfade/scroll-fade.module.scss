@@ -57,11 +57,11 @@
     }
 
     &::-webkit-scrollbar-thumb {
-      background: var(--color-border-contrast);
+      background: var(--color-border-default);
       border-radius: 100px;
 
       &:hover {
-        background-color: rgb(143, 145, 168, 70%); /* stylelint-disable-line */
+        background-color: var(--color-border-contrast);
       }
     }
 
