@@ -1,3 +1,10 @@
+## [3.0.3](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.0.2...v3.0.3) (2023-04-11)
+
+
+### Bug Fixes
+
+* **scroll-fade:** Move scroll-fade to new variables - TEHVEER-112 ([12f2948](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/12f2948d3dfe3fc3f198ba9f2de7a31e388ec9ab))
+
 ## [3.0.2](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.0.1...v3.0.2) (2023-04-10)
 
 
