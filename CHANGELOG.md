@@ -1,3 +1,10 @@
+## [3.0.4](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.0.3...v3.0.4) (2023-04-12)
+
+
+### Bug Fixes
+
+* **sidenav:** remove unused allowedPrivileges property ([fca9580](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/fca9580ee36e18fc8e885ba0702bb0a707e6ca82))
+
 ## [3.0.3](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.0.2...v3.0.3) (2023-04-11)
 
 
