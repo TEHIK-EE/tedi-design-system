@@ -255,7 +255,7 @@ WithCustomizedCells.args = {
     columnHelper.accessor('firstName', {
       id: 'personName',
       cell: (info) => (
-        <CustomizeTableCell className={getBackgroundColorClass('primary-main')}>
+        <CustomizeTableCell className={getBackgroundColorClass('primary-highlight')}>
           <Anchor href="#">{`${info.row.original.firstName} ${info.row.original.lastName}`}</Anchor>
         </CustomizeTableCell>
       ),
@@ -271,7 +271,7 @@ export const WithCustomizedRows = Template.bind({});
 WithCustomizedRows.args = {
   data: data().map((entity) => ({
     ...entity,
-    rowClassName: entity.status === 'In Relationship' ? getBackgroundColorClass('primary-main') : '',
+    rowClassName: entity.status === 'In Relationship' ? getBackgroundColorClass('primary-highlight') : '',
   })),
   columns: [getExpandColumn(), ...columns],
   id: 'table-6',
