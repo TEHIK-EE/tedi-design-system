@@ -10,7 +10,7 @@ import Print from '../../print/print';
 import { LayoutContext } from '../layout-context';
 import styles from './sidenav.module.scss';
 
-type ConditionalTypes<C extends React.ElementType = 'a', Privilege = string> =
+type ConditionalTypes<C extends React.ElementType = 'a'> =
   | {
       /**
        * Render all anchors (except logoLink and skipLink) as this component<br />
@@ -20,14 +20,14 @@ type ConditionalTypes<C extends React.ElementType = 'a', Privilege = string> =
       /**
        * Level 1 menu links
        */
-      navItems: SideNavItem<C, Privilege>[];
+      navItems: SideNavItem<C>[];
     }
   | {
       linkAs?: never;
-      navItems: SideNavItem<any, Privilege>[];
+      navItems: SideNavItem<any>[];
     };
 
-export type SideNavProps<C extends React.ElementType = 'a', Privilege = string> = ConditionalTypes<C, Privilege> & {
+export type SideNavProps<C extends React.ElementType = 'a'> = ConditionalTypes<C> & {
   /**
    * SideNav menu aria-label used for
    */
@@ -38,19 +38,14 @@ export type SideNavProps<C extends React.ElementType = 'a', Privilege = string> 
   id?: string;
 };
 
-export type SideNavItem<C extends React.ElementType = 'a', Privilege = string> = AnchorProps<C> & {
+export type SideNavItem<C extends React.ElementType = 'a'> = AnchorProps<C> & {
   /**
    * Icon of the item
    */
   icon?: string | IconProps;
-  /**
-   * List of Privileges that should see this item
-   * Pass undefined if it should be available for everyone
-   */
-  allowedPrivileges?: Privilege[];
 };
 
-export function SideNav<C extends React.ElementType = 'a', Privilege = string>(props: SideNavProps<C, Privilege>) {
+export function SideNav<C extends React.ElementType = 'a'>(props: SideNavProps<C>) {
   const { navItems, ariaLabel, linkAs, ...rest } = props;
   const isSmallLayout = useLayout(['mobile', 'tablet']);
   const { menuOpen, context, getFloatingProps, floating, y } = React.useContext(LayoutContext);
@@ -89,8 +84,8 @@ export function SideNav<C extends React.ElementType = 'a', Privilege = string>(p
   ) : null;
 }
 
-function SideNavItem<C extends React.ElementType = 'a', Privilege = string>(props: SideNavItem<C, Privilege>) {
-  const { icon, allowedPrivileges, children, isActive, onClick, ...rest } = props;
+function SideNavItem<C extends React.ElementType = 'a'>(props: SideNavItem<C>) {
+  const { icon, children, isActive, onClick, ...rest } = props;
   const { toggleMenu } = React.useContext(LayoutContext);
   const SideNavItemBEM = cn(styles['sidenav__item'], { [styles['sidenav__item--current']]: isActive });
 
