@@ -24,6 +24,9 @@ Default.args = {};
 export const ColorAccent = Template.bind({});
 ColorAccent.args = { color: 'accent' };
 
+export const ColorContrast = Template.bind({});
+ColorContrast.args = { color: 'contrast' };
+
 export const PaddedEven = Template.bind({});
 PaddedEven.args = { spacing: 1 };
 

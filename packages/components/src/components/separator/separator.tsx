@@ -32,15 +32,16 @@ export interface SeparatorProps {
   bottomSpacing?: SeparatorSpacing;
   /*
    * X/Y axis
-   * */
+   */
   axis?: 'vertical'; // and 'horizontal', which is default
   /*
-   * Color
-   * */
-  color?: 'accent';
+   * Color of separator
+   * @default default
+   */
+  color?: 'default' | 'contrast' | 'accent';
   /*
    * Variant of separator
-   * */
+   */
   variant?: 'dotted' | 'dotted-small';
 }
 
@@ -53,7 +54,7 @@ export const Separator = (props: SeparatorProps): JSX.Element => {
     topSpacing,
     bottomSpacing,
     axis,
-    color,
+    color = 'default',
     variant,
     ...rest
   } = props;
