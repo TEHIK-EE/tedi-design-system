@@ -34,7 +34,7 @@
 @media not print {
   .main--with-sidenav {
     @include breakpoints.media-breakpoint-up(lg) {
-      max-width: calc(100% - 8.75rem); // 100% - sidenav width
+      max-width: calc(100% - 15rem); // 100% - sidenav width
     }
   }
 }
