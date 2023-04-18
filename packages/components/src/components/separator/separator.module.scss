@@ -42,6 +42,10 @@ $sizes: (
   border-color: var(--color-accent-main);
 }
 
+.separator--contrast {
+  border-color: var(--color-border-contrast);
+}
+
 .separator--dotted,
 .separator--dotted-small {
   &::before {
@@ -60,6 +64,10 @@ $sizes: (
 
   &.separator--accent::before {
     background-color: var(--color-accent-main);
+  }
+
+  &.separator--contrast::before {
+    background-color: var(--color-border-contrast);
   }
 }
 
