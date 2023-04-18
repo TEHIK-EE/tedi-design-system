@@ -1,3 +1,10 @@
+# [3.1.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.0.4...v3.1.0) (2023-04-18)
+
+
+### Features
+
+* **sidenav:** TEHVEER-114 - Sync sidenav and header design with figma ([2e5c0cc](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/2e5c0cc6807968e37e76cc1e0cc0da0f133b458a))
+
 ## [3.0.4](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.0.3...v3.0.4) (2023-04-12)
 
 
