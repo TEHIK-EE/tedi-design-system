@@ -1,3 +1,10 @@
+# [3.2.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.1.0...v3.2.0) (2023-04-18)
+
+
+### Features
+
+* **separator:** Add border contrast color - TEHVEER-115 ([5af29b2](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/5af29b2b29d258d1a6fa07ec4c581d54b79ec11a))
+
 # [3.1.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.0.4...v3.1.0) (2023-04-18)
 
 
