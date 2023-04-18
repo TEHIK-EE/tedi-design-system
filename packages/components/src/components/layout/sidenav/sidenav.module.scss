@@ -5,9 +5,9 @@
   z-index: 20;
   display: flex;
   flex-direction: column;
-  width: 65vw;
-  min-width: 20rem;
-  max-width: 25rem;
+  width: 70vw;
+  min-width: 20rem; // 320px
+  max-width: 25rem; // 400px
   min-height: 100%;
   margin: 0;
   font-size: 0.875rem;
@@ -15,8 +15,12 @@
 
   @include mixins.print-grayscale;
 
+  @include breakpoints.media-breakpoint-up(md) {
+    font-size: 1rem;
+  }
+
   @include breakpoints.media-breakpoint-up(lg) {
-    width: 8.75rem; // 140px
+    width: 15rem; // 240px
     min-width: 0;
     max-width: none;
     min-height: auto;
@@ -48,7 +52,8 @@ a.sidenav__link {
   flex-grow: 1;
   gap: 1rem;
   align-items: center;
-  padding: 1rem;
+  min-height: 3.5rem;
+  padding: 0.75rem 1rem;
   font: inherit;
   color: var(--color-text-inverted);
   text-decoration: none;
@@ -60,26 +65,12 @@ a.sidenav__link {
   --global-outline-color: var(--color-text-inverted);
   --global-outline-offset: -2px;
 
-  @include breakpoints.media-breakpoint-up(lg) {
-    flex-direction: column;
-    text-align: center;
+  @include breakpoints.media-breakpoint-up(md) {
+    min-height: 4.5rem;
   }
 
-  &:hover {
-    font: inherit;
-    background-color: var(--color-primary-active);
-  }
-
+  &:hover,
   .sidenav__item--current & {
     background-color: var(--color-primary-active);
-  }
-}
-
-.sidenav__icon {
-  color: var(--color-primary-highlight);
-
-  .sidenav__link:hover &,
-  .sidenav__item--current & {
-    color: var(--color-text-inverted);
   }
 }

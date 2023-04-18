@@ -16,7 +16,7 @@ const exampleNavItems: SideNavItem[] = [
   { href: '/', children: 'Lapsed', icon: 'child_care', isActive: true },
   { href: '#', children: 'Mingi väga pikk tekst miseimahukuidagigisiiaära', icon: 'assignment' },
   { href: '#', children: 'Menetlused', icon: 'assignment' },
-  { href: '#', children: 'Menetlused', icon: 'assignment' },
+  { href: '#', children: 'Menetlused, mis on ka pikk tekst', icon: 'assignment' },
   { href: '#', children: 'Menetlused', icon: 'assignment' },
 ];
 

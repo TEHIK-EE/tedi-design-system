@@ -50,6 +50,7 @@ export const Header = <H extends React.ElementType = 'a'>(props: HeaderProps<H>)
   const LogoWrapper = logoAnchor ? Anchor : React.Fragment;
 
   const BEM = cn(styles['header'], className);
+  const toggleBEM = cn(styles['header__toggle'], { [styles['header__toggle--open']]: menuOpen });
 
   return (
     <>
@@ -64,7 +65,7 @@ export const Header = <H extends React.ElementType = 'a'>(props: HeaderProps<H>)
                 className: styles['header__toggle-icon'],
               }}
               visualType="primary"
-              className={styles['header__toggle']}
+              className={toggleBEM}
             >
               {typeof toggleLabel === 'string' ? toggleLabel : toggleLabel(menuOpen)}
             </Button>
@@ -76,7 +77,11 @@ export const Header = <H extends React.ElementType = 'a'>(props: HeaderProps<H>)
               </LogoWrapper>
             </div>
           )}
-          {children && <div className={styles['header__content']}>{children}</div>}
+          {children && (
+            <div className={styles['header__content']} data-padding="medium">
+              {children}
+            </div>
+          )}
           {onLogoutClick && (
             <>
               <Button
