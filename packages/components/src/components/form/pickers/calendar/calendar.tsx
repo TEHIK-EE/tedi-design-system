@@ -1,4 +1,4 @@
-import { CalendarPicker, PickersDay, PickersDayProps } from '@mui/x-date-pickers';
+import { DateCalendar, PickersDay, PickersDayProps } from '@mui/x-date-pickers';
 import cn from 'classnames';
 import type { Dayjs } from 'dayjs';
 import React from 'react';
@@ -139,7 +139,8 @@ export const Calendar = (props: CalendarProps): JSX.Element => {
     onChange?.(selectedDate);
   };
 
-  const dayRenderer = (day: CalendarValue, _: CalendarValue[], pickersDayProps: PickersDayProps<CalendarValue>) => {
+  const dayRenderer = (props: PickersDayProps<CalendarValue>) => {
+    const { day } = props;
     const isHighlightedDay = shouldHighlightDate?.(day);
     const statusOnDay: CalendarStatus | undefined = shouldShowStatusOnDate?.(day);
 
@@ -148,13 +149,13 @@ export const Calendar = (props: CalendarProps): JSX.Element => {
       { [styles[`calendar__day--status-${statusOnDay}`]]: statusOnDay }
     );
 
-    return <PickersDay className={dayBEM} {...pickersDayProps} />;
+    return <PickersDay className={dayBEM} {...props} />;
   };
 
   return (
-    <CalendarPicker<CalendarValue>
+    <DateCalendar<CalendarValue>
       data-name="calendar"
-      date={getValue}
+      value={getValue}
       onChange={onChangeHandler}
       disabled={disabled}
       disableFuture={disableFuture}
@@ -164,7 +165,7 @@ export const Calendar = (props: CalendarProps): JSX.Element => {
       minDate={minDate}
       maxDate={maxDate}
       readOnly={readOnly}
-      renderDay={dayRenderer}
+      slots={{ day: dayRenderer }}
       shouldDisableDate={shouldDisableDate}
       shouldDisableMonth={shouldDisableMonth}
       shouldDisableYear={shouldDisableYear}

@@ -6,7 +6,7 @@ import React from 'react';
 import { Col, Row, Section, Separator, Text, VerticalSpacing, VerticalSpacingItem } from '..';
 
 export default {
-  title: 'Documentation',
+  title: 'Documentation/Colors',
   parameters: {
     docs: {
       page: () => (

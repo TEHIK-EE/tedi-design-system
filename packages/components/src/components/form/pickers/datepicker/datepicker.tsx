@@ -1,5 +1,4 @@
-import { DatePicker as MuiDatePicker } from '@mui/x-date-pickers';
-import { DateValidationError } from '@mui/x-date-pickers/internals';
+import { DatePicker as MuiDatePicker, DateValidationError } from '@mui/x-date-pickers';
 import type { Dayjs } from 'dayjs';
 import React from 'react';
 
@@ -130,16 +129,19 @@ export const DatePicker = (props: DatePickerProps): JSX.Element => {
       data-name="datepicker"
       value={getValue}
       onChange={onChangeHandler}
-      renderInput={(props) => (
-        <MuiInputTransition
-          muiTextfieldProps={props}
-          inputFormat={inputFormat}
-          onChangeHandler={onChangeHandler}
-          textfieldProps={{ ...rest, onIconClick: !readOnly ? () => setOpen((open) => !open) : undefined }}
-        />
-      )}
+      slots={{
+        TextField: (props) => (
+          <MuiInputTransition
+            muiTextfieldProps={props}
+            inputFormat={inputFormat}
+            onChangeHandler={onChangeHandler}
+            textfieldProps={{ ...rest, onIconClick: !readOnly ? () => setOpen((open) => !open) : undefined }}
+          />
+        ),
+      }}
+      localeText={{ toolbarTitle }}
       open={open}
-      inputFormat={inputFormat}
+      format={inputFormat}
       onOpen={() => setOpen(true)}
       onClose={() => setOpen(false)}
       disabled={disabled}
@@ -152,7 +154,6 @@ export const DatePicker = (props: DatePickerProps): JSX.Element => {
       readOnly={readOnly}
       minDate={minDate}
       maxDate={maxDate}
-      toolbarTitle={toolbarTitle}
       onError={onError}
       loading={loading}
       views={views}

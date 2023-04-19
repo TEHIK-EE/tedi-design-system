@@ -1,7 +1,8 @@
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const rootMain = require('../../../.storybook/main.cjs');
+import { StorybookConfig } from '@storybook/react-webpack5';
 
-module.exports = {
+import rootMain from '../../../.storybook/main.ts';
+
+const config: StorybookConfig = {
   ...rootMain,
   core: { ...rootMain.core, builder: 'webpack5' },
   stories: [
@@ -12,3 +13,5 @@ module.exports = {
   ],
   addons: [...rootMain.addons],
 };
+
+export default config;
