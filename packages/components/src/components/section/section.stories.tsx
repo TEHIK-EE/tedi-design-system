@@ -1,6 +1,6 @@
 import { Meta } from '@storybook/react';
 
-import Heading from '../heading/heading';
+import Heading from '../typography/heading/heading';
 import { Section } from './section';
 
 export default {

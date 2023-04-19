@@ -1,8 +1,7 @@
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
 
-import { Col } from '../grid';
-import Heading from '../heading/heading';
+import Heading from '../typography/heading/heading';
 import { VerticalSpacing } from '../vertical-spacing';
 import Collapse, { CollapseProps } from './collapse';
 
@@ -27,7 +26,7 @@ Primary.args = {
   openText: 'Näita rohkem',
   closeText: 'Näita vähem',
   title: (
-    <Heading level={5} className="text-secondary">
+    <Heading element="h5" color="muted">
       Juhtumi üldandmed
     </Heading>
   ),

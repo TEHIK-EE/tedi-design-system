@@ -1,7 +1,7 @@
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
 
-import { VerticalSpacing } from '../../components/vertical-spacing';
+import { VerticalSpacing } from '../../vertical-spacing';
 import Text, { TextProps } from './text';
 
 export default {
@@ -13,7 +13,7 @@ export default {
         component: `<p>
           Text is helper component to use different color and modifiers on text. <br/>
           Modifiers prop accepts array of modifiers or single modifier. It helps you to combine modifiers if needed. <br/>
-          Every modifier and color of text has it's own global class also, but using Text component is highly recommended.</p>`,
+          Every modifier and color of text has it's own global css class also, but using Text component is highly recommended.</p>`,
       },
     },
   },

@@ -4,6 +4,7 @@ import useLayout from '../../../helpers/hooks/use-layout';
 import Button from '../../button/button';
 import Section from '../../section/section';
 import StretchContent from '../../stretch-content/stretch-content';
+import Heading from '../../typography/heading/heading';
 import { VerticalSpacing } from '../../vertical-spacing';
 import Breadcrumbs, { BreadcrumbsProps } from '../breadcrumbs/breadcrumbs';
 import { Default as BreadcrumbsDefault } from '../breadcrumbs/breadcrumbs.stories';
@@ -18,7 +19,7 @@ import { ILayoutProps, Layout } from './layout';
 const defaultContent = (
   <Section>
     <VerticalSpacing>
-      <h1>Page title & content</h1>
+      <Heading>Page title & content</Heading>
       <Button>Focusable item</Button>
     </VerticalSpacing>
   </Section>

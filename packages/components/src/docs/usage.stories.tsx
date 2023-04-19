@@ -4,6 +4,7 @@ import { Meta } from '@storybook/react';
 import Anchor from '../components/anchor/anchor';
 import Section from '../components/section/section';
 import Separator from '../components/separator/separator';
+import Heading from '../components/typography/heading/heading';
 import { VerticalSpacing } from '../components/vertical-spacing';
 
 export default {
@@ -16,12 +17,12 @@ export default {
           <Subtitle>Get started with Tehik react-components.</Subtitle>
           <VerticalSpacing>
             <VerticalSpacing size={0.5}>
-              <h3>Installation</h3>
+              <Heading element="h3">Installation</Heading>
               <pre>npm install @tehik/react-components</pre>
             </VerticalSpacing>
             <Separator spacing={2} />
             <VerticalSpacing size={0.5}>
-              <h3>Labels - LabelProvider</h3>
+              <Heading element="h3">Labels - LabelProvider</Heading>
               <p>
                 Tehik react-components use labels that are provided with <b>{'<LabelProvider>'}</b> component. Every
                 application should be wrapped with LabelProvider to provider all necessary labels for users (mostly for
@@ -30,7 +31,7 @@ export default {
                 documentation about LabelProvider can be found under{' '}
                 <Anchor href="/?path=/docs/components-labelprovider--default">components</Anchor>.
               </p>
-              <h4>1. Wrap Application with LabelProvider</h4>
+              <Heading element="h4">1. Wrap Application with LabelProvider</Heading>
               <pre>
                 {'<LabelProvider labels={labels} locale={locale}>'}
                 {'<YourApp />'}
@@ -40,25 +41,25 @@ export default {
             <Separator spacing={2} />
 
             <VerticalSpacing size={0.5}>
-              <h3>Styles - StyleProvider</h3>
+              <Heading element="h3">Styles - StyleProvider</Heading>
               <p>
                 Tehik react-components are depending on some global styles. Follow next steps to import styles to your
                 application.
               </p>
-              <h4>1. Wrap Application with StyleProvider</h4>
+              <Heading element="h4">1. Wrap Application with StyleProvider</Heading>
               <pre>
                 {'<StyleProvider>'}
                 {'<YourApp />'}
                 {'</StyleProvider>'}
               </pre>
-              <h4>2. Add styles import to the root</h4>
+              <Heading element="h4">2. Add styles import to the root</Heading>
               <p>
                 Add <code>import &apos;@tehik/react-components/style.css&apos;;</code> to the root of application.
               </p>
             </VerticalSpacing>
             <Separator spacing={2} />
             <VerticalSpacing size={0.5}>
-              <h3>Dayjs</h3>
+              <Heading element="h3">Dayjs</Heading>
               <p>
                 Some of the Tehik react-components depend on{' '}
                 <Anchor href="https://day.js.org/docs/en/installation/installation" target="_blank">

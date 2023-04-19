@@ -2,7 +2,7 @@ import { Meta, Story } from '@storybook/react';
 import React from 'react';
 
 import Button from '../button/button';
-import Heading from '../heading/heading';
+import Heading from '../typography/heading/heading';
 import VerticalSpacing, { VerticalSpacingProps } from './vertical-spacing';
 import VerticalSpacingItem from './vertical-spacing-item';
 
@@ -28,7 +28,7 @@ const Template: Story<VerticalSpacingProps> = (args) => (
       Some tiny text. Morbi et velit enim. Nulla facilisi. Curabitur tincidunt viverra nulla, a varius leo pharetra
       vitae.
     </p>
-    <h2>Heading 2</h2>
+    <Heading element="h2">Heading 2</Heading>
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam pretium lacinia urna in efficitur. Suspendisse
       mattis ornare imperdiet. Aenean iaculis, augue a viverra tincidunt, orci tellus tempus enim, ut tempor nunc leo ac

@@ -2,10 +2,10 @@ import { Meta, Story } from '@storybook/react';
 
 import Collapse from '../collapse/collapse';
 import { Col, Row } from '../grid';
-import Heading from '../heading/heading';
 import Icon from '../icon/icon';
 import Separator from '../separator/separator';
 import { CardsExample } from '../stretch-content/stretch-content.stories';
+import Heading from '../typography/heading/heading';
 import { Card, CardProps } from './card';
 import CardContent, { CardContentProps } from './card-content/card-content';
 import CardHeader, { CardHeaderProps } from './card-header/card-header';
@@ -68,7 +68,7 @@ const Template: Story<CardStory> = (args) => {
     <CardHeader {...header}>
       <Row justifyContent="between" alignItems="center">
         <Col width="auto">
-          <Heading className="h3">Teated ja suunatud menetlused</Heading>
+          <Heading modifiers="h3">Teated ja suunatud menetlused</Heading>
         </Col>
         <Col width="auto">
           <p>Otsing</p>
@@ -239,7 +239,7 @@ const TwoToned: Story<CardProps> = (args) => (
       <Card borderRadius={{ left: false, top: false }}>
         <CardContent>
           <p className="text-bold">Some statistic: x kg</p>
-          <Collapse id="collapse-1234567" heading={{}} openText="Näita rohkem" closeText="Näita vähem">
+          <Collapse id="collapse-1234567" openText="Näita rohkem" closeText="Näita vähem">
             <p>Some description</p>
           </Collapse>
         </CardContent>

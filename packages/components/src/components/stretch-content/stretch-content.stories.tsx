@@ -5,6 +5,7 @@ import { Card } from '../card';
 import CardContent from '../card/card-content/card-content';
 import CardHeader from '../card/card-header/card-header';
 import { Col, Row } from '../grid';
+import Heading from '../typography/heading/heading';
 import { VerticalSpacing } from '../vertical-spacing';
 import StretchContent, { StretchContentProps } from './stretch-content';
 
@@ -46,7 +47,7 @@ export const CardsExample: Story<Partial<StretchContentProps>> = () => {
     return (
       <Card>
         <CardHeader>
-          <h2>{title}</h2>
+          <Heading element="h2">{title}</Heading>
         </CardHeader>
         <CardContent>
           <StretchContent>

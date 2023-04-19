@@ -6,9 +6,9 @@ import React from 'react';
 import { getBackgroundColorClass } from '../../helpers/background-colors/background-colors';
 import Anchor from '../anchor/anchor';
 import { Card, CardContent } from '../card';
-import Heading from '../heading/heading';
 import Status from '../status/status';
 import Tag from '../tag/tag';
+import Heading from '../typography/heading/heading';
 import { VerticalSpacing } from '../vertical-spacing';
 import {
   CustomizeTableCell,
@@ -112,7 +112,7 @@ const CardTemplate: Story<TableProps<Person>> = (args) => (
   <Card>
     <CardContent>
       <VerticalSpacing>
-        <h1>Table header</h1>
+        <Heading>Table header</Heading>
         <Table<Person> {...args} />
       </VerticalSpacing>
     </CardContent>
@@ -292,7 +292,7 @@ clickableRowColumns.push(
         iconLeft="visibility"
         visualType="link"
         href="#"
-        onClick={(e: any) => {
+        onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
           e.stopPropagation();
           console.log('Clicking link in cell. Row click is not called');
         }}
@@ -317,7 +317,7 @@ export const ServerSidePaginationAndSorting = (): JSX.Element => {
   const { sorting, setSorting } = useDefaultSorting();
 
   const currentData = data(500);
-  const getData = React.useMemo(() => currentData.slice((page - 1) * size, page * size), [page, size]);
+  const getData = React.useMemo(() => currentData.slice((page - 1) * size, page * size), [currentData, page, size]);
 
   return (
     <Table<Person>
