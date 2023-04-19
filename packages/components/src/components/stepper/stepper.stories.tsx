@@ -3,7 +3,7 @@ import React from 'react';
 
 import Button from '../button/button';
 import { Col, Row } from '../grid';
-import Heading from '../heading/heading';
+import Heading from '../typography/heading/heading';
 import { VerticalSpacing } from '../vertical-spacing';
 import Step from './step';
 import Stepper, { StepperProps } from './stepper';
@@ -37,7 +37,7 @@ const Template: Story<StepperProps> = (args) => {
     <Stepper {...args} activeStep={currentStep} onActiveStepChange={(newStep) => setCurrentStep(newStep)}>
       <Step id="step-1" label="Lapse arenguvajadused" completed={currentStep > 0}>
         <VerticalSpacing>
-          <Heading level={2}>Triin Kass</Heading>
+          <Heading element="h2">Triin Kass</Heading>
           Content 1
           <StepperNavigation />
         </VerticalSpacing>

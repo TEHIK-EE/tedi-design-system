@@ -5,6 +5,7 @@ import React from 'react';
 import Button from '../button/button';
 import { CardContent, CardHeader } from '../card';
 import { Col, Row } from '../grid';
+import Heading from '../typography/heading/heading';
 import { VerticalSpacing } from '../vertical-spacing';
 import Modal, { ModalProps } from './modal';
 import ModalCloser from './modal-closer';
@@ -66,11 +67,11 @@ const Template: Story<TemplateProps> = (args: TemplateProps): JSX.Element => {
       <Modal {...modal} aria-labelledby="label">
         {renderHeader && (
           <CardHeader variant="white">
-            <h1 id="default-label">{heading}</h1>
+            <Heading id="default-label">{heading}</Heading>
           </CardHeader>
         )}
         <CardContent>
-          {!renderHeader && <h1 id="default-label">{heading}</h1>}
+          {!renderHeader && <Heading id="default-label">{heading}</Heading>}
           <p>{content}</p>
           {renderModalCloser && (
             <ModalCloser>
@@ -169,7 +170,7 @@ export const Position: Story<ModalProps> = () => {
       </ModalTrigger>
       <Modal aria-labelledby="open-center" position={position}>
         <CardHeader variant="white">
-          <h1>Modal with longer content to test out scrolling</h1>
+          <Heading>Modal with longer content to test out scrolling</Heading>
         </CardHeader>
         <CardContent>{content}</CardContent>
       </Modal>

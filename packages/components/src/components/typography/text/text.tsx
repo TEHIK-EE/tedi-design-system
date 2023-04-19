@@ -1,6 +1,11 @@
 import cn from 'classnames';
 
+import type { HeadingLevel } from '../heading/heading';
+
+export type HeadingModifiers = `h${HeadingLevel}`;
+
 export type TextModifiers =
+  | HeadingModifiers
   | 'normal'
   | 'small'
   | 'bold'
@@ -27,13 +32,17 @@ export type TextColor =
   | 'important'
   | 'warning';
 
-export type TextElement = 'div' | 'p' | 'span';
+export type TextElement = 'div' | 'p' | 'span' | 'li' | HeadingModifiers;
 
 export interface TextProps {
   /**
    * Children of the text.
    */
   children: React.ReactNode;
+  /**
+   * ID attribute.
+   */
+  id?: string;
   /**
    * Additional class.
    */
@@ -44,29 +53,33 @@ export interface TextProps {
    */
   element?: TextElement;
   /**
-   * Sinfle or multiple modifiers to change the text behavior.
+   * Single or multiple modifiers to change the text behavior.
    */
   modifiers?: TextModifiers[] | TextModifiers;
   /**
    * Which color text should be.
-   * Use 'positive', 'important' or 'warning' with cautsion, usaually they should not be in application UI.
+   * Use 'positive', 'important' or 'warning' with caution, usually they should not be in application UI.
    * @default default
    */
   color?: TextColor;
 }
 
 export const Text = (props: TextProps): JSX.Element => {
-  const { children, className, element: Element = 'p', modifiers, color } = props;
+  const { children, className, element: Element = 'p', modifiers, color, ...rest } = props;
 
   const modifiersArray = typeof modifiers === 'string' ? [modifiers] : modifiers;
 
   const BEM = cn(
     className,
-    `text-${color}`,
-    modifiersArray?.map((modifier) => `text-${modifier}`)
+    modifiersArray?.map((modifier) => `text-${modifier}`),
+    { [`text-${color}`]: color }
   );
 
-  return <Element className={BEM}>{children}</Element>;
+  return (
+    <Element className={BEM} {...rest}>
+      {children}
+    </Element>
+  );
 };
 
 export default Text;

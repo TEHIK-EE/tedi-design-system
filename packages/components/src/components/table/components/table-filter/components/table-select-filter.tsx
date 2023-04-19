@@ -9,7 +9,7 @@ import CardContent from '../../../../card/card-content/card-content';
 import ChoiceGroup, { TChoiceGroupValue } from '../../../../form/choice-group/choice-group';
 import Col from '../../../../grid/col';
 import Row from '../../../../grid/row';
-import Heading from '../../../../heading/heading';
+import Heading from '../../../../typography/heading/heading';
 import VerticalSpacing from '../../../../vertical-spacing/vertical-spacing';
 import styles from '../../../table.module.scss';
 import { TableFilterContext } from '../table-filter-context';
@@ -110,7 +110,7 @@ export const TableSelectFilter = () => {
   return (
     <form onSubmit={handleSubmit}>
       <VerticalSpacing>
-        <Heading level={6}>{getLabel('table.filter')}</Heading>
+        <Heading element="h6">{getLabel('table.filter')}</Heading>
         {inputType === 'multi-select' ? (
           <Row gutter={2} justifyContent="between">
             <Col width="auto">

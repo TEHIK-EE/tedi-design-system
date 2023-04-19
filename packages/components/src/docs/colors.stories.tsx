@@ -4,6 +4,7 @@ import * as tokens from '@tehik/design-tokens/tokens.json';
 import React from 'react';
 
 import { Col, Row, Section, Separator, Text, VerticalSpacing, VerticalSpacingItem } from '..';
+import Heading from '../components/typography/heading/heading';
 
 export default {
   title: 'Documentation/Colors',
@@ -142,7 +143,9 @@ const jsonSections: ISection[] = [
 const UpperGroup = ({ title, groups }: ISection) => (
   <VerticalSpacing>
     <VerticalSpacingItem size={0.25}>
-      <h2 id={title.toLowerCase().replaceAll(' ', '-')}>{title}</h2>
+      <Heading element="h2" id={title.toLowerCase().replaceAll(' ', '-')}>
+        {title}
+      </Heading>
       <Text modifiers="small" color="muted">
         (Click on the color or variable to copy it&apos;s value to clipboard.)
       </Text>
@@ -157,7 +160,9 @@ const UpperGroup = ({ title, groups }: ISection) => (
 const Group = ({ title, colors }: IGroup) => (
   <VerticalSpacing>
     <VerticalSpacingItem size={0.5}>
-      <h3 id={title.toLowerCase().replaceAll(' ', '-')}>{title}</h3>
+      <Heading element="h3" id={title.toLowerCase().replaceAll(' ', '-')}>
+        {title}
+      </Heading>
     </VerticalSpacingItem>
     <Row gutterY={2}>
       {colors?.map((group, key) => (
@@ -224,7 +229,7 @@ const ColorExamples = ({
 }) => (
   <VerticalSpacing>
     <VerticalSpacingItem size={0.5}>
-      <h3>{title}</h3>
+      <Heading element="h3">{title}</Heading>
     </VerticalSpacingItem>
     {children}
     {typeof inverted !== 'undefined' && <ColorRows inverted={inverted} />}
@@ -234,7 +239,7 @@ const ColorExamples = ({
 const Neutrals = () => (
   <VerticalSpacing>
     <VerticalSpacingItem size={0.5}>
-      <h3>Neutrals</h3>
+      <Heading element="h3">Neutrals</Heading>
     </VerticalSpacingItem>
     <p>
       <a href="#neutrals" target="_self">
@@ -260,7 +265,9 @@ const Neutrals = () => (
 const GuideLinesDescription = () => (
   <VerticalSpacing>
     <VerticalSpacingItem size={0.5}>
-      <h2 id="guidelines">Guidelines</h2>
+      <Heading element="h2" id="guidelines">
+        Guidelines
+      </Heading>
     </VerticalSpacingItem>
     <p>
       The color naming convention is optimised for fast navigation and clear overview of all variables. To optimise

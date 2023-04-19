@@ -2,6 +2,7 @@ import { Subtitle, Title } from '@storybook/addon-docs';
 import { Meta } from '@storybook/react';
 
 import Section from '../components/section/section';
+import Heading from '../components/typography/heading/heading';
 import { VerticalSpacing } from '../components/vertical-spacing';
 
 export default {
@@ -49,20 +50,20 @@ export default {
             <p>
               <strong>UI can be adjusted using the following methods:</strong>
             </p>
-            <h3>
+            <Heading element="h3">
               <code>{'<Print>'}</code> component
-            </h3>
+            </Heading>
             <p>
               Preferred method. <a href="/?path=/docs/components-print--default">More info here</a>
             </p>
-            <h3>Hooks</h3>
+            <Heading element="h3">Hooks</Heading>
             <ul>
               <li>
                 <code>const isPrinting = usePrint()</code> - Checks if <code>window.matchMedia(print)</code> matches.
                 Useful when you want to conditionally re-render UI during printing.
               </li>
             </ul>
-            <h3>Utility classes</h3>
+            <Heading element="h3">Utility classes</Heading>
             <p>
               <strong>
                 NB! Only use utility classes when usage of <code>{'<Print>'}</code> component is not possible.

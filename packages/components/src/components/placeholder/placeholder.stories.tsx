@@ -3,7 +3,7 @@ import { Meta, Story } from '@storybook/react';
 import Anchor from '../anchor/anchor';
 import { Card, CardContent } from '../card';
 import CardHeader from '../card/card-header/card-header';
-import Heading from '../heading/heading';
+import Heading from '../typography/heading/heading';
 import Placeholder, { PlaceholderProps } from './placeholder';
 
 export default {
@@ -21,7 +21,7 @@ Default.args = {
 export const InsideCard: Story<PlaceholderProps> = () => (
   <Card>
     <CardHeader>
-      <Heading className="h3">Menetlused</Heading>
+      <Heading modifiers="h3">Menetlused</Heading>
     </CardHeader>
     <CardContent>
       <Placeholder isNested>
