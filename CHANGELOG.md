@@ -1,3 +1,10 @@
+# [3.3.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.2.0...v3.3.0) (2023-04-19)
+
+
+### Features
+
+* **text:** TEHVEER-117 - Allow rendering of h1-h6 tags ([45d6c7c](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/45d6c7c6d832bfcdf7ee1bf8ae478280fd71a41e))
+
 # [3.2.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.1.0...v3.2.0) (2023-04-18)
 
 
