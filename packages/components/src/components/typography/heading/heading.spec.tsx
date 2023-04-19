@@ -4,7 +4,7 @@ import Heading from './heading';
 
 describe('Heading', () => {
   it('should render successfully', () => {
-    const { baseElement } = render(<Heading />);
+    const { baseElement } = render(<Heading>Title</Heading>);
     expect(baseElement).toBeTruthy();
   });
 });

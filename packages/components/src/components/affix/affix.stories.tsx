@@ -11,6 +11,7 @@ import { Default as LayoutDefault } from '../layout/layout/layout.stories';
 import ScrollFade from '../scrollfade/scroll-fade';
 import { Section } from '../section/section';
 import Separator from '../separator/separator';
+import Heading from '../typography/heading/heading';
 import { VerticalSpacing } from '../vertical-spacing';
 import Affix, { AffixProps } from './affix';
 
@@ -85,7 +86,7 @@ const Template: Story<AffixProps> = (args) => {
               <Card>
                 <CardContent>
                   <VerticalSpacing size={2}>
-                    <h1>{faker.random.words(5)}</h1>
+                    <Heading>{faker.random.words(5)}</Heading>
                     {faker.lorem
                       .paragraphs(20, ',')
                       .split(',')
@@ -118,7 +119,7 @@ const Template: Story<AffixProps> = (args) => {
               <Card>
                 <CardContent>
                   <VerticalSpacing size={2}>
-                    <h1>{faker.random.words(5)}</h1>
+                    <Heading>{faker.random.words(5)}</Heading>
                     {faker.lorem
                       .paragraphs(20, ',')
                       .split(',')

@@ -6,7 +6,7 @@ import { CardContent, CardHeader } from '../card';
 import TextArea from '../form/textarea/textarea';
 import TextField from '../form/textfield/textfield';
 import { Col, Row } from '../grid';
-import Heading from '../heading/heading';
+import Heading from '../typography/heading/heading';
 import { VerticalSpacing } from '../vertical-spacing';
 import Feedback, { FeedbackProps } from './feedback';
 
@@ -34,7 +34,7 @@ const Template: Story<FeedbackProps> = (args) => {
       </p>
       <Feedback {...args}>
         <CardHeader variant="white">
-          <Heading className="h4">Feedback</Heading>
+          <Heading modifiers="h4">Feedback</Heading>
         </CardHeader>
         <CardContent>
           <VerticalSpacing>

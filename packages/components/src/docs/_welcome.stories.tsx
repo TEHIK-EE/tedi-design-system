@@ -4,6 +4,7 @@ import { Meta } from '@storybook/react';
 import Anchor from '../components/anchor/anchor';
 import { Col, Row } from '../components/grid';
 import Section from '../components/section/section';
+import Heading from '../components/typography/heading/heading';
 import { VerticalSpacing } from '../components/vertical-spacing';
 
 export default {
@@ -20,7 +21,7 @@ export default {
             </>
           </Subtitle>
           <VerticalSpacing size={0.5}>
-            <h2>Resources</h2>
+            <Heading element="h2">Resources</Heading>
             <Row alignItems="center">
               <Col width="auto">
                 <Anchor

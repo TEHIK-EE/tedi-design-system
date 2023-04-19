@@ -1,6 +1,7 @@
 import { ArgsTable, Primary, PRIMARY_STORY, Stories, Subtitle, Title } from '@storybook/addon-docs';
 
 import Anchor from '../../components/anchor/anchor';
+import Heading from '../../components/typography/heading/heading';
 import VerticalSpacing from '../../components/vertical-spacing/vertical-spacing';
 
 export const LabelProviderPage = (): JSX.Element => (
@@ -14,8 +15,8 @@ export const LabelProviderPage = (): JSX.Element => (
     </Subtitle>
     <Primary />
     <VerticalSpacing size={0.5}>
-      <h2>Usage</h2>
-      <h3>Provider</h3>
+      <Heading element="h2">Usage</Heading>
+      <Heading element="h3">Provider</Heading>
       <div>
         Wrap the provider around your app. <br />
         <pre>
@@ -33,7 +34,7 @@ export const LabelProviderPage = (): JSX.Element => (
         Values are either plain strings or some keys also support functions. Functions can be used for conditional
         translations like plurals.
       </div>
-      <h3>Consumer</h3>
+      <Heading element="h3">Consumer</Heading>
       <div>
         Use as hook: <br />
         <pre>

@@ -4,10 +4,10 @@ import AnimateHeight from 'react-animate-height';
 
 import { usePrint } from '../../helpers';
 import { useLabels } from '../../providers/label-provider';
-import { AlignItems, Col, JustifyContent, Row, RowProps } from '../grid';
-import Heading, { HeadingProps } from '../heading/heading';
+import { Col, Row, RowProps } from '../grid';
 import Icon from '../icon/icon';
 import Print from '../print/print';
+import Heading, { HeadingProps } from '../typography/heading/heading';
 import styles from './collapse.module.scss';
 
 export interface CollapseProps {
@@ -78,7 +78,9 @@ export const Collapse = (props: CollapseProps): JSX.Element => {
   const renderHeading = (): JSX.Element => {
     return (
       <Col width="auto">
-        <Heading level={5} {...heading} className={cn(styles['text-secondary'], heading?.className)} />
+        <Heading element="h5" color="muted" {...heading}>
+          {heading?.children}
+        </Heading>
       </Col>
     );
   };

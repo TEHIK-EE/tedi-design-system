@@ -3,6 +3,7 @@ import dompurify from 'dompurify';
 import React from 'react';
 import * as showdown from 'showdown';
 
+import Heading from '../../typography/heading/heading';
 import { VerticalSpacing } from '../../vertical-spacing';
 import TextEditor, { TextEditorProps } from './text-editor';
 const converter = new showdown.Converter({ simpleLineBreaks: true });
@@ -32,7 +33,7 @@ const Template: Story<TextEditorProps> = (args) => {
     <VerticalSpacing>
       <TextEditor {...args} onChange={setMarkdown} />
       <hr />
-      <h3>Example of HTML in page:</h3>
+      <Heading element="h3">Example of HTML in page:</Heading>
       <div className="text-editor-example" dangerouslySetInnerHTML={{ __html: santizedHtml }} />
     </VerticalSpacing>
   );

@@ -1,7 +1,7 @@
 import { Meta, Story } from '@storybook/react';
 
 import { Col, Row } from '../grid';
-import Heading from '../heading/heading';
+import Heading from '../typography/heading/heading';
 import { VerticalSpacing } from '../vertical-spacing';
 import { Icon, IconProps } from './icon';
 
@@ -133,27 +133,27 @@ export const InText: Story<IconProps> = (args) => {
   return (
     <div>
       <div>
-        <Heading level={1}>
+        <Heading element="h1">
           <Icon name={args.name} display="inline" size={36} />
           This is level 1 heading with inline <Icon name={args.name} display="inline" size={36} /> icon
         </Heading>
-        <Heading level={2}>
+        <Heading element="h2">
           <Icon name={args.name} display="inline" size={36} />
           This is level 2 heading with inline <Icon name={args.name} display="inline" size={36} /> icon
         </Heading>
-        <Heading level={3}>
+        <Heading element="h3">
           <Icon name={args.name} display="inline" size={24} />
           This is level 3 heading with inline <Icon name={args.name} display="inline" size={24} /> icon
         </Heading>
-        <Heading level={4}>
+        <Heading element="h4">
           <Icon name={args.name} display="inline" size={24} />
           This is level 4 heading with inline <Icon name={args.name} display="inline" size={24} /> icon
         </Heading>
-        <Heading level={5}>
+        <Heading element="h5">
           <Icon name={args.name} display="inline" size={18} />
           This is level 5 heading with inline <Icon name={args.name} display="inline" size={18} /> icon
         </Heading>
-        <Heading level={6}>
+        <Heading element="h6">
           <Icon name={args.name} display="inline" size={16} />
           This is level 6 heading with inline <Icon name={args.name} display="inline" size={16} /> icon
         </Heading>
