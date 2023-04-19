@@ -1,3 +1,10 @@
+## [3.3.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.3.0...v3.3.1) (2023-04-19)
+
+
+### Bug Fixes
+
+* **table:** Fix table showing 10000 rows loading, when isLoading & hidePagination are true ([6b7279d](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/6b7279d0cf4b0cd3bc862efcf96aad8af8f32da8))
+
 # [3.3.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.2.0...v3.3.0) (2023-04-19)
 
 
