@@ -26,6 +26,7 @@ import styles from './table.module.scss';
 import { DefaultTData, TableProps } from './table.types';
 import { TableContext } from './table-context';
 
+export const PAGE_SIZE_WITHOUT_PAGINATION = 10000;
 export function Table<TData extends DefaultTData<TData>>(props: TableProps<TData>): JSX.Element {
   const { getLabel } = useLabels();
   const {
@@ -38,7 +39,7 @@ export function Table<TData extends DefaultTData<TData>>(props: TableProps<TData
     hidePagination,
     defaultPagination = {
       pageIndex: 0,
-      pageSize: hidePagination ? 10000 : 10, // when pagination is hidden display all the rows
+      pageSize: hidePagination ? PAGE_SIZE_WITHOUT_PAGINATION : 10, // when pagination is hidden display all the rows
     },
     pagination,
     manualPagination,

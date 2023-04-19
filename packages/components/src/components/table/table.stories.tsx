@@ -165,6 +165,15 @@ LoadingBorderless.args = {
   isLoading: true,
 };
 
+export const LoadingWithoutPagination = CardTemplate.bind({});
+LoadingWithoutPagination.args = {
+  data: [],
+  columns: columns,
+  id: 'table-loading-without-pagination',
+  isLoading: true,
+  hidePagination: true,
+};
+
 export const Error = Template.bind({});
 Error.args = {
   data: [],
