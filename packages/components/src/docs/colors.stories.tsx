@@ -7,7 +7,7 @@ import { Col, Row, Section, Separator, Text, VerticalSpacing, VerticalSpacingIte
 import Heading from '../components/typography/heading/heading';
 
 export default {
-  title: 'Documentation',
+  title: 'Documentation/Colors',
   parameters: {
     docs: {
       page: () => (

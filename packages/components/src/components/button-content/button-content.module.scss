@@ -117,12 +117,8 @@
   }
 
   &.btn--secondary {
-    @include button-secondary-variant(
-      // used text color as border, because we don't want to add new border variable
-      var(--color-text-muted),
-      var(--color-text-muted),
-      var(--color-border-default)
-    );
+    /* used text color as border, because we don't want to add new border variable */
+    @include button-secondary-variant(var(--color-text-muted), var(--color-text-muted), var(--color-border-default));
   }
 }
 
@@ -181,8 +177,8 @@
   }
 
   &.btn--secondary {
+    /* used text color as border, because we don't want to add new border variable */
     @include button-secondary-variant(
-      // used text color as border, because we don't want to add new border variable
       var(--color-text-inverted),
       var(--color-text-inverted),
       var(--color-text-inverted),

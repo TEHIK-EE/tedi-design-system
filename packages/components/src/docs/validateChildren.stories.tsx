@@ -5,9 +5,10 @@ import Section from '../components/section/section';
 import { VerticalSpacing } from '../components/vertical-spacing';
 
 export default {
-  title: 'Documentation',
+  title: 'Documentation/ValidateChildren',
   parameters: {
     docs: {
+      previewTabs: { canvas: { hidden: true } },
       page: () => (
         <Section>
           <Title>How to validate the children prop of any component</Title>

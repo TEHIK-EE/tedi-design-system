@@ -16,8 +16,8 @@
     "esModuleInterop": true,
     "baseUrl": ".",
     "paths": {
-      "@tehik/react-components": ["packages/components/src/index.ts"],
-      "@tehik/design-tokens": ["packages/design-tokens/tokens.js"]
+      "@tehik/design-tokens": ["packages/design-tokens/tokens.js"],
+      "@tehik/react-components": ["packages/components/src/index.ts"]
     },
     "plugins": [
       {
