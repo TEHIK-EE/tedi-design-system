@@ -1,3 +1,10 @@
+## [3.3.2](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.3.1...v3.3.2) (2023-04-24)
+
+
+### Bug Fixes
+
+* **toggle:** Toggle design fixes - UPP-557 ([a387556](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/a38755667a847bd2887cbe3bdebb23a208c6a26b))
+
 ## [3.3.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.3.0...v3.3.1) (2023-04-19)
 
 
