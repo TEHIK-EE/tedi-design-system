@@ -1,4 +1,5 @@
-import { DateTimePicker as MuiDateTimePicker, DateTimeValidationError } from '@mui/x-date-pickers';
+import { ClockPickerView, DateTimePicker as MuiDateTimePicker } from '@mui/x-date-pickers';
+import { DateTimeValidationError } from '@mui/x-date-pickers/internals/hooks/validation/useDateTimeValidation';
 import type { Dayjs } from 'dayjs';
 import React from 'react';
 
@@ -76,7 +77,7 @@ export interface DateTimePickerProps extends Omit<TextFieldProps, 'defaultValue'
   /**
    * Dynamically check if time is disabled or not. If returns false appropriate time point will ot be acceptable.
    */
-  shouldDisableTime?: (timeValue: DateTimepickerValue, view: string) => boolean;
+  shouldDisableTime?: (timeValue: number, clockType: ClockPickerView) => boolean;
   /**
    * Disable specific years dynamically. Works like shouldDisableDate but for year selection view
    */
@@ -111,6 +112,11 @@ export interface DateTimePickerProps extends Omit<TextFieldProps, 'defaultValue'
    */
   views?: Array<'day' | 'hours' | 'minutes' | 'month' | 'seconds' | 'year'>;
   /**
+   * Custom mask. Can be used to override generate from format. (e.g. __/__/____ __:__ or __/__/____ __:__ _M).
+   * @default __.__.____ __:__
+   */
+  mask?: string;
+  /**
    * 12h/24h view for hour selection clock.
    * @default false,
    */
@@ -138,12 +144,12 @@ export const DateTimePicker = (props: DateTimePickerProps): JSX.Element => {
     shouldDisableDate,
     shouldDisableMonth,
     shouldDisableYear,
-    shouldDisableTime,
     disableHighlightToday,
     inputFormat = 'DD.MM.YYYY HH:mm',
     views = ['year', 'day', 'hours', 'minutes'],
     onError,
     loading,
+    mask = '__.__.____ __:__',
     ampm = false,
     ...rest
   } = props;
@@ -171,20 +177,16 @@ export const DateTimePicker = (props: DateTimePickerProps): JSX.Element => {
       data-name="datetimepicker"
       value={getValue}
       onChange={onChangeHandler}
-      slots={{
-        TextField: (props) => (
-          <MuiInputTransition
-            muiTextfieldProps={props}
-            inputFormat={inputFormat}
-            onChangeHandler={onChangeHandler}
-            textfieldProps={{ ...rest, onIconClick: !readOnly ? () => setOpen((open) => !open) : undefined }}
-          />
-        ),
-      }}
-      slotProps={{ toolbar: { toolbarFormat } }}
-      localeText={{ toolbarTitle }}
+      renderInput={(props) => (
+        <MuiInputTransition
+          muiTextfieldProps={props}
+          inputFormat={inputFormat}
+          onChangeHandler={onChangeHandler}
+          textfieldProps={{ ...rest, onIconClick: !readOnly ? () => setOpen((open) => !open) : undefined }}
+        />
+      )}
       open={open}
-      format={inputFormat}
+      inputFormat={inputFormat}
       onOpen={() => setOpen(true)}
       onClose={() => setOpen(false)}
       disabled={disabled}
@@ -193,7 +195,6 @@ export const DateTimePicker = (props: DateTimePickerProps): JSX.Element => {
       shouldDisableDate={shouldDisableDate}
       shouldDisableMonth={shouldDisableMonth}
       shouldDisableYear={shouldDisableYear}
-      shouldDisableTime={shouldDisableTime}
       disableHighlightToday={disableHighlightToday}
       readOnly={readOnly}
       minDate={minDate}
@@ -202,9 +203,12 @@ export const DateTimePicker = (props: DateTimePickerProps): JSX.Element => {
       maxDate={maxDate}
       maxDateTime={maxDateTime}
       maxTime={maxTime}
+      toolbarTitle={toolbarTitle}
+      toolbarFormat={toolbarFormat}
       onError={onError}
       loading={loading}
       views={views}
+      mask={mask}
       minutesStep={minutesStep}
       ampm={ampm}
     />

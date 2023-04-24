@@ -44,7 +44,8 @@ const MuiInputTransition = (props: MuiInputTransitionProps) => {
       invalid={error}
       icon={{
         name: type === 'date' ? 'today' : 'schedule',
-        label: muiTextfieldProps?.InputProps?.endAdornment?.props?.children?.props?.['aria-label'],
+        // TODO https://github.com/mui/mui-x/issues/6330
+        label: (muiTextfieldProps?.InputProps as any)?.endAdornment?.props?.children?.props?.['aria-label'],
       }}
       onBlur={(e) => {
         textfieldRest.onBlur?.(e);

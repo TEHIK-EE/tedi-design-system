@@ -1,4 +1,5 @@
-import { TimePicker as MuiTimePicker } from '@mui/x-date-pickers';
+import { ClockPickerView, TimePicker as MuiTimePicker } from '@mui/x-date-pickers';
+import { TimeValidationError } from '@mui/x-date-pickers/internals/hooks/validation/useTimeValidation';
 import type { Dayjs } from 'dayjs';
 import React from 'react';
 
@@ -50,14 +51,14 @@ export interface TimePickerProps extends Omit<TextFieldProps, 'defaultValue' | '
    * This can be used to render appropriate form error.
    * Read the guide about form integration and error displaying (https://next.material-ui-pickers.dev/guides/forms).
    */
-  onError?: (reason: string | null, value: TimePickerValue) => void;
+  onError?: (reason: TimeValidationError, value: TimePickerValue) => void;
   /**
    * Dynamically check if time is disabled or not. If returns false appropriate time point will ot be acceptable.
    * timeValue: The value to check.
    * clockType: The clock type of the timeValue.
    * returns (boolean): Returns true if the time should be disabled
    */
-  shouldDisableTime?: (timeValue: TimePickerValue, view: string) => boolean;
+  shouldDisableTime?: (timeValue: number, clockType: ClockPickerView) => boolean;
   /**
    * Array of views to show.
    * @default ['hours', 'minutes']
@@ -115,21 +116,19 @@ export const TimePicker = (props: TimePickerProps): JSX.Element => {
       open={open}
       onOpen={() => setOpen(true)}
       onClose={() => setOpen(false)}
-      slots={{
-        TextField: (props) => (
-          <MuiInputTransition
-            muiTextfieldProps={props}
-            inputFormat={inputFormat}
-            onChangeHandler={onChangeHandler}
-            textfieldProps={{ ...rest, onIconClick: !readOnly ? () => setOpen((open) => !open) : undefined }}
-            type="time"
-          />
-        ),
-      }}
-      localeText={{ toolbarTitle }}
+      renderInput={(props) => (
+        <MuiInputTransition
+          muiTextfieldProps={props}
+          inputFormat={inputFormat}
+          onChangeHandler={onChangeHandler}
+          textfieldProps={{ ...rest, onIconClick: !readOnly ? () => setOpen((open) => !open) : undefined }}
+          type="time"
+        />
+      )}
       disabled={disabled}
       readOnly={readOnly}
-      format={inputFormat}
+      inputFormat={inputFormat}
+      toolbarTitle={toolbarTitle}
       maxTime={maxTime}
       minTime={minTime}
       minutesStep={minutesStep}
