@@ -1,3 +1,12 @@
+# [3.4.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.3.2...v3.4.0) (2023-04-24)
+
+
+### Features
+
+* **general:** PR Fixes ([90c7db2](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/90c7db285d788a805bfe1536e862e3ba82b2d61a))
+* **general:** Revert mui/x-date-pickers update ([e4852a6](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/e4852a6757c32db90faaac66b5f8d37422c53106))
+* **general:** Update package versions, mainly storybook and MUI ([dcefea3](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/dcefea3ed5f4ff6f2f454f91864951c2ca4dc4c4))
+
 ## [3.3.2](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.3.1...v3.3.2) (2023-04-24)
 
 
