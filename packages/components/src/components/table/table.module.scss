@@ -39,24 +39,25 @@
       display: block;
     }
 
-    .sort__icon {
+    .sort__icon,
+    .filter__icon {
       --icon-variation-size: 1.5rem;
 
+      color: var(--color-text-subtle);
       transition: 200ms ease;
       transition-property: color;
 
-      &:hover {
-        color: var(--color-primary-active);
+      &:hover,
+      &--active {
+        color: var(--color-primary-main);
       }
     }
 
     .sorted__icon--asc {
-      color: var(--color-primary-active);
       transform: rotate(180deg);
     }
 
     .sorted__icon--desc {
-      color: var(--color-primary-active);
       transition-duration: 600ms;
       transition-property: transform;
       transform: rotate(0);
@@ -135,17 +136,4 @@
 
 .filter__button {
   display: block;
-}
-
-.filter__icon {
-  --icon-variation-size: 1.5rem;
-
-  color: var(--color-text-disabled);
-  transition: 200ms ease;
-  transition-property: color;
-
-  &:hover,
-  &--active {
-    color: var(--color-primary-active);
-  }
 }

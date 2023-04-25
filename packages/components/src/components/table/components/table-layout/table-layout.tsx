@@ -37,8 +37,8 @@ const TableLayout = <TData extends DefaultTData<TData>>(): JSX.Element | null =>
   const sortingLabel = getLabel('table.sort');
 
   const getSortIcon = (sortingDirection: false | SortDirection, cb?: (event: unknown) => void): JSX.Element => {
-    const SortIconBEM = cn('text-disabled', {
-      [styles['sort__icon']]: true,
+    const SortIconBEM = cn(styles['sort__icon'], {
+      [styles['sorted__icon--active']]: !!sortingDirection,
       [styles['sorted__icon--desc']]: sortingDirection === 'desc',
       [styles['sorted__icon--asc']]: sortingDirection === 'asc',
     });
