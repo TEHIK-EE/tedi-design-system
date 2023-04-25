@@ -106,7 +106,7 @@ const TableLayout = <TData extends DefaultTData<TData>>(): JSX.Element | null =>
 
   const renderTableFilterSortRow = (header: Header<TData, unknown>): JSX.Element => (
     <Col width="auto">
-      <Row justifyContent="end" gutter={1}>
+      <Row justifyContent="end" alignItems="center" gutter={1}>
         {header.column.getCanFilter() ? (
           <TableFilter<TData> column={header.column} rows={table?.getCoreRowModel()?.rows} />
         ) : null}
