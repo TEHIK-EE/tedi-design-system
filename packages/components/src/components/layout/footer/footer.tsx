@@ -21,7 +21,7 @@ export type FooterCategory<C extends React.ElementType = 'a'> = {
    * Category elements
    */
   elements?: React.ReactNode[];
-  heading: string;
+  heading: React.ReactNode;
   icon?: string | IconProps;
   linkAs?: C;
 };
@@ -108,7 +108,7 @@ const FooterCategory = <C extends React.ElementType = 'a'>(props: FooterCategory
       )}
       <Col width="auto">
         <VerticalSpacing className={cn('text-small', styles['footer__category'])} size={0.5}>
-          <Text color="inverted" modifiers="bold">
+          <Text color="inverted" modifiers="bold" element="div">
             {heading}
           </Text>
           {elements
