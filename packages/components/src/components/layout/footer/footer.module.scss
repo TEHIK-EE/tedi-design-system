@@ -1,7 +1,12 @@
 @use '../../../styles/mixins';
 @use '../../../styles/bootstrap-utility/breakpoints';
 
-.footer {
+.footer__bottom {
+  padding: 0.5rem 2.5rem;
+  background-color: var(--color-bg-inverted-contrast);
+}
+
+.footer__inner {
   display: flex;
   flex-direction: column;
   row-gap: 2.5rem;
@@ -18,6 +23,7 @@
 
   @include breakpoints.media-breakpoint-up(md) {
     flex-direction: row;
+    align-items: start;
   }
 }
 
