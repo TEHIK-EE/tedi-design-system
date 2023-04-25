@@ -1,20 +1,26 @@
 import cn from 'classnames';
+import React from 'react';
 
+import { Text } from '../../../helpers';
 import { AllowedHTMLTags } from '../../../helpers/polymorphic/types';
 import { Anchor, AnchorProps } from '../../anchor/anchor';
 import { Col, Row } from '../../grid';
 import Icon, { IconProps } from '../../icon/icon';
 import Print from '../../print/print';
 import StretchContent from '../../stretch-content/stretch-content';
-import Text from '../../typography/text/text';
 import { VerticalSpacing } from '../../vertical-spacing';
 import styles from './footer.module.scss';
 
 export type FooterCategory<C extends React.ElementType = 'a'> = {
   /**
    * Category links
+   * @deprecated, use elements instead - TEHVEER-104
    */
   links?: AnchorProps<C>[];
+  /**
+   * Category elements
+   */
+  elements?: React.ReactNode[];
   heading: string;
   icon?: string | IconProps;
   linkAs?: C;
@@ -50,29 +56,42 @@ export type FooterProps<C extends React.ElementType = 'a'> = ConditionalTypesFoo
    * Additional classname
    */
   className?: string;
+  /**
+   * Additional element to display in the bottom of the footer
+   */
+  bottomElement?: React.ReactNode;
 };
 
 export const Footer = <C extends React.ElementType = 'a'>(props: FooterProps<C>): JSX.Element => {
-  const { logo, categories, className, linkAs, ...rest } = props;
+  const { logo, categories, className, linkAs, bottomElement, ...rest } = props;
 
   const BEM = cn(styles['footer'], className);
 
   return (
     <Print visibility="hide">
       <footer data-name="footer" {...rest} className={BEM}>
-        {categories.map((c, key) => (
+        <div className={styles['footer__inner']}>
+          {categories.map((c, key) => (
+            <StretchContent direction="vertical" key={key}>
+              <FooterCategory linkAs={linkAs} {...c} key={key} />
+            </StretchContent>
+          ))}
+          {logo && <img className={styles['footer__logo']} src={logo.src} alt={logo.alt} style={logo.style} />}
+        </div>
+        {bottomElement && (
           <StretchContent direction="vertical" key={key}>
-            <FooterCategory linkAs={linkAs} {...c} />
+            <Text color="inverted" element="div" className={styles['footer__bottom']}>
+              {bottomElement}
+            </Text>
           </StretchContent>
-        ))}
-        {logo && <img className={styles['footer__logo']} src={logo.src} alt={logo.alt} style={logo.style} />}
+        )}
       </footer>
     </Print>
   );
 };
 
 const FooterCategory = <C extends React.ElementType = 'a'>(props: FooterCategory<C>): JSX.Element => {
-  const { heading, links, linkAs, icon } = props;
+  const { heading, links, linkAs, icon, elements } = props;
 
   const getIcon = (icon: string | IconProps) => {
     const defaultIconProps: Partial<IconProps> = { size: 16 };
@@ -94,18 +113,26 @@ const FooterCategory = <C extends React.ElementType = 'a'>(props: FooterCategory
           <Text color="inverted" modifiers="bold">
             {heading}
           </Text>
-          {links?.map((link, key) => (
-            <Text key={key}>
-              <Anchor
-                className={styles['footer__link']}
-                color="inverted"
-                size="small"
-                as={linkAs}
-                underline
-                {...link}
-              />
-            </Text>
-          ))}
+          {elements &&
+            elements.map((item, key) => (
+              <Text color="inverted" key={key} element="div">
+                {item}
+              </Text>
+            ))}
+          {!elements &&
+            links &&
+            links.map((link, key) => (
+              <p key={key}>
+                <Anchor
+                  className={styles['footer__link']}
+                  color="inverted"
+                  size="small"
+                  as={linkAs}
+                  underline
+                  {...link}
+                />
+              </p>
+            ))}
         </VerticalSpacing>
       </Col>
     </Row>
