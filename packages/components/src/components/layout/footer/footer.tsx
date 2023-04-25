@@ -5,6 +5,8 @@ import { Anchor, AnchorProps } from '../../anchor/anchor';
 import { Col, Row } from '../../grid';
 import Icon, { IconProps } from '../../icon/icon';
 import Print from '../../print/print';
+import StretchContent from '../../stretch-content/stretch-content';
+import Text from '../../typography/text/text';
 import { VerticalSpacing } from '../../vertical-spacing';
 import styles from './footer.module.scss';
 
@@ -12,7 +14,7 @@ export type FooterCategory<C extends React.ElementType = 'a'> = {
   /**
    * Category links
    */
-  links: AnchorProps<C>[];
+  links?: AnchorProps<C>[];
   heading: string;
   icon?: string | IconProps;
   linkAs?: C;
@@ -59,7 +61,9 @@ export const Footer = <C extends React.ElementType = 'a'>(props: FooterProps<C>)
     <Print visibility="hide">
       <footer data-name="footer" {...rest} className={BEM}>
         {categories.map((c, key) => (
-          <FooterCategory linkAs={linkAs} {...c} key={key} />
+          <StretchContent direction="vertical" key={key}>
+            <FooterCategory linkAs={linkAs} {...c} />
+          </StretchContent>
         ))}
         {logo && <img className={styles['footer__logo']} src={logo.src} alt={logo.alt} style={logo.style} />}
       </footer>
@@ -81,17 +85,17 @@ const FooterCategory = <C extends React.ElementType = 'a'>(props: FooterCategory
   return (
     <Row>
       {icon && (
-        <Col width="auto" className={cn('text-white', styles['footer__category-icon'])}>
+        <Col width="auto" className={cn('text-inverted', styles['footer__category-icon'])}>
           {getIcon(icon)}
         </Col>
       )}
       <Col width="auto">
         <VerticalSpacing className={cn('text-small', styles['footer__category'])} size={0.5}>
-          <p className="text-white">
-            <b>{heading}</b>
-          </p>
-          {links.map((link, key) => (
-            <p key={key}>
+          <Text color="inverted" modifiers="bold">
+            {heading}
+          </Text>
+          {links?.map((link, key) => (
+            <Text key={key}>
               <Anchor
                 className={styles['footer__link']}
                 color="inverted"
@@ -100,7 +104,7 @@ const FooterCategory = <C extends React.ElementType = 'a'>(props: FooterCategory
                 underline
                 {...link}
               />
-            </p>
+            </Text>
           ))}
         </VerticalSpacing>
       </Col>

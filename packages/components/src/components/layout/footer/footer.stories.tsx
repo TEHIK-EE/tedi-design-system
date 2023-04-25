@@ -1,7 +1,6 @@
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
 
-import useBreakpoint from '../../../helpers/hooks/use-breakpoint';
 import useLayout from '../../../helpers/hooks/use-layout';
 import { LinkBehaviour } from '../../anchor/anchor-helpers';
 import Footer, { FooterProps } from './footer';
@@ -33,6 +32,7 @@ const exampleFooterCategories = [
       { children: 'Text link', href: '#' },
       { children: 'Text link', href: '#' },
       { children: 'Text link', href: '#' },
+      { children: 'Text link', href: '#' },
     ],
   },
   {
@@ -42,11 +42,13 @@ const exampleFooterCategories = [
       { children: 'Text link', href: '#' },
       { children: 'Text link', href: '#' },
       { children: 'Text link', href: '#' },
+      { children: 'Text link', href: '#' },
+      { children: 'Text link', href: '#' },
     ],
   },
 ];
 
-const Template: Story<FooterProps<typeof LinkBehaviour>> = (args) => {
+const Template: Story<FooterProps<typeof LinkBehaviour>> = (args: any) => {
   const isMobileLayout = useLayout(['mobile']);
 
   const logo: FooterProps['logo'] = {

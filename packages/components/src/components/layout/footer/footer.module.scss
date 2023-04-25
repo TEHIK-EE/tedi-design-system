@@ -18,6 +18,7 @@
 
   @include breakpoints.media-breakpoint-up(md) {
     flex-direction: row;
+    align-items: start;
   }
 }
 
