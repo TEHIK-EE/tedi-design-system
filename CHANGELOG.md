@@ -1,3 +1,10 @@
+## [3.6.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.6.0...v3.6.1) (2023-04-25)
+
+
+### Bug Fixes
+
+* **table:** Fix table sorting and filter icon alignment - TEHVEER-118 ([3423984](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/3423984c868f30c3f5e711759db017c93f045866))
+
 # [3.6.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.5.0...v3.6.0) (2023-04-25)
 
 
