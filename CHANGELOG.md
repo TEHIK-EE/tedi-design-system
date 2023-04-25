@@ -1,3 +1,10 @@
+# [3.7.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.6.1...v3.7.0) (2023-04-25)
+
+
+### Features
+
+* **footer:** UPP-620 Allow using elements in footer heading ([934912c](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/934912c8e4287d783ad6ec85bbaf0574b4e5beaa))
+
 ## [3.6.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.6.0...v3.6.1) (2023-04-25)
 
 
