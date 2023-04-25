@@ -1,3 +1,11 @@
+# [3.5.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.4.0...v3.5.0) (2023-04-25)
+
+
+### Features
+
+* **stepper:** Add card variant possibilty - TEHVEER-107 ([27ec429](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/27ec4295cb0204141e211fbe2c7ba0d14f508346))
+* **table:** Change sort and filter icon color - TEHVEER-118 ([5d86ace](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/5d86ace831e53b539baaff9bdb4a5fab7362ccf5))
+
 # [3.4.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.3.2...v3.4.0) (2023-04-24)
 
 
