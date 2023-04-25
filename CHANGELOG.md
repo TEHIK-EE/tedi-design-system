@@ -1,3 +1,12 @@
+# [3.6.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.5.0...v3.6.0) (2023-04-25)
+
+
+### Features
+
+* **footer:** TEHVEER-104 - add option to add text to footer and a darker bottom row ([96a1ba7](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/96a1ba7677dbeda8190b73d3423e50315a992a7c))
+* **footer:** UPP-620 Change category alignment in desktop mode ([c290d39](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/c290d39b7c5b21ed415b089c19ab5bfe3c3c9399))
+* **footer:** UPP-620 Fix merge conflicts and clean up code ([113126c](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/113126c36f1e57344cce71d654712b2f9bf36207))
+
 # [3.5.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.4.0...v3.5.0) (2023-04-25)
 
 
