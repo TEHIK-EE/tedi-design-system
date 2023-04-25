@@ -1,6 +1,9 @@
+import cn from 'classnames';
 import React from 'react';
 
+import { Card, CardContent, CardHeader, CardProps } from '../card';
 import Step, { StepProps } from './step';
+import styles from './stepper.module.scss';
 import { StepperContext } from './stepper-context';
 import StepperNav, { StepperNavItem } from './stepper-nav';
 
@@ -14,6 +17,10 @@ export interface StepperProps {
    */
   onActiveStepChange: (step: number) => void;
   /**
+   * Navigation aria-label
+   */
+  ariaLabel: string;
+  /**
    * Two or more `<Step />` components.
    */
   children: React.ReactElement<StepProps>[];
@@ -21,10 +28,6 @@ export interface StepperProps {
    * Additional class.
    */
   className?: string;
-  /**
-   * Navigation aria-label
-   */
-  ariaLabel: string;
   /**
    * Completed label, added only for screen-readers.
    * Defaults to "Completed".
@@ -35,10 +38,16 @@ export interface StepperProps {
    * Defaults to "Not completed".
    */
   notCompletedLabel?: string;
+  /**
+   * Card props to be passed to the Card component around the Stepper.
+   * When truthy, default card padding will be large
+   */
+  card?: CardProps | boolean;
 }
 
 export const Stepper = (props: StepperProps): JSX.Element => {
-  const { activeStep, children, className, ariaLabel, completedLabel, notCompletedLabel, onActiveStepChange } = props;
+  const { activeStep, children, className, ariaLabel, completedLabel, notCompletedLabel, onActiveStepChange, card } =
+    props;
 
   const childrenArray = React.Children.map(children, (child: React.ReactNode) => {
     if (React.isValidElement(child) && child.type === Step) {
@@ -69,8 +78,30 @@ export const Stepper = (props: StepperProps): JSX.Element => {
 
   const contextValue = React.useMemo(() => ({ activeStep, onActiveStepChange }), [activeStep, onActiveStepChange]);
 
-  return (
-    <StepperContext.Provider value={contextValue}>
+  const CardBEM = cn(styles['stepper'], className, {
+    [styles['stepper--card']]: !!card,
+  });
+
+  const getContent = () => {
+    if (card) {
+      const cardProps = card === true ? {} : card;
+
+      return (
+        <Card padding="large" {...cardProps} data-name="stepper" className={CardBEM}>
+          <CardHeader padding="none" variant="white">
+            <StepperNav
+              items={getNavItems()}
+              ariaLabel={ariaLabel}
+              completedLabel={completedLabel}
+              notCompletedLabel={notCompletedLabel}
+            />
+          </CardHeader>
+          <CardContent>{steps}</CardContent>
+        </Card>
+      );
+    }
+
+    return (
       <div data-name="stepper" className={className}>
         <StepperNav
           items={getNavItems()}
@@ -80,8 +111,10 @@ export const Stepper = (props: StepperProps): JSX.Element => {
         />
         {steps}
       </div>
-    </StepperContext.Provider>
-  );
+    );
+  };
+
+  return <StepperContext.Provider value={contextValue}>{getContent()}</StepperContext.Provider>;
 };
 
 export default Stepper;

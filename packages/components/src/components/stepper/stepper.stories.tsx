@@ -11,6 +11,16 @@ import Stepper, { StepperProps } from './stepper';
 export default {
   title: 'components/Stepper',
   component: Stepper,
+  parameters: {
+    docs: {
+      description: {
+        component: `<p>
+         Steppers convey progress through numbered steps. It provides a wizard-like workflow. <br />
+         Currently we have two visual types on stepper. Default one is used in most cases and the other one is used when stepper is used inside card in design.
+        </p>`,
+      },
+    },
+  },
 } as Meta;
 
 const Template: Story<StepperProps> = (args) => {
@@ -61,4 +71,10 @@ const Template: Story<StepperProps> = (args) => {
 export const Default = Template.bind({});
 Default.args = {
   ariaLabel: 'Stepper Heading',
+};
+
+export const WithCard = Template.bind({});
+WithCard.args = {
+  ...Default.args,
+  card: true,
 };
