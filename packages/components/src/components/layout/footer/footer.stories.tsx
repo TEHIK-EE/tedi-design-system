@@ -47,6 +47,9 @@ const exampleFooterCategories = [
       <Anchor key="link-3" href="#" color="inverted">
         Text link
       </Anchor>,
+      <Anchor key="link-4" href="#" color="inverted">
+        Text link
+      </Anchor>,
     ],
   },
   {
@@ -60,6 +63,12 @@ const exampleFooterCategories = [
         Text link
       </Anchor>,
       <Anchor key="link-3" href="#" color="inverted">
+        Text link
+      </Anchor>,
+      <Anchor key="link-4" href="#" color="inverted">
+        Text link
+      </Anchor>,
+      <Anchor key="link-5" href="#" color="inverted">
         Text link
       </Anchor>,
     ],

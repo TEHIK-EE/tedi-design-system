@@ -1,13 +1,13 @@
 import cn from 'classnames';
 import React from 'react';
 
-import { Text } from '../../../helpers';
 import { AllowedHTMLTags } from '../../../helpers/polymorphic/types';
 import { Anchor, AnchorProps } from '../../anchor/anchor';
 import { Col, Row } from '../../grid';
 import Icon, { IconProps } from '../../icon/icon';
 import Print from '../../print/print';
 import StretchContent from '../../stretch-content/stretch-content';
+import Text from '../../typography/text/text';
 import { VerticalSpacing } from '../../vertical-spacing';
 import styles from './footer.module.scss';
 
@@ -71,19 +71,17 @@ export const Footer = <C extends React.ElementType = 'a'>(props: FooterProps<C>)
     <Print visibility="hide">
       <footer data-name="footer" {...rest} className={BEM}>
         <div className={styles['footer__inner']}>
-          {categories.map((c, key) => (
-            <StretchContent direction="vertical" key={key}>
-              <FooterCategory linkAs={linkAs} {...c} key={key} />
+          {categories.map((c, index) => (
+            <StretchContent direction="vertical" key={index}>
+              <FooterCategory linkAs={linkAs} {...c} />
             </StretchContent>
           ))}
           {logo && <img className={styles['footer__logo']} src={logo.src} alt={logo.alt} style={logo.style} />}
         </div>
         {bottomElement && (
-          <StretchContent direction="vertical" key={key}>
-            <Text color="inverted" element="div" className={styles['footer__bottom']}>
-              {bottomElement}
-            </Text>
-          </StretchContent>
+          <Text color="inverted" element="div" className={styles['footer__bottom']}>
+            {bottomElement}
+          </Text>
         )}
       </footer>
     </Print>
@@ -113,26 +111,24 @@ const FooterCategory = <C extends React.ElementType = 'a'>(props: FooterCategory
           <Text color="inverted" modifiers="bold">
             {heading}
           </Text>
-          {elements &&
-            elements.map((item, key) => (
-              <Text color="inverted" key={key} element="div">
-                {item}
-              </Text>
-            ))}
-          {!elements &&
-            links &&
-            links.map((link, key) => (
-              <p key={key}>
-                <Anchor
-                  className={styles['footer__link']}
-                  color="inverted"
-                  size="small"
-                  as={linkAs}
-                  underline
-                  {...link}
-                />
-              </p>
-            ))}
+          {elements
+            ? elements?.map((item, index) => (
+                <Text color="inverted" key={index} element="div">
+                  {item}
+                </Text>
+              ))
+            : links?.map((link, index) => (
+                <Text key={index}>
+                  <Anchor
+                    className={styles['footer__link']}
+                    color="inverted"
+                    size="small"
+                    as={linkAs}
+                    underline
+                    {...link}
+                  />
+                </Text>
+              ))}
         </VerticalSpacing>
       </Col>
     </Row>
