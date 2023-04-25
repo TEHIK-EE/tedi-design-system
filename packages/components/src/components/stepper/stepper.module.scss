@@ -7,6 +7,10 @@
   overflow-x: auto;
   background-color: var(--color-bg-subtle);
   border-radius: 4px;
+
+  .stepper--card & {
+    border-radius: 0;
+  }
 }
 
 .stepper__nav-item {
@@ -25,6 +29,10 @@
 
   &:first-of-type {
     border-radius: 4px 0 0 4px;
+
+    .stepper--card & {
+      border-radius: 4px 0 0;
+    }
   }
 
   &--tablet:not(:first-of-type) {
@@ -75,10 +83,14 @@
   padding: 1rem 0;
 
   @include breakpoints.media-breakpoint-up(lg) {
-    padding: 1.5rem;
+    padding: 1.5rem 0;
   }
 
   &--current {
     display: block;
+  }
+
+  .stepper--card & {
+    padding: 0;
   }
 }
