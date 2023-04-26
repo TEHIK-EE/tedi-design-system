@@ -1,3 +1,10 @@
+# [3.8.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.7.0...v3.8.0) (2023-04-26)
+
+
+### Features
+
+* **stepper:** Add deafultActiveStep, allowStepLabelClick, hover and focus styles - TEHVEER-123 ([c2b076d](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/c2b076d7da369b9bddb740220e7649db70280a1b))
+
 # [3.7.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.6.1...v3.7.0) (2023-04-25)
 
 
