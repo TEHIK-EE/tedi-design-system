@@ -9,13 +9,25 @@ import StepperNav, { StepperNavItem } from './stepper-nav';
 
 export interface StepperProps {
   /**
-   * Set the active step (zero based index).
+   * The activeStep index that should be open by default (zero based index).
+   * Do not use with activeStep
+   * @default 0
    */
-  activeStep: number;
+  defaultActiveStep?: number;
+  /**
+   * Set the active step (zero based index). Used to control the activeStep outside the components.
+   * Should be used with onActiveStepChange function
+   */
+  activeStep?: number;
   /**
    * Callback for activeStep change.
    */
-  onActiveStepChange: (step: number) => void;
+  onActiveStepChange?: (step: number) => void;
+  /**
+   * Allow user to navigate between steps by clicking on the step label.
+   * @default true
+   */
+  allowStepLabelClick?: boolean;
   /**
    * Navigation aria-label
    */
@@ -46,8 +58,42 @@ export interface StepperProps {
 }
 
 export const Stepper = (props: StepperProps): JSX.Element => {
-  const { activeStep, children, className, ariaLabel, completedLabel, notCompletedLabel, onActiveStepChange, card } =
-    props;
+  const {
+    activeStep,
+    defaultActiveStep,
+    onActiveStepChange,
+    allowStepLabelClick = true,
+    children,
+    className,
+    ariaLabel,
+    completedLabel,
+    notCompletedLabel,
+    card,
+  } = props;
+  const [innerActiveStep, setActiveStep] = React.useState<number>(defaultActiveStep || 0);
+
+  const isActiveStepControlled = React.useCallback(
+    (activeStep = props.activeStep): activeStep is number => {
+      return typeof activeStep !== 'undefined';
+    },
+    [props.activeStep]
+  );
+
+  const handleActiveStepChange = React.useCallback(
+    (newActiveStep: number): void => {
+      onActiveStepChange?.(newActiveStep);
+
+      if (!isActiveStepControlled(activeStep)) {
+        setActiveStep(newActiveStep);
+      }
+    },
+    [activeStep, isActiveStepControlled, onActiveStepChange]
+  );
+
+  const getActiveStep = React.useMemo(
+    () => (isActiveStepControlled(activeStep) ? activeStep : innerActiveStep),
+    [activeStep, innerActiveStep, isActiveStepControlled]
+  );
 
   const childrenArray = React.Children.map(children, (child: React.ReactNode) => {
     if (React.isValidElement(child) && child.type === Step) {
@@ -76,7 +122,10 @@ export const Stepper = (props: StepperProps): JSX.Element => {
       });
   };
 
-  const contextValue = React.useMemo(() => ({ activeStep, onActiveStepChange }), [activeStep, onActiveStepChange]);
+  const contextValue = React.useMemo(
+    () => ({ activeStep: getActiveStep, handleActiveStepChange, allowStepLabelClick }),
+    [allowStepLabelClick, getActiveStep, handleActiveStepChange]
+  );
 
   const CardBEM = cn(styles['stepper'], className, {
     [styles['stepper--card']]: !!card,

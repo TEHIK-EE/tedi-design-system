@@ -16,6 +16,10 @@
   cursor: pointer;
   background-color: var(--color-transparent);
   border: none;
+
+  &:disabled {
+    cursor: default;
+  }
 }
 
 @mixin table-cell-selector($selector: 'all') {
