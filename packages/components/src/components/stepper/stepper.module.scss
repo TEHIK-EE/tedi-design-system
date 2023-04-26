@@ -1,11 +1,17 @@
 @use '../../styles/mixins';
 @use '../../styles/bootstrap-utility/breakpoints';
 
+$stepper-transition: 150ms ease;
+$stepper-step-bg: var(--color-bg-subtle);
+$stepper-step-bg-hover: var(--color-bg-disabled);
+$stepper-step-bg-active: var(--color-primary-main);
+$stepper-step-bg-active-hover: var(--color-primary-active);
+
 .stepper__nav {
   display: flex;
   margin: 0;
   overflow-x: auto;
-  background-color: var(--color-bg-subtle);
+  background-color: $stepper-step-bg;
   border-radius: 4px;
 
   .stepper--card & {
@@ -18,13 +24,18 @@
   align-items: center;
   color: var(--color-text-default);
   white-space: nowrap;
+  transition: $stepper-transition;
+  transition-property: background-color, color;
 
   @include mixins.print-grayscale;
 
-  &--completed,
-  &--current {
+  &--active {
     color: var(--color-text-inverted);
-    background-color: var(--color-primary-main);
+    background-color: $stepper-step-bg-active;
+
+    &:hover:not(.stepper__nav-item--disabled) {
+      background-color: $stepper-step-bg-active-hover;
+    }
   }
 
   &:first-of-type {
@@ -34,22 +45,21 @@
       border-radius: 4px 0 0;
     }
   }
-
-  &--tablet:not(:first-of-type) {
-    padding-left: 0.5rem;
-  }
-
-  &--desktop:not(:first-of-type) {
-    padding-left: 1.5rem;
-  }
 }
 
 .stepper__nav-item-inner {
   @include mixins.button-reset;
 
+  --global-outline-offset: -4px;
+  --global-outline-color: var(--color-primary-main);
+
   display: flex;
   align-items: center;
   padding: 0.625rem;
+
+  .stepper__nav-item--active & {
+    --global-outline-color: var(--color-bg-default);
+  }
 }
 
 .stepper__nav-item-counter {
@@ -60,22 +70,41 @@
   height: 1.25rem;
   font-size: 0.875rem;
   font-weight: 700;
-  color: var(--color-text-subtle);
+  color: var(--color-text-muted);
   background-color: var(--color-bg-default);
   border-radius: 10rem;
+  transition: $stepper-transition;
+  transition-property: color, background-color;
+
+  .stepper__nav-item:hover:not(.stepper__nav-item--disabled, .stepper__nav-item--active) & {
+    color: var(--color-text-inverted);
+    background-color: var(--color-primary-active);
+  }
 }
 
 .stepper__nav-item-label {
   padding-left: 0.5rem;
   font-size: 0.875rem;
   line-height: 1.25rem;
+  transition: $stepper-transition;
+  transition-property: color;
+
+  .stepper__nav-item:hover:not(.stepper__nav-item--disabled, .stepper__nav-item--active) & {
+    color: var(--color-primary-active);
+  }
 }
 
 .stepper__nav-item-arrow {
-  background-color: var(--color-bg-subtle);
+  background-color: $stepper-step-bg;
   border: 20px solid var(--color-transparent);
   border-right: 0;
-  border-left-color: var(--color-primary-main);
+  border-left-color: $stepper-step-bg-active;
+  transition: $stepper-transition;
+  transition-property: border-left-color;
+
+  .stepper__nav-item--active:hover:not(.stepper__nav-item--disabled) & {
+    border-left-color: $stepper-step-bg-active-hover;
+  }
 }
 
 .stepper__step {

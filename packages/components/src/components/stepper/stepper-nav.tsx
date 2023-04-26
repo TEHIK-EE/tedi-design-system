@@ -46,19 +46,16 @@ export const StepperNav = (props: StepperNavProps): JSX.Element => {
     notCompletedLabel = getLabel('stepper.not-completed'),
   } = props;
   const isMobileLayout = useLayout(['mobile']);
-  const isTabletLayout = useLayout(['tablet']);
-  const isDesktopLayout = useLayout(['desktop']);
 
-  const { activeStep, onActiveStepChange } = React.useContext(StepperContext);
+  const { activeStep, handleActiveStepChange, allowStepLabelClick } = React.useContext(StepperContext);
 
   const StepperNavItem = ({ label, completed, index, id }: StepperNavItem): JSX.Element => {
     const isCurrent = index === activeStep;
+    const isDisabled = !allowStepLabelClick;
     const StepperNavItemBEM = cn(
       styles['stepper__nav-item'],
-      { [styles['stepper__nav-item--current']]: isCurrent },
-      { [styles['stepper__nav-item--completed']]: completed },
-      { [styles['stepper__nav-item--tablet']]: isTabletLayout },
-      { [styles['stepper__nav-item--desktop']]: isDesktopLayout }
+      { [styles['stepper__nav-item--disabled']]: isDisabled },
+      { [styles['stepper__nav-item--active']]: isCurrent || completed }
     );
 
     const StepperNavItemLabelBEM = cn(styles['stepper__nav-item-label'], {
@@ -73,7 +70,8 @@ export const StepperNav = (props: StepperNavProps): JSX.Element => {
           aria-selected={isCurrent}
           aria-controls={id}
           className={styles['stepper__nav-item-inner']}
-          onClick={() => onActiveStepChange(index)}
+          onClick={() => handleActiveStepChange(index)}
+          disabled={isDisabled}
         >
           <span className={styles['stepper__nav-item-counter']}>{index + 1}</span>
           <span className={StepperNavItemLabelBEM}>{label}</span>
