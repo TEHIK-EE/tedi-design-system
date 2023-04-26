@@ -1,3 +1,10 @@
+## [3.8.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.8.0...v3.8.1) (2023-04-26)
+
+
+### Bug Fixes
+
+* **check, raido:** Add indicator background color - TEHVEER-124 ([00416fe](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/00416fe6d995da3b1eed6a6a6627dd5198458816))
+
 # [3.8.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.7.0...v3.8.0) (2023-04-26)
 
 
