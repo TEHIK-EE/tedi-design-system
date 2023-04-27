@@ -1,6 +1,7 @@
 import cn from 'classnames';
 import React from 'react';
 
+import { useLayout } from '../../../helpers';
 import { useLabels } from '../../../providers/label-provider';
 import { Anchor, AnchorProps } from '../../anchor/anchor';
 import { Button } from '../../button/button';
@@ -48,6 +49,7 @@ export const Header = <H extends React.ElementType = 'a'>(props: HeaderProps<H>)
   const { menuOpen, reference, getReferenceProps, hasSidenavItems } = React.useContext(LayoutContext);
   const toggleLabel = getLabel('header.toggle');
   const LogoWrapper = logoAnchor ? Anchor : React.Fragment;
+  const isMobile = useLayout(['mobile']);
 
   const BEM = cn(styles['header'], className);
   const toggleBEM = cn(styles['header__toggle'], { [styles['header__toggle--open']]: menuOpen });
@@ -83,19 +85,14 @@ export const Header = <H extends React.ElementType = 'a'>(props: HeaderProps<H>)
             </div>
           )}
           {onLogoutClick && (
-            <>
-              <Button
-                className={cn(styles['header__logout'], styles['header__logout--mobile'])}
-                icon={{ name: 'logout', size: 24 }}
-                visualType="link"
-                onClick={onLogoutClick}
-              >
-                {getLabel('header.logout')}
-              </Button>
-              <Button className={styles['header__logout']} visualType="link" onClick={onLogoutClick}>
-                {getLabel('header.logout')}
-              </Button>
-            </>
+            <Button
+              className={styles['header__logout']}
+              icon={isMobile ? { name: 'logout', size: 24 } : undefined}
+              visualType="link"
+              onClick={onLogoutClick}
+            >
+              {getLabel('header.logout')}
+            </Button>
           )}
         </header>
       </Print>
