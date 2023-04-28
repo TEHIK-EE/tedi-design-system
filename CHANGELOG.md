@@ -1,3 +1,10 @@
+# [3.9.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.8.1...v3.9.0) (2023-04-28)
+
+
+### Features
+
+* **header:** UPP-619 Make border part of logout button and remove duplicate button ([c62a970](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/c62a970fe2b3f0d9c2ae3dfc3cac5dcdc7867633))
+
 ## [3.8.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.8.0...v3.8.1) (2023-04-26)
 
 
