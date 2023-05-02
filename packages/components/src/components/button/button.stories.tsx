@@ -1,4 +1,4 @@
-import { Meta, Story } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 
 import { Col, Row } from '../grid';
 import { VerticalSpacing } from '../vertical-spacing';
@@ -9,7 +9,7 @@ export default {
   component: Button,
 } as Meta<ButtonProps>;
 
-const Template: Story<ButtonProps> = (args) => {
+const Template: StoryFn<ButtonProps> = (args) => {
   const getRow = (name: string, rowProps?: Partial<ButtonProps>): JSX.Element => (
     <Row gutterX={5} alignItems="center">
       <Col width={1} className={args.color === 'inverted' ? 'text-white' : undefined}>
@@ -65,68 +65,106 @@ const Template: Story<ButtonProps> = (args) => {
   );
 };
 
-export const Default = Template.bind({});
-export const Secondary = Template.bind({});
-Secondary.args = {
-  visualType: 'secondary',
+export const Default = {
+  render: Template,
 };
 
-export const Error = Template.bind({});
-export const ErrorSecondary = Template.bind({});
-Error.args = {
-  color: 'error',
-};
-ErrorSecondary.args = {
-  ...Error.args,
-  visualType: 'secondary',
+export const Secondary = {
+  render: Template,
+
+  args: {
+    visualType: 'secondary',
+  },
 };
 
-export const Success = Template.bind({});
-export const SuccessSecondary = Template.bind({});
-Success.args = {
-  color: 'success',
-};
-SuccessSecondary.args = {
-  ...Success.args,
-  visualType: 'secondary',
+export const Error = {
+  render: Template,
+
+  args: {
+    color: 'error',
+  },
 };
 
-export const Inverted = Template.bind({});
-export const InvertedSecondary = Template.bind({});
-Inverted.args = {
-  color: 'inverted',
-};
-InvertedSecondary.args = {
-  ...Inverted.args,
-  visualType: 'secondary',
+export const ErrorSecondary = {
+  render: Template,
+
+  args: {
+    ...Error.args,
+    visualType: 'secondary',
+  },
 };
 
-Inverted.parameters = {
-  backgrounds: { default: 'black' },
-};
-InvertedSecondary.parameters = {
-  backgrounds: { default: 'black' },
+export const Success = {
+  render: Template,
+
+  args: {
+    color: 'success',
+  },
 };
 
-export const Link = Template.bind({});
-Link.args = {
-  visualType: 'link',
+export const SuccessSecondary = {
+  render: Template,
+
+  args: {
+    ...Success.args,
+    visualType: 'secondary',
+  },
 };
 
-export const InvertedLink = Template.bind({});
-InvertedLink.args = {
-  ...Link.args,
-  color: 'inverted',
-};
-InvertedLink.parameters = {
-  backgrounds: { default: 'black' },
+export const Inverted = {
+  render: Template,
+
+  args: {
+    color: 'inverted',
+  },
+
+  parameters: {
+    backgrounds: { default: 'black' },
+  },
 };
 
-const NoStyleTemplate: Story<ButtonProps> = (args) => {
+export const InvertedSecondary = {
+  render: Template,
+
+  args: {
+    ...Inverted.args,
+    visualType: 'secondary',
+  },
+
+  parameters: {
+    backgrounds: { default: 'black' },
+  },
+};
+
+export const Link = {
+  render: Template,
+
+  args: {
+    visualType: 'link',
+  },
+};
+
+export const InvertedLink = {
+  render: Template,
+
+  args: {
+    ...Link.args,
+    color: 'inverted',
+  },
+
+  parameters: {
+    backgrounds: { default: 'black' },
+  },
+};
+
+const NoStyleTemplate: StoryFn<ButtonProps> = (args) => {
   return (
     <Button {...args} noStyle={true}>
       Button without styles
     </Button>
   );
 };
-export const NoStyle = NoStyleTemplate.bind({});
+
+export const NoStyle = {
+  render: NoStyleTemplate,
+};

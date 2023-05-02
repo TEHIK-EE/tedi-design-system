@@ -1,4 +1,4 @@
-import { Meta, Story } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import { useState } from 'react';
 
 import { Dropdown, DropdownItem, DropdownProps } from './dropdown';
@@ -14,7 +14,7 @@ const items: DropdownItem[] = [
   { children: 'ENG', href: '#' },
 ];
 
-const Template: Story<DropdownProps> = (args) => {
+const Template: StoryFn<DropdownProps> = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
@@ -33,4 +33,6 @@ const Template: Story<DropdownProps> = (args) => {
   );
 };
 
-export const Default = Template.bind({});
+export const Default = {
+  render: Template,
+};

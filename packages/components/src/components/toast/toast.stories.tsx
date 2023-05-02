@@ -1,4 +1,4 @@
-import { Meta, Story } from '@storybook/react';
+import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import { ToastContainer } from 'react-toastify';
 
 import Button from '../button/button';
@@ -6,8 +6,9 @@ import { Col, Row } from '../grid';
 import Notification, { NotificationProps } from '../notification/notification';
 import { sendNotification } from './toast';
 
-export default {
-  title: 'components/Toast',
+const meta: Meta<typeof Notification> = {
+  title: 'components/toast',
+
   component: Notification,
   parameters: {
     docs: {
@@ -18,9 +19,12 @@ export default {
       },
     },
   },
-} as Meta;
+};
 
-const Template: Story<NotificationProps> = (args) => (
+export default meta;
+type Story = StoryObj<typeof Notification>;
+
+const Template: StoryFn<NotificationProps> = (args) => (
   <>
     <ToastContainer />
     <Row>
@@ -66,5 +70,7 @@ const Template: Story<NotificationProps> = (args) => (
   </>
 );
 
-export const Default = Template.bind({});
-Default.args = {};
+export const Default: Story = {
+  render: Template,
+  args: {},
+};

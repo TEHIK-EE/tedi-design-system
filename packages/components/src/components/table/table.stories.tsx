@@ -1,5 +1,5 @@
 import { faker } from '@faker-js/faker';
-import { Meta, Story } from '@storybook/react';
+import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import { ColumnDef, createColumnHelper } from '@tanstack/react-table';
 import React from 'react';
 
@@ -20,15 +20,17 @@ import {
 import Table from './table';
 import { TableProps } from './table.types';
 
-export default {
-  title: 'components/Table',
+const meta: Meta<typeof Table> = {
   component: Table,
   argTypes: {
     data: {
       control: false,
     },
   },
-} as Meta;
+};
+
+export default meta;
+type Story = StoryObj<TableProps<Person>>;
 
 type Person = {
   firstName: string;
@@ -107,186 +109,195 @@ const columns: ColumnDef<Person, any>[] = [
   }),
 ];
 
-const Template: Story<TableProps<Person>> = (args) => <Table<Person> {...args} />;
-const CardTemplate: Story<TableProps<Person>> = (args) => (
+const CardTemplate: StoryFn<TableProps<Person>> = (args) => (
   <Card>
     <CardContent>
       <VerticalSpacing>
         <Heading>Table header</Heading>
-        <Table<Person> {...args} />
+        <Table<Person> {...args} className="sb-unstyled" />
       </VerticalSpacing>
     </CardContent>
   </Card>
 );
 
-export const Default = Template.bind({});
-Default.args = {
-  data: data(),
-  columns,
-  id: 'table-1',
-};
-
-export const Borderless = CardTemplate.bind({});
-Borderless.args = {
-  data: data(),
-  columns,
-  id: 'table-borderless',
-  hideCardBorder: true,
-};
-
-export const RowsBorderless = Template.bind({});
-RowsBorderless.args = {
-  data: data(10),
-  columns: columns.map((column) => ({ ...column, enableSorting: false })),
-  id: 'borderless-table',
-  hidePagination: true,
-  hideRowBorder: true,
-  hideCardBorder: true,
-};
-
-export const Loading = Template.bind({});
-
-Loading.args = {
-  data: [],
-  columns: columns,
-  id: 'table-loading',
-  isLoading: true,
-};
-
-export const LoadingBorderless = CardTemplate.bind({});
-
-LoadingBorderless.args = {
-  data: [],
-  columns: columns,
-  id: 'table-loading-borderless',
-  cardProps: {
-    type: 'borderless',
+export const Default: Story = {
+  args: {
+    data: data(),
+    columns,
+    id: 'table-1',
   },
-  isLoading: true,
 };
 
-export const LoadingWithoutPagination = CardTemplate.bind({});
-LoadingWithoutPagination.args = {
-  data: [],
-  columns: columns,
-  id: 'table-loading-without-pagination',
-  isLoading: true,
-  hidePagination: true,
-};
+export const Borderless: Story = {
+  render: CardTemplate,
 
-export const Error = Template.bind({});
-Error.args = {
-  data: [],
-  columns,
-  id: 'error-table',
-  isError: true,
-};
-
-export const FullWidthSubComponent = Template.bind({});
-
-FullWidthSubComponent.args = {
-  data: data(),
-  columns: [getExpandColumn(), ...columns],
-  renderSubComponent: (row) => {
-    return (
-      <tr>
-        <td colSpan={row.getVisibleCells().length}>
-          <VerticalSpacing>
-            <Heading>{`${row.original.firstName} ${row.original.lastName}`}</Heading>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-              dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-              ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-              fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-              mollit anim id est laborum.
-            </p>
-          </VerticalSpacing>
-        </td>
-      </tr>
-    );
+  args: {
+    data: data(),
+    columns,
+    id: 'table-borderless',
+    hideCardBorder: true,
   },
-  getRowCanExpand: (row) => row.index % 4 !== 0,
-  id: 'table-2',
 };
 
-export const WithSubComponent = Template.bind({});
-
-WithSubComponent.args = {
-  data: data(),
-  columns: [getExpandColumn(), ...columns],
-  renderSubComponent: (row) => {
-    return (
-      <tr>
-        <td></td>
-        <td colSpan={2}>
-          <div className="text-bold">Koolitused</div>
-          <div>Esimene kooltus pika pealkirjaga</div>
-          <div>Teine koolitus</div>
-          <div>Kolmas koolitus</div>
-        </td>
-        <td colSpan={2}>
-          <div className="text-bold">Lorem ipsum</div>
-          <div>Lorem ipsum dolor sit amet</div>
-          <div>Lorem ipsum dolor sit amet</div>
-          <div>Lorem ipsum dolor sit amet</div>
-        </td>
-        <td>
-          <Tag type="secondary">Aktiivne</Tag>
-        </td>
-      </tr>
-    );
+export const RowsBorderless: Story = {
+  args: {
+    data: data(10),
+    columns: columns.map((column) => ({ ...column, enableSorting: false })),
+    id: 'borderless-table',
+    hidePagination: true,
+    hideRowBorder: true,
+    hideCardBorder: true,
   },
-  getRowCanExpand: (row) => row.index % 4 !== 0,
-  id: 'table-3',
 };
 
-export const RowSelection = Template.bind({});
-
-RowSelection.args = {
-  data: data(),
-  columns: [getRowSelectionColumn('test', true), ...columns],
-  id: 'row-selection-table',
+export const Loading: Story = {
+  args: {
+    data: [],
+    columns: columns,
+    id: 'table-loading',
+    isLoading: true,
+  },
 };
 
-export const WithSubRow = Template.bind({});
+export const LoadingBorderless: Story = {
+  render: CardTemplate,
 
-WithSubRow.args = {
-  data: data(),
-  columns: [getExpandColumn(), ...columns],
-  id: 'table-4',
-  getRowCanExpand: (row) => !!row.original.subRows?.length,
-};
-export const WithCustomizedCells = Template.bind({});
-
-WithCustomizedCells.args = {
-  data: data(),
-  columns: [
-    columnHelper.accessor('firstName', {
-      id: 'personName',
-      cell: (info) => (
-        <CustomizeTableCell className={getBackgroundColorClass('primary-highlight')}>
-          <Anchor href="#">{`${info.row.original.firstName} ${info.row.original.lastName}`}</Anchor>
-        </CustomizeTableCell>
-      ),
-      header: () => 'Child',
-    }),
-    ...columns.slice(1),
-  ],
-  id: 'table-5',
+  args: {
+    data: [],
+    columns: columns,
+    id: 'table-loading-borderless',
+    cardProps: {
+      type: 'borderless',
+    },
+    isLoading: true,
+  },
 };
 
-export const WithCustomizedRows = Template.bind({});
+export const LoadingWithoutPagination: Story = {
+  render: CardTemplate,
 
-WithCustomizedRows.args = {
-  data: data().map((entity) => ({
-    ...entity,
-    rowClassName: entity.status === 'In Relationship' ? getBackgroundColorClass('primary-highlight') : '',
-  })),
-  columns: [getExpandColumn(), ...columns],
-  id: 'table-6',
+  args: {
+    data: [],
+    columns: columns,
+    id: 'table-loading-without-pagination',
+    isLoading: true,
+    hidePagination: true,
+  },
 };
 
-export const WithClickableRows = Template.bind({});
+export const Error: Story = {
+  args: {
+    data: [],
+    columns,
+    id: 'error-table',
+    isError: true,
+  },
+};
+
+export const FullWidthSubComponent: Story = {
+  args: {
+    data: data(),
+    columns: [getExpandColumn(), ...columns],
+    renderSubComponent: (row) => {
+      return (
+        <tr>
+          <td colSpan={row.getVisibleCells().length}>
+            <VerticalSpacing>
+              <Heading>{`${row.original.firstName} ${row.original.lastName}`}</Heading>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                deserunt mollit anim id est laborum.
+              </p>
+            </VerticalSpacing>
+          </td>
+        </tr>
+      );
+    },
+    getRowCanExpand: (row) => row.index % 4 !== 0,
+    id: 'table-2',
+  },
+};
+
+export const WithSubComponent: Story = {
+  args: {
+    data: data(),
+    columns: [getExpandColumn(), ...columns],
+    renderSubComponent: (row) => {
+      return (
+        <tr>
+          <td></td>
+          <td colSpan={2}>
+            <div className="text-bold">Koolitused</div>
+            <div>Esimene kooltus pika pealkirjaga</div>
+            <div>Teine koolitus</div>
+            <div>Kolmas koolitus</div>
+          </td>
+          <td colSpan={2}>
+            <div className="text-bold">Lorem ipsum</div>
+            <div>Lorem ipsum dolor sit amet</div>
+            <div>Lorem ipsum dolor sit amet</div>
+            <div>Lorem ipsum dolor sit amet</div>
+          </td>
+          <td>
+            <Tag type="secondary">Aktiivne</Tag>
+          </td>
+        </tr>
+      );
+    },
+    getRowCanExpand: (row) => row.index % 4 !== 0,
+    id: 'table-3',
+  },
+};
+
+export const RowSelection: Story = {
+  args: {
+    data: data(),
+    columns: [getRowSelectionColumn('test', true), ...columns],
+    id: 'row-selection-table',
+  },
+};
+
+export const WithSubRow: Story = {
+  args: {
+    data: data(),
+    columns: [getExpandColumn(), ...columns],
+    id: 'table-4',
+    getRowCanExpand: (row) => !!row.original.subRows?.length,
+  },
+};
+
+export const WithCustomizedCells: Story = {
+  args: {
+    data: data(),
+    columns: [
+      columnHelper.accessor('firstName', {
+        id: 'personName',
+        cell: (info) => (
+          <CustomizeTableCell className={getBackgroundColorClass('primary-highlight')}>
+            <Anchor href="#">{`${info.row.original.firstName} ${info.row.original.lastName}`}</Anchor>
+          </CustomizeTableCell>
+        ),
+        header: () => 'Child',
+      }),
+      ...columns.slice(1),
+    ],
+    id: 'table-5',
+  },
+};
+
+export const WithCustomizedRows: Story = {
+  args: {
+    data: data().map((entity) => ({
+      ...entity,
+      rowClassName: entity.status === 'In Relationship' ? getBackgroundColorClass('primary-highlight') : '',
+    })),
+    columns: [getExpandColumn(), ...columns],
+    id: 'table-6',
+  },
+};
 
 const clickableRowColumns = [...columns];
 clickableRowColumns[0] = columnHelper.accessor((row) => `${row.firstName} ${row.lastName}`, {
@@ -314,11 +325,13 @@ clickableRowColumns.push(
   })
 );
 
-WithClickableRows.args = {
-  data: data(),
-  onRowClick: (row: Person) => console.log(row),
-  columns: clickableRowColumns,
-  id: 'clickable-rows-table',
+export const WithClickableRows: Story = {
+  args: {
+    data: data(),
+    onRowClick: (row: Person) => console.log(row),
+    columns: clickableRowColumns,
+    id: 'clickable-rows-table',
+  },
 };
 
 export const ServerSidePaginationAndSorting = (): JSX.Element => {
@@ -342,156 +355,171 @@ export const ServerSidePaginationAndSorting = (): JSX.Element => {
   );
 };
 
-export const Small = Template.bind({});
-Small.args = {
-  data: data(),
-  columns,
-  id: 'small-table',
-  size: 'small',
+export const Small: Story = {
+  args: {
+    data: data(),
+    columns,
+    id: 'small-table',
+    size: 'small',
+  },
 };
 
-export const GroupedRows = Template.bind({});
-GroupedRows.args = {
-  data: data(50),
-  columns,
-  id: 'grouped-rows-table',
-  cardProps: {
-    padding: 'medium',
-  },
-  enableSorting: false,
-  groupRowsBy: 'status',
-  renderGroupHeading: (row) => (
-    <td>
-      <span className="sr-only">Status group: </span>
-      <span>{row.original.rowGroupKey}</span>
-    </td>
-  ),
-};
-GroupedRows.parameters = {
-  docs: {
-    description: {
-      story:
-        'Grouped rows render a group header row and make grouped rows more compact. Rows, that match `groupRowsBy` condition, are grouped in place of first occurrance without modifying the order of rest of the data.',
+export const GroupedRows: Story = {
+  args: {
+    data: data(50),
+    columns,
+    id: 'grouped-rows-table',
+    cardProps: {
+      padding: 'medium',
     },
-  },
-};
-
-export const GroupedRowsFromData = Template.bind({});
-GroupedRowsFromData.args = {
-  data: data(50).map((entity, index) => ({
-    ...entity,
-    rowGroupKey:
-      entity.age < 10
-        ? '0 - 9'
-        : entity.age >= 10 && entity.age < 30
-        ? '10 - 29'
-        : entity.age >= 30 && entity.age < 100
-        ? '30 - 99'
-        : undefined,
-  })),
-  columns,
-  id: 'grouped-rows-from-data-table',
-  cardProps: {
-    padding: 'medium',
-  },
-  enableSorting: false,
-  renderGroupHeading: (row) => <td>Age group: {row.original.rowGroupKey}</td>,
-};
-GroupedRowsFromData.parameters = {
-  docs: {
-    description: {
-      story:
-        'Row grouping can also be achieved by having rowGroupKey in data objects. It is possible to group only some of the rows.',
-    },
-  },
-};
-
-export const Empty = Template.bind({});
-Empty.args = {
-  data: [],
-  columns,
-  id: 'empty-table',
-  placeholder: {
-    children: 'Table is empty',
-  },
-};
-
-export const WithFilters = Template.bind({});
-WithFilters.args = {
-  data: data(),
-  columns,
-  id: 'with-filters-table',
-  enableFilters: true,
-};
-
-export const WithSelectFilters = Template.bind({});
-WithSelectFilters.args = {
-  data: data(),
-  columns: columns.map((column) => ({ ...column, filterFn: 'select' })),
-  id: 'with-selected-filters-table',
-  enableFilters: true,
-};
-
-export const WithMultiSelectFilters = Template.bind({});
-WithMultiSelectFilters.args = {
-  data: data(),
-  columns: columns.map((column) => ({ ...column, filterFn: 'multi-select' })),
-  id: 'with-multi-selected-filters-table',
-  enableFilters: true,
-};
-
-export const WithFiltersControlledFromOutside = Template.bind({});
-WithFiltersControlledFromOutside.args = {
-  id: 'with-multi-selected-filters-table-controlled-from-outside',
-  data: data(),
-  columnFilters: [{ id: 'age', value: ['1', '10'] }],
-  onColumnFiltersChange: (data) => console.log(data),
-  columns: columns.map((column) => ({
-    ...column,
-    filterFn: 'multi-select',
-    meta: {
-      filterOptions: data()
-        .map((row) => row[column.id as keyof Person])
-        .slice(0, 5),
-    },
-  })),
-  enableFilters: true,
-};
-
-export const DisableSorting = Template.bind({});
-DisableSorting.args = {
-  data: data(),
-  columns,
-  id: 'disabled-sort-table',
-  enableSorting: false,
-};
-DisableSorting.parameters = {
-  docs: {
-    description: {
-      story:
-        'Sorting can be disabled for all columns using `<Table enableSorting={false} />` or by defining `enableSorting: false` in individual column',
-    },
-  },
-};
-
-export const WithFooter = Template.bind({});
-WithFooter.args = {
-  id: 'footer-table',
-  hidePagination: true,
-  data: data(10),
-  columns: [
-    ...columns.slice(0, 1).map((c) => ({ ...c, footer: () => <strong>Average profile progress</strong> } as typeof c)),
-    ...columns.slice(1, 4),
-    ...columns.slice(4).map(
-      (c) =>
-        ({
-          ...c,
-          footer: (info) => {
-            const rows = info.table.getRowModel()?.rows;
-            const sum = rows?.reduce((a, c) => a + c.original.progress, 0);
-            return Math.round((sum / rows?.length) * 10) / 10;
-          },
-        } as typeof c)
+    enableSorting: false,
+    groupRowsBy: 'status',
+    renderGroupHeading: (row) => (
+      <td>
+        <span className="sr-only">Status group: </span>
+        <span>{row.original.rowGroupKey}</span>
+      </td>
     ),
-  ],
+  },
+
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Grouped rows render a group header row and make grouped rows more compact. Rows, that match `groupRowsBy` condition, are grouped in place of first occurrance without modifying the order of rest of the data.',
+      },
+    },
+  },
+};
+
+export const GroupedRowsFromData: Story = {
+  args: {
+    data: data(50).map((entity, index) => ({
+      ...entity,
+      rowGroupKey:
+        entity.age < 10
+          ? '0 - 9'
+          : entity.age >= 10 && entity.age < 30
+          ? '10 - 29'
+          : entity.age >= 30 && entity.age < 100
+          ? '30 - 99'
+          : undefined,
+    })),
+    columns,
+    id: 'grouped-rows-from-data-table',
+    cardProps: {
+      padding: 'medium',
+    },
+    enableSorting: false,
+    renderGroupHeading: (row) => <td>Age group: {row.original.rowGroupKey}</td>,
+  },
+
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Row grouping can also be achieved by having rowGroupKey in data objects. It is possible to group only some of the rows.',
+      },
+    },
+  },
+};
+
+export const Empty: Story = {
+  args: {
+    data: [],
+    columns,
+    id: 'empty-table',
+    placeholder: {
+      children: 'Table is empty',
+    },
+  },
+};
+
+export const WithFilters: Story = {
+  args: {
+    data: data(),
+    columns,
+    id: 'with-filters-table',
+    enableFilters: true,
+  },
+};
+
+export const WithSelectFilters: Story = {
+  args: {
+    data: data(),
+    columns: columns.map((column) => ({ ...column, filterFn: 'select' })),
+    id: 'with-selected-filters-table',
+    enableFilters: true,
+  },
+};
+
+export const WithMultiSelectFilters: Story = {
+  args: {
+    data: data(),
+    columns: columns.map((column) => ({ ...column, filterFn: 'multi-select' })),
+    id: 'with-multi-selected-filters-table',
+    enableFilters: true,
+  },
+};
+
+export const WithFiltersControlledFromOutside: Story = {
+  args: {
+    id: 'with-multi-selected-filters-table-controlled-from-outside',
+    data: data(),
+    columnFilters: [{ id: 'age', value: ['1', '10'] }],
+    onColumnFiltersChange: (data) => console.log(data),
+    columns: columns.map((column) => ({
+      ...column,
+      filterFn: 'multi-select',
+      meta: {
+        filterOptions: data()
+          .map((row) => row[column.id as keyof Person])
+          .slice(0, 5),
+      },
+    })),
+    enableFilters: true,
+  },
+};
+
+export const DisableSorting: Story = {
+  args: {
+    data: data(),
+    columns,
+    id: 'disabled-sort-table',
+    enableSorting: false,
+  },
+
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Sorting can be disabled for all columns using `<Table enableSorting={false} />` or by defining `enableSorting: false` in individual column',
+      },
+    },
+  },
+};
+
+export const WithFooter: Story = {
+  args: {
+    id: 'footer-table',
+    hidePagination: true,
+    data: data(10),
+    columns: [
+      ...columns
+        .slice(0, 1)
+        .map((c) => ({ ...c, footer: () => <strong>Average profile progress</strong> } as typeof c)),
+      ...columns.slice(1, 4),
+      ...columns.slice(4).map(
+        (c) =>
+          ({
+            ...c,
+            footer: (info) => {
+              const rows = info.table.getRowModel()?.rows;
+              const sum = rows?.reduce((a, c) => a + c.original.progress, 0);
+              return Math.round((sum / rows?.length) * 10) / 10;
+            },
+          } as typeof c)
+      ),
+    ],
+  },
 };

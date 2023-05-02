@@ -1,139 +1,120 @@
 # [3.9.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.8.1...v3.9.0) (2023-04-28)
 
-
 ### Features
 
-* **header:** UPP-619 Make border part of logout button and remove duplicate button ([c62a970](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/c62a970fe2b3f0d9c2ae3dfc3cac5dcdc7867633))
+- **header:** UPP-619 Make border part of logout button and remove duplicate button ([c62a970](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/c62a970fe2b3f0d9c2ae3dfc3cac5dcdc7867633))
 
 ## [3.8.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.8.0...v3.8.1) (2023-04-26)
 
-
 ### Bug Fixes
 
-* **check, raido:** Add indicator background color - TEHVEER-124 ([00416fe](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/00416fe6d995da3b1eed6a6a6627dd5198458816))
+- **check, raido:** Add indicator background color - TEHVEER-124 ([00416fe](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/00416fe6d995da3b1eed6a6a6627dd5198458816))
 
 # [3.8.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.7.0...v3.8.0) (2023-04-26)
 
-
 ### Features
 
-* **stepper:** Add deafultActiveStep, allowStepLabelClick, hover and focus styles - TEHVEER-123 ([c2b076d](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/c2b076d7da369b9bddb740220e7649db70280a1b))
+- **stepper:** Add deafultActiveStep, allowStepLabelClick, hover and focus styles - TEHVEER-123 ([c2b076d](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/c2b076d7da369b9bddb740220e7649db70280a1b))
 
 # [3.7.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.6.1...v3.7.0) (2023-04-25)
 
-
 ### Features
 
-* **footer:** UPP-620 Allow using elements in footer heading ([934912c](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/934912c8e4287d783ad6ec85bbaf0574b4e5beaa))
+- **footer:** UPP-620 Allow using elements in footer heading ([934912c](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/934912c8e4287d783ad6ec85bbaf0574b4e5beaa))
 
 ## [3.6.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.6.0...v3.6.1) (2023-04-25)
 
-
 ### Bug Fixes
 
-* **table:** Fix table sorting and filter icon alignment - TEHVEER-118 ([3423984](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/3423984c868f30c3f5e711759db017c93f045866))
+- **table:** Fix table sorting and filter icon alignment - TEHVEER-118 ([3423984](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/3423984c868f30c3f5e711759db017c93f045866))
 
 # [3.6.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.5.0...v3.6.0) (2023-04-25)
 
-
 ### Features
 
-* **footer:** TEHVEER-104 - add option to add text to footer and a darker bottom row ([96a1ba7](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/96a1ba7677dbeda8190b73d3423e50315a992a7c))
-* **footer:** UPP-620 Change category alignment in desktop mode ([c290d39](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/c290d39b7c5b21ed415b089c19ab5bfe3c3c9399))
-* **footer:** UPP-620 Fix merge conflicts and clean up code ([113126c](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/113126c36f1e57344cce71d654712b2f9bf36207))
+- **footer:** TEHVEER-104 - add option to add text to footer and a darker bottom row ([96a1ba7](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/96a1ba7677dbeda8190b73d3423e50315a992a7c))
+- **footer:** UPP-620 Change category alignment in desktop mode ([c290d39](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/c290d39b7c5b21ed415b089c19ab5bfe3c3c9399))
+- **footer:** UPP-620 Fix merge conflicts and clean up code ([113126c](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/113126c36f1e57344cce71d654712b2f9bf36207))
 
 # [3.5.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.4.0...v3.5.0) (2023-04-25)
 
-
 ### Features
 
-* **stepper:** Add card variant possibilty - TEHVEER-107 ([27ec429](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/27ec4295cb0204141e211fbe2c7ba0d14f508346))
-* **table:** Change sort and filter icon color - TEHVEER-118 ([5d86ace](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/5d86ace831e53b539baaff9bdb4a5fab7362ccf5))
+- **stepper:** Add card variant possibilty - TEHVEER-107 ([27ec429](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/27ec4295cb0204141e211fbe2c7ba0d14f508346))
+- **table:** Change sort and filter icon color - TEHVEER-118 ([5d86ace](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/5d86ace831e53b539baaff9bdb4a5fab7362ccf5))
 
 # [3.4.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.3.2...v3.4.0) (2023-04-24)
 
-
 ### Features
 
-* **general:** PR Fixes ([90c7db2](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/90c7db285d788a805bfe1536e862e3ba82b2d61a))
-* **general:** Revert mui/x-date-pickers update ([e4852a6](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/e4852a6757c32db90faaac66b5f8d37422c53106))
-* **general:** Update package versions, mainly storybook and MUI ([dcefea3](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/dcefea3ed5f4ff6f2f454f91864951c2ca4dc4c4))
+- **general:** PR Fixes ([90c7db2](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/90c7db285d788a805bfe1536e862e3ba82b2d61a))
+- **general:** Revert mui/x-date-pickers update ([e4852a6](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/e4852a6757c32db90faaac66b5f8d37422c53106))
+- **general:** Update package versions, mainly storybook and MUI ([dcefea3](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/dcefea3ed5f4ff6f2f454f91864951c2ca4dc4c4))
 
 ## [3.3.2](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.3.1...v3.3.2) (2023-04-24)
 
-
 ### Bug Fixes
 
-* **toggle:** Toggle design fixes - UPP-557 ([a387556](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/a38755667a847bd2887cbe3bdebb23a208c6a26b))
+- **toggle:** Toggle design fixes - UPP-557 ([a387556](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/a38755667a847bd2887cbe3bdebb23a208c6a26b))
 
 ## [3.3.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.3.0...v3.3.1) (2023-04-19)
 
-
 ### Bug Fixes
 
-* **table:** Fix table showing 10000 rows loading, when isLoading & hidePagination are true ([6b7279d](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/6b7279d0cf4b0cd3bc862efcf96aad8af8f32da8))
+- **table:** Fix table showing 10000 rows loading, when isLoading & hidePagination are true ([6b7279d](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/6b7279d0cf4b0cd3bc862efcf96aad8af8f32da8))
 
 # [3.3.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.2.0...v3.3.0) (2023-04-19)
 
-
 ### Features
 
-* **text:** TEHVEER-117 - Allow rendering of h1-h6 tags ([45d6c7c](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/45d6c7c6d832bfcdf7ee1bf8ae478280fd71a41e))
+- **text:** TEHVEER-117 - Allow rendering of h1-h6 tags ([45d6c7c](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/45d6c7c6d832bfcdf7ee1bf8ae478280fd71a41e))
 
 # [3.2.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.1.0...v3.2.0) (2023-04-18)
 
-
 ### Features
 
-* **separator:** Add border contrast color - TEHVEER-115 ([5af29b2](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/5af29b2b29d258d1a6fa07ec4c581d54b79ec11a))
+- **separator:** Add border contrast color - TEHVEER-115 ([5af29b2](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/5af29b2b29d258d1a6fa07ec4c581d54b79ec11a))
 
 # [3.1.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.0.4...v3.1.0) (2023-04-18)
 
-
 ### Features
 
-* **sidenav:** TEHVEER-114 - Sync sidenav and header design with figma ([2e5c0cc](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/2e5c0cc6807968e37e76cc1e0cc0da0f133b458a))
+- **sidenav:** TEHVEER-114 - Sync sidenav and header design with figma ([2e5c0cc](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/2e5c0cc6807968e37e76cc1e0cc0da0f133b458a))
 
 ## [3.0.4](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.0.3...v3.0.4) (2023-04-12)
 
-
 ### Bug Fixes
 
-* **sidenav:** remove unused allowedPrivileges property ([fca9580](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/fca9580ee36e18fc8e885ba0702bb0a707e6ca82))
+- **sidenav:** remove unused allowedPrivileges property ([fca9580](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/fca9580ee36e18fc8e885ba0702bb0a707e6ca82))
 
 ## [3.0.3](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.0.2...v3.0.3) (2023-04-11)
 
-
 ### Bug Fixes
 
-* **scroll-fade:** Move scroll-fade to new variables - TEHVEER-112 ([12f2948](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/12f2948d3dfe3fc3f198ba9f2de7a31e388ec9ab))
+- **scroll-fade:** Move scroll-fade to new variables - TEHVEER-112 ([12f2948](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/12f2948d3dfe3fc3f198ba9f2de7a31e388ec9ab))
 
 ## [3.0.2](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.0.1...v3.0.2) (2023-04-10)
 
-
 ### Bug Fixes
 
-* **skeleton:** Move skeleton to new variables - TEHVEER-112 ([3e1e6f5](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/3e1e6f552444648acb15d767c829423e84816c74))
+- **skeleton:** Move skeleton to new variables - TEHVEER-112 ([3e1e6f5](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/3e1e6f552444648acb15d767c829423e84816c74))
 
 ## [3.0.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.0.0...v3.0.1) (2023-04-06)
 
-
 ### Bug Fixes
 
-* hide addons on tokens documentation ([5cff201](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/5cff201ddeb4506befc1a952c4d3488eae20ac3d))
+- hide addons on tokens documentation ([5cff201](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/5cff201ddeb4506befc1a952c4d3488eae20ac3d))
 
 # [3.0.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.26.2...v3.0.0) (2023-04-06)
 
-
 ### Features
 
-* **colors:** :art: Implement new color variables, delete old ones ([14a2c0f](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/14a2c0fe066a2f6171e3297d459f61a6fb6bfb3f))
-
+- **colors:** :art: Implement new color variables, delete old ones ([14a2c0f](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/14a2c0fe066a2f6171e3297d459f61a6fb6bfb3f))
 
 ### BREAKING CHANGES
 
-* **colors:** New color-tokens implemented, check slack for more info!
-* **colors:** New color-tokens implemented, check slack for more info!
+- **colors:** New color-tokens implemented, check slack for more info!
+- **colors:** New color-tokens implemented, check slack for more info!
 
 ## [2.26.2](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v2.26.1...v2.26.2) (2023-04-06)
 

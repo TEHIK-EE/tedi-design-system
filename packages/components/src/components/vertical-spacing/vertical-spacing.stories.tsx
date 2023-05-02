@@ -1,4 +1,4 @@
-import { Meta, Story } from '@storybook/react';
+import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import React from 'react';
 
 import Button from '../button/button';
@@ -6,12 +6,14 @@ import Heading from '../typography/heading/heading';
 import VerticalSpacing, { VerticalSpacingProps } from './vertical-spacing';
 import VerticalSpacingItem from './vertical-spacing-item';
 
-export default {
-  title: 'components/VerticalSpacing',
+const meta: Meta<typeof VerticalSpacing> = {
   component: VerticalSpacing,
-} as Meta;
+};
 
-const Template: Story<VerticalSpacingProps> = (args) => (
+export default meta;
+type Story = StoryObj<typeof VerticalSpacing>;
+
+const Template: StoryFn<VerticalSpacingProps> = (args) => (
   <VerticalSpacing {...args}>
     <Heading>This is VerticalSpacing example</Heading>
     <p>VerticalSpacing component is used to give space vertically between its children.</p>
@@ -37,7 +39,10 @@ const Template: Story<VerticalSpacingProps> = (args) => (
   </VerticalSpacing>
 );
 
-export const Default = Template.bind({});
-Default.args = {
-  size: 1,
+export const Default: Story = {
+  render: Template,
+
+  args: {
+    size: 1,
+  },
 };

@@ -1,4 +1,4 @@
-import { Meta, Story } from '@storybook/react';
+import { Meta, StoryFn, StoryObj } from '@storybook/react';
 
 import Button from '../button/button';
 import { Card } from '../card';
@@ -9,8 +9,7 @@ import Heading from '../typography/heading/heading';
 import { VerticalSpacing } from '../vertical-spacing';
 import StretchContent, { StretchContentProps } from './stretch-content';
 
-export default {
-  title: 'components/StretchContent',
+const meta: Meta<typeof StretchContent> = {
   component: StretchContent,
   parameters: {
     docs: {
@@ -21,9 +20,12 @@ export default {
       },
     },
   },
-} as Meta;
+};
 
-const Template: Story<StretchContentProps> = (args) => {
+export default meta;
+type Story = StoryObj<typeof StretchContent>;
+
+const Template: StoryFn<StretchContentProps> = (args) => {
   return (
     <div style={{ width: 500, height: 500 }}>
       <StretchContent {...args}>
@@ -33,60 +35,65 @@ const Template: Story<StretchContentProps> = (args) => {
   );
 };
 
-export const Default = Template.bind({});
-
-export const CardsExample: Story<Partial<StretchContentProps>> = () => {
-  const lorem = (
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab ad expedita iste itaque laborum magnam non nulla
-      tempora ullam! A consequuntur dicta et incidunt nisi pariatur sapiente, temporibus unde voluptatem?
-    </p>
-  );
-
-  const card = (title: string, content: JSX.Element) => {
-    return (
-      <Card>
-        <CardHeader>
-          <Heading element="h2">{title}</Heading>
-        </CardHeader>
-        <CardContent>
-          <StretchContent>
-            <Row direction="column" gap={4}>
-              <Col>
-                <VerticalSpacing>{content}</VerticalSpacing>
-              </Col>
-              <Col width="auto">
-                <Button>Click me</Button>
-              </Col>
-            </Row>
-          </StretchContent>
-        </CardContent>
-      </Card>
-    );
-  };
-
-  return (
-    <Row>
-      <Col>
-        <StretchContent>
-          {card(
-            'Card with longer content',
-            <>
-              {lorem}
-              {lorem}
-            </>
-          )}
-        </StretchContent>
-      </Col>
-      <Col>{card('Card that is not stretched', <>{lorem}</>)}</Col>
-      <Col>
-        <StretchContent>{card('Card where content is also stretched', <>{lorem}</>)}</StretchContent>
-      </Col>
-    </Row>
-  );
+export const Default: Story = {
+  render: Template,
 };
-CardsExample.parameters = {
-  backgrounds: {
-    default: 'light',
+
+export const CardsExample: StoryObj<Partial<StretchContentProps>> = {
+  render: () => {
+    const lorem = (
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab ad expedita iste itaque laborum magnam non nulla
+        tempora ullam! A consequuntur dicta et incidunt nisi pariatur sapiente, temporibus unde voluptatem?
+      </p>
+    );
+
+    const card = (title: string, content: JSX.Element) => {
+      return (
+        <Card>
+          <CardHeader>
+            <Heading element="h2">{title}</Heading>
+          </CardHeader>
+          <CardContent>
+            <StretchContent>
+              <Row direction="column" gap={4}>
+                <Col>
+                  <VerticalSpacing>{content}</VerticalSpacing>
+                </Col>
+                <Col width="auto">
+                  <Button>Click me</Button>
+                </Col>
+              </Row>
+            </StretchContent>
+          </CardContent>
+        </Card>
+      );
+    };
+
+    return (
+      <Row>
+        <Col>
+          <StretchContent>
+            {card(
+              'Card with longer content',
+              <>
+                {lorem}
+                {lorem}
+              </>
+            )}
+          </StretchContent>
+        </Col>
+        <Col>{card('Card that is not stretched', <>{lorem}</>)}</Col>
+        <Col>
+          <StretchContent>{card('Card where content is also stretched', <>{lorem}</>)}</StretchContent>
+        </Col>
+      </Row>
+    );
+  },
+
+  parameters: {
+    backgrounds: {
+      default: 'light',
+    },
   },
 };

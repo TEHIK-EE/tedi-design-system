@@ -1,9 +1,10 @@
-import { Meta, Story } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 
 import Collapse from '../collapse/collapse';
 import { Col, Row } from '../grid';
 import Icon from '../icon/icon';
 import Separator from '../separator/separator';
+import StretchContent from '../stretch-content/stretch-content';
 import { CardsExample } from '../stretch-content/stretch-content.stories';
 import Heading from '../typography/heading/heading';
 import { Card, CardProps } from './card';
@@ -29,11 +30,11 @@ export interface CardStory {
   splitContent?: boolean;
 }
 
-const Template: Story<CardStory> = (args) => {
+const Template: StoryFn<CardStory> = (args) => {
   const getSplitContent = () => (
     <CardContent padding="none">
       <Row gutter={0}>
-        <Col width={4}>
+        <Col>
           <Card type="borderless">
             <CardContent>
               <p>Left</p>
@@ -47,10 +48,12 @@ const Template: Story<CardStory> = (args) => {
             </CardContent>
           </Card>
         </Col>
-        <Col width={8}>
-          <Card type="borderless">
-            <CardContent background="background-light">right</CardContent>
-          </Card>
+        <Col>
+          <StretchContent>
+            <Card type="borderless">
+              <CardContent background="background-light">right</CardContent>
+            </Card>
+          </StretchContent>
         </Col>
       </Row>
     </CardContent>
@@ -86,126 +89,164 @@ const Template: Story<CardStory> = (args) => {
   );
 };
 
-export const Default = Template.bind({});
-Default.args = {};
+export const Default = {
+  render: Template,
+  args: {},
+};
 
-export const WhiteHeader = Template.bind({});
-WhiteHeader.args = {
-  ...Default.args,
-  cardHeader: {
-    variant: 'white',
+export const WhiteHeader = {
+  render: Template,
+
+  args: {
+    ...Default.args,
+    cardHeader: {
+      variant: 'white',
+    },
   },
 };
 
-export const MultipleContent = Template.bind({});
-MultipleContent.args = {
-  ...Default.args,
-  cardContent: {
-    background: 'background-light',
-  },
-  cardContent2: {
-    children: <p>Card content 2</p>,
-  },
-  cardHeader: false,
-};
+export const MultipleContent = {
+  render: Template,
 
-export const SplitCardBody = Template.bind({});
-SplitCardBody.args = {
-  ...Default.args,
-  splitContent: true,
-};
-
-export const TypeBorderless = Template.bind({});
-TypeBorderless.args = {
-  ...Default.args,
-  card: {
-    type: 'borderless',
-  },
-  cardHeader: false,
-};
-
-export const TypeError = Template.bind({});
-TypeError.args = {
-  ...Default.args,
-  card: {
-    type: 'error',
-  },
-  cardHeader: false,
-};
-
-export const TypeWarning = Template.bind({});
-TypeWarning.args = {
-  ...Default.args,
-  card: {
-    type: 'warning',
-  },
-  cardHeader: false,
-};
-
-export const TypeSuccess = Template.bind({});
-TypeSuccess.args = {
-  ...Default.args,
-  card: {
-    type: 'success',
-  },
-  cardHeader: false,
-};
-
-export const PaddingNone = Template.bind({});
-PaddingNone.args = {
-  ...Default.args,
-  card: {
-    padding: 'none',
-  },
-  cardHeader: true,
-};
-
-export const PaddingXSmall = Template.bind({});
-PaddingXSmall.args = {
-  ...Default.args,
-  cardHeader: true,
-  card: {
-    padding: 'xsmall',
+  args: {
+    ...Default.args,
+    cardContent: {
+      background: 'background-light',
+    },
+    cardContent2: {
+      children: <p>Card content 2</p>,
+    },
+    cardHeader: false,
   },
 };
 
-export const PaddingSmall = Template.bind({});
-PaddingSmall.args = {
-  ...Default.args,
-  cardHeader: true,
-  card: {
-    padding: 'small',
+export const SplitCardBody = {
+  render: Template,
+
+  args: {
+    ...Default.args,
+    splitContent: true,
   },
 };
 
-export const PaddingLarge = Template.bind({});
-PaddingLarge.args = {
-  ...Default.args,
-  cardHeader: {
-    variant: 'white',
-  },
-  card: {
-    padding: 'large',
+export const TypeBorderless = {
+  render: Template,
+
+  args: {
+    ...Default.args,
+    card: {
+      type: 'borderless',
+    },
+    cardHeader: false,
   },
 };
 
-export const OverridePaddingFromCard = Template.bind({});
-OverridePaddingFromCard.args = {
-  ...Default.args,
-  cardContent: {
-    padding: 'small',
-  },
-  cardHeader: true,
-  card: {
-    padding: 'large',
+export const TypeError = {
+  render: Template,
+
+  args: {
+    ...Default.args,
+    card: {
+      type: 'error',
+    },
+    cardHeader: false,
   },
 };
 
-export const EqualHeight: Story<CardProps> = () => {
-  return <CardsExample {...CardsExample.args} />;
+export const TypeWarning = {
+  render: Template,
+
+  args: {
+    ...Default.args,
+    card: {
+      type: 'warning',
+    },
+    cardHeader: false,
+  },
 };
 
-const Timeline: Story<CardProps> = (args) => (
+export const TypeSuccess = {
+  render: Template,
+
+  args: {
+    ...Default.args,
+    card: {
+      type: 'success',
+    },
+    cardHeader: false,
+  },
+};
+
+export const PaddingNone = {
+  render: Template,
+
+  args: {
+    ...Default.args,
+    card: {
+      padding: 'none',
+    },
+    cardHeader: true,
+  },
+};
+
+export const PaddingXSmall = {
+  render: Template,
+
+  args: {
+    ...Default.args,
+    cardHeader: true,
+    card: {
+      padding: 'xsmall',
+    },
+  },
+};
+
+export const PaddingSmall = {
+  render: Template,
+
+  args: {
+    ...Default.args,
+    cardHeader: true,
+    card: {
+      padding: 'small',
+    },
+  },
+};
+
+export const PaddingLarge = {
+  render: Template,
+
+  args: {
+    ...Default.args,
+    cardHeader: {
+      variant: 'white',
+    },
+    card: {
+      padding: 'large',
+    },
+  },
+};
+
+export const OverridePaddingFromCard = {
+  render: Template,
+
+  args: {
+    ...Default.args,
+    cardContent: {
+      padding: 'small',
+    },
+    cardHeader: true,
+    card: {
+      padding: 'large',
+    },
+  },
+};
+
+export const EqualHeight = {
+  ...CardsExample,
+};
+
+const Timeline: StoryFn<CardProps> = (args) => (
   <Card {...args}>
     <CardContent>
       <Row>
@@ -223,10 +264,12 @@ const Timeline: Story<CardProps> = (args) => (
   </Card>
 );
 
-export const TimelineCard = Timeline.bind({});
-TimelineCard.args = {};
+export const TimelineCard = {
+  render: Timeline,
+  args: {},
+};
 
-const TwoToned: Story<CardProps> = (args) => (
+const TwoToned: StoryFn<CardProps> = (args) => (
   <Row gutter={0}>
     <Col width="auto" className="flex">
       <Card borderRadius={{ right: false, bottom: false }}>
@@ -248,5 +291,7 @@ const TwoToned: Story<CardProps> = (args) => (
   </Row>
 );
 
-export const TwoTonedCard = TwoToned.bind({});
-TwoTonedCard.args = {};
+export const TwoTonedCard = {
+  render: TwoToned,
+  args: {},
+};

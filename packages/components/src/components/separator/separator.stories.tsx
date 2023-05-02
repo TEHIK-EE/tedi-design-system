@@ -1,16 +1,17 @@
-import { Meta, Story } from '@storybook/react';
-import React from 'react';
+import { Meta, StoryFn, StoryObj } from '@storybook/react';
 
 import { Card, CardContent } from '../card';
 import { Col, Row } from '../grid';
 import Separator, { SeparatorProps } from './separator';
 
-export default {
-  title: 'components/Separator',
+const meta: Meta<typeof Separator> = {
   component: Separator,
-} as Meta;
+};
 
-const Template: Story<SeparatorProps> = (args) => (
+export default meta;
+type Story = StoryObj<typeof Separator>;
+
+const Template: StoryFn<SeparatorProps> = (args) => (
   <>
     <p className="text-secondary">Some content</p>
     <Separator {...args} />
@@ -18,22 +19,32 @@ const Template: Story<SeparatorProps> = (args) => (
   </>
 );
 
-export const Default = Template.bind({});
-Default.args = {};
+export const Default: Story = {
+  render: Template,
+  args: {},
+};
 
-export const ColorAccent = Template.bind({});
-ColorAccent.args = { color: 'accent' };
+export const ColorAccent: Story = {
+  render: Template,
+  args: { color: 'accent' },
+};
 
-export const ColorContrast = Template.bind({});
-ColorContrast.args = { color: 'contrast' };
+export const ColorContrast: Story = {
+  render: Template,
+  args: { color: 'contrast' },
+};
 
-export const PaddedEven = Template.bind({});
-PaddedEven.args = { spacing: 1 };
+export const PaddedEven: Story = {
+  render: Template,
+  args: { spacing: 1 },
+};
 
-export const PaddedUneven = Template.bind({});
-PaddedUneven.args = { topSpacing: 2.5, bottomSpacing: 0.5 };
+export const PaddedUneven: Story = {
+  render: Template,
+  args: { topSpacing: 2.5, bottomSpacing: 0.5 },
+};
 
-const TemplateCard: Story<SeparatorProps> = (args) => (
+const TemplateCard: StoryFn<SeparatorProps> = (args) => (
   <Card>
     <CardContent>
       <p className="text-secondary">Some content</p>
@@ -43,10 +54,12 @@ const TemplateCard: Story<SeparatorProps> = (args) => (
   </Card>
 );
 
-export const FullWidthInsideCard = TemplateCard.bind({});
-FullWidthInsideCard.args = { fullWidth: true };
+export const FullWidthInsideCard: Story = {
+  render: TemplateCard,
+  args: { fullWidth: true },
+};
 
-const TemplateVertical: Story<SeparatorProps> = (args) => (
+const TemplateVertical: StoryFn<SeparatorProps> = (args) => (
   <Card>
     <CardContent>
       <Row>
@@ -69,11 +82,17 @@ const TemplateVertical: Story<SeparatorProps> = (args) => (
   </Card>
 );
 
-export const Vertical = TemplateVertical.bind({});
-Vertical.args = { axis: 'vertical', fullWidth: true };
+export const Vertical: Story = {
+  render: TemplateVertical,
+  args: { axis: 'vertical', fullWidth: true },
+};
 
-export const VerticalDotted = TemplateVertical.bind({});
-VerticalDotted.args = { axis: 'vertical', variant: 'dotted', color: 'accent', fullWidth: true };
+export const VerticalDotted: Story = {
+  render: TemplateVertical,
+  args: { axis: 'vertical', variant: 'dotted', color: 'accent', fullWidth: true },
+};
 
-export const VerticalDottedSmall = TemplateVertical.bind({});
-VerticalDottedSmall.args = { axis: 'vertical', variant: 'dotted-small', color: 'accent', fullWidth: true };
+export const VerticalDottedSmall: Story = {
+  render: TemplateVertical,
+  args: { axis: 'vertical', variant: 'dotted-small', color: 'accent', fullWidth: true },
+};

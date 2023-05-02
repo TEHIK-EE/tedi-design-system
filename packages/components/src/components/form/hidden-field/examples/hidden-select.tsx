@@ -1,4 +1,4 @@
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import React from 'react';
 
 import { Col } from '../../../grid/col';
@@ -14,7 +14,7 @@ const selectOptions: ISelectOption[] = [
   { label: 'Hädaohus olev laps', value: 'C' },
 ];
 
-export const HiddenSelect: Story = (args) => {
+export const HiddenSelect: StoryFn<typeof HiddenField> = (args) => {
   const [state, setState] = React.useState(selectOptions[0]);
 
   return (

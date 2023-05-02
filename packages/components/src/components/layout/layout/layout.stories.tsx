@@ -1,4 +1,4 @@
-import { Meta, Story } from '@storybook/react';
+import { Meta, StoryFn, StoryObj } from '@storybook/react';
 
 import useLayout from '../../../helpers/hooks/use-layout';
 import Button from '../../button/button';
@@ -14,7 +14,7 @@ import Header from '../header/header';
 import { Default as HeaderDefault } from '../header/header.stories';
 import SideNav, { SideNavProps } from '../sidenav/sidenav';
 import { Default as SidenavDefault } from '../sidenav/sidenav.stories';
-import { ILayoutProps, Layout } from './layout';
+import { Layout } from './layout';
 
 const defaultContent = (
   <Section>
@@ -25,10 +25,14 @@ const defaultContent = (
   </Section>
 );
 
-export default {
-  title: 'components/Layout/Layout',
+const meta: Meta<typeof Layout> = {
   component: Layout,
-  subcomponents: { Header, SideNav, Footer, Breadcrumbs },
+  subcomponents: {
+    Header: Header as any,
+    SideNav: SideNav as any,
+    Footer: Footer as any,
+    Breadcrumbs: Breadcrumbs as any,
+  },
   argTypes: {
     children: {
       control: { type: 'function' },
@@ -42,9 +46,12 @@ export default {
     layout: 'fullscreen',
     backgrounds: { default: 'light' },
   },
-} as Meta;
+};
 
-const Template: Story<ILayoutProps> = (args) => {
+export default meta;
+type Story = StoryObj<typeof Layout>;
+
+const Template: StoryFn<typeof Layout> = (args) => {
   const isSmallLayout = useLayout(['mobile', 'tablet']);
 
   const footerLogo: FooterProps['logo'] = {
@@ -64,48 +71,58 @@ const Template: Story<ILayoutProps> = (args) => {
   );
 };
 
-export const Default = Template.bind({});
-Default.args = {
-  children: defaultContent,
-  header: HeaderDefault.args,
-  sideNav: SidenavDefault.args as SideNavProps,
-  footer: FooterDefault.args as FooterProps,
-  breadcrumbsProps: BreadcrumbsDefault.args as BreadcrumbsProps,
-  mainLogo: {
-    src: '/sf_logod.jpg',
-    alt: 'Euroopa struktuuri- ja investeerimisfondide logo',
-    style: { width: '6.625rem', height: '4rem', borderRadius: '0.25rem' },
+export const Default: Story = {
+  render: Template,
+
+  args: {
+    children: defaultContent,
+    header: HeaderDefault.args,
+    sideNav: SidenavDefault.args as SideNavProps,
+    footer: FooterDefault.args as FooterProps,
+    breadcrumbsProps: BreadcrumbsDefault.args as BreadcrumbsProps,
+    mainLogo: {
+      src: '/sf_logod.jpg',
+      alt: 'Euroopa struktuuri- ja investeerimisfondide logo',
+      style: { width: '6.625rem', height: '4rem', borderRadius: '0.25rem' },
+    },
   },
 };
 
-export const Simple = Template.bind({});
-Simple.args = {
-  ...Default.args,
-  breadcrumbsProps: undefined,
-  sideNav: undefined,
+export const Simple: Story = {
+  render: Template,
+
+  args: {
+    ...Default.args,
+    breadcrumbsProps: undefined,
+    sideNav: undefined,
+  },
 };
 
-export const MainGrow = Template.bind({});
-MainGrow.args = {
-  ...Default.args,
-  growMainContent: true,
-  sideNav: undefined,
-  breadcrumbsProps: undefined,
-  mainLogo: undefined,
-  children: (
-    <>
-      {/* NB! This is only an example. Illustrations responsiveness must be implemented in app. */}
-      <StretchContent className="not-found">
-        <img alt="404 Page" src="/404.svg" className="not-found__image" />
-      </StretchContent>
-    </>
-  ),
-};
-MainGrow.parameters = {
-  docs: {
-    description: {
-      story:
-        'When we need to have the main content take all available space. For example a 404 page with illustration.',
+export const MainGrow: Story = {
+  render: Template,
+
+  args: {
+    ...Default.args,
+    growMainContent: true,
+    sideNav: undefined,
+    breadcrumbsProps: undefined,
+    mainLogo: undefined,
+    children: (
+      <>
+        {/* NB! This is only an example. Illustrations responsiveness must be implemented in app. */}
+        <StretchContent className="not-found">
+          <img alt="404 Page" src="/404.svg" className="not-found__image" />
+        </StretchContent>
+      </>
+    ),
+  },
+
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'When we need to have the main content take all available space. For example a 404 page with illustration.',
+      },
     },
   },
 };

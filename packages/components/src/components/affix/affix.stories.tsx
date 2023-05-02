@@ -1,5 +1,5 @@
 import { faker } from '@faker-js/faker';
-import { Meta, Story } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 
 import { useLayout } from '../../helpers';
 import { Card, CardContent } from '../card';
@@ -8,7 +8,7 @@ import { Col, Row } from '../grid';
 import Icon from '../icon/icon';
 import Layout, { ILayoutProps } from '../layout/layout/layout';
 import { Default as LayoutDefault } from '../layout/layout/layout.stories';
-import ScrollFade from '../scrollfade/scroll-fade';
+import ScrollFade from '../scroll-fade/scroll-fade';
 import { Section } from '../section/section';
 import Separator from '../separator/separator';
 import Heading from '../typography/heading/heading';
@@ -23,7 +23,8 @@ export default {
       description: {
         component: `<p>
           Affix is helper component to use <code>__position: "sticky" | "fixed"__</code> on children. By default Affix gives Sticky behavior with top spacing of 1.5rem. <br/>
-          Default example demos additional side navigation that moves along when scrolling content and is fixed to bottom in mobile.
+          Default example demos additional side navigation that moves along when scrolling content and is fixed to bottom in mobile. <br/>
+          <b>NB! Examples under "Docs" page do not demo functionality correctly currently, open examples to see demo.</b>
           </p>`,
       },
       inlineStories: false,
@@ -74,7 +75,7 @@ const NavigationContent = () => {
   );
 };
 
-const Template: Story<AffixProps> = (args) => {
+const Template: StoryFn<AffixProps> = (args) => {
   const isMobile = useLayout(['mobile']);
 
   return (
@@ -137,7 +138,7 @@ const Template: Story<AffixProps> = (args) => {
   );
 };
 
-const StickyTemplate: Story<AffixProps> = (args) => (
+const StickyTemplate: StoryFn<AffixProps> = (args) => (
   <div style={{ height: 1500 }}>
     <div style={{ height: 600, marginTop: 100, border: '1px solid red' }}>
       <Affix {...args}>This text is Sticky in its container!</Affix>
@@ -145,7 +146,7 @@ const StickyTemplate: Story<AffixProps> = (args) => (
   </div>
 );
 
-const FixedTemplate: Story<AffixProps> = (args) => (
+const FixedTemplate: StoryFn<AffixProps> = (args) => (
   <div style={{ height: 1500 }}>
     <div style={{ height: 600, marginTop: 100, border: '1px solid red' }}>
       <Affix {...args}>This text is Fixed on bottom of page!</Affix>
@@ -153,20 +154,30 @@ const FixedTemplate: Story<AffixProps> = (args) => (
   </div>
 );
 
-export const Default = Template.bind({});
-
-export const StickyDefault = StickyTemplate.bind({});
-
-export const StickyTop0 = StickyTemplate.bind({});
-StickyTop0.args = {
-  top: 0,
+export const Default = {
+  render: Template,
 };
 
-export const FixedExample = FixedTemplate.bind({});
-FixedExample.args = {
-  position: 'fixed',
-  bottom: 0,
-  left: 0,
-  right: 0,
-  top: 'unset',
+export const StickyDefault = {
+  render: StickyTemplate,
+};
+
+export const StickyTop0 = {
+  render: StickyTemplate,
+
+  args: {
+    top: 0,
+  },
+};
+
+export const FixedExample = {
+  render: FixedTemplate,
+
+  args: {
+    position: 'fixed',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    top: 'unset',
+  },
 };

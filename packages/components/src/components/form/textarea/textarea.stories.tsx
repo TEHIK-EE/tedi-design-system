@@ -1,17 +1,17 @@
-import { Meta, Story } from '@storybook/react';
-import React from 'react';
+import { Meta, StoryObj } from '@storybook/react';
 
-import TextArea, { TextAreaProps } from './textarea';
+import TextArea from './textarea';
 
-export default {
-  title: 'components/Form/TextArea',
+const meta: Meta<typeof TextArea> = {
   component: TextArea,
-} as Meta;
+};
 
-const Template: Story<TextAreaProps> = (args) => <TextArea {...args} />;
+export default meta;
+type Story = StoryObj<typeof TextArea>;
 
-export const Default = Template.bind({});
-Default.args = {
-  id: 'example-1',
-  label: 'Label',
+export const Default: Story = {
+  args: {
+    id: 'example-1',
+    label: 'Label',
+  },
 };

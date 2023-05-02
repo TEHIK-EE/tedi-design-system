@@ -1,10 +1,9 @@
-import { Meta } from '@storybook/react';
+import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import React from 'react';
 
 import ToggleOpen from './toggle-open';
 
-export default {
-  title: 'components/ToggleOpen',
+const meta: Meta<typeof ToggleOpen> = {
   component: ToggleOpen,
   parameters: {
     docs: {
@@ -14,19 +13,22 @@ export default {
       },
     },
   },
-} as Meta;
+};
 
-export const Default = () => {
+export default meta;
+type Story = StoryObj<typeof ToggleOpen>;
+
+const Template: StoryFn<typeof ToggleOpen> = (args) => {
   const [open, setOpen] = React.useState<boolean>(false);
-  return (
-    <ToggleOpen
-      openText="Avan"
-      closeText="Sulgen"
-      isActive={false}
-      isOpen={open}
-      visualType="secondary"
-      onClick={() => setOpen(!open)}
-      classNameIcon="text-bold"
-    />
-  );
+  return <ToggleOpen {...args} isOpen={open} onClick={() => setOpen(!open)} />;
+};
+
+export const Default: Story = {
+  render: Template,
+  args: {
+    openText: 'Avan',
+    closeText: 'Sulgen',
+    classNameIcon: 'text-bold',
+    visualType: 'secondary',
+  },
 };

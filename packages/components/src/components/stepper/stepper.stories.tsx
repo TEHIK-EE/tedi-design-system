@@ -15,7 +15,7 @@ interface TemplateProps extends StepperProps {
 
 const Template = (args: TemplateProps) => {
   const { controlled, showNavigation, ...rest } = args;
-  const [currentStep, setCurrentStep] = React.useState(args.deafultActiveStep || 0);
+  const [currentStep, setCurrentStep] = React.useState(args.defaultActiveStep || 0);
 
   const StepperNavigation = (): JSX.Element => (
     <Row justifyContent={currentStep === 0 ? 'end' : currentStep === 2 ? 'start' : 'between'}>
@@ -93,7 +93,7 @@ export const WithCard: Story = {
 export const DefaultActiveStep: Story = {
   args: {
     ...Default.args,
-    deafultActiveStep: 1,
+    defaultActiveStep: 1,
   },
 };
 

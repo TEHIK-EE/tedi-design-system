@@ -1,16 +1,18 @@
-import { Meta, Story } from '@storybook/react';
+import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import React from 'react';
 
 import { VerticalSpacing } from '../vertical-spacing';
 import { Skeleton, SkeletonBlock, SkeletonProps } from '.';
 
-export default {
-  title: 'components/Skeleton',
+const meta: Meta<typeof Skeleton> = {
   component: Skeleton,
-  subcomponents: { SkeletonBlock },
-} as Meta;
+  subcomponents: { SkeletonBlock: SkeletonBlock as any },
+};
 
-const Template: Story<SkeletonProps> = (args) => (
+export default meta;
+type Story = StoryObj<typeof Skeleton>;
+
+const Template: StoryFn<SkeletonProps> = (args) => (
   <Skeleton {...args}>
     <VerticalSpacing>
       <SkeletonBlock width={75} height={29} />
@@ -21,7 +23,10 @@ const Template: Story<SkeletonProps> = (args) => (
   </Skeleton>
 );
 
-export const Default = Template.bind({});
-Default.args = {
-  label: 'Loading something',
+export const Default: Story = {
+  render: Template,
+
+  args: {
+    label: 'Loading something',
+  },
 };

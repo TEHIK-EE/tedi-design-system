@@ -1,4 +1,4 @@
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import { MenuListProps, OptionProps } from 'react-select';
 
 import Button from '../../../button/button';
@@ -71,7 +71,7 @@ const searchResults: AppealData[] = [
   },
 ];
 
-export const CustomOptionSelect: Story = (args) => {
+export const CustomOptionSelectTemplate: StoryFn<typeof Select> = (args) => {
   const selectOptions: ISelectOption[] = searchResults.map((option) => ({
     label: option.name,
     value: option.id,
@@ -80,8 +80,7 @@ export const CustomOptionSelect: Story = (args) => {
 
   return (
     <Select
-      label="Nimi või isikukood"
-      id="appeal-select"
+      {...args}
       options={selectOptions}
       renderOption={(props) => <CustomOption {...props} />}
       renderMessageListFooter={(props) => <CustomMessageListFooter {...props} />}

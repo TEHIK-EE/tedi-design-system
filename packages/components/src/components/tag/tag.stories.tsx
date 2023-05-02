@@ -1,4 +1,4 @@
-import { Meta, Story } from '@storybook/react';
+import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import React from 'react';
 
 import { Col, Row } from '../grid';
@@ -6,14 +6,16 @@ import Icon from '../icon/icon';
 import { VerticalSpacing } from '../vertical-spacing';
 import Tag, { TagColor, TagProps, TagSize, TagStatus, TagType } from './tag';
 
-export default {
-  title: 'components/Tag',
+const meta: Meta<TagTemplateProps> = {
   component: Tag,
   argTypes: {
     array: { table: { disable: true } },
     property: { table: { disable: true } },
   },
-} as Meta;
+};
+
+export default meta;
+type Story = StoryObj<TagTemplateProps>;
 
 const TagColors: TagColor[] = ['default', 'primary', 'accent', 'positive', 'warning', 'important'];
 const TagTypes: TagType[] = ['default', 'secondary', 'ghost', 'invisible'];
@@ -29,7 +31,7 @@ interface TagTemplateProps<Type = string | boolean> extends TagProps {
   property: keyof TagProps;
 }
 
-const Template: Story<TagTemplateProps> = (args) => {
+const Template: StoryFn<TagTemplateProps> = (args) => {
   const { array, property, ...tagProps } = args;
   return (
     <VerticalSpacing>
@@ -62,94 +64,123 @@ const Template: Story<TagTemplateProps> = (args) => {
   );
 };
 
-const SeparateTemplate: Story<TagProps> = (args) => <Tag {...args} />;
+export const Default: Story = {
+  render: Template,
 
-export const Default = Template.bind({});
-Default.args = {
-  array: TagTypes,
-  property: 'type',
+  args: {
+    array: TagTypes,
+    property: 'type',
+  },
 };
 
-export const Status = Template.bind({});
-Status.args = {
-  array: TagStatuses,
-  property: 'status',
+export const Status: Story = {
+  render: Template,
+
+  args: {
+    array: TagStatuses,
+    property: 'status',
+  },
 };
 
-export const Size = Template.bind({});
-Size.args = {
-  array: TagSizes,
-  property: 'size',
+export const Size: Story = {
+  render: Template,
+
+  args: {
+    array: TagSizes,
+    property: 'size',
+  },
 };
 
-export const SizeTypeGhost = Template.bind({});
-SizeTypeGhost.args = {
-  array: TagSizes,
-  property: 'size',
-  type: 'ghost',
+export const SizeTypeGhost: Story = {
+  render: Template,
+
+  args: {
+    array: TagSizes,
+    property: 'size',
+    type: 'ghost',
+  },
 };
 
-export const Rounded = Template.bind({});
-Rounded.args = {
-  array: TagTypes,
-  property: 'type',
-  rounded: true,
+export const Rounded: Story = {
+  render: Template,
+
+  args: {
+    array: TagTypes,
+    property: 'type',
+    rounded: true,
+  },
 };
 
-export const IconOnly = Template.bind({});
-IconOnly.args = {
-  array: TagTypes,
-  property: 'type',
-  iconOnly: true,
+export const IconOnly: Story = {
+  render: Template,
+
+  args: {
+    array: TagTypes,
+    property: 'type',
+    iconOnly: true,
+  },
 };
 
-export const WithArrow = Template.bind({});
-WithArrow.args = {
-  array: TagTypes,
-  property: 'type',
-  hasArrow: true,
+export const WithArrow: Story = {
+  render: Template,
+
+  args: {
+    array: TagTypes,
+    property: 'type',
+    hasArrow: true,
+  },
 };
 
-export const Loading = Template.bind({});
-Loading.args = {
-  array: TagTypes,
-  property: 'type',
-  isLoading: true,
+export const Loading: Story = {
+  render: Template,
+
+  args: {
+    array: TagTypes,
+    property: 'type',
+    isLoading: true,
+  },
 };
 
-export const LoadingRoundMedium = SeparateTemplate.bind({});
-LoadingRoundMedium.args = {
-  children: 'J',
-  isLoading: true,
-  rounded: true,
-  size: 'medium',
-  type: 'secondary',
+export const LoadingRoundMedium: Story = {
+  args: {
+    children: 'J',
+    isLoading: true,
+    rounded: true,
+    size: 'medium',
+    type: 'secondary',
+  },
 };
 
-export const Disabled = Template.bind({});
-Disabled.args = {
-  array: TagTypes,
-  property: 'type',
-  isDisabled: true,
+export const Disabled: Story = {
+  render: Template,
+
+  args: {
+    array: TagTypes,
+    property: 'type',
+    isDisabled: true,
+  },
 };
 
-export const WithLongText = SeparateTemplate.bind({});
-WithLongText.args = {
-  children: 'With Long text',
+export const WithLongText: Story = {
+  args: {
+    children: 'With Long text',
+  },
 };
 
-export const CustomTag = SeparateTemplate.bind({});
-CustomTag.args = {
-  children: <Icon name="check" size={24} />,
-  size: 'medium',
-  isDisabled: true,
-  rounded: true,
-  iconOnly: true,
-};
-CustomTag.parameters = {
-  docs: {
-    description: {
-      story: 'Size medium, disabled and rounded example with icon',
+export const CustomTag: Story = {
+  args: {
+    children: <Icon name="check" size={24} />,
+    size: 'medium',
+    isDisabled: true,
+    rounded: true,
+    iconOnly: true,
+  },
+
+  parameters: {
+    docs: {
+      description: {
+        story: 'Size medium, disabled and rounded example with icon',
+      },
     },
   },
 };

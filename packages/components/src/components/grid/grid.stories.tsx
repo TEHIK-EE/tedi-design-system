@@ -1,5 +1,5 @@
 import { ArgsTable, Description, Primary, Stories, Subtitle, Title } from '@storybook/addon-docs';
-import { Meta, Story } from '@storybook/react';
+import { Meta, StoryFn, StoryObj } from '@storybook/react';
 
 import Notification from '../notification/notification';
 import Heading from '../typography/heading/heading';
@@ -7,10 +7,10 @@ import { VerticalSpacing } from '../vertical-spacing';
 import { Col } from './col';
 import { Row, RowProps } from './row';
 
-export default {
+const meta: Meta<typeof Row> = {
   title: 'components/Grid',
   component: Row,
-  subcomponents: { Col },
+  subcomponents: { Col: Col as any },
   parameters: {
     docs: {
       page: () => (
@@ -21,7 +21,7 @@ export default {
             Row and Col components are inspired by bootstrap V5 Grid System. U can use different bootstrap grid classes
             throught component props. https://getbootstrap.com/docs/5.1/layout/grid/
           </Description>
-          <Notification title="Important!">
+          <Notification>
             Row component should be always used with Col components as direct children. And Col component should always
             have Row as wrapper!
           </Notification>
@@ -32,9 +32,12 @@ export default {
       ),
     },
   },
-} as Meta;
+};
 
-const Template: Story<RowProps> = (args) => (
+export default meta;
+type Story = StoryObj<typeof Row>;
+
+const Template: StoryFn<RowProps> = (args) => (
   <div>
     <Row className="example-row" {...args}>
       <Col className="example-box">Col-1</Col>
@@ -71,9 +74,11 @@ const Template: Story<RowProps> = (args) => (
   </div>
 );
 
-export const Default = Template.bind({});
+export const Default: Story = {
+  render: Template,
+};
 
-export const CustomTags: Story = () => (
+export const CustomTags: StoryFn = () => (
   <VerticalSpacing size={2}>
     <VerticalSpacing size={0.5}>
       <Heading element="h4">Label/Value pairs</Heading>

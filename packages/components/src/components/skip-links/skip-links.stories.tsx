@@ -1,16 +1,16 @@
-import { Meta, Story } from '@storybook/react';
-import React from 'react';
+import { Meta, StoryObj } from '@storybook/react';
 
-import SkipLinks, { SkipLinksProps } from './skip-links';
+import SkipLinks from './skip-links';
 
-export default {
-  title: 'components/SkipLinks',
+const meta: Meta<typeof SkipLinks> = {
   component: SkipLinks,
-} as Meta;
+};
 
-const Template: Story<SkipLinksProps> = (args) => <SkipLinks {...args} />;
+export default meta;
+type Story = StoryObj<typeof SkipLinks>;
 
-export const Default = Template.bind({});
-Default.args = {
-  links: [{ children: 'Liigu edasi põhisisu juurde', href: '#main-content' }],
+export const Default: Story = {
+  args: {
+    links: [{ children: 'Liigu edasi põhisisu juurde', href: '#main-content' }],
+  },
 };

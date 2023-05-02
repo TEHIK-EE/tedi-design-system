@@ -114,6 +114,7 @@ export const Labels = () => {
   return (
     <Table
       id="labels-table"
+      className="sb-unstyled"
       data={labels}
       columns={columns}
       defaultPagination={{ pageIndex: 0, pageSize: 20 }}

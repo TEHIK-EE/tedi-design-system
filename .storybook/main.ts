@@ -1,5 +1,4 @@
 import { StorybookConfig } from '@storybook/react-webpack5';
-
 const config: StorybookConfig = {
   stories: [],
   addons: [
@@ -12,6 +11,7 @@ const config: StorybookConfig = {
     },
     '@nrwl/react/plugins/storybook',
     '@storybook/addon-a11y',
+    '@storybook/addon-mdx-gfm',
   ],
   staticDirs: ['../public'],
   framework: '@storybook/react-webpack5',
@@ -19,5 +19,4 @@ const config: StorybookConfig = {
     autodocs: true,
   },
 };
-
 export default config;

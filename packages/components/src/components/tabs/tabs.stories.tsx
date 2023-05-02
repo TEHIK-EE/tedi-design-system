@@ -1,17 +1,18 @@
-import { Meta, Story } from '@storybook/react';
-import React from 'react';
+import { Meta, StoryFn, StoryObj } from '@storybook/react';
 
 import Heading from '../typography/heading/heading';
 import { VerticalSpacing } from '../vertical-spacing';
-import { Tabs, TabsItem, TabsProps } from '.';
+import { Tabs, TabsItem } from '.';
 
-export default {
-  title: 'components/Tabs',
+const meta: Meta<typeof Tabs> = {
   component: Tabs,
-  subcomponents: { TabsItem },
-} as Meta;
+  subcomponents: { TabsItem: TabsItem as any },
+};
 
-const Template: Story<TabsProps> = (args) => (
+export default meta;
+type Story = StoryObj<typeof Tabs>;
+
+const Template: StoryFn<typeof Tabs> = (args) => (
   <>
     <Heading id="tabs-heading" className="visually-hidden">
       Lapse detailinfo
@@ -52,5 +53,7 @@ const Template: Story<TabsProps> = (args) => (
   </>
 );
 
-export const Default = Template.bind({});
-Default.args = {};
+export const Default: Story = {
+  render: Template,
+  args: {},
+};

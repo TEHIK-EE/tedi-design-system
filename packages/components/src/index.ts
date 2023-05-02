@@ -16,7 +16,7 @@ export * from './components/layout/footer/footer';
 export * from './components/dropdown/dropdown';
 export * from './components/grid';
 export * from './components/layout/layout/layout';
-export * from './components/scrollfade/scroll-fade';
+export * from './components/scroll-fade/scroll-fade';
 export * from './components/section/section';
 export * from './components/stepper';
 export * from './components/affix/affix';

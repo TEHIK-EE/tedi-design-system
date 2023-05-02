@@ -1,4 +1,4 @@
-import { Meta, Story } from '@storybook/react';
+import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import dayjs, { Dayjs } from 'dayjs';
 import React from 'react';
 
@@ -6,88 +6,124 @@ import Button from '../../../button/button';
 import { Col, Row } from '../../../grid';
 import DatePicker, { DatePickerProps } from './datepicker';
 
-export default {
-  title: 'components/Form/Pickers/DatePicker',
+const meta: Meta<typeof DatePicker> = {
   component: DatePicker,
-} as Meta;
+};
 
-const Template: Story<DatePickerProps> = (args) => <DatePicker {...args} label="Vali kuupäev" />;
+export default meta;
+type Story = StoryObj<typeof DatePicker>;
+
+const Template: StoryFn<DatePickerProps> = (args) => <DatePicker {...args} label="Vali kuupäev" />;
 const numberOne = 1; // https://github.com/storybookjs/storybook/issues/12208
 
-export const Default = Template.bind({});
-Default.args = {
-  id: 'datepicker-default',
+export const Default: Story = {
+  render: Template,
+
+  args: {
+    id: 'datepicker-default',
+  },
 };
 
-export const Disabled = Template.bind({});
-Disabled.args = {
-  id: 'datepicker-disabled',
-  disabled: true,
+export const Disabled: Story = {
+  render: Template,
+
+  args: {
+    id: 'datepicker-disabled',
+    disabled: true,
+  },
 };
 
-export const ReadOnly = Template.bind({});
-ReadOnly.args = {
-  id: 'datepicker-read-only',
-  readOnly: true,
-  defaultValue: dayjs(),
+export const ReadOnly: Story = {
+  render: Template,
+
+  args: {
+    id: 'datepicker-read-only',
+    readOnly: true,
+    defaultValue: dayjs(),
+  },
 };
 
-export const DisableFuture = Template.bind({});
-DisableFuture.args = {
-  id: 'datepicker-disable-future',
-  disableFuture: true,
+export const DisableFuture: Story = {
+  render: Template,
+
+  args: {
+    id: 'datepicker-disable-future',
+    disableFuture: true,
+  },
 };
 
-export const DisablePast = Template.bind({});
-DisablePast.args = {
-  id: 'datepicker-disable-past',
-  disablePast: true,
+export const DisablePast: Story = {
+  render: Template,
+
+  args: {
+    id: 'datepicker-disable-past',
+    disablePast: true,
+  },
 };
 
-export const CustomDisabledDays = Template.bind({});
-CustomDisabledDays.args = {
-  id: 'datepicker-custom-disabled-days',
-  defaultValue: dayjs().weekday(5),
-  shouldDisableDate: (date) => date?.weekday() !== 4,
-  disableHighlightToday: true,
-};
-CustomDisabledDays.parameters = {
-  docs: {
-    description: {
-      story: 'Can only select fridays, defaultValue is next friday and today is not highlighted',
+export const CustomDisabledDays: Story = {
+  render: Template,
+
+  args: {
+    id: 'datepicker-custom-disabled-days',
+    defaultValue: dayjs().weekday(5),
+    shouldDisableDate: (date) => date?.weekday() !== 4,
+    disableHighlightToday: true,
+  },
+
+  parameters: {
+    docs: {
+      description: {
+        story: 'Can only select fridays, defaultValue is next friday and today is not highlighted',
+      },
     },
   },
 };
 
-export const WithCustomFormat = Template.bind({});
-WithCustomFormat.args = {
-  id: 'datepicker-custom-format',
-  inputFormat: 'MM-DD-YYYY',
+export const WithCustomFormat: Story = {
+  render: Template,
+
+  args: {
+    id: 'datepicker-custom-format',
+    inputFormat: 'MM-DD-YYYY',
+  },
 };
 
-export const WithCustomPlaceholder = Template.bind({});
-WithCustomPlaceholder.args = {
-  id: 'datepicker-custom-placeholder',
-  placeholder: 'PP-KK-AAAA',
+export const WithCustomPlaceholder: Story = {
+  render: Template,
+
+  args: {
+    id: 'datepicker-custom-placeholder',
+    placeholder: 'PP-KK-AAAA',
+  },
 };
 
-export const WithCustomViews = Template.bind({});
-WithCustomViews.args = {
-  id: 'datepicker-custom-views',
-  views: ['year', 'month', 'day'],
+export const WithCustomViews: Story = {
+  render: Template,
+
+  args: {
+    id: 'datepicker-custom-views',
+    views: ['year', 'month', 'day'],
+  },
 };
 
-export const InLoadingState = Template.bind({});
-InLoadingState.args = {
-  id: 'datepicker-loading',
-  loading: true,
+export const InLoadingState: Story = {
+  render: Template,
+
+  args: {
+    id: 'datepicker-loading',
+    loading: true,
+  },
 };
 
-export const WithErrorHelper = Template.bind({});
-WithErrorHelper.args = {
-  id: 'datepicker-error-helper',
-  defaultValue: dayjs().add(numberOne, 'day'),
-  helper: { text: 'Kuupäev ei tohi olla tulevikus!', type: 'error' },
+export const WithErrorHelper: Story = {
+  render: Template,
+
+  args: {
+    id: 'datepicker-error-helper',
+    defaultValue: dayjs().add(numberOne, 'day'),
+    helper: { text: 'Kuupäev ei tohi olla tulevikus!', type: 'error' },
+  },
 };
 
 export const Controlled = () => {

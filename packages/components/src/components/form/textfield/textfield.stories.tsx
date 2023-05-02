@@ -1,50 +1,53 @@
-import { Meta, Story } from '@storybook/react';
-import React from 'react';
+import { Meta, StoryObj } from '@storybook/react';
 
-import TextField, { TextFieldProps } from './textfield';
+import TextField from './textfield';
 
-export default {
-  title: 'components/Form/TextField',
+const meta: Meta<typeof TextField> = {
   component: TextField,
   argTypes: {
     icon: {
       type: 'string',
     },
   },
-} as Meta;
-
-const Template: Story<TextFieldProps> = (args) => <TextField {...args} />;
-
-export const Default = Template.bind({});
-Default.args = {
-  id: 'example-1',
-  label: 'Label',
 };
 
-export const Error = Template.bind({});
-Error.args = {
-  ...Default.args,
-  helper: {
-    id: 'example-3',
-    text: 'Error text here',
-    type: 'error',
+export default meta;
+type Story = StoryObj<typeof TextField>;
+
+export const Default: Story = {
+  args: {
+    id: 'example-1',
+    label: 'Label',
   },
 };
 
-export const Success = Template.bind({});
-Success.args = {
-  ...Default.args,
-  helper: {
-    id: 'example-4',
-    text: 'Success text here',
-    type: 'valid',
+export const Error: Story = {
+  args: {
+    ...Default.args,
+    helper: {
+      id: 'example-3',
+      text: 'Error text here',
+      type: 'error',
+    },
   },
 };
 
-export const Small = Template.bind({});
-Small.args = {
-  ...Default.args,
-  size: 'small',
-  icon: 'search',
-  placeholder: 'Otsi',
+export const Success: Story = {
+  args: {
+    ...Default.args,
+    helper: {
+      id: 'example-4',
+      text: 'Success text here',
+      type: 'valid',
+    },
+  },
+};
+
+export const Small: Story = {
+  args: {
+    ...Default.args,
+    size: 'small',
+    icon: 'search',
+    placeholder: 'Otsi',
+  },
 };
