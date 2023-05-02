@@ -1,4 +1,4 @@
-import { Meta, Story } from '@storybook/react';
+import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import React from 'react';
 
 import useLayout from '../../../helpers/hooks/use-layout';
@@ -8,15 +8,17 @@ import { Col, Row } from '../../grid';
 import Icon from '../../icon/icon';
 import Footer, { FooterProps } from './footer';
 
-export default {
-  title: 'components/Layout/Footer',
+const meta: Meta<typeof Footer> = {
   component: Footer,
   argTypes: {
     linkAs: {
       type: 'function',
     },
   },
-} as Meta;
+};
+
+export default meta;
+type Story = StoryObj<typeof Footer>;
 
 const exampleFooterCategories = [
   {
@@ -75,7 +77,7 @@ const exampleFooterCategories = [
   },
 ];
 
-const Template: Story<FooterProps<typeof LinkBehaviour>> = (args: any) => {
+const Template: StoryFn<typeof Footer> = (args) => {
   const isMobileLayout = useLayout(['mobile']);
 
   const logo: FooterProps['logo'] = {
@@ -96,90 +98,101 @@ const Template: Story<FooterProps<typeof LinkBehaviour>> = (args: any) => {
   return <Footer {...args} logo={logo} />;
 };
 
-export const Default = Template.bind({});
-Default.args = {
-  linkAs: LinkBehaviour,
-  categories: exampleFooterCategories,
+export const Default: Story = {
+  render: Template,
+
+  args: {
+    linkAs: LinkBehaviour,
+    categories: exampleFooterCategories,
+  },
 };
 
-export const Laeh = Template.bind({});
-Laeh.args = {
-  ...Default.args,
-  categories: [
-    {
-      heading: 'STAR kasutajatugi',
-      icon: 'call_made',
-      elements: [
-        <Anchor key="email-link" href="mailto:starteenusetugi@sotsiaalkindlustusamet.ee" color="inverted">
-          starteenusetugi@sotsiaalkindlustusamet.ee
-        </Anchor>,
-        <Anchor key="phone-link" href="tel:+3727943906" color="inverted">
-          +372 794 3906
-        </Anchor>,
-      ],
-    },
-  ],
+export const Laeh: Story = {
+  render: Template,
+
+  args: {
+    ...Default.args,
+    categories: [
+      {
+        heading: 'STAR kasutajatugi',
+        icon: 'call_made',
+        links: [
+          {
+            children: 'starteenusetugi@sotsiaalkindlustusamet.ee',
+            href: 'mailto:starteenusetugi@sotsiaalkindlustusamet.ee',
+          },
+          { children: '+372 794 3906', href: 'tel:+3727943906' },
+        ],
+      },
+    ],
+  },
 };
 
-export const TextInFooter = Template.bind({});
-TextInFooter.args = {
-  ...Default.args,
-  categories: [
-    {
-      heading: 'Category',
-      icon: 'call_made',
-      elements: [
-        'Sotsiaalkindlustusamet',
-        'Paldiski mnt 80, 15092 Tallinn',
-        <span key="sample-phone-nr">
-          Infotelefon <Icon name="info" display="inline" size={14} />: +372 612 1360
-        </span>,
-      ],
-    },
-    {
-      heading: 'Category',
-      icon: 'call_made',
-      elements: [
-        <Anchor key="link-1" href="#" color="inverted">
-          Text link
-        </Anchor>,
-        <Anchor key="link-2" href="#" color="inverted">
-          Text link
-        </Anchor>,
-        <Anchor key="link-3" href="#" color="inverted">
-          Text link
-        </Anchor>,
-      ],
-    },
-    {
-      heading: 'Category',
-      icon: 'call_made',
-      elements: [
-        <Anchor key="link-1" href="#" color="inverted">
-          Text link
-        </Anchor>,
-        <Anchor key="link-2" href="#" color="inverted">
-          Text link
-        </Anchor>,
-        <Anchor key="link-3" href="#" color="inverted">
-          Text link
-        </Anchor>,
-      ],
-    },
-  ],
+export const TextInFooter: Story = {
+  render: Template,
+
+  args: {
+    ...Default.args,
+    categories: [
+      {
+        heading: 'Category',
+        icon: 'call_made',
+        elements: [
+          'Sotsiaalkindlustusamet',
+          'Paldiski mnt 80, 15092 Tallinn',
+          <span key="sample-phone-nr">
+            Infotelefon <Icon name="info" display="inline" size={14} />: +372 612 1360
+          </span>,
+        ],
+      },
+      {
+        heading: 'Category',
+        icon: 'call_made',
+        elements: [
+          <Anchor key="link-1" href="#" color="inverted">
+            Text link
+          </Anchor>,
+          <Anchor key="link-2" href="#" color="inverted">
+            Text link
+          </Anchor>,
+          <Anchor key="link-3" href="#" color="inverted">
+            Text link
+          </Anchor>,
+        ],
+      },
+      {
+        heading: 'Category',
+        icon: 'call_made',
+        elements: [
+          <Anchor key="link-1" href="#" color="inverted">
+            Text link
+          </Anchor>,
+          <Anchor key="link-2" href="#" color="inverted">
+            Text link
+          </Anchor>,
+          <Anchor key="link-3" href="#" color="inverted">
+            Text link
+          </Anchor>,
+        ],
+      },
+    ],
+  },
 };
 
-export const BottomRow = Template.bind({});
-BottomRow.args = {
-  ...Default.args,
-  bottomElement: (
-    <Row justifyContent="center">
-      <Col width="auto">Text</Col>
-      <Col width="auto">
-        <Anchor size="small" href="#" color="inverted">
-          Link
-        </Anchor>
-      </Col>
-    </Row>
-  ),
+export const BottomRow: Story = {
+  render: Template,
+
+  args: {
+    ...Default.args,
+    bottomElement: (
+      <Row justifyContent="center">
+        <Col width="auto">Text</Col>
+        <Col width="auto">
+          <Anchor size="small" href="#" color="inverted">
+            Link
+          </Anchor>
+        </Col>
+      </Row>
+    ),
+  },
 };

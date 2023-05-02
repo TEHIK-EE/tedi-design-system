@@ -1,4 +1,4 @@
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import React from 'react';
 
 import Select, { ISelectOption } from '../select';
@@ -32,7 +32,7 @@ const loadOptions = (inputValue: string, callback: (options: ISelectOption[]) =>
   }, 1000);
 };
 
-export const AsyncSelect: Story = (args) => {
+export const AsyncSelectTemplate: StoryFn<typeof Select> = (args) => {
   const [inputValue, setInputValue] = React.useState('');
 
   const handleInputChange = (newValue: string) => {
@@ -44,13 +44,7 @@ export const AsyncSelect: Story = (args) => {
   return (
     <div>
       <p>value: {inputValue}</p>
-      <Select
-        id="async-example"
-        label="Async label"
-        async={true}
-        onInputChange={handleInputChange}
-        loadOptions={loadOptions}
-      />
+      <Select {...args} onInputChange={handleInputChange} loadOptions={loadOptions} />
     </div>
   );
 };

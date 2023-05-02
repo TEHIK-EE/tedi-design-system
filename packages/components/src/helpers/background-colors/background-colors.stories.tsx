@@ -1,15 +1,18 @@
-import { Meta } from '@storybook/react';
+import { Meta, StoryFn, StoryObj } from '@storybook/react';
 
 import { Card } from '../../components/card';
 import CardContent from '../../components/card/card-content/card-content';
 import { TColorsBackground } from '../../components/commonTypes';
 
-export default {
-  title: 'components/helpers/Background-colors',
+const meta: Meta = {
+  component: Card,
   parameters: {
     layout: 'fullscreen',
   },
-} as Meta;
+};
+
+export default meta;
+type Story = StoryObj<TemplateProps>;
 
 const colors: TColorsBackground[] = [
   'bg-default',
@@ -23,18 +26,6 @@ const colors: TColorsBackground[] = [
   'primary-main',
 ];
 
-export const BackgroundColors = () => {
-  return (
-    <Card>
-      {colors.map((i, index) => (
-        <CardContent key={index} background={i}>
-          <p>{i}</p>
-        </CardContent>
-      ))}
-    </Card>
-  );
-};
-
 const colorsDeprecated: TColorsBackground[] = [
   'white',
   'background-light',
@@ -46,14 +37,34 @@ const colorsDeprecated: TColorsBackground[] = [
   'primary-2',
   'primary',
 ];
-export const DeprecatedColorsNaming = () => {
+
+interface TemplateProps {
+  colors: TColorsBackground[];
+}
+const Template: StoryFn<TemplateProps> = () => {
   return (
     <Card>
-      {colorsDeprecated.map((i, index) => (
+      {colors.map((i, index) => (
         <CardContent key={index} background={i}>
           <p>{i}</p>
         </CardContent>
       ))}
     </Card>
   );
+};
+
+export const BackgroundColors: Story = {
+  render: Template,
+
+  args: {
+    colors,
+  },
+};
+
+export const DeprecatedColorsNaming: Story = {
+  render: Template,
+
+  args: {
+    colors: colorsDeprecated,
+  },
 };

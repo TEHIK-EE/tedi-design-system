@@ -1,13 +1,12 @@
 import { ArgsTable, Primary, PRIMARY_STORY, Stories, Title } from '@storybook/addon-docs';
-import { Meta, Story } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 
 import Anchor from '../anchor/anchor';
 import Heading from '../typography/heading/heading';
 import { VerticalSpacing } from '../vertical-spacing';
-import Notification, { NotificationProps } from './notification';
+import Notification from './notification';
 
-export default {
-  title: 'components/Notification',
+const meta: Meta<typeof Notification> = {
   component: Notification,
   parameters: {
     docs: {
@@ -20,7 +19,7 @@ export default {
             </Heading>
             <p>
               Notifications are messages that communicate information to the user. The two main types of notifications
-              are toast notifications and inline notifications.
+              are toast notifications and inline notifications. Also modal type notifications are available.
             </p>
             <Heading element="h2" modifiers="h3">
               When to use
@@ -38,29 +37,33 @@ export default {
       ),
     },
   },
-} as Meta;
-
-const Template: Story<NotificationProps> = (args) => <Notification {...args} />;
-
-export const Default = Template.bind({});
-Default.args = {
-  title: 'Teade',
-  children: (
-    <p>
-      Suunatud e-postile kasutaja kairi.sarapuu@gmail.com. Soovi korral muuda suunamine kohe siin või vasak menüüst “
-      <Anchor href="#">Minu andmed”</Anchor> - “Suunamine.
-    </p>
-  ),
 };
 
-export const Closable = Template.bind({});
-Closable.args = {
-  ...Default.args,
-  onClose: () => null,
+export default meta;
+type Story = StoryObj<typeof Notification>;
+
+export const Default: Story = {
+  args: {
+    title: 'Teade',
+    children: (
+      <p>
+        Suunatud e-postile kasutaja kairi.sarapuu@gmail.com. Soovi korral muuda suunamine kohe siin või vasak menüüst “
+        <Anchor href="#">Minu andmed”</Anchor> - “Suunamine.
+      </p>
+    ),
+  },
 };
 
-export const WithIcon = Template.bind({});
-WithIcon.args = {
-  ...Default.args,
-  icon: 'check_circle',
+export const Closable: Story = {
+  args: {
+    ...Default.args,
+    onClose: () => null,
+  },
+};
+
+export const WithIcon: Story = {
+  args: {
+    ...Default.args,
+    icon: 'check_circle',
+  },
 };

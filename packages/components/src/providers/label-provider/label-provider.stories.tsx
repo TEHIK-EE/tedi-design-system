@@ -1,4 +1,4 @@
-import { Meta, Story } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 
 import StorybookDecorator from '../../../.storybook/storybook-decorator';
 import LabelProvider, { LabelProviderProps } from './label-provider';
@@ -25,7 +25,7 @@ export default {
   },
 } as Meta<LabelProviderProps>;
 
-const Template: Story<LabelProviderProps> = (args) => {
+const Template: StoryFn<LabelProviderProps> = (args) => {
   const { getLabel } = useLabels();
   const pluralLabel = getLabel('pagination.results');
 
@@ -48,17 +48,21 @@ const Template: Story<LabelProviderProps> = (args) => {
   );
 };
 
-export const Default = Template.bind({});
-Default.args = {
-  locale: 'en',
-  labels: {
-    close: 'Close this',
+export const Default = {
+  render: Template,
+
+  args: {
+    locale: 'en',
+    labels: {
+      close: 'Close this',
+    },
   },
-};
-Default.parameters = {
-  docs: {
-    source: {
-      type: 'code',
+
+  parameters: {
+    docs: {
+      source: {
+        type: 'code',
+      },
     },
   },
 };

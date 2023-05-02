@@ -1,14 +1,16 @@
-import { Meta, Story } from '@storybook/react';
+import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import React from 'react';
 
 import { Col, Row } from '../../grid';
 import { VerticalSpacing } from '../../vertical-spacing';
 import Toggle, { ToggleProps } from './toggle';
 
-export default {
-  title: 'components/Form/Toggle',
+const meta: Meta<typeof Toggle> = {
   component: Toggle,
-} as Meta;
+};
+
+export default meta;
+type Story = StoryObj<typeof Toggle>;
 
 interface ToggleTemplateProps extends ToggleProps {
   name: string;
@@ -46,7 +48,7 @@ const ToggleCol = (props: ToggleTemplateProps) => {
   );
 };
 
-const Template: Story<ToggleProps> = (args) => (
+const Template: StoryFn<ToggleProps> = (args) => (
   <Row gap={5}>
     <Col width="auto">
       <ToggleCol {...args} name="Default type" />
@@ -57,18 +59,24 @@ const Template: Story<ToggleProps> = (args) => (
   </Row>
 );
 
-export const Default = Template.bind({});
-Default.args = {
-  ariaLabel: 'Insightful label text for screen reader',
+export const Default: Story = {
+  render: Template,
+
+  args: {
+    ariaLabel: 'Insightful label text for screen reader',
+  },
 };
 
-export const Alternitive = Template.bind({});
-Alternitive.args = {
-  ...Default.args,
-  color: 'alternative',
+export const Alternitive: Story = {
+  render: Template,
+
+  args: {
+    ...Default.args,
+    color: 'alternative',
+  },
 };
 
-export const Controlled = () => {
+export const Controlled: StoryFn<ToggleProps> = () => {
   const [checked, setChecked] = React.useState<boolean>(false);
 
   return (

@@ -1,31 +1,39 @@
-import { Meta, Story } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 
 import useLayout from '../../../helpers/hooks/use-layout';
 import { renderCustomHeader } from './examples/renderCustomHeader';
 import Header, { HeaderProps } from './header';
 
-export default {
-  title: 'components/Layout/Header',
+const meta: Meta<typeof Header> = {
   component: Header,
-  layout: 'fullscreen',
   parameters: {
     backgrounds: { default: 'light' },
+    layout: 'fullscreen',
   },
   excludeStories: /.*CustomHeader$/,
-} as Meta;
+};
 
-export const Default: Story<HeaderProps> = (args) => {
+export default meta;
+type Story = StoryObj<typeof Header>;
+
+const Template = (args: HeaderProps) => {
   const isSmallLayout = useLayout(['mobile', 'tablet']);
 
   return <Header {...args}>{renderCustomHeader(isSmallLayout)}</Header>;
 };
-Default.args = {
-  logoAnchor: { href: '#' },
-  onLogoutClick: () => console.log('Logging out'),
-  skipLinks: {
-    links: [{ children: 'Skip to main content', href: '#main-content' }],
+
+export const Default: Story = {
+  render: Template,
+
+  args: {
+    logoAnchor: { href: '#' },
+    onLogoutClick: () => console.log('Logging out'),
+    skipLinks: {
+      links: [{ children: 'Skip to main content', href: '#main-content' }],
+    },
   },
-};
-Default.parameters = {
-  layout: 'fullscreen',
+
+  parameters: {
+    layout: 'fullscreen',
+  },
 };

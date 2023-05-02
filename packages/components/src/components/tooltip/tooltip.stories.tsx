@@ -1,4 +1,4 @@
-import { Meta, Story } from '@storybook/react';
+import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import React from 'react';
 
 import Anchor from '../anchor/anchor';
@@ -11,10 +11,9 @@ import Tooltip from './tooltip';
 import TooltipProvider, { TooltipProviderProps } from './tooltip-provider';
 import TooltipTrigger from './tooltip-trigger';
 
-export default {
-  title: 'components/Tooltip',
+const meta: Meta<TemplateProps> = {
   component: TooltipProvider,
-  subcomponents: { Tooltip, TooltipTrigger },
+  subcomponents: { Tooltip: Tooltip as any, TooltipTrigger: TooltipTrigger as any },
   parameters: {
     layout: 'padded',
   },
@@ -38,14 +37,17 @@ export default {
       },
     },
   },
-} as Meta;
+};
+
+export default meta;
+type Story = StoryObj<TemplateProps>;
 
 interface TemplateProps extends TooltipProviderProps {
   trigger: JSX.Element;
   tooltip: React.ReactNode;
 }
 
-const Template: Story<TemplateProps> = (args) => {
+const Template: StoryFn<TemplateProps> = (args) => {
   const { trigger, tooltip, ...rest } = args;
   return (
     <div className="text-center">
@@ -57,70 +59,91 @@ const Template: Story<TemplateProps> = (args) => {
   );
 };
 
-export const Default = Template.bind({});
-Default.args = {
-  trigger: <span>Very long Tooltip Trigger</span>,
-  tooltip: 'Tooltip Content',
+export const Default: Story = {
+  render: Template,
+
+  args: {
+    trigger: <span>Very long Tooltip Trigger</span>,
+    tooltip: 'Tooltip Content',
+  },
 };
 
-export const OpenWithClick = Template.bind({});
-OpenWithClick.args = {
-  trigger: <span>Very long Tooltip Trigger</span>,
-  tooltip: 'Tooltip Content',
-  openWith: 'click',
+export const OpenWithClick: Story = {
+  render: Template,
+
+  args: {
+    trigger: <span>Very long Tooltip Trigger</span>,
+    tooltip: 'Tooltip Content',
+    openWith: 'click',
+  },
 };
 
-export const DefaultOpen = Template.bind({});
-DefaultOpen.args = {
-  ...Default.args,
-  defaultOpen: true,
+export const DefaultOpen: Story = {
+  render: Template,
+
+  args: {
+    ...Default.args,
+    defaultOpen: true,
+  },
 };
 
-export const OuterControlled = Template.bind({});
-OuterControlled.args = {
-  ...Default.args,
-  open: true,
-  onToggle: (open) => console.log(open),
+export const OuterControlled: Story = {
+  render: Template,
+
+  args: {
+    ...Default.args,
+    open: true,
+    onToggle: (open) => console.log(open),
+  },
 };
 
-export const TriggerButton = Template.bind({});
-TriggerButton.args = {
-  ...Default.args,
-  trigger: <Button onClick={() => console.log('onClick action triggered')}>Hover me</Button>,
+export const TriggerButton: Story = {
+  render: Template,
+
+  args: {
+    ...Default.args,
+    trigger: <Button onClick={() => console.log('onClick action triggered')}>Hover me</Button>,
+  },
 };
 
-export const TriggerAnchor = Template.bind({});
-TriggerAnchor.args = {
-  ...Default.args,
-  trigger: <Anchor onClick={() => console.log('onClick action triggered')}>Hover me</Anchor>,
+export const TriggerAnchor: Story = {
+  render: Template,
+
+  args: {
+    ...Default.args,
+    trigger: <Anchor onClick={() => console.log('onClick action triggered')}>Hover me</Anchor>,
+  },
 };
 
-export const TriggerCardCustomContent = Template.bind({});
-TriggerCardCustomContent.args = {
-  ...Default.args,
-  trigger: (
-    <Card>
-      <CardContent>
-        Whole card <br /> can trigger tooltip
-      </CardContent>
-    </Card>
-  ),
-  tooltip: (
-    <Row>
-      <Col width="auto">
-        <Icon name="person" />
-      </Col>
-      <Col width="auto">
-        <Heading>You can add any content to Tooltip!</Heading>
-        <Anchor href="https://www.w3schools.com" target="_blank">
-          Even links!
-        </Anchor>
-      </Col>
-    </Row>
-  ),
+export const TriggerCardCustomContent: Story = {
+  render: Template,
+
+  args: {
+    ...Default.args,
+    trigger: (
+      <Card>
+        <CardContent>
+          Whole card <br /> can trigger tooltip
+        </CardContent>
+      </Card>
+    ),
+    tooltip: (
+      <Row>
+        <Col width="auto">
+          <Icon name="person" />
+        </Col>
+        <Col width="auto">
+          <Heading>You can add any content to Tooltip!</Heading>
+          <Anchor href="https://www.w3schools.com" target="_blank">
+            Even links!
+          </Anchor>
+        </Col>
+      </Row>
+    ),
+  },
 };
 
-export const TooltipWidth: Story = () => {
+export const TooltipWidth: StoryFn = () => {
   const tooltiptext = `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque commodi consectetur cupiditate dolorum ex
           facere harum id, impedit in maxime minus provident, ratione rem rerum sint unde veritatis voluptatibus
           voluptatum!`;

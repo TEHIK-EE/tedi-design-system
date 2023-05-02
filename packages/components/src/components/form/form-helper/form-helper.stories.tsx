@@ -1,33 +1,30 @@
-import { Meta, Story } from '@storybook/react';
-import React from 'react';
+import { Meta, StoryObj } from '@storybook/react';
 
-import FormHelper, { FormHelperProps } from './form-helper';
+import FormHelper from './form-helper';
 
-export default {
-  title: 'components/Form/FormHelper',
+const meta: Meta<typeof FormHelper> = {
   component: FormHelper,
-  argTypes: {
-    text: {
-      type: 'string',
-    },
+};
+
+export default meta;
+type Story = StoryObj<typeof FormHelper>;
+
+export const Helper: Story = {
+  args: {
+    text: 'I am helper Text',
   },
-} as Meta;
-
-const Template: Story<FormHelperProps> = (args) => <FormHelper {...args} />;
-
-export const Helper = Template.bind({});
-Helper.args = {
-  text: 'I am helper Text',
 };
 
-export const Error = Template.bind({});
-Error.args = {
-  text: 'I am error Text',
-  type: 'error',
+export const Error: Story = {
+  args: {
+    text: 'I am error Text',
+    type: 'error',
+  },
 };
 
-export const Valid = Template.bind({});
-Valid.args = {
-  text: 'I am valid Text',
-  type: 'valid',
+export const Valid: Story = {
+  args: {
+    text: 'I am valid Text',
+    type: 'valid',
+  },
 };

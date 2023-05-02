@@ -1,16 +1,16 @@
-import { Meta, Story } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 
-import { AsyncSelect } from './examples/async';
-import { CustomOptionSelect } from './examples/custom-option';
-import { MultipleHandled } from './examples/multiple-handled';
-import Select, { SelectProps } from './select';
+import { AsyncSelectTemplate } from './examples/async';
+import { CustomOptionSelectTemplate } from './examples/custom-option';
+import { MultipleHandledTemplate } from './examples/multiple-handled';
+import Select from './select';
 
-export default {
-  title: 'components/Form/Select',
+const meta: Meta<typeof Select> = {
   component: Select,
-} as Meta;
+};
 
-const Template: Story<SelectProps> = (args) => <Select {...args} />;
+export default meta;
+type Story = StoryObj<typeof Select>;
 
 const options = [
   { value: 'option-1', label: 'Option 1' },
@@ -19,46 +19,75 @@ const options = [
   { value: 'option-4', label: 'Option 4' },
 ];
 
-export const Default = Template.bind({});
-Default.args = {
-  id: 'example-1',
-  label: 'Label',
-  defaultValue: options[2],
-  options: options,
+export const Default: Story = {
+  args: {
+    id: 'example-1',
+    label: 'Label',
+    defaultValue: options[2],
+    options: options,
+  },
 };
 
-export const Small = Template.bind({});
-Small.args = {
-  ...Default.args,
-  id: 'example-2',
-  size: 'small',
+export const Small: Story = {
+  args: {
+    ...Default.args,
+    id: 'example-2',
+    size: 'small',
+  },
 };
 
-export const MultipleSmall = Template.bind({});
-MultipleSmall.args = {
-  ...Default.args,
-  id: 'example-multiple-small',
-  size: 'small',
-  multiple: true,
-  defaultValue: undefined,
-  placeholder: 'Placeholder',
+export const MultipleSmall: Story = {
+  args: {
+    ...Default.args,
+    id: 'example-multiple-small',
+    size: 'small',
+    multiple: true,
+    defaultValue: undefined,
+    placeholder: 'Placeholder',
+  },
 };
 
-export const MultipleClosesOnSelect = Template.bind({});
-MultipleClosesOnSelect.args = {
-  ...Default.args,
-  id: 'example-multiple-closes-on-select',
-  multiple: true,
-  closeMenuOnSelect: true,
-  blurInputOnSelect: true,
-  defaultValue: undefined,
-  placeholder: 'Placeholder',
+export const MultipleClosesOnSelect: Story = {
+  args: {
+    ...Default.args,
+    id: 'example-multiple-closes-on-select',
+    multiple: true,
+    closeMenuOnSelect: true,
+    blurInputOnSelect: true,
+    defaultValue: undefined,
+    placeholder: 'Placeholder',
+  },
 };
 
-export const ClearIndicatorVisible = Template.bind({});
-ClearIndicatorVisible.args = {
-  ...Default.args,
-  isClearIndicatorVisible: true,
+export const ClearIndicatorVisible: Story = {
+  args: {
+    ...Default.args,
+    isClearIndicatorVisible: true,
+  },
 };
 
-export { MultipleHandled, CustomOptionSelect, AsyncSelect };
+export const MultipleHandled: Story = {
+  render: MultipleHandledTemplate,
+  args: {
+    id: 'multiple-handled-example',
+    label: 'Multiple Select',
+    multiple: true,
+  },
+};
+
+export const CustomOptionSelect: Story = {
+  render: CustomOptionSelectTemplate,
+  args: {
+    label: 'Nimi või isikukood',
+    id: 'appeal-select',
+  },
+};
+
+export const AsyncSelect: Story = {
+  render: AsyncSelectTemplate,
+  args: {
+    id: 'async-example',
+    label: 'Async label',
+    async: true,
+  },
+};

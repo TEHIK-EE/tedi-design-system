@@ -1,11 +1,9 @@
-import { Meta, Story } from '@storybook/react';
-import React from 'react';
+import { Meta, StoryFn, StoryObj } from '@storybook/react';
 
 import { VerticalSpacing } from '../../vertical-spacing';
 import Text, { TextProps } from './text';
 
-export default {
-  title: 'components/Typography/Text',
+const meta: Meta<typeof Text> = {
   component: Text,
   parameters: {
     docs: {
@@ -17,11 +15,15 @@ export default {
       },
     },
   },
-} as Meta;
+};
 
-const Template: Story<TextProps> = (args) => <Text {...args} />;
+export default meta;
+type Story = StoryObj<typeof Text>;
 
-const ColorsTemplate: Story<{ examples: Array<{ color: TextProps['color']; text: string }> }> = ({ examples }) => {
+interface ColorsTemplateProps {
+  examples: Array<{ color: TextProps['color']; text: string }>;
+}
+const ColorsTemplate: StoryFn<ColorsTemplateProps> = ({ examples }) => {
   return (
     <VerticalSpacing>
       {examples.map(({ color, text }, key) => (
@@ -33,7 +35,10 @@ const ColorsTemplate: Story<{ examples: Array<{ color: TextProps['color']; text:
   );
 };
 
-const ModifiersTemplate: Story<{ examples: Array<{ modifier: TextProps['modifiers']; text: string }> }> = (args) => {
+interface ModifiersTemplateProps {
+  examples: Array<{ modifier: TextProps['modifiers']; text: string }>;
+}
+const ModifiersTemplate: StoryFn<ModifiersTemplateProps> = (args) => {
   return (
     <VerticalSpacing>
       {args.examples.map(({ modifier, text }, key) => (
@@ -45,71 +50,88 @@ const ModifiersTemplate: Story<{ examples: Array<{ modifier: TextProps['modifier
   );
 };
 
-export const Default = Template.bind({});
-Default.args = {
-  children: 'Default text',
+export const Default: Story = {
+  args: {
+    children: 'Default text',
+  },
 };
 
-export const Colors = ColorsTemplate.bind({});
-Colors.args = {
-  examples: [
-    { color: 'default', text: 'Default color text' },
-    { color: 'muted', text: 'Muted color text' },
-    { color: 'subtle', text: 'Subtle color text' },
-    { color: 'disabled', text: 'Disabled color text' },
-    { color: 'inverted', text: 'Inverted color text' },
-    { color: 'primary', text: 'Primary color text' },
-    { color: 'positive', text: 'Positive color text' },
-    { color: 'important', text: 'Important color text' },
-    { color: 'warning', text: 'Warning color text' },
-  ],
+export const Colors: StoryObj<ColorsTemplateProps> = {
+  render: ColorsTemplate,
+
+  args: {
+    examples: [
+      { color: 'default', text: 'Default color text' },
+      { color: 'muted', text: 'Muted color text' },
+      { color: 'subtle', text: 'Subtle color text' },
+      { color: 'disabled', text: 'Disabled color text' },
+      { color: 'inverted', text: 'Inverted color text' },
+      { color: 'primary', text: 'Primary color text' },
+      { color: 'positive', text: 'Positive color text' },
+      { color: 'important', text: 'Important color text' },
+      { color: 'warning', text: 'Warning color text' },
+    ],
+  },
 };
 
-export const Modifiers = ModifiersTemplate.bind({});
-Modifiers.args = {
-  examples: [
-    { modifier: 'normal', text: 'Normal text' },
-    { modifier: 'small', text: 'Small text' },
-    { modifier: 'bold', text: 'Bold text' },
-    { modifier: 'italic', text: 'Italic text' },
-  ],
+export const Modifiers: StoryObj<ModifiersTemplateProps> = {
+  render: ModifiersTemplate,
+
+  args: {
+    examples: [
+      { modifier: 'normal', text: 'Normal text' },
+      { modifier: 'small', text: 'Small text' },
+      { modifier: 'bold', text: 'Bold text' },
+      { modifier: 'italic', text: 'Italic text' },
+    ],
+  },
 };
 
-export const Alignment = ModifiersTemplate.bind({});
-Alignment.args = {
-  examples: [
-    { modifier: 'left', text: 'This text is left' },
-    { modifier: 'center', text: 'This text is center' },
-    { modifier: 'right', text: 'This text is right' },
-  ],
+export const Alignment: StoryObj<ModifiersTemplateProps> = {
+  render: ModifiersTemplate,
+
+  args: {
+    examples: [
+      { modifier: 'left', text: 'This text is left' },
+      { modifier: 'center', text: 'This text is center' },
+      { modifier: 'right', text: 'This text is right' },
+    ],
+  },
 };
 
-export const Capitalize = ModifiersTemplate.bind({});
-Capitalize.args = {
-  examples: [
-    { modifier: 'capitalize', text: 'this text is Capitalized' },
-    { modifier: 'capitalize-first', text: 'this text is Capitalize-first' },
-    { modifier: 'lowercase', text: 'THIS text is Lowercase' },
-    { modifier: 'uppercase', text: 'this text is Uppercase' },
-  ],
+export const Capitalize: StoryObj<ModifiersTemplateProps> = {
+  render: ModifiersTemplate,
+
+  args: {
+    examples: [
+      { modifier: 'capitalize', text: 'this text is Capitalized' },
+      { modifier: 'capitalize-first', text: 'this text is Capitalize-first' },
+      { modifier: 'lowercase', text: 'THIS text is Lowercase' },
+      { modifier: 'uppercase', text: 'this text is Uppercase' },
+    ],
+  },
 };
 
-export const Breaking = ModifiersTemplate.bind({});
 const breakingLongText =
   ' Honorificabilitudinitatibus califragilisticexpialidocious Taumatawhakatangihangakoauauotamateaturipukakapikimaungahoronukupokaiwhenuakitanatahu 次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉;';
-Breaking.args = {
-  examples: [
-    {
-      modifier: 'break-all',
-      text: 'Break-all' + breakingLongText,
-    },
-    {
-      modifier: 'break-word',
-      text: 'break-word' + breakingLongText,
-    },
-    {
-      modifier: 'nowrap',
-      text: 'no-wrap' + breakingLongText,
-    },
-  ],
+
+export const Breaking: StoryObj<ModifiersTemplateProps> = {
+  render: ModifiersTemplate,
+
+  args: {
+    examples: [
+      {
+        modifier: 'break-all',
+        text: 'Break-all' + breakingLongText,
+      },
+      {
+        modifier: 'break-word',
+        text: 'break-word' + breakingLongText,
+      },
+      {
+        modifier: 'nowrap',
+        text: 'no-wrap' + breakingLongText,
+      },
+    ],
+  },
 };

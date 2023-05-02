@@ -5,14 +5,15 @@ import { HiddenSelect } from './examples/hidden-select';
 import { HiddenTextField } from './examples/hidden-textfield';
 import HiddenField from './hidden-field';
 
-export default {
-  title: 'components/Form/HiddenField',
+const meta: Meta<typeof HiddenField> = {
   component: HiddenField,
   argTypes: {
     content: { control: false },
     fieldType: { control: false },
     fieldOptions: { control: false },
   },
-} as Meta;
+};
+
+export default meta;
 
 export { HiddenTextField, HiddenSelect, HiddenMultiselect };

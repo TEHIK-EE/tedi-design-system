@@ -1,4 +1,4 @@
-import { Meta, Story } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import React from 'react';
 
 import Button from '../button/button';
@@ -24,7 +24,7 @@ export default {
   },
 } as Meta;
 
-const Template: Story<FeedbackProps> = (args) => {
+const Template: StoryFn<FeedbackProps> = (args) => {
   return (
     <VerticalSpacing>
       <p>
@@ -70,9 +70,12 @@ const Template: Story<FeedbackProps> = (args) => {
   );
 };
 
-export const Default = Template.bind({});
-Default.args = {
-  triggerProps: {
-    children: 'Feedback',
+export const Default = {
+  render: Template,
+
+  args: {
+    triggerProps: {
+      children: 'Feedback',
+    },
   },
 };

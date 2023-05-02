@@ -1,14 +1,16 @@
-import { Meta, Story } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 
-import Sidenav, { SideNavItem, SideNavProps } from './sidenav';
+import Sidenav, { SideNavItem } from './sidenav';
 
-export default {
+const meta: Meta<typeof Sidenav> = {
   component: Sidenav,
-  title: 'components/Layout/Sidenav',
   parameters: {
     layout: 'fullscreen',
   },
-} as Meta;
+};
+
+export default meta;
+type Story = StoryObj<typeof Sidenav>;
 
 const exampleNavItems: SideNavItem[] = [
   { href: '#', children: 'Avaleht', icon: 'home' },
@@ -20,10 +22,9 @@ const exampleNavItems: SideNavItem[] = [
   { href: '#', children: 'Menetlused', icon: 'assignment' },
 ];
 
-const Template: Story<SideNavProps> = (args) => <Sidenav {...args} />;
-
-export const Default = Template.bind({});
-Default.args = {
-  navItems: exampleNavItems,
-  ariaLabel: 'Menu title',
+export const Default: Story = {
+  args: {
+    navItems: exampleNavItems,
+    ariaLabel: 'Menu title',
+  },
 };

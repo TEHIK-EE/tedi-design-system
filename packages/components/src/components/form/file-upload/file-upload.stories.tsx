@@ -1,32 +1,33 @@
-import { Meta, Story } from '@storybook/react';
-import React from 'react';
+import { Meta, StoryObj } from '@storybook/react';
 
-import FileUpload, { FileUploadProps } from './file-upload';
+import FileUpload from './file-upload';
 
-export default {
-  title: 'components/Form/FileUpload',
+const meta: Meta<typeof FileUpload> = {
   component: FileUpload,
-} as Meta;
-
-const Template: Story<FileUploadProps> = (args) => <FileUpload {...args} />;
-
-export const Default = Template.bind({});
-Default.args = {
-  id: 'file-upload',
-  name: 'file',
-  label: 'Upload file',
 };
 
-export const Multiple = Template.bind({});
-Multiple.args = {
-  id: 'file-upload-MULTIPLE',
-  name: 'file-multiple',
-  label: 'Upload file',
-  multiple: true,
-  helper: {
-    text: 'JPG, PNG, PDF suuruses 000MB.',
+export default meta;
+type Story = StoryObj<typeof FileUpload>;
+
+export const Default: Story = {
+  args: {
+    id: 'file-upload',
+    name: 'file',
+    label: 'Upload file',
   },
-  onChange: (files) => {
-    console.log(files);
+};
+
+export const Multiple: Story = {
+  args: {
+    id: 'file-upload-MULTIPLE',
+    name: 'file-multiple',
+    label: 'Upload file',
+    multiple: true,
+    helper: {
+      text: 'JPG, PNG, PDF suuruses 000MB.',
+    },
+    onChange: (files) => {
+      console.log(files);
+    },
   },
 };

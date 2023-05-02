@@ -1,5 +1,5 @@
 import { ArgsTable, Primary, PRIMARY_STORY, Stories, Subtitle, Title } from '@storybook/addon-docs';
-import { Meta, Story } from '@storybook/react';
+import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import React from 'react';
 
 import Button from '../button/button';
@@ -12,10 +12,9 @@ import ModalCloser from './modal-closer';
 import ModalProvider, { ModalProviderProps } from './modal-provider';
 import ModalTrigger from './modal-trigger';
 
-export default {
-  title: 'components/Modal',
+const meta: Meta<typeof ModalProvider> = {
   component: ModalProvider,
-  subcomponents: { ModalTrigger, Modal, ModalCloser },
+  subcomponents: { ModalTrigger: ModalTrigger as any, Modal: Modal as any, ModalCloser: ModalCloser as any },
   parameters: {
     docs: {
       page: () => (
@@ -40,7 +39,9 @@ export default {
       ),
     },
   },
-} as Meta;
+};
+
+export default meta;
 
 interface TemplateProps extends ModalProps {
   heading?: string;
@@ -50,7 +51,9 @@ interface TemplateProps extends ModalProps {
   renderModalCloser?: boolean;
 }
 
-const Template: Story<TemplateProps> = (args: TemplateProps): JSX.Element => {
+type Story = StoryObj<TemplateProps>;
+
+const Template: StoryFn<TemplateProps> = (args): JSX.Element => {
   const {
     heading = 'Heading',
     content = 'Default content',
@@ -84,65 +87,89 @@ const Template: Story<TemplateProps> = (args: TemplateProps): JSX.Element => {
   );
 };
 
-export const Default = Template.bind({});
-Default.args = {
-  heading: 'Modal width 6',
-};
+export const Default: Story = {
+  render: Template,
 
-export const Width12 = Template.bind({});
-Width12.args = {
-  size: 12,
-  heading: 'Modal width 12',
-};
-
-export const Width10 = Template.bind({});
-Width10.args = {
-  size: 10,
-  heading: 'Modal width 10',
-};
-
-export const Width8 = Template.bind({});
-Width8.args = {
-  size: 8,
-  heading: 'Modal width 8',
-};
-
-export const OpenByDefault = Template.bind({});
-OpenByDefault.args = {
-  heading: 'Opened by default',
-  modalProvider: {
-    defaultOpen: true,
+  args: {
+    heading: 'Modal width 6',
   },
 };
 
-export const ErrorTopModal = Template.bind({});
-ErrorTopModal.args = {
-  heading: 'Error type modal',
-  content: 'Use to display error notifications',
-  cardProps: { type: 'error-top' },
-  renderHeader: false,
-  renderModalCloser: false,
+export const Width12: Story = {
+  render: Template,
+
+  args: {
+    size: 12,
+    heading: 'Modal width 12',
+  },
 };
 
-export const SuccessTopModal = Template.bind({});
-SuccessTopModal.args = {
-  heading: 'Success type modal',
-  content: 'Use to display success notifications',
-  cardProps: { type: 'success-top' },
-  renderHeader: false,
-  renderModalCloser: false,
+export const Width10: Story = {
+  render: Template,
+
+  args: {
+    size: 10,
+    heading: 'Modal width 10',
+  },
 };
 
-export const WarningTopModal = Template.bind({});
-WarningTopModal.args = {
-  heading: 'Warning type modal',
-  content: 'Use to display Warning notifications',
-  cardProps: { type: 'warning-top' },
-  renderHeader: false,
-  renderModalCloser: false,
+export const Width8: Story = {
+  render: Template,
+
+  args: {
+    size: 8,
+    heading: 'Modal width 8',
+  },
 };
 
-export const Position: Story<ModalProps> = () => {
+export const OpenByDefault: Story = {
+  render: Template,
+
+  args: {
+    heading: 'Opened by default',
+    modalProvider: {
+      defaultOpen: true,
+    },
+  },
+};
+
+export const ErrorTopModal: Story = {
+  render: Template,
+
+  args: {
+    heading: 'Error type modal',
+    content: 'Use to display error notifications',
+    cardProps: { type: 'error-top' },
+    renderHeader: false,
+    renderModalCloser: false,
+  },
+};
+
+export const SuccessTopModal: Story = {
+  render: Template,
+
+  args: {
+    heading: 'Success type modal',
+    content: 'Use to display success notifications',
+    cardProps: { type: 'success-top' },
+    renderHeader: false,
+    renderModalCloser: false,
+  },
+};
+
+export const WarningTopModal: Story = {
+  render: Template,
+
+  args: {
+    heading: 'Warning type modal',
+    content: 'Use to display Warning notifications',
+    cardProps: { type: 'warning-top' },
+    renderHeader: false,
+    renderModalCloser: false,
+  },
+};
+
+export const Position: StoryFn<ModalProps> = () => {
   const ipsum = (
     <p>
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores culpa dolore ipsam mollitia numquam sapiente!
@@ -211,48 +238,63 @@ export const ControlledOutSide = () => {
   );
 };
 
-export const TrapFocusFalse = Template.bind({});
-TrapFocusFalse.args = {
-  heading: 'Modal does not trap focus',
-  content:
-    'This modal does not trap focus. Pressing tab will move focus outside of the modal resulting in the modal closing.',
-  trapFocus: false,
-};
+export const TrapFocusFalse: Story = {
+  render: Template,
 
-export const NotDismissableModal = Template.bind({});
-NotDismissableModal.args = {
-  heading: 'Modal is not dismissable',
-  content:
-    'This modal can not be dismissed by pressing escape or clicking outside of it. You can close it by pressing either close button.',
-  modalProvider: {
-    isDismissable: false,
+  args: {
+    heading: 'Modal does not trap focus',
+    content:
+      'This modal does not trap focus. Pressing tab will move focus outside of the modal resulting in the modal closing.',
+    trapFocus: false,
   },
 };
 
-export const ScrollNotLocked = Template.bind({});
-ScrollNotLocked.args = {
-  heading: 'Scrolling is not locked.',
-  content: 'You can scroll the main page while this modal is open.',
-  lockScroll: false,
-};
+export const NotDismissableModal: Story = {
+  render: Template,
 
-export const NoOverlay = Template.bind({});
-NoOverlay.args = {
-  heading: 'No overlay',
-  content: 'This modal does not display an overlay on top of the page.',
-  overlay: 'none',
-};
-
-export const CookieConsentModal = Template.bind({});
-CookieConsentModal.args = {
-  heading: 'Cookie modal example',
-  content:
-    'This modal does not block the user from interacting with the rest of the page. This modal will only close when the user explicitly closes it via the close button or any other dedicated button. This modal combines all of the following props: trapFocus: false, isDismissable: false, scrollLocked: false, overlay: "none"',
-  trapFocus: false,
-  lockScroll: false,
-  overlay: 'none',
-  modalProvider: {
-    isDismissable: false,
+  args: {
+    heading: 'Modal is not dismissable',
+    content:
+      'This modal can not be dismissed by pressing escape or clicking outside of it. You can close it by pressing either close button.',
+    modalProvider: {
+      isDismissable: false,
+    },
   },
-  position: 'bottom',
+};
+
+export const ScrollNotLocked: Story = {
+  render: Template,
+
+  args: {
+    heading: 'Scrolling is not locked.',
+    content: 'You can scroll the main page while this modal is open.',
+    lockScroll: false,
+  },
+};
+
+export const NoOverlay: Story = {
+  render: Template,
+
+  args: {
+    heading: 'No overlay',
+    content: 'This modal does not display an overlay on top of the page.',
+    overlay: 'none',
+  },
+};
+
+export const CookieConsentModal: Story = {
+  render: Template,
+
+  args: {
+    heading: 'Cookie modal example',
+    content:
+      'This modal does not block the user from interacting with the rest of the page. This modal will only close when the user explicitly closes it via the close button or any other dedicated button. This modal combines all of the following props: trapFocus: false, isDismissable: false, scrollLocked: false, overlay: "none"',
+    trapFocus: false,
+    lockScroll: false,
+    overlay: 'none',
+    modalProvider: {
+      isDismissable: false,
+    },
+    position: 'bottom',
+  },
 };

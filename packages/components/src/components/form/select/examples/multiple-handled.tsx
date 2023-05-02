@@ -1,4 +1,4 @@
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import React from 'react';
 
 import { Col, Row } from '../../../grid';
@@ -19,7 +19,7 @@ const colourOptions: ISelectOption[] = [
 
 const defaultOptions: TSelectValue = [colourOptions[0]];
 
-export const MultipleHandled: Story = (args) => {
+export const MultipleHandledTemplate: StoryFn<typeof Select> = (args) => {
   const [inputValue, setInputValue] = React.useState<TSelectValue>(defaultOptions);
 
   const handleInputChange = (newValue: TSelectValue) => {
@@ -30,14 +30,7 @@ export const MultipleHandled: Story = (args) => {
   return (
     <Row>
       <Col width={4}>
-        <Select
-          options={colourOptions}
-          id="multiple-handled-example"
-          label="Multiple Select"
-          multiple={true}
-          onChange={(value) => handleInputChange(value)}
-          value={inputValue}
-        />
+        <Select options={colourOptions} onChange={(value) => handleInputChange(value)} value={inputValue} {...args} />
       </Col>
     </Row>
   );
