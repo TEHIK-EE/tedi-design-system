@@ -36,7 +36,8 @@ export interface IconProps {
    */
   display?: 'block' | 'inline';
   /**
-   * Icons label for screen-readers
+   * Icons label for screen-readers.
+   * If omitted then the icon is hidden for screen-readers.
    */
   label?: string;
 }
@@ -51,7 +52,15 @@ export const Icon = forwardRef<HTMLDivElement, IconProps>((props, ref): JSX.Elem
   } as React.CSSProperties;
 
   return (
-    <span data-name="icon" {...rest} className={iconBEM} style={iconVariant} ref={ref} aria-label={label}>
+    <span
+      data-name="icon"
+      aria-hidden={!label}
+      {...rest}
+      className={iconBEM}
+      style={iconVariant}
+      ref={ref}
+      aria-label={label}
+    >
       {name}
     </span>
   );
