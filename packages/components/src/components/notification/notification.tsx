@@ -38,7 +38,7 @@ export interface NotificationProps {
 }
 
 export const Notification = (props: NotificationProps): JSX.Element => {
-  const { children, title, className, type = 'info', icon, onClose } = props;
+  const { children, title, className, type = 'info', icon, onClose, ...rest } = props;
   const NotificationBEM = cn(styles['notification'], styles[`notification--${type}`], className);
 
   const getIcon = (icon: string | IconProps) => {
@@ -50,7 +50,7 @@ export const Notification = (props: NotificationProps): JSX.Element => {
   };
 
   return (
-    <div data-name="notification" className={NotificationBEM}>
+    <div role="alert" data-name="notification" {...rest} className={NotificationBEM}>
       <VerticalSpacing size={0.25}>
         <Row justifyContent="between">
           {(title || icon) && (
