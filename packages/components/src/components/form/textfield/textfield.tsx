@@ -153,6 +153,7 @@ export const TextField = forwardRef<TextFieldForwardRef, TextFieldProps>((props,
   } = props || {};
   const inputRef = React.useRef<HTMLInputElement | HTMLTextAreaElement | null>(null);
   const innerRef = React.useRef<HTMLDivElement | null>(null);
+  const helperId = helper ? helper?.id ?? `${id}-helper` : undefined;
 
   React.useImperativeHandle(ref, () => ({
     get input() {
@@ -217,6 +218,7 @@ export const TextField = forwardRef<TextFieldForwardRef, TextFieldProps>((props,
 
   const renderInputElement = (): JSX.Element | null => {
     const sharedProps = {
+      'aria-describedby': helperId,
       ...input,
       id,
       className: cn(styles['textfield__input'], inputClassName),
@@ -274,7 +276,7 @@ export const TextField = forwardRef<TextFieldForwardRef, TextFieldProps>((props,
         {renderInputElement()}
         {icon && getIcon(icon)}
       </div>
-      {helper && <FormHelper {...helper} />}
+      {helper && <FormHelper {...helper} id={helperId} />}
     </div>
   );
 });
