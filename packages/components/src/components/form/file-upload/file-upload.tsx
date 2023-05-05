@@ -52,6 +52,7 @@ export interface FileUploadProps extends FormLabelProps {
 export const FileUpload = (props: FileUploadProps): JSX.Element => {
   const { id, name, button, helper, accept, multiple, onChange, className, defaultFiles, ...rest } = props;
   const { getLabel } = useLabels();
+  const helperId = helper ? helper?.id ?? `${id}-helper` : undefined;
 
   const [hovered, setHovered] = React.useState(false);
   const [files, setFiles] = React.useState<FileUploadFile[]>(defaultFiles || []);
@@ -95,14 +96,20 @@ export const FileUpload = (props: FileUploadProps): JSX.Element => {
         >
           <FormLabel id={id} {...rest} renderWithoutLabel={true} />
           <input id={id} type="file" name={name} accept={accept} onChange={onFileChange} multiple={multiple} />
-          <Button visualType="secondary" iconLeft="file_upload" {...button} isActive={hovered}>
+          <Button
+            visualType="secondary"
+            iconLeft="file_upload"
+            aria-describedby={helperId}
+            {...button}
+            isActive={hovered}
+          >
             {getLabel('file-upload.add')}
           </Button>
         </label>
       </Col>
       {helper && (
         <Col width={12}>
-          <FormHelper {...helper} />
+          <FormHelper {...helper} id={helperId} />
         </Col>
       )}
       {files &&

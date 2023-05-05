@@ -78,6 +78,7 @@ export const ChoiceGroup = (props: ChoiceGroupProps): JSX.Element => {
     type = 'default',
     ...rest
   } = props;
+  const helperId = helper ? helper?.id ?? `${id}-helper` : undefined;
 
   const [innerValue, setInnerValue] = React.useState<TChoiceGroupValue>(() => {
     if (defaultValue) {
@@ -144,14 +145,30 @@ export const ChoiceGroup = (props: ChoiceGroupProps): JSX.Element => {
 
   return (
     <ChoiceGroupContext.Provider value={ContextValue}>
-      <fieldset data-name="choice-group" {...rest} className={FieldSetBEM} id={id} name={name}>
-        <FormLabel id={id} label={label} requiredLabel={requiredLabel} required={required} hideLabel={hideLabel} />
+      <fieldset
+        data-name="choice-group"
+        {...rest}
+        className={FieldSetBEM}
+        id={id}
+        name={name}
+        aria-describedby={helperId}
+      >
+        <legend>
+          <FormLabel
+            id={id}
+            label={label}
+            requiredLabel={requiredLabel}
+            required={required}
+            hideLabel={hideLabel}
+            renderWithoutLabel={true}
+          />
+        </legend>
         <Row className={styles['choice-group__inner']} gutter={0}>
           {items.map((item, key) => (
             <ChoiceGroupItemElement {...item} key={key} />
           ))}
         </Row>
-        {helper && <FormHelper {...helper} />}
+        {helper && <FormHelper {...helper} id={helperId} />}
       </fieldset>
     </ChoiceGroupContext.Provider>
   );

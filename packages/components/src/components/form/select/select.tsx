@@ -264,6 +264,7 @@ export const Select = forwardRef<any, SelectProps>((props, ref): JSX.Element => 
     onBlur,
     ...rest
   } = props;
+  const helperId = helper ? helper?.id ?? `${id}-helper` : undefined;
 
   const onChangeHandler = (option: OnChangeValue<ISelectOption, boolean>) => {
     onChange?.(option);
@@ -380,6 +381,7 @@ export const Select = forwardRef<any, SelectProps>((props, ref): JSX.Element => 
     return (
       <ReactSelectElement<ISelectOption, boolean>
         id={id}
+        aria-describedby={helperId}
         autoFocus={autoFocus}
         ref={ref}
         instanceId={id}
@@ -449,7 +451,7 @@ export const Select = forwardRef<any, SelectProps>((props, ref): JSX.Element => 
         />
         {renderReactSelect()}
       </div>
-      {helper && <FormHelper {...helper} />}
+      {helper && <FormHelper {...helper} id={helperId} />}
     </div>
   );
 });
