@@ -38,7 +38,7 @@ const TableFilter = <TData extends DefaultTData<TData>>(props: TableFilterProps<
           openWith="click"
           open={open}
           onToggle={setOpen}
-          focusManager={{ order: ['content'], modal: true }}
+          focusManager={{ order: ['content'], initialFocus: 0, modal: false }}
         >
           <TooltipTrigger>
             <Button

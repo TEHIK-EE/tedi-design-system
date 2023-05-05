@@ -71,6 +71,13 @@ export const labelsMap = {
     en: 'Cancel',
     ru: 'Отмена',
   }),
+  clear: validateLabel({
+    description: 'For clearing a value',
+    components: ['TableFilter'],
+    et: 'Tühjenda',
+    en: 'Clear',
+    ru: 'Очистить',
+  }),
   search: validateLabel({
     description: 'For searching',
     components: ['TableFilter'],

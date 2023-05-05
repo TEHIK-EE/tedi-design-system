@@ -146,7 +146,7 @@ export const TableSelectFilter = () => {
         <Row gutter={2} justifyContent="end">
           <Col width="auto">
             <Button visualType="secondary" onClick={handleReset} fullWidth>
-              {getLabel('cancel')}
+              {getLabel('clear')}
             </Button>
           </Col>
           <Col width="auto">
