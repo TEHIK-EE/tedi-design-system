@@ -45,7 +45,7 @@ export const FormLabel = (props: FormLabelProps): JSX.Element => {
     label,
     hideLabel,
     required,
-    requiredLabel = '*',
+    requiredLabel,
     id,
     className,
     renderWithoutLabel,
@@ -61,7 +61,9 @@ export const FormLabel = (props: FormLabelProps): JSX.Element => {
   return (
     <Element data-name="form-label" {...rest} className={FormLabelBEM} htmlFor={id}>
       <span className={styles['form-label__inner']}>{label}</span>
-      {required && <span className={styles['form-label__required']}>{requiredLabel}</span>}
+      {required && (
+        <span className={styles['form-label__required']}>{requiredLabel ?? <span aria-hidden="true">*</span>}</span>
+      )}
     </Element>
   );
 };
