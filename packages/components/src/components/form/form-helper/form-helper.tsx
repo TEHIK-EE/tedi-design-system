@@ -11,6 +11,7 @@ export interface FormHelperProps {
   text: string;
   /**
    * ID to reference the helper from aria-describedby attributes.
+   * If omitted, then the id might be set through a parent component.
    */
   id?: string;
   /**
