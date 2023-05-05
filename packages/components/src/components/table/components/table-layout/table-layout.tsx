@@ -18,6 +18,7 @@ const TableLayout = <TData extends DefaultTData<TData>>(): JSX.Element | null =>
   const {
     table,
     id,
+    caption,
     renderSubComponent,
     isFooterVisible,
     renderGroupHeading,
@@ -131,6 +132,7 @@ const TableLayout = <TData extends DefaultTData<TData>>(): JSX.Element | null =>
 
   return (
     <table id={id}>
+      {caption && <caption className="sr-only">{caption}</caption>}
       <thead>
         {(getHeaderGroups() as HeaderGroup<TData>[]).map((headerGroup) => (
           <tr key={headerGroup.id}>

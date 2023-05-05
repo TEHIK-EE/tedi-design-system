@@ -33,6 +33,7 @@ export function Table<TData extends DefaultTData<TData>>(props: TableProps<TData
     id,
     data = [],
     columns,
+    caption,
     columnFilters: columnFiltersOuter,
     onColumnFiltersChange,
     cardProps: { padding: cardPadding = 'none', ...restCardProps } = {},
@@ -223,6 +224,7 @@ export function Table<TData extends DefaultTData<TData>>(props: TableProps<TData
       value={{
         table,
         id,
+        caption,
         onRowClick,
         renderSubComponent,
         isFooterVisible,
