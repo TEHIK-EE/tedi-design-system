@@ -17,6 +17,7 @@ import ReactSelect, {
 import AsyncSelect from 'react-select/async';
 import { MenuPortalProps } from 'react-select/dist/declarations/src/components/Menu';
 
+import { useLayout } from '../../../helpers';
 import { Icon } from '../../icon/icon';
 import Tag from '../../tag/tag';
 import Check from '../check/check';
@@ -153,8 +154,8 @@ export interface SelectProps extends FormLabelProps {
    */
   closeMenuOnSelect?: boolean;
   /**
-   * Blur input in select. Use to close menu on select in mobile devices.
-   * @default true. If multiple select then defaults to false.
+   * Blur input on select. Useful for closing the keyboard on touch devices.
+   * @default true for single select on mobile device
    */
   blurInputOnSelect?: boolean;
   /**
@@ -220,6 +221,7 @@ export type TSelectValue<CustomData = unknown> =
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const Select = forwardRef<any, SelectProps>((props, ref): JSX.Element => {
+  const isSmallLayout = useLayout(['mobile', 'tablet']);
   const {
     options,
     defaultOptions,
@@ -251,7 +253,7 @@ export const Select = forwardRef<any, SelectProps>((props, ref): JSX.Element => 
     loadingMessage,
     multiple = false,
     closeMenuOnSelect = !multiple,
-    blurInputOnSelect = !multiple,
+    blurInputOnSelect = isSmallLayout && !multiple,
     autoFocus = false,
     isClearable = true,
     isClearIndicatorVisible = false,
