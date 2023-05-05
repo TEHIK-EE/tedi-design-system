@@ -1,3 +1,11 @@
+# [3.11.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.10.0...v3.11.0) (2023-05-05)
+
+
+### Features
+
+* **input:** TEHVEER-129 - Improve input accessibility ([dfe4bf0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/dfe4bf0706e921453ca065b267abca51657da1a0))
+* **select:** TEHVEER-131 - Blur input only for mobile devices ([96fc72c](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/96fc72c75c6229d294cf1eed6f15afe7cb3f6ff7))
+
 # [3.10.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.9.0...v3.10.0) (2023-05-05)
 
 
