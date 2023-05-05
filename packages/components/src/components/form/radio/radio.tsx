@@ -13,6 +13,10 @@ export interface RadioProps {
    */
   label: React.ReactNode;
   /**
+   * Additional classes.
+   */
+  className?: string;
+  /**
    * Value property
    */
   value: string;
@@ -56,6 +60,7 @@ export const Radio = (props: RadioProps): JSX.Element => {
     id,
     label,
     value,
+    className,
     disabled,
     onChange,
     hideLabel,
@@ -82,7 +87,7 @@ export const Radio = (props: RadioProps): JSX.Element => {
   const LabelBEM = cn(styles['radio'], { [styles['radio--disabled']]: disabled });
 
   return (
-    <div data-name="radio" {...rest}>
+    <div data-name="radio" className={className} {...rest}>
       <label className={LabelBEM} htmlFor={id}>
         <input
           id={id}

@@ -17,6 +17,7 @@
 }
 
 .check__indicator {
+  position: relative;
   display: inline-block;
   min-width: 1.125rem;
   height: 1.125rem;
@@ -34,7 +35,8 @@
     outline: var(--color-primary-main) solid 1px;
   }
 
-  [type='checkbox']:checked + & {
+  [type='checkbox']:checked + &,
+  &--indeterminate {
     background: var(--color-primary-main);
     border-color: var(--color-primary-main);
   }
@@ -45,11 +47,16 @@
 }
 
 .check__icon {
+  position: absolute;
   color: var(--color-text-inverted);
   opacity: 0;
   transition: opacity 150ms ease;
 
-  [type='checkbox']:checked + .check__indicator & {
+  [type='checkbox']:checked + .check__indicator &--check {
+    opacity: 1;
+  }
+
+  .check__indicator--indeterminate &--indeterminate {
     opacity: 1;
   }
 }
