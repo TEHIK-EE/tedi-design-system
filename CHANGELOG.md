@@ -1,3 +1,11 @@
+# [3.10.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.9.0...v3.10.0) (2023-05-05)
+
+
+### Features
+
+* **icon:** TEHVEER-91 - Hiden icons from screen-readers when label is not used ([e5cf9c7](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/e5cf9c7634da2d5d86b99a414a3a48a4d8c7ff2c))
+* **notification:** TEHVEER-128 - Add alert role to notification component ([24a8e61](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/24a8e61f963072a6d7f3a3ca44e79ec9407a43a5))
+
 # [3.9.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.8.1...v3.9.0) (2023-04-28)
 
 ### Features
