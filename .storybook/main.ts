@@ -11,7 +11,6 @@ const config: StorybookConfig = {
     },
     '@nrwl/react/plugins/storybook',
     '@storybook/addon-a11y',
-    '@storybook/addon-mdx-gfm',
   ],
   staticDirs: ['../public'],
   framework: '@storybook/react-webpack5',

@@ -7,9 +7,15 @@ const config: StorybookConfig = {
   core: { ...rootMain.core, builder: '@storybook/builder-webpack5' },
   stories: [
     ...rootMain.stories,
-    '../src/docs/_welcome.stories.tsx',
+    '../src/docs/_welcome.mdx',
+    '../src/docs/getStarted.mdx',
+    '../src/docs/colors/colors.mdx',
+    '../src/docs/labels/labels.mdx',
+    '../src/docs/printing.mdx',
+    '../src/docs/validateChildren.mdx',
+    '../src/docs/changelog.mdx',
     '../src/**/**/*.stories.tsx',
-    '../src/**/**/*.stories.mdx',
+    '../src/**/**/*.mdx',
   ],
   addons: rootMain.addons || [],
 };

@@ -1,0 +1,25 @@
+import { Canvas, Meta, Description } from '@storybook/blocks';
+
+import GuideLines from './guidelines.tsx';
+import ColorTokens from './color-tokens.tsx';
+
+<Meta name="Colors" title="Documentation/Colors" />
+
+# Color Tokens
+
+The same design tokens are used for Figma and development. For more detailed info look at [guidelines](#guidelines) below.
+
+Tokens are semantically named. Semantically incorrect uses are generally not tolerated, only in some rare
+usecases. This means that the developer should not, for example, use the border color as the background
+color. The tokens are divided into groups, which are described below.
+
+Component library also export some helper functions for colors usage, which can be found under [Text component](/docs/components-typography-text--docs)
+and [Background-colors](/docs/helpers-background-colors--docs)
+
+<br />
+
+<ColorTokens />
+
+<br />
+
+<GuideLines />
