@@ -5,15 +5,6 @@
   border: none;
 }
 
-.choice-group__inner {
-  display: flex;
-  flex-wrap: wrap;
-
-  .choice-group--filter & {
-    margin: -0.25rem;
-  }
-}
-
 .choice-group__inner--indented {
   padding-left: 1rem;
 }

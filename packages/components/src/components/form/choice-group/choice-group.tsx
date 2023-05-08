@@ -223,23 +223,29 @@ export const ChoiceGroup = (props: ChoiceGroupProps): JSX.Element => {
             renderWithoutLabel={true}
           />
         </legend>
-        {showIndeterminate && (
-          <Check
-            id={`${id}-indeterminate`}
-            value="indeterminate"
-            name="indeterminate"
-            {...restIndeterminate}
-            label={getIndeterminateLabel}
-            indeterminate={isSomeSelected}
-            checked={isAllSelected}
-            onChange={onIndeterminateChangeHandler}
-          />
+        {items?.length ? (
+          <>
+            {showIndeterminate && (
+              <Check
+                id={`${id}-indeterminate`}
+                value="indeterminate"
+                name="indeterminate"
+                {...restIndeterminate}
+                label={getIndeterminateLabel}
+                indeterminate={isSomeSelected}
+                checked={isAllSelected}
+                onChange={onIndeterminateChangeHandler}
+              />
+            )}
+            <Row className={CheckGroupBEM} gutter={0} direction={type === 'default' ? 'column' : 'row'}>
+              {items.map((item, key) => (
+                <ChoiceGroupItemElement {...item} key={item.id} />
+              ))}
+            </Row>
+          </>
+        ) : (
+          <p>{getLabel('table.filter.no-options')}</p>
         )}
-        <Row className={CheckGroupBEM} gutter={0}>
-          {items.map((item, key) => (
-            <ChoiceGroupItemElement {...item} key={item.id} />
-          ))}
-        </Row>
         {helper && <FormHelper {...helper} id={helperId} />}
       </fieldset>
     </ChoiceGroupContext.Provider>

@@ -54,7 +54,7 @@ const TableFilter = <TData extends DefaultTData<TData>>(props: TableFilterProps<
               <span className="sr-only">{getLabel('table.filter')}</span>
             </Button>
           </TooltipTrigger>
-          <Tooltip>
+          <Tooltip maxWidth="large">
             <Card type="borderless">
               <CardContent padding="xsmall">
                 {inputType === 'multi-select' || inputType === 'select' ? <TableSelectFilter /> : <TableTextFilter />}
