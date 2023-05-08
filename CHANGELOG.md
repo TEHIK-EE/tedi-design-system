@@ -1,3 +1,10 @@
+## [3.12.2](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.12.1...v3.12.2) (2023-05-08)
+
+
+### Bug Fixes
+
+* **table:** TEHVEER-135 - New table filter empty state and support for wider filter ([74dca2a](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/74dca2ad445ba97fd0f132061f4b989ca50dbda6))
+
 ## [3.12.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.12.0...v3.12.1) (2023-05-08)
 
 
