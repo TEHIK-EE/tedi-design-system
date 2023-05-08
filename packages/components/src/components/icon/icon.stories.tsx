@@ -24,6 +24,7 @@ export const Default: Story = {
   args: {
     name: 'home',
     size: 36,
+    label: 'Example icon',
   },
 };
 
