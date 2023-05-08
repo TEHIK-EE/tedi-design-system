@@ -28,11 +28,11 @@ const defaultContent = (
 const meta: Meta<typeof Layout> = {
   component: Layout,
   subcomponents: {
-    Header: Header as any,
-    SideNav: SideNav as any,
-    Footer: Footer as any,
-    Breadcrumbs: Breadcrumbs as any,
-  },
+    Header,
+    SideNav,
+    Footer,
+    Breadcrumbs,
+  } as never,
   argTypes: {
     children: {
       control: { type: 'function' },

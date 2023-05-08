@@ -5,6 +5,9 @@ import styles from './tooltip.module.scss';
 import { TooltipContext } from './tooltip-provider';
 
 export interface TooltipTriggerProps {
+  /**
+   * The element that opens tooltip.
+   */
   children: JSX.Element;
 }
 

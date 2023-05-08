@@ -13,29 +13,9 @@ import TooltipTrigger from './tooltip-trigger';
 
 const meta: Meta<TemplateProps> = {
   component: TooltipProvider,
-  subcomponents: { Tooltip: Tooltip as any, TooltipTrigger: TooltipTrigger as any },
+  subcomponents: { Tooltip, TooltipTrigger } as never,
   parameters: {
     layout: 'padded',
-  },
-  argTypes: {
-    trigger: {
-      table: {
-        category: 'Example Props',
-      },
-      description: 'Trigger can be any HTML element and React elements that have been wrapped with forwardRef',
-      control: {
-        type: null,
-      },
-    },
-    tooltip: {
-      table: {
-        category: 'Example Props',
-      },
-      description: 'Tooltip content',
-      control: {
-        type: null,
-      },
-    },
   },
 };
 

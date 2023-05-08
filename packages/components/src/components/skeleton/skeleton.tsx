@@ -1,3 +1,4 @@
+import { ArgTypes } from '@storybook/blocks';
 import cn from 'classnames';
 import React from 'react';
 

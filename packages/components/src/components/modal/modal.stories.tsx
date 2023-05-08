@@ -14,7 +14,7 @@ import ModalTrigger from './modal-trigger';
 
 const meta: Meta<typeof ModalProvider> = {
   component: ModalProvider,
-  subcomponents: { ModalTrigger: ModalTrigger as any, Modal: Modal as any, ModalCloser: ModalCloser as any },
+  subcomponents: { Modal, ModalTrigger, ModalCloser } as never,
   parameters: {
     docs: {
       page: () => (

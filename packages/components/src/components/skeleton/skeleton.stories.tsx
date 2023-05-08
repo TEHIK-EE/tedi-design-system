@@ -6,7 +6,7 @@ import { Skeleton, SkeletonBlock, SkeletonProps } from '.';
 
 const meta: Meta<typeof Skeleton> = {
   component: Skeleton,
-  subcomponents: { SkeletonBlock: SkeletonBlock as any },
+  subcomponents: { SkeletonBlock } as never,
 };
 
 export default meta;

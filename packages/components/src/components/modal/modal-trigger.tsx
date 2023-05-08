@@ -3,6 +3,9 @@ import React from 'react';
 import { ModalContext } from './modal-provider';
 
 export interface ModalTriggerProps {
+  /**
+   * The element that opens the modal.
+   */
   children: JSX.Element;
 }
 

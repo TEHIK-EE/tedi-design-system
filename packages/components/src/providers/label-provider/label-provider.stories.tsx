@@ -10,7 +10,6 @@ export default {
   component: LabelProvider,
   decorators: [
     (Story, options) => {
-      console.log(options.args);
       return (
         <StorybookDecorator {...options.args}>
           <Story />

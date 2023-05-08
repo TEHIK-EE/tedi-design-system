@@ -8,6 +8,7 @@ import VerticalSpacingItem from './vertical-spacing-item';
 
 const meta: Meta<typeof VerticalSpacing> = {
   component: VerticalSpacing,
+  subcomponents: { VerticalSpacingItem } as never,
 };
 
 export default meta;
