@@ -1,3 +1,10 @@
+## [3.14.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.14.0...v3.14.1) (2023-05-08)
+
+
+### Bug Fixes
+
+* **pickers:** TEHVEER-137 - Pass input prop to TextField inside pickers ([583d6b2](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/583d6b22f5e194bab6a5fde166523651ce518f33))
+
 # [3.14.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.13.0...v3.14.0) (2023-05-08)
 
 
