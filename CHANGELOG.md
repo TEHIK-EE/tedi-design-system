@@ -1,3 +1,10 @@
+## [3.12.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.12.0...v3.12.1) (2023-05-08)
+
+
+### Bug Fixes
+
+* **icon:** TEHVEER-134 - Add correct role to icon component ([b1fcb33](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/b1fcb33a0fdb7f7f19a35c9d02d3865b2a2097a6))
+
 # [3.12.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.11.0...v3.12.0) (2023-05-08)
 
 
