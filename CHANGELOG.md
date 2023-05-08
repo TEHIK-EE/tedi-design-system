@@ -1,3 +1,10 @@
+# [3.14.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.13.0...v3.14.0) (2023-05-08)
+
+
+### Features
+
+* **section:** Layout padding in md bp to 1.5rem to fit feedback ([31c3f8f](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/31c3f8f28b4a4c3359fdbd48927eabc25bdb9474))
+
 # [3.13.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.12.2...v3.13.0) (2023-05-08)
 
 
