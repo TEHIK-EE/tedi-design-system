@@ -54,6 +54,7 @@ export const Icon = forwardRef<HTMLDivElement, IconProps>((props, ref): JSX.Elem
   return (
     <span
       data-name="icon"
+      role="img"
       aria-hidden={!label}
       {...rest}
       className={iconBEM}
