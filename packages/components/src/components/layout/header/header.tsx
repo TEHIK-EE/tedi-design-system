@@ -75,7 +75,7 @@ export const Header = <H extends React.ElementType = 'a'>(props: HeaderProps<H>)
           {logo && (
             <div className={styles['header__logo-wrapper']}>
               <LogoWrapper {...(logoAnchor as AnchorProps<H>)}>
-                <img src={logo} alt="Logo" className={styles['header__logo']} />
+                <img src={logo} alt={getLabel('header.logo')} className={styles['header__logo']} />
               </LogoWrapper>
             </div>
           )}

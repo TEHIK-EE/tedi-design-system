@@ -106,6 +106,13 @@ export const labelsMap = {
     en: 'Log out',
     ru: 'Выйти',
   }),
+  'header.logo': validateLabel({
+    description: 'Alt Label for logo',
+    components: ['Header'],
+    et: 'Logo',
+    en: 'Logo',
+    ru: 'Логотип',
+  }),
   'file-upload.add': validateLabel({
     description: 'Label for add file button',
     components: ['FileUpload'],
