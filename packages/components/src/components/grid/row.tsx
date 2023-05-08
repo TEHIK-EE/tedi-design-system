@@ -177,8 +177,4 @@ export const Row = (props: RowProps): JSX.Element => {
   );
 };
 
-Row.propTypes = {
-  children: (props: { [key: string]: any }) => validateChildren('Row', props, { custom: [Col.name] }),
-};
-
 export default Row;

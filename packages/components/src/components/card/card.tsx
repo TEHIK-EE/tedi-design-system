@@ -60,12 +60,4 @@ export const Card = forwardRef<HTMLDivElement, CardProps>((props, ref): JSX.Elem
 
 Card.displayName = 'Card';
 
-Card.propTypes = {
-  children: (props) =>
-    validateChildren('Card', props, {
-      custom: [CardHeader.name, CardContent.name, ModalCloser.name],
-      fragment: true,
-    }),
-};
-
 export default Card;
