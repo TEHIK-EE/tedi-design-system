@@ -17,7 +17,7 @@ const MuiInputTransition = (props: MuiInputTransitionProps) => {
   const { muiTextfieldProps, textfieldProps, inputFormat, onChangeHandler, type = 'date' } = props;
   const { ref, inputRef, inputProps, InputProps, value, size, onChange, error, disabled, ...muiRest } =
     muiTextfieldProps;
-  const { readOnly, id, ...textfieldRest } = textfieldProps;
+  const { readOnly, id, input, ...textfieldRest } = textfieldProps;
   const textfieldRef = React.useRef<TextFieldForwardRef>({ inner: null, input: null });
 
   React.useEffect(() => {
@@ -40,7 +40,7 @@ const MuiInputTransition = (props: MuiInputTransitionProps) => {
       placeholder={textfieldProps?.placeholder || inputProps?.placeholder}
       defaultValue={undefined} // Types do not match with MuiDatepicker, and we use controlled value
       ref={textfieldRef}
-      input={inputProps}
+      input={{ ...inputProps, ...input }}
       invalid={error}
       icon={{
         name: type === 'date' ? 'today' : 'schedule',
