@@ -1,3 +1,10 @@
+# [3.13.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.12.2...v3.13.0) (2023-05-08)
+
+
+### Features
+
+* **header:** TEHVEER-136 - Translate header logo alt attribute ([fc7749a](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/fc7749ac97ba5cf7db991e8e38be7bb887eceed0))
+
 ## [3.12.2](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.12.1...v3.12.2) (2023-05-08)
 
 
