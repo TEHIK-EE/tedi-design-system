@@ -148,7 +148,7 @@ export const ChoiceGroup = (props: ChoiceGroupProps): JSX.Element => {
 
     if (inputType === 'checkbox' && Array.isArray(nextValue)) {
       if (checked) {
-        nextValue = [...nextValue, ...value];
+        nextValue = [...nextValue, value];
       } else {
         nextValue = nextValue.filter((item) => item !== value);
       }
