@@ -58,8 +58,8 @@ const Neutrals = () => (
 const GuideLinesDescription = () => (
   <VerticalSpacing>
     <VerticalSpacingItem size={0.5}>
-      <Heading element="h2" id="guidelines">
-        Guidelines
+      <Heading element="h1" id="guidelines">
+        Color Guidelines
       </Heading>
     </VerticalSpacingItem>
     <p>
