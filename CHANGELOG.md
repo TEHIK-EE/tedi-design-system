@@ -1,3 +1,18 @@
+# [3.12.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.11.0...v3.12.0) (2023-05-08)
+
+
+### Bug Fixes
+
+* **formhelper:** TEHVEER-126 - Link FormHelper with inputs ([5e30b19](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/5e30b19fbbe8dcda2cd31034e08ddab62562d28e))
+* **table:** TEHVEER-126 - Allow filters to be focusable ([193d6bb](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/193d6bba6ea4c57dfd65f8b026873a1573cd1442))
+
+
+### Features
+
+* **choice-group:** TEHVEER-126 - Added indeterminate option to choice-group ([bb1cd40](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/bb1cd40e841939e16c337c2468293f724912d12f))
+* **table:** TEHVEER-126 - Added caption prop for accessibility ([d26c000](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/d26c0009e7bc21b8dd3e9f8c21f8ef3362fc5937))
+* **table:** TEHVEER-126 - Changed tabel filters logic ([89cd7ef](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/89cd7ef6e81487bb7d73459006ba211e9dfbd724))
+
 # [3.11.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.10.0...v3.11.0) (2023-05-05)
 
 
