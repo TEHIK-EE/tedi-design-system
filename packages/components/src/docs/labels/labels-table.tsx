@@ -1,44 +1,8 @@
-import { Subtitle, Title } from '@storybook/addon-docs';
-import { Meta } from '@storybook/react';
 import { ColumnDef, createColumnHelper } from '@tanstack/react-table';
 import linkifyStr from 'linkify-string';
 
-import Section from '../components/section/section';
-import Separator from '../components/separator/separator';
-import { Table } from '../components/table';
-import { Tooltip, TooltipProvider, TooltipTrigger } from '../components/tooltip';
-import { VerticalSpacing } from '../components/vertical-spacing';
-import { LabelProvider } from '../providers/label-provider';
-import { labelsMap } from '../providers/label-provider/labels-map';
-
-export default {
-  title: 'Documentation/Labels',
-  parameters: {
-    docs: {
-      page: () => (
-        <Section>
-          <LabelProvider>
-            <Title />
-            <Subtitle>Here you can find all labels used inside components.</Subtitle>
-            <VerticalSpacing>
-              <p>
-                You have to wrap your app in <code>{'<LabelProvider labels={labels} locale={locale}>'}</code> and pass
-                in your own labels.
-              </p>
-              <p>
-                However components fall back to translations defined in the library itself. Currently we have default
-                translations for Estonian, English and Russian. You can control what default translations are used with{' '}
-                <code>locale</code> prop. If <code>locale</code> prop is not set, then the default languages is English.
-              </p>
-            </VerticalSpacing>
-            <Separator spacing={1.5} />
-            <Labels />
-          </LabelProvider>
-        </Section>
-      ),
-    },
-  },
-} as Meta;
+import { Table, Tooltip, TooltipProvider, TooltipTrigger } from '../../index';
+import { LabelProvider, labelsMap } from '../../providers/label-provider';
 
 interface LabelRow {
   key: string;
@@ -73,7 +37,7 @@ const renderLabelColumn = (label: string | ((...args: unknown[]) => string)) => 
   );
 };
 
-export const Labels = () => {
+const Labels = () => {
   const columnHelper = createColumnHelper<LabelRow>();
 
   // eslint-disable-next-line
@@ -112,13 +76,17 @@ export const Labels = () => {
   ];
 
   return (
-    <Table
-      id="labels-table"
-      className="sb-unstyled"
-      data={labels}
-      columns={columns}
-      defaultPagination={{ pageIndex: 0, pageSize: 20 }}
-      defaultSorting={[{ id: 'key', desc: false }]}
-    />
+    <LabelProvider>
+      <Table
+        id="labels-table"
+        className="sb-unstyled"
+        data={labels}
+        columns={columns}
+        defaultPagination={{ pageIndex: 0, pageSize: 20 }}
+        defaultSorting={[{ id: 'key', desc: false }]}
+      />
+    </LabelProvider>
   );
 };
+
+export default Labels;
