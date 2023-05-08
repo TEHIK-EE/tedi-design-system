@@ -1,3 +1,10 @@
+## [3.14.2](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.14.1...v3.14.2) (2023-05-08)
+
+
+### Bug Fixes
+
+* **choice-group:** TEHVEER-138 - Send correct value through the choice-group onChange callback ([e0c171e](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/e0c171e51ba4160bf81f23b6a824ac08ff6b9b37))
+
 ## [3.14.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.14.0...v3.14.1) (2023-05-08)
 
 
