@@ -172,9 +172,9 @@ export const labelsMap = {
   'table.filter.remove-all': validateLabel({
     description: 'Label for removing all',
     components: ['Table', 'TableFilter'],
-    et: 'Eemalda valikud',
-    en: 'Remove selection',
-    ru: 'Удалить выделенные',
+    et: 'Eemalda kõik',
+    en: 'Remove all',
+    ru: 'Удалить все',
   }),
   'table.filter.validation.no-spaces': validateLabel({
     description: 'Filter validation error - Text can not start with spaces',

@@ -24,15 +24,13 @@ export const TableTextFilter = () => {
   const validationSchema: Yup.SchemaOf<typeof initialValues> = Yup.object().shape({
     filter: Yup.string()
       .matches(/^(?!\s+$).*/, getLabel('table.filter.validation.no-spaces'))
-      .min(3, filterMinLength)
-      .required(getLabel('required')),
+      .min(3, filterMinLength),
   });
 
   const { values, setFieldValue, handleReset, handleSubmit, touched, errors } = useFormik({
     initialValues,
     validationSchema,
     onSubmit: (values: typeof initialValues) => {
-      if (!values.filter) return;
       column?.setFilterValue(values.filter);
       setOpen?.(false);
     },
@@ -61,11 +59,14 @@ export const TableTextFilter = () => {
           value={values.filter as string}
           onChange={(value) => setFieldValue('filter', value)}
           helper={touched.filter && errors.filter ? { text: errors.filter, type: 'error' } : { text: filterMinLength }}
+          input={{
+            autoComplete: 'off',
+          }}
         />
         <Row gutter={2}>
           <Col width="auto">
             <Button visualType="secondary" onClick={handleReset} fullWidth>
-              {getLabel('cancel')}
+              {getLabel('clear')}
             </Button>
           </Col>
           <Col width="auto">

@@ -1,6 +1,5 @@
 import { useFormik } from 'formik';
 import React from 'react';
-import * as Yup from 'yup';
 
 import { useLabels } from '../../../../../providers/label-provider';
 import Button from '../../../../button/button';
@@ -70,23 +69,10 @@ export const TableSelectFilter = () => {
       value: String(i),
     })) || [];
 
-  const validationSchema: Yup.SchemaOf<typeof initialValues> = Yup.object().shape({
-    inputType: Yup.mixed().nullable(),
-    selectFilter: Yup.string().when('inputType', {
-      is: 'select',
-      then: (schema) => schema.required(getLabel('required')),
-    }),
-    multiSelectFilter: Yup.array().when('inputType', {
-      is: 'multi-select',
-      then: (schema) => schema.min(1, getLabel('required')),
-    }),
-  });
-
   const { values, setFieldValue, handleReset, handleSubmit, errors } = useFormik({
     initialValues,
-    validationSchema,
     onSubmit: (values: typeof initialValues) => {
-      column?.setFilterValue(values[fieldName]);
+      column?.setFilterValue(values[fieldName]?.length ? values[fieldName] : '');
       setOpen?.(false);
     },
     onReset: () => {
@@ -97,34 +83,10 @@ export const TableSelectFilter = () => {
 
   const onSelectChange = (item: TChoiceGroupValue) => setFieldValue(fieldName, item);
 
-  const onRemoveAll = () => {
-    column?.setFilterValue(null);
-    setOpen?.(false);
-  };
-
-  const onSelectAll = () => {
-    column?.setFilterValue(rowValues);
-    setOpen?.(false);
-  };
-
   return (
     <form onSubmit={handleSubmit}>
       <VerticalSpacing>
         <Heading element="h6">{getLabel('table.filter')}</Heading>
-        {inputType === 'multi-select' ? (
-          <Row gutter={2} justifyContent="between">
-            <Col width="auto">
-              <Button visualType="link" onClick={onRemoveAll} fullWidth>
-                {getLabel('table.filter.remove-all')}
-              </Button>
-            </Col>
-            <Col width="auto">
-              <Button visualType="link" onClick={onSelectAll} fullWidth>
-                {getLabel('table.filter.select-all')}
-              </Button>
-            </Col>
-          </Row>
-        ) : null}
         <Card className={styles['filter__content']} padding="medium">
           <CardContent>
             <ChoiceGroup
@@ -135,6 +97,13 @@ export const TableSelectFilter = () => {
               inputType={inputType === 'select' ? 'radio' : 'checkbox'}
               size="small"
               value={values[fieldName]}
+              indeterminateCheckLabel={(state) =>
+                state === 'all' ? getLabel('table.filter.remove-all') : getLabel('table.filter.select-all')
+              }
+              indeterminateCheckProps={{
+                indented: false,
+                className: styles['filter__indeterminate'],
+              }}
               items={options}
               onChange={onSelectChange}
               helper={

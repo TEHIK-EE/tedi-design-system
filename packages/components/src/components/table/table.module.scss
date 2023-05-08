@@ -129,6 +129,7 @@
 }
 
 .filter__content {
+  position: relative;
   max-width: 20rem;
   max-height: 16rem;
   overflow: auto;
@@ -136,4 +137,14 @@
 
 .filter__button {
   display: block;
+}
+
+.filter__indeterminate {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  padding: 0.5rem 1rem 0.125rem;
+  margin: -1rem -1rem 0.5rem;
+  background: var(--color-bg-default);
+  border-bottom: 1px solid var(--color-border-default);
 }
