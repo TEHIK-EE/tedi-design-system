@@ -1,7 +1,7 @@
-import { Meta, StoryFn, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 
-import ChoiceGroup, { ChoiceGroupProps } from './choice-group';
+import ChoiceGroup from './choice-group';
 import { ChoiceGroupItemProps } from './choice-group.types';
 
 const meta: Meta<typeof ChoiceGroup> = {
@@ -114,12 +114,21 @@ export const WithDefaultValue: Story = {
   },
 };
 
+export const WithIndeterminate: Story = {
+  args: {
+    ...Check.args,
+    label: 'I have an indeterminate checkbox:',
+    items: generateItems(7),
+    indeterminateCheck: (state) => (state === 'all' ? 'Eemalda kõik' : 'Vali kõik'),
+  },
+};
+
 export const WithExtraContent: Story = {
   args: {
     ...Check.args,
     inputType: 'radio',
     label: 'I have extra content after label:',
-    items: generateItems(7, true),
+    items: generateItems(8, true),
   },
 
   parameters: {

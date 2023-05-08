@@ -14,6 +14,10 @@ export interface CheckProps {
    */
   label: React.ReactNode;
   /**
+   * Additional classes.
+   */
+  className?: string;
+  /**
    * Value property
    */
   value: string;
@@ -45,6 +49,11 @@ export interface CheckProps {
    */
   checked?: boolean;
   /**
+   * If the check is in indeterminate state. (Not checked or unchecked)
+   * When this is true then the checked prop is ignored
+   */
+  indeterminate?: boolean;
+  /**
    * If the check is checked by default
    */
   defaultChecked?: boolean;
@@ -59,21 +68,23 @@ export const Check = (props: CheckProps): JSX.Element => {
     id,
     label,
     value,
+    className,
     disabled = false,
     onChange,
     hideLabel = false,
     extraContent,
     checked,
     defaultChecked,
+    indeterminate,
     hover,
     name,
     ...rest
   } = props;
   const [innerChecked, setInnerChecked] = React.useState<boolean>(defaultChecked || false);
 
-  const getChecked = React.useMemo((): boolean => {
-    return onChange && typeof checked !== 'undefined' ? checked : innerChecked;
-  }, [onChange, innerChecked, checked]);
+  const getChecked = React.useMemo((): boolean | 'mixed' => {
+    return indeterminate ? 'mixed' : onChange && typeof checked !== 'undefined' ? checked : innerChecked;
+  }, [indeterminate, onChange, checked, innerChecked]);
 
   const onChangeHandler = (event: React.ChangeEvent<HTMLInputElement>): void => {
     if (typeof checked === 'undefined') {
@@ -85,7 +96,7 @@ export const Check = (props: CheckProps): JSX.Element => {
   const LabelBEM = cn(styles['check'], { [styles['check--disabled']]: disabled });
 
   return (
-    <div data-name="check" {...rest}>
+    <div data-name="check" className={className} {...rest}>
       <label className={LabelBEM} htmlFor={id}>
         <input
           id={id}
@@ -93,13 +104,19 @@ export const Check = (props: CheckProps): JSX.Element => {
           name={name}
           type="checkbox"
           disabled={disabled}
-          checked={getChecked}
-          defaultChecked={defaultChecked}
+          checked={getChecked !== 'mixed' ? getChecked : false}
+          aria-checked={getChecked}
           onChange={onChangeHandler}
           className={styles['check__input']}
         />
-        <span className={cn(styles['check__indicator'], { [styles['check__indicator--hover']]: hover })}>
-          <Icon size={16} name="check" className={styles['check__icon']} />
+        <span
+          className={cn(styles['check__indicator'], {
+            [styles['check__indicator--hover']]: hover,
+            [styles['check__indicator--indeterminate']]: indeterminate,
+          })}
+        >
+          <Icon size={16} name="remove" className={cn(styles['check__icon'], styles['check__icon--indeterminate'])} />
+          <Icon size={16} name="check" className={cn(styles['check__icon'], styles['check__icon--check'])} />
         </span>
         <span className={cn(styles['check__content'], { 'visually-hidden': hideLabel })}>{label}</span>
       </label>

@@ -95,6 +95,7 @@ export const TextEditor = (props: TextEditorProps): JSX.Element => {
     ...rest
   } = props;
 
+  const helperId = helper ? helper?.id ?? `${id}-helper` : undefined;
   const isMounted = useIsMounted();
 
   const getDefaultValue = React.useMemo((): EditorState => {
@@ -173,6 +174,7 @@ export const TextEditor = (props: TextEditorProps): JSX.Element => {
         <div className={styles['text-editor__content']}>
           {isMounted && (
             <Editor
+              ariaDescribedBy={helperId}
               placeholder={placeholder}
               editorState={editorState}
               onChange={setEditorState}
@@ -185,7 +187,7 @@ export const TextEditor = (props: TextEditorProps): JSX.Element => {
           )}
         </div>
       </div>
-      {helper && <FormHelper {...helper} />}
+      {helper && <FormHelper {...helper} id={helperId} />}
     </div>
   );
 };

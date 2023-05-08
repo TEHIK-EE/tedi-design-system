@@ -51,6 +51,26 @@ export const DisabledState: Story = {
   },
 };
 
+export const Indeterminate = () => {
+  const [checked, setChecked] = React.useState<boolean>(false);
+  const [indeterminate, setIndeterminate] = React.useState<boolean>(true);
+
+  return (
+    <Check
+      id="controlled-check"
+      label="Vali mind"
+      name="controlled-check"
+      value="controlled"
+      checked={checked}
+      indeterminate={indeterminate}
+      onChange={(value, checked) => {
+        setIndeterminate(false);
+        setChecked(checked);
+      }}
+    />
+  );
+};
+
 export const WithExtraContent: Story = {
   render: Template,
 

@@ -57,6 +57,10 @@ export interface TableProps<TData extends DefaultTData<TData>> {
    */
   columns: ColumnDef<TData, any>[]; // eslint-disable-line
   /**
+   * Table title for screen-readers
+   */
+  caption?: string;
+  /**
    * Additional classname
    */
   className?: string;

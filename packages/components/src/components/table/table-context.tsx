@@ -7,6 +7,7 @@ import { PlaceholderProps } from '../placeholder/placeholder';
 export interface ITableContext<TData> {
   table: TableType<TData> | null;
   id: string;
+  caption?: string;
   isLoading: boolean;
   isError: boolean;
   placeholder?: PlaceholderProps;
