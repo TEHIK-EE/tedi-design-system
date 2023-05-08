@@ -40,8 +40,10 @@ const meta: Meta<typeof Layout> = {
   },
   parameters: {
     docs: {
-      inlineStories: false,
-      iframeHeight: 700,
+      story: {
+        inline: false,
+        iframeHeight: 700,
+      },
     },
     layout: 'fullscreen',
     backgrounds: { default: 'light' },

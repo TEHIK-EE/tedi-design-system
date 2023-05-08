@@ -27,8 +27,10 @@ export default {
           <b>NB! Examples under "Docs" page do not demo functionality correctly currently, open examples to see demo.</b>
           </p>`,
       },
-      inlineStories: false,
-      iframeHeight: 700,
+      story: {
+        inline: false,
+        iframeHeight: 700,
+      },
     },
     layout: 'fullscreen',
     backgrounds: { default: 'light' },
