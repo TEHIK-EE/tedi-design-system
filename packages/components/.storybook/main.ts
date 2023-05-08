@@ -11,6 +11,8 @@ const config: StorybookConfig = {
     '../src/docs/getStarted.mdx',
     '../src/docs/colors/colorTokens.mdx',
     '../src/docs/colors/colorGuidelines.mdx',
+    '../src/docs/scale-layout/spacing.mdx',
+    '../src/docs/scale-layout/grid.mdx',
     '../src/docs/labels/labels.mdx',
     '../src/docs/printing.mdx',
     '../src/docs/validateChildren.mdx',
