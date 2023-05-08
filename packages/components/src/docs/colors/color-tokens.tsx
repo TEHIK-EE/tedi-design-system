@@ -1,6 +1,7 @@
+import { Unstyled } from '@storybook/blocks';
 import * as tokens from '@tehik/design-tokens/tokens.json';
 
-import { Col, Heading, Row, Separator, Text, VerticalSpacing, VerticalSpacingItem } from '../../index';
+import { Col, Heading, Row, VerticalSpacing, VerticalSpacingItem } from '../../index';
 
 interface ISection {
   title: string;
@@ -106,11 +107,7 @@ const UpperGroup = ({ title, groups }: ISection) => (
       <Heading element="h2" id={title.toLowerCase().replaceAll(' ', '-')}>
         {title}
       </Heading>
-      <Text modifiers="small" color="muted">
-        (Click on the color or variable to copy it&apos;s value to clipboard.)
-      </Text>
     </VerticalSpacingItem>
-    <Separator />
     {groups?.map((group, key) => (
       <Group {...group} key={key} />
     ))}
@@ -118,20 +115,22 @@ const UpperGroup = ({ title, groups }: ISection) => (
 );
 
 const Group = ({ title, colors }: IGroup) => (
-  <VerticalSpacing>
-    <VerticalSpacingItem size={0.5}>
-      <Heading element="h3" id={title.toLowerCase().replaceAll(' ', '-')}>
-        {title}
-      </Heading>
-    </VerticalSpacingItem>
-    <Row gutterY={2}>
-      {colors?.map((group, key) => (
-        <Col width="auto" key={key}>
-          <Color {...group} />
-        </Col>
-      ))}
-    </Row>
-  </VerticalSpacing>
+  <Unstyled>
+    <VerticalSpacing>
+      <VerticalSpacingItem size={0.5}>
+        <Heading element="h3" id={title.toLowerCase().replaceAll(' ', '-')}>
+          {title}
+        </Heading>
+      </VerticalSpacingItem>
+      <Row gutterY={2}>
+        {colors?.map((group, key) => (
+          <Col width="auto" key={key}>
+            <Color {...group} />
+          </Col>
+        ))}
+      </Row>
+    </VerticalSpacing>
+  </Unstyled>
 );
 
 const Color = ({ name, variable, hex }: IColor) => {
