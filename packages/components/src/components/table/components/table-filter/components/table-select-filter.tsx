@@ -97,9 +97,7 @@ export const TableSelectFilter = () => {
               inputType={inputType === 'select' ? 'radio' : 'checkbox'}
               size="small"
               value={values[fieldName]}
-              indeterminateCheckLabel={(state) =>
-                state === 'all' ? getLabel('table.filter.remove-all') : getLabel('table.filter.select-all')
-              }
+              indeterminateCheck={true}
               indeterminateCheckProps={{
                 indented: false,
                 className: styles['filter__indeterminate'],

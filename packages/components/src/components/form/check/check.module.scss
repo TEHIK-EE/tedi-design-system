@@ -52,10 +52,7 @@
   opacity: 0;
   transition: opacity 150ms ease;
 
-  [type='checkbox']:checked + .check__indicator &--check {
-    opacity: 1;
-  }
-
+  [type='checkbox']:checked + .check__indicator &--check,
   .check__indicator--indeterminate &--indeterminate {
     opacity: 1;
   }

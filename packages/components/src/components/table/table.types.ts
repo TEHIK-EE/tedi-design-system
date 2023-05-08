@@ -52,14 +52,14 @@ export interface TableProps<TData extends DefaultTData<TData>> {
    */
   data: TData[];
   /**
-   * Table title for screen-readers
-   */
-  caption?: string;
-  /**
    * Column object created with columnHelper
    * https://tanstack.com/table/v8/docs/guide/column-defs
    */
   columns: ColumnDef<TData, any>[]; // eslint-disable-line
+  /**
+   * Table title for screen-readers
+   */
+  caption?: string;
   /**
    * Additional classname
    */

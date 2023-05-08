@@ -1,6 +1,7 @@
 import cn from 'classnames';
 import React from 'react';
 
+import { useLabels } from '../../../providers/label-provider';
 import { Row } from '../../grid';
 import Check, { CheckProps } from '../check/check';
 import FormHelper, { FormHelperProps } from '../form-helper/form-helper';
@@ -62,12 +63,13 @@ export interface ChoiceGroupProps extends FormLabelProps {
   type?: 'selector' | 'filter' | 'default';
   /**
    * Value can be one of two options:<br />
+   * `true` - Uses default internal label.<br />
    * `string` - Label for the indeterminate checkbox.<br />
    * `function` - Function that can be used for conditional label.<br />
    * If omitted then the indeterminate checkbox isn't rendered.
    * Only works with `inputType="checkbox"` and `type="default"`
    */
-  indeterminateCheckLabel?: string | ((state: TChoiceGroupIndeterminateState) => string);
+  indeterminateCheck?: boolean | string | ((state: TChoiceGroupIndeterminateState) => string);
   /**
    * Overridable Indeterminate Check props.
    * Applies only when `indeterminateCheckLabel` is used
@@ -79,6 +81,7 @@ export interface ChoiceGroupProps extends FormLabelProps {
 }
 
 export const ChoiceGroup = (props: ChoiceGroupProps): JSX.Element => {
+  const { getLabel } = useLabels();
   const {
     id,
     className,
@@ -94,14 +97,14 @@ export const ChoiceGroup = (props: ChoiceGroupProps): JSX.Element => {
     onChange,
     hideLabel,
     type = 'default',
-    indeterminateCheckLabel,
+    indeterminateCheck,
     indeterminateCheckProps = {},
     ...rest
   } = props;
   const { indented, ...restIndeterminate } = indeterminateCheckProps;
   const isIndented = indeterminateCheckProps?.indented ?? true;
   const helperId = helper ? helper?.id ?? `${id}-helper` : undefined;
-  const showIndeterminate = indeterminateCheckLabel && type === 'default' && inputType === 'checkbox';
+  const showIndeterminate = indeterminateCheck && type === 'default' && inputType === 'checkbox';
 
   const [innerValue, setInnerValue] = React.useState<TChoiceGroupValue>(() => {
     if (defaultValue) {
@@ -127,14 +130,18 @@ export const ChoiceGroup = (props: ChoiceGroupProps): JSX.Element => {
   const isSomeSelected = React.useMemo(() => !isNoneSelected && !isAllSelected, [isAllSelected, isNoneSelected]);
 
   const getIndeterminateLabel = React.useMemo(() => {
-    if (!indeterminateCheckLabel) {
-      return '';
-    }
-
     const state = isAllSelected ? 'all' : isNoneSelected ? 'none' : 'some';
 
-    return typeof indeterminateCheckLabel === 'string' ? indeterminateCheckLabel : indeterminateCheckLabel(state);
-  }, [indeterminateCheckLabel, isAllSelected, isNoneSelected]);
+    return typeof indeterminateCheck === 'string'
+      ? indeterminateCheck
+      : typeof indeterminateCheck === 'function'
+      ? indeterminateCheck(state)
+      : indeterminateCheck
+      ? state === 'all'
+        ? getLabel('table.filter.remove-all')
+        : getLabel('table.filter.select-all')
+      : '';
+  }, [getLabel, indeterminateCheck, isAllSelected, isNoneSelected]);
 
   const onChangeHandler = (value: string, checked: boolean): void => {
     let nextValue = currentValue;

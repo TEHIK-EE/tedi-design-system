@@ -119,7 +119,7 @@ export const WithIndeterminate: Story = {
     ...Check.args,
     label: 'I have an indeterminate checkbox:',
     items: generateItems(7),
-    indeterminateCheckLabel: (state) => (state === 'all' ? 'Eemalda kõik' : 'Vali kõik'),
+    indeterminateCheck: (state) => (state === 'all' ? 'Eemalda kõik' : 'Vali kõik'),
   },
 };
 
