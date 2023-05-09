@@ -5,6 +5,7 @@ import { AllowedHTMLTags, PolymorphicComponentPropWithRef, PolymorphicRef } from
 import Icon, { IconProps } from '../icon/icon';
 import Print from '../print/print';
 import styles from './button-content.module.scss';
+import ButtonLoader from './button-loader/button-loader';
 
 export type ButtonTypes = 'primary' | 'secondary' | 'link';
 
@@ -68,6 +69,12 @@ export type ButtonContentProps<
      */
     isActive?: boolean;
     /**
+     * If button is in loading state and should show spinner.
+     * When isLoading is true, button does not trigger onClick event.
+     * @default false
+     */
+    isLoading?: boolean;
+    /**
      * Skip applying button/link styles
      * Useful when you just want to use Button or Anchor logic without the styles
      * In this case icon, iconLeft and iconRight are ignored
@@ -101,13 +108,16 @@ const InternalButtonContent = forwardRef(
       underline = false,
       isHovered,
       isActive,
+      isLoading = false,
       noStyle,
       renderWrapperElement,
+      onClick,
       ...rest
     }: ButtonContentProps<C, P, A>,
     ref?: PolymorphicRef<C>
   ) => {
     const Component = as || 'button';
+    const hasIcon = icon || iconLeft || iconRight;
 
     const BEM = !noStyle
       ? cn(
@@ -119,6 +129,7 @@ const InternalButtonContent = forwardRef(
           { [styles['btn--underline']]: underline },
           { [styles['btn--is-hovered']]: isHovered },
           { [styles['btn--is-active']]: isActive },
+          { [styles['btn--is-loading']]: isLoading && !hasIcon },
           { [styles['btn--icon-only']]: icon }
         )
       : cn(styles['btn--no-style'], className);
@@ -131,7 +142,11 @@ const InternalButtonContent = forwardRef(
           ? { ...defaultIconProps, name: icon }
           : { ...defaultIconProps, ...icon, className: cn(defaultIconProps.className, icon?.className) };
 
-      return <Icon {...iconProps} />;
+      return isLoading ? (
+        <ButtonLoader size={iconProps.size} className={iconProps.className} />
+      ) : (
+        <Icon {...iconProps} />
+      );
     };
 
     const renderContent = (): JSX.Element => (
@@ -139,13 +154,25 @@ const InternalButtonContent = forwardRef(
         {icon && getIcon('centre', icon)}
         {iconLeft && getIcon('left', iconLeft)}
         <span className={styles['btn__text']}>{children}</span>
+        {isLoading && !hasIcon && <ButtonLoader position="absolute" className={styles['btn__loader']} />}
         {iconRight && getIcon('right', iconRight)}
       </span>
     );
 
+    const onClickHandler = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>): void => {
+      if (onClick && !isLoading) onClick(event);
+    };
+
     return (
       <Print visibility="hide">
-        <Component data-name="button-content" {...rest} ref={ref} className={BEM}>
+        <Component
+          data-name="button-content"
+          {...rest}
+          aria-disabled={isLoading || rest['aria-disabled']}
+          onClick={onClickHandler}
+          ref={ref}
+          className={BEM}
+        >
           {!noStyle ? renderContent() : children}
         </Component>
       </Print>

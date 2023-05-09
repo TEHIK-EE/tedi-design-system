@@ -1,0 +1,44 @@
+.button-loader {
+  display: inline-block;
+  width: var(--icon-internal-variation-size, 1rem);
+  height: var(--icon-internal-variation-size, 1rem);
+  animation: 1.4s linear 0s infinite normal none running loader-outer;
+
+  &--absolute {
+    position: absolute;
+  }
+}
+
+.button-loader__inner {
+  stroke: currentcolor;
+  stroke-dasharray: 80px, 200px;
+  stroke-dashoffset: 0;
+  animation: 1.4s ease-in-out 0s infinite normal none running loader-inner;
+}
+
+@keyframes loader-outer {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes loader-inner {
+  0% {
+    stroke-dasharray: 1px, 200px;
+    stroke-dashoffset: 0;
+  }
+
+  50% {
+    stroke-dasharray: 100px, 200px;
+    stroke-dashoffset: -15px;
+  }
+
+  100% {
+    stroke-dasharray: 100px, 200px;
+    stroke-dashoffset: -125px;
+  }
+}

@@ -219,6 +219,10 @@
   .btn--link:active:not(:disabled) & {
     text-decoration: underline;
   }
+
+  .btn--is-loading & {
+    color: var(--color-transparent);
+  }
 }
 
 .btn__inner {

@@ -3,6 +3,8 @@ import React, { forwardRef } from 'react';
 
 import styles from './icon.module.scss';
 
+export type IconSize = 12 | 14 | 16 | 18 | 24 | 36 | 48;
+
 export interface IconProps {
   /**
    * Name of material symbols icon.
@@ -29,7 +31,7 @@ export interface IconProps {
    * Size of the icon.
    * @default 24
    */
-  size?: 12 | 14 | 16 | 18 | 24 | 36 | 48;
+  size?: IconSize;
   /**
    * Type of display. block by default.
    * @default block

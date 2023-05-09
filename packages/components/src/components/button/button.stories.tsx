@@ -61,6 +61,7 @@ const Template: StoryFn<ButtonProps> = (args) => {
       {getRow('Default')}
       {getRow('Active', { isActive: true })}
       {getRow('Disabled', { disabled: true })}
+      {getRow('Loading', { isLoading: true })}
     </VerticalSpacing>
   );
 };
