@@ -1,3 +1,12 @@
+# [3.15.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.14.2...v3.15.0) (2023-05-09)
+
+
+### Features
+
+* **validateChildren:** Remove validateChildren - TEHVEER-76 ([f1e68de](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/f1e68deb6ad16aeca891b8e74330f23a8d1f0a7a))
+* **validateChildren:** Remove validateChildren from Row and Card - TEHVEER-76 ([42b7ccd](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/42b7ccdeee4a40bc39eac842e7ee81fab58408ac))
+* **validateChildren:** Remove validateChildren from Row and Card - TEHVEER-76 ([124b917](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/124b917c8359a9059b28054a7d098e75dc38fb10))
+
 ## [3.14.2](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.14.1...v3.14.2) (2023-05-08)
 
 
