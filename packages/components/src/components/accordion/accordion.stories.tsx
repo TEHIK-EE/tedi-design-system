@@ -11,6 +11,7 @@ import AccordionItemHeader from './accordion-item-header/accordion-item-header';
 
 const meta: Meta<typeof Accordion> = {
   component: Accordion,
+  subcomponents: { AccordionItem, AccordionItemContent, AccordionItemHeader } as never,
 };
 
 const ACCORDION_ITEM_CONTENT =

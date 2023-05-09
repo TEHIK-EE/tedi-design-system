@@ -15,7 +15,6 @@ const config: StorybookConfig = {
     '../src/docs/scale-layout/grid.mdx',
     '../src/docs/labels/labels.mdx',
     '../src/docs/printing.mdx',
-    '../src/docs/validateChildren.mdx',
     '../src/docs/changelog.mdx',
     '../src/**/**/*.stories.tsx',
     '../src/**/**/*.mdx',

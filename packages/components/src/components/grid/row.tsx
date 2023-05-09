@@ -1,9 +1,8 @@
 import cn from 'classnames';
 import React from 'react';
 
-import { validateChildren } from '../../helpers/validators/validateChildren';
 import { DEVICE_SIZES } from '../commonTypes';
-import { Col, ColProps } from './col';
+import { ColProps } from './col';
 import styles from './grid.module.scss';
 import { RowContext } from './row-context';
 
@@ -175,10 +174,6 @@ export const Row = (props: RowProps): JSX.Element => {
       </Element>
     </RowContext.Provider>
   );
-};
-
-Row.propTypes = {
-  children: (props: { [key: string]: any }) => validateChildren('Row', props, { custom: [Col.name] }),
 };
 
 export default Row;

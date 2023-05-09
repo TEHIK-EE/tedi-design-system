@@ -10,7 +10,7 @@ import { Row, RowProps } from './row';
 const meta: Meta<typeof Row> = {
   title: 'components/Grid',
   component: Row,
-  subcomponents: { Col: Col as any },
+  subcomponents: { Col: Col } as never,
   parameters: {
     docs: {
       page: () => (

@@ -1,0 +1,47 @@
+import { Meta, Title, Canvas, ArgsTable, Stories } from '@storybook/blocks';
+import * as LabelProviderStories from './label-provider.stories.tsx';
+
+<Meta of={LabelProviderStories} />
+
+<Title />
+This component provides the labels helper function to other components via context api. Currently defined labels can be found
+[here](/docs/documentation-labels--labels)
+
+## Usage
+
+### Provider
+
+Wrap the provider around your app.
+
+```jsx
+<LabelProvider labels={labels} locale={locale}>
+  <YourApp />
+</LabelProvider>
+```
+
+Labels is an object of key and value pairs. Keys should follow pattern:
+
+<ul>
+  <li>`<labelName>`</li>
+  <li>`<componentName>.<labelName>`</li>
+</ul>
+Values are either plain strings or some keys also support functions. Functions can be used for conditional translations like plurals.
+
+### Consumer
+
+Use as hook:
+
+```js
+const { getLabel } = useLabels();
+const label = getLabel('someKey');
+```
+
+Or wrap your component in the context consumer:
+
+```jsx
+<LabelContext.Consumer>{(labels) => <Component someLabel={labels.getLabel('someKey')} />}</LabelContext.Consumer>
+```
+
+<ArgsTable />
+
+<Stories />

@@ -38,7 +38,6 @@
     "react-animate-height": "^3.1.1",
     "react-dom": "^18.2.0",
     "react-select": "^5.7.2",
-    "react-test-renderer": "^18.2.0",
     "react-toastify": "^9.1.2",
     "what-input": "^5.2.12",
     "yup": "^1.1.1"
