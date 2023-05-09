@@ -1,3 +1,10 @@
+# [3.16.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.15.0...v3.16.0) (2023-05-09)
+
+
+### Features
+
+* **sidenav:** UPP-619 Fix problem with sidenav being behind content ([45151ab](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/45151ab38ba8a183980b68237960de04393320f1))
+
 # [3.15.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.14.2...v3.15.0) (2023-05-09)
 
 
