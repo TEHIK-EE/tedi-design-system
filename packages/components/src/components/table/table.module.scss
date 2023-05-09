@@ -53,11 +53,11 @@
       }
     }
 
-    .sorted__icon--asc {
+    .sort__icon--asc {
       transform: rotate(180deg);
     }
 
-    .sorted__icon--desc {
+    .sort__icon--desc {
       transition-duration: 600ms;
       transition-property: transform;
       transform: rotate(0);
