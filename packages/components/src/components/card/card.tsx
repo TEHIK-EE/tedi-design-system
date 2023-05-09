@@ -1,12 +1,10 @@
 import cn from 'classnames';
 import React, { forwardRef } from 'react';
 
-import { validateChildren } from '../../helpers/validators/validateChildren';
-import { ModalCloser } from '../modal';
 import styles from './card.module.scss';
-import CardContent, { CardContentProps } from './card-content/card-content';
+import { CardContentProps } from './card-content/card-content';
 import { CardContext } from './card-context';
-import CardHeader, { CardHeaderProps } from './card-header/card-header';
+import { CardHeaderProps } from './card-header/card-header';
 
 export type CardPadding = 'none' | 'xsmall' | 'small' | 'medium' | 'large';
 

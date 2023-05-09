@@ -43,7 +43,7 @@ const config: UserConfig = {
       formats: ['es', 'cjs'],
     },
     rollupOptions: {
-      external: ['next', 'react', 'react-is', 'react/jsx-runtime', 'react-dom', 'react-test-renderer', 'dayjs'],
+      external: ['next', 'react', 'react/jsx-runtime', 'react-dom', 'dayjs'],
     },
   },
 };

@@ -1,9 +1,8 @@
 import cn from 'classnames';
 import React from 'react';
 
-import { validateChildren } from '../../helpers/validators/validateChildren';
 import { DEVICE_SIZES } from '../commonTypes';
-import { Col, ColProps } from './col';
+import { ColProps } from './col';
 import styles from './grid.module.scss';
 import { RowContext } from './row-context';
 
