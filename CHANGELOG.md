@@ -1,3 +1,10 @@
+## [3.16.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.16.0...v3.16.1) (2023-05-09)
+
+
+### Bug Fixes
+
+* **table:** active sort icon color - TEHVEER-139 ([d640777](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/d640777b211cd4bdd079a49d46296c0afe5072fd))
+
 # [3.16.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.15.0...v3.16.0) (2023-05-09)
 
 
