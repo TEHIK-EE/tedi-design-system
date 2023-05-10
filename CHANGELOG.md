@@ -1,3 +1,11 @@
+# [3.17.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.16.1...v3.17.0) (2023-05-10)
+
+
+### Features
+
+* **button:** Add loading state to button - TEHVEER-140 ([bf6b6e0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/bf6b6e094414619affc58afecb4bf7fd002982d8))
+* **button:** Add loading state to button - TEHVEER-140 ([7aff951](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/7aff9517e3e3abee719a0d4fd4f580e06779f47a))
+
 ## [3.16.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.16.0...v3.16.1) (2023-05-09)
 
 
