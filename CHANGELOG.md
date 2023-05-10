@@ -1,3 +1,10 @@
+# [3.18.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.17.1...v3.18.0) (2023-05-10)
+
+
+### Features
+
+* **table:** Add possibilty to pass ChoiceGroupItems to tableFilter - TEHVEER-142 ([cf1f277](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/cf1f277ea0de7fad0199414d1371d1372ceac890))
+
 ## [3.17.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.17.0...v3.17.1) (2023-05-10)
 
 
