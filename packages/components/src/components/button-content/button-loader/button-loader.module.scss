@@ -1,7 +1,7 @@
 .button-loader {
   display: inline-block;
-  width: var(--icon-internal-variation-size, 1rem);
-  height: var(--icon-internal-variation-size, 1rem);
+  width: var(--loader-internal-variation-size, 1rem);
+  height: var(--loader-internal-variation-size, 1rem);
   animation: 1.4s linear 0s infinite normal none running loader-outer;
 
   &--absolute {
