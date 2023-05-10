@@ -10,6 +10,16 @@ export interface IInternalButtonProps {
    * If button should take all the space it has
    */
   fullWidth?: boolean;
+  /**
+   * Button type
+   * @default button
+   */
+  type?: 'submit' | 'button' | 'reset';
+  /**
+   * Skips forms browser validation
+   * @default true when type="submit"
+   */
+  formNoValidate?: boolean;
 }
 
 type AllowedTags = 'button';
@@ -29,6 +39,8 @@ const InternalButton = forwardRef(
     const {
       children,
       as,
+      type,
+      formNoValidate,
       className,
       classNameIcon,
       visualType,
@@ -52,7 +64,8 @@ const InternalButton = forwardRef(
       <ButtonContent
         data-name="button"
         {...rest}
-        type={rest.type || 'button'}
+        type={type || 'button'}
+        formNoValidate={formNoValidate ?? type === 'submit' ? true : undefined}
         ref={ref}
         as={ComponentAs}
         className={BEM}
