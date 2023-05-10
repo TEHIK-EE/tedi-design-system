@@ -1,3 +1,11 @@
+# [3.19.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.18.0...v3.19.0) (2023-05-10)
+
+
+### Features
+
+* **button:** TEHVEER-141 - Added formNoValidate prop to button ([63cff01](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/63cff012a03c012e9abfa7faaf6f510a21e55df4))
+* **button:** TEHVEER-141 - Added general form story for validation ([7c86853](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/7c86853fbd5792014e4f2c5b8092824c6a1a9094))
+
 # [3.18.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.17.1...v3.18.0) (2023-05-10)
 
 
