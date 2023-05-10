@@ -35,6 +35,7 @@ type Story = StoryObj<TableProps<Person>>;
 type Person = {
   firstName: string;
   lastName: string;
+  personName: string;
   age: number;
   visits: number;
   status: 'Single' | 'In Relationship' | 'Complicated';
@@ -53,6 +54,7 @@ function calculateAge(birthday: Date) {
 const createRandomPerson = (isSubRow: boolean): Person => ({
   firstName: faker.name.firstName(),
   lastName: faker.name.lastName(),
+  personName: faker.name.fullName(),
   age: calculateAge(faker.date.birthdate()),
   visits: Number(faker.random.numeric(2)),
   status: faker.helpers.arrayElement(['Single', 'Complicated', 'In Relationship']),
@@ -474,10 +476,21 @@ export const WithFiltersControlledFromOutside: Story = {
       meta: {
         filterOptions: data()
           .map((row) => row[column.id as keyof Person])
-          .slice(0, 5),
+          .slice(0, 5)
+          .map((value) => ({ value, label: `${value}-label`, id: `${value}-filter` })),
       },
     })),
     enableFilters: true,
+  },
+
+  parameters: {
+    docs: {
+      description: {
+        story: `Filters can be controlled from outside by passing 'columnFilters' and 'onColumnFiltersChange' props. 'columnFilters' is an array of objects with 'id' and 'value' properties. 'id' is the column id and 'value' is an array of selected values. <br />
+        'onColumnFiltersChange' is a function that is called when filters are changed. It receives an array of objects with 'id' and 'value' properties. <br />
+        To customy column filter choiceGroup items pass meta.filterOptions to ColumnDef. It is an array of ChoiceGroupItems or string.`,
+      },
+    },
   },
 };
 

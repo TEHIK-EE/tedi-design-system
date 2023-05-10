@@ -5,7 +5,7 @@ import { useLabels } from '../../../../../providers/label-provider';
 import Button from '../../../../button/button';
 import Card from '../../../../card/card';
 import CardContent from '../../../../card/card-content/card-content';
-import ChoiceGroup, { TChoiceGroupValue } from '../../../../form/choice-group/choice-group';
+import { ChoiceGroup, ChoiceGroupItemProps, TChoiceGroupValue } from '../../../../form/choice-group';
 import Col from '../../../../grid/col';
 import Row from '../../../../grid/row';
 import Heading from '../../../../typography/heading/heading';
@@ -14,7 +14,10 @@ import styles from '../../../table.module.scss';
 import { TableFilterContext } from '../table-filter-context';
 
 interface TableSelectColumnMeta {
-  filterOptions: string[];
+  /**
+   * Pass your own custom filterOptions to column.meta.filterOptions to override the default values.
+   */
+  filterOptions: ChoiceGroupItemProps[] | string[];
 }
 
 const sanitizeRowValues = (rowValues: unknown[]): unknown[] => {
@@ -52,6 +55,10 @@ export const TableSelectFilter = () => {
   const meta = column?.columnDef?.meta as TableSelectColumnMeta;
   const externalRowValues = meta?.filterOptions;
 
+  const isChoiceGroupItem = (value: unknown): value is ChoiceGroupItemProps => {
+    return typeof value === 'object' && value !== null && 'id' in value && 'label' in value && 'value' in value;
+  };
+
   const internalRowValues =
     // Get all values for the corresponding column id
     rows?.length && typeof column?.columnDef?.id === 'string'
@@ -59,15 +66,15 @@ export const TableSelectFilter = () => {
       : [];
 
   const rowValues = externalRowValues?.length
-    ? sanitizeRowValues(externalRowValues)
+    ? isChoiceGroupItem(externalRowValues[0])
+      ? externalRowValues // Do not sanitize if custom filterOptions are choicegroupItems
+      : sanitizeRowValues(externalRowValues)
     : sanitizeRowValues(internalRowValues);
 
-  const options =
-    rowValues?.map((i, index) => ({
-      id: `${column?.columnDef?.id}-choice-${index}`,
-      label: String(i),
-      value: String(i),
-    })) || [];
+  // If custom filterOptions are choicegroupItems then use them, otherwise create choicegroupItems from the values
+  const options = rowValues?.map((i, index) =>
+    isChoiceGroupItem(i) ? i : { id: `${column?.columnDef?.id}-choice-${index}`, label: String(i), value: String(i) }
+  );
 
   const { values, setFieldValue, handleReset, handleSubmit, errors } = useFormik({
     initialValues,
