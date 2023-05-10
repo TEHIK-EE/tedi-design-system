@@ -1,3 +1,11 @@
+## [3.17.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.17.0...v3.17.1) (2023-05-10)
+
+
+### Bug Fixes
+
+* **button-loader:** Fix strokeWidth property typo - TEHVEER-140 ([a371551](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/a371551e0d487dc5c851a22a5665edf3d53661bc))
+* **toast:** Do not pass react-toastify props to Notification component ([6c2e27b](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/6c2e27b2c2170ff415359b6a1fbcc3f88e11c3c3))
+
 # [3.17.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.16.1...v3.17.0) (2023-05-10)
 
 
