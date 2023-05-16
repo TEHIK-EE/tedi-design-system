@@ -1,3 +1,17 @@
+# [3.20.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.19.0...v3.20.0) (2023-05-16)
+
+
+### Bug Fixes
+
+* **docker:** Test docker build ([11d4100](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/11d410067789bfb3ce7b1d4e30caa6624b4d845d))
+* **docker:** Test docker build ([2ab65af](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/2ab65affffa3665a0f3411c3e7d9ac3fa9efe87d))
+* **docker:** Test docker build ([278766b](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/278766b1007b68b4ce687595fc2799c8a14a447b))
+
+
+### Features
+
+* **docker:** Added storybook docker build ([1747bd0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/1747bd05d76896503c0c802b40ef5c882ec4b7a7))
+
 # [3.19.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.18.0...v3.19.0) (2023-05-10)
 
 
