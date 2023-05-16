@@ -68,7 +68,7 @@ build-sb:
     - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
   artifacts:
     paths:
-      dist/storybook/components/
+      - dist/storybook/components/
 
 build-sb-docker:
   image: docker.repo.tehik.ee/docker:23
