@@ -139,7 +139,7 @@ publish-storybook-tehik:
   before_script:
     - kubectl config set-credentials $K8S_CONTEXT --token="${K8S_TOKEN}"
     - kubectl config set-cluster $K8S_CONTEXT --server="${K8S_SERVER}"
-    - kubectl config set-context "$K8S_CONTEXT" --cluster= --user="${$K8S_CONTEXT}"
+    - kubectl config set-context "$K8S_CONTEXT" --cluster= --user="${K8S_CONTEXT}"
     - kubectl config use-context "$K8S_CONTEXT"
   script:
     - kubectl -n $K8S_NAMESPACE set image Deployment/tehik-react-story-book nginx=$CI_REGISTRY_IMAGE:$CI_PIPELINE_ID
