@@ -1,3 +1,10 @@
+# [3.21.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.20.0...v3.21.0) (2023-05-16)
+
+
+### Features
+
+* **k8s:** Added publish to TEHIK k8s. ([b967f3f](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/b967f3f5154eeeda1d69403c379a3559af300bbc))
+
 # [3.20.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.19.0...v3.20.0) (2023-05-16)
 
 
