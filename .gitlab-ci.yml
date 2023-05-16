@@ -1,6 +1,7 @@
 stages:
   - test
   - build
+  - build-docker
   - publish
 
 image:
@@ -65,10 +66,16 @@ build-sb:
       when: never
     - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
     - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
+  artifacts:
+    paths:
+      dist/storybook/components/
 
 build-sb-docker:
-  stage: build
+  image: docker.repo.tehik.ee/docker:23
+  stage: build-docker
   interruptible: true
+  dependencies:
+    - build-sb
   variables:
     # DinD variables
     DOCKER_HOST: "tcp://docker:2376"
@@ -76,12 +83,11 @@ build-sb-docker:
     DOCKER_TLS_VERIFY: 1
     DOCKER_CERT_PATH: "$DOCKER_TLS_CERTDIR/client"
   services:
-    - name: docker.repo.tehik.ee/docker:dind
+    - name: docker.repo.tehik.ee/docker:23-dind
       alias: docker
       entrypoint: ["dockerd-entrypoint.sh"]
       command: ["--registry-mirror=https://docker.repo.tehik.ee"]
   script:
-    - npm run build:sb
     - docker build -t $CI_REGISTRY_IMAGE:$CI_PIPELINE_ID . 
     - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
     - docker push $CI_REGISTRY_IMAGE:$CI_PIPELINE_ID
