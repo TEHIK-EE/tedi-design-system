@@ -15,8 +15,9 @@ cache:
   paths:
     - .npm/
 
-before_script:
-  - HUSKY=0 npm ci --cache .npm --prefer-offline
+.before_script: &before_script
+  before_script:
+    - HUSKY=0 npm ci --cache .npm --prefer-offline
 
 workflow:
   rules:
@@ -24,6 +25,7 @@ workflow:
     - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
 
 lint:
+  <<: *before_script
   stage: test
   interruptible: true
   script:
@@ -35,6 +37,7 @@ lint:
     - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
 
 test:
+  <<: *before_script
   stage: test
   interruptible: true
   script:
@@ -46,6 +49,7 @@ test:
     - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
 
 build:
+  <<: *before_script
   stage: build
   interruptible: true
   script:
@@ -57,6 +61,7 @@ build:
     - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
 
 build-sb:
+  <<: *before_script
   stage: build
   interruptible: true
   script:
@@ -98,6 +103,7 @@ build-sb-docker:
    - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH 
 
 publish-library:
+  <<: *before_script
   stage: publish
   script:
     - apt-get update && apt-get install -y --no-install-recommends git-core ca-certificates
@@ -115,6 +121,7 @@ publish-library:
     - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
 
 publish-storybook:
+  <<: *before_script
   stage: publish
   script:
     - npm run build:sb

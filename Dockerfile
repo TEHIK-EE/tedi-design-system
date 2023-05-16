@@ -7,5 +7,5 @@ RUN apk add --no-cache bash
 COPY nginx.conf /etc/nginx/nginx.conf
 
 # Copy build artifacts to conteiner
-COPY ./dist/storybook/componentis/ /usr/share/nginx/html
+COPY ./dist/storybook/components/ /usr/share/nginx/html
 
