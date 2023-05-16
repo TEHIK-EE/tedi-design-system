@@ -1,3 +1,10 @@
+## [3.21.2](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.21.1...v3.21.2) (2023-05-16)
+
+
+### Bug Fixes
+
+* **k8s:** Test k8s deploy. ([a65cd48](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/a65cd486d883e12b33b968234d119e77efa81138))
+
 ## [3.21.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.21.0...v3.21.1) (2023-05-16)
 
 
