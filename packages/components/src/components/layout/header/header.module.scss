@@ -3,17 +3,12 @@
 
 .header {
   z-index: 20;
-  display: flex;
   min-height: 3.5rem;
   overflow: hidden;
   background: var(--color-bg-default);
   box-shadow: 0 1px 2px rgb(0 0 0 / 14%);
 
   @include mixins.print-grayscale;
-
-  @include breakpoints.media-breakpoint-up(lg) {
-    padding: 1rem 2.5rem;
-  }
 }
 
 .header__toggle {
@@ -65,6 +60,14 @@
   }
 }
 
+.header__content-wrapper {
+  display: flex;
+
+  @include breakpoints.media-breakpoint-up(lg) {
+    padding: 1rem 2.5rem;
+  }
+}
+
 .header__content {
   display: flex;
   align-items: center;
@@ -73,6 +76,12 @@
   @include breakpoints.media-breakpoint-down(lg) {
     padding: 0 1rem;
   }
+}
+
+.header__bottom-content {
+  display: flex;
+  padding: 1rem 2.5rem;
+  background-color: var(--color-bg-muted);
 }
 
 .header__logout {
