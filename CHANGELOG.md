@@ -1,3 +1,10 @@
+# [3.22.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.21.2...v3.22.0) (2023-05-18)
+
+
+### Features
+
+* **header:** UPP-619 Add possibility to use bottomContent for when things won't fit in header ([b7337b6](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/b7337b60c98d89e8bcd8c8f311f03bf22da180e0))
+
 ## [3.21.2](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.21.1...v3.21.2) (2023-05-16)
 
 
