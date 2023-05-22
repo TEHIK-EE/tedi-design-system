@@ -1,5 +1,7 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
+import { ColumnDef, createColumnHelper } from '@tanstack/react-table';
 
+import { Table } from '../../table';
 import { VerticalSpacing } from '../../vertical-spacing';
 import Text, { TextProps } from './text';
 
@@ -20,9 +22,64 @@ const meta: Meta<typeof Text> = {
 export default meta;
 type Story = StoryObj<typeof Text>;
 
+interface TextTableRow {
+  name: string;
+  rem: string;
+  px: string;
+  props: Partial<TextProps>;
+}
+
+const DefaultRows: TextTableRow[] = [
+  { name: 'Heading 1', rem: '2/3', px: '32/48', props: { element: 'h1' } },
+  { name: 'Heading 2', rem: '1.75/2.625', px: '28/42', props: { element: 'h2' } },
+  { name: 'Heading 3', rem: '1.5/2.25', px: '24/36', props: { element: 'h3' } },
+  { name: 'Heading 4', rem: '1.25/1.875', px: '20/30', props: { element: 'h4' } },
+  { name: 'Heading 5', rem: '1.125/1.625', px: '18/26', props: { element: 'h5' } },
+  { name: 'Heading 6', rem: '1/1.5', px: '16/24', props: { element: 'h6' } },
+  { name: 'Body Regular', rem: '1/1.5', px: '16/24', props: { element: 'p' } },
+  { name: 'Body Regular Italic', rem: '1/1.5', px: '16/24', props: { modifiers: ['italic'] } },
+  { name: 'Body Regular Bold', rem: '1/1.5', px: '16/24', props: { modifiers: ['bold'] } },
+  { name: 'Body Small', rem: '0.875/1.25', px: '14/20', props: { modifiers: ['small'] } },
+  { name: 'Body Small Italic', rem: '0.875/1.25', px: '14/20', props: { modifiers: ['small', 'italic'] } },
+  { name: 'Body Small Bold', rem: '0.875/1.25', px: '14/20', props: { modifiers: ['small', 'bold'] } },
+  { name: 'Subtitles regular', rem: '1/1.5', px: '16/24', props: { modifiers: ['uppercase', 'bold'] } },
+  { name: 'Subtitles small', rem: '0.875/1.25', px: '14/20', props: { modifiers: ['uppercase', 'small'] } },
+];
+
+const columnHelper = createColumnHelper<TextTableRow>();
+
+// eslint-disable-next-line
+const columns: ColumnDef<TextTableRow, any>[] = [
+  columnHelper.accessor('name', {
+    header: 'Name',
+    cell: (info) => <Text {...info.row.original.props}>{info.renderValue()}</Text>,
+  }),
+  columnHelper.accessor('rem', {
+    header: 'font size/line-height (rem)',
+    cell: (info) => info.renderValue(),
+  }),
+  columnHelper.accessor('px', {
+    header: 'font size/line-height (px)',
+  }),
+];
+
+const DefaultTemplate: StoryFn = () => {
+  return (
+    <Table<TextTableRow>
+      id="default-text-table"
+      data={DefaultRows}
+      columns={columns}
+      hideCardBorder
+      hidePagination
+      enableSorting={false}
+    />
+  );
+};
+
 interface ColorsTemplateProps {
   examples: Array<{ color: TextProps['color']; text: string }>;
 }
+
 const ColorsTemplate: StoryFn<ColorsTemplateProps> = ({ examples }) => {
   return (
     <VerticalSpacing>
@@ -51,9 +108,7 @@ const ModifiersTemplate: StoryFn<ModifiersTemplateProps> = (args) => {
 };
 
 export const Default: Story = {
-  args: {
-    children: 'Default text',
-  },
+  render: DefaultTemplate,
 };
 
 export const Colors: StoryObj<ColorsTemplateProps> = {
