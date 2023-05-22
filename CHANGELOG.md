@@ -1,3 +1,18 @@
+# [3.23.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.22.0...v3.23.0) (2023-05-22)
+
+
+### Bug Fixes
+
+* **dcoker_build:** Test with 23.0.5-dind docer ([993c17b](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/993c17bcaf4635b2f716d8dac24023b1199ac674))
+* **docker:** Test DOCKER_HOST variable disable inside pipeline ([2d80893](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/2d808935d5ec7925990b2389beba8c0facba1139))
+* **vertical-spacing:** Fix margin-bottom when wrapped with VerticalSpacingItem - TEHVEER-146 ([39d3808](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/39d3808371ce3392a00a99d193112670e1728a0c))
+
+
+### Features
+
+* **bg-colros:** Update possible background colors - TEHVEER-143 ([4bd35a5](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/4bd35a51df454b5909b9e52759d143328139b68c))
+* **typography:** Update line-heights from design - TEHVEER-145 ([7565b19](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/7565b1988da4b1a2143b649a5064644f8864e6f8))
+
 # [3.22.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.21.2...v3.22.0) (2023-05-18)
 
 
