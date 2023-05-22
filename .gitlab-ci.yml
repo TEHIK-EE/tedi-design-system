@@ -88,7 +88,7 @@ build-sb-docker:
     DOCKER_TLS_VERIFY: 1
     DOCKER_CERT_PATH: '$DOCKER_TLS_CERTDIR/client'
   services:
-    - name: docker.repo.tehik.ee/docker:23.0.5-dind
+    - name: docker.repo.tehik.ee/docker:23-dind
       alias: docker
       entrypoint: ['dockerd-entrypoint.sh']
       command: ['--registry-mirror=https://docker.repo.tehik.ee']
