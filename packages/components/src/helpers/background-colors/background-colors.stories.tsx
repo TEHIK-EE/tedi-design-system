@@ -15,27 +15,37 @@ export default meta;
 type Story = StoryObj<TemplateProps>;
 
 const colors: TColorsBackground[] = [
+  // Primary
+  'primary-main',
+  'primary-active',
+  'primary-active-subtle',
+  'primary-highlight',
+  'primary-highlight-subtle',
+  // Accent
+  'accent-main',
+  'accent-highlight',
+  // Foreground
   'bg-default',
   'bg-muted',
   'bg-subtle',
-  'warning-highlight',
-  'important-highlight',
-  'positive-highlight',
-  'primary-highlight',
-  'primary-highlight-subtle',
-  'primary-main',
-];
-
-const colorsDeprecated: TColorsBackground[] = [
+  'bg-disabled',
+  'bg-inverted',
+  'bg-inverted-contrast',
+  // Shades
+  'black',
   'white',
-  'background-light',
-  'background',
-  'warning-light',
-  'success-light',
-  'error-light',
-  'primary-1',
-  'primary-2',
-  'primary',
+  // Functional colors - Positive
+  'positive-main',
+  'positive-active',
+  'positive-highlight',
+  'important-main',
+  'important-active',
+  'important-highlight',
+  'info-main',
+  'info-active',
+  'info-highlight',
+  'warning-main',
+  'warning-highlight',
 ];
 
 interface TemplateProps {
@@ -58,13 +68,5 @@ export const BackgroundColors: Story = {
 
   args: {
     colors,
-  },
-};
-
-export const DeprecatedColorsNaming: Story = {
-  render: Template,
-
-  args: {
-    colors: colorsDeprecated,
   },
 };
