@@ -83,24 +83,23 @@ build-sb-docker:
     - build-sb
   variables:
     # DinD variables
-    DOCKER_HOST: "tcp://docker:2376"
-    DOCKER_TLS_CERTDIR: "/certs"
+    DOCKER_HOST: 'tcp://docker:2376'
+    DOCKER_TLS_CERTDIR: '/certs'
     DOCKER_TLS_VERIFY: 1
-    DOCKER_CERT_PATH: "$DOCKER_TLS_CERTDIR/client"
+    DOCKER_CERT_PATH: '$DOCKER_TLS_CERTDIR/client'
   services:
     - name: docker.repo.tehik.ee/docker:23-dind
       alias: docker
-      entrypoint: ["dockerd-entrypoint.sh"]
-      command: ["--registry-mirror=https://docker.repo.tehik.ee"]
+      entrypoint: ['dockerd-entrypoint.sh']
+      command: ['--registry-mirror=https://docker.repo.tehik.ee']
   script:
-    - docker build -t $CI_REGISTRY_IMAGE:$CI_PIPELINE_ID . 
+    - docker build -t $CI_REGISTRY_IMAGE:$CI_PIPELINE_ID .
     - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
     - docker push $CI_REGISTRY_IMAGE:$CI_PIPELINE_ID
   rules:
-   - if: $CI_COMMIT_AUTHOR     == "semantic-release-bot <semantic-release-bot@martynus.net>"
-     when: never
-   - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
-   - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH 
+    - if: $CI_COMMIT_AUTHOR     == "semantic-release-bot <semantic-release-bot@martynus.net>"
+      when: never
+    - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
 
 publish-library:
   <<: *before_script
@@ -144,7 +143,6 @@ publish-storybook-tehik:
   script:
     - kubectl -n $K8S_NAMESPACE set image Deployment/tehik-react-story-book nginx=$CI_REGISTRY_IMAGE:$CI_PIPELINE_ID
   rules:
-   - if: $CI_COMMIT_AUTHOR     == "semantic-release-bot <semantic-release-bot@martynus.net>"
-     when: never
-   - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
-   - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH 
+    - if: $CI_COMMIT_AUTHOR     == "semantic-release-bot <semantic-release-bot@martynus.net>"
+      when: never
+    - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH

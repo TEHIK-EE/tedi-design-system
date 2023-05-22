@@ -1,6 +1,5 @@
 type TColorsBackgroundOld =
   // @deprecated old ones
-  | 'white'
   | 'background-light'
   | 'background'
   | 'warning-light'
@@ -12,14 +11,36 @@ type TColorsBackgroundOld =
 
 export type TColorsBackground =
   | TColorsBackgroundOld
+  // Primary
+  | 'primary-main'
+  | 'primary-active'
+  | 'primary-active-subtle'
+  | 'primary-highlight'
+  | 'primary-highlight-subtle'
+  // Accent
+  | 'accent-main'
+  | 'accent-highlight'
+  // Foreground
   | 'bg-default'
   | 'bg-muted'
   | 'bg-subtle'
-  | 'warning-highlight'
-  | 'important-highlight'
+  | 'bg-disabled'
+  | 'bg-inverted'
+  | 'bg-inverted-contrast'
+  // Shades
+  | 'black'
+  | 'white'
+  // Functional colors - Positive
+  | 'positive-main'
+  | 'positive-active'
   | 'positive-highlight'
-  | 'primary-main'
-  | 'primary-highlight-subtle'
-  | 'primary-highlight';
+  | 'important-main'
+  | 'important-active'
+  | 'important-highlight'
+  | 'info-main'
+  | 'info-active'
+  | 'info-highlight'
+  | 'warning-main'
+  | 'warning-highlight';
 
 export const DEVICE_SIZES = ['xxl', 'xl', 'lg', 'md', 'sm', 'xs'] as const;
