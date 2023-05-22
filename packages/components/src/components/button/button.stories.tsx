@@ -120,7 +120,7 @@ export const Inverted = {
   },
 
   parameters: {
-    backgrounds: { default: 'black' },
+    backgrounds: { default: 'inverted' },
   },
 };
 
@@ -133,7 +133,7 @@ export const InvertedSecondary = {
   },
 
   parameters: {
-    backgrounds: { default: 'black' },
+    backgrounds: { default: 'inverted' },
   },
 };
 
@@ -154,7 +154,7 @@ export const InvertedLink = {
   },
 
   parameters: {
-    backgrounds: { default: 'black' },
+    backgrounds: { default: 'inverted' },
   },
 };
 

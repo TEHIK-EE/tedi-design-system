@@ -33,7 +33,7 @@ export default {
       },
     },
     layout: 'fullscreen',
-    backgrounds: { default: 'light' },
+    backgrounds: { default: 'subtle' },
   },
 } as Meta;
 

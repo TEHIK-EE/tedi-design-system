@@ -94,7 +94,7 @@ export const Inverted = {
   },
 
   parameters: {
-    backgrounds: { default: 'black' },
+    backgrounds: { default: 'inverted' },
   },
 };
 

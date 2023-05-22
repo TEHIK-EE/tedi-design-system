@@ -11,10 +11,13 @@ export const parameters = {
   backgrounds: {
     default: 'default',
     values: [
-      { name: 'default', value: 'var(--color-white)' },
-      { name: 'light', value: 'var(--color-background)' },
-      { name: 'dark', value: 'var(--color-borders-dark)' },
+      { name: 'default', value: 'var(--color-bg-default)' },
+      { name: 'muted', value: 'var(--color-bg-muted)' },
+      { name: 'subtle', value: 'var(--color-bg-subtle)' },
+      { name: 'disabled', value: 'var(--color-bg-disabled)' },
       { name: 'black', value: 'var(--color-black)' },
+      { name: 'inverted', value: 'var(--color-bg-inverted)' },
+      { name: 'inverted-contrast', value: 'var(--color-bg-inverted-contrast)' },
     ],
   },
 };
