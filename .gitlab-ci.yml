@@ -83,8 +83,7 @@ build-sb-docker:
     - build-sb
   variables:
     # DinD variables
-    ## Disable variables by platform team request
-    # DOCKER_HOST: 'tcp://docker:2376'
+    DOCKER_HOST: 'tcp://docker:2376'
     DOCKER_TLS_CERTDIR: '/certs'
     DOCKER_TLS_VERIFY: 1
     DOCKER_CERT_PATH: '$DOCKER_TLS_CERTDIR/client'
