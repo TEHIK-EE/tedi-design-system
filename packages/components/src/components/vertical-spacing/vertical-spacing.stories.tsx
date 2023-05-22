@@ -1,7 +1,9 @@
+import { faker } from '@faker-js/faker';
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import React from 'react';
 
 import Button from '../button/button';
+import { Card, CardContent } from '../card';
 import Heading from '../typography/heading/heading';
 import VerticalSpacing, { VerticalSpacingProps } from './vertical-spacing';
 import VerticalSpacingItem from './vertical-spacing-item';
@@ -40,10 +42,31 @@ const Template: StoryFn<VerticalSpacingProps> = (args) => (
   </VerticalSpacing>
 );
 
+const CardTemplate: StoryFn<VerticalSpacingProps> = (args) => (
+  <Card>
+    <CardContent>
+      <VerticalSpacing {...args}>
+        {faker.lorem
+          .paragraphs(4, ',')
+          .split(',')
+          .map((p, key) => (
+            <VerticalSpacingItem key={key}>
+              <p>{p}</p>
+            </VerticalSpacingItem>
+          ))}
+      </VerticalSpacing>
+    </CardContent>
+  </Card>
+);
+
 export const Default: Story = {
   render: Template,
 
   args: {
     size: 1,
   },
+};
+
+export const InsideCard: Story = {
+  render: CardTemplate,
 };
