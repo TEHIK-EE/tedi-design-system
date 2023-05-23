@@ -1,3 +1,10 @@
+## [3.25.3](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.25.2...v3.25.3) (2023-05-23)
+
+
+### Bug Fixes
+
+* **anchor:** fix ancor as buttons alignment - TEHVEER-149 ([6b6af6c](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/6b6af6c0e6760cebcee854868228daed5bd3df5f))
+
 ## [3.25.2](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.25.1...v3.25.2) (2023-05-23)
 
 
