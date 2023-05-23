@@ -75,7 +75,9 @@ $btn-height-small: 2.25rem;
 
 .btn {
   position: relative;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   max-width: 100%;
   height: $btn-height;
   padding: 0 1.625rem; // 0 26px
