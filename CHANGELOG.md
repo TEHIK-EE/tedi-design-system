@@ -1,3 +1,11 @@
+# [3.25.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.24.0...v3.25.0) (2023-05-23)
+
+
+### Features
+
+* **button:** Increase deafult and small button size - TEHVEER-148 ([e00e3c7](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/e00e3c75dab9f8242b88bda61fd42b366aa2eb9c))
+* **button:** Increase deafult and small button size - TEHVEER-148 ([5288b2a](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/5288b2aab17f8becff81df3a090761c85369ca6c))
+
 # [3.24.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.23.0...v3.24.0) (2023-05-23)
 
 
