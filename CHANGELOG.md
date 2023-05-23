@@ -1,3 +1,10 @@
+# [3.24.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.23.0...v3.24.0) (2023-05-23)
+
+
+### Features
+
+* **button:** Fix WGAC contrast issues with secondary and inverted buttons - TEHVEER-147 ([a90ceb0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/a90ceb0ad5636d7983cac11115b664d797bfe1b4))
+
 # [3.23.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.22.0...v3.23.0) (2023-05-22)
 
 
