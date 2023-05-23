@@ -1,3 +1,10 @@
+## [3.25.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.25.0...v3.25.1) (2023-05-23)
+
+
+### Bug Fixes
+
+* **button:** Fix link button height - TEHVEER-148 ([9231ddd](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/9231dddadeb08bef0bd47dcca88ba41e860f8a77))
+
 # [3.25.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.24.0...v3.25.0) (2023-05-23)
 
 
