@@ -20,10 +20,10 @@ $btn-height-small: 2.25rem;
   background-color: $background;
   border-color: $border;
 
-  &.btn--is-active:not(:disabled),
-  &:active:not(:disabled),
-  &.btn--is-hovered:not(:disabled),
-  &:hover:not(:disabled) {
+  &.btn--is-active:not(:disabled, [aria-disabled='true']),
+  &:active:not(:disabled, [aria-disabled='true']),
+  &.btn--is-hovered:not(:disabled, [aria-disabled='true']),
+  &:hover:not(:disabled, [aria-disabled='true']) {
     background-color: $background-h;
     border-color: $border-h;
   }
@@ -61,10 +61,10 @@ $btn-height-small: 2.25rem;
 @mixin link-variant($color, $color-h, $color-d) {
   color: $color;
 
-  &.btn--is-hovered:not(:disabled),
-  &.btn--is-active:not(:disabled),
-  &:hover:not(:disabled),
-  &:active:not(:disabled) {
+  &.btn--is-hovered:not(:disabled, [aria-disabled='true']),
+  &.btn--is-active:not(:disabled, [aria-disabled='true']),
+  &:hover:not(:disabled, [aria-disabled='true']),
+  &:active:not(:disabled, [aria-disabled='true']) {
     color: $color-h;
   }
 
@@ -95,7 +95,8 @@ $btn-height-small: 2.25rem;
   @include mixins.print-grayscale;
 }
 
-.btn:disabled {
+.btn:disabled,
+.btn[aria-disabled='true'] {
   cursor: auto;
 }
 
