@@ -1,3 +1,11 @@
+## [3.25.2](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.25.1...v3.25.2) (2023-05-23)
+
+
+### Bug Fixes
+
+* **button:** Fix button loading animation not centered - TEHVEER-149 ([2da25ad](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/2da25ad106abdad462919e27dfec942709ce17d9))
+* **button:** Fix loading button hover and cursor - TEHVEER-149 ([1eefd9e](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/1eefd9e130cf6c4bcca12d3539a2e6f58ae98932))
+
 ## [3.25.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.25.0...v3.25.1) (2023-05-23)
 
 
