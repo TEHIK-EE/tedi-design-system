@@ -46,7 +46,7 @@ const meta: Meta<typeof Layout> = {
       },
     },
     layout: 'fullscreen',
-    backgrounds: { default: 'light' },
+    backgrounds: { default: 'subtle' },
   },
 };
 

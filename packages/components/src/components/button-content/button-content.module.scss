@@ -1,5 +1,8 @@
 @use '../../styles/mixins';
 
+$inverted-secondary-border: rgb(255 255 255 / 50%);
+$inverted-secondary-bg-hover: rgb(255 255 255 / 10%);
+
 @mixin button-variant(
   $background,
   $border,
@@ -34,17 +37,19 @@
   $border,
   $color,
   $border-h,
+  $color-h,
+  $background-h,
   $background-d: var(--color-bg-disabled),
   $border-d: var(--color-bg-disabled),
   $color-d: var(--color-text-disabled)
 ) {
   @include button-variant(
-    transparent,
+    var(--color-white),
     $border,
     $color,
-    transparent,
+    $background-h,
     $border-h,
-    $color,
+    $color-h,
     $background-d,
     $border-d,
     $color-d
@@ -117,8 +122,13 @@
   }
 
   &.btn--secondary {
-    /* used text color as border, because we don't want to add new border variable */
-    @include button-secondary-variant(var(--color-text-muted), var(--color-text-muted), var(--color-border-default));
+    @include button-secondary-variant(
+      var(--color-border-contrast),
+      var(--color-primary-main),
+      var(--color-primary-main),
+      var(--color-primary-active),
+      var(--color-primary-highlight-subtle)
+    );
   }
 }
 
@@ -136,9 +146,11 @@
 
   &.btn--secondary {
     @include button-secondary-variant(
+      var(--color-border-contrast),
       var(--color-important-main),
       var(--color-important-main),
-      var(--color-border-default)
+      var(--color-important-active),
+      var(--color-important-highlight)
     );
   }
 }
@@ -157,9 +169,11 @@
 
   &.btn--secondary {
     @include button-secondary-variant(
+      var(--color-border-contrast),
       var(--color-positive-main),
       var(--color-positive-main),
-      var(--color-border-default)
+      var(--color-positive-active),
+      var(--color-positive-highlight)
     );
   }
 }
@@ -167,23 +181,25 @@
 .btn--inverted {
   &.btn--primary {
     @include button-variant(
-      var(--color-bg-default),
-      var(--color-bg-default),
-      var(--color-primary-main),
-      var(--color-bg-subtle),
-      var(--color-bg-subtle),
-      var(--color-primary-active)
+      var(--color-primary-highlight),
+      var(--color-primary-highlight),
+      var(--color-primary-active),
+      var(--color-white),
+      var(--color-white),
+      var(--color-primary-main)
     );
   }
 
   &.btn--secondary {
     /* used text color as border, because we don't want to add new border variable */
-    @include button-secondary-variant(
+    @include button-variant(
+      var(--color-transparent),
+      $inverted-secondary-border,
       var(--color-text-inverted),
+      $inverted-secondary-bg-hover,
       var(--color-text-inverted),
       var(--color-text-inverted),
       var(--color-transparent),
-      var(--color-bg-disabled),
       var(--color-text-disabled)
     );
   }

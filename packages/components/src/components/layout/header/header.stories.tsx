@@ -10,7 +10,7 @@ import Header, { HeaderProps } from './header';
 const meta: Meta<typeof Header> = {
   component: Header,
   parameters: {
-    backgrounds: { default: 'light' },
+    backgrounds: { default: 'subtle' },
     layout: 'fullscreen',
   },
   excludeStories: /.*CustomHeader$/,
