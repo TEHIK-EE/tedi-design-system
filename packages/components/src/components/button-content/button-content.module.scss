@@ -230,7 +230,7 @@ $btn-height-small: 2.25rem;
 }
 
 .btn--inverted {
-  $bt-inverted-border: rgb(255 255 255 / 50%);
+  $btn-inverted-border: rgb(255 255 255 / 50%);
   $btn-inverted-opacity-bg: rgb(255 255 255 / 10%);
 
   &.btn--primary {
@@ -248,7 +248,7 @@ $btn-height-small: 2.25rem;
     /* used text color as border, because we don't want to add new border variable */
     @include button-variant(
       var(--color-transparent),
-      $bt-inverted-border,
+      $btn-inverted-border,
       var(--color-text-inverted),
       $btn-inverted-opacity-bg,
       var(--color-text-inverted),
