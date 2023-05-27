@@ -5,6 +5,9 @@ import { PolymorphicRef } from '../../helpers/polymorphic/types';
 import ButtonContent, { ButtonContentProps } from '../button-content/button-content';
 import styles from './button.module.scss';
 
+export type ButtonType = 'primary' | 'secondary' | 'tertiary' | 'link';
+export type ButtonColor = 'default' | 'error' | 'success' | 'inverted' | 'text-color';
+
 export interface IInternalButtonProps {
   /**
    * If button should take all the space it has
@@ -90,7 +93,7 @@ const InternalButton = forwardRef(
 InternalButton.displayName = 'Button';
 
 /**
- * Renders a `<button>` tag and has all of its props plus our own defined props
+ * Renders a `<button>` tag and has all of its props plus our own defined props. For more info about usage of buttons see [Button](/docs/documentation-buttons-buttons--buttons) & [ButtonGroups](/docs/documentation-buttons-buttongroups--buttongroups) documentation.
  */
 export const Button: ButtonComponent = InternalButton;
 
