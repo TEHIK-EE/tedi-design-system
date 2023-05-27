@@ -78,6 +78,14 @@ export const Secondary = {
   },
 };
 
+export const Tertiary = {
+  render: Template,
+
+  args: {
+    visualType: 'tertiary',
+  },
+};
+
 export const Error = {
   render: Template,
 
@@ -95,6 +103,15 @@ export const ErrorSecondary = {
   },
 };
 
+export const ErrorTertiary = {
+  render: Template,
+
+  args: {
+    ...Error.args,
+    visualType: 'tertiary',
+  },
+};
+
 export const Success = {
   render: Template,
 
@@ -109,6 +126,14 @@ export const SuccessSecondary = {
   args: {
     ...Success.args,
     visualType: 'secondary',
+  },
+};
+export const SuccessTertiary = {
+  render: Template,
+
+  args: {
+    ...Success.args,
+    visualType: 'tertiary',
   },
 };
 
@@ -130,6 +155,19 @@ export const InvertedSecondary = {
   args: {
     ...Inverted.args,
     visualType: 'secondary',
+  },
+
+  parameters: {
+    backgrounds: { default: 'inverted' },
+  },
+};
+
+export const InvertedTertiary = {
+  render: Template,
+
+  args: {
+    ...Inverted.args,
+    visualType: 'tertiary',
   },
 
   parameters: {

@@ -7,7 +7,7 @@ import Print from '../print/print';
 import styles from './button-content.module.scss';
 import ButtonLoader from './button-loader/button-loader';
 
-export type ButtonTypes = 'primary' | 'secondary' | 'link';
+export type ButtonTypes = 'primary' | 'secondary' | 'tertiary' | 'link';
 
 export type ButtonContentProps<
   C extends React.ElementType,
