@@ -2,12 +2,11 @@ import cn from 'classnames';
 import React, { forwardRef } from 'react';
 
 import { AllowedHTMLTags, PolymorphicComponentPropWithRef, PolymorphicRef } from '../../helpers/polymorphic/types';
+import { ButtonColor, ButtonType } from '../button/button';
 import Icon, { IconProps } from '../icon/icon';
 import Print from '../print/print';
 import styles from './button-content.module.scss';
 import ButtonLoader from './button-loader/button-loader';
-
-export type ButtonTypes = 'primary' | 'secondary' | 'link';
 
 export type ButtonContentProps<
   C extends React.ElementType,
@@ -34,12 +33,12 @@ export type ButtonContentProps<
      * Button visual type
      * @default primary
      */
-    visualType?: ButtonTypes;
+    visualType?: ButtonType;
     /**
      * Color schema for button. PS text-color works only with link type links.
      * @default default
      */
-    color?: 'default' | 'error' | 'success' | 'inverted' | 'text-color';
+    color?: ButtonColor;
     /**
      * Button size
      */
