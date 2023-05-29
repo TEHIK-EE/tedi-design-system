@@ -1,3 +1,11 @@
+# [3.26.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.25.3...v3.26.0) (2023-05-29)
+
+
+### Features
+
+* **button:** Add tertiary type buttons - TEHVEER-151 ([e78ee86](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/e78ee86943a907094432908c8b89461769af5dcc))
+* **button:** Upadate button icon spacings - TEHVEER-151 ([be39407](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/be394075ada9aa4e0d61f58401e6d34204c8ace6))
+
 ## [3.25.3](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.25.2...v3.25.3) (2023-05-23)
 
 
