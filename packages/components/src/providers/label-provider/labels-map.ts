@@ -92,6 +92,13 @@ export const labelsMap = {
     en: 'Required field',
     ru: 'Обязательное поле',
   }),
+  breadcrumbs: validateLabel({
+    description: 'Breadcrumbs navigation label',
+    components: ['Breadcrumbs'],
+    et: 'Jäljerida',
+    en: 'Breadcrumbs',
+    ru: 'Навигационная цепочка',
+  }),
   'header.toggle': validateLabel({
     description: 'Label for header toggle on mobile',
     components: ['Header'],

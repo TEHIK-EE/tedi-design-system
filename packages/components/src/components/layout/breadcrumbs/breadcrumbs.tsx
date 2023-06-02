@@ -3,6 +3,7 @@ import React from 'react';
 
 import useLayout, { Layouts } from '../../../helpers/hooks/use-layout';
 import { AllowedHTMLTags } from '../../../helpers/polymorphic/types';
+import { useLabels } from '../../../providers/label-provider';
 import Print from '../../print/print';
 import styles from './breadcrumbs.module.scss';
 import Crumb, { CrumbProps } from './crumb/crumb';
@@ -38,6 +39,7 @@ export type BreadcrumbsProps<C extends React.ElementType = 'a'> = ConditionalTyp
 };
 
 export const Breadcrumbs = <C extends React.ElementType = 'a'>(props: BreadcrumbsProps<C>): JSX.Element | null => {
+  const { getLabel } = useLabels();
   const { className, crumbs, linkAs, showMinimalCrumbs = ['mobile', 'tablet'], ...rest } = props;
   const isSmallLayout = useLayout(
     showMinimalCrumbs === true ? ['mobile', 'tablet', 'desktop'] : showMinimalCrumbs || []
@@ -52,11 +54,18 @@ export const Breadcrumbs = <C extends React.ElementType = 'a'>(props: Breadcrumb
 
   return (
     <Print visibility="hide">
-      <ol data-name="breadcrumbs" {...rest} className={cn(className, styles['breadcrumbs'])}>
-        {filteredCrumbs.map((crumb, index) => {
-          return <Crumb as={linkAs} key={index} singleCrumb={minimalCrumbs} {...crumb} />;
-        })}
-      </ol>
+      <nav
+        data-name="breadcrumbs"
+        aria-label={getLabel('breadcrumbs')}
+        {...rest}
+        className={cn(className, styles['breadcrumbs'])}
+      >
+        <ol className={styles['breadcrumbs__list']}>
+          {filteredCrumbs.map((crumb, index) => {
+            return <Crumb as={linkAs} key={index} singleCrumb={minimalCrumbs} {...crumb} />;
+          })}
+        </ol>
+      </nav>
     </Print>
   );
 };

@@ -18,7 +18,14 @@ const Crumb = <C extends React.ElementType = 'a'>(props: CrumbProps<C> & { singl
 
   const BEM = cn(styles['breadcrumbs__item'], { [styles['breadcrumbs__item--current']]: isLast });
 
-  if (isLast) return <li className={BEM}>{children}</li>;
+  if (isLast)
+    return (
+      <li data-name="crumb" className={BEM}>
+        <Anchor aria-current="page" className={styles['breadcrumbs__link--current']} noStyle>
+          {children}
+        </Anchor>
+      </li>
+    );
 
   return (
     <li data-name="crumb" className={BEM}>
