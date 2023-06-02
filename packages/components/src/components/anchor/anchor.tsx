@@ -1,6 +1,7 @@
 import React, { forwardRef } from 'react';
 
 import { PolymorphicRef } from '../../helpers/polymorphic/types';
+import { useLabels } from '../../providers/label-provider';
 import ButtonContent, { ButtonContentProps } from '../button-content/button-content';
 
 export interface InternalAnchorProps {
@@ -18,6 +19,7 @@ export type AnchorComponent = <C extends React.ElementType = 'a'>(props: AnchorP
 
 const InternalAnchor = forwardRef(
   <C extends React.ElementType = 'a'>(props: AnchorProps<C>, ref?: PolymorphicRef<C>) => {
+    const { getLabel } = useLabels();
     const { visualType = 'link', as, children, ...rest } = props;
 
     const ComponentAs = as || 'a';
@@ -25,6 +27,7 @@ const InternalAnchor = forwardRef(
     return (
       <ButtonContent data-name="anchor" {...(rest as any)} ref={ref} as={ComponentAs} visualType={visualType}>
         {children}
+        {rest.target === '_blank' && <span className="sr-only">({getLabel('anchor.new-tab')})</span>}
       </ButtonContent>
     );
   }

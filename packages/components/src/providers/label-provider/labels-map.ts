@@ -92,6 +92,13 @@ export const labelsMap = {
     en: 'Required field',
     ru: 'Обязательное поле',
   }),
+  'anchor.new-tab': validateLabel({
+    description: 'Label for when anchor opens in new tab',
+    components: ['Anchor'],
+    et: 'Avaneb uuel vahelehel',
+    en: 'Opens in new tab',
+    ru: 'Открывается в новой вкладке',
+  }),
   'header.toggle': validateLabel({
     description: 'Label for header toggle on mobile',
     components: ['Header'],
