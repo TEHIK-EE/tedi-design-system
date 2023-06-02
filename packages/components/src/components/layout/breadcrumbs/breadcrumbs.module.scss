@@ -1,4 +1,4 @@
-.breadcrumbs {
+.breadcrumbs__list {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -18,4 +18,8 @@
   &--current {
     color: var(--color-text-muted);
   }
+}
+
+.breadcrumbs__link--current {
+  cursor: text;
 }

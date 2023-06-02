@@ -18,16 +18,22 @@ const Crumb = <C extends React.ElementType = 'a'>(props: CrumbProps<C> & { singl
 
   const BEM = cn(styles['breadcrumbs__item'], { [styles['breadcrumbs__item--current']]: isLast });
 
-  if (isLast) return <li className={BEM}>{children}</li>;
-
   return (
     <li data-name="crumb" className={BEM}>
       <Print visibility="show">
-        <Anchor iconLeft={singleCrumb ? 'keyboard_arrow_left' : undefined} {...rest}>
-          {children}
-        </Anchor>
+        {isLast ? (
+          <Anchor aria-current="page" className={styles['breadcrumbs__link--current']} noStyle>
+            {children}
+          </Anchor>
+        ) : (
+          <Anchor iconLeft={singleCrumb ? 'keyboard_arrow_left' : undefined} {...rest}>
+            {children}
+          </Anchor>
+        )}
       </Print>
-      {!singleCrumb && <Icon className={styles['breadcrumbs__separator']} size={16} name="keyboard_arrow_right" />}
+      {!singleCrumb && !isLast ? (
+        <Icon className={styles['breadcrumbs__separator']} size={16} name="keyboard_arrow_right" />
+      ) : null}
     </li>
   );
 };
