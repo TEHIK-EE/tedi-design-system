@@ -1,3 +1,10 @@
+# [3.28.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.27.0...v3.28.0) (2023-06-02)
+
+
+### Features
+
+* **breadcrumbs:** TEHVEER-155 - Improve breadcrumbs accessibility ([c5e60eb](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/c5e60eb0e6a84a3812c1fc68ef4beafa7f8fbb36))
+
 # [3.27.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.26.0...v3.27.0) (2023-06-02)
 
 
