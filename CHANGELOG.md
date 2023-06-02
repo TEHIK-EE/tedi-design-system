@@ -1,3 +1,10 @@
+# [3.27.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.26.0...v3.27.0) (2023-06-02)
+
+
+### Features
+
+* **anchor:** TEHVEER-156 - Added accessibility label for new tab anchors ([dad3a1a](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/dad3a1a3fd40f9d79f2800b53fbd2b87c4bddbae))
+
 # [3.26.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.25.3...v3.26.0) (2023-05-29)
 
 
