@@ -5,6 +5,7 @@ import ReactSelect, {
   components as ReactSelectComponents,
   ControlProps,
   GroupBase,
+  InputActionMeta,
   InputProps,
   MenuListProps,
   MenuProps,
@@ -26,6 +27,17 @@ import FormLabel, { FormLabelProps } from '../form-label/form-label';
 import styles from './select.module.scss';
 
 /**
+ * Because of the next problem, inputIsHidden has to be used from select custom props.
+ * For typescript they need to be declared in module
+ * https://github.com/JedWatson/react-select/issues/4804#issuecomment-927223471
+ */
+declare module 'react-select/dist/declarations/src/Select' {
+  export interface Props<Option, IsMulti extends boolean, Group extends GroupBase<Option>> {
+    inputIsHidden?: boolean;
+  }
+}
+
+/**
  * Outside of component because: https://github.com/JedWatson/react-select/issues/2810#issuecomment-569117980
  * If declared inside component, async Select loses focus after fetch
  */
@@ -37,7 +49,11 @@ const CustomControl = (props: ControlProps<ISelectOption, boolean>): JSX.Element
   return <ReactSelectComponents.Control {...props} className={CustomControlBEM} />;
 };
 const CustomInput = (props: InputProps<ISelectOption, boolean>): JSX.Element => (
-  <ReactSelectComponents.Input {...props} className={cn(props.className, styles['select__input'])} />
+  <ReactSelectComponents.Input
+    {...props}
+    className={cn(props.className, styles['select__input'])}
+    isHidden={props.selectProps.inputIsHidden !== undefined ? props.selectProps.inputIsHidden : props.isHidden}
+  />
 );
 
 export interface SelectProps extends FormLabelProps {
@@ -73,7 +89,7 @@ export interface SelectProps extends FormLabelProps {
   /**
    * onChange callback handler when input changes on async/live select.
    */
-  onInputChange?: (value: string) => void;
+  onInputChange?: (value: string, actionMeta: InputActionMeta) => void;
   /**
    * Search input value.
    */
@@ -193,6 +209,10 @@ export interface SelectProps extends FormLabelProps {
    * Handle the on blur
    */
   onBlur?: () => void;
+  /**
+   * Whether the input text should be always hidden or always shown. Used for editable select results
+   */
+  inputIsHidden?: boolean;
 }
 
 export interface ISelectOption<CustomData = unknown> {
@@ -262,6 +282,7 @@ export const Select = forwardRef<any, SelectProps>((props, ref): JSX.Element => 
     onMenuClose,
     onMenuOpen,
     onBlur,
+    inputIsHidden,
     ...rest
   } = props;
   const helperId = helper ? helper?.id ?? `${id}-helper` : undefined;
@@ -419,6 +440,7 @@ export const Select = forwardRef<any, SelectProps>((props, ref): JSX.Element => 
         closeMenuOnSelect={closeMenuOnSelect}
         blurInputOnSelect={blurInputOnSelect}
         menuPlacement="auto"
+        inputIsHidden={inputIsHidden}
         theme={(theme) => ({
           ...theme,
           colors: {
