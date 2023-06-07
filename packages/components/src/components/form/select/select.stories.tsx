@@ -2,6 +2,7 @@ import { Meta, StoryObj } from '@storybook/react';
 
 import { AsyncSelectTemplate } from './examples/async';
 import { CustomOptionSelectTemplate } from './examples/custom-option';
+import { EditableSelectTemplate } from './examples/editable';
 import { MultipleHandledTemplate } from './examples/multiple-handled';
 import Select from './select';
 
@@ -89,5 +90,13 @@ export const AsyncSelect: Story = {
     id: 'async-example',
     label: 'Async label',
     async: true,
+  },
+};
+
+export const EditableSelect: Story = {
+  render: EditableSelectTemplate,
+  args: {
+    id: 'editable-example',
+    label: 'Editable label',
   },
 };
