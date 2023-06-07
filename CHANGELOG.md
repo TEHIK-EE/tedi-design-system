@@ -1,3 +1,10 @@
+# [3.29.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.28.1...v3.29.0) (2023-06-07)
+
+
+### Features
+
+* **select:** TEHVEER-158 - update select to add possibility to edit async results ([b081888](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/b081888814d1a8d4601496bca99bb6c0ad68ef6b))
+
 ## [3.28.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.28.0...v3.28.1) (2023-06-07)
 
 
