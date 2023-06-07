@@ -1,3 +1,10 @@
+## [3.28.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.28.0...v3.28.1) (2023-06-07)
+
+
+### Bug Fixes
+
+* **tokens:** Fix primary-highlight hex values - TEHVEER-161 ([4c126e6](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/4c126e620b2a1da0eae73322bb8a5ce8654179a8))
+
 # [3.28.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.27.0...v3.28.0) (2023-06-02)
 
 
