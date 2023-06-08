@@ -2,6 +2,7 @@ import { autoUpdate, useClick, useDismiss, useFloating, useInteractions, useRole
 import cn from 'classnames';
 import React from 'react';
 
+import { AccessibilityProvider } from '../../../providers/accessibility-provider/accessibility-provider';
 import Section from '../../section/section';
 import Breadcrumbs, { BreadcrumbsProps } from '../breadcrumbs/breadcrumbs';
 import { Footer, FooterProps } from '../footer/footer';
@@ -108,26 +109,28 @@ export const Layout = <
         hasSidenavItems: !!sideNav?.navItems?.length,
       }}
     >
-      <div data-name="layout" {...rest} className={styles['container-wrapper']}>
-        <Header {...header} />
-        <div className={cn(styles['container'], { [styles['container--menu-open']]: menuOpen })}>
-          {sideNav && <SideNav {...sideNav} />}
-          <div className={mainBem}>
-            {mainLogo && (
-              <img className={styles['main__logos']} src={mainLogo.src} alt={mainLogo.alt} style={mainLogo.style} />
-            )}
-            <main className={styles['main__content']} id={mainContentId}>
-              {breadcrumbsProps && (
-                <Section>
-                  <Breadcrumbs className={styles['main__breadcrumbs']} {...breadcrumbsProps} />
-                </Section>
+      <AccessibilityProvider>
+        <div data-name="layout" {...rest} className={styles['container-wrapper']}>
+          <Header {...header} />
+          <div className={cn(styles['container'], { [styles['container--menu-open']]: menuOpen })}>
+            {sideNav && <SideNav {...sideNav} />}
+            <div className={mainBem}>
+              {mainLogo && (
+                <img className={styles['main__logos']} src={mainLogo.src} alt={mainLogo.alt} style={mainLogo.style} />
               )}
-              {children}
-            </main>
+              <main className={styles['main__content']} id={mainContentId}>
+                {breadcrumbsProps && (
+                  <Section>
+                    <Breadcrumbs className={styles['main__breadcrumbs']} {...breadcrumbsProps} />
+                  </Section>
+                )}
+                {children}
+              </main>
+            </div>
           </div>
+          {footer && <Footer {...footer} />}
         </div>
-        {footer && <Footer {...footer} />}
-      </div>
+      </AccessibilityProvider>
     </LayoutContext.Provider>
   );
 };

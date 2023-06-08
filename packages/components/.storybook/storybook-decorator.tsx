@@ -2,6 +2,7 @@ import dayjs from 'dayjs';
 import weekday from 'dayjs/plugin/weekday';
 import React from 'react';
 
+import { AccessibilityProvider } from '../src/providers/accessibility-provider/accessibility-provider';
 import { LabelProvider, LabelProviderProps } from '../src/providers/label-provider';
 
 import 'dayjs/locale/et';
@@ -15,7 +16,7 @@ interface StorybookDecoratorProps {
 
 const StorybookDecorator = ({ children, locale = 'en', ...rest }: StorybookDecoratorProps) => (
   <LabelProvider locale={locale} {...rest}>
-    {children}
+    <AccessibilityProvider>{children}</AccessibilityProvider>
   </LabelProvider>
 );
 
