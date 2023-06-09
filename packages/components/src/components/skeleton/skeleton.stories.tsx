@@ -109,16 +109,19 @@ export const Accessibility: Story = {
         </Row>
 
         <Row>
-          {!skeletons?.length && <Col>No loaders</Col>}
-          {skeletons.map((skeleton) => (
-            <Col xs={12} md={3} key={skeleton.id}>
-              <Card>
-                <CardContent>
-                  <AccessibilityTemplate {...args} {...skeleton} />
-                </CardContent>
-              </Card>
-            </Col>
-          ))}
+          {skeletons?.length ? (
+            skeletons.map((skeleton) => (
+              <Col xs={12} md={3} key={skeleton.id}>
+                <Card>
+                  <CardContent>
+                    <AccessibilityTemplate {...args} {...skeleton} />
+                  </CardContent>
+                </Card>
+              </Col>
+            ))
+          ) : (
+            <Col>No loaders</Col>
+          )}
         </Row>
       </VerticalSpacing>
     );

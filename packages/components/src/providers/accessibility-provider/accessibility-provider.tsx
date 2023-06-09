@@ -52,7 +52,7 @@ export const AccessibilityProvider = (props: AccessibilityProviderProps): JSX.El
   );
 
   return context ? (
-    <>children</>
+    <>{children}</>
   ) : (
     <AccessibilityContext.Provider value={{ addLoader, removeLoader }}>
       <div className="sr-only">
