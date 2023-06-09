@@ -1,3 +1,10 @@
+# [3.30.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.29.0...v3.30.0) (2023-06-09)
+
+
+### Features
+
+* **skeleton:** TEHVEER-157 - Skeleton loading accessibility ([2bb3c96](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/2bb3c9649dea55c092efe3dc0f734851a0552a6f))
+
 # [3.29.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.28.1...v3.29.0) (2023-06-07)
 
 
