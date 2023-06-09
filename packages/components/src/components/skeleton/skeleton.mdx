@@ -1,4 +1,4 @@
-import { Meta, Title, Subtitle, Canvas, ArgsTable, Unstyled, Description } from '@storybook/blocks';
+import {Meta, Title, ArgsTable, Primary, Stories} from '@storybook/blocks';
 import * as SkeletonStories from './skeleton.stories.tsx';
 
 <Meta of={SkeletonStories} />
@@ -8,6 +8,8 @@ import * as SkeletonStories from './skeleton.stories.tsx';
 Skeleton is a component that is used to indicate that content is loading.
 Build your skeleton using the SkeletonBlock component.
 
-<Canvas of={SkeletonStories.Default} />
+<Primary />
 
 <ArgsTable />
+
+<Stories includePrimary={false} />
