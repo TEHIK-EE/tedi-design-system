@@ -21,7 +21,7 @@ export interface VerticalSpacingProps {
    * All children elements are getting {size}em unit of margin-bottom.
    * @default 1
    */
-  size?: 0.25 | 0.5 | 0.75 | 1 | 1.25 | 1.5 | 1.75 | 2 | 2.5;
+  size?: 0.25 | 0.5 | 0.75 | 1 | 1.25 | 1.5 | 1.75 | 2 | 2.5 | 5;
 }
 
 export const VerticalSpacing = (props: VerticalSpacingProps): JSX.Element => {

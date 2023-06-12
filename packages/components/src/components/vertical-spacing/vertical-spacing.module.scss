@@ -9,6 +9,7 @@ $spacing-size: (
   '1-75': 1.75em,
   '2': 2em,
   '2-5': 2.5em,
+  '5': 5em,
 );
 
 @each $spacing, $size in $spacing-size {
