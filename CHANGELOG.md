@@ -1,3 +1,10 @@
+# [3.31.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.30.0...v3.31.0) (2023-06-12)
+
+
+### Features
+
+* **vertical-spacing:** Add 5em spacing option ([b8d34a6](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/b8d34a62c8bf706321488015d51132e101639617))
+
 # [3.30.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.29.0...v3.30.0) (2023-06-09)
 
 
