@@ -1,3 +1,10 @@
+## [3.31.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.31.0...v3.31.1) (2023-06-12)
+
+
+### Bug Fixes
+
+* **vertical-spacing, separator:** Add 5em spacing option ([a3d22ea](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/a3d22eac1f72a23e9778a3963c7797d844b82b99))
+
 # [3.31.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.30.0...v3.31.0) (2023-06-12)
 
 
