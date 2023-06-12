@@ -2,7 +2,7 @@ import cn from 'classnames';
 
 import styles from './separator.module.scss';
 
-export type SeparatorSpacing = 0 | 0.25 | 0.5 | 0.75 | 1 | 1.25 | 1.5 | 1.75 | 2 | 2.5;
+export type SeparatorSpacing = 0 | 0.25 | 0.5 | 0.75 | 1 | 1.25 | 1.5 | 1.75 | 2 | 2.5 | 5;
 
 export interface SeparatorProps {
   /**
