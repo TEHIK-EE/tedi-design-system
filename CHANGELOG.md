@@ -1,3 +1,10 @@
+# [3.32.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.31.1...v3.32.0) (2023-06-14)
+
+
+### Features
+
+* **text:** Add break-spaces modifier for Text component ([28f9f1e](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/28f9f1ee34325db794256e1bfa19a2600b126145))
+
 ## [3.31.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.31.0...v3.31.1) (2023-06-12)
 
 
