@@ -85,6 +85,10 @@ h6,
   text-transform: capitalize;
 }
 
+.text-break-spaces {
+  white-space: break-spaces;
+}
+
 small,
 .text-small {
   font-size: var(--font-size-small);

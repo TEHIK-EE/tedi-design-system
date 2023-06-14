@@ -19,7 +19,8 @@ export type TextModifiers =
   | 'uppercase'
   | 'lowercase'
   | 'capitalize'
-  | 'capitalize-first';
+  | 'capitalize-first'
+  | 'break-spaces';
 
 export type TextColor =
   | 'default'
