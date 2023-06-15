@@ -1,3 +1,10 @@
+# [3.33.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.32.0...v3.33.0) (2023-06-15)
+
+
+### Features
+
+* **toast:** add possibilty to pass toastOptions to sendNotification ([45af8d6](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/45af8d619cbb89a4873642c2567cf8936a1804d8))
+
 # [3.32.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.31.1...v3.32.0) (2023-06-14)
 
 
