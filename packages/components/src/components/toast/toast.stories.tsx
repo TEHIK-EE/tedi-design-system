@@ -14,7 +14,8 @@ const meta: Meta<typeof Notification> = {
     docs: {
       description: {
         component: `Toast exports <code>sendNotification</code> function that takes notification props as input and when called shows Toast
-          on bottom-left of the page. <code>ToastContainer</code> component is also exported and has to be added to index of
+          on bottom-left of the page. Second parameter of sendNotification function is react-toastify options to overwrite default behavior if needed.
+          <code>ToastContainer</code> component is also exported and has to be added to index of
           application.`,
       },
     },
@@ -31,7 +32,12 @@ const Template: StoryFn<NotificationProps> = (args) => (
       <Col width="auto">
         <Button
           color="success"
-          onClick={() => sendNotification({ type: 'success', title: 'Teade', children: 'Miskit õnnestus!', ...args })}
+          onClick={() =>
+            sendNotification(
+              { type: 'success', title: 'Teade', children: 'Miskit õnnestus!', ...args },
+              { autoClose: 1000000 }
+            )
+          }
         >
           Success
         </Button>

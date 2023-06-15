@@ -5,7 +5,7 @@ import { Notification, NotificationProps } from '../notification/notification';
 
 import 'react-toastify/dist/ReactToastify.css';
 
-const toastOptions: ToastOptions = {
+const toastDefaultOptions: ToastOptions = {
   position: 'bottom-left',
   autoClose: 5000,
   hideProgressBar: true,
@@ -18,7 +18,8 @@ const toastOptions: ToastOptions = {
   closeButton: false,
 };
 
-export const sendNotification = (props: NotificationProps) => {
+export const sendNotification = (props: NotificationProps, toastOptions?: ToastOptions) => {
+  const mergedToastOptions = { ...toastDefaultOptions, ...toastOptions };
   const id = toast(
     () => (
       <Notification
@@ -32,7 +33,7 @@ export const sendNotification = (props: NotificationProps) => {
         {props.children}
       </Notification>
     ),
-    toastOptions
+    mergedToastOptions
   );
 };
 
