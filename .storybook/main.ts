@@ -9,7 +9,7 @@ const config: StorybookConfig = {
         transcludeMarkdown: true,
       },
     },
-    '@nrwl/react/plugins/storybook',
+    '@nx/react/plugins/storybook',
     '@storybook/addon-a11y',
   ],
   staticDirs: ['../public'],
