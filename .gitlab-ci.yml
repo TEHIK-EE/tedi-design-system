@@ -18,6 +18,7 @@ cache:
 .before_script: &before_script
   before_script:
     - HUSKY=0 npm ci --cache .npm --prefer-offline
+    - apt-get update && apt-get install git-core -y --no-install-recommends
 
 workflow:
   rules:

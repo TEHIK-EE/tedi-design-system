@@ -12,7 +12,7 @@
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
   "npmScope": "tehik-react",
   "affected": {
-    "defaultBase": "master"
+    "defaultBase": "origin/master"
   },
   "defaultProject": "components",
   "targetDefaults": {
