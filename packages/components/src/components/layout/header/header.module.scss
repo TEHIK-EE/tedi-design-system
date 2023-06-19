@@ -13,7 +13,7 @@
 
 .header__toggle {
   --global-outline-offset: -3px;
-  --global-outline-color: var(--color-text-inverted);
+  --global-outline-color: var(--color-primary-highlight);
 
   width: 3.5rem;
   height: 3.5rem;
@@ -87,6 +87,8 @@
 .header__logout {
   display: block;
   border-left: 1px solid var(--color-border-default);
+
+  --global-outline-offset: -2px;
 
   @include breakpoints.media-breakpoint-down(lg) {
     align-self: center;

@@ -62,7 +62,7 @@ a.sidenav__link {
   transition: 200ms ease;
   transition-property: background-color, color;
 
-  --global-outline-color: var(--color-text-inverted);
+  --global-outline-color: var(--color-primary-highlight);
   --global-outline-offset: -2px;
 
   @include breakpoints.media-breakpoint-up(md) {

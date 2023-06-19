@@ -233,6 +233,8 @@ $btn-height-small: 2.25rem;
   $btn-inverted-border: rgb(255 255 255 / 50%);
   $btn-inverted-opacity-bg: rgb(255 255 255 / 10%);
 
+  --global-outline-color: var(--color-primary-highlight);
+
   &.btn--primary {
     @include button-variant(
       var(--color-primary-highlight),

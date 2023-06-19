@@ -40,7 +40,7 @@ export const SelectorItem = (props: ChoiceGroupItemProps): JSX.Element => {
         className={styles['selector__input']}
         tabIndex={-1}
       />
-      <label htmlFor={id} className={styles['selector__item-label']} tabIndex={0}>
+      <label htmlFor={id} className={styles['selector__item-label']} tabIndex={disabled ? -1 : 0}>
         {label}
       </label>
     </Col>
