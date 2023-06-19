@@ -12,6 +12,13 @@ const meta: Meta<TagTemplateProps> = {
     array: { table: { disable: true } },
     property: { table: { disable: true } },
   },
+  parameters: {
+    docs: {
+      description: {
+        component: 'More about usage of Tag can be foud <a href="/docs/components-tag--tag-usage">here</a>',
+      },
+    },
+  },
 };
 
 export default meta;
@@ -20,7 +27,7 @@ type Story = StoryObj<TagTemplateProps>;
 const TagColors: TagColor[] = ['default', 'primary', 'accent', 'positive', 'warning', 'important'];
 const TagTypes: TagType[] = ['default', 'secondary', 'ghost', 'invisible'];
 const TagStatuses: TagStatus[] = ['error', 'inactive', 'success'];
-const TagSizes: TagSize[] = ['small', 'default', 'medium'];
+const TagSizes: TagSize[] = ['default', 'large'];
 
 const Capitalize = ({ children }: { children: React.ReactNode }) => (
   <span className="text-small text-muted text-capitalize">{children}</span>
@@ -37,28 +44,26 @@ const Template: StoryFn<TagTemplateProps> = (args) => {
     <VerticalSpacing>
       <Row>
         <Col></Col>
-        {TagColors.map((color, index) => (
-          <Col key={index}>
+        {TagColors.map((color) => (
+          <Col key={`${color}-title`}>
             <Capitalize>{color}</Capitalize>
           </Col>
         ))}
       </Row>
 
       {array.map((type, key) => (
-        <>
-          <Row key={key}>
-            <Col>
-              <Capitalize>{type}</Capitalize>
+        <Row key={key}>
+          <Col>
+            <Capitalize>{type}</Capitalize>
+          </Col>
+          {TagColors.map((color, index) => (
+            <Col key={`${color}-${index}`}>
+              <Tag color={color} {...{ [property]: type }} {...tagProps}>
+                {property === 'iconOnly' || tagProps.iconOnly ? <Icon name="add" filled size={12} /> : 'J'}
+              </Tag>
             </Col>
-            {TagColors.map((color, index) => (
-              <Col key={index}>
-                <Tag color={color} {...{ [property]: type }} {...tagProps}>
-                  {property === 'iconOnly' || tagProps.iconOnly ? <Icon name="circle" filled size={12} /> : 'J'}
-                </Tag>
-              </Col>
-            ))}
-          </Row>
-        </>
+          ))}
+        </Row>
       ))}
     </VerticalSpacing>
   );
@@ -141,12 +146,12 @@ export const Loading: Story = {
   },
 };
 
-export const LoadingRoundMedium: Story = {
+export const LoadingRoundLarge: Story = {
   args: {
     children: 'J',
     isLoading: true,
     rounded: true,
-    size: 'medium',
+    size: 'large',
     type: 'secondary',
   },
 };
@@ -167,10 +172,17 @@ export const WithLongText: Story = {
   },
 };
 
+export const WithLongTextRounded: Story = {
+  args: {
+    children: 'With Long text',
+    rounded: true,
+  },
+};
+
 export const CustomTag: Story = {
   args: {
     children: <Icon name="check" size={24} />,
-    size: 'medium',
+    size: 'large',
     isDisabled: true,
     rounded: true,
     iconOnly: true,
@@ -179,7 +191,7 @@ export const CustomTag: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Size medium, disabled and rounded example with icon',
+        story: 'Size large, disabled and rounded example with icon',
       },
     },
   },

@@ -14,7 +14,7 @@ export type TagColor =
   | 'warning'
   | 'important';
 export type TagType = 'default' | 'secondary' | 'ghost' | 'invisible';
-export type TagSize = 'small' | 'medium' | 'default';
+export type TagSize = 'default' | 'large';
 export type TagStatus = 'error' | 'success' | 'inactive';
 
 export interface TagProps {
@@ -105,7 +105,7 @@ export const Tag = forwardRef<HTMLDivElement, TagProps>((props, ref): JSX.Elemen
     { [styles['tag--rounded']]: rounded },
     { [styles['tag--icon-only']]: iconOnly },
     { [styles['tag--disabled']]: isDisabled },
-    { [styles['tag--with-arrow']]: hasArrow }
+    { [styles['tag--with-arrow']]: hasArrow && !rounded }
   );
 
   return (

@@ -1,0 +1,26 @@
+import { Meta, Unstyled } from '@storybook/blocks';
+import TagExamples from './tag-examples.tsx';
+import { VerticalSpacing } from '../../index';
+import * as TagStories from './tag.stories.tsx';
+
+<Meta of={TagStories} name="Tag Usage" />
+
+<Unstyled>
+<VerticalSpacing>
+  ## Tag usage
+
+  ### Where to use:
+  * Organizing information by categorizing or labeling content.
+  * Illustrative tags. Ex: name initials.
+
+  ### Where not to use:
+  * As a navigation element. Use: link, button. Tags are not interactive elements and should not be used that way.
+
+  ### How to use:
+  * Use descriptive short tags, ideally one or two words.
+  * Avoid excessive use of tags as it can lead to visual clutter and cognitive overload, diminishing the overall user experience.
+  * Accent tags should only be used for illustrative purposes adjacent to text.
+
+  <TagExamples />
+</VerticalSpacing>
+</Unstyled>

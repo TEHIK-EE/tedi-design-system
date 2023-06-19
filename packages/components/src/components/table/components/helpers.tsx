@@ -23,7 +23,7 @@ export function getExpandColumn<TData>(id = 'expander', showExpandAll?: boolean)
               }}
             </LabelContext.Consumer>
           </span>
-          <Tag color="default" type="ghost" size="small">
+          <Tag color="default" type="ghost">
             <Icon name={row.getIsExpanded() ? 'remove' : 'add'} size={16} />
           </Tag>
         </button>
