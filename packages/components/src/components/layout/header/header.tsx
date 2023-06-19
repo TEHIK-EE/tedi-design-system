@@ -78,7 +78,8 @@ export const Header = <H extends React.ElementType = 'a'>(props: HeaderProps<H>)
             <Col width={12} className={styles['header__content-wrapper']}>
               {!hideToggle && hasSidenavItems ? (
                 <Button
-                  {...getReferenceProps({ ref: reference })}
+                  {...getReferenceProps()}
+                  ref={reference}
                   icon={{
                     name: menuOpen ? 'close' : 'menu',
                     className: styles['header__toggle-icon'],

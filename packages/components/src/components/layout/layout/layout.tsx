@@ -77,7 +77,7 @@ export const Layout = <
   } = props;
   const [menuOpen, setMenuOpen] = React.useState(false);
 
-  const { y, reference, floating, context } = useFloating({
+  const { y, refs, context } = useFloating({
     placement: 'bottom-start',
     open: menuOpen,
     onOpenChange: setMenuOpen,
@@ -101,8 +101,8 @@ export const Layout = <
         y,
         menuOpen,
         toggleMenu: () => setMenuOpen((o) => !o),
-        reference,
-        floating,
+        reference: refs.setReference,
+        floating: refs.setFloating,
         context,
         getReferenceProps,
         getFloatingProps,

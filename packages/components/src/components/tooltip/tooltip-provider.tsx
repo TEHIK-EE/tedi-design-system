@@ -136,7 +136,7 @@ export const TooltipProvider = (props: TooltipProviderProps): JSX.Element => {
   };
 
   const isMounted = useIsMounted();
-  const { x, y, reference, floating, strategy, context, middlewareData, placement } = useFloating({
+  const { x, y, refs, strategy, context, middlewareData, placement } = useFloating({
     placement: placementDefault,
     open: isOpen,
     onOpenChange,
@@ -173,8 +173,8 @@ export const TooltipProvider = (props: TooltipProviderProps): JSX.Element => {
         open: isOpen,
         isMounted,
         openWith,
-        reference,
-        floating,
+        reference: refs.setReference,
+        floating: refs.setFloating,
         arrowRef,
         focusManager: {
           order,

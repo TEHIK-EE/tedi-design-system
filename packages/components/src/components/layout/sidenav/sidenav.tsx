@@ -69,13 +69,13 @@ export function SideNav<C extends React.ElementType = 'a'>(props: SideNavProps<C
       <FloatingFocusManager context={context} order={['reference', 'content']}>
         <div
           {...getFloatingProps({
-            ref: floating,
             style: {
               paddingTop: y ?? 0,
             },
             className: styles['sidenav'],
             'aria-label': ariaLabel,
           })}
+          ref={floating}
         >
           {renderSidebar}
         </div>
