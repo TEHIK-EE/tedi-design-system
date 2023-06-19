@@ -50,15 +50,15 @@ $stepper-step-bg-active-hover: var(--color-primary-active);
 .stepper__nav-item-inner {
   @include mixins.button-reset;
 
-  --global-outline-offset: -4px;
-  --global-outline-color: var(--color-primary-main);
+  --global-outline-offset: -2px;
 
   display: flex;
   align-items: center;
   padding: 0.625rem;
 
   .stepper__nav-item--active & {
-    --global-outline-color: var(--color-bg-default);
+    --global-outline-offset: -4px;
+    --global-outline-color: var(--color-primary-highlight);
   }
 }
 

@@ -7,6 +7,8 @@
 .selector__item {
   display: flex;
   height: 2.5rem;
+
+  --global-outline-offset: -2px;
 }
 
 .selector__item-label {

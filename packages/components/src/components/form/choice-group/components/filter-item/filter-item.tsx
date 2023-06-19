@@ -36,7 +36,7 @@ export const FilterItem = (props: ChoiceGroupItemProps): JSX.Element => {
         className={styles['filter-item__input']}
         tabIndex={-1}
       />
-      <label htmlFor={id} className={styles['filter-item__label']} tabIndex={0}>
+      <label htmlFor={id} className={styles['filter-item__label']} tabIndex={disabled ? -1 : 0}>
         {label}
       </label>
     </Col>

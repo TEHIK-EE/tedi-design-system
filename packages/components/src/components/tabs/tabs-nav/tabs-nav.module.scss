@@ -7,6 +7,10 @@
   background-color: var(--color-bg-muted);
 }
 
+.tabs__nav-item {
+  --global-outline-offset: -2px;
+}
+
 .tabs__nav-item--current {
   background-color: var(--color-bg-default);
   border-top-left-radius: var(--border-radius-default);
