@@ -1,4 +1,5 @@
-import { StorybookConfig } from '@storybook/react-webpack5';
+import { StorybookConfig } from '@storybook/react-vite';
+
 const config: StorybookConfig = {
   stories: [],
   addons: [
@@ -12,8 +13,11 @@ const config: StorybookConfig = {
     '@nx/react/plugins/storybook',
     '@storybook/addon-a11y',
   ],
+  core: {
+    builder: '@storybook/builder-vite',
+  },
   staticDirs: ['../public'],
-  framework: '@storybook/react-webpack5',
+  framework: '@storybook/react-vite',
   docs: {
     autodocs: true,
   },

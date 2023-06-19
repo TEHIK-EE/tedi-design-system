@@ -1,10 +1,11 @@
-import { StorybookConfig } from '@storybook/react-webpack5';
+import { StorybookConfig } from '@storybook/react-vite';
+import { mergeConfig } from 'vite';
 
 import rootMain from '../../../.storybook/main';
 
 const config: StorybookConfig = {
   ...rootMain,
-  core: { ...rootMain.core, builder: '@storybook/builder-webpack5' },
+  core: { ...rootMain.core },
   stories: [
     ...rootMain.stories,
     '../src/docs/_welcome.mdx',
@@ -20,6 +21,15 @@ const config: StorybookConfig = {
     '../src/**/**/*.mdx',
   ],
   addons: rootMain.addons || [],
+  async viteFinal(config, { configType }) {
+    return mergeConfig(config, {
+      define: {
+        // Fix to process.env variables not being defined with vite
+        'process.env.JEST_WORKER_ID': JSON.stringify(process.env.JEST_WORKER_ID),
+        'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
+      },
+    });
+  },
 };
 
 export default config;
