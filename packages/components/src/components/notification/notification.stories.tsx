@@ -32,7 +32,7 @@ const meta: Meta<typeof Notification> = {
           </VerticalSpacing>
           <Primary />
           <ArgsTable story={PRIMARY_STORY} />
-          <Stories />
+          <Stories includePrimary={false} />
         </>
       ),
     },

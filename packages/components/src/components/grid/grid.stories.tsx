@@ -27,7 +27,7 @@ const meta: Meta<typeof Row> = {
           </Notification>
           <Primary />
           <ArgsTable />
-          <Stories />
+          <Stories includePrimary={false} />
         </>
       ),
     },

@@ -2,7 +2,6 @@ import { Meta, StoryFn } from '@storybook/react';
 
 import StorybookDecorator from '../../../.storybook/storybook-decorator';
 import LabelProvider, { LabelProviderProps } from './label-provider';
-import { LabelProviderPage } from './storie-page';
 import { useLabels } from './use-labels';
 
 export default {
@@ -17,11 +16,6 @@ export default {
       );
     },
   ],
-  parameters: {
-    docs: {
-      page: () => <LabelProviderPage />,
-    },
-  },
 } as Meta<LabelProviderProps>;
 
 const Template: StoryFn<LabelProviderProps> = (args) => {
