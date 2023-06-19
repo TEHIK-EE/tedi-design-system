@@ -1,3 +1,10 @@
+# [3.35.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.34.1...v3.35.0) (2023-06-19)
+
+
+### Features
+
+* **tag:** Remove small size,  visual design changes - TEHVEER-160 ([94d29f7](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/94d29f7d74209e7ed022d5d8a090c16cadd04a30))
+
 ## [3.34.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.34.0...v3.34.1) (2023-06-19)
 
 
