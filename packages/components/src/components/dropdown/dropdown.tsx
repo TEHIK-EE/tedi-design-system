@@ -70,7 +70,7 @@ export const Dropdown = <C extends React.ElementType = 'a'>(props: DropdownProps
   const [isOpen, setIsOpen] = React.useState(false);
   const [activeIndex, setActiveIndex] = React.useState<number | null>(null);
 
-  const { x, y, strategy, floating, placement, context, reference } = useFloating({
+  const { x, y, strategy, refs, placement, context } = useFloating({
     placement: 'bottom-start',
     nodeId,
     open: isOpen,
@@ -105,7 +105,7 @@ export const Dropdown = <C extends React.ElementType = 'a'>(props: DropdownProps
       >
         <div
           {...getFloatingProps({
-            ref: floating,
+            ref: refs.setFloating,
             style: {
               position: strategy,
               left: x ?? 0,
@@ -164,7 +164,7 @@ export const Dropdown = <C extends React.ElementType = 'a'>(props: DropdownProps
         {...rest}
         {...button}
         {...getReferenceProps({
-          ref: reference,
+          ref: refs.setReference,
           tabIndex: 0,
         })}
       />

@@ -64,7 +64,7 @@ export const ModalProvider = (props: ModalProviderProps): JSX.Element => {
 
   const isOpen = onToggle && typeof props.open !== 'undefined' ? props.open : innerOpen;
 
-  const { reference, floating, context } = useFloating({
+  const { refs, context } = useFloating({
     open: isOpen,
     onOpenChange: (open: boolean) => (open ? openModal() : closeModal()),
   });
@@ -95,8 +95,8 @@ export const ModalProvider = (props: ModalProviderProps): JSX.Element => {
     <ModalContext.Provider
       value={{
         isOpen,
-        reference,
-        floating,
+        reference: refs.setReference,
+        floating: refs.setFloating,
         getReferenceProps,
         getFloatingProps,
         closeModal,
