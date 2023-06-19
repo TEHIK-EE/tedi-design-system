@@ -1,3 +1,12 @@
+## [3.34.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.34.0...v3.34.1) (2023-06-19)
+
+
+### Bug Fixes
+
+* **floating-ui:** Fix elements not positioned right with floating-ui ([1d21eff](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/1d21effbe141c8d0d5d3c456dbd3972c045470e4))
+* **floating-ui:** Fix elements not positioned right with floating-ui ([bc0d75f](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/bc0d75fffac970a7b160ccd44fc51c76dfb9ead7))
+* **stories:** Remove duplicates of default stories ([bb5fa9a](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/bb5fa9ac0e7d566668dde825611d6954baf8f1fa))
+
 # [3.34.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.33.0...v3.34.0) (2023-06-19)
 
 
