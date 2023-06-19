@@ -35,7 +35,7 @@ export type ButtonContentProps<
      */
     visualType?: ButtonType;
     /**
-     * Color schema for button. PS text-color works only with link type links.
+     * Color schema for button. PS text-color works only with link type links. Error and success are deprecated. Use important and positive instead.
      * @default default
      */
     color?: ButtonColor;

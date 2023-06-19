@@ -86,53 +86,53 @@ export const Tertiary = {
   },
 };
 
-export const Error = {
+export const Important = {
   render: Template,
 
   args: {
-    color: 'error',
+    color: 'important',
   },
 };
 
-export const ErrorSecondary = {
+export const ImportantSecondary = {
   render: Template,
 
   args: {
-    ...Error.args,
+    ...Important.args,
     visualType: 'secondary',
   },
 };
 
-export const ErrorTertiary = {
+export const ImportantTertiary = {
   render: Template,
 
   args: {
-    ...Error.args,
+    ...Important.args,
     visualType: 'tertiary',
   },
 };
 
-export const Success = {
+export const Positive = {
   render: Template,
 
   args: {
-    color: 'success',
+    color: 'positive',
   },
 };
 
-export const SuccessSecondary = {
+export const PositiveSecondary = {
   render: Template,
 
   args: {
-    ...Success.args,
+    ...Positive.args,
     visualType: 'secondary',
   },
 };
-export const SuccessTertiary = {
+export const PositiveTertiary = {
   render: Template,
 
   args: {
-    ...Success.args,
+    ...Positive.args,
     visualType: 'tertiary',
   },
 };

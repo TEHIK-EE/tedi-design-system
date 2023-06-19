@@ -31,7 +31,7 @@ const Template: StoryFn<NotificationProps> = (args) => (
     <Row>
       <Col width="auto">
         <Button
-          color="success"
+          color="positive"
           onClick={() =>
             sendNotification(
               { type: 'success', title: 'Teade', children: 'Miskit õnnestus!', ...args },
@@ -44,7 +44,7 @@ const Template: StoryFn<NotificationProps> = (args) => (
       </Col>
       <Col width="auto">
         <Button
-          color="error"
+          color="important"
           onClick={() => sendNotification({ type: 'warning', title: 'Teade', children: 'Hoiatus!', ...args })}
         >
           Warning
@@ -52,7 +52,7 @@ const Template: StoryFn<NotificationProps> = (args) => (
       </Col>
       <Col width="auto">
         <Button
-          color="error"
+          color="important"
           onClick={() => sendNotification({ type: 'error', title: 'Teade', children: 'Miskit läks valesti!', ...args })}
         >
           Error
