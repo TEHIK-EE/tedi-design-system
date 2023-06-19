@@ -1,3 +1,10 @@
+# [3.34.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.33.0...v3.34.0) (2023-06-19)
+
+
+### Features
+
+* **focus:** Update inverted focus color to primary-highlight - TEHVEER-144 ([368877b](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/368877b39891aa7a665e09aceaf48dac36c4353c))
+
 # [3.33.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.32.0...v3.33.0) (2023-06-15)
 
 
