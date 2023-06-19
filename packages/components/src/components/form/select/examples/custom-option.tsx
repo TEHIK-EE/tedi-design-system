@@ -95,7 +95,7 @@ const CustomOption = (props: OptionProps<ISelectOption, boolean>): JSX.Element =
     <Row gutterX={2}>
       {type && (
         <Col width="auto">
-          <Tag size="small" type="secondary" color={type === 'L' ? 'warning' : 'important'}>
+          <Tag type="secondary" color={type === 'L' ? 'warning' : 'important'}>
             {type}
           </Tag>
         </Col>
