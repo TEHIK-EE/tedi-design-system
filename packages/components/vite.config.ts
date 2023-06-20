@@ -44,6 +44,12 @@ const config: UserConfig = {
     },
     rollupOptions: {
       external: ['next', 'react', 'react/jsx-runtime', 'react-dom', 'dayjs'],
+      output: {
+        assetFileNames: (assetInfo) => {
+          if (assetInfo.name === 'style.css') return 'index.css';
+          return assetInfo.name || '';
+        },
+      },
     },
   },
 };
