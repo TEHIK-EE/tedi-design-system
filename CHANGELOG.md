@@ -1,3 +1,10 @@
+## [3.37.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.37.0...v3.37.1) (2023-06-20)
+
+
+### Bug Fixes
+
+* **build:** Fix css index file name ([69b6e5f](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/69b6e5ffa6edf164f933e054a97efb225a7540c5))
+
 # [3.37.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.36.0...v3.37.0) (2023-06-20)
 
 
