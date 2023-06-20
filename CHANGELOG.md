@@ -1,3 +1,10 @@
+# [3.37.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.36.0...v3.37.0) (2023-06-20)
+
+
+### Features
+
+* **common:** Fix a couple of html validation errors ([18b2313](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/18b231348b79a86f567a0116e0a587cb53719fdb))
+
 # [3.36.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.35.0...v3.36.0) (2023-06-20)
 
 
