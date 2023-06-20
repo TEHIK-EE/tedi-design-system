@@ -1,3 +1,10 @@
+# [3.36.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.35.0...v3.36.0) (2023-06-20)
+
+
+### Features
+
+* **button:** Deprecate Error and Success colors, use positive and important instead - TEHVEER-154 ([0cf3962](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/0cf396299f20053182a63f1daf2b69e5c4d51385))
+
 # [3.35.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.34.1...v3.35.0) (2023-06-19)
 
 
