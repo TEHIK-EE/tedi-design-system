@@ -157,6 +157,7 @@ $btn-height-small: 2.25rem;
   }
 }
 
+.btn--important,
 .btn--error {
   $btn-important-opacity-bg: rgb(196 57 57 / 8%);
 
@@ -193,6 +194,7 @@ $btn-height-small: 2.25rem;
   }
 }
 
+.btn--positive,
 .btn--success {
   $btn-positive-opacity-bg: rgb(44 122 76 / 8%);
 
