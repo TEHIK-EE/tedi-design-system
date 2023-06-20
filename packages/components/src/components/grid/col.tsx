@@ -98,7 +98,25 @@ export interface ColProps extends ColSpec {
 const DEVICE_SIZES = ['xxl', 'xl', 'lg', 'md', 'sm', 'xs'] as const;
 
 export const Col = (props: ColProps): JSX.Element => {
-  const { className, children, element, width, offset, order, align, grow, shrink, onClick, ...rest } = props;
+  const {
+    className,
+    children,
+    element,
+    width,
+    offset,
+    order,
+    align,
+    grow,
+    shrink,
+    onClick,
+    xs,
+    sm,
+    md,
+    lg,
+    xl,
+    xxl,
+    ...rest
+  } = props;
   const { element: rootElement } = React.useContext(RowContext);
   let Element: ColElement | 'div' | 'span' | 'li';
 
@@ -132,8 +150,10 @@ export const Col = (props: ColProps): JSX.Element => {
   };
 
   const BEM = (): string => {
+    const breakPoints = { xs, sm, md, lg, xl, xxl };
+
     const deviceSpecificClassnames = DEVICE_SIZES.map((breakPoint) => {
-      const deviceSpecificValue = rest[breakPoint];
+      const deviceSpecificValue = breakPoints[breakPoint];
       const deviceSpecificInfix = breakPoint !== 'xs' ? `-${breakPoint}` : '';
 
       return !deviceSpecificValue

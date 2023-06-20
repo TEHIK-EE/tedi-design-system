@@ -143,14 +143,7 @@ export const Row = (props: RowProps): JSX.Element => {
   };
 
   const BEM = (): string => {
-    const breakPoints = {
-      xs,
-      sm,
-      md,
-      lg,
-      xl,
-      xxl,
-    };
+    const breakPoints = { xs, sm, md, lg, xl, xxl };
 
     const deviceSpecificClassnames = DEVICE_SIZES.map((breakPoint) => {
       const deviceSpecificValue = breakPoints[breakPoint];
