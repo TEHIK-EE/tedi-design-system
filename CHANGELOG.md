@@ -1,3 +1,10 @@
+# [3.38.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.37.1...v3.38.0) (2023-06-27)
+
+
+### Features
+
+* **text:** Add inline variants for text component ([2b8de79](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/2b8de798eb5b66093cac6a8864230ff3b8999b93))
+
 ## [3.37.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.37.0...v3.37.1) (2023-06-20)
 
 
