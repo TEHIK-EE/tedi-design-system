@@ -16,11 +16,13 @@ export type TextModifiers =
   | 'nowrap'
   | 'break-all'
   | 'break-word'
+  | 'break-spaces'
   | 'uppercase'
   | 'lowercase'
   | 'capitalize'
   | 'capitalize-first'
-  | 'break-spaces';
+  | 'inline-block'
+  | 'inline';
 
 export type TextColor =
   | 'default'
