@@ -1,3 +1,10 @@
+## [3.38.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.38.0...v3.38.1) (2023-06-29)
+
+
+### Bug Fixes
+
+* **card:** fix card background not reverting border radius ([524e76a](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/524e76a31312bbe0dbfd8ad64cefe344939d9a35))
+
 # [3.38.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.37.1...v3.38.0) (2023-06-27)
 
 
