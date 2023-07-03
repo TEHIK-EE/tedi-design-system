@@ -113,7 +113,7 @@ function SideNavItem<C extends React.ElementType = 'a'>(props: SideNavItem<C>) {
         className={styles['sidenav__link']}
         noStyle={true}
         role="menuitem"
-        aria-current={rest.isActive ? 'page' : undefined}
+        aria-current={isActive ? 'page' : undefined}
       >
         {icon && getIcon(icon)}
         <span className={styles['sidenav__title']}>{children}</span>
