@@ -1,3 +1,10 @@
+## [3.38.2](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.38.1...v3.38.2) (2023-07-03)
+
+
+### Bug Fixes
+
+* **sidenav:** TEHVEER-164 - Fix a problem with sidenav focus on mobiles ([be5b2c4](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/be5b2c4988a9ba16f50554d3c44a26c49b217662))
+
 ## [3.38.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.38.0...v3.38.1) (2023-06-29)
 
 
