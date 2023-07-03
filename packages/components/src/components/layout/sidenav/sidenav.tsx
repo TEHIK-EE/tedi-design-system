@@ -106,8 +106,15 @@ function SideNavItem<C extends React.ElementType = 'a'>(props: SideNavItem<C>) {
   };
 
   return (
-    <li data-name="sidenav-item" className={SideNavItemBEM} role="menuitem">
-      <Anchor {...rest} onClick={handleClick} className={styles['sidenav__link']} noStyle={true}>
+    <li data-name="sidenav-item" className={SideNavItemBEM} role="presentation">
+      <Anchor
+        {...rest}
+        onClick={handleClick}
+        className={styles['sidenav__link']}
+        noStyle={true}
+        role="menuitem"
+        aria-current={rest.isActive ? 'page' : undefined}
+      >
         {icon && getIcon(icon)}
         <span className={styles['sidenav__title']}>{children}</span>
       </Anchor>
