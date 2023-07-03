@@ -1,3 +1,10 @@
+## [3.38.3](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.38.2...v3.38.3) (2023-07-03)
+
+
+### Bug Fixes
+
+* **sidenav:** TEHVEER-164 - aria-current not in the DOM for active page ([cc9db4d](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/cc9db4de663fc7b04073963134ee055de2b7a9a8))
+
 ## [3.38.2](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.38.1...v3.38.2) (2023-07-03)
 
 
