@@ -28,6 +28,11 @@ export interface ChoiceGroupProps extends FormLabelProps {
    */
   items: ChoiceGroupItemProps[];
   /**
+   *  Direction for Row containing Items
+   *  @default column for type default / row for anything else
+   */
+  direction?: 'column' | 'row';
+  /**
    * Name property on inputs
    */
   name: string;
@@ -80,7 +85,7 @@ export interface ChoiceGroupProps extends FormLabelProps {
   >;
 }
 
-export const ChoiceGroup = (props: ChoiceGroupProps): JSX.Element => {
+export const ChoiceGroup = (props: ChoiceGroupProps): React.ReactElement => {
   const { getLabel } = useLabels();
   const {
     id,
@@ -90,13 +95,14 @@ export const ChoiceGroup = (props: ChoiceGroupProps): JSX.Element => {
     required,
     helper,
     items,
+    type = 'default',
+    direction = type === 'default' ? 'column' : 'row',
     name,
     inputType = 'radio',
     value,
     defaultValue,
     onChange,
     hideLabel,
-    type = 'default',
     indeterminateCheck,
     indeterminateCheckProps = {},
     ...rest
@@ -237,9 +243,9 @@ export const ChoiceGroup = (props: ChoiceGroupProps): JSX.Element => {
                 onChange={onIndeterminateChangeHandler}
               />
             )}
-            <Row className={CheckGroupBEM} gutter={0} direction={type === 'default' ? 'column' : 'row'}>
+            <Row className={CheckGroupBEM} gutter={0} direction={direction}>
               {items.map((item, key) => (
-                <ChoiceGroupItemElement {...item} key={item.id} />
+                <ChoiceGroupItemElement {...item} direction={direction} key={item.id} />
               ))}
             </Row>
           </>

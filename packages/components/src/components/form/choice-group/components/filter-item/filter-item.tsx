@@ -6,7 +6,7 @@ import { ChoiceGroupItemProps } from '../../choice-group.types';
 import { ChoiceGroupContext } from '../../choice-group-context';
 import styles from './filter-item.module.scss';
 
-export const FilterItem = (props: ChoiceGroupItemProps): JSX.Element => {
+export const FilterItem = (props: ChoiceGroupItemProps): React.ReactElement => {
   const { id, label, value, disabled, colProps } = props;
   const { currentValue, inputType, name, onChange } = React.useContext(ChoiceGroupContext);
 
