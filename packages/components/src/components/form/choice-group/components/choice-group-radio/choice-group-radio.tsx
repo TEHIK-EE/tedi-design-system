@@ -5,13 +5,14 @@ import Radio from '../../../radio/radio';
 import { ChoiceGroupItemProps } from '../../choice-group.types';
 import { ChoiceGroupContext } from '../../choice-group-context';
 
-export const ChoiceGroupRadio = (props: ChoiceGroupItemProps): JSX.Element => {
+export const ChoiceGroupRadio = (props: ChoiceGroupItemProps): React.ReactElement => {
   const {
     id,
     label,
     value,
+    direction = 'column',
     disabled,
-    colProps = { width: 12 },
+    colProps = direction === 'column' ? { width: 12 } : { width: 'auto', grow: 1 },
     onChange: onChangeItem,
     hideLabel,
     extraContent,

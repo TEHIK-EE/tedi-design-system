@@ -48,6 +48,19 @@ export const Radio: Story = {
   },
 };
 
+export const RadioRow: Story = {
+  args: {
+    label: 'ChoiceGroup with radios:',
+    id: 'example-1.5',
+    defaultValue: [],
+    inputType: 'radio',
+    name: 'radio-1.5',
+    items: generateItems(0),
+    direction: 'row',
+    onChange: (value) => console.log({ value }),
+  },
+};
+
 export const Check: Story = {
   args: {
     label: 'ChoiceGroup with checkboxes:',
@@ -56,6 +69,18 @@ export const Check: Story = {
     inputType: 'checkbox',
     name: 'check-2',
     items: generateItems(1),
+  },
+};
+
+export const CheckRow: Story = {
+  args: {
+    label: 'ChoiceGroup with direction row:',
+    id: 'example-2.5',
+    defaultValue: [],
+    inputType: 'checkbox',
+    name: 'check-2.5',
+    items: generateItems(1),
+    direction: 'row',
   },
 };
 
@@ -71,6 +96,19 @@ export const FilterItem: Story = {
   },
 };
 
+export const FilterItemColumn: Story = {
+  args: {
+    label: 'Choose your filter:',
+    id: 'example-3.5',
+    defaultValue: [],
+    inputType: 'radio',
+    name: 'radio-3.5',
+    type: 'filter',
+    items: generateItems(2),
+    direction: 'column',
+  },
+};
+
 export const SelectorItem: Story = {
   args: {
     label: 'Select your item:',
@@ -80,6 +118,19 @@ export const SelectorItem: Story = {
     name: 'check-4',
     type: 'selector',
     items: generateItems(3),
+  },
+};
+
+export const SelectorItemRow: Story = {
+  args: {
+    label: 'Select your item:',
+    id: 'example-4.5',
+    defaultValue: [],
+    inputType: 'checkbox',
+    name: 'check-4.5',
+    type: 'selector',
+    items: generateItems(3),
+    direction: 'column',
   },
 };
 

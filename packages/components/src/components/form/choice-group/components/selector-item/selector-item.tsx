@@ -6,8 +6,8 @@ import { ChoiceGroupItemProps } from '../../choice-group.types';
 import { ChoiceGroupContext } from '../../choice-group-context';
 import styles from './selector-item.module.scss';
 
-export const SelectorItem = (props: ChoiceGroupItemProps): JSX.Element => {
-  const { id, label, value, disabled, colProps } = props;
+export const SelectorItem = (props: ChoiceGroupItemProps): React.ReactElement => {
+  const { id, label, value, disabled, colProps, direction } = props;
   const { currentValue, inputType, name, onChange } = React.useContext(ChoiceGroupContext);
 
   const isChecked = !currentValue
@@ -23,6 +23,7 @@ export const SelectorItem = (props: ChoiceGroupItemProps): JSX.Element => {
   const ColumnBEM = cn(
     styles['selector__item'],
     colProps?.className,
+    styles[`selector__item--${direction}`],
     { [styles['selector__item--disabled']]: disabled },
     { [styles['selector__item--checked']]: isChecked }
   );

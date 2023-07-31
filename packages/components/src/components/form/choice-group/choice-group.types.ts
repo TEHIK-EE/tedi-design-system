@@ -32,6 +32,10 @@ export interface ChoiceGroupItemProps {
    */
   colProps?: ColProps;
   /**
+   * Direction
+   */
+  direction?: 'row' | 'column';
+  /**
    * Possibility to add extra content after label. ExtraContent is not clickable like label
    * Can only be used with ChoiceGroupRadio and Checkbox.
    */
