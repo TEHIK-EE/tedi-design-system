@@ -1,3 +1,10 @@
+# [3.39.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.38.3...v3.39.0) (2023-07-31)
+
+
+### Features
+
+* **choice-group:** UPP-679 - Add direction prop ([9d5b0db](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/9d5b0dbb3b73775c0c583fac5bc81590b4597211))
+
 ## [3.38.3](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.38.2...v3.38.3) (2023-07-03)
 
 
