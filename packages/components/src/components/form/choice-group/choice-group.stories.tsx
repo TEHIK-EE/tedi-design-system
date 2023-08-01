@@ -51,11 +51,11 @@ export const Radio: Story = {
 export const RadioRow: Story = {
   args: {
     label: 'ChoiceGroup with radios:',
-    id: 'example-1.5',
+    id: 'example-1.1',
     defaultValue: [],
     inputType: 'radio',
-    name: 'radio-1.5',
-    items: generateItems(0),
+    name: 'radio-1.1',
+    items: generateItems(1),
     direction: 'row',
     onChange: (value) => console.log({ value }),
   },
@@ -68,18 +68,18 @@ export const Check: Story = {
     defaultValue: [],
     inputType: 'checkbox',
     name: 'check-2',
-    items: generateItems(1),
+    items: generateItems(2),
   },
 };
 
 export const CheckRow: Story = {
   args: {
     label: 'ChoiceGroup with direction row:',
-    id: 'example-2.5',
+    id: 'example-2.1',
     defaultValue: [],
     inputType: 'checkbox',
-    name: 'check-2.5',
-    items: generateItems(1),
+    name: 'check-2.1',
+    items: generateItems(3),
     direction: 'row',
   },
 };
@@ -92,7 +92,7 @@ export const FilterItem: Story = {
     inputType: 'radio',
     name: 'radio-3',
     type: 'filter',
-    items: generateItems(2),
+    items: generateItems(4),
   },
 };
 
@@ -104,7 +104,7 @@ export const FilterItemColumn: Story = {
     inputType: 'radio',
     name: 'radio-3.5',
     type: 'filter',
-    items: generateItems(2),
+    items: generateItems(5),
     direction: 'column',
   },
 };
@@ -117,11 +117,11 @@ export const SelectorItem: Story = {
     inputType: 'checkbox',
     name: 'check-4',
     type: 'selector',
-    items: generateItems(3),
+    items: generateItems(6),
   },
 };
 
-export const SelectorItemRow: Story = {
+export const SelectorItemColumn: Story = {
   args: {
     label: 'Select your item:',
     id: 'example-4.5',
@@ -129,7 +129,7 @@ export const SelectorItemRow: Story = {
     inputType: 'checkbox',
     name: 'check-4.5',
     type: 'selector',
-    items: generateItems(3),
+    items: generateItems(7),
     direction: 'column',
   },
 };
@@ -139,7 +139,7 @@ export const WithHiddenLabel: Story = {
     ...Check.args,
     label: 'Im hidden:',
     hideLabel: true,
-    items: generateItems(4),
+    items: generateItems(8),
   },
 };
 
@@ -147,7 +147,7 @@ export const WithError: Story = {
   args: {
     ...Check.args,
     label: 'I have error:',
-    items: generateItems(5),
+    items: generateItems(9),
     helper: {
       text: 'Oh no an error!',
       type: 'error',
@@ -160,7 +160,7 @@ export const WithDefaultValue: Story = {
   args: {
     ...Check.args,
     label: 'I have second item selected by default:',
-    items: generateItems(6),
+    items: generateItems(10),
     defaultValue: ['value-19'],
   },
 };
@@ -169,7 +169,7 @@ export const WithIndeterminate: Story = {
   args: {
     ...Check.args,
     label: 'I have an indeterminate checkbox:',
-    items: generateItems(7),
+    items: generateItems(11),
     indeterminateCheck: (state) => (state === 'all' ? 'Eemalda kõik' : 'Vali kõik'),
   },
 };
@@ -179,7 +179,7 @@ export const WithExtraContent: Story = {
     ...Check.args,
     inputType: 'radio',
     label: 'I have extra content after label:',
-    items: generateItems(8, true),
+    items: generateItems(12, true),
   },
 
   parameters: {

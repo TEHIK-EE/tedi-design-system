@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ColProps } from '../../grid';
+import { ColProps, Direction } from '../../grid';
 
 export interface ChoiceGroupItemProps {
   /**
@@ -34,7 +34,7 @@ export interface ChoiceGroupItemProps {
   /**
    * Direction
    */
-  direction?: 'row' | 'column';
+  direction?: Direction;
   /**
    * Possibility to add extra content after label. ExtraContent is not clickable like label
    * Can only be used with ChoiceGroupRadio and Checkbox.

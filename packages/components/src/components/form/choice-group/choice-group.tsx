@@ -2,7 +2,7 @@ import cn from 'classnames';
 import React from 'react';
 
 import { useLabels } from '../../../providers/label-provider';
-import { Row } from '../../grid';
+import { Direction, Row } from '../../grid';
 import Check, { CheckProps } from '../check/check';
 import FormHelper, { FormHelperProps } from '../form-helper/form-helper';
 import FormLabel, { FormLabelProps } from '../form-label/form-label';
@@ -31,7 +31,7 @@ export interface ChoiceGroupProps extends FormLabelProps {
    *  Direction for Row containing Items
    *  @default column for type default / row for anything else
    */
-  direction?: 'column' | 'row';
+  direction?: Direction;
   /**
    * Name property on inputs
    */
