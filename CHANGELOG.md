@@ -1,3 +1,10 @@
+# [3.40.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.39.2...v3.40.0) (2023-08-01)
+
+
+### Features
+
+* **accordion:** TEHVEER-173 - set tabIndex -1 to open and close buttons, if provided ([eb31bab](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/eb31babd312548527b639d15e52dd9e514da9058))
+
 ## [3.39.2](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.39.1...v3.39.2) (2023-08-01)
 
 
