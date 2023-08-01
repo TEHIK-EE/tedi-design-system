@@ -1,3 +1,10 @@
+## [3.40.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.40.0...v3.40.1) (2023-08-01)
+
+
+### Bug Fixes
+
+* **scss:** TEHVEER-176 - remove html font size ([e652115](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/e652115da737aa32bd6c4b9fbd716c261a4551ee))
+
 # [3.40.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.39.2...v3.40.0) (2023-08-01)
 
 
