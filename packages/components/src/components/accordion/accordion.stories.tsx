@@ -93,6 +93,23 @@ const TemplatePrimaryBorder: StoryFn<AccordionProps> = (args) => {
   );
 };
 
+const TemplateWithButton: StoryFn<typeof Accordion> = (args) => {
+  return (
+    <VerticalSpacing size={1}>
+      <Accordion {...args}>
+        {accordionItems.map(({ id, header, content }: AccordionItemProp) => (
+          <AccordionItem key={id} id={id}>
+            <AccordionItemHeader openText="Avan" closeText="Sulgen">
+              {header}
+            </AccordionItemHeader>
+            <AccordionItemContent>{content}</AccordionItemContent>
+          </AccordionItem>
+        ))}
+      </Accordion>
+    </VerticalSpacing>
+  );
+};
+
 export const Default: Story = {
   render: Template,
 };
@@ -116,4 +133,8 @@ export const OutsideControlledState: Story = {
 
 export const PrimaryBorder: Story = {
   render: TemplatePrimaryBorder,
+};
+
+export const WithButtons: Story = {
+  render: TemplateWithButton,
 };
