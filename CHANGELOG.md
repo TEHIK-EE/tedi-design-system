@@ -1,3 +1,10 @@
+## [3.39.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.39.0...v3.39.1) (2023-08-01)
+
+
+### Bug Fixes
+
+* **choice-group:** Fix selector column visual & stories - UPP-679 ([40755d4](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/40755d4688497d6b19ab94c44951d83da2622a45))
+
 # [3.39.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.38.3...v3.39.0) (2023-07-31)
 
 
