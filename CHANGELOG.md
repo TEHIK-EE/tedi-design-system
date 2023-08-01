@@ -1,3 +1,10 @@
+# [3.41.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.40.1...v3.41.0) (2023-08-01)
+
+
+### Features
+
+* **colors:** Update text and border-contrast colors - TEHVEER-178 ([aac17a4](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/aac17a4ab2fc200c022ac2a0812226e7cb65f00a))
+
 ## [3.40.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.40.0...v3.40.1) (2023-08-01)
 
 
