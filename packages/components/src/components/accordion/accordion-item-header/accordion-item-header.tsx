@@ -75,6 +75,7 @@ export const AccordionItemHeader = (props: AccordionItemHeaderProps): JSX.Elemen
               isActive={isHovered}
               isOpen={isOpen(id)}
               visualType="link"
+              tabIndex={-1}
             />
           </Col>
         </Row>
