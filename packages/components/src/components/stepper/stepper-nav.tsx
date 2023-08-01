@@ -76,7 +76,7 @@ export const StepperNav = (props: StepperNavProps): JSX.Element => {
           <span className={styles['stepper__nav-item-counter']}>{index + 1}</span>
           <span className={StepperNavItemLabelBEM}>{label}</span>
           {completed && <span className="visually-hidden">{completedLabel}</span>}
-          {completed && !isCurrent && <span className="visually-hidden">{notCompletedLabel}</span>}
+          {!completed && !isCurrent && <span className="visually-hidden">{notCompletedLabel}</span>}
         </button>
         {isCurrent && <span className={styles['stepper__nav-item-arrow']} />}
       </li>
