@@ -1,3 +1,10 @@
+## [3.39.2](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.39.1...v3.39.2) (2023-08-01)
+
+
+### Bug Fixes
+
+* **stepper:** TEHVEER-171 - fix screenreader problems in stepper navigation ([b53c527](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/b53c52735d770b4607e173e1226fa180674accf3))
+
 ## [3.39.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.39.0...v3.39.1) (2023-08-01)
 
 
