@@ -98,8 +98,6 @@ build-sb-docker:
     - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
     - docker push $CI_REGISTRY_IMAGE:$CI_PIPELINE_ID
   rules:
-    - if: $CI_COMMIT_AUTHOR     == "semantic-release-bot <semantic-release-bot@martynus.net>"
-      when: never
     - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
 
 publish-library:
@@ -121,16 +119,6 @@ publish-library:
     - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
 
 publish-storybook:
-  <<: *before_script
-  stage: publish
-  script:
-    - npm run build:sb
-    - npm install netlify-cli -g
-    - npx netlify deploy --auth $NETLIFY_AUTH_TOKEN --site $NETLIFY_SITE_ID --dir ./dist/storybook/components --prod
-  rules:
-    - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
-
-publish-storybook-tehik:
   stage: publish
   image:
     name: docker.repo.tehik.ee/bitnami/kubectl:latest
@@ -144,6 +132,4 @@ publish-storybook-tehik:
   script:
     - kubectl -n $K8S_NAMESPACE set image Deployment/tehik-react-story-book nginx=$CI_REGISTRY_IMAGE:$CI_PIPELINE_ID
   rules:
-    - if: $CI_COMMIT_AUTHOR     == "semantic-release-bot <semantic-release-bot@martynus.net>"
-      when: never
     - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH

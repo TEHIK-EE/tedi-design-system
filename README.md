@@ -6,7 +6,7 @@ Usage of tehik scope packages:
   - `@tehik:registry=https://repo.tehik.ee/artifactory/api/npm/tehik-npm-release/`
 - Afterwards follow the directions described in [here](https://repo.tehik.ee/ui/repos/tree/General/tehik-npm-release) under "Set Me Up"
 
-Steps to use `@tehik/react-components` are described [here](https://star2-storybook.netlify.app/?path=/docs/documentation-usage--usage).
+Steps to use `@tehik/react-components` are described [here](https://disainipesa-react.tehik.ee/?path=/docs/documentation-get-started--get-started).
 
 ## Naming conventions
 
