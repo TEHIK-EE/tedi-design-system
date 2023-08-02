@@ -1,17 +1,17 @@
 @use '../../../../../styles/mixins';
 
-.selector__input {
-  @include mixins.visually-hidden;
-}
-
-.selector__item {
+.selector-item {
   display: flex;
   height: 2.5rem;
 
   --global-outline-offset: -2px;
 }
 
-.selector__item-label {
+.selector-item__input {
+  @include mixins.visually-hidden;
+}
+
+.selector-item__label {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -24,53 +24,57 @@
   background-color: var(--color-bg-subtle);
   border: 1px solid var(--color-border-contrast);
 
-  &:focus {
+  .selector-item__input:focus + & {
+    @include mixins.focus-element;
+
     border-radius: 0;
   }
 
-  .selector__item--disabled & {
+  .selector-item--disabled & {
     color: var(--color-text-disabled);
     cursor: unset;
     background-color: var(--color-bg-disabled);
   }
 
-  .selector__item--checked & {
+  .selector-item--checked & {
     color: var(--color-text-inverted);
     background-color: var(--color-primary-main);
+
+    --global-outline-color: var(--color-primary-highlight);
   }
 
-  .selector__item--checked:not(.selector__item--column, .selector__item--column-reverse) & {
+  .selector-item--checked:not(.selector-item--column, .selector-item--column-reverse) & {
     border-top-color: var(--color-primary-main);
     border-bottom-color: var(--color-primary-main);
   }
 
-  .selector__item--row:first-of-type &,
-  .selector__item--row-reverse:last-child & {
+  .selector-item--row:first-of-type &,
+  .selector-item--row-reverse:last-child & {
     margin-left: 0;
     border-top-left-radius: var(--border-radius-default);
     border-bottom-left-radius: var(--border-radius-default);
   }
 
-  .selector__item--row:last-child &,
-  .selector__item--row-reverse:first-of-type & {
+  .selector-item--row:last-child &,
+  .selector-item--row-reverse:first-of-type & {
     border-top-right-radius: var(--border-radius-default);
     border-bottom-right-radius: var(--border-radius-default);
   }
 
-  .selector__item--column &,
-  .selector__item--column-reverse & {
+  .selector-item--column &,
+  .selector-item--column-reverse & {
     border-top: 0;
   }
 
-  .selector__item--column:first-of-type &,
-  .selector__item--column-reverse:last-child & {
+  .selector-item--column:first-of-type &,
+  .selector-item--column-reverse:last-child & {
     border-top: 1px solid var(--color-border-contrast);
     border-top-left-radius: var(--border-radius-default);
     border-top-right-radius: var(--border-radius-default);
   }
 
-  .selector__item--column:last-child &,
-  .selector__item--column-reverse:first-of-type & {
+  .selector-item--column:last-child &,
+  .selector-item--column-reverse:first-of-type & {
     border-bottom-right-radius: var(--border-radius-default);
     border-bottom-left-radius: var(--border-radius-default);
   }

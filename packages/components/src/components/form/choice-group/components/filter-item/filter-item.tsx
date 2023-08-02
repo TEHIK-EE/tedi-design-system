@@ -34,9 +34,8 @@ export const FilterItem = (props: ChoiceGroupItemProps): React.ReactElement => {
         checked={isChecked}
         onChange={(event) => onChange(value, event?.target.checked)}
         className={styles['filter-item__input']}
-        tabIndex={-1}
       />
-      <label htmlFor={id} className={styles['filter-item__label']} tabIndex={disabled ? -1 : 0}>
+      <label htmlFor={id} className={styles['filter-item__label']}>
         {label}
       </label>
     </Col>
