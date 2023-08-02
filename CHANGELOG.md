@@ -1,3 +1,10 @@
+## [3.41.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.41.0...v3.41.1) (2023-08-02)
+
+
+### Bug Fixes
+
+* **choice-group:** TEHVEER-174 - fix choice group type filter to be selectable with keyboard ([c25139c](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/c25139cb018309eb0de961e2165f4dc1f5c73542))
+
 # [3.41.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.40.1...v3.41.0) (2023-08-01)
 
 
