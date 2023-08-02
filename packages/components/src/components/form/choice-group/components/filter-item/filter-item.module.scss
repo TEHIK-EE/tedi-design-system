@@ -19,6 +19,10 @@
   background: var(--color-bg-subtle);
   border-radius: var(--border-radius-default);
 
+  .filter-item__input:focus + & {
+    @include mixins.focus-element;
+  }
+
   .filter-item--disabled & {
     color: var(--color-text-disabled);
     cursor: unset;

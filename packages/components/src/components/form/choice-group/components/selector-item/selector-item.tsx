@@ -21,11 +21,11 @@ export const SelectorItem = (props: ChoiceGroupItemProps): React.ReactElement =>
   };
 
   const ColumnBEM = cn(
-    styles['selector__item'],
+    styles['selector-item'],
     colProps?.className,
-    styles[`selector__item--${direction}`],
-    { [styles['selector__item--disabled']]: disabled },
-    { [styles['selector__item--checked']]: isChecked }
+    styles[`selector-item--${direction}`],
+    { [styles['selector-item--disabled']]: disabled },
+    { [styles['selector-item--checked']]: isChecked }
   );
 
   return (
@@ -38,10 +38,9 @@ export const SelectorItem = (props: ChoiceGroupItemProps): React.ReactElement =>
         disabled={disabled}
         checked={isChecked}
         onChange={onChangeHandler}
-        className={styles['selector__input']}
-        tabIndex={-1}
+        className={styles['selector-item__input']}
       />
-      <label htmlFor={id} className={styles['selector__item-label']} tabIndex={disabled ? -1 : 0}>
+      <label htmlFor={id} className={styles['selector-item__label']}>
         {label}
       </label>
     </Col>

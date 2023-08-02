@@ -48,3 +48,13 @@
     filter: grayscale(1);
   }
 }
+
+@mixin focus-element {
+  border-radius: 0.25rem;
+  outline: 2px solid var(--global-outline-color, var(--color-primary-main));
+  outline-offset: var(--global-outline-offset, 1px);
+
+  html:not([data-whatintent='keyboard']) & {
+    outline: none;
+  }
+}
