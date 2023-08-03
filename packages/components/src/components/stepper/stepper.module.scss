@@ -76,6 +76,10 @@ $stepper-step-bg-active-hover: var(--color-primary-active);
   transition: $stepper-transition;
   transition-property: color, background-color;
 
+  .stepper__nav-item--completed & {
+    color: var(--color-positive-main);
+  }
+
   .stepper__nav-item:hover:not(.stepper__nav-item--disabled, .stepper__nav-item--active) & {
     color: var(--color-text-inverted);
     background-color: var(--color-primary-active);
