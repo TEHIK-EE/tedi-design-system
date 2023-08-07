@@ -1,3 +1,45 @@
+# [4.0.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.42.2...v4.0.0) (2023-08-07)
+
+
+### Features
+
+* **background-colors:**  - Remove depracted bg-colors - TEHVEER-52 ([84da3f2](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/84da3f2d9197ca8fed8a31674042d3c67203e08f))
+* **button:** Depracted error nad success colors ([0361856](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/036185687539eab806d5ff56ebac37a4c99ca742))
+* **button:** Remove deprecated classNameIcon prop - TEHVEER-52 ([3c9314c](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/3c9314c99882ae4391bce14f7ba48fadbf20ff37))
+* **card-header:** Remove deprecated style prop - TEHVEER-52 ([b6727e1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/b6727e134b67ece3f0afd38a378d13563fabb4de))
+* **collapse:** Remove deprecated heading prop - TEHVEER-52 ([f4b5108](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/f4b5108d17f141bf5c43274aa438433ea199f916))
+* **footer:** Remove deprecated links property from FooterCategory - TEHVEER-52 ([c4e0c33](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/c4e0c337f2881076d68ff2e1212fc18a6f463770))
+* **header:** Remove deprecated hideToggle - TEHVEER-52 ([b2e6d0a](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/b2e6d0a5e8cc2260dae07a09ed4610d742c29e95))
+* **heading:** Remove deprecated level property - TEHVEER-52 ([33b242d](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/33b242d4be0ece006e022d783205bd0aa6241f6d))
+* **Tag:** Depracted primary-accent nad success colors ([45f1368](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/45f1368c7b3a0c3858eb4c0f470b563fd0ffc256))
+* **textfield:** Remove deprecated classNameIcon prop - TEHVEER-52 ([1289bad](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/1289bade364403bf54d80472b4681ba6e3a31bdf))
+* **typography:** Remove old global css classes - TEHVEER-52 ([503b7b4](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/503b7b4c02645b83cf5bcef4804a36a68a47341e))
+
+
+### BREAKING CHANGES
+
+* **Tag:** Depracted primary-accent nad success colors.
+Use "positive" and "accent" instead!
+* **button:** Depracted error nad success colors.
+Use color important & positive instead!
+* **typography:** Remove deprecated classes:
+* text-black -> text-default
+* text-secondary -> text-muted
+* text-white -> text-inverted
+* text-success -> text-positive
+* text-error -> text-important
+* inactive -> Removed!
+* **heading:** Remove deprecated level property.
+Use element property instead.
+* **header:** Should be okay to just remove.
+When no navItems for sideNav are defined, then we hide the toggle anyway.
+* **footer:** links prop removed from FooterCategory
+Use elements property instead, need to pass Anchor elements from now, if links are wanted!
+* **textfield:** classNameIcon prop removed - Pass an IconProps object to icon instead!
+* **collapse:** style prop removed - replace with title!
+* **card-header:** style prop removed - replace with variant!
+* **button:** classNameIcon prop removed - Check slack for more info!
+
 ## [3.42.2](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.42.1...v3.42.2) (2023-08-07)
 
 
