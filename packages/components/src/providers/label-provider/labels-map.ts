@@ -547,6 +547,13 @@ export const labelsMap = {
     en: 'Pick date range',
     ru: 'Выберите даты',
   }),
+  'footer.title': validateLabel({
+    description: 'Label for screen-reader for footer navigation title',
+    components: ['Footer'],
+    et: 'Jalus',
+    en: 'Footer',
+    ru: 'Нижний колонтитул',
+  }),
 };
 
 export type LabelsMapType = typeof labelsMap;
