@@ -1,4 +1,5 @@
 import cn from 'classnames';
+import { AriaRole } from 'react';
 
 import styles from './form-helper.module.scss';
 
@@ -27,12 +28,16 @@ export interface FormHelperProps {
 
 export const FormHelper = (props: FormHelperProps): JSX.Element => {
   const { text, id, className, type = 'help', ...rest } = props;
+
+  const role: AriaRole | undefined = type === 'valid' || type === 'error' ? 'alert' : undefined;
+
   return (
     <div
       data-name="form-helper"
       {...rest}
       id={id}
       className={cn(styles['form-helper'], styles[`form-helper--${type}`], className)}
+      role={role}
     >
       {text}
     </div>
