@@ -2,6 +2,7 @@ import cn from 'classnames';
 import React from 'react';
 
 import { AllowedHTMLTags } from '../../../helpers/polymorphic/types';
+import { useLabels } from '../../../providers/label-provider';
 import { Anchor, AnchorProps } from '../../anchor/anchor';
 import { Col, Row } from '../../grid';
 import Icon, { IconProps } from '../../icon/icon';
@@ -64,12 +65,16 @@ export type FooterProps<C extends React.ElementType = 'a'> = ConditionalTypesFoo
 
 export const Footer = <C extends React.ElementType = 'a'>(props: FooterProps<C>): JSX.Element => {
   const { logo, categories, className, linkAs, bottomElement, ...rest } = props;
+  const { getLabel } = useLabels();
 
   const BEM = cn(styles['footer'], className);
 
   return (
     <Print visibility="hide">
       <footer data-name="footer" {...rest} className={BEM}>
+        <Text className="visually-hidden" element="h2">
+          {getLabel('footer.title')}
+        </Text>
         <div className={styles['footer__inner']}>
           {categories.map((c, index) => (
             <StretchContent direction="vertical" key={index}>
@@ -108,27 +113,33 @@ const FooterCategory = <C extends React.ElementType = 'a'>(props: FooterCategory
       )}
       <Col width="auto">
         <VerticalSpacing className={cn('text-small', styles['footer__category'])} size={0.5}>
-          <Text color="inverted" modifiers="bold" element="div">
+          <Text color="inverted" modifiers={['bold', 'normal']} element="h3">
             {heading}
           </Text>
-          {elements
-            ? elements?.map((item, index) => (
-                <Text color="inverted" key={index} element="div">
-                  {item}
-                </Text>
-              ))
-            : links?.map((link, index) => (
-                <Text key={index}>
-                  <Anchor
-                    className={styles['footer__link']}
-                    color="inverted"
-                    size="small"
-                    as={linkAs}
-                    underline
-                    {...link}
-                  />
-                </Text>
-              ))}
+          <VerticalSpacing element="ul" size={0.5} className={cn(styles['footer__category-list'])}>
+            {elements
+              ? elements?.map((item, index) => (
+                  <li key={index}>
+                    <Text color="inverted" element="span">
+                      {item}
+                    </Text>
+                  </li>
+                ))
+              : links?.map((link, index) => (
+                  <li key={index}>
+                    <Text key={index}>
+                      <Anchor
+                        className={styles['footer__link']}
+                        color="inverted"
+                        size="small"
+                        as={linkAs}
+                        underline
+                        {...link}
+                      />
+                    </Text>
+                  </li>
+                ))}
+          </VerticalSpacing>
         </VerticalSpacing>
       </Col>
     </Row>
