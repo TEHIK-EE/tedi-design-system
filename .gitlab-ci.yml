@@ -68,8 +68,6 @@ build-sb:
   script:
     - npm run build:sb
   rules:
-    - if: $CI_COMMIT_AUTHOR	== "semantic-release-bot <semantic-release-bot@martynus.net>"
-      when: never
     - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
     - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
   artifacts:
