@@ -2,6 +2,7 @@ import cn from 'classnames';
 import React from 'react';
 
 import Button, { ButtonProps } from '../button/button';
+import { IconProps } from '../icon/icon';
 import styles from './toggle-open.module.scss';
 
 export interface ToggleOpenProps extends Omit<ButtonProps, 'children' | 'iconRight'> {
@@ -17,13 +18,22 @@ export interface ToggleOpenProps extends Omit<ButtonProps, 'children' | 'iconRig
    * If the element currently open
    */
   isOpen: boolean;
+  /**
+   * Name of the icon we want to show on the right.
+   * Overidden from ButtonProps, because we dont support string as icon name here
+   */
+  iconRight?: Partial<IconProps>;
 }
 
-export const ToggleOpen = ({ openText, closeText, isOpen, classNameIcon, ...rest }: ToggleOpenProps): JSX.Element => {
-  const ToggleOpenBEM = cn({ [styles['toggle--open']]: isOpen }, { [styles['toggle--close']]: !isOpen }, classNameIcon);
+export const ToggleOpen = ({ openText, closeText, isOpen, iconRight, ...rest }: ToggleOpenProps): JSX.Element => {
+  const ToggleOpenBEM = cn(
+    { [styles['toggle--open']]: isOpen },
+    { [styles['toggle--close']]: !isOpen },
+    iconRight?.className
+  );
 
   return (
-    <Button data-name="button" iconRight="expand_more" classNameIcon={ToggleOpenBEM} {...rest}>
+    <Button data-name="button" iconRight={{ ...iconRight, className: ToggleOpenBEM, name: 'expand_more' }} {...rest}>
       {isOpen ? closeText : openText}
     </Button>
   );

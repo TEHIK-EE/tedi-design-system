@@ -28,7 +28,6 @@ export const Default: Story = {
   args: {
     openText: 'Avan',
     closeText: 'Sulgen',
-    classNameIcon: 'text-bold',
     visualType: 'secondary',
   },
 };

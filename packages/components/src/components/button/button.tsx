@@ -45,7 +45,6 @@ const InternalButton = forwardRef(
       type,
       formNoValidate,
       className,
-      classNameIcon,
       visualType,
       color,
       size,
@@ -72,7 +71,6 @@ const InternalButton = forwardRef(
         ref={ref}
         as={ComponentAs}
         className={BEM}
-        classNameIcon={classNameIcon}
         visualType={visualType}
         color={color}
         size={size}

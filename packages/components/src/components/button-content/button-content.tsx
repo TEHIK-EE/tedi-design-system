@@ -24,12 +24,6 @@ export type ButtonContentProps<
      */
     className?: string;
     /**
-     * Additional custom class name for Icon.
-     * This can also be achieved by passing an object to one of the icon props.
-     * @deprecated - Pass an IconProps object to icon/iconLeft/iconRight instead
-     */
-    classNameIcon?: string;
-    /**
      * Button visual type
      * @default primary
      */
@@ -97,7 +91,6 @@ const InternalButtonContent = forwardRef(
       as,
       text,
       className,
-      classNameIcon,
       visualType = 'primary',
       color = 'default',
       size,
@@ -134,7 +127,7 @@ const InternalButtonContent = forwardRef(
       : cn(styles['btn--no-style'], className);
 
     const getIcon = (location: string, icon: string | IconProps): JSX.Element => {
-      const iconBEM = cn(styles['btn__icon'], styles[`btn__icon--${location}`], classNameIcon);
+      const iconBEM = cn(styles['btn__icon'], styles[`btn__icon--${location}`]);
       const defaultIconProps: Partial<IconProps> = { size: 16, className: iconBEM };
       const iconProps: IconProps =
         typeof icon === 'string'
