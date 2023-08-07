@@ -1,7 +1,10 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
+import React from 'react';
 
 import { Card, CardContent } from '../card';
 import { Col, Row } from '../grid';
+import { Text } from '../typography/text/text';
+import { VerticalSpacing } from '../vertical-spacing';
 import Separator, { SeparatorProps } from './separator';
 
 const meta: Meta<typeof Separator> = {
@@ -11,12 +14,44 @@ const meta: Meta<typeof Separator> = {
 export default meta;
 type Story = StoryObj<typeof Separator>;
 
+const colorArray: SeparatorProps['color'][] = ['default', 'contrast', 'accent'];
+
 const Template: StoryFn<SeparatorProps> = (args) => (
   <>
     <p className="text-secondary">Some content</p>
     <Separator {...args} />
-    <p className="text-secondary">Some content</p>
+    <p className="text-secondary">Other content</p>
   </>
+);
+
+const ColorTemplate: StoryFn<SeparatorProps> = (args) => (
+  <VerticalSpacing>
+    {colorArray.map((color) => (
+      <React.Fragment key={color}>
+        <Text modifiers="capitalize" element="span">
+          {color}
+        </Text>
+        <Separator {...args} color={color} />
+      </React.Fragment>
+    ))}
+  </VerticalSpacing>
+);
+
+const VerticalColorTemplate: StoryFn<SeparatorProps> = (args) => (
+  <Row>
+    {colorArray.map((color) => (
+      <Col key={color}>
+        <Row>
+          <Col width="auto">
+            <Text modifiers="capitalize-first">{color}</Text>
+          </Col>
+          <Col width="auto">
+            <Separator {...args} color={color} />
+          </Col>
+        </Row>
+      </Col>
+    ))}
+  </Row>
 );
 
 export const Default: Story = {
@@ -24,24 +59,48 @@ export const Default: Story = {
   args: {},
 };
 
-export const ColorAccent: Story = {
-  render: Template,
-  args: { color: 'accent' },
+export const Colors: Story = {
+  render: ColorTemplate,
+  args: {},
 };
 
-export const ColorContrast: Story = {
-  render: Template,
-  args: { color: 'contrast' },
+export const VerticalColors: Story = {
+  render: VerticalColorTemplate,
+  args: {
+    axis: 'vertical',
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: '<p>Use <code>Row</code> & <code>Col</code> components to give spacing around vertical separator</p>',
+      },
+    },
+  },
 };
 
 export const PaddedEven: Story = {
   render: Template,
   args: { spacing: 1 },
+  parameters: {
+    docs: {
+      description: {
+        story: '<p>Use <code>spacing</code> property to add even spacing before and after separator</p>',
+      },
+    },
+  },
 };
 
 export const PaddedUneven: Story = {
   render: Template,
   args: { topSpacing: 2.5, bottomSpacing: 0.5 },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          '<p>Use <code>topSpacing</code> & <code>bottomSpacing</code> properties to add uneven spacing before and after separator</p>',
+      },
+    },
+  },
 };
 
 const TemplateCard: StoryFn<SeparatorProps> = (args) => (
@@ -57,6 +116,14 @@ const TemplateCard: StoryFn<SeparatorProps> = (args) => (
 export const FullWidthInsideCard: Story = {
   render: TemplateCard,
   args: { fullWidth: true },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          '<p>Property <code>fullwidth=true</code> will allow separator to grow to border of Card taking padding of CardContent into account. Both vertically and horisontally.</p>',
+      },
+    },
+  },
 };
 
 const TemplateVertical: StoryFn<SeparatorProps> = (args) => (
