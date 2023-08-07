@@ -94,6 +94,15 @@ export const Default = {
   args: {},
 };
 
+export const DefaultHeader = {
+  render: Template,
+  args: {
+    cardHeader: {
+      variant: 'default',
+    },
+  },
+};
+
 export const WhiteHeader = {
   render: Template,
 
