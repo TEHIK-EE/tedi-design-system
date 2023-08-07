@@ -47,7 +47,7 @@ const TagExamples = () => {
         <Heading element="h3">Example: accent tag & accessibility</Heading>
         <Row>
           <TagExampleCard
-            tags={[{ children: 'J', color: 'primary-accent' }]}
+            tags={[{ children: 'J', color: 'accent' }]}
             card={{ background: 'positive-highlight' }}
             description={
               <p>
@@ -59,7 +59,7 @@ const TagExamples = () => {
             content="John Smith"
           />
           <TagExampleCard
-            tags={[{ children: 'Paid', color: 'primary-accent' }]}
+            tags={[{ children: 'Paid', color: 'accent' }]}
             card={{ background: 'important-highlight' }}
             description={
               <p>
