@@ -126,9 +126,7 @@ i,
   text-align: right;
 }
 
-// @deprecated: text-black is deprecated, use @text-default instead
-.text-default,
-.text-black {
+.text-default {
   color: var(--color-text-default);
 }
 
@@ -138,9 +136,7 @@ i,
   @include mixins.print-grayscale;
 }
 
-// @deprecated: text-secondary is deprecated, use @text-muted instead
-.text-muted,
-.text-secondary {
+.text-muted {
   color: var(--color-text-muted);
 }
 
@@ -152,23 +148,17 @@ i,
   color: var(--color-text-disabled);
 }
 
-// @deprecated: text-white is deprecated, use @text-inverted instead
-.text-inverted,
-.text-white {
+.text-inverted {
   color: var(--color-text-inverted);
 }
 
-// @deprecated: text-success is deprecated, use @text-positive instead
-.text-positive,
-.text-success {
+.text-positive {
   color: var(--color-positive-main);
 
   @include mixins.print-grayscale;
 }
 
-// @deprecated: text-error is deprecated, use @text-important instead
-.text-important,
-.text-error {
+.text-important {
   color: var(--color-important-main);
 
   @include mixins.print-grayscale;
@@ -178,9 +168,4 @@ i,
   color: var(--color-warning-main);
 
   @include mixins.print-grayscale;
-}
-
-// @deprecated: Do not use!
-.inactive {
-  opacity: 0.5;
 }

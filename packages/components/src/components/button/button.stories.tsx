@@ -1,6 +1,7 @@
 import { Meta, StoryFn } from '@storybook/react';
 
 import { Col, Row } from '../grid';
+import Text from '../typography/text/text';
 import { VerticalSpacing } from '../vertical-spacing';
 import { Button, ButtonProps } from './button';
 
@@ -12,8 +13,8 @@ export default {
 const Template: StoryFn<ButtonProps> = (args) => {
   const getRow = (name: string, rowProps?: Partial<ButtonProps>): JSX.Element => (
     <Row gutterX={5} alignItems="center">
-      <Col width={1} className={args.color === 'inverted' ? 'text-white' : undefined}>
-        {name}
+      <Col width={1}>
+        <Text color={args.color === 'inverted' ? 'inverted' : undefined}>{name}</Text>
       </Col>
       <Col width="auto">
         <Row>

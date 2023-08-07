@@ -1,6 +1,7 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import React from 'react';
 
+import Text from '../../typography/text/text';
 import Radio, { RadioProps } from './radio';
 
 const meta: Meta<typeof Radio> = {
@@ -57,10 +58,10 @@ export const WithExtraContent: Story = {
     id: 'extra-content-radio',
     name: 'extra-content-radio',
     extraContent: (
-      <span className="text-secondary">
+      <Text color="muted" element="span">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis scelerisque quis augue sit amet semper. Donec
         porttitor mauris neque, quis feugiat erat malesuada ac. Cras vel mauris a est pretium egestas.
-      </span>
+      </Text>
     ),
   },
 };

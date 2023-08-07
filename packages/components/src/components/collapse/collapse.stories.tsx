@@ -2,6 +2,7 @@ import { Meta, StoryFn } from '@storybook/react';
 import React from 'react';
 
 import Heading from '../typography/heading/heading';
+import Text from '../typography/text/text';
 import { VerticalSpacing } from '../vertical-spacing';
 import Collapse, { CollapseProps } from './collapse';
 
@@ -34,15 +35,15 @@ export const Default = {
     children: (
       <VerticalSpacing>
         <div>
-          <p className="text-secondary">Laste osalus</p>
+          <Text color="muted">Laste osalus</Text>
           <p>peretüli lapse osaluseta</p>
         </div>
         <div>
-          <p className="text-secondary">Juhtumi liigid</p>
+          <Text color="muted">Juhtumi liigid</Text>
           <p>peretüli (lapsega)</p>
         </div>
         <div>
-          <p className="text-secondary">Kannatanu seos vägivaldsega</p>
+          <Text color="muted">Kannatanu seos vägivaldsega</Text>
           <p>tütar</p>
         </div>
       </VerticalSpacing>

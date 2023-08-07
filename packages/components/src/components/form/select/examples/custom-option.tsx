@@ -4,6 +4,7 @@ import { MenuListProps, OptionProps } from 'react-select';
 import Button from '../../../button/button';
 import { Col, Row } from '../../../grid';
 import Tag from '../../../tag/tag';
+import Text from '../../../typography/text/text';
 import { VerticalSpacing } from '../../../vertical-spacing';
 import Select, { ISelectOption } from '../select';
 
@@ -104,7 +105,9 @@ const CustomOption = (props: OptionProps<ISelectOption, boolean>): JSX.Element =
         <p className="text-primary">
           <b>{name}</b> · {`${age}a`} · {personalCode}
         </p>
-        <p className="text-small text-secondary">{aadress}</p>
+        <Text color="muted" modifiers="small">
+          {aadress}
+        </Text>
       </Col>
     </Row>
   );
@@ -121,7 +124,9 @@ const CustomMessageListFooter = (props: MenuListProps<ISelectOption, boolean>): 
           <Button visualType="secondary">Puudub Eesti isikukood</Button>
         </Col>
       </Row>
-      <p className="text-small text-secondary">Rahvastikuregistri andmete päringuks sisesta isikukood täismahus.</p>
+      <Text color="muted" modifiers="small">
+        Rahvastikuregistri andmete päringuks sisesta isikukood täismahus.
+      </Text>
     </VerticalSpacing>
   );
 };

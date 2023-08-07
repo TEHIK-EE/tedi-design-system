@@ -1,6 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 
+import Text from '../../typography/text/text';
 import ChoiceGroup from './choice-group';
 import { ChoiceGroupItemProps } from './choice-group.types';
 
@@ -27,10 +28,10 @@ const generateItems = (index: number, extraContent?: boolean): ChoiceGroupItemPr
     label: 'Valik 2, mis on teistest veidi pikem',
     value: `value-${index * 3 + 1}`,
     extraContent: extraContent ? (
-      <span className="text-secondary">
+      <Text color="muted" element="span">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis scelerisque quis augue sit amet semper. Donec
         porttitor mauris neque, quis feugiat erat malesuada ac. Cras vel mauris a est pretium egestas.
-      </span>
+      </Text>
     ) : undefined,
   },
   { id: `value-${index * 3 + 2}`, label: 'Valik 3', value: `value-${index * 3 + 2}`, disabled: true },

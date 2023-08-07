@@ -6,6 +6,7 @@ import { Card, CardContent, CardProps } from '../card';
 import { Col, Row } from '../grid';
 import Icon, { IconProps } from '../icon/icon';
 import Print from '../print/print';
+import Text from '../typography/text/text';
 
 export interface PlaceholderProps {
   /**
@@ -78,8 +79,10 @@ export const Placeholder = (props: PlaceholderProps): JSX.Element => {
         <CardContent>
           <Row direction="column" alignItems="center" gutter={2}>
             {icon && <Col width="auto">{getIcon(icon)}</Col>}
-            <Col width="auto" className="text-center text-secondary">
-              {children}
+            <Col width="auto">
+              <Text color="muted" modifiers="center">
+                {children}
+              </Text>
             </Col>
           </Row>
         </CardContent>

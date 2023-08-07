@@ -6,6 +6,7 @@ import Button from '../button/button';
 import { CardContent, CardHeader } from '../card';
 import { Col, Row } from '../grid';
 import Heading from '../typography/heading/heading';
+import Text from '../typography/text/text';
 import { VerticalSpacing } from '../vertical-spacing';
 import Modal, { ModalProps } from './modal';
 import ModalCloser from './modal-closer';
@@ -26,12 +27,15 @@ const meta: Meta<typeof ModalProvider> = {
               <b>ModalCloser</b>
             </p>
           </Subtitle>
-          <VerticalSpacing size={0.25} className="text-secondary">
-            <p>ModalProvider - Provider context for other components. Handles modal open state.</p>
-            <p>Modal - Visual UI component. Should always contain CardContent or CardHeader as children.</p>
-            <p>ModalTrigger - Wrapper component around buttons/links to trigger modalOpen after click.</p>
-            <p>ModalClose - Wrapper component around buttons/links to trigger modalClose after click.</p>
-          </VerticalSpacing>
+          <Text color="muted" element="div">
+            <VerticalSpacing size={0.25}>
+              <p>ModalProvider - Provider context for other components. Handles modal open state.</p>
+              <p>Modal - Visual UI component. Should always contain CardContent or CardHeader as children.</p>
+              <p>ModalTrigger - Wrapper component around buttons/links to trigger modalOpen after click.</p>
+              <p>ModalClose - Wrapper component around buttons/links to trigger modalClose after click.</p>
+            </VerticalSpacing>
+          </Text>
+
           <Primary />
           <ArgsTable story={PRIMARY_STORY} />
           <Stories />

@@ -3,6 +3,7 @@ import Link from 'next/link';
 import React, { forwardRef } from 'react';
 
 import { Col, Row } from '../grid';
+import Text from '../typography/text/text';
 import { VerticalSpacing } from '../vertical-spacing';
 import { Anchor, AnchorProps } from './anchor';
 
@@ -23,8 +24,8 @@ export default {
 const Template: StoryFn<AnchorProps> = (args) => {
   const getRow = (name: string, rowProps?: Partial<AnchorProps>): JSX.Element => (
     <Row gutterX={5} alignItems="center">
-      <Col width={1} className={args.color === 'inverted' ? 'text-white' : undefined}>
-        {name}
+      <Col width={1}>
+        <Text color={args.color === 'inverted' ? 'inverted' : undefined}>{name}</Text>
       </Col>
       <Col width="auto">
         <Row>

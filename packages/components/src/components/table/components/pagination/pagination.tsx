@@ -4,6 +4,7 @@ import React from 'react';
 
 import { useLabels } from '../../../../providers/label-provider';
 import Select, { ISelectOption, TSelectValue } from '../../../form/select/select';
+import Text from '../../../typography/text/text';
 import { DefaultTData } from '../../table.types';
 import { TableContext } from '../../table-context';
 import styles from './pagination.module.scss';
@@ -63,9 +64,9 @@ const Pagination = <TData extends DefaultTData<TData>>(props: PaginationProps): 
 
   return (
     <div className={styles['pagination__wrapper']}>
-      <div className="text-small text-secondary">
+      <Text color="muted" modifiers="small">
         {props.totalRows} {typeof resultsLabel === 'string' ? resultsLabel : resultsLabel(props.totalRows)}
-      </div>
+      </Text>
       {getPageCount() > 1 && (
         <nav role="navigation" aria-label={getLabel('pagination.title')} className={styles['pagination']}>
           <ul className={styles['pagination__pages']}>
