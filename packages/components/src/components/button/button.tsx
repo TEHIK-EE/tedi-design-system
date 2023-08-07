@@ -6,7 +6,7 @@ import ButtonContent, { ButtonContentProps } from '../button-content/button-cont
 import styles from './button.module.scss';
 
 export type ButtonType = 'primary' | 'secondary' | 'tertiary' | 'link';
-export type ButtonColor = 'default' | 'important' | 'positive' | 'inverted' | 'text-color' | 'error' | 'success';
+export type ButtonColor = 'default' | 'important' | 'positive' | 'inverted' | 'text-color';
 
 export interface IInternalButtonProps {
   /**
