@@ -1,0 +1,12 @@
+import { Meta, Title, Canvas, ArgsTable, Stories } from '@storybook/blocks';
+import * as HeadingStories from './heading.stories.tsx';
+
+<Meta of={HeadingStories} />
+
+<Title />
+
+<Canvas of={HeadingStories.Default} />
+
+<ArgsTable />
+
+<Stories includePrimary={false} />
