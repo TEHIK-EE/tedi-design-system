@@ -1,3 +1,10 @@
+# [3.42.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.41.2...v3.42.0) (2023-08-07)
+
+
+### Features
+
+* **stepper:** Add possibilty to allowStepLabelClick as 'completed' | 'completed-next' - TEHVEER-172 ([5ecd2d6](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/5ecd2d67de3935913c3d2f1df7e7eebd2267768c))
+
 ## [3.41.2](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.41.1...v3.41.2) (2023-08-07)
 
 
