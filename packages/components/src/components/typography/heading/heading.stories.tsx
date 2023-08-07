@@ -21,12 +21,12 @@ type Story = StoryObj<typeof Heading>;
 
 const LevelTemplate: StoryFn<typeof Heading> = () => {
   const items: HeadingProps[] = [
-    { children: 'This is heading level 1', element: 'h1' },
-    { children: 'This is heading level 2', element: 'h2' },
-    { children: 'This is heading level 3', element: 'h3' },
-    { children: 'This is heading level 4', element: 'h4' },
-    { children: 'This is heading level 5', element: 'h5' },
-    { children: 'This is heading level 6', element: 'h6' },
+    { children: 'This is heading element h1', element: 'h1' },
+    { children: 'This is heading element h2', element: 'h2' },
+    { children: 'This is heading element h3', element: 'h3' },
+    { children: 'This is heading element h4', element: 'h4' },
+    { children: 'This is heading element h5', element: 'h5' },
+    { children: 'This is heading element h6', element: 'h6' },
   ];
 
   return (
@@ -44,13 +44,13 @@ export const Default: Story = {
   },
 };
 
-export const Element: Story = {
+export const DifferentElements: Story = {
   render: LevelTemplate,
 };
 
-export const Custom: Story = {
+export const CustomModifier: Story = {
   args: {
-    children: 'This is heading Level 1, with looks of h4',
+    children: 'This is heading element h1, with looks of h4',
     modifiers: 'h4',
   },
 };

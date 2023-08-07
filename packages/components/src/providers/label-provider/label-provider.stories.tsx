@@ -1,6 +1,7 @@
 import { Meta, StoryFn } from '@storybook/react';
 
 import StorybookDecorator from '../../../.storybook/storybook-decorator';
+import Text from '../../components/typography/text/text';
 import LabelProvider, { LabelProviderProps } from './label-provider';
 import { useLabels } from './use-labels';
 
@@ -26,16 +27,18 @@ const Template: StoryFn<LabelProviderProps> = (args) => {
     <>
       <p>
         {getLabel('close')}
-        <span className="text-secondary text-small"> (Custom label provided by Application)</span>
+        <Text color="muted" modifiers="small" element="span">
+          (Custom label provided by Application)
+        </Text>
       </p>
       <p>1 {typeof pluralLabel === 'string' ? pluralLabel : pluralLabel(1)}</p>
       <p>4 {typeof pluralLabel === 'string' ? pluralLabel : pluralLabel(4)}</p>
       <p>
         {/* Intentional missing label to showcase error in console */}
         {getLabel('missing.label' as any)} -{' '}
-        <span className="text-secondary text-small">
+        <Text color="muted" modifiers="small" element="span">
           (Error in console that label is missing for key: missing.label)
-        </span>
+        </Text>
       </p>
     </>
   );

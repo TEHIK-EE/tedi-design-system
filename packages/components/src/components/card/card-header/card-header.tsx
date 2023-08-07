@@ -17,12 +17,6 @@ export interface CardHeaderProps {
    */
   className?: string;
   /**
-   * Style of CardHeader. !!Deprecated - use variant prop instead
-   * @default default
-   * @deprecated - Use variant prop instead - TEHVEER-66
-   */
-  style?: CardHeaderVariant;
-  /**
    * Variant of CardHeader
    * @default default
    */
@@ -36,10 +30,10 @@ export interface CardHeaderProps {
 
 export const CardHeader = (props: CardHeaderProps): JSX.Element => {
   const { padding: rootPadding } = React.useContext(CardContext);
-  const { children, className, style, variant = 'default', padding = rootPadding, ...rest } = props;
+  const { children, className, variant = 'default', padding = rootPadding, ...rest } = props;
   const BEM = cn(
     styles['card__header'],
-    styles[`card__header--${style || variant}`],
+    styles[`card__header--${variant}`],
     styles[`card__header--padding-${padding}`],
     className
   );

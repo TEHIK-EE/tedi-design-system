@@ -6,7 +6,7 @@ import ButtonContent, { ButtonContentProps } from '../button-content/button-cont
 import styles from './button.module.scss';
 
 export type ButtonType = 'primary' | 'secondary' | 'tertiary' | 'link';
-export type ButtonColor = 'default' | 'important' | 'positive' | 'inverted' | 'text-color' | 'error' | 'success';
+export type ButtonColor = 'default' | 'important' | 'positive' | 'inverted' | 'text-color';
 
 export interface IInternalButtonProps {
   /**
@@ -45,7 +45,6 @@ const InternalButton = forwardRef(
       type,
       formNoValidate,
       className,
-      classNameIcon,
       visualType,
       color,
       size,
@@ -72,7 +71,6 @@ const InternalButton = forwardRef(
         ref={ref}
         as={ComponentAs}
         className={BEM}
-        classNameIcon={classNameIcon}
         visualType={visualType}
         color={color}
         size={size}

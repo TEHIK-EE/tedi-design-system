@@ -79,13 +79,11 @@
   @include tag-variant(var(--color-primary-main), var(--color-primary-highlight-subtle), var(--color-primary-main));
 }
 
-.tag--color-accent,
-.tag--color-primary-accent {
+.tag--color-accent {
   @include tag-variant(var(--color-accent-main), var(--color-accent-highlight), var(--color-accent-main));
 }
 
-.tag--color-positive,
-.tag--color-success {
+.tag--color-positive {
   @include tag-variant(var(--color-positive-main), var(--color-positive-highlight), var(--color-positive-main));
 }
 

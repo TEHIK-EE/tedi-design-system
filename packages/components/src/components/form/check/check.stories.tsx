@@ -1,6 +1,7 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import React from 'react';
 
+import Text from '../../typography/text/text';
 import Check, { CheckProps } from './check';
 
 const meta: Meta<typeof Check> = {
@@ -78,10 +79,10 @@ export const WithExtraContent: Story = {
     id: 'extra-content-check',
     name: 'extra-content-check',
     extraContent: (
-      <span className="text-secondary">
+      <Text color="muted" element="span">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis scelerisque quis augue sit amet semper. Donec
         porttitor mauris neque, quis feugiat erat malesuada ac. Cras vel mauris a est pretium egestas.
-      </span>
+      </Text>
     ),
   },
 };

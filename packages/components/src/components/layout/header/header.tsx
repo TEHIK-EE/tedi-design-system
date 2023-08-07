@@ -37,11 +37,6 @@ export interface HeaderProps<H extends React.ElementType = 'a'> {
    * When included logout buttons are added to header
    */
   onLogoutClick?: () => void;
-  /**
-   * Use when no sidenav is needed, so in mobile there is no toggle icon for sidenav.
-   * @deprecated - When no navItems for sideNav are defined, then we hide the toggle anyway.
-   */
-  hideToggle?: boolean;
   /*
    * Use when you have menu elements in header that need extra space
    * */
@@ -57,7 +52,6 @@ export const Header = <H extends React.ElementType = 'a'>(props: HeaderProps<H>)
     logoAnchor,
     onLogoutClick,
     children,
-    hideToggle,
     bottomContent,
     ...rest
   } = props;
@@ -76,7 +70,7 @@ export const Header = <H extends React.ElementType = 'a'>(props: HeaderProps<H>)
         <header data-name="header" {...rest} className={BEM}>
           <Row direction="column" gutter={0}>
             <Col width={12} className={styles['header__content-wrapper']}>
-              {!hideToggle && hasSidenavItems ? (
+              {hasSidenavItems ? (
                 <Button
                   {...getReferenceProps()}
                   ref={reference}

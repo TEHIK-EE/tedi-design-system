@@ -1,16 +1,4 @@
-type TColorsBackgroundOld =
-  // @deprecated old ones
-  | 'background-light'
-  | 'background'
-  | 'warning-light'
-  | 'success-light'
-  | 'error-light'
-  | 'primary-1'
-  | 'primary-2'
-  | 'primary';
-
 export type TColorsBackground =
-  | TColorsBackgroundOld
   // Primary
   | 'primary-main'
   | 'primary-active'

@@ -18,9 +18,9 @@ const colorArray: SeparatorProps['color'][] = ['default', 'contrast', 'accent'];
 
 const Template: StoryFn<SeparatorProps> = (args) => (
   <>
-    <p className="text-secondary">Some content</p>
+    <Text color="muted">Some content</Text>
     <Separator {...args} />
-    <p className="text-secondary">Other content</p>
+    <Text color="muted">Other content</Text>
   </>
 );
 
@@ -106,9 +106,9 @@ export const PaddedUneven: Story = {
 const TemplateCard: StoryFn<SeparatorProps> = (args) => (
   <Card>
     <CardContent>
-      <p className="text-secondary">Some content</p>
+      <Text color="muted">Some content</Text>
       <Separator {...args} />
-      <p className="text-secondary">Some content</p>
+      <Text color="muted">Some content</Text>
     </CardContent>
   </Card>
 );

@@ -5,6 +5,7 @@ import React from 'react';
 import Button from '../button/button';
 import { Card, CardContent } from '../card';
 import Heading from '../typography/heading/heading';
+import Text from '../typography/text/text';
 import VerticalSpacing, { VerticalSpacingProps } from './vertical-spacing';
 import VerticalSpacingItem from './vertical-spacing-item';
 
@@ -29,16 +30,16 @@ const Template: StoryFn<VerticalSpacingProps> = (args) => (
 
     <Button>Button text</Button>
 
-    <p className="text-small text-secondary">
+    <Text color="muted" modifiers="small">
       Some tiny text. Morbi et velit enim. Nulla facilisi. Curabitur tincidunt viverra nulla, a varius leo pharetra
       vitae.
-    </p>
+    </Text>
     <Heading element="h2">Heading 2</Heading>
-    <p>
+    <Text>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam pretium lacinia urna in efficitur. Suspendisse
       mattis ornare imperdiet. Aenean iaculis, augue a viverra tincidunt, orci tellus tempus enim, ut tempor nunc leo ac
       erat.
-    </p>
+    </Text>
   </VerticalSpacing>
 );
 

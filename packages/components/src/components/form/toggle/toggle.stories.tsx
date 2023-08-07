@@ -2,6 +2,7 @@ import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import React from 'react';
 
 import { Col, Row } from '../../grid';
+import Text from '../../typography/text/text';
 import { VerticalSpacing } from '../../vertical-spacing';
 import Toggle, { ToggleProps } from './toggle';
 
@@ -27,7 +28,7 @@ const ToggleRow = (props: ToggleTemplateProps) => {
         <Toggle defaultChecked {...rest} />
       </Col>
       <Col width="auto">
-        <p className="text-secondary">{name}</p>
+        <Text color="muted">{name}</Text>
       </Col>
     </Row>
   );

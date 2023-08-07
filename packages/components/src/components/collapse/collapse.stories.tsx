@@ -2,6 +2,7 @@ import { Meta, StoryFn } from '@storybook/react';
 import React from 'react';
 
 import Heading from '../typography/heading/heading';
+import Text from '../typography/text/text';
 import { VerticalSpacing } from '../vertical-spacing';
 import Collapse, { CollapseProps } from './collapse';
 
@@ -18,7 +19,10 @@ export default {
   },
 } as Meta;
 
-export const Primary = {
+const Template: StoryFn<CollapseProps> = (args) => <Collapse {...args} />;
+
+export const Default = {
+  render: Template,
   args: {
     id: 'collapse-1',
     openText: 'Näita rohkem',
@@ -31,15 +35,15 @@ export const Primary = {
     children: (
       <VerticalSpacing>
         <div>
-          <p className="text-secondary">Laste osalus</p>
+          <Text color="muted">Laste osalus</Text>
           <p>peretüli lapse osaluseta</p>
         </div>
         <div>
-          <p className="text-secondary">Juhtumi liigid</p>
+          <Text color="muted">Juhtumi liigid</Text>
           <p>peretüli (lapsega)</p>
         </div>
         <div>
-          <p className="text-secondary">Kannatanu seos vägivaldsega</p>
+          <Text color="muted">Kannatanu seos vägivaldsega</Text>
           <p>tütar</p>
         </div>
       </VerticalSpacing>
@@ -48,15 +52,16 @@ export const Primary = {
 };
 
 export const WithHiddenCollapseText = {
+  render: Template,
   args: {
-    ...Primary.args,
+    ...Default.args,
     hideCollapseText: true,
   },
 };
 
 export const NoTitleStart = {
   args: {
-    ...Primary.args,
+    ...Default.args,
     title: undefined,
     titleRowProps: {
       justifyContent: 'start',
@@ -66,7 +71,7 @@ export const NoTitleStart = {
 
 export const TitleRowReversed = {
   args: {
-    ...Primary.args,
+    ...Default.args,
     titleRowProps: {
       direction: 'row-reverse',
     },
