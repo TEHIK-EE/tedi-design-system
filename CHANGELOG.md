@@ -1,3 +1,10 @@
+## [3.42.2](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.42.1...v3.42.2) (2023-08-07)
+
+
+### Bug Fixes
+
+* **footer:** TEHVEER-169 - mark footer heading element as headings ([e115d98](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/e115d98881b9b3266ce27a10300398b5d4a84e9d))
+
 ## [3.42.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.42.0...v3.42.1) (2023-08-07)
 
 
