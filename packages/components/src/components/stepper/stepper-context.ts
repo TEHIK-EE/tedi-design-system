@@ -1,8 +1,10 @@
 import React from 'react';
 
+export type AllowStepLabelClick = boolean | 'completed' | 'completed-or-next';
+
 export interface IStepperContext {
   activeStep: number;
-  allowStepLabelClick: boolean;
+  allowStepLabelClick: AllowStepLabelClick;
   handleActiveStepChange: (step: number) => void;
 }
 

@@ -4,7 +4,7 @@ import React from 'react';
 import { Card, CardContent, CardHeader, CardProps } from '../card';
 import Step, { StepProps } from './step';
 import styles from './stepper.module.scss';
-import { StepperContext } from './stepper-context';
+import { AllowStepLabelClick, StepperContext } from './stepper-context';
 import StepperNav, { StepperNavItem } from './stepper-nav';
 
 export interface StepperProps {
@@ -25,9 +25,18 @@ export interface StepperProps {
   onActiveStepChange?: (step: number) => void;
   /**
    * Allow user to navigate between steps by clicking on the step label.
+   *
+   * - false - disable navigation from labels
+   * - true - allow navigation from labels
+   * - 'completed' - allow navigation from labels only if the step is completed
+   * - 'completed-or-next':
+   *   - allow navigation from labels if the step is completed
+   *   - allow navigation if the step is not completed and is the next step
+   *   - allow navigation if the step is next of the last completed step
+   *
    * @default true
    */
-  allowStepLabelClick?: boolean;
+  allowStepLabelClick?: AllowStepLabelClick;
   /**
    * Navigation aria-label
    */
@@ -103,7 +112,7 @@ export const Stepper = (props: StepperProps): JSX.Element => {
     return null;
   });
 
-  const steps = childrenArray.map((step: JSX.Element, index) => {
+  const steps = childrenArray?.map((step: JSX.Element, index) => {
     return React.cloneElement<StepProps>(step, {
       key: index,
       index,
