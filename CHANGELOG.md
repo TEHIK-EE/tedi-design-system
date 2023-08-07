@@ -1,3 +1,10 @@
+## [3.42.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.42.0...v3.42.1) (2023-08-07)
+
+
+### Bug Fixes
+
+* **form-helper:** TEHVEER-170 - add aria role for all valid and error formHelper types ([5949996](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/594999631155736dc4f8af6a950f21271de6ed8c))
+
 # [3.42.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.41.2...v3.42.0) (2023-08-07)
 
 
