@@ -44,9 +44,12 @@ const NavigationContent = () => {
     return (
       <CardContent padding="xsmall">
         <Collapse
-          heading={{
-            children: <Icon name="home" />,
-          }}
+          title={
+            <Heading>
+              <Icon name="home" />
+              <span className="visually-hidden">Home</span>
+            </Heading>
+          }
           id="collapse-1"
         >
           <Separator fullWidth />

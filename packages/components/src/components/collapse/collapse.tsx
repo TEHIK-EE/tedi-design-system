@@ -7,7 +7,6 @@ import { useLabels } from '../../providers/label-provider';
 import { Col, Row, RowProps } from '../grid';
 import Icon from '../icon/icon';
 import Print from '../print/print';
-import Heading, { HeadingProps } from '../typography/heading/heading';
 import styles from './collapse.module.scss';
 
 export interface CollapseProps {
@@ -16,14 +15,13 @@ export interface CollapseProps {
    */
   id: string;
   /**
-   * Add heading properties.
-   * @deprecated Use `title` to provide a custom Title for the Collapse.
-   */
-  heading?: HeadingProps;
-  /**
    * Any content.
    */
   children: React.ReactNode;
+  /**
+   * Any content to be rendered as the title of the Collapse.
+   */
+  title?: JSX.Element;
   /**
    * Name on the button to open the item.
    * @default getLabel('open')
@@ -44,10 +42,6 @@ export interface CollapseProps {
    */
   className?: string;
   /**
-   * Any content to be rendered as the title of the Collapse.
-   */
-  title?: JSX.Element;
-  /**
    * Props for title row.
    */
   titleRowProps?: RowProps;
@@ -58,7 +52,6 @@ export const Collapse = (props: CollapseProps): JSX.Element => {
   const {
     id,
     children,
-    heading,
     className,
     openText = getLabel('open'),
     closeText = getLabel('close'),
@@ -71,19 +64,6 @@ export const Collapse = (props: CollapseProps): JSX.Element => {
   const isPrint = usePrint();
   const isOpen = isOpenState || isPrint;
   const BEM = cn(styles['collapse'], className, { [styles['collapse--is-open']]: isOpen });
-
-  /**
-   * @deprecated
-   */
-  const renderHeading = (): JSX.Element => {
-    return (
-      <Col width="auto">
-        <Heading element="h5" color="muted" {...heading}>
-          {heading?.children}
-        </Heading>
-      </Col>
-    );
-  };
 
   const onClick = () => setIsOpen((prev) => !prev);
 
@@ -105,7 +85,7 @@ export const Collapse = (props: CollapseProps): JSX.Element => {
         onClick={onClick}
       >
         <Row justifyContent="between" alignItems="center" {...titleRowProps} element="span">
-          {(heading?.children && renderHeading()) || (title && <Col width="auto">{title}</Col>)}
+          {title && <Col width="auto">{title}</Col>}
           <Col width="auto">
             <Row element="div" alignItems="center" gutter={1}>
               <Print visibility="hide">

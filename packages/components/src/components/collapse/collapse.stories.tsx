@@ -18,7 +18,10 @@ export default {
   },
 } as Meta;
 
-export const Primary = {
+const Template: StoryFn<CollapseProps> = (args) => <Collapse {...args} />;
+
+export const Default = {
+  render: Template,
   args: {
     id: 'collapse-1',
     openText: 'Näita rohkem',
@@ -48,15 +51,16 @@ export const Primary = {
 };
 
 export const WithHiddenCollapseText = {
+  render: Template,
   args: {
-    ...Primary.args,
+    ...Default.args,
     hideCollapseText: true,
   },
 };
 
 export const NoTitleStart = {
   args: {
-    ...Primary.args,
+    ...Default.args,
     title: undefined,
     titleRowProps: {
       justifyContent: 'start',
@@ -66,7 +70,7 @@ export const NoTitleStart = {
 
 export const TitleRowReversed = {
   args: {
-    ...Primary.args,
+    ...Default.args,
     titleRowProps: {
       direction: 'row-reverse',
     },

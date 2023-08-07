@@ -1,12 +1,13 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 
+import Heading from '../typography/heading/heading';
 import Collapse, { CollapseProps } from './collapse';
 
 const getComponent = (props?: Partial<CollapseProps>) =>
   render(
     <Collapse
       id="collapse-1"
-      heading={{ children: 'heading' }}
+      title={<Heading>heading</Heading>}
       openText="Näita rohkem"
       closeText="Näita vähem"
       {...props}
