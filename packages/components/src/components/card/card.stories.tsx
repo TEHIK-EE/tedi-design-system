@@ -51,7 +51,7 @@ const Template: StoryFn<CardStory> = (args) => {
         <Col>
           <StretchContent>
             <Card type="borderless">
-              <CardContent background="background-light">right</CardContent>
+              <CardContent background="bg-muted">right</CardContent>
             </Card>
           </StretchContent>
         </Col>
@@ -273,7 +273,7 @@ const TwoToned: StoryFn<CardProps> = (args) => (
   <Row gutter={0}>
     <Col width="auto" className="flex">
       <Card borderRadius={{ right: false, bottom: false }}>
-        <CardContent background="background-light">
+        <CardContent background="bg-muted">
           <Icon name="straighten" className="text-disabled"></Icon>
         </CardContent>
       </Card>

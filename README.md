@@ -33,7 +33,6 @@ TODO:
 - Gitlab rules
 - Commit rules (Breaking changes etc.)
 - Who oversees changes, how is everything shared across projects
-- Setting up storybook on a public? URL
 
 - debugging
   - `npm run build`

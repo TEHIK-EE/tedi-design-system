@@ -43,7 +43,7 @@ export const Placeholder = (props: PlaceholderProps): JSX.Element => {
   const {
     type = isNested ? 'borderless' : undefined,
     padding = isNested ? 'none' : isSmallLayout ? 'medium' : 'large',
-    background = isNested ? undefined : isSmallLayout ? 'background' : 'white',
+    background = isNested ? undefined : isSmallLayout ? 'bg-subtle' : 'white',
     ...restCardProps
   } = cardProps ?? {};
 
