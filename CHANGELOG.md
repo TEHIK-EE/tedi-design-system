@@ -1,3 +1,10 @@
+## [3.41.2](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.41.1...v3.41.2) (2023-08-07)
+
+
+### Bug Fixes
+
+* **separator:** unify dot size from figma, simplify examples - TEHVEER-177 ([a555f87](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/a555f87e4fc6986cb1dedfcee28c31183490ad74))
+
 ## [3.41.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.41.0...v3.41.1) (2023-08-02)
 
 
