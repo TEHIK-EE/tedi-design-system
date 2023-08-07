@@ -3,18 +3,12 @@ import React from 'react';
 
 import useLayout from '../../../helpers/hooks/use-layout';
 import Anchor from '../../anchor/anchor';
-import { LinkBehaviour } from '../../anchor/anchor-helpers';
 import { Col, Row } from '../../grid';
 import Icon from '../../icon/icon';
 import Footer, { FooterProps } from './footer';
 
 const meta: Meta<typeof Footer> = {
   component: Footer,
-  argTypes: {
-    linkAs: {
-      type: 'function',
-    },
-  },
 };
 
 export default meta;
@@ -102,7 +96,6 @@ export const Default: Story = {
   render: Template,
 
   args: {
-    linkAs: LinkBehaviour,
     categories: exampleFooterCategories,
   },
 };
@@ -116,12 +109,13 @@ export const Laeh: Story = {
       {
         heading: 'STAR kasutajatugi',
         icon: 'call_made',
-        links: [
-          {
-            children: 'starteenusetugi@sotsiaalkindlustusamet.ee',
-            href: 'mailto:starteenusetugi@sotsiaalkindlustusamet.ee',
-          },
-          { children: '+372 794 3906', href: 'tel:+3727943906' },
+        elements: [
+          <Anchor key="link-1" href="mailto:starteenusetugi@sotsiaalkindlustusamet.ee" color="inverted">
+            starteenusetugi@sotsiaalkindlustusamet.ee
+          </Anchor>,
+          <Anchor key="link-2" href="tel:+3727943906" color="inverted">
+            +372 794 3906
+          </Anchor>,
         ],
       },
     ],

@@ -1,9 +1,7 @@
 import cn from 'classnames';
 import React from 'react';
 
-import { AllowedHTMLTags } from '../../../helpers/polymorphic/types';
 import { useLabels } from '../../../providers/label-provider';
-import { Anchor, AnchorProps } from '../../anchor/anchor';
 import { Col, Row } from '../../grid';
 import Icon, { IconProps } from '../../icon/icon';
 import Print from '../../print/print';
@@ -12,39 +10,20 @@ import Text from '../../typography/text/text';
 import { VerticalSpacing } from '../../vertical-spacing';
 import styles from './footer.module.scss';
 
-export type FooterCategory<C extends React.ElementType = 'a'> = {
-  /**
-   * Category links
-   * @deprecated, use elements instead - TEHVEER-104
-   */
-  links?: AnchorProps<C>[];
+export type FooterCategory = {
   /**
    * Category elements
    */
   elements?: React.ReactNode[];
   heading: React.ReactNode;
   icon?: string | IconProps;
-  linkAs?: C;
 };
 
-type ConditionalTypesFooter<C extends React.ElementType = 'a'> =
-  | {
-      /**
-       * Render all links as this component<br />
-       * See [Anchor/CustomComponent](/?path=/docs/components-anchor--custom-component) for an example
-       */
-      linkAs: AllowedHTMLTags<C, 'a' | React.ComponentType<any>>;
-      /**
-       * Category links
-       */
-      categories: FooterCategory<C>[];
-    }
-  | {
-      linkAs?: never;
-      categories: FooterCategory<any>[];
-    };
-
-export type FooterProps<C extends React.ElementType = 'a'> = ConditionalTypesFooter<C> & {
+export type FooterProps = {
+  /**
+   * Footer Categorys
+   */
+  categories: FooterCategory[];
   /**
    * Src and styles of logo to show
    */
@@ -63,8 +42,8 @@ export type FooterProps<C extends React.ElementType = 'a'> = ConditionalTypesFoo
   bottomElement?: React.ReactNode;
 };
 
-export const Footer = <C extends React.ElementType = 'a'>(props: FooterProps<C>): JSX.Element => {
-  const { logo, categories, className, linkAs, bottomElement, ...rest } = props;
+export const Footer = (props: FooterProps): JSX.Element => {
+  const { logo, categories, className, bottomElement, ...rest } = props;
   const { getLabel } = useLabels();
 
   const BEM = cn(styles['footer'], className);
@@ -78,7 +57,7 @@ export const Footer = <C extends React.ElementType = 'a'>(props: FooterProps<C>)
         <div className={styles['footer__inner']}>
           {categories.map((c, index) => (
             <StretchContent direction="vertical" key={index}>
-              <FooterCategory linkAs={linkAs} {...c} />
+              <FooterCategory {...c} />
             </StretchContent>
           ))}
           {logo && <img className={styles['footer__logo']} src={logo.src} alt={logo.alt} style={logo.style} />}
@@ -93,8 +72,8 @@ export const Footer = <C extends React.ElementType = 'a'>(props: FooterProps<C>)
   );
 };
 
-const FooterCategory = <C extends React.ElementType = 'a'>(props: FooterCategory<C>): JSX.Element => {
-  const { heading, links, linkAs, icon, elements } = props;
+const FooterCategory = (props: FooterCategory): JSX.Element => {
+  const { heading, icon, elements } = props;
 
   const getIcon = (icon: string | IconProps) => {
     const defaultIconProps: Partial<IconProps> = { size: 16 };
@@ -117,28 +96,13 @@ const FooterCategory = <C extends React.ElementType = 'a'>(props: FooterCategory
             {heading}
           </Text>
           <VerticalSpacing element="ul" size={0.5} className={cn(styles['footer__category-list'])}>
-            {elements
-              ? elements?.map((item, index) => (
-                  <li key={index}>
-                    <Text color="inverted" element="span">
-                      {item}
-                    </Text>
-                  </li>
-                ))
-              : links?.map((link, index) => (
-                  <li key={index}>
-                    <Text key={index}>
-                      <Anchor
-                        className={styles['footer__link']}
-                        color="inverted"
-                        size="small"
-                        as={linkAs}
-                        underline
-                        {...link}
-                      />
-                    </Text>
-                  </li>
-                ))}
+            {elements?.map((item, index) => (
+              <li key={index}>
+                <Text color="inverted" element="span">
+                  {item}
+                </Text>
+              </li>
+            ))}
           </VerticalSpacing>
         </VerticalSpacing>
       </Col>

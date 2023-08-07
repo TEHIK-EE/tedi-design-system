@@ -13,7 +13,6 @@ import styles from './layout.module.scss';
 
 export interface ILayoutProps<
   B extends React.ElementType = 'a',
-  F extends React.ElementType = 'a',
   S extends React.ElementType = 'a',
   H extends React.ElementType = 'a'
 > {
@@ -37,7 +36,7 @@ export interface ILayoutProps<
   /**
    * Footer props passed to Footer component
    */
-  footer?: FooterProps<F>;
+  footer?: FooterProps;
   /**
    * Remove max-width and padding from main. Allows the content to take all available space.
    */
@@ -58,11 +57,10 @@ export interface ILayoutProps<
 
 export const Layout = <
   B extends React.ElementType = 'a',
-  F extends React.ElementType = 'a',
   S extends React.ElementType = 'a',
   H extends React.ElementType = 'a'
 >(
-  props: ILayoutProps<B, F, S, H>
+  props: ILayoutProps<B, S, H>
 ): JSX.Element => {
   const {
     children,
