@@ -2,6 +2,7 @@ import { Meta, StoryFn, StoryObj } from '@storybook/react';
 
 import { Col, Row } from '../grid';
 import Heading from '../typography/heading/heading';
+import Text from '../typography/text/text';
 import { VerticalSpacing } from '../vertical-spacing';
 import { Icon, IconProps } from './icon';
 
@@ -10,16 +11,59 @@ const meta: Meta<typeof Icon> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof Icon>;
+type Story = StoryObj<TemplateMultipleProps>;
+
+const sizeArray: IconProps['size'][] = [12, 14, 16, 18, 24, 36, 48];
+const colorArray: IconProps['color'][] = [
+  'default',
+  'primary',
+  'muted',
+  'subtle',
+  'disabled',
+  'inverted',
+  'positive',
+  'important',
+  'warning',
+];
+const typeArray: IconProps['type'][] = ['outlined', 'rounded', 'sharp'];
+
+interface TemplateMultipleProps<Type = IconProps['size'] | IconProps['color'] | IconProps['type'] | IconProps['filled']>
+  extends IconProps {
+  array: Type[];
+  property: keyof IconProps;
+}
+
+const TemplateMultiple: StoryFn<TemplateMultipleProps> = (args) => {
+  const { array, property, ...iconProps } = args;
+
+  return (
+    <VerticalSpacing>
+      {array.map((value, key) => (
+        <Row key={key} alignItems="center" gutterX={2}>
+          <Col width={1}>
+            <Text modifiers="capitalize">{value?.toString()}</Text>
+          </Col>
+          <Col width="auto">
+            <Icon {...iconProps} {...{ [property]: value }} name="home" />
+          </Col>
+          <Col width="auto">
+            <Icon {...iconProps} {...{ [property]: value }} name="arrow_drop_down" />
+          </Col>
+          <Col width="auto">
+            <Icon {...iconProps} {...{ [property]: value }} name="star_half" />
+          </Col>
+          <Col width="auto">
+            <Icon {...iconProps} {...{ [property]: value }} name="arrow_circle_up" />
+          </Col>
+        </Row>
+      ))}
+    </VerticalSpacing>
+  );
+};
+const Template: StoryFn<IconProps> = (args) => <Icon {...args} />;
 
 export const Default: Story = {
-  render: (args) => {
-    return (
-      <div>
-        <Icon {...args} />
-      </div>
-    );
-  },
+  render: Template,
 
   args: {
     name: 'home',
@@ -29,91 +73,12 @@ export const Default: Story = {
 };
 
 export const Types: Story = {
-  render: (args) => {
-    return (
-      <VerticalSpacing size={0.5}>
-        <Row alignItems="center" gutterX={5}>
-          <Col width={1}>Outlined</Col>
-          <Col width="auto">
-            <Row gutterX={2}>
-              <Col width="auto">
-                <Icon {...args} name="home" />
-              </Col>
-              <Col width="auto">
-                <Icon {...args} name="cancel" />
-              </Col>
-              <Col width="auto">
-                <Icon {...args} name="block" />
-              </Col>
-              <Col width="auto">
-                <Icon {...args} name="close" />
-              </Col>
-            </Row>
-          </Col>
-        </Row>
-        <Row alignItems="center" gutterX={5}>
-          <Col width={1}>Filled</Col>
-          <Col width="auto">
-            <Row gutterX={2}>
-              <Col width="auto">
-                <Icon {...args} name="home" filled />
-              </Col>
-              <Col width="auto">
-                <Icon {...args} name="cancel" filled />
-              </Col>
-              <Col width="auto">
-                <Icon {...args} name="block" filled />
-              </Col>
-              <Col width="auto">
-                <Icon {...args} name="close" filled />
-              </Col>
-            </Row>
-          </Col>
-        </Row>
-        <Row alignItems="center" gutterX={5}>
-          <Col width={1}>Rounded</Col>
-          <Col width="auto">
-            <Row gutterX={2}>
-              <Col width="auto">
-                <Icon {...args} name="home" type="rounded" />
-              </Col>
-              <Col width="auto">
-                <Icon {...args} name="cancel" type="rounded" />
-              </Col>
-              <Col width="auto">
-                <Icon {...args} name="block" type="rounded" />
-              </Col>
-              <Col width="auto">
-                <Icon {...args} name="close" type="rounded" />
-              </Col>
-            </Row>
-          </Col>
-        </Row>
-        <Row alignItems="center" gutterX={5}>
-          <Col width={1}>Sharp</Col>
-          <Col width="auto">
-            <Row gutterX={2}>
-              <Col width="auto">
-                <Icon {...args} name="home" type="sharp" />
-              </Col>
-              <Col width="auto">
-                <Icon {...args} name="cancel" type="sharp" />
-              </Col>
-              <Col width="auto">
-                <Icon {...args} name="block" type="sharp" />
-              </Col>
-              <Col width="auto">
-                <Icon {...args} name="close" type="sharp" />
-              </Col>
-            </Row>
-          </Col>
-        </Row>
-      </VerticalSpacing>
-    );
-  },
+  render: TemplateMultiple,
 
   args: {
     size: 36,
+    property: 'type',
+    array: typeArray,
   },
 
   parameters: {
@@ -126,17 +91,41 @@ export const Types: Story = {
   },
 };
 
+export const Filled: Story = {
+  render: TemplateMultiple,
+
+  args: {
+    size: 36,
+    property: 'filled',
+    array: [true, false],
+  },
+};
+
 export const Sizes: Story = {
-  render: (args) => (
-    <div>
-      <Icon name="home" size={12} />
-      <Icon name="home" size={14} />
-      <Icon name="home" size={18} />
-      <Icon name="home" size={24} />
-      <Icon name="home" size={36} />
-      <Icon name="home" size={48} />
-    </div>
-  ),
+  render: TemplateMultiple,
+
+  args: {
+    property: 'size',
+    array: sizeArray,
+  },
+};
+
+export const Colors: Story = {
+  render: TemplateMultiple,
+
+  args: {
+    property: 'color',
+    array: colorArray,
+  },
+
+  parameters: {
+    docs: {
+      description: {
+        // eslint-disable-next-line quotes
+        story: 'Use "positive", "important" or "warning" with caution, usually they should not be in application UI.',
+      },
+    },
+  },
 };
 
 export const InText: Story = {
