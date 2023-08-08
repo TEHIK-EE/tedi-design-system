@@ -1,3 +1,10 @@
+# [4.1.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v4.0.0...v4.1.0) (2023-08-08)
+
+
+### Features
+
+* **icon:** Add color prop to Icon ([6cff4be](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/6cff4be64319d6704f823e05e0360affb7918e45))
+
 # [4.0.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v3.42.2...v4.0.0) (2023-08-07)
 
 
