@@ -6,14 +6,6 @@ import { Print, PrintProps } from './print';
 
 const meta: Meta<typeof Print> = {
   component: Print,
-  parameters: {
-    docs: {
-      description: {
-        component: `Print component helps with modifying UI during printing. This can also be achieved using printing utility
-          classes, but using this component is **preferred**`,
-      },
-    },
-  },
 };
 
 export default meta;
