@@ -24,6 +24,9 @@ import { useIsMounted } from '../../helpers';
 import { useLabels } from '../../providers/label-provider';
 
 export type TooltipOpenWith = 'click' | 'hover';
+export const ARROW_HEIGHT = 7;
+export const ARROW_WIDTH = 14;
+export const GAP = 3;
 
 export interface TooltipProviderProps {
   /**
@@ -68,7 +71,7 @@ export interface ITooltipContext {
   focusManager?: TooltipProviderProps['focusManager'];
   reference: (node: ReferenceType | null) => void;
   floating: (node: HTMLElement | null) => void;
-  arrowRef: React.MutableRefObject<HTMLElement | null>;
+  arrowRef: React.MutableRefObject<SVGSVGElement | null>;
   x: number | null;
   y: number | null;
   strategy: Strategy;
@@ -123,7 +126,7 @@ export const TooltipProvider = (props: TooltipProviderProps): JSX.Element => {
   } = props.focusManager ?? {};
   const { visuallyHiddenDismiss = modal ? getLabel('close') : false } = restFocusManager ?? {};
   const [open, setOpen] = React.useState(defaultOpen);
-  const arrowRef = React.useRef<HTMLElement | null>(null);
+  const arrowRef = React.useRef<SVGSVGElement | null>(null);
 
   const isOpen = onToggle && typeof openOuter !== 'undefined' ? openOuter : open;
 
@@ -141,7 +144,7 @@ export const TooltipProvider = (props: TooltipProviderProps): JSX.Element => {
     open: isOpen,
     onOpenChange,
     middleware: [
-      offset(8),
+      offset(GAP + ARROW_HEIGHT),
       flip(),
       shift({ padding: 8 }),
       arrow({
