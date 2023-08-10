@@ -1,3 +1,10 @@
+# [4.2.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v4.1.0...v4.2.0) (2023-08-10)
+
+
+### Features
+
+* **tooltip:** wrap tooltip content with Card, simplify arrow logic ([fc251ae](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/fc251ae22bf6f7eee1d609c7acc070f455d3fe19))
+
 # [4.1.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v4.0.0...v4.1.0) (2023-08-08)
 
 
