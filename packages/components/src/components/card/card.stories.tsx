@@ -1,4 +1,4 @@
-import { Meta, StoryFn } from '@storybook/react';
+import { Meta, StoryFn, StoryObj } from '@storybook/react';
 
 import Collapse from '../collapse/collapse';
 import { Col, Row } from '../grid';
@@ -7,7 +7,9 @@ import Separator from '../separator/separator';
 import StretchContent from '../stretch-content/stretch-content';
 import { CardsExample } from '../stretch-content/stretch-content.stories';
 import Heading from '../typography/heading/heading';
-import { Card, CardProps } from './card';
+import Text from '../typography/text/text';
+import { VerticalSpacing } from '../vertical-spacing';
+import { Card, CardPadding, CardProps } from './card';
 import CardContent, { CardContentProps } from './card-content/card-content';
 import CardHeader, { CardHeaderProps } from './card-header/card-header';
 
@@ -29,6 +31,8 @@ export interface CardStory {
   cardContent2?: CardContentProps | boolean;
   splitContent?: boolean;
 }
+
+type Story = StoryObj<CardStory>;
 
 const Template: StoryFn<CardStory> = (args) => {
   const getSplitContent = () => (
@@ -89,12 +93,12 @@ const Template: StoryFn<CardStory> = (args) => {
   );
 };
 
-export const Default = {
+export const Default: Story = {
   render: Template,
   args: {},
 };
 
-export const DefaultHeader = {
+export const DefaultHeader: Story = {
   render: Template,
   args: {
     cardHeader: {
@@ -103,7 +107,7 @@ export const DefaultHeader = {
   },
 };
 
-export const WhiteHeader = {
+export const WhiteHeader: Story = {
   render: Template,
 
   args: {
@@ -114,13 +118,13 @@ export const WhiteHeader = {
   },
 };
 
-export const MultipleContent = {
+export const MultipleContent: Story = {
   render: Template,
 
   args: {
     ...Default.args,
     cardContent: {
-      background: 'background-light',
+      background: 'bg-muted',
     },
     cardContent2: {
       children: <p>Card content 2</p>,
@@ -129,7 +133,7 @@ export const MultipleContent = {
   },
 };
 
-export const SplitCardBody = {
+export const SplitCardBody: Story = {
   render: Template,
 
   args: {
@@ -138,115 +142,111 @@ export const SplitCardBody = {
   },
 };
 
-export const TypeBorderless = {
+export const TypeBorderless: Story = {
   render: Template,
 
   args: {
     ...Default.args,
     card: {
-      type: 'borderless',
+      borderless: true,
     },
     cardHeader: false,
   },
 };
 
-export const TypeError = {
+export const BorderLeftImportantActive: Story = {
   render: Template,
 
   args: {
     ...Default.args,
     card: {
-      type: 'error',
+      border: 'left-important-active',
+    },
+    cardHeader: false,
+  },
+
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Card support top and left borders, which are 2px wide and can be colored with: Brand, Border & Functional colors.',
+      },
+    },
+  },
+};
+
+export const BorderTopPrimaryHighlight: Story = {
+  render: Template,
+
+  args: {
+    ...Default.args,
+    card: {
+      border: 'top-primary-highlight',
     },
     cardHeader: false,
   },
 };
 
-export const TypeWarning = {
+export const TypeSuccess: Story = {
   render: Template,
 
   args: {
     ...Default.args,
     card: {
-      type: 'warning',
+      type: 'success-top',
     },
     cardHeader: false,
   },
 };
 
-export const TypeSuccess = {
-  render: Template,
+const TemplatePadding: StoryFn<CardStory> = (args) => {
+  const paddingArray: CardPadding[] = [0, 0.5, 0.75, 1, 1.5];
 
-  args: {
-    ...Default.args,
-    card: {
-      type: 'success',
-    },
-    cardHeader: false,
-  },
+  const getCardHeader = (header: CardHeaderProps) => (
+    <CardHeader {...header}>
+      <Heading modifiers="h3">{header.children || 'Teated ja suunatud menetlused'}</Heading>
+    </CardHeader>
+  );
+
+  return (
+    <VerticalSpacing size={0.5}>
+      {paddingArray.map((padding) => (
+        <Card {...args.card} padding={padding} key={padding}>
+          {args.cardHeader && getCardHeader(typeof args.cardHeader === 'boolean' ? {} : args.cardHeader)}
+
+          <CardContent {...args.cardContent}>
+            <p>Card padding: {padding}rem</p>
+          </CardContent>
+        </Card>
+      ))}
+      <Card {...args.card} padding={1.5}>
+        {getCardHeader({ children: 'CardHeader padding: 1.5rem' })}
+
+        <CardContent {...args.cardContent} padding={0.75}>
+          <VerticalSpacing>
+            <p>CardContent padding: 0.75rem</p>
+            <p>Card padding is overridden by cardContent padding</p>
+          </VerticalSpacing>
+        </CardContent>
+      </Card>
+    </VerticalSpacing>
+  );
 };
 
-export const PaddingNone = {
-  render: Template,
+export const Padding: Story = {
+  render: TemplatePadding,
 
   args: {
     ...Default.args,
-    card: {
-      padding: 'none',
-    },
     cardHeader: true,
   },
-};
 
-export const PaddingXSmall = {
-  render: Template,
-
-  args: {
-    ...Default.args,
-    cardHeader: true,
-    card: {
-      padding: 'xsmall',
-    },
-  },
-};
-
-export const PaddingSmall = {
-  render: Template,
-
-  args: {
-    ...Default.args,
-    cardHeader: true,
-    card: {
-      padding: 'small',
-    },
-  },
-};
-
-export const PaddingLarge = {
-  render: Template,
-
-  args: {
-    ...Default.args,
-    cardHeader: {
-      variant: 'white',
-    },
-    card: {
-      padding: 'large',
-    },
-  },
-};
-
-export const OverridePaddingFromCard = {
-  render: Template,
-
-  args: {
-    ...Default.args,
-    cardContent: {
-      padding: 'small',
-    },
-    cardHeader: true,
-    card: {
-      padding: 'large',
+  parameters: {
+    docs: {
+      description: {
+        story: `Card padding can be set with the \`padding\` prop. The value is in rem units. The default value is 1rem. <br />
+          The padding can be set for the whole card or for the card header and card content separately. If the padding is set for the whole card, it is overridden by the padding set for the card header and card content separately.`,
+      },
     },
   },
 };
@@ -273,21 +273,23 @@ const Timeline: StoryFn<CardProps> = (args) => (
   </Card>
 );
 
-export const TimelineCard = {
+export const TimelineCard: StoryObj<CardProps> = {
   render: Timeline,
   args: {},
 };
 
 const TwoToned: StoryFn<CardProps> = (args) => (
   <Row gutter={0}>
-    <Col width="auto" className="flex">
-      <Card borderRadius={{ right: false, bottom: false }}>
-        <CardContent background="bg-muted">
-          <Icon name="straighten" className="text-disabled"></Icon>
-        </CardContent>
-      </Card>
+    <Col width="auto">
+      <StretchContent>
+        <Card borderRadius={{ right: false, bottom: false }}>
+          <CardContent background="bg-muted">
+            <Icon name="straighten" className="text-disabled"></Icon>
+          </CardContent>
+        </Card>
+      </StretchContent>
     </Col>
-    <Col width="auto" className="flex">
+    <Col width="auto">
       <Card borderRadius={{ left: false, top: false }}>
         <CardContent>
           <p className="text-bold">Some statistic: x kg</p>
@@ -300,7 +302,7 @@ const TwoToned: StoryFn<CardProps> = (args) => (
   </Row>
 );
 
-export const TwoTonedCard = {
+export const TwoTonedCard: StoryObj<CardProps> = {
   render: TwoToned,
   args: {},
 };

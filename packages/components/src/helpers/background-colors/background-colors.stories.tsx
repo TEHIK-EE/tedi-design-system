@@ -24,7 +24,7 @@ const colors: TColorsBackground[] = [
   // Accent
   'accent-main',
   'accent-highlight',
-  // Foreground
+  // Background
   'bg-default',
   'bg-muted',
   'bg-subtle',

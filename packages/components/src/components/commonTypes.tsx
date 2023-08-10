@@ -1,24 +1,21 @@
-export type TColorsBackground =
-  // Primary
+export type ColorsPrimary =
   | 'primary-main'
   | 'primary-active'
   | 'primary-active-subtle'
   | 'primary-highlight'
-  | 'primary-highlight-subtle'
-  // Accent
-  | 'accent-main'
-  | 'accent-highlight'
-  // Foreground
+  | 'primary-highlight-subtle';
+export type ColorsAccent = 'accent-main' | 'accent-highlight';
+export type ColorsForeground = 'text-default' | 'text-muted' | 'text-subtle' | 'text-disabled' | 'text-inverted';
+export type ColorsBackground =
   | 'bg-default'
   | 'bg-muted'
   | 'bg-subtle'
   | 'bg-disabled'
   | 'bg-inverted'
-  | 'bg-inverted-contrast'
-  // Shades
-  | 'black'
-  | 'white'
-  // Functional colors - Positive
+  | 'bg-inverted-contrast';
+export type ColorsShades = 'black' | 'white';
+export type ColorsBorder = 'border-default' | 'border-contrast';
+export type ColorsFunctional =
   | 'positive-main'
   | 'positive-active'
   | 'positive-highlight'
@@ -30,5 +27,9 @@ export type TColorsBackground =
   | 'info-highlight'
   | 'warning-main'
   | 'warning-highlight';
+
+// Types with prefix T are meant to be all colors that can be used as background or border.
+export type TColorsBackground = ColorsPrimary | ColorsAccent | ColorsBackground | ColorsShades | ColorsFunctional;
+export type TColorsBorder = ColorsPrimary | ColorsAccent | ColorsBorder | ColorsFunctional;
 
 export const DEVICE_SIZES = ['xxl', 'xl', 'lg', 'md', 'sm', 'xs'] as const;
