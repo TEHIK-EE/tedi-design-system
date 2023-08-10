@@ -104,7 +104,7 @@ export const PaddedUneven: Story = {
 };
 
 const TemplateCard: StoryFn<SeparatorProps> = (args) => (
-  <Card>
+  <Card padding={1.5}>
     <CardContent>
       <Text color="muted">Some content</Text>
       <Separator {...args} />

@@ -1,4 +1,3 @@
-@use '../../styles/variables';
 @use '../../styles/mixins';
 
 $sizes: (
@@ -72,15 +71,12 @@ $sizes: (
 }
 
 .separator--full-width {
-  @each $name, $spacing in variables.$card-spacing {
-    [data-padding='#{$name}'] & {
-      margin-right: calc($spacing * -1);
-      margin-left: calc($spacing * -1);
-    }
-    [data-padding='#{$name}'] &.separator--vertical {
-      height: calc(100% + ($spacing * 2));
-      margin: calc($spacing * -1) 0;
-    }
+  margin-right: calc(var(--card-content-padding) * -1);
+  margin-left: calc(var(--card-content-padding) * -1);
+
+  &.separator--vertical {
+    height: calc(100% + (var(--card-content-padding) * 2));
+    margin: calc(var(--card-content-padding) * -1) 0;
   }
 }
 
