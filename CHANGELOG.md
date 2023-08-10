@@ -1,3 +1,10 @@
+# [4.3.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v4.2.0...v4.3.0) (2023-08-10)
+
+
+### Features
+
+* **card:** Deprecated type property,add border & borderless,change padding... ([f774351](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/f774351531cf0dabcf36954cc51ab25789a0fc42))
+
 # [4.2.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v4.1.0...v4.2.0) (2023-08-10)
 
 
