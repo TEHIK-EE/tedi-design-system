@@ -96,14 +96,10 @@ export const usePagination = (props: UsePaginationProps): UsePaginationResult =>
   // Map the button type to its page number
   const buttonPage = (type: PageType | number): number | null => {
     switch (type) {
-      case 'first':
-        return 1;
       case 'previous':
         return page - 1;
       case 'next':
         return page + 1;
-      case 'last':
-        return count;
       default:
         return null;
     }

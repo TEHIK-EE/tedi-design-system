@@ -26,6 +26,9 @@ const Crumb = <C extends React.ElementType = 'a'>(props: CrumbProps<C> & { singl
             {children}
           </Anchor>
         ) : (
+          // TODO: Remove ts-ignore
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-ignore
           <Anchor iconLeft={singleCrumb ? 'keyboard_arrow_left' : undefined} {...rest}>
             {children}
           </Anchor>

@@ -3,6 +3,7 @@ import path from 'node:path';
 import { join } from 'path';
 import { visualizer } from 'rollup-plugin-visualizer';
 import { defineConfig, PluginOption, UserConfig } from 'vite';
+import checker from 'vite-plugin-checker';
 import dts from 'vite-plugin-dts';
 import viteTsConfigPaths from 'vite-tsconfig-paths';
 
@@ -22,6 +23,13 @@ const config: UserConfig = {
       skipDiagnostics: true,
     }),
     reactPlugin(),
+    checker({
+      // e.g. use TypeScript check
+      typescript: {
+        root: join(__dirname),
+        tsconfigPath: 'tsconfig.lib.json',
+      },
+    }),
     visualizer({
       filename: './dist/bundle-stats.html',
       title: '@tehik/react-components bundle stats',
