@@ -44,10 +44,10 @@ const invertedText = (
 const buttonTypes: ExampleButtonProps[] = [
   { button: { color: 'default' }, text: 'These are the standard buttons used most often in an interface.' },
   {
-    button: { color: 'success' },
+    button: { color: 'positive' },
     text: 'These buttons lead to an action that progresses the users journey or completes a task, like &quot;Submit," "Confirm," or "Save." ',
   },
-  { button: { color: 'error' }, text: importantText },
+  { button: { color: 'important' }, text: importantText },
   { button: { color: 'inverted' }, text: invertedText },
 ];
 

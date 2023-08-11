@@ -40,6 +40,9 @@ InternalAnchor.displayName = 'Anchor';
  * Inherits all props from the component passed into `as`. If `as` is omitted, then the default is native `<a>` tag
  */
 
+// TODO: Remove ts-ignore
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 export const Anchor: AnchorComponent = InternalAnchor;
 
 export default Anchor;

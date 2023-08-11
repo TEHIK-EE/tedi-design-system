@@ -3,10 +3,13 @@
   "compilerOptions": {
     "outDir": "../../dist/",
     "types": ["node"],
-    "declaration": true,
-    "emitDeclarationOnly": true
+    "declaration": true
   },
-  "files": ["../../node_modules/@nx/react/typings/cssmodule.d.ts", "../../node_modules/@nx/react/typings/image.d.ts"],
+  "files": [
+    "../../node_modules/@nx/react/typings/cssmodule.d.ts",
+    "../../node_modules/@nx/react/typings/image.d.ts",
+    "./declaration.d.ts"
+  ],
   "exclude": [
     "jest.config.ts",
     "**/*.spec.ts",

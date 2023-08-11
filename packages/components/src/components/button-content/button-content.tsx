@@ -177,6 +177,9 @@ InternalButtonContent.displayName = 'ButtonContent';
 /**
  * Shares the rendering logic between `Anchor` and `Button`. We don't export it from the component library.
  */
+// TODO: Remove ts-ignore
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 const ButtonContent: ButtonContentComponent = InternalButtonContent;
 
 export default ButtonContent;
