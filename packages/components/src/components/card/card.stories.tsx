@@ -154,6 +154,25 @@ export const TypeBorderless: Story = {
   },
 };
 
+export const WithoutBorderRadius: Story = {
+  render: Template,
+
+  args: {
+    ...Default.args,
+    card: {
+      borderRadius: false,
+    },
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'With borderRadius prop u can turn off every corner separately or all togheter. By default all corners are rounded.',
+      },
+    },
+  },
+};
+
 export const BorderLeftImportantActive: Story = {
   render: Template,
 

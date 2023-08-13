@@ -57,7 +57,8 @@
   border-top: none;
   border-right: none;
   border-bottom: none;
-  border-radius: 0;
+  border-start-start-radius: 0;
+  border-end-start-radius: 0;
 }
 
 .card--border-top,
@@ -68,7 +69,8 @@
   border-right: none;
   border-bottom: none;
   border-left: none;
-  border-radius: 0;
+  border-start-start-radius: 0;
+  border-start-end-radius: 0;
 }
 
 .card--border-left,
