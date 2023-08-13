@@ -1,8 +1,10 @@
-import { arrow, FloatingArrow, FloatingFocusManager, FloatingPortal } from '@floating-ui/react';
+import { FloatingArrow, FloatingFocusManager, FloatingPortal } from '@floating-ui/react';
 import cn from 'classnames';
 import React from 'react';
 
 import { Card, CardContent, CardProps } from '../card';
+import { getCardBorderPlacementColor } from '../card/utility';
+import { TColorsBackground, TColorsBorder } from '../commonTypes';
 import styles from './tooltip.module.scss';
 import { ARROW_HEIGHT, ARROW_WIDTH, TooltipContext } from './tooltip-provider';
 
@@ -12,8 +14,12 @@ export interface TooltipProps {
    */
   children: React.ReactNode;
   /**
+   * Additional class name.
+   */
+  className?: string;
+  /**
    * card props to pass down to card component.
-   * By default padding is set to small & type to borderless.
+   * By default padding=0.5 & borderless=true.
    * Its highly recommended to use same cardProps all over the application.
    */
   cardProps?: CardProps;
@@ -25,9 +31,29 @@ export interface TooltipProps {
 }
 
 export const Tooltip = (props: TooltipProps): JSX.Element | null => {
-  const { children, maxWidth = 'medium', cardProps } = props;
+  const { children, maxWidth = 'medium', cardProps, className } = props;
   const { open, x, y, strategy, focusManager, floating, arrowRef, getFloatingProps, placement, context } =
     React.useContext(TooltipContext);
+
+  const [cardBorderPlacement, cardBorderColor] = getCardBorderPlacementColor(cardProps?.border, cardProps?.type);
+
+  const getArrowStrokeColor = (): 'none' | `var(--color-${TColorsBorder})` => {
+    if (cardBorderPlacement && cardBorderColor) {
+      return `var(--color-${cardBorderColor})`;
+    }
+
+    return 'none';
+  };
+
+  const hasArrowStroke = getArrowStrokeColor() !== 'none';
+
+  const getArrowFill = (): `var(--color-${TColorsBackground})` => {
+    if (cardProps?.background) {
+      return `var(--color-${cardProps?.background})`;
+    }
+
+    return 'var(--color-bg-default)';
+  };
 
   const renderTooltip = (): JSX.Element | null => {
     const content = (
@@ -40,19 +66,21 @@ export const Tooltip = (props: TooltipProps): JSX.Element | null => {
               left: x ?? 0,
               top: y ?? 0,
             },
-            className: cn(styles['tooltip'], { [styles[`tooltip--${maxWidth}`]]: maxWidth }),
+            className: cn(styles['tooltip'], className, { [styles[`tooltip--${maxWidth}`]]: maxWidth }),
           })}
           data-placement={placement}
         >
           <FloatingArrow
             ref={(el) => (arrowRef.current = el)}
             context={context}
-            fill="var(--color-bg-default)"
-            className={styles['tooltip__arrow']}
+            fill={getArrowFill()}
+            stroke={getArrowStrokeColor()}
+            strokeWidth={hasArrowStroke ? 2 : 0}
+            className={cn(styles['tooltip__arrow'], { [styles['tooltip__arrow--stroke']]: hasArrowStroke })}
             height={ARROW_HEIGHT}
             width={ARROW_WIDTH}
           />
-          <Card padding="xsmall" type="borderless" {...cardProps}>
+          <Card padding={0.5} borderless={true} {...cardProps}>
             <CardContent>{children}</CardContent>
           </Card>
         </div>
