@@ -21,6 +21,22 @@ $tooltip-max-width: (
 
 .tooltip__arrow {
   z-index: 1;
+
+  .tooltip[data-placement='top'] &.tooltip__arrow--stroke {
+    top: calc(100% - 2px) !important;
+  }
+
+  .tooltip[data-placement='bottom'] &.tooltip__arrow--stroke {
+    bottom: calc(100% - 2px) !important;
+  }
+
+  .tooltip[data-placement='right'] &.tooltip__arrow--stroke {
+    right: calc(100% - 4px) !important;
+  }
+
+  .tooltip[data-placement='left'] &.tooltip__arrow--stroke {
+    left: calc(100% - 4px) !important;
+  }
 }
 
 .tooltip__trigger:not(button, a) {

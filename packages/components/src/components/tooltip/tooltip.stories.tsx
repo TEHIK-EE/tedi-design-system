@@ -7,7 +7,7 @@ import { Card, CardContent } from '../card';
 import { Col, Row } from '../grid';
 import Icon from '../icon/icon';
 import Heading from '../typography/heading/heading';
-import Tooltip from './tooltip';
+import Tooltip, { TooltipProps } from './tooltip';
 import TooltipProvider, { TooltipProviderProps } from './tooltip-provider';
 import TooltipTrigger from './tooltip-trigger';
 
@@ -23,17 +23,17 @@ export default meta;
 type Story = StoryObj<TemplateProps>;
 
 interface TemplateProps extends TooltipProviderProps {
-  trigger: JSX.Element;
-  tooltip: React.ReactNode;
+  trigger?: JSX.Element;
+  tooltipProps?: Partial<TooltipProps>;
 }
 
 const Template: StoryFn<TemplateProps> = (args) => {
-  const { trigger, tooltip, ...rest } = args;
+  const { trigger, tooltipProps, ...rest } = args;
   return (
     <div className="text-center">
       <TooltipProvider {...rest}>
-        <TooltipTrigger>{trigger}</TooltipTrigger>
-        <Tooltip>{tooltip}</Tooltip>
+        <TooltipTrigger>{trigger || <span>Very long Tooltip Trigger</span>}</TooltipTrigger>
+        <Tooltip {...tooltipProps}>{tooltipProps?.children || 'Tooltip Content'}</Tooltip>
       </TooltipProvider>
     </div>
   );
@@ -42,18 +42,13 @@ const Template: StoryFn<TemplateProps> = (args) => {
 export const Default: Story = {
   render: Template,
 
-  args: {
-    trigger: <span>Very long Tooltip Trigger</span>,
-    tooltip: 'Tooltip Content',
-  },
+  args: {},
 };
 
 export const OpenWithClick: Story = {
   render: Template,
 
   args: {
-    trigger: <span>Very long Tooltip Trigger</span>,
-    tooltip: 'Tooltip Content',
     openWith: 'click',
   },
 };
@@ -62,7 +57,6 @@ export const DefaultOpen: Story = {
   render: Template,
 
   args: {
-    ...Default.args,
     defaultOpen: true,
   },
 };
@@ -71,7 +65,6 @@ export const OuterControlled: Story = {
   render: Template,
 
   args: {
-    ...Default.args,
     open: true,
     onToggle: (open) => console.log(open),
   },
@@ -81,7 +74,6 @@ export const TriggerButton: Story = {
   render: Template,
 
   args: {
-    ...Default.args,
     trigger: <Button onClick={() => console.log('onClick action triggered')}>Hover me</Button>,
   },
 };
@@ -90,7 +82,6 @@ export const TriggerAnchor: Story = {
   render: Template,
 
   args: {
-    ...Default.args,
     trigger: <Anchor onClick={() => console.log('onClick action triggered')}>Hover me</Anchor>,
   },
 };
@@ -107,19 +98,45 @@ export const TriggerCardCustomContent: Story = {
         </CardContent>
       </Card>
     ),
-    tooltip: (
-      <Row>
-        <Col width="auto">
-          <Icon name="person" />
-        </Col>
-        <Col width="auto">
-          <Heading>You can add any content to Tooltip!</Heading>
-          <Anchor href="https://www.w3schools.com" target="_blank">
-            Even links!
-          </Anchor>
-        </Col>
-      </Row>
-    ),
+    tooltipProps: {
+      children: (
+        <Row>
+          <Col width="auto">
+            <Icon name="person" />
+          </Col>
+          <Col width="auto">
+            <Heading>You can add any content to Tooltip!</Heading>
+            <Anchor href="https://www.w3schools.com" target="_blank">
+              Even links!
+            </Anchor>
+          </Col>
+        </Row>
+      ),
+    },
+  },
+};
+
+export const WithCardBorder: Story = {
+  render: Template,
+
+  args: {
+    ...Default.args,
+    openWith: 'click',
+    trigger: <Button visualType="tertiary">Click me</Button>,
+    tooltipProps: {
+      cardProps: {
+        border: 'top-primary-main',
+      },
+    },
+  },
+
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Tooltip accepts CardProps to Card which wraps TooltipContent.<br />This can be used to add border, padding, background color, etc. to TooltipContent.<br /> **Note**: It is added to use in HeaderDropdown, use it with caution.',
+      },
+    },
   },
 };
 
