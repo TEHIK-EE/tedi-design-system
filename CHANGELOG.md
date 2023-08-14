@@ -1,3 +1,10 @@
+# [4.5.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v4.4.0...v4.5.0) (2023-08-14)
+
+
+### Features
+
+* **tooltip:** Add tooltip with cardBorder and arrow stoke - TEHVEER-180 ([37c674d](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/37c674d8a1d403733995c7d0379bbd3456a29978))
+
 # [4.4.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v4.3.0...v4.4.0) (2023-08-14)
 
 
