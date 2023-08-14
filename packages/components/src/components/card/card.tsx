@@ -6,7 +6,7 @@ import styles from './card.module.scss';
 import { CardContentProps } from './card-content/card-content';
 import { CardContext } from './card-context';
 import { CardHeaderProps } from './card-header/card-header';
-import { mapDeprecatedType } from './utility';
+import { getCardBorderPlacementColor } from './utility';
 
 export type CardTypeDeprecated =
   | 'success'
@@ -42,7 +42,7 @@ export type CardProps = {
    * Follows the order in border-radius CSS property
    * Top-left / Top-right / Bottom-right / Bottom-left
    * */
-  borderRadius?: { top?: boolean; right?: boolean; bottom?: boolean; left?: boolean };
+  borderRadius?: false | { top?: boolean; right?: boolean; bottom?: boolean; left?: boolean };
   /**
    * Remove border from card
    */
@@ -63,16 +63,16 @@ export const Card = forwardRef<HTMLDivElement, CardProps>((props, ref): JSX.Elem
   const { children, className, padding = 1, background, type, borderRadius, borderless, border, ...rest } = props;
 
   // @deprecated - remove mapDeprecatedType usage in next major release
-  const [borderPlacement, borderColor] = border ? border.split(/-(.*)/s) : mapDeprecatedType(type);
+  const [borderPlacement, borderColor] = getCardBorderPlacementColor(border, type);
 
   const BEM = cn(styles['card'], className, {
     [styles[`card--${type}`]]: type,
     [styles[`card--border-${borderPlacement}`]]: borderPlacement,
-    [styles['card--borderless']]: borderless || type === 'borderless',
-    [styles['card--no-border-radius-top']]: borderRadius?.top === false,
-    [styles['card--no-border-radius-right']]: borderRadius?.right === false,
-    [styles['card--no-border-radius-bottom']]: borderRadius?.bottom === false,
-    [styles['card--no-border-radius-left']]: borderRadius?.left === false,
+    [styles['card--borderless']]: !border && (borderless || type === 'borderless'),
+    [styles['card--no-border-radius-top']]: borderRadius === false || borderRadius?.top === false,
+    [styles['card--no-border-radius-right']]: borderRadius === false || borderRadius?.right === false,
+    [styles['card--no-border-radius-bottom']]: borderRadius === false || borderRadius?.bottom === false,
+    [styles['card--no-border-radius-left']]: borderRadius === false || borderRadius?.left === false,
   });
 
   return (

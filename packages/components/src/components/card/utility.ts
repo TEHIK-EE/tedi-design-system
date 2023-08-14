@@ -1,7 +1,10 @@
 import { TColorsBorder } from '../commonTypes';
 import { CardBorderPlacement, CardPadding, CardProps, CardTypeDeprecated } from './card';
 
-// @deprecated - remove with old padding types
+/**
+ * Maps the deprecated padding values to numeric values
+ * @depracated - remove with old card types
+ */
 export const mapDeprecatedPadding = (padding: CardProps['padding']): CardPadding => {
   if (typeof padding === 'number') {
     return padding;
@@ -23,7 +26,13 @@ export const mapDeprecatedPadding = (padding: CardProps['padding']): CardPadding
   }
 };
 
-export const mapDeprecatedType = (type?: CardTypeDeprecated): [CardBorderPlacement, TColorsBorder] | [] => {
+export type CardBorderTypeArray = [CardBorderPlacement, TColorsBorder];
+
+/**
+ * Maps the deprecated card types to the new border type
+ * @depracated - remove with old card types
+ */
+export const mapDeprecatedType = (type?: CardTypeDeprecated): CardBorderTypeArray | [] => {
   switch (type) {
     case 'success':
       return ['left', 'positive-main'];
@@ -40,4 +49,12 @@ export const mapDeprecatedType = (type?: CardTypeDeprecated): [CardBorderPlaceme
     default:
       return [];
   }
+};
+
+// Returns Array of [borderPlacement, borderColor];
+export const getCardBorderPlacementColor = (
+  border?: CardProps['border'],
+  type?: CardTypeDeprecated
+): CardBorderTypeArray | [] => {
+  return border ? (border.split(/-(.*)/s) as CardBorderTypeArray) : mapDeprecatedType(type);
 };
