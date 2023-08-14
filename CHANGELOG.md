@@ -1,3 +1,11 @@
+# [4.4.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v4.3.0...v4.4.0) (2023-08-14)
+
+
+### Features
+
+* **card:** add border radius false option,  rework utility - TEHVEER-180 ([0ae679a](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/0ae679a969819d80a625862dfa359df3d4498e68))
+* **list:** Add List and ListItem components - TEHVEER-180 ([6b43f19](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/6b43f1954598f30c8146f11556e431f9ca87143e))
+
 # [4.3.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v4.2.0...v4.3.0) (2023-08-10)
 
 
