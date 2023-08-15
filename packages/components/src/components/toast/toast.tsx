@@ -6,8 +6,8 @@ import { Notification, NotificationProps } from '../notification/notification';
 import 'react-toastify/dist/ReactToastify.css';
 
 const toastDefaultOptions: ToastOptions = {
-  position: 'bottom-left',
-  autoClose: 5000,
+  position: 'bottom-right',
+  autoClose: 6000,
   hideProgressBar: true,
   closeOnClick: true,
   pauseOnHover: true,
