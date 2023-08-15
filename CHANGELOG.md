@@ -1,3 +1,10 @@
+# [4.6.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v4.5.0...v4.6.0) (2023-08-15)
+
+
+### Features
+
+* **toast:** UPP-961 - Move default toast to right, increase timeout to 6s ([ab54dd1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/ab54dd100d5b7fdbbbb4bb06ba5dd68894e7f93a))
+
 # [4.5.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v4.4.0...v4.5.0) (2023-08-14)
 
 
