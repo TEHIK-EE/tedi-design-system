@@ -1,3 +1,20 @@
+# [5.0.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v4.6.0...v5.0.0) (2023-08-17)
+
+
+* Merge branch 'feature/TEHVEER-180-layout' into 'master' ([425e2c2](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/425e2c256c58b700a253e24244b855be9d574dbc))
+
+
+### Features
+
+* **new-layout:** Rework layout and Header logic, apply new design - TEHVEER-180 ([0b2e933](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/0b2e933fe73db871668c7133b45e681463e72850))
+
+
+### BREAKING CHANGES
+
+* Layout and Header structure is different. Look Layout overview and Header overview for more info.
+See merge request tehik-react/tehik-react-components!186
+* **new-layout:** Layout and Header structure is different. Look Layout overview and Header overview for more info.
+
 # [4.6.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v4.5.0...v4.6.0) (2023-08-15)
 
 
