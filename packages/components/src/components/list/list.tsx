@@ -8,7 +8,7 @@ export interface ListProps {
   /**
    * List children should be ListItem components
    */
-  children: React.ReactElement<ListItemProps> | React.ReactElement<ListItemProps>[];
+  children: React.ReactElement<ListItemProps> | React.ReactElement<ListItemProps>[] | React.ReactNode;
   /**
    * VerticalSpacing props, if needed different spacing between items
    */

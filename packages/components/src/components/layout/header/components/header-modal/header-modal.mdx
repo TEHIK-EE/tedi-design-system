@@ -1,0 +1,14 @@
+import { Meta, Title, Canvas, ArgsTable, Stories } from '@storybook/blocks';
+import * as HeaderModalStories from './header-modal.stories.tsx';
+
+<Meta of={HeaderModalStories} />
+
+<Title />
+HeaderModal is wrapper around Modal to provide a consistent modal for Header. <br />
+**Note**: This component (or tooltip design) is not meant to be used outside of Header.
+
+<Canvas of={HeaderModalStories.Default} />
+
+<ArgsTable />
+
+<Stories includePrimary={false} />

@@ -2,13 +2,15 @@ import { FloatingFocusManager, FloatingOverlay } from '@floating-ui/react';
 import cn from 'classnames';
 import React from 'react';
 
-import useLayout from '../../../helpers/hooks/use-layout';
+import { Breakpoint } from '../../../helpers/hooks/use-breakpoint';
+import useLayout, { Layouts } from '../../../helpers/hooks/use-layout';
 import { AllowedHTMLTags } from '../../../helpers/polymorphic/types';
 import Anchor, { AnchorProps } from '../../anchor/anchor';
 import Icon, { IconProps } from '../../icon/icon';
 import Print from '../../print/print';
 import { LayoutContext } from '../layout-context';
 import styles from './sidenav.module.scss';
+import { useSidenavRendered } from './utility';
 
 type ConditionalTypes<C extends React.ElementType = 'a'> =
   | {
@@ -36,6 +38,16 @@ export type SideNavProps<C extends React.ElementType = 'a'> = ConditionalTypes<C
    * Id of the navigation
    */
   id?: string;
+  /**
+   * Breakpoint at which the SideNav will be rendered inside BottomContent.
+   * Only works for public type Header, system type header should have always a sidenav
+   */
+  breakToBottomContent?: Layouts;
+  /**
+   * Breakpoint at which the SideNav will be rendered inside HeaderContent
+   * Only works for public type Header, system type header should have always a sidenav
+   */
+  breakToHeader?: Layouts;
 };
 
 export type SideNavItem<C extends React.ElementType = 'a'> = AnchorProps<C> & {
@@ -46,9 +58,15 @@ export type SideNavItem<C extends React.ElementType = 'a'> = AnchorProps<C> & {
 };
 
 export function SideNav<C extends React.ElementType = 'a'>(props: SideNavProps<C>) {
-  const { navItems, ariaLabel, linkAs, ...rest } = props;
+  const { navItems, ariaLabel, linkAs, breakToBottomContent, breakToHeader, ...rest } = props;
   const isSmallLayout = useLayout(['mobile', 'tablet']);
-  const { menuOpen, context, getFloatingProps, floating, y } = React.useContext(LayoutContext);
+  const { menuOpen, context, getFloatingProps, floating, headerType, y } = React.useContext(LayoutContext);
+  const { hasSidenav } = useSidenavRendered(headerType, props);
+
+  // If the sidenav is rendered in the header or not passed, we don't need to render it
+  if (!hasSidenav) {
+    return null;
+  }
 
   const renderSidebar = (
     <Print visibility="hide">
@@ -108,9 +126,9 @@ function SideNavItem<C extends React.ElementType = 'a'>(props: SideNavItem<C>) {
   return (
     <li data-name="sidenav-item" className={SideNavItemBEM} role="presentation">
       {/*
-      // // TODO: Remove ts-ignore
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore */}
+        // // TODO: Remove ts-ignore
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore */}
       <Anchor
         {...rest}
         onClick={handleClick}

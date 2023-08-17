@@ -84,8 +84,8 @@ export const Collapse = (props: CollapseProps): JSX.Element => {
         onKeyDown={onKeyDown}
         onClick={onClick}
       >
-        <Row justifyContent="between" alignItems="center" {...titleRowProps} element="span">
-          {title && <Col width="auto">{title}</Col>}
+        <Row justifyContent="between" alignItems="center" wrap="nowrap" {...titleRowProps} element="span">
+          {title && <Col>{title}</Col>}
           <Col width="auto">
             <Row element="div" alignItems="center" gutter={1}>
               <Print visibility="hide">

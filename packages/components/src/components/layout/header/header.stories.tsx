@@ -1,39 +1,54 @@
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryFn, StoryObj } from '@storybook/react';
+import React from 'react';
 
-import useLayout from '../../../helpers/hooks/use-layout';
 import Anchor from '../../anchor/anchor';
 import { Col, Row } from '../../grid';
 import StretchContent from '../../stretch-content/stretch-content';
-import { renderCustomHeader } from './examples/renderCustomHeader';
-import Header, { HeaderProps } from './header';
+import { Notice as BottomContentNotice } from './components/header-bottom-content/header-bottom-content.stories';
+import HeaderContent from './components/header-content/header-content';
+import HeaderLanguage, { HeaderLanguageProps } from './components/header-language/header-language';
+import { Default as HeaderLanguageDefault } from './components/header-language/header-language.stories';
+import HeaderRole, { HeaderRoleProps } from './components/header-role/header-role';
+import { Default as HeaderRoleDefault } from './components/header-role/header-role.stories';
+import HeaderSettings, { HeaderSettingsProps } from './components/header-settings/header-settings';
+import { Default as HeaderSettingsDefault } from './components/header-settings/header-settings.stories';
+import Header, { HeaderProps } from './header/header';
 
-const meta: Meta<typeof Header> = {
+export default {
   component: Header,
-  parameters: {
-    backgrounds: { default: 'subtle' },
-    layout: 'fullscreen',
-  },
-  excludeStories: /.*CustomHeader$/,
-};
-
-export default meta;
+} as Meta;
 type Story = StoryObj<typeof Header>;
 
-const Template = (args: HeaderProps) => {
-  const isSmallLayout = useLayout(['mobile', 'tablet']);
-
-  return <Header {...args}>{renderCustomHeader(isSmallLayout)}</Header>;
-};
+const Template: StoryFn<HeaderProps<'a'>> = (args) => <Header {...args} />;
 
 export const Default: Story = {
   render: Template,
-
   args: {
-    logoAnchor: { href: '#' },
-    onLogoutClick: () => console.log('Logging out'),
+    logo: {
+      imageUrl: '/logo.svg',
+      anchorProps: {
+        href: '#',
+      },
+    },
     skipLinks: {
       links: [{ children: 'Skip to main content', href: '#main-content' }],
     },
+    children: (
+      <>
+        <HeaderSettings {...(HeaderSettingsDefault.args as HeaderSettingsProps)} />
+        <HeaderLanguage {...(HeaderLanguageDefault.args as HeaderLanguageProps)} />
+        <HeaderRole {...(HeaderRoleDefault.args as HeaderRoleProps)} />
+        <HeaderContent>
+          <StretchContent>
+            <Row justifyContent="center" alignItems="center">
+              <Col width="auto">Custom content</Col>
+            </Row>
+          </StretchContent>
+        </HeaderContent>
+        <Anchor href="#">Accessibilty</Anchor>
+      </>
+    ),
+    minimalSettingsArea: ['mobile', 'tablet'],
   },
 
   parameters: {
@@ -41,30 +56,35 @@ export const Default: Story = {
   },
 };
 
-export const HeaderWithBottomContent: Story = {
+export const Public: Story = {
   render: Template,
-
   args: {
-    logoAnchor: { href: '#' },
-    onLogoutClick: () => console.log('Logging out'),
-    skipLinks: {
-      links: [{ children: 'Skip to main content', href: '#main-content' }],
-    },
-    bottomContent: (
-      <StretchContent direction="horizontal">
-        <Row justifyContent="center" alignItems="center" gutter={0} gap={2}>
-          <Col width="auto">
-            <Anchor href="#">Link 1</Anchor>
-          </Col>
-          <Col width="auto">
-            <Anchor href="#">Link 2</Anchor>
-          </Col>
-          <Col width="auto">
-            <Anchor href="#">Link 3</Anchor>
-          </Col>
-        </Row>
-      </StretchContent>
+    ...Default.args,
+    children: (
+      <>
+        <HeaderSettings {...(HeaderSettingsDefault.args as HeaderSettingsProps)} />
+        <HeaderLanguage {...(HeaderLanguageDefault.args as HeaderLanguageProps)} />
+      </>
     ),
+  },
+
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Public header depends on LayoutContext to determine if the header is `public`. To see how public header works, please check the `Layout` component examples.',
+      },
+    },
+
+    layout: 'fullscreen',
+  },
+};
+
+export const BottomContent: Story = {
+  render: Template,
+  args: {
+    ...Default.args,
+    bottomContent: BottomContentNotice.args,
   },
 
   parameters: {

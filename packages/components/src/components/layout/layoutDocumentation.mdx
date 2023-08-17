@@ -1,0 +1,48 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta name="Layout overview" title="Components/layout/Layout overview" />
+
+# Layout overview
+
+Layout is main wrapper around all components. It is responsible for positioning and sizing general layout components like:
+
+- [Header](/docs/components-layout-header--docs)
+- [Sidenav](/docs/components-layout-sidenav--docs)
+- [Footer](/docs/components-layout-footer--docs)
+- [Breadcrumbs](/docs/components-breadcrumbs-header--docs)
+- Main content area
+
+To check out different examples how all those components work togheter under different circumstances, check out [Layout examples](/docs/components-layout-layout--docs)
+
+## Header
+
+Header is **mandatory** in layout.
+
+Currently we support two main header types: `public` and `system`.
+Public header is used for public (landing)pages and system header is used for pages that require authentication.
+Both headers are using the same markup and styling, but system header has additional functionality like user menu, notifications, etc. <br/>
+
+Read more about [Header](/docs/components-layout-header--docs).
+
+## Sidenav
+
+Sidenav is used for navigation between pages. It is always visible on desktop and hidden on mobile devices. <br/>
+Layout that is meant for public pages can have sidenav on mobile, but on desktop renders navigation to Header. <br />
+
+Read more about [Sidenav](/docs/components-layout-sidenav--docs)
+
+## Footer
+
+Footer is used for displaying additional information about the page. <br/>
+
+Read more about [Footer](/docs/components-layout-footer--docs)
+
+## Breadcrumbs
+
+Breadcrumbs are used for displaying current page location in the application. <br/>
+
+Read more about [Breadcrumbs](/docs/components-breadcrumbs-header--docs)
+
+## Main content area
+
+Main content area is used for displaying main content of the Application. <br/>

@@ -3,6 +3,7 @@
 .collapse__title {
   width: 100%;
   margin-bottom: 0.5rem;
+  text-align: left;
   cursor: pointer;
 
   @include mixins.button-reset;
