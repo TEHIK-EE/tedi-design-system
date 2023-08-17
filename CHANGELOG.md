@@ -1,3 +1,10 @@
+## [5.0.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.0.0...v5.0.1) (2023-08-17)
+
+
+### Bug Fixes
+
+* **header-role:** Add missing export of HeaderRole ([276ba84](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/276ba844d08b32f1a68307e8d113811c121b2dd1))
+
 # [5.0.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v4.6.0...v5.0.0) (2023-08-17)
 
 
