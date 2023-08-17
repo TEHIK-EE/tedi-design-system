@@ -10,10 +10,14 @@ import Breadcrumbs, { BreadcrumbsProps } from '../breadcrumbs/breadcrumbs';
 import { Default as BreadcrumbsDefault } from '../breadcrumbs/breadcrumbs.stories';
 import Footer, { FooterProps } from '../footer/footer';
 import { Default as FooterDefault } from '../footer/footer.stories';
-import Header from '../header/header';
-import { Default as HeaderDefault } from '../header/header.stories';
+import { Header, HeaderProps } from '../header';
+import {
+  BottomContent as HeaderBottomContent,
+  Default as HeaderDefault,
+  Public as HeaderPublic,
+} from '../header/header.stories';
 import SideNav, { SideNavProps } from '../sidenav/sidenav';
-import { Default as SidenavDefault } from '../sidenav/sidenav.stories';
+import { Default as SidenavDefault, Public as SidenavPublic } from '../sidenav/sidenav.stories';
 import { Layout } from './layout';
 
 const defaultContent = (
@@ -78,7 +82,7 @@ export const Default: Story = {
 
   args: {
     children: defaultContent,
-    header: HeaderDefault.args,
+    header: HeaderDefault.args as HeaderProps<'a'>,
     sideNav: SidenavDefault.args as SideNavProps,
     footer: FooterDefault.args as FooterProps,
     breadcrumbsProps: BreadcrumbsDefault.args as BreadcrumbsProps,
@@ -90,13 +94,42 @@ export const Default: Story = {
   },
 };
 
-export const Simple: Story = {
+export const Public: Story = {
   render: Template,
 
   args: {
     ...Default.args,
+    header: HeaderPublic.args as HeaderProps<'a'>,
+    sideNav: SidenavPublic.args as SideNavProps,
+    headerType: 'public',
     breadcrumbsProps: undefined,
-    sideNav: undefined,
+  },
+
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Layout with a public header. Public header is more simpler, it does not support custom content to header, instead it renders navigation to Header on larger screens from Sidenav props. <br/> It can be used for public pages.',
+      },
+    },
+  },
+};
+
+export const WithNotice: Story = {
+  render: Template,
+
+  args: {
+    ...Default.args,
+    header: HeaderBottomContent.args as HeaderProps<'a'>,
+  },
+
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Layout with a notice. Notice is rendered BottomContent and passed Card props to style the notice. <br/> It can be used to display important information to user.',
+      },
+    },
   },
 };
 

@@ -1,5 +1,5 @@
-import { AllowedHTMLTags } from '../../helpers/polymorphic/types';
-import Anchor, { AnchorProps } from '../anchor/anchor';
+import { AllowedHTMLTags } from '../../../../../helpers/polymorphic/types';
+import Anchor, { AnchorProps } from '../../../../anchor/anchor';
 import styles from './skip-links.module.scss';
 
 type ConditionalTypes<C extends React.ElementType = 'a'> =

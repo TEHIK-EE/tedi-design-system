@@ -6,9 +6,10 @@ import { AccessibilityProvider } from '../../../providers/accessibility-provider
 import Section from '../../section/section';
 import Breadcrumbs, { BreadcrumbsProps } from '../breadcrumbs/breadcrumbs';
 import { Footer, FooterProps } from '../footer/footer';
-import Header, { HeaderProps } from '../header/header';
+import { Header, HeaderProps } from '../header';
 import { LayoutContext } from '../layout-context';
 import SideNav, { SideNavProps } from '../sidenav/sidenav';
+import { useSidenavRendered } from '../sidenav/utility';
 import styles from './layout.module.scss';
 
 export interface ILayoutProps<
@@ -53,6 +54,13 @@ export interface ILayoutProps<
     alt: string;
     style: React.CSSProperties;
   };
+  /**
+   * Type of the Header
+   * - System header is meant for logged in system
+   * - Public is meant for public pages where user is not yer signed in, usally also does not have sidenav on desktop
+   * @default 'system'
+   */
+  headerType?: 'system' | 'public';
 }
 
 export const Layout = <
@@ -71,10 +79,11 @@ export const Layout = <
     mainContentId = 'main-content',
     mainLogo,
     growMainContent,
+    headerType = 'system',
     ...rest
   } = props;
   const [menuOpen, setMenuOpen] = React.useState(false);
-
+  const { hasSidenav } = useSidenavRendered(headerType, sideNav);
   const { y, refs, context } = useFloating({
     placement: 'bottom-start',
     open: menuOpen,
@@ -89,7 +98,7 @@ export const Layout = <
   ]);
 
   const mainBem = cn(styles['main'], {
-    [styles['main--with-sidenav']]: !!props.sideNav,
+    [styles['main--with-sidenav']]: hasSidenav,
     [styles['main--grow']]: growMainContent,
   });
 
@@ -99,12 +108,13 @@ export const Layout = <
         y,
         menuOpen,
         toggleMenu: () => setMenuOpen((o) => !o),
+        headerType,
         reference: refs.setReference,
         floating: refs.setFloating,
         context,
         getReferenceProps,
         getFloatingProps,
-        hasSidenavItems: !!sideNav?.navItems?.length,
+        sideNavProps: sideNav,
       }}
     >
       <AccessibilityProvider>

@@ -1,0 +1,7 @@
+.header__dropdown span[data-name='icon'] {
+  transition: transform 0.3s ease-in-out;
+}
+
+.header__dropdown--open span[data-name='icon'] {
+  transform: rotate(180deg);
+}

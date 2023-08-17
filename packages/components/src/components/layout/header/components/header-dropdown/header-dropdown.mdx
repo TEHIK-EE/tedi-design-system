@@ -1,0 +1,14 @@
+import { Meta, Title, Canvas, ArgsTable, Stories } from '@storybook/blocks';
+import * as HeaderDropdownStories from './header-dropdown.stories.tsx';
+
+<Meta of={HeaderDropdownStories} />
+
+<Title />
+HeaderDropdown is wrapper around Tooltip to provide a consistent dropdown menu for Header. <br />
+**Note**: This component (or tooltip design) is not meant to be used outside of Header.
+
+<Canvas of={HeaderDropdownStories.Default} />
+
+<ArgsTable />
+
+<Stories includePrimary={false} />

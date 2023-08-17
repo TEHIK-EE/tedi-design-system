@@ -22,9 +22,26 @@ const exampleNavItems: SideNavItem[] = [
   { href: '#', children: 'Menetlused', icon: 'assignment' },
 ];
 
+const exampleNavItemsPublic: SideNavItem[] = [
+  { href: '#', children: 'Avaleht', icon: 'dashboard', isActive: true },
+  { href: '#', children: 'Terviseennetuse info', icon: 'health_metrics' },
+  { href: '/', children: 'Portaali teenused', icon: 'medical_services' },
+  { href: '#', children: 'Uuringud ja uudised', icon: 'science' },
+  { href: '#', children: 'Kontaktid ja KKK', icon: 'quiz' },
+];
+
 export const Default: Story = {
   args: {
     navItems: exampleNavItems,
     ariaLabel: 'Menu title',
+  },
+};
+
+export const Public: Story = {
+  args: {
+    navItems: exampleNavItemsPublic,
+    ariaLabel: 'Menu title',
+    breakToBottomContent: ['lg', 'xl'],
+    breakToHeader: ['xxl'],
   },
 };
