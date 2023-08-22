@@ -1,3 +1,10 @@
+# [5.1.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.0.1...v5.1.0) (2023-08-22)
+
+
+### Features
+
+* **notification:** update notification template, when there is no title - TEHVEER-183 ([ff8fea7](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/ff8fea73bcccbbbacdb9b34eb3dc46ef45de2cea))
+
 ## [5.0.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.0.0...v5.0.1) (2023-08-17)
 
 
