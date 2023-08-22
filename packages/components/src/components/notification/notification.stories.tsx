@@ -67,3 +67,20 @@ export const WithIcon: Story = {
     icon: 'check_circle',
   },
 };
+
+export const WithoutTitle: Story = {
+  args: {
+    ...Default.args,
+    title: undefined,
+    icon: 'check_circle',
+    onClose: () => null,
+  },
+};
+
+export const WithoutTitleAndIcon: Story = {
+  args: {
+    ...Default.args,
+    title: undefined,
+    onClose: () => null,
+  },
+};
