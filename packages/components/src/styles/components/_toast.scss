@@ -1,5 +1,6 @@
 /* Toast overrides */
 .Toastify .Toastify__toast {
+  min-height: unset;
   padding: 0;
   margin-bottom: 1rem;
   font-family: inherit;

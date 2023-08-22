@@ -46,32 +46,24 @@ export const Notification = (props: NotificationProps): JSX.Element => {
     const iconProps: IconProps =
       typeof icon === 'string' ? { ...defaultIconProps, name: icon } : { ...defaultIconProps, ...icon };
 
-    return <Icon {...iconProps} />;
+    return <Icon display="inline" {...iconProps} />;
   };
 
   return (
     <div role="alert" data-name="notification" {...rest} className={NotificationBEM}>
       <VerticalSpacing size={0.25}>
-        <Row justifyContent="between">
-          {(title || icon) && (
-            <Col>
-              <Row alignItems="center" gutterX={2} gutterY={0}>
-                {icon && <Col width="auto">{getIcon(icon)}</Col>}
-                {title && (
-                  <Col width="auto" className="h5">
-                    {title}
-                  </Col>
-                )}
-              </Row>
-            </Col>
-          )}
+        <Row gutterX={2} alignItems={title ? 'center' : 'start'}>
+          {icon && <Col width="auto">{getIcon(icon)}</Col>}
+          <Col grow={1} className={title ? 'h5' : ''}>
+            {title ? title : children}
+          </Col>
           {onClose && (
             <Col width="auto">
               <CloseButton onClick={onClose} />
             </Col>
           )}
         </Row>
-        <div>{children}</div>
+        {title && <div>{children}</div>}
       </VerticalSpacing>
     </div>
   );
