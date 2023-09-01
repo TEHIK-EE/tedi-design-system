@@ -197,6 +197,13 @@ export const labelsMap = {
     en: 'Loading completed',
     ru: 'Загрузка завершена',
   }),
+  'spinner.loading': validateLabel({
+    description: 'Announced by screen-readers when spinner is loading',
+    components: ['Spinner'],
+    et: 'Laadimine',
+    en: 'Loading',
+    ru: 'Загрузка',
+  }),
   'table.loading': validateLabel({
     description: 'Shown when table is loading',
     components: ['Table'],

@@ -5,8 +5,8 @@ import { AllowedHTMLTags, PolymorphicComponentPropWithRef, PolymorphicRef } from
 import { ButtonColor, ButtonType } from '../button/button';
 import Icon, { IconProps } from '../icon/icon';
 import Print from '../print/print';
+import Spinner from '../spinner/spinner';
 import styles from './button-content.module.scss';
-import ButtonLoader from './button-loader/button-loader';
 
 export type ButtonContentProps<
   C extends React.ElementType,
@@ -134,11 +134,7 @@ const InternalButtonContent = forwardRef(
           ? { ...defaultIconProps, name: icon }
           : { ...defaultIconProps, ...icon, className: cn(defaultIconProps.className, icon?.className) };
 
-      return isLoading ? (
-        <ButtonLoader size={iconProps.size} className={iconProps.className} />
-      ) : (
-        <Icon {...iconProps} />
-      );
+      return isLoading ? <Spinner size={iconProps.size} className={iconProps.className} /> : <Icon {...iconProps} />;
     };
 
     const renderContent = (): JSX.Element => (
@@ -146,7 +142,7 @@ const InternalButtonContent = forwardRef(
         {icon && getIcon('centre', icon)}
         {iconLeft && getIcon('left', iconLeft)}
         <span className={styles['btn__text']}>{children}</span>
-        {isLoading && !hasIcon && <ButtonLoader position="absolute" className={styles['btn__loader']} />}
+        {isLoading && !hasIcon && <Spinner position="absolute" className={styles['btn__loader']} />}
         {iconRight && getIcon('right', iconRight)}
       </span>
     );
