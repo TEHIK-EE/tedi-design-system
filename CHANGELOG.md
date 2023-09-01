@@ -1,3 +1,10 @@
+# [5.2.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.1.0...v5.2.0) (2023-09-01)
+
+
+### Features
+
+* **spinner:** Create spinner - TEHVEER-186 ([02a0bbe](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/02a0bbe2a131bb29d191fb764733fea44b6ad95c))
+
 # [5.1.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.0.1...v5.1.0) (2023-08-22)
 
 
