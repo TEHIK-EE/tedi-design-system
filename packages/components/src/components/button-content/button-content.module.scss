@@ -351,6 +351,10 @@ $btn-height-small: 2.25rem;
   }
 }
 
+.btn__spinner {
+  stroke: currentcolor;
+}
+
 .btn--underline {
   text-decoration: underline;
 }

@@ -127,14 +127,16 @@ const InternalButtonContent = forwardRef(
       : cn(styles['btn--no-style'], className);
 
     const getIcon = (location: string, icon: string | IconProps): JSX.Element => {
-      const iconBEM = cn(styles['btn__icon'], styles[`btn__icon--${location}`]);
+      const iconBEM = cn(styles['btn__icon'], styles[`btn__icon--${location}`], {
+        [styles['btn__spinner']]: isLoading,
+      });
       const defaultIconProps: Partial<IconProps> = { size: 16, className: iconBEM };
       const iconProps: IconProps =
         typeof icon === 'string'
           ? { ...defaultIconProps, name: icon }
           : { ...defaultIconProps, ...icon, className: cn(defaultIconProps.className, icon?.className) };
 
-      return isLoading ? <Spinner size={iconProps.size} className={iconProps.className} /> : <Icon {...iconProps} />;
+      return isLoading ? <Spinner className={iconProps.className} /> : <Icon {...iconProps} />;
     };
 
     const renderContent = (): JSX.Element => (
@@ -142,7 +144,7 @@ const InternalButtonContent = forwardRef(
         {icon && getIcon('centre', icon)}
         {iconLeft && getIcon('left', iconLeft)}
         <span className={styles['btn__text']}>{children}</span>
-        {isLoading && !hasIcon && <Spinner position="absolute" className={styles['btn__loader']} />}
+        {isLoading && !hasIcon && <Spinner position="absolute" className={styles['btn__spinner']} />}
         {iconRight && getIcon('right', iconRight)}
       </span>
     );

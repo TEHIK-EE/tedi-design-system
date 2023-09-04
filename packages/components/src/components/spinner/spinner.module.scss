@@ -2,6 +2,7 @@
   display: flex;
   width: var(--spinner-internal-variation-size, 1rem);
   height: var(--spinner-internal-variation-size, 1rem);
+  stroke: var(--spinner-internal-variation-stroke-color, var(--color-bg-disabled));
   animation: 1.4s linear 0s infinite normal none running spinner-outer;
 
   &--absolute {
@@ -10,7 +11,6 @@
 }
 
 .spinner__inner {
-  stroke: currentcolor;
   stroke-dasharray: 80px, 200px;
   stroke-dashoffset: 0;
   stroke-width: var(--spinner-internal-variation-stroke-width, 0.25rem);
