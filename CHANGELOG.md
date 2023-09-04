@@ -1,3 +1,10 @@
+# [5.3.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.2.0...v5.3.0) (2023-09-04)
+
+
+### Features
+
+* **spinner:** Limit spinner colors and sizes - TEHVEER-186 ([8b2f29c](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/8b2f29c5e2a56a48f4bbedfe251d5c44df07c550))
+
 # [5.2.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.1.0...v5.2.0) (2023-09-01)
 
 
