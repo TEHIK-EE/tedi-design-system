@@ -2,11 +2,8 @@ import cn from 'classnames';
 import React from 'react';
 
 import { useLabels } from '../../providers/label-provider';
-import { IconSize } from '../icon/icon';
-import { TextColor } from '../typography/text/text';
+import { TColorsBackground } from '../commonTypes';
 import styles from './spinner.module.scss';
-
-export type SpinnerStrokeWidth = 4 | 6;
 
 export interface SpinnerProps {
   /**
@@ -14,24 +11,18 @@ export interface SpinnerProps {
    */
   className?: string;
   /**
-   * Size of the spinner.
+   * Size of the Spinner.
    * @default 16
    */
-  size?: IconSize;
-  /**
-   * Thickness of the Spinner.
-   * @default 4
-   */
-  strokeWidth?: SpinnerStrokeWidth;
+  size?: 16 | 48;
   /**
    * Which color Spinner should be.
-   * Use 'positive', 'important' or 'warning' with caution, usually they should not be in application UI.
-   * @default default
+   * @default 'bg-disabled'
    */
-  color?: TextColor;
+  color?: Extract<TColorsBackground, 'bg-disabled' | 'bg-default'>;
   /**
    * Label for screen-readers.
-   * If omitted then the spinner is hidden for screen-readers.
+   * If omitted then the Spinner is hidden for screen-readers.
    */
   label?: string;
   /**
@@ -47,19 +38,20 @@ export interface SpinnerProps {
 export const Spinner = (props: SpinnerProps): JSX.Element => {
   const { getLabel } = useLabels();
 
-  const { className, size = 16, color, label = getLabel('spinner.loading'), position, strokeWidth = 4 } = props;
+  const { className, size = 16, color = 'bg-disabled', label = getLabel('spinner.loading'), position } = props;
+
+  const strokeWidth = size === 48 ? 6 : 4;
+  const radius = 24 - strokeWidth;
 
   const spinnerVariant = {
     '--spinner-internal-variation-size': `${size / 16}rem`,
     '--spinner-internal-variation-stroke-width': `${strokeWidth / 16}rem`,
+    '--spinner-internal-variation-stroke-color': `var(--color-${color})`,
   } as React.CSSProperties;
 
   const spinnerBEM = cn(styles['spinner'], className, {
     [styles[`spinner--${position}`]]: !!position,
-    [`text-${color}`]: color,
   });
-
-  const radius = 24 - strokeWidth;
 
   return (
     <span className={spinnerBEM} style={spinnerVariant} aria-hidden={!label} aria-label={label}>

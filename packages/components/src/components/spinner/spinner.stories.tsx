@@ -11,9 +11,7 @@ type Story = StoryObj<typeof Spinner>;
 
 export const Default: Story = {
   args: {
-    size: 24,
-    strokeWidth: 4,
-    color: 'default',
+    size: 16,
     label: 'Loading...',
   },
 };
@@ -21,17 +19,18 @@ export const Default: Story = {
 export const Big: Story = {
   args: {
     size: 48,
-    strokeWidth: 6,
-    color: 'primary',
+    color: 'bg-disabled',
     label: 'Loading...',
   },
 };
 
-export const Small: Story = {
+export const Inverted: Story = {
   args: {
     size: 16,
-    strokeWidth: 4,
-    color: 'disabled',
+    color: 'bg-default',
     label: 'Loading...',
+  },
+  parameters: {
+    backgrounds: { default: 'inverted' },
   },
 };
