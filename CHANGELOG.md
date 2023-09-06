@@ -1,3 +1,10 @@
+# [5.4.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.3.0...v5.4.0) (2023-09-06)
+
+
+### Features
+
+* **scroll-fade:** UPP-892 - Add 0 fadeSize option to scroll-fade ([268e905](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/268e905de6c219d60a5ee943474b5b773d2c2b82))
+
 # [5.3.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.2.0...v5.3.0) (2023-09-04)
 
 
