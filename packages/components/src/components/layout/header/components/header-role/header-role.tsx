@@ -17,7 +17,7 @@ export interface HeaderRoleProps {
    */
   secondaryInfo?: string;
   /**
-   * Overide roleSelection label from LabelProvider
+   * Override roleSelection label from LabelProvider
    */
   label?: string;
   /**
@@ -33,10 +33,10 @@ export interface HeaderRoleProps {
 
 export const HeaderRole = (props: HeaderRoleProps) => {
   const { renderModal = false, ...rest } = props;
-  return renderModal ? <HeaderRoleModal {...rest} /> : <HeaderRoleDrodown {...rest} />;
+  return renderModal ? <HeaderRoleModal {...rest} /> : <HeaderRoleDropdown {...rest} />;
 };
 
-const HeaderRoleDrodown = (props: Omit<HeaderRoleProps, 'renderModal'>) => {
+const HeaderRoleDropdown = (props: Omit<HeaderRoleProps, 'renderModal'>) => {
   const { getLabel } = useLabels();
   const { children, primaryInfo, secondaryInfo, label = getLabel('header.role-label') } = props;
 

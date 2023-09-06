@@ -22,7 +22,7 @@ export interface ScrollFadeProps {
    * Size of fade in percentages.
    * @default 20
    */
-  fadeSize?: '10' | '20';
+  fadeSize?: '0' | '10' | '20';
   /**
    * Called when element is scrolled to top
    */

@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import React from 'react';
 
-import { Layouts, useLayout } from '../../../../helpers/hooks/use-layout';
+import { Layouts, useLayout } from '../../../../helpers';
 import { Col, Row } from '../../../grid';
 import Print from '../../../print/print';
 import { LayoutContext } from '../../layout-context';
@@ -142,13 +142,11 @@ export const Header = <H extends React.ElementType = 'a'>(props: HeaderProps<H>)
             gutterX={4}
             xl={{ gutterX: 5 }}
           >
-            {getSettingsAreaComponents(children).map((child: React.ReactNode, index: number) => {
-              return (
-                <Col width="auto" key={index} className={styles['header__content-item']}>
-                  {child}
-                </Col>
-              );
-            })}
+            {getSettingsAreaComponents(children).map((child: React.ReactNode, index: number) => (
+              <Col width="auto" key={index} className={styles['header__content-item']}>
+                {child}
+              </Col>
+            ))}
           </Row>
         </div>
       </header>

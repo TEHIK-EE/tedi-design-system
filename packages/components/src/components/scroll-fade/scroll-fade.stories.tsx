@@ -35,3 +35,12 @@ export const SmallFade: Story = {
     fadeSize: '10',
   },
 };
+
+export const NoFade: Story = {
+  render: Template,
+
+  args: {
+    scrollType: 'custom',
+    fadeSize: '0',
+  },
+};
