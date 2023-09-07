@@ -1,3 +1,10 @@
+# [5.5.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.4.0...v5.5.0) (2023-09-07)
+
+
+### Features
+
+* **header:** UPP-953 - Remove padding from role modal/dropdown ([8db4742](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/8db4742f9e8c5634b1041c9facbd9bdeff6aee74))
+
 # [5.4.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.3.0...v5.4.0) (2023-09-06)
 
 
