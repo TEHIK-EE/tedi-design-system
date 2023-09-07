@@ -68,6 +68,7 @@ const HeaderRoleDropdown = (props: Omit<HeaderRoleProps, 'renderModal'>) => {
   const dropdown = (
     <HeaderDropdown
       shouldAnimate={true}
+      tooltipProps={{ cardProps: { padding: 0 } }}
       triggerProps={{
         children: primaryInfo,
         visualType: 'link',
@@ -104,7 +105,7 @@ const HeaderRoleModal = (props: Omit<HeaderRoleProps, 'renderModal'>) => {
 
   return (
     <Card background="primary-highlight" borderRadius={false} borderless={true}>
-      <CardContent>
+      <CardContent padding={0}>
         {children ? (
           <Collapse id="role-collapse" hideCollapseText title={title}>
             {children}
