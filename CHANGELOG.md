@@ -1,3 +1,10 @@
+# [5.6.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.5.1...v5.6.0) (2023-09-08)
+
+
+### Features
+
+* **header:** UPP-953 - Change header role modal default background color to bg-muted ([3d367c2](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/3d367c276286ca4cb16b09af1b02451f7237601e))
+
 ## [5.5.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.5.0...v5.5.1) (2023-09-08)
 
 
