@@ -104,7 +104,7 @@ const HeaderRoleModal = (props: Omit<HeaderRoleProps, 'renderModal'>) => {
   );
 
   return (
-    <Card background="primary-highlight" borderRadius={false} borderless={true}>
+    <Card background="bg-muted" borderRadius={false} borderless={true}>
       <CardContent padding={0}>
         {children ? (
           <Collapse id="role-collapse" hideCollapseText title={title}>
