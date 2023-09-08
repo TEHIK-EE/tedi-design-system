@@ -1,3 +1,10 @@
+## [5.5.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.5.0...v5.5.1) (2023-09-08)
+
+
+### Bug Fixes
+
+* **header:** UPP-953 - Not all dropdowns should have 0 padding ([a85fa22](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/a85fa22948613275ff625f57636339c885eea825))
+
 # [5.5.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.4.0...v5.5.0) (2023-09-07)
 
 
