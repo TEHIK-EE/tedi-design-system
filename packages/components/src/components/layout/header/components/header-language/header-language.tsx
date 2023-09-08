@@ -35,9 +35,9 @@ export const HeaderLanguage = (props: HeaderLanguageProps) => {
     iconRight: isDesktopTablet ? { name: 'expand_more', color: 'primary', size: 24 } : undefined,
   };
 
-  const getLanguageButton = ({ isSelected, onClick, label }: Language, isDropown = true) => (
+  const getLanguageButton = ({ isSelected, onClick, label }: Language, isDropdown = true) => (
     <Button
-      visualType={isDropown ? 'link' : isSelected ? 'primary' : 'tertiary'}
+      visualType={isDropdown ? 'link' : isSelected ? 'primary' : 'tertiary'}
       aria-current={isSelected}
       onClick={onClick}
     >

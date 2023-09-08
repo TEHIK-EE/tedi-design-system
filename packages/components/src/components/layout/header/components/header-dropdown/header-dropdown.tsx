@@ -45,7 +45,6 @@ export const HeaderDropdown = (props: HeaderDropdownProps) => {
           border: 'top-primary-active-subtle',
           borderless: false,
           background: 'bg-muted',
-          padding: 0,
         }}
       >
         {children}
