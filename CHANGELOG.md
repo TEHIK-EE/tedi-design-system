@@ -1,3 +1,11 @@
+# [5.7.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.6.0...v5.7.0) (2023-09-12)
+
+
+### Features
+
+* **header-role:** UPP-953 - Add long role list example to header stories ([b444559](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/b44455978cdba1fc07435cdc0e2859848007e124))
+* **header-role:** UPP-953 - Allow header role content scrollbar to be snug against the side ([80fc41f](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/80fc41fa4ab615972d0628cf1db81820edec7bcc))
+
 # [5.6.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.5.1...v5.6.0) (2023-09-08)
 
 
