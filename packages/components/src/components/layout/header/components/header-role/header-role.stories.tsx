@@ -51,17 +51,17 @@ export const WithLongContent: Story = {
     label: 'Kristo Käärmann',
     children: (
       <VerticalSpacing>
-        <Text>Any Content</Text>
-        <Text>Any Content</Text>
-        <Text>Any Content</Text>
-        <Text>Any Content</Text>
-        <Text>Any Content</Text>
-        <Text>Any Content</Text>
-        <Text>Any Content</Text>
-        <Text>Any Content</Text>
-        <Text>Any Content</Text>
-        <Text>Any Content</Text>
-        <Text>Any Content</Text>
+        <Text>Role 1</Text>
+        <Text>Role 2</Text>
+        <Text>Role 3</Text>
+        <Text>Role 4</Text>
+        <Text>Role 5</Text>
+        <Text>Role 6</Text>
+        <Text>Role 7</Text>
+        <Text>Role 8</Text>
+        <Text>Role 9</Text>
+        <Text>Role 10</Text>
+        <Text>Role 11</Text>
       </VerticalSpacing>
     ),
   },

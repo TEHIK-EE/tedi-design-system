@@ -9,7 +9,7 @@ import HeaderContent from './components/header-content/header-content';
 import HeaderLanguage, { HeaderLanguageProps } from './components/header-language/header-language';
 import { Default as HeaderLanguageDefault } from './components/header-language/header-language.stories';
 import HeaderRole, { HeaderRoleProps } from './components/header-role/header-role';
-import { Default as HeaderRoleDefault } from './components/header-role/header-role.stories';
+import { Default as HeaderRoleDefault, WithLongContent } from './components/header-role/header-role.stories';
 import HeaderSettings, { HeaderSettingsProps } from './components/header-settings/header-settings';
 import { Default as HeaderSettingsDefault } from './components/header-settings/header-settings.stories';
 import Header, { HeaderProps } from './header/header';
@@ -87,6 +87,31 @@ export const BottomContent: Story = {
     bottomContent: BottomContentNotice.args,
   },
 
+  parameters: {
+    layout: 'fullscreen',
+  },
+};
+
+export const HeaderWithLongRoleList: Story = {
+  render: Template,
+  args: {
+    ...Default.args,
+    children: (
+      <>
+        <HeaderSettings {...(HeaderSettingsDefault.args as HeaderSettingsProps)} />
+        <HeaderLanguage {...(HeaderLanguageDefault.args as HeaderLanguageProps)} />
+        <HeaderRole {...(WithLongContent.args as HeaderRoleProps)} />
+        <HeaderContent>
+          <StretchContent>
+            <Row justifyContent="center" alignItems="center">
+              <Col width="auto">Custom content</Col>
+            </Row>
+          </StretchContent>
+        </HeaderContent>
+        <Anchor href="#">Accessibilty</Anchor>
+      </>
+    ),
+  },
   parameters: {
     layout: 'fullscreen',
   },
