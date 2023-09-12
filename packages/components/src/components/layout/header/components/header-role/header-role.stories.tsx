@@ -1,6 +1,8 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 
 import { useLayout } from '../../../../../helpers/hooks/use-layout';
+import Text from '../../../../typography/text/text';
+import VerticalSpacing from '../../../../vertical-spacing/vertical-spacing';
 import RoleSelection from './header-role';
 
 const meta: Meta<typeof RoleSelection> = {
@@ -26,7 +28,6 @@ export const Default: Story = {
 export const WithSecondaryInfo: Story = {
   render: Template,
   args: {
-    ...Default.args,
     children: 'Any content',
     primaryInfo: 'Ida-Tallinna Keskhaigla',
     secondaryInfo: 'Perearst',
@@ -37,9 +38,31 @@ export const WithSecondaryInfo: Story = {
 export const WithoutOptions: Story = {
   render: Template,
   args: {
-    ...Default.args,
     primaryInfo: 'Tartu Linnavalitsus',
     label: 'Kristo Käärmann',
     children: undefined,
+  },
+};
+
+export const WithLongContent: Story = {
+  render: Template,
+  args: {
+    primaryInfo: 'Tartu Linnavalitsus',
+    label: 'Kristo Käärmann',
+    children: (
+      <VerticalSpacing>
+        <Text>Any Content</Text>
+        <Text>Any Content</Text>
+        <Text>Any Content</Text>
+        <Text>Any Content</Text>
+        <Text>Any Content</Text>
+        <Text>Any Content</Text>
+        <Text>Any Content</Text>
+        <Text>Any Content</Text>
+        <Text>Any Content</Text>
+        <Text>Any Content</Text>
+        <Text>Any Content</Text>
+      </VerticalSpacing>
+    ),
   },
 };

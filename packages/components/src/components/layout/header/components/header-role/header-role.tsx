@@ -3,9 +3,11 @@ import React from 'react';
 import { useLabels } from '../../../../../providers/label-provider';
 import { Card, CardContent } from '../../../../card';
 import Collapse from '../../../../collapse/collapse';
+import ScrollFade from '../../../../scroll-fade/scroll-fade';
 import Tag from '../../../../tag/tag';
 import { Text } from '../../../../typography/text/text';
 import { HeaderDropdown } from '../header-dropdown/header-dropdown';
+import styles from './header-role.module.scss';
 
 export interface HeaderRoleProps {
   /**
@@ -75,7 +77,11 @@ const HeaderRoleDropdown = (props: Omit<HeaderRoleProps, 'renderModal'>) => {
         iconRight: { name: 'expand_more', color: 'primary', size: 24 },
       }}
     >
-      {children}
+      <div className={styles['header-role-wrapper']}>
+        <ScrollFade fadeSize="0">
+          <div className={styles['header-role-children']}>{children}</div>
+        </ScrollFade>
+      </div>
     </HeaderDropdown>
   );
 
@@ -96,8 +102,7 @@ const HeaderRoleModal = (props: Omit<HeaderRoleProps, 'renderModal'>) => {
       {label} {primaryInfo}
       {secondaryInfo && (
         <Text element="span" modifiers="normal">
-          {' '}
-          | {secondaryInfo}
+          {` | ${secondaryInfo}`}
         </Text>
       )}
     </Text>
@@ -107,11 +112,15 @@ const HeaderRoleModal = (props: Omit<HeaderRoleProps, 'renderModal'>) => {
     <Card background="bg-muted" borderRadius={false} borderless={true}>
       <CardContent padding={0}>
         {children ? (
-          <Collapse id="role-collapse" hideCollapseText title={title}>
-            {children}
+          <Collapse id="role-collapse" className={styles['header-role-collapse']} hideCollapseText title={title}>
+            <div className={styles['header-role-wrapper']}>
+              <ScrollFade fadeSize="0">
+                <div className={styles['header-role-children']}>{children}</div>
+              </ScrollFade>
+            </div>
           </Collapse>
         ) : (
-          title
+          <div className={styles['header-role-children']}>{title}</div>
         )}
       </CardContent>
     </Card>
