@@ -1,3 +1,10 @@
+## [5.7.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.7.0...v5.7.1) (2023-09-18)
+
+
+### Bug Fixes
+
+* **customize-table-cell:** TEHVEER-189 - Fix error when providing multiple class names ([2760b4a](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/2760b4a656947db799f01344c7e192ff683a7ec8))
+
 # [5.7.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.6.0...v5.7.0) (2023-09-12)
 
 
