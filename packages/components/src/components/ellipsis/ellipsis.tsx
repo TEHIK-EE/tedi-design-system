@@ -43,8 +43,8 @@ export const Ellipsis = (props: EllipsisProps): JSX.Element => {
     <TooltipProvider>
       <TooltipTrigger>{ellipsis}</TooltipTrigger>
       <Tooltip>
-        <Card type="borderless" className={styles['ellipsis__tooltip']}>
-          <CardContent padding="small">{children}</CardContent>
+        <Card borderless={true} className={styles['ellipsis__tooltip']}>
+          <CardContent padding={0.75}>{children}</CardContent>
         </Card>
       </Tooltip>
     </TooltipProvider>

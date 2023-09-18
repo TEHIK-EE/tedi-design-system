@@ -1,20 +1,8 @@
-import {
-  Button,
-  Card,
-  CardContent,
-  Col,
-  Heading,
-  Row,
-  Section,
-  Separator,
-  Tag,
-  Text,
-  VerticalSpacing,
-} from '../../index';
+import { Button, Card, CardContent, Col, Heading, Row, Separator, Text, VerticalSpacing } from '../../index';
 
 const ButtonGroups = () => (
   <VerticalSpacing>
-    <Card type="borderless">
+    <Card borderless={true}>
       <CardContent>
         <VerticalSpacing>
           <Heading>Button group</Heading>
@@ -42,7 +30,7 @@ const ButtonGroups = () => (
       </CardContent>
     </Card>
     <Separator spacing={5} />
-    <Card type="borderless" background="bg-muted">
+    <Card borderless={true} background="bg-muted">
       <CardContent>
         <VerticalSpacing size={2.5}>
           <ButtonGroupAlignment />
@@ -59,7 +47,7 @@ const ButtonGroups = () => (
 const Horizontal = () => (
   <Row>
     <Col lg={8}>
-      <Card background="bg-muted" type="borderless">
+      <Card background="bg-muted" borderless={true}>
         <CardContent>
           <VerticalSpacing size={2}>
             <Row direction="row-reverse" alignItems="center" gutterX={1} gap={2}>
@@ -117,7 +105,7 @@ const Horizontal = () => (
 const Vertical = () => (
   <Row>
     <Col lg={8}>
-      <Card background="bg-muted" type="borderless">
+      <Card background="bg-muted" borderless={true}>
         <CardContent>
           <Row justifyContent="center">
             <Col width="auto">

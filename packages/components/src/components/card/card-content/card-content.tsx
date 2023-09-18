@@ -3,10 +3,10 @@ import React from 'react';
 
 import { getBackgroundColorClass } from '../../../helpers/background-colors/background-colors';
 import { TColorsBackground } from '../../commonTypes';
-import { CardProps } from '../card';
 import styles from '../card.module.scss';
 import { CardContext } from '../card-context';
-import { mapDeprecatedPadding } from '../utility';
+
+export type CardContentPadding = 0 | 0.5 | 0.75 | 1 | 1.5;
 
 export interface CardContentProps {
   /**
@@ -22,7 +22,7 @@ export interface CardContentProps {
    * String values of padding are deprecated, use numbers instead
    * @default Padding of Card
    */
-  padding?: CardProps['padding'];
+  padding?: CardContentPadding;
   /**
    * Background color of card content
    * @default Background of Card
@@ -35,16 +35,14 @@ export const CardContent = (props: CardContentProps): JSX.Element => {
   const { children, className, padding = rootPadding, background = rootBackground, ...rest } = props;
   const CardContentBEM = cn(styles['card__content'], { [getBackgroundColorClass(background)]: background }, className);
 
-  // @deprecated - remove mapDeprecatedPadding usage in next major release
-  const mappedPaddingValue = `${mapDeprecatedPadding(padding)}rem`;
+  const paddingValue = `${padding}rem`;
 
   return (
     <div
       data-name="card-content"
-      data-padding={mappedPaddingValue}
+      data-padding={paddingValue}
       style={{
-        // @deprecated - remove mapDeprecatedPadding usage in next major release
-        '--card-content-padding': mappedPaddingValue,
+        '--card-content-padding': paddingValue,
       }}
       {...rest}
       className={CardContentBEM}

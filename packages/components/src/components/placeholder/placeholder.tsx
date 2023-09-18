@@ -42,8 +42,7 @@ export const Placeholder = (props: PlaceholderProps): JSX.Element => {
   const isSmallLayout = useLayout(['mobile', 'tablet']);
 
   const {
-    type = isNested ? 'borderless' : undefined,
-    padding = isNested ? 'none' : isSmallLayout ? 'medium' : 'large',
+    padding = isNested ? 0 : isSmallLayout ? 1 : 1.5,
     background = isNested ? undefined : isSmallLayout ? 'bg-subtle' : 'white',
     ...restCardProps
   } = cardProps ?? {};
@@ -71,7 +70,7 @@ export const Placeholder = (props: PlaceholderProps): JSX.Element => {
         data-name="placeholder"
         {...rest}
         className={className}
-        type={type}
+        borderless={isNested}
         padding={padding}
         background={background}
         {...restCardProps}

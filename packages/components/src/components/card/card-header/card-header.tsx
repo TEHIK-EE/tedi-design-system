@@ -1,10 +1,9 @@
 import cn from 'classnames';
 import React from 'react';
 
-import { CardProps } from '../card';
 import styles from '../card.module.scss';
+import { CardContentProps } from '../card-content/card-content';
 import { CardContext } from '../card-context';
-import { mapDeprecatedPadding } from '../utility';
 
 export type CardHeaderVariant = 'default' | 'white';
 
@@ -27,7 +26,7 @@ export interface CardHeaderProps {
    * String values of padding are deprecated, use numbers instead
    * @default Padding of Card
    */
-  padding?: CardProps['padding'];
+  padding?: CardContentProps['padding'];
 }
 
 export const CardHeader = (props: CardHeaderProps): JSX.Element => {
@@ -39,8 +38,7 @@ export const CardHeader = (props: CardHeaderProps): JSX.Element => {
     <div
       data-name="card-header"
       style={{
-        // @deprecated - remove mapDeprecatedPadding usage in next major release
-        '--card-header-padding': `${mapDeprecatedPadding(padding)}rem`,
+        '--card-header-padding': `${padding}rem`,
       }}
       {...rest}
       className={BEM}

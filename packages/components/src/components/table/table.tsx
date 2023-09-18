@@ -36,7 +36,7 @@ export function Table<TData extends DefaultTData<TData>>(props: TableProps<TData
     caption,
     columnFilters: columnFiltersOuter,
     onColumnFiltersChange,
-    cardProps: { padding: cardPadding = 'none', ...restCardProps } = {},
+    cardProps: { padding: cardPadding = 0, ...restCardProps } = {},
     hidePagination,
     defaultPagination = {
       pageIndex: 0,
@@ -206,7 +206,7 @@ export function Table<TData extends DefaultTData<TData>>(props: TableProps<TData
       children: placeholderChildren = getLabel(`table.${type}`),
       isNested: placeholderIsNested = true,
       icon: placeholderIcon = type === 'error' ? 'error' : undefined,
-      cardProps: { padding: placeholderCardPropsPadding = 'medium', ...restPlaceholderCardProps } = {},
+      cardProps: { padding: placeholderCardPropsPadding = 1, ...restPlaceholderCardProps } = {},
       ...restPlaceholder
     } = props || { cardProps: {} };
 
@@ -237,13 +237,7 @@ export function Table<TData extends DefaultTData<TData>>(props: TableProps<TData
         hideRowBorder,
       }}
     >
-      <Card
-        data-name="table"
-        {...rest}
-        type={hideCardBorder ? 'borderless' : undefined}
-        padding={cardPadding}
-        {...restCardProps}
-      >
+      <Card data-name="table" {...rest} borderless={hideCardBorder} padding={cardPadding} {...restCardProps}>
         <CardContent>
           <div className={tableBEM}>
             <TableLayout<TData> />

@@ -167,7 +167,7 @@ const WidthBehavior = () => (
     <Row gutter={5}>
       <Col md={6}>
         <VerticalSpacing>
-          <Card type="borderless" background="bg-muted">
+          <Card borderless={true} background="bg-muted">
             <CardContent>
               <Row gutter={2} className="text-center">
                 <Col width={12}>
@@ -187,7 +187,7 @@ const WidthBehavior = () => (
       </Col>
       <Col md={6}>
         <VerticalSpacing>
-          <Card type="borderless" background="bg-muted">
+          <Card borderless={true} background="bg-muted">
             <CardContent>
               <Row gutter={2} className="text-center">
                 <Col width={12}>
@@ -236,7 +236,7 @@ const Accessibility = () => (
 const ButtonType = ({ text, button }: ExampleButtonProps) => (
   <Row>
     <Col xs={12} md={4}>
-      <Card type="borderless" background={button?.color === 'inverted' ? 'bg-inverted' : 'bg-muted'}>
+      <Card borderless={true} background={button?.color === 'inverted' ? 'bg-inverted' : 'bg-muted'}>
         <CardContent>
           <Row gutter={2} className="text-center">
             <Col width={12}>
@@ -276,7 +276,7 @@ const ButtonType = ({ text, button }: ExampleButtonProps) => (
 const ButtonState = ({ heading, text, button }: ExampleButtonProps) => (
   <Row>
     <Col xs={12} md={4}>
-      <Card type="borderless" background="bg-muted">
+      <Card borderless={true} background="bg-muted">
         <CardContent>
           <Row gutter={2} className="text-center">
             <Col width={12}>
@@ -305,7 +305,7 @@ const ButtonState = ({ heading, text, button }: ExampleButtonProps) => (
       </Card>
     </Col>
     <Col xs={12} md={4}>
-      <Card type="borderless" background="bg-inverted">
+      <Card borderless={true} background="bg-inverted">
         <CardContent>
           <Row gutter={2} className="text-center">
             <Col width={12}>
@@ -351,7 +351,7 @@ const ButtonState = ({ heading, text, button }: ExampleButtonProps) => (
 const LoadingButton = ({ heading, text, button }: ExampleButtonProps) => (
   <Col xs={12} md={3} sm={6}>
     <VerticalSpacing size={1.5}>
-      <Card background="bg-muted" type="borderless">
+      <Card background="bg-muted" borderless={true}>
         <CardContent>
           <Row gutter={2} className="text-center">
             <Col width={12}>

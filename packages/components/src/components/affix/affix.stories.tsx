@@ -42,7 +42,7 @@ const NavigationContent = () => {
 
   if (isMobile) {
     return (
-      <CardContent padding="xsmall">
+      <CardContent padding={0.5}>
         <Collapse
           title={
             <Heading>

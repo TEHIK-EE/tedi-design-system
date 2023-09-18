@@ -9,8 +9,8 @@ import { CardsExample } from '../stretch-content/stretch-content.stories';
 import Heading from '../typography/heading/heading';
 import Text from '../typography/text/text';
 import { VerticalSpacing } from '../vertical-spacing';
-import { Card, CardPadding, CardProps } from './card';
-import CardContent, { CardContentProps } from './card-content/card-content';
+import { Card, CardProps } from './card';
+import CardContent, { CardContentPadding, CardContentProps } from './card-content/card-content';
 import CardHeader, { CardHeaderProps } from './card-header/card-header';
 
 export default {
@@ -36,10 +36,10 @@ type Story = StoryObj<CardStory>;
 
 const Template: StoryFn<CardStory> = (args) => {
   const getSplitContent = () => (
-    <CardContent padding="none">
+    <CardContent padding={0}>
       <Row gutter={0}>
         <Col>
-          <Card type="borderless">
+          <Card borderless={true}>
             <CardContent>
               <p>Left</p>
               <p>
@@ -54,7 +54,7 @@ const Template: StoryFn<CardStory> = (args) => {
         </Col>
         <Col>
           <StretchContent>
-            <Card type="borderless">
+            <Card borderless={true}>
               <CardContent background="bg-muted">right</CardContent>
             </Card>
           </StretchContent>
@@ -142,7 +142,7 @@ export const SplitCardBody: Story = {
   },
 };
 
-export const TypeBorderless: Story = {
+export const Borderless: Story = {
   render: Template,
 
   args: {
@@ -206,20 +206,8 @@ export const BorderTopPrimaryHighlight: Story = {
   },
 };
 
-export const TypeSuccess: Story = {
-  render: Template,
-
-  args: {
-    ...Default.args,
-    card: {
-      type: 'success-top',
-    },
-    cardHeader: false,
-  },
-};
-
 const TemplatePadding: StoryFn<CardStory> = (args) => {
-  const paddingArray: CardPadding[] = [0, 0.5, 0.75, 1, 1.5];
+  const paddingArray: CardContentPadding[] = [0, 0.5, 0.75, 1, 1.5];
 
   const getCardHeader = (header: CardHeaderProps) => (
     <CardHeader {...header}>
