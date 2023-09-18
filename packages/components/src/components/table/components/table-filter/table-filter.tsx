@@ -55,8 +55,8 @@ const TableFilter = <TData extends DefaultTData<TData>>(props: TableFilterProps<
             </Button>
           </TooltipTrigger>
           <Tooltip maxWidth="large">
-            <Card type="borderless">
-              <CardContent padding="xsmall">
+            <Card borderless={true}>
+              <CardContent padding={0.5}>
                 {inputType === 'multi-select' || inputType === 'select' ? <TableSelectFilter /> : <TableTextFilter />}
               </CardContent>
             </Card>

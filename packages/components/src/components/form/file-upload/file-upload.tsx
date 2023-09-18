@@ -116,7 +116,7 @@ export const FileUpload = (props: FileUploadProps): JSX.Element => {
         Array.from(files).map((file, index) => (
           <Col width={12} key={index}>
             <Card>
-              <CardContent padding="xsmall" background="bg-subtle">
+              <CardContent padding={0.5} background="bg-subtle">
                 <Row justifyContent="between" alignItems="center" wrap="nowrap">
                   <Col width={11}>
                     <Ellipsis lineClamp={1}>{file.name}</Ellipsis>

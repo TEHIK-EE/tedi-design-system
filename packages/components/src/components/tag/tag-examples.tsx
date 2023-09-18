@@ -306,7 +306,7 @@ interface TagExampleCardProps {
 const TagExampleCard = ({ tags, card, description, content, col }: TagExampleCardProps) => (
   <Col lg={6} {...col}>
     <VerticalSpacing>
-      <Card type="borderless" padding="large" {...card}>
+      <Card borderless={true} padding={1.5} {...card}>
         <CardContent>
           <Row justifyContent="center" alignItems="center">
             <Col width="auto">

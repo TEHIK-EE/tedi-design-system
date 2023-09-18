@@ -94,7 +94,7 @@ export const TableSelectFilter = () => {
     <form onSubmit={handleSubmit}>
       <VerticalSpacing>
         <Heading element="h6">{getLabel('table.filter')}</Heading>
-        <Card className={styles['filter__content']} padding="medium">
+        <Card className={styles['filter__content']}>
           <CardContent>
             <ChoiceGroup
               id={`filter-${fieldName}-${column?.id}`}

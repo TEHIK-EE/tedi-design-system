@@ -145,8 +145,8 @@ export const Stepper = (props: StepperProps): JSX.Element => {
       const cardProps = card === true ? {} : card;
 
       return (
-        <Card padding="large" {...cardProps} data-name="stepper" className={CardBEM}>
-          <CardHeader padding="none" variant="white">
+        <Card padding={1.5} {...cardProps} data-name="stepper" className={CardBEM}>
+          <CardHeader padding={0} variant="white">
             <StepperNav
               items={getNavItems()}
               ariaLabel={ariaLabel}

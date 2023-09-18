@@ -35,7 +35,7 @@ export const Tooltip = (props: TooltipProps): JSX.Element | null => {
   const { open, x, y, strategy, focusManager, floating, arrowRef, getFloatingProps, placement, context } =
     React.useContext(TooltipContext);
 
-  const [cardBorderPlacement, cardBorderColor] = getCardBorderPlacementColor(cardProps?.border, cardProps?.type);
+  const [cardBorderPlacement, cardBorderColor] = getCardBorderPlacementColor(cardProps?.border);
 
   const getArrowStrokeColor = (): 'none' | `var(--color-${TColorsBorder})` => {
     if (cardBorderPlacement && cardBorderColor) {
