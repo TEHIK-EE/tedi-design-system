@@ -1,3 +1,10 @@
+## [5.8.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.8.0...v5.8.1) (2023-09-18)
+
+
+### Bug Fixes
+
+* **select:** UPP-953 - Fix select border color ([b6742e7](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/b6742e7e0b3655412176d26bf0a7723a59591463))
+
 # [5.8.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.7.1...v5.8.0) (2023-09-18)
 
 
