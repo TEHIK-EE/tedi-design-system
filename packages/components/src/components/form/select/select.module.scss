@@ -1,7 +1,9 @@
 @use '../../../styles/mixins';
 
-.select__control {
+div.select__control {
   @include mixins.print-grayscale;
+
+  border: 1px solid var(--color-border-contrast);
 }
 
 .select--invalid .select__control {
