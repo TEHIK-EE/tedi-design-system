@@ -1,3 +1,10 @@
+# [5.8.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.7.1...v5.8.0) (2023-09-18)
+
+
+### Features
+
+* **card:** Remove deprecated padding options and type property - TEHVEER-190 ([090dd80](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/090dd803f7b8a87a261282f1bfa55d135ddca821))
+
 ## [5.7.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.7.0...v5.7.1) (2023-09-18)
 
 
