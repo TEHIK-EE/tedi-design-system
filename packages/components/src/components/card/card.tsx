@@ -37,8 +37,11 @@ export type CardProps = {
    */
   border?: CardBorderType;
   /**
-   * Change all CardContent padding default to this value
-   * String values of padding are deprecated, use numbers instead
+   * Change all CardContent & CardHeader padding default to this value
+   * Values can be:<br />
+   * - predefined number value in rems<br />
+   * - object of separated horizontal and vertical number values in rems
+   * - object of separated top, right, bottom, left number values in rems
    * @default 1
    */
   padding?: CardContentProps['padding'];
