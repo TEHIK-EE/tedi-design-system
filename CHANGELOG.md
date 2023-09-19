@@ -1,3 +1,10 @@
+# [5.9.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.8.1...v5.9.0) (2023-09-19)
+
+
+### Features
+
+* **header:** UPP-953 - Fix small inconsistencies in header components and stories ([2f6568e](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/2f6568eba477d41ef780ac6c73cec910e13005a1))
+
 ## [5.8.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.8.0...v5.8.1) (2023-09-18)
 
 
