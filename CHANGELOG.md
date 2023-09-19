@@ -1,3 +1,10 @@
+## [5.10.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.10.0...v5.10.1) (2023-09-19)
+
+
+### Bug Fixes
+
+* **customize-table-cell:** TEHVEER-192- Fix old class names not removed from element ([e0535d4](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/e0535d4abd0c8f1a63c32d694da7520e354ad966))
+
 # [5.10.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.9.0...v5.10.0) (2023-09-19)
 
 
