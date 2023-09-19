@@ -70,7 +70,7 @@ const HeaderRoleDropdown = (props: Omit<HeaderRoleProps, 'renderModal'>) => {
   const dropdown = (
     <HeaderDropdown
       shouldAnimate={true}
-      tooltipProps={{ cardProps: { padding: 0 } }}
+      tooltipProps={{ cardProps: { padding: 0 }, maxWidth: 'medium' }}
       triggerProps={{
         children: primaryInfo,
         visualType: 'link',

@@ -84,14 +84,13 @@ export const HeaderSettings = (props: HeaderSettingsProps) => {
         {getLabel('header.settings')}
       </Heading>
       {children}
-      <Card borderless={true}>
+      <Separator fullWidth />
+      <Card borderless>
         <CardContent>
-          <VerticalSpacing>
-            <Separator fullWidth={true} />
-            <LogOutAnchor />
-          </VerticalSpacing>
+          <LogOutAnchor />
         </CardContent>
       </Card>
+      <Separator fullWidth />
     </HeaderModal>
   );
 

@@ -23,30 +23,23 @@ export const Default: Story = {
       icon: { name: 'account_circle', color: 'primary', size: 36 },
     },
     children: (
-      <Card border="top-border-default">
+      <Card borderless>
         <CardContent>
-          <VerticalSpacing size={1}>
-            <List verticalSpacing={{ size: 0.75 }} element="ul">
-              <ListItem>
-                <Anchor href="#">Minu andmed</Anchor>
-              </ListItem>
-              <ListItem>
-                <Anchor href="#">Ligipääs andmetele</Anchor>
-              </ListItem>
-              <ListItem>
-                <Anchor href="#">Tahteavaldused</Anchor>
-              </ListItem>
-              <ListItem>
-                <Anchor href="#">Volitatud isikud</Anchor>
-              </ListItem>
-              <ListItem>
-                <Anchor href="#">Kontaktisikud</Anchor>
-              </ListItem>
-            </List>
-            <Separator />
+          <VerticalSpacing>
+            <Anchor href="#">Minu andmed</Anchor>
+            <Separator fullWidth />
+            <Anchor href="#">Ligipääs andmetele</Anchor>
+            <Separator fullWidth />
+            <Anchor href="#">Tahteavaldused</Anchor>
+            <Separator fullWidth />
+            <Anchor href="#">Volitatud isikud</Anchor>
+            <Separator fullWidth />
+            <Anchor href="#">Kontaktisikud</Anchor>
+            <Separator fullWidth />
             <Anchor href="#" iconLeft="logout">
               Logi välja
             </Anchor>
+            <Separator fullWidth />
           </VerticalSpacing>
         </CardContent>
       </Card>
@@ -62,7 +55,7 @@ export const Language: Story = {
       iconRight: { name: 'keyboard_arrow_down', color: 'primary', size: 24 },
     },
     children: (
-      <Card border="top-border-default">
+      <Card borderless>
         <CardContent>
           <List verticalSpacing={{ size: 0.75 }} element="ul">
             <ListItem>

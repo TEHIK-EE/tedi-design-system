@@ -3,7 +3,8 @@ import { Meta, StoryObj } from '@storybook/react';
 import { useLayout } from '../../../../../helpers/hooks/use-layout';
 import Anchor from '../../../../anchor/anchor';
 import { Card, CardContent } from '../../../../card';
-import { List, ListItem } from '../../../../list';
+import Separator from '../../../../separator/separator';
+import VerticalSpacing from '../../../../vertical-spacing/vertical-spacing';
 import HeaderRole, { HeaderRoleProps } from '../header-role/header-role';
 import { WithSecondaryInfo as HeaderRoleDefault } from '../header-role/header-role.stories';
 import HeaderSettings from './header-settings';
@@ -19,24 +20,23 @@ const DefaultContent = () => {
   const isMobile = useLayout(['mobile']);
 
   return (
-    <List verticalSpacing={{ size: 0.75 }} element="ul">
-      {isMobile && <ListItem>Custom Content</ListItem>}
-      <ListItem>
-        <Anchor href="#">Minu andmed</Anchor>
-      </ListItem>
-      <ListItem>
-        <Anchor href="#">Ligipääs andmetele</Anchor>
-      </ListItem>
-      <ListItem>
-        <Anchor href="#">Tahteavaldused</Anchor>
-      </ListItem>
-      <ListItem>
-        <Anchor href="#">Volitatud isikud</Anchor>
-      </ListItem>
-      <ListItem>
-        <Anchor href="#">Kontaktisikud</Anchor>
-      </ListItem>
-    </List>
+    <VerticalSpacing>
+      {isMobile && (
+        <>
+          <Anchor href="#">Custom Content</Anchor>
+          <Separator fullWidth />
+        </>
+      )}
+      <Anchor href="#">Minu andmed</Anchor>
+      <Separator fullWidth />
+      <Anchor href="#">Ligipääs andmetele</Anchor>
+      <Separator fullWidth />
+      <Anchor href="#">Tahteavaldused</Anchor>
+      <Separator fullWidth />
+      <Anchor href="#">Volitatud isikud</Anchor>
+      <Separator fullWidth />
+      <Anchor href="#">Kontaktisikud</Anchor>
+    </VerticalSpacing>
   );
 };
 
@@ -47,7 +47,7 @@ const ModalContent = () => (
       label={`${HeaderRoleDefault.args?.label}:`}
       renderModal={true}
     />
-    <Card borderless={true}>
+    <Card border="top-info-main">
       <CardContent>
         <DefaultContent />
       </CardContent>

@@ -2,6 +2,7 @@ import cn from 'classnames';
 import React from 'react';
 
 import { Layouts, useLayout } from '../../../../helpers';
+import Affix from '../../../affix/affix';
 import { Col, Row } from '../../../grid';
 import Print from '../../../print/print';
 import { LayoutContext } from '../../layout-context';
@@ -150,7 +151,11 @@ export const Header = <H extends React.ElementType = 'a'>(props: HeaderProps<H>)
           </Row>
         </div>
       </header>
-      {bottomContent && !shouldBreakToBottomContent && <HeaderBottomContent {...bottomContent} />}
+      {bottomContent && !shouldBreakToBottomContent && (
+        <Affix position="sticky" top={0}>
+          <HeaderBottomContent {...bottomContent} />
+        </Affix>
+      )}
       {shouldBreakToBottomContent && (
         <HeaderBottomContent
           cardProps={{

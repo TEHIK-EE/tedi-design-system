@@ -27,7 +27,7 @@ export const Notice: Story = {
       </Text>
     ),
     cardProps: {
-      border: 'top-accent-main',
+      border: 'top-warning-main',
       background: 'warning-highlight',
     },
   },
