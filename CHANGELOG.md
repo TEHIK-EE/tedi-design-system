@@ -1,3 +1,10 @@
+# [5.10.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.9.0...v5.10.0) (2023-09-19)
+
+
+### Features
+
+* **card:** Add possibilty to change padding by card side - TEHVEER-188 ([52628e5](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/52628e527334e9d331926517d3efd74c3873cd7b))
+
 # [5.9.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.8.1...v5.9.0) (2023-09-19)
 
 
