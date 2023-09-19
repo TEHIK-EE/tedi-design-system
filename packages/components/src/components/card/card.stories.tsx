@@ -268,6 +268,25 @@ export const Padding: Story = {
   },
 };
 
+export const BreakpointProps: Story = {
+  render: Template,
+  args: {
+    cardContent: {
+      className: 'test123',
+      background: 'primary-main',
+      padding: 0,
+      md: {
+        background: 'primary-highlight',
+        padding: 1,
+      },
+      xxl: {
+        background: 'primary-highlight-subtle',
+        padding: 1.5,
+      },
+    },
+  },
+};
+
 export const EqualHeight = {
   ...CardsExample,
 };

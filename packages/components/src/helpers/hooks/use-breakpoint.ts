@@ -2,6 +2,7 @@ import { debounce } from 'debounce';
 import { useEffect, useState } from 'react';
 
 export type Breakpoint = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
+export const breakpoints: Breakpoint[] = ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'];
 
 export const useBreakpoint = (): Breakpoint | null => {
   const [breakpoint, setBreakpoint] = useState(getBreakpoint());

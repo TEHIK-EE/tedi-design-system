@@ -1,6 +1,7 @@
 import cn from 'classnames';
 import React from 'react';
 
+import { BreakpointSupport, useBreakpointProps } from '../../../helpers/hooks/use-breakpoint-props';
 import styles from '../card.module.scss';
 import { CardContentProps } from '../card-content/card-content';
 import { CardContext } from '../card-context';
@@ -8,11 +9,7 @@ import { getPaddingCssVariables } from '../utility';
 
 export type CardHeaderVariant = 'default' | 'white';
 
-export interface CardHeaderProps {
-  /**
-   * Card header content
-   */
-  children?: React.ReactNode;
+type CardHeaderBreakpointProps = {
   /**
    * Additional class.
    */
@@ -22,20 +19,22 @@ export interface CardHeaderProps {
    * @default default
    */
   variant?: CardHeaderVariant;
+} & Pick<CardContentProps, 'padding' | 'background'>;
+
+export interface CardHeaderProps extends BreakpointSupport<CardHeaderBreakpointProps> {
   /**
-   * Card Header padding
-   * Values can be:<br />
-   * - predefined number value in rems<br />
-   * - object of separated horizontal and vertical number values in rems
-   * - object of separated top, right, bottom, left number values in rems
-   * @default Padding of Card
+   * Card header content
    */
-  padding?: CardContentProps['padding'];
+  children?: React.ReactNode;
 }
 
 export const CardHeader = (props: CardHeaderProps): JSX.Element => {
+  const { getCurrentBreakpointProps } = useBreakpointProps();
   const { padding: rootPadding } = React.useContext(CardContext);
-  const { children, className, variant = 'default', padding = rootPadding, ...rest } = props;
+  const { children, className, variant, padding, ...rest } = getCurrentBreakpointProps<CardHeaderProps>(props, {
+    variant: 'default',
+    padding: rootPadding,
+  });
   const BEM = cn(styles['card__header'], styles[`card__header--${variant}`], className);
 
   return (

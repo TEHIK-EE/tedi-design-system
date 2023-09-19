@@ -1,6 +1,7 @@
 import cn from 'classnames';
 import React, { forwardRef } from 'react';
 
+import { BreakpointSupport, useBreakpointProps } from '../../helpers/hooks/use-breakpoint-props';
 import { TColorsBorder } from '../commonTypes';
 import styles from './card.module.scss';
 import { CardContentProps } from './card-content/card-content';
@@ -11,14 +12,7 @@ import { getCardBorderPlacementColor } from './utility';
 export type CardBorderPlacement = 'top' | 'left';
 export type CardBorderType = 'default' | `${CardBorderPlacement}-${TColorsBorder}`;
 
-export type CardProps = {
-  /**
-   * CardHeader and/or CardContent.
-   */
-  children?:
-    | React.ReactElement<CardContentProps | CardHeaderProps>
-    | React.ReactElement<CardContentProps | CardHeaderProps>[]
-    | React.ReactNode;
+type CardBreakpointProps = {
   /**
    * Additional class.
    */
@@ -36,19 +30,24 @@ export type CardProps = {
    * Type of border
    */
   border?: CardBorderType;
+} & Pick<CardContentProps, 'padding' | 'background'>;
+
+export interface CardProps extends BreakpointSupport<CardBreakpointProps> {
   /**
-   * Change all CardContent & CardHeader padding default to this value
-   * Values can be:<br />
-   * - predefined number value in rems<br />
-   * - object of separated horizontal and vertical number values in rems
-   * - object of separated top, right, bottom, left number values in rems
-   * @default 1
+   * CardHeader and/or CardContent.
    */
-  padding?: CardContentProps['padding'];
-} & Pick<CardContentProps, 'background'>;
+  children?:
+    | React.ReactElement<CardContentProps | CardHeaderProps>
+    | React.ReactElement<CardContentProps | CardHeaderProps>[]
+    | React.ReactNode;
+}
 
 export const Card = forwardRef<HTMLDivElement, CardProps>((props, ref): JSX.Element => {
-  const { children, className, padding = 1, background, borderRadius, borderless, border, ...rest } = props;
+  const { getCurrentBreakpointProps } = useBreakpointProps();
+  const { children, className, padding, background, borderRadius, borderless, border, ...rest } =
+    getCurrentBreakpointProps<CardProps>(props, {
+      padding: 1,
+    });
 
   const [borderPlacement, borderColor] = getCardBorderPlacementColor(border);
 

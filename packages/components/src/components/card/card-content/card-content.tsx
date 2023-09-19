@@ -2,6 +2,7 @@ import cn from 'classnames';
 import React from 'react';
 
 import { getBackgroundColorClass } from '../../../helpers/background-colors/background-colors';
+import { BreakpointSupport, useBreakpointProps } from '../../../helpers/hooks/use-breakpoint-props';
 import { TColorsBackground } from '../../commonTypes';
 import styles from '../card.module.scss';
 import { CardContext } from '../card-context';
@@ -18,11 +19,7 @@ export type CardContentPadding =
       left: CardContentPaddingNumber;
     };
 
-export interface CardContentProps {
-  /**
-   * Card Content
-   */
-  children?: React.ReactNode;
+interface CardContentBreakpointProps {
   /**
    * Additional class.
    */
@@ -43,9 +40,22 @@ export interface CardContentProps {
   background?: TColorsBackground;
 }
 
+export interface CardContentProps extends BreakpointSupport<CardContentBreakpointProps> {
+  /**
+   * Card Content
+   */
+  children?: React.ReactNode;
+}
+
 export const CardContent = (props: CardContentProps): JSX.Element => {
   const { padding: rootPadding, background: rootBackground } = React.useContext(CardContext);
-  const { children, className, padding = rootPadding, background = rootBackground, ...rest } = props;
+  const { getCurrentBreakpointProps } = useBreakpointProps();
+
+  const { children, className, padding, background, ...rest } = getCurrentBreakpointProps<CardContentProps>(props, {
+    padding: rootPadding,
+    background: rootBackground,
+  });
+
   const CardContentBEM = cn(styles['card__content'], { [getBackgroundColorClass(background)]: background }, className);
 
   return (
