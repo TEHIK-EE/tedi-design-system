@@ -349,6 +349,13 @@ export const labelsMap = {
     en: 'Page size',
     ru: 'Размер страницы',
   }),
+  'table-of-contents.title': validateLabel({
+    description: 'Title of the table of contents',
+    components: ['TableOfContents'],
+    et: 'Sisukord',
+    en: 'Table of contents',
+    ru: 'Содержание',
+  }),
   'truncate.see-more': validateLabel({
     description: 'See more button label',
     components: ['Truncate'],
