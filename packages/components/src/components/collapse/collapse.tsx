@@ -7,6 +7,7 @@ import { useLabels } from '../../providers/label-provider';
 import { Col, Row, RowProps } from '../grid';
 import Icon from '../icon/icon';
 import Print from '../print/print';
+import { Text } from '../typography/text/text';
 import styles from './collapse.module.scss';
 
 export interface CollapseProps {
@@ -87,15 +88,17 @@ export const Collapse = (props: CollapseProps): JSX.Element => {
         <Row justifyContent="between" alignItems="center" wrap="nowrap" {...titleRowProps} element="span">
           {title && <Col>{title}</Col>}
           <Col width="auto">
-            <Row element="div" alignItems="center" gutter={1}>
+            <Row element="span" alignItems="center" gutter={1}>
               <Print visibility="hide">
                 <Col
                   width="auto"
-                  className={cn('text-small', 'text-primary', 'text-bold', {
+                  className={cn({
                     'visually-hidden': hideCollapseText,
                   })}
                 >
-                  {isOpen ? closeText : openText}
+                  <Text element="span" color="primary">
+                    {isOpen ? closeText : openText}
+                  </Text>
                 </Col>
               </Print>
               <Col width="auto">
