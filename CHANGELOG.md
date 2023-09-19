@@ -1,3 +1,10 @@
+# [5.12.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.11.0...v5.12.0) (2023-09-19)
+
+
+### Features
+
+* **table-of-contents:** Add table-of-contents - TEHVEER-187 ([6c4ee1a](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/6c4ee1ab59e8608be1446b4bbe705274a0e74a89))
+
 # [5.11.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.10.1...v5.11.0) (2023-09-19)
 
 
