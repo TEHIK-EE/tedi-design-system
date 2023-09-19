@@ -143,7 +143,7 @@ export const ErrorTopModal: Story = {
   args: {
     heading: 'Error type modal',
     content: 'Use to display error notifications',
-    cardProps: { type: 'error-top' },
+    cardProps: { border: 'top-important-main' },
     renderHeader: false,
     renderModalCloser: false,
   },
@@ -155,7 +155,7 @@ export const SuccessTopModal: Story = {
   args: {
     heading: 'Success type modal',
     content: 'Use to display success notifications',
-    cardProps: { type: 'success-top' },
+    cardProps: { border: 'top-positive-main' },
     renderHeader: false,
     renderModalCloser: false,
   },
@@ -167,7 +167,7 @@ export const WarningTopModal: Story = {
   args: {
     heading: 'Warning type modal',
     content: 'Use to display Warning notifications',
-    cardProps: { type: 'warning-top' },
+    cardProps: { border: 'top-warning-main' },
     renderHeader: false,
     renderModalCloser: false,
   },

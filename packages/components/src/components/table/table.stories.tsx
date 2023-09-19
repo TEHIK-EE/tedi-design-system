@@ -169,7 +169,7 @@ export const LoadingBorderless: Story = {
     columns: columns,
     id: 'table-loading-borderless',
     cardProps: {
-      type: 'borderless',
+      borderless: true,
     },
     isLoading: true,
   },
@@ -372,7 +372,7 @@ export const GroupedRows: Story = {
     columns,
     id: 'grouped-rows-table',
     cardProps: {
-      padding: 'medium',
+      padding: 1,
     },
     enableSorting: false,
     groupRowsBy: 'status',
@@ -410,7 +410,7 @@ export const GroupedRowsFromData: Story = {
     columns,
     id: 'grouped-rows-from-data-table',
     cardProps: {
-      padding: 'medium',
+      padding: 1,
     },
     enableSorting: false,
     renderGroupHeading: (row) => <td>Age group: {row.original.rowGroupKey}</td>,
