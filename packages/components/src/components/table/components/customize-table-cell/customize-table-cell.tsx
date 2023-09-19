@@ -9,10 +9,12 @@ export const CustomizeTableCell = ({ children, className }: CustomizeTableCellPr
   const nodeRef = React.useRef<HTMLDivElement>(null);
 
   React.useEffect(() => {
-    const parentElement = nodeRef?.current?.parentElement;
-    const classNames = className?.split(' ') ?? [];
-    parentElement?.classList.add(...classNames);
-  });
+    const parentElem = nodeRef?.current?.parentElement;
+    if (parentElem && className) {
+      parentElem.className = '';
+      parentElem.classList.add(...className.split(' '));
+    }
+  }, [className]);
 
   return <div ref={nodeRef}>{children}</div>;
 };
