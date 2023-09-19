@@ -1,0 +1,45 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta name="useBreakpointProps" title="helpers/useBreakpointProps" />
+
+# Props depending on current breakpoint
+
+## Overview
+
+useBreakpointProps exports function `getCurrentBreakpointProps` . It return merged object of properties from activeBreakPoints and defaultValues.
+
+Same hook should be used inside Row/Col components (already has custom logic to achive the same) and in other components where needed.
+
+## Usage
+
+Type components props as two interfaces/types:
+
+1. ComponentBreakpointProps -\> All the properties that can change on different breakpoint
+2. ComponentProps -\> All the other properties + extending BreakPointSupport interace
+
+Use props as:
+
+```tsx
+interface ComponentBreakpointProps {
+  background?: TColorsBackground;
+}
+
+interface ComponentProps extends BreakpointSupport<ComponentBreakpointProps> {
+  children: React.ReactNode;
+}
+
+const Component = (props: ComponentProps) => {
+  const { getCurrentBreakpointProps } = useBreakpointProps();
+  const { prop1, prop2, ...rest } = getCurrentBreakpointProps<ComponentProps>(props, defaultPropsObject);
+
+  return <p>content</p>;
+};
+```
+
+And when using as Component:
+
+```tsx
+<Component background="bg-muted" sm={{ background: 'bg-primary' }} xl={{ background: 'bg-primary-highlight' }}>
+  <p>Content</p>
+</Component>
+```
