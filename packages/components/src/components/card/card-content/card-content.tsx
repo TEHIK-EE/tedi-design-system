@@ -5,8 +5,18 @@ import { getBackgroundColorClass } from '../../../helpers/background-colors/back
 import { TColorsBackground } from '../../commonTypes';
 import styles from '../card.module.scss';
 import { CardContext } from '../card-context';
+import { getPaddingCssVariables } from '../utility';
 
-export type CardContentPadding = 0 | 0.5 | 0.75 | 1 | 1.5;
+export type CardContentPaddingNumber = 0 | 0.5 | 0.75 | 1 | 1.5;
+export type CardContentPadding =
+  | CardContentPaddingNumber
+  | { vertical: CardContentPaddingNumber; horizontal: CardContentPaddingNumber }
+  | {
+      top: CardContentPaddingNumber;
+      right: CardContentPaddingNumber;
+      bottom: CardContentPaddingNumber;
+      left: CardContentPaddingNumber;
+    };
 
 export interface CardContentProps {
   /**
@@ -19,7 +29,10 @@ export interface CardContentProps {
   className?: string;
   /**
    * Card content padding
-   * String values of padding are deprecated, use numbers instead
+   * Values can be:<br />
+   * - predefined number value in rems<br />
+   * - object of separated horizontal and vertical number values in rems
+   * - object of separated top, right, bottom, left number values in rems
    * @default Padding of Card
    */
   padding?: CardContentPadding;
@@ -35,15 +48,11 @@ export const CardContent = (props: CardContentProps): JSX.Element => {
   const { children, className, padding = rootPadding, background = rootBackground, ...rest } = props;
   const CardContentBEM = cn(styles['card__content'], { [getBackgroundColorClass(background)]: background }, className);
 
-  const paddingValue = `${padding}rem`;
-
   return (
     <div
       data-name="card-content"
-      data-padding={paddingValue}
-      style={{
-        '--card-content-padding': paddingValue,
-      }}
+      data-padding={typeof padding === 'number' ? `${padding}rem` : undefined}
+      style={getPaddingCssVariables(padding)}
       {...rest}
       className={CardContentBEM}
     >

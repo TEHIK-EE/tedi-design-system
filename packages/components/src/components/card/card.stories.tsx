@@ -7,7 +7,6 @@ import Separator from '../separator/separator';
 import StretchContent from '../stretch-content/stretch-content';
 import { CardsExample } from '../stretch-content/stretch-content.stories';
 import Heading from '../typography/heading/heading';
-import Text from '../typography/text/text';
 import { VerticalSpacing } from '../vertical-spacing';
 import { Card, CardProps } from './card';
 import CardContent, { CardContentPadding, CardContentProps } from './card-content/card-content';
@@ -207,7 +206,15 @@ export const BorderTopPrimaryHighlight: Story = {
 };
 
 const TemplatePadding: StoryFn<CardStory> = (args) => {
-  const paddingArray: CardContentPadding[] = [0, 0.5, 0.75, 1, 1.5];
+  const paddingArray: CardContentPadding[] = [
+    0,
+    0.5,
+    0.75,
+    1,
+    1.5,
+    { vertical: 1, horizontal: 1.5 },
+    { top: 1, right: 1.5, bottom: 1.5, left: 0 },
+  ];
 
   const getCardHeader = (header: CardHeaderProps) => (
     <CardHeader {...header}>
@@ -217,12 +224,12 @@ const TemplatePadding: StoryFn<CardStory> = (args) => {
 
   return (
     <VerticalSpacing size={0.5}>
-      {paddingArray.map((padding) => (
-        <Card {...args.card} padding={padding} key={padding}>
+      {paddingArray.map((padding, index) => (
+        <Card {...args.card} padding={padding} key={index}>
           {args.cardHeader && getCardHeader(typeof args.cardHeader === 'boolean' ? {} : args.cardHeader)}
 
           <CardContent {...args.cardContent}>
-            <p>Card padding: {padding}rem</p>
+            <p>Card padding: {typeof padding === 'number' ? `${padding}rem` : JSON.stringify(padding)}</p>
           </CardContent>
         </Card>
       ))}
@@ -251,8 +258,11 @@ export const Padding: Story = {
   parameters: {
     docs: {
       description: {
-        story: `Card padding can be set with the \`padding\` prop. The value is in rem units. The default value is 1rem. <br />
-          The padding can be set for the whole card or for the card header and card content separately. If the padding is set for the whole card, it is overridden by the padding set for the card header and card content separately.`,
+        story: `Card padding can be set with the \`padding\` prop. The value can be: <br />
+- predefined number value in rems <br />
+- object of separated \`horizontal, vertical\` number values in rems <br />
+- object of separated \`top, right, bottom, left\` number values in rems <br />
+          The padding can be set for the whole card or for the card header and card content separately. If the padding is set for the whole card, it is overridden by the padding set for the card header and card content separately. <br/>`,
       },
     },
   },

@@ -71,12 +71,12 @@ $sizes: (
 }
 
 .separator--full-width {
-  margin-right: calc(var(--card-content-padding) * -1);
-  margin-left: calc(var(--card-content-padding) * -1);
+  margin-right: calc(var(--card-content-padding-right) * -1);
+  margin-left: calc(var(--card-content-padding-left) * -1);
 
   &.separator--vertical {
-    height: calc(100% + (var(--card-content-padding) * 2));
-    margin: calc(var(--card-content-padding) * -1) 0;
+    height: calc(100% + (var(--card-content-padding-top) + var(--card-content-padding-bottom)));
+    margin: calc(var(--card-content-padding-top) * -1) 0 calc(var(--card-content-padding-bottom) * -1);
   }
 }
 
