@@ -1,3 +1,10 @@
+# [5.11.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.10.1...v5.11.0) (2023-09-19)
+
+
+### Features
+
+* **card:** Add possibility to pass props per breakpoint - TEHVEER-191 ([532d43e](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/532d43eddb8847b1cad65cfe7ccdcbfd13f75269))
+
 ## [5.10.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.10.0...v5.10.1) (2023-09-19)
 
 
