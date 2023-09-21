@@ -8,7 +8,7 @@ import styles from '../card.module.scss';
 import { CardContext } from '../card-context';
 import { getPaddingCssVariables } from '../utility';
 
-export type CardContentPaddingNumber = 0 | 0.5 | 0.75 | 1 | 1.5;
+export type CardContentPaddingNumber = 0 | 0.5 | 0.75 | 1 | 1.5 | 2 | 2.5;
 export type CardContentPadding =
   | CardContentPaddingNumber
   | { vertical: CardContentPaddingNumber; horizontal: CardContentPaddingNumber }

@@ -45,6 +45,7 @@ export * from './components/skeleton';
 export * from './components/spinner/spinner';
 export * from './components/status/status';
 export * from './components/stretch-content/stretch-content';
+export * from './components/vertical-progress';
 export * from './components/vertical-spacing';
 export * from './components/accordion';
 export * from './components/toggle-open/toggle-open';

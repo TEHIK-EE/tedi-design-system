@@ -370,6 +370,13 @@ export const labelsMap = {
     en: 'Show less',
     ru: 'Скрыть',
   }),
+  'vertical-progress.edit': validateLabel({
+    description: 'Edit button label',
+    components: ['VerticalProgressItem'],
+    et: 'Muuda',
+    en: 'Edit',
+    ru: 'редактировать',
+  }),
   'pickers.previousMonth': validateLabel({
     description: `Translation for ${muiTranslationsUrl}`,
     components: ['Pickers'],
