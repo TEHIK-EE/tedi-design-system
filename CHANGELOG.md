@@ -1,3 +1,10 @@
+# [5.13.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.12.0...v5.13.0) (2023-09-21)
+
+
+### Features
+
+* **vertical-progress:** Add new component VerticalProgress - TEHVEER-193 ([2a6565b](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/2a6565bc91aeb9bb6ac0c9b6aa612d5480f0a2e9))
+
 # [5.12.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.11.0...v5.12.0) (2023-09-19)
 
 
