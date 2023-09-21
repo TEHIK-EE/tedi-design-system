@@ -130,6 +130,61 @@ const TableLayout = <TData extends DefaultTData<TData>>(): JSX.Element | null =>
     );
   };
 
+  const renderRow = (row: TSRow<TData>) => {
+    /**
+     * Renders row with custom component if it is defined in row data
+     */
+    const CustomRow = row.original.CustomRowComponent;
+
+    return (
+      <React.Fragment key={row.id}>
+        {row.original.rowGroupKey && (
+          <Print breakAfter="avoid">
+            <tr
+              className={cn(
+                row.original.rowClassName
+                  ?.replace(styles['table__row--group-item'], '')
+                  .replace(styles['table__row--last-group-item'], ''),
+                styles['table__row--group-header'],
+                { [styles['table__row--border-hidden']]: hideRowBorder }
+              )}
+            >
+              {renderGroupHeading ? (
+                renderGroupHeading(row)
+              ) : (
+                <td colSpan={row.getVisibleCells().length}>{row.original.rowGroupKey}</td>
+              )}
+            </tr>
+          </Print>
+        )}
+        {CustomRow ? (
+          <Print breakInside="avoid">
+            <CustomRow {...row} />
+          </Print>
+        ) : (
+          <Print breakInside="avoid">
+            <tr
+              className={cn(row.original.rowClassName, {
+                [styles['table__row--clickable']]: !!row.original.onClick || !!onRowClick,
+                [styles['table__row--border-hidden']]: hideRowBorder,
+              })}
+              onClick={() => handleRowClick(row)}
+            >
+              {row.getVisibleCells().map((cell) => (
+                <td key={cell.id} style={{ width: cell.column.getSize() }}>
+                  {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                </td>
+              ))}
+            </tr>
+          </Print>
+        )}
+        {row.getIsExpanded() && renderSubComponent ? (
+          <Print breakBefore="avoid">{renderSubComponent?.(row)}</Print>
+        ) : null}
+      </React.Fragment>
+    );
+  };
+
   return (
     <table id={id}>
       {caption && <caption className="sr-only">{caption}</caption>}
@@ -166,47 +221,7 @@ const TableLayout = <TData extends DefaultTData<TData>>(): JSX.Element | null =>
         {isLoading ? (
           <TableLoader />
         ) : groupedRows()?.length ? (
-          groupedRows().map((row) => (
-            <React.Fragment key={row.id}>
-              {row.original.rowGroupKey && (
-                <Print breakAfter="avoid">
-                  <tr
-                    className={cn(
-                      row.original.rowClassName
-                        ?.replace(styles['table__row--group-item'], '')
-                        .replace(styles['table__row--last-group-item'], ''),
-                      styles['table__row--group-header'],
-                      { [styles['table__row--border-hidden']]: hideRowBorder }
-                    )}
-                  >
-                    {renderGroupHeading ? (
-                      renderGroupHeading(row)
-                    ) : (
-                      <td colSpan={row.getVisibleCells().length}>{row.original.rowGroupKey}</td>
-                    )}
-                  </tr>
-                </Print>
-              )}
-              <Print breakInside="avoid">
-                <tr
-                  className={cn(row.original.rowClassName, {
-                    [styles['table__row--clickable']]: !!row.original.onClick || !!onRowClick,
-                    [styles['table__row--border-hidden']]: hideRowBorder,
-                  })}
-                  onClick={() => handleRowClick(row)}
-                >
-                  {row.getVisibleCells().map((cell) => (
-                    <td key={cell.id} style={{ width: cell.column.getSize() }}>
-                      {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                    </td>
-                  ))}
-                </tr>
-              </Print>
-              {row.getIsExpanded() && renderSubComponent ? (
-                <Print breakBefore="avoid">{renderSubComponent?.(row)}</Print>
-              ) : null}
-            </React.Fragment>
-          ))
+          groupedRows().map((row) => renderRow(row))
         ) : (
           renderPlaceholderRow()
         )}
