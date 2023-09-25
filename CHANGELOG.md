@@ -1,3 +1,10 @@
+# [5.14.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.13.0...v5.14.0) (2023-09-25)
+
+
+### Features
+
+* **table:** Add CustomRow possibility and defaultExpanded state - TEHVEER-194 ([44d2736](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/44d2736d6f1d77b56f9c4291b66c8e300d71f7c2))
+
 # [5.13.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.12.0...v5.13.0) (2023-09-21)
 
 
