@@ -1,3 +1,15 @@
+# [5.15.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.14.0...v5.15.0) (2023-09-25)
+
+
+### Bug Fixes
+
+* **placeholder:** placeholder wrapper can't be paragraph, to support buttons as children ([1babb79](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/1babb7969768ff9f8ebff8d0064a5a85859ce6b8))
+
+
+### Features
+
+* **dropdown:** add isDisabled state to items, change item from anchor to button - TEHVEER-195 ([e424b46](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/e424b46094ea4c49a0660456f199da43d1ba4c2b))
+
 # [5.14.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.13.0...v5.14.0) (2023-09-25)
 
 
