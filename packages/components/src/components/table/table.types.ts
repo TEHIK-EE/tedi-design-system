@@ -1,6 +1,7 @@
 import {
   ColumnDef,
   ColumnFiltersState,
+  ExpandedState,
   FilterFn,
   PaginationState,
   Row,
@@ -35,6 +36,10 @@ export interface DefaultTData<TData> {
    * Added to Row
    */
   rowClassName?: string;
+  /**
+   * Custom row Component to render this row
+   */
+  CustomRowComponent?: React.ComponentType<Row<TData>>;
   /**
    * Called when row is clicked
    */
@@ -130,6 +135,10 @@ export interface TableProps<TData extends DefaultTData<TData>> {
    * Component will be rendered inside `<tbody>` and spanned to whole row.
    */
   renderSubComponent?: (row: Row<TData>) => React.ReactElement;
+  /**
+   * Initial internal expanding state on render.
+   */
+  defaultExpanded?: ExpandedState;
   /**
    * Check if row can expand
    */

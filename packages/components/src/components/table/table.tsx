@@ -46,6 +46,7 @@ export function Table<TData extends DefaultTData<TData>>(props: TableProps<TData
     manualPagination,
     sorting: sortingOuter,
     defaultSorting = [],
+    defaultExpanded = {},
     onPaginationChange,
     onSortingChange,
     onRowSelectionChange,
@@ -73,7 +74,7 @@ export function Table<TData extends DefaultTData<TData>>(props: TableProps<TData
   const isPrinting = usePrint();
   const [{ pageIndex, pageSize }, setPagination] = React.useState<PaginationState>(defaultPagination);
   const [sorting, setSorting] = React.useState<SortingState>(defaultSorting);
-  const [expanded, setExpanded] = React.useState<ExpandedState>({});
+  const [expanded, setExpanded] = React.useState<ExpandedState>(defaultExpanded);
   const [rowSelection, setRowSelection] = React.useState<RowSelectionState>(defaultRowSelection || {});
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([]);
 

@@ -10,6 +10,7 @@ import Status from '../status/status';
 import Tag from '../tag/tag';
 import Heading from '../typography/heading/heading';
 import { VerticalSpacing } from '../vertical-spacing';
+import { CustomExpandRowExample } from './components/examples/custom-expand-row';
 import {
   CustomizeTableCell,
   getExpandColumn,
@@ -52,11 +53,11 @@ function calculateAge(birthday: Date) {
 }
 
 const createRandomPerson = (isSubRow: boolean): Person => ({
-  firstName: faker.name.firstName(),
-  lastName: faker.name.lastName(),
-  personName: faker.name.fullName(),
+  firstName: faker.person.firstName(),
+  lastName: faker.person.lastName(),
+  personName: faker.person.fullName(),
   age: calculateAge(faker.date.birthdate()),
-  visits: Number(faker.random.numeric(2)),
+  visits: Number(faker.number.int(99)),
   status: faker.helpers.arrayElement(['Single', 'Complicated', 'In Relationship']),
   progress: Math.floor(Math.random() * 101),
   subRows: isSubRow
@@ -536,3 +537,5 @@ export const WithFooter: Story = {
     ],
   },
 };
+
+export { CustomExpandRowExample };
