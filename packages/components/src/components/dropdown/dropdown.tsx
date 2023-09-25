@@ -15,32 +15,34 @@ import {
 import cn from 'classnames';
 import React from 'react';
 
-import { AllowedHTMLTags } from '../../helpers/polymorphic/types';
 import { useLabels } from '../../providers/label-provider';
-import Anchor, { AnchorProps } from '../anchor/anchor';
 import { Button, ButtonProps } from '../button/button';
 import styles from './dropdown.module.scss';
 
-export type DropdownItem<C extends React.ElementType = 'a'> = AnchorProps<C>;
+export type DropdownItem = {
+  /**
+   * Content of the item
+   */
+  children: React.ReactNode;
+  /**
+   * Callback when item is clicked
+   */
+  onClick?: (e: React.MouseEvent | React.KeyboardEvent) => void;
+  /**
+   * Is item active
+   */
+  isActive?: boolean;
+  /**
+   * Is item disabled
+   */
+  isDisabled?: boolean;
+};
 
-type ConditionalTypes<C extends React.ElementType = 'a'> =
-  | {
-      /**
-       * Render all links as this component<br />
-       * See [Anchor/CustomComponent](/?path=/docs/components-anchor--custom-component) for an example
-       */
-      linkAs: AllowedHTMLTags<C, 'a' | React.ComponentType<any>>;
-      /**
-       * dropdown items
-       */
-      items: DropdownItem<C>[];
-    }
-  | {
-      linkAs?: never;
-      items: DropdownItem<any>[];
-    };
-
-export type DropdownProps<C extends React.ElementType = 'a'> = ConditionalTypes<C> & {
+export type DropdownProps = {
+  /**
+   * Dropdown items
+   */
+  items: DropdownItem[];
   /**
    * Dropdown trigger props
    */
@@ -48,7 +50,7 @@ export type DropdownProps<C extends React.ElementType = 'a'> = ConditionalTypes<
   /**
    * Callback when one of the items is clicked
    */
-  onItemClick?: (item: DropdownItem<C>, index: number, e: React.MouseEvent) => void;
+  onItemClick?: (item: DropdownItem, index: number, e: React.MouseEvent | React.KeyboardEvent) => void;
   /**
    * Close menu when item is clicked.
    * @default true
@@ -60,9 +62,9 @@ export type DropdownProps<C extends React.ElementType = 'a'> = ConditionalTypes<
   focusManager?: Omit<React.ComponentProps<typeof FloatingFocusManager>, 'context' | 'children'>;
 };
 
-export const Dropdown = <C extends React.ElementType = 'a'>(props: DropdownProps<C>) => {
+export const Dropdown = (props: DropdownProps) => {
   const { getLabel } = useLabels();
-  const { button, items, linkAs, onItemClick, closeMenuOnClick = true, ...rest } = props;
+  const { button, items, onItemClick, closeMenuOnClick = true, ...rest } = props;
   const { initialFocus = -1, modal = false, ...restFocusManager } = props.focusManager ?? {};
   const { visuallyHiddenDismiss = modal ? getLabel('close') : false } = restFocusManager ?? {};
   const nodeId = useFloatingNodeId();
@@ -79,7 +81,7 @@ export const Dropdown = <C extends React.ElementType = 'a'>(props: DropdownProps
     whileElementsMounted: autoUpdate,
   });
 
-  const firstSelectedItemIndex = (items as DropdownItem<C>[]).findIndex((i) => i.isActive);
+  const firstSelectedItemIndex = (items as DropdownItem[]).findIndex((i) => i.isActive);
 
   const { getReferenceProps, getFloatingProps, getItemProps } = useInteractions([
     useClick(context),
@@ -120,7 +122,7 @@ export const Dropdown = <C extends React.ElementType = 'a'>(props: DropdownProps
           })}
           data-placement={placement}
         >
-          {(items as DropdownItem<C>[]).map((item, key) => renderDropdownItem(item, key))}
+          {items.map((item, key) => renderDropdownItem(item, key))}
         </div>
       </FloatingFocusManager>
     );
@@ -128,33 +130,40 @@ export const Dropdown = <C extends React.ElementType = 'a'>(props: DropdownProps
     return isOpen ? content : null;
   };
 
-  const DropdownItemBEM = (item: DropdownItem<C>) =>
-    cn(styles['dropdown__item'], { [styles['dropdown__item--active']]: item.isActive });
+  const DropdownItemBEM = (item: DropdownItem) =>
+    cn(styles['dropdown__item'], {
+      [styles['dropdown__item--active']]: item.isActive,
+      [styles['dropdown__item--disabled']]: item.isDisabled,
+    });
 
-  const onClick = (item: DropdownItem<C>, index: number, e: React.MouseEvent) => {
+  const onClick = (item: DropdownItem, index: number, e: React.MouseEvent | React.KeyboardEvent) => {
     onItemClick?.(item, index, e);
     item?.onClick?.(e);
 
     closeMenuOnClick && setIsOpen(false);
   };
 
-  const renderDropdownItem = (item: DropdownItem<C>, key: number): JSX.Element => (
-    <Anchor
-      as={linkAs}
+  const renderDropdownItem = (item: DropdownItem, key: number): JSX.Element => (
+    <button
       key={key}
-      {...item}
       {...getItemProps({
+        disabled: item.isDisabled,
         tabIndex: activeIndex === key ? 0 : -1,
         role: 'option',
         className: DropdownItemBEM(item),
         onClick: (e) => onClick(item, key, e),
+        onKeyDown(event) {
+          if (event.key === 'Enter') {
+            onClick(item, key, event);
+          }
+        },
         ref(node: HTMLAnchorElement) {
           listItemsRef.current[key] = node;
         },
       })}
     >
       {item.children}
-    </Anchor>
+    </button>
   );
 
   return (
