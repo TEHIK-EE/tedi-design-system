@@ -79,7 +79,7 @@ export const Placeholder = (props: PlaceholderProps): JSX.Element => {
           <Row direction="column" alignItems="center" gutter={2}>
             {icon && <Col width="auto">{getIcon(icon)}</Col>}
             <Col width="auto">
-              <Text color="muted" modifiers="center">
+              <Text color="muted" modifiers="center" element="div">
                 {children}
               </Text>
             </Col>
