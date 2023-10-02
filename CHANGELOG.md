@@ -1,3 +1,10 @@
+# [5.16.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.15.0...v5.16.0) (2023-10-02)
+
+
+### Features
+
+* **header:** TEHVEER-197 - Allow closing of header dropdown after item click ([fa92f4d](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/fa92f4d445bc095fd61fb5015d3bcfcf533cc118))
+
 # [5.15.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.14.0...v5.15.0) (2023-09-25)
 
 
