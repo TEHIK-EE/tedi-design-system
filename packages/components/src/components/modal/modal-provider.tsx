@@ -131,7 +131,6 @@ export const ModalProvider = (props: ModalProviderProps): JSX.Element => {
         isDismissable,
         escapeKey,
         outsidePress,
-        referencePress,
       }}
     >
       {children}
