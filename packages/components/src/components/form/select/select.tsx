@@ -431,7 +431,6 @@ export const Select = forwardRef<any, SelectProps>((props, ref): JSX.Element => 
         onMenuClose={onMenuClose}
         onMenuOpen={onMenuOpen}
         placeholder={placeholder || ''}
-        menuPortalTarget={typeof window !== 'undefined' ? document.body : undefined}
         isClearable={isClearable}
         backspaceRemovesValue={true}
         menuShouldScrollIntoView={true}
@@ -439,6 +438,7 @@ export const Select = forwardRef<any, SelectProps>((props, ref): JSX.Element => 
         hideSelectedOptions={false}
         closeMenuOnSelect={closeMenuOnSelect}
         blurInputOnSelect={blurInputOnSelect}
+        menuPosition="fixed"
         menuPlacement="auto"
         inputIsHidden={inputIsHidden}
         theme={(theme) => ({
