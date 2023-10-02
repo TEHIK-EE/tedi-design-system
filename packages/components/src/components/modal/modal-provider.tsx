@@ -30,10 +30,22 @@ export interface ModalProviderProps {
    */
   onToggle?: (open: boolean) => void;
   /**
-   * Should modal be dismissable by pressing escape or outside of the modal.
+   * Should modal be dismissible by pressing escape or outside of the modal.
    * @default true
    */
   isDismissable?: boolean;
+  /**
+   * Closes the modal with escape key
+   * Skipped if `isDismissable="false"`
+   * @default true
+   */
+  escapeKey?: boolean;
+  /**
+   * Closes the modal with a click outside the modal or trigger
+   * Skipped if `isDismissable="false"`
+   * @default true
+   */
+  outsidePress?: boolean;
 }
 
 export interface IModalContext {
@@ -45,6 +57,8 @@ export interface IModalContext {
   closeModal: () => void;
   context: FloatingContext<ReferenceType>;
   isDismissable: boolean;
+  escapeKey: boolean;
+  outsidePress: boolean;
 }
 
 export const ModalContext = React.createContext<IModalContext>({
@@ -56,10 +70,19 @@ export const ModalContext = React.createContext<IModalContext>({
   closeModal: () => null,
   context: {} as FloatingContext<ReferenceType>,
   isDismissable: true,
+  escapeKey: true,
+  outsidePress: true,
 });
 
 export const ModalProvider = (props: ModalProviderProps): JSX.Element => {
-  const { children, defaultOpen = false, onToggle, isDismissable = true } = props;
+  const {
+    children,
+    defaultOpen = false,
+    onToggle,
+    isDismissable = true,
+    escapeKey = true,
+    outsidePress = true,
+  } = props;
   const [innerOpen, setInnerOpen] = React.useState(defaultOpen);
 
   const isOpen = onToggle && typeof props.open !== 'undefined' ? props.open : innerOpen;
@@ -72,7 +95,11 @@ export const ModalProvider = (props: ModalProviderProps): JSX.Element => {
   const { getReferenceProps, getFloatingProps } = useInteractions([
     useClick(context),
     useRole(context),
-    useDismiss(context, { enabled: isDismissable }),
+    useDismiss(context, {
+      enabled: isDismissable,
+      escapeKey,
+      outsidePress,
+    }),
   ]);
 
   const closeModal = () => {
@@ -102,6 +129,9 @@ export const ModalProvider = (props: ModalProviderProps): JSX.Element => {
         closeModal,
         context,
         isDismissable,
+        escapeKey,
+        outsidePress,
+        referencePress,
       }}
     >
       {children}

@@ -259,10 +259,13 @@ export const NotDismissableModal: Story = {
   args: {
     heading: 'Modal is not dismissable',
     content:
-      'This modal can not be dismissed by pressing escape or clicking outside of it. You can close it by pressing either close button.',
+      'This modal can not be dismissed by pressing escape or clicking outside of it and does not have a built in close button. You can close it by pressing the custom close button.',
     modalProvider: {
       isDismissable: false,
     },
+    trapFocus: false,
+    overlay: 'none',
+    hideCloseButton: true,
   },
 };
 
