@@ -1,3 +1,10 @@
+## [5.17.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.17.0...v5.17.1) (2023-10-02)
+
+
+### Bug Fixes
+
+* **select:** TEHVEER-200 - Use position fixed instead of portaling to get right focus order on menu ([b0a89b1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/b0a89b13fc14c512fbd71d77365335b677194a3c))
+
 # [5.17.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.16.0...v5.17.0) (2023-10-02)
 
 
