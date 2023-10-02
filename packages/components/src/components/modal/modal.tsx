@@ -36,6 +36,13 @@ export interface ModalProps {
    */
   hideCloseButton?: boolean;
   /**
+   * If your focus management is modal and there is no explicit close button available,
+   * you can use this prop to render a visually-hidden dismiss button at the start and end of the floating element.
+   * This allows touch-based screen readers to escape the floating element due to lack of an esc key.
+   * @default false
+   */
+  visuallyHiddenDismiss?: boolean;
+  /**
    * Modal position on the screen
    * @default center
    */
@@ -66,6 +73,7 @@ export const Modal = (props: ModalProps): JSX.Element | null => {
     lockScroll = true,
     trapFocus = true,
     overlay = undefined,
+    visuallyHiddenDismiss = false,
   } = props;
   const { getLabel } = useLabels();
   const labelId = props['aria-labelledby'];
@@ -81,7 +89,12 @@ export const Modal = (props: ModalProps): JSX.Element | null => {
             [styles['modal--no-overlay']]: overlay === 'none',
           })}
         >
-          <FloatingFocusManager context={context} closeOnFocusOut={isDismissable} modal={trapFocus}>
+          <FloatingFocusManager
+            context={context}
+            closeOnFocusOut={!trapFocus && isDismissable}
+            visuallyHiddenDismiss={visuallyHiddenDismiss ? getLabel('modal.close') : undefined}
+            modal={trapFocus}
+          >
             <div
               {...getFloatingProps({
                 ref: floating,
