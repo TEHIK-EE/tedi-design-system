@@ -22,14 +22,36 @@ export interface HeaderDropdownProps {
    * Tooltip props
    */
   tooltipProps?: Omit<TooltipProps, 'children'>;
+  /**
+   * Should Tooltip be initially shown. Won't work with open and onToggle.
+   * @default false
+   */
+  defaultOpen?: boolean;
+  /**
+   * Should the Tooltip be open or closed.
+   * Use to handle state outside of component, should use with onToggle prop.
+   */
+  open?: boolean;
+  /**
+   * Callback when Tooltip is toggled.
+   * Use to handle state outside of component, should use with open prop.
+   */
+  onToggle?: (open: boolean) => void;
 }
 
 export const HeaderDropdown = (props: HeaderDropdownProps) => {
-  const { children, triggerProps, shouldAnimate, tooltipProps } = props;
-  const [isOpen, setIsOpen] = React.useState(false);
+  const { children, triggerProps, defaultOpen, open, onToggle, shouldAnimate, tooltipProps } = props;
+  const [internalOpen, setInternalOpen] = React.useState(defaultOpen);
+
+  const isOpen = open !== undefined ? open : internalOpen;
+
+  const handleToggle = (open: boolean) => {
+    setInternalOpen(open);
+    onToggle?.(open);
+  };
 
   return (
-    <TooltipProvider openWith="click" onToggle={setIsOpen} open={isOpen}>
+    <TooltipProvider openWith="click" role="dialog" onToggle={handleToggle} open={isOpen}>
       <TooltipTrigger>
         <Button
           {...triggerProps}

@@ -18,6 +18,7 @@ import {
   useInteractions,
   useRole,
 } from '@floating-ui/react';
+import { UseRoleProps } from '@floating-ui/react/src/hooks/useRole';
 import React from 'react';
 
 import { useIsMounted } from '../../helpers';
@@ -62,6 +63,11 @@ export interface TooltipProviderProps {
    * Use to handle state outside of component, should use with open prop.
    */
   onToggle?: (open: boolean) => void;
+  /**
+   * Changes aria attributes on trigger and tooltip based on the components role
+   * @default tooltip
+   */
+  role?: UseRoleProps['role'];
 }
 
 export interface ITooltipContext {
@@ -117,6 +123,7 @@ export const TooltipProvider = (props: TooltipProviderProps): JSX.Element => {
     defaultOpen = false,
     open: openOuter,
     onToggle,
+    role = 'tooltip',
   } = props;
   const {
     order = ['reference', 'content'],
@@ -166,7 +173,7 @@ export const TooltipProvider = (props: TooltipProviderProps): JSX.Element => {
     useFocus(context, {
       enabled: openWith === 'hover',
     }),
-    useRole(context, { role: 'tooltip' }),
+    useRole(context, { role }),
     useDismiss(context),
   ]);
 

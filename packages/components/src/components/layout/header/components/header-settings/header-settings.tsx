@@ -20,16 +20,23 @@ export interface HeaderSettingsProps {
   onActionClick: () => void;
   /**
    * Content of HeaderDropdown
+   * When using a function you have access to onToggle callback that can be used to close the menu
    */
-  children?: React.ReactNode;
+  children?: ((props: { onToggle: (open: boolean) => void }) => React.ReactNode) | React.ReactNode;
   /**
    * Allow to change icon name
    */
   iconName?: string;
+  /**
+   * Close menu on login/logout click
+   * @default true
+   */
+  closeOnAction?: boolean;
 }
 
 export const HeaderSettings = (props: HeaderSettingsProps) => {
-  const { children, onActionClick, iconName } = props;
+  const { children, onActionClick, closeOnAction = true, iconName } = props;
+  const [isOpen, setIsOpen] = React.useState(false);
   const isDesktop = useLayout(['desktop']);
   const isMobile = useLayout(['mobile']);
   const { getLabel } = useLabels();
@@ -53,8 +60,10 @@ export const HeaderSettings = (props: HeaderSettingsProps) => {
     );
   }
 
+  const getChildren = typeof children === 'function' ? children({ onToggle: setIsOpen }) : children;
+
   // If there is no children, render a simple logout button
-  if (!children) {
+  if (!getChildren) {
     return (
       <Button icon={{ name: 'logout', color: 'primary', size: 24 }} visualType="tertiary" onClick={onActionClick}>
         {getLabel('header.logout')}
@@ -63,27 +72,44 @@ export const HeaderSettings = (props: HeaderSettingsProps) => {
   }
 
   const LogOutAnchor = () => (
-    <Button onClick={onActionClick} iconLeft="logout" visualType="link">
+    <Button
+      onClick={() => {
+        onActionClick();
+        closeOnAction && setIsOpen(false);
+      }}
+      iconLeft="logout"
+      visualType="link"
+    >
       {getLabel('header.logout')}
     </Button>
   );
 
   const dropdown = (
-    <HeaderDropdown tooltipProps={{ cardProps: { padding: 1 } }} triggerProps={triggerProps}>
+    <HeaderDropdown
+      open={isOpen}
+      onToggle={setIsOpen}
+      tooltipProps={{ cardProps: { padding: 1 } }}
+      triggerProps={triggerProps}
+    >
       <VerticalSpacing size={1}>
-        {children}
-        <Separator />
+        {getChildren}
+        <Separator fullWidth />
         <LogOutAnchor />
       </VerticalSpacing>
     </HeaderDropdown>
   );
 
   const modal = (
-    <HeaderModal ariaLabelledby="header-settings-modal-label" triggerProps={triggerProps}>
+    <HeaderModal
+      open={isOpen}
+      onToggle={setIsOpen}
+      ariaLabelledby="header-settings-modal-label"
+      triggerProps={triggerProps}
+    >
       <Heading id="header-settings-modal-label" className="sr-only">
         {getLabel('header.settings')}
       </Heading>
-      {children}
+      {getChildren}
       <Separator fullWidth />
       <Card borderless>
         <CardContent>

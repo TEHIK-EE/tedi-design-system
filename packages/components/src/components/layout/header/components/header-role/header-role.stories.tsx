@@ -1,8 +1,9 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 
 import { useLayout } from '../../../../../helpers/hooks/use-layout';
-import Text from '../../../../typography/text/text';
-import VerticalSpacing from '../../../../vertical-spacing/vertical-spacing';
+import Button from '../../../../button/button';
+import Col from '../../../../grid/col';
+import Row from '../../../../grid/row';
 import RoleSelection from './header-role';
 
 const meta: Meta<typeof RoleSelection> = {
@@ -49,20 +50,30 @@ export const WithLongContent: Story = {
   args: {
     primaryInfo: 'Tartu Linnavalitsus',
     label: 'Kristo Käärmann',
-    children: (
-      <VerticalSpacing>
-        <Text>Role 1</Text>
-        <Text>Role 2</Text>
-        <Text>Role 3</Text>
-        <Text>Role 4</Text>
-        <Text>Role 5</Text>
-        <Text>Role 6</Text>
-        <Text>Role 7</Text>
-        <Text>Role 8</Text>
-        <Text>Role 9</Text>
-        <Text>Role 10</Text>
-        <Text>Role 11</Text>
-      </VerticalSpacing>
-    ),
+    children: ({ onToggle }) => {
+      const renderButton = (label: string) => (
+        <Col>
+          <Button visualType="link" onClick={() => onToggle(false)}>
+            {label}
+          </Button>
+        </Col>
+      );
+
+      return (
+        <Row direction="column" gap={3}>
+          {renderButton('Role 1')}
+          {renderButton('Role 2')}
+          {renderButton('Role 3')}
+          {renderButton('Role 4')}
+          {renderButton('Role 5')}
+          {renderButton('Role 6')}
+          {renderButton('Role 7')}
+          {renderButton('Role 8')}
+          {renderButton('Role 9')}
+          {renderButton('Role 10')}
+          {renderButton('Role 11')}
+        </Row>
+      );
+    },
   },
 };

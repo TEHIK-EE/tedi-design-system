@@ -17,14 +17,29 @@ export interface HeaderModalProps {
    * Trigger of Dropdown
    */
   triggerProps: ButtonProps;
+  /**
+   * Should Tooltip be initially shown. Won't work with open and onToggle.
+   * @default false
+   */
+  defaultOpen?: boolean;
+  /**
+   * Should the Tooltip be open or closed.
+   * Use to handle state outside of component, should use with onToggle prop.
+   */
+  open?: boolean;
+  /**
+   * Callback when Tooltip is toggled.
+   * Use to handle state outside of component, should use with open prop.
+   */
+  onToggle?: (open: boolean) => void;
 }
 
 export const HeaderModal = (props: HeaderModalProps) => {
-  const { triggerProps, children, ariaLabelledby } = props;
+  const { triggerProps, defaultOpen, open, onToggle, children, ariaLabelledby } = props;
   const { getLabel } = useLabels();
 
   return (
-    <ModalProvider>
+    <ModalProvider defaultOpen={defaultOpen} open={open} onToggle={onToggle}>
       <ModalTrigger>
         <Button {...triggerProps} />
       </ModalTrigger>
