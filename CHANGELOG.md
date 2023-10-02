@@ -1,3 +1,10 @@
+# [5.17.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.16.0...v5.17.0) (2023-10-02)
+
+
+### Features
+
+* **modal:** TEHVEER-199 - Allow separate esc and backdrop click control ([80e4089](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/80e4089f6badd3b9c63fa539c1124e10459bea43))
+
 # [5.16.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.15.0...v5.16.0) (2023-10-02)
 
 
