@@ -23,9 +23,10 @@ export interface HeaderRoleProps {
    */
   label?: string;
   /**
-   * Content of HeaderDropdown if user can open dropdown
+   * Content of HeaderDropdown if user can open dropdown.
+   * When using a function you have access to onToggle callback that can be used to close the menu
    */
-  children?: React.ReactNode;
+  children?: ((props: { onToggle: (open: boolean) => void }) => React.ReactNode) | React.ReactNode;
   /**
    * Pass true when HeaderRole is used in HeaderSettings modal
    * @default false
@@ -35,12 +36,31 @@ export interface HeaderRoleProps {
 
 export const HeaderRole = (props: HeaderRoleProps) => {
   const { renderModal = false, ...rest } = props;
-  return renderModal ? <HeaderRoleModal {...rest} /> : <HeaderRoleDropdown {...rest} />;
+  const [isOpen, setIsOpen] = React.useState(false);
+
+  return renderModal ? (
+    <HeaderRoleModal {...rest} open={isOpen} onToggle={setIsOpen} />
+  ) : (
+    <HeaderRoleDropdown {...rest} open={isOpen} onToggle={setIsOpen} />
+  );
 };
 
-const HeaderRoleDropdown = (props: Omit<HeaderRoleProps, 'renderModal'>) => {
+type HeaderRoleComponentProps = Omit<HeaderRoleProps, 'renderModal'> & {
+  /**
+   * Should the Tooltip be open or closed.
+   * Use to handle state outside of component, should use with onToggle prop.
+   */
+  open: boolean;
+  /**
+   * Callback when Tooltip is toggled.
+   * Use to handle state outside of component, should use with open prop.
+   */
+  onToggle: (open: boolean) => void;
+};
+
+const HeaderRoleDropdown = (props: HeaderRoleComponentProps) => {
   const { getLabel } = useLabels();
-  const { children, primaryInfo, secondaryInfo, label = getLabel('header.role-label') } = props;
+  const { children, open, onToggle, primaryInfo, secondaryInfo, label = getLabel('header.role-label') } = props;
 
   const getLabelText = () => {
     if (label === getLabel('header.role-label')) {
@@ -67,19 +87,24 @@ const HeaderRoleDropdown = (props: Omit<HeaderRoleProps, 'renderModal'>) => {
     );
   };
 
+  const getChildren = typeof children === 'function' ? children({ onToggle }) : children;
+
   const dropdown = (
     <HeaderDropdown
       shouldAnimate={true}
+      open={open}
+      onToggle={onToggle}
       tooltipProps={{ cardProps: { padding: 0 }, maxWidth: 'medium' }}
       triggerProps={{
         children: primaryInfo,
+        'aria-label': `${label ?? ''} ${secondaryInfo ?? ''} ${primaryInfo ?? ''}`,
         visualType: 'link',
         iconRight: { name: 'expand_more', color: 'primary', size: 24 },
       }}
     >
       <div className={styles['header-role-wrapper']}>
         <ScrollFade fadeSize="0">
-          <div className={styles['header-role-children']}>{children}</div>
+          <div className={styles['header-role-children']}>{getChildren}</div>
         </ScrollFade>
       </div>
     </HeaderDropdown>
@@ -88,14 +113,14 @@ const HeaderRoleDropdown = (props: Omit<HeaderRoleProps, 'renderModal'>) => {
   return (
     <div>
       {getLabelText()}
-      {children ? dropdown : primaryInfo}
+      {getChildren ? dropdown : primaryInfo}
     </div>
   );
 };
 
-const HeaderRoleModal = (props: Omit<HeaderRoleProps, 'renderModal'>) => {
+const HeaderRoleModal = (props: HeaderRoleComponentProps) => {
   const { getLabel } = useLabels();
-  const { children, primaryInfo, secondaryInfo, label = getLabel('header.role-label') } = props;
+  const { children, open, onToggle, primaryInfo, secondaryInfo, label = getLabel('header.role-label') } = props;
 
   const title = (
     <Text element="span" color="muted" modifiers="bold">
@@ -108,14 +133,23 @@ const HeaderRoleModal = (props: Omit<HeaderRoleProps, 'renderModal'>) => {
     </Text>
   );
 
+  const getChildren = typeof children === 'function' ? children({ onToggle }) : children;
+
   return (
     <Card background="bg-muted" borderRadius={false} borderless={true}>
       <CardContent padding={0}>
-        {children ? (
-          <Collapse id="role-collapse" className={styles['header-role-collapse']} hideCollapseText title={title}>
+        {getChildren ? (
+          <Collapse
+            id="role-collapse"
+            open={open}
+            onToggle={onToggle}
+            className={styles['header-role-collapse']}
+            hideCollapseText
+            title={title}
+          >
             <div className={styles['header-role-wrapper']}>
               <ScrollFade fadeSize="0">
-                <div className={styles['header-role-children']}>{children}</div>
+                <div className={styles['header-role-children']}>{getChildren}</div>
               </ScrollFade>
             </div>
           </Collapse>

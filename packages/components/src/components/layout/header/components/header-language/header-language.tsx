@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { useLayout } from '../../../../../helpers/hooks/use-layout';
 import { useLabels } from '../../../../../providers/label-provider';
 import Button, { ButtonProps } from '../../../../button/button';
@@ -12,7 +14,8 @@ import HeaderModal from '../header-modal/header-modal';
 export interface Language {
   label: string;
   onClick: () => void;
-  isSelected: boolean;
+  isSelected?: boolean;
+  'aria-label'?: string;
 }
 
 export interface HeaderLanguageProps {
@@ -20,26 +23,40 @@ export interface HeaderLanguageProps {
    * Content of HeaderDropdown
    */
   languages?: Language[];
+  /**
+   * Close menu on language select
+   * @default true
+   */
+  closeOnSelect?: boolean;
 }
 
 export const HeaderLanguage = (props: HeaderLanguageProps) => {
-  const { languages } = props;
+  const { languages, closeOnSelect = true } = props;
   const isDesktopTablet = useLayout(['desktop', 'tablet']);
   const { getLabel } = useLabels();
+  const [isOpen, setIsOpen] = React.useState(false);
 
   const selectedLanguage = languages?.find((language) => language.isSelected);
 
   const triggerProps: ButtonProps = {
     children: selectedLanguage?.label,
+    'aria-label': `${getLabel('header.select-lang')} ${selectedLanguage?.['aria-label'] ?? selectedLanguage?.label}`,
     visualType: isDesktopTablet ? 'link' : 'tertiary',
     iconRight: isDesktopTablet ? { name: 'expand_more', color: 'primary', size: 24 } : undefined,
   };
 
-  const getLanguageButton = ({ isSelected, onClick, label }: Language, isDropdown = true) => (
+  const handleClick = (externalOnClick?: () => void) => {
+    externalOnClick?.();
+
+    closeOnSelect && setIsOpen(false);
+  };
+
+  const getLanguageButton = ({ isSelected, onClick, label, 'aria-label': ariaLabel }: Language, isDropdown = true) => (
     <Button
       visualType={isDropdown ? 'link' : isSelected ? 'primary' : 'tertiary'}
       aria-current={isSelected}
-      onClick={onClick}
+      aria-label={ariaLabel}
+      onClick={() => handleClick(onClick)}
     >
       {label}
     </Button>
@@ -50,7 +67,13 @@ export const HeaderLanguage = (props: HeaderLanguageProps) => {
       <Text color="muted" modifiers="small">
         {getLabel('header.select-lang')}
       </Text>
-      <HeaderDropdown shouldAnimate={true} tooltipProps={{ cardProps: { padding: 1 } }} triggerProps={triggerProps}>
+      <HeaderDropdown
+        shouldAnimate={true}
+        open={isOpen}
+        onToggle={setIsOpen}
+        tooltipProps={{ cardProps: { padding: 1 } }}
+        triggerProps={triggerProps}
+      >
         <List verticalSpacing={{ size: 0.75 }} element="ul">
           {languages?.map((language) => <ListItem key={language.label}>{getLanguageButton(language)}</ListItem>) || []}
         </List>
@@ -59,7 +82,12 @@ export const HeaderLanguage = (props: HeaderLanguageProps) => {
   );
 
   const modal = (
-    <HeaderModal ariaLabelledby="header-language-modal-label" triggerProps={triggerProps}>
+    <HeaderModal
+      ariaLabelledby="header-language-modal-label"
+      open={isOpen}
+      onToggle={setIsOpen}
+      triggerProps={triggerProps}
+    >
       <Card borderless={true}>
         <CardContent>
           <Heading id="header-language-modal-label" className="sr-only">

@@ -16,31 +16,36 @@ const meta: Meta<typeof HeaderSettings> = {
 export default meta;
 type Story = StoryObj<typeof HeaderSettings>;
 
-const DefaultContent = () => {
+const DefaultContent = ({ onToggle }: { onToggle?: (open: boolean) => void }) => {
   const isMobile = useLayout(['mobile']);
+  const renderAnchor = (label: string) => (
+    <Anchor href="#" onClick={() => onToggle?.(false)}>
+      {label}
+    </Anchor>
+  );
 
   return (
     <VerticalSpacing>
       {isMobile && (
         <>
-          <Anchor href="#">Custom Content</Anchor>
+          {renderAnchor('Custom Content')}
           <Separator fullWidth />
         </>
       )}
-      <Anchor href="#">Minu andmed</Anchor>
+      {renderAnchor('Minu andmed')}
       <Separator fullWidth />
-      <Anchor href="#">Ligipääs andmetele</Anchor>
+      {renderAnchor('Ligipääs andmetele')}
       <Separator fullWidth />
-      <Anchor href="#">Tahteavaldused</Anchor>
+      {renderAnchor('Tahteavaldused')}
       <Separator fullWidth />
-      <Anchor href="#">Volitatud isikud</Anchor>
+      {renderAnchor('Volitatud isikud')}
       <Separator fullWidth />
-      <Anchor href="#">Kontaktisikud</Anchor>
+      {renderAnchor('Kontaktisikud')}
     </VerticalSpacing>
   );
 };
 
-const ModalContent = () => (
+const ModalContent = ({ onToggle }: { onToggle?: (open: boolean) => void }) => (
   <>
     <HeaderRole
       {...(HeaderRoleDefault.args as HeaderRoleProps)}
@@ -49,21 +54,21 @@ const ModalContent = () => (
     />
     <Card border="top-info-main">
       <CardContent>
-        <DefaultContent />
+        <DefaultContent onToggle={onToggle} />
       </CardContent>
     </Card>
   </>
 );
 
-const Content = () => {
+const Content = ({ onToggle }: { onToggle?: (open: boolean) => void }) => {
   const isMobileTablet = useLayout(['mobile', 'tablet']);
 
-  return isMobileTablet ? <ModalContent /> : <DefaultContent />;
+  return isMobileTablet ? <ModalContent onToggle={onToggle} /> : <DefaultContent onToggle={onToggle} />;
 };
 
 export const Default: Story = {
   args: {
-    children: <Content />,
+    children: ({ onToggle }) => <Content onToggle={onToggle} />,
     onActionClick: () => console.log('Logout'),
   },
 };

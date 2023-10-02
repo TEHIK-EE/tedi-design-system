@@ -20,6 +20,21 @@ export interface CollapseProps {
    */
   children: React.ReactNode;
   /**
+   * Should Collapse be initially shown. Won't work with open and onToggle.
+   * @default false
+   */
+  defaultOpen?: boolean;
+  /**
+   * Should the Collapsed be open or closed.
+   * Use to handle state outside of component, should use with onToggle prop.
+   */
+  open?: boolean;
+  /**
+   * Callback when Collapsed is toggled.
+   * Use to handle state outside of component, should use with open prop.
+   */
+  onToggle?: (open: boolean) => void;
+  /**
    * Any content to be rendered as the title of the Collapse.
    */
   title?: JSX.Element;
@@ -59,14 +74,20 @@ export const Collapse = (props: CollapseProps): JSX.Element => {
     hideCollapseText = false,
     title,
     titleRowProps,
+    defaultOpen,
+    open,
+    onToggle,
     ...rest
   } = props;
-  const [isOpenState, setIsOpen] = React.useState(false);
+  const [isOpenState, setIsOpen] = React.useState(defaultOpen);
   const isPrint = usePrint();
-  const isOpen = isOpenState || isPrint;
+  const isOpen = isPrint || (open !== undefined ? open : isOpenState);
   const BEM = cn(styles['collapse'], className, { [styles['collapse--is-open']]: isOpen });
 
-  const onClick = () => setIsOpen((prev) => !prev);
+  const onClick = () => {
+    setIsOpen((prev) => !prev);
+    onToggle?.(!isOpen);
+  };
 
   const onKeyDown = (e: React.KeyboardEvent<HTMLButtonElement>) => {
     if ((e.code === 'Enter' || e.code === 'Space') && !e.repeat) {
@@ -79,6 +100,7 @@ export const Collapse = (props: CollapseProps): JSX.Element => {
     <div data-name="collapse" {...rest} className={BEM}>
       <button
         type="button"
+        data-name="collapse-trigger"
         className={styles['collapse__title']}
         aria-expanded={isOpen}
         aria-controls={id}
