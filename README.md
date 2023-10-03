@@ -36,7 +36,7 @@ TODO:
 
 - debugging
   - `npm run build`
-  - `cd dist/packages/components && npm link`
+  - `cd dist && npm link`
   - In target project:
     - `npm link @tehik/react-components --save`
 

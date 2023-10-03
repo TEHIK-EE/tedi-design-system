@@ -13,7 +13,7 @@ import HeaderModal from '../header-modal/header-modal';
 
 export interface Language {
   label: string;
-  onClick: () => void;
+  onClick: (props: { onToggle: (open: boolean) => void }) => void;
   isSelected?: boolean;
   'aria-label'?: string;
 }
@@ -23,15 +23,10 @@ export interface HeaderLanguageProps {
    * Content of HeaderDropdown
    */
   languages?: Language[];
-  /**
-   * Close menu on language select
-   * @default true
-   */
-  closeOnSelect?: boolean;
 }
 
 export const HeaderLanguage: React.FC<HeaderLanguageProps> = (props) => {
-  const { languages, closeOnSelect = true } = props;
+  const { languages } = props;
   const isDesktopTablet = useLayout(['desktop', 'tablet']);
   const { getLabel } = useLabels();
   const [isOpen, setIsOpen] = React.useState(false);
@@ -45,10 +40,8 @@ export const HeaderLanguage: React.FC<HeaderLanguageProps> = (props) => {
     iconRight: isDesktopTablet ? { name: 'expand_more', color: 'primary', size: 24 } : undefined,
   };
 
-  const handleClick = (externalOnClick?: () => void) => {
-    externalOnClick?.();
-
-    closeOnSelect && setIsOpen(false);
+  const handleClick = (externalOnClick?: (props: { onToggle: (open: boolean) => void }) => void) => {
+    externalOnClick?.({ onToggle: setIsOpen });
   };
 
   const getLanguageButton = ({ isSelected, onClick, label, 'aria-label': ariaLabel }: Language, isDropdown = true) => (
