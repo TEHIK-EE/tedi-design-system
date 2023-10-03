@@ -1,3 +1,10 @@
+## [5.17.2](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.17.1...v5.17.2) (2023-10-03)
+
+
+### Bug Fixes
+
+* **header:** fix header adding duplicated childrens and not rendering anchor - TEHVEER-202 ([ee4a17d](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/ee4a17d20d5987781fc7f6611e456ef7ebc38810))
+
 ## [5.17.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.17.0...v5.17.1) (2023-10-02)
 
 
