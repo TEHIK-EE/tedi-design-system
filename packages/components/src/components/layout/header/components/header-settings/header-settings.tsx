@@ -34,7 +34,7 @@ export interface HeaderSettingsProps {
   closeOnAction?: boolean;
 }
 
-export const HeaderSettings = (props: HeaderSettingsProps) => {
+export const HeaderSettings: React.FC<HeaderSettingsProps> = (props) => {
   const { children, onActionClick, closeOnAction = true, iconName } = props;
   const [isOpen, setIsOpen] = React.useState(false);
   const isDesktop = useLayout(['desktop']);
@@ -122,5 +122,7 @@ export const HeaderSettings = (props: HeaderSettingsProps) => {
 
   return isDesktop ? dropdown : modal;
 };
+
+HeaderSettings.displayName = 'HeaderSettings';
 
 export default HeaderSettings;

@@ -3,6 +3,7 @@ import React from 'react';
 
 import { Layouts, useLayout } from '../../../../helpers';
 import Affix from '../../../affix/affix';
+import Anchor from '../../../anchor/anchor';
 import { Col, Row } from '../../../grid';
 import Print from '../../../print/print';
 import { LayoutContext } from '../../layout-context';
@@ -68,12 +69,17 @@ export const Header = <H extends React.ElementType = 'a'>(props: HeaderProps<H>)
   const { shouldBreakToBottomContent, shouldBreakToHeader } = useSidenavRendered(headerType, sideNavProps);
 
   // Different Header area accepted components and their order
-  const SettingsAreaComponentOrder = ['Anchor', HeaderRole.name, HeaderLanguage.name, HeaderSettings.name];
-  const SettingsAreaMinimalComponentOrder = [HeaderLanguage.name, HeaderSettings.name];
-  const ContentAreaComponentOrder = [HeaderContent.name];
+  const SettingsAreaComponentOrder = [
+    (Anchor as React.FC).displayName,
+    HeaderRole.displayName,
+    HeaderLanguage.displayName,
+    HeaderSettings.displayName,
+  ];
+  const SettingsAreaMinimalComponentOrder = [HeaderLanguage.displayName, HeaderSettings.displayName];
+  const ContentAreaComponentOrder = [HeaderContent.displayName];
 
   const getComponentDisplayName = (element: React.ReactElement<unknown, any>) => {
-    return typeof element.type === 'function' ? element.type.name : element.type.displayName;
+    return element.type.displayName;
   };
 
   const getSettingsAreaComponents = (children: React.ReactNode[] | React.ReactNode): React.ReactNode[] => {

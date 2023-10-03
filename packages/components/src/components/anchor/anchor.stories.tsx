@@ -10,15 +10,6 @@ import { Anchor, AnchorProps } from './anchor';
 export default {
   component: Anchor,
   title: 'components/Anchor',
-
-  parameters: {
-    docs: {
-      description: {
-        component:
-          'Anchor component that should be always used when href is passed and a element should be rendered. If u need to use visually button, but still redirect as link use `visualType` prop. <br/> __NB! U can not use disabled button visuals with anchor.__',
-      },
-    },
-  },
 } as Meta<AnchorProps>;
 
 const Template: StoryFn<AnchorProps> = (args) => {

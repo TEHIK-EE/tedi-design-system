@@ -25,8 +25,20 @@ And can be aligned every way Grid supports it (left, right, center, space-betwee
 ### Settings
 
 Inside Settings area predefined functionality is rendered. It can be used to render HeaderLanguage, HeaderSettings, RoleSelection & Custom Anchors. <br />
-**Note:** Pass those components directly as Header children to render them inside Settings area. They will be reordered to certain order. <br />
-**Note-2:** In mobile breakpoints only HeaderLanguage and HeaderSettings are rendered. Other components should be rendered inside HeaderSettings dropdown/modal. <br />
+**Note:** When custom Anchor component wrapper is used inside application, then there should be displayName set to tehik-components Anchor displayName to use it as direct children of Header. <br />
+
+```tsx
+import { Anchor } from '@tehik/react-components';
+
+const AppAnchor = (props) => {
+  ...
+};
+
+AppAnchor.displayName = Anchor.displayName
+```
+
+**Note-2:** Pass those components directly as Header children to render them inside Settings area. They will be reordered to certain order. <br />
+**Note-3:** In mobile breakpoints only HeaderLanguage and HeaderSettings are rendered. Other components should be rendered inside HeaderSettings dropdown/modal. <br />
 **In-future**: We are planning to add more predefined components to Settings area. (notifications etc.) <br />
 
 ## Main components of header

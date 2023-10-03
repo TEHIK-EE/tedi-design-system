@@ -5,6 +5,8 @@ export interface HeaderContentProps {
   children?: React.ReactNode;
 }
 
-export const HeaderContent = ({ children }: HeaderContentProps) => <>{children}</>;
+export const HeaderContent: React.FC<HeaderContentProps> = ({ children }) => <>{children}</>;
+
+HeaderContent.displayName = 'HeaderContent';
 
 export default HeaderContent;
