@@ -34,7 +34,7 @@ export interface HeaderRoleProps {
   renderModal?: boolean;
 }
 
-export const HeaderRole = (props: HeaderRoleProps) => {
+export const HeaderRole: React.FC<HeaderRoleProps> = (props) => {
   const { renderModal = false, ...rest } = props;
   const [isOpen, setIsOpen] = React.useState(false);
 
@@ -44,6 +44,8 @@ export const HeaderRole = (props: HeaderRoleProps) => {
     <HeaderRoleDropdown {...rest} open={isOpen} onToggle={setIsOpen} />
   );
 };
+
+HeaderRole.displayName = 'HeaderRole';
 
 type HeaderRoleComponentProps = Omit<HeaderRoleProps, 'renderModal'> & {
   /**

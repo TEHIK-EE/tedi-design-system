@@ -30,7 +30,7 @@ export interface HeaderLanguageProps {
   closeOnSelect?: boolean;
 }
 
-export const HeaderLanguage = (props: HeaderLanguageProps) => {
+export const HeaderLanguage: React.FC<HeaderLanguageProps> = (props) => {
   const { languages, closeOnSelect = true } = props;
   const isDesktopTablet = useLayout(['desktop', 'tablet']);
   const { getLabel } = useLabels();
@@ -107,5 +107,7 @@ export const HeaderLanguage = (props: HeaderLanguageProps) => {
 
   return isDesktopTablet ? dropdown : modal;
 };
+
+HeaderLanguage.displayName = 'HeaderLanguage';
 
 export default HeaderLanguage;
