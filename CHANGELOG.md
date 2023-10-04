@@ -1,3 +1,10 @@
+## [5.17.3](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.17.2...v5.17.3) (2023-10-04)
+
+
+### Bug Fixes
+
+* **header:** TEHVEER-204 - Use callback for language change instead of built-in menu close ([397d93a](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/397d93a5117c809e4c959fb686a4f4c19f129f63))
+
 ## [5.17.2](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.17.1...v5.17.2) (2023-10-03)
 
 
