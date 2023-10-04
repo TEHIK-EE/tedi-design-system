@@ -171,7 +171,8 @@ export interface SelectProps extends FormLabelProps {
   closeMenuOnSelect?: boolean;
   /**
    * Blur input on select. Useful for closing the keyboard on touch devices.
-   * @default true for single select on mobile device
+   * (**NB!** Will move the focus back to the beginning of the page)
+   * @default false
    */
   blurInputOnSelect?: boolean;
   /**
@@ -273,7 +274,7 @@ export const Select = forwardRef<any, SelectProps>((props, ref): JSX.Element => 
     loadingMessage,
     multiple = false,
     closeMenuOnSelect = !multiple,
-    blurInputOnSelect = isSmallLayout && !multiple,
+    blurInputOnSelect = false,
     autoFocus = false,
     isClearable = true,
     isClearIndicatorVisible = false,
