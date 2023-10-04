@@ -1,3 +1,10 @@
+## [5.17.4](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.17.3...v5.17.4) (2023-10-04)
+
+
+### Bug Fixes
+
+* **select:** TEHVEER-205 - Prevent select input blur to have correct accessibility on mobile ([175311c](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/175311c036beb5d734ead2f4e33374770d0071bc))
+
 ## [5.17.3](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.17.2...v5.17.3) (2023-10-04)
 
 
