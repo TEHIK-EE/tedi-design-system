@@ -18,7 +18,6 @@ import ReactSelect, {
 import AsyncSelect from 'react-select/async';
 import { MenuPortalProps } from 'react-select/dist/declarations/src/components/Menu';
 
-import { useLayout } from '../../../helpers';
 import { Icon } from '../../icon/icon';
 import Tag from '../../tag/tag';
 import Check from '../check/check';
@@ -242,7 +241,6 @@ export type TSelectValue<CustomData = unknown> =
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const Select = forwardRef<any, SelectProps>((props, ref): JSX.Element => {
-  const isSmallLayout = useLayout(['mobile', 'tablet']);
   const {
     options,
     defaultOptions,
