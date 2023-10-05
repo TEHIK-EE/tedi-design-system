@@ -1,3 +1,10 @@
+## [5.18.2](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.18.1...v5.18.2) (2023-10-05)
+
+
+### Bug Fixes
+
+* Create a new release since 5.18.1 did not publish ([9a091bb](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/9a091bbd84568f82dc86dd797b9d71103162c7f1))
+
 ## [5.18.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.18.0...v5.18.1) (2023-10-05)
 
 
