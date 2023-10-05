@@ -1,3 +1,10 @@
+## [5.18.3](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.18.2...v5.18.3) (2023-10-05)
+
+
+### Bug Fixes
+
+* **tabs:** TEHVEER-207 - preventDefault was too generic ([b95fe88](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/b95fe88c3e53f34f00b5b42743589eaf994117eb))
+
 ## [5.18.2](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.18.1...v5.18.2) (2023-10-05)
 
 
