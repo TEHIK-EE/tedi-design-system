@@ -1,7 +1,13 @@
+import cn from 'classnames';
+
 import styles from './tabs-nav.module.scss';
 import TabsNavItem, { TabsNavItemProps } from './tabs-nav-item';
 
 export interface TabsNavProps {
+  /**
+   * Additional classes.
+   */
+  className?: string;
   /**
    * See @tabs-nav-item.
    */
@@ -13,10 +19,12 @@ export interface TabsNavProps {
 }
 
 export const TabsNav = (props: TabsNavProps): JSX.Element => {
-  const { items } = props;
+  const { items, className, 'aria-labelledby': ariaLabelledBy } = props;
+
+  const BEM = cn(styles['tabs__nav'], className);
 
   return (
-    <ul data-name="tabs-nav" className={styles['tabs__nav']} role="tablist" aria-labelledby={props['aria-labelledby']}>
+    <ul data-name="tabs-nav" className={BEM} role="tablist" aria-labelledby={ariaLabelledBy}>
       {items.map((item, index) => (
         <TabsNavItem {...item} key={index} />
       ))}
