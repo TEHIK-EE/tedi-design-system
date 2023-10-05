@@ -1,3 +1,16 @@
+# [5.18.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.17.4...v5.18.0) (2023-10-05)
+
+
+### Bug Fixes
+
+* **header:** Separator vertical alignment on mobile ([e00f0b3](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/e00f0b3a2f1db3af4c73dd202f1b4534cda58c22))
+* **tabs:** Improve tabs accessibility by providing navigation with arrows ([a68230a](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/a68230af54b704761c146360c670d0ecd283055a))
+
+
+### Features
+
+* **toggle:** Add visual label and extracontent - TEHVEER-203 ([dc7e57f](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/dc7e57fcbff6ab60d1a306739e56913a99c51c14))
+
 ## [5.17.4](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.17.3...v5.17.4) (2023-10-04)
 
 
