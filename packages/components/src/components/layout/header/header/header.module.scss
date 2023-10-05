@@ -49,11 +49,12 @@ $header-min-height: 3.5rem;
 
 .header__content-item:not(:first-of-type)::before {
   position: absolute;
-  top: 0;
-  height: $header-min-height;
+  top: 50%;
+  min-height: $header-min-height;
   margin-left: -0.75rem;
   content: '';
   border-left: 1px solid var(--color-border-default);
+  translate: 0 -50%;
 
   @include breakpoints.media-breakpoint-up(lg) {
     height: 100%;
