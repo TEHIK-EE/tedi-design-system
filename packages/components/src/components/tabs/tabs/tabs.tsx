@@ -65,10 +65,9 @@ export const Tabs = (props: TabsProps): JSX.Element => {
     const currentIndex = activeItemIndex !== -1 ? activeItemIndex : 0;
     let newIndex = -1;
 
-    e.preventDefault();
-
     switch (e.key) {
       case ' ':
+        e.preventDefault();
         setCurrentTab(e.currentTarget?.id);
         break;
       case 'ArrowLeft':
@@ -94,6 +93,7 @@ export const Tabs = (props: TabsProps): JSX.Element => {
     }
 
     if (newIndex !== -1) {
+      e.preventDefault();
       document.getElementById(navItems[newIndex].id)?.focus();
     }
   };
