@@ -65,6 +65,8 @@ export const Tabs = (props: TabsProps): JSX.Element => {
     const currentIndex = activeItemIndex !== -1 ? activeItemIndex : 0;
     let newIndex = -1;
 
+    e.preventDefault();
+
     switch (e.key) {
       case ' ':
         setCurrentTab(e.currentTarget?.id);
