@@ -1,6 +1,7 @@
 import cn from 'classnames';
 import React from 'react';
 
+import Button, { ButtonProps } from '../../button/button';
 import Icon from '../../icon/icon';
 import styles from './toggle.module.scss';
 
@@ -9,6 +10,17 @@ export interface ToggleProps {
    * Aria Label
    * */
   ariaLabel: string;
+  /**
+   * Label text rendered next to toggle
+   * ariaLabel should still be provided, because it is used for the screen readers.
+   * Label is used for the visual label and hidden for screen-readers
+   * Click on the label triggers the toggle
+   */
+  label?: React.ReactNode;
+  /**
+   * Possibility to add extra content after label. ExtraContent is not clickable like label
+   */
+  extraContent?: React.ReactNode;
   /*
    * Wrapper Classname
    * */
@@ -62,7 +74,9 @@ export const Toggle = (props: ToggleProps): JSX.Element => {
     color = 'default',
     type,
     icon,
-    disabled,
+    disabled = false,
+    extraContent,
+    label,
   } = props;
   const [innerChecked, setInnerChecked] = React.useState<boolean>(defaultChecked || false);
 
@@ -91,20 +105,29 @@ export const Toggle = (props: ToggleProps): JSX.Element => {
     onChange?.(newChecked);
   };
 
+  const buttonProps: Partial<ButtonProps> = {
+    noStyle: true,
+    type: 'button',
+    'aria-label': ariaLabel,
+    'aria-pressed': getChecked,
+    onClick: handleChange,
+    disabled: disabled,
+  };
+
   return (
-    <button
-      data-name="toggle"
-      className={ToggleBEM}
-      aria-label={ariaLabel}
-      type="button"
-      aria-pressed={getChecked}
-      onClick={handleChange}
-      disabled={disabled}
-    >
-      <span className={styles['toggle__dot']}>
-        {icon && <Icon className={styles['toggle__icon']} name={getChecked ? 'lock_open' : 'lock'} size={16} />}
-      </span>
-    </button>
+    <div className={styles['toggle-wrapper']}>
+      <Button {...buttonProps} data-name="toggle" className={ToggleBEM}>
+        <span className={styles['toggle__dot']}>
+          {icon && <Icon className={styles['toggle__icon']} name={getChecked ? 'lock_open' : 'lock'} size={16} />}
+        </span>
+      </Button>
+      {label && (
+        <Button {...buttonProps} className={styles['toggle__label']} aria-hidden={true} tabIndex={-1}>
+          {label}
+        </Button>
+      )}
+      {extraContent && <div className={styles['toggle__extra-content']}>{extraContent}</div>}
+    </div>
   );
 };
 

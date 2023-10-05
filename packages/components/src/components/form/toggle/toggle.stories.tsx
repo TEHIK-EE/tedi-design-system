@@ -60,6 +60,8 @@ const Template: StoryFn<ToggleProps> = (args) => (
   </Row>
 );
 
+const TemplateSingle: StoryFn<ToggleProps> = (args) => <Toggle {...args} />;
+
 export const Default: Story = {
   render: Template,
 
@@ -74,6 +76,19 @@ export const Alternitive: Story = {
   args: {
     ...Default.args,
     color: 'alternative',
+  },
+};
+
+export const WithLabel: Story = {
+  render: TemplateSingle,
+  args: {
+    label: <Text>Laps on hädaohus</Text>,
+
+    extraContent: (
+      <Text color="muted">
+        Lapse elu või tervis on pöördumise hetkel ohus või kes oma käitumisega paneb ennast või teisi ohtu.
+      </Text>
+    ),
   },
 };
 

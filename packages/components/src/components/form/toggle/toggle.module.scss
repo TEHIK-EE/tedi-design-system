@@ -147,7 +147,15 @@ $toggle-transition-timing-function: ease-out;
   }
 }
 
-.toggle {
+.toggle-wrapper {
+  display: grid;
+  grid-template-columns: min-content;
+  gap: 0 1rem;
+  align-items: center;
+  justify-items: start;
+}
+
+button.toggle {
   @include mixins.button-reset;
 
   position: relative;
@@ -204,4 +212,14 @@ $toggle-transition-timing-function: ease-out;
 
 .toggle__icon {
   transition: color, $toggle-transition-duration, $toggle-transition-timing-function;
+}
+
+.toggle__label {
+  grid-row: 1;
+  grid-column: 2;
+}
+
+.toggle__extra-content {
+  grid-row: 2;
+  grid-column: 2;
 }
