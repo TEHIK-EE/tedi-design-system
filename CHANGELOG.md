@@ -1,3 +1,10 @@
+## [5.18.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.18.0...v5.18.1) (2023-10-05)
+
+
+### Bug Fixes
+
+* **tabs:** TEHVEER-207 - Prevent default for tabs keyboard navigation ([5c510fe](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/5c510fedac582e8850c853bd02d075007d7a9cd0))
+
 # [5.18.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.17.4...v5.18.0) (2023-10-05)
 
 
