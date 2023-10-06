@@ -306,6 +306,13 @@ export const labelsMap = {
         ? 'Отменить сортировку'
         : 'Сортировать по возрастанию',
   }),
+  'tooltip.icon-trigger': validateLabel({
+    description: 'Label we use for icons that are tooltip triggers',
+    components: ['TooltipTrigger'],
+    et: 'Kuva tööriistavihje',
+    en: 'Show tooltip',
+    ru: 'Показать подсказку',
+  }),
   'pagination.title': validateLabel({
     description: 'Label of the pagination',
     components: ['Table', 'Pagination'],

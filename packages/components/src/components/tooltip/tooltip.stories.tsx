@@ -70,6 +70,14 @@ export const OuterControlled: Story = {
   },
 };
 
+export const TriggerIcon: Story = {
+  render: Template,
+
+  args: {
+    trigger: <Icon name="info" display="inline" />,
+  },
+};
+
 export const TriggerButton: Story = {
   render: Template,
 
