@@ -60,8 +60,6 @@ const Template: StoryFn<ToggleProps> = (args) => (
   </Row>
 );
 
-const TemplateSingle: StoryFn<ToggleProps> = (args) => <Toggle {...args} />;
-
 export const Default: Story = {
   render: Template,
 
@@ -80,7 +78,6 @@ export const Alternitive: Story = {
 };
 
 export const WithLabel: Story = {
-  render: TemplateSingle,
   args: {
     label: <Text>Laps on hädaohus</Text>,
 
