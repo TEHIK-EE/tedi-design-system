@@ -1,3 +1,10 @@
+## [5.18.4](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.18.3...v5.18.4) (2023-10-06)
+
+
+### Bug Fixes
+
+* **tooltip:** TEHVEER-208 - Have an accessibility label for icon as tooltip trigger ([f7006ae](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/f7006ae3a5363675c90d8a3dc870c3e1fd8c9101))
+
 ## [5.18.3](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.18.2...v5.18.3) (2023-10-05)
 
 
