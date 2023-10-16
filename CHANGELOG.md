@@ -1,3 +1,10 @@
+# [5.19.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.18.4...v5.19.0) (2023-10-16)
+
+
+### Features
+
+* **tooltip:** TEHVEER-210 - Tooltip should always have click interaction ([96754e7](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/96754e7d41efba85d154bfad05db6bb6787eac0e))
+
 ## [5.18.4](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.18.3...v5.18.4) (2023-10-06)
 
 
