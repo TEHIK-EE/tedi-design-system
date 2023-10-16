@@ -167,9 +167,7 @@ export const TooltipProvider = (props: TooltipProviderProps): JSX.Element => {
       handleClose: safePolygon(),
       enabled: openWith === 'hover',
     }),
-    useClick(context, {
-      enabled: openWith === 'click',
-    }),
+    useClick(context),
     useFocus(context, {
       enabled: openWith === 'hover',
     }),
