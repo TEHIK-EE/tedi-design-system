@@ -1,3 +1,10 @@
+## [5.19.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.19.0...v5.19.1) (2023-10-17)
+
+
+### Bug Fixes
+
+* **select:** TEHVEER-212 - Select options are now selectable with double tab on touch screenreaders ([d8f785f](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/d8f785f4ead29d4b964643f2fb230a3f27b2f70a))
+
 # [5.19.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.18.4...v5.19.0) (2023-10-16)
 
 
