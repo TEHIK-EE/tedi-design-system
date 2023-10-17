@@ -150,7 +150,7 @@ export interface SelectProps extends FormLabelProps {
    */
   renderMessageListFooter?: (props: MenuListProps<ISelectOption, boolean>) => JSX.Element;
   /**
-   * If multiple option can be selected. When true, then closeMenuOnSelect and blurInputOnSelect are set to false by default.
+   * If multiple option can be selected. When true, then closeMenuOnSelect is set to false by default.
    */
   multiple?: boolean;
   /**
@@ -158,6 +158,11 @@ export interface SelectProps extends FormLabelProps {
    * @default false
    */
   openMenuOnFocus?: boolean;
+  /**
+   * If menu should open when control is clicked.
+   * @default true
+   */
+  openMenuOnClick?: boolean;
   /**
    * If pressing tab inside menu should select currently focused option.
    * @default false
@@ -257,6 +262,7 @@ export const Select = forwardRef<any, SelectProps>((props, ref): JSX.Element => 
     inputValue,
     loadOptions,
     openMenuOnFocus = false,
+    openMenuOnClick = true,
     tabSelectsValue = false,
     disabled = false,
     className,
@@ -285,9 +291,18 @@ export const Select = forwardRef<any, SelectProps>((props, ref): JSX.Element => 
     ...rest
   } = props;
   const helperId = helper ? helper?.id ?? `${id}-helper` : undefined;
+  const element = React.useRef<any>(null);
+
+  React.useImperativeHandle(ref, () => element.current);
 
   const onChangeHandler = (option: OnChangeValue<ISelectOption, boolean>) => {
     onChange?.(option);
+
+    // because on touch device screen-readers(Talkback and VoiceOver) we lose focus on the input when selecting an option
+    // we have to manually set it back to the input
+    if (!blurInputOnSelect && element.current) {
+      element.current.inputRef?.focus();
+    }
   };
 
   const getDropDownIndicator = (): JSX.Element => (
@@ -352,8 +367,14 @@ export const Select = forwardRef<any, SelectProps>((props, ref): JSX.Element => 
       { [styles['select__option--focused']]: props.isFocused }
     );
 
+    const { tabIndex, ...innerProps } = props.innerProps; // https://github.com/JedWatson/react-select/issues/5190#issuecomment-1634111332
+
     return (
-      <ReactSelectComponents.Option {...props} className={OptionBEM}>
+      <ReactSelectComponents.Option
+        {...props}
+        innerProps={{ ...innerProps, role: 'option', 'aria-selected': props.isSelected }}
+        className={OptionBEM}
+      >
         {renderOption ? renderOption(props) : props.children}
       </ReactSelectComponents.Option>
     );
@@ -403,7 +424,7 @@ export const Select = forwardRef<any, SelectProps>((props, ref): JSX.Element => 
         id={id}
         aria-describedby={helperId}
         autoFocus={autoFocus}
-        ref={ref}
+        ref={element}
         instanceId={id}
         className="select__wrapper"
         name={name}
@@ -426,6 +447,7 @@ export const Select = forwardRef<any, SelectProps>((props, ref): JSX.Element => 
         isSearchable={isSearchable}
         menuIsOpen={menuIsOpen}
         openMenuOnFocus={openMenuOnFocus}
+        openMenuOnClick={openMenuOnClick}
         tabSelectsValue={tabSelectsValue}
         onMenuClose={onMenuClose}
         onMenuOpen={onMenuOpen}
