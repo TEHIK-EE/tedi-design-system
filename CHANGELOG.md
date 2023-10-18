@@ -1,3 +1,10 @@
+## [5.19.2](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.19.1...v5.19.2) (2023-10-18)
+
+
+### Bug Fixes
+
+* **select:** TEHVEER-213 - Allow navigation between items in multi select ([53337d0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/53337d05976ce473bc6b6e0d179c11ff0364dcdb))
+
 ## [5.19.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.19.0...v5.19.1) (2023-10-17)
 
 
