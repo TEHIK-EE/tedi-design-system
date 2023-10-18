@@ -14,6 +14,7 @@ import ReactSelect, {
   OptionProps,
   PlaceholderProps,
   SelectComponentsConfig,
+  SelectInstance,
 } from 'react-select';
 import AsyncSelect from 'react-select/async';
 import { MenuPortalProps } from 'react-select/dist/declarations/src/components/Menu';
@@ -245,7 +246,7 @@ export type TSelectValue<CustomData = unknown> =
   | null;
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const Select = forwardRef<any, SelectProps>((props, ref): JSX.Element => {
+export const Select = forwardRef<SelectInstance<ISelectOption>, SelectProps>((props, ref): JSX.Element => {
   const {
     options,
     defaultOptions,
@@ -291,9 +292,9 @@ export const Select = forwardRef<any, SelectProps>((props, ref): JSX.Element => 
     ...rest
   } = props;
   const helperId = helper ? helper?.id ?? `${id}-helper` : undefined;
-  const element = React.useRef<any>(null);
+  const element = React.useRef<SelectInstance<ISelectOption> | null>(null);
 
-  React.useImperativeHandle(ref, () => element.current);
+  React.useImperativeHandle(ref, () => element.current as SelectInstance<ISelectOption>);
 
   const onChangeHandler = (option: OnChangeValue<ISelectOption, boolean>) => {
     onChange?.(option);
