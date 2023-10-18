@@ -99,3 +99,7 @@ div.select__multi-value-item {
     margin-bottom: 0.25rem;
   }
 }
+
+.select__checkbox {
+  pointer-events: none;
+}

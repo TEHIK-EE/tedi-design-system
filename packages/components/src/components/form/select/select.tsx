@@ -339,21 +339,32 @@ export const Select = forwardRef<any, SelectProps>((props, ref): JSX.Element => 
       { [styles['select__option--focused']]: props.isFocused }
     );
 
+    const { tabIndex, ...innerProps } = props.innerProps; // https://github.com/JedWatson/react-select/issues/5190#issuecomment-1634111332
+
     return (
-      <ReactSelectComponents.Option {...props} className={OptionBEM}>
+      <ReactSelectComponents.Option
+        {...props}
+        innerProps={{ ...innerProps, role: 'option', 'aria-selected': props.isSelected }}
+        className={OptionBEM}
+      >
         {renderOption ? (
           renderOption(props)
         ) : (
-          <Check
-            id={props.data.value}
-            label={props.label}
-            value={props.data.value}
-            name={props.data.value}
-            checked={props.isSelected}
-            onChange={(value, checked) => null}
-            disabled={props.isDisabled}
-            hover={props.isFocused}
-          />
+          <>
+            <span className="sr-only">{props.label}</span>
+            <Check
+              id={props.data.value}
+              label={props.label}
+              aria-hidden={true}
+              className={styles['select__checkbox']}
+              value={props.data.value}
+              name={props.data.value}
+              checked={props.isSelected}
+              onChange={(value, checked) => null}
+              disabled={props.isDisabled}
+              hover={props.isFocused}
+            />
+          </>
         )}
       </ReactSelectComponents.Option>
     );
