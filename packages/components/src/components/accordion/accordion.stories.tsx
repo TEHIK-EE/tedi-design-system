@@ -3,6 +3,7 @@ import React from 'react';
 
 import Button from '../button/button';
 import { Col, Row } from '../grid';
+import Heading from '../typography/heading/heading';
 import { VerticalSpacing } from '../vertical-spacing';
 import Accordion, { AccordionProps } from './accordion';
 import AccordionItem from './accordion-item/accordion-item';
@@ -110,6 +111,25 @@ const TemplateWithButton: StoryFn<typeof Accordion> = (args) => {
   );
 };
 
+const TemplateWithHeading: StoryFn<typeof Accordion> = (args) => {
+  return (
+    <VerticalSpacing size={1}>
+      <Accordion {...args}>
+        {accordionItems.map(({ id, header, content }: AccordionItemProp) => (
+          <AccordionItem key={id} id={id}>
+            <AccordionItemHeader openText="Avan" closeText="Sulgen">
+              <Heading element="h4" modifiers="h5" color="muted">
+                {header}
+              </Heading>
+            </AccordionItemHeader>
+            <AccordionItemContent>{content}</AccordionItemContent>
+          </AccordionItem>
+        ))}
+      </Accordion>
+    </VerticalSpacing>
+  );
+};
+
 export const Default: Story = {
   render: Template,
 };
@@ -137,4 +157,18 @@ export const PrimaryBorder: Story = {
 
 export const WithButtons: Story = {
   render: TemplateWithButton,
+};
+
+export const HeadingContent: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story: `Because \`AccordionItemHeader\` renders a button it is not a valid HTML to have a h1-h6 as its content.
+          The component automatically moves an immediate \`<Heading>\` and \`<Text element="h1-h6">\` outside and wraps the \`AccordionItemHeader\` with it.
+          When you have a more complex \`AccordionItemHeader\`, then you should not render a h1-h6 tag inside it.
+        `,
+      },
+    },
+  },
+  render: TemplateWithHeading,
 };
