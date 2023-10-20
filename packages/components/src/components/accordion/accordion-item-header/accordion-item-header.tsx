@@ -4,6 +4,8 @@ import React from 'react';
 import Col from '../../grid/col';
 import Row from '../../grid/row';
 import ToggleOpen from '../../toggle-open/toggle-open';
+import Heading, { HeadingProps } from '../../typography/heading/heading';
+import Text from '../../typography/text/text';
 import { AccordionContext } from '../accordion';
 import styles from '../accordion.module.scss';
 import { AccordionItemContext } from '../accordion-item/accordion-item';
@@ -51,7 +53,18 @@ export const AccordionItemHeader = (props: AccordionItemHeaderProps): JSX.Elemen
 
   const AccordionItemHeaderBEM = cn(styles['accordion__item-header'], className);
 
-  return (
+  // detect if the singular child is a heading element
+  const contentHeading =
+    React.Children.toArray(children)?.length === 1
+      ? (React.Children.toArray(children).find(
+          (child) =>
+            React.isValidElement(child) &&
+            (child.type === Heading ||
+              (child.type === Text && ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'].includes(child.props.element)))
+        ) as React.ReactElement<HeadingProps, string> | undefined)
+      : undefined;
+
+  const renderItem = (content: AccordionItemHeaderProps['children']) => (
     <div
       data-name="accordion-item-header"
       {...rest}
@@ -67,7 +80,7 @@ export const AccordionItemHeader = (props: AccordionItemHeaderProps): JSX.Elemen
     >
       {openText && closeText && !disabled ? (
         <Row justifyContent="between" alignItems="center">
-          <Col>{children}</Col>
+          <Col>{content}</Col>
           <Col width="auto">
             <ToggleOpen
               openText={openText}
@@ -80,10 +93,26 @@ export const AccordionItemHeader = (props: AccordionItemHeaderProps): JSX.Elemen
           </Col>
         </Row>
       ) : (
-        children
+        content
       )}
     </div>
   );
+
+  const renderHeadingItem = () => {
+    const { element, children, ...rest } = contentHeading?.props ?? {};
+
+    return (
+      <Heading element={element} modifiers="normal">
+        {renderItem(
+          <Text element="span" {...rest}>
+            {children}
+          </Text>
+        )}
+      </Heading>
+    );
+  };
+
+  return contentHeading ? renderHeadingItem() : renderItem(children);
 };
 
 export default AccordionItemHeader;
