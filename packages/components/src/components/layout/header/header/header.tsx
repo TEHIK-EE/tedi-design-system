@@ -65,7 +65,7 @@ export const Header = <H extends React.ElementType = 'a'>(props: HeaderProps<H>)
   } = props;
   const renderSystemCustomContent = useLayout(showSystemCustomContent);
   const renderMinimalSettingsArea = useLayout(minimalSettingsArea);
-  const { headerType, sideNavProps } = React.useContext(LayoutContext);
+  const { headerType, sideNavProps, headerElement } = React.useContext(LayoutContext);
   const { shouldBreakToBottomContent, shouldBreakToHeader } = useSidenavRendered(headerType, sideNavProps);
 
   // Different Header area accepted components and their order
@@ -132,7 +132,7 @@ export const Header = <H extends React.ElementType = 'a'>(props: HeaderProps<H>)
   return (
     <Print visibility="hide">
       {skipLinks && <SkipLinks {...skipLinks} />}
-      <header data-name="header" {...rest} className={BEM}>
+      <header data-name="header" {...rest} ref={headerElement} className={BEM}>
         <SidenavToggle />
         <Logo {...logo} />
         <div className={styles['header__content']}>

@@ -82,6 +82,7 @@ export const Layout = <
     headerType = 'system',
     ...rest
   } = props;
+  const headerElement = React.useRef<HTMLElement>(null);
   const [menuOpen, setMenuOpen] = React.useState(false);
   const { hasSidenav } = useSidenavRendered(headerType, sideNav);
   const { y, refs, context } = useFloating({
@@ -115,6 +116,7 @@ export const Layout = <
         getReferenceProps,
         getFloatingProps,
         sideNavProps: sideNav,
+        headerElement,
       }}
     >
       <AccessibilityProvider>
