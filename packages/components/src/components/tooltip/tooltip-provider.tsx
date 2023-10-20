@@ -5,6 +5,7 @@ import {
   FloatingContext,
   FloatingFocusManager,
   offset,
+  OffsetOptions,
   Placement,
   ReferenceType,
   safePolygon,
@@ -28,6 +29,7 @@ export type TooltipOpenWith = 'click' | 'hover';
 export const ARROW_HEIGHT = 7;
 export const ARROW_WIDTH = 14;
 export const GAP = 3;
+export const DEFAULT_TOOLTIP_OFFSET = GAP + ARROW_HEIGHT;
 
 export interface TooltipProviderProps {
   /**
@@ -68,6 +70,12 @@ export interface TooltipProviderProps {
    * @default tooltip
    */
   role?: UseRoleProps['role'];
+  /**
+   * Allows to overwrite offSet options.
+   * Used to align HeaderDropdown with bottom of the Header.
+   * @default GAP + ARROW_HEIGHT (3px + 7px)
+   */
+  offset?: OffsetOptions;
 }
 
 export interface ITooltipContext {
@@ -124,6 +132,7 @@ export const TooltipProvider = (props: TooltipProviderProps): JSX.Element => {
     open: openOuter,
     onToggle,
     role = 'tooltip',
+    offset: offsetOptions = DEFAULT_TOOLTIP_OFFSET,
   } = props;
   const {
     order = ['reference', 'content'],
@@ -151,7 +160,7 @@ export const TooltipProvider = (props: TooltipProviderProps): JSX.Element => {
     open: isOpen,
     onOpenChange,
     middleware: [
-      offset(GAP + ARROW_HEIGHT),
+      offset(offsetOptions),
       flip(),
       shift({ padding: 8 }),
       arrow({

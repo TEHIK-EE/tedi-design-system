@@ -2,7 +2,8 @@ import cn from 'classnames';
 import React from 'react';
 
 import Button, { ButtonProps } from '../../../../button/button';
-import { Tooltip, TooltipProps, TooltipProvider, TooltipTrigger } from '../../../../tooltip';
+import { DEFAULT_TOOLTIP_OFFSET, Tooltip, TooltipProps, TooltipProvider, TooltipTrigger } from '../../../../tooltip';
+import { LayoutContext } from '../../../layout-context';
 import styles from './header-dropdown.module.scss';
 
 export interface HeaderDropdownProps {
@@ -42,6 +43,19 @@ export interface HeaderDropdownProps {
 export const HeaderDropdown = (props: HeaderDropdownProps) => {
   const { children, triggerProps, defaultOpen, open, onToggle, shouldAnimate, tooltipProps } = props;
   const [internalOpen, setInternalOpen] = React.useState(defaultOpen);
+  const [offset, setOffset] = React.useState(DEFAULT_TOOLTIP_OFFSET);
+  const { headerElement } = React.useContext(LayoutContext);
+  const buttonElement = React.useRef<HTMLButtonElement>(null);
+
+  React.useEffect(() => {
+    if (headerElement?.current && buttonElement?.current) {
+      // Calculate offset to align HeaderDropdown with bottom of the Header
+      const headerRect = headerElement.current.getBoundingClientRect();
+      const buttonRect = buttonElement.current.getBoundingClientRect();
+      const offset = headerRect.bottom - buttonRect.bottom;
+      setOffset(offset);
+    }
+  }, [headerElement, buttonElement, children]);
 
   const isOpen = open !== undefined ? open : internalOpen;
 
@@ -51,10 +65,11 @@ export const HeaderDropdown = (props: HeaderDropdownProps) => {
   };
 
   return (
-    <TooltipProvider openWith="click" role="dialog" onToggle={handleToggle} open={isOpen}>
+    <TooltipProvider offset={offset} openWith="click" role="dialog" onToggle={handleToggle} open={isOpen}>
       <TooltipTrigger>
         <Button
           {...triggerProps}
+          ref={buttonElement}
           className={cn(styles['header__dropdown'], triggerProps.className, {
             [styles['header__dropdown--open']]: shouldAnimate && isOpen,
           })}

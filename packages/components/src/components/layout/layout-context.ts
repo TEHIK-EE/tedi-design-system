@@ -20,6 +20,10 @@ export interface ILayoutContext {
   context: FloatingContext<ReferenceType>;
   sideNavProps?: SideNavProps<any>;
   y: number | null;
+  /**
+   * reference to header element to position HeaderDropdown aligned with bottom of header.
+   */
+  headerElement: React.RefObject<HTMLElement> | null;
 }
 
 export const LayoutContext = React.createContext<ILayoutContext>({
@@ -32,4 +36,5 @@ export const LayoutContext = React.createContext<ILayoutContext>({
   getFloatingProps: () => ({}),
   context: {} as FloatingContext<ReferenceType>,
   y: null,
+  headerElement: null,
 });
