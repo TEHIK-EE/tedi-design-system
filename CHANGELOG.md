@@ -1,3 +1,10 @@
+# [5.21.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.20.0...v5.21.0) (2023-10-20)
+
+
+### Features
+
+* **header-dropdown:** Align HeaderDropdown with bottom of header - TEHVEER-215 ([32e5547](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/32e5547d88def0788d2c76ef6ed72b546dc5db27))
+
 # [5.20.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.19.2...v5.20.0) (2023-10-20)
 
 
