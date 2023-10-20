@@ -1,3 +1,10 @@
+# [5.20.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.19.2...v5.20.0) (2023-10-20)
+
+
+### Features
+
+* **accordion:** TEHVEER-214 - Extract Heading from AccordionItemHeader to have valid HTML ([3962950](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/3962950a2b0dd40dc4146a2d0ce1c085a096c242))
+
 ## [5.19.2](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.19.1...v5.19.2) (2023-10-18)
 
 
