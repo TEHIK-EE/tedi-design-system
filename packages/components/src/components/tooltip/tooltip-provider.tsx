@@ -22,7 +22,7 @@ import {
 import { UseRoleProps } from '@floating-ui/react/src/hooks/useRole';
 import React from 'react';
 
-import { useIsMounted } from '../../helpers';
+import { useIsMounted, useIsTouchDevice } from '../../helpers';
 import { useLabels } from '../../providers/label-provider';
 
 export type TooltipOpenWith = 'click' | 'hover';
@@ -124,10 +124,11 @@ export const TooltipContext = React.createContext<ITooltipContext>({
 
 export const TooltipProvider = (props: TooltipProviderProps): JSX.Element => {
   const { getLabel } = useLabels();
+  const isTouchDevice = useIsTouchDevice();
   const {
     children,
     placement: placementDefault = 'bottom',
-    openWith = 'hover',
+    openWith = isTouchDevice ? 'click' : 'hover',
     defaultOpen = false,
     open: openOuter,
     onToggle,
@@ -176,7 +177,9 @@ export const TooltipProvider = (props: TooltipProviderProps): JSX.Element => {
       handleClose: safePolygon(),
       enabled: openWith === 'hover',
     }),
-    useClick(context),
+    useClick(context, {
+      ignoreMouse: openWith === 'hover',
+    }),
     useFocus(context, {
       enabled: openWith === 'hover',
     }),
