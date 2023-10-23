@@ -13,7 +13,7 @@ export const HeaderNavigation = () => {
       <Row justifyContent="center" alignItems="center" gutterX={5}>
         {sideNavProps?.navItems?.map((anchor, index) => (
           <Col key={index} width="auto">
-            <Anchor color="text-color" {...anchor} icon={undefined}>
+            <Anchor color="text-color" as={sideNavProps.linkAs} {...anchor} icon={undefined}>
               {anchor.children}
             </Anchor>
           </Col>
