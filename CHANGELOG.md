@@ -1,3 +1,10 @@
+## [5.21.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.21.0...v5.21.1) (2023-10-23)
+
+
+### Bug Fixes
+
+* **header-navigation:** use linkAs prop from sidenavProps - TEHVEER-216 ([14af0e7](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/14af0e749fe473621b1657acb87dff30ba60cd31))
+
 # [5.21.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.20.0...v5.21.0) (2023-10-20)
 
 
