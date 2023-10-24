@@ -23,8 +23,8 @@ export const useIsTouchDevice = () => {
     if (window.matchMedia && window.matchMedia('(any-pointer:coarse)').matches) {
       // check for any-pointer:coarse which mostly means touchscreen
       result = true;
-    } else if (window.TouchEvent || 'ontouchstart' in window) {
-      // last resort - check for exposed touch events API / event handler
+    } else if ('ontouchstart' in window) {
+      // last resort - check for exposed event handler
       result = true;
     }
   }
