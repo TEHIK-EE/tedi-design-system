@@ -77,6 +77,7 @@ export const Toggle = React.forwardRef<HTMLButtonElement, ToggleProps>((props, r
     disabled = false,
     extraContent,
     label,
+    ...rest
   } = props;
   const [innerChecked, setInnerChecked] = React.useState<boolean>(defaultChecked || false);
 
@@ -105,18 +106,34 @@ export const Toggle = React.forwardRef<HTMLButtonElement, ToggleProps>((props, r
     onChange?.(newChecked);
   };
 
-  const buttonProps: Partial<ButtonProps> = {
+  const buttonProps: Partial<ButtonProps<'button'>> = {
     noStyle: true,
     type: 'button',
     'aria-label': ariaLabel,
     'aria-pressed': getChecked,
-    onClick: handleChange,
     disabled: disabled,
+    ...rest,
+    onClick: handleChange,
   };
 
   return (
     <div className={styles['toggle-wrapper']}>
-      <Button {...buttonProps} ref={ref} data-name="toggle" className={ToggleBEM}>
+      <Button
+        {...buttonProps}
+        onClick={(event) => {
+          /**
+           * Allows Toggle to use inside TooltipTrigger.
+           * TooltipTrigger uses onClick to open the tooltip when openWith="click"
+           * Can't be passed to label button, because tooltip closes due that cursor leaves the ref button
+           */
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          (rest as Record<string, any>)?.onClick?.(event);
+          handleChange();
+        }}
+        ref={ref}
+        data-name="toggle"
+        className={ToggleBEM}
+      >
         <span className={styles['toggle__dot']}>
           {icon && <Icon className={styles['toggle__icon']} name={getChecked ? 'lock_open' : 'lock'} size={16} />}
         </span>
