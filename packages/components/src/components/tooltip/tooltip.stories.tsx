@@ -99,7 +99,14 @@ export const TriggerToggle: Story = {
   render: Template,
 
   args: {
-    trigger: <Toggle ariaLabel="Some toggle" label="test" onChange={() => console.log('Olen siin')} checked={true} />,
+    trigger: (
+      <Toggle
+        ariaLabel="Some toggle"
+        label="test"
+        onChange={() => console.log('Toggle clicked - Action should be not made when Tooltip is shown on click')}
+        checked={true}
+      />
+    ),
     openWith: 'click',
   },
 };
