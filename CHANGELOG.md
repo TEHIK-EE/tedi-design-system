@@ -1,3 +1,10 @@
+## [5.22.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.22.0...v5.22.1) (2023-10-24)
+
+
+### Bug Fixes
+
+* **tooltip:** TEHVEER-217 - useIsTouchDevice will not return true for jest tests ([0e6e96c](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/0e6e96c08e7ae8296f3190c566294e0873576aa8))
+
 # [5.22.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.21.3...v5.22.0) (2023-10-24)
 
 
