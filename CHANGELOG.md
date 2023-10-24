@@ -1,3 +1,11 @@
+## [5.22.2](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.22.1...v5.22.2) (2023-10-24)
+
+
+### Bug Fixes
+
+* **toggle:** pass floating-ui onClick on Toggle button click - TEHVEER-196 ([b40cf22](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/b40cf22f35273895d6123beba48269017d7065c0))
+* **toggle:** pass floating-ui onClick on Toggle button click - TEHVEER-196 ([6c2d545](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/6c2d54575d5bd2908e334dcbe58105881dfb6632))
+
 ## [5.22.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.22.0...v5.22.1) (2023-10-24)
 
 
