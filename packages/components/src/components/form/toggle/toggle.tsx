@@ -63,7 +63,7 @@ export interface ToggleProps {
   disabled?: boolean;
 }
 
-export const Toggle = (props: ToggleProps): JSX.Element => {
+export const Toggle = React.forwardRef<HTMLButtonElement, ToggleProps>((props, ref) => {
   const {
     ariaLabel,
     className,
@@ -116,7 +116,7 @@ export const Toggle = (props: ToggleProps): JSX.Element => {
 
   return (
     <div className={styles['toggle-wrapper']}>
-      <Button {...buttonProps} data-name="toggle" className={ToggleBEM}>
+      <Button {...buttonProps} ref={ref} data-name="toggle" className={ToggleBEM}>
         <span className={styles['toggle__dot']}>
           {icon && <Icon className={styles['toggle__icon']} name={getChecked ? 'lock_open' : 'lock'} size={16} />}
         </span>
@@ -129,6 +129,8 @@ export const Toggle = (props: ToggleProps): JSX.Element => {
       {extraContent && <div className={styles['toggle__extra-content']}>{extraContent}</div>}
     </div>
   );
-};
+});
+
+Toggle.displayName = 'Toggle';
 
 export default Toggle;
