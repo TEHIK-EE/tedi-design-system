@@ -1,3 +1,10 @@
+## [5.21.2](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.21.1...v5.21.2) (2023-10-24)
+
+
+### Bug Fixes
+
+* **tooltip:** TEHVEER-217 - Use click tooltips on touch devices by default ([e9c9a31](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/e9c9a31746fa5b20e62dc9f5be70ad5965f7cfb6))
+
 ## [5.21.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.21.0...v5.21.1) (2023-10-23)
 
 
