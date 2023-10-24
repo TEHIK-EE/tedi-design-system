@@ -1,3 +1,17 @@
+# [5.22.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.21.3...v5.22.0) (2023-10-24)
+
+
+### Features
+
+* **toggle:** Add ref to toggle button - TEHVEER-196 ([70a08b6](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/70a08b62674abcd3b606f036747963df40375181))
+
+## [5.21.3](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.21.2...v5.21.3) (2023-10-24)
+
+
+### Bug Fixes
+
+* **tooltip:** TEHVEER-217 - Re-enable mouse click on tooltip on desktop ([6b4ed13](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/6b4ed13b4c451d2d35800f4991ba7ea6c6b213ae))
+
 ## [5.21.2](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.21.1...v5.21.2) (2023-10-24)
 
 
