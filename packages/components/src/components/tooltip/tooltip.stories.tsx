@@ -4,6 +4,7 @@ import React from 'react';
 import Anchor from '../anchor/anchor';
 import Button from '../button/button';
 import { Card, CardContent } from '../card';
+import Toggle from '../form/toggle/toggle';
 import { Col, Row } from '../grid';
 import Icon from '../icon/icon';
 import Heading from '../typography/heading/heading';
@@ -91,6 +92,22 @@ export const TriggerAnchor: Story = {
 
   args: {
     trigger: <Anchor onClick={() => console.log('onClick action triggered')}>Hover me</Anchor>,
+  },
+};
+
+export const TriggerToggle: Story = {
+  render: Template,
+
+  args: {
+    trigger: (
+      <Toggle
+        ariaLabel="Some toggle"
+        label="test"
+        onChange={() => console.log('Toggle clicked - Action should be not made when Tooltip is shown on click')}
+        checked={true}
+      />
+    ),
+    openWith: 'click',
   },
 };
 
