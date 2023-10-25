@@ -96,6 +96,8 @@ export const Collapse = (props: CollapseProps): JSX.Element => {
     }
   };
 
+  const renderContent = <div className={styles['collapse__content']}>{children}</div>;
+
   return (
     <div data-name="collapse" {...rest} className={BEM}>
       <button
@@ -131,10 +133,10 @@ export const Collapse = (props: CollapseProps): JSX.Element => {
         </Row>
       </button>
       {isPrint ? (
-        children
+        renderContent
       ) : (
         <AnimateHeight duration={300} id={id} height={isOpen ? 'auto' : 0} data-testid="collapse-inner">
-          {children}
+          {renderContent}
         </AnimateHeight>
       )}
     </div>

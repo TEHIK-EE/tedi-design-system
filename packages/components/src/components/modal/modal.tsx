@@ -78,7 +78,8 @@ export const Modal = (props: ModalProps): JSX.Element | null => {
   const { getLabel } = useLabels();
   const labelId = props['aria-labelledby'];
   const descriptionId = props['aria-describedby'];
-  const { isOpen, floating, getFloatingProps, context, isDismissable } = React.useContext(ModalContext);
+  const { isOpen, floating, getFloatingProps, context, internalReturnFocus, isDismissable } =
+    React.useContext(ModalContext);
 
   return (
     <FloatingPortal data-name="modal">
@@ -93,6 +94,7 @@ export const Modal = (props: ModalProps): JSX.Element | null => {
             context={context}
             closeOnFocusOut={!trapFocus && isDismissable}
             visuallyHiddenDismiss={visuallyHiddenDismiss ? getLabel('modal.close') : undefined}
+            returnFocus={internalReturnFocus}
             modal={trapFocus}
           >
             <div

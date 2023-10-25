@@ -2,7 +2,6 @@
 
 .collapse__title {
   width: 100%;
-  margin-bottom: 0.5rem;
   text-align: left;
   cursor: pointer;
 
@@ -16,4 +15,8 @@
   .collapse--is-open & {
     transform: rotate(180deg);
   }
+}
+
+.collapse__content {
+  margin-top: 0.5rem;
 }

@@ -47,6 +47,10 @@ export interface TextProps {
    */
   id?: string;
   /**
+   * Allows to focus the element
+   */
+  tabIndex?: number;
+  /**
    * Additional class.
    */
   className?: string;

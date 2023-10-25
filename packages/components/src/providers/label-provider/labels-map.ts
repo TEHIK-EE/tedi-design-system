@@ -363,6 +363,20 @@ export const labelsMap = {
     en: 'Table of contents',
     ru: 'Содержание',
   }),
+  'table-of-contents.valid': validateLabel({
+    description: 'Number of valid steps',
+    components: ['TableOfContents'],
+    et: (count: string | number) => `${count} valiidsed`,
+    en: (count: string | number) => `${count} valid`,
+    ru: (count: string | number) => `${count} действительны`,
+  }),
+  'table-of-contents.invalid': validateLabel({
+    description: 'Number of invalid steps',
+    components: ['TableOfContents'],
+    et: (count: string | number) => `${count} mitte valiidne`,
+    en: (count: string | number) => `${count} invalid`,
+    ru: (count: string | number) => `${count} неверный`,
+  }),
   'truncate.see-more': validateLabel({
     description: 'See more button label',
     components: ['Truncate'],

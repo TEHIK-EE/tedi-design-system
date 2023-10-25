@@ -49,7 +49,7 @@ export const Affix = (props: AffixProps): JSX.Element => {
   const referenceElement = React.useRef<HTMLDivElement>(null);
 
   /**
-   * When Affix is longer than window, then it has to static.
+   * When Affix is longer than window, then it has to be static.
    * Or it would not be accessible.
    */
   React.useEffect(() => {

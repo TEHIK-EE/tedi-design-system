@@ -17,13 +17,14 @@ $top-spacings: (
   will-change: top;
 }
 
+.affix--static {
+  position: static;
+}
+
 .affix--fixed {
   position: fixed;
   z-index: var(--z-index-fixed);
-}
-
-.affix--static {
-  position: static;
+  max-height: 100vh;
 }
 
 @each $spacing, $value in $top-spacings {

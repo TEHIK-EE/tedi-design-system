@@ -128,7 +128,7 @@ export const Layout = <
               {mainLogo && (
                 <img className={styles['main__logos']} src={mainLogo.src} alt={mainLogo.alt} style={mainLogo.style} />
               )}
-              <main className={styles['main__content']} id={mainContentId}>
+              <main className={styles['main__content']} id={mainContentId} tabIndex={-1}>
                 {breadcrumbsProps && (
                   <Section>
                     <Breadcrumbs className={styles['main__breadcrumbs']} {...breadcrumbsProps} />
