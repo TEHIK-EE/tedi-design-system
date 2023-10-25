@@ -2,6 +2,7 @@ import { autoUpdate, useClick, useDismiss, useFloating, useInteractions, useRole
 import cn from 'classnames';
 import React from 'react';
 
+import { useElementSize } from '../../../helpers';
 import { AccessibilityProvider } from '../../../providers/accessibility-provider/accessibility-provider';
 import Section from '../../section/section';
 import Breadcrumbs, { BreadcrumbsProps } from '../breadcrumbs/breadcrumbs';
@@ -83,6 +84,7 @@ export const Layout = <
     ...rest
   } = props;
   const headerElement = React.useRef<HTMLElement>(null);
+  const headerBottomElement = React.useRef<HTMLElement>(null);
   const [menuOpen, setMenuOpen] = React.useState(false);
   const { hasSidenav } = useSidenavRendered(headerType, sideNav);
   const { y, refs, context } = useFloating({
@@ -91,6 +93,7 @@ export const Layout = <
     onOpenChange: setMenuOpen,
     whileElementsMounted: (...args) => autoUpdate(...args, { ancestorScroll: false }),
   });
+  const headerBottomSize = useElementSize(headerBottomElement);
 
   const { getReferenceProps, getFloatingProps } = useInteractions([
     useClick(context),
@@ -117,10 +120,17 @@ export const Layout = <
         getFloatingProps,
         sideNavProps: sideNav,
         headerElement,
+        headerBottomElement,
+        headerBottomSize,
       }}
     >
       <AccessibilityProvider>
-        <div data-name="layout" {...rest} className={styles['container-wrapper']}>
+        <div
+          data-name="layout"
+          {...rest}
+          className={styles['container-wrapper']}
+          style={{ '--header-bottom-height': `${headerBottomSize?.height ?? 0}px` }}
+        >
           <Header {...header} />
           <div className={cn(styles['container'], { [styles['container--menu-open']]: menuOpen })}>
             {sideNav && <SideNav {...sideNav} />}

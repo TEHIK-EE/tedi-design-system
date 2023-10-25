@@ -158,7 +158,7 @@ export const Header = <H extends React.ElementType = 'a'>(props: HeaderProps<H>)
         </div>
       </header>
       {bottomContent && !shouldBreakToBottomContent && (
-        <Affix position="sticky" top={0} className={styles['header__affix']}>
+        <Affix position="sticky" top={0} relative="window" className={styles['header__affix']}>
           <HeaderBottomContent {...bottomContent} />
         </Affix>
       )}

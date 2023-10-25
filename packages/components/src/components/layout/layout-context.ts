@@ -24,6 +24,11 @@ export interface ILayoutContext {
    * reference to header element to position HeaderDropdown aligned with bottom of header.
    */
   headerElement: React.RefObject<HTMLElement> | null;
+  /**
+   * reference to header bottom element to position affixes relative to it.
+   */
+  headerBottomElement: React.RefObject<HTMLElement> | null;
+  headerBottomSize?: DOMRect;
 }
 
 export const LayoutContext = React.createContext<ILayoutContext>({
@@ -37,4 +42,6 @@ export const LayoutContext = React.createContext<ILayoutContext>({
   context: {} as FloatingContext<ReferenceType>,
   y: null,
   headerElement: null,
+  headerBottomElement: null,
+  headerBottomSize: undefined,
 });

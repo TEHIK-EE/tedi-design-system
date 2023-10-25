@@ -2,6 +2,7 @@ import cn from 'classnames';
 import debounce from 'debounce';
 import React from 'react';
 
+import { LayoutContext } from '../layout';
 import styles from './affix.module.scss';
 
 export type AffixPosition = 0 | 0.5 | 1 | 1.5 | 2 | 'unset';
@@ -40,13 +41,24 @@ export interface AffixProps {
    * @default 'unset'
    */
   right?: AffixPosition;
+  /**
+   * Determine what element(s) the top/bottom values should be relative to
+   * @default ['header']
+   */
+  relative?: Array<'header'> | 'window';
 }
 
 export const Affix = (props: AffixProps): JSX.Element => {
-  const { children, className, position = 'sticky', top = 1.5, bottom, right, left } = props;
+  const { children, relative = ['header'], className, position = 'sticky', top = 1.5, bottom, right, left } = props;
   const [affixHeight, setAffixHeight] = React.useState(0);
   const [windowsHeight, setWindowsHeight] = React.useState(0);
   const referenceElement = React.useRef<HTMLDivElement>(null);
+  const { headerBottomSize } = React.useContext(LayoutContext);
+
+  const availableHeight = windowsHeight - (relative.includes('header') ? headerBottomSize?.height ?? 0 : 0); // how much vertical space the affix we have for the affix
+  const topSpacing = (typeof top === 'number' ? top : 0) * 16;
+  const bottomSpacing = (typeof bottom === 'number' ? bottom : 0) * 16;
+  const affixHeightWithSpacing = affixHeight + topSpacing + bottomSpacing; // actual affix height with top and bottom spacing
 
   /**
    * When Affix is longer than window, then it has to be static.
@@ -70,7 +82,8 @@ export const Affix = (props: AffixProps): JSX.Element => {
   }, []);
 
   const BEM = cn(styles['affix'], className, styles[`affix--${position}`], {
-    [styles['affix--static']]: affixHeight > windowsHeight,
+    [styles['affix--static']]: affixHeightWithSpacing > availableHeight,
+    [styles['affix--relative-to-header']]: relative.includes('header'),
     [styles[`affix--top-${top}`.replace('.', '-')]]: typeof top !== 'undefined',
     [styles[`affix--bottom-${bottom}`.replace('.', '-')]]: typeof bottom !== 'undefined',
     [styles[`affix--left-${left}`.replace('.', '-')]]: typeof left !== 'undefined',

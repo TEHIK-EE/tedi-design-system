@@ -30,6 +30,10 @@ $top-spacings: (
 @each $spacing, $value in $top-spacings {
   .affix--top-#{$spacing} {
     top: #{$value};
+
+    &.affix--relative-to-header {
+      top: calc(#{$value} + var(--header-bottom-height, 0rem));
+    }
   }
   .affix--bottom-#{$spacing} {
     bottom: #{$value};

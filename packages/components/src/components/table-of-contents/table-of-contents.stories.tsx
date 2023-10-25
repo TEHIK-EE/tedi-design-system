@@ -6,7 +6,7 @@ import Button from '../button/button';
 import { Card, CardContent } from '../card';
 import { Col, Row } from '../grid';
 import Layout, { ILayoutProps } from '../layout/layout/layout';
-import { Default as LayoutDefault } from '../layout/layout/layout.stories';
+import { WithNotice as LayoutDefault } from '../layout/layout/layout.stories';
 import { Section } from '../section/section';
 import Heading from '../typography/heading/heading';
 import Text from '../typography/text/text';

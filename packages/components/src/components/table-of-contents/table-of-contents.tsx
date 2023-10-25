@@ -74,7 +74,7 @@ export interface TableOfContentsProps {
  * When used to link to sections on the same page, make sure to use the same id on the section and the table of contents item Anchor. Setting `tabIndex` on the section is also necessary for the focus to work correctly in some screen-readers.
  * More info <a href="https://github.com/gettalong/kramdown/issues/215" target="_blank">here</a> and <a href="https://bugs.chromium.org/p/chromium/issues/detail?id=262171" target="_blank">here</a>.<br /><br />
  * When used to keep track of multistep form progress, usage on `showIcons={true}` is recommended. Keep in mind that `isValid` property is optional and can be undefined to show not validated steps. <br />
- * Also it is possible to use disabled-text as item content, to show that user can't skip to next step. <br />
+ * Also it is possible to use disabled-text as item content, to show that user can't skip to next step. <br /><br />
  */
 export const TableOfContents = (props: TableOfContentsProps) => {
   const { breakToMobile = ['mobile'] } = props;
