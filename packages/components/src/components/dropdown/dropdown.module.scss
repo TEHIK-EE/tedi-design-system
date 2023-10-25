@@ -1,7 +1,7 @@
 @use '../../styles/mixins';
 
 .dropdown {
-  z-index: 20;
+  z-index: var(--z-index-dropdown);
   display: flex;
   flex-direction: column;
   background: var(--color-white);

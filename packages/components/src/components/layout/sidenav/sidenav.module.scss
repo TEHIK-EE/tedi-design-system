@@ -2,7 +2,7 @@
 @use '../../../styles/bootstrap-utility/breakpoints';
 
 .sidenav {
-  z-index: 20;
+  z-index: var(--z-index-sidenav);
   display: flex;
   flex-direction: column;
   width: 70vw;
@@ -28,7 +28,7 @@
 }
 
 .sidenav__overlay {
-  z-index: 10;
+  z-index: var(--z-index-sidenav);
   background: rgb(0 0 0 / 25%);
 }
 

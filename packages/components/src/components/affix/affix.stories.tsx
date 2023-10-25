@@ -7,7 +7,7 @@ import Collapse from '../collapse/collapse';
 import { Col, Row } from '../grid';
 import Icon from '../icon/icon';
 import Layout, { ILayoutProps } from '../layout/layout/layout';
-import { Default as LayoutDefault } from '../layout/layout/layout.stories';
+import { WithNotice as LayoutDefault } from '../layout/layout/layout.stories';
 import ScrollFade from '../scroll-fade/scroll-fade';
 import { Section } from '../section/section';
 import Separator from '../separator/separator';

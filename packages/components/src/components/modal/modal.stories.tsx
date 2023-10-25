@@ -217,7 +217,7 @@ export const Position: StoryFn<ModalProps> = () => {
   );
 };
 
-export const ControlledOutSide = () => {
+export const ControlledOutside = () => {
   const [isOpen, setIsOpen] = React.useState(false);
 
   return (

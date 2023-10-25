@@ -8,7 +8,7 @@ $top-spacings: (
 );
 
 .affix {
-  z-index: 20;
+  z-index: var(--z-index-sticky);
 }
 
 .affix--sticky {
@@ -19,7 +19,7 @@ $top-spacings: (
 
 .affix--fixed {
   position: fixed;
-  z-index: 30;
+  z-index: var(--z-index-fixed);
 }
 
 .affix--static {

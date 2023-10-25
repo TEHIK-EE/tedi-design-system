@@ -6,7 +6,7 @@ $tooltip-max-width: (
 );
 
 .tooltip {
-  z-index: 20;
+  z-index: var(--z-index-tooltip);
   word-break: break-word;
   background-color: var(--color-bg-default);
   filter: drop-shadow(0 4px 10px rgb(0 0 0 / 14%));
