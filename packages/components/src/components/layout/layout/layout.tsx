@@ -84,7 +84,7 @@ export const Layout = <
     ...rest
   } = props;
   const headerElement = React.useRef<HTMLElement>(null);
-  const headerBottomElement = React.useRef<HTMLElement>(null);
+  const headerBottomElement = React.useRef<HTMLDivElement>(null);
   const [menuOpen, setMenuOpen] = React.useState(false);
   const { hasSidenav } = useSidenavRendered(headerType, sideNav);
   const { y, refs, context } = useFloating({

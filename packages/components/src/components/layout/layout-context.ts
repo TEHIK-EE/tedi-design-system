@@ -27,7 +27,7 @@ export interface ILayoutContext {
   /**
    * reference to header bottom element to position affixes relative to it.
    */
-  headerBottomElement: React.RefObject<HTMLElement> | null;
+  headerBottomElement: React.RefObject<HTMLDivElement> | null;
   headerBottomSize?: DOMRect;
 }
 
