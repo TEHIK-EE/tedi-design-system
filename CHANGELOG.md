@@ -1,3 +1,13 @@
+# [5.23.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.22.2...v5.23.0) (2023-10-26)
+
+
+### Features
+
+* **affix:** TEHVEER-221 - Allow Affix to be relative to the header ([0d09c93](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/0d09c930aacda49a06d25f40a368e982e0d2d688))
+* **common:** TEHVEER-218 - Unify z-index order across components ([6e757c6](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/6e757c6d3a1461dc6bb93216ece8c8d32d05ac11))
+* **table-of-contents:** TEHVEER-219 - Refactor table-of-contents to modal ([60dc19d](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/60dc19d51bec650829a06780c22cb0c0ee9bb194))
+* **table-of-contents:** TEHVEER-221 - Added props to override modal behavior ([da70177](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/da701772655e2249fa3464a39a5ad1f5332e227f))
+
 ## [5.22.2](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.22.1...v5.22.2) (2023-10-24)
 
 
