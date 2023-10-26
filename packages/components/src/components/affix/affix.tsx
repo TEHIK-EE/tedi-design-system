@@ -55,7 +55,7 @@ export const Affix = (props: AffixProps): JSX.Element => {
   const referenceElement = React.useRef<HTMLDivElement>(null);
   const { headerBottomSize } = React.useContext(LayoutContext);
 
-  const availableHeight = windowsHeight - (relative.includes('header') ? headerBottomSize?.height ?? 0 : 0); // how much vertical space the affix we have for the affix
+  const availableHeight = windowsHeight - (relative.includes('header') ? headerBottomSize?.height ?? 0 : 0); // how much vertical space we have for the affix
   const topSpacing = (typeof top === 'number' ? top : 0) * 16;
   const bottomSpacing = (typeof bottom === 'number' ? bottom : 0) * 16;
   const affixHeightWithSpacing = affixHeight + topSpacing + bottomSpacing; // actual affix height with top and bottom spacing

@@ -8,7 +8,6 @@ import {
   useRole,
 } from '@floating-ui/react';
 import React from 'react';
-import { flushSync } from 'react-dom';
 
 export interface ModalProviderProps {
   /**
@@ -55,12 +54,11 @@ export interface IModalContext {
   floating: (node: HTMLElement | null) => void;
   getReferenceProps: (userProps?: React.HTMLProps<HTMLElement> | undefined) => Record<string, unknown>;
   getFloatingProps: (userProps?: React.HTMLProps<HTMLElement> | undefined) => Record<string, unknown>;
-  closeModal: (preventFocusReturn?: boolean) => void;
+  closeModal: () => void;
   context: FloatingContext<ReferenceType>;
   isDismissable: boolean;
   escapeKey: boolean;
   outsidePress: boolean;
-  internalReturnFocus?: boolean;
 }
 
 export const ModalContext = React.createContext<IModalContext>({
@@ -74,7 +72,6 @@ export const ModalContext = React.createContext<IModalContext>({
   isDismissable: true,
   escapeKey: true,
   outsidePress: true,
-  internalReturnFocus: true,
 });
 
 export const ModalProvider = (props: ModalProviderProps): JSX.Element => {
@@ -87,7 +84,6 @@ export const ModalProvider = (props: ModalProviderProps): JSX.Element => {
     outsidePress = true,
   } = props;
   const [innerOpen, setInnerOpen] = React.useState(defaultOpen);
-  const [internalReturnFocus, setInternalReturnFocus] = React.useState(true); // In some components we don't want the focus to return to the trigger element when the modal closes
 
   const isOpen = onToggle && typeof props.open !== 'undefined' ? props.open : innerOpen;
 
@@ -106,19 +102,12 @@ export const ModalProvider = (props: ModalProviderProps): JSX.Element => {
     }),
   ]);
 
-  const closeModal = (preventFocusReturn?: boolean) => {
-    if (preventFocusReturn) {
-      flushSync(() => {
-        setInternalReturnFocus(false);
-      });
-    }
-
+  const closeModal = () => {
     if (typeof props.open === 'undefined') {
       setInnerOpen(false);
     }
 
     onToggle?.(false);
-    setInternalReturnFocus(true);
   };
 
   const openModal = (): void => {
@@ -142,7 +131,6 @@ export const ModalProvider = (props: ModalProviderProps): JSX.Element => {
         isDismissable,
         escapeKey,
         outsidePress,
-        internalReturnFocus,
       }}
     >
       {children}

@@ -58,6 +58,11 @@ export interface ModalProps {
    */
   trapFocus?: boolean;
   /**
+   * Should focus return to the trigger when closing the modal
+   * @default true
+   */
+  returnFocus?: boolean;
+  /**
    * Set style of overlay.
    */
   overlay?: 'none';
@@ -72,14 +77,14 @@ export const Modal = (props: ModalProps): JSX.Element | null => {
     position,
     lockScroll = true,
     trapFocus = true,
+    returnFocus = true,
     overlay = undefined,
     visuallyHiddenDismiss = false,
   } = props;
   const { getLabel } = useLabels();
   const labelId = props['aria-labelledby'];
   const descriptionId = props['aria-describedby'];
-  const { isOpen, floating, getFloatingProps, context, internalReturnFocus, isDismissable } =
-    React.useContext(ModalContext);
+  const { isOpen, floating, getFloatingProps, context, isDismissable } = React.useContext(ModalContext);
 
   return (
     <FloatingPortal data-name="modal">
@@ -94,7 +99,7 @@ export const Modal = (props: ModalProps): JSX.Element | null => {
             context={context}
             closeOnFocusOut={!trapFocus && isDismissable}
             visuallyHiddenDismiss={visuallyHiddenDismiss ? getLabel('modal.close') : undefined}
-            returnFocus={internalReturnFocus}
+            returnFocus={returnFocus}
             modal={trapFocus}
           >
             <div

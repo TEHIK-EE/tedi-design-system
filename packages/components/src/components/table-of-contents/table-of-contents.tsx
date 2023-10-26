@@ -1,10 +1,12 @@
 import cn from 'classnames';
 import React from 'react';
+import { flushSync } from 'react-dom';
 
 import { Layouts, useLayout } from '../../helpers';
 import { useLabels } from '../../providers/label-provider';
 import Affix from '../affix/affix';
 import Button from '../button/button';
+import ButtonContent from '../button-content/button-content';
 import { Card, CardContent, CardHeader } from '../card';
 import { Col, Row } from '../grid';
 import Icon from '../icon/icon';
@@ -125,6 +127,7 @@ const TableOfContentsModal = (props: TableOfContentsProps) => {
   const correctItems = items.map((i) => i.isValid === true).filter(Boolean).length;
   const invalidItems = items.map((i) => i.isValid === false).filter(Boolean).length;
   const id = React.useId();
+  const [returnFocus, setReturnFocus] = React.useState(true);
   const [innerOpen, setInnerOpen] = React.useState(defaultOpen);
 
   const isOpen = onToggle && typeof open !== 'undefined' ? open : innerOpen;
@@ -197,19 +200,14 @@ const TableOfContentsModal = (props: TableOfContentsProps) => {
       <Heading element="h2" modifiers="normal">
         <ModalTrigger>
           <Button fullWidth noStyle className={styles['table-of-contents__trigger']}>
-            <Card>
+            <Card className={styles['table-of-contents__trigger-card']}>
               <CardContent>
                 <Row>
                   <Col>{renderHeader}</Col>
                   <Col width="auto" aria-hidden={true}>
-                    <Text element="span" color="primary">
-                      <Row alignItems="center" gutter={1}>
-                        <Col width="auto">{getLabel('open')}</Col>
-                        <Col width="auto">
-                          <Icon name="expand_more" />
-                        </Col>
-                      </Row>
-                    </Text>
+                    <ButtonContent as="span" visualType="link" iconRight="expand_more">
+                      {getLabel('open')}
+                    </ButtonContent>
                   </Col>
                 </Row>
               </CardContent>
@@ -217,29 +215,38 @@ const TableOfContentsModal = (props: TableOfContentsProps) => {
           </Button>
         </ModalTrigger>
       </Heading>
-      <Modal aria-labelledby={id} position="bottom" {...modalProps}>
+      <Modal aria-labelledby={id} position="bottom" returnFocus={returnFocus} {...modalProps}>
         <CardHeader variant="white" id={id}>
           <Heading element="h2" modifiers="normal">
             {renderHeader}
           </Heading>
         </CardHeader>
         <CardContent>
-          <TableOfContentsItems {...props} />
+          <TableOfContentsItems {...props} setReturnFocus={setReturnFocus} />
         </CardContent>
       </Modal>
     </ModalProvider>
   );
 };
 
-const TableOfContentsItems = (props: TableOfContentsProps) => {
-  const { items, showIcons, heading, breakToMobile = ['mobile'] } = props;
+const TableOfContentsItems = (
+  props: TableOfContentsProps & { setReturnFocus?: React.Dispatch<React.SetStateAction<boolean>> }
+) => {
+  const { items, setReturnFocus, showIcons, heading, breakToMobile = ['mobile'] } = props;
   const isMobileLayout = useLayout(breakToMobile);
-  const { closeModal } = React.useContext(ModalContext);
   const { getLabel } = useLabels();
   const showTitle = showIcons ? true : !isMobileLayout;
+  const { closeModal } = React.useContext(ModalContext);
 
-  const handleModalClose = (preventFocusReturn = true) => {
-    closeModal?.(preventFocusReturn);
+  const handleCloseModal = () => {
+    // modal has to re-render with the prop returnFocus={false} first before we close it
+    // otherwise the focus doesn't stay on the section the user navigated to
+    flushSync(() => {
+      setReturnFocus?.(false);
+    });
+
+    closeModal?.();
+    setReturnFocus?.(true);
   };
 
   return (
@@ -266,7 +273,7 @@ const TableOfContentsItems = (props: TableOfContentsProps) => {
               )}
               <Col>
                 <Text element="div" modifiers="break-word">
-                  {typeof i?.content === 'function' ? i?.content?.({ closeModal: handleModalClose }) : i?.content}
+                  {typeof i?.content === 'function' ? i?.content?.({ closeModal: handleCloseModal }) : i?.content}
                 </Text>
               </Col>
             </Row>
