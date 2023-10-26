@@ -23,6 +23,10 @@ type CardHeaderBreakpointProps = {
 
 export interface CardHeaderProps extends BreakpointSupport<CardHeaderBreakpointProps> {
   /**
+   * Id passed to the header
+   */
+  id?: string;
+  /**
    * Card header content
    */
   children?: React.ReactNode;

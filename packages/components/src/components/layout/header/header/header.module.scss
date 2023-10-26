@@ -5,7 +5,7 @@ $header-min-height: 3.5rem;
 
 .header {
   position: relative;
-  z-index: 20;
+  z-index: var(--z-index-header);
   display: flex;
   align-items: center;
   min-height: $header-min-height;
@@ -30,6 +30,10 @@ $header-min-height: 3.5rem;
   flex-grow: 1;
   flex-wrap: nowrap;
   justify-content: space-between;
+}
+
+.header__affix {
+  z-index: var(--z-index-header);
 }
 
 .header__content-left {

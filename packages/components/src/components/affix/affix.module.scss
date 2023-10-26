@@ -8,7 +8,7 @@ $top-spacings: (
 );
 
 .affix {
-  z-index: 20;
+  z-index: var(--z-index-sticky);
 }
 
 .affix--sticky {
@@ -17,18 +17,23 @@ $top-spacings: (
   will-change: top;
 }
 
-.affix--fixed {
-  position: fixed;
-  z-index: 30;
-}
-
 .affix--static {
   position: static;
+}
+
+.affix--fixed {
+  position: fixed;
+  z-index: var(--z-index-fixed);
+  max-height: 100vh;
 }
 
 @each $spacing, $value in $top-spacings {
   .affix--top-#{$spacing} {
     top: #{$value};
+
+    &.affix--relative-to-header {
+      top: calc(#{$value} + var(--header-bottom-height, 0rem));
+    }
   }
   .affix--bottom-#{$spacing} {
     bottom: #{$value};

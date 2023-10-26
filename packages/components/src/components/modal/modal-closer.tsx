@@ -6,7 +6,7 @@ export interface ModalCloserProps {
   /**
    * The element that closes the modal.
    */
-  children: JSX.Element;
+  children: React.ReactElement;
 }
 
 export const ModalCloser = (props: ModalCloserProps): JSX.Element => {

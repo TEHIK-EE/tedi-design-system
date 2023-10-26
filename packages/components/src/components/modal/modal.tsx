@@ -58,6 +58,11 @@ export interface ModalProps {
    */
   trapFocus?: boolean;
   /**
+   * Should focus return to the trigger when closing the modal
+   * @default true
+   */
+  returnFocus?: boolean;
+  /**
    * Set style of overlay.
    */
   overlay?: 'none';
@@ -72,6 +77,7 @@ export const Modal = (props: ModalProps): JSX.Element | null => {
     position,
     lockScroll = true,
     trapFocus = true,
+    returnFocus = true,
     overlay = undefined,
     visuallyHiddenDismiss = false,
   } = props;
@@ -93,6 +99,7 @@ export const Modal = (props: ModalProps): JSX.Element | null => {
             context={context}
             closeOnFocusOut={!trapFocus && isDismissable}
             visuallyHiddenDismiss={visuallyHiddenDismiss ? getLabel('modal.close') : undefined}
+            returnFocus={returnFocus}
             modal={trapFocus}
           >
             <div

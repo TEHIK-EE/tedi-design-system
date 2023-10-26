@@ -6,7 +6,7 @@ import Button from '../button/button';
 import { Card, CardContent } from '../card';
 import { Col, Row } from '../grid';
 import Layout, { ILayoutProps } from '../layout/layout/layout';
-import { Default as LayoutDefault } from '../layout/layout/layout.stories';
+import { WithNotice as LayoutDefault } from '../layout/layout/layout.stories';
 import { Section } from '../section/section';
 import Heading from '../typography/heading/heading';
 import Text from '../typography/text/text';
@@ -30,6 +30,7 @@ const meta: Meta<TableOfContentsProps> = {
 export default meta;
 
 const steps = [...Array(10).keys()].map(() => faker.commerce.productName());
+const longSteps = [...steps, ...steps];
 
 const Template: StoryFn<TableOfContentsProps> = (args) => {
   return (
@@ -43,7 +44,7 @@ const Template: StoryFn<TableOfContentsProps> = (args) => {
                   <VerticalSpacing size={2}>
                     {steps.map((step, i) => (
                       <VerticalSpacing size={0.5} key={i}>
-                        <Heading element="h2" modifiers="h3" id={step}>
+                        <Heading element="h2" modifiers="h3" id={step} tabIndex={-1}>
                           {step}
                         </Heading>
                         <p>{faker.lorem.paragraphs(5)}</p>
@@ -69,7 +70,11 @@ export const Default: Story = {
   render: Template,
   args: {
     items: steps.map((step, i) => ({
-      content: <Anchor href={`#${step}`}>{step}</Anchor>,
+      content: ({ closeModal }) => (
+        <Anchor href={`#${step}`} onClick={() => closeModal()}>
+          {step}
+        </Anchor>
+      ),
       isValid: i < 5 ? true : i === 5 ? false : undefined,
     })),
   },
@@ -83,29 +88,61 @@ export const WithIcons: Story = {
   },
 };
 
+export const WithManySteps: Story = {
+  render: Template,
+  args: {
+    items: longSteps.map((step, i) => ({
+      content: ({ closeModal }) => (
+        <Anchor href={`#${step}`} onClick={() => closeModal()}>
+          {step}
+        </Anchor>
+      ),
+      isValid: i < 5 ? true : i === 5 ? false : undefined,
+    })),
+  },
+};
+
 export const CustomFormValidation: Story = {
   args: {
     showIcons: true,
     items: [
       {
-        content: (
-          <Button visualType="link" onClick={() => console.log('step 1 clicked')}>
+        content: ({ closeModal }) => (
+          <Button
+            visualType="link"
+            onClick={() => {
+              console.log('step 1 clicked');
+              closeModal();
+            }}
+          >
             Subjekt
           </Button>
         ),
         isValid: true,
       },
       {
-        content: (
-          <Button visualType="link" onClick={() => console.log('step 2 clicked')}>
+        content: ({ closeModal }) => (
+          <Button
+            visualType="link"
+            onClick={() => {
+              console.log('step 2 clicked');
+              closeModal();
+            }}
+          >
             Kuidas soovid jätkata?
           </Button>
         ),
         isValid: true,
       },
       {
-        content: (
-          <Button visualType="link" onClick={() => console.log('step 3 clicked')}>
+        content: ({ closeModal }) => (
+          <Button
+            visualType="link"
+            onClick={() => {
+              console.log('step 3 clicked');
+              closeModal();
+            }}
+          >
             Olukorra kirjeldus ja aeg
           </Button>
         ),

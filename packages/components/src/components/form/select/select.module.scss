@@ -28,7 +28,7 @@ div.select__control {
 }
 
 div.select__menu-portal {
-  z-index: 20;
+  z-index: var(--z-index-dropdown);
 }
 
 div .select__menu {

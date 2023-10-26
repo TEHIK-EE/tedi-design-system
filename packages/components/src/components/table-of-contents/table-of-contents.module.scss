@@ -1,3 +1,11 @@
-.card-shadow {
+.table-of-contents__trigger {
+  --global-outline-offset: -2px;
+
+  z-index: 1;
+  text-align: start;
   box-shadow: 0 0, rgb(0 0 0 / 25%) 0 0.125em 0.5em;
+}
+
+.table-of-contents__trigger-card {
+  z-index: -1; // required to have button focus outline above card
 }
