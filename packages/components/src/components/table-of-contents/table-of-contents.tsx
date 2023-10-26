@@ -8,7 +8,15 @@ import Button from '../button/button';
 import { Card, CardContent, CardHeader } from '../card';
 import { Col, Row } from '../grid';
 import Icon from '../icon/icon';
-import { IModalContext, Modal, ModalContext, ModalProvider, ModalTrigger } from '../modal';
+import {
+  IModalContext,
+  Modal,
+  ModalContext,
+  ModalProps,
+  ModalProvider,
+  ModalProviderProps,
+  ModalTrigger,
+} from '../modal';
 import StretchContent from '../stretch-content/stretch-content';
 import Heading from '../typography/heading/heading';
 import { Text } from '../typography/text/text';
@@ -67,6 +75,14 @@ export interface TableOfContentsProps {
    * @default 'mobile'
    */
   breakToMobile?: Layouts;
+  /**
+   * Props passed to ModalProvider
+   */
+  modalProviderProps?: ModalProviderProps;
+  /**
+   * Props passed to Modal
+   */
+  modalProps?: ModalProps;
 }
 
 /**
@@ -105,7 +121,7 @@ export const TableOfContents = (props: TableOfContentsProps) => {
 
 const TableOfContentsModal = (props: TableOfContentsProps) => {
   const { getLabel } = useLabels();
-  const { items, showIcons, heading, open, defaultOpen, onToggle } = props;
+  const { items, modalProps, modalProviderProps, showIcons, heading, open, defaultOpen, onToggle } = props;
   const correctItems = items.map((i) => i.isValid === true).filter(Boolean).length;
   const invalidItems = items.map((i) => i.isValid === false).filter(Boolean).length;
   const id = React.useId();
@@ -177,7 +193,7 @@ const TableOfContentsModal = (props: TableOfContentsProps) => {
   );
 
   return (
-    <ModalProvider open={isOpen} onToggle={handleToggle}>
+    <ModalProvider open={isOpen} onToggle={handleToggle} {...modalProviderProps}>
       <Heading element="h2" modifiers="normal">
         <ModalTrigger>
           <Button fullWidth noStyle className={styles['table-of-contents__trigger']}>
@@ -201,7 +217,7 @@ const TableOfContentsModal = (props: TableOfContentsProps) => {
           </Button>
         </ModalTrigger>
       </Heading>
-      <Modal aria-labelledby={id} position="bottom">
+      <Modal aria-labelledby={id} position="bottom" {...modalProps}>
         <CardHeader variant="white" id={id}>
           <Heading element="h2" modifiers="normal">
             {renderHeader}
