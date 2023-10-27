@@ -44,7 +44,7 @@ const Template: StoryFn<TableOfContentsProps> = (args) => {
                   <VerticalSpacing size={2}>
                     {steps.map((step, i) => (
                       <VerticalSpacing size={0.5} key={i}>
-                        <Heading element="h2" modifiers="h3" id={step} tabIndex={-1}>
+                        <Heading element="h2" modifiers="h3" id={step}>
                           {step}
                         </Heading>
                         <p>{faker.lorem.paragraphs(5)}</p>

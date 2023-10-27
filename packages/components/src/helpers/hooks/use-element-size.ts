@@ -1,4 +1,4 @@
-import { debounce } from 'debounce';
+import debounce from 'lodash-es/debounce';
 import React from 'react';
 
 export const useElementSize = (ref: React.RefObject<HTMLElement>) => {
@@ -15,7 +15,7 @@ export const useElementSize = (ref: React.RefObject<HTMLElement>) => {
 
     window.addEventListener('resize', resizeEvent);
     return () => {
-      resizeEvent.clear();
+      resizeEvent.cancel();
       window.removeEventListener('resize', resizeEvent);
     };
   }, [ref]);
