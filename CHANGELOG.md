@@ -1,3 +1,10 @@
+# [5.25.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.24.0...v5.25.0) (2023-10-27)
+
+
+### Features
+
+* **header:** TEHVEER-224 - Take HeaderBottom height into account when scrolling ([255f056](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/255f056ef0c94a6b91ac6ccbb58dd5e8352e3518))
+
 # [5.24.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.23.0...v5.24.0) (2023-10-27)
 
 
