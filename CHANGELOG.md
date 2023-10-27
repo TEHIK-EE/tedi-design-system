@@ -1,3 +1,12 @@
+# [5.24.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.23.0...v5.24.0) (2023-10-27)
+
+
+### Features
+
+* **common:** TEHVEER-220 - Switch debounce to lodash-es debounce ([59912f6](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/59912f64d6c1aee2903530de631c525fe98c28fa))
+* **hide-on-scroll:** Added component to hide content when user scrolls ([8ea971c](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/8ea971cf094d77718ffa167044239d836cf5d7e8))
+* **table-of-content:** Turn table of contents into a navigation landmark ([9d0967a](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/9d0967a85f65229f645218b0626d4e23bd76cd12))
+
 # [5.23.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.22.2...v5.23.0) (2023-10-26)
 
 
