@@ -72,7 +72,15 @@ export interface TextProps {
 }
 
 export const Text = (props: TextProps): JSX.Element => {
-  const { children, className, element: Element = 'p', modifiers, color, ...rest } = props;
+  const {
+    children,
+    className,
+    tabIndex = props.id ? -1 : undefined, // when id is set on a text element we most likely want to jump to it with a reference link
+    element: Element = 'p',
+    modifiers,
+    color,
+    ...rest
+  } = props;
 
   const modifiersArray = typeof modifiers === 'string' ? [modifiers] : modifiers;
 
@@ -83,7 +91,7 @@ export const Text = (props: TextProps): JSX.Element => {
   );
 
   return (
-    <Element className={BEM} {...rest}>
+    <Element className={BEM} {...rest} tabIndex={tabIndex}>
       {children}
     </Element>
   );

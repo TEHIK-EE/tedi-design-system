@@ -9,6 +9,7 @@ import Button from '../button/button';
 import ButtonContent from '../button-content/button-content';
 import { Card, CardContent, CardHeader } from '../card';
 import { Col, Row } from '../grid';
+import HideOnScroll from '../hide-on-scroll/hide-on-scroll';
 import Icon from '../icon/icon';
 import {
   IModalContext,
@@ -85,6 +86,11 @@ export interface TableOfContentsProps {
    * Props passed to Modal
    */
   modalProps?: ModalProps;
+  /**
+   * Should the component hide on mobile view when the page is scrolled
+   * @default true
+   */
+  hideOnScroll?: boolean;
 }
 
 /**
@@ -95,7 +101,8 @@ export interface TableOfContentsProps {
  * Also it is possible to use disabled-text as item content, to show that user can't skip to next step. <br /><br />
  */
 export const TableOfContents = (props: TableOfContentsProps) => {
-  const { breakToMobile = ['mobile'] } = props;
+  const { getLabel } = useLabels();
+  const { breakToMobile = ['mobile'], heading = getLabel('table-of-contents.title'), hideOnScroll = true } = props;
   const isMobileLayout = useLayout(breakToMobile);
 
   return (
@@ -108,11 +115,13 @@ export const TableOfContents = (props: TableOfContentsProps) => {
     >
       <StretchContent>
         {isMobileLayout ? (
-          <TableOfContentsModal {...props} />
+          <HideOnScroll animationDirection="down" enabled={hideOnScroll}>
+            <TableOfContentsModal {...props} heading={heading} />
+          </HideOnScroll>
         ) : (
           <Card>
             <CardContent>
-              <TableOfContentsItems {...props} />
+              <TableOfContentsItems {...props} heading={heading} />
             </CardContent>
           </Card>
         )}
@@ -142,7 +151,7 @@ const TableOfContentsModal = (props: TableOfContentsProps) => {
   const renderHeader = (
     <>
       <Text element="span" modifiers={['normal', 'bold']} className={cn({ 'sr-only': showIcons })}>
-        {getLabel('table-of-contents.title') || heading}
+        {heading}
       </Text>
       {showIcons && invalidItems === 0 ? (
         <Row gutter={1}>
@@ -234,7 +243,6 @@ const TableOfContentsItems = (
 ) => {
   const { items, setReturnFocus, showIcons, heading, breakToMobile = ['mobile'] } = props;
   const isMobileLayout = useLayout(breakToMobile);
-  const { getLabel } = useLabels();
   const showTitle = showIcons ? true : !isMobileLayout;
   const { closeModal } = React.useContext(ModalContext);
 
@@ -253,8 +261,8 @@ const TableOfContentsItems = (
     <Row direction="column">
       {showTitle && (
         <Col>
-          <Heading element="h2" modifiers="h4" aria-hidden={isMobileLayout && showIcons}>
-            {getLabel('table-of-contents.title') || heading}
+          <Heading element="h3" modifiers="h4">
+            {heading}
           </Heading>
         </Col>
       )}
