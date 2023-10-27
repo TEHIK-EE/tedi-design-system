@@ -1,4 +1,4 @@
-import { debounce } from 'debounce';
+import debounce from 'lodash-es/debounce';
 import { useEffect, useState } from 'react';
 
 export type Breakpoint = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
@@ -14,7 +14,7 @@ export const useBreakpoint = (): Breakpoint | null => {
 
     window.addEventListener('resize', resizeEvent);
     return () => {
-      resizeEvent.clear();
+      resizeEvent.cancel();
       window.removeEventListener('resize', resizeEvent);
     };
   }, []);

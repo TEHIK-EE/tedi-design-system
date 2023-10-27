@@ -1,5 +1,5 @@
 import cn from 'classnames';
-import { debounce } from 'debounce';
+import debounce from 'lodash-es/debounce';
 import React, { forwardRef } from 'react';
 
 import styles from './scroll-fade.module.scss';
@@ -83,7 +83,7 @@ export const ScrollFade = forwardRef<HTMLDivElement, ScrollFadeProps>((props, re
     window.addEventListener('resize', debouncedResizeHandler);
     return () => {
       window.removeEventListener('resize', debouncedResizeHandler);
-      debouncedResizeHandler.clear();
+      debouncedResizeHandler.cancel();
     };
   }, [debouncedResizeHandler, onScroll]);
 

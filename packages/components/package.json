@@ -17,7 +17,6 @@
     "@tanstack/react-table": "*",
     "classnames": "*",
     "dayjs": "*",
-    "debounce": "*",
     "draft-js": "*",
     "draftjs-md-converter": "*",
     "formik": "*",

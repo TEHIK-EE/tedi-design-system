@@ -1,5 +1,5 @@
 import cn from 'classnames';
-import debounce from 'debounce';
+import debounce from 'lodash-es/debounce';
 import React from 'react';
 
 import { LayoutContext } from '../layout';
@@ -77,7 +77,7 @@ export const Affix = (props: AffixProps): JSX.Element => {
 
     return () => {
       window.removeEventListener('resize', debouncedResizeHandler);
-      debouncedResizeHandler.clear();
+      debouncedResizeHandler.cancel();
     };
   }, []);
 
