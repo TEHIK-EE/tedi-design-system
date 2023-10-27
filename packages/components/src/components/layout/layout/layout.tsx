@@ -106,6 +106,16 @@ export const Layout = <
     [styles['main--grow']]: growMainContent,
   });
 
+  React.useEffect(() => {
+    if (document && headerBottomSize) {
+      document.documentElement.style.setProperty('--header-bottom-height', `${headerBottomSize?.height ?? 0}px`);
+    }
+
+    return () => {
+      document.documentElement.style.removeProperty('--header-bottom-height');
+    };
+  }, [headerBottomSize]);
+
   return (
     <LayoutContext.Provider
       value={{
@@ -125,12 +135,7 @@ export const Layout = <
       }}
     >
       <AccessibilityProvider>
-        <div
-          data-name="layout"
-          {...rest}
-          className={styles['container-wrapper']}
-          style={{ '--header-bottom-height': `${headerBottomSize?.height ?? 0}px` }}
-        >
+        <div data-name="layout" {...rest} className={styles['container-wrapper']}>
           <Header {...header} />
           <div className={cn(styles['container'], { [styles['container--menu-open']]: menuOpen })}>
             {sideNav && <SideNav {...sideNav} />}

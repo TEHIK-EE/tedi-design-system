@@ -6,6 +6,7 @@ html {
   font-family: var(--font-family);
   line-height: var(--font-line-height-base);
   color: var(--color-text-default);
+  scroll-padding-top: var(--header-bottom-height, 0);
 }
 
 html,
