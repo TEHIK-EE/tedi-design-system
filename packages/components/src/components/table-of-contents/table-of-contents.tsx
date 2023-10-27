@@ -245,6 +245,7 @@ const TableOfContentsItems = (
   const isMobileLayout = useLayout(breakToMobile);
   const showTitle = showIcons ? true : !isMobileLayout;
   const { closeModal } = React.useContext(ModalContext);
+  const id = React.useId();
 
   const handleCloseModal = () => {
     // modal has to re-render with the prop returnFocus={false} first before we close it
@@ -258,37 +259,37 @@ const TableOfContentsItems = (
   };
 
   return (
-    <Row direction="column">
+    <VerticalSpacing size={0.5}>
       {showTitle && (
-        <Col>
-          <Heading element="h3" modifiers="h4">
-            {heading}
-          </Heading>
-        </Col>
+        <Heading element="h3" modifiers="h4" id={id}>
+          {heading}
+        </Heading>
       )}
-      {items.map((i, index) => (
-        <Col key={`toc-item-${index}`}>
-          <VerticalSpacing size={2}>
-            <Row gutter={2}>
-              {showIcons && (
-                <Col width="auto">
-                  {i?.isValid === false ? (
-                    <Icon name="warning" color="important" />
-                  ) : (
-                    <Icon name="check" color={i?.isValid === true ? 'positive' : 'disabled'} />
-                  )}
+      <nav aria-labelledby={id}>
+        <Row element="ol" direction="column" gap={2}>
+          {items.map((i, index) => (
+            <Col key={`toc-item-${index}`}>
+              <Row gutter={2}>
+                {showIcons && (
+                  <Col width="auto">
+                    {i?.isValid === false ? (
+                      <Icon name="warning" color="important" />
+                    ) : (
+                      <Icon name="check" color={i?.isValid === true ? 'positive' : 'disabled'} />
+                    )}
+                  </Col>
+                )}
+                <Col>
+                  <Text element="div" modifiers="break-word">
+                    {typeof i?.content === 'function' ? i?.content?.({ closeModal: handleCloseModal }) : i?.content}
+                  </Text>
                 </Col>
-              )}
-              <Col>
-                <Text element="div" modifiers="break-word">
-                  {typeof i?.content === 'function' ? i?.content?.({ closeModal: handleCloseModal }) : i?.content}
-                </Text>
-              </Col>
-            </Row>
-          </VerticalSpacing>
-        </Col>
-      ))}
-    </Row>
+              </Row>
+            </Col>
+          ))}
+        </Row>
+      </nav>
+    </VerticalSpacing>
   );
 };
 
