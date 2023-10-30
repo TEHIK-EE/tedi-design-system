@@ -1,3 +1,10 @@
+## [5.25.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.25.0...v5.25.1) (2023-10-30)
+
+
+### Bug Fixes
+
+* **select:** TEHVEER-225 - Fix select input not working with right click ([8cf7d94](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/8cf7d94637d29903b295986bf772aed645307c03))
+
 # [5.25.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.24.0...v5.25.0) (2023-10-27)
 
 
