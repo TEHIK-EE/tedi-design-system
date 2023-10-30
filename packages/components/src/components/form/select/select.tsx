@@ -483,6 +483,13 @@ export const Select = forwardRef<SelectInstance<ISelectOption>, SelectProps>((pr
             dangerLight: '#fceeee',
           },
         })}
+        // see https://github.com/JedWatson/react-select/issues/4461
+        styles={{
+          input: (base) => ({
+            ...base,
+            gridTemplateColumns: '0fr',
+          }),
+        }}
       />
     );
   };
