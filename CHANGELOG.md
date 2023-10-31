@@ -1,3 +1,11 @@
+## [5.25.2](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.25.1...v5.25.2) (2023-10-31)
+
+
+### Bug Fixes
+
+* **header:** TEHVEER-226 - Move BottomHeader underneath Sidenav on mobile ([e8440ca](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/e8440cab825282bbadaf832c0c403ae5e24947b7))
+* **tooltip:** TEHVEER-227 - Close HeaderRole with re-click on trigger ([fbaa63f](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/fbaa63f9d50ba5f86b03304b4b03e26fa6e5e26e))
+
 ## [5.25.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.25.0...v5.25.1) (2023-10-30)
 
 
