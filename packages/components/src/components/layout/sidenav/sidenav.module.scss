@@ -28,7 +28,7 @@
 }
 
 .sidenav__overlay {
-  z-index: var(--z-index-sidenav);
+  z-index: calc(var(--z-index-header) - 1);
   background: rgb(0 0 0 / 25%);
 }
 
