@@ -182,7 +182,9 @@ export const TooltipProvider = (props: TooltipProviderProps): JSX.Element => {
       enabled: openWith === 'hover',
     }),
     useRole(context, { role }),
-    useDismiss(context),
+    useDismiss(context, {
+      outsidePressEvent: openWith === 'click' ? 'mousedown' : 'pointerdown', // https://floating-ui.com/docs/dialog#interaction-hooks
+    }),
   ]);
 
   return (
