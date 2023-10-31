@@ -1,6 +1,7 @@
 import cn from 'classnames';
-import React from 'react';
+import React, { AriaAttributes } from 'react';
 
+import { useIsMounted } from '../../helpers';
 import CloseButton from '../close-button/close-button';
 import { Col, Row } from '../grid';
 import Icon, { IconProps } from '../icon/icon';
@@ -35,11 +36,20 @@ export interface NotificationProps {
    * onClose callback handler
    */
   onClose?: () => void;
+  /**
+   * Role of the notification
+   * @default alert
+   */
+  role?: 'alert' | 'status' | 'none';
 }
 
-export const Notification = (props: NotificationProps): JSX.Element => {
-  const { children, title, className, type = 'info', icon, onClose, ...rest } = props;
+export const Notification = (props: NotificationProps) => {
+  const { children, role = 'alert', title, className, type = 'info', icon, onClose, ...rest } = props;
   const NotificationBEM = cn(styles['notification'], styles[`notification--${type}`], className);
+  // render notification after mounting so the screen-readers will also read notifications on page load
+  // https://github.com/nvaccess/nvda/issues/11068
+  // https://github.com/w3c/aria/issues/1360
+  const isMounted = useIsMounted();
 
   const getIcon = (icon: string | IconProps) => {
     const defaultIconProps: Partial<IconProps> = { size: 18 };
@@ -49,8 +59,10 @@ export const Notification = (props: NotificationProps): JSX.Element => {
     return <Icon display="inline" {...iconProps} />;
   };
 
-  return (
-    <div role="alert" data-name="notification" {...rest} className={NotificationBEM}>
+  const ariaLive = role === 'alert' ? 'assertive' : role === 'status' ? 'polite' : 'off';
+
+  return isMounted ? (
+    <div role={role} data-name="notification" aria-live={ariaLive} {...rest} className={NotificationBEM}>
       <VerticalSpacing size={0.25}>
         <Row gutterX={2} alignItems={title ? 'center' : 'start'}>
           {icon && <Col width="auto">{getIcon(icon)}</Col>}
@@ -66,7 +78,7 @@ export const Notification = (props: NotificationProps): JSX.Element => {
         {title && <div>{children}</div>}
       </VerticalSpacing>
     </div>
-  );
+  ) : null;
 };
 
 export default Notification;
