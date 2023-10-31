@@ -33,7 +33,7 @@ $header-min-height: 3.5rem;
 }
 
 .header__affix {
-  z-index: var(--z-index-header);
+  z-index: var(--z-index-bottom-header);
 }
 
 .header__content-left {
