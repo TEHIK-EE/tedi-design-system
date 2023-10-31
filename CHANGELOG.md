@@ -1,3 +1,10 @@
+## [5.25.3](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.25.2...v5.25.3) (2023-10-31)
+
+
+### Bug Fixes
+
+* **notification:** TEHVEER-228 - Read notifications on page load ([e48b7a3](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/e48b7a346ee93488a9803226f235aa5584df26bc))
+
 ## [5.25.2](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.25.1...v5.25.2) (2023-10-31)
 
 
