@@ -14,7 +14,7 @@ export interface SpinnerProps {
    * Size of the Spinner.
    * @default 16
    */
-  size?: 16 | 48;
+  size?: 10 | 16 | 48;
   /**
    * Which color Spinner should be.
    * @default 'bg-disabled'
