@@ -19,7 +19,7 @@ type CardHeaderBreakpointProps = {
    * @default default
    */
   variant?: CardHeaderVariant;
-} & Pick<CardContentProps, 'padding' | 'background'>;
+} & Pick<CardContentProps, 'padding'>;
 
 export interface CardHeaderProps extends BreakpointSupport<CardHeaderBreakpointProps> {
   /**
