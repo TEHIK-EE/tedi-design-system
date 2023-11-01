@@ -1,3 +1,11 @@
+# [5.27.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.26.0...v5.27.0) (2023-11-01)
+
+
+### Features
+
+* **card:** allow to use transparent background ([71514d1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/71514d192d8534ba7a0af1518ea7e0d969e4a295))
+* **card:** remove background prop from CardHeader ([01430d5](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/01430d58a5661ed6a6c2ffefa78526723a04d3fe))
+
 # [5.26.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.25.3...v5.26.0) (2023-11-01)
 
 
