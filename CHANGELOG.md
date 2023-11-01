@@ -1,3 +1,10 @@
+# [5.26.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.25.3...v5.26.0) (2023-11-01)
+
+
+### Features
+
+* **toggle:** TEHVEER-162 - Added toggle loading state ([4a0cfe8](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/4a0cfe8a99e276452a62f02bf8fa03014b45c280))
+
 ## [5.25.3](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.25.2...v5.25.3) (2023-10-31)
 
 
