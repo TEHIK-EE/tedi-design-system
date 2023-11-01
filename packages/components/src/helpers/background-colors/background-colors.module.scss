@@ -18,7 +18,7 @@ $colors: (
   // Shades
   'black',
   'white',
-  // Functional colors - Positive
+  // Functional colors
   'positive-main',
   'positive-active',
   'positive-highlight',
@@ -29,7 +29,9 @@ $colors: (
   'info-active',
   'info-highlight',
   'warning-main',
-  'warning-highlight'
+  'warning-highlight',
+  // Transparent
+  'transparent'
 );
 
 @each $color in $colors {

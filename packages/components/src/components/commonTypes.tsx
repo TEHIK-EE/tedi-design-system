@@ -29,7 +29,13 @@ export type ColorsFunctional =
   | 'warning-highlight';
 
 // Types with prefix T are meant to be all colors that can be used as background or border.
-export type TColorsBackground = ColorsPrimary | ColorsAccent | ColorsBackground | ColorsShades | ColorsFunctional;
+export type TColorsBackground =
+  | ColorsPrimary
+  | ColorsAccent
+  | ColorsBackground
+  | ColorsShades
+  | ColorsFunctional
+  | 'transparent';
 export type TColorsBorder = ColorsPrimary | ColorsAccent | ColorsBorder | ColorsFunctional;
 
 export const DEVICE_SIZES = ['xxl', 'xl', 'lg', 'md', 'sm', 'xs'] as const;
