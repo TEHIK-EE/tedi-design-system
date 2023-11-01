@@ -6,12 +6,12 @@ import Text from '../../typography/text/text';
 import { VerticalSpacing } from '../../vertical-spacing';
 import Toggle, { ToggleProps } from './toggle';
 
-const meta: Meta<typeof Toggle> = {
+const meta: Meta<ToggleProps> = {
   component: Toggle,
 };
 
 export default meta;
-type Story = StoryObj<typeof Toggle>;
+type Story = StoryObj<ToggleProps>;
 
 interface ToggleTemplateProps extends ToggleProps {
   name: string;
@@ -42,7 +42,9 @@ const ToggleCol = (props: ToggleTemplateProps) => {
       <p className="text-bold text-primary">{name}</p>
       <ToggleRow {...rest} name="Regular" />
       <ToggleRow {...rest} disabled name="Disabled" />
+      <ToggleRow {...rest} isLoading name="Loading" />
       <ToggleRow {...rest} size="large" name="Large" />
+      <ToggleRow {...rest} icon isLoading name="Large loading" />
       <ToggleRow {...rest} icon name="With icon" />
       <ToggleRow {...rest} icon disabled name="With icon disabled" />
     </VerticalSpacing>

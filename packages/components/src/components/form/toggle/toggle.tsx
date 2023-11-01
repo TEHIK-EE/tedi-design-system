@@ -1,14 +1,15 @@
 import cn from 'classnames';
-import React from 'react';
+import React, { forwardRef } from 'react';
 
 import Button, { ButtonProps } from '../../button/button';
 import Icon from '../../icon/icon';
+import Spinner from '../../spinner/spinner';
 import styles from './toggle.module.scss';
 
 export interface ToggleProps {
-  /*
+  /**
    * Aria Label
-   * */
+   */
   ariaLabel: string;
   /**
    * Label text rendered next to toggle
@@ -21,9 +22,9 @@ export interface ToggleProps {
    * Possibility to add extra content after label. ExtraContent is not clickable like label
    */
   extraContent?: React.ReactNode;
-  /*
+  /**
    * Wrapper Classname
-   * */
+   */
   className?: string;
   /**
    * If the check is controlled from outside the components, use with onChange
@@ -40,12 +41,12 @@ export interface ToggleProps {
   onChange?(value: boolean): void;
   /**
    * Size of the toggle
-   * @default 'medium'
+   * @default medium
    */
   size?: 'medium' | 'large';
   /**
    * Color of the toggle
-   * @default 'default'
+   * @default default
    */
   color?: 'default' | 'alternative';
   /**
@@ -61,9 +62,15 @@ export interface ToggleProps {
    * If the toggle is disabled
    */
   disabled?: boolean;
+  /**
+   * If toggle is in loading state and should show spinner.
+   * When isLoading is true, toggle does not trigger onChange event.
+   * @default false
+   */
+  isLoading?: boolean;
 }
 
-export const Toggle = React.forwardRef<HTMLButtonElement, ToggleProps>((props, ref) => {
+export const Toggle = forwardRef<HTMLButtonElement, ToggleProps>((props, ref) => {
   const {
     ariaLabel,
     className,
@@ -75,6 +82,7 @@ export const Toggle = React.forwardRef<HTMLButtonElement, ToggleProps>((props, r
     type,
     icon,
     disabled = false,
+    isLoading = false,
     extraContent,
     label,
     ...rest
@@ -98,6 +106,10 @@ export const Toggle = React.forwardRef<HTMLButtonElement, ToggleProps>((props, r
   );
 
   const handleChange = () => {
+    if (isLoading) {
+      return;
+    }
+
     const newChecked = !getChecked;
     if (typeof checked === 'undefined') {
       setInnerChecked(newChecked);
@@ -112,6 +124,7 @@ export const Toggle = React.forwardRef<HTMLButtonElement, ToggleProps>((props, r
     'aria-label': ariaLabel,
     'aria-pressed': getChecked,
     disabled: disabled,
+    'aria-disabled': isLoading,
     ...rest,
     onClick: handleChange,
   };
@@ -135,7 +148,14 @@ export const Toggle = React.forwardRef<HTMLButtonElement, ToggleProps>((props, r
         className={ToggleBEM}
       >
         <span className={styles['toggle__dot']}>
-          {icon && <Icon className={styles['toggle__icon']} name={getChecked ? 'lock_open' : 'lock'} size={16} />}
+          {isLoading ? (
+            <Spinner
+              size={size === 'large' ? 16 : 10}
+              className={cn(styles['toggle__icon'], styles['toggle__spinner'])}
+            />
+          ) : icon ? (
+            <Icon className={styles['toggle__icon']} name={getChecked ? 'lock_open' : 'lock'} size={16} />
+          ) : null}
         </span>
       </Button>
       {label && (

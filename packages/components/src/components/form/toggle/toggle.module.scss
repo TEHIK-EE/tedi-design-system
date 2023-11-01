@@ -112,6 +112,10 @@ $toggle-transition-timing-function: ease-out;
     color: $color;
   }
 
+  & .toggle__spinner {
+    stroke: currentcolor;
+  }
+
   &.toggle--active .toggle__icon {
     color: $color-active;
   }
