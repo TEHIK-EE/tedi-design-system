@@ -30,10 +30,10 @@ export const VerticalProgressContext = React.createContext<IVerticalProgressCont
  *
  * VerticalProgressItems can have 5 states: 'active', 'completed', 'error', 'disabled' and undefined. <br />
  * - active - Currently open item. No edit button is shown
- * - completed - Item is completed. Edit button is shown
- * - error - Item has error. Edit button is shown
+ * - completed - Item is completed. Edit button is shown when isToggable != false
+ * - error - Item has error. Edit button is shown when isToggable != false
  * - disabled - Item is disabled, user can't yet move to this step. Edit button is not shown
- * - undefined - Item is not current, completed, no error and not disabled. Edit button is shown
+ * - undefined - Item is not current, completed, no error and not disabled. Edit button is shown when isToggable != false
  *
  * Every verticalProgressItem can have content, means that completed,disabled etc. state can also have cotent under Title
  */
