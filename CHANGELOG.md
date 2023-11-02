@@ -1,3 +1,10 @@
+# [5.28.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.27.0...v5.28.0) (2023-11-02)
+
+
+### Features
+
+* **vertical-progress:** add option to hide edit button per item - TEHVEER-222 ([42f48ee](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/42f48eec4e0bc5c1d2a2353941c98c7f53f35c29))
+
 # [5.27.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.26.0...v5.27.0) (2023-11-01)
 
 
