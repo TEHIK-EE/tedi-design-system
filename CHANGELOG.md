@@ -1,3 +1,10 @@
+# [5.29.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.28.0...v5.29.0) (2023-11-02)
+
+
+### Features
+
+* **layout:** TEHVEER-229 - Added mainContentClassname prop to Layout component ([def67a2](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/def67a28237306e9513a3a951c70f766303a2f58))
+
 # [5.28.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.27.0...v5.28.0) (2023-11-02)
 
 
