@@ -1,4 +1,5 @@
 import { faker } from '@faker-js/faker';
+import { ArgsTable, Description, Primary, Stories, Title } from '@storybook/addon-docs';
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import React from 'react';
 
@@ -6,21 +7,48 @@ import Button from '../button/button';
 import Heading from '../typography/heading/heading';
 import Text from '../typography/text/text';
 import { VerticalSpacing } from '../vertical-spacing';
-import { VerticalProgress, VerticalProgressItem, VerticalProgressItemProps } from '.';
+import { VerticalProgress, VerticalProgressItem, VerticalProgressItemProps, VerticalProgressProps } from '.';
 
 const meta: Meta<typeof VerticalProgress> = {
   component: VerticalProgress,
   subcomponents: { VerticalProgressItem: VerticalProgressItem as any },
+  parameters: {
+    docs: {
+      page: () => (
+        <>
+          <Title />
+          <Description />
+          <Primary />
+          <ArgsTable />
+          <Stories includePrimary={false} />
+        </>
+      ),
+    },
+  },
 };
 
 export default meta;
-type Story = StoryObj<typeof VerticalProgress>;
 
-const step = ['Step one', 'Step two', 'Step three is longer heading', 'Step four'];
+const items = (isToggableFirst?: boolean): VerticalProgressItemProps[] => [
+  { title: 'Step one', isToggable: isToggableFirst, index: 0 },
+  { title: 'Step two', isToggable: true, index: 1 },
+  { title: 'Step three is longer heading', isToggable: true, index: 2 },
+  { title: 'Step four', isToggable: true, index: 3 },
+];
 
-const Template: StoryFn<typeof VerticalProgress> = (args) => {
-  const [activeItem, setActiveItem] = React.useState<number>(0);
-  const [completedItems, setCompletedItems] = React.useState<number[]>([]);
+export interface VerticalProgressStory {
+  VerticalProgressProps: VerticalProgressProps;
+  items: VerticalProgressItemProps[];
+  defaultActiveItem?: number;
+}
+
+type Story = StoryObj<VerticalProgressStory>;
+
+const Template: StoryFn<VerticalProgressStory> = ({ items, defaultActiveItem, VerticalProgressProps }) => {
+  const [activeItem, setActiveItem] = React.useState<number>(defaultActiveItem ?? 0);
+  const [completedItems, setCompletedItems] = React.useState<number[]>(
+    defaultActiveItem ? [defaultActiveItem - 1] : []
+  );
 
   const getItemState = (index: number): VerticalProgressItemProps['state'] => {
     if (index === activeItem) {
@@ -39,12 +67,18 @@ const Template: StoryFn<typeof VerticalProgress> = (args) => {
   };
 
   return (
-    <VerticalProgress {...args} onItemOpen={(id) => setActiveItem(id)}>
-      {step.map((title, index) => {
+    <VerticalProgress {...VerticalProgressProps} onItemOpen={(id) => setActiveItem(id)}>
+      {items.map(({ title, isToggable }, index) => {
         const state = getItemState(index);
         const hasContent = state === 'active';
         return (
-          <VerticalProgressItem key={index} index={index} title={<Heading element="h4">{title}</Heading>} state={state}>
+          <VerticalProgressItem
+            key={index}
+            isToggable={isToggable}
+            index={index}
+            title={<Heading element="h4">{title}</Heading>}
+            state={state}
+          >
             {hasContent && (
               <VerticalProgressContent
                 onItemSubmit={() => {
@@ -63,7 +97,17 @@ const Template: StoryFn<typeof VerticalProgress> = (args) => {
 
 export const Default: Story = {
   render: Template,
-  args: {},
+  args: {
+    items: items(),
+  },
+};
+
+export const FirstCompletedNotToggable: Story = {
+  render: Template,
+  args: {
+    items: items(false),
+    defaultActiveItem: 1,
+  },
 };
 
 interface VerticalProgressContentProps {
@@ -72,7 +116,7 @@ interface VerticalProgressContentProps {
 }
 
 const VerticalProgressContent = (props: VerticalProgressContentProps) => {
-  const { state, onItemSubmit } = props;
+  const { onItemSubmit } = props;
 
   return (
     <VerticalSpacing>

@@ -31,6 +31,11 @@ export interface VerticalProgressItemProps {
    * - undefined - item is not current, completed, no error and not disabled
    */
   state?: 'active' | 'completed' | 'error' | 'disabled';
+  /**
+   * Can item be toggled. If true, item can be opened with edit button.
+   * @default true, if state is not disabled or active
+   */
+  isToggable?: boolean;
 }
 
 export const VerticalProgressItemContext = React.createContext<VerticalProgressItemProps>({
@@ -60,12 +65,13 @@ export const VerticalProgressItem = (props: VerticalProgressItemProps) => {
 };
 
 const VerticalProgressItemHeader = () => {
-  const { title, state, index } = React.useContext(VerticalProgressItemContext);
+  const { title, state, index, isToggable = true } = React.useContext(VerticalProgressItemContext);
   const { onItemOpen } = React.useContext(VerticalProgressContext);
   const { getLabel } = useLabels();
 
   const isDisabled = state === 'disabled';
   const isActive = state === 'active';
+  const isToggableItem = isToggable && !isDisabled && !isActive;
 
   const getTagColor = (): TagProps['color'] => {
     switch (state) {
@@ -114,7 +120,7 @@ const VerticalProgressItemHeader = () => {
           <Col width="auto">{title}</Col>
         </Row>
       </Col>
-      {!(isDisabled || isActive) && (
+      {isToggableItem && (
         <Col width="auto">
           <Button visualType="link" iconRight="edit" onClick={() => onItemOpen(index)}>
             {getLabel('vertical-progress.edit')}
