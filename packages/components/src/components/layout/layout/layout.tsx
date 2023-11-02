@@ -36,6 +36,10 @@ export interface ILayoutProps<
    */
   mainContentId?: string;
   /**
+   * Main content className
+   */
+  mainContentClassName?: string;
+  /**
    * Footer props passed to Footer component
    */
   footer?: FooterProps;
@@ -78,6 +82,7 @@ export const Layout = <
     breadcrumbsProps,
     footer,
     mainContentId = 'main-content',
+    mainContentClassName,
     mainLogo,
     growMainContent,
     headerType = 'system',
@@ -143,7 +148,7 @@ export const Layout = <
               {mainLogo && (
                 <img className={styles['main__logos']} src={mainLogo.src} alt={mainLogo.alt} style={mainLogo.style} />
               )}
-              <main className={styles['main__content']} id={mainContentId} tabIndex={-1}>
+              <main className={cn(styles['main__content'], mainContentClassName)} id={mainContentId} tabIndex={-1}>
                 {breadcrumbsProps && (
                   <Section>
                     <Breadcrumbs className={styles['main__breadcrumbs']} {...breadcrumbsProps} />
