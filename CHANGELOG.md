@@ -1,3 +1,10 @@
+## [5.29.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.29.0...v5.29.1) (2023-11-13)
+
+
+### Bug Fixes
+
+* **layout:** UPP-1160 - TEHVEER: Ligipääsetavus (Android tablet) - teksti suurendamine (kõik vaated) ([f318a3e](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/f318a3e753e939cb9700da4780089d8ff94ef124))
+
 # [5.29.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.28.0...v5.29.0) (2023-11-02)
 
 
