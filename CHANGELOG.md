@@ -1,3 +1,10 @@
+# [5.30.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.29.2...v5.30.0) (2023-11-30)
+
+
+### Features
+
+* **icon:** add notranslate class to icons - TEHVEER-233 ([59a0efa](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/59a0efa26e9c8410f373451ab3df9246a15b99ff))
+
 ## [5.29.2](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.29.1...v5.29.2) (2023-11-30)
 
 
