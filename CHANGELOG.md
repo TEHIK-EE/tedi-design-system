@@ -1,3 +1,10 @@
+## [5.29.2](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.29.1...v5.29.2) (2023-11-30)
+
+
+### Bug Fixes
+
+* **layout:** reduce sf logo sizes ([fb4b127](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/fb4b127e434047bb0f21c128f08dd512f9bdd57f))
+
 ## [5.29.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.29.0...v5.29.1) (2023-11-13)
 
 
