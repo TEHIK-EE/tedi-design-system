@@ -14,6 +14,7 @@ import HeaderBottomContent, {
 import HeaderContent from '../components/header-content/header-content';
 import HeaderLanguage from '../components/header-language/header-language';
 import HeaderNavigation from '../components/header-navigation/header-navigation';
+import HeaderNotification, { HeaderNotificationProps } from '../components/header-notification/header-notification';
 import HeaderRole from '../components/header-role/header-role';
 import HeaderSettings from '../components/header-settings/header-settings';
 import Logo, { LogoProps } from '../components/logo/logo';
@@ -51,6 +52,10 @@ export interface HeaderProps<H extends React.ElementType> {
    * @default ['desktop', 'tablet']
    */
   showSystemCustomContent?: Layouts;
+  /**
+   * Props of notification bar above the header.
+   */
+  notification?: HeaderNotificationProps;
 }
 
 export const Header = <H extends React.ElementType = 'a'>(props: HeaderProps<H>) => {
@@ -59,6 +64,7 @@ export const Header = <H extends React.ElementType = 'a'>(props: HeaderProps<H>)
     logo,
     children,
     bottomContent,
+    notification,
     minimalSettingsArea = ['mobile'],
     showSystemCustomContent = ['desktop', 'tablet'],
     ...rest
@@ -132,6 +138,7 @@ export const Header = <H extends React.ElementType = 'a'>(props: HeaderProps<H>)
   return (
     <Print visibility="hide">
       {skipLinks && <SkipLinks {...skipLinks} />}
+      {notification && <HeaderNotification {...notification} />}
       <header data-name="header" {...rest} ref={headerElement} className={BEM}>
         <SidenavToggle />
         <Logo {...logo} />

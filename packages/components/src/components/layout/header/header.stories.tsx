@@ -1,5 +1,4 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
-import React from 'react';
 
 import Anchor from '../../anchor/anchor';
 import { Col, Row } from '../../grid';
@@ -8,6 +7,7 @@ import { Notice as BottomContentNotice } from './components/header-bottom-conten
 import HeaderContent from './components/header-content/header-content';
 import HeaderLanguage, { HeaderLanguageProps } from './components/header-language/header-language';
 import { Default as HeaderLanguageDefault } from './components/header-language/header-language.stories';
+import { Default as HeaderNotificationDefault } from './components/header-notification/header-notification.stories';
 import HeaderRole, { HeaderRoleProps } from './components/header-role/header-role';
 import { Default as HeaderRoleDefault, WithLongContent } from './components/header-role/header-role.stories';
 import HeaderSettings, { HeaderSettingsProps } from './components/header-settings/header-settings';
@@ -76,6 +76,19 @@ export const Public: Story = {
       },
     },
 
+    layout: 'fullscreen',
+  },
+};
+
+export const HeaderWithNotification: Story = {
+  render: Template,
+  args: {
+    ...Default.args,
+    notification: {
+      ...HeaderNotificationDefault.args,
+    },
+  },
+  parameters: {
     layout: 'fullscreen',
   },
 };

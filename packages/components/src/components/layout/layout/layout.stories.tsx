@@ -11,6 +11,7 @@ import { Default as BreadcrumbsDefault } from '../breadcrumbs/breadcrumbs.storie
 import Footer, { FooterProps } from '../footer/footer';
 import { Default as FooterDefault } from '../footer/footer.stories';
 import { Header, HeaderProps } from '../header';
+import { Default as HeaderNotificationDefault } from '../header/components/header-notification/header-notification.stories';
 import {
   BottomContent as HeaderBottomContent,
   Default as HeaderDefault,
@@ -110,6 +111,29 @@ export const Public: Story = {
       description: {
         story:
           'Layout with a public header. Public header is more simpler, it does not support custom content to header, instead it renders navigation to Header on larger screens from Sidenav props. <br/> It can be used for public pages.',
+      },
+    },
+  },
+};
+
+export const WithNotification: Story = {
+  render: Template,
+
+  args: {
+    ...Default.args,
+    header: {
+      ...(HeaderDefault.args as HeaderProps<'a'>),
+      notification: {
+        ...HeaderNotificationDefault.args,
+      },
+    },
+  },
+
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Layout with a notification. Notification is rendered HeaderNotification. It can be used to display important system-wide messages to user.',
       },
     },
   },
