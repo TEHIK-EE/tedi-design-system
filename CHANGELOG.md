@@ -1,3 +1,10 @@
+# [5.31.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.30.0...v5.31.0) (2023-12-07)
+
+
+### Features
+
+* **layout:** TEHVEER-236 - Add optional notification component above header ([384ffd3](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/384ffd3304c747c57742499c3793e61dddd321de))
+
 # [5.30.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.29.2...v5.30.0) (2023-11-30)
 
 
