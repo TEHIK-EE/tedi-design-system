@@ -1,3 +1,10 @@
+## [5.31.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.31.0...v5.31.1) (2023-12-11)
+
+
+### Bug Fixes
+
+* **check:** TEHVEER-234 - Improve check focus styles for accessibility ([c25fad0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/c25fad0da36157ec12279960388b8a977a4c5bb6))
+
 # [5.31.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.30.0...v5.31.0) (2023-12-07)
 
 
