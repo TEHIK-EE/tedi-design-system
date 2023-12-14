@@ -1,10 +1,11 @@
 import { Meta, StoryObj } from '@storybook/react';
+import { OptionsOrGroups } from 'react-select';
 
 import { AsyncSelectTemplate } from './examples/async';
 import { CustomOptionSelectTemplate } from './examples/custom-option';
 import { EditableSelectTemplate } from './examples/editable';
 import { MultipleHandledTemplate } from './examples/multiple-handled';
-import Select from './select';
+import Select, { IGroupedOptions, ISelectOption } from './select';
 
 const meta: Meta<typeof Select> = {
   component: Select,
@@ -18,6 +19,52 @@ const options = [
   { value: 'option-2', label: 'Option 2', isDisabled: true },
   { value: 'option-3', label: 'Option 3' },
   { value: 'option-4', label: 'Option 4' },
+];
+
+const groupedOptions: OptionsOrGroups<ISelectOption, IGroupedOptions<ISelectOption>> = [
+  {
+    label: 'GROUP 1',
+    options: [
+      { value: 'option-2', label: 'Option 2' },
+      { value: 'option-3', label: 'Option 3' },
+    ],
+  },
+  {
+    label: 'GROUP 2',
+    options: [
+      { value: 'option-4', label: 'Option 4' },
+      { value: 'option-5', label: 'Option 5' },
+    ],
+  },
+];
+
+const groupedOptions2: OptionsOrGroups<ISelectOption, IGroupedOptions<ISelectOption>> = [
+  {
+    label: 'Group 1',
+    options: [
+      { value: 'option-1', label: 'Option 1' },
+      { value: 'option-2', label: 'Option 2' },
+    ],
+  },
+  {
+    label: 'Group 2',
+    options: [
+      { value: 'option-3', label: 'Option 3' },
+      { value: 'option-4', label: 'Option 4' },
+    ],
+  },
+  {
+    label: 'Group 3 - Separately set styles have priority',
+    text: {
+      modifiers: ['small'],
+      color: 'inverted',
+    },
+    backgroundColor: 'primary-main',
+    options: [
+      { value: 'option-5', label: 'Option 5' },
+      { value: 'option-6', label: 'Option 6' },
+    ],
+  },
 ];
 
 export const Default: Story = {
@@ -98,5 +145,34 @@ export const EditableSelect: Story = {
   args: {
     id: 'editable-example',
     label: 'Editable label',
+  },
+};
+
+export const SelectWithGroupedOptions: Story = {
+  args: {
+    id: 'grouped-options-example',
+    label: 'Grouped options label',
+    options: groupedOptions,
+  },
+};
+
+export const SelectWithStyledGroupedOptions: Story = {
+  args: {
+    id: 'grouped-options-example',
+    label: 'Grouped options label',
+    optionGroupHeadingText: {
+      modifiers: ['italic'],
+      color: 'important',
+    },
+    optionGroupBackgroundColor: 'important-highlight',
+    options: groupedOptions2,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'All group headings can be styled at once with `optionGroupHeadingText` and `optionGroupBackgroundColor`. But they can be styled separately also using `text` and `backgroundColor` inside `options` prop. If both ways are used at the same time, priority is given to separately set styles.',
+      },
+    },
   },
 };

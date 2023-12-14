@@ -1,10 +1,11 @@
 import cn from 'classnames';
-import React, { forwardRef } from 'react';
+import React, { forwardRef, ReactElement } from 'react';
 import ReactSelect, {
   ClearIndicatorProps,
   components as ReactSelectComponents,
   ControlProps,
   GroupBase,
+  GroupHeadingProps,
   InputActionMeta,
   InputProps,
   MenuListProps,
@@ -12,6 +13,7 @@ import ReactSelect, {
   MultiValueProps,
   OnChangeValue,
   OptionProps,
+  OptionsOrGroups,
   PlaceholderProps,
   SelectComponentsConfig,
   SelectInstance,
@@ -19,8 +21,11 @@ import ReactSelect, {
 import AsyncSelect from 'react-select/async';
 import { MenuPortalProps } from 'react-select/dist/declarations/src/components/Menu';
 
+import { getBackgroundColorClass } from '../../../helpers';
+import { TColorsBackground } from '../../commonTypes';
 import { Icon } from '../../icon/icon';
 import Tag from '../../tag/tag';
+import Text, { TextProps } from '../../typography/text/text';
 import Check from '../check/check';
 import FormHelper, { FormHelperProps } from '../form-helper/form-helper';
 import FormLabel, { FormLabelProps } from '../form-label/form-label';
@@ -62,9 +67,9 @@ export interface SelectProps extends FormLabelProps {
    */
   id: string;
   /**
-   * Options for select.
+   * Options or grouped options for select.
    */
-  options?: ISelectOption[];
+  options?: OptionsOrGroups<ISelectOption, IGroupedOptions<ISelectOption>>;
   /**
    * Default options for async select. Do not use without async select.
    */
@@ -219,6 +224,14 @@ export interface SelectProps extends FormLabelProps {
    * Whether the input text should be always hidden or always shown. Used for editable select results
    */
   inputIsHidden?: boolean;
+  /**
+   * Option group heading text modifiers. Can also be set for each option group separately inside `options` prop.
+   */
+  optionGroupHeadingText?: Pick<TextProps, 'modifiers' | 'color'>;
+  /**
+   * Option group heading background color. Can also be set for each option group separately inside `options` prop.
+   */
+  optionGroupBackgroundColor?: TColorsBackground;
 }
 
 export interface ISelectOption<CustomData = unknown> {
@@ -240,283 +253,314 @@ export interface ISelectOption<CustomData = unknown> {
   customData?: CustomData;
 }
 
+export interface IGroupedOptions<CustomOption = unknown> extends GroupBase<CustomOption> {
+  text?: Pick<TextProps, 'modifiers' | 'color'>;
+  backgroundColor?: TColorsBackground;
+}
+
 export type TSelectValue<CustomData = unknown> =
   | ISelectOption<CustomData>
   | ReadonlyArray<ISelectOption<CustomData>>
   | null;
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const Select = forwardRef<SelectInstance<ISelectOption>, SelectProps>((props, ref): JSX.Element => {
-  const {
-    options,
-    defaultOptions,
-    id,
-    name,
-    iconName = 'arrow_drop_down',
-    label,
-    required,
-    requiredLabel,
-    value,
-    defaultValue,
-    onChange,
-    onInputChange,
-    inputValue,
-    loadOptions,
-    openMenuOnFocus = false,
-    openMenuOnClick = true,
-    tabSelectsValue = false,
-    disabled = false,
-    className,
-    hideLabel = false,
-    helper,
-    placeholder,
-    invalid,
-    size,
-    async = false,
-    renderOption,
-    renderMessageListFooter,
-    noOptionsMessage,
-    loadingMessage,
-    multiple = false,
-    closeMenuOnSelect = !multiple,
-    blurInputOnSelect = false,
-    autoFocus = false,
-    isClearable = true,
-    isClearIndicatorVisible = false,
-    isSearchable = true,
-    menuIsOpen,
-    onMenuClose,
-    onMenuOpen,
-    onBlur,
-    inputIsHidden,
-    ...rest
-  } = props;
-  const helperId = helper ? helper?.id ?? `${id}-helper` : undefined;
-  const element = React.useRef<SelectInstance<ISelectOption> | null>(null);
+export const Select = forwardRef<SelectInstance<ISelectOption, boolean, IGroupedOptions<ISelectOption>>, SelectProps>(
+  (props, ref): JSX.Element => {
+    const {
+      options,
+      defaultOptions,
+      id,
+      name,
+      iconName = 'arrow_drop_down',
+      label,
+      required,
+      requiredLabel,
+      value,
+      defaultValue,
+      onChange,
+      onInputChange,
+      inputValue,
+      loadOptions,
+      openMenuOnFocus = false,
+      openMenuOnClick = true,
+      tabSelectsValue = false,
+      disabled = false,
+      className,
+      hideLabel = false,
+      helper,
+      placeholder,
+      invalid,
+      size,
+      async = false,
+      renderOption,
+      renderMessageListFooter,
+      noOptionsMessage,
+      loadingMessage,
+      multiple = false,
+      closeMenuOnSelect = !multiple,
+      blurInputOnSelect = false,
+      autoFocus = false,
+      isClearable = true,
+      isClearIndicatorVisible = false,
+      isSearchable = true,
+      menuIsOpen,
+      onMenuClose,
+      onMenuOpen,
+      onBlur,
+      inputIsHidden,
+      optionGroupHeadingText,
+      optionGroupBackgroundColor,
+      ...rest
+    } = props;
+    const helperId = helper ? helper?.id ?? `${id}-helper` : undefined;
+    const element = React.useRef<SelectInstance<ISelectOption, boolean, IGroupedOptions<ISelectOption>> | null>(null);
 
-  React.useImperativeHandle(ref, () => element.current as SelectInstance<ISelectOption>);
-
-  const onChangeHandler = (option: OnChangeValue<ISelectOption, boolean>) => {
-    onChange?.(option);
-
-    // because on touch device screen-readers(Talkback and VoiceOver) we lose focus on the input when selecting an option
-    // we have to manually set it back to the input
-    if (!blurInputOnSelect && element.current) {
-      element.current.inputRef?.focus();
-    }
-  };
-
-  const getDropDownIndicator = (): JSX.Element => (
-    <Icon name={iconName} size={24} className={styles['select__arrow']} />
-  );
-
-  const getMenuPortal = (props: MenuPortalProps<ISelectOption, boolean, GroupBase<ISelectOption>>): JSX.Element => (
-    <ReactSelectComponents.MenuPortal {...props} className={cn(props.className, styles['select__menu-portal'])} />
-  );
-
-  const getMenu = (props: MenuProps<ISelectOption, boolean>): JSX.Element => (
-    <ReactSelectComponents.Menu {...props} className={cn(props.className, styles['select__menu'])} />
-  );
-
-  const getPlaceholder = (props: PlaceholderProps<ISelectOption>): JSX.Element => (
-    <ReactSelectComponents.Placeholder {...props} className={cn(props.className, 'inline-block')} />
-  );
-
-  const getMenuList = (props: MenuListProps<ISelectOption, boolean>): JSX.Element => (
-    <div className={styles['select__menu-list-wrapper']}>
-      <ReactSelectComponents.MenuList {...props} className={cn(props.className, styles['select__menu-list'])}>
-        {props.children}
-      </ReactSelectComponents.MenuList>
-      {renderMessageListFooter && (
-        <div className={styles['select__menu-list-footer']}>{renderMessageListFooter(props)}</div>
-      )}
-    </div>
-  );
-
-  const getMultiOption = (props: OptionProps<ISelectOption, boolean>): JSX.Element => {
-    const OptionBEM = cn(
-      styles['select__option'],
-      { [styles['select__option--disabled']]: props.isDisabled },
-      { [styles['select__option--focused']]: props.isFocused }
+    React.useImperativeHandle(
+      ref,
+      () => element.current as SelectInstance<ISelectOption, boolean, IGroupedOptions<ISelectOption>>
     );
 
-    const { tabIndex, ...innerProps } = props.innerProps; // https://github.com/JedWatson/react-select/issues/5190#issuecomment-1634111332
+    const onChangeHandler = (option: OnChangeValue<ISelectOption, boolean>) => {
+      onChange?.(option);
 
-    return (
-      <ReactSelectComponents.Option
-        {...props}
-        innerProps={{ ...innerProps, role: 'option', 'aria-selected': props.isSelected }}
-        className={OptionBEM}
-      >
-        {renderOption ? (
-          renderOption(props)
-        ) : (
-          <>
-            <span className="sr-only">{props.label}</span>
-            <Check
-              id={props.data.value}
-              label={props.label}
-              aria-hidden={true}
-              className={styles['select__checkbox']}
-              value={props.data.value}
-              name={props.data.value}
-              checked={props.isSelected}
-              onChange={(value, checked) => null}
-              disabled={props.isDisabled}
-              hover={props.isFocused}
-            />
-          </>
-        )}
-      </ReactSelectComponents.Option>
-    );
-  };
-
-  const getSingleOption = (props: OptionProps<ISelectOption, boolean>): JSX.Element => {
-    const OptionBEM = cn(
-      styles['select__option'],
-      { [styles['select__option--disabled']]: props.isDisabled },
-      { [styles['select__option--selected']]: props.isSelected },
-      { [styles['select__option--focused']]: props.isFocused }
-    );
-
-    const { tabIndex, ...innerProps } = props.innerProps; // https://github.com/JedWatson/react-select/issues/5190#issuecomment-1634111332
-
-    return (
-      <ReactSelectComponents.Option
-        {...props}
-        innerProps={{ ...innerProps, role: 'option', 'aria-selected': props.isSelected }}
-        className={OptionBEM}
-      >
-        {renderOption ? renderOption(props) : props.children}
-      </ReactSelectComponents.Option>
-    );
-  };
-
-  const getOption = (props: OptionProps<ISelectOption, boolean>): JSX.Element => {
-    return multiple ? getMultiOption(props) : getSingleOption(props);
-  };
-
-  const getMultiValue = ({ children, ...rest }: MultiValueProps<ISelectOption>): JSX.Element => {
-    return (
-      <Tag
-        color="default"
-        type="secondary"
-        className={cn(styles['select__multi-value-item'], {
-          [styles['select__multi-value-item--big']]: size !== 'small',
-        })}
-      >
-        {children}
-      </Tag>
-    );
-  };
-
-  const getClearIndicator = (props: ClearIndicatorProps<ISelectOption>) =>
-    isClearIndicatorVisible ? <ReactSelectComponents.ClearIndicator {...props} /> : null;
-
-  const renderReactSelect = (): JSX.Element => {
-    const customComponents: SelectComponentsConfig<ISelectOption, boolean, GroupBase<ISelectOption>> = {
-      ClearIndicator: getClearIndicator,
-      DropdownIndicator: getDropDownIndicator,
-      IndicatorSeparator: () => null,
-      MenuPortal: getMenuPortal,
-      Menu: getMenu,
-      MenuList: getMenuList,
-      Option: getOption,
-      Control: CustomControl,
-      Input: CustomInput,
-      MultiValue: getMultiValue,
-      MultiValueRemove: () => null,
-      Placeholder: getPlaceholder,
+      // because on touch device screen-readers(Talkback and VoiceOver) we lose focus on the input when selecting an option
+      // we have to manually set it back to the input
+      if (!blurInputOnSelect && element.current) {
+        element.current.inputRef?.focus();
+      }
     };
 
-    const ReactSelectElement = async ? AsyncSelect : ReactSelect;
+    const getDropDownIndicator = (): JSX.Element => (
+      <Icon name={iconName} size={24} className={styles['select__arrow']} />
+    );
+
+    const getMenuPortal = (
+      props: MenuPortalProps<ISelectOption, boolean, IGroupedOptions<ISelectOption>>
+    ): JSX.Element => (
+      <ReactSelectComponents.MenuPortal {...props} className={cn(props.className, styles['select__menu-portal'])} />
+    );
+
+    const getMenu = (props: MenuProps<ISelectOption, boolean>): JSX.Element => (
+      <ReactSelectComponents.Menu {...props} className={cn(props.className, styles['select__menu'])} />
+    );
+
+    const getPlaceholder = (props: PlaceholderProps<ISelectOption>): JSX.Element => (
+      <ReactSelectComponents.Placeholder {...props} className={cn(props.className, 'inline-block')} />
+    );
+
+    const getMenuList = (props: MenuListProps<ISelectOption, boolean>): JSX.Element => (
+      <div className={styles['select__menu-list-wrapper']}>
+        <ReactSelectComponents.MenuList {...props} className={cn(props.className, styles['select__menu-list'])}>
+          {props.children}
+        </ReactSelectComponents.MenuList>
+        {renderMessageListFooter && (
+          <div className={styles['select__menu-list-footer']}>{renderMessageListFooter(props)}</div>
+        )}
+      </div>
+    );
+
+    const getMultiOption = (props: OptionProps<ISelectOption, boolean>): JSX.Element => {
+      const OptionBEM = cn(
+        styles['select__option'],
+        { [styles['select__option--disabled']]: props.isDisabled },
+        { [styles['select__option--focused']]: props.isFocused }
+      );
+
+      const { tabIndex, ...innerProps } = props.innerProps; // https://github.com/JedWatson/react-select/issues/5190#issuecomment-1634111332
+
+      return (
+        <ReactSelectComponents.Option
+          {...props}
+          innerProps={{ ...innerProps, role: 'option', 'aria-selected': props.isSelected }}
+          className={OptionBEM}
+        >
+          {renderOption ? (
+            renderOption(props)
+          ) : (
+            <>
+              <span className="sr-only">{props.label}</span>
+              <Check
+                id={props.data.value}
+                label={props.label}
+                aria-hidden={true}
+                className={styles['select__checkbox']}
+                value={props.data.value}
+                name={props.data.value}
+                checked={props.isSelected}
+                onChange={(value, checked) => null}
+                disabled={props.isDisabled}
+                hover={props.isFocused}
+              />
+            </>
+          )}
+        </ReactSelectComponents.Option>
+      );
+    };
+
+    const getSingleOption = (props: OptionProps<ISelectOption, boolean>): JSX.Element => {
+      const OptionBEM = cn(
+        styles['select__option'],
+        { [styles['select__option--disabled']]: props.isDisabled },
+        { [styles['select__option--selected']]: props.isSelected },
+        { [styles['select__option--focused']]: props.isFocused }
+      );
+
+      const { tabIndex, ...innerProps } = props.innerProps; // https://github.com/JedWatson/react-select/issues/5190#issuecomment-1634111332
+
+      return (
+        <ReactSelectComponents.Option
+          {...props}
+          innerProps={{ ...innerProps, role: 'option', 'aria-selected': props.isSelected }}
+          className={OptionBEM}
+        >
+          {renderOption ? renderOption(props) : props.children}
+        </ReactSelectComponents.Option>
+      );
+    };
+
+    const getOption = (props: OptionProps<ISelectOption, boolean>): JSX.Element => {
+      return multiple ? getMultiOption(props) : getSingleOption(props);
+    };
+
+    const getMultiValue = ({ children, ...rest }: MultiValueProps<ISelectOption>): JSX.Element => {
+      return (
+        <Tag
+          color="default"
+          type="secondary"
+          className={cn(styles['select__multi-value-item'], {
+            [styles['select__multi-value-item--big']]: size !== 'small',
+          })}
+        >
+          {children}
+        </Tag>
+      );
+    };
+
+    const getClearIndicator = (props: ClearIndicatorProps<ISelectOption>) =>
+      isClearIndicatorVisible ? <ReactSelectComponents.ClearIndicator {...props} /> : null;
+
+    const getGroupHeading = (
+      props: GroupHeadingProps<ISelectOption, boolean, IGroupedOptions<ISelectOption>>
+    ): ReactElement => {
+      const groupHeadingBEM = cn(
+        styles['select__group-heading'],
+        getBackgroundColorClass(props.data.backgroundColor || optionGroupBackgroundColor || 'transparent')
+      );
+      const textSettings = props.data.text || optionGroupHeadingText || { modifiers: 'small', color: 'subtle' };
+
+      return (
+        <Text {...textSettings} className={groupHeadingBEM}>
+          {props.data.label}
+        </Text>
+      );
+    };
+
+    const renderReactSelect = (): JSX.Element => {
+      const customComponents: SelectComponentsConfig<ISelectOption, boolean, IGroupedOptions<ISelectOption>> = {
+        ClearIndicator: getClearIndicator,
+        DropdownIndicator: getDropDownIndicator,
+        IndicatorSeparator: () => null,
+        MenuPortal: getMenuPortal,
+        Menu: getMenu,
+        MenuList: getMenuList,
+        Option: getOption,
+        Control: CustomControl,
+        Input: CustomInput,
+        MultiValue: getMultiValue,
+        MultiValueRemove: () => null,
+        Placeholder: getPlaceholder,
+        GroupHeading: getGroupHeading,
+      };
+
+      const ReactSelectElement = async ? AsyncSelect : ReactSelect;
+
+      return (
+        <ReactSelectElement<ISelectOption, boolean, IGroupedOptions<ISelectOption>>
+          id={id}
+          aria-describedby={helperId}
+          autoFocus={autoFocus}
+          ref={element}
+          instanceId={id}
+          className="select__wrapper"
+          name={name}
+          options={options}
+          defaultOptions={defaultOptions}
+          value={value}
+          defaultValue={defaultValue}
+          cacheOptions={true}
+          onChange={onChangeHandler}
+          onInputChange={onInputChange}
+          onBlur={onBlur}
+          inputValue={inputValue}
+          inputId={`${id}-input`}
+          loadOptions={loadOptions}
+          noOptionsMessage={noOptionsMessage}
+          loadingMessage={loadingMessage}
+          classNamePrefix="select"
+          components={customComponents}
+          isDisabled={disabled}
+          isSearchable={isSearchable}
+          menuIsOpen={menuIsOpen}
+          openMenuOnFocus={openMenuOnFocus}
+          openMenuOnClick={openMenuOnClick}
+          tabSelectsValue={tabSelectsValue}
+          onMenuClose={onMenuClose}
+          onMenuOpen={onMenuOpen}
+          placeholder={placeholder || ''}
+          isClearable={isClearable}
+          backspaceRemovesValue={true}
+          menuShouldScrollIntoView={true}
+          isMulti={multiple}
+          hideSelectedOptions={false}
+          closeMenuOnSelect={closeMenuOnSelect}
+          blurInputOnSelect={blurInputOnSelect}
+          menuPosition="fixed"
+          menuPlacement="auto"
+          inputIsHidden={inputIsHidden}
+          theme={(theme) => ({
+            ...theme,
+            colors: {
+              ...theme.colors,
+              primary: '#005aa3',
+              danger: '#b50000',
+              dangerLight: '#fceeee',
+            },
+          })}
+          // see https://github.com/JedWatson/react-select/issues/4461
+          styles={{
+            input: (base) => ({
+              ...base,
+              gridTemplateColumns: '0fr',
+            }),
+          }}
+        />
+      );
+    };
+
+    const SelectBEM = cn(
+      styles['select'],
+      className,
+      { [styles['select--invalid']]: invalid || helper?.type === 'error' },
+      { [styles[`select--${size}`]]: size }
+    );
 
     return (
-      <ReactSelectElement<ISelectOption, boolean>
-        id={id}
-        aria-describedby={helperId}
-        autoFocus={autoFocus}
-        ref={element}
-        instanceId={id}
-        className="select__wrapper"
-        name={name}
-        options={options}
-        defaultOptions={defaultOptions}
-        value={value}
-        defaultValue={defaultValue}
-        cacheOptions={true}
-        onChange={onChangeHandler}
-        onInputChange={onInputChange}
-        onBlur={onBlur}
-        inputValue={inputValue}
-        inputId={`${id}-input`}
-        loadOptions={loadOptions}
-        noOptionsMessage={noOptionsMessage}
-        loadingMessage={loadingMessage}
-        classNamePrefix="select"
-        components={customComponents}
-        isDisabled={disabled}
-        isSearchable={isSearchable}
-        menuIsOpen={menuIsOpen}
-        openMenuOnFocus={openMenuOnFocus}
-        openMenuOnClick={openMenuOnClick}
-        tabSelectsValue={tabSelectsValue}
-        onMenuClose={onMenuClose}
-        onMenuOpen={onMenuOpen}
-        placeholder={placeholder || ''}
-        isClearable={isClearable}
-        backspaceRemovesValue={true}
-        menuShouldScrollIntoView={true}
-        isMulti={multiple}
-        hideSelectedOptions={false}
-        closeMenuOnSelect={closeMenuOnSelect}
-        blurInputOnSelect={blurInputOnSelect}
-        menuPosition="fixed"
-        menuPlacement="auto"
-        inputIsHidden={inputIsHidden}
-        theme={(theme) => ({
-          ...theme,
-          colors: {
-            ...theme.colors,
-            primary: '#005aa3',
-            danger: '#b50000',
-            dangerLight: '#fceeee',
-          },
-        })}
-        // see https://github.com/JedWatson/react-select/issues/4461
-        styles={{
-          input: (base) => ({
-            ...base,
-            gridTemplateColumns: '0fr',
-          }),
-        }}
-      />
-    );
-  };
-
-  const SelectBEM = cn(
-    styles['select'],
-    className,
-    { [styles['select--invalid']]: invalid || helper?.type === 'error' },
-    { [styles[`select--${size}`]]: size }
-  );
-
-  return (
-    <div data-name="select" {...rest} className={SelectBEM}>
-      <div className={styles['select__inner']}>
-        <FormLabel
-          id={`${id}-input`}
-          label={label}
-          requiredLabel={requiredLabel}
-          required={required}
-          hideLabel={hideLabel}
-        />
-        {renderReactSelect()}
+      <div data-name="select" {...rest} className={SelectBEM}>
+        <div className={styles['select__inner']}>
+          <FormLabel
+            id={`${id}-input`}
+            label={label}
+            requiredLabel={requiredLabel}
+            required={required}
+            hideLabel={hideLabel}
+          />
+          {renderReactSelect()}
+        </div>
+        {helper && <FormHelper {...helper} id={helperId} />}
       </div>
-      {helper && <FormHelper {...helper} id={helperId} />}
-    </div>
-  );
-});
+    );
+  }
+);
 
 Select.displayName = 'Select';
 
