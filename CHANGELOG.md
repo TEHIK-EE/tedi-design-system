@@ -1,3 +1,10 @@
+# [5.32.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.31.1...v5.32.0) (2023-12-14)
+
+
+### Features
+
+* **select:** add grouped options feature for select - TEHVEER-232 ([e1e42c1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/e1e42c1f5cc8fe657251e7db7380145750503223))
+
 ## [5.31.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.31.0...v5.31.1) (2023-12-11)
 
 
