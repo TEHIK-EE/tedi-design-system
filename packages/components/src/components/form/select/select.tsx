@@ -73,7 +73,7 @@ export interface SelectProps extends FormLabelProps {
   /**
    * Default options for async select. Do not use without async select.
    */
-  defaultOptions?: ISelectOption[];
+  defaultOptions?: OptionsOrGroups<ISelectOption, IGroupedOptions<ISelectOption>>;
   /**
    * select field placeholder.
    */
@@ -102,7 +102,10 @@ export interface SelectProps extends FormLabelProps {
   /**
    * onChange callback handler when input changes on async/live select.
    */
-  loadOptions?: (inputValue: string, callback: (options: ISelectOption[]) => void) => void;
+  loadOptions?: (
+    inputValue: string,
+    callback: (options: OptionsOrGroups<ISelectOption, IGroupedOptions<ISelectOption>>) => void
+  ) => void;
   /**
    * Default value of select.
    */
