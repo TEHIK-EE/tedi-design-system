@@ -1,3 +1,10 @@
+## [5.32.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.32.0...v5.32.1) (2023-12-15)
+
+
+### Bug Fixes
+
+* **select:** add optionGroup types to async select properties - TEHVEER-239 ([318a9bc](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/318a9bc7a0da6621f6234ded9e95f6e9cad61751))
+
 # [5.32.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.31.1...v5.32.0) (2023-12-14)
 
 
