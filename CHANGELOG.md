@@ -1,3 +1,10 @@
+# [5.33.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.32.1...v5.33.0) (2023-12-19)
+
+
+### Features
+
+* **number-field:** add number type input field - TEHVEER-234 ([1976d2b](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/1976d2bcf221e405dc8dc9c5e01432bce8a3a715))
+
 ## [5.32.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.32.0...v5.32.1) (2023-12-15)
 
 
