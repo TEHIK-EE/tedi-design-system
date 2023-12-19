@@ -624,6 +624,27 @@ export const labelsMap = {
     en: 'Footer',
     ru: 'Нижний колонтитул',
   }),
+  'numberField.decrement': validateLabel({
+    description: 'Label for screen-reader for number field decrease button',
+    components: ['NumberField'],
+    et: (count: string | number) => `Vähenda ${count} võrra`,
+    en: (count: string | number) => `Decrease by ${count}`,
+    ru: (count: string | number) => `Уменьшить на ${count}`,
+  }),
+  'numberField.increment': validateLabel({
+    description: 'Label for screen-reader for number field increase button',
+    components: ['NumberField'],
+    et: (count: string | number) => `Suurenda ${count} võrra`,
+    en: (count: string | number) => `Increase by ${count}`,
+    ru: (count: string | number) => `Увеличить на ${count}`,
+  }),
+  'numberField.quantityUpdated': validateLabel({
+    description: 'Label for screen-reader when quantity get updated by button click',
+    components: ['NumberField'],
+    et: (count: string | number) => `Uuendatud. Uus väärtus ${count}`,
+    en: (count: string | number) => `Updated. New value ${count}`,
+    ru: (count: string | number) => `Ууэндатуд. Уус вяэртус ${count}`,
+  }),
 };
 
 export type LabelsMapType = typeof labelsMap;

@@ -1,0 +1,130 @@
+$input-height: 2.5rem;
+$border-radius: 0.25rem;
+$border-width: 1px;
+
+.number-field .number-field__button {
+  width: $input-height;
+  border: $border-width solid var(--color-border-contrast);
+
+  &:disabled {
+    border: $border-width solid var(--color-border-contrast);
+  }
+
+  &:hover:not(:disabled) {
+    border-color: var(--color-primary-main);
+  }
+
+  &--decrement {
+    margin-right: -$border-width;
+    border-radius: $border-radius 0 0 $border-radius;
+  }
+
+  &--increment {
+    margin-left: -$border-width;
+    border-radius: 0 $border-radius $border-radius 0;
+  }
+}
+
+.number-field__input-wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.25rem;
+  align-items: stretch;
+  width: 5rem;
+  height: $input-height;
+  padding: 0 0.5rem;
+  border: $border-width solid var(--color-border-contrast);
+
+  &:focus-within {
+    z-index: 1;
+    border-color: var(--color-transparent);
+    border-radius: $border-radius;
+    outline: calc(2 * $border-width) solid var(--color-primary-main);
+    outline-offset: -$border-width;
+  }
+
+  &:active {
+    z-index: 2;
+    border-color: var(--color-primary-main);
+    border-radius: 0;
+    outline: none;
+  }
+
+  &--full-width {
+    width: 100%;
+  }
+
+  &--with-suffix {
+    .number-field__input {
+      grid-column: span 1;
+      text-align: right;
+    }
+
+    .number-field__suffix {
+      align-self: center;
+      text-align: left;
+      user-select: none;
+    }
+  }
+}
+
+.number-field__input {
+  grid-column: span 2;
+  width: 100%;
+  font-size: 0.875rem;
+  text-align: center;
+  background-color: var(--color-transparent);
+  border: 0;
+  border-radius: 0;
+  outline: none;
+
+  //  /* Chrome, Safari, Edge, Opera */
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    appearance: none;
+  }
+
+  /* Firefox */
+  &[type='number'] {
+    appearance: textfield;
+  }
+}
+
+.number-field {
+  display: flex;
+
+  &--invalid:not(.number-field--disabled) {
+    .number-field__button,
+    .number-field__button:disabled,
+    .number-field__button:hover,
+    .number-field__input-wrapper {
+      border-color: var(--color-important-main);
+    }
+
+    .number-field__input-wrapper {
+      &:focus-within {
+        outline-color: var(--color-important-main);
+      }
+
+      &:active {
+        z-index: 2;
+        border-color: var(--color-important-main);
+        border-radius: 0;
+        outline: none;
+      }
+    }
+  }
+
+  &--disabled {
+    .number-field__button,
+    .number-field__button:disabled,
+    .number-field__input-wrapper {
+      border-color: var(--color-border-contrast);
+    }
+
+    .number-field__input-wrapper {
+      color: var(--color-text-disabled);
+      background-color: var(--color-bg-disabled);
+    }
+  }
+}
