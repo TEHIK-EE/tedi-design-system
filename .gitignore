@@ -46,3 +46,4 @@ Thumbs.db
 .netlify
 
 migrations.json
+/.nx

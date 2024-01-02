@@ -104,6 +104,20 @@ div.select__multi-value-item {
   pointer-events: none;
 }
 
-.select__group-heading {
+.select .select__group {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+
+  &:first-child {
+    padding-top: 0;
+  }
+
+  &:last-child {
+    padding-bottom: 0;
+  }
+}
+
+.select .select__group-heading {
   padding: 0.5rem 0.75rem;
+  margin-bottom: 0;
 }
