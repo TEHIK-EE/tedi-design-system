@@ -1,3 +1,10 @@
+# [5.34.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.33.0...v5.34.0) (2024-01-03)
+
+
+### Features
+
+* **select:** Grouped options design tweaks - TEHVEER-242 ([57ba9ba](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/57ba9ba5949b812423ae69c66ed67a9f0a15030e))
+
 # [5.33.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.32.1...v5.33.0) (2023-12-19)
 
 
