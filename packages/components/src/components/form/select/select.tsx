@@ -6,6 +6,7 @@ import ReactSelect, {
   ControlProps,
   GroupBase,
   GroupHeadingProps,
+  GroupProps,
   InputActionMeta,
   InputProps,
   MenuListProps,
@@ -229,6 +230,7 @@ export interface SelectProps extends FormLabelProps {
   inputIsHidden?: boolean;
   /**
    * Option group heading text modifiers. Can also be set for each option group separately inside `options` prop.
+   * @default { modifiers: 'small', color: 'subtle' }
    */
   optionGroupHeadingText?: Pick<TextProps, 'modifiers' | 'color'>;
   /**
@@ -311,7 +313,7 @@ export const Select = forwardRef<SelectInstance<ISelectOption, boolean, IGrouped
       onMenuOpen,
       onBlur,
       inputIsHidden,
-      optionGroupHeadingText,
+      optionGroupHeadingText = { modifiers: 'small', color: 'subtle' },
       optionGroupBackgroundColor,
       ...rest
     } = props;
@@ -442,6 +444,16 @@ export const Select = forwardRef<SelectInstance<ISelectOption, boolean, IGrouped
     const getClearIndicator = (props: ClearIndicatorProps<ISelectOption>) =>
       isClearIndicatorVisible ? <ReactSelectComponents.ClearIndicator {...props} /> : null;
 
+    const getGroup = (props: GroupProps<ISelectOption, boolean, IGroupedOptions<ISelectOption>>): JSX.Element => {
+      const GroupBEM = cn(styles['select__group']);
+
+      return (
+        <ReactSelectComponents.Group {...props} className={GroupBEM}>
+          {props.children}
+        </ReactSelectComponents.Group>
+      );
+    };
+
     const getGroupHeading = (
       props: GroupHeadingProps<ISelectOption, boolean, IGroupedOptions<ISelectOption>>
     ): ReactElement => {
@@ -449,12 +461,12 @@ export const Select = forwardRef<SelectInstance<ISelectOption, boolean, IGrouped
         styles['select__group-heading'],
         getBackgroundColorClass(props.data.backgroundColor || optionGroupBackgroundColor || 'transparent')
       );
-      const textSettings = props.data.text || optionGroupHeadingText || { modifiers: 'small', color: 'subtle' };
+      const textSettings = props.data.text || optionGroupHeadingText;
 
       return (
-        <Text {...textSettings} className={groupHeadingBEM}>
-          {props.data.label}
-        </Text>
+        <ReactSelectComponents.GroupHeading {...props} className={groupHeadingBEM}>
+          <Text {...textSettings}>{props.data.label}</Text>
+        </ReactSelectComponents.GroupHeading>
       );
     };
 
@@ -472,6 +484,7 @@ export const Select = forwardRef<SelectInstance<ISelectOption, boolean, IGrouped
         MultiValue: getMultiValue,
         MultiValueRemove: () => null,
         Placeholder: getPlaceholder,
+        Group: getGroup,
         GroupHeading: getGroupHeading,
       };
 
