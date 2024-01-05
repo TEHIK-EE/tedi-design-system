@@ -270,3 +270,5 @@ export const NumberField = (props: NumberStepperProps) => {
 };
 
 NumberField.displayName = 'NumberField';
+
+export default NumberField;
