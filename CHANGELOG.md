@@ -1,3 +1,11 @@
+## [5.34.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.34.0...v5.34.1) (2024-01-05)
+
+
+### Bug Fixes
+
+* **number-field:** add export default - TEHVEER-235 ([75930b6](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/75930b62ed2cfe74feed560ee0bacc9889aa431c))
+* **number-field:** export component - TEHVEER-235 ([40a57b8](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/40a57b82f5cdc37ce912a39bab0e6564c5803c3d))
+
 # [5.34.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.33.0...v5.34.0) (2024-01-03)
 
 
