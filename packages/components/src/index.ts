@@ -23,6 +23,7 @@ export * from './components/icon/icon';
 export * from './components/feedback/feedback';
 export * from './components/hide-on-scroll/hide-on-scroll';
 export * from './components/form/hidden-field/hidden-field';
+export * from './components/form/number-field/number-field';
 export * from './components/form/choice-group';
 export * from './components/form/check/check';
 export * from './components/form/radio/radio';
