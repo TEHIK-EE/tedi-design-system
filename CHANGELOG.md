@@ -1,3 +1,10 @@
+# [5.35.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.34.1...v5.35.0) (2024-01-11)
+
+
+### Features
+
+* **toggle:** Change toggle icon when in checked state - TEHVEER-243 ([f2fdc08](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/f2fdc0888ad30bdf51cce08442643c971237fd2d))
+
 ## [5.34.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.34.0...v5.34.1) (2024-01-05)
 
 
