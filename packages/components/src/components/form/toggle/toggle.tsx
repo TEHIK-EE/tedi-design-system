@@ -154,7 +154,7 @@ export const Toggle = forwardRef<HTMLButtonElement, ToggleProps>((props, ref) =>
               className={cn(styles['toggle__icon'], styles['toggle__spinner'])}
             />
           ) : icon ? (
-            <Icon className={styles['toggle__icon']} name={getChecked ? 'lock_open' : 'lock'} size={16} />
+            <Icon className={styles['toggle__icon']} name={getChecked ? 'lock_open_right' : 'lock'} size={16} />
           ) : null}
         </span>
       </Button>

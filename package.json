@@ -32,7 +32,6 @@
     "draftjs-md-converter": "^1.5.2",
     "formik": "^2.4.2",
     "lodash-es": "^4.17.21",
-    "material-symbols": "^0.8.0",
     "next": "^13.4.6",
     "react": "^18.2.0",
     "react-animate-height": "^3.1.1",
