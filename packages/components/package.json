@@ -22,7 +22,6 @@
     "formik": "*",
     "lodash-es": "*",
     "jw-paginate": "*",
-    "material-symbols": "*",
     "next": "*",
     "react": "*",
     "react-animate-height": "*",
