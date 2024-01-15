@@ -1,3 +1,10 @@
+## [5.35.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.35.0...v5.35.1) (2024-01-15)
+
+
+### Bug Fixes
+
+* **header-notification:** fix headerNotification staying under sidenav overlay - TEHVEER-247 ([9b0f2b1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/9b0f2b16a36e0517d1013cb19653cc65b7eed8bb))
+
 # [5.35.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.34.1...v5.35.0) (2024-01-11)
 
 
