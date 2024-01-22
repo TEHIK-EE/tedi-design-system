@@ -1,6 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 
+import { ColProps } from '../../grid/col';
 import Text from '../../typography/text/text';
 import ChoiceGroup from './choice-group';
 import { ChoiceGroupItemProps } from './choice-group.types';
@@ -21,8 +22,8 @@ const meta: Meta<typeof ChoiceGroup> = {
 export default meta;
 type Story = StoryObj<typeof ChoiceGroup>;
 
-const generateItems = (index: number, extraContent?: boolean): ChoiceGroupItemProps[] => [
-  { id: `value-${index * 3}`, label: 'Valik 1', value: `value-${index * 3}` },
+const generateItems = (index: number, extraContent?: boolean, colProps?: ColProps): ChoiceGroupItemProps[] => [
+  { id: `value-${index * 3}`, label: 'Valik 1', value: `value-${index * 3}`, colProps },
   {
     id: `value-${index * 3 + 1}`,
     label: 'Valik 2, mis on teistest veidi pikem',
@@ -33,8 +34,9 @@ const generateItems = (index: number, extraContent?: boolean): ChoiceGroupItemPr
         porttitor mauris neque, quis feugiat erat malesuada ac. Cras vel mauris a est pretium egestas.
       </Text>
     ) : undefined,
+    colProps,
   },
-  { id: `value-${index * 3 + 2}`, label: 'Valik 3', value: `value-${index * 3 + 2}`, disabled: true },
+  { id: `value-${index * 3 + 2}`, label: 'Valik 3', value: `value-${index * 3 + 2}`, disabled: true, colProps },
 ];
 
 export const Radio: Story = {
@@ -135,12 +137,49 @@ export const SelectorItemColumn: Story = {
   },
 };
 
+export const LightItem: Story = {
+  args: {
+    label: 'Choose your item:',
+    id: 'example-5',
+    defaultValue: [],
+    inputType: 'radio',
+    name: 'radio-5',
+    type: 'light',
+    items: generateItems(8),
+  },
+};
+
+export const LightItemAutoWidth: Story = {
+  args: {
+    label: 'Choose your item:',
+    id: 'example-5.1',
+    defaultValue: [],
+    inputType: 'radio',
+    name: 'radio-5.1',
+    type: 'light',
+    items: generateItems(9, false, { width: 'auto' }),
+  },
+};
+
+export const LightItemColumn: Story = {
+  args: {
+    label: 'Choose your item:',
+    id: 'example-5.2',
+    defaultValue: [],
+    inputType: 'radio',
+    name: 'radio-5.2',
+    type: 'light',
+    items: generateItems(10),
+    direction: 'column',
+  },
+};
+
 export const WithHiddenLabel: Story = {
   args: {
     ...Check.args,
     label: 'Im hidden:',
     hideLabel: true,
-    items: generateItems(8),
+    items: generateItems(11),
   },
 };
 
@@ -148,7 +187,7 @@ export const WithError: Story = {
   args: {
     ...Check.args,
     label: 'I have error:',
-    items: generateItems(9),
+    items: generateItems(12),
     helper: {
       text: 'Oh no an error!',
       type: 'error',
@@ -161,7 +200,7 @@ export const WithDefaultValue: Story = {
   args: {
     ...Check.args,
     label: 'I have second item selected by default:',
-    items: generateItems(10),
+    items: generateItems(13),
     defaultValue: ['value-19'],
   },
 };
@@ -170,7 +209,7 @@ export const WithIndeterminate: Story = {
   args: {
     ...Check.args,
     label: 'I have an indeterminate checkbox:',
-    items: generateItems(11),
+    items: generateItems(14),
     indeterminateCheck: (state) => (state === 'all' ? 'Eemalda kõik' : 'Vali kõik'),
   },
 };
@@ -180,7 +219,7 @@ export const WithExtraContent: Story = {
     ...Check.args,
     inputType: 'radio',
     label: 'I have extra content after label:',
-    items: generateItems(12, true),
+    items: generateItems(15, true),
   },
 
   parameters: {

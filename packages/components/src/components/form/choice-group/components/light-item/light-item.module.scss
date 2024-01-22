@@ -1,0 +1,36 @@
+@use '../../../../../styles/mixins';
+
+.light-item__input {
+  @include mixins.visually-hidden;
+}
+
+.light-item__label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.625rem 0.5rem;
+  margin: 1px;
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  background: var(--color-bg-default);
+  border: 1px solid var(--color-bg-disabled);
+  border-radius: var(--border-radius-default);
+
+  .light-item__input:focus + & {
+    @include mixins.focus-element;
+  }
+
+  .light-item--disabled & {
+    color: var(--color-text-disabled);
+    cursor: unset;
+    background-color: var(--color-bg-disabled);
+  }
+
+  .light-item--checked & {
+    margin: 0;
+    color: var(--color-primary-main);
+    background-color: var(--color-white);
+    border: 2px solid var(--color-primary-main);
+  }
+}

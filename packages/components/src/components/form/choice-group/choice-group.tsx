@@ -2,7 +2,7 @@ import cn from 'classnames';
 import React from 'react';
 
 import { useLabels } from '../../../providers/label-provider';
-import { Direction, Row } from '../../grid';
+import { Direction, Gutter, Row } from '../../grid';
 import Check, { CheckProps } from '../check/check';
 import FormHelper, { FormHelperProps } from '../form-helper/form-helper';
 import FormLabel, { FormLabelProps } from '../form-label/form-label';
@@ -12,6 +12,7 @@ import { ChoiceGroupContext, IChoiceGroupContext } from './choice-group-context'
 import ChoiceGroupCheck from './components/choice-group-check/choice-group-check';
 import ChoiceGroupRadio from './components/choice-group-radio/choice-group-radio';
 import FilterItem from './components/filter-item/filter-item';
+import LightItem from './components/light-item/light-item';
 import { SelectorItem } from './components/selector-item/selector-item';
 
 export type TChoiceGroupValue = string | string[] | null;
@@ -65,7 +66,7 @@ export interface ChoiceGroupProps extends FormLabelProps {
    * Type of ChoiceGroup
    * @default default
    */
-  type?: 'selector' | 'filter' | 'default';
+  type?: 'light' | 'selector' | 'filter' | 'default';
   /**
    * Value can be one of two options:<br />
    * `true` - Uses default internal label.<br />
@@ -176,21 +177,36 @@ export const ChoiceGroup = (props: ChoiceGroupProps): React.ReactElement => {
     currentValue: currentValue,
   };
 
+  let gutterX: Gutter;
+  let gutterY: Gutter;
+
   let ChoiceGroupItemElement:
     | typeof ChoiceGroupCheck
     | typeof ChoiceGroupRadio
     | typeof SelectorItem
-    | typeof FilterItem = FilterItem;
+    | typeof FilterItem
+    | typeof LightItem = LightItem;
 
   switch (type) {
     case 'default':
+      gutterX = 2;
+      gutterY = 0;
       ChoiceGroupItemElement = inputType === 'checkbox' ? ChoiceGroupCheck : ChoiceGroupRadio;
       break;
     case 'selector':
+      gutterX = 0;
+      gutterY = 0;
       ChoiceGroupItemElement = SelectorItem;
       break;
     case 'filter':
+      gutterX = 2;
+      gutterY = 2;
       ChoiceGroupItemElement = FilterItem;
+      break;
+    case 'light':
+      gutterX = 1;
+      gutterY = 1;
+      ChoiceGroupItemElement = LightItem;
       break;
   }
 
@@ -243,7 +259,7 @@ export const ChoiceGroup = (props: ChoiceGroupProps): React.ReactElement => {
                 onChange={onIndeterminateChangeHandler}
               />
             )}
-            <Row className={CheckGroupBEM} gutter={0} direction={direction}>
+            <Row className={CheckGroupBEM} direction={direction} gutterX={gutterX} gutterY={gutterY}>
               {items.map((item, key) => (
                 <ChoiceGroupItemElement {...item} direction={direction} key={item.id} />
               ))}
