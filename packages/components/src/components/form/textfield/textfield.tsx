@@ -102,6 +102,11 @@ export interface TextFieldProps extends FormLabelProps {
    */
   onBlur?: React.FocusEventHandler<HTMLInputElement | HTMLTextAreaElement>;
   /**
+   * Hides the arrows for input type="number"
+   * @default true
+   */
+  isArrowsHidden?: boolean;
+  /**
    * Additional input attributes.
    */
   input?: React.InputHTMLAttributes<HTMLInputElement> | React.TextareaHTMLAttributes<HTMLTextAreaElement>;
@@ -128,6 +133,7 @@ export const TextField = forwardRef<TextFieldForwardRef, TextFieldProps>((props,
     onIconClick,
     size,
     placeholder,
+    isArrowsHidden = true,
     onChange,
     onChangeEvent,
     onKeyUp,
@@ -214,7 +220,9 @@ export const TextField = forwardRef<TextFieldForwardRef, TextFieldProps>((props,
       'aria-describedby': helperId,
       ...input,
       id,
-      className: cn(styles['textfield__input'], inputClassName),
+      className: cn(styles['textfield__input'], inputClassName, {
+        [styles['textfield__input--hidden-arrows']]: isArrowsHidden,
+      }),
       disabled,
       required,
       'aria-invalid': isInvalid,
