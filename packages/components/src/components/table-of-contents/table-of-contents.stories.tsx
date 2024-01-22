@@ -94,7 +94,7 @@ export const WithManySteps: Story = {
     items: longSteps.map((step, i) => ({
       content: ({ closeModal }) => (
         <Anchor href={`#${step}`} onClick={() => closeModal()}>
-          {step}
+          {`${i + 1}. ${step}`}
         </Anchor>
       ),
       isValid: i < 5 ? true : i === 5 ? false : undefined,
