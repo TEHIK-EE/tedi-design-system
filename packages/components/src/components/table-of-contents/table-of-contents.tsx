@@ -107,9 +107,9 @@ export const TableOfContents = (props: TableOfContentsProps) => {
 
   return (
     <Affix
-      bottom={0}
       right={0}
       left={0}
+      bottom={isMobileLayout ? 0 : 1.5}
       top={isMobileLayout ? 'unset' : 1.5}
       position={isMobileLayout ? 'fixed' : 'sticky'}
     >
