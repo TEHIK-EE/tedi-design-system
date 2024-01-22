@@ -1,3 +1,15 @@
+# [5.36.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.35.1...v5.36.0) (2024-01-22)
+
+
+### Bug Fixes
+
+* **affix:** fix sticky affix when affix is taller than viewport - TEHVEER-249 ([eca8e88](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/eca8e88500bec38eb2171b4a8f50a31d3b5918dd))
+
+
+### Features
+
+* **choice-group:** add new 'light' type, improve items gap - TEHVEER-248 ([fe9a813](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/fe9a813c1b2b648e700abde8cacfdb4a5d0a98f8))
+
 ## [5.35.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.35.0...v5.35.1) (2024-01-15)
 
 
