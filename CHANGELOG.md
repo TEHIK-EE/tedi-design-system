@@ -1,3 +1,10 @@
+# [5.37.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.36.0...v5.37.0) (2024-01-23)
+
+
+### Features
+
+* **textfield:** TEHVEER-251 - Add a prop to hide arrows for number input ([d2ded86](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/d2ded863ea82a99b07de4bb1e462c0bd6818d97d))
+
 # [5.36.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.35.1...v5.36.0) (2024-01-22)
 
 
