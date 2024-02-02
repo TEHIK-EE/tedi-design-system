@@ -1,3 +1,10 @@
+# [5.38.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.37.0...v5.38.0) (2024-02-01)
+
+
+### Features
+
+* **hooks:** export use-breakpoint-props helpers ([d28f825](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/d28f82564f610263c009fceab98d6ded76cec875))
+
 # [5.37.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.36.0...v5.37.0) (2024-01-23)
 
 
