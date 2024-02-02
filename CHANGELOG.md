@@ -1,3 +1,10 @@
+## [5.39.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.39.0...v5.39.1) (2024-02-02)
+
+
+### Bug Fixes
+
+* **choice-group:** fix value error occurring on dynamic change of inputType - TEHVEER-253 ([d59c79e](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/d59c79e27d250759d3c0f4ff034f71793fcfc621))
+
 # [5.39.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.38.1...v5.39.0) (2024-02-02)
 
 
