@@ -34,3 +34,19 @@ export const InsideCard: Story = {
     </Card>
   ),
 };
+
+export const WithCustomRowProps: Story = {
+  args: {
+    children: 'Sul puuduvad uuringute ja vastuvõttude saatekirjad.',
+    rowProps: { gutter: 0 },
+  },
+
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'When custom Image or Icon component already has white-space, you can remove the default gutter by setting `rowProps` to `{ gutter: 0 }`.',
+      },
+    },
+  },
+};

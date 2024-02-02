@@ -3,7 +3,7 @@ import React from 'react';
 
 import useLayout from '../../helpers/hooks/use-layout';
 import { Card, CardContent, CardProps } from '../card';
-import { Col, Row } from '../grid';
+import { Col, Row, RowProps } from '../grid';
 import Icon, { IconProps } from '../icon/icon';
 import Print from '../print/print';
 import Text from '../typography/text/text';
@@ -31,6 +31,10 @@ export interface PlaceholderProps {
    * This is just a shortcut. The same result can be achieved using `cardProps`
    */
   isNested?: boolean;
+  /**
+   * Row props that get passed to row wrapping icon and content
+   */
+  rowProps?: RowProps;
 }
 
 /**
@@ -38,7 +42,7 @@ export interface PlaceholderProps {
  * Other components also use it internally for displaying empty state. (E.g. `<Table>`)
  */
 export const Placeholder = (props: PlaceholderProps): JSX.Element => {
-  const { icon = 'spa', className, children, cardProps, isNested, ...rest } = props;
+  const { icon = 'spa', className, children, cardProps, isNested, rowProps, ...rest } = props;
   const isSmallLayout = useLayout(['mobile', 'tablet']);
 
   const {
@@ -76,7 +80,7 @@ export const Placeholder = (props: PlaceholderProps): JSX.Element => {
         {...restCardProps}
       >
         <CardContent>
-          <Row direction="column" alignItems="center" gutter={2}>
+          <Row direction="column" alignItems="center" gutter={2} {...rowProps}>
             {icon && <Col width="auto">{getIcon(icon)}</Col>}
             <Col width="auto">
               <Text color="muted" modifiers="center" element="div">
