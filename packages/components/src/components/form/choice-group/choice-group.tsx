@@ -153,11 +153,13 @@ export const ChoiceGroup = (props: ChoiceGroupProps): React.ReactElement => {
   const onChangeHandler = (value: string, checked: boolean): void => {
     let nextValue = currentValue;
 
-    if (inputType === 'checkbox' && Array.isArray(nextValue)) {
-      if (checked) {
-        nextValue = [...nextValue, value];
+    if (inputType === 'checkbox' && nextValue) {
+      if (Array.isArray(nextValue)) {
+        nextValue = checked ? [...nextValue, value] : nextValue.filter((item) => item !== value);
       } else {
-        nextValue = nextValue.filter((item) => item !== value);
+        // When input="radio" and a selection has been made and then inputType is dynamically changed to 'checkbox',
+        // then the nextValue needs to be placed back into array to get checkbox functionality back
+        nextValue = checked ? [nextValue, value] : [nextValue].filter((item) => item !== value);
       }
     } else {
       nextValue = value;
