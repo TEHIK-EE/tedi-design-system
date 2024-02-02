@@ -1,3 +1,10 @@
+## [5.38.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.38.0...v5.38.1) (2024-02-02)
+
+
+### Bug Fixes
+
+* **table:** export table types from lib ([32021d6](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/32021d66a6e8cb40b798a57eaff63c242be15f91))
+
 # [5.38.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.37.0...v5.38.0) (2024-02-01)
 
 
