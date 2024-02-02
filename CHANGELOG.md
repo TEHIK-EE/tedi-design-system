@@ -1,3 +1,10 @@
+# [5.39.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.38.1...v5.39.0) (2024-02-02)
+
+
+### Features
+
+* **placeholder:** Add rowProps to customize spacing between children - TEHVEER-254 ([ee74f36](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/ee74f362f44abdf71e3417da72d0b04075f2ef04))
+
 ## [5.38.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.38.0...v5.38.1) (2024-02-02)
 
 
