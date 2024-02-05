@@ -1,13 +1,32 @@
 .file-upload {
-  display: inline-block;
-  pointer-events: auto;
+  float: right;
   cursor: pointer;
+
+  &-disabled {
+    cursor: initial;
+  }
 
   & input[type='file'] {
     display: none;
   }
+}
 
-  & button {
-    pointer-events: none;
+.file-upload__items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0;
+
+  & li {
+    list-style-type: none;
   }
+}
+
+.file-upload__label {
+  width: fit-content;
+  cursor: pointer;
+}
+
+.file-upload__label-wrapper {
+  width: fit-content;
 }
