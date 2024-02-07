@@ -1,3 +1,10 @@
+# [6.1.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.0.1...v6.1.0) (2024-02-07)
+
+
+### Features
+
+* **header:** Hide notification when printing - TEHVEER-255 ([4a21ab5](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/4a21ab51edf6147c020aa0aea6c5dc03245c3af9))
+
 ## [6.0.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.0.0...v6.0.1) (2024-02-07)
 
 
