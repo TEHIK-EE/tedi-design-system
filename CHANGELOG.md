@@ -1,3 +1,10 @@
+## [6.0.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.0.0...v6.0.1) (2024-02-07)
+
+
+### Bug Fixes
+
+* **file-upload:** fix file-upload card border ([a95b6d2](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/a95b6d2c3bb34b3aa08020febe60ce36820fadfc))
+
 # [6.0.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.39.1...v6.0.0) (2024-02-07)
 
 
