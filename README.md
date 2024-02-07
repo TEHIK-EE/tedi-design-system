@@ -27,11 +27,15 @@ Steps to use `@tehik/react-components` are described [here](https://disainipesa-
 To skip new version on commit use `docs` or `chore` prefix in commits. For example `docs(storybook): Fix storybook visual styles`,
 this ensures new version is not generated, but deploy to storybook is still made. (Use for changes that are not important for end users)
 
+### Commit rules (Breaking changes etc.)
+
+To provide correct changelog we have to follow [conventional-changelog-standard](https://github.com/bcoe/conventional-changelog-standard/blob/master/convention.md).
+Check the link for more instructions
+
 TODO:
 
 - CI jobs
 - Gitlab rules
-- Commit rules (Breaking changes etc.)
 - Who oversees changes, how is everything shared across projects
 
 - debugging
