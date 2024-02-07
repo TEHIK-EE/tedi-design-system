@@ -3,6 +3,7 @@ import React from 'react';
 import { Card, CardContent, CardProps } from '../../../../card';
 import { Col, Row } from '../../../../grid';
 import Icon from '../../../../icon/icon';
+import Print from '../../../../print/print';
 import styles from './header-notification.module.scss';
 
 export interface HeaderNotificationProps {
@@ -27,16 +28,18 @@ export const HeaderNotification = (props: HeaderNotificationProps) => {
   const { children, icon = 'info', background = 'primary-highlight' } = props;
 
   return (
-    <Card borderless background={background} borderRadius={false} className={styles['header-notification']}>
-      <CardContent>
-        <Row justifyContent="between" alignItems="center" gap={1} gutter={0}>
-          <Col width="auto">
-            <Icon name={icon} />
-          </Col>
-          <Col>{children}</Col>
-        </Row>
-      </CardContent>
-    </Card>
+    <Print visibility="hide">
+      <Card borderless background={background} borderRadius={false} className={styles['header-notification']}>
+        <CardContent>
+          <Row justifyContent="between" alignItems="center" gap={1} gutter={0}>
+            <Col width="auto">
+              <Icon name={icon} />
+            </Col>
+            <Col>{children}</Col>
+          </Row>
+        </CardContent>
+      </Card>
+    </Print>
   );
 };
 
