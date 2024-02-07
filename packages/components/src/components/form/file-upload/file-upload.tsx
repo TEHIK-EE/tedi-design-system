@@ -183,7 +183,7 @@ export const FileUpload = (props: FileUploadProps): JSX.Element => {
       {readOnly ? (
         showFiles()
       ) : (
-        <Card padding={0.5} background={disabled ? 'bg-disabled' : undefined}>
+        <Card padding={0.5} background={disabled ? 'bg-disabled' : undefined} className={styles['file-upload__card']}>
           <CardContent>
             <Row gutterY={2}>
               <Col>{showFiles()}</Col>
