@@ -1,3 +1,15 @@
+# [6.0.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.39.1...v6.0.0) (2024-02-07)
+
+
+### Features
+
+* **file-upload:** rework file-upload according to new design - TEHVEER-244 ([82aed18](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/82aed18f0127febe4f643f6e6f9e167ffb0f9019))
+
+
+### BREAKING CHANGES
+
+* **file-upload:** FileUpload visual change to match other inputs, remove button props
+
 ## [5.39.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v5.39.0...v5.39.1) (2024-02-02)
 
 
