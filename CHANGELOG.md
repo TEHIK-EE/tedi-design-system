@@ -1,3 +1,10 @@
+# [6.2.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.1.0...v6.2.0) (2024-02-15)
+
+
+### Features
+
+* **separator:** Add thickness prop for Separator - TEHVEER-184 ([51edb8a](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/51edb8a5cb56f9633d071921d1a3f34e7bfe8b63))
+
 # [6.1.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.0.1...v6.1.0) (2024-02-07)
 
 
