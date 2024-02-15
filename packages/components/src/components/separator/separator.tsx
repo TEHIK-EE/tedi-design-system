@@ -43,6 +43,11 @@ export interface SeparatorProps {
    * Variant of separator
    */
   variant?: 'dotted' | 'dotted-small';
+  /*
+   * Thickness of separator in pixels, only when variant is not used
+   * @default 1
+   */
+  thickness?: 1 | 2;
 }
 
 export const Separator = (props: SeparatorProps): JSX.Element => {
@@ -56,6 +61,7 @@ export const Separator = (props: SeparatorProps): JSX.Element => {
     axis,
     color = 'default',
     variant,
+    thickness = 1,
     ...rest
   } = props;
 
@@ -65,6 +71,7 @@ export const Separator = (props: SeparatorProps): JSX.Element => {
     { [styles[`separator--${color}`]]: color },
     { [styles['separator--vertical']]: axis === 'vertical' },
     { [styles[`separator--${variant}`]]: variant },
+    { [styles[`separator--thickness-${thickness}`]]: thickness && !variant },
     { [styles['separator--full-width']]: fullWidth },
     { [styles[`separator--spacing-${spacing}`.replace('.', '-')]]: spacing },
     { [styles[`separator--top-${topSpacing}`.replace('.', '-')]]: !spacing && topSpacing },

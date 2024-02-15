@@ -78,6 +78,18 @@ export const VerticalColors: Story = {
   },
 };
 
+export const Thick: Story = {
+  render: Template,
+  args: { thickness: 2 },
+  parameters: {
+    docs: {
+      description: {
+        story: '<p>Use <code>thickness</code> property to make separator thicker</p>',
+      },
+    },
+  },
+};
+
 export const PaddedEven: Story = {
   render: Template,
   args: { spacing: 1 },
@@ -152,6 +164,11 @@ const TemplateVertical: StoryFn<SeparatorProps> = (args) => (
 export const Vertical: Story = {
   render: TemplateVertical,
   args: { axis: 'vertical', fullWidth: true },
+};
+
+export const VerticalThick: Story = {
+  render: TemplateVertical,
+  args: { axis: 'vertical', thickness: 2, fullWidth: true },
 };
 
 export const VerticalDotted: Story = {
