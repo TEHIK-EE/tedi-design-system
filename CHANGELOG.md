@@ -1,3 +1,10 @@
+# [6.3.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.2.0...v6.3.0) (2024-02-15)
+
+
+### Features
+
+* **card:** Change card left and top border to 4px - TEHVEER-256 ([a4fdf41](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/a4fdf4182b4628c87471444b4008cf1f1cfda322))
+
 # [6.2.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.1.0...v6.2.0) (2024-02-15)
 
 
