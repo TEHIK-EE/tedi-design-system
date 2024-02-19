@@ -15,9 +15,22 @@ import { PlaceholderProps } from '../placeholder/placeholder';
 
 declare module '@tanstack/table-core' {
   interface FilterFns {
+    /**
+     * To filter out from text
+     */
     text: FilterFn<unknown>;
+    /**
+     * To filter out from select options
+     */
     select: FilterFn<unknown>;
+    /**
+     * To filter out from multi-select options
+     */
     'multi-select': FilterFn<unknown>;
+    /**
+     * To filter out from date range (to - from)
+     */
+    'date-range': FilterFn<unknown>;
   }
 }
 

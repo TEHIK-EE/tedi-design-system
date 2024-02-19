@@ -9,9 +9,10 @@ import { Col } from '../../../grid';
 import { Tooltip, TooltipProvider, TooltipTrigger } from '../../../tooltip';
 import styles from '../../table.module.scss';
 import { DefaultTData } from '../../table.types';
+import { TableDateFilter } from './components/table-date-filter';
 import { TableSelectFilter } from './components/table-select-filter';
 import { TableTextFilter } from './components/table-text-filter';
-import { TableFilterContext, TableFilterFields } from './table-filter-context';
+import { DateRangeFilterValues, TableFilterContext, TableFilterFields } from './table-filter-context';
 
 export interface TableFilterProps<TData extends DefaultTData<TData>> {
   column: Column<TData, unknown>;
@@ -23,12 +24,37 @@ const TableFilter = <TData extends DefaultTData<TData>>(props: TableFilterProps<
   const [open, setOpen] = React.useState(false);
   const { getLabel } = useLabels();
   const inputType = column.columnDef.filterFn;
-  const filterValue = column.getFilterValue() as string | string[];
+  const filterValue = column.getFilterValue();
+
+  const isText = (value: unknown): value is string => {
+    return typeof value === 'string';
+  };
+
+  const isMultiSelect = (value: unknown): value is string[] => {
+    return Array.isArray(value);
+  };
+
+  const isDateRange = (value: unknown): value is DateRangeFilterValues => {
+    return typeof value === 'object' && value !== null && ('from' in value || 'to' in value);
+  };
 
   const values: TableFilterFields = {
-    filter: inputType !== 'select' && inputType !== 'multi-select' && !!filterValue ? (filterValue as string) : '',
-    selectField: inputType === 'select' && !!filterValue ? (filterValue as string) : '',
-    multiSelectField: inputType === 'multi-select' && filterValue?.length ? (filterValue as string[]) : [],
+    filter: inputType === 'text' && isText(filterValue) ? filterValue : '',
+    selectField: inputType === 'select' && isText(filterValue) ? filterValue : '',
+    multiSelectField: inputType === 'multi-select' && isMultiSelect(filterValue) ? filterValue : [],
+    dateRange: inputType === 'date-range' && isDateRange(filterValue) ? filterValue : { from: null, to: null },
+  };
+
+  const renderFilter = () => {
+    switch (inputType) {
+      case 'date-range':
+        return <TableDateFilter />;
+      case 'multi-select':
+      case 'select':
+        return <TableSelectFilter />;
+      default:
+        return <TableTextFilter />;
+    }
   };
 
   return (
@@ -38,7 +64,7 @@ const TableFilter = <TData extends DefaultTData<TData>>(props: TableFilterProps<
           openWith="click"
           open={open}
           onToggle={setOpen}
-          focusManager={{ order: ['content'], initialFocus: 0, modal: false }}
+          focusManager={{ order: ['content'], initialFocus: 0, modal: true }}
         >
           <TooltipTrigger>
             <Button
@@ -56,9 +82,7 @@ const TableFilter = <TData extends DefaultTData<TData>>(props: TableFilterProps<
           </TooltipTrigger>
           <Tooltip maxWidth="large">
             <Card borderless={true}>
-              <CardContent padding={0.5}>
-                {inputType === 'multi-select' || inputType === 'select' ? <TableSelectFilter /> : <TableTextFilter />}
-              </CardContent>
+              <CardContent padding={0.5}>{renderFilter()}</CardContent>
             </Card>
           </Tooltip>
         </TooltipProvider>
