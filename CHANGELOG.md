@@ -1,3 +1,10 @@
+# [6.4.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.3.0...v6.4.0) (2024-02-19)
+
+
+### Features
+
+* **table:** add date-range filter - TEHVEER-245 ([2f566b1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/2f566b1cd76f77b69fbae79ea39a640356b8c955))
+
 # [6.3.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.2.0...v6.3.0) (2024-02-15)
 
 
