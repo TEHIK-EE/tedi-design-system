@@ -1,12 +1,19 @@
 import { Column, Row } from '@tanstack/react-table';
 import React from 'react';
 
+import { DatepickerValue } from '../../../form/pickers';
 import { DefaultTData } from '../../table.types';
+
+export interface DateRangeFilterValues {
+  from: DatepickerValue;
+  to: DatepickerValue;
+}
 
 export interface TableFilterFields {
   filter: string;
   selectField: string;
   multiSelectField: string[];
+  dateRange: DateRangeFilterValues;
 }
 
 export interface ITableFilterContext<TData extends DefaultTData<TData>> {

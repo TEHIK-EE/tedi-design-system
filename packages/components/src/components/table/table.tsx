@@ -21,6 +21,12 @@ import { useLabels } from '../../providers/label-provider';
 import { Card, CardContent } from '../card';
 import { PlaceholderProps } from '../placeholder/placeholder';
 import Pagination from './components/pagination/pagination';
+import {
+  dateRangeFilterFn,
+  multiSelectFilterFn,
+  selectFilterFn,
+  textFilterFn,
+} from './components/table-filter/filter-fn';
 import TableLayout from './components/table-layout/table-layout';
 import styles from './table.module.scss';
 import { DefaultTData, TableProps } from './table.types';
@@ -185,10 +191,10 @@ export function Table<TData extends DefaultTData<TData>>(props: TableProps<TData
     enableFilters,
     enableSorting,
     filterFns: {
-      text: (row, columnId, filterValue: string) => filterValue?.includes(row?.getValue?.(columnId)),
-      select: (row, columnId, filterValue: string) => filterValue === row?.getValue?.(columnId),
-      'multi-select': (row, columnId, filterValue: string[]) =>
-        filterValue?.some((i) => i === row?.getValue?.(columnId)),
+      text: textFilterFn,
+      select: selectFilterFn,
+      'multi-select': multiSelectFilterFn,
+      'date-range': dateRangeFilterFn,
     },
   });
 

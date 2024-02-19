@@ -118,12 +118,12 @@ export const TableSelectFilter = () => {
           </CardContent>
         </Card>
         <Row gutter={2} justifyContent="end">
-          <Col width="auto">
+          <Col>
             <Button visualType="secondary" onClick={handleReset} fullWidth>
               {getLabel('clear')}
             </Button>
           </Col>
-          <Col width="auto">
+          <Col>
             <Button type="submit" fullWidth>
               {getLabel('table.filter')}
             </Button>

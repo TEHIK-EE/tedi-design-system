@@ -267,6 +267,20 @@ export const labelsMap = {
     en: (count: number) => (count === 1 ? `Min length is ${count} char` : `Min length is ${count} chars`),
     ru: (count: number) => (count === 1 ? `Минимальная длина ${count} знак` : `Минимальная длина ${count} знаков`),
   }),
+  'table.filter.from': validateLabel({
+    description: 'Label for date filter from',
+    components: ['Table', 'TableFilter'],
+    et: 'Kuupäev alates',
+    en: 'Date from',
+    ru: 'Дата с',
+  }),
+  'table.filter.to': validateLabel({
+    description: 'Label for date filter until',
+    components: ['Table', 'TableFilter'],
+    et: 'Kuupäev kuni',
+    en: 'Date until',
+    ru: 'Дата до',
+  }),
   'table.toggle-sub-row': validateLabel({
     description: 'Toggle sub row button (Visually hidden)',
     components: ['Table'],

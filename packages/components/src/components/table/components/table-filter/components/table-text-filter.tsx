@@ -48,7 +48,7 @@ export const TableTextFilter = () => {
       const filterField = document.getElementById(filterId);
       filterField?.focus?.({ preventScroll: true });
     }
-  }, [column?.id, values.filter, open]);
+  }, [column?.id, values.filter, open, filterId]);
 
   return (
     <form onSubmit={handleSubmit}>
@@ -59,7 +59,7 @@ export const TableTextFilter = () => {
           placeholder={filterPlaceholder}
           icon="close"
           onIconClick={handleReset}
-          value={values.filter as string}
+          value={(values.filter as string) || ''}
           onChange={(value) => setFieldValue('filter', value)}
           helper={touched.filter && errors.filter ? { text: errors.filter, type: 'error' } : { text: filterMinLength }}
           input={{
@@ -67,12 +67,12 @@ export const TableTextFilter = () => {
           }}
         />
         <Row gutter={2}>
-          <Col width="auto">
+          <Col>
             <Button visualType="secondary" onClick={handleReset} fullWidth>
               {getLabel('clear')}
             </Button>
           </Col>
-          <Col width="auto">
+          <Col>
             <Button type="submit" fullWidth>
               {getLabel('table.filter')}
             </Button>

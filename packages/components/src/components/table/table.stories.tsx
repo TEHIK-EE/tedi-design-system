@@ -1,6 +1,7 @@
 import { faker } from '@faker-js/faker';
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import { ColumnDef, createColumnHelper } from '@tanstack/react-table';
+import dayjs, { Dayjs } from 'dayjs';
 import React from 'react';
 
 import { getBackgroundColorClass } from '../../helpers/background-colors/background-colors';
@@ -44,6 +45,7 @@ type Person = {
   subRows?: Person[];
   rowClassName?: string;
   rowGroupKey?: string;
+  dateOfBirth: string;
 };
 
 function calculateAge(birthday: Date) {
@@ -68,6 +70,7 @@ const createRandomPerson = (isSubRow: boolean): Person => ({
           probability: 0.2,
         }
       ),
+  dateOfBirth: faker.date.past().toISOString(),
 });
 
 const data = (length = 507): Person[] => Array.from(Array(length).keys()).map(() => createRandomPerson(false));
@@ -461,6 +464,42 @@ export const WithMultiSelectFilters: Story = {
     data: data(),
     columns: columns.map((column) => ({ ...column, filterFn: 'multi-select' })),
     id: 'with-multi-selected-filters-table',
+    enableFilters: true,
+  },
+};
+
+export const WithDateFilters: Story = {
+  args: {
+    data: data(),
+    columns: [
+      columnHelper.accessor((row) => `${row.firstName} ${row.lastName}`, {
+        id: 'personName',
+        cell: (info) => {
+          return <Anchor href="#">{`${info.row.original.firstName} ${info.row.original.lastName}`}</Anchor>;
+        },
+        header: () => 'Child',
+        enableColumnFilter: false,
+      }),
+      columnHelper.accessor('dateOfBirth', {
+        header: () => 'Date of Birth',
+        cell: (info) => `${dayjs(info.row.original.dateOfBirth).format('DD.MM.YYYY')}`,
+        filterFn: 'date-range',
+      }),
+      columnHelper.accessor('status', {
+        header: 'Status',
+        cell: (info) => (
+          <Status type={info.row.original.status === 'In Relationship' ? 'success' : 'inactive'}>
+            {info.renderValue()}
+          </Status>
+        ),
+        enableColumnFilter: false,
+      }),
+      columnHelper.accessor('progress', {
+        header: 'Profile Progress',
+        enableColumnFilter: false,
+      }),
+    ],
+    id: 'with-date-filters-table',
     enableFilters: true,
   },
 };

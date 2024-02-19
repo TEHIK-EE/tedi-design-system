@@ -67,7 +67,7 @@ const createProceeding = (): Proceeding => ({
   employee: faker.person.fullName(),
   authority: faker.helpers.arrayElement(['Tallinna KOV', 'Tartu KOV']),
   date: faker.date.past().toLocaleDateString('et-EE'),
-  refrenceNumber: faker.random.alphaNumeric(10),
+  refrenceNumber: faker.string.alphanumeric(10),
 });
 
 const apiData = [...Array(10).keys()].map(() => createProceeding());
