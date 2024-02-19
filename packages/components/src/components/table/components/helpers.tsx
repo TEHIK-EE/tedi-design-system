@@ -95,8 +95,22 @@ export function getRowSelectionColumn<TData>(id = 'row-selection', showSelectAll
   };
 }
 
-export function useDefaultPagination(initial: PaginationState = { pageIndex: 0, pageSize: 10 }) {
+export function useDefaultPagination(
+  initial: PaginationState = { pageIndex: 0, pageSize: 10 },
+  /**
+   * Optionally pass filter state to reset pageIndex to 0
+   * If filter property changes, reset pageIndex to 0
+   */
+  filter?: ColumnFiltersState
+) {
   const [pagination, setPagination] = React.useState<PaginationState>(initial);
+
+  /**
+   * If filter property changes, reset pageIndex to 0
+   */
+  React.useEffect(() => {
+    setPagination((prevState) => ({ ...prevState, pageIndex: 0 }));
+  }, [filter, setPagination]);
 
   return {
     pagination,

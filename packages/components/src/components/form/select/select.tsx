@@ -74,7 +74,7 @@ export interface SelectProps extends FormLabelProps {
   /**
    * Default options for async select. Do not use without async select.
    */
-  defaultOptions?: OptionsOrGroups<ISelectOption, IGroupedOptions<ISelectOption>>;
+  defaultOptions?: OptionsOrGroups<ISelectOption, IGroupedOptions<ISelectOption>> | boolean;
   /**
    * select field placeholder.
    */
