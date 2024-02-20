@@ -2,7 +2,6 @@
 
 .radio {
   display: inline-flex;
-  align-items: center;
 
   @include mixins.print-grayscale;
 
@@ -20,6 +19,7 @@
   display: inline-block;
   min-width: 1.125rem;
   height: 1.125rem;
+  margin-top: 0.125rem;
   margin-right: 0.625rem;
   background-color: var(--color-bg-default);
   border: 1px solid var(--color-border-contrast);

@@ -1,6 +1,8 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import React from 'react';
 
+import Col from '../../grid/col';
+import Row from '../../grid/row';
 import Text from '../../typography/text/text';
 import Check, { CheckProps } from './check';
 
@@ -109,5 +111,20 @@ export const Controlled = () => {
       checked={checked}
       onChange={(value, checked) => setChecked(checked)}
     />
+  );
+};
+
+export const CheckWithLongTitle = () => {
+  return (
+    <Row>
+      <Col width={6}>
+        <Check
+          id="check-long-title"
+          label="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin varius, sem blandit sodales tincidunt, orci elit ornare ex, eu ultrices diam turpis id nisl. Sed sollicitudin auctor nunc. Aliquam a arcu in sem bibendum laoreet non eu nunc."
+          name="check-long-title"
+          value="check"
+        />
+      </Col>
+    </Row>
   );
 };
