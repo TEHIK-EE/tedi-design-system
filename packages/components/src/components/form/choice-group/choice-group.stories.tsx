@@ -22,11 +22,20 @@ const meta: Meta<typeof ChoiceGroup> = {
 export default meta;
 type Story = StoryObj<typeof ChoiceGroup>;
 
-const generateItems = (index: number, extraContent?: boolean, colProps?: ColProps): ChoiceGroupItemProps[] => [
+const generateItems = (
+  index: number,
+  extraContent?: boolean,
+  colProps?: ColProps,
+  extraLongTitle?: boolean
+): ChoiceGroupItemProps[] => [
   { id: `value-${index * 3}`, label: 'Valik 1', value: `value-${index * 3}`, colProps },
   {
     id: `value-${index * 3 + 1}`,
-    label: 'Valik 2, mis on teistest veidi pikem',
+    label: `Valik 2, mis on teistest veidi pikem${
+      extraLongTitle
+        ? ' - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin varius, sem blandit sodales tincidunt, orci elit ornare ex, eu ultrices diam turpis id nisl. Sed sollicitudin auctor nunc. Aliquam a arcu in sem bibendum laoreet non eu nunc.'
+        : ''
+    }`,
     value: `value-${index * 3 + 1}`,
     extraContent: extraContent ? (
       <Text color="muted" element="span">
@@ -36,7 +45,13 @@ const generateItems = (index: number, extraContent?: boolean, colProps?: ColProp
     ) : undefined,
     colProps,
   },
-  { id: `value-${index * 3 + 2}`, label: 'Valik 3', value: `value-${index * 3 + 2}`, disabled: true, colProps },
+  {
+    id: `value-${index * 3 + 2}`,
+    label: 'Valik 3',
+    value: `value-${index * 3 + 2}`,
+    disabled: true,
+    colProps,
+  },
 ];
 
 export const Radio: Story = {
@@ -228,5 +243,23 @@ export const WithExtraContent: Story = {
         story: 'ExtraContent prop can only be used with check and radio inputType',
       },
     },
+  },
+};
+
+export const CheckboxWithLongTitle: Story = {
+  args: {
+    ...Check.args,
+    inputType: 'checkbox',
+    label: 'I have extra long titles:',
+    items: generateItems(16, false, undefined, true),
+  },
+};
+
+export const RadioWithLongTitle: Story = {
+  args: {
+    ...Check.args,
+    inputType: 'radio',
+    label: 'I have extra long titles:',
+    items: generateItems(17, false, undefined, true),
   },
 };
