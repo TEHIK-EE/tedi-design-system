@@ -1,3 +1,11 @@
+# [6.5.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.4.0...v6.5.0) (2024-02-20)
+
+
+### Features
+
+* **choice-group:** TEHVEER-257 - remove center align for radio and checkbox items ([b8f9bcd](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/b8f9bcd8834c748b4af662b2362abfc4cab156df))
+* **table:** add functionaly to defaultPagination to reset when filter changes - TEHVEER-250 ([4c9dd2e](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/4c9dd2e2b395e819752de8c3dc065403507d77b1))
+
 # [6.4.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.3.0...v6.4.0) (2024-02-19)
 
 
