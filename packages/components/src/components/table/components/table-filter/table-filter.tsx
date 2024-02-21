@@ -80,10 +80,8 @@ const TableFilter = <TData extends DefaultTData<TData>>(props: TableFilterProps<
               <span className="sr-only">{getLabel('table.filter')}</span>
             </Button>
           </TooltipTrigger>
-          <Tooltip maxWidth="large">
-            <Card borderless={true}>
-              <CardContent padding={0.5}>{renderFilter()}</CardContent>
-            </Card>
+          <Tooltip maxWidth="large" cardProps={{ padding: { horizontal: 1, vertical: 0.5 } }}>
+            {renderFilter()}
           </Tooltip>
         </TooltipProvider>
       </Col>

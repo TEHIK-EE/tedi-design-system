@@ -66,16 +66,14 @@ export const TableTextFilter = () => {
             autoComplete: 'off',
           }}
         />
-        <Row gutter={2}>
-          <Col>
-            <Button visualType="secondary" onClick={handleReset} fullWidth>
+        <Row gutter={2} justifyContent="end">
+          <Col width="auto">
+            <Button visualType="secondary" onClick={handleReset}>
               {getLabel('clear')}
             </Button>
           </Col>
-          <Col>
-            <Button type="submit" fullWidth>
-              {getLabel('table.filter')}
-            </Button>
+          <Col width="auto">
+            <Button type="submit">{getLabel('table.filter')}</Button>
           </Col>
         </Row>
       </VerticalSpacing>
