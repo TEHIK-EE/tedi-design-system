@@ -1,3 +1,10 @@
+## [6.5.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.5.0...v6.5.1) (2024-02-21)
+
+
+### Bug Fixes
+
+* **table:** unify table filter action buttons alignment - TEHVEER-245 ([27e6d92](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/27e6d92c4686557f98805db87ac37f6065a38c2f))
+
 # [6.5.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.4.0...v6.5.0) (2024-02-20)
 
 
