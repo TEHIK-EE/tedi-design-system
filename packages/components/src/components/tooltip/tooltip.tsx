@@ -75,7 +75,7 @@ export const Tooltip = (props: TooltipProps): JSX.Element | null => {
             context={context}
             fill={getArrowFill()}
             stroke={getArrowStrokeColor()}
-            strokeWidth={hasArrowStroke ? 2 : 0}
+            strokeWidth={hasArrowStroke ? 4 : 0}
             className={cn(styles['tooltip__arrow'], { [styles['tooltip__arrow--stroke']]: hasArrowStroke })}
             height={ARROW_HEIGHT}
             width={ARROW_WIDTH}

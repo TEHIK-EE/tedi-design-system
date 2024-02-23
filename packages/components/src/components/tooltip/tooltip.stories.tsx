@@ -210,3 +210,47 @@ export const TooltipWidth: StoryFn = () => {
     </Row>
   );
 };
+
+export const TooltipPosition: StoryFn = () => {
+  const tooltiptext = 'Lorem ipsum dolor sit amet';
+
+  return (
+    <Row justifyContent="center" gap={5}>
+      <Col width="auto">
+        <TooltipProvider placement="top">
+          <TooltipTrigger>
+            <p>Tooltip top</p>
+          </TooltipTrigger>
+          <Tooltip>{tooltiptext}</Tooltip>
+        </TooltipProvider>
+      </Col>
+
+      <Col width="auto">
+        <TooltipProvider placement="bottom">
+          <TooltipTrigger>
+            <p>Tooltip bottom</p>
+          </TooltipTrigger>
+          <Tooltip>{tooltiptext}</Tooltip>
+        </TooltipProvider>
+      </Col>
+
+      <Col width="auto">
+        <TooltipProvider placement="right">
+          <TooltipTrigger>
+            <p>Tooltip right</p>
+          </TooltipTrigger>
+          <Tooltip>{tooltiptext}</Tooltip>
+        </TooltipProvider>
+      </Col>
+
+      <Col width="auto">
+        <TooltipProvider placement="left">
+          <TooltipTrigger>
+            <p>Tooltip left</p>
+          </TooltipTrigger>
+          <Tooltip>{tooltiptext}</Tooltip>
+        </TooltipProvider>
+      </Col>
+    </Row>
+  );
+};
