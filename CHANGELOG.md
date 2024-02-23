@@ -1,3 +1,10 @@
+## [6.5.2](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.5.1...v6.5.2) (2024-02-23)
+
+
+### Bug Fixes
+
+* **tooltip:** bordered tooltip arrow placement - TEHVEER-259 ([d424d1f](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/d424d1fc7f604311442ac898deeb9bcc4b979979))
+
 ## [6.5.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.5.0...v6.5.1) (2024-02-21)
 
 
