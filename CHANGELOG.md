@@ -1,3 +1,10 @@
+## [6.5.3](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.5.2...v6.5.3) (2024-02-27)
+
+
+### Bug Fixes
+
+* **table:** Fix table text filters not saving filter value - TEHVEER-260 ([90362f3](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/90362f31cb891d067d76890a2415c54d964d3f27))
+
 ## [6.5.2](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.5.1...v6.5.2) (2024-02-23)
 
 
