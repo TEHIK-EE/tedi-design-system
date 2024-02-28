@@ -6,6 +6,8 @@ import { CardContent, CardHeader } from '../card';
 import TextArea from '../form/textarea/textarea';
 import TextField from '../form/textfield/textfield';
 import { Col, Row } from '../grid';
+import { Default as LayoutDefault } from '../layout/layout/layout.stories';
+import Section from '../section/section';
 import Heading from '../typography/heading/heading';
 import { VerticalSpacing } from '../vertical-spacing';
 import Feedback, { FeedbackProps } from './feedback';
@@ -15,6 +17,10 @@ export default {
   component: Feedback,
   parameters: {
     docs: {
+      story: {
+        inline: false,
+        iframeHeight: 700,
+      },
       description: {
         component: `Feedback component contains everything to render a modal, including the trigger button. It adds some default
           props to the trigger and modal and renders the button on the right side for desktop and inline for mobile.
@@ -25,13 +31,14 @@ export default {
 } as Meta;
 
 const Template: StoryFn<FeedbackProps> = (args) => {
+  const lorem =
+    'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium alias asperiores aspernatur blanditiis cupiditate ea eum explicabo fugiat, id ipsam laudantium molestiae nemo, quae sed similique ut velit veniam, voluptas? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium alias asperiores aspernatur blanditiis cupiditate ea eum explicabo fugiat, id ipsam laudantium molestiae nemo, quae sed similique ut velit veniam, voluptas?';
+
   return (
     <VerticalSpacing>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium alias asperiores aspernatur blanditiis
-        cupiditate ea eum explicabo fugiat, id ipsam laudantium molestiae nemo, quae sed similique ut velit veniam,
-        voluptas?
-      </p>
+      {Array.from({ length: 10 }, (a, index) => (
+        <p key={index}>{lorem}</p>
+      ))}
       <Feedback {...args}>
         <CardHeader variant="white">
           <Heading modifiers="h4">Feedback</Heading>
@@ -72,10 +79,24 @@ const Template: StoryFn<FeedbackProps> = (args) => {
 
 export const Default = {
   render: Template,
-
   args: {
     triggerProps: {
       children: 'Feedback',
     },
+  },
+};
+
+export const InLayout = {
+  parameters: {
+    layout: 'fullscreen',
+  },
+  render: LayoutDefault.render,
+  args: {
+    ...LayoutDefault.args,
+    children: (
+      <Section>
+        <Template triggerProps={{ children: 'Feedback' }}>content</Template>
+      </Section>
+    ),
   },
 };
