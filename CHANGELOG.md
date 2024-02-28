@@ -1,3 +1,10 @@
+## [6.5.4](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.5.3...v6.5.4) (2024-02-28)
+
+
+### Bug Fixes
+
+* **feedback:** TEHVEER-261 - Prevent feedback trigger from overlapping content ([89afb6a](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/89afb6a91eea5e338d6df5beea03e7f6619d295f))
+
 ## [6.5.3](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.5.2...v6.5.3) (2024-02-27)
 
 
