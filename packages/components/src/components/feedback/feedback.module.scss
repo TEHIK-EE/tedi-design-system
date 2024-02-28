@@ -21,14 +21,14 @@
 
 .feedback--both,
 .feedback--desktop {
-  @include breakpoints.media-breakpoint-up(md) {
+  @include breakpoints.media-breakpoint-up(lg) {
     @include feedback;
   }
 }
 
 .feedback--both,
 .feedback--mobile {
-  @include breakpoints.media-breakpoint-down(md) {
+  @include breakpoints.media-breakpoint-down(lg) {
     @include feedback;
   }
 }
