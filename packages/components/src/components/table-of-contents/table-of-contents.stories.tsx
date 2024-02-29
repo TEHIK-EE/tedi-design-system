@@ -8,6 +8,7 @@ import { Col, Row } from '../grid';
 import Layout, { ILayoutProps } from '../layout/layout/layout';
 import { WithNotice as LayoutDefault } from '../layout/layout/layout.stories';
 import { Section } from '../section/section';
+import ToggleOpen from '../toggle-open/toggle-open';
 import Heading from '../typography/heading/heading';
 import Text from '../typography/text/text';
 import { VerticalSpacing } from '../vertical-spacing';
@@ -160,5 +161,39 @@ export const CustomFormValidation: Story = {
           Use disabled text as content, not button or anchor.`,
       },
     },
+  },
+};
+
+export const WithChildren: Story = {
+  render: Template,
+  args: {
+    ...Default.args,
+    items: steps.map((step) => ({
+      content: ({ isOpen, handleToggle }: { isOpen: boolean; handleToggle: () => void }) => (
+        <Row wrap="nowrap" alignItems="center">
+          <Col>
+            <ToggleOpen
+              openText={step}
+              isOpen={isOpen}
+              closeText={step}
+              visualType="link"
+              onClick={handleToggle}
+            ></ToggleOpen>
+          </Col>
+          <Col width="auto">
+            <Text>o</Text>
+          </Col>
+        </Row>
+      ),
+      group: Math.random() > 0.5,
+      hideIcon: Math.random() > 0.5,
+      children: [...Array(3).keys()]
+        .map(() => faker.commerce.productName())
+        .map((child, j) => ({
+          content: () => <Anchor href={`#${child}`}>{child}</Anchor>,
+          group: Math.random() > 0.5,
+          hideIcon: Math.random() > 0.5,
+        })),
+    })),
   },
 };

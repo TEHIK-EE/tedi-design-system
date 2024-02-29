@@ -1,5 +1,5 @@
 import cn from 'classnames';
-import React from 'react';
+import React, { useState } from 'react';
 import { flushSync } from 'react-dom';
 
 import { Layouts, useLayout } from '../../helpers';
@@ -20,6 +20,7 @@ import {
   ModalProviderProps,
   ModalTrigger,
 } from '../modal';
+import Separator from '../separator/separator';
 import StretchContent from '../stretch-content/stretch-content';
 import Heading from '../typography/heading/heading';
 import { Text } from '../typography/text/text';
@@ -34,13 +35,28 @@ export interface TableOfContentsItem {
    * Button - <Button onClick={() => setCurrentStep(i)} />
    * Function - Also accepts a callback that has the closeModal function as parameter
    */
-  content: React.ReactNode | ((props: Pick<IModalContext, 'closeModal'>) => React.ReactNode);
+  content:
+    | React.ReactNode
+    | ((props: Pick<IModalContext, 'closeModal'>) => React.ReactNode)
+    | ((props: { isOpen: boolean; handleToggle: () => void }) => React.ReactNode);
   /**
    * Can contain true/false/undefined -
    * true/false for validated fields
    * undefined for fields that haven't been touched
    */
   isValid?: boolean;
+  /**
+   * Optional children to create a nested list
+   */
+  children?: TableOfContentsItem[];
+  /**
+   * Render the item as a group, creating a separator below it
+   */
+  group?: boolean;
+  /**
+   * Hide icon before the item
+   */
+  hideIcon?: boolean;
 }
 
 export interface TableOfContentsProps {
@@ -238,6 +254,49 @@ const TableOfContentsModal = (props: TableOfContentsProps) => {
   );
 };
 
+function TableOfContentsItem(props: TableOfContentsItem & { handleCloseModal: () => void; showIcons?: boolean }) {
+  const { children, content, isValid, showIcons, group, hideIcon, handleCloseModal, ...rest } = props;
+  const [isOpen, setIsOpen] = useState(false);
+  const handleToggle = () => setIsOpen(!isOpen);
+  const extraProps = { ...rest, isOpen, handleToggle };
+  return (
+    <Col>
+      <Row gutter={2} alignItems="center">
+        {showIcons && (
+          <>
+            {hideIcon ? (
+              <Col width="auto">
+                <div style={{ width: '24px' }}></div>
+              </Col>
+            ) : (
+              <Col width="auto">
+                {isValid === false ? (
+                  <Icon name="warning" color="important" />
+                ) : (
+                  <Icon name="check" color={isValid === true ? 'positive' : 'disabled'} />
+                )}
+              </Col>
+            )}
+          </>
+        )}
+        <Col>
+          <Text element="div" modifiers="break-word">
+            {typeof content === 'function' ? content?.({ closeModal: handleCloseModal, ...extraProps }) : content}
+          </Text>
+        </Col>
+      </Row>
+      {children &&
+        isOpen &&
+        children.map((child, i) => (
+          <Row element="ol" gutter={5} gap={2} key={`toc-item-${i}`}>
+            <TableOfContentsItem {...child} showIcons={showIcons} handleCloseModal={handleCloseModal} />
+          </Row>
+        ))}
+      {group && <Separator topSpacing={0.5} />}
+    </Col>
+  );
+}
+
 const TableOfContentsItems = (
   props: TableOfContentsProps & { setReturnFocus?: React.Dispatch<React.SetStateAction<boolean>> }
 ) => {
@@ -268,24 +327,12 @@ const TableOfContentsItems = (
       <nav aria-labelledby={id}>
         <Row element="ol" direction="column" gap={2}>
           {items.map((i, index) => (
-            <Col key={`toc-item-${index}`}>
-              <Row gutter={2}>
-                {showIcons && (
-                  <Col width="auto">
-                    {i?.isValid === false ? (
-                      <Icon name="warning" color="important" />
-                    ) : (
-                      <Icon name="check" color={i?.isValid === true ? 'positive' : 'disabled'} />
-                    )}
-                  </Col>
-                )}
-                <Col>
-                  <Text element="div" modifiers="break-word">
-                    {typeof i?.content === 'function' ? i?.content?.({ closeModal: handleCloseModal }) : i?.content}
-                  </Text>
-                </Col>
-              </Row>
-            </Col>
+            <TableOfContentsItem
+              showIcons={showIcons}
+              key={`toc-item-${index}`}
+              handleCloseModal={handleCloseModal}
+              {...i}
+            />
           ))}
         </Row>
       </nav>
