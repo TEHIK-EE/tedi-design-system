@@ -1,5 +1,5 @@
 import cn from 'classnames';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { flushSync } from 'react-dom';
 
 import { Layouts, useLayout } from '../../helpers';
@@ -50,13 +50,17 @@ export interface TableOfContentsItem {
    */
   children?: TableOfContentsItem[];
   /**
-   * Render the item as a group, creating a separator below it
+   * Render a separator below the item
    */
-  group?: boolean;
+  separator?: boolean;
   /**
    * Hide icon before the item
    */
   hideIcon?: boolean;
+  /**
+   * Unique id for the item
+   */
+  id?: string;
 }
 
 export interface TableOfContentsProps {
@@ -107,7 +111,17 @@ export interface TableOfContentsProps {
    * @default true
    */
   hideOnScroll?: boolean;
+  /**
+   * Active item id
+   **/
+  activeItem?: string;
 }
+
+interface TableOfContentsContext {
+  activeItem?: string;
+}
+
+const TableOfContentsContext = React.createContext<TableOfContentsContext>({ activeItem: undefined });
 
 /**
  * TableOfContents is helper component that can be used to show table of contents for long pages or multistep forms. It keeps itself fixed next to the content when scrolled (On desktop). <br /><br />
@@ -122,27 +136,29 @@ export const TableOfContents = (props: TableOfContentsProps) => {
   const isMobileLayout = useLayout(breakToMobile);
 
   return (
-    <Affix
-      right={0}
-      left={0}
-      bottom={isMobileLayout ? 0 : 1.5}
-      top={isMobileLayout ? 'unset' : 1.5}
-      position={isMobileLayout ? 'fixed' : 'sticky'}
-    >
-      <StretchContent>
-        {isMobileLayout ? (
-          <HideOnScroll animationDirection="down" enabled={hideOnScroll}>
-            <TableOfContentsModal {...props} heading={heading} />
-          </HideOnScroll>
-        ) : (
-          <Card>
-            <CardContent>
-              <TableOfContentsItems {...props} heading={heading} />
-            </CardContent>
-          </Card>
-        )}
-      </StretchContent>
-    </Affix>
+    <TableOfContentsContext.Provider value={{ activeItem: props.activeItem }}>
+      <Affix
+        right={0}
+        left={0}
+        bottom={isMobileLayout ? 0 : 1.5}
+        top={isMobileLayout ? 'unset' : 1.5}
+        position={isMobileLayout ? 'fixed' : 'sticky'}
+      >
+        <StretchContent>
+          {isMobileLayout ? (
+            <HideOnScroll animationDirection="down" enabled={hideOnScroll}>
+              <TableOfContentsModal {...props} heading={heading} />
+            </HideOnScroll>
+          ) : (
+            <Card>
+              <CardContent>
+                <TableOfContentsItems {...props} heading={heading} />
+              </CardContent>
+            </Card>
+          )}
+        </StretchContent>
+      </Affix>
+    </TableOfContentsContext.Provider>
   );
 };
 
@@ -255,45 +271,55 @@ const TableOfContentsModal = (props: TableOfContentsProps) => {
 };
 
 function TableOfContentsItem(props: TableOfContentsItem & { handleCloseModal: () => void; showIcons?: boolean }) {
-  const { children, content, isValid, showIcons, group, hideIcon, handleCloseModal, ...rest } = props;
-  const [isOpen, setIsOpen] = useState(false);
+  const { children, content, isValid, showIcons, separator, hideIcon, id, handleCloseModal, ...rest } = props;
+  const { activeItem } = useContext(TableOfContentsContext);
+  const [isOpen, setIsOpen] = useState(activeItem === id);
   const handleToggle = () => setIsOpen(!isOpen);
   const extraProps = { ...rest, isOpen, handleToggle };
   return (
-    <Col>
-      <Row gutter={2} alignItems="center">
-        {showIcons && (
-          <>
-            {hideIcon ? (
-              <Col width="auto">
-                <div style={{ width: '24px' }}></div>
-              </Col>
-            ) : (
-              <Col width="auto">
-                {isValid === false ? (
-                  <Icon name="warning" color="important" />
-                ) : (
-                  <Icon name="check" color={isValid === true ? 'positive' : 'disabled'} />
-                )}
-              </Col>
-            )}
-          </>
-        )}
-        <Col>
-          <Text element="div" modifiers="break-word">
-            {typeof content === 'function' ? content?.({ closeModal: handleCloseModal, ...extraProps }) : content}
-          </Text>
-        </Col>
-      </Row>
+    <>
+      <Col>
+        <Row gutter={2} alignItems="center">
+          {showIcons && (
+            <>
+              {hideIcon ? (
+                <Col width="auto">
+                  <div style={{ width: '24px' }}></div>
+                </Col>
+              ) : (
+                <Col width="auto">
+                  {isValid === false ? (
+                    <Icon name="warning" color="important" />
+                  ) : (
+                    <Icon name="check" color={isValid === true ? 'positive' : 'disabled'} />
+                  )}
+                </Col>
+              )}
+            </>
+          )}
+          <Col>
+            <Text element="div" modifiers="break-word">
+              {typeof content === 'function' ? content?.({ closeModal: handleCloseModal, ...extraProps }) : content}
+            </Text>
+          </Col>
+        </Row>
+      </Col>
+
       {children &&
         isOpen &&
         children.map((child, i) => (
-          <Row element="ol" gutter={5} gap={2} key={`toc-item-${i}`}>
-            <TableOfContentsItem {...child} showIcons={showIcons} handleCloseModal={handleCloseModal} />
-          </Row>
+          <Col key={`${id}-${i}`}>
+            <Row element="ul" direction="column" gap={2}>
+              <TableOfContentsItem {...child} showIcons={showIcons} handleCloseModal={handleCloseModal} />
+            </Row>
+          </Col>
         ))}
-      {group && <Separator topSpacing={0.5} />}
-    </Col>
+      {separator && (
+        <Col>
+          <Separator />
+        </Col>
+      )}
+    </>
   );
 }
 
@@ -325,7 +351,7 @@ const TableOfContentsItems = (
         </Heading>
       )}
       <nav aria-labelledby={id}>
-        <Row element="ol" direction="column" gap={2}>
+        <Row element="ul" direction="column" gap={2}>
           {items.map((i, index) => (
             <TableOfContentsItem
               showIcons={showIcons}

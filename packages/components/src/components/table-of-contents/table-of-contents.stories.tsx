@@ -71,7 +71,7 @@ export const Default: Story = {
   render: Template,
   args: {
     items: steps.map((step, i) => ({
-      content: ({ closeModal }) => (
+      content: ({ closeModal }: { closeModal: () => void }) => (
         <Anchor href={`#${step}`} onClick={() => closeModal()}>
           {step}
         </Anchor>
@@ -93,7 +93,7 @@ export const WithManySteps: Story = {
   render: Template,
   args: {
     items: longSteps.map((step, i) => ({
-      content: ({ closeModal }) => (
+      content: ({ closeModal }: { closeModal: () => void }) => (
         <Anchor href={`#${step}`} onClick={() => closeModal()}>
           {`${i + 1}. ${step}`}
         </Anchor>
@@ -108,7 +108,7 @@ export const CustomFormValidation: Story = {
     showIcons: true,
     items: [
       {
-        content: ({ closeModal }) => (
+        content: ({ closeModal }: { closeModal: () => void }) => (
           <Button
             visualType="link"
             onClick={() => {
@@ -122,7 +122,7 @@ export const CustomFormValidation: Story = {
         isValid: true,
       },
       {
-        content: ({ closeModal }) => (
+        content: ({ closeModal }: { closeModal: () => void }) => (
           <Button
             visualType="link"
             onClick={() => {
@@ -136,7 +136,7 @@ export const CustomFormValidation: Story = {
         isValid: true,
       },
       {
-        content: ({ closeModal }) => (
+        content: ({ closeModal }: { closeModal: () => void }) => (
           <Button
             visualType="link"
             onClick={() => {
@@ -168,32 +168,71 @@ export const WithChildren: Story = {
   render: Template,
   args: {
     ...Default.args,
-    items: steps.map((step) => ({
+    activeItem: 'toc-item-5',
+    items: steps.map((step, index) => ({
       content: ({ isOpen, handleToggle }: { isOpen: boolean; handleToggle: () => void }) => (
         <Row wrap="nowrap" alignItems="center">
           <Col>
             <ToggleOpen
               openText={step}
-              isOpen={isOpen}
               closeText={step}
+              isOpen={isOpen}
               visualType="link"
               onClick={handleToggle}
             ></ToggleOpen>
           </Col>
-          <Col width="auto">
-            <Text>o</Text>
-          </Col>
         </Row>
       ),
-      group: Math.random() > 0.5,
-      hideIcon: Math.random() > 0.5,
+      id: `toc-item-${index}`,
       children: [...Array(3).keys()]
         .map(() => faker.commerce.productName())
         .map((child, j) => ({
           content: () => <Anchor href={`#${child}`}>{child}</Anchor>,
-          group: Math.random() > 0.5,
-          hideIcon: Math.random() > 0.5,
         })),
     })),
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'TableOfContents can be used to display nested content.',
+      },
+    },
+  },
+};
+
+export const WithHiddenIcons: Story = {
+  render: Template,
+  args: {
+    ...Default.args,
+    showIcons: true,
+    items: steps.map((step, index) => ({
+      content: <Anchor href={`#${step}`}>{step}</Anchor>,
+      hideIcon: index % 2 === 0,
+    })),
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Some items can have hidden icons.',
+      },
+    },
+  },
+};
+
+export const WithSeparators: Story = {
+  render: Template,
+  args: {
+    ...Default.args,
+    items: steps.map((step, index) => ({
+      content: <Anchor href={`#${step}`}>{step}</Anchor>,
+      separator: index % 2 === 0,
+    })),
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Some items can have separators after them.',
+      },
+    },
   },
 };
