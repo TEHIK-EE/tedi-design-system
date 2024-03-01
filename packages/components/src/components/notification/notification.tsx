@@ -1,5 +1,5 @@
 import cn from 'classnames';
-import React, { AriaAttributes } from 'react';
+import React from 'react';
 
 import { useIsMounted } from '../../helpers';
 import CloseButton from '../close-button/close-button';

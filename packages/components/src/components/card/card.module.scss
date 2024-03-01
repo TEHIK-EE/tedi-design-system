@@ -86,6 +86,16 @@
   background: var(--color-gradient-main);
 }
 
+.card__header--primary-main {
+  color: var(--color-text-inverted);
+  background: var(--color-primary-main);
+}
+
+.card__header--primary-active {
+  color: var(--color-text-inverted);
+  background: var(--color-primary-active);
+}
+
 .card__header--white {
   color: var(--color-text-muted);
   background: var(--color-bg-default);
@@ -95,6 +105,8 @@
 .card__header {
   padding: var(--card-content-padding-top, 1rem) var(--card-content-padding-right, 1rem)
     var(--card-content-padding-bottom, 1rem) var(--card-content-padding-left, 1rem);
+  transition: 150ms ease;
+  transition-property: background;
 
   @media print {
     color: var(--color-text-default);
