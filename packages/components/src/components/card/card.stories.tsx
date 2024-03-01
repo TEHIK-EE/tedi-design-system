@@ -112,6 +112,13 @@ export const Default: Story = {
 };
 
 export const DefaultHeader: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story: 'Default header background is a primary gradient',
+      },
+    },
+  },
   render: Template,
   args: {
     cardHeader: {

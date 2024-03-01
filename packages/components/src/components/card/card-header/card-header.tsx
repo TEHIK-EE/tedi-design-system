@@ -2,12 +2,13 @@ import cn from 'classnames';
 import React from 'react';
 
 import { BreakpointSupport, useBreakpointProps } from '../../../helpers/hooks/use-breakpoint-props';
+import { TColorsBackground } from '../../commonTypes';
 import styles from '../card.module.scss';
 import { CardContentProps } from '../card-content/card-content';
 import { CardContext } from '../card-context';
 import { getPaddingCssVariables } from '../utility';
 
-export type CardHeaderVariant = 'default' | 'white';
+export type CardHeaderVariant = 'default' | Extract<TColorsBackground, 'primary-main' | 'primary-active' | 'white'>;
 
 type CardHeaderBreakpointProps = {
   /**
@@ -32,6 +33,9 @@ export interface CardHeaderProps extends BreakpointSupport<CardHeaderBreakpointP
   children?: React.ReactNode;
 }
 
+/**
+ * TODO refactor CardHeader to use CardContent internally to get support for padding and subset of background
+ */
 export const CardHeader = (props: CardHeaderProps): JSX.Element => {
   const { getCurrentBreakpointProps } = useBreakpointProps();
   const { padding: rootPadding } = React.useContext(CardContext);
