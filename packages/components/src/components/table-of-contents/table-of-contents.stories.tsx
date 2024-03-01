@@ -182,7 +182,7 @@ export const WithChildren: Story = {
       id: `toc-item-${index}`,
       children: [...Array(3).keys()]
         .map(() => faker.commerce.productName())
-        .map((child, j) => ({
+        .map((child) => ({
           content: () => <Anchor href={`#${child}`}>{child}</Anchor>,
         })),
     })),
