@@ -171,17 +171,13 @@ export const WithChildren: Story = {
     activeItem: 'toc-item-5',
     items: steps.map((step, index) => ({
       content: ({ isOpen, handleToggle }: { isOpen: boolean; handleToggle: () => void }) => (
-        <Row wrap="nowrap" alignItems="center">
-          <Col>
-            <ToggleOpen
-              openText={step}
-              closeText={step}
-              isOpen={isOpen}
-              visualType="link"
-              onClick={handleToggle}
-            ></ToggleOpen>
-          </Col>
-        </Row>
+        <ToggleOpen
+          openText={step}
+          closeText={step}
+          isOpen={isOpen}
+          visualType="link"
+          onClick={handleToggle}
+        ></ToggleOpen>
       ),
       id: `toc-item-${index}`,
       children: [...Array(3).keys()]

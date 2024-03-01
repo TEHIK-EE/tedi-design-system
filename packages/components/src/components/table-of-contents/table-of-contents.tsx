@@ -1,5 +1,5 @@
 import cn from 'classnames';
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { flushSync } from 'react-dom';
 
 import { Layouts, useLayout } from '../../helpers';
@@ -276,6 +276,11 @@ function TableOfContentsItem(props: TableOfContentsItem & { handleCloseModal: ()
   const [isOpen, setIsOpen] = useState(activeItem === id);
   const handleToggle = () => setIsOpen(!isOpen);
   const extraProps = { ...rest, isOpen, handleToggle };
+  useEffect(() => {
+    if (activeItem) {
+      setIsOpen(activeItem === id);
+    }
+  }, [activeItem, id]);
   return (
     <>
       <Col>
