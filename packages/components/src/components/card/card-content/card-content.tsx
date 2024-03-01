@@ -1,8 +1,7 @@
 import cn from 'classnames';
 import React from 'react';
 
-import { getBackgroundColorClass } from '../../../helpers/background-colors/background-colors';
-import { BreakpointSupport, useBreakpointProps } from '../../../helpers/hooks/use-breakpoint-props';
+import { BreakpointSupport, getBackgroundColorClass, useBreakpointProps } from '../../../helpers';
 import { TColorsBackground } from '../../commonTypes';
 import styles from '../card.module.scss';
 import { CardContext } from '../card-context';

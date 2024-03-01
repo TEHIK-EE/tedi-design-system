@@ -225,7 +225,7 @@ const TableOfContentsModal = (props: TableOfContentsProps) => {
         </ModalTrigger>
       </Heading>
       <Modal aria-labelledby={id} position="bottom" returnFocus={returnFocus} {...modalProps}>
-        <CardHeader variant="white" id={id}>
+        <CardHeader background="white" id={id}>
           <Heading element="h2" modifiers="normal">
             {renderHeader}
           </Heading>

@@ -4,7 +4,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  border: 1px solid var(--color-border-default);
+  border: 1px solid var(--card-border-color);
   border-radius: var(--border-radius-default);
 }
 
@@ -103,10 +103,9 @@
 }
 
 .card__header {
+  z-index: 1;
   padding: var(--card-content-padding-top, 1rem) var(--card-content-padding-right, 1rem)
     var(--card-content-padding-bottom, 1rem) var(--card-content-padding-left, 1rem);
-  transition: 150ms ease;
-  transition-property: background;
 
   @media print {
     color: var(--color-text-default);
@@ -119,10 +118,23 @@
 .card__content:first-of-type {
   border-start-start-radius: var(--border-radius-default);
   border-start-end-radius: var(--border-radius-default);
+
+  .card--border-top & {
+    border-start-start-radius: 0;
+    border-start-end-radius: 0;
+  }
 }
 
 .card__header:last-child,
 .card__content:last-child {
   border-end-start-radius: var(--border-radius-default);
   border-end-end-radius: var(--border-radius-default);
+}
+
+.card__header,
+.card__content {
+  .card--border-left & {
+    border-start-start-radius: 0;
+    border-end-start-radius: 0;
+  }
 }

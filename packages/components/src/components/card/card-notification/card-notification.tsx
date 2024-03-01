@@ -13,7 +13,7 @@ export const CardNotification = (props: CardNotificationProps): JSX.Element => {
   const BEM = cn(style['card__notification'], className);
 
   return (
-    <CardContent padding={padding} className={style['card__notification-content']}>
+    <CardContent data-name="card-notification" padding={padding} className={style['card__notification-content']}>
       <Notification className={BEM} {...rest}>
         {children}
       </Notification>

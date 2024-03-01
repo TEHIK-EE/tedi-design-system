@@ -122,7 +122,7 @@ export const DefaultHeader: Story = {
   render: Template,
   args: {
     cardHeader: {
-      variant: 'default',
+      background: 'default',
     },
   },
 };
@@ -133,7 +133,7 @@ export const WhiteHeader: Story = {
   args: {
     ...Default.args,
     cardHeader: {
-      variant: 'white',
+      background: 'white',
     },
   },
 };
@@ -193,6 +193,26 @@ export const WithoutBorderRadius: Story = {
   },
 };
 
+export const BorderColor: Story = {
+  render: Template,
+
+  args: {
+    ...Default.args,
+    card: {
+      border: 'primary-main',
+    },
+    cardHeader: false,
+  },
+
+  parameters: {
+    docs: {
+      description: {
+        story: 'Card support different borders and can be colored with: Brand, Border & Functional colors.',
+      },
+    },
+  },
+};
+
 export const BorderLeftImportantActive: Story = {
   render: Template,
 
@@ -208,7 +228,7 @@ export const BorderLeftImportantActive: Story = {
     docs: {
       description: {
         story:
-          'Card support top and left borders, which are 2px wide and can be colored with: Brand, Border & Functional colors.',
+          'Card also support top and left borders, which are 4px wide and can be colored with: Brand, Border & Functional colors.',
       },
     },
   },
@@ -327,7 +347,7 @@ export const WithNotification: Story = {
       padding: 0.75,
     },
     cardHeader: {
-      variant: 'white',
+      background: 'white',
     },
     cardNotification: true,
   },

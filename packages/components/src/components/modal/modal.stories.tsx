@@ -73,7 +73,7 @@ const Template: StoryFn<TemplateProps> = (args): JSX.Element => {
       </ModalTrigger>
       <Modal {...modal} aria-labelledby="label">
         {renderHeader && (
-          <CardHeader variant="white">
+          <CardHeader background="white">
             <Heading id="default-label">{heading}</Heading>
           </CardHeader>
         )}
@@ -200,7 +200,7 @@ export const Position: StoryFn<ModalProps> = () => {
         <Button className="text-capitalize">{position}</Button>
       </ModalTrigger>
       <Modal aria-labelledby="open-center" position={position}>
-        <CardHeader variant="white">
+        <CardHeader background="white">
           <Heading>Modal with longer content to test out scrolling</Heading>
         </CardHeader>
         <CardContent>{content}</CardContent>
