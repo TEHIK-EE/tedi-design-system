@@ -16,7 +16,8 @@ type CardHeaderBreakpointProps = {
    */
   className?: string;
   /**
-   * Variant of CardHeader
+   * Variant of CardHeader.
+   * Primary-main and primary-active are mainly used inside AccordionItemHeader.
    * @default default
    */
   variant?: CardHeaderVariant;
