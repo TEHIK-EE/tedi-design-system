@@ -1,67 +1,15 @@
-import cn from 'classnames';
-import React, { useContext, useEffect, useState } from 'react';
-import { flushSync } from 'react-dom';
+import React from 'react';
 
 import { Layouts, useLayout } from '../../helpers';
 import { useLabels } from '../../providers/label-provider';
 import Affix from '../affix/affix';
-import Button from '../button/button';
-import ButtonContent from '../button-content/button-content';
-import { Card, CardContent, CardHeader } from '../card';
-import { Col, Row } from '../grid';
+import { Card, CardContent } from '../card';
 import HideOnScroll from '../hide-on-scroll/hide-on-scroll';
-import Icon from '../icon/icon';
-import {
-  IModalContext,
-  Modal,
-  ModalContext,
-  ModalProps,
-  ModalProvider,
-  ModalProviderProps,
-  ModalTrigger,
-} from '../modal';
-import Separator from '../separator/separator';
+import { ModalProps, ModalProviderProps } from '../modal';
 import StretchContent from '../stretch-content/stretch-content';
-import Heading from '../typography/heading/heading';
-import { Text } from '../typography/text/text';
-import { VerticalSpacing } from '../vertical-spacing';
-import styles from './table-of-contents.module.scss';
-
-export interface TableOfContentsItem {
-  /**
-   * Content should generally use the anchor or button element
-   * For example:
-   * Link - <Anchor href="#abc">Something</Anchor>
-   * Button - <Button onClick={() => setCurrentStep(i)} />
-   * Function - Also accepts a callback that has the closeModal function as parameter
-   */
-  content:
-    | React.ReactNode
-    | ((props: Pick<IModalContext, 'closeModal'>) => React.ReactNode)
-    | ((props: { isOpen: boolean; handleToggle: () => void }) => React.ReactNode);
-  /**
-   * Can contain true/false/undefined -
-   * true/false for validated fields
-   * undefined for fields that haven't been touched
-   */
-  isValid?: boolean;
-  /**
-   * Optional children to create a nested list
-   */
-  children?: TableOfContentsItem[];
-  /**
-   * Render a separator below the item
-   */
-  separator?: boolean;
-  /**
-   * Hide icon before the item
-   */
-  hideIcon?: boolean;
-  /**
-   * Unique id for the item
-   */
-  id?: string;
-}
+import { TableOfContentsItem } from './table-of-contents-item';
+import { TableOfContentsItems } from './table-of-contents-items';
+import { TableOfContentsModal } from './table-of-contents-modal';
 
 export interface TableOfContentsProps {
   /**
@@ -121,7 +69,7 @@ interface TableOfContentsContext {
   activeItem?: string;
 }
 
-const TableOfContentsContext = React.createContext<TableOfContentsContext>({ activeItem: undefined });
+export const TableOfContentsContext = React.createContext<TableOfContentsContext>({ activeItem: undefined });
 
 /**
  * TableOfContents is helper component that can be used to show table of contents for long pages or multistep forms. It keeps itself fixed next to the content when scrolled (On desktop). <br /><br />
@@ -159,215 +107,6 @@ export const TableOfContents = (props: TableOfContentsProps) => {
         </StretchContent>
       </Affix>
     </TableOfContentsContext.Provider>
-  );
-};
-
-const TableOfContentsModal = (props: TableOfContentsProps) => {
-  const { getLabel } = useLabels();
-  const { items, modalProps, modalProviderProps, showIcons, heading, open, defaultOpen, onToggle } = props;
-  const correctItems = items.map((i) => i.isValid === true).filter(Boolean).length;
-  const invalidItems = items.map((i) => i.isValid === false).filter(Boolean).length;
-  const id = React.useId();
-  const [returnFocus, setReturnFocus] = React.useState(true);
-  const [innerOpen, setInnerOpen] = React.useState(defaultOpen);
-
-  const isOpen = onToggle && typeof open !== 'undefined' ? open : innerOpen;
-  const validLabel = getLabel('table-of-contents.valid');
-  const invalidLabel = getLabel('table-of-contents.invalid');
-
-  const handleToggle = (open: boolean) => {
-    setInnerOpen(open);
-    onToggle?.(open);
-  };
-
-  const renderHeader = (
-    <>
-      <Text element="span" modifiers={['normal', 'bold']} className={cn({ 'sr-only': showIcons })}>
-        {heading}
-      </Text>
-      {showIcons && invalidItems === 0 ? (
-        <Row gutter={1}>
-          <Col width="auto">
-            <Icon name="check" color="positive" />
-          </Col>
-          <Col width="auto">
-            <Text element="span" aria-hidden={true}>
-              {correctItems} / {items.length}
-            </Text>
-            <Text element="span" className="sr-only">
-              {typeof validLabel === 'string' ? validLabel : validLabel?.(`${correctItems} / ${items.length}`)}
-            </Text>
-          </Col>
-        </Row>
-      ) : showIcons ? (
-        <Row gutter={3}>
-          <Col width="auto">
-            <Row gutter={1}>
-              <Col width="auto">
-                <Icon name="check" color="positive" />
-              </Col>
-              <Col width="auto">
-                <Text element="span" aria-hidden={true}>
-                  {correctItems}
-                </Text>
-                <Text element="span" className="sr-only">
-                  {typeof validLabel === 'string' ? validLabel : validLabel?.(correctItems)}
-                </Text>
-              </Col>
-            </Row>
-          </Col>
-          <Col width="auto">
-            <Row gutter={1}>
-              <Col width="auto">
-                <Icon name="warning" color="important" />
-              </Col>
-              <Col width="auto">
-                <Text element="span" aria-hidden={true}>
-                  {invalidItems}
-                </Text>
-                <Text element="span" className="sr-only">
-                  {typeof invalidLabel === 'string' ? invalidLabel : invalidLabel?.(invalidItems)}
-                </Text>
-              </Col>
-            </Row>
-          </Col>
-        </Row>
-      ) : null}
-    </>
-  );
-
-  return (
-    <ModalProvider open={isOpen} onToggle={handleToggle} {...modalProviderProps}>
-      <Heading element="h2" modifiers="normal">
-        <ModalTrigger>
-          <Button fullWidth noStyle className={styles['table-of-contents__trigger']}>
-            <Card className={styles['table-of-contents__trigger-card']}>
-              <CardContent>
-                <Row>
-                  <Col>{renderHeader}</Col>
-                  <Col width="auto" aria-hidden={true}>
-                    <ButtonContent as="span" visualType="link" iconRight="expand_more">
-                      {getLabel('open')}
-                    </ButtonContent>
-                  </Col>
-                </Row>
-              </CardContent>
-            </Card>
-          </Button>
-        </ModalTrigger>
-      </Heading>
-      <Modal aria-labelledby={id} position="bottom" returnFocus={returnFocus} {...modalProps}>
-        <CardHeader variant="white" id={id}>
-          <Heading element="h2" modifiers="normal">
-            {renderHeader}
-          </Heading>
-        </CardHeader>
-        <CardContent>
-          <TableOfContentsItems {...props} setReturnFocus={setReturnFocus} />
-        </CardContent>
-      </Modal>
-    </ModalProvider>
-  );
-};
-
-function TableOfContentsItem(props: TableOfContentsItem & { handleCloseModal: () => void; showIcons?: boolean }) {
-  const { children, content, isValid, showIcons, separator, hideIcon, id, handleCloseModal, ...rest } = props;
-  const { activeItem } = useContext(TableOfContentsContext);
-  const [isOpen, setIsOpen] = useState(activeItem === id);
-  const handleToggle = () => setIsOpen(!isOpen);
-  const extraProps = { ...rest, isOpen, handleToggle };
-  useEffect(() => {
-    if (activeItem) {
-      setIsOpen(activeItem === id);
-    }
-  }, [activeItem, id]);
-  return (
-    <>
-      <Col>
-        <Row gutter={2} alignItems="center">
-          {showIcons && (
-            <>
-              {hideIcon ? (
-                <Col width="auto">
-                  <div style={{ width: '24px' }}></div>
-                </Col>
-              ) : (
-                <Col width="auto">
-                  {isValid === false ? (
-                    <Icon name="warning" color="important" />
-                  ) : (
-                    <Icon name="check" color={isValid === true ? 'positive' : 'disabled'} />
-                  )}
-                </Col>
-              )}
-            </>
-          )}
-          <Col>
-            <Text element="div" modifiers="break-word">
-              {typeof content === 'function' ? content?.({ closeModal: handleCloseModal, ...extraProps }) : content}
-            </Text>
-          </Col>
-        </Row>
-      </Col>
-
-      {children &&
-        isOpen &&
-        children.map((child, i) => (
-          <Col key={`${id}-${i}`}>
-            <Row element="ul" direction="column" gap={2}>
-              <TableOfContentsItem {...child} showIcons={showIcons} handleCloseModal={handleCloseModal} />
-            </Row>
-          </Col>
-        ))}
-      {separator && (
-        <Col>
-          <Separator />
-        </Col>
-      )}
-    </>
-  );
-}
-
-const TableOfContentsItems = (
-  props: TableOfContentsProps & { setReturnFocus?: React.Dispatch<React.SetStateAction<boolean>> }
-) => {
-  const { items, setReturnFocus, showIcons, heading, breakToMobile = ['mobile'] } = props;
-  const isMobileLayout = useLayout(breakToMobile);
-  const showTitle = showIcons ? true : !isMobileLayout;
-  const { closeModal } = React.useContext(ModalContext);
-  const id = React.useId();
-
-  const handleCloseModal = () => {
-    // modal has to re-render with the prop returnFocus={false} first before we close it
-    // otherwise the focus doesn't stay on the section the user navigated to
-    flushSync(() => {
-      setReturnFocus?.(false);
-    });
-
-    closeModal?.();
-    setReturnFocus?.(true);
-  };
-
-  return (
-    <VerticalSpacing size={0.5}>
-      {showTitle && (
-        <Heading element="h3" modifiers="h4" id={id}>
-          {heading}
-        </Heading>
-      )}
-      <nav aria-labelledby={id}>
-        <Row element="ul" direction="column" gap={2}>
-          {items.map((i, index) => (
-            <TableOfContentsItem
-              showIcons={showIcons}
-              key={`toc-item-${index}`}
-              handleCloseModal={handleCloseModal}
-              {...i}
-            />
-          ))}
-        </Row>
-      </nav>
-    </VerticalSpacing>
   );
 };
 
