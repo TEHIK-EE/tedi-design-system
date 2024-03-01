@@ -1,3 +1,11 @@
+# [6.6.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.5.4...v6.6.0) (2024-03-01)
+
+
+### Features
+
+* **card:** TEHVEER-263 - Add CardNotification component ([c94b855](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/c94b85548e9e3fc124dbce236779689f47c03ae7))
+* **card:** TEHVEER-263 - Add primary-main and primary-active variant to CardHeader ([3988c4b](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/3988c4b6b75ec902e8f6e0e851d49e9ba5edd948))
+
 ## [6.5.4](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.5.3...v6.5.4) (2024-02-28)
 
 
