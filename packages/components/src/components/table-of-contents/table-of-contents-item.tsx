@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext } from 'react';
 
 import { Col, Row } from '../grid';
 import Icon from '../icon/icon';
@@ -15,10 +15,7 @@ export interface TableOfContentsItem {
    * Button - <Button onClick={() => setCurrentStep(i)} />
    * Function - Also accepts a callback that has the closeModal function as parameter
    */
-  content:
-    | React.ReactNode
-    | ((props: Pick<IModalContext, 'closeModal'>) => React.ReactNode)
-    | ((props: { isOpen: boolean; handleToggle: () => void }) => React.ReactNode);
+  content: React.ReactNode | ((props: Pick<IModalContext, 'closeModal'>) => React.ReactNode);
   /**
    * Can contain true/false/undefined -
    * true/false for validated fields
@@ -42,19 +39,11 @@ export interface TableOfContentsItem {
    */
   id?: string;
 }
-export function TableOfContentsItem(
-  props: TableOfContentsItem & { handleCloseModal: () => void; showIcons?: boolean }
-) {
-  const { children, content, isValid, showIcons, separator, hideIcon, id, handleCloseModal, ...rest } = props;
-  const { activeItem } = useContext(TableOfContentsContext);
-  const [isOpen, setIsOpen] = useState(activeItem === id);
-  const handleToggle = () => setIsOpen(!isOpen);
-  const extraProps = { ...rest, isOpen, handleToggle };
-  useEffect(() => {
-    if (activeItem) {
-      setIsOpen(activeItem === id);
-    }
-  }, [activeItem, id]);
+export function TableOfContentsItem(props: TableOfContentsItem & { handleCloseModal: () => void }) {
+  const { children, content, isValid, separator, hideIcon, id, handleCloseModal, ...rest } = props;
+  const { openItems, showIcons } = useContext(TableOfContentsContext);
+  const extraProps = { ...rest };
+  console.log(openItems);
   return (
     <>
       <Col>
@@ -84,12 +73,12 @@ export function TableOfContentsItem(
         </Row>
       </Col>
 
-      {children &&
-        isOpen &&
-        children.map((child, i) => (
+      {id &&
+        openItems?.includes(id) &&
+        children?.map((child, i) => (
           <Col key={`${id}-${i}`}>
             <Row element="ul" direction="column" gap={2}>
-              <TableOfContentsItem {...child} showIcons={showIcons} handleCloseModal={handleCloseModal} />
+              <TableOfContentsItem {...child} handleCloseModal={handleCloseModal} />
             </Row>
           </Col>
         ))}

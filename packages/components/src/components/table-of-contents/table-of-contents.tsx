@@ -60,16 +60,20 @@ export interface TableOfContentsProps {
    */
   hideOnScroll?: boolean;
   /**
-   * Active item id
+   * Open items' id's
    **/
-  activeItem?: string;
+  openItems?: string[];
 }
 
 interface TableOfContentsContext {
-  activeItem?: string;
+  openItems?: string[];
+  showIcons?: boolean;
 }
 
-export const TableOfContentsContext = React.createContext<TableOfContentsContext>({ activeItem: undefined });
+export const TableOfContentsContext = React.createContext<TableOfContentsContext>({
+  openItems: undefined,
+  showIcons: undefined,
+});
 
 /**
  * TableOfContents is helper component that can be used to show table of contents for long pages or multistep forms. It keeps itself fixed next to the content when scrolled (On desktop). <br /><br />
@@ -84,7 +88,7 @@ export const TableOfContents = (props: TableOfContentsProps) => {
   const isMobileLayout = useLayout(breakToMobile);
 
   return (
-    <TableOfContentsContext.Provider value={{ activeItem: props.activeItem }}>
+    <TableOfContentsContext.Provider value={{ openItems: props.openItems, showIcons: props.showIcons }}>
       <Affix
         right={0}
         left={0}

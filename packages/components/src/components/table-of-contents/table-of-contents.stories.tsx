@@ -1,5 +1,6 @@
 import { faker } from '@faker-js/faker';
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
+import React from 'react';
 
 import Anchor from '../anchor/anchor';
 import Button from '../button/button';
@@ -164,38 +165,6 @@ export const CustomFormValidation: Story = {
   },
 };
 
-export const WithChildren: Story = {
-  render: Template,
-  args: {
-    ...Default.args,
-    activeItem: 'toc-item-5',
-    items: steps.map((step, index) => ({
-      content: ({ isOpen, handleToggle }: { isOpen: boolean; handleToggle: () => void }) => (
-        <ToggleOpen
-          openText={step}
-          closeText={step}
-          isOpen={isOpen}
-          visualType="link"
-          onClick={handleToggle}
-        ></ToggleOpen>
-      ),
-      id: `toc-item-${index}`,
-      children: [...Array(3).keys()]
-        .map(() => faker.commerce.productName())
-        .map((child) => ({
-          content: () => <Anchor href={`#${child}`}>{child}</Anchor>,
-        })),
-    })),
-  },
-  parameters: {
-    docs: {
-      description: {
-        story: 'TableOfContents can be used to display nested content.',
-      },
-    },
-  },
-};
-
 export const WithHiddenIcons: Story = {
   render: Template,
   args: {
@@ -228,6 +197,93 @@ export const WithSeparators: Story = {
     docs: {
       description: {
         story: 'Some items can have separators after them.',
+      },
+    },
+  },
+};
+
+const TAHTemplate: StoryFn<TableOfContentsProps> = (args) => {
+  const { items, openItems, ...rest } = args;
+  const [openedItems, setOpenedItems] = React.useState<string[]>(openItems || []);
+  const handleToggle = (id: string) => {
+    if (openedItems?.includes(id)) {
+      setOpenedItems(openedItems.filter((item) => item !== id));
+    } else {
+      setOpenedItems([...openedItems, id]);
+    }
+  };
+
+  const itemsWithContent = items.map((item) => ({
+    ...item,
+    content: () => (
+      <ToggleOpen
+        openText={item.content as string}
+        closeText={item.content as string}
+        isOpen={openedItems?.includes(item.id as string) || false}
+        visualType="link"
+        onClick={() => handleToggle(item.id as string)}
+      ></ToggleOpen>
+    ),
+    children: item.children?.map((child) => ({
+      ...child,
+      content: () => <Anchor>{child.content as string}</Anchor>,
+    })),
+  }));
+
+  return (
+    <Layout {...(LayoutDefault.args as ILayoutProps)}>
+      <VerticalSpacing>
+        <Section>
+          <Row>
+            <Col xs={12} md={8} xl={9}>
+              <Card>
+                <CardContent>
+                  <VerticalSpacing size={2}>
+                    {steps.map((step, i) => (
+                      <VerticalSpacing size={0.5} key={i}>
+                        <Heading element="h2" modifiers="h3" id={step}>
+                          {step}
+                        </Heading>
+                        <p>{faker.lorem.paragraphs(5)}</p>
+                      </VerticalSpacing>
+                    ))}
+                  </VerticalSpacing>
+                </CardContent>
+              </Card>
+            </Col>
+            <Col xs={12} md={4} xl={3}>
+              <TableOfContents items={itemsWithContent} openItems={openedItems} {...rest} />
+            </Col>
+          </Row>
+        </Section>
+      </VerticalSpacing>
+    </Layout>
+  );
+};
+
+export const TAHExample: Story = {
+  render: TAHTemplate,
+  args: {
+    ...Default.args,
+    items: steps.map((step, index) => ({
+      content: step,
+      separator: index % 2 === 0,
+      hideIcon: index % 2 === 0,
+      id: `step-${index}`,
+      children: [...Array(2).keys()]
+        .map(() => faker.commerce.productName())
+        .map((child, j) => ({
+          content: child,
+          id: `step-${index}-${j}`,
+        })),
+    })),
+    openItems: ['step-0'],
+    showIcons: true,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Example with multiple new props used to showcase extra flexibility',
       },
     },
   },
