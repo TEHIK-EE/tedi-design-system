@@ -41,9 +41,8 @@ export interface TableOfContentsItem {
   id?: string;
 }
 export function TableOfContentsItem(props: TableOfContentsItem & { handleCloseModal: () => void }) {
-  const { children, content, isValid, separator, hideIcon, id, handleCloseModal, ...rest } = props;
+  const { children, content, isValid, separator, hideIcon, id, handleCloseModal } = props;
   const { openItems, showIcons } = useContext(TableOfContentsContext);
-  const extraProps = { ...rest };
 
   const iconClass = classNames(styles['table-of-contents__icon'], {
     [styles['table-of-contents__icon--hidden']]: hideIcon,
@@ -66,7 +65,7 @@ export function TableOfContentsItem(props: TableOfContentsItem & { handleCloseMo
           )}
           <Col>
             <Text element="div" modifiers="break-word">
-              {typeof content === 'function' ? content?.({ closeModal: handleCloseModal, ...extraProps }) : content}
+              {typeof content === 'function' ? content?.({ closeModal: handleCloseModal }) : content}
             </Text>
           </Col>
         </Row>
