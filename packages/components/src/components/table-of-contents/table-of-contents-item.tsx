@@ -40,7 +40,7 @@ export interface TableOfContentsItem {
   id?: string;
 }
 export function TableOfContentsItem(props: TableOfContentsItem & { handleCloseModal: () => void }) {
-  const { children, content, isValid, separator, hideIcon, id, handleCloseModal, ...rest } = props;
+  const { children, content, isValid, separator, hideIcon, id, handleCloseModal } = props;
   const { openItems, showIcons } = useContext(TableOfContentsContext);
   const extraProps = { ...rest };
   return (
