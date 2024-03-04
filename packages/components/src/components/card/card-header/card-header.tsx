@@ -46,9 +46,6 @@ export interface CardHeaderAsButton extends Partial<React.ButtonHTMLAttributes<H
   role: 'button';
 }
 
-/**
- * TODO refactor CardHeader to use CardContent internally to get support for padding and subset of background
- */
 export const CardHeader = (props: CardHeaderProps): JSX.Element => {
   const { variant, ...restOfProps } = props;
   const { getCurrentBreakpointProps } = useBreakpointProps();
