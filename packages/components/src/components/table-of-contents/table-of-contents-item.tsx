@@ -43,7 +43,6 @@ export function TableOfContentsItem(props: TableOfContentsItem & { handleCloseMo
   const { children, content, isValid, separator, hideIcon, id, handleCloseModal, ...rest } = props;
   const { openItems, showIcons } = useContext(TableOfContentsContext);
   const extraProps = { ...rest };
-  console.log(openItems);
   return (
     <>
       <Col>
