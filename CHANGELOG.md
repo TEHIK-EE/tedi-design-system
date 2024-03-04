@@ -1,3 +1,10 @@
+# [6.7.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.6.0...v6.7.0) (2024-03-04)
+
+
+### Features
+
+* **accordion:** TEHVEER-262 - Refactor accordion to use card internally ([14b91cd](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/14b91cdcd6424aa79f538069a9ad99d4ce1571e5))
+
 # [6.6.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.5.4...v6.6.0) (2024-03-01)
 
 
