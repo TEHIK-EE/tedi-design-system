@@ -1,6 +1,7 @@
 import cn from 'classnames';
 import React from 'react';
 
+import { CardHeader, CardHeaderBackground, CardHeaderProps } from '../../card';
 import Col from '../../grid/col';
 import Row from '../../grid/row';
 import ToggleOpen from '../../toggle-open/toggle-open';
@@ -10,15 +11,7 @@ import { AccordionContext } from '../accordion';
 import styles from '../accordion.module.scss';
 import { AccordionItemContext } from '../accordion-item/accordion-item';
 
-export interface AccordionItemHeaderProps {
-  /**
-   * Accordion item header children
-   */
-  children?: React.ReactNode;
-  /**
-   * Additional class.
-   */
-  className?: string;
+export interface AccordionItemHeaderProps extends Omit<CardHeaderProps, 'id' | 'role' | 'background' | 'variant'> {
   /**
    * Name on the button to open the item
    */
@@ -27,20 +20,26 @@ export interface AccordionItemHeaderProps {
    * Name on the button to close the item
    */
   closeText?: string;
+  /**
+   * Background color of accordion header.
+   * In addition to the values supported by CardHeader, we also support some dynamic values that have different colors for open/close states.
+   * @default white
+   */
+  background?: 'primary' | CardHeaderBackground;
 }
 
 export const AccordionItemHeader = (props: AccordionItemHeaderProps): JSX.Element => {
-  const { children, className, openText, closeText, ...rest } = props;
+  const { children, className, background = 'white', openText, closeText, ...rest } = props;
   const [isHovered, setIsHovered] = React.useState(false);
 
   const { onToggle, isOpen } = React.useContext(AccordionContext);
-  const { id, disabled } = React.useContext(AccordionItemContext);
+  const { id, disabled, selected } = React.useContext(AccordionItemContext);
 
   const onClick = (): void => {
     if (!disabled) onToggle(id);
   };
 
-  const onKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
+  const onKeyDown = (e: React.KeyboardEvent<HTMLButtonElement>) => {
     if ((e.code === 'Enter' || e.code === 'Space') && !e.repeat) {
       e.preventDefault();
       onClick();
@@ -51,7 +50,7 @@ export const AccordionItemHeader = (props: AccordionItemHeaderProps): JSX.Elemen
     if (!disabled) setIsHovered(isHovered);
   };
 
-  const AccordionItemHeaderBEM = cn(styles['accordion__item-header'], className);
+  const BEM = cn(styles['accordion__item-header'], className);
 
   // detect if the singular child is a heading element
   const contentHeading =
@@ -64,19 +63,35 @@ export const AccordionItemHeader = (props: AccordionItemHeaderProps): JSX.Elemen
         ) as React.ReactElement<HeadingProps, string> | undefined)
       : undefined;
 
+  // for some predefined background we want to use different color for open/close states
+  const dynamicBackground = React.useMemo(() => {
+    switch (background) {
+      case 'primary':
+        return isOpen(id) ? 'primary-active' : 'primary-main';
+      default:
+        return background;
+    }
+  }, [background, id, isOpen]);
+
+  const buttonColor = dynamicBackground === 'white' ? undefined : 'inverted'; // for blue backgrounds show the white button
+
   const renderItem = (content: AccordionItemHeaderProps['children']) => (
-    <div
+    <CardHeader
       data-name="accordion-item-header"
-      {...rest}
       role="button"
+      id={id}
       tabIndex={disabled ? -1 : 0}
-      className={AccordionItemHeaderBEM}
+      aria-disabled={disabled}
+      aria-selected={selected}
+      className={BEM}
       onClick={onClick}
       onKeyDown={onKeyDown}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       aria-expanded={isOpen(id)}
-      aria-controls={id}
+      aria-controls={`${id}-content`}
+      background={dynamicBackground}
+      {...rest}
     >
       {openText && closeText && !disabled ? (
         <Row justifyContent="between" alignItems="center">
@@ -87,7 +102,9 @@ export const AccordionItemHeader = (props: AccordionItemHeaderProps): JSX.Elemen
               closeText={closeText}
               isActive={isHovered}
               isOpen={isOpen(id)}
+              color={buttonColor}
               visualType="link"
+              aria-hidden={true}
               tabIndex={-1}
             />
           </Col>
@@ -95,14 +112,14 @@ export const AccordionItemHeader = (props: AccordionItemHeaderProps): JSX.Elemen
       ) : (
         content
       )}
-    </div>
+    </CardHeader>
   );
 
   const renderHeadingItem = () => {
     const { element, children, ...rest } = contentHeading?.props ?? {};
 
     return (
-      <Heading element={element} modifiers="normal">
+      <Heading element={element} modifiers="normal" className={styles['accordion__item-wrapping-heading']}>
         {renderItem(
           <Text element="span" {...rest}>
             {children}

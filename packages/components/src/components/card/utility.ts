@@ -6,7 +6,10 @@ export type CardBorderTypeArray = [CardBorderPlacement, TColorsBorder];
 
 // Returns Array of [borderPlacement, borderColor];
 export const getCardBorderPlacementColor = (border?: CardProps['border']): CardBorderTypeArray | [] => {
-  return (border?.split(/-(.*)/s) ?? []) as CardBorderTypeArray;
+  const borderColor = border?.replace(/(top-)|(left-)/s, '') as TColorsBorder;
+  const borderPlacement = border?.replace(new RegExp(`(${borderColor})|-`, 'g'), '') as CardBorderPlacement;
+
+  return [borderPlacement, borderColor];
 };
 
 export const getPaddingCssVariables = (padding: CardContentProps['padding']) => {

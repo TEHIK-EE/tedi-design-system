@@ -12,6 +12,12 @@
     "scss/at-if-no-null": null,
     "custom-property-pattern": null,
     "no-invalid-position-at-import-rule": null,
-    "no-descending-specificity": null
+    "no-descending-specificity": null,
+    "selector-pseudo-class-no-unknown": [
+      true,
+      {
+        "ignorePseudoClasses": ["global"]
+      }
+    ]
   }
 }

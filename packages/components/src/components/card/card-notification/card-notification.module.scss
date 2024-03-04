@@ -1,4 +1,5 @@
 .card__notification-content {
+  z-index: 1;
   padding: 0; // force the content padding to be 0 because we use the padding of the notification component
 
   [data-name='card-header'] + & {
