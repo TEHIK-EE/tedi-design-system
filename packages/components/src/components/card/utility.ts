@@ -1,5 +1,6 @@
 import { TColorsBorder } from '../commonTypes';
-import { CardBorderPlacement, CardContentPaddingNumber, CardContentProps, CardProps } from './card';
+import { CardBorderPlacement, CardProps } from './card';
+import { CardContentPaddingNumber, CardContentProps } from './card-content/card-content';
 
 export type CardBorderTypeArray = [CardBorderPlacement, TColorsBorder];
 
