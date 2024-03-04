@@ -66,7 +66,7 @@ export function TableOfContentsItem(props: TableOfContentsItem & { handleCloseMo
           )}
           <Col>
             <Text element="div" modifiers="break-word">
-              {typeof content === 'function' ? content?.({ closeModal: handleCloseModal, ...extraProps }) : content}
+              {typeof content === 'function' ? content?.({ closeModal: handleCloseModal }) : content}
             </Text>
           </Col>
         </Row>
