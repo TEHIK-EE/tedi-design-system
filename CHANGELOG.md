@@ -1,3 +1,10 @@
+## [6.8.2](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.8.1...v6.8.2) (2024-03-05)
+
+
+### Bug Fixes
+
+* **table-of-contents:** Export missing TableOfContentsItemProps ([0345c9f](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/0345c9fb98f2937725e6dadc25852afd2dbff4a5))
+
 ## [6.8.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.8.0...v6.8.1) (2024-03-05)
 
 
