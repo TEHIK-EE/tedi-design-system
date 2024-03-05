@@ -1,5 +1,7 @@
 import { StorybookConfig } from '@storybook/react-vite';
+import { join } from 'path';
 import { mergeConfig } from 'vite';
+import checker from 'vite-plugin-checker';
 
 import rootMain from '../../../.storybook/main';
 
@@ -28,6 +30,24 @@ const config: StorybookConfig = {
         'process.env.JEST_WORKER_ID': JSON.stringify(process.env.JEST_WORKER_ID),
         'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
       },
+      plugins: [
+        // we have to redefine it here due to https://github.com/fi3ework/vite-plugin-checker/issues/237
+        // we can also run it only during development, because for some reason it doesn't work for storybook build
+        configType === 'DEVELOPMENT'
+          ? checker({
+              overlay: false,
+              eslint: {
+                lintCommand: 'eslint "./**/*.{ts,tsx}"',
+                dev: {
+                  logLevel: ['error'], // show only eslint errors
+                },
+              },
+              typescript: {
+                root: join(__dirname),
+              },
+            })
+          : undefined,
+      ],
     });
   },
 };

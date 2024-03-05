@@ -24,6 +24,10 @@ const config: UserConfig = {
     }),
     reactPlugin(),
     checker({
+      overlay: false,
+      eslint: {
+        lintCommand: 'eslint "./packages/components/src/**/*.{ts,tsx}"',
+      },
       // e.g. use TypeScript check
       typescript: {
         root: join(__dirname),
