@@ -1,2 +1,2 @@
 export * from './table-of-contents';
-export { TableOfContentsItemProps } from './table-of-contents-item';
+export type { TableOfContentsItemProps } from './table-of-contents-item';

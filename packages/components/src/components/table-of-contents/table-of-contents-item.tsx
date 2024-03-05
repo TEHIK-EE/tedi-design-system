@@ -8,6 +8,7 @@ import Separator from '../separator/separator';
 import Text from '../typography/text/text';
 import { TableOfContentsContext } from './table-of-contents';
 import styles from './table-of-contents.module.scss';
+
 export type TableOfContentsItemConditionalTypes =
   | {
       /**
