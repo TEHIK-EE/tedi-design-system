@@ -5,6 +5,10 @@
   [data-name='card-header'] + & {
     margin-top: -1px;
   }
+
+  &:last-child {
+    margin-bottom: -1px;
+  }
 }
 
 .card__notification {

@@ -49,16 +49,16 @@
 }
 
 .card--border-left {
-  border-width: 4px;
   border-top: none;
   border-right: none;
   border-bottom: none;
+  border-left: 4px solid;
   border-start-start-radius: 0;
   border-end-start-radius: 0;
 }
 
 .card--border-top {
-  border-width: 4px;
+  border-top: 4px solid;
   border-right: none;
   border-bottom: none;
   border-left: none;
