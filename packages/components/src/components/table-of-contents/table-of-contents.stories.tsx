@@ -72,7 +72,7 @@ export const Default: Story = {
   render: Template,
   args: {
     items: steps.map((step, i) => ({
-      content: ({ closeModal }: { closeModal: () => void }) => (
+      content: ({ closeModal }) => (
         <Anchor href={`#${step}`} onClick={() => closeModal()}>
           {step}
         </Anchor>
@@ -94,7 +94,7 @@ export const WithManySteps: Story = {
   render: Template,
   args: {
     items: longSteps.map((step, i) => ({
-      content: ({ closeModal }: { closeModal: () => void }) => (
+      content: ({ closeModal }) => (
         <Anchor href={`#${step}`} onClick={() => closeModal()}>
           {`${i + 1}. ${step}`}
         </Anchor>
@@ -109,7 +109,7 @@ export const CustomFormValidation: Story = {
     showIcons: true,
     items: [
       {
-        content: ({ closeModal }: { closeModal: () => void }) => (
+        content: ({ closeModal }) => (
           <Button
             visualType="link"
             onClick={() => {
@@ -123,7 +123,7 @@ export const CustomFormValidation: Story = {
         isValid: true,
       },
       {
-        content: ({ closeModal }: { closeModal: () => void }) => (
+        content: ({ closeModal }) => (
           <Button
             visualType="link"
             onClick={() => {
@@ -137,7 +137,7 @@ export const CustomFormValidation: Story = {
         isValid: true,
       },
       {
-        content: ({ closeModal }: { closeModal: () => void }) => (
+        content: ({ closeModal }) => (
           <Button
             visualType="link"
             onClick={() => {
@@ -202,7 +202,7 @@ export const WithSeparators: Story = {
   },
 };
 
-const TAHTemplate: StoryFn<TableOfContentsProps> = (args) => {
+const NestedTemplate: StoryFn<TableOfContentsProps> = (args) => {
   const { items, openItems, ...rest } = args;
   const [openedItems, setOpenedItems] = React.useState<string[]>(openItems || []);
   const handleToggle = (id: string) => {
@@ -213,26 +213,26 @@ const TAHTemplate: StoryFn<TableOfContentsProps> = (args) => {
     }
   };
 
-  const itemsWithContent = steps.map((step, index) => ({
-    separator: index % 2 === 0,
-    hideIcon: index % 2 === 0,
-    id: `step-${index}`,
-    content: () => (
-      <ToggleOpen
-        openText={step}
-        closeText={step}
-        isOpen={openedItems?.includes(`step-${index}`) || false}
-        visualType="link"
-        onClick={() => handleToggle(`step-${index}`)}
-      ></ToggleOpen>
-    ),
-    children: [...Array(2).keys()]
-      .map(() => faker.commerce.productName())
-      .map((child, j) => ({
-        content: () => <Anchor>{child}</Anchor>,
-        separator: j % 2 === 0,
-      })),
-  }));
+  const itemsWithContent = steps.map((step, index) => {
+    const id = `step-${index}`;
+    return {
+      id,
+      content: () => (
+        <ToggleOpen
+          openText={step}
+          closeText={step}
+          isOpen={openedItems?.includes(id) || false}
+          visualType="link"
+          onClick={() => handleToggle(id)}
+        ></ToggleOpen>
+      ),
+      children: [...Array(2).keys()]
+        .map(() => faker.commerce.productName())
+        .map((child, j) => ({
+          content: () => <Anchor>{child}</Anchor>,
+        })),
+    };
+  });
 
   return (
     <Layout {...(LayoutDefault.args as ILayoutProps)}>
@@ -265,17 +265,16 @@ const TAHTemplate: StoryFn<TableOfContentsProps> = (args) => {
   );
 };
 
-export const TAHExample: Story = {
-  render: TAHTemplate,
+export const NestedExample: Story = {
+  render: NestedTemplate,
   args: {
     ...Default.args,
-    openItems: ['step-0'],
-    showIcons: true,
+    showIcons: false,
   },
   parameters: {
     docs: {
       description: {
-        story: 'Example with multiple new props used to showcase extra flexibility',
+        story: 'Every item can have children.',
       },
     },
   },
