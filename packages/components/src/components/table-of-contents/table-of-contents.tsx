@@ -7,7 +7,7 @@ import { Card, CardContent } from '../card';
 import HideOnScroll from '../hide-on-scroll/hide-on-scroll';
 import { ModalProps, ModalProviderProps } from '../modal';
 import StretchContent from '../stretch-content/stretch-content';
-import { TableOfContentsItem } from './table-of-contents-item';
+import { TableOfContentsItemProps } from './table-of-contents-item';
 import { TableOfContentsItems } from './table-of-contents-items';
 import { TableOfContentsModal } from './table-of-contents-modal';
 
@@ -15,7 +15,7 @@ export interface TableOfContentsProps {
   /**
    * List of items to be shown in the table of contents
    */
-  items: TableOfContentsItem[];
+  items: TableOfContentsItemProps[];
   /**
    * Heading of the table of contents
    * @default Value from LabelProvider
@@ -86,9 +86,10 @@ export const TableOfContents = (props: TableOfContentsProps) => {
   const { getLabel } = useLabels();
   const { breakToMobile = ['mobile'], heading = getLabel('table-of-contents.title'), hideOnScroll = true } = props;
   const isMobileLayout = useLayout(breakToMobile);
+  const { showIcons, openItems, ...rest } = props;
 
   return (
-    <TableOfContentsContext.Provider value={{ openItems: props.openItems, showIcons: props.showIcons }}>
+    <TableOfContentsContext.Provider value={{ openItems, showIcons }}>
       <Affix
         right={0}
         left={0}
@@ -99,12 +100,12 @@ export const TableOfContents = (props: TableOfContentsProps) => {
         <StretchContent>
           {isMobileLayout ? (
             <HideOnScroll animationDirection="down" enabled={hideOnScroll}>
-              <TableOfContentsModal {...props} heading={heading} />
+              <TableOfContentsModal {...rest} heading={heading} />
             </HideOnScroll>
           ) : (
             <Card>
               <CardContent>
-                <TableOfContentsItems {...props} heading={heading} />
+                <TableOfContentsItems {...rest} heading={heading} />
               </CardContent>
             </Card>
           )}

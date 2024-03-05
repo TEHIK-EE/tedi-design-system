@@ -1,5 +1,5 @@
 import cn from 'classnames';
-import React from 'react';
+import React, { useContext } from 'react';
 
 import { useLabels } from '../../providers/label-provider';
 import Button from '../button/button';
@@ -10,18 +10,19 @@ import Icon from '../icon/icon';
 import { Modal, ModalProvider, ModalTrigger } from '../modal';
 import Heading from '../typography/heading/heading';
 import { Text } from '../typography/text/text';
-import { TableOfContentsProps } from './table-of-contents';
+import { TableOfContentsContext, TableOfContentsProps } from './table-of-contents';
 import styles from './table-of-contents.module.scss';
 import { TableOfContentsItems } from './table-of-contents-items';
 
 export const TableOfContentsModal = (props: TableOfContentsProps) => {
   const { getLabel } = useLabels();
-  const { items, modalProps, modalProviderProps, showIcons, heading, open, defaultOpen, onToggle } = props;
+  const { items, modalProps, modalProviderProps, heading, open, defaultOpen, onToggle } = props;
   const correctItems = items.map((i) => i.isValid === true).filter(Boolean).length;
   const invalidItems = items.map((i) => i.isValid === false).filter(Boolean).length;
   const id = React.useId();
   const [returnFocus, setReturnFocus] = React.useState(true);
   const [innerOpen, setInnerOpen] = React.useState(defaultOpen);
+  const { showIcons } = useContext(TableOfContentsContext);
 
   const isOpen = onToggle && typeof open !== 'undefined' ? open : innerOpen;
   const validLabel = getLabel('table-of-contents.valid');

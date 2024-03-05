@@ -8,7 +8,7 @@ import Separator from '../separator/separator';
 import Text from '../typography/text/text';
 import { TableOfContentsContext } from './table-of-contents';
 import styles from './table-of-contents.module.scss';
-export interface TableOfContentsItem {
+export interface TableOfContentsItemDefault {
   /**
    * Content should generally use the anchor or button element
    * For example:
@@ -23,10 +23,7 @@ export interface TableOfContentsItem {
    * undefined for fields that haven't been touched
    */
   isValid?: boolean;
-  /**
-   * Optional children to create a nested list
-   */
-  children?: TableOfContentsItem[];
+
   /**
    * Render a separator below the item
    */
@@ -38,9 +35,27 @@ export interface TableOfContentsItem {
   /**
    * Unique id for the item
    */
-  id?: string;
+  id: never;
+  /**
+   * Optional children to create a nested list
+   */
+  children: never;
 }
-export function TableOfContentsItem(props: TableOfContentsItem & { handleCloseModal: () => void }) {
+
+export interface TableOfContentsItemWithChildren extends Omit<TableOfContentsItemDefault, 'id' | 'children'> {
+  /**
+   * Unique id for the item
+   */
+  id: string;
+  /**
+   * Optional children to create a nested list
+   */
+  children: TableOfContentsItemWithChildren[];
+}
+
+export type TableOfContentsItemProps = TableOfContentsItemDefault | TableOfContentsItemWithChildren;
+
+export function TableOfContentsItem(props: TableOfContentsItemProps & { handleCloseModal: () => void }) {
   const { children, content, isValid, separator, hideIcon, id, handleCloseModal } = props;
   const { openItems, showIcons } = useContext(TableOfContentsContext);
 
@@ -75,7 +90,9 @@ export function TableOfContentsItem(props: TableOfContentsItem & { handleCloseMo
         openItems?.includes(id) &&
         children?.map((child, i) => (
           <Col key={`${id}-${i}`}>
-            <TableOfContentsItem {...child} handleCloseModal={handleCloseModal} />
+            <Row element="ul" gutter={0} className={styles['table-of-contents__child']}>
+              <TableOfContentsItem key={`${id}-${i}`} {...child} handleCloseModal={handleCloseModal} />
+            </Row>
           </Col>
         ))}
       {separator && (

@@ -14,6 +14,7 @@ import Heading from '../typography/heading/heading';
 import Text from '../typography/text/text';
 import { VerticalSpacing } from '../vertical-spacing';
 import { TableOfContents, TableOfContentsProps } from './table-of-contents';
+import { TableOfContentsItemDefault, TableOfContentsItemWithChildren } from './table-of-contents-item';
 
 const meta: Meta<TableOfContentsProps> = {
   component: TableOfContents,
@@ -78,7 +79,7 @@ export const Default: Story = {
         </Anchor>
       ),
       isValid: i < 5 ? true : i === 5 ? false : undefined,
-    })),
+    })) as TableOfContentsItemDefault[],
   },
 };
 
@@ -100,7 +101,7 @@ export const WithManySteps: Story = {
         </Anchor>
       ),
       isValid: i < 5 ? true : i === 5 ? false : undefined,
-    })),
+    })) as TableOfContentsItemDefault[],
   },
 };
 
@@ -152,7 +153,7 @@ export const CustomFormValidation: Story = {
       {
         content: <Text color="disabled">Lisa märksõnad</Text>,
       },
-    ],
+    ] as TableOfContentsItemDefault[],
   },
 
   parameters: {
@@ -173,7 +174,7 @@ export const WithHiddenIcons: Story = {
     items: steps.map((step, index) => ({
       content: <Anchor href={`#${step}`}>{step}</Anchor>,
       hideIcon: index % 2 === 0,
-    })),
+    })) as TableOfContentsItemDefault[],
   },
   parameters: {
     docs: {
@@ -191,7 +192,7 @@ export const WithSeparators: Story = {
     items: steps.map((step, index) => ({
       content: <Anchor href={`#${step}`}>{step}</Anchor>,
       separator: index % 2 === 0,
-    })),
+    })) as TableOfContentsItemDefault[],
   },
   parameters: {
     docs: {
@@ -219,14 +220,14 @@ const TAHTemplate: StoryFn<TableOfContentsProps> = (args) => {
       <ToggleOpen
         openText={item.content as string}
         closeText={item.content as string}
-        isOpen={openedItems?.includes(item.id as string) || false}
+        isOpen={openedItems?.includes(item.id) || false}
         visualType="link"
-        onClick={() => handleToggle(item.id as string)}
+        onClick={() => handleToggle(item.id)}
       ></ToggleOpen>
     ),
     children: item.children?.map((child) => ({
       ...child,
-      content: () => <Anchor>{child.content as string}</Anchor>,
+      content: <Anchor>{child?.content as string}</Anchor>,
     })),
   }));
 
@@ -276,7 +277,7 @@ export const TAHExample: Story = {
           content: child,
           id: `step-${index}-${j}`,
         })),
-    })),
+    })) as TableOfContentsItemWithChildren[],
     openItems: ['step-0'],
     showIcons: true,
   },

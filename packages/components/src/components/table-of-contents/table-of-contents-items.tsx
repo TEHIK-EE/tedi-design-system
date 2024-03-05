@@ -39,12 +39,7 @@ export const TableOfContentsItems = (
       <nav aria-labelledby={id}>
         <Row element="ul" direction="column" gap={2}>
           {items.map((i, index) => (
-            <TableOfContentsItem
-              showIcons={showIcons}
-              key={`toc-item-${index}`}
-              handleCloseModal={handleCloseModal}
-              {...i}
-            />
+            <TableOfContentsItem key={`toc-item-${index}`} handleCloseModal={handleCloseModal} {...i} />
           ))}
         </Row>
       </nav>
