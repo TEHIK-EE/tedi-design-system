@@ -1,3 +1,22 @@
+# [6.8.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.7.0...v6.8.0) (2024-03-05)
+
+
+### Bug Fixes
+
+* **table-of-contents:** code review fixes - TEHVEER-258 ([d88aee5](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/d88aee5d9d85482bb90f6ef3ce1f8f8056dd9a1f))
+
+
+### Features
+
+* **table-of-contents:** TEHVEER-257 - move story items into tah-example template ([a72050b](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/a72050b6df6485f5c61a3193f955f1ad48500610))
+* **table-of-contents:** TEHVEER-258 - Add classNames import and styles to TableOfContentsItem ([e21cea9](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/e21cea971fe18a87bb73a0190f253d542b42307c))
+* **table-of-contents:** TEHVEER-258 - extract state from component, add example of use-case ([46765ad](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/46765ad3a92a20e6a4eaa7565b92f4be94cdca31))
+* **table-of-contents:** TEHVEER-258 - extract table of contents components to separate files ([defa858](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/defa858ca7d17180cfedbe5b805b912fb07b879a))
+* **table-of-contents:** TEHVEER-258 - Extract tableofcontentsitem to separate component ([e5b75d1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/e5b75d160681e5e9ede90bfceee09969c35f7757))
+* **table-of-contents:** TEHVEER-258 - Extract tableofcontentsitem to separate component ([74cafb1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/74cafb1091a9f000dd0319dd9e6737501b4b3947))
+* **table-of-contents:** TEHVEER-258 - pr feedback, interface changes ([24143ed](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/24143edc4ae10404205b44fa2274750d44feb673))
+* **table-of-contents:** TEHVEER-258: add new stories ([39a3d3e](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/39a3d3e643d9649b9d924763398ef4cc913ecfda))
+
 # [6.7.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.6.0...v6.7.0) (2024-03-04)
 
 
