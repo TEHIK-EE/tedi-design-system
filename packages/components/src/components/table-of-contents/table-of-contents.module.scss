@@ -9,3 +9,13 @@
 .table-of-contents__trigger-card {
   z-index: -1; // required to have button focus outline above card
 }
+
+.table-of-contents__icon {
+  &--hidden {
+    visibility: hidden;
+  }
+}
+
+.table-of-contents__child {
+  padding-left: 1rem;
+}
