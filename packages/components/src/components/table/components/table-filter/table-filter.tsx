@@ -38,12 +38,15 @@ const TableFilter = <TData extends DefaultTData<TData>>(props: TableFilterProps<
     return typeof value === 'object' && value !== null && ('from' in value || 'to' in value);
   };
 
-  const values: TableFilterFields = {
-    filter: inputType === 'text' && isText(filterValue) ? filterValue : '',
-    selectField: inputType === 'select' && isText(filterValue) ? filterValue : '',
-    multiSelectField: inputType === 'multi-select' && isMultiSelect(filterValue) ? filterValue : [],
-    dateRange: inputType === 'date-range' && isDateRange(filterValue) ? filterValue : { from: null, to: null },
-  };
+  const values: TableFilterFields = React.useMemo(
+    () => ({
+      filter: (inputType === 'auto' || inputType === 'text') && isText(filterValue) ? filterValue : '',
+      selectField: inputType === 'select' && isText(filterValue) ? filterValue : '',
+      multiSelectField: inputType === 'multi-select' && isMultiSelect(filterValue) ? filterValue : [],
+      dateRange: inputType === 'date-range' && isDateRange(filterValue) ? filterValue : { from: null, to: null },
+    }),
+    [inputType, filterValue]
+  );
 
   const renderFilter = () => {
     switch (inputType) {
