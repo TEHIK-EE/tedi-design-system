@@ -38,7 +38,7 @@ export * from './components/print/print';
 export * from './components/truncate/truncate';
 export * from './components/form/form-helper/form-helper';
 export * from './components/table';
-export * from './components/table-of-contents/table-of-contents';
+export * from './components/table-of-contents';
 export * from './components/tabs';
 export * from './components/tag/tag';
 export * from './components/toast/toast';
