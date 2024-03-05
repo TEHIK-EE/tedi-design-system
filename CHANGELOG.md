@@ -1,3 +1,10 @@
+## [6.8.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.8.0...v6.8.1) (2024-03-05)
+
+
+### Bug Fixes
+
+* **card:** TEHVEER-264 - Card should still show left or top border when borderless prop is used ([0e28f1b](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/0e28f1b859f69408913da2f53f9d0dc860e40732))
+
 # [6.8.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.7.0...v6.8.0) (2024-03-05)
 
 
