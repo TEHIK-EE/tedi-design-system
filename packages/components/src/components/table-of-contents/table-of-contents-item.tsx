@@ -8,7 +8,29 @@ import Separator from '../separator/separator';
 import Text from '../typography/text/text';
 import { TableOfContentsContext } from './table-of-contents';
 import styles from './table-of-contents.module.scss';
-export interface TableOfContentsItemDefault {
+export type TableOfContentsItemConditionalTypes =
+  | {
+      /**
+       * Unique id for the item
+       */
+      id?: never;
+      /**
+       * Optional children to create a nested list
+       */
+      children?: never;
+    }
+  | {
+      /**
+       * Unique id for the item
+       */
+      id: string;
+      /**
+       * Optional children to create a nested list
+       */
+      children: TableOfContentsItemProps[];
+    };
+
+export type TableOfContentsItemProps = TableOfContentsItemConditionalTypes & {
   /**
    * Content should generally use the anchor or button element
    * For example:
@@ -32,28 +54,7 @@ export interface TableOfContentsItemDefault {
    * Hide icon before the item
    */
   hideIcon?: boolean;
-  /**
-   * Unique id for the item
-   */
-  id: never;
-  /**
-   * Optional children to create a nested list
-   */
-  children: never;
-}
-
-export interface TableOfContentsItemWithChildren extends Omit<TableOfContentsItemDefault, 'id' | 'children'> {
-  /**
-   * Unique id for the item
-   */
-  id: string;
-  /**
-   * Optional children to create a nested list
-   */
-  children: TableOfContentsItemWithChildren[];
-}
-
-export type TableOfContentsItemProps = TableOfContentsItemDefault | TableOfContentsItemWithChildren;
+};
 
 export function TableOfContentsItem(props: TableOfContentsItemProps & { handleCloseModal: () => void }) {
   const { children, content, isValid, separator, hideIcon, id, handleCloseModal } = props;
@@ -90,7 +91,7 @@ export function TableOfContentsItem(props: TableOfContentsItemProps & { handleCl
         openItems?.includes(id) &&
         children?.map((child, i) => (
           <Col key={`${id}-${i}`}>
-            <Row element="ul" gutter={0} className={styles['table-of-contents__child']}>
+            <Row element="ul" gutterX={0} gutterY={2} direction="column" className={styles['table-of-contents__child']}>
               <TableOfContentsItem key={`${id}-${i}`} {...child} handleCloseModal={handleCloseModal} />
             </Row>
           </Col>
