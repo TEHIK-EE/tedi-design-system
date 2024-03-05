@@ -11,11 +11,12 @@ import { VerticalSpacing } from '../vertical-spacing';
 import { Card, CardProps } from './card';
 import CardContent, { CardContentPadding, CardContentProps } from './card-content/card-content';
 import CardHeader, { CardHeaderProps } from './card-header/card-header';
+import CardNotification, { CardNotificationProps } from './card-notification/card-notification';
 
 export default {
   title: 'components/Card',
   component: Card,
-  subcomponents: { CardContent, CardHeader },
+  subcomponents: { CardContent, CardHeader, CardNotification },
   parameters: {
     backgrounds: {
       default: 'light',
@@ -25,8 +26,9 @@ export default {
 
 export interface CardStory {
   card: CardProps;
-  cardContent: CardContentProps;
+  cardContent: CardContentProps | boolean;
   cardHeader: CardHeaderProps | boolean;
+  cardNotification: CardNotificationProps | boolean;
   cardContent2?: CardContentProps | boolean;
   splitContent?: boolean;
 }
@@ -62,10 +64,16 @@ const Template: StoryFn<CardStory> = (args) => {
     </CardContent>
   );
 
-  const getDefaultContent = () => (
-    <CardContent {...args.cardContent}>
+  const getDefaultContent = (cardContent: CardContentProps) => (
+    <CardContent {...cardContent}>
       <p>Card content</p>
     </CardContent>
+  );
+
+  const getNotification = (notification: CardNotificationProps) => (
+    <CardNotification {...notification}>
+      <p>Card notification</p>
+    </CardNotification>
   );
 
   const getContent2 = (content: CardContentProps) => <CardContent {...content} />;
@@ -86,7 +94,13 @@ const Template: StoryFn<CardStory> = (args) => {
   return (
     <Card {...args.card}>
       {args.cardHeader && getCardHeader(typeof args.cardHeader === 'boolean' ? {} : args.cardHeader)}
-      {args.splitContent ? getSplitContent() : getDefaultContent()}
+      {args.cardNotification &&
+        getNotification(typeof args.cardNotification === 'boolean' ? {} : args.cardNotification)}
+      {args.splitContent
+        ? getSplitContent()
+        : args.cardContent === false
+        ? null
+        : getDefaultContent(typeof args.cardContent === 'boolean' ? {} : args.cardContent)}
       {args.cardContent2 && getContent2(typeof args.cardContent2 === 'boolean' ? {} : args.cardContent2)}
     </Card>
   );
@@ -98,10 +112,17 @@ export const Default: Story = {
 };
 
 export const DefaultHeader: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story: 'Default header background is a primary gradient',
+      },
+    },
+  },
   render: Template,
   args: {
     cardHeader: {
-      variant: 'default',
+      background: 'default',
     },
   },
 };
@@ -112,7 +133,7 @@ export const WhiteHeader: Story = {
   args: {
     ...Default.args,
     cardHeader: {
-      variant: 'white',
+      background: 'white',
     },
   },
 };
@@ -172,6 +193,26 @@ export const WithoutBorderRadius: Story = {
   },
 };
 
+export const BorderColor: Story = {
+  render: Template,
+
+  args: {
+    ...Default.args,
+    card: {
+      border: 'primary-main',
+    },
+    cardHeader: false,
+  },
+
+  parameters: {
+    docs: {
+      description: {
+        story: 'Card support different borders and can be colored with: Brand, Border & Functional colors.',
+      },
+    },
+  },
+};
+
 export const BorderLeftImportantActive: Story = {
   render: Template,
 
@@ -187,7 +228,7 @@ export const BorderLeftImportantActive: Story = {
     docs: {
       description: {
         story:
-          'Card support top and left borders, which are 2px wide and can be colored with: Brand, Border & Functional colors.',
+          'Card also support top and left borders, which are 4px wide and can be colored with: Brand, Border & Functional colors.',
       },
     },
   },
@@ -228,7 +269,7 @@ const TemplatePadding: StoryFn<CardStory> = (args) => {
         <Card {...args.card} padding={padding} key={index}>
           {args.cardHeader && getCardHeader(typeof args.cardHeader === 'boolean' ? {} : args.cardHeader)}
 
-          <CardContent {...args.cardContent}>
+          <CardContent {...(typeof args.cardContent === 'boolean' ? {} : args.cardContent)}>
             <p>Card padding: {typeof padding === 'number' ? `${padding}rem` : JSON.stringify(padding)}</p>
           </CardContent>
         </Card>
@@ -236,7 +277,7 @@ const TemplatePadding: StoryFn<CardStory> = (args) => {
       <Card {...args.card} padding={1.5}>
         {getCardHeader({ children: 'CardHeader padding: 1.5rem' })}
 
-        <CardContent {...args.cardContent} padding={0.75}>
+        <CardContent {...(typeof args.cardContent === 'boolean' ? {} : args.cardContent)} padding={0.75}>
           <VerticalSpacing>
             <p>CardContent padding: 0.75rem</p>
             <p>Card padding is overridden by cardContent padding</p>
@@ -289,6 +330,27 @@ export const BreakpointProps: Story = {
 
 export const EqualHeight = {
   ...CardsExample,
+};
+
+export const WithNotification: Story = {
+  render: Template,
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'When a card does not have a proper content it is possible to use <code>CardNotification</code> instead of rendering a <code>Notification</code> inside the <code>CardContent</code>',
+      },
+    },
+  },
+  args: {
+    card: {
+      padding: 0.75,
+    },
+    cardHeader: {
+      background: 'white',
+    },
+    cardNotification: true,
+  },
 };
 
 const Timeline: StoryFn<CardProps> = (args) => (

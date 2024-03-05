@@ -3,20 +3,12 @@ import React from 'react';
 import AnimateHeight from 'react-animate-height';
 
 import { usePrint } from '../../../helpers';
+import { CardContent, CardContentProps } from '../../card';
 import { AccordionContext } from '../accordion';
 import styles from '../accordion.module.scss';
 import { AccordionItemContext } from '../accordion-item/accordion-item';
 
-export interface AccordionItemContentProps {
-  /**
-   * Contents of the accordion item
-   */
-  children?: React.ReactNode;
-  /**
-   * Additional class.
-   */
-  className?: string;
-}
+export type AccordionItemContentProps = CardContentProps;
 
 export const AccordionItemContent = (props: AccordionItemContentProps): JSX.Element => {
   const { children, className, ...rest } = props;
@@ -24,16 +16,24 @@ export const AccordionItemContent = (props: AccordionItemContentProps): JSX.Elem
   const { id, disabled } = React.useContext(AccordionItemContext);
   const isPrinting = usePrint();
 
+  const BEM = cn(styles['accordion__item-content'], className);
+
   const content = (
-    <div data-name="accordion-item-content" {...rest} className={cn(styles['accordion__item-content'], className)}>
+    <CardContent data-name="accordion-item-content" {...rest} className={BEM}>
       {children}
-    </div>
+    </CardContent>
   );
 
   return isPrinting && !disabled ? (
     content
   ) : (
-    <AnimateHeight duration={300} height={isOpen(id) ? 'auto' : 0}>
+    <AnimateHeight
+      duration={300}
+      height={isOpen(id) ? 'auto' : 0}
+      role="region"
+      aria-labelledby={id}
+      id={`${id}-content`}
+    >
       {content}
     </AnimateHeight>
   );

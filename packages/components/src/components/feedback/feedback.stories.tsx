@@ -40,7 +40,7 @@ const Template: StoryFn<FeedbackProps> = (args) => {
         <p key={index}>{lorem}</p>
       ))}
       <Feedback {...args}>
-        <CardHeader variant="white">
+        <CardHeader background="white">
           <Heading modifiers="h4">Feedback</Heading>
         </CardHeader>
         <CardContent>

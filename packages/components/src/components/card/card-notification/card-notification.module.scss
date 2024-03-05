@@ -1,0 +1,17 @@
+.card__notification-content {
+  z-index: 1;
+  padding: 0; // force the content padding to be 0 because we use the padding of the notification component
+
+  [data-name='card-header'] + & {
+    margin-top: -1px;
+  }
+}
+
+.card__notification {
+  padding: var(--card-content-padding-top, 1rem) var(--card-content-padding-right, 1rem)
+    var(--card-content-padding-bottom, 1rem) var(--card-content-padding-left, 1rem); // inherit the padding from the card component
+
+  border-right: none;
+  border-left: none;
+  border-radius: 0;
+}
