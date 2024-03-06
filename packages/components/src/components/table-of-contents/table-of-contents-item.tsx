@@ -68,7 +68,7 @@ export function TableOfContentsItem(props: TableOfContentsItemProps & { handleCl
   return (
     <>
       <Col>
-        <Row gutter={2} alignItems="center">
+        <Row gutter={2}>
           {showIcons && (
             <>
               <Col width="auto">
