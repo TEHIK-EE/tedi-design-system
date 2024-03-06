@@ -1,3 +1,10 @@
+## [6.8.3](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.8.2...v6.8.3) (2024-03-06)
+
+
+### Bug Fixes
+
+* **table-of-contents:** fix icon alignment with item - TEHVEER-258 ([320942a](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/320942a7bb9781538b8845a42dcaac4d02575267))
+
 ## [6.8.2](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.8.1...v6.8.2) (2024-03-05)
 
 
