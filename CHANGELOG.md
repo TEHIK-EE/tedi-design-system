@@ -1,3 +1,10 @@
+## [6.8.4](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.8.3...v6.8.4) (2024-03-06)
+
+
+### Bug Fixes
+
+* **textfield, textarea:** Use roboto font-family - TEHVEER-266 ([c7dc6b1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/c7dc6b16d65bac3ebe277512ec960939f5947a89))
+
 ## [6.8.3](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.8.2...v6.8.3) (2024-03-06)
 
 
