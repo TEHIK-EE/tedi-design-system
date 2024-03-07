@@ -1,3 +1,11 @@
+# [6.9.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.8.4...v6.9.0) (2024-03-07)
+
+
+### Features
+
+* **datepicker, datetimepicker:** TEHVEER-267 - add onClose property to datepicker, datetimepicker ([d606d6b](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/d606d6b29fc0e19a31cdb0ee872c330d062f5a75))
+* **timepicker:** TEHVEER-267  - add onClose property to timepicker ([7ec9238](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/7ec923804dc771dbf9d65bebf79e746f92596b57))
+
 ## [6.8.4](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.8.3...v6.8.4) (2024-03-06)
 
 
