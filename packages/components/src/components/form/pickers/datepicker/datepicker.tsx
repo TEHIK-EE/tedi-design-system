@@ -82,6 +82,10 @@ export interface DatePickerProps extends Omit<TextFieldProps, 'defaultValue' | '
    * @default ['year', 'day']
    */
   views?: Array<'day' | 'month' | 'year'>;
+  /**
+   * Callback fired when the popup requests to be closed.
+   */
+  onClose?: () => void;
 }
 
 export const DatePicker = (props: DatePickerProps): JSX.Element => {
@@ -104,6 +108,7 @@ export const DatePicker = (props: DatePickerProps): JSX.Element => {
     views = ['year', 'day'],
     onError,
     loading,
+    onClose,
     ...rest
   } = props;
   const [innerDate, setInnerDate] = React.useState<DatepickerValue>(defaultValue || null);
@@ -125,6 +130,11 @@ export const DatePicker = (props: DatePickerProps): JSX.Element => {
     onChange?.(date);
   };
 
+  const onCloseHandler = () => {
+    setOpen(false);
+    onClose?.();
+  };
+
   return (
     <MuiDatePicker<DatepickerValue>
       data-name="datepicker"
@@ -141,7 +151,7 @@ export const DatePicker = (props: DatePickerProps): JSX.Element => {
       open={open}
       inputFormat={inputFormat}
       onOpen={() => setOpen(true)}
-      onClose={() => setOpen(false)}
+      onClose={onCloseHandler}
       disabled={disabled}
       disableFuture={disableFuture}
       disablePast={disablePast}

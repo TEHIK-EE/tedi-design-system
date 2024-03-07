@@ -121,6 +121,10 @@ export interface DateTimePickerProps extends Omit<TextFieldProps, 'defaultValue'
    * @default false,
    */
   ampm?: boolean;
+  /**
+   * Callback fired when the popup requests to be closed.
+   */
+  onClose?: () => void;
 }
 
 export const DateTimePicker = (props: DateTimePickerProps): JSX.Element => {
@@ -151,6 +155,7 @@ export const DateTimePicker = (props: DateTimePickerProps): JSX.Element => {
     loading,
     mask = '__.__.____ __:__',
     ampm = false,
+    onClose,
     ...rest
   } = props;
   const [innerDate, setInnerDate] = React.useState<DateTimepickerValue>(defaultValue || null);
@@ -172,6 +177,11 @@ export const DateTimePicker = (props: DateTimePickerProps): JSX.Element => {
     onChange?.(date);
   };
 
+  const onCloseHandler = () => {
+    setOpen(false);
+    onClose?.();
+  };
+
   return (
     <MuiDateTimePicker<DateTimepickerValue>
       data-name="datetimepicker"
@@ -188,7 +198,7 @@ export const DateTimePicker = (props: DateTimePickerProps): JSX.Element => {
       open={open}
       inputFormat={inputFormat}
       onOpen={() => setOpen(true)}
-      onClose={() => setOpen(false)}
+      onClose={onCloseHandler}
       disabled={disabled}
       disableFuture={disableFuture}
       disablePast={disablePast}
