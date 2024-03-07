@@ -69,6 +69,10 @@ export interface TimePickerProps extends Omit<TextFieldProps, 'defaultValue' | '
    * @default false
    */
   ampm?: boolean;
+  /**
+   * Callback fired when the popup requests to be closed.
+   */
+  onClose?: () => void;
 }
 
 export const TimePicker = (props: TimePickerProps): JSX.Element => {
@@ -87,6 +91,7 @@ export const TimePicker = (props: TimePickerProps): JSX.Element => {
     shouldDisableTime,
     views = ['hours', 'minutes'],
     ampm = false,
+    onClose,
     ...rest
   } = props;
   const [innerTime, setInnerTime] = React.useState<TimePickerValue>(defaultValue || null);
@@ -108,6 +113,11 @@ export const TimePicker = (props: TimePickerProps): JSX.Element => {
     onChange?.(time);
   };
 
+  const onCloseHandler = () => {
+    setOpen(false);
+    onClose?.();
+  };
+
   return (
     <MuiTimePicker<TimePickerValue>
       data-name="timepicker"
@@ -115,7 +125,7 @@ export const TimePicker = (props: TimePickerProps): JSX.Element => {
       onChange={onChangeHandler}
       open={open}
       onOpen={() => setOpen(true)}
-      onClose={() => setOpen(false)}
+      onClose={onCloseHandler}
       renderInput={(props) => (
         <MuiInputTransition
           muiTextfieldProps={props}
