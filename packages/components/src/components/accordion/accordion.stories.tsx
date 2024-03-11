@@ -213,7 +213,7 @@ export const Background: Story = {
       closeText: ' ',
     },
     accordionItem: {
-      background: 'bg-muted',
+      background: 'bg-subtle',
     },
   },
 };
