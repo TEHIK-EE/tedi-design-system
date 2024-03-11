@@ -1,3 +1,10 @@
+## [6.9.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.9.0...v6.9.1) (2024-03-11)
+
+
+### Bug Fixes
+
+* **accordion:** fix accordionContent border-radius when with background - TEHVEER-262 ([b36f27c](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/b36f27c46144f49f077e08aa16c3a52e1eea9d88))
+
 # [6.9.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.8.4...v6.9.0) (2024-03-07)
 
 
