@@ -126,6 +126,14 @@ i,
   text-align: right;
 }
 
+.text-line-normal {
+  line-height: normal;
+}
+
+.text-line-condensed {
+  line-height: 1;
+}
+
 .text-default {
   color: var(--color-text-default);
 }

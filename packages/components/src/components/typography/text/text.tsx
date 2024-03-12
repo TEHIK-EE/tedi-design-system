@@ -22,7 +22,9 @@ export type TextModifiers =
   | 'capitalize'
   | 'capitalize-first'
   | 'inline-block'
-  | 'inline';
+  | 'inline'
+  | 'line-normal'
+  | 'line-condensed';
 
 export type TextColor =
   | 'default'
