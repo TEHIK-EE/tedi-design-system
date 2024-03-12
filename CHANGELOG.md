@@ -1,3 +1,10 @@
+# [6.10.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.9.2...v6.10.0) (2024-03-12)
+
+
+### Features
+
+* **accordion:** TEHVEER-269 - Remove margin from last accordion item ([c57ae26](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/c57ae262192c868185fa19d87e46ff854272bba9))
+
 ## [6.9.2](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.9.1...v6.9.2) (2024-03-12)
 
 
