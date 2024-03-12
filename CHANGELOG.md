@@ -1,3 +1,10 @@
+# [6.11.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.10.0...v6.11.0) (2024-03-12)
+
+
+### Features
+
+* **typography:** Added line-height utility classes ([724cedb](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/724cedb276489a014a7d54a58e18da9b4f31f977))
+
 # [6.10.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.9.2...v6.10.0) (2024-03-12)
 
 
