@@ -1,3 +1,10 @@
+## [6.9.2](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.9.1...v6.9.2) (2024-03-12)
+
+
+### Bug Fixes
+
+* **card:** props with undefined value now allow the value to fallback to lower breakpoint value ([c1c769b](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/c1c769bc6fb9d6d4d5dc64dd8464e5726cc665fe))
+
 ## [6.9.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.9.0...v6.9.1) (2024-03-11)
 
 
