@@ -1,6 +1,6 @@
 @use '../../styles/mixins';
 
-.accordion__item {
+.accordion__item:not(:last-child) {
   margin-bottom: 0.5rem;
 }
 
