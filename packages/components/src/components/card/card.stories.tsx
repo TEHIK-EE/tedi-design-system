@@ -312,13 +312,20 @@ export const Padding: Story = {
 export const BreakpointProps: Story = {
   render: Template,
   args: {
+    card: {
+      background: 'positive-main',
+    },
     cardContent: {
       className: 'test123',
-      background: 'primary-main',
+      background: undefined, // parameter falls back to card background
       padding: 0,
       md: {
         background: 'primary-highlight',
         padding: 1,
+      },
+      lg: {
+        background: undefined, // parameter falls back to lower breakpoint
+        padding: 1.5,
       },
       xxl: {
         background: 'primary-highlight-subtle',

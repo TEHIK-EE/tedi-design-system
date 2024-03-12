@@ -20,8 +20,10 @@ export const useBreakpointProps = () => {
       props: BreakpointSupport<T>,
       defaultValues: Partial<T> = {}
     ): Omit<BreakpointSupport<T>, Exclude<Breakpoint, 'xs'>> => {
-      const { sm, md, lg, xl, xxl, ...xs } = pickBy(props, (value) => value !== undefined); // filter out props that have undefined as value
-      const propArray = [...activeBreakpoints.map((bp) => (bp === 'xs' ? xs : props[bp]))].filter(Boolean);
+      const { sm, md, lg, xl, xxl, ...xs } = props;
+      const propArray = [
+        ...activeBreakpoints.map((bp) => pickBy(bp === 'xs' ? xs : props[bp], (value) => value !== undefined)), // filter out props that have undefined as value, so they don't override lower breakpoint values or default values
+      ].filter(Boolean);
 
       return Object.assign(defaultValues, ...propArray);
     },
