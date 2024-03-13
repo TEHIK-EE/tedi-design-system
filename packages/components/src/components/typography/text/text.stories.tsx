@@ -76,32 +76,16 @@ const DefaultTemplate: StoryFn = () => {
   );
 };
 
-interface ColorsTemplateProps {
-  examples: Array<{ color: TextProps['color']; text: string }>;
-}
-
-const ColorsTemplate: StoryFn<ColorsTemplateProps> = ({ examples }) => {
-  return (
-    <VerticalSpacing>
-      {examples.map(({ color, text }, key) => (
-        <div key={key} style={color === 'inverted' ? { background: 'var(--color-bg-inverted)' } : undefined}>
-          <Text color={color}>{text}</Text>
-        </div>
-      ))}
-    </VerticalSpacing>
-  );
-};
-
 interface ModifiersTemplateProps {
-  examples: Array<{ modifier: TextProps['modifiers']; text: string }>;
+  examples: TextProps[];
 }
 const ModifiersTemplate: StoryFn<ModifiersTemplateProps> = (args) => {
   return (
     <VerticalSpacing>
-      {args.examples.map(({ modifier, text }, key) => (
-        <Text key={key} {...args} modifiers={modifier}>
-          {text}
-        </Text>
+      {args.examples.map(({ children, ...rest }, key) => (
+        <div key={key} style={rest.color === 'inverted' ? { background: 'var(--color-bg-inverted)' } : undefined}>
+          <Text {...rest}>{children}</Text>
+        </div>
       ))}
     </VerticalSpacing>
   );
@@ -111,20 +95,20 @@ export const Default: Story = {
   render: DefaultTemplate,
 };
 
-export const Colors: StoryObj<ColorsTemplateProps> = {
-  render: ColorsTemplate,
+export const Colors: StoryObj<ModifiersTemplateProps> = {
+  render: ModifiersTemplate,
 
   args: {
     examples: [
-      { color: 'default', text: 'Default color text' },
-      { color: 'muted', text: 'Muted color text' },
-      { color: 'subtle', text: 'Subtle color text' },
-      { color: 'disabled', text: 'Disabled color text' },
-      { color: 'inverted', text: 'Inverted color text' },
-      { color: 'primary', text: 'Primary color text' },
-      { color: 'positive', text: 'Positive color text' },
-      { color: 'important', text: 'Important color text' },
-      { color: 'warning', text: 'Warning color text' },
+      { color: 'default', children: 'Default color text' },
+      { color: 'muted', children: 'Muted color text' },
+      { color: 'subtle', children: 'Subtle color text' },
+      { color: 'disabled', children: 'Disabled color text' },
+      { color: 'inverted', children: 'Inverted color text' },
+      { color: 'primary', children: 'Primary color text' },
+      { color: 'positive', children: 'Positive color text' },
+      { color: 'important', children: 'Important color text' },
+      { color: 'warning', children: 'Warning color text' },
     ],
   },
 };
@@ -134,10 +118,10 @@ export const Modifiers: StoryObj<ModifiersTemplateProps> = {
 
   args: {
     examples: [
-      { modifier: 'normal', text: 'Normal text' },
-      { modifier: 'small', text: 'Small text' },
-      { modifier: 'bold', text: 'Bold text' },
-      { modifier: 'italic', text: 'Italic text' },
+      { modifiers: 'normal', children: 'Normal text' },
+      { modifiers: 'small', children: 'Small text' },
+      { modifiers: 'bold', children: 'Bold text' },
+      { modifiers: 'italic', children: 'Italic text' },
     ],
   },
 };
@@ -147,9 +131,9 @@ export const Alignment: StoryObj<ModifiersTemplateProps> = {
 
   args: {
     examples: [
-      { modifier: 'left', text: 'This text is left' },
-      { modifier: 'center', text: 'This text is center' },
-      { modifier: 'right', text: 'This text is right' },
+      { modifiers: 'left', children: 'This text is left' },
+      { modifiers: 'center', children: 'This text is center' },
+      { modifiers: 'right', children: 'This text is right' },
     ],
   },
 };
@@ -159,10 +143,10 @@ export const Capitalize: StoryObj<ModifiersTemplateProps> = {
 
   args: {
     examples: [
-      { modifier: 'capitalize', text: 'this text is Capitalized' },
-      { modifier: 'capitalize-first', text: 'this text is Capitalize-first' },
-      { modifier: 'lowercase', text: 'THIS text is Lowercase' },
-      { modifier: 'uppercase', text: 'this text is Uppercase' },
+      { modifiers: 'capitalize', children: 'this text is Capitalized' },
+      { modifiers: 'capitalize-first', children: 'this text is Capitalize-first' },
+      { modifiers: 'lowercase', children: 'THIS text is Lowercase' },
+      { modifiers: 'uppercase', children: 'this text is Uppercase' },
     ],
   },
 };
@@ -176,16 +160,42 @@ export const Breaking: StoryObj<ModifiersTemplateProps> = {
   args: {
     examples: [
       {
-        modifier: 'break-all',
-        text: 'Break-all' + breakingLongText,
+        modifiers: 'break-all',
+        children: 'Break-all' + breakingLongText,
       },
       {
-        modifier: 'break-word',
-        text: 'break-word' + breakingLongText,
+        modifiers: 'break-word',
+        children: 'break-word' + breakingLongText,
       },
       {
-        modifier: 'nowrap',
-        text: 'no-wrap' + breakingLongText,
+        modifiers: 'nowrap',
+        children: 'no-wrap' + breakingLongText,
+      },
+    ],
+  },
+};
+
+export const WithBreakpointProps: StoryObj<ModifiersTemplateProps> = {
+  render: ModifiersTemplate,
+
+  args: {
+    examples: [
+      {
+        element: 'h1',
+        modifiers: 'small',
+        sm: { modifiers: 'normal' },
+        md: { modifiers: 'h5' },
+        lg: { modifiers: 'h3' },
+        xl: { modifiers: 'h1' },
+        children: 'Smaller text on smaller screens',
+      },
+      {
+        modifiers: 'h1',
+        sm: { modifiers: 'h3' },
+        md: { modifiers: 'h5' },
+        lg: { modifiers: 'normal' },
+        xl: { modifiers: 'small' },
+        children: 'Bigger text on bigger screens',
       },
     ],
   },
