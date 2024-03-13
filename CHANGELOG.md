@@ -1,3 +1,10 @@
+## [6.12.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.12.0...v6.12.1) (2024-03-13)
+
+
+### Bug Fixes
+
+* **vertical-spacing:** New sizes for VerticalSpacing from 6.12.0 were not working ([dad9c99](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/dad9c99d181d51b7f6bb3b49b8e1b5f42590cf44))
+
 # [6.12.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.11.0...v6.12.0) (2024-03-13)
 
 
