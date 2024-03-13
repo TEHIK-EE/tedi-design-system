@@ -1,3 +1,10 @@
+# [6.12.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.11.0...v6.12.0) (2024-03-13)
+
+
+### Features
+
+* **text:** add breakpoint support to Text - TEHVEER-270 ([7d3c70d](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/7d3c70dc9553d741232793eb2e4d2bf94394d0d4))
+
 # [6.11.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.10.0...v6.11.0) (2024-03-12)
 
 
