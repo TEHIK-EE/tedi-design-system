@@ -1,5 +1,6 @@
 import cn from 'classnames';
 
+import { BreakpointSupport, useBreakpointProps } from '../../../helpers';
 import type { HeadingLevel } from '../heading/heading';
 
 export type HeadingModifiers = `h${HeadingLevel}`;
@@ -39,19 +40,7 @@ export type TextColor =
 
 export type TextElement = 'div' | 'p' | 'span' | 'li' | HeadingModifiers;
 
-export interface TextProps {
-  /**
-   * Children of the text.
-   */
-  children: React.ReactNode;
-  /**
-   * ID attribute.
-   */
-  id?: string;
-  /**
-   * Allows to focus the element
-   */
-  tabIndex?: number;
+type TextBreakpointProps = {
   /**
    * Additional class.
    */
@@ -71,18 +60,36 @@ export interface TextProps {
    * @default default
    */
   color?: TextColor;
+};
+
+export interface TextProps extends BreakpointSupport<TextBreakpointProps> {
+  /**
+   * Children of the text.
+   */
+  children: React.ReactNode;
+  /**
+   * ID attribute.
+   */
+  id?: string;
+  /**
+   * Allows to focus the element
+   */
+  tabIndex?: number;
 }
 
 export const Text = (props: TextProps): JSX.Element => {
+  const { getCurrentBreakpointProps } = useBreakpointProps();
   const {
     children,
     className,
-    tabIndex = props.id ? -1 : undefined, // when id is set on a text element we most likely want to jump to it with a reference link
+    tabIndex,
     element: Element = 'p',
     modifiers,
     color,
     ...rest
-  } = props;
+  } = getCurrentBreakpointProps<TextProps>(props, {
+    tabIndex: props.id ? -1 : undefined, // when id is set on a text element we most likely want to jump to it with a reference link
+  });
 
   const modifiersArray = typeof modifiers === 'string' ? [modifiers] : modifiers;
 
