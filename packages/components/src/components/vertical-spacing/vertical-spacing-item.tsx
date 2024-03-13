@@ -1,5 +1,6 @@
 import cn from 'classnames';
 
+import { VerticalSpacingSize } from './vertical-spacing';
 import styles from './vertical-spacing.module.scss';
 
 export interface VerticalSpacingItemProps {
@@ -20,19 +21,20 @@ export interface VerticalSpacingItemProps {
    * size of spacing {size}em unit of margin-bottom
    * @default 1
    */
-  size?: 0 | 0.25 | 0.5 | 0.75 | 1 | 1.25 | 1.5 | 1.75 | 2 | 2.5 | 5;
+  size?: VerticalSpacingSize;
 }
 
 export const VerticalSpacingItem = (props: VerticalSpacingItemProps): JSX.Element => {
   const { children, className, element: Element = 'div', size = 1, ...rest } = props;
-  const VerticalSpacingItemBEM = cn(
-    styles['vertical-spacing__item'],
-    styles[`vertical-spacing__item--${size}`.replace('.', '-')],
-    className
-  );
+  const VerticalSpacingItemBEM = cn(styles['vertical-spacing__item'], className);
 
   return (
-    <Element data-name="vertical-spacing-item" {...rest} className={VerticalSpacingItemBEM}>
+    <Element
+      data-name="vertical-spacing-item"
+      {...rest}
+      style={{ '--vertical-spacing-internal': `${size}${size !== 0 ? 'em' : ''}` }}
+      className={VerticalSpacingItemBEM}
+    >
       {children}
     </Element>
   );
