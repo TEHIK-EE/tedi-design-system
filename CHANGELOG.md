@@ -1,3 +1,10 @@
+## [6.12.2](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.12.1...v6.12.2) (2024-03-14)
+
+
+### Bug Fixes
+
+* **modal:** TEHVEER-273 - Modal close button was hidden since 6.7.0 ([f2ef783](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/f2ef7839c2c24be25206ddb0542f0ea155897a3d))
+
 ## [6.12.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.12.0...v6.12.1) (2024-03-13)
 
 
