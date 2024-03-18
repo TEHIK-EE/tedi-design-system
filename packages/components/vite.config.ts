@@ -1,3 +1,4 @@
+import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin';
 import reactPlugin from '@vitejs/plugin-react';
 import path from 'node:path';
 import { join } from 'path';
@@ -5,7 +6,6 @@ import { visualizer } from 'rollup-plugin-visualizer';
 import { defineConfig, PluginOption, UserConfig } from 'vite';
 import checker from 'vite-plugin-checker';
 import dts from 'vite-plugin-dts';
-import viteTsConfigPaths from 'vite-tsconfig-paths';
 
 // https://vitejs.dev/config/
 
@@ -15,12 +15,9 @@ const config: UserConfig = {
   },
   mode: 'production',
   plugins: [
-    viteTsConfigPaths({
-      root: '../../',
-    }),
+    nxViteTsPaths(),
     dts({
-      tsConfigFilePath: join(__dirname, './tsconfig.lib.json'),
-      skipDiagnostics: true,
+      tsconfigPath: join(__dirname, './tsconfig.lib.json'),
     }),
     reactPlugin(),
     checker({
@@ -46,6 +43,8 @@ const config: UserConfig = {
     },
   },
   build: {
+    reportCompressedSize: true,
+    commonjsOptions: { transformMixedEsModules: true },
     outDir: '../../dist',
     emptyOutDir: true,
     lib: {

@@ -47,8 +47,7 @@
   display: block;
   height: 100%;
   max-height: inherit;
-  overflow-x: hidden;
-  overflow-y: auto;
+  overflow: hidden auto;
 
   .scroll-fade--custom-scroll & {
     &::-webkit-scrollbar {

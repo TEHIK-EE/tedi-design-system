@@ -2,6 +2,7 @@ import { Meta, StoryFn } from '@storybook/react';
 
 import StorybookDecorator from '../../../.storybook/storybook-decorator';
 import Text from '../../components/typography/text/text';
+import { IntentionalAny } from '../../types';
 import LabelProvider, { LabelProviderProps } from './label-provider';
 import { useLabels } from './use-labels';
 
@@ -35,7 +36,7 @@ const Template: StoryFn<LabelProviderProps> = (args) => {
       <p>4 {typeof pluralLabel === 'string' ? pluralLabel : pluralLabel(4)}</p>
       <p>
         {/* Intentional missing label to showcase error in console */}
-        {getLabel('missing.label' as any)} -{' '}
+        {getLabel('missing.label' as IntentionalAny)} -{' '}
         <Text color="muted" modifiers="small" element="span">
           (Error in console that label is missing for key: missing.label)
         </Text>

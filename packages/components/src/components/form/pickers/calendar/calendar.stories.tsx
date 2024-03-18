@@ -1,7 +1,7 @@
-import { Meta, StoryFn, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import dayjs, { Dayjs } from 'dayjs';
 
-import Calendar, { CalendarProps, CalendarStatus } from './calendar';
+import Calendar, { CalendarStatus } from './calendar';
 
 const meta: Meta<typeof Calendar> = {
   component: Calendar,

@@ -1,4 +1,4 @@
-import { Meta, Title, Canvas, ArgsTable, Stories } from '@storybook/blocks';
+import { Meta, Title, Canvas, Controls, Stories } from '@storybook/blocks';
 import * as LabelProviderStories from './label-provider.stories.tsx';
 
 <Meta of={LabelProviderStories} />
@@ -42,6 +42,6 @@ Or wrap your component in the context consumer:
 <LabelContext.Consumer>{(labels) => <Component someLabel={labels.getLabel('someKey')} />}</LabelContext.Consumer>
 ```
 
-<ArgsTable />
+<Controls />
 
 <Stories />

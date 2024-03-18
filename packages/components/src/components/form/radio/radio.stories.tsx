@@ -4,7 +4,6 @@ import React from 'react';
 import Col from '../../grid/col';
 import Row from '../../grid/row';
 import Text from '../../typography/text/text';
-import Check from '../check/check';
 import Radio, { RadioProps } from './radio';
 
 const meta: Meta<typeof Radio> = {

@@ -8,6 +8,10 @@ import Separator from '../../../../separator/separator';
 import { VerticalSpacing } from '../../../../vertical-spacing';
 import HeaderModal from './header-modal';
 
+/**
+ * HeaderModal is wrapper around Modal to provide a consistent modal for Header. <br />
+ * **Note**: This component (or tooltip design) is not meant to be used outside of Header.
+ */
 const meta: Meta<typeof HeaderModal> = {
   component: HeaderModal,
 };

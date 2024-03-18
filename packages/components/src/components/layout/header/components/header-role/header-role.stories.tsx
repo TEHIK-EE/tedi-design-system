@@ -6,6 +6,10 @@ import Col from '../../../../grid/col';
 import Row from '../../../../grid/row';
 import RoleSelection from './header-role';
 
+/**
+ * HeaderRole is predefined component to handle showing user role and allow to change it. <br />
+ * **Note**: This component is not meant to be used outside of Header.
+ */
 const meta: Meta<typeof RoleSelection> = {
   component: RoleSelection,
 };

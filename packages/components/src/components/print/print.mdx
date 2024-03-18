@@ -1,4 +1,4 @@
-import { Meta, Title, Canvas, ArgsTable, Stories } from '@storybook/blocks';
+import { Meta, Title, Canvas, Controls, Stories } from '@storybook/blocks';
 import { Description } from '@storybook/addon-docs';
 import * as PrintStories from './print.stories.tsx';
 import { Notification } from '../notification/notification';
@@ -18,6 +18,6 @@ import { Notification } from '../notification/notification';
 
 <Canvas of={PrintStories.Default} />
 
-<ArgsTable />
+<Controls />
 
 <Stories includePrimary={false} />

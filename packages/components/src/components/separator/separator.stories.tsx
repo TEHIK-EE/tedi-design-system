@@ -7,6 +7,11 @@ import { Text } from '../typography/text/text';
 import { VerticalSpacing } from '../vertical-spacing';
 import Separator, { SeparatorProps } from './separator';
 
+/**
+ * Used to visually separate or divide sections or content within a user interface. It helps create a clear visual
+ * distinction between different elements, <br/>providing structure and improving the overall readability and organization of
+ * the interface. They can be used vertically and horizontally.
+ */
 const meta: Meta<typeof Separator> = {
   component: Separator,
 };

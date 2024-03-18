@@ -1,7 +1,7 @@
 import { faker } from '@faker-js/faker';
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import { ColumnDef, createColumnHelper } from '@tanstack/react-table';
-import dayjs, { Dayjs } from 'dayjs';
+import dayjs from 'dayjs';
 import React from 'react';
 
 import { getBackgroundColorClass } from '../../helpers/background-colors/background-colors';

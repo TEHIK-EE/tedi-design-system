@@ -2,9 +2,9 @@ import { FloatingFocusManager, FloatingOverlay } from '@floating-ui/react';
 import cn from 'classnames';
 import React from 'react';
 
-import { Breakpoint } from '../../../helpers/hooks/use-breakpoint';
 import useLayout, { Layouts } from '../../../helpers/hooks/use-layout';
 import { AllowedHTMLTags } from '../../../helpers/polymorphic/types';
+import { IntentionalAny } from '../../../types';
 import Anchor, { AnchorProps } from '../../anchor/anchor';
 import Icon, { IconProps } from '../../icon/icon';
 import Print from '../../print/print';
@@ -18,7 +18,7 @@ type ConditionalTypes<C extends React.ElementType = 'a'> =
        * Render all anchors (except logoLink and skipLink) as this component<br />
        * See [Anchor/CustomComponent](/?path=/docs/components-anchor--custom-component) for an example
        */
-      linkAs: AllowedHTMLTags<C, 'a' | React.ComponentType<any>>;
+      linkAs: AllowedHTMLTags<C, 'a' | React.ComponentType<IntentionalAny>>;
       /**
        * Level 1 menu links
        */
@@ -26,7 +26,7 @@ type ConditionalTypes<C extends React.ElementType = 'a'> =
     }
   | {
       linkAs?: never;
-      navItems: SideNavItem<any>[];
+      navItems: SideNavItem<IntentionalAny>[];
     };
 
 export type SideNavProps<C extends React.ElementType = 'a'> = ConditionalTypes<C> & {

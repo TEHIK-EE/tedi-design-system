@@ -7,6 +7,10 @@ import { Col, Row } from '../grid';
 import { VerticalSpacing } from '../vertical-spacing';
 import { Skeleton, SkeletonBlock, SkeletonProps } from '.';
 
+/**
+ * Skeleton is a component that is used to indicate that content is loading.
+ * Build your skeleton using the SkeletonBlock component.
+ */
 const meta: Meta<typeof Skeleton> = {
   component: Skeleton,
   subcomponents: { SkeletonBlock } as never,
@@ -51,6 +55,7 @@ const AccessibilityTemplate: StoryFn<AccessibilityTemplateProps> = ({ style, id,
     return () => {
       clearTimeout(timeout);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

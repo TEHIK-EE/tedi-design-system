@@ -2,6 +2,7 @@ import cn from 'classnames';
 import React from 'react';
 
 import { Layouts, useLayout } from '../../../../helpers';
+import { IntentionalAny } from '../../../../types';
 import Affix from '../../../affix/affix';
 import Anchor from '../../../anchor/anchor';
 import { Col, Row } from '../../../grid';
@@ -84,7 +85,7 @@ export const Header = <H extends React.ElementType = 'a'>(props: HeaderProps<H>)
   const SettingsAreaMinimalComponentOrder = [HeaderLanguage.displayName, HeaderSettings.displayName];
   const ContentAreaComponentOrder = [HeaderContent.displayName];
 
-  const getComponentDisplayName = (element: React.ReactElement<unknown, any>) => {
+  const getComponentDisplayName = (element: React.ReactElement<unknown, IntentionalAny>) => {
     return element.type.displayName;
   };
 

@@ -1,5 +1,3 @@
-import { Unstyled } from '@storybook/blocks';
-
 import { Col, Heading, Row, VerticalSpacing, VerticalSpacingItem } from '../../index';
 
 const ColorRows = ({ inverted }: { inverted?: boolean }) => (

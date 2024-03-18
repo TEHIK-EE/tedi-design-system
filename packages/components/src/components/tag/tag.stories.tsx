@@ -6,23 +6,10 @@ import Icon from '../icon/icon';
 import { VerticalSpacing } from '../vertical-spacing';
 import Tag, { TagColor, TagProps, TagSize, TagStatus, TagType } from './tag';
 
-const meta: Meta<TagTemplateProps> = {
-  component: Tag,
-  argTypes: {
-    array: { table: { disable: true } },
-    property: { table: { disable: true } },
-  },
-  parameters: {
-    docs: {
-      description: {
-        component: 'More about usage of Tag can be foud <a href="/docs/components-tag--tag-usage">here</a>',
-      },
-    },
-  },
+type TagTemplateProps<Type = string | boolean> = React.ComponentProps<typeof Tag> & {
+  array: Type[];
+  property: keyof TagProps;
 };
-
-export default meta;
-type Story = StoryObj<TagTemplateProps>;
 
 const TagColors: TagColor[] = ['default', 'primary', 'accent', 'positive', 'warning', 'important'];
 const TagTypes: TagType[] = ['default', 'secondary', 'ghost', 'invisible'];
@@ -32,11 +19,6 @@ const TagSizes: TagSize[] = ['default', 'large'];
 const Capitalize = ({ children }: { children: React.ReactNode }) => (
   <span className="text-small text-muted text-capitalize">{children}</span>
 );
-
-interface TagTemplateProps<Type = string | boolean> extends TagProps {
-  array: Type[];
-  property: keyof TagProps;
-}
 
 const Template: StoryFn<TagTemplateProps> = (args) => {
   const { array, property, ...tagProps } = args;
@@ -69,9 +51,26 @@ const Template: StoryFn<TagTemplateProps> = (args) => {
   );
 };
 
-export const Default: Story = {
+const meta: Meta<TagTemplateProps> = {
+  component: Tag,
+  argTypes: {
+    array: { table: { disable: true } },
+    property: { table: { disable: true } },
+  },
+  parameters: {
+    docs: {
+      description: {
+        component: 'More about usage of Tag can be foud <a href="/docs/components-tag--tag-usage">here</a>',
+      },
+    },
+  },
   render: Template,
+};
 
+export default meta;
+type Story = StoryObj<TagTemplateProps>;
+
+export const Default: Story = {
   args: {
     array: TagTypes,
     property: 'type',
@@ -79,8 +78,6 @@ export const Default: Story = {
 };
 
 export const Status: Story = {
-  render: Template,
-
   args: {
     array: TagStatuses,
     property: 'status',
@@ -88,8 +85,6 @@ export const Status: Story = {
 };
 
 export const Size: Story = {
-  render: Template,
-
   args: {
     array: TagSizes,
     property: 'size',
@@ -97,8 +92,6 @@ export const Size: Story = {
 };
 
 export const SizeTypeGhost: Story = {
-  render: Template,
-
   args: {
     array: TagSizes,
     property: 'size',
@@ -107,8 +100,6 @@ export const SizeTypeGhost: Story = {
 };
 
 export const Rounded: Story = {
-  render: Template,
-
   args: {
     array: TagTypes,
     property: 'type',
@@ -117,8 +108,6 @@ export const Rounded: Story = {
 };
 
 export const IconOnly: Story = {
-  render: Template,
-
   args: {
     array: TagTypes,
     property: 'type',
@@ -127,8 +116,6 @@ export const IconOnly: Story = {
 };
 
 export const WithArrow: Story = {
-  render: Template,
-
   args: {
     array: TagTypes,
     property: 'type',
@@ -137,8 +124,6 @@ export const WithArrow: Story = {
 };
 
 export const Loading: Story = {
-  render: Template,
-
   args: {
     array: TagTypes,
     property: 'type',
@@ -147,6 +132,7 @@ export const Loading: Story = {
 };
 
 export const LoadingRoundLarge: Story = {
+  render: (args) => <Tag {...args} />,
   args: {
     children: 'J',
     isLoading: true,
@@ -157,8 +143,6 @@ export const LoadingRoundLarge: Story = {
 };
 
 export const Disabled: Story = {
-  render: Template,
-
   args: {
     array: TagTypes,
     property: 'type',
@@ -167,12 +151,14 @@ export const Disabled: Story = {
 };
 
 export const WithLongText: Story = {
+  render: (args) => <Tag {...args} />,
   args: {
     children: 'With Long text',
   },
 };
 
 export const WithLongTextRounded: Story = {
+  render: (args) => <Tag {...args} />,
   args: {
     children: 'With Long text',
     rounded: true,
@@ -180,6 +166,7 @@ export const WithLongTextRounded: Story = {
 };
 
 export const CustomTag: Story = {
+  render: (args) => <Tag {...args} />,
   args: {
     children: <Icon name="check" size={24} />,
     size: 'large',

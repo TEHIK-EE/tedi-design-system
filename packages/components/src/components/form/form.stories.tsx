@@ -13,7 +13,7 @@ const meta: Meta = {
       page: () => (
         <>
           <Title />
-          <Description>Here we will have documentation about writing forms.</Description>
+          <Description />
           <Stories />
         </>
       ),

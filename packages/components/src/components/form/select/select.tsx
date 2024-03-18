@@ -38,6 +38,7 @@ import styles from './select.module.scss';
  * https://github.com/JedWatson/react-select/issues/4804#issuecomment-927223471
  */
 declare module 'react-select/dist/declarations/src/Select' {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   export interface Props<Option, IsMulti extends boolean, Group extends GroupBase<Option>> {
     inputIsHidden?: boolean;
   }

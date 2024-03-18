@@ -72,6 +72,11 @@ const Template = (args: TemplateProps) => {
   );
 };
 
+/**
+ * Steppers convey progress through numbered steps. It provides a wizard-like workflow. <br />
+ * Currently we have two visual types on stepper. Default one is used in most cases and the other one is used when stepper
+ * is used inside card in design.
+ */
 const meta: Meta<typeof Stepper> = {
   component: Stepper,
   subcomponents: { Step } as never,
