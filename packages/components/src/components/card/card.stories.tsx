@@ -17,11 +17,6 @@ export default {
   title: 'components/Card',
   component: Card,
   subcomponents: { CardContent, CardHeader, CardNotification },
-  parameters: {
-    backgrounds: {
-      default: 'light',
-    },
-  },
 } as Meta;
 
 export interface CardStory {

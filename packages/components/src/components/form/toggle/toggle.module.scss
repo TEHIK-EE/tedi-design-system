@@ -155,8 +155,7 @@ $toggle-transition-timing-function: ease-out;
   display: grid;
   grid-template-columns: min-content;
   gap: 0 1rem;
-  align-items: center;
-  justify-items: start;
+  place-items: center start;
 }
 
 button.toggle {

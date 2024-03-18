@@ -1,5 +1,5 @@
 import { faker } from '@faker-js/faker';
-import { ArgsTable, Description, Primary, Stories, Title } from '@storybook/addon-docs';
+import { Controls, Description, Primary, Stories, Title } from '@storybook/addon-docs';
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import React from 'react';
 
@@ -11,7 +11,7 @@ import { VerticalProgress, VerticalProgressItem, VerticalProgressItemProps, Vert
 
 const meta: Meta<typeof VerticalProgress> = {
   component: VerticalProgress,
-  subcomponents: { VerticalProgressItem: VerticalProgressItem as any },
+  subcomponents: { VerticalProgressItem } as never,
   parameters: {
     docs: {
       page: () => (
@@ -19,7 +19,7 @@ const meta: Meta<typeof VerticalProgress> = {
           <Title />
           <Description />
           <Primary />
-          <ArgsTable />
+          <Controls />
           <Stories includePrimary={false} />
         </>
       ),

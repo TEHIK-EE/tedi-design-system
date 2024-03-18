@@ -9,6 +9,15 @@ import HeaderRole, { HeaderRoleProps } from '../header-role/header-role';
 import { WithSecondaryInfo as HeaderRoleDefault } from '../header-role/header-role.stories';
 import HeaderSettings from './header-settings';
 
+/**
+ * HeaderSettings is wrapper around HeaderDropdown to allow passing it to Header as direct children and automatically position
+ * it. That allows to pass custom content to settings dropdown. <br />
+ * HeaderSettings also automatically adds logout or login buttons to header. <br />
+ * When headerType from Layout properties is set to **'public'**, HeaderSettings renders only login button. <br /> When headerType
+ * from Layout properties is set to **'system'**, HeaderSettings renders logout button after children, if no children presents
+ * renders only logout button. <br />
+ * **Note**: This component is not meant to be used outside of Header.
+ */
 const meta: Meta<typeof HeaderSettings> = {
   component: HeaderSettings,
 };

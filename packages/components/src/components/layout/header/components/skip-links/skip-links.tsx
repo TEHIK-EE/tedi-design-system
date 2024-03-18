@@ -1,4 +1,5 @@
 import { AllowedHTMLTags } from '../../../../../helpers/polymorphic/types';
+import { IntentionalAny } from '../../../../../types';
 import Anchor, { AnchorProps } from '../../../../anchor/anchor';
 import styles from './skip-links.module.scss';
 
@@ -8,7 +9,7 @@ type ConditionalTypes<C extends React.ElementType = 'a'> =
        * Render all links as this component<br />
        * See [Anchor/CustomComponent](/?path=/docs/components-anchor--custom-component) for an example
        */
-      linkAs: AllowedHTMLTags<C, 'a' | React.ComponentType<any>>;
+      linkAs: AllowedHTMLTags<C, 'a' | React.ComponentType<IntentionalAny>>;
       /**
        * Category links
        */
@@ -16,7 +17,7 @@ type ConditionalTypes<C extends React.ElementType = 'a'> =
     }
   | {
       linkAs?: never;
-      links: AnchorProps<any>[];
+      links: AnchorProps<IntentionalAny>[];
     };
 
 export type SkipLinksProps<C extends React.ElementType = 'a'> = ConditionalTypes<C>;

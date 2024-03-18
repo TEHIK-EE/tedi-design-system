@@ -1,6 +1,7 @@
 import { FloatingContext, ReferenceType } from '@floating-ui/react';
 import React from 'react';
 
+import { IntentionalAny } from '../../types';
 import { SideNavProps } from './sidenav/sidenav';
 
 export interface ILayoutContext {
@@ -18,7 +19,7 @@ export interface ILayoutContext {
   getReferenceProps: (userProps?: React.HTMLProps<HTMLElement> | undefined) => Record<string, unknown>;
   getFloatingProps: (userProps?: React.HTMLProps<HTMLElement> | undefined) => Record<string, unknown>;
   context: FloatingContext<ReferenceType>;
-  sideNavProps?: SideNavProps<any>;
+  sideNavProps?: SideNavProps<IntentionalAny>;
   y: number | null;
   /**
    * reference to header element to position HeaderDropdown aligned with bottom of header.

@@ -2,6 +2,7 @@ import cn from 'classnames';
 import React, { forwardRef } from 'react';
 
 import { PolymorphicRef } from '../../helpers/polymorphic/types';
+import { IntentionalAny } from '../../types';
 import ButtonContent, { ButtonContentProps } from '../button-content/button-content';
 import styles from './button.module.scss';
 
@@ -65,7 +66,7 @@ const InternalButton = forwardRef(
     return (
       <ButtonContent
         data-name="button"
-        {...rest}
+        {...(rest as IntentionalAny)}
         type={type || 'button'}
         formNoValidate={formNoValidate ?? type === 'submit' ? true : undefined}
         ref={ref}

@@ -1,4 +1,4 @@
-import { ArgsTable, Primary, PRIMARY_STORY, Stories, Title } from '@storybook/addon-docs';
+import { Controls, Primary, Stories, Title } from '@storybook/addon-docs';
 import { Meta, StoryObj } from '@storybook/react';
 
 import Anchor from '../anchor/anchor';
@@ -31,7 +31,7 @@ const meta: Meta<typeof Notification> = {
             </p>
           </VerticalSpacing>
           <Primary />
-          <ArgsTable story={PRIMARY_STORY} />
+          <Controls />
           <Stories includePrimary={false} />
         </>
       ),

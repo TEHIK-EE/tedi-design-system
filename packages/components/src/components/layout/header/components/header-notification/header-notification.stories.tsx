@@ -3,6 +3,9 @@ import { Meta, StoryObj } from '@storybook/react';
 import Text from '../../../../typography/text/text';
 import HeaderNotification from './header-notification';
 
+/**
+ * HeaderNotification can be used to display important system-wide messages to user.
+ */
 const meta: Meta<typeof HeaderNotification> = {
   component: HeaderNotification,
 };

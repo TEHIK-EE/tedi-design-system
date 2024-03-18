@@ -41,13 +41,11 @@ export interface AccordionItemProps extends CardProps {
 export interface IAccordionItemContext {
   disabled: boolean;
   id: string;
-  selected: boolean;
 }
 
 export const AccordionItemContext = React.createContext<IAccordionItemContext>({
   id: '',
   disabled: false,
-  selected: false,
 });
 
 export const AccordionItem = (props: AccordionItemProps): JSX.Element => {
@@ -75,7 +73,7 @@ export const AccordionItem = (props: AccordionItemProps): JSX.Element => {
   const mappedBorder: CardBorderType = selected || borderType === 'primary' ? 'primary-main' : border; // map deprecated borderType prop to border. TODO remove when borderType prop is removed
 
   return (
-    <AccordionItemContext.Provider value={{ id, disabled, selected }}>
+    <AccordionItemContext.Provider value={{ id, disabled }}>
       <HashTrigger id={id} onMatch={() => onMatch(id)}>
         <Card data-name="accordion-item" border={mappedBorder} className={BEM} {...rest}>
           {children}

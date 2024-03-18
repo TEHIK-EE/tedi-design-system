@@ -1,29 +1,31 @@
 {
-  "tasksRunnerOptions": {
-    "default": {
-      "runner": "@nrwl/nx-cloud",
-      "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"],
-        "accessToken": "NTM4MWVmMjktMWZiNC00ODEzLWI1NjYtMDdmMDU3YmNhZmI2fHJlYWQtd3JpdGU="
-      }
-    }
-  },
   "extends": "nx/presets/npm.json",
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
-  "npmScope": "tehik-react",
   "affected": {
     "defaultBase": "origin/master"
   },
   "defaultProject": "components",
   "targetDefaults": {
-    "test": {
-      "inputs": ["default", "^default", "{workspaceRoot}/jest.preset.js"]
-    },
-    "lint": {
-      "inputs": ["default", "{workspaceRoot}/.eslintrc.json"]
-    },
     "build": {
-      "inputs": ["default", "^default", "{workspaceRoot}/.storybook/**/*"]
+      "inputs": ["default", "^default", "{workspaceRoot}/.storybook/**/*"],
+      "cache": true
+    },
+    "@nx/jest:jest": {
+      "inputs": ["default", "^default", "{workspaceRoot}/jest.preset.js"],
+      "cache": true,
+      "options": {
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    },
+    "@nx/eslint:lint": {
+      "inputs": ["default", "{workspaceRoot}/.eslintrc.json"],
+      "cache": true
     }
   },
   "generators": {
@@ -32,5 +34,6 @@
         "babel": true
       }
     }
-  }
+  },
+  "nxCloudAccessToken": "NTM4MWVmMjktMWZiNC00ODEzLWI1NjYtMDdmMDU3YmNhZmI2fHJlYWQtd3JpdGU="
 }

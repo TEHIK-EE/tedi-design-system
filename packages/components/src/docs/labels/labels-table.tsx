@@ -3,6 +3,7 @@ import linkifyStr from 'linkify-string';
 
 import { Table, Tooltip, TooltipProvider, TooltipTrigger } from '../../index';
 import { LabelProvider, labelsMap } from '../../providers/label-provider';
+import { IntentionalAny } from '../../types';
 
 interface LabelRow {
   key: string;
@@ -13,7 +14,7 @@ interface LabelRow {
   ru: string;
 }
 
-const labels: LabelRow[] = Object.keys(labelsMap).map((k) => ({ key: k, ...(labelsMap as any)[k] }));
+const labels: LabelRow[] = Object.keys(labelsMap).map((k) => ({ key: k, ...(labelsMap as IntentionalAny)[k] }));
 
 const renderLabelColumn = (label: string | ((...args: unknown[]) => string)) => {
   return (
@@ -56,7 +57,7 @@ const Labels = () => {
         <p
           className="text-small"
           dangerouslySetInnerHTML={{
-            __html: linkifyStr(original.description, { format: (value) => 'MUI Pickers', target: '_blank' }),
+            __html: linkifyStr(original.description, { format: () => 'MUI Pickers', target: '_blank' }),
           }}
         />
       ),

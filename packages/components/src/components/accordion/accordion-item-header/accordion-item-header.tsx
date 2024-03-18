@@ -33,7 +33,7 @@ export const AccordionItemHeader = (props: AccordionItemHeaderProps): JSX.Elemen
   const [isHovered, setIsHovered] = React.useState(false);
 
   const { onToggle, isOpen } = React.useContext(AccordionContext);
-  const { id, disabled, selected } = React.useContext(AccordionItemContext);
+  const { id, disabled } = React.useContext(AccordionItemContext);
 
   const onClick = (): void => {
     if (!disabled) onToggle(id);
@@ -82,7 +82,6 @@ export const AccordionItemHeader = (props: AccordionItemHeaderProps): JSX.Elemen
       id={id}
       tabIndex={disabled ? -1 : 0}
       aria-disabled={disabled}
-      aria-selected={selected}
       className={BEM}
       onClick={onClick}
       onKeyDown={onKeyDown}

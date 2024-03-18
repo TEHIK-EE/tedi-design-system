@@ -4,6 +4,7 @@ import React from 'react';
 import useLayout, { Layouts } from '../../../helpers/hooks/use-layout';
 import { AllowedHTMLTags } from '../../../helpers/polymorphic/types';
 import { useLabels } from '../../../providers/label-provider';
+import { IntentionalAny } from '../../../types';
 import Print from '../../print/print';
 import styles from './breadcrumbs.module.scss';
 import Crumb, { CrumbProps } from './crumb/crumb';
@@ -14,7 +15,7 @@ type ConditionalTypes<C extends React.ElementType> =
        * Render all anchors (except logoLink and skipLink) as this component<br />
        * See [Anchor/CustomComponent](/?path=/docs/components-anchor--custom-component) for an example
        */
-      linkAs: AllowedHTMLTags<C, 'a' | React.ComponentType<any>>;
+      linkAs: AllowedHTMLTags<C, 'a' | React.ComponentType<IntentionalAny>>;
       /**
        * Crumbs array
        */
@@ -22,7 +23,7 @@ type ConditionalTypes<C extends React.ElementType> =
     }
   | {
       linkAs?: never;
-      crumbs: CrumbProps<any>[];
+      crumbs: CrumbProps<IntentionalAny>[];
     };
 
 export type BreadcrumbsProps<C extends React.ElementType = 'a'> = ConditionalTypes<C> & {

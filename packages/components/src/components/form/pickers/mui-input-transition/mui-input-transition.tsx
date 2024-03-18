@@ -3,6 +3,7 @@ import type { Dayjs } from 'dayjs';
 import dayjs from 'dayjs';
 import React from 'react';
 
+import { IntentionalAny } from '../../../../types';
 import TextField, { TextFieldForwardRef, TextFieldProps } from '../../textfield/textfield';
 
 export interface MuiInputTransitionProps {
@@ -45,7 +46,7 @@ const MuiInputTransition = (props: MuiInputTransitionProps) => {
       icon={{
         name: type === 'date' ? 'today' : 'schedule',
         // TODO https://github.com/mui/mui-x/issues/6330
-        label: (muiTextfieldProps?.InputProps as any)?.endAdornment?.props?.children?.props?.['aria-label'],
+        label: (muiTextfieldProps?.InputProps as IntentionalAny)?.endAdornment?.props?.children?.props?.['aria-label'],
       }}
       onBlur={(e) => {
         textfieldRest.onBlur?.(e);

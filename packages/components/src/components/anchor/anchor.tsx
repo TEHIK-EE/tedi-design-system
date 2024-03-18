@@ -2,6 +2,7 @@ import React, { forwardRef } from 'react';
 
 import { PolymorphicRef } from '../../helpers/polymorphic/types';
 import { useLabels } from '../../providers/label-provider';
+import { IntentionalAny } from '../../types';
 import ButtonContent, { ButtonContentProps } from '../button-content/button-content';
 
 export interface InternalAnchorProps {
@@ -11,7 +12,7 @@ export interface InternalAnchorProps {
   fullWidth?: boolean;
 }
 
-type AllowedTags = 'a' | React.ComponentType<any>;
+type AllowedTags = 'a' | React.ComponentType<IntentionalAny>;
 
 export type AnchorProps<C extends React.ElementType = 'a'> = ButtonContentProps<C, InternalAnchorProps, AllowedTags>;
 
@@ -24,7 +25,13 @@ const InternalAnchor = forwardRef(
     const ComponentAs = as || 'a';
 
     return (
-      <ButtonContent data-name="anchor" {...(rest as any)} ref={ref} as={ComponentAs} visualType={visualType}>
+      <ButtonContent
+        data-name="anchor"
+        {...(rest as IntentionalAny)}
+        ref={ref}
+        as={ComponentAs}
+        visualType={visualType}
+      >
         {children}
         {rest.target === '_blank' && <span className="sr-only">({getLabel('anchor.new-tab')})</span>}
       </ButtonContent>

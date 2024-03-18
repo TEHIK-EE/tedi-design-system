@@ -4,7 +4,6 @@ import React from 'react';
 
 import { useLabels } from '../../../../providers/label-provider';
 import Button from '../../../button/button';
-import { Card, CardContent } from '../../../card';
 import { Col } from '../../../grid';
 import { Tooltip, TooltipProvider, TooltipTrigger } from '../../../tooltip';
 import styles from '../../table.module.scss';

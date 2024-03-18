@@ -7,6 +7,10 @@ import Separator from '../../../../separator/separator';
 import { VerticalSpacing } from '../../../../vertical-spacing';
 import HeaderDropdown from './header-dropdown';
 
+/**
+ * HeaderDropdown is wrapper around Tooltip to provide a consistent dropdown menu for Header. <br />
+ * **Note**: This component (or tooltip design) is not meant to be used outside of Header.
+ */
 const meta: Meta<typeof HeaderDropdown> = {
   component: HeaderDropdown,
 };

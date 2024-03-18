@@ -1,4 +1,4 @@
-import { ArgsTable, Description, Primary, Stories, Subtitle, Title } from '@storybook/addon-docs';
+import { Controls, Description, Primary, Stories, Subtitle, Title } from '@storybook/addon-docs';
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 
 import Notification from '../notification/notification';
@@ -7,6 +7,10 @@ import { VerticalSpacing } from '../vertical-spacing';
 import { Col } from './col';
 import { Row, RowProps } from './row';
 
+/**
+ * Row and Col components are inspired by bootstrap V5 Grid System. <br/> U can use different bootstrap grid classes
+ * throught component props. https://getbootstrap.com/docs/5.1/layout/grid/
+ */
 const meta: Meta<typeof Row> = {
   title: 'components/Grid',
   component: Row,
@@ -17,16 +21,13 @@ const meta: Meta<typeof Row> = {
         <>
           <Title />
           <Subtitle>Grid that is built with Row and Col components</Subtitle>
-          <Description>
-            Row and Col components are inspired by bootstrap V5 Grid System. U can use different bootstrap grid classes
-            throught component props. https://getbootstrap.com/docs/5.1/layout/grid/
-          </Description>
+          <Description />
           <Notification>
             Row component should be always used with Col components as direct children. And Col component should always
             have Row as wrapper!
           </Notification>
           <Primary />
-          <ArgsTable />
+          <Controls />
           <Stories includePrimary={false} />
         </>
       ),

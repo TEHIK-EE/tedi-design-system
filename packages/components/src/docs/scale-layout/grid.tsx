@@ -1,7 +1,6 @@
 import { Title } from '@storybook/blocks';
-import { ColumnDef, createColumnHelper } from '@tanstack/react-table';
 
-import { Col, Heading, Row, Separator, Table, VerticalSpacing } from '../../index';
+import { Col, Heading, Row, Separator, VerticalSpacing } from '../../index';
 import BreakingpointsTable from './breaking-points';
 
 const Grid = () => {

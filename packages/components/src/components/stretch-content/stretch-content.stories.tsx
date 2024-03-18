@@ -90,10 +90,4 @@ export const CardsExample: StoryObj<Partial<StretchContentProps>> = {
       </Row>
     );
   },
-
-  parameters: {
-    backgrounds: {
-      default: 'light',
-    },
-  },
 };

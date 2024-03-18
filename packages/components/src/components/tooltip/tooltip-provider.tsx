@@ -18,8 +18,8 @@ import {
   useHover,
   useInteractions,
   useRole,
+  UseRoleProps,
 } from '@floating-ui/react';
-import { UseRoleProps } from '@floating-ui/react/src/hooks/useRole';
 import React from 'react';
 
 import { useIsMounted, useIsTouchDevice } from '../../helpers';

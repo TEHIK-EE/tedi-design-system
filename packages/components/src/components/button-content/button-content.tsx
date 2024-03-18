@@ -2,6 +2,7 @@ import cn from 'classnames';
 import React, { forwardRef } from 'react';
 
 import { AllowedHTMLTags, PolymorphicComponentPropWithRef, PolymorphicRef } from '../../helpers/polymorphic/types';
+import { IntentionalAny } from '../../types';
 import { ButtonColor, ButtonType } from '../button/button';
 import Icon, { IconProps } from '../icon/icon';
 import Print from '../print/print';
@@ -10,7 +11,7 @@ import styles from './button-content.module.scss';
 
 export type ButtonContentProps<
   C extends React.ElementType,
-  P extends Record<string, any>,
+  P extends Record<string, IntentionalAny>,
   A
 > = PolymorphicComponentPropWithRef<
   AllowedHTMLTags<C, A>,
@@ -80,12 +81,12 @@ export type ButtonContentProps<
   } & P
 >;
 
-export type ButtonContentComponent = <C extends React.ElementType, P extends Record<string, any>, A>(
+export type ButtonContentComponent = <C extends React.ElementType, P extends Record<string, IntentionalAny>, A>(
   props: ButtonContentProps<C, P, A>
 ) => React.ReactElement | null;
 
 const InternalButtonContent = forwardRef(
-  <C extends React.ElementType, P extends Record<string, any>, A>(
+  <C extends React.ElementType, P extends Record<string, IntentionalAny>, A>(
     {
       children,
       as,

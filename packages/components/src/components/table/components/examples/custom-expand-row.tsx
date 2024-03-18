@@ -3,6 +3,7 @@ import { StoryFn, StoryObj } from '@storybook/react';
 import { ColumnDef, createColumnHelper, Row as TSRow } from '@tanstack/react-table';
 
 import { getBackgroundColorClass } from '../../../../helpers/background-colors/background-colors';
+import { IntentionalAny } from '../../../../types';
 import { Col, Row } from '../../../grid';
 import Print from '../../../print/print';
 import Tag from '../../../tag/tag';
@@ -23,7 +24,7 @@ interface Proceeding {
 
 interface ProceedingRow extends Partial<Proceeding> {
   subRows?: Proceeding[];
-  CustomRowComponent?: React.ComponentType<TSRow<any>>;
+  CustomRowComponent?: React.ComponentType<TSRow<IntentionalAny>>;
   countLabel?: (count: number) => string;
   customRowLabel?: string;
 }

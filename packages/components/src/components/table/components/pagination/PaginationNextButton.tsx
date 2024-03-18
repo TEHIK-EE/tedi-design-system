@@ -1,5 +1,4 @@
 import { Table as TableType } from '@tanstack/table-core';
-import cn from 'classnames';
 import React from 'react';
 
 import { useLabels } from '../../../../providers/label-provider';

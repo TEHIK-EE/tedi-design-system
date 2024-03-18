@@ -6,7 +6,7 @@ import { Tabs, TabsItem } from '.';
 
 const meta: Meta<typeof Tabs> = {
   component: Tabs,
-  subcomponents: { TabsItem: TabsItem as any },
+  subcomponents: { TabsItem } as never,
 };
 
 export default meta;
