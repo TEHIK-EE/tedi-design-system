@@ -18,6 +18,11 @@
     border: 1px solid $bg;
   }
 
+  &.tag--type-borderless {
+    color: $bg;
+    background-color: var(--color-bg-default);
+  }
+
   &.tag--type-invisible,
   &.tag--icon-only {
     padding: 0;
@@ -35,6 +40,7 @@
 
   &.tag--type-secondary,
   &.tag--type-invisible,
+  &.tag--type-borderless,
   &.tag--type-ghost {
     &.tag--with-arrow::after {
       border-bottom-color: $secondary-text;
