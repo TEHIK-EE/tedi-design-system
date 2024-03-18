@@ -1,3 +1,10 @@
+# [6.13.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.12.2...v6.13.0) (2024-03-18)
+
+
+### Features
+
+* **tag:** TEHVEER-279 - Added borderless tag type ([c1c7b04](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/c1c7b04f2e7d18df757bf74f548ead5ed9e0f812))
+
 ## [6.12.2](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.12.1...v6.12.2) (2024-03-14)
 
 
