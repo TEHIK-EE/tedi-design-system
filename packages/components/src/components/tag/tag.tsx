@@ -5,7 +5,7 @@ import { SkeletonBlock } from '../skeleton';
 import styles from './tag.module.scss';
 
 export type TagColor = 'default' | 'primary' | 'accent' | 'positive' | 'warning' | 'important';
-export type TagType = 'default' | 'secondary' | 'ghost' | 'invisible';
+export type TagType = 'default' | 'secondary' | 'ghost' | 'invisible' | 'borderless';
 export type TagSize = 'default' | 'large';
 export type TagStatus = 'error' | 'success' | 'inactive';
 

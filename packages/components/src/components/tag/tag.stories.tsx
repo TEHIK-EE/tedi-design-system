@@ -1,8 +1,11 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import React from 'react';
 
+import Card from '../card/card';
+import CardContent from '../card/card-content/card-content';
 import { Col, Row } from '../grid';
 import Icon from '../icon/icon';
+import { Text, TextProps } from '../typography/text/text';
 import { VerticalSpacing } from '../vertical-spacing';
 import Tag, { TagColor, TagProps, TagSize, TagStatus, TagType } from './tag';
 
@@ -12,18 +15,20 @@ type TagTemplateProps<Type = string | boolean> = React.ComponentProps<typeof Tag
 };
 
 const TagColors: TagColor[] = ['default', 'primary', 'accent', 'positive', 'warning', 'important'];
-const TagTypes: TagType[] = ['default', 'secondary', 'ghost', 'invisible'];
+const TagTypes: TagType[] = ['default', 'secondary', 'ghost', 'invisible', 'borderless'];
 const TagStatuses: TagStatus[] = ['error', 'inactive', 'success'];
 const TagSizes: TagSize[] = ['default', 'large'];
 
-const Capitalize = ({ children }: { children: React.ReactNode }) => (
-  <span className="text-small text-muted text-capitalize">{children}</span>
+const Capitalize = ({ children, ...rest }: TextProps) => (
+  <Text element="span" modifiers={['small', 'capitalize']} color="muted" {...rest}>
+    {children}
+  </Text>
 );
 
 const Template: StoryFn<TagTemplateProps> = (args) => {
   const { array, property, ...tagProps } = args;
   return (
-    <VerticalSpacing>
+    <VerticalSpacing size={0.25}>
       <Row>
         <Col></Col>
         {TagColors.map((color) => (
@@ -34,18 +39,22 @@ const Template: StoryFn<TagTemplateProps> = (args) => {
       </Row>
 
       {array.map((type, key) => (
-        <Row key={key}>
-          <Col>
-            <Capitalize>{type}</Capitalize>
-          </Col>
-          {TagColors.map((color, index) => (
-            <Col key={`${color}-${index}`}>
-              <Tag color={color} {...{ [property]: type }} {...tagProps}>
-                {property === 'iconOnly' || tagProps.iconOnly ? <Icon name="add" filled size={12} /> : 'J'}
-              </Tag>
-            </Col>
-          ))}
-        </Row>
+        <Card borderless padding={0.5} background={type === 'borderless' ? 'bg-inverted' : 'transparent'} key={key}>
+          <CardContent>
+            <Row>
+              <Col>
+                <Capitalize color={type === 'borderless' ? 'inverted' : undefined}>{type}</Capitalize>
+              </Col>
+              {TagColors.map((color, index) => (
+                <Col key={`${color}-${index}`}>
+                  <Tag color={color} {...{ [property]: type }} {...tagProps}>
+                    {property === 'iconOnly' || tagProps.iconOnly ? <Icon name="add" filled size={12} /> : 'J'}
+                  </Tag>
+                </Col>
+              ))}
+            </Row>
+          </CardContent>
+        </Card>
       ))}
     </VerticalSpacing>
   );
