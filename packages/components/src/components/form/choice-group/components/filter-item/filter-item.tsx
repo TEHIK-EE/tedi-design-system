@@ -7,7 +7,7 @@ import { ChoiceGroupContext } from '../../choice-group-context';
 import styles from './filter-item.module.scss';
 
 export const FilterItem = (props: ChoiceGroupItemProps): React.ReactElement => {
-  const { id, label, value, disabled, colProps } = props;
+  const { id, label, value, disabled, colProps, background } = props;
   const { currentValue, inputType, name, onChange } = React.useContext(ChoiceGroupContext);
 
   const isChecked = !currentValue
@@ -20,7 +20,8 @@ export const FilterItem = (props: ChoiceGroupItemProps): React.ReactElement => {
     styles['filter-item'],
     colProps?.className,
     { [styles['filter-item--disabled']]: disabled },
-    { [styles['filter-item--checked']]: isChecked }
+    { [styles['filter-item--checked']]: isChecked },
+    { [styles[`filter-item--${background}`]]: !!background }
   );
 
   return (
