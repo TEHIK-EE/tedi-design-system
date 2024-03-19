@@ -1,3 +1,10 @@
+## [6.14.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.14.0...v6.14.1) (2024-03-19)
+
+
+### Bug Fixes
+
+* **common:** fix storybook showin wrong sorce code for stories - TEHVEER-278 ([1495633](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/14956339284ddaaa6851e1479f0407ccce216a16))
+
 # [6.14.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.13.0...v6.14.0) (2024-03-19)
 
 
