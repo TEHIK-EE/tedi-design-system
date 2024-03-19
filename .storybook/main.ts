@@ -14,7 +14,7 @@ const config: StorybookConfig = {
     getAbsolutePath('@storybook/addon-a11y'),
   ],
   core: {
-    builder: '@storybook/builder-vite',
+    builder: getAbsolutePath('@storybook/builder-vite'),
   },
   staticDirs: ['../public'],
   framework: {
