@@ -1,3 +1,10 @@
+# [6.14.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.13.0...v6.14.0) (2024-03-19)
+
+
+### Features
+
+* **choice-group:** Add color support for filter items in choice group - TEHVEER-276 ([2f7a6ea](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/2f7a6ea737cebc5be54253d1bb63efac07149403))
+
 # [6.13.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.12.2...v6.13.0) (2024-03-18)
 
 
