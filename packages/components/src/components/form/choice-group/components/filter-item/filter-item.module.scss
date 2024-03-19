@@ -1,5 +1,7 @@
 @use '../../../../../styles/mixins';
 
+$backgrounds: ('positive-main', 'important-main', 'warning-main');
+
 .filter-item__input {
   @include mixins.visually-hidden;
 }
@@ -28,5 +30,11 @@
   .filter-item--checked & {
     color: var(--color-text-inverted);
     background-color: var(--color-primary-main);
+  }
+
+  @each $background in $backgrounds {
+    .filter-item--#{$background}.filter-item--checked & {
+      background-color: var(--color-#{$background});
+    }
   }
 }

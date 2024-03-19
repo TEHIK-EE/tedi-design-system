@@ -22,13 +22,24 @@ const meta: Meta<typeof ChoiceGroup> = {
 export default meta;
 type Story = StoryObj<typeof ChoiceGroup>;
 
+interface GenerateItemsArgs {
+  extraContent?: boolean;
+  colProps?: ColProps;
+  extraLongTitle?: boolean;
+  colored?: true;
+}
+
 const generateItems = (
   index: number,
-  extraContent?: boolean,
-  colProps?: ColProps,
-  extraLongTitle?: boolean
+  { extraContent, colProps, extraLongTitle, colored }: GenerateItemsArgs = {}
 ): ChoiceGroupItemProps[] => [
-  { id: `value-${index * 3}`, label: 'Valik 1', value: `value-${index * 3}`, colProps },
+  {
+    id: `value-${index * 3}`,
+    label: 'Valik 1',
+    value: `value-${index * 3}`,
+    colProps,
+    background: colored && 'positive-main',
+  },
   {
     id: `value-${index * 3 + 1}`,
     label: `Valik 2, mis on teistest veidi pikem${
@@ -44,13 +55,15 @@ const generateItems = (
       </Text>
     ) : undefined,
     colProps,
+    background: colored && 'warning-main',
   },
   {
     id: `value-${index * 3 + 2}`,
     label: 'Valik 3',
     value: `value-${index * 3 + 2}`,
-    disabled: true,
+    disabled: !colored,
     colProps,
+    background: colored && 'important-main',
   },
 ];
 
@@ -172,7 +185,7 @@ export const LightItemAutoWidth: Story = {
     inputType: 'radio',
     name: 'radio-5.1',
     type: 'light',
-    items: generateItems(9, false, { width: 'auto' }),
+    items: generateItems(9, { colProps: { width: 'auto' } }),
   },
 };
 
@@ -234,7 +247,7 @@ export const WithExtraContent: Story = {
     ...Check.args,
     inputType: 'radio',
     label: 'I have extra content after label:',
-    items: generateItems(15, true),
+    items: generateItems(15, { extraContent: true }),
   },
 
   parameters: {
@@ -251,7 +264,7 @@ export const CheckboxWithLongTitle: Story = {
     ...Check.args,
     inputType: 'checkbox',
     label: 'I have extra long titles:',
-    items: generateItems(16, false, undefined, true),
+    items: generateItems(16, { extraLongTitle: true }),
   },
 };
 
@@ -260,6 +273,17 @@ export const RadioWithLongTitle: Story = {
     ...Check.args,
     inputType: 'radio',
     label: 'I have extra long titles:',
-    items: generateItems(17, false, undefined, true),
+    items: generateItems(17, { extraLongTitle: true }),
+  },
+};
+
+export const FilterItemWithColors: Story = {
+  args: {
+    label: 'Choose your filter:',
+    id: 'filter-colored',
+    inputType: 'radio',
+    name: 'filter-colored',
+    type: 'filter',
+    items: generateItems(18, { colored: true }),
   },
 };

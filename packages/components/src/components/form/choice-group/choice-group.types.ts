@@ -1,6 +1,9 @@
 import React from 'react';
 
+import { ColorsFunctional } from '../../commonTypes';
 import { ColProps, Direction } from '../../grid';
+
+export type ChoiceGroupItemBackground = Extract<ColorsFunctional, 'positive-main' | 'important-main' | 'warning-main'>;
 
 export interface ChoiceGroupItemProps {
   /**
@@ -40,4 +43,9 @@ export interface ChoiceGroupItemProps {
    * Can only be used with ChoiceGroupRadio and Checkbox.
    */
   extraContent?: React.ReactNode;
+  /**
+   * Possibility to change choice group item background when selected. Will be primary if not provided.
+   * Can only be used with FilterItem.
+   */
+  background?: ChoiceGroupItemBackground;
 }
