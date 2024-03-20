@@ -27,11 +27,12 @@ interface GenerateItemsArgs {
   colProps?: ColProps;
   extraLongTitle?: boolean;
   colored?: true;
+  tooltip?: boolean;
 }
 
 const generateItems = (
   index: number,
-  { extraContent, colProps, extraLongTitle, colored }: GenerateItemsArgs = {}
+  { extraContent, colProps, extraLongTitle, colored, tooltip }: GenerateItemsArgs = {}
 ): ChoiceGroupItemProps[] => [
   {
     id: `value-${index * 3}`,
@@ -39,6 +40,7 @@ const generateItems = (
     value: `value-${index * 3}`,
     colProps,
     background: colored && 'positive-main',
+    tooltip: tooltip ? 'Tooltip' : undefined,
   },
   {
     id: `value-${index * 3 + 1}`,
@@ -56,6 +58,7 @@ const generateItems = (
     ) : undefined,
     colProps,
     background: colored && 'warning-main',
+    tooltip: tooltip ? 'Tooltip' : undefined,
   },
   {
     id: `value-${index * 3 + 2}`,
@@ -64,6 +67,7 @@ const generateItems = (
     disabled: !colored,
     colProps,
     background: colored && 'important-main',
+    tooltip: tooltip ? 'Tooltip' : undefined,
   },
 ];
 
@@ -268,6 +272,15 @@ export const CheckboxWithLongTitle: Story = {
   },
 };
 
+export const CheckboxWithTooltip: Story = {
+  args: {
+    ...Check.args,
+    inputType: 'checkbox',
+    label: 'I have extra long titles:',
+    items: generateItems(17, { tooltip: true }),
+  },
+};
+
 export const RadioWithLongTitle: Story = {
   args: {
     ...Check.args,
@@ -285,5 +298,16 @@ export const FilterItemWithColors: Story = {
     name: 'filter-colored',
     type: 'filter',
     items: generateItems(18, { colored: true }),
+  },
+};
+
+export const RadioWithTooltip: Story = {
+  args: {
+    label: 'ChoiceGroup with radio buttons that have tooltips:',
+    id: 'radio-tooltip',
+    defaultValue: [],
+    inputType: 'radio',
+    name: 'radio-tooltip',
+    items: generateItems(19, { tooltip: true }),
   },
 };

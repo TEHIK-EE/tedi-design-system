@@ -1,66 +1,18 @@
 import cn from 'classnames';
 import React from 'react';
 
+import { Col, Row } from '../../grid';
 import Icon from '../../icon/icon';
+import { Tooltip, TooltipProvider, TooltipTrigger } from '../../tooltip';
+import { ChoiceInputProps } from '../choice-input.types';
 import styles from './check.module.scss';
 
-export interface CheckProps {
-  /**
-   * ID property
-   */
-  id: string;
-  /**
-   * Label text
-   */
-  label: React.ReactNode;
-  /**
-   * Additional classes.
-   */
-  className?: string;
-  /**
-   * Value property
-   */
-  value: string;
-  /**
-   * name of the input
-   */
-  name: string;
-  /**
-   * is the label hidden
-   * @default false
-   */
-  hideLabel?: boolean;
-  /**
-   * If the option is disabled
-   * @default false
-   */
-  disabled?: boolean;
-  /**
-   * onChange handler
-   */
-  onChange?: (value: string, checked: boolean) => void;
-  /**
-   * Possibility to add extra content after label. ExtraContent is not clickable like label
-   * Can only be used with ChoiceGroupRadio and Checkbox.
-   */
-  extraContent?: React.ReactNode;
-  /**
-   * If the check is controlled from outside the components
-   */
-  checked?: boolean;
+export interface CheckProps extends ChoiceInputProps {
   /**
    * If the check is in indeterminate state. (Not checked or unchecked)
    * When this is true then the checked prop is ignored
    */
   indeterminate?: boolean;
-  /**
-   * If the check is checked by default
-   */
-  defaultChecked?: boolean;
-  /**
-   * If the item should be in hover state
-   */
-  hover?: boolean;
 }
 
 export const Check = (props: CheckProps): JSX.Element => {
@@ -78,6 +30,7 @@ export const Check = (props: CheckProps): JSX.Element => {
     indeterminate,
     hover,
     name,
+    tooltip,
     ...rest
   } = props;
   const [innerChecked, setInnerChecked] = React.useState<boolean>(defaultChecked || false);
@@ -97,29 +50,52 @@ export const Check = (props: CheckProps): JSX.Element => {
 
   return (
     <div data-name="check" className={className} {...rest}>
-      <label className={LabelBEM} htmlFor={id}>
-        <input
-          id={id}
-          value={value}
-          name={name}
-          type="checkbox"
-          disabled={disabled}
-          checked={getChecked !== 'mixed' ? getChecked : false}
-          aria-checked={getChecked}
-          onChange={onChangeHandler}
-          className={styles['check__input']}
-        />
-        <span
-          className={cn(styles['check__indicator'], {
-            [styles['check__indicator--hover']]: hover,
-            [styles['check__indicator--indeterminate']]: indeterminate,
-          })}
-        >
-          <Icon size={16} name="remove" className={cn(styles['check__icon'], styles['check__icon--indeterminate'])} />
-          <Icon size={16} name="check" className={cn(styles['check__icon'], styles['check__icon--check'])} />
-        </span>
-        <span className={cn(styles['check__content'], { 'visually-hidden': hideLabel })}>{label}</span>
-      </label>
+      <Row gutter={0}>
+        <Col width="auto">
+          <input
+            id={id}
+            value={value}
+            name={name}
+            type="checkbox"
+            disabled={disabled}
+            checked={getChecked !== 'mixed' ? getChecked : false}
+            aria-checked={getChecked}
+            onChange={onChangeHandler}
+            className={styles['check__input']}
+          />
+          {/* We are using two labels on the same input field to avoid manually managing the state of a custom checkbox. This will show up as a warning in the Storybook Accessibility addon. It is still valid HTML and is hidden from screen-readers so it should not cause any actual issues to end-users. */}
+          <label
+            aria-hidden="true"
+            htmlFor={id}
+            className={cn(styles['check__indicator'], {
+              [styles['check__indicator--hover']]: hover,
+              [styles['check__indicator--indeterminate']]: indeterminate,
+            })}
+          >
+            <Icon size={16} name="remove" className={cn(styles['check__icon'], styles['check__icon--indeterminate'])} />
+            <Icon size={16} name="check" className={cn(styles['check__icon'], styles['check__icon--check'])} />
+          </label>
+        </Col>
+        <Col>
+          <label className={LabelBEM} htmlFor={id}>
+            <span className={cn({ 'visually-hidden': hideLabel })}>{label}</span>
+          </label>
+          {tooltip && (
+            <TooltipProvider>
+              <TooltipTrigger>
+                <Icon
+                  name="info"
+                  color="primary"
+                  size={16}
+                  display="inline"
+                  className={styles['check__tooltip-icon']}
+                />
+              </TooltipTrigger>
+              <Tooltip>{tooltip}</Tooltip>
+            </TooltipProvider>
+          )}
+        </Col>
+      </Row>
       {extraContent && <div className={styles['check__extra-content']}>{extraContent}</div>}
     </div>
   );

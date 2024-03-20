@@ -1,7 +1,7 @@
 @use '../../../styles/mixins';
 
 .radio {
-  display: inline-flex;
+  display: inline;
 
   @include mixins.print-grayscale;
 
@@ -57,6 +57,10 @@
   .radio__input:disabled + & {
     background-color: var(--color-bg-disabled);
   }
+}
+
+.radio__tooltip-icon {
+  margin-left: 0.25rem;
 }
 
 .radio__extra-content {
