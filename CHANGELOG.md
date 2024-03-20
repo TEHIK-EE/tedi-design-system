@@ -1,3 +1,10 @@
+# [6.16.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.15.0...v6.16.0) (2024-03-20)
+
+
+### Features
+
+* **choice-group:** TEHVEER-268 - add tooltip capability to check and radio ([bafd612](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/bafd6122e3d258c2e75818161efa8df375a0ad3a))
+
 # [6.15.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.14.1...v6.15.0) (2024-03-20)
 
 
