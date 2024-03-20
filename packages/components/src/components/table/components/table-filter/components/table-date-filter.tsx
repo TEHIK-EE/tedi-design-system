@@ -16,7 +16,10 @@ import { TableFilterContext } from '../table-filter-context';
 export const TableDateFilter = () => {
   const { getLabel } = useLabels();
   const { column, open, setOpen, values: contextValues } = React.useContext(TableFilterContext);
-  const initialValues = { dateField: contextValues?.dateRange };
+
+  const initialValues = {
+    dateRangeField: contextValues?.dateRange,
+  };
 
   const filterLabel = getLabel('table.filter');
   const filterLabelFrom = getLabel('table.filter.from');
@@ -26,7 +29,7 @@ export const TableDateFilter = () => {
   const filterEndBeforeStart = getLabel('table.filter.validation.to-before-from');
 
   const validationSchema: Yup.Schema<typeof initialValues> = Yup.object().shape({
-    dateField: Yup.object().shape({
+    dateRangeField: Yup.object().shape({
       from: Yup.mixed<Exclude<DatepickerValue, null>>().defined().nullable(),
       to: Yup.mixed<Exclude<DatepickerValue, null>>()
         .defined()
@@ -42,7 +45,7 @@ export const TableDateFilter = () => {
     initialValues,
     validationSchema,
     onSubmit: (values: typeof initialValues) => {
-      column?.setFilterValue(values.dateField);
+      column?.setFilterValue(values.dateRangeField);
       setOpen?.(false);
     },
     onReset: () => {
@@ -52,11 +55,11 @@ export const TableDateFilter = () => {
   });
 
   React.useEffect(() => {
-    if (open && !values.dateField) {
+    if (open && !values.dateRangeField) {
       const filterField = document.getElementById(filterIdFrom);
       filterField?.focus?.({ preventScroll: true });
     }
-  }, [column?.id, values.dateField, open, filterIdFrom]);
+  }, [column?.id, values.dateRangeField, open, filterIdFrom]);
 
   return (
     <form onSubmit={handleSubmit}>
@@ -66,13 +69,16 @@ export const TableDateFilter = () => {
           id={filterIdFrom}
           label={filterLabelFrom}
           name={filterLabelFrom}
-          value={values.dateField?.from}
+          value={values.dateRangeField?.from}
+          input={{
+            autoComplete: 'off',
+          }}
           onChange={(value) => {
-            setFieldValue('dateField.from', value);
+            setFieldValue('dateRangeField.from', value);
 
             // if start date is after end date, then clear the end date
-            if (value && values.dateField?.to && dayjs(value).isAfter(dayjs(values.dateField.to), 'day')) {
-              setFieldValue('dateField.to', null);
+            if (value && values.dateRangeField?.to && dayjs(value).isAfter(dayjs(values.dateRangeField?.to), 'day')) {
+              setFieldValue('dateRangeField.to', null);
             }
           }}
         />
@@ -80,14 +86,17 @@ export const TableDateFilter = () => {
           id={filterIdTo}
           label={filterLabelTo}
           name={filterLabelTo}
-          value={values.dateField?.to}
+          value={values.dateRangeField?.to}
+          input={{
+            autoComplete: 'off',
+          }}
           shouldDisableDate={(date) =>
-            !!(values.dateField?.from && dayjs(date).isBefore(dayjs(values.dateField?.from, 'day')))
+            !!(values.dateRangeField?.from && dayjs(date).isBefore(dayjs(values.dateRangeField?.from, 'day')))
           }
-          onChange={(value) => setFieldValue('dateField.to', value)}
+          onChange={(value) => setFieldValue('dateRangeField.to', value)}
           helper={
-            (errors.dateField as IntentionalAny)?.to
-              ? { text: (errors.dateField as IntentionalAny).to, type: 'error' }
+            (errors.dateRangeField as IntentionalAny)?.to
+              ? { text: (errors.dateRangeField as IntentionalAny).to, type: 'error' }
               : undefined
           }
         />

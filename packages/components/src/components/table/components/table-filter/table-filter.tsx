@@ -1,4 +1,5 @@
 import { Column, Row as TableRow } from '@tanstack/react-table';
+import { FilterFns } from '@tanstack/table-core';
 import cn from 'classnames';
 import React from 'react';
 
@@ -42,7 +43,10 @@ const TableFilter = <TData extends DefaultTData<TData>>(props: TableFilterProps<
       filter: (inputType === 'auto' || inputType === 'text') && isText(filterValue) ? filterValue : '',
       selectField: inputType === 'select' && isText(filterValue) ? filterValue : '',
       multiSelectField: inputType === 'multi-select' && isMultiSelect(filterValue) ? filterValue : [],
-      dateRange: inputType === 'date-range' && isDateRange(filterValue) ? filterValue : { from: null, to: null },
+      dateRange:
+        ['date-range', 'date-range-period'].includes(inputType as keyof FilterFns) && isDateRange(filterValue)
+          ? filterValue
+          : { from: null, to: null },
     }),
     [inputType, filterValue]
   );
@@ -50,6 +54,7 @@ const TableFilter = <TData extends DefaultTData<TData>>(props: TableFilterProps<
   const renderFilter = () => {
     switch (inputType) {
       case 'date-range':
+      case 'date-range-period':
         return <TableDateFilter />;
       case 'multi-select':
       case 'select':

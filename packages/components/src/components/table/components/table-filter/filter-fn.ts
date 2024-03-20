@@ -26,3 +26,43 @@ export const dateRangeFilterFn = (row: Row<unknown>, columnId: string, filterVal
     return from.isSameOrBefore(date, 'day') && to.isSameOrAfter(date, 'day');
   } else return true;
 };
+
+export const dateRangePeriodFilterFn = (row: Row<unknown>, columnId: string, filterValue: DateRangeFilterValues) => {
+  const date = row?.getValue?.(columnId) as DateRangeFilterValues;
+
+  if (typeof date !== 'object' || !Object.keys(date).includes('from') || !Object.keys(date).includes('to')) {
+    console.error('Accessor function should return an object { from: Dayjs | null, to: Dayjs | null }');
+    return true;
+  }
+  const filterFrom = filterValue?.from;
+  const filterTo = filterValue?.to;
+  const valueFrom = date.from;
+  const valueTo = date.to;
+
+  // in case when one of the cell values(from or to) is not set, we still check the match for the value that does exist
+  // when neither of the cell values are present then we don't show the row during filtering
+  if (filterFrom && filterTo) {
+    return valueFrom && valueTo
+      ? (filterFrom.isSameOrBefore(valueFrom, 'day') && filterTo.isSameOrAfter(valueFrom, 'day')) ||
+          (filterTo.isSameOrAfter(valueTo, 'day') && filterFrom.isSameOrBefore(valueTo, 'day'))
+      : valueFrom
+      ? filterFrom.isSameOrBefore(valueFrom, 'day') && filterTo.isSameOrAfter(valueFrom, 'day')
+      : valueTo
+      ? filterFrom.isSameOrBefore(valueTo, 'day') && filterTo.isSameOrAfter(valueTo, 'day')
+      : false;
+  } else if (filterFrom && !filterTo) {
+    return valueTo
+      ? filterFrom.isSameOrBefore(valueTo, 'day')
+      : valueFrom
+      ? filterFrom.isSameOrBefore(valueFrom, 'day')
+      : false;
+  } else if (!filterFrom && filterTo) {
+    return valueTo
+      ? filterTo.isSameOrAfter(valueTo, 'day')
+      : valueFrom
+      ? filterTo.isSameOrAfter(valueFrom, 'day')
+      : false;
+  } else {
+    return true;
+  }
+};

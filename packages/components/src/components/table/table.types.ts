@@ -31,6 +31,10 @@ declare module '@tanstack/table-core' {
      * To filter out from date range (to - from)
      */
     'date-range': FilterFn<unknown>;
+    /**
+     * To filter out period from date range (to - from)
+     */
+    'date-range-period': FilterFn<unknown>;
   }
 }
 

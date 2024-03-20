@@ -46,6 +46,10 @@ type Person = {
   rowClassName?: string;
   rowGroupKey?: string;
   dateOfBirth: string;
+  employment: {
+    startDate: string;
+    endDate: string;
+  };
 };
 
 function calculateAge(birthday: Date) {
@@ -54,24 +58,32 @@ function calculateAge(birthday: Date) {
   return Math.abs(ageDate.getUTCFullYear() - 1970);
 }
 
-const createRandomPerson = (isSubRow: boolean): Person => ({
-  firstName: faker.person.firstName(),
-  lastName: faker.person.lastName(),
-  personName: faker.person.fullName(),
-  age: calculateAge(faker.date.birthdate()),
-  visits: Number(faker.number.int(99)),
-  status: faker.helpers.arrayElement(['Single', 'Complicated', 'In Relationship']),
-  progress: Math.floor(Math.random() * 101),
-  subRows: isSubRow
-    ? undefined
-    : faker.helpers.maybe(
-        () => faker.helpers.arrayElements(Array.from(Array(5).keys()).map(() => createRandomPerson(true))),
-        {
-          probability: 0.2,
-        }
-      ),
-  dateOfBirth: faker.date.past().toISOString(),
-});
+const createRandomPerson = (isSubRow: boolean): Person => {
+  const employmentStart = faker.date.past();
+
+  return {
+    firstName: faker.person.firstName(),
+    lastName: faker.person.lastName(),
+    personName: faker.person.fullName(),
+    age: calculateAge(faker.date.birthdate()),
+    visits: Number(faker.number.int(99)),
+    status: faker.helpers.arrayElement(['Single', 'Complicated', 'In Relationship']),
+    progress: Math.floor(Math.random() * 101),
+    subRows: isSubRow
+      ? undefined
+      : faker.helpers.maybe(
+          () => faker.helpers.arrayElements(Array.from(Array(5).keys()).map(() => createRandomPerson(true))),
+          {
+            probability: 0.2,
+          }
+        ),
+    dateOfBirth: faker.date.past().toISOString(),
+    employment: {
+      startDate: employmentStart.toISOString(),
+      endDate: dayjs(employmentStart).add(5, 'days').toISOString(),
+    },
+  };
+};
 
 const data = (length = 507): Person[] => Array.from(Array(length).keys()).map(() => createRandomPerson(false));
 
@@ -484,6 +496,18 @@ export const WithDateFilters: Story = {
         header: () => 'Date of Birth',
         cell: (info) => `${dayjs(info.row.original.dateOfBirth).format('DD.MM.YYYY')}`,
         filterFn: 'date-range',
+      }),
+      // Accessor value must be in the format { from: Dayjs | null, to: Dayjs | null }
+      columnHelper.accessor((row) => ({ from: row.employment.startDate, to: row.employment.endDate }), {
+        id: 'employment',
+        header: () => 'Period of Employment',
+        cell: (info) =>
+          `${dayjs(info.row.original.employment.startDate).format('DD.MM')} - ${dayjs(
+            info.row.original.employment.endDate
+          ).format('DD.MM.YYYY')}`,
+        filterFn: 'date-range-period',
+        sortingFn: ({ original: a }, { original: b }) =>
+          dayjs(a.employment.endDate).isAfter(dayjs(b.employment.endDate)) ? 1 : -1,
       }),
       columnHelper.accessor('status', {
         header: 'Status',
