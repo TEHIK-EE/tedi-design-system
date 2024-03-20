@@ -7,7 +7,7 @@ export interface StatusProps {
   /**
    * Type of the status.
    */
-  type: 'error' | 'success' | 'inactive';
+  type: 'error' | 'success' | 'inactive' | 'warning';
   /**
    * Any content.
    */

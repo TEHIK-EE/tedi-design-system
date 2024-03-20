@@ -29,3 +29,10 @@ export const Inactive: Story = {
     type: 'inactive',
   },
 };
+
+export const Warning: Story = {
+  args: {
+    children: 'Warning',
+    type: 'warning',
+  },
+};

@@ -26,4 +26,8 @@
   .status--inactive & {
     background-color: var(--color-text-disabled);
   }
+
+  .status--warning & {
+    background-color: var(--color-warning-main);
+  }
 }
