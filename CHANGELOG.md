@@ -1,3 +1,10 @@
+# [6.15.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.14.1...v6.15.0) (2024-03-20)
+
+
+### Features
+
+* **status:** TEHVEER-275 add warning option to status component ([2e082c4](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/2e082c4fd8232e20d4cfdd6a368c758b3eb9acfc))
+
 ## [6.14.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.14.0...v6.14.1) (2024-03-19)
 
 
