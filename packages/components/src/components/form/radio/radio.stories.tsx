@@ -78,6 +78,48 @@ export const HoverState: Story = {
   },
 };
 
+export const WithTooltip: Story = {
+  render: Template,
+
+  args: {
+    id: 'tooltip-radio',
+    name: 'tooltip-radio',
+    tooltip: 'This is a tooltip',
+  },
+};
+
+export const WithTooltipAndExtraContent: Story = {
+  render: Template,
+
+  args: {
+    id: 'tooltip-extra-content-radio',
+    name: 'tooltip-extra-content-radio',
+    extraContent: (
+      <Text color="muted" element="span">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis scelerisque quis augue sit amet semper. Donec
+        porttitor mauris neque, quis feugiat erat malesuada ac. Cras vel mauris a est pretium egestas.
+      </Text>
+    ),
+    tooltip: 'This is a tooltip',
+  },
+};
+
+export const WithLongTitleAndTooltipAndExtraContent: Story = {
+  args: {
+    id: 'long-title-tooltip-extra-content-radio',
+    name: 'long-title-tooltip-extra-content-radio',
+    label:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin varius, sem blandit sodales tincidunt, orci elit ornare ex, eu ultrices diam turpis id nisl. Sed sollicitudin auctor nunc. Aliquam a arcu in sem bibendum laoreet non eu nunc.',
+    extraContent: (
+      <Text color="muted" element="span">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis scelerisque quis augue sit amet semper. Donec
+        porttitor mauris neque, quis feugiat erat malesuada ac. Cras vel mauris a est pretium egestas.
+      </Text>
+    ),
+    tooltip: 'This is a tooltip',
+  },
+};
+
 export const Controlled = () => {
   const [checked, setChecked] = React.useState<boolean>(false);
 

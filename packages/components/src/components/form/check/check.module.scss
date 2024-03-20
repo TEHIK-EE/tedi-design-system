@@ -2,7 +2,7 @@
 
 .check {
   position: relative;
-  display: inline-flex;
+  display: inline;
 
   @include mixins.print-grayscale;
 
@@ -62,6 +62,10 @@
   .check__indicator--indeterminate &--indeterminate {
     opacity: 1;
   }
+}
+
+.check__tooltip-icon {
+  margin-left: 0.25rem;
 }
 
 .check__extra-content {

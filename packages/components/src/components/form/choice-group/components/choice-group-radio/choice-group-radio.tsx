@@ -16,6 +16,7 @@ export const ChoiceGroupRadio = (props: ChoiceGroupItemProps): React.ReactElemen
     onChange: onChangeItem,
     hideLabel,
     extraContent,
+    tooltip,
   } = props;
   const { currentValue, inputType, name, onChange } = React.useContext(ChoiceGroupContext);
 
@@ -27,7 +28,7 @@ export const ChoiceGroupRadio = (props: ChoiceGroupItemProps): React.ReactElemen
 
   const onChangeHandler = (value: string, checked: boolean): void => {
     onChange?.(value, checked);
-    onChangeItem?.(checked);
+    onChangeItem?.(value, checked);
   };
 
   return (
@@ -42,6 +43,7 @@ export const ChoiceGroupRadio = (props: ChoiceGroupItemProps): React.ReactElemen
         onChange={onChangeHandler}
         hideLabel={hideLabel}
         extraContent={extraContent}
+        tooltip={tooltip}
       />
     </Col>
   );

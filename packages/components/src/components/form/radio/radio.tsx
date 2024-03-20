@@ -1,59 +1,13 @@
 import cn from 'classnames';
 import React from 'react';
 
+import { Col, Row } from '../../grid';
+import Icon from '../../icon/icon';
+import { Tooltip, TooltipProvider, TooltipTrigger } from '../../tooltip';
+import { ChoiceInputProps } from '../choice-input.types';
 import styles from './radio.module.scss';
 
-export interface RadioProps {
-  /**
-   * ID property
-   */
-  id: string;
-  /**
-   * Label text
-   */
-  label: React.ReactNode;
-  /**
-   * Additional classes.
-   */
-  className?: string;
-  /**
-   * Value property
-   */
-  value: string;
-  /**
-   * name of the input
-   */
-  name: string;
-  /**
-   * is the label hidden
-   */
-  hideLabel?: boolean;
-  /**
-   * If the option is disabled
-   */
-  disabled?: boolean;
-  /**
-   * onChange handler
-   */
-  onChange?: (value: string, checked: boolean) => void;
-  /**
-   * Possibility to add extra content after label. ExtraContent is not clickable like label
-   * Can only be used with ChoiceGroupRadio and Checkbox.
-   */
-  extraContent?: React.ReactNode;
-  /**
-   * If the check is controlled from outside the components
-   */
-  checked?: boolean;
-  /**
-   * If the check is checked by default
-   */
-  defaultChecked?: boolean;
-  /**
-   * If the item should be in hover state
-   */
-  hover?: boolean;
-}
+export type RadioProps = ChoiceInputProps;
 
 export const Radio = (props: RadioProps): JSX.Element => {
   const {
@@ -69,6 +23,7 @@ export const Radio = (props: RadioProps): JSX.Element => {
     defaultChecked,
     hover,
     name,
+    tooltip,
     ...rest
   } = props;
   const [innerChecked, setInnerChecked] = React.useState<boolean>(defaultChecked || false);
@@ -88,21 +43,46 @@ export const Radio = (props: RadioProps): JSX.Element => {
 
   return (
     <div data-name="radio" className={className} {...rest}>
-      <label className={LabelBEM} htmlFor={id}>
-        <input
-          id={id}
-          value={value}
-          name={name}
-          type="radio"
-          disabled={disabled}
-          checked={getChecked}
-          onChange={onChangeHandler}
-          className={styles['radio__input']}
-        />
-        <span className={cn(styles['radio__indicator'], { [styles['radio__indicator--hover']]: hover })} />
+      <Row gutter={0}>
+        <Col width="auto">
+          <input
+            id={id}
+            value={value}
+            name={name}
+            type="radio"
+            disabled={disabled}
+            checked={getChecked}
+            onChange={onChangeHandler}
+            className={styles['radio__input']}
+          />
+          {/* We are using two labels on the same input field to avoid manually managing the state of a custom checkbox. This will show up as a warning in the Storybook Accessibility addon. It is still valid HTML and is hidden from screen-readers so it should not cause any actual issues to end-users. */}
+          <label
+            aria-hidden="true"
+            htmlFor={id}
+            className={cn(styles['radio__indicator'], { [styles['radio__indicator--hover']]: hover })}
+          />
+        </Col>
+        <Col>
+          <label className={LabelBEM} htmlFor={id}>
+            <span className={cn({ 'visually-hidden': hideLabel })}>{label}</span>
+          </label>
+          {tooltip && (
+            <TooltipProvider>
+              <TooltipTrigger>
+                <Icon
+                  name="info"
+                  color="primary"
+                  size={16}
+                  display="inline"
+                  className={styles['radio__tooltip-icon']}
+                />
+              </TooltipTrigger>
+              <Tooltip>{tooltip}</Tooltip>
+            </TooltipProvider>
+          )}
+        </Col>
+      </Row>
 
-        <span className={cn(styles['radio__content'], { 'visually-hidden': hideLabel })}>{label}</span>
-      </label>
       {extraContent && <div className={styles['radio__extra-content']}>{extraContent}</div>}
     </div>
   );
