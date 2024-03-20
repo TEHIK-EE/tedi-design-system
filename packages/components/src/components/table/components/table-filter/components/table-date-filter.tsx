@@ -1,9 +1,12 @@
+import dayjs from 'dayjs';
 import { useFormik } from 'formik';
 import React from 'react';
+import * as Yup from 'yup';
 
 import { useLabels } from '../../../../../providers/label-provider';
+import { IntentionalAny } from '../../../../../types';
 import Button from '../../../../button/button';
-import { DatePicker } from '../../../../form/pickers';
+import { DatePicker, DatepickerValue } from '../../../../form/pickers';
 import Col from '../../../../grid/col';
 import Row from '../../../../grid/row';
 import Text from '../../../../typography/text/text';
@@ -20,9 +23,24 @@ export const TableDateFilter = () => {
   const filterLabelTo = getLabel('table.filter.to');
   const filterIdFrom = `filter-date-${column?.id}-from`;
   const filterIdTo = `filter-date-${column?.id}-to`;
+  const filterEndBeforeStart = getLabel('table.filter.validation.to-before-from');
 
-  const { values, setFieldValue, handleReset, handleSubmit } = useFormik({
+  const validationSchema: Yup.Schema<typeof initialValues> = Yup.object().shape({
+    dateField: Yup.object().shape({
+      from: Yup.mixed<Exclude<DatepickerValue, null>>().defined().nullable(),
+      to: Yup.mixed<Exclude<DatepickerValue, null>>()
+        .defined()
+        .nullable()
+        .test('to-before-from', filterEndBeforeStart, function (value) {
+          const { from } = this.parent;
+          return !(value && from && dayjs(value).isBefore(dayjs(from), 'day'));
+        }),
+    }),
+  });
+
+  const { values, errors, setFieldValue, handleReset, handleSubmit } = useFormik({
     initialValues,
+    validationSchema,
     onSubmit: (values: typeof initialValues) => {
       column?.setFilterValue(values.dateField);
       setOpen?.(false);
@@ -49,14 +67,29 @@ export const TableDateFilter = () => {
           label={filterLabelFrom}
           name={filterLabelFrom}
           value={values.dateField?.from}
-          onChange={(value) => setFieldValue('dateField.from', value)}
+          onChange={(value) => {
+            setFieldValue('dateField.from', value);
+
+            // if start date is after end date, then clear the end date
+            if (value && values.dateField?.to && dayjs(value).isAfter(dayjs(values.dateField.to), 'day')) {
+              setFieldValue('dateField.to', null);
+            }
+          }}
         />
         <DatePicker
           id={filterIdTo}
           label={filterLabelTo}
           name={filterLabelTo}
           value={values.dateField?.to}
+          shouldDisableDate={(date) =>
+            !!(values.dateField?.from && dayjs(date).isBefore(dayjs(values.dateField?.from, 'day')))
+          }
           onChange={(value) => setFieldValue('dateField.to', value)}
+          helper={
+            (errors.dateField as IntentionalAny)?.to
+              ? { text: (errors.dateField as IntentionalAny).to, type: 'error' }
+              : undefined
+          }
         />
         <Row gutter={2} justifyContent="end">
           <Col width="auto">
