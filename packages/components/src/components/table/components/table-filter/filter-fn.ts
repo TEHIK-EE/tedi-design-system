@@ -19,10 +19,10 @@ export const dateRangeFilterFn = (row: Row<unknown>, columnId: string, filterVal
 
   if ((from || to) && !date) return false;
   if (from && !to) {
-    return from.isBefore(date);
+    return from.isSameOrBefore(date, 'day');
   } else if (!from && to) {
-    return to.isAfter(date);
+    return to.isSameOrAfter(date, 'day');
   } else if (from && to) {
-    return from.isBefore(date) && to.isAfter(date);
+    return from.isSameOrBefore(date, 'day') && to.isSameOrAfter(date, 'day');
   } else return true;
 };
