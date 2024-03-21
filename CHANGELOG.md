@@ -1,3 +1,16 @@
+# [6.17.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.16.0...v6.17.0) (2024-03-21)
+
+
+### Bug Fixes
+
+* **table:** TEHVEER-281 - Date-range filter should also match the same day ([e00f49c](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/e00f49c33c252628dc51338018cd75820abe5acc))
+
+
+### Features
+
+* **table:** TEHVEER-281 - Add validation to date-range filter ([ae7f60e](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/ae7f60ee88075f378a3ed175cd34073336c15292))
+* **table:** TEHVEER-281 - Added date-range-period filter ([0a8ea61](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/0a8ea61712ff723cde139a1a9d77697efbc97c28))
+
 # [6.16.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.15.0...v6.16.0) (2024-03-20)
 
 
