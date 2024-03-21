@@ -14,8 +14,8 @@ export const multiSelectFilterFn = (row: Row<unknown>, columnId: string, filterV
 
 export const dateRangeFilterFn = (row: Row<unknown>, columnId: string, filterValue: DateRangeFilterValues) => {
   const date = dayjs(row?.getValue?.(columnId));
-  const from = filterValue?.from;
-  const to = filterValue?.to;
+  const from = filterValue?.from ? dayjs(filterValue.from) : null;
+  const to = filterValue?.to ? dayjs(filterValue.to) : null;
 
   if ((from || to) && !date) return false;
   if (from && !to) {
@@ -36,8 +36,8 @@ export const dateRangePeriodFilterFn = (row: Row<unknown>, columnId: string, fil
     );
     return true;
   }
-  const filterFrom = filterValue?.from;
-  const filterTo = filterValue?.to;
+  const filterFrom = filterValue?.from ? dayjs(filterValue.from) : null;
+  const filterTo = filterValue?.to ? dayjs(filterValue.to) : null;
   const valueFrom = date.from;
   const valueTo = date.to;
 
