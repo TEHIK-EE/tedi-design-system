@@ -1,3 +1,11 @@
+# [6.18.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.17.1...v6.18.0) (2024-03-21)
+
+
+### Features
+
+* **col, row:** extend Row and Col component typings to accommodate html attributes - TEHVEER-274 ([3641978](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/364197854d30e960ebcad5aa0a6d8451b4bf8d61))
+* **table:** add getRowId property, use Checks inside getRowSelectionColumn - TEHVEER-282 ([d80a7ae](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/d80a7ae64f38c51b34c162e16787b3e615e56b18))
+
 ## [6.17.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.17.0...v6.17.1) (2024-03-21)
 
 
