@@ -2,6 +2,8 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import type { PickersLocaleText } from '@mui/x-date-pickers/locales/utils/pickersLocaleTextApi';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import dayjs from 'dayjs';
+import isSameOrAfter from 'dayjs/plugin/isSameOrAfter';
+import isSameOrBefore from 'dayjs/plugin/isSameOrBefore';
 import updateLocale from 'dayjs/plugin/updateLocale';
 import React from 'react';
 
@@ -10,6 +12,8 @@ import { defaultEELabels, defaultENLabels, defaultRULabels, FlatLabelsMap, Label
 import 'dayjs/locale/et';
 import 'dayjs/locale/ru';
 dayjs.extend(updateLocale);
+dayjs.extend(isSameOrBefore);
+dayjs.extend(isSameOrAfter);
 // Start en locale week with monday
 dayjs.updateLocale('en', {
   weekStart: 1,

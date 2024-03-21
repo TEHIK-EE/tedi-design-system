@@ -21,11 +21,9 @@ export const TableTextFilter = () => {
   const filterMinLengthVal = getLabel('table.filter.validation.min-length');
   const filterMinLength = typeof filterMinLengthVal === 'string' ? filterMinLengthVal : filterMinLengthVal(3);
 
-  // TODO: Remove ts-ignore
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
-  const validationSchema: Yup.SchemaOf<typeof initialValues> = Yup.object().shape({
+  const validationSchema: Yup.Schema<typeof initialValues> = Yup.object().shape({
     filter: Yup.string()
+      .defined()
       .matches(/^(?!\s+$).*/, getLabel('table.filter.validation.no-spaces'))
       .min(3, filterMinLength),
   });

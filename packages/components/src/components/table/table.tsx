@@ -23,6 +23,7 @@ import { PlaceholderProps } from '../placeholder/placeholder';
 import Pagination from './components/pagination/pagination';
 import {
   dateRangeFilterFn,
+  dateRangePeriodFilterFn,
   multiSelectFilterFn,
   selectFilterFn,
   textFilterFn,
@@ -195,6 +196,7 @@ export function Table<TData extends DefaultTData<TData>>(props: TableProps<TData
       select: selectFilterFn,
       'multi-select': multiSelectFilterFn,
       'date-range': dateRangeFilterFn,
+      'date-range-period': dateRangePeriodFilterFn,
     },
   });
 

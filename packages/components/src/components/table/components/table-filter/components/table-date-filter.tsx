@@ -1,9 +1,12 @@
+import dayjs from 'dayjs';
 import { useFormik } from 'formik';
 import React from 'react';
+import * as Yup from 'yup';
 
 import { useLabels } from '../../../../../providers/label-provider';
+import { IntentionalAny } from '../../../../../types';
 import Button from '../../../../button/button';
-import { DatePicker } from '../../../../form/pickers';
+import { DatePicker, DatepickerValue } from '../../../../form/pickers';
 import Col from '../../../../grid/col';
 import Row from '../../../../grid/row';
 import Text from '../../../../typography/text/text';
@@ -13,18 +16,36 @@ import { TableFilterContext } from '../table-filter-context';
 export const TableDateFilter = () => {
   const { getLabel } = useLabels();
   const { column, open, setOpen, values: contextValues } = React.useContext(TableFilterContext);
-  const initialValues = { dateField: contextValues?.dateRange };
+
+  const initialValues = {
+    dateRangeField: contextValues?.dateRange,
+  };
 
   const filterLabel = getLabel('table.filter');
   const filterLabelFrom = getLabel('table.filter.from');
   const filterLabelTo = getLabel('table.filter.to');
   const filterIdFrom = `filter-date-${column?.id}-from`;
   const filterIdTo = `filter-date-${column?.id}-to`;
+  const filterEndBeforeStart = getLabel('table.filter.validation.to-before-from');
 
-  const { values, setFieldValue, handleReset, handleSubmit } = useFormik({
+  const validationSchema: Yup.Schema<typeof initialValues> = Yup.object().shape({
+    dateRangeField: Yup.object().shape({
+      from: Yup.mixed<Exclude<DatepickerValue, null>>().defined().nullable(),
+      to: Yup.mixed<Exclude<DatepickerValue, null>>()
+        .defined()
+        .nullable()
+        .test('to-before-from', filterEndBeforeStart, function (value) {
+          const { from } = this.parent;
+          return !(value && from && dayjs(value).isBefore(dayjs(from), 'day'));
+        }),
+    }),
+  });
+
+  const { values, errors, setFieldValue, handleReset, handleSubmit } = useFormik({
     initialValues,
+    validationSchema,
     onSubmit: (values: typeof initialValues) => {
-      column?.setFilterValue(values.dateField);
+      column?.setFilterValue(values.dateRangeField);
       setOpen?.(false);
     },
     onReset: () => {
@@ -34,11 +55,11 @@ export const TableDateFilter = () => {
   });
 
   React.useEffect(() => {
-    if (open && !values.dateField) {
+    if (open && !values.dateRangeField) {
       const filterField = document.getElementById(filterIdFrom);
       filterField?.focus?.({ preventScroll: true });
     }
-  }, [column?.id, values.dateField, open, filterIdFrom]);
+  }, [column?.id, values.dateRangeField, open, filterIdFrom]);
 
   return (
     <form onSubmit={handleSubmit}>
@@ -48,15 +69,36 @@ export const TableDateFilter = () => {
           id={filterIdFrom}
           label={filterLabelFrom}
           name={filterLabelFrom}
-          value={values.dateField?.from}
-          onChange={(value) => setFieldValue('dateField.from', value)}
+          value={values.dateRangeField?.from}
+          input={{
+            autoComplete: 'off',
+          }}
+          onChange={(value) => {
+            setFieldValue('dateRangeField.from', value);
+
+            // if start date is after end date, then clear the end date
+            if (value && values.dateRangeField?.to && dayjs(value).isAfter(dayjs(values.dateRangeField?.to), 'day')) {
+              setFieldValue('dateRangeField.to', null);
+            }
+          }}
         />
         <DatePicker
           id={filterIdTo}
           label={filterLabelTo}
           name={filterLabelTo}
-          value={values.dateField?.to}
-          onChange={(value) => setFieldValue('dateField.to', value)}
+          value={values.dateRangeField?.to}
+          input={{
+            autoComplete: 'off',
+          }}
+          shouldDisableDate={(date) =>
+            !!(values.dateRangeField?.from && dayjs(date).isBefore(dayjs(values.dateRangeField?.from, 'day')))
+          }
+          onChange={(value) => setFieldValue('dateRangeField.to', value)}
+          helper={
+            (errors.dateRangeField as IntentionalAny)?.to
+              ? { text: (errors.dateRangeField as IntentionalAny).to, type: 'error' }
+              : undefined
+          }
         />
         <Row gutter={2} justifyContent="end">
           <Col width="auto">

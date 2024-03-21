@@ -267,6 +267,13 @@ export const labelsMap = {
     en: (count: number) => (count === 1 ? `Min length is ${count} char` : `Min length is ${count} chars`),
     ru: (count: number) => (count === 1 ? `Минимальная длина ${count} знак` : `Минимальная длина ${count} знаков`),
   }),
+  'table.filter.validation.to-before-from': validateLabel({
+    description: 'Filter validation error - End date is before start date',
+    components: ['Table', 'TableFilter'],
+    et: 'Lõppkuupäev on enne alguskuupäeva',
+    en: 'End date must be after start date',
+    ru: 'Дата окончания предшествует дате начала',
+  }),
   'table.filter.from': validateLabel({
     description: 'Label for date filter from',
     components: ['Table', 'TableFilter'],
