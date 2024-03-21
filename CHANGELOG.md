@@ -1,3 +1,10 @@
+## [6.17.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.17.0...v6.17.1) (2024-03-21)
+
+
+### Bug Fixes
+
+* **table:** TEHVEER-281 - Fix filtering logic for date-range-period when only end filter was set ([ed2bc29](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/ed2bc2903638d2016d171bb5dfc8ce5eed23cae9))
+
 # [6.17.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.16.0...v6.17.0) (2024-03-21)
 
 
