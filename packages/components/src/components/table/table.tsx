@@ -24,6 +24,7 @@ import Pagination from './components/pagination/pagination';
 import {
   dateRangeFilterFn,
   dateRangePeriodFilterFn,
+  mapFilterFn,
   multiSelectFilterFn,
   selectFilterFn,
   textFilterFn,
@@ -194,11 +195,11 @@ export function Table<TData extends DefaultTData<TData>>(props: TableProps<TData
     enableSorting,
     getRowId,
     filterFns: {
-      text: textFilterFn,
-      select: selectFilterFn,
-      'multi-select': multiSelectFilterFn,
-      'date-range': dateRangeFilterFn,
-      'date-range-period': dateRangePeriodFilterFn,
+      text: (row, id, value) => mapFilterFn(row, id, value, textFilterFn),
+      select: (row, id, value) => mapFilterFn(row, id, value, selectFilterFn),
+      'multi-select': (row, id, value) => mapFilterFn(row, id, value, multiSelectFilterFn),
+      'date-range': (row, id, value) => mapFilterFn(row, id, value, dateRangeFilterFn),
+      'date-range-period': (row, id, value) => mapFilterFn(row, id, value, dateRangePeriodFilterFn),
     },
   });
 
