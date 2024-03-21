@@ -56,7 +56,7 @@ interface RowSpec {
   wrap?: Wrap;
 }
 
-export interface RowProps extends RowSpec {
+export interface RowProps extends RowSpec, React.HTMLAttributes<HTMLElement> {
   /**
    * Row children. Row direct children should always be Col components
    */

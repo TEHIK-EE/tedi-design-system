@@ -45,7 +45,7 @@ export interface ColSpec {
   shrink?: 0 | 1;
 }
 
-export interface ColProps extends ColSpec {
+export interface ColProps extends ColSpec, React.HTMLAttributes<HTMLElement> {
   /**
    * Col children.
    */
