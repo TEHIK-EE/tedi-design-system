@@ -67,7 +67,7 @@ export const Check = (props: CheckProps): JSX.Element => {
           <label
             aria-hidden="true"
             htmlFor={id}
-            className={cn(styles['check__indicator'], {
+            className={cn(LabelBEM, styles['check__indicator'], {
               [styles['check__indicator--hover']]: hover,
               [styles['check__indicator--indeterminate']]: indeterminate,
             })}
