@@ -1,5 +1,5 @@
 import { Row } from '@tanstack/react-table';
-import dayjs from 'dayjs';
+import dayjs, { ConfigType } from 'dayjs';
 
 import { DateRangeFilterValues } from './table-filter-context';
 
@@ -28,10 +28,12 @@ export const dateRangeFilterFn = (row: Row<unknown>, columnId: string, filterVal
 };
 
 export const dateRangePeriodFilterFn = (row: Row<unknown>, columnId: string, filterValue: DateRangeFilterValues) => {
-  const date = row?.getValue?.(columnId) as DateRangeFilterValues;
+  const date = row?.getValue?.(columnId) as { from: ConfigType; to: ConfigType };
 
   if (typeof date !== 'object' || !Object.keys(date).includes('from') || !Object.keys(date).includes('to')) {
-    console.error('Accessor function should return an object { from: Dayjs | null, to: Dayjs | null }');
+    console.error(
+      'Accessor function should return an object { from: Dayjs | Date | string | null | undefined, to: Dayjs | Date | string | null | undefined }'
+    );
     return true;
   }
   const filterFrom = filterValue?.from;

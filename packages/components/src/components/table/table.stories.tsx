@@ -497,7 +497,7 @@ export const WithDateFilters: Story = {
         cell: (info) => `${dayjs(info.row.original.dateOfBirth).format('DD.MM.YYYY')}`,
         filterFn: 'date-range',
       }),
-      // Accessor value must be in the format { from: Dayjs | null, to: Dayjs | null }
+      // Accessor value must be in the format { from: Dayjs | Date | string | null | undefined, to: Dayjs | Date | string | null | undefined }
       columnHelper.accessor((row) => ({ from: row.employment.startDate, to: row.employment.endDate }), {
         id: 'employment',
         header: () => 'Period of Employment',
