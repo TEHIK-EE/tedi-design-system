@@ -59,10 +59,10 @@ export const dateRangePeriodFilterFn = (row: Row<unknown>, columnId: string, fil
       ? filterFrom.isSameOrBefore(valueFrom, 'day')
       : false;
   } else if (!filterFrom && filterTo) {
-    return valueTo
-      ? filterTo.isSameOrAfter(valueTo, 'day')
-      : valueFrom
+    return valueFrom
       ? filterTo.isSameOrAfter(valueFrom, 'day')
+      : valueTo
+      ? filterTo.isSameOrAfter(valueTo, 'day')
       : false;
   } else {
     return true;
