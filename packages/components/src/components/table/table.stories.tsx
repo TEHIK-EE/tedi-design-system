@@ -35,6 +35,7 @@ export default meta;
 type Story = StoryObj<TableProps<Person>>;
 
 type Person = {
+  id: string;
   firstName: string;
   lastName: string;
   personName: string;
@@ -62,6 +63,7 @@ const createRandomPerson = (isSubRow: boolean): Person => {
   const employmentStart = faker.date.past();
 
   return {
+    id: faker.database.mongodbObjectId(),
     firstName: faker.person.firstName(),
     lastName: faker.person.lastName(),
     personName: faker.person.fullName(),
@@ -275,6 +277,15 @@ export const RowSelection: Story = {
     data: data(),
     columns: [getRowSelectionColumn('test', true), ...columns],
     id: 'row-selection-table',
+    getRowId: (row) => row.id,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: ` Its recommended to use getRowId when using row selection to ensure correct row selection state with server side pagination/filtering. <br />
+        When using select all toggle and serverSide pagination bear in mind that all rows are not loaded at once and select all will only select the rows that are in current page.`,
+      },
+    },
   },
 };
 

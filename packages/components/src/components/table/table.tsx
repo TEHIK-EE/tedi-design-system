@@ -57,6 +57,7 @@ export function Table<TData extends DefaultTData<TData>>(props: TableProps<TData
     onPaginationChange,
     onSortingChange,
     onRowSelectionChange,
+    getRowId,
     onRowClick,
     defaultRowSelection,
     totalRows,
@@ -191,6 +192,7 @@ export function Table<TData extends DefaultTData<TData>>(props: TableProps<TData
     manualPagination: manualPagination ?? !!pagination,
     enableFilters,
     enableSorting,
+    getRowId,
     filterFns: {
       text: textFilterFn,
       select: selectFilterFn,

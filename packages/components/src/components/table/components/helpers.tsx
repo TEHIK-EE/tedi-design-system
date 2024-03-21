@@ -2,7 +2,7 @@ import { ColumnDef, ColumnFiltersState, PaginationState, SortingState } from '@t
 import React from 'react';
 
 import { LabelContext } from '../../../providers/label-provider';
-import ChoiceGroup from '../../form/choice-group/choice-group';
+import Check from '../../form/check/check';
 import Icon from '../../icon/icon';
 import Tag from '../../tag/tag';
 import styles from '../table.module.scss';
@@ -41,51 +41,45 @@ export function getRowSelectionColumn<TData>(id = 'row-selection', showSelectAll
     header: ({ table }) =>
       showSelectAll ? (
         <LabelContext.Consumer>
-          {({ getLabel }) => (
-            <ChoiceGroup
-              items={[
-                {
-                  id: `${id}-header`,
-                  label: getLabel('table.select-all'),
-                  hideLabel: true,
-                  value: 'row-expander-header',
-                  onChange: () => table.toggleAllRowsSelected(),
-                },
-              ]}
-              id={`${id}-choice-header`}
-              name="row-expander-choice-header"
-              label={getLabel('table.select-all')}
-              inputType="checkbox"
-              hideLabel={true}
-              value={table.getIsAllRowsSelected() ? 'row-expander-header' : null}
-              onChange={() => null} // To allow outside controlled state
-            />
-          )}
+          {({ getLabel }) => {
+            const toggleLabel = getLabel('table.select-all');
+            const finalLabel =
+              typeof toggleLabel === 'string' ? toggleLabel : toggleLabel(table.getIsAllRowsSelected());
+
+            return (
+              <Check
+                id={`${id}-header`}
+                label={finalLabel}
+                hideLabel
+                value="row-expander-header"
+                name={`${id}-header`}
+                checked={table.getIsAllRowsSelected()}
+                indeterminate={table.getIsSomeRowsSelected()}
+                onChange={() => table.toggleAllRowsSelected()}
+              />
+            );
+          }}
         </LabelContext.Consumer>
       ) : null,
     cell: ({ row }) => {
       return (
         <LabelContext.Consumer>
-          {({ getLabel }) => (
-            <ChoiceGroup
-              items={[
-                {
-                  id: `${id}-${row.id}`,
-                  label: getLabel('table.select-row'),
-                  hideLabel: true,
-                  value: `${id}-${row.id}`,
-                  onChange: row.getToggleSelectedHandler(),
-                },
-              ]}
-              id={`${id}-choice-${row.id}`}
-              name={`${id}-${row.id}`}
-              label={getLabel('table.select-row')}
-              inputType="checkbox"
-              hideLabel={true}
-              value={row.getIsSelected() ? `${id}-${row.id}` : null}
-              onChange={() => null} // To allow outside controlled state
-            />
-          )}
+          {({ getLabel }) => {
+            const toggleLabel = getLabel('table.select-row');
+            const finalLabel = typeof toggleLabel === 'string' ? toggleLabel : toggleLabel(row.getIsSelected());
+
+            return (
+              <Check
+                id={`${id}-${row.id}`}
+                name={`${id}-${row.id}`}
+                label={finalLabel}
+                hideLabel
+                value={`${id}-${row.id}`}
+                checked={row.getIsSelected()}
+                onChange={() => row.toggleSelected()}
+              />
+            );
+          }}
         </LabelContext.Consumer>
       );
     },

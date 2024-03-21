@@ -298,16 +298,16 @@ export const labelsMap = {
   'table.select-all': validateLabel({
     description: 'Row selection - Label for check in table header',
     components: ['Table'],
-    et: 'Vali kõik',
-    en: 'Select all',
-    ru: 'Выбрать все',
+    et: (isSelected: boolean) => (isSelected ? 'Eemalda kõik' : 'Vali kõik'),
+    en: (isSelected: boolean) => (isSelected ? 'Deselect all' : 'Select all'),
+    ru: (isSelected: boolean) => (isSelected ? 'Убрать выделение со всего' : 'Выбрать все'),
   }),
   'table.select-row': validateLabel({
     description: 'Row selection - Label for check in table row',
     components: ['Table'],
-    et: 'Vali rida',
-    en: 'Select row',
-    ru: 'Выбрать ряд',
+    et: (isSelected: boolean) => (isSelected ? 'Eemalda rida' : 'Vali rida'),
+    en: (isSelected: boolean) => (isSelected ? 'Deselect row' : 'Select row'),
+    ru: (isSelected: boolean) => (isSelected ? 'Отменить выбор строки' : 'Выбрать ряд'),
   }),
   'table.sort': validateLabel({
     description: 'Label for sort button',

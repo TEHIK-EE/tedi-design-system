@@ -144,6 +144,11 @@ export interface TableProps<TData extends DefaultTData<TData>> {
    */
   defaultRowSelection?: RowSelectionState;
   /**
+   * This optional function is used to derive a unique ID for any given row. If not provided the rows index is used (nested rows join together with . using their grandparents' index eg. index.index.index).
+   * Its recommended to use Row ID when using row selection
+   */
+  getRowId?: (originalRow: TData, index: number, parent?: Row<TData>) => string;
+  /**
    * TotalRows - only needed to pass when server-side pagination is used.
    */
   totalRows?: number;

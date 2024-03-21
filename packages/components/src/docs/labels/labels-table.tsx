@@ -85,6 +85,7 @@ const Labels = () => {
         columns={columns}
         defaultPagination={{ pageIndex: 0, pageSize: 20 }}
         defaultSorting={[{ id: 'key', desc: false }]}
+        enableFilters
       />
     </LabelProvider>
   );
