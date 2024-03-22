@@ -5,7 +5,9 @@ import { IntentionalAny } from '../../../../types';
 import { DateRangeFilterValues } from './table-filter-context';
 
 export const textFilterFn = (filterValue: string, data: unknown) =>
-  typeof data === 'string' || typeof data === 'number' ? filterValue?.includes(String(data)) : true;
+  typeof data === 'string' || typeof data === 'number'
+    ? filterValue?.toLowerCase().includes(String(data).toLowerCase())
+    : true;
 
 export const selectFilterFn = (filterValue: string, data: unknown) => filterValue === data;
 
