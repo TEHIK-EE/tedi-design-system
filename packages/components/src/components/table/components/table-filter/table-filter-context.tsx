@@ -1,12 +1,12 @@
 import { Column, Row } from '@tanstack/react-table';
 import React from 'react';
 
-import { DatepickerValue } from '../../../form/pickers';
 import { DefaultTData } from '../../table.types';
 
+// hold the filter value in ISOString instead of Dayjs object, so it is easier to store in places like localstorage
 export interface DateRangeFilterValues {
-  from: DatepickerValue;
-  to: DatepickerValue;
+  from: string | null;
+  to: string | null;
 }
 
 export interface TableFilterFields {

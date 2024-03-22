@@ -6,7 +6,7 @@ import * as Yup from 'yup';
 import { useLabels } from '../../../../../providers/label-provider';
 import { IntentionalAny } from '../../../../../types';
 import Button from '../../../../button/button';
-import { DatePicker, DatepickerValue } from '../../../../form/pickers';
+import { DatePicker } from '../../../../form/pickers';
 import Col from '../../../../grid/col';
 import Row from '../../../../grid/row';
 import Text from '../../../../typography/text/text';
@@ -30,8 +30,8 @@ export const TableDateFilter = () => {
 
   const validationSchema: Yup.Schema<typeof initialValues> = Yup.object().shape({
     dateRangeField: Yup.object().shape({
-      from: Yup.mixed<Exclude<DatepickerValue, null>>().defined().nullable(),
-      to: Yup.mixed<Exclude<DatepickerValue, null>>()
+      from: Yup.string().defined().nullable(),
+      to: Yup.string()
         .defined()
         .nullable()
         .test('to-before-from', filterEndBeforeStart, function (value) {
@@ -69,12 +69,12 @@ export const TableDateFilter = () => {
           id={filterIdFrom}
           label={filterLabelFrom}
           name={filterLabelFrom}
-          value={values.dateRangeField?.from}
+          value={values.dateRangeField?.from ? dayjs(values.dateRangeField.from) : null}
           input={{
             autoComplete: 'off',
           }}
           onChange={(value) => {
-            setFieldValue('dateRangeField.from', value);
+            setFieldValue('dateRangeField.from', value?.toISOString() ?? null);
 
             // if start date is after end date, then clear the end date
             if (value && values.dateRangeField?.to && dayjs(value).isAfter(dayjs(values.dateRangeField?.to), 'day')) {
@@ -86,14 +86,14 @@ export const TableDateFilter = () => {
           id={filterIdTo}
           label={filterLabelTo}
           name={filterLabelTo}
-          value={values.dateRangeField?.to}
+          value={values.dateRangeField?.to ? dayjs(values.dateRangeField?.to) : null}
           input={{
             autoComplete: 'off',
           }}
           shouldDisableDate={(date) =>
-            !!(values.dateRangeField?.from && dayjs(date).isBefore(dayjs(values.dateRangeField?.from, 'day')))
+            !!(values.dateRangeField?.from && dayjs(date).isBefore(dayjs(values.dateRangeField?.from), 'day'))
           }
-          onChange={(value) => setFieldValue('dateRangeField.to', value)}
+          onChange={(value) => setFieldValue('dateRangeField.to', value?.toISOString() ?? null)}
           helper={
             (errors.dateRangeField as IntentionalAny)?.to
               ? { text: (errors.dateRangeField as IntentionalAny).to, type: 'error' }
