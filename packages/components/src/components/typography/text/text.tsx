@@ -10,6 +10,7 @@ export type TextModifiers =
   | 'normal'
   | 'small'
   | 'bold'
+  | 'thin'
   | 'italic'
   | 'center'
   | 'left'

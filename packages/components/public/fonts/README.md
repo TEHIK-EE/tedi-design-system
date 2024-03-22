@@ -20,5 +20,15 @@ Affected files are \_icons.scss, \_fonts.scss. Fonts folder in src/public and bu
     - keep in mind that while it is possible to extend these parameters, each added value increases the size of the font file -> slower loading times
 - rename the downloaded files and copy them to src/public/fonts
 
+### To update roboto font files:
+
+In most cases this is never needed. Unless we want to add support for new weights or styles.
+
+- download the font files from the following url
+  - https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap
+- rename each of the files to match the weight and style of the font. Example `roboto-v30-latin-ext-300-italic.woff2`
+- add or update the @font-face in the `/src/styles/_fonts.scss`
+- make sure the font is rendered correctly in the https://disainipesa-react.tehik.ee/?path=/story/components-typography-text--font-variants story
+
 https://github.com/vitejs/vite/issues/4454
 https://github.com/vitejs/vite/issues/3295

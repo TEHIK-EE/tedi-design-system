@@ -1,6 +1,9 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import { ColumnDef, createColumnHelper } from '@tanstack/react-table';
+import React from 'react';
 
+import Col from '../../grid/col';
+import Row from '../../grid/row';
 import { Table } from '../../table';
 import { VerticalSpacing } from '../../vertical-spacing';
 import Text, { TextProps } from './text';
@@ -46,6 +49,15 @@ const DefaultRows: TextTableRow[] = [
   { name: 'Subtitles small', rem: '0.875/1.25', px: '14/20', props: { modifiers: ['uppercase', 'small'] } },
 ];
 
+const FontVariantRows: TextProps[] = [
+  { children: 'roboto-300', modifiers: ['thin'] },
+  { children: 'roboto-300-italic', modifiers: ['thin', 'italic'] },
+  { children: 'roboto-400', modifiers: [] },
+  { children: 'roboto-400-italic', modifiers: ['italic'] },
+  { children: 'roboto-700', modifiers: ['bold'] },
+  { children: 'roboto-700-italic', modifiers: ['bold', 'italic'] },
+];
+
 const columnHelper = createColumnHelper<TextTableRow>();
 
 // eslint-disable-next-line
@@ -73,6 +85,35 @@ const DefaultTemplate: StoryFn = () => {
       hidePagination
       enableSorting={false}
     />
+  );
+};
+
+const AlphabetTemplate: StoryFn = () => {
+  const etAlphabet = 'ABCDEFGHIJKLMNOPQRSŠZŽTUVWÕÄÖÜXYabcdefghijklmnopqrsšzžtuvwõäöüxy';
+  const ruAlphabet = 'АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдеёжзийклмнопрстуфхцчшщъыьэюя';
+
+  return (
+    <VerticalSpacing>
+      {FontVariantRows.map(({ children, ...variant }, index) => (
+        <Row key={index} alignItems="center">
+          <Col width={2}>{children}</Col>
+          <Col>
+            <VerticalSpacing size={0}>
+              <Text {...variant}>
+                <Text element="span" modifiers="break-word">
+                  {etAlphabet}
+                </Text>
+              </Text>
+              <Text {...variant}>
+                <Text element="span" modifiers="break-word">
+                  {ruAlphabet}
+                </Text>
+              </Text>
+            </VerticalSpacing>
+          </Col>
+        </Row>
+      ))}
+    </VerticalSpacing>
   );
 };
 
@@ -199,4 +240,14 @@ export const WithBreakpointProps: StoryObj<ModifiersTemplateProps> = {
       },
     ],
   },
+};
+
+/**
+ * Displays all the different Roboto font variations that we support. In total there are 24 different font files.
+ * * Font weight: 300, 400, 700
+ * * Font style: normal, italic
+ * * Characters: latin, latin-extended, cyrillic, cyrillic-extended
+ */
+export const FontVariants: Story = {
+  render: AlphabetTemplate,
 };
