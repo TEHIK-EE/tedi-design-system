@@ -26,11 +26,16 @@ export const CustomizeTableCell = (props: CustomizeTableCellProps): JSX.Element 
 
   React.useEffect(() => {
     const parentElem = nodeRef?.current?.parentElement;
-    if (parentElem && className) {
+    if (parentElem) {
       parentElem.className = styles['cell'];
-      parentElem.style.setProperty('--table-cell-internal-vertical-align', verticalAlign);
 
-      parentElem.classList.add(...className.split(' '));
+      if (className) {
+        parentElem.classList.add(...className.split(' '));
+      }
+
+      if (verticalAlign) {
+        parentElem.style.setProperty('--table-cell-internal-vertical-align', verticalAlign);
+      }
     }
   }, [className, verticalAlign]);
 
