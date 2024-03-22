@@ -1,3 +1,10 @@
+## [6.21.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.21.0...v6.21.1) (2024-03-22)
+
+
+### Bug Fixes
+
+* **table:** TEHVEER-285 - verticalAlign was only working with classNames set ([9d147e7](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/9d147e79b5e9c283fcfc59208ac610606fbf936f))
+
 # [6.21.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.20.0...v6.21.0) (2024-03-22)
 
 
