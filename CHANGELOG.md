@@ -1,3 +1,10 @@
+## [6.21.2](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.21.1...v6.21.2) (2024-03-22)
+
+
+### Bug Fixes
+
+* **table:** TEHVEER-283 - textFilterFn should be case-insensitive ([ba86e3b](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/ba86e3bdf2025308ab7fb1314183e027b9682631))
+
 ## [6.21.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.21.0...v6.21.1) (2024-03-22)
 
 
