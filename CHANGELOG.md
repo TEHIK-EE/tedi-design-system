@@ -1,3 +1,10 @@
+# [6.20.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.19.0...v6.20.0) (2024-03-22)
+
+
+### Features
+
+* **text:** TEHVEER-284 - Update roboto font files ([7462e66](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/7462e661ee6599c1d0b181f357548464e5aa1e78))
+
 # [6.19.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.18.0...v6.19.0) (2024-03-22)
 
 
