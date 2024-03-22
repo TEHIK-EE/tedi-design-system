@@ -298,6 +298,10 @@ export const WithSubRow: Story = {
   },
 };
 
+/**
+ * `<CustomizeTableCell>` component allows us to modify the td element in the table.
+ * It allows us to add custom classNames or change vertical alignment.
+ */
 export const WithCustomizedCells: Story = {
   args: {
     data: data(),
