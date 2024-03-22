@@ -1,3 +1,17 @@
+# [6.19.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.18.0...v6.19.0) (2024-03-22)
+
+
+### Bug Fixes
+
+* **choice-group:** TEHVEER-268 - fix wrong cursor on radio and check hover ([a057fba](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/a057fba987708162d7eb84e0defa4513989f7751))
+
+
+### Features
+
+* **table:** TEHVEER-283 - Added manualSorting and manualFiltering props ([209de75](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/209de75e6fdc5b61b21252968a3c473c0bfc0d7b))
+* **table:** TEHVEER-283 - Export filter-fn, so they can be used in the app if needed ([e59f620](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/e59f62074713b3b73a41b72f6721f9418923574e))
+* **table:** TEHVEER-283 - Store date filter value as ISOString instead of Dayjs object ([c6d0d0b](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/c6d0d0b7e3eddba747a400e9e17f5e698c963069))
+
 # [6.18.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.17.1...v6.18.0) (2024-03-21)
 
 
