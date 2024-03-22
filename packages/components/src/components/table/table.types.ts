@@ -108,6 +108,16 @@ export interface TableProps<TData extends DefaultTData<TData>> {
    */
   manualPagination?: boolean;
   /**
+   * If internal sorting logic is ignored. If true, then sorting must be handled in the app.
+   * If omitted, then the value is inherited from `!!sorting` prop.
+   */
+  manualSorting?: boolean;
+  /**
+   * If internal filtering logic is ignored. If true, then filtering must be handled in the app.
+   * If omitted, then the value is inherited from `!!columnFilters` prop.
+   */
+  manualFiltering?: boolean;
+  /**
    * Callback on Pagination data change. Use combined with `pagination` and `totalRows` props to make server-side pagination
    */
   onPaginationChange?: (state: PaginationState) => void;
