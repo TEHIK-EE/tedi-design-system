@@ -1,3 +1,10 @@
+# [6.21.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.20.0...v6.21.0) (2024-03-22)
+
+
+### Features
+
+* **table:** TEHVEER-285 - Added verticalAlignment prop to CustomizeTableCell ([82b8718](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/82b8718400b44632f58d318c47725a50921b7384))
+
 # [6.20.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.19.0...v6.20.0) (2024-03-22)
 
 
