@@ -286,7 +286,7 @@ export const RadioWithLongTitle: Story = {
     ...Check.args,
     inputType: 'radio',
     label: 'I have extra long titles:',
-    items: generateItems(17, { extraLongTitle: true }),
+    items: generateItems(18, { extraLongTitle: true }),
   },
 };
 
@@ -297,7 +297,7 @@ export const FilterItemWithColors: Story = {
     inputType: 'radio',
     name: 'filter-colored',
     type: 'filter',
-    items: generateItems(18, { colored: true }),
+    items: generateItems(19, { colored: true }),
   },
 };
 
@@ -308,6 +308,6 @@ export const RadioWithTooltip: Story = {
     defaultValue: [],
     inputType: 'radio',
     name: 'radio-tooltip',
-    items: generateItems(19, { tooltip: true }),
+    items: generateItems(20, { tooltip: true }),
   },
 };

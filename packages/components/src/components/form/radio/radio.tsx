@@ -59,7 +59,7 @@ export const Radio = (props: RadioProps): JSX.Element => {
           <label
             aria-hidden="true"
             htmlFor={id}
-            className={cn(styles['radio__indicator'], { [styles['radio__indicator--hover']]: hover })}
+            className={cn(LabelBEM, styles['radio__indicator'], { [styles['radio__indicator--hover']]: hover })}
           />
         </Col>
         <Col>
