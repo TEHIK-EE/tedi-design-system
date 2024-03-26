@@ -18,6 +18,7 @@ import React from 'react';
 
 import usePrint from '../../helpers/hooks/use-print';
 import { useLabels } from '../../providers/label-provider';
+import { IntentionalAny } from '../../types';
 import { Card, CardContent } from '../card';
 import { PlaceholderProps } from '../placeholder/placeholder';
 import Pagination from './components/pagination/pagination';
@@ -35,11 +36,13 @@ import { DefaultTData, TableProps } from './table.types';
 import { TableContext } from './table-context';
 
 export const PAGE_SIZE_WITHOUT_PAGINATION = 10000;
+const emptyData: IntentionalAny[] = [];
+
 export function Table<TData extends DefaultTData<TData>>(props: TableProps<TData>): JSX.Element {
   const { getLabel } = useLabels();
   const {
     id,
-    data = [],
+    data: externalData,
     columns,
     caption,
     columnFilters: columnFiltersOuter,
@@ -82,6 +85,10 @@ export function Table<TData extends DefaultTData<TData>>(props: TableProps<TData
     ...rest
   } = props;
 
+  // we need to memoize the data when it is an empty array or undefined to prevent infinite renders
+  // https://github.com/TanStack/table/issues/4240
+  // https://github.com/TanStack/table/issues/4566
+  const data = React.useMemo(() => (externalData?.length ? externalData : emptyData) ?? emptyData, [externalData]);
   const isPrinting = usePrint();
   const [{ pageIndex, pageSize }, setPagination] = React.useState<PaginationState>(defaultPagination);
   const [sorting, setSorting] = React.useState<SortingState>(defaultSorting);

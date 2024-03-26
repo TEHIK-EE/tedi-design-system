@@ -69,7 +69,8 @@ export interface TableProps<TData extends DefaultTData<TData>> {
    */
   id: string;
   /**
-   * Default table data
+   * Default table data.
+   * Should be memoized array
    * @default []
    */
   data: TData[];
