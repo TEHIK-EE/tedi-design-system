@@ -1,3 +1,10 @@
+## [6.21.3](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.21.2...v6.21.3) (2024-03-26)
+
+
+### Bug Fixes
+
+* **table:** TEHVEER-286 - Memoize table data internally to prevent infinite rerender ([c63bedd](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/c63bedd06e44df8df80e09d36586ed9d87e3f0dd))
+
 ## [6.21.2](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.21.1...v6.21.2) (2024-03-22)
 
 
