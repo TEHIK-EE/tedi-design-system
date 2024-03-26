@@ -1,7 +1,5 @@
 import React from 'react';
 
-import { TooltipProps, TooltipProviderProps, TooltipTriggerProps } from '../tooltip';
-
 export interface ChoiceInputProps {
   /**
    * ID property

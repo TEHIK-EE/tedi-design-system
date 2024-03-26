@@ -1,6 +1,12 @@
 import { faker } from '@faker-js/faker';
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
-import { ColumnDef, createColumnHelper } from '@tanstack/react-table';
+import {
+  ColumnDef,
+  ColumnFiltersState,
+  createColumnHelper,
+  PaginationState,
+  SortingState,
+} from '@tanstack/react-table';
 import dayjs from 'dayjs';
 import React from 'react';
 
@@ -568,6 +574,54 @@ export const WithFiltersControlledFromOutside: Story = {
         story: `Filters can be controlled from outside by passing 'columnFilters' and 'onColumnFiltersChange' props. 'columnFilters' is an array of objects with 'id' and 'value' properties. 'id' is the column id and 'value' is an array of selected values. <br />
         'onColumnFiltersChange' is a function that is called when filters are changed. It receives an array of objects with 'id' and 'value' properties. <br />
         To customy column filter choiceGroup items pass meta.filterOptions to ColumnDef. It is an array of ChoiceGroupItems or string.`,
+      },
+    },
+  },
+};
+
+export const TableStateControlledFromOutside: Story = {
+  args: {
+    id: 'table-controlled-from-outside',
+    data: data(),
+    columns: columns.map((column) => ({
+      ...column,
+      filterFn: 'multi-select',
+      meta: {
+        filterOptions: data()
+          .map((row) => row[column.id as keyof Person])
+          .slice(0, 5)
+          .map((value) => ({ value, label: `${value}-label`, id: `${value}-filter` })),
+      },
+    })),
+    enableFilters: true,
+  },
+  render: (args) => {
+    const [filters, setFilters] = React.useState<ColumnFiltersState>([]);
+    const [sorting, setSorting] = React.useState<SortingState>([]);
+    const [pagination, setPagination] = React.useState<PaginationState>({ pageIndex: 0, pageSize: 5 });
+
+    return (
+      <Table
+        {...args}
+        manualFiltering={false}
+        manualSorting={false}
+        manualPagination={false}
+        columnFilters={filters}
+        sorting={sorting}
+        pagination={pagination}
+        onColumnFiltersChange={setFilters}
+        onSortingChange={setSorting}
+        onPaginationChange={setPagination}
+      />
+    );
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: `Entire table sorting/pagination/filtering state can be stored outside the component. <br />
+        If you don't want to sort/paginate/filter the data yourself, you can set \`manualFiltering={false}\`, \`manualSorting={false}\` and \`manualPagination={false}\`.<br />
+        This way you have control of the table sorting/pagination/filtering state, but don't have to write your own logic for parsing the data.
+        `,
       },
     },
   },
