@@ -6,12 +6,27 @@ import * as Yup from 'yup';
 import { useLabels } from '../../../../../providers/label-provider';
 import { IntentionalAny } from '../../../../../types';
 import Button from '../../../../button/button';
-import { DatePicker } from '../../../../form/pickers';
+import { DatePicker, DatePickerProps } from '../../../../form/pickers';
 import Col from '../../../../grid/col';
 import Row from '../../../../grid/row';
 import Text from '../../../../typography/text/text';
 import VerticalSpacing from '../../../../vertical-spacing/vertical-spacing';
 import { TableFilterContext } from '../table-filter-context';
+
+// DatePicker props that we allow to override through the column.meta
+export type PickerOverridableProps = Partial<
+  Pick<
+    DatePickerProps,
+    | 'label'
+    | 'minDate'
+    | 'maxDate'
+    | 'disableFuture'
+    | 'disablePast'
+    | 'shouldDisableDate'
+    | 'shouldDisableMonth'
+    | 'shouldDisableYear'
+  >
+>;
 
 export const TableDateFilter = () => {
   const { getLabel } = useLabels();
@@ -20,6 +35,10 @@ export const TableDateFilter = () => {
   const initialValues = {
     dateRangeField: contextValues?.dateRange,
   };
+
+  const meta = column?.columnDef?.meta;
+  const startFieldProps = meta?.startDatePicker ?? {};
+  const endFieldProps = meta?.endDatePicker ?? {};
 
   const filterLabel = getLabel('table.filter');
   const filterLabelFrom = getLabel('table.filter.from');
@@ -68,6 +87,7 @@ export const TableDateFilter = () => {
         <DatePicker
           id={filterIdFrom}
           label={filterLabelFrom}
+          {...startFieldProps}
           name={filterLabelFrom}
           value={values.dateRangeField?.from ? dayjs(values.dateRangeField.from) : null}
           input={{
@@ -85,14 +105,15 @@ export const TableDateFilter = () => {
         <DatePicker
           id={filterIdTo}
           label={filterLabelTo}
+          shouldDisableDate={(date) =>
+            !!(values.dateRangeField?.from && dayjs(date).isBefore(dayjs(values.dateRangeField?.from), 'day'))
+          }
+          {...endFieldProps}
           name={filterLabelTo}
           value={values.dateRangeField?.to ? dayjs(values.dateRangeField?.to) : null}
           input={{
             autoComplete: 'off',
           }}
-          shouldDisableDate={(date) =>
-            !!(values.dateRangeField?.from && dayjs(date).isBefore(dayjs(values.dateRangeField?.from), 'day'))
-          }
           onChange={(value) => setFieldValue('dateRangeField.to', value?.toISOString() ?? null)}
           helper={
             (errors.dateRangeField as IntentionalAny)?.to
