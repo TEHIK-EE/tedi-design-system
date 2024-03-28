@@ -11,6 +11,7 @@ import dayjs from 'dayjs';
 import React from 'react';
 
 import { getBackgroundColorClass } from '../../helpers/background-colors/background-colors';
+import { IntentionalAny } from '../../types';
 import Anchor from '../anchor/anchor';
 import { Card, CardContent } from '../card';
 import Status from '../status/status';
@@ -97,8 +98,7 @@ const data = (length = 507): Person[] => Array.from(Array(length).keys()).map(()
 
 const columnHelper = createColumnHelper<Person>();
 
-// eslint-disable-next-line
-const columns: ColumnDef<Person, any>[] = [
+const columns: ColumnDef<Person, IntentionalAny>[] = [
   columnHelper.accessor((row) => `${row.firstName} ${row.lastName}`, {
     id: 'personName',
     cell: (info) => {
@@ -517,6 +517,11 @@ export const WithDateFilters: Story = {
         header: () => 'Date of Birth',
         cell: (info) => `${dayjs(info.row.original.dateOfBirth).format('DD.MM.YYYY')}`,
         filterFn: 'date-range',
+        meta: {
+          startDatePicker: {
+            disableFuture: true,
+          },
+        },
       }),
       // Accessor value must be in the format { from: Dayjs | Date | string | null | undefined, to: Dayjs | Date | string | null | undefined }
       columnHelper.accessor((row) => ({ from: row.employment.startDate, to: row.employment.endDate }), {
@@ -527,6 +532,11 @@ export const WithDateFilters: Story = {
             info.row.original.employment.endDate
           ).format('DD.MM.YYYY')}`,
         filterFn: 'date-range-period',
+        meta: {
+          startDatePicker: {
+            disableFuture: true,
+          },
+        },
         sortingFn: ({ original: a }, { original: b }) =>
           dayjs(a.employment.endDate).isAfter(dayjs(b.employment.endDate)) ? 1 : -1,
       }),
@@ -564,7 +574,7 @@ export const WithFiltersControlledFromOutside: Story = {
           .slice(0, 5)
           .map((value) => ({ value, label: `${value}-label`, id: `${value}-filter` })),
       },
-    })),
+    })) as ColumnDef<Person, IntentionalAny>[],
     enableFilters: true,
   },
 
@@ -592,7 +602,7 @@ export const TableStateControlledFromOutside: Story = {
           .slice(0, 5)
           .map((value) => ({ value, label: `${value}-label`, id: `${value}-filter` })),
       },
-    })),
+    })) as ColumnDef<Person, IntentionalAny>[],
     enableFilters: true,
   },
   render: (args) => {

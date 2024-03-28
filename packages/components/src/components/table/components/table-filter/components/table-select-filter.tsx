@@ -13,13 +13,6 @@ import VerticalSpacing from '../../../../vertical-spacing/vertical-spacing';
 import styles from '../../../table.module.scss';
 import { TableFilterContext } from '../table-filter-context';
 
-interface TableSelectColumnMeta {
-  /**
-   * Pass your own custom filterOptions to column.meta.filterOptions to override the default values.
-   */
-  filterOptions: ChoiceGroupItemProps[] | string[];
-}
-
 const sanitizeRowValues = (rowValues: unknown[]): unknown[] => {
   return (
     rowValues
@@ -52,7 +45,7 @@ export const TableSelectFilter = () => {
     multiSelectFilter: contextValues?.multiSelectField,
   };
 
-  const meta = column?.columnDef?.meta as TableSelectColumnMeta;
+  const meta = column?.columnDef?.meta;
   const externalRowValues = meta?.filterOptions;
 
   const isChoiceGroupItem = (value: unknown): value is ChoiceGroupItemProps => {

@@ -5,13 +5,17 @@ import {
   FilterFn,
   PaginationState,
   Row,
+  RowData,
   RowSelectionState,
   SortingState,
 } from '@tanstack/react-table';
 import React from 'react';
 
+import { IntentionalAny } from '../../types';
 import { CardProps } from '../card';
+import { ChoiceGroupItemProps } from '../form/choice-group';
 import { PlaceholderProps } from '../placeholder/placeholder';
+import { PickerOverridableProps } from './components/table-filter/components/table-date-filter';
 
 declare module '@tanstack/table-core' {
   interface FilterFns {
@@ -38,9 +42,34 @@ declare module '@tanstack/table-core' {
   }
 }
 
+declare module '@tanstack/react-table' {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  interface ColumnMeta<TData extends RowData, TValue> {
+    /**
+     * Pass your own custom filterOptions to column.meta.filterOptions to override the default values.
+     * Used only when filterFn: 'select'
+     */
+    filterOptions?: ChoiceGroupItemProps[] | string[];
+    /**
+     * Pass selection of props to the start DatePicker.
+     * Used only when filterFn: 'date-range' | 'date-range-period'
+     */
+    startDatePicker?: PickerOverridableProps;
+    /**
+     * Pass selection of props to the end DatePicker.
+     * Used only when filterFn: 'date-range' | 'date-range-period'
+     */
+    endDatePicker?: PickerOverridableProps;
+    /**
+     * Unknown parameters
+     */
+    [key: string]: IntentionalAny;
+  }
+}
+
 export interface DefaultTData<TData> {
   // To fix Type 'TableRowType' has no properties in common with type DefaultData<TableRowType>
-  [key: string]: any; // eslint-disable-line @typescript-eslint/no-explicit-any
+  [key: string]: IntentionalAny;
   /**
    * All row Subrows
    */
@@ -78,7 +107,7 @@ export interface TableProps<TData extends DefaultTData<TData>> {
    * Column object created with columnHelper
    * https://tanstack.com/table/v8/docs/guide/column-defs
    */
-  columns: ColumnDef<TData, any>[]; // eslint-disable-line
+  columns: ColumnDef<TData, IntentionalAny>[];
   /**
    * Table title for screen-readers
    */
