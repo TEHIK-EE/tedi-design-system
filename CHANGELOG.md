@@ -1,3 +1,15 @@
+# [6.22.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.21.3...v6.22.0) (2024-03-28)
+
+
+### Bug Fixes
+
+* **table:** TEHVEER-287 - Show all pages in table pagination during printing ([f5f466c](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/f5f466c54f3a9d7ae6c480aae5d5f1a818bda493))
+
+
+### Features
+
+* **table:** TEHVEER-287 - Allow date range filter customization through column meta ([06addb6](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/06addb6e6a9164ee362ecf79fad16085b47c5698))
+
 ## [6.21.3](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.21.2...v6.21.3) (2024-03-26)
 
 
