@@ -3,6 +3,7 @@ import React from 'react';
 
 import Button from '../button/button';
 import { Col, Row } from '../grid';
+import Separator from '../separator/separator';
 import Heading from '../typography/heading/heading';
 import { VerticalSpacing } from '../vertical-spacing';
 import Accordion, { AccordionProps } from './accordion';
@@ -23,6 +24,7 @@ interface AccordionItemDto {
   header: string;
   content: string;
   disabled?: boolean;
+  itemProps?: Omit<AccordionItemProps, 'id'>;
   headerProps?: AccordionItemHeaderProps;
   contentProps?: AccordionItemContentProps;
 }
@@ -50,8 +52,8 @@ const Template: StoryFn<AccordionStory> = ({ items = accordionItems, ...args }) 
   return (
     <VerticalSpacing size={1}>
       <Accordion {...args.accordion}>
-        {items.map(({ id, header, content, disabled, headerProps, contentProps }: AccordionItemDto) => (
-          <AccordionItem key={id} {...args.accordionItem} id={id} disabled={disabled}>
+        {items.map(({ id, header, content, disabled, itemProps, headerProps, contentProps }: AccordionItemDto) => (
+          <AccordionItem key={id} {...args.accordionItem} {...itemProps} id={id} disabled={disabled}>
             <AccordionItemHeader {...args.accordionItemHeader} {...headerProps}>
               {header}
             </AccordionItemHeader>
@@ -61,6 +63,36 @@ const Template: StoryFn<AccordionStory> = ({ items = accordionItems, ...args }) 
           </AccordionItem>
         ))}
       </Accordion>
+    </VerticalSpacing>
+  );
+};
+
+const TemplateBackgrounds: StoryFn<AccordionStory> = ({ items = accordionItems, ...args }) => {
+  return (
+    <VerticalSpacing size={1}>
+      {items.map(({ id, header, content, disabled, itemProps, headerProps, contentProps }: AccordionItemDto, index) => (
+        <React.Fragment key={id}>
+          {index !== 0 && <Separator />}
+          <Accordion {...args.accordion} defaultOpenItem={[`${id}-1`]}>
+            <AccordionItem {...args.accordionItem} {...itemProps} id={`${id}-0`} disabled={disabled}>
+              <AccordionItemHeader {...args.accordionItemHeader} {...headerProps}>
+                {header}
+              </AccordionItemHeader>
+              <AccordionItemContent {...args.accordionItemContent} {...contentProps}>
+                {content}
+              </AccordionItemContent>
+            </AccordionItem>
+            <AccordionItem {...args.accordionItem} {...itemProps} id={`${id}-1`} disabled={disabled}>
+              <AccordionItemHeader {...args.accordionItemHeader} {...headerProps}>
+                {header}
+              </AccordionItemHeader>
+              <AccordionItemContent {...args.accordionItemContent} {...contentProps}>
+                {content}
+              </AccordionItemContent>
+            </AccordionItem>
+          </Accordion>
+        </React.Fragment>
+      ))}
     </VerticalSpacing>
   );
 };
@@ -200,36 +232,47 @@ export const Padding: Story = {
   },
 };
 
+export const Gutter: Story = {
+  render: Template,
+  args: {
+    accordion: {
+      defaultOpenItem: ['second'],
+      gutter: 0.25,
+    },
+  },
+};
+
 export const Background: Story = {
   parameters: {
     docs: {
       description: {
         story:
-          'Since `AccordionItem` internally uses a `Card` and `CardHeader`, then it also supports different backgrounds.',
+          'Since `AccordionItem` internally uses a `Card` and `CardHeader`, then it also supports different backgrounds for the header and content.',
       },
     },
   },
-  render: Template,
+  render: TemplateBackgrounds,
   args: {
     items: [
       { id: 'default', header: 'Default', content: ACCORDION_ITEM_CONTENT },
-      { id: 'primary', header: 'Primary', content: ACCORDION_ITEM_CONTENT, headerProps: { background: 'primary' } },
+      {
+        id: 'primary',
+        header: 'Primary',
+        content: ACCORDION_ITEM_CONTENT,
+        headerProps: { background: 'primary' },
+        itemProps: { background: 'bg-subtle' },
+      },
       {
         id: 'white/primary',
         header: 'White/primary',
         content: ACCORDION_ITEM_CONTENT,
         headerProps: { background: 'white/primary' },
+        itemProps: { background: 'bg-subtle' },
       },
     ],
-    accordion: {
-      defaultOpenItem: ['second'],
-    },
     accordionItemHeader: {
       openText: ' ',
       closeText: ' ',
-    },
-    accordionItem: {
-      background: 'bg-subtle',
     },
   },
 };
