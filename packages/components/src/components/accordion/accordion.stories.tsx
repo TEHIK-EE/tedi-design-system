@@ -23,6 +23,8 @@ interface AccordionItemDto {
   header: string;
   content: string;
   disabled?: boolean;
+  headerProps?: AccordionItemHeaderProps;
+  contentProps?: AccordionItemContentProps;
 }
 
 const accordionItems: AccordionItemDto[] = [
@@ -35,6 +37,7 @@ const accordionItems: AccordionItemDto[] = [
 export default meta;
 
 export interface AccordionStory {
+  items?: AccordionItemDto[];
   accordion: AccordionProps;
   accordionItem: Omit<AccordionItemProps, 'id'>;
   accordionItemHeader: AccordionItemHeaderProps;
@@ -43,14 +46,18 @@ export interface AccordionStory {
 
 type Story = StoryObj<AccordionStory>;
 
-const Template: StoryFn<AccordionStory> = (args) => {
+const Template: StoryFn<AccordionStory> = ({ items = accordionItems, ...args }) => {
   return (
     <VerticalSpacing size={1}>
       <Accordion {...args.accordion}>
-        {accordionItems.map(({ id, header, content, disabled }: AccordionItemDto) => (
+        {items.map(({ id, header, content, disabled, headerProps, contentProps }: AccordionItemDto) => (
           <AccordionItem key={id} {...args.accordionItem} id={id} disabled={disabled}>
-            <AccordionItemHeader {...args.accordionItemHeader}>{header}</AccordionItemHeader>
-            <AccordionItemContent {...args.accordionItemContent}>{content}</AccordionItemContent>
+            <AccordionItemHeader {...args.accordionItemHeader} {...headerProps}>
+              {header}
+            </AccordionItemHeader>
+            <AccordionItemContent {...args.accordionItemContent} {...contentProps}>
+              {content}
+            </AccordionItemContent>
           </AccordionItem>
         ))}
       </Accordion>
@@ -204,11 +211,20 @@ export const Background: Story = {
   },
   render: Template,
   args: {
+    items: [
+      { id: 'default', header: 'Default', content: ACCORDION_ITEM_CONTENT },
+      { id: 'primary', header: 'Primary', content: ACCORDION_ITEM_CONTENT, headerProps: { background: 'primary' } },
+      {
+        id: 'white/primary',
+        header: 'White/primary',
+        content: ACCORDION_ITEM_CONTENT,
+        headerProps: { background: 'white/primary' },
+      },
+    ],
     accordion: {
       defaultOpenItem: ['second'],
     },
     accordionItemHeader: {
-      background: 'primary',
       openText: ' ',
       closeText: ' ',
     },
