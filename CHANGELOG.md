@@ -1,3 +1,11 @@
+# [6.23.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.22.0...v6.23.0) (2024-04-01)
+
+
+### Features
+
+* **accordion:** TEHVEER-288 - Add another background option to AccordionItemHeader ([0690565](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/0690565cfcf08626c2e4eb1ebcb2121cb483a566))
+* **accordion:** TEHVEER-288 - Add gutter option to Accordion ([5e72c1c](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/5e72c1cd1c8bead21f5eb4dbbc9a1396b70e5549))
+
 # [6.22.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.21.3...v6.22.0) (2024-03-28)
 
 
