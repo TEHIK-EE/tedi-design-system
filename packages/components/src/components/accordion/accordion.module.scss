@@ -1,9 +1,5 @@
 @use '../../styles/mixins';
 
-.accordion__item:not(:last-child) {
-  margin-bottom: 0.5rem;
-}
-
 .accordion__item-wrapping-heading {
   z-index: 1;
 
@@ -16,7 +12,7 @@
 .accordion__item-header {
   border-radius: var(--border-radius-default);
   transition: 300ms ease; // match content height animation
-  transition-property: border-radius, background;
+  transition-property: border-radius, background, color;
 
   // hide card header bottom border when accordion is closed
   &:has(+ :global(.rah-static--height-zero)) {

@@ -25,7 +25,7 @@ export interface AccordionItemHeaderProps extends Omit<CardHeaderProps, 'id' | '
    * In addition to the values supported by CardHeader, we also support some dynamic values that have different colors for open/close states.
    * @default white
    */
-  background?: 'primary' | CardHeaderBackground;
+  background?: 'primary' | 'white/primary' | CardHeaderBackground;
 }
 
 export const AccordionItemHeader = (props: AccordionItemHeaderProps): JSX.Element => {
@@ -68,6 +68,8 @@ export const AccordionItemHeader = (props: AccordionItemHeaderProps): JSX.Elemen
     switch (background) {
       case 'primary':
         return isOpen(id) ? 'primary-active' : 'primary-main';
+      case 'white/primary':
+        return isOpen(id) ? 'primary-active' : 'white';
       default:
         return background;
     }
