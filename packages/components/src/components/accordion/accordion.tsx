@@ -1,6 +1,7 @@
 import cn from 'classnames';
 import React from 'react';
 
+import { VerticalSpacing, VerticalSpacingSize } from '../vertical-spacing';
 import styles from './accordion.module.scss';
 
 export interface AccordionProps {
@@ -26,6 +27,11 @@ export interface AccordionProps {
    * @default []
    */
   defaultOpenItem?: string[];
+  /**
+   * Vertical spacing between AccordionItems
+   * @default 0.5
+   */
+  gutter?: VerticalSpacingSize;
 }
 
 export interface IAccordionContext {
@@ -39,7 +45,7 @@ export const AccordionContext = React.createContext<IAccordionContext>({
 });
 
 export const Accordion = (props: AccordionProps): JSX.Element => {
-  const { children, className, openItem, onToggleItem, defaultOpenItem = [], ...rest } = props;
+  const { children, className, openItem, gutter = 0.5, onToggleItem, defaultOpenItem = [], ...rest } = props;
   const openValues = openItem ? openItem : defaultOpenItem;
   const [innerOpenItem, setOpen] = React.useState<string[]>(openValues);
 
@@ -73,7 +79,7 @@ export const Accordion = (props: AccordionProps): JSX.Element => {
   return (
     <AccordionContext.Provider value={{ isOpen, onToggle }}>
       <div data-name="accordion" {...rest} className={cn(styles['accordion'], className)}>
-        {children}
+        <VerticalSpacing size={gutter}>{children}</VerticalSpacing>
       </div>
     </AccordionContext.Provider>
   );

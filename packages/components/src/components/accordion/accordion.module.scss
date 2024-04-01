@@ -1,9 +1,5 @@
 @use '../../styles/mixins';
 
-.accordion__item:not(:last-child) {
-  margin-bottom: 0.5rem;
-}
-
 .accordion__item-wrapping-heading {
   z-index: 1;
 
