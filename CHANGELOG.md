@@ -1,3 +1,10 @@
+# [6.24.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.23.0...v6.24.0) (2024-04-02)
+
+
+### Features
+
+* **select:** add no-options and loading labels from labelProvider - TEHVEER-289 ([a7f11c2](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/a7f11c20cd39fb6c0378a72d6ce8292dc10b2ea1))
+
 # [6.23.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.22.0...v6.23.0) (2024-04-01)
 
 
