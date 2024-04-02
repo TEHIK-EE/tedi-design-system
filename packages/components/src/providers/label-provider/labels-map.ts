@@ -169,6 +169,20 @@ export const labelsMap = {
     en: 'Close modal',
     ru: 'Закрыть модальное окно',
   }),
+  'select.loading': validateLabel({
+    description: 'Text when select options are loading',
+    components: ['select'],
+    et: 'Laadimine...',
+    en: 'Loading...',
+    ru: 'Загрузка...',
+  }),
+  'select.no-options': validateLabel({
+    description: 'Text when select has no options',
+    components: ['select'],
+    et: 'Valikud puuduvad',
+    en: 'No options',
+    ru: 'Нет вариантов',
+  }),
   'stepper.completed': validateLabel({
     description: 'Label for screen-reader that this step is completed (visually hidden)',
     components: ['StepperNav'],

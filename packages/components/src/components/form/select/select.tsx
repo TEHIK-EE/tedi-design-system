@@ -23,6 +23,7 @@ import AsyncSelect from 'react-select/async';
 import { MenuPortalProps } from 'react-select/dist/declarations/src/components/Menu';
 
 import { getBackgroundColorClass } from '../../../helpers';
+import { useLabels } from '../../../providers/label-provider';
 import { TColorsBackground } from '../../commonTypes';
 import { Icon } from '../../icon/icon';
 import Tag from '../../tag/tag';
@@ -108,6 +109,10 @@ export interface SelectProps extends FormLabelProps {
     inputValue: string,
     callback: (options: OptionsOrGroups<ISelectOption, IGroupedOptions<ISelectOption>>) => void
   ) => void;
+  /**
+   * Is the select in a state of loading (async)
+   */
+  isLoading?: boolean;
   /**
    * Default value of select.
    */
@@ -287,6 +292,7 @@ export const Select = forwardRef<SelectInstance<ISelectOption, boolean, IGrouped
       onInputChange,
       inputValue,
       loadOptions,
+      isLoading,
       openMenuOnFocus = false,
       openMenuOnClick = true,
       tabSelectsValue = false,
@@ -320,6 +326,7 @@ export const Select = forwardRef<SelectInstance<ISelectOption, boolean, IGrouped
     } = props;
     const helperId = helper ? helper?.id ?? `${id}-helper` : undefined;
     const element = React.useRef<SelectInstance<ISelectOption, boolean, IGroupedOptions<ISelectOption>> | null>(null);
+    const { getLabel } = useLabels();
 
     React.useImperativeHandle(
       ref,
@@ -491,6 +498,9 @@ export const Select = forwardRef<SelectInstance<ISelectOption, boolean, IGrouped
 
       const ReactSelectElement = async ? AsyncSelect : ReactSelect;
 
+      const getNoOptionsMessage = () => getLabel('select.no-options');
+      const getLoadingMessage = () => getLabel('select.loading');
+
       return (
         <ReactSelectElement<ISelectOption, boolean, IGroupedOptions<ISelectOption>>
           id={id}
@@ -511,8 +521,9 @@ export const Select = forwardRef<SelectInstance<ISelectOption, boolean, IGrouped
           inputValue={inputValue}
           inputId={`${id}-input`}
           loadOptions={loadOptions}
-          noOptionsMessage={noOptionsMessage}
-          loadingMessage={loadingMessage}
+          isLoading={isLoading}
+          noOptionsMessage={noOptionsMessage || getNoOptionsMessage}
+          loadingMessage={loadingMessage || getLoadingMessage}
           classNamePrefix="select"
           components={customComponents}
           isDisabled={disabled}
