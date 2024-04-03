@@ -172,6 +172,10 @@ export interface TableProps<TData extends DefaultTData<TData>> {
    */
   onColumnFiltersChange?: (state: ColumnFiltersState) => void;
   /**
+   * Row selection data use with `onRowSelectionChange`.
+   */
+  rowSelection?: RowSelectionState;
+  /**
    * Callback on row selection data change
    */
   onRowSelectionChange?: (state: RowSelectionState, flatRows: Row<TData>[]) => void;

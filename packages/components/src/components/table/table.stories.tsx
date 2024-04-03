@@ -7,6 +7,7 @@ import {
   PaginationState,
   SortingState,
 } from '@tanstack/react-table';
+import { RowSelectionState } from '@tanstack/table-core/src/features/RowSelection';
 import dayjs from 'dayjs';
 import React from 'react';
 
@@ -133,6 +134,22 @@ const columns: ColumnDef<Person, IntentionalAny>[] = [
     header: 'Profile Progress',
     enableColumnFilter: false,
   }),
+];
+
+const columnsWithFooter = [
+  ...columns.slice(0, 1).map((c) => ({ ...c, footer: () => <strong>Average profile progress</strong> } as typeof c)),
+  ...columns.slice(1, 4),
+  ...columns.slice(4).map(
+    (c) =>
+      ({
+        ...c,
+        footer: (info) => {
+          const rows = info.table.getRowModel()?.rows;
+          const sum = rows?.reduce((a, c) => a + c.original.progress, 0);
+          return Math.round((sum / rows?.length) * 10) / 10;
+        },
+      } as typeof c)
+  ),
 ];
 
 const CardTemplate: StoryFn<TableProps<Person>> = (args) => (
@@ -292,6 +309,26 @@ export const RowSelection: Story = {
         When using select all toggle and serverSide pagination bear in mind that all rows are not loaded at once and select all will only select the rows that are in current page.`,
       },
     },
+  },
+};
+
+export const RowSelectionControlledFromOutside: Story = {
+  args: {
+    data: data(),
+    columns: [getRowSelectionColumn('test-2', true), ...columns],
+    id: 'row-selection-table-outside',
+    getRowId: (row) => row.id,
+  },
+  render: (args) => {
+    const [rowSelection, setRowSelection] = React.useState<RowSelectionState>({});
+
+    return (
+      <Table
+        {...args}
+        rowSelection={rowSelection}
+        onRowSelectionChange={(rowSelection, _) => setRowSelection(rowSelection)}
+      />
+    );
   },
 };
 
@@ -660,23 +697,15 @@ export const WithFooter: Story = {
     id: 'footer-table',
     hidePagination: true,
     data: data(10),
-    columns: [
-      ...columns
-        .slice(0, 1)
-        .map((c) => ({ ...c, footer: () => <strong>Average profile progress</strong> } as typeof c)),
-      ...columns.slice(1, 4),
-      ...columns.slice(4).map(
-        (c) =>
-          ({
-            ...c,
-            footer: (info) => {
-              const rows = info.table.getRowModel()?.rows;
-              const sum = rows?.reduce((a, c) => a + c.original.progress, 0);
-              return Math.round((sum / rows?.length) * 10) / 10;
-            },
-          } as typeof c)
-      ),
-    ],
+    columns: columnsWithFooter,
+  },
+};
+
+export const WithFooterAndPagination: Story = {
+  args: {
+    id: 'footer-table',
+    data: data(),
+    columns: columnsWithFooter,
   },
 };
 
