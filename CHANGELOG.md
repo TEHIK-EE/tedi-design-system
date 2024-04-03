@@ -1,3 +1,11 @@
+# [6.25.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.24.0...v6.25.0) (2024-04-03)
+
+
+### Features
+
+* **table:** TEHVEER-290 - add option to control rowSelection from outside and add border after footer when pagination also used ([ebb7210](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/ebb72109adcc914699f3bb06ef2b738f4391b0d1))
+* **tag:** TEHVEER-209 - Allow tag text to wrap ([90647a1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/90647a1ebf62f5951be5b6316f1966bd785da0eb))
+
 # [6.24.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.23.0...v6.24.0) (2024-04-02)
 
 
