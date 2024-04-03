@@ -55,12 +55,12 @@
   align-items: center;
   justify-content: center;
   min-width: 1.5rem;
-  height: 1.5rem;
+  max-width: 100%;
+  min-height: 1.5rem;
   padding: 0.125rem 0.5rem;
   font-size: 0.875rem;
   text-align: center;
   text-decoration: none;
-  white-space: nowrap;
   vertical-align: bottom; // Removes extra pixel added to height by inline-flex
   border-radius: var(--border-radius-default);
 
@@ -73,7 +73,7 @@
 
 .tag--large {
   min-width: 2.5rem;
-  height: 2.5rem;
+  min-height: 2.5rem;
   font-size: 1rem;
 }
 
