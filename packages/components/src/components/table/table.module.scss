@@ -103,6 +103,10 @@
   --table-bottom-border: none;
 }
 
+.table--footer-bottom-border > table > tfoot > tr {
+  border-bottom: var(--table-bottom-border);
+}
+
 .table--small {
   --table-cell-vertical-padding: 0.25rem;
   --table-cell-horizontal-padding: 0.5rem;

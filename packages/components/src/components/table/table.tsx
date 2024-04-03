@@ -62,6 +62,7 @@ export function Table<TData extends DefaultTData<TData>>(props: TableProps<TData
     defaultExpanded = {},
     onPaginationChange,
     onSortingChange,
+    rowSelection: rowSelectionOutside,
     onRowSelectionChange,
     getRowId,
     onRowClick,
@@ -113,6 +114,11 @@ export function Table<TData extends DefaultTData<TData>>(props: TableProps<TData
     // If filtering is controlled outside, don't use local state
     return columnFiltersOuter || columnFilters;
   }, [columnFilters, columnFiltersOuter]);
+
+  const getRowSelection = React.useMemo(() => {
+    // If row selection is controlled outside, don't use local state
+    return rowSelectionOutside || rowSelection;
+  }, [rowSelection, rowSelectionOutside]);
 
   const handlePaginationChange = (data: Updater<PaginationState>): void => {
     if (typeof data !== 'function') return;
@@ -178,7 +184,7 @@ export function Table<TData extends DefaultTData<TData>>(props: TableProps<TData
     data: groupedData,
     columns,
     state: {
-      rowSelection,
+      rowSelection: getRowSelection,
       columnFilters: getColumnFilter,
       pagination: getPagination,
       sorting: getSorting,
@@ -217,9 +223,11 @@ export function Table<TData extends DefaultTData<TData>>(props: TableProps<TData
   );
 
   const hideBottomBorder = !!(!hideCardBorder && hidePagination && !isFooterVisible);
+  const showFooterBorder = !hideRowBorder && isFooterVisible && !hidePagination;
 
   const tableBEM = cn(styles['table'], styles[`table--vertical-align-${verticalAlign}`], styles[`table--${size}`], {
     [styles['table--hidden-bottom-border']]: hideBottomBorder,
+    [styles['table--footer-bottom-border']]: showFooterBorder,
   });
 
   const getPlaceholderProps = (type: 'error' | 'empty', props?: PlaceholderProps) => {
