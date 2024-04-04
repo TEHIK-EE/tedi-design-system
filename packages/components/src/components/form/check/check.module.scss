@@ -30,7 +30,9 @@
 
   .check__input:not(:disabled) + &--hover,
   .check__input:hover:not(:disabled) + &,
+  .check__input:not(:disabled) + &:hover,
   .check__input:focus:not(:disabled) + & {
+    cursor: pointer;
     border-color: var(--color-primary-main);
     outline: var(--color-primary-main) solid 1px;
   }

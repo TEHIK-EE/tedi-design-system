@@ -27,6 +27,7 @@ export const Radio = (props: RadioProps): JSX.Element => {
     ...rest
   } = props;
   const [innerChecked, setInnerChecked] = React.useState<boolean>(defaultChecked || false);
+  const labelRef = React.useRef<HTMLLabelElement>(null);
 
   const getChecked = React.useMemo((): boolean => {
     return onChange && typeof checked !== 'undefined' ? checked : innerChecked;
@@ -55,15 +56,14 @@ export const Radio = (props: RadioProps): JSX.Element => {
             onChange={onChangeHandler}
             className={styles['radio__input']}
           />
-          {/* We are using two labels on the same input field to avoid manually managing the state of a custom checkbox. This will show up as a warning in the Storybook Accessibility addon. It is still valid HTML and is hidden from screen-readers so it should not cause any actual issues to end-users. */}
-          <label
+          <div
             aria-hidden="true"
-            htmlFor={id}
-            className={cn(LabelBEM, styles['radio__indicator'], { [styles['radio__indicator--hover']]: hover })}
+            onClick={() => labelRef.current?.click()} // Click on the indicator itself should still toggle state
+            className={cn(styles['radio__indicator'], { [styles['radio__indicator--hover']]: hover })}
           />
         </Col>
         <Col>
-          <label className={LabelBEM} htmlFor={id}>
+          <label ref={labelRef} className={LabelBEM} htmlFor={id}>
             <span className={cn({ 'visually-hidden': hideLabel })}>{label}</span>
           </label>
           {tooltip && (
