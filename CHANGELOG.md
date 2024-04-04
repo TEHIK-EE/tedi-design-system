@@ -1,3 +1,10 @@
+# [6.26.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.25.0...v6.26.0) (2024-04-04)
+
+
+### Features
+
+* **tabs:** TEHVEER-291 - Support padding and background props on TabsItem ([2cb08a9](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/2cb08a9cbe9d938fa2a65e1401a993004244f6eb))
+
 # [6.25.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.24.0...v6.25.0) (2024-04-03)
 
 
