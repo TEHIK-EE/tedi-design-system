@@ -1,11 +1,13 @@
-import cn from 'classnames';
 import React from 'react';
 
+import { BreakpointSupport, useBreakpointProps } from '../../../helpers';
+import { Card, CardContent, CardContentProps } from '../../card';
 import HashTrigger from '../../hash-trigger/hash-trigger';
 import { TabsContext } from '../tabs-context';
-import styles from './tabs-item.module.scss';
 
-export interface TabsItemProps {
+type TabsItemBreakpointProps = Pick<CardContentProps, 'padding' | 'background'>;
+
+export interface TabsItemProps extends BreakpointSupport<TabsItemBreakpointProps> {
   /**
    * ID property.
    */
@@ -25,16 +27,21 @@ export interface TabsItemProps {
 }
 
 export const TabsItem = (props: TabsItemProps): JSX.Element => {
-  const { className, id, children } = props;
+  const { getCurrentBreakpointProps } = useBreakpointProps();
+  const { className, padding, background, id, children } = getCurrentBreakpointProps<TabsItemProps>(props, {
+    padding: { top: 1.5, right: 2, bottom: 2, left: 2 },
+    background: 'white',
+  });
   const { currentTab, setCurrentTab } = React.useContext(TabsContext);
   const isCurrent = id === currentTab;
-  const TabsItemBEM = cn(styles['tabs__item'], className);
 
   return (
     <HashTrigger data-name="tabs-item" id={id} onMatch={() => setCurrentTab(id)}>
       {isCurrent && (
-        <div className={TabsItemBEM} id={`${id}-panel`} tabIndex={0} role="tabpanel" aria-labelledby={id}>
-          {children}
+        <div className={className} id={`${id}-panel`} tabIndex={0} role="tabpanel" aria-labelledby={id}>
+          <Card padding={padding} background={background} borderRadius={{ top: false, right: false }} borderless>
+            <CardContent>{children}</CardContent>
+          </Card>
         </div>
       )}
     </HashTrigger>
