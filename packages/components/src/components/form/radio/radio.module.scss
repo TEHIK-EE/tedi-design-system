@@ -1,6 +1,7 @@
 @use '../../../styles/mixins';
 
 .radio {
+  position: relative;
   display: inline;
 
   @include mixins.print-grayscale;
@@ -29,7 +30,9 @@
 
   .radio__input:not(:disabled) + &--hover,
   .radio__input:hover:not(:disabled) + &,
+  .radio__input:not(:disabled) + &:hover,
   .radio__input:focus:not(:disabled) + & {
+    cursor: pointer;
     border: 1px solid var(--color-primary-main);
     outline: var(--color-primary-main) solid 1px;
   }

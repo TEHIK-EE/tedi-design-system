@@ -34,6 +34,7 @@ export const Check = (props: CheckProps): JSX.Element => {
     ...rest
   } = props;
   const [innerChecked, setInnerChecked] = React.useState<boolean>(defaultChecked || false);
+  const labelRef = React.useRef<HTMLLabelElement>(null);
 
   const getChecked = React.useMemo((): boolean | 'mixed' => {
     return indeterminate ? 'mixed' : onChange && typeof checked !== 'undefined' ? checked : innerChecked;
@@ -63,21 +64,20 @@ export const Check = (props: CheckProps): JSX.Element => {
             onChange={onChangeHandler}
             className={styles['check__input']}
           />
-          {/* We are using two labels on the same input field to avoid manually managing the state of a custom checkbox. This will show up as a warning in the Storybook Accessibility addon. It is still valid HTML and is hidden from screen-readers so it should not cause any actual issues to end-users. */}
-          <label
+          <div
             aria-hidden="true"
-            htmlFor={id}
-            className={cn(LabelBEM, styles['check__indicator'], {
+            onClick={() => labelRef.current?.click()} // Click on the indicator itself should still toggle state
+            className={cn(styles['check__indicator'], {
               [styles['check__indicator--hover']]: hover,
               [styles['check__indicator--indeterminate']]: indeterminate,
             })}
           >
             <Icon size={16} name="remove" className={cn(styles['check__icon'], styles['check__icon--indeterminate'])} />
             <Icon size={16} name="check" className={cn(styles['check__icon'], styles['check__icon--check'])} />
-          </label>
+          </div>
         </Col>
         <Col>
-          <label className={LabelBEM} htmlFor={id}>
+          <label ref={labelRef} className={LabelBEM} htmlFor={id}>
             <span className={cn({ 'visually-hidden': hideLabel })}>{label}</span>
           </label>
           {tooltip && (
