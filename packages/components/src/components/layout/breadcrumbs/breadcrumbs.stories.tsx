@@ -33,19 +33,13 @@ export const Default: Story = {
   },
 };
 
+/**
+ * By default, we only show last interactive crumb on mobile and tablet.<br/>
+ * This can be controlled with `showMinimalCrumbs` prop. We can force the minimal view or define our own layouts/breakpoints for when the switch happens.
+ */
 export const ForcedMinimalCrumbs: Story = {
   args: {
     ...Default.args,
     showMinimalCrumbs: true,
-  },
-
-  parameters: {
-    docs: {
-      description: {
-        story: `By default we only show last interactive crumb on mobile and tablet.
-        This can be controlled with \`showMinimalCrumbs\` prop. We can force the minimal view
-        or define our own layouts/breakpoints for when the switch happens`,
-      },
-    },
   },
 };

@@ -126,7 +126,7 @@ export const MultipleHandled: Story = {
 export const CustomOptionSelect: Story = {
   render: CustomOptionSelectTemplate,
   args: {
-    label: 'Nimi või isikukood',
+    label: 'Name or personal code',
     id: 'appeal-select',
   },
 };
@@ -156,6 +156,11 @@ export const SelectWithGroupedOptions: Story = {
   },
 };
 
+/**
+ * All group headings can be styled at once with `optionGroupHeadingText` and `optionGroupBackgroundColor`.<br/>
+ * But they can be styled separately also using `text` and `backgroundColor` inside `options` prop.<br/>
+ * If both ways are used at the same time, priority is given to separately set styles.
+ */
 export const SelectWithStyledGroupedOptions: Story = {
   args: {
     id: 'grouped-options-example',
@@ -166,13 +171,5 @@ export const SelectWithStyledGroupedOptions: Story = {
     },
     optionGroupBackgroundColor: 'important-highlight',
     options: groupedOptions2,
-  },
-  parameters: {
-    docs: {
-      description: {
-        story:
-          'All group headings can be styled at once with `optionGroupHeadingText` and `optionGroupBackgroundColor`. But they can be styled separately also using `text` and `backgroundColor` inside `options` prop. If both ways are used at the same time, priority is given to separately set styles.',
-      },
-    },
   },
 };

@@ -13,7 +13,7 @@ const meta: Meta<typeof DateTimePicker> = {
 export default meta;
 type Story = StoryObj<typeof DateTimePicker>;
 
-const Template: StoryFn<DateTimePickerProps> = (args) => <DateTimePicker {...args} label="Vali kuupäev ja kellaeg" />;
+const Template: StoryFn<DateTimePickerProps> = (args) => <DateTimePicker {...args} label="Choose date and time" />;
 const numberOne = 1; // https://github.com/storybookjs/storybook/issues/12208
 
 export const Default: Story = {
@@ -61,6 +61,9 @@ export const DisablePast: Story = {
   },
 };
 
+/**
+ * Can select time between 8:00-16:30 every workday.
+ */
 export const WithMinMaxTime: Story = {
   render: Template,
 
@@ -70,16 +73,11 @@ export const WithMinMaxTime: Story = {
     minTime: dayjs().set('hours', 8).set('minute', 0),
     shouldDisableDate: (date) => date?.weekday() === 6 || date?.weekday() === 7,
   },
-
-  parameters: {
-    docs: {
-      description: {
-        story: 'Can select time between 8:00-16:30 every workday',
-      },
-    },
-  },
 };
 
+/**
+ * Can only select fridays, defaultValue is next friday and today is not highlighted.
+ */
 export const CustomDisabledDays: Story = {
   render: Template,
 
@@ -88,14 +86,6 @@ export const CustomDisabledDays: Story = {
     defaultValue: dayjs().weekday(5),
     shouldDisableDate: (date) => date?.weekday() !== 5,
     disableHighlightToday: true,
-  },
-
-  parameters: {
-    docs: {
-      description: {
-        story: 'Can only select fridays, defaultValue is next friday and today is not highlighted',
-      },
-    },
   },
 };
 
@@ -142,7 +132,7 @@ export const WithErrorHelper: Story = {
   args: {
     id: 'datetimepicker-error-helper',
     defaultValue: dayjs().add(numberOne, 'day'),
-    helper: { text: 'Kuupäev ei tohi olla tulevikus!', type: 'error' },
+    helper: { text: 'Date can not be in the future!', type: 'error' },
   },
 };
 
@@ -183,7 +173,7 @@ export const Controlled = () => {
           </Button>
         </Col>
       </Row>
-      <DateTimePicker label="Vali kuupäev" id="datetimepicker-controlled" value={date} onChange={setDate} />
+      <DateTimePicker label="Choose date and time" id="datetimepicker-controlled" value={date} onChange={setDate} />
       <p>Current date is: {date?.toString()}</p>
     </>
   );

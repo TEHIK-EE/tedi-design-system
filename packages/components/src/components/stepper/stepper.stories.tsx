@@ -23,13 +23,13 @@ const Template = (args: TemplateProps) => {
       {currentStep > 0 && (
         <Col width="auto">
           <Button visualType="secondary" onClick={() => handleActiveStepChange(currentStep - 1)}>
-            Tagasi
+            Back
           </Button>
         </Col>
       )}
       {currentStep < 2 && (
         <Col width="auto">
-          <Button onClick={() => handleActiveStepChange(currentStep + 1)}>Edasi</Button>
+          <Button onClick={() => handleActiveStepChange(currentStep + 1)}>Next</Button>
         </Col>
       )}
     </Row>
@@ -49,20 +49,20 @@ const Template = (args: TemplateProps) => {
 
   return (
     <Stepper activeStep={controlled ? currentStep : undefined} onActiveStepChange={handleActiveStepChange} {...rest}>
-      <Step id="step-1" label="Lapse arenguvajadused" completed={getIsCompleted(0)}>
+      <Step id="step-1" label="Childs needs" completed={getIsCompleted(0)}>
         <VerticalSpacing>
           <Heading element="h2">Triin Kass</Heading>
           <p>Content 1</p>
           {showNavigation && <StepperNavigation />}
         </VerticalSpacing>
       </Step>
-      <Step id="step-2" label="Vanemate suutlikkus" completed={getIsCompleted(1)}>
+      <Step id="step-2" label="Parent ability" completed={getIsCompleted(1)}>
         <VerticalSpacing>
           <p>Content 2 </p>
           {showNavigation && <StepperNavigation />}
         </VerticalSpacing>
       </Step>
-      <Step id="step-3" label="Pere ja keskkond" completed={getIsCompleted(2)}>
+      <Step id="step-3" label="Family and environment" completed={getIsCompleted(2)}>
         <VerticalSpacing>
           <p>Content 3 </p>
           {showNavigation && <StepperNavigation />}
@@ -106,22 +106,21 @@ export const DefaultActiveStep: Story = {
   },
 };
 
+/**
+ * By default, `allowStepLabelClick=true`, so user clicking on step label will navigate to that step.<br/>
+ * Bear in mind that user could skip steps this way. Adding additional navigation inside content is not necessary, but still recommended for better UX.
+ */
 export const StateHandledOutside: Story = {
   args: {
     ...Default.args,
     controlled: true,
     showNavigation: true,
   },
-  parameters: {
-    docs: {
-      description: {
-        story: `By default <code>allowStepLabelClick=true</code>, so user clicking on step label will navigate to that step. <br/>
-          Bear in mind that user could skip steps this way. Adding additional navigation inside content is not necessary, but still recommended for better UX.`,
-      },
-    },
-  },
 };
 
+/**
+ * When `allowStepLabelClick=false`, user cannot navigate to other steps by clicking on step label. UI should provide other means to navigate between steps.
+ */
 export const StateHandledOutsideNavNotClickable: Story = {
   args: {
     ...Default.args,
@@ -129,16 +128,12 @@ export const StateHandledOutsideNavNotClickable: Story = {
     controlled: true,
     showNavigation: true,
   },
-  parameters: {
-    docs: {
-      description: {
-        story:
-          'When <code>allowStepLabelClick=false</code>, user cannot navigate to other steps by clicking on step label. UI should provide other means to navigate between steps.',
-      },
-    },
-  },
 };
 
+/**
+ * When `allowStepLabelClick="completed"`, user can only navigate to completed steps.<br />
+ * UI should provide other means to navigate to the next steps.
+ */
 export const StateHandledOutsideCompleted: Story = {
   args: {
     ...Default.args,
@@ -146,29 +141,17 @@ export const StateHandledOutsideCompleted: Story = {
     controlled: true,
     showNavigation: true,
   },
-  parameters: {
-    docs: {
-      description: {
-        story:
-          'When <code>allowStepLabelClick="completed"</code>, user can only navigate to completed steps. <br />UI should provide other means to navigate to the next steps.',
-      },
-    },
-  },
 };
 
+/**
+ * When `allowStepLabelClick="completed-or-next"`, user can only navigate to completed steps or next step of current step.<br />
+ * Application should handle validating the steps and navigating to the next step from `onActiveStepChange`.
+ */
 export const StateHandledOutsideCompletedOrNext: Story = {
   args: {
     ...Default.args,
     allowStepLabelClick: 'completed-or-next',
     controlled: true,
     showNavigation: true,
-  },
-  parameters: {
-    docs: {
-      description: {
-        story:
-          'When <code>allowStepLabelClick="completed-or-next"</code>, user can only navigate to completed steps or next step of current step. <br />Application should handle validating the steps and navigating to the next step from <code>onActiveStepChange</code>.',
-      },
-    },
   },
 };

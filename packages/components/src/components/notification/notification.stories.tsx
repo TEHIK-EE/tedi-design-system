@@ -44,11 +44,11 @@ type Story = StoryObj<typeof Notification>;
 
 export const Default: Story = {
   args: {
-    title: 'Teade',
+    title: 'Notice',
     children: (
       <p>
-        Suunatud e-postile kasutaja kairi.sarapuu@gmail.com. Soovi korral muuda suunamine kohe siin või vasak menüüst “
-        <Anchor href="#">Minu andmed”</Anchor> - “Suunamine.
+        Redirected to users e-mail jane.doe@gmail.com. You can change the redirection here or from the left menu “
+        <Anchor href="#">My data</Anchor>” - “Suunamine”.
       </p>
     ),
   },

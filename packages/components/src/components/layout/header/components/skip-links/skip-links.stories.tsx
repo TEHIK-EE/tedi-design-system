@@ -11,6 +11,6 @@ type Story = StoryObj<typeof SkipLinks>;
 
 export const Default: Story = {
   args: {
-    links: [{ children: 'Liigu edasi põhisisu juurde', href: '#main-content' }],
+    links: [{ children: 'Skip to main content', href: '#main-content' }],
   },
 };

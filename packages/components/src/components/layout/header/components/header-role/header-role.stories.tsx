@@ -35,7 +35,7 @@ export const WithSecondaryInfo: Story = {
   args: {
     children: 'Any content',
     primaryInfo: 'Ida-Tallinna Keskhaigla',
-    secondaryInfo: 'Perearst',
+    secondaryInfo: 'Family physician',
     label: 'Kristo Käärmann',
   },
 };

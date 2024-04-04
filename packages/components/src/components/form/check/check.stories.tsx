@@ -6,22 +6,17 @@ import Row from '../../grid/row';
 import Text from '../../typography/text/text';
 import Check, { CheckProps } from './check';
 
+/**
+ * Most of the time you should use `ChoiceGroup` component. But we also export a single `Check` component for custom use cases.
+ */
 const meta: Meta<typeof Check> = {
   component: Check,
-  parameters: {
-    docs: {
-      description: {
-        component:
-          'Most of the times you should use `ChoiceGroup` component. But we also export a single `Check` component for custom use cases.',
-      },
-    },
-  },
 };
 
 export default meta;
 type Story = StoryObj<typeof Check>;
 
-const Template: StoryFn<CheckProps> = (args) => <Check {...args} label="Vali mind" value="default" />;
+const Template: StoryFn<CheckProps> = (args) => <Check {...args} label="Select me" value="default" />;
 
 export const Default: Story = {
   render: Template,
@@ -30,7 +25,7 @@ export const Default: Story = {
     id: 'default-check',
     name: 'default-check',
     defaultChecked: true,
-    label: <b>VAli mind</b>,
+    label: <b>Select me</b>,
   },
 };
 
@@ -61,7 +56,7 @@ export const Indeterminate = () => {
   return (
     <Check
       id="controlled-check"
-      label="Vali mind"
+      label="Select me"
       name="controlled-check"
       value="controlled"
       checked={checked}
@@ -146,7 +141,7 @@ export const Controlled = () => {
   return (
     <Check
       id="controlled-check"
-      label="Vali mind"
+      label="Select me"
       name="controlled-check"
       value="controlled"
       checked={checked}

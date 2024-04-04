@@ -3,16 +3,11 @@ import React from 'react';
 
 import ToggleOpen from './toggle-open';
 
+/**
+ * Toggle helper that toggles the button open-close with expand_more icon. Toggle is already used in Accordion component.
+ */
 const meta: Meta<typeof ToggleOpen> = {
   component: ToggleOpen,
-  parameters: {
-    docs: {
-      description: {
-        component:
-          'Toggle helper that toggles the button open-close with expand_more icon. Toggle is already used in Accordion component.',
-      },
-    },
-  },
 };
 
 export default meta;
@@ -26,8 +21,8 @@ const Template: StoryFn<typeof ToggleOpen> = (args) => {
 export const Default: Story = {
   render: Template,
   args: {
-    openText: 'Avan',
-    closeText: 'Sulgen',
+    openText: 'Open',
+    closeText: 'Close',
     visualType: 'secondary',
   },
 };

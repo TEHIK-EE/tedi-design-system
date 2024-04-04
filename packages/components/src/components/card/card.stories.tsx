@@ -106,14 +106,10 @@ export const Default: Story = {
   args: {},
 };
 
+/**
+ * Default header background is a primary gradient
+ */
 export const DefaultHeader: Story = {
-  parameters: {
-    docs: {
-      description: {
-        story: 'Default header background is a primary gradient',
-      },
-    },
-  },
   render: Template,
   args: {
     cardHeader: {
@@ -169,6 +165,9 @@ export const Borderless: Story = {
   },
 };
 
+/**
+ * With borderRadius prop u can turn off every corner separately or all together. By default, all corners are rounded.
+ */
 export const WithoutBorderRadius: Story = {
   render: Template,
 
@@ -178,16 +177,11 @@ export const WithoutBorderRadius: Story = {
       borderRadius: false,
     },
   },
-  parameters: {
-    docs: {
-      description: {
-        story:
-          'With borderRadius prop u can turn off every corner separately or all togheter. By default all corners are rounded.',
-      },
-    },
-  },
 };
 
+/**
+ * Card support different borders and can be colored with: Brand, Border & Functional colors.
+ */
 export const BorderColor: Story = {
   render: Template,
 
@@ -198,16 +192,11 @@ export const BorderColor: Story = {
     },
     cardHeader: false,
   },
-
-  parameters: {
-    docs: {
-      description: {
-        story: 'Card support different borders and can be colored with: Brand, Border & Functional colors.',
-      },
-    },
-  },
 };
 
+/**
+ * Card also support top and left borders, which are 4px wide and can be colored with: Brand, Border & Functional colors.
+ */
 export const BorderLeftImportantActive: Story = {
   render: Template,
 
@@ -217,15 +206,6 @@ export const BorderLeftImportantActive: Story = {
       border: 'left-important-active',
     },
     cardHeader: false,
-  },
-
-  parameters: {
-    docs: {
-      description: {
-        story:
-          'Card also support top and left borders, which are 4px wide and can be colored with: Brand, Border & Functional colors.',
-      },
-    },
   },
 };
 
@@ -283,24 +263,19 @@ const TemplatePadding: StoryFn<CardStory> = (args) => {
   );
 };
 
+/**
+ * Card padding can be set with the `padding` prop. The value can be: <br />
+ * - predefined number value in rems <br />
+ * - object of separated `horizontal, vertical` number values in rems <br />
+ * - object of separated `top, right, bottom, left` number values in rems <br />
+ * The padding can be set for the whole card or for the card header and card content separately. If the padding is set for the whole card, it is overridden by the padding set for the card header and card content separately. <br/>
+ */
 export const Padding: Story = {
   render: TemplatePadding,
 
   args: {
     ...Default.args,
     cardHeader: true,
-  },
-
-  parameters: {
-    docs: {
-      description: {
-        story: `Card padding can be set with the \`padding\` prop. The value can be: <br />
-- predefined number value in rems <br />
-- object of separated \`horizontal, vertical\` number values in rems <br />
-- object of separated \`top, right, bottom, left\` number values in rems <br />
-          The padding can be set for the whole card or for the card header and card content separately. If the padding is set for the whole card, it is overridden by the padding set for the card header and card content separately. <br/>`,
-      },
-    },
   },
 };
 
@@ -334,16 +309,11 @@ export const EqualHeight = {
   ...CardsExample,
 };
 
+/**
+ * When a card does not have a proper content it is possible to use `CardNotification` instead of rendering a `Notification` inside the `CardContent`
+ */
 export const WithNotification: Story = {
   render: Template,
-  parameters: {
-    docs: {
-      description: {
-        story:
-          'When a card does not have a proper content it is possible to use <code>CardNotification</code> instead of rendering a <code>Notification</code> inside the <code>CardContent</code>',
-      },
-    },
-  },
   args: {
     card: {
       padding: 0.75,

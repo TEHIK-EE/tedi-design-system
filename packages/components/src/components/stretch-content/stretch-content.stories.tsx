@@ -9,17 +9,12 @@ import Heading from '../typography/heading/heading';
 import { VerticalSpacing } from '../vertical-spacing';
 import StretchContent, { StretchContentProps } from './stretch-content';
 
+/**
+ * StretchContent helps with cases where parent size is not defined by its children, and you need to scale the children to take all available space.<br/>
+ * A real world use-case would be multiple Cards in one row. Example for that can be found in Equal Height Card stories.
+ */
 const meta: Meta<typeof StretchContent> = {
   component: StretchContent,
-  parameters: {
-    docs: {
-      description: {
-        component: `StretchContent helps with cases where parent size is not defined by its children and you need to scale the
-          children to take all available space. A real world use-case would be multiple Cards in one row. Example for
-          that can be found in Equal Height Card stories.`,
-      },
-    },
-  },
 };
 
 export default meta;

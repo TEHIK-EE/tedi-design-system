@@ -48,6 +48,6 @@ export const Small: Story = {
     ...Default.args,
     size: 'small',
     icon: 'search',
-    placeholder: 'Otsi',
+    placeholder: 'Search',
   },
 };

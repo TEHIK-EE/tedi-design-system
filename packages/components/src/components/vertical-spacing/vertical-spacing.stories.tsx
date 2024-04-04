@@ -62,7 +62,6 @@ const CardTemplate: StoryFn<VerticalSpacingProps> = (args) => (
 
 export const Default: Story = {
   render: Template,
-
   args: {
     size: 1,
   },

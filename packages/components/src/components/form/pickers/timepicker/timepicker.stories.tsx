@@ -13,7 +13,7 @@ const meta: Meta<typeof TimePicker> = {
 export default meta;
 type Story = StoryObj<typeof TimePicker>;
 
-const Template: StoryFn<TimePickerProps> = (args) => <TimePicker {...args} label="Vali kellaeg" />;
+const Template: StoryFn<TimePickerProps> = (args) => <TimePicker {...args} label="Choose time" />;
 const numberOne = 1; // https://github.com/storybookjs/storybook/issues/12208
 
 export const Default: Story = {
@@ -43,6 +43,9 @@ export const ReadOnly: Story = {
   },
 };
 
+/**
+ * Time selected has to be over 12:00
+ */
 export const MinTime: Story = {
   render: Template,
 
@@ -50,30 +53,17 @@ export const MinTime: Story = {
     id: 'timepicker-min-time',
     minTime: dayjs().set('h', 12).set('minute', 0),
   },
-
-  parameters: {
-    docs: {
-      description: {
-        story: 'Time selected has to be over 12:00',
-      },
-    },
-  },
 };
 
+/**
+ * Time selected has to be below 12:00
+ */
 export const MaxTime: Story = {
   render: Template,
 
   args: {
     id: 'timepicker-max-time',
     maxTime: dayjs().set('h', 11).set('minute', 59),
-  },
-
-  parameters: {
-    docs: {
-      description: {
-        story: 'Time selected has to be below 12:00',
-      },
-    },
   },
 };
 
@@ -111,7 +101,7 @@ export const WithErrorHelper: Story = {
   args: {
     id: 'timepicker-error-helper',
     defaultValue: dayjs().add(numberOne, 'minute'),
-    helper: { text: 'Aeg ei tohi olla tulevikus!', type: 'error' },
+    helper: { text: 'Time can not be in the future!', type: 'error' },
     maxTime: dayjs(),
   },
 };
@@ -148,7 +138,7 @@ export const Controlled = () => {
           </Button>
         </Col>
       </Row>
-      <TimePicker label="Vali kellaeg" id="timepicker-controlled" value={time} onChange={setTime} />
+      <TimePicker label="Choose time" id="timepicker-controlled" value={time} onChange={setTime} />
       <p>Current time is: {time?.format('HH:mm')}</p>
     </>
   );

@@ -12,6 +12,11 @@ import Heading from '../typography/heading/heading';
 import { VerticalSpacing } from '../vertical-spacing';
 import Feedback, { FeedbackProps } from './feedback';
 
+/**
+ * Feedback component contains everything to render a modal, including the trigger button.<br/>
+ * It adds some default props to the trigger and modal and renders the button on the right side for desktop and inline for mobile.<br/>
+ * Feedback component should be rendered after the main content to have the correct focus order.
+ */
 export default {
   title: 'components/Feedback',
   component: Feedback,
@@ -20,11 +25,6 @@ export default {
       story: {
         inline: false,
         iframeHeight: 700,
-      },
-      description: {
-        component: `Feedback component contains everything to render a modal, including the trigger button. It adds some default
-          props to the trigger and modal and renders the button on the right side for desktop and inline for mobile.
-          Feedback component should be rendered after the main content to have the correct focus order.`,
       },
     },
   },

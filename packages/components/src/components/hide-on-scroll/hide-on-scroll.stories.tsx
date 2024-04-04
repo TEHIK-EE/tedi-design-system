@@ -118,14 +118,10 @@ export const AnimationDirection: Story = {
   render: AnimationTemplate,
 };
 
+/**
+ * The component can also hide content for upwards scroll direction.
+ */
 export const ScrollDirection: Story = {
-  parameters: {
-    docs: {
-      description: {
-        story: 'The component can also hide content for upwards scroll direction.',
-      },
-    },
-  },
   render: AnimationTemplate,
   args: {
     scrollDirection: 'up',

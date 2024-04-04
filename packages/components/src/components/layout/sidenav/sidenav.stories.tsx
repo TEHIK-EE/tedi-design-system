@@ -13,21 +13,21 @@ export default meta;
 type Story = StoryObj<typeof Sidenav>;
 
 const exampleNavItems: SideNavItem[] = [
-  { href: '#', children: 'Avaleht', icon: 'home' },
-  { href: '#', children: 'Kliendid', icon: 'account_box' },
-  { href: '/', children: 'Lapsed', icon: 'child_care', isActive: true },
-  { href: '#', children: 'Mingi väga pikk tekst miseimahukuidagigisiiaära', icon: 'assignment' },
-  { href: '#', children: 'Menetlused', icon: 'assignment' },
-  { href: '#', children: 'Menetlused, mis on ka pikk tekst', icon: 'assignment' },
-  { href: '#', children: 'Menetlused', icon: 'assignment' },
+  { href: '#', children: 'Home', icon: 'home' },
+  { href: '#', children: 'Clients', icon: 'account_box' },
+  { href: '/', children: 'Children', icon: 'child_care', isActive: true },
+  { href: '#', children: 'Some very long text that doest fit anything and wraps', icon: 'assignment' },
+  { href: '#', children: 'Assignments', icon: 'assignment' },
+  { href: '#', children: 'Assignment that is a long text', icon: 'assignment' },
+  { href: '#', children: 'Assignments', icon: 'assignment' },
 ];
 
 const exampleNavItemsPublic: SideNavItem[] = [
-  { href: '#', children: 'Avaleht', icon: 'dashboard', isActive: true },
-  { href: '#', children: 'Terviseennetuse info', icon: 'health_metrics' },
-  { href: '/', children: 'Portaali teenused', icon: 'medical_services' },
-  { href: '#', children: 'Uuringud ja uudised', icon: 'science' },
-  { href: '#', children: 'Kontaktid ja KKK', icon: 'quiz' },
+  { href: '#', children: 'Home', icon: 'dashboard', isActive: true },
+  { href: '#', children: 'Health info', icon: 'health_metrics' },
+  { href: '/', children: 'Portal services', icon: 'medical_services' },
+  { href: '#', children: 'News', icon: 'science' },
+  { href: '#', children: 'Contact and FAQ', icon: 'quiz' },
 ];
 
 export const Default: Story = {

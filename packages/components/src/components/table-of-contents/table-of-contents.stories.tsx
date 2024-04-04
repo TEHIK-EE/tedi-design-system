@@ -104,6 +104,10 @@ export const WithManySteps: Story = {
   },
 };
 
+/**
+ * When using TableOfContents next to multistep form, that doesn't allow user to skip to next step.
+ * Use disabled text as content, not button or anchor.
+ */
 export const CustomFormValidation: Story = {
   args: {
     showIcons: true,
@@ -117,7 +121,7 @@ export const CustomFormValidation: Story = {
               closeModal();
             }}
           >
-            Subjekt
+            Subject
           </Button>
         ),
         isValid: true,
@@ -131,7 +135,7 @@ export const CustomFormValidation: Story = {
               closeModal();
             }}
           >
-            Kuidas soovid jätkata?
+            How to proceed?
           </Button>
         ),
         isValid: true,
@@ -145,26 +149,20 @@ export const CustomFormValidation: Story = {
               closeModal();
             }}
           >
-            Olukorra kirjeldus ja aeg
+            Event description and time
           </Button>
         ),
       },
       {
-        content: <Text color="disabled">Lisa märksõnad</Text>,
+        content: <Text color="disabled">Add notes</Text>,
       },
     ],
   },
-
-  parameters: {
-    docs: {
-      description: {
-        story: `When using TableOfContents next to multi step form, that doesn't allow user to skip to next step.
-          Use disabled text as content, not button or anchor.`,
-      },
-    },
-  },
 };
 
+/**
+ * Some items can have hidden icons.
+ */
 export const WithHiddenIcons: Story = {
   render: Template,
   args: {
@@ -175,15 +173,11 @@ export const WithHiddenIcons: Story = {
       hideIcon: index % 2 === 0,
     })),
   },
-  parameters: {
-    docs: {
-      description: {
-        story: 'Some items can have hidden icons.',
-      },
-    },
-  },
 };
 
+/**
+ * Some items can have separators after them.
+ */
 export const WithSeparators: Story = {
   render: Template,
   args: {
@@ -192,13 +186,6 @@ export const WithSeparators: Story = {
       content: <Anchor href={`#${step}`}>{step}</Anchor>,
       separator: index % 2 === 0,
     })),
-  },
-  parameters: {
-    docs: {
-      description: {
-        story: 'Some items can have separators after them.',
-      },
-    },
   },
 };
 
@@ -265,17 +252,13 @@ const NestedTemplate: StoryFn<TableOfContentsProps> = (args) => {
   );
 };
 
+/**
+ * Every item can have children.
+ */
 export const NestedExample: Story = {
   render: NestedTemplate,
   args: {
     ...Default.args,
     showIcons: false,
-  },
-  parameters: {
-    docs: {
-      description: {
-        story: 'Every item can have children.',
-      },
-    },
   },
 };

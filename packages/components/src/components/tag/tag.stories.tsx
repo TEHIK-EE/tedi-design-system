@@ -60,18 +60,14 @@ const Template: StoryFn<TagTemplateProps> = (args) => {
   );
 };
 
+/**
+ * More about usage of Tag can be found <a href="/docs/components-tag--tag-usage">here</a>
+ */
 const meta: Meta<TagTemplateProps> = {
   component: Tag,
   argTypes: {
     array: { table: { disable: true } },
     property: { table: { disable: true } },
-  },
-  parameters: {
-    docs: {
-      description: {
-        component: 'More about usage of Tag can be foud <a href="/docs/components-tag--tag-usage">here</a>',
-      },
-    },
   },
   render: Template,
 };
@@ -174,6 +170,9 @@ export const WithLongTextRounded: Story = {
   },
 };
 
+/**
+ * Size large, disabled and rounded example with icon.
+ */
 export const CustomTag: Story = {
   render: (args) => <Tag {...args} />,
   args: {
@@ -182,13 +181,5 @@ export const CustomTag: Story = {
     isDisabled: true,
     rounded: true,
     iconOnly: true,
-  },
-
-  parameters: {
-    docs: {
-      description: {
-        story: 'Size large, disabled and rounded example with icon',
-      },
-    },
   },
 };

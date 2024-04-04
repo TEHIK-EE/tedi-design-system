@@ -8,18 +8,13 @@ import { Table } from '../../table';
 import { VerticalSpacing } from '../../vertical-spacing';
 import Text, { TextProps } from './text';
 
+/**
+ * Text is helper component to use different color and modifiers on text.<br/>
+ * Modifiers prop accepts array of modifiers or single modifier. It helps you to combine modifiers if needed.<br/>
+ * Every modifier and color of text has its own global css class also, but using Text component is highly recommended.
+ */
 const meta: Meta<typeof Text> = {
   component: Text,
-  parameters: {
-    docs: {
-      description: {
-        component: `<p>
-          Text is helper component to use different color and modifiers on text. <br/>
-          Modifiers prop accepts array of modifiers or single modifier. It helps you to combine modifiers if needed. <br/>
-          Every modifier and color of text has it's own global css class also, but using Text component is highly recommended.</p>`,
-      },
-    },
-  },
 };
 
 export default meta;

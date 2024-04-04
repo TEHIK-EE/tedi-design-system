@@ -6,17 +6,13 @@ import Text from '../../typography/text/text';
 import ChoiceGroup from './choice-group';
 import { ChoiceGroupItemProps } from './choice-group.types';
 
+/**
+ * ChoiceGroup is created to handle state of input with role radio or checkbox.<br/>
+ * It also has a possibility to show/hide FormLabel of `fieldset` and show FormHelper to whole `fieldset`.<br/>
+ * Possible visual variations are: Check/Radio/Filter/Selector.
+ */
 const meta: Meta<typeof ChoiceGroup> = {
   component: ChoiceGroup,
-  parameters: {
-    docs: {
-      description: {
-        component: `ChoiceGroup is created to handle state of input with role radio or checkbox. It also has possibilty to
-          show/hide FormLabel of <code>fieldset</code> and show FormHelper to whole <code>fieldset</code>. Possibile visual variatsions are:
-          Check/Radio/Filter/Selector.`,
-      },
-    },
-  },
 };
 
 export default meta;
@@ -36,7 +32,7 @@ const generateItems = (
 ): ChoiceGroupItemProps[] => [
   {
     id: `value-${index * 3}`,
-    label: 'Valik 1',
+    label: 'Option 1',
     value: `value-${index * 3}`,
     colProps,
     background: colored && 'positive-main',
@@ -44,7 +40,7 @@ const generateItems = (
   },
   {
     id: `value-${index * 3 + 1}`,
-    label: `Valik 2, mis on teistest veidi pikem${
+    label: `Option 2, that is longer than the others${
       extraLongTitle
         ? ' - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin varius, sem blandit sodales tincidunt, orci elit ornare ex, eu ultrices diam turpis id nisl. Sed sollicitudin auctor nunc. Aliquam a arcu in sem bibendum laoreet non eu nunc.'
         : ''
@@ -62,7 +58,7 @@ const generateItems = (
   },
   {
     id: `value-${index * 3 + 2}`,
-    label: 'Valik 3',
+    label: 'Option 3',
     value: `value-${index * 3 + 2}`,
     disabled: !colored,
     colProps,
@@ -242,24 +238,19 @@ export const WithIndeterminate: Story = {
     ...Check.args,
     label: 'I have an indeterminate checkbox:',
     items: generateItems(14),
-    indeterminateCheck: (state) => (state === 'all' ? 'Eemalda kõik' : 'Vali kõik'),
+    indeterminateCheck: (state) => (state === 'all' ? 'Unselect all' : 'Select all'),
   },
 };
 
+/**
+ * ExtraContent prop can only be used with check and radio inputType.
+ */
 export const WithExtraContent: Story = {
   args: {
     ...Check.args,
     inputType: 'radio',
     label: 'I have extra content after label:',
     items: generateItems(15, { extraContent: true }),
-  },
-
-  parameters: {
-    docs: {
-      description: {
-        story: 'ExtraContent prop can only be used with check and radio inputType',
-      },
-    },
   },
 };
 

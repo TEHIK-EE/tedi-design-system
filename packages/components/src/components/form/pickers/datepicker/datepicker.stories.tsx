@@ -13,7 +13,7 @@ const meta: Meta<typeof DatePicker> = {
 export default meta;
 type Story = StoryObj<typeof DatePicker>;
 
-const Template: StoryFn<DatePickerProps> = (args) => <DatePicker {...args} label="Vali kuupäev" />;
+const Template: StoryFn<DatePickerProps> = (args) => <DatePicker {...args} label="Choose date" />;
 const numberOne = 1; // https://github.com/storybookjs/storybook/issues/12208
 
 export const Default: Story = {
@@ -61,6 +61,9 @@ export const DisablePast: Story = {
   },
 };
 
+/**
+ * Can only select fridays, defaultValue is next friday and today is not highlighted.
+ */
 export const CustomDisabledDays: Story = {
   render: Template,
 
@@ -69,14 +72,6 @@ export const CustomDisabledDays: Story = {
     defaultValue: dayjs().weekday(5),
     shouldDisableDate: (date) => date?.weekday() !== 4,
     disableHighlightToday: true,
-  },
-
-  parameters: {
-    docs: {
-      description: {
-        story: 'Can only select fridays, defaultValue is next friday and today is not highlighted',
-      },
-    },
   },
 };
 
@@ -122,7 +117,7 @@ export const WithErrorHelper: Story = {
   args: {
     id: 'datepicker-error-helper',
     defaultValue: dayjs().add(numberOne, 'day'),
-    helper: { text: 'Kuupäev ei tohi olla tulevikus!', type: 'error' },
+    helper: { text: 'Date can not be in the future!', type: 'error' },
   },
 };
 
@@ -158,7 +153,7 @@ export const Controlled = () => {
           </Button>
         </Col>
       </Row>
-      <DatePicker label="Vali kuupäev" id="datepicker-2" value={date} onChange={setDate} />
+      <DatePicker label="Choose date" id="datepicker-2" value={date} onChange={setDate} />
       <p>Current date is: {date?.toString()}</p>
     </>
   );

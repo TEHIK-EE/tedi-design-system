@@ -10,7 +10,7 @@ const converter = new showdown.Converter({ simpleLineBreaks: true });
 
 /**
  * TextEditor is built with [draft.js](https://draftjs.org/). It takes markdown string as input and outputs <br/>
- * also markdown string. In example we used [showdown.js](https://github.com/showdownjs/showdown) to get HTML <br/>
+ * also markdown string. In this example we used [showdown.js](https://github.com/showdownjs/showdown) to get HTML <br/>
  * elements of markdown. It is **highly recommended** to use [dompurify](https://github.com/cure53/DOMPurify) <br/>
  * before using HTML content inside your app
  */
@@ -43,14 +43,14 @@ export const Default: Story = {
   render: Template,
   args: {
     id: 'text-editor',
-    label: 'Olukorra kirjeldus',
-    placeholder: 'Sisesta menetluse kirjeldus...',
-    defaultValue: `Kannatanu hinnangul on __vägivald__: korduv; ning mõjutab teda järgmiselt: tervist mõjutab, turvalisust mõjutab, toimetulekut mõjutab.
-Lisaks veel on kodus:
-- alealised lapsed
-- mehel on voodi alla peidetud õhupüss
-- isik vabandes hiljuti vanglast
+    label: 'Situation description',
+    placeholder: 'Enter description...',
+    defaultValue: `According to the victim the __violence__: is repeating; and affects them in following ways: health, safety, quality of life.
+In addition in the home there are:
+- underage children
+- person has a rifle under the bed
+- person was released from prison
 
-Mõlemad osapooled olid alkoholi tarbinud`,
+Both parties had consumed alcohol`,
   },
 };

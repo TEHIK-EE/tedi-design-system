@@ -99,6 +99,9 @@ export const TextColor = {
   },
 };
 
+/**
+ * You can render any visual button type as link because they share same visual and rendering logic in the back
+ */
 export const AsPrimaryButton = {
   render: Template,
 
@@ -106,17 +109,15 @@ export const AsPrimaryButton = {
     ...Default.args,
     visualType: 'primary',
   },
-
-  parameters: {
-    docs: {
-      description: {
-        story:
-          'You can render any visual button type as link because they share same visual and rendering logic in the back',
-      },
-    },
-  },
 };
 
+/**
+ * You can achieve the integration with third-party routing libraries with the `as` prop. In this example we pass in Next.js `<Link>` component.<br/>
+ * If you don't want to pass the `as` prop every time you use Anchor, you can create a custom component that handles the logic in one place.<br/>
+ * Just use that component every time you want to handle client side navigation.<br/>
+ * When using `as` prop then typescript inherits the correct types from the component you pass into `as`.<br/>
+ * There is one caveat to this that is explained in <a href="#anchors-as-properties">Anchors As Properties</a>
+ */
 export const CustomComponent: StoryObj<AnchorProps> = {
   render: () => {
     // reuse this function when you want to pass it into other components that accept Anchor props (E.g. Logo, Header etc)
@@ -154,34 +155,16 @@ export const CustomComponent: StoryObj<AnchorProps> = {
       </Row>
     );
   },
-
-  parameters: {
-    docs: {
-      description: {
-        story: `You can achieve the integration with third-party routing libraries with the \`as\` prop. In this example we pass in Next.js \`<Link>\` component.
-          If you don't want to pass the \`as\` prop every time you use Anchor, you can create a custom component that handles the logic in one place.
-          Just use that component every time you want to handle client side navigation.
-          When using \`as\` prop then typescript inherits the correct types from the component you pass into \`as\`.
-          There is one caveat to this that is explained in <a href="#anchors-as-properties">Anchors As Properties</a>`,
-      },
-    },
-  },
 };
 
+/**
+ * Use when u need to wrap link to some component for example logo img, that should not use same visual as other links.
+ */
 export const NoStyleAnchor = {
   args: {
     noStyle: true,
     href: 'https://www.neti.ee/',
     children: <img src="https://www.neti.ee/img/neti-logo-2015-1.png" alt="neti.ee" />,
     target: '_blank',
-  },
-
-  parameters: {
-    docs: {
-      description: {
-        story:
-          'Use when u need to wrap link to some component for example logo img, that should not use same visual as other links.',
-      },
-    },
   },
 };

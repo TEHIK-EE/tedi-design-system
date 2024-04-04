@@ -30,18 +30,18 @@ export const Default: Story = {
       <Card borderless>
         <CardContent>
           <VerticalSpacing>
-            <Anchor href="#">Minu andmed</Anchor>
+            <Anchor href="#">My data</Anchor>
             <Separator fullWidth />
-            <Anchor href="#">Ligipääs andmetele</Anchor>
+            <Anchor href="#">Representation rights</Anchor>
             <Separator fullWidth />
-            <Anchor href="#">Tahteavaldused</Anchor>
+            <Anchor href="#">Access to health data</Anchor>
             <Separator fullWidth />
-            <Anchor href="#">Volitatud isikud</Anchor>
+            <Anchor href="#">Statements of itention</Anchor>
             <Separator fullWidth />
-            <Anchor href="#">Kontaktisikud</Anchor>
+            <Anchor href="#">Contacts</Anchor>
             <Separator fullWidth />
             <Anchor href="#" iconLeft="logout">
-              Logi välja
+              Log out
             </Anchor>
             <Separator fullWidth />
           </VerticalSpacing>

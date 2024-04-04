@@ -102,7 +102,7 @@ export const Default: Story = {
   },
 };
 
-export const FirstCompletedNotToggable: Story = {
+export const FirstCompletedNotToggleable: Story = {
   render: Template,
   args: {
     items: items(false),

@@ -141,6 +141,11 @@ export const TriggerCardCustomContent: Story = {
   },
 };
 
+/**
+ * Tooltip accepts CardProps to Card which wraps TooltipContent.<br />
+ * This can be used to add border, padding, background color, etc. to TooltipContent.<br />
+ * **Note**: It is added to use in HeaderDropdown, use it with caution.
+ */
 export const WithCardBorder: Story = {
   render: Template,
 
@@ -151,15 +156,6 @@ export const WithCardBorder: Story = {
     tooltipProps: {
       cardProps: {
         border: 'top-primary-main',
-      },
-    },
-  },
-
-  parameters: {
-    docs: {
-      description: {
-        story:
-          'Tooltip accepts CardProps to Card which wraps TooltipContent.<br />This can be used to add border, padding, background color, etc. to TooltipContent.<br /> **Note**: It is added to use in HeaderDropdown, use it with caution.',
       },
     },
   },

@@ -6,22 +6,17 @@ import Row from '../../grid/row';
 import Text from '../../typography/text/text';
 import Radio, { RadioProps } from './radio';
 
+/**
+ * Most of the time you should use `ChoiceGroup` component. But we also export a single `Radio` component for custom use cases.
+ */
 const meta: Meta<typeof Radio> = {
   component: Radio,
-  parameters: {
-    docs: {
-      description: {
-        component:
-          'Most of the times you should use `ChoiceGroup` component. But we also export a single `Radio` component for custom use cases.',
-      },
-    },
-  },
 };
 
 export default meta;
 type Story = StoryObj<typeof Radio>;
 
-const Template: StoryFn<RadioProps> = (args) => <Radio {...args} label="Vali mind" value="default" />;
+const Template: StoryFn<RadioProps> = (args) => <Radio {...args} label="Select me" value="default" />;
 
 export const Default: Story = {
   render: Template,
@@ -126,7 +121,7 @@ export const Controlled = () => {
   return (
     <Radio
       id="controlled-check"
-      label="Vali mind"
+      label="Select me"
       name="controlled-check"
       value="controlled"
       checked={checked}

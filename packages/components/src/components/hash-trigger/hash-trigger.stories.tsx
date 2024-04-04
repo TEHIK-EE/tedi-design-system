@@ -3,16 +3,11 @@ import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import { Col, Row } from '../grid';
 import HashTrigger, { HashTriggerProps } from './hash-trigger';
 
+/**
+ * This component provides opportunity to navigate to a specific element that is defined in the hash of the URL. Try to change hash to test-1 to see it in action.
+ */
 const meta: Meta<typeof HashTrigger> = {
   component: HashTrigger,
-  parameters: {
-    docs: {
-      description: {
-        component: `This component provides opportunity to navigate to a specific element that is defined in the hash of the
-          URL. Try to change hash to test-1 to see it in action.`,
-      },
-    },
-  },
 };
 
 export default meta;
