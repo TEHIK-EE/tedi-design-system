@@ -1,3 +1,10 @@
+## [6.26.2](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.26.1...v6.26.2) (2024-04-04)
+
+
+### Bug Fixes
+
+* **tag:** TEHVEER-209 - Wrap tag text as last resort ([33e064e](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/33e064ed4b5456f224e5b34f37b3dd7460e0568c))
+
 ## [6.26.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.26.0...v6.26.1) (2024-04-04)
 
 
