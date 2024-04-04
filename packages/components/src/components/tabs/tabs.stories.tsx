@@ -2,7 +2,7 @@ import { Meta, StoryFn, StoryObj } from '@storybook/react';
 
 import Heading from '../typography/heading/heading';
 import { VerticalSpacing } from '../vertical-spacing';
-import { Tabs, TabsItem } from '.';
+import { Tabs, TabsItem, TabsItemProps, TabsProps } from '.';
 
 const meta: Meta<typeof Tabs> = {
   component: Tabs,
@@ -10,21 +10,27 @@ const meta: Meta<typeof Tabs> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof Tabs>;
 
-const Template: StoryFn<typeof Tabs> = (args) => (
+export interface TabsStory {
+  tabs: Omit<TabsProps, 'aria-labelledby'>;
+  tabsItem: Partial<Omit<TabsItemProps, 'id' | 'label'>>;
+}
+
+type Story = StoryObj<TabsStory>;
+
+const Template: StoryFn<TabsStory> = ({ tabs, tabsItem }) => (
   <>
     <Heading id="tabs-heading" className="visually-hidden">
       Lapse detailinfo
     </Heading>
-    <Tabs {...args} defaultCurrentTab="tab-1" aria-labelledby="tabs-heading">
-      <TabsItem id="tab-1" label="Vanemad">
+    <Tabs defaultCurrentTab="tab-1" {...tabs} aria-labelledby="tabs-heading">
+      <TabsItem {...tabsItem} id="tab-1" label="Vanemad">
         <VerticalSpacing>
           <Heading element="h2">Vanemad</Heading>
           <p>Content 1</p>
         </VerticalSpacing>
       </TabsItem>
-      <TabsItem id="tab-2" label="Eestkoste">
+      <TabsItem {...tabsItem} id="tab-2" label="Eestkoste">
         <VerticalSpacing>
           <Heading element="h2">Eestkoste</Heading>
           <p>Content 2</p>
@@ -34,7 +40,7 @@ const Template: StoryFn<typeof Tabs> = (args) => (
           <p>Content 2</p>
         </VerticalSpacing>
       </TabsItem>
-      <TabsItem id="tab-3" label="Perest eraldamine">
+      <TabsItem {...tabsItem} id="tab-3" label="Perest eraldamine">
         <VerticalSpacing>
           <Heading element="h2">Perest eraldamine</Heading>
           <p>Content 3</p>
@@ -56,4 +62,16 @@ const Template: StoryFn<typeof Tabs> = (args) => (
 export const Default: Story = {
   render: Template,
   args: {},
+};
+
+/**
+ * Since TabsItem uses Card internally it also supports `padding` and `background` props
+ */
+export const Padding: Story = {
+  render: Template,
+  args: {
+    tabsItem: {
+      padding: 1,
+    },
+  },
 };
