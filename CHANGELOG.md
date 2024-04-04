@@ -1,3 +1,10 @@
+## [6.26.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.26.0...v6.26.1) (2024-04-04)
+
+
+### Bug Fixes
+
+* **check:** TEHVEER-293 - Remove double label from check and radio ([8e754fd](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/8e754fddb1297eda9eb1229a372346fde48dbb3e))
+
 # [6.26.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.25.0...v6.26.0) (2024-04-04)
 
 
