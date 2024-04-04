@@ -56,6 +56,9 @@ export const Default: Story = {
   },
 };
 
+/**
+ * Public header depends on LayoutContext to determine if the header is `public`. To see how public header works, please check the `Layout` component examples.
+ */
 export const Public: Story = {
   render: Template,
   args: {
@@ -69,13 +72,6 @@ export const Public: Story = {
   },
 
   parameters: {
-    docs: {
-      description: {
-        story:
-          'Public header depends on LayoutContext to determine if the header is `public`. To see how public header works, please check the `Layout` component examples.',
-      },
-    },
-
     layout: 'fullscreen',
   },
 };

@@ -295,20 +295,16 @@ export const WithSubComponent: Story = {
   },
 };
 
+/**
+ * It's recommended to use getRowId when using row selection to ensure correct row selection state with server side pagination/filtering. <br />
+ * When using select all toggle and serverSide pagination bear in mind that all rows are not loaded at once and select all will only select the rows that are in current page.
+ */
 export const RowSelection: Story = {
   args: {
     data: data(),
     columns: [getRowSelectionColumn('test', true), ...columns],
     id: 'row-selection-table',
     getRowId: (row) => row.id,
-  },
-  parameters: {
-    docs: {
-      description: {
-        story: ` Its recommended to use getRowId when using row selection to ensure correct row selection state with server side pagination/filtering. <br />
-        When using select all toggle and serverSide pagination bear in mind that all rows are not loaded at once and select all will only select the rows that are in current page.`,
-      },
-    },
   },
 };
 
@@ -440,6 +436,9 @@ export const Small: Story = {
   },
 };
 
+/**
+ * Grouped rows render a group header row and make grouped rows more compact. Rows, that match `groupRowsBy` condition, are grouped in place of first occurrence without modifying the order of rest of the data.
+ */
 export const GroupedRows: Story = {
   args: {
     data: data(50),
@@ -457,17 +456,11 @@ export const GroupedRows: Story = {
       </td>
     ),
   },
-
-  parameters: {
-    docs: {
-      description: {
-        story:
-          'Grouped rows render a group header row and make grouped rows more compact. Rows, that match `groupRowsBy` condition, are grouped in place of first occurrence without modifying the order of rest of the data.',
-      },
-    },
-  },
 };
 
+/**
+ * Row grouping can also be achieved by having rowGroupKey in data objects. It is possible to group only some of the rows.
+ */
 export const GroupedRowsFromData: Story = {
   args: {
     data: data(50).map((entity, index) => ({
@@ -488,15 +481,6 @@ export const GroupedRowsFromData: Story = {
     },
     enableSorting: false,
     renderGroupHeading: (row) => <td>Age group: {row.original.rowGroupKey}</td>,
-  },
-
-  parameters: {
-    docs: {
-      description: {
-        story:
-          'Row grouping can also be achieved by having rowGroupKey in data objects. It is possible to group only some of the rows.',
-      },
-    },
   },
 };
 
@@ -596,6 +580,11 @@ export const WithDateFilters: Story = {
   },
 };
 
+/**
+ * Filters can be controlled from outside by passing 'columnFilters' and 'onColumnFiltersChange' props. 'columnFilters' is an array of objects with 'id' and 'value' properties. 'id' is the column id and 'value' is an array of selected values.<br />
+ * 'onColumnFiltersChange' is a function that is called when filters are changed. It receives an array of objects with 'id' and 'value' properties. <br />
+ * To customize column filter choiceGroup items pass meta.filterOptions to ColumnDef. It is an array of ChoiceGroupItems or string.
+ */
 export const WithFiltersControlledFromOutside: Story = {
   args: {
     id: 'with-multi-selected-filters-table-controlled-from-outside',
@@ -614,18 +603,13 @@ export const WithFiltersControlledFromOutside: Story = {
     })) as ColumnDef<Person, IntentionalAny>[],
     enableFilters: true,
   },
-
-  parameters: {
-    docs: {
-      description: {
-        story: `Filters can be controlled from outside by passing 'columnFilters' and 'onColumnFiltersChange' props. 'columnFilters' is an array of objects with 'id' and 'value' properties. 'id' is the column id and 'value' is an array of selected values. <br />
-        'onColumnFiltersChange' is a function that is called when filters are changed. It receives an array of objects with 'id' and 'value' properties. <br />
-        To customize column filter choiceGroup items pass meta.filterOptions to ColumnDef. It is an array of ChoiceGroupItems or string.`,
-      },
-    },
-  },
 };
 
+/**
+ * Entire table sorting/pagination/filtering state can be stored outside the component.<br />
+ * If you don't want to sort/paginate/filter the data yourself, you can set `manualFiltering={false}`, `manualSorting={false}` and `manualPagination={false}`.<br />
+ * This way you have control of the table sorting/pagination/filtering state, but don't have to write your own logic for parsing the data.
+ */
 export const TableStateControlledFromOutside: Story = {
   args: {
     id: 'table-controlled-from-outside',
@@ -662,33 +646,17 @@ export const TableStateControlledFromOutside: Story = {
       />
     );
   },
-  parameters: {
-    docs: {
-      description: {
-        story: `Entire table sorting/pagination/filtering state can be stored outside the component. <br />
-        If you don't want to sort/paginate/filter the data yourself, you can set \`manualFiltering={false}\`, \`manualSorting={false}\` and \`manualPagination={false}\`.<br />
-        This way you have control of the table sorting/pagination/filtering state, but don't have to write your own logic for parsing the data.
-        `,
-      },
-    },
-  },
 };
 
+/**
+ * Sorting can be disabled for all columns using `<Table enableSorting={false} />` or by defining `enableSorting: false` in individual column.
+ */
 export const DisableSorting: Story = {
   args: {
     data: data(),
     columns,
     id: 'disabled-sort-table',
     enableSorting: false,
-  },
-
-  parameters: {
-    docs: {
-      description: {
-        story:
-          'Sorting can be disabled for all columns using `<Table enableSorting={false} />` or by defining `enableSorting: false` in individual column',
-      },
-    },
   },
 };
 

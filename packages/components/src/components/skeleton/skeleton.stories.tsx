@@ -70,17 +70,12 @@ const AccessibilityTemplate: StoryFn<AccessibilityTemplateProps> = ({ style, id,
   );
 };
 
+/**
+ * This story demonstrates how screen-readers handle announcing skeleton loading state. Open a screen-reader and listen to the announcements when you click the buttons.<br/>
+ * Screen-readers don't announce skeletons that are visible only for a short time.<br />
+ * **It is highly recommended to set the `label` and `completedLabel` props, so the user will get better information about what kind of content is loading.**
+ */
 export const Accessibility: Story = {
-  parameters: {
-    docs: {
-      description: {
-        story: `<p>This story demonstrates how screen-readers handle announcing skeleton loading state. Open a screen-reader and listen to the announcements when you click the buttons.
-           Screen-readers don't announce skeletons that are visible only for a short time.<br />
-           <strong>It is highly recommended to set the <code>label</code> and <code>completedLabel</code> props, so the user will get better information about what kind of content is loading.</strong>
-        </p>`,
-      },
-    },
-  },
   render: (args) => {
     const [skeletons, setSkeletons] = React.useState<AccessibilityTemplateProps[]>([]);
 

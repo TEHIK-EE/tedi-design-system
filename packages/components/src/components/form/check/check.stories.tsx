@@ -6,16 +6,11 @@ import Row from '../../grid/row';
 import Text from '../../typography/text/text';
 import Check, { CheckProps } from './check';
 
+/**
+ * Most of the time you should use `ChoiceGroup` component. But we also export a single `Check` component for custom use cases.
+ */
 const meta: Meta<typeof Check> = {
   component: Check,
-  parameters: {
-    docs: {
-      description: {
-        component:
-          'Most of the times you should use `ChoiceGroup` component. But we also export a single `Check` component for custom use cases.',
-      },
-    },
-  },
 };
 
 export default meta;

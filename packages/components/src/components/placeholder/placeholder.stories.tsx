@@ -35,18 +35,12 @@ export const InsideCard: Story = {
   ),
 };
 
+/**
+ * When custom Image or Icon component already has white-space, you can remove the default gutter by setting `rowProps` to `{ gutter: 0 }`.
+ */
 export const WithCustomRowProps: Story = {
   args: {
     children: 'You have no data to display.',
     rowProps: { gutter: 0 },
-  },
-
-  parameters: {
-    docs: {
-      description: {
-        story:
-          'When custom Image or Icon component already has white-space, you can remove the default gutter by setting `rowProps` to `{ gutter: 0 }`.',
-      },
-    },
   },
 };

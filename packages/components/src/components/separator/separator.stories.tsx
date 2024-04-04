@@ -69,55 +69,38 @@ export const Colors: Story = {
   args: {},
 };
 
+/**
+ * Use `Row` & `Col` components to give spacing around vertical separator.
+ */
 export const VerticalColors: Story = {
   render: VerticalColorTemplate,
   args: {
     axis: 'vertical',
   },
-  parameters: {
-    docs: {
-      description: {
-        story: '<p>Use <code>Row</code> & <code>Col</code> components to give spacing around vertical separator</p>',
-      },
-    },
-  },
 };
 
+/**
+ * Use `thickness` property to make separator thicker.
+ */
 export const Thick: Story = {
   render: Template,
   args: { thickness: 2 },
-  parameters: {
-    docs: {
-      description: {
-        story: '<p>Use <code>thickness</code> property to make separator thicker</p>',
-      },
-    },
-  },
 };
 
+/**
+ * Use `spacing` property to add even spacing before and after separator.
+ */
 export const PaddedEven: Story = {
   render: Template,
   args: { spacing: 1 },
-  parameters: {
-    docs: {
-      description: {
-        story: '<p>Use <code>spacing</code> property to add even spacing before and after separator</p>',
-      },
-    },
-  },
 };
 
+/**
+ * Use `topSpacing` & `bottomSpacing` properties to add uneven spacing before and after separator.
+ */
 export const PaddedUneven: Story = {
   render: Template,
   args: { topSpacing: 2.5, bottomSpacing: 0.5 },
-  parameters: {
-    docs: {
-      description: {
-        story:
-          '<p>Use <code>topSpacing</code> & <code>bottomSpacing</code> properties to add uneven spacing before and after separator</p>',
-      },
-    },
-  },
 };
 
 const TemplateCard: StoryFn<SeparatorProps> = (args) => (
@@ -130,17 +113,12 @@ const TemplateCard: StoryFn<SeparatorProps> = (args) => (
   </Card>
 );
 
+/**
+ * Property `fullwidth=true` will allow separator to grow to border of Card taking padding of CardContent into account. Both vertically and horizontally.
+ */
 export const FullWidthInsideCard: Story = {
   render: TemplateCard,
   args: { fullWidth: true },
-  parameters: {
-    docs: {
-      description: {
-        story:
-          '<p>Property <code>fullwidth=true</code> will allow separator to grow to border of Card taking padding of CardContent into account. Both vertically and horisontally.</p>',
-      },
-    },
-  },
 };
 
 const TemplateVertical: StoryFn<SeparatorProps> = (args) => (

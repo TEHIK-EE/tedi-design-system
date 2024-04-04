@@ -6,16 +6,11 @@ import Row from '../../grid/row';
 import Text from '../../typography/text/text';
 import Radio, { RadioProps } from './radio';
 
+/**
+ * Most of the time you should use `ChoiceGroup` component. But we also export a single `Radio` component for custom use cases.
+ */
 const meta: Meta<typeof Radio> = {
   component: Radio,
-  parameters: {
-    docs: {
-      description: {
-        component:
-          'Most of the times you should use `ChoiceGroup` component. But we also export a single `Radio` component for custom use cases.',
-      },
-    },
-  },
 };
 
 export default meta;

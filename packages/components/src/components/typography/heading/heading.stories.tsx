@@ -2,18 +2,12 @@ import { Meta, StoryFn, StoryObj } from '@storybook/react';
 
 import Heading, { HeadingProps } from './heading';
 
+/**
+ * This component is a wrapper for the `<Text>` component. It should only be used when we want to semantically render h1-h6 tags.<br />
+ * The same result can be achieved by using the `<Text element="h1">`, but using this component gives a better indicator in code that we are using semantic headings.
+ */
 const meta: Meta<typeof Heading> = {
   component: Heading,
-  parameters: {
-    docs: {
-      description: {
-        component: `<p>
-            This component is a wrapper for the \`<Text>\` component. It should only be used when we want to semantically render h1-h6 tags.<br />
-            The same result can be achieved by using the \`<Text element="h1">\`, but using this component gives a better indicator in code that we are using semantic headings.
-        </p>`,
-      },
-    },
-  },
 };
 
 export default meta;

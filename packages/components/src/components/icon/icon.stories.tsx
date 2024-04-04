@@ -72,6 +72,9 @@ export const Default: Story = {
   },
 };
 
+/**
+ * It is highly recommended to only use one `type` throughout your app. This ensures that only one icon font is downloaded.
+ */
 export const Types: Story = {
   render: TemplateMultiple,
 
@@ -79,15 +82,6 @@ export const Types: Story = {
     size: 36,
     property: 'type',
     array: typeArray,
-  },
-
-  parameters: {
-    docs: {
-      description: {
-        story:
-          'It is highly recommended to only use one `type` throughout your app. This ensures that only one icon font is downloaded.',
-      },
-    },
   },
 };
 
@@ -110,6 +104,9 @@ export const Sizes: Story = {
   },
 };
 
+/**
+ * Use "positive", "important" or "warning" with caution, usually they should not be in application UI.
+ */
 export const Colors: Story = {
   render: TemplateMultiple,
 
@@ -117,17 +114,17 @@ export const Colors: Story = {
     property: 'color',
     array: colorArray,
   },
-
-  parameters: {
-    docs: {
-      description: {
-        // eslint-disable-next-line quotes
-        story: 'Use "positive", "important" or "warning" with caution, usually they should not be in application UI.',
-      },
-    },
-  },
 };
 
+/**
+ * Aligning icons with text can be achieved in two ways:<br/>
+ * 1. Use `<Row>` and `<Col>` components and place icon and text in separate columns.
+ * 1. Use `inline={true}` prop and place the icon as a text sibling. (Shown in this example)
+ *
+ * For both methods the `size` of the icon should be manually set to visually match the text.
+ * Icon `size` should be rounded up from text size.
+ * E.g. When text has `font-size: 32px`, then the icon should have `size={36}
+ */
 export const InText: Story = {
   render: (args) => {
     return (
@@ -172,19 +169,5 @@ export const InText: Story = {
 
   args: {
     name: 'cancel',
-  },
-
-  parameters: {
-    docs: {
-      description: {
-        story: `Aligning icons with text can be achieved in two ways:<br/>
-          a) Use \`<Row>\` and \`<Col>\` components and place icon and text in separate columns. With <br/>
-          b) Use \`inline={true}\` prop and place the icon as a text sibling. (Shown in this example)<br/>
-          For both methods the \`size\` of the icon should be manually set to visually match the text.
-          Icon \`size\` should be rounded up from text size.
-          E.g. When text has \`font-size: 32px\`, then the icon should have \`size={36}\`
-          `,
-      },
-    },
   },
 };

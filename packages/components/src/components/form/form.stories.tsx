@@ -24,17 +24,11 @@ const meta: Meta = {
 export default meta;
 type Story = StoryObj;
 
+/**
+ * Most applications handle form validation on their own with libraries like <a href="https://formik.org/" target="_blank">Formik</a>. <br/>
+ * Because browsers own validation might interfere with that process, we disable browsers validation on form submit. This can be overridden by `formNoValidate` prop on the button.
+ */
 export const BrowserValidation: Story = {
-  parameters: {
-    docs: {
-      description: {
-        story: `<p>
-            Most applications handle form validation on their own with libraries like <a href="https://formik.org/" target="_blank">Formik</a>. Because browsers own validation might interfere with that process, we disable browsers validation on form
-            submit. This can be overridden by \`formNoValidate\` prop on the button.
-            </p>`,
-      },
-    },
-  },
   render: () => {
     return (
       <form

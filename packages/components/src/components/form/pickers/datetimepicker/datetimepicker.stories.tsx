@@ -61,6 +61,9 @@ export const DisablePast: Story = {
   },
 };
 
+/**
+ * Can select time between 8:00-16:30 every workday.
+ */
 export const WithMinMaxTime: Story = {
   render: Template,
 
@@ -70,16 +73,11 @@ export const WithMinMaxTime: Story = {
     minTime: dayjs().set('hours', 8).set('minute', 0),
     shouldDisableDate: (date) => date?.weekday() === 6 || date?.weekday() === 7,
   },
-
-  parameters: {
-    docs: {
-      description: {
-        story: 'Can select time between 8:00-16:30 every workday',
-      },
-    },
-  },
 };
 
+/**
+ * Can only select fridays, defaultValue is next friday and today is not highlighted.
+ */
 export const CustomDisabledDays: Story = {
   render: Template,
 
@@ -88,14 +86,6 @@ export const CustomDisabledDays: Story = {
     defaultValue: dayjs().weekday(5),
     shouldDisableDate: (date) => date?.weekday() !== 5,
     disableHighlightToday: true,
-  },
-
-  parameters: {
-    docs: {
-      description: {
-        story: 'Can only select fridays, defaultValue is next friday and today is not highlighted',
-      },
-    },
   },
 };
 

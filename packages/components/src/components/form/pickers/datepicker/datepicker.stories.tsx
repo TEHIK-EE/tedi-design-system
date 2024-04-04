@@ -61,6 +61,9 @@ export const DisablePast: Story = {
   },
 };
 
+/**
+ * Can only select fridays, defaultValue is next friday and today is not highlighted.
+ */
 export const CustomDisabledDays: Story = {
   render: Template,
 
@@ -69,14 +72,6 @@ export const CustomDisabledDays: Story = {
     defaultValue: dayjs().weekday(5),
     shouldDisableDate: (date) => date?.weekday() !== 4,
     disableHighlightToday: true,
-  },
-
-  parameters: {
-    docs: {
-      description: {
-        story: 'Can only select fridays, defaultValue is next friday and today is not highlighted',
-      },
-    },
   },
 };
 

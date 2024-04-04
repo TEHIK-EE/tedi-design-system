@@ -212,15 +212,10 @@ export const OutsideControlledState: Story = {
   },
 };
 
+/**
+ * Since `AccordionItem` internally uses a `Card` and `CardContent`, then it also supports different paddings.
+ */
 export const Padding: Story = {
-  parameters: {
-    docs: {
-      description: {
-        story:
-          'Since `AccordionItem` internally uses a `Card` and `CardContent`, then it also supports different paddings.',
-      },
-    },
-  },
   render: Template,
   args: {
     accordion: {
@@ -242,15 +237,10 @@ export const Gutter: Story = {
   },
 };
 
+/**
+ * Since `AccordionItem` internally uses a `Card` and `CardHeader`, then it also supports different backgrounds for the header and content.
+ */
 export const Background: Story = {
-  parameters: {
-    docs: {
-      description: {
-        story:
-          'Since `AccordionItem` internally uses a `Card` and `CardHeader`, then it also supports different backgrounds for the header and content.',
-      },
-    },
-  },
   render: TemplateBackgrounds,
   args: {
     items: [
@@ -277,14 +267,10 @@ export const Background: Story = {
   },
 };
 
+/**
+ * When you want to display the card as selected.
+ */
 export const Selected: Story = {
-  parameters: {
-    docs: {
-      description: {
-        story: 'When you want to display the card as selected.',
-      },
-    },
-  },
   render: TemplateSelected,
 };
 
@@ -298,17 +284,12 @@ export const WithButtons: Story = {
   },
 };
 
+/**
+ * Because `AccordionItemHeader` renders a button it is not a valid HTML to have a h1-h6 as its content.<br/>
+ * The component automatically moves an immediate `<Heading>` and `<Text element="h1-h6">` outside and wraps the `AccordionItemHeader` with it.<br/>
+ * When you have a more complex `AccordionItemHeader`, then you should not render a h1-h6 tag inside it.
+ */
 export const HeadingContent: Story = {
-  parameters: {
-    docs: {
-      description: {
-        story: `Because \`AccordionItemHeader\` renders a button it is not a valid HTML to have a h1-h6 as its content.
-          The component automatically moves an immediate \`<Heading>\` and \`<Text element="h1-h6">\` outside and wraps the \`AccordionItemHeader\` with it.
-          When you have a more complex \`AccordionItemHeader\`, then you should not render a h1-h6 tag inside it.
-        `,
-      },
-    },
-  },
   args: {
     accordionItemHeader: {
       openText: 'Open',

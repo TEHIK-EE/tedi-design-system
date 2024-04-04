@@ -72,6 +72,12 @@ export const Disabled: Story = {
   },
 };
 
+/**
+ * There are three ways to achieve error: <br/>
+ * 1. Passing `invalid: true`
+ * 1. Passing helper with `type: "error"`
+ * 1. Programmatically setting `value` out of `minValue` or `maxValue` bounds
+ */
 export const Invalid: Story = {
   args: {
     step: 1,
@@ -104,17 +110,6 @@ export const Invalid: Story = {
         </Row>
       </VerticalSpacing>
     );
-  },
-  parameters: {
-    docs: {
-      description: {
-        story:
-          'There are three ways to achieve error: \n' +
-          '1. Passing `invalid: true` \n' +
-          '2. Passing helper with `type: "error"` \n' +
-          '3. Programmatically setting `value` out of `minValue` or `maxValue` bounds',
-      },
-    },
   },
 };
 

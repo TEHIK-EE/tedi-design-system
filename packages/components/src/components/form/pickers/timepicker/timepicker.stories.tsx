@@ -43,6 +43,9 @@ export const ReadOnly: Story = {
   },
 };
 
+/**
+ * Time selected has to be over 12:00
+ */
 export const MinTime: Story = {
   render: Template,
 
@@ -50,30 +53,17 @@ export const MinTime: Story = {
     id: 'timepicker-min-time',
     minTime: dayjs().set('h', 12).set('minute', 0),
   },
-
-  parameters: {
-    docs: {
-      description: {
-        story: 'Time selected has to be over 12:00',
-      },
-    },
-  },
 };
 
+/**
+ * Time selected has to be below 12:00
+ */
 export const MaxTime: Story = {
   render: Template,
 
   args: {
     id: 'timepicker-max-time',
     maxTime: dayjs().set('h', 11).set('minute', 59),
-  },
-
-  parameters: {
-    docs: {
-      description: {
-        story: 'Time selected has to be below 12:00',
-      },
-    },
   },
 };
 

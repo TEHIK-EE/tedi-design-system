@@ -6,20 +6,15 @@ import { Col, Row } from '../grid';
 import Notification, { NotificationProps } from '../notification/notification';
 import { sendNotification } from './toast';
 
+/**
+ * Toast exports `sendNotification` function that takes notification props as input and when called shows Toast on bottom-left of the page.<br/>
+ * Second parameter of sendNotification function is react-toastify options to overwrite default behavior if needed.<br/>
+ * `ToastContainer` component is also exported and has to be added to index of application.
+ */
 const meta: Meta<typeof Notification> = {
   title: 'components/toast',
 
   component: Notification,
-  parameters: {
-    docs: {
-      description: {
-        component: `Toast exports <code>sendNotification</code> function that takes notification props as input and when called shows Toast
-          on bottom-left of the page. Second parameter of sendNotification function is react-toastify options to overwrite default behavior if needed.
-          <code>ToastContainer</code> component is also exported and has to be added to index of
-          application.`,
-      },
-    },
-  },
 };
 
 export default meta;

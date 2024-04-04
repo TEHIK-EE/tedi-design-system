@@ -6,17 +6,13 @@ import Text from '../../typography/text/text';
 import ChoiceGroup from './choice-group';
 import { ChoiceGroupItemProps } from './choice-group.types';
 
+/**
+ * ChoiceGroup is created to handle state of input with role radio or checkbox.<br/>
+ * It also has a possibility to show/hide FormLabel of `fieldset` and show FormHelper to whole `fieldset`.<br/>
+ * Possible visual variations are: Check/Radio/Filter/Selector.
+ */
 const meta: Meta<typeof ChoiceGroup> = {
   component: ChoiceGroup,
-  parameters: {
-    docs: {
-      description: {
-        component: `ChoiceGroup is created to handle state of input with role radio or checkbox. It also has possibilty to
-          show/hide FormLabel of <code>fieldset</code> and show FormHelper to whole <code>fieldset</code>. Possibile visual variatsions are:
-          Check/Radio/Filter/Selector.`,
-      },
-    },
-  },
 };
 
 export default meta;
@@ -246,20 +242,15 @@ export const WithIndeterminate: Story = {
   },
 };
 
+/**
+ * ExtraContent prop can only be used with check and radio inputType.
+ */
 export const WithExtraContent: Story = {
   args: {
     ...Check.args,
     inputType: 'radio',
     label: 'I have extra content after label:',
     items: generateItems(15, { extraContent: true }),
-  },
-
-  parameters: {
-    docs: {
-      description: {
-        story: 'ExtraContent prop can only be used with check and radio inputType',
-      },
-    },
   },
 };
 

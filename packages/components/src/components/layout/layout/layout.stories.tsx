@@ -95,6 +95,10 @@ export const Default: Story = {
   },
 };
 
+/**
+ * Layout with a public header. Public header is simpler, it does not support custom content to header, instead it renders navigation to Header on larger screens from Sidenav props.<br/>
+ * It can be used for public pages.
+ */
 export const Public: Story = {
   render: Template,
 
@@ -105,17 +109,11 @@ export const Public: Story = {
     headerType: 'public',
     breadcrumbsProps: undefined,
   },
-
-  parameters: {
-    docs: {
-      description: {
-        story:
-          'Layout with a public header. Public header is more simpler, it does not support custom content to header, instead it renders navigation to Header on larger screens from Sidenav props. <br/> It can be used for public pages.',
-      },
-    },
-  },
 };
 
+/**
+ * Layout with a notification. Notification is rendered HeaderNotification. It can be used to display important system-wide messages to user.
+ */
 export const WithNotification: Story = {
   render: Template,
 
@@ -128,17 +126,12 @@ export const WithNotification: Story = {
       },
     },
   },
-
-  parameters: {
-    docs: {
-      description: {
-        story:
-          'Layout with a notification. Notification is rendered HeaderNotification. It can be used to display important system-wide messages to user.',
-      },
-    },
-  },
 };
 
+/**
+ * Layout with a notice. Notice is rendered BottomContent and passed Card props to style the notice.<br/>
+ * It can be used to display important information to user.
+ */
 export const WithNotice: Story = {
   render: Template,
 
@@ -146,17 +139,11 @@ export const WithNotice: Story = {
     ...Default.args,
     header: HeaderBottomContent.args as HeaderProps<'a'>,
   },
-
-  parameters: {
-    docs: {
-      description: {
-        story:
-          'Layout with a notice. Notice is rendered BottomContent and passed Card props to style the notice. <br/> It can be used to display important information to user.',
-      },
-    },
-  },
 };
 
+/**
+ * When we need to have the main content take all available space. For example a 404 page with illustration.
+ */
 export const MainGrow: Story = {
   render: Template,
 
@@ -174,14 +161,5 @@ export const MainGrow: Story = {
         </StretchContent>
       </>
     ),
-  },
-
-  parameters: {
-    docs: {
-      description: {
-        story:
-          'When we need to have the main content take all available space. For example a 404 page with illustration.',
-      },
-    },
   },
 };
