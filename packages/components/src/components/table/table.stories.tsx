@@ -5,9 +5,9 @@ import {
   ColumnFiltersState,
   createColumnHelper,
   PaginationState,
+  RowSelectionState,
   SortingState,
 } from '@tanstack/react-table';
-import { RowSelectionState } from '@tanstack/table-core/src/features/RowSelection';
 import dayjs from 'dayjs';
 import React from 'react';
 
