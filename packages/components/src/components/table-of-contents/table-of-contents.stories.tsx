@@ -117,7 +117,7 @@ export const CustomFormValidation: Story = {
               closeModal();
             }}
           >
-            Subjekt
+            Subject
           </Button>
         ),
         isValid: true,
@@ -131,7 +131,7 @@ export const CustomFormValidation: Story = {
               closeModal();
             }}
           >
-            Kuidas soovid jätkata?
+            How to proceed?
           </Button>
         ),
         isValid: true,
@@ -145,12 +145,12 @@ export const CustomFormValidation: Story = {
               closeModal();
             }}
           >
-            Olukorra kirjeldus ja aeg
+            Event description and time
           </Button>
         ),
       },
       {
-        content: <Text color="disabled">Lisa märksõnad</Text>,
+        content: <Text color="disabled">Add notes</Text>,
       },
     ],
   },

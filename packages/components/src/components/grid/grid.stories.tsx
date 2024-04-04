@@ -9,7 +9,7 @@ import { Row, RowProps } from './row';
 
 /**
  * Row and Col components are inspired by bootstrap V5 Grid System. <br/> U can use different bootstrap grid classes
- * throught component props. https://getbootstrap.com/docs/5.1/layout/grid/
+ * through component props. https://getbootstrap.com/docs/5.1/layout/grid/
  */
 const meta: Meta<typeof Row> = {
   title: 'components/Grid',

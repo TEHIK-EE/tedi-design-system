@@ -23,13 +23,13 @@ const Template = (args: TemplateProps) => {
       {currentStep > 0 && (
         <Col width="auto">
           <Button visualType="secondary" onClick={() => handleActiveStepChange(currentStep - 1)}>
-            Tagasi
+            Back
           </Button>
         </Col>
       )}
       {currentStep < 2 && (
         <Col width="auto">
-          <Button onClick={() => handleActiveStepChange(currentStep + 1)}>Edasi</Button>
+          <Button onClick={() => handleActiveStepChange(currentStep + 1)}>Next</Button>
         </Col>
       )}
     </Row>
@@ -49,20 +49,20 @@ const Template = (args: TemplateProps) => {
 
   return (
     <Stepper activeStep={controlled ? currentStep : undefined} onActiveStepChange={handleActiveStepChange} {...rest}>
-      <Step id="step-1" label="Lapse arenguvajadused" completed={getIsCompleted(0)}>
+      <Step id="step-1" label="Childs needs" completed={getIsCompleted(0)}>
         <VerticalSpacing>
           <Heading element="h2">Triin Kass</Heading>
           <p>Content 1</p>
           {showNavigation && <StepperNavigation />}
         </VerticalSpacing>
       </Step>
-      <Step id="step-2" label="Vanemate suutlikkus" completed={getIsCompleted(1)}>
+      <Step id="step-2" label="Parent ability" completed={getIsCompleted(1)}>
         <VerticalSpacing>
           <p>Content 2 </p>
           {showNavigation && <StepperNavigation />}
         </VerticalSpacing>
       </Step>
-      <Step id="step-3" label="Pere ja keskkond" completed={getIsCompleted(2)}>
+      <Step id="step-3" label="Family and environment" completed={getIsCompleted(2)}>
         <VerticalSpacing>
           <p>Content 3 </p>
           {showNavigation && <StepperNavigation />}

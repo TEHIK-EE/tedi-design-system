@@ -25,7 +25,7 @@ export const Multiple: Story = {
     label: 'Upload file',
     multiple: true,
     helper: {
-      text: 'JPG, PNG, PDF suuruses 000MB.',
+      text: 'JPG, PNG, PDF with size 1MB.',
     },
   },
 };
@@ -35,7 +35,7 @@ export const LoadingState: Story = {
     id: 'file-upload-loading',
     name: 'file-loading',
     label: 'Upload file',
-    defaultFiles: [{ name: 'avaldus.pdf', isLoading: true }],
+    defaultFiles: [{ name: 'report.pdf', isLoading: true }],
   },
 };
 
@@ -47,7 +47,7 @@ export const MultipleHandled: Story = {
     label: 'Upload file',
     multiple: true,
     onDelete: (file) => {
-      console.log(`Kustutatud - ${file.name}`);
+      console.log(`Deleted - ${file.name}`);
     },
   },
 };
@@ -57,7 +57,7 @@ export const ReadOnlyFiles: Story = {
     id: 'file-upload-read-only',
     name: 'file-loading',
     label: 'Upload file',
-    files: [{ name: 'avaldus.pdf' }],
+    files: [{ name: 'report.pdf' }],
     onChange: (files) => {
       console.log(files);
     },
@@ -70,7 +70,7 @@ export const Disabled: Story = {
     id: 'file-upload-disabled',
     name: 'file-loading',
     label: 'Upload file',
-    defaultFiles: [{ name: 'avaldus.pdf' }],
+    defaultFiles: [{ name: 'report.pdf' }],
     disabled: true,
   },
 };

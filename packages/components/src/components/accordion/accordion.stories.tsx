@@ -124,7 +124,7 @@ const TemplateSelected: StoryFn<AccordionStory> = (args) => {
             aria-pressed={isCurrent}
             onClick={(event) => handleChoiceButtonClick(event, id)}
           >
-            {isCurrent ? 'Valitud' : 'Vali'}
+            {isCurrent ? 'Selected' : 'Select'}
           </Button>
         </Col>
       </Row>

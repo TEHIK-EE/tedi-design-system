@@ -126,7 +126,7 @@ export const MultipleHandled: Story = {
 export const CustomOptionSelect: Story = {
   render: CustomOptionSelectTemplate,
   args: {
-    label: 'Nimi või isikukood',
+    label: 'Name or personal code',
     id: 'appeal-select',
   },
 };

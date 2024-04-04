@@ -21,7 +21,7 @@ const meta: Meta<typeof Check> = {
 export default meta;
 type Story = StoryObj<typeof Check>;
 
-const Template: StoryFn<CheckProps> = (args) => <Check {...args} label="Vali mind" value="default" />;
+const Template: StoryFn<CheckProps> = (args) => <Check {...args} label="Select me" value="default" />;
 
 export const Default: Story = {
   render: Template,
@@ -30,7 +30,7 @@ export const Default: Story = {
     id: 'default-check',
     name: 'default-check',
     defaultChecked: true,
-    label: <b>VAli mind</b>,
+    label: <b>Select me</b>,
   },
 };
 
@@ -61,7 +61,7 @@ export const Indeterminate = () => {
   return (
     <Check
       id="controlled-check"
-      label="Vali mind"
+      label="Select me"
       name="controlled-check"
       value="controlled"
       checked={checked}
@@ -146,7 +146,7 @@ export const Controlled = () => {
   return (
     <Check
       id="controlled-check"
-      label="Vali mind"
+      label="Select me"
       name="controlled-check"
       value="controlled"
       checked={checked}

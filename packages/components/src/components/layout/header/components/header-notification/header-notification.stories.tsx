@@ -18,9 +18,9 @@ export const Default: Story = {
     children: (
       <>
         <Text element="span" modifiers="bold">
-          Tähelepanu!
+          Attention!
         </Text>{' '}
-        Praegu on probleeme &quot;tervis&quot; menüüpunktiga. Oleme teadlikud ja juba töötame probleemi lahendamisega.
+        There are issues with &quot;health&quot; menu links. We are aware and are already working the problem.
       </>
     ),
   },

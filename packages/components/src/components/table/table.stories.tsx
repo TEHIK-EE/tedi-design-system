@@ -5,9 +5,9 @@ import {
   ColumnFiltersState,
   createColumnHelper,
   PaginationState,
+  RowSelectionState,
   SortingState,
 } from '@tanstack/react-table';
-import { RowSelectionState } from '@tanstack/table-core/src/features/RowSelection';
 import dayjs from 'dayjs';
 import React from 'react';
 
@@ -273,10 +273,10 @@ export const WithSubComponent: Story = {
         <tr>
           <td></td>
           <td colSpan={2}>
-            <div className="text-bold">Koolitused</div>
-            <div>Esimene kooltus pika pealkirjaga</div>
-            <div>Teine koolitus</div>
-            <div>Kolmas koolitus</div>
+            <div className="text-bold">Trainings</div>
+            <div>Firs trainging with long title</div>
+            <div>Second training</div>
+            <div>Third training</div>
           </td>
           <td colSpan={2}>
             <div className="text-bold">Lorem ipsum</div>
@@ -285,7 +285,7 @@ export const WithSubComponent: Story = {
             <div>Lorem ipsum dolor sit amet</div>
           </td>
           <td>
-            <Tag type="secondary">Aktiivne</Tag>
+            <Tag type="secondary">Active</Tag>
           </td>
         </tr>
       );
@@ -396,7 +396,7 @@ clickableRowColumns.push(
         Vaata
       </Anchor>
     ),
-    header: () => <span className="visually-hidden">Ava profiil</span>,
+    header: () => <span className="visually-hidden">Open profile</span>,
     enableSorting: false,
   })
 );
@@ -462,7 +462,7 @@ export const GroupedRows: Story = {
     docs: {
       description: {
         story:
-          'Grouped rows render a group header row and make grouped rows more compact. Rows, that match `groupRowsBy` condition, are grouped in place of first occurrance without modifying the order of rest of the data.',
+          'Grouped rows render a group header row and make grouped rows more compact. Rows, that match `groupRowsBy` condition, are grouped in place of first occurrence without modifying the order of rest of the data.',
       },
     },
   },
@@ -620,7 +620,7 @@ export const WithFiltersControlledFromOutside: Story = {
       description: {
         story: `Filters can be controlled from outside by passing 'columnFilters' and 'onColumnFiltersChange' props. 'columnFilters' is an array of objects with 'id' and 'value' properties. 'id' is the column id and 'value' is an array of selected values. <br />
         'onColumnFiltersChange' is a function that is called when filters are changed. It receives an array of objects with 'id' and 'value' properties. <br />
-        To customy column filter choiceGroup items pass meta.filterOptions to ColumnDef. It is an array of ChoiceGroupItems or string.`,
+        To customize column filter choiceGroup items pass meta.filterOptions to ColumnDef. It is an array of ChoiceGroupItems or string.`,
       },
     },
   },

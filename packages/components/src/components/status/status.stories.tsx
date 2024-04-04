@@ -11,7 +11,7 @@ type Story = StoryObj<typeof Status>;
 
 export const Success: Story = {
   args: {
-    children: 'Aktiivne',
+    children: 'Active',
     type: 'success',
   },
 };

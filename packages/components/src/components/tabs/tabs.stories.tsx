@@ -15,18 +15,18 @@ type Story = StoryObj<typeof Tabs>;
 const Template: StoryFn<typeof Tabs> = (args) => (
   <>
     <Heading id="tabs-heading" className="visually-hidden">
-      Lapse detailinfo
+      Tabs title
     </Heading>
     <Tabs {...args} defaultCurrentTab="tab-1" aria-labelledby="tabs-heading">
-      <TabsItem id="tab-1" label="Vanemad">
+      <TabsItem id="tab-1" label="Tab 1">
         <VerticalSpacing>
-          <Heading element="h2">Vanemad</Heading>
+          <Heading element="h2">Tab 1</Heading>
           <p>Content 1</p>
         </VerticalSpacing>
       </TabsItem>
-      <TabsItem id="tab-2" label="Eestkoste">
+      <TabsItem id="tab-2" label="Tab 2">
         <VerticalSpacing>
-          <Heading element="h2">Eestkoste</Heading>
+          <Heading element="h2">Tab 2</Heading>
           <p>Content 2</p>
           <p>Content 2</p>
           <p>Content 2</p>
@@ -34,9 +34,9 @@ const Template: StoryFn<typeof Tabs> = (args) => (
           <p>Content 2</p>
         </VerticalSpacing>
       </TabsItem>
-      <TabsItem id="tab-3" label="Perest eraldamine">
+      <TabsItem id="tab-3" label="Tab 3">
         <VerticalSpacing>
-          <Heading element="h2">Perest eraldamine</Heading>
+          <Heading element="h2">Tab 3</Heading>
           <p>Content 3</p>
           <p>Content 3</p>
           <p>Content 3</p>

@@ -107,7 +107,7 @@ export const Laeh: Story = {
     ...Default.args,
     categories: [
       {
-        heading: 'STAR kasutajatugi',
+        heading: 'STAR support',
         icon: 'call_made',
         elements: [
           <Anchor key="link-1" href="mailto:starteenusetugi@sotsiaalkindlustusamet.ee" color="inverted">
@@ -132,10 +132,10 @@ export const TextInFooter: Story = {
         heading: 'Category',
         icon: 'call_made',
         elements: [
-          'Sotsiaalkindlustusamet',
+          'Social insurance board',
           'Paldiski mnt 80, 15092 Tallinn',
           <span key="sample-phone-nr">
-            Infotelefon <Icon name="info" display="inline" size={14} />: +372 612 1360
+            Phone <Icon name="info" display="inline" size={14} />: +372 612 1360
           </span>,
         ],
       },

@@ -21,7 +21,7 @@ const meta: Meta<typeof Radio> = {
 export default meta;
 type Story = StoryObj<typeof Radio>;
 
-const Template: StoryFn<RadioProps> = (args) => <Radio {...args} label="Vali mind" value="default" />;
+const Template: StoryFn<RadioProps> = (args) => <Radio {...args} label="Select me" value="default" />;
 
 export const Default: Story = {
   render: Template,
@@ -126,7 +126,7 @@ export const Controlled = () => {
   return (
     <Radio
       id="controlled-check"
-      label="Vali mind"
+      label="Select me"
       name="controlled-check"
       value="controlled"
       checked={checked}

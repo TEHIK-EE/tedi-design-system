@@ -26,8 +26,8 @@ const Template: StoryFn<typeof ToggleOpen> = (args) => {
 export const Default: Story = {
   render: Template,
   args: {
-    openText: 'Avan',
-    closeText: 'Sulgen',
+    openText: 'Open',
+    closeText: 'Close',
     visualType: 'secondary',
   },
 };

@@ -27,7 +27,7 @@ export const Notice: Story = {
   args: {
     children: (
       <Text modifiers="center">
-        Vaatamisõiguslik roll: <b>Asta Sarapuu</b>
+        Viewer role: <b>Asta Sarapuu</b>
       </Text>
     ),
     cardProps: {

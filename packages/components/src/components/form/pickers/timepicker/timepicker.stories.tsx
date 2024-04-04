@@ -13,7 +13,7 @@ const meta: Meta<typeof TimePicker> = {
 export default meta;
 type Story = StoryObj<typeof TimePicker>;
 
-const Template: StoryFn<TimePickerProps> = (args) => <TimePicker {...args} label="Vali kellaeg" />;
+const Template: StoryFn<TimePickerProps> = (args) => <TimePicker {...args} label="Choose time" />;
 const numberOne = 1; // https://github.com/storybookjs/storybook/issues/12208
 
 export const Default: Story = {
@@ -111,7 +111,7 @@ export const WithErrorHelper: Story = {
   args: {
     id: 'timepicker-error-helper',
     defaultValue: dayjs().add(numberOne, 'minute'),
-    helper: { text: 'Aeg ei tohi olla tulevikus!', type: 'error' },
+    helper: { text: 'Time can not be in the future!', type: 'error' },
     maxTime: dayjs(),
   },
 };
@@ -148,7 +148,7 @@ export const Controlled = () => {
           </Button>
         </Col>
       </Row>
-      <TimePicker label="Vali kellaeg" id="timepicker-controlled" value={time} onChange={setTime} />
+      <TimePicker label="Choose time" id="timepicker-controlled" value={time} onChange={setTime} />
       <p>Current time is: {time?.format('HH:mm')}</p>
     </>
   );

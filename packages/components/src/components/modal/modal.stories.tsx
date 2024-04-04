@@ -46,7 +46,7 @@ const Template: StoryFn<TemplateProps> = (args): JSX.Element => {
   return (
     <ModalProvider {...modalProvider}>
       <ModalTrigger>
-        <Button>Ava Modal</Button>
+        <Button>Open modal</Button>
       </ModalTrigger>
       <Modal {...modal} aria-labelledby="label">
         {renderHeader && (
@@ -59,7 +59,7 @@ const Template: StoryFn<TemplateProps> = (args): JSX.Element => {
           <p>{content}</p>
           {renderModalCloser && (
             <ModalCloser>
-              <Button onClick={() => console.log('Im called')}>Sulge</Button>
+              <Button onClick={() => console.log('Im called')}>Close</Button>
             </ModalCloser>
           )}
         </CardContent>
@@ -206,9 +206,9 @@ export const ControlledOutside = () => {
           </ModalTrigger>
           <Modal aria-labelledby="controlled-outside">
             <CardContent>
-              <p id="controlled-outside">Mind saab kontrollida väljaspoolt komponenti!</p>
+              <p id="controlled-outside">I can be controlled externally!</p>
             </CardContent>
-            <Button onClick={() => setIsOpen(false)}>close modal without ModalCloser</Button>
+            <Button onClick={() => setIsOpen(false)}>Close modal without ModalCloser</Button>
           </Modal>
         </ModalProvider>
       </Col>
@@ -230,11 +230,11 @@ export const TrapFocusFalse: Story = {
   },
 };
 
-export const NotDismissableModal: Story = {
+export const NotDismissibleModal: Story = {
   render: Template,
 
   args: {
-    heading: 'Modal is not dismissable',
+    heading: 'Modal is not dismissible',
     content:
       'This modal can not be dismissed by pressing escape or clicking outside of it and does not have a built in close button. You can close it by pressing the custom close button.',
     modalProvider: {

@@ -89,7 +89,7 @@ export const Default: Story = {
     breadcrumbsProps: BreadcrumbsDefault.args as BreadcrumbsProps,
     mainLogo: {
       src: '/sf_logod.jpg',
-      alt: 'Euroopa struktuuri- ja investeerimisfondide logo',
+      alt: 'European structure and investing logo',
       style: { width: '6.625rem', height: '4rem', borderRadius: '0.25rem' },
     },
   },

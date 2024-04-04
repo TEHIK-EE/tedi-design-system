@@ -34,23 +34,23 @@ export const Default: Story = {
       <VerticalSpacing size={1}>
         <List verticalSpacing={{ size: 0.75 }} element="ul">
           <ListItem>
-            <Anchor href="#">Minu andmed</Anchor>
+            <Anchor href="#">My data</Anchor>
           </ListItem>
           <ListItem>
-            <Anchor href="#">Ligipääs andmetele</Anchor>
+            <Anchor href="#">Representation rights</Anchor>
           </ListItem>
           <ListItem>
-            <Anchor href="#">Tahteavaldused</Anchor>
+            <Anchor href="#">Access to health data</Anchor>
           </ListItem>
           <ListItem>
-            <Anchor href="#">Volitatud isikud</Anchor>
+            <Anchor href="#">Statements of itention</Anchor>
           </ListItem>
           <ListItem>
-            <Anchor href="#">Kontaktisikud</Anchor>
+            <Anchor href="#">Contacts</Anchor>
           </ListItem>
         </List>
         <Separator />
-        <Anchor iconLeft="logout">Logi välja</Anchor>
+        <Anchor iconLeft="logout">Log out</Anchor>
       </VerticalSpacing>
     ),
   },

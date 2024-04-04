@@ -70,7 +70,7 @@ export const Default: Story = {
   },
 };
 
-export const Alternitive: Story = {
+export const Alternative: Story = {
   render: Template,
 
   args: {
@@ -81,13 +81,9 @@ export const Alternitive: Story = {
 
 export const WithLabel: Story = {
   args: {
-    label: <Text>Laps on hädaohus</Text>,
+    label: <Text>Child in danger</Text>,
 
-    extraContent: (
-      <Text color="muted">
-        Lapse elu või tervis on pöördumise hetkel ohus või kes oma käitumisega paneb ennast või teisi ohtu.
-      </Text>
-    ),
+    extraContent: <Text color="muted">Childs life or health is in danger or is putting others in danger.</Text>,
   },
 };
 

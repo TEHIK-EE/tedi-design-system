@@ -41,15 +41,15 @@ const DefaultContent = ({ onToggle }: { onToggle?: (open: boolean) => void }) =>
           <Separator fullWidth />
         </>
       )}
-      {renderAnchor('Minu andmed')}
+      {renderAnchor('My data')}
       <Separator fullWidth />
-      {renderAnchor('Ligipääs andmetele')}
+      {renderAnchor('Representation rights')}
       <Separator fullWidth />
-      {renderAnchor('Tahteavaldused')}
+      {renderAnchor('Access to health data')}
       <Separator fullWidth />
-      {renderAnchor('Volitatud isikud')}
+      {renderAnchor('Statements of intention')}
       <Separator fullWidth />
-      {renderAnchor('Kontaktisikud')}
+      {renderAnchor('Contacts')}
     </VerticalSpacing>
   );
 };
