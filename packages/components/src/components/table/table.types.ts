@@ -178,7 +178,7 @@ export interface TableProps<TData extends DefaultTData<TData>> {
   /**
    * Callback on row selection data change
    */
-  onRowSelectionChange?: (state: RowSelectionState, flatRows: Row<TData>[]) => void;
+  onRowSelectionChange?: (state: RowSelectionState) => void;
   /**
    * Called when row is clicked
    */

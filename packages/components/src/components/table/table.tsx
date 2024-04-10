@@ -135,7 +135,7 @@ export function Table<TData extends DefaultTData<TData>>(props: TableProps<TData
   const rowSelectionChange = (data: Updater<RowSelectionState>): void => {
     if (typeof data !== 'function') return;
     const newData = data(rowSelection);
-    setRowSelection(newData);
+    rowSelectionOutside && onRowSelectionChange ? onRowSelectionChange(newData) : setRowSelection(newData);
   };
 
   const handleColumnFilteringChange = (data: Updater<ColumnFiltersState>): void => {
@@ -143,11 +143,6 @@ export function Table<TData extends DefaultTData<TData>>(props: TableProps<TData
     const newData = data(getColumnFilter);
     columnFiltersOuter && onColumnFiltersChange ? onColumnFiltersChange(newData) : setColumnFilters(newData);
   };
-
-  React.useEffect(() => {
-    onRowSelectionChange?.(rowSelection, table.getSelectedRowModel().flatRows);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [onRowSelectionChange, rowSelection]);
 
   const groupedData = React.useMemo(() => {
     // add rowGroupKey when using groupRowsBy
