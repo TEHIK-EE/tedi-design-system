@@ -1,3 +1,10 @@
+## [6.26.3](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.26.2...v6.26.3) (2024-04-10)
+
+
+### Bug Fixes
+
+* **table:** TEHVEER-290 - call onRowSelectionChange only when controlled form outside ([115ce10](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/115ce10a5482d8afdf81f6578459ed41f06dd446))
+
 ## [6.26.2](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.26.1...v6.26.2) (2024-04-04)
 
 
