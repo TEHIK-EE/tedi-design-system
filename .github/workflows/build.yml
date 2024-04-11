@@ -28,6 +28,7 @@ jobs:
       - name: Publish to npm
         run: npm run semantic-release
         env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.NPMJS_TEDI_AUTH_TOKEN }}
           HUSKY: 0
 
