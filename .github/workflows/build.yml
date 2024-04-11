@@ -22,7 +22,7 @@ jobs:
       - name: Configure npm authentication
         run: npm config set '//registry.npmjs.org/:_authToken' ${{ secrets.NPMJS_TEDI_AUTH_TOKEN }}
       - name: Publish to npm
-        run: npm publish --access public
+        run: npm publish --access public --tag latest
         env:
           HUSKY: 0
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
