@@ -1,3 +1,15 @@
+# [6.27.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.26.3...v6.27.0) (2024-04-11)
+
+
+### Bug Fixes
+
+* **table:** TEHVEER-290 - use correct state for rowSelection ([315d76e](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/315d76ed01840d1a1a17275681839ebc3152bd75))
+
+
+### Features
+
+* **notification:** TEHVEER-294 Increase notification font size to 16px ([b9d828f](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/b9d828f77c134bc1d2f9612692c2952fe2c0da4e))
+
 ## [6.26.3](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.26.2...v6.26.3) (2024-04-10)
 
 
