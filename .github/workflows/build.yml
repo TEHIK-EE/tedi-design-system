@@ -20,7 +20,7 @@ jobs:
       - run: npm ci
       - run: npm run build
       - name: Publish to npm
-        run: npm publish --access public
+        run: npm publish
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
