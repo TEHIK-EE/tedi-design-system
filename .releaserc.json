@@ -6,10 +6,14 @@
     ["@semantic-release/changelog", { "changeLogFile": "./CHANGELOG.md" }],
     ["@semantic-release/npm", { "pkgRoot": "dist" }],
     [
-      "@semantic-release/git",
+      "@semantic-release/github",
       {
-        "assets": ["package.json", "package-lock.json", "CHANGELOG.md"],
-        "message": "chore(release): ${nextRelease.version} \n\n${nextRelease.notes}"
+        "assets": [
+          {
+            "path": "dist/*.tgz",
+            "label": "Package"
+          }
+        ]
       }
     ]
   ]

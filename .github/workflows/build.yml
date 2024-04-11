@@ -19,12 +19,13 @@ jobs:
           node-version: 'lts/*'
       - run: npm ci
       - run: npm run build
-      - name: Configure npm authentication
-        run: npm config set '//registry.npmjs.org/:_authToken' ${{ secrets.NPMJS_TEDI_AUTH_TOKEN }}
-      - name: Publish to npm
-        run: npm publish --access public
+      - name: Install semantic-release
+        run: npm install semantic-release @semantic-release/{git, npm, ...} --save-dev
+      - name: Run semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          npx semantic-release
 
   # build:
   #   runs-on: ubuntu-latest
