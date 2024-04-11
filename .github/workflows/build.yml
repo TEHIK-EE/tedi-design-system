@@ -20,7 +20,7 @@ jobs:
       - run: npm ci
       - run: npm run build
       - name: Install semantic-release
-        run: npm install semantic-release @semantic-release/{git, npm, ...} --save-dev
+        run: npm install semantic-release @semantic-release/git @semantic-release/npm @semantic-release/changelog @semantic-release/github --save-dev
       - name: Run semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
