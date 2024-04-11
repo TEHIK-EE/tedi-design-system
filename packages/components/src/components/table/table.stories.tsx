@@ -322,7 +322,7 @@ export const RowSelectionControlledFromOutside: Story = {
       <Table
         {...args}
         rowSelection={rowSelection}
-        onRowSelectionChange={(rowSelection, _) => setRowSelection(rowSelection)}
+        onRowSelectionChange={(rowSelection) => setRowSelection(rowSelection)}
       />
     );
   },
