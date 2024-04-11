@@ -38,20 +38,23 @@ const config: StorybookConfig = {
       plugins: await withoutVitePlugins(
         [
           config.plugins,
-          configType === 'DEVELOPMENT'
-            ? checker({
-                overlay: false,
-                eslint: {
-                  lintCommand: 'eslint "./**/*.{ts,tsx}"',
-                  dev: {
-                    logLevel: ['error'], // show only eslint errors
+          checker({
+            overlay: false,
+
+            ...(configType === 'DEVELOPMENT'
+              ? {
+                  eslint: {
+                    lintCommand: 'eslint "./**/*.{ts,tsx}"',
+                    dev: {
+                      logLevel: ['error'], // show only eslint errors
+                    },
                   },
-                },
-                typescript: {
-                  root: join(__dirname),
-                },
-              })
-            : undefined,
+                }
+              : {}),
+            typescript: {
+              root: join(__dirname),
+            },
+          }),
         ],
         ['vite:dts']
       ),
