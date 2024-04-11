@@ -1,10 +1,9 @@
 {
-  "branches": ["master"],
+  "branches": ["feat/pipeline"],
   "plugins": [
     "@semantic-release/commit-analyzer",
     "@semantic-release/release-notes-generator",
     ["@semantic-release/changelog", { "changeLogFile": "./CHANGELOG.md" }],
-    ["@semantic-release/npm", { "pkgRoot": "dist" }],
     [
       "@semantic-release/git",
       {

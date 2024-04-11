@@ -2,7 +2,7 @@ name: Build TEDI library
 
 on:
   push:
-    branches: ['master']
+    branches: ['feat/pipeline']
   workflow_dispatch:
 
 jobs:
@@ -23,7 +23,7 @@ jobs:
         run: npm install semantic-release @semantic-release/git @semantic-release/npm @semantic-release/changelog @semantic-release/github --save-dev
       - name: Run semantic-release
         env:
-          GITHUB_TOKEN: ${{ secrets.SEMANTIC_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npm run semantic-release
 
   # build:
