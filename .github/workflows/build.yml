@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  build-and-publish:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -19,24 +19,49 @@ jobs:
         with:
           node-version: 'lts/*'
       - run: npm ci
-      - run: npm run build
-
-  publish:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 'lts/*'
+      - run:
+          npm run build
           # registry-url: 'https://registry.npmjs.org'
       # - name: Install dependencies
       #   run: npm ci --cache .npm --prefer-offline
       # - name: Build
       #   run: npm run build
       - name: Publish to npm
-        run: npm publish
+        run: npm run semantic-release
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPMJS_TEDI_AUTH_TOKEN }}
+          HUSKY: 0
+
+  # build:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout code
+  #       uses: actions/checkout@v4
+  #       with:
+  #         fetch-depth: 0
+  #     - name: Use Node.js
+  #       uses: actions/setup-node@v4
+  #       with:
+  #         node-version: 'lts/*'
+  #     - run: npm ci
+  #     - run: npm run build
+
+  # publish:
+  #   needs: build
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout code
+  #       uses: actions/checkout@v4
+  #     - name: Setup Node.js
+  #       uses: actions/setup-node@v4
+  #       with:
+  #         node-version: 'lts/*'
+  #         # registry-url: 'https://registry.npmjs.org'
+  #     # - name: Install dependencies
+  #     #   run: npm ci --cache .npm --prefer-offline
+  #     # - name: Build
+  #     #   run: npm run build
+  #     - name: Publish to npm
+  #       run: npm publish
+  #       env:
+  #         NODE_AUTH_TOKEN: ${{ secrets.NPMJS_TEDI_AUTH_TOKEN }}
