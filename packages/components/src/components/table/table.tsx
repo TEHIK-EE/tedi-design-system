@@ -134,7 +134,7 @@ export function Table<TData extends DefaultTData<TData>>(props: TableProps<TData
 
   const rowSelectionChange = (data: Updater<RowSelectionState>): void => {
     if (typeof data !== 'function') return;
-    const newData = data(rowSelection);
+    const newData = data(getRowSelection);
     rowSelectionOutside && onRowSelectionChange ? onRowSelectionChange(newData) : setRowSelection(newData);
   };
 
