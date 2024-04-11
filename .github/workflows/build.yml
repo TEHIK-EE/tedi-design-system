@@ -2,7 +2,7 @@ name: Build TEDI library
 
 on:
   push:
-    branches: ['feat/pipeline']
+    branches: ['master']
   workflow_dispatch:
 
 jobs:
@@ -19,12 +19,13 @@ jobs:
           node-version: 'lts/*'
       - run: npm ci
       - run: npm run build
-      - name: Install semantic-release
-        run: npm install semantic-release @semantic-release/git @semantic-release/npm @semantic-release/changelog @semantic-release/github --save-dev
-      - name: Run semantic-release
+      - name: Configure npm authentication
+        run: npm config set '//registry.npmjs.org/:_authToken' ${{ secrets.NPMJS_TEDI_AUTH_TOKEN }}
+      - name: Publish to npm
+        run: npm publish --access public
         env:
+          HUSKY: 0
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: npm run semantic-release
 
   # build:
   #   runs-on: ubuntu-latest
