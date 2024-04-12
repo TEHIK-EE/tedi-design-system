@@ -1,3 +1,10 @@
+## [6.27.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.27.0...v6.27.1) (2024-04-12)
+
+
+### Bug Fixes
+
+* **card:** TEHVEER-295 - fix nested card inheriting border radius ([12eb87f](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/12eb87ff7d71f16e209350a92b19b540e1158071))
+
 # [6.27.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.26.3...v6.27.0) (2024-04-11)
 
 
