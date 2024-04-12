@@ -15,8 +15,8 @@
 .card--no-border-radius-top {
   border-top-left-radius: 0;
 
-  .card__content:first-of-type,
-  .card__content:last-child {
+  > .card__content:first-of-type,
+  > .card__content:last-child {
     border-top-left-radius: 0;
   }
 }
@@ -24,8 +24,8 @@
 .card--no-border-radius-right {
   border-top-right-radius: 0;
 
-  .card__content:first-of-type,
-  .card__content:last-child {
+  > .card__content:first-of-type,
+  > .card__content:last-child {
     border-top-right-radius: 0;
   }
 }
@@ -33,8 +33,8 @@
 .card--no-border-radius-bottom {
   border-bottom-right-radius: 0;
 
-  .card__content:first-of-type,
-  .card__content:last-child {
+  > .card__content:first-of-type,
+  > .card__content:last-child {
     border-bottom-right-radius: 0;
   }
 }
@@ -42,8 +42,8 @@
 .card--no-border-radius-left {
   border-bottom-left-radius: 0;
 
-  .card__content:first-of-type,
-  .card__content:last-child {
+  > .card__content:first-of-type,
+  > .card__content:last-child {
     border-bottom-left-radius: 0;
   }
 }
