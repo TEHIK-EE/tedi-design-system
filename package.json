@@ -1,6 +1,6 @@
 {
   "name": "@tehik-ee/tedi-design-system",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "scripts": {
     "prepare": "husky install",
     "semantic-release": "semantic-release",

@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build-and-publish:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -17,14 +17,23 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 'lts/*'
-      - run: npm ci
-      - run: npm run build
-      - name: Install semantic-release
-        run: npm install semantic-release @semantic-release/git @semantic-release/npm @semantic-release/changelog @semantic-release/github --save-dev
-      - name: Run semantic-release
-        env:
-          GITHUB_TOKEN: ${{ secrets.SEMANTIC_TOKEN }}
-        run: npm run semantic-release
+
+      # - name: Semantic Release
+      #   uses: cycjimmy/semantic-release-action@v4
+      #   with:
+      #     branch: feat/pipeline
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #     NPM_TOKEN: ${{ secrets.NPMJS_TEDI_AUTH_TOKEN }}
+      # - run: npm ci
+      # - run: npm run build
+      # - name: Configure npm authentication
+      #   run: npm config set '//registry.npmjs.org/:_authToken' ${{ secrets.NPMJS_TEDI_AUTH_TOKEN }}
+      # - name: Publish to npm
+      #   run: npm publish --access public
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #     HUSKY: 0
 
   # build:
   #   runs-on: ubuntu-latest
