@@ -2,7 +2,7 @@ name: Build TEDI library
 
 on:
   push:
-    branches: ['feat/pipeline']
+    branches: ['master']
   workflow_dispatch:
 
 jobs:
