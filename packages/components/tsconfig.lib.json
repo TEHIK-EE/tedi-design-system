@@ -3,7 +3,8 @@
   "compilerOptions": {
     "outDir": "../../dist/",
     "types": ["node", "@nx/react/typings/cssmodule.d.ts", "@nx/react/typings/image.d.ts"],
-    "declaration": true
+    "declaration": true,
+    "composite": true
   },
   "files": [
     "../../node_modules/@nx/react/typings/cssmodule.d.ts",
