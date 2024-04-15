@@ -21,6 +21,7 @@ jobs:
         uses: cycjimmy/semantic-release-action@v4
         with:
           release: ${{ github.event.release.tag_name }}
+          branches: master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPMJS_TEDI_AUTH_TOKEN }}
