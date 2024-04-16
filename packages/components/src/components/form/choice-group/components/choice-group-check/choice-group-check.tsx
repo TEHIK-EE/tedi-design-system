@@ -10,6 +10,7 @@ export const ChoiceGroupCheck = (props: ChoiceGroupItemProps): React.ReactElemen
     id,
     label,
     value,
+    className,
     direction = 'column',
     disabled,
     colProps = direction === 'column' ? { width: 12 } : { width: 'auto', grow: 1 },
@@ -38,6 +39,7 @@ export const ChoiceGroupCheck = (props: ChoiceGroupItemProps): React.ReactElemen
         label={label}
         value={value}
         name={name}
+        className={className}
         disabled={disabled}
         checked={isChecked}
         onChange={onChangeHandler}

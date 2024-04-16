@@ -269,7 +269,14 @@ export const ChoiceGroup = (props: ChoiceGroupProps): React.ReactElement => {
             )}
             <Row direction={direction} gutterX={gutterX} gutterY={gutterY} {...rowProps} className={CheckGroupBEM}>
               {items.map((item, key) => (
-                <ChoiceGroupItemElement {...item} direction={direction} key={item.id} />
+                <ChoiceGroupItemElement
+                  {...item}
+                  className={cn(item.className, {
+                    [styles['choice-group__item--with-extra-content']]: item.extraContent && key !== items.length - 1,
+                  })}
+                  direction={direction}
+                  key={item.id}
+                />
               ))}
             </Row>
           </>
