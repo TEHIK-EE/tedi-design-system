@@ -1,5 +1,5 @@
 import { Unstyled } from '@storybook/blocks';
-import * as tokens from '@tehik/design-tokens/tokens.json';
+import * as tokens from '@tehik-ee/design-tokens/tokens.json';
 
 import { Col, Heading, Row, VerticalSpacing, VerticalSpacingItem } from '../../index';
 

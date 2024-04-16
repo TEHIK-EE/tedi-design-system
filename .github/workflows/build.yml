@@ -26,7 +26,7 @@ jobs:
       - name: Publish npm package
         run: |
           cd dist
-          HUSKY=0 npm ci && npx semantic-release
+          HUSKY=0 && npx semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPMJS_TEDI_AUTH_TOKEN }}
