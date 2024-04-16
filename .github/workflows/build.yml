@@ -25,6 +25,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPMJS_TEDI_AUTH_TOKEN }}
+          HUSKY: "0"
       # - run: npm ci
       # - run: npm run build
       # - name: Configure npm authentication
