@@ -11,17 +11,6 @@
       {
         "assets": ["package.json", "package-lock.json"]
       }
-    ],
-    [
-      "semantic-release-github-pullrequest",
-      {
-        "assets": [
-          {
-            "path": "dist/*.tgz",
-            "label": "Package"
-          }
-        ]
-      }
     ]
   ]
 }
