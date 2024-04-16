@@ -198,7 +198,7 @@ export const ChoiceGroup = (props: ChoiceGroupProps): React.ReactElement => {
   switch (type) {
     case 'default':
       gutterX = 2;
-      gutterY = 0;
+      gutterY = 1;
       ChoiceGroupItemElement = inputType === 'checkbox' ? ChoiceGroupCheck : ChoiceGroupRadio;
       break;
     case 'selector':
@@ -272,7 +272,7 @@ export const ChoiceGroup = (props: ChoiceGroupProps): React.ReactElement => {
                 <ChoiceGroupItemElement
                   {...item}
                   className={cn(item.className, {
-                    [styles['choice-group__item--with-extra-content']]: item.extraContent && key !== items.length - 1,
+                    [styles['choice-group__item--extra-padding']]: item.extraContent && key !== items.length - 1,
                   })}
                   direction={direction}
                   key={item.id}
