@@ -1,3 +1,16 @@
+# [6.28.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.27.1...v6.28.0) (2024-04-16)
+
+
+### Bug Fixes
+
+* **choice-group:** TEHVEER-296 - Move the vertical spacing from Check and Radio to ChoiceGroup ([fb9f08d](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/fb9f08de4cd3b53387d7792b7dd730bc05627d88))
+* **choice-group:** TEHVEER-296 - Remove extra padding from last item ([41f346a](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/41f346a15f724ed1938e1034ee95c074b2c7dc85))
+
+
+### Features
+
+* **choice-group:** TEHVEER-296 - Add rowProps prop to ChoiceGroup ([6dfd876](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/6dfd87697d6326011027ab979e77d6ba0bb485f5))
+
 ## [6.27.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.27.0...v6.27.1) (2024-04-12)
 
 
