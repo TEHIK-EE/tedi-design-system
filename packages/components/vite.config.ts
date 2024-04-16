@@ -33,7 +33,7 @@ const config: UserConfig = {
     }),
     visualizer({
       filename: './dist/bundle-stats.html',
-      title: '@tehik/react-components bundle stats',
+      title: '@tehik-ee/tedi-design-system/community bundle stats',
     }) as PluginOption,
   ],
   css: {
@@ -49,7 +49,7 @@ const config: UserConfig = {
     emptyOutDir: true,
     lib: {
       entry: path.resolve(__dirname, 'src/index.ts'),
-      name: '@tehik/react-components',
+      name: '@tehik-ee/tedi-design-system/community',
       fileName: 'index',
       formats: ['es', 'cjs'],
     },
