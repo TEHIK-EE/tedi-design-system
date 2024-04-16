@@ -2,7 +2,7 @@ import cn from 'classnames';
 import React from 'react';
 
 import { useLabels } from '../../../providers/label-provider';
-import { Direction, Gutter, Row } from '../../grid';
+import { Direction, Gutter, Row, RowProps } from '../../grid';
 import Check, { CheckProps } from '../check/check';
 import FormHelper, { FormHelperProps } from '../form-helper/form-helper';
 import FormLabel, { FormLabelProps } from '../form-label/form-label';
@@ -31,8 +31,13 @@ export interface ChoiceGroupProps extends FormLabelProps {
   /**
    *  Direction for Row containing Items
    *  @default column for type default / row for anything else
+   *  @deprecated use rowProps
    */
   direction?: Direction;
+  /**
+   * Row props
+   */
+  rowProps?: RowProps;
   /**
    * Name property on inputs
    */
@@ -98,6 +103,7 @@ export const ChoiceGroup = (props: ChoiceGroupProps): React.ReactElement => {
     items,
     type = 'default',
     direction = type === 'default' ? 'column' : 'row',
+    rowProps,
     name,
     inputType = 'radio',
     value,
@@ -192,7 +198,7 @@ export const ChoiceGroup = (props: ChoiceGroupProps): React.ReactElement => {
   switch (type) {
     case 'default':
       gutterX = 2;
-      gutterY = 0;
+      gutterY = 1;
       ChoiceGroupItemElement = inputType === 'checkbox' ? ChoiceGroupCheck : ChoiceGroupRadio;
       break;
     case 'selector':
@@ -213,7 +219,7 @@ export const ChoiceGroup = (props: ChoiceGroupProps): React.ReactElement => {
   }
 
   const FieldSetBEM = cn(styles['choice-group'], className);
-  const CheckGroupBEM = cn(styles['choice-group__inner'], {
+  const CheckGroupBEM = cn(styles['choice-group__inner'], rowProps?.className, {
     [styles['choice-group__inner--indented']]: showIndeterminate && isIndented,
   });
 
@@ -261,9 +267,16 @@ export const ChoiceGroup = (props: ChoiceGroupProps): React.ReactElement => {
                 onChange={onIndeterminateChangeHandler}
               />
             )}
-            <Row className={CheckGroupBEM} direction={direction} gutterX={gutterX} gutterY={gutterY}>
+            <Row direction={direction} gutterX={gutterX} gutterY={gutterY} {...rowProps} className={CheckGroupBEM}>
               {items.map((item, key) => (
-                <ChoiceGroupItemElement {...item} direction={direction} key={item.id} />
+                <ChoiceGroupItemElement
+                  {...item}
+                  className={cn(item.className, {
+                    [styles['choice-group__item--extra-padding']]: item.extraContent && key !== items.length - 1,
+                  })}
+                  direction={direction}
+                  key={item.id}
+                />
               ))}
             </Row>
           </>

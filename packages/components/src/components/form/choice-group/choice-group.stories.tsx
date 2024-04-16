@@ -229,7 +229,7 @@ export const WithDefaultValue: Story = {
     ...Check.args,
     label: 'I have second item selected by default:',
     items: generateItems(13),
-    defaultValue: ['value-19'],
+    defaultValue: ['value-40'],
   },
 };
 
