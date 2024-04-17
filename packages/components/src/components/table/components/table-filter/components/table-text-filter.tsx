@@ -21,11 +21,13 @@ export const TableTextFilter = () => {
   const filterMinLengthVal = getLabel('table.filter.validation.min-length');
   const filterMinLength = typeof filterMinLengthVal === 'string' ? filterMinLengthVal : filterMinLengthVal(3);
 
-  const validationSchema: Yup.Schema<typeof initialValues> = Yup.object().shape({
+  const validationSchema: Yup.Schema = Yup.object().shape({
     filter: Yup.string()
-      .defined()
+      .notRequired()
       .matches(/^(?!\s+$).*/, getLabel('table.filter.validation.no-spaces'))
-      .min(3, filterMinLength),
+      .min(3, filterMinLength)
+      .nullable()
+      .transform((value) => (value ? value : null)),
   });
 
   const { values, setFieldValue, handleReset, handleSubmit, touched, errors } = useFormik({
