@@ -4,9 +4,8 @@
   "type": "module",
   "main": "index.js",
   "module": "index.js",
-  "types": "index.d.ts",
   "exports": {
-    "./community-components": {
+    "./community": {
       "types": "./community/index.d.ts",
       "import": "./index.js"
     }
