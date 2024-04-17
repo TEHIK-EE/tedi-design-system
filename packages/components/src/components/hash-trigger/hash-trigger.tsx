@@ -49,7 +49,7 @@ const HashTrigger = (props: HashTriggerProps): JSX.Element => {
   const isInitial = React.useRef(true);
 
   React.useEffect(() => {
-    const handleHashChange = (): void => {
+    const handleHashChange = (isInitial?: boolean): void => {
       const hashes = getHashArray();
 
       if (hashes && hashes.indexOf(id) !== -1) {
@@ -57,7 +57,7 @@ const HashTrigger = (props: HashTriggerProps): JSX.Element => {
           const element = document.getElementById(id);
           // trigger scroll only if scrollOnMatch is true
           if (scrollOnMatch && element && !isInViewport(element)) {
-            element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            element.scrollIntoView(isInitial ? { behavior: 'instant' } : { behavior: 'smooth', block: 'center' });
           }
         };
 
@@ -71,13 +71,16 @@ const HashTrigger = (props: HashTriggerProps): JSX.Element => {
 
     if (isInitial.current) {
       isInitial.current = false;
-      handleHashChange();
+      handleHashChange(true);
     }
 
-    window.addEventListener('hashchange', handleHashChange);
+    const hashChangeListener = (): void => {
+      handleHashChange(false);
+    };
+    window.addEventListener('hashchange', hashChangeListener);
 
     return () => {
-      window.removeEventListener('hashchange', handleHashChange);
+      window.removeEventListener('hashchange', hashChangeListener);
     };
   }, [id, onMatch, scrollOnMatch, isInitial]);
 
