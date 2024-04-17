@@ -24,7 +24,9 @@ jobs:
       - name: Build project
         run: npm run build
       - name: Publish npm package
-        run: HUSKY=0 && npx semantic-release
+        run: |
+          HUSKY=0
+          npx semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPMJS_TEDI_AUTH_TOKEN }}
