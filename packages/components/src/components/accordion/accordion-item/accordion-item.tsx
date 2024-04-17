@@ -61,10 +61,6 @@ export const AccordionItem = (props: AccordionItemProps): JSX.Element => {
   } = props;
   const { onToggle, isOpen } = React.useContext(AccordionContext);
 
-  const onMatch = (id: string) => {
-    if (!disabled) onToggle(id);
-  };
-
   const BEM = cn(styles['accordion__item'], className, {
     [styles['accordion__item--disabled']]: disabled,
     [styles['accordion__item--open']]: isOpen(id),
@@ -74,7 +70,16 @@ export const AccordionItem = (props: AccordionItemProps): JSX.Element => {
 
   return (
     <AccordionItemContext.Provider value={{ id, disabled }}>
-      <HashTrigger id={id} onMatch={() => onMatch(id)}>
+      <HashTrigger
+        id={id}
+        onMatch={(id, _, cb) => {
+          if (!disabled) {
+            onToggle(id);
+          }
+          // Scroll to element in page, when hash is matched
+          cb?.();
+        }}
+      >
         <Card data-name="accordion-item" border={mappedBorder} className={BEM} {...rest}>
           {children}
         </Card>
