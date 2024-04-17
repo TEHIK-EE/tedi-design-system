@@ -5,6 +5,12 @@
   "main": "index.js",
   "module": "index.js",
   "types": "index.d.ts",
+  "exports": {
+    "./community-components": {
+      "types": "./community/index.d.ts",
+      "import": "./index.js"
+    }
+  },
   "peerDependencies": {
     "@emotion/react": "*",
     "@emotion/styled": "*",

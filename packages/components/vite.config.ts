@@ -33,7 +33,7 @@ const config: UserConfig = {
     }),
     visualizer({
       filename: './dist/bundle-stats.html',
-      title: '@tehik-ee/tedi-design-system/community bundle stats',
+      title: '@tehik-ee/tedi-design-system bundle stats',
     }) as PluginOption,
   ],
   css: {
@@ -49,12 +49,15 @@ const config: UserConfig = {
     emptyOutDir: true,
     lib: {
       entry: path.resolve(__dirname, 'src/index.ts'),
-      name: '@tehik-ee/tedi-design-system/community',
+      name: '@tehik-ee/tedi-design-system',
       fileName: 'index',
       formats: ['es', 'cjs'],
     },
     rollupOptions: {
       external: ['next', 'react', 'react/jsx-runtime', 'react-dom', 'dayjs'],
+      input: {
+        community: path.resolve(__dirname, 'src/index.ts'),
+      },
       output: {
         assetFileNames: (assetInfo) => {
           if (assetInfo.name === 'style.css') return 'index.css';
