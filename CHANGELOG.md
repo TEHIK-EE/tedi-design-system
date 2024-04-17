@@ -1,3 +1,10 @@
+## [6.28.2](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.28.1...v6.28.2) (2024-04-17)
+
+
+### Bug Fixes
+
+* **table:** allow to save table text-filter with nullable value to clear filter - TEHVEER-298 ([46d2525](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/46d25250cfab42b9aa80ea574553c4ebb307bbcf))
+
 ## [6.28.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.28.0...v6.28.1) (2024-04-17)
 
 
