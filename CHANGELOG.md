@@ -1,3 +1,10 @@
+## [6.28.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.28.0...v6.28.1) (2024-04-17)
+
+
+### Bug Fixes
+
+* **hash-trigger:** fix scroll not called on hashchange event - TEHVEER-297 ([656ee7d](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/656ee7dc699b27d4bb03061e05a49e8a794ff0b6))
+
 # [6.28.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.27.1...v6.28.0) (2024-04-16)
 
 
