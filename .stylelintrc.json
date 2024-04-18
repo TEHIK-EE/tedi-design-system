@@ -6,7 +6,6 @@
     "selector-class-pattern": "^[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*(?:__[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*)?(?:--[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*)?(?:\\[.+\\])?$",
     "scale-unlimited/declaration-strict-value": ["/color$/", { "ignoreValues": ["inherit"], "disableFix": true }],
     "max-nesting-depth": [3, { "ignore": ["blockless-at-rules", "pseudo-classes"], "ignoreAtRules": ["/include/"] }],
-    "string-quotes": "single",
     "scss/no-global-function-names": null,
     "scss/comment-no-empty": null,
     "scss/at-if-no-null": null,
