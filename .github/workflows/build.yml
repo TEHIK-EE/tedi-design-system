@@ -21,7 +21,7 @@ jobs:
       - name: Install dependencies
         run: npm ci --cache .npm --prefer-offline
       - name: Lint
-        run: nx affected:lint --base=master --head=HEAD
+        run: npm run lint:ci
 
   test:
     needs: lint
