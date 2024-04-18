@@ -259,6 +259,7 @@ export function Table<TData extends DefaultTData<TData>>(props: TableProps<TData
         isLoading,
         isError,
         hideRowBorder,
+        size,
       }}
     >
       <Card data-name="table" {...rest} borderless={hideCardBorder} padding={cardPadding} {...restCardProps}>

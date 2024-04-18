@@ -28,6 +28,7 @@ const TableLayout = <TData extends DefaultTData<TData>>(): JSX.Element | null =>
     hideRowBorder,
     placeholder,
     errorPlaceholder,
+    size,
   } = React.useContext<ITableContext<TData>>(TableContext);
 
   if (table === null) {
@@ -205,7 +206,12 @@ const TableLayout = <TData extends DefaultTData<TData>>(): JSX.Element | null =>
                 }
               >
                 {header.isPlaceholder ? null : (
-                  <Row alignItems="center" justifyContent="between" wrap="nowrap">
+                  <Row
+                    gutter={size === 'small' ? 2 : undefined}
+                    alignItems="center"
+                    justifyContent="between"
+                    wrap="nowrap"
+                  >
                     <Col onClick={header.column.getToggleSortingHandler()}>
                       {flexRender(header.column.columnDef.header, header.getContext())}
                     </Col>
