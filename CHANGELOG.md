@@ -1,3 +1,10 @@
+## [6.28.4](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.28.3...v6.28.4) (2024-04-18)
+
+
+### Bug Fixes
+
+* **table:** TEHVEER-300 fix small table header gutter ([296089c](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/296089cc35fb99ea6970c2b0e0821149c4ab1c30))
+
 ## [6.28.3](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.28.2...v6.28.3) (2024-04-18)
 
 
