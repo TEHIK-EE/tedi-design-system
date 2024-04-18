@@ -1,9 +1,6 @@
 {
   "name": "@tehik-ee/tedi-design-system",
   "version": "0.0.0",
-  "release": {
-    "pkgRoot": "dist"
-  },
   "main": "dist/index.js",
   "scripts": {
     "prepare": "husky install",
