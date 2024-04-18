@@ -8,6 +8,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -17,14 +19,19 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 'lts/*'
-
-      # - name: Semantic Release
-      #   uses: cycjimmy/semantic-release-action@v4
-      #   with:
-      #     branch: feat/pipeline
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #     NPM_TOKEN: ${{ secrets.NPMJS_TEDI_AUTH_TOKEN }}
+      - name: Install dependencies
+        run: npm ci
+      - name: Build project
+        run: npm run build
+      - name: Publish npm package
+        run: |
+          HUSKY=0
+          npx semantic-release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPMJS_TEDI_AUTH_TOKEN }}
+        #- name: Semantic Release
+        # uses: cycjimmy/semantic-release-action@v4
       # - run: npm ci
       # - run: npm run build
       # - name: Configure npm authentication
@@ -34,37 +41,3 @@ jobs:
       #   env:
       #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       #     HUSKY: 0
-
-  # build:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Checkout code
-  #       uses: actions/checkout@v4
-  #       with:
-  #         fetch-depth: 0
-  #     - name: Use Node.js
-  #       uses: actions/setup-node@v4
-  #       with:
-  #         node-version: 'lts/*'
-  #     - run: npm ci
-  #     - run: npm run build
-
-  # publish:
-  #   needs: build
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Checkout code
-  #       uses: actions/checkout@v4
-  #     - name: Setup Node.js
-  #       uses: actions/setup-node@v4
-  #       with:
-  #         node-version: 'lts/*'
-  #         # registry-url: 'https://registry.npmjs.org'
-  #     # - name: Install dependencies
-  #     #   run: npm ci --cache .npm --prefer-offline
-  #     # - name: Build
-  #     #   run: npm run build
-  #     - name: Publish to npm
-  #       run: npm publish
-  #       env:
-  #         NODE_AUTH_TOKEN: ${{ secrets.NPMJS_TEDI_AUTH_TOKEN }}

@@ -1,13 +1,15 @@
 {
-  "name": "@tehik/react-components",
+  "name": "@tehik-ee/tedi-design-system",
   "version": "0.0.0-semantic-version",
-  "publishConfig": {
-    "registry": "https://repo.tehik.ee/artifactory/api/npm/tehik-npm-release/"
-  },
   "type": "module",
   "main": "index.js",
   "module": "index.js",
-  "types": "index.d.ts",
+  "exports": {
+    "./community": {
+      "types": "./community/index.d.ts",
+      "import": "./index.js"
+    }
+  },
   "peerDependencies": {
     "@emotion/react": "*",
     "@emotion/styled": "*",

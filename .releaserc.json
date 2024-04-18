@@ -10,6 +10,7 @@
         "assets": ["package.json", "package-lock.json"]
       }
     ],
+    "@semantic-release/npm",
     [
       "@semantic-release/github",
       {
