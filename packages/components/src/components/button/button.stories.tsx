@@ -1,14 +1,17 @@
-import { Meta, StoryFn } from '@storybook/react';
+import { Meta, StoryFn, StoryObj } from '@storybook/react';
 
 import { Col, Row } from '../grid';
 import Text from '../typography/text/text';
 import { VerticalSpacing } from '../vertical-spacing';
 import { Button, ButtonProps } from './button';
 
-export default {
+const meta: Meta<ButtonProps> = {
   title: 'components/Button',
   component: Button,
-} as Meta<ButtonProps>;
+};
+
+export default meta;
+type Story = StoryObj<typeof Button>;
 
 const Template: StoryFn<ButtonProps> = (args) => {
   const getRow = (name: string, rowProps?: Partial<ButtonProps>): JSX.Element => (
@@ -67,11 +70,11 @@ const Template: StoryFn<ButtonProps> = (args) => {
   );
 };
 
-export const Default = {
+export const Default: Story = {
   render: Template,
 };
 
-export const Secondary = {
+export const Secondary: Story = {
   render: Template,
 
   args: {
@@ -79,7 +82,7 @@ export const Secondary = {
   },
 };
 
-export const Tertiary = {
+export const Tertiary: Story = {
   render: Template,
 
   args: {
@@ -87,7 +90,7 @@ export const Tertiary = {
   },
 };
 
-export const Important = {
+export const Important: Story = {
   render: Template,
 
   args: {
@@ -95,7 +98,7 @@ export const Important = {
   },
 };
 
-export const ImportantSecondary = {
+export const ImportantSecondary: Story = {
   render: Template,
 
   args: {
@@ -104,7 +107,7 @@ export const ImportantSecondary = {
   },
 };
 
-export const ImportantTertiary = {
+export const ImportantTertiary: Story = {
   render: Template,
 
   args: {
@@ -113,7 +116,7 @@ export const ImportantTertiary = {
   },
 };
 
-export const Positive = {
+export const Positive: Story = {
   render: Template,
 
   args: {
@@ -121,7 +124,7 @@ export const Positive = {
   },
 };
 
-export const PositiveSecondary = {
+export const PositiveSecondary: Story = {
   render: Template,
 
   args: {
@@ -129,7 +132,7 @@ export const PositiveSecondary = {
     visualType: 'secondary',
   },
 };
-export const PositiveTertiary = {
+export const PositiveTertiary: Story = {
   render: Template,
 
   args: {
@@ -138,7 +141,7 @@ export const PositiveTertiary = {
   },
 };
 
-export const Inverted = {
+export const Inverted: Story = {
   render: Template,
 
   args: {
@@ -150,7 +153,7 @@ export const Inverted = {
   },
 };
 
-export const InvertedSecondary = {
+export const InvertedSecondary: Story = {
   render: Template,
 
   args: {
@@ -163,7 +166,7 @@ export const InvertedSecondary = {
   },
 };
 
-export const InvertedTertiary = {
+export const InvertedTertiary: Story = {
   render: Template,
 
   args: {
@@ -176,7 +179,7 @@ export const InvertedTertiary = {
   },
 };
 
-export const Link = {
+export const Link: Story = {
   render: Template,
 
   args: {
@@ -184,7 +187,7 @@ export const Link = {
   },
 };
 
-export const InvertedLink = {
+export const InvertedLink: Story = {
   render: Template,
 
   args: {
@@ -205,6 +208,13 @@ const NoStyleTemplate: StoryFn<ButtonProps> = (args) => {
   );
 };
 
-export const NoStyle = {
+export const NoStyle: Story = {
   render: NoStyleTemplate,
+};
+
+export const FullWidth: Story = {
+  args: {
+    fullWidth: true,
+    children: 'Button that stretches',
+  },
 };

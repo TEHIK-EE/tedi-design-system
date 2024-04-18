@@ -1,18 +1,21 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import Link from 'next/link';
-import React, { forwardRef } from 'react';
+import React, { ComponentProps, forwardRef } from 'react';
 
 import { Col, Row } from '../grid';
 import Text from '../typography/text/text';
 import { VerticalSpacing } from '../vertical-spacing';
 import { Anchor, AnchorProps } from './anchor';
 
-export default {
+const meta: Meta<AnchorProps> = {
   component: Anchor,
   title: 'components/Anchor',
-} as Meta<AnchorProps>;
+};
 
-const Template: StoryFn<AnchorProps> = (args) => {
+export default meta;
+type Story = StoryObj<typeof Anchor>;
+
+const Template: StoryFn<ComponentProps<typeof Anchor>> = (args) => {
   const getRow = (name: string, rowProps?: Partial<AnchorProps>): JSX.Element => (
     <Row gutterX={5} alignItems="center">
       <Col width={1}>
@@ -68,7 +71,7 @@ const Template: StoryFn<AnchorProps> = (args) => {
   );
 };
 
-export const Default = {
+export const Default: Story = {
   render: Template,
 
   args: {
@@ -77,7 +80,7 @@ export const Default = {
   },
 };
 
-export const Inverted = {
+export const Inverted: Story = {
   render: Template,
 
   args: {
@@ -90,7 +93,7 @@ export const Inverted = {
   },
 };
 
-export const TextColor = {
+export const TextColor: Story = {
   render: Template,
 
   args: {
@@ -102,7 +105,7 @@ export const TextColor = {
 /**
  * You can render any visual button type as link because they share same visual and rendering logic in the back
  */
-export const AsPrimaryButton = {
+export const AsPrimaryButton: Story = {
   render: Template,
 
   args: {
@@ -160,11 +163,20 @@ export const CustomComponent: StoryObj<AnchorProps> = {
 /**
  * Use when u need to wrap link to some component for example logo img, that should not use same visual as other links.
  */
-export const NoStyleAnchor = {
+export const NoStyleAnchor: Story = {
   args: {
     noStyle: true,
     href: 'https://www.neti.ee/',
     children: <img src="https://www.neti.ee/img/neti-logo-2015-1.png" alt="neti.ee" />,
     target: '_blank',
+  },
+};
+
+export const FullWidth: Story = {
+  args: {
+    fullWidth: true,
+    href: '#',
+    visualType: 'primary',
+    children: 'Anchor that stretches',
   },
 };
