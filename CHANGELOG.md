@@ -1,3 +1,11 @@
+## [6.27.6](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.27.5...v6.27.6) (2024-04-18)
+
+
+### Bug Fixes
+
+* **chore:** CI changes ([f53ea6d](https://github.com/TEHIK-EE/tedi-design-system/commit/f53ea6d8df1e245cdd6ac1e4273ef3542745b23c))
+* **chore:** CI changes ([f1fa52c](https://github.com/TEHIK-EE/tedi-design-system/commit/f1fa52c025410b8430c75f89fee02df5d89f02b9))
+
 ## [6.27.5](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.27.4...v6.27.5) (2024-04-18)
 
 
