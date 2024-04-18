@@ -30,6 +30,10 @@ export type ButtonContentProps<
      */
     visualType?: ButtonType;
     /**
+     * If button should take all the space it has
+     */
+    fullWidth?: boolean;
+    /**
      * Color schema for button. PS text-color works only with link type links.
      * @default default
      */
@@ -104,6 +108,7 @@ const InternalButtonContent = forwardRef(
       isLoading = false,
       noStyle,
       renderWrapperElement,
+      fullWidth,
       onClick,
       ...rest
     }: ButtonContentProps<C, P, A>,
@@ -123,7 +128,8 @@ const InternalButtonContent = forwardRef(
           { [styles['btn--is-hovered']]: isHovered },
           { [styles['btn--is-active']]: isActive },
           { [styles['btn--is-loading']]: isLoading && !hasIcon },
-          { [styles['btn--icon-only']]: icon }
+          { [styles['btn--icon-only']]: icon },
+          { [styles['btn--full-width']]: fullWidth }
         )
       : cn(styles['btn--no-style'], className);
 

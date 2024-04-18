@@ -366,3 +366,7 @@ $btn-height-small: 2.25rem;
 .btn--no-style {
   @include mixins.button-reset;
 }
+
+.btn--full-width {
+  width: 100%;
+}

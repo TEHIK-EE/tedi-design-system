@@ -5,12 +5,9 @@ import { useLabels } from '../../providers/label-provider';
 import { IntentionalAny } from '../../types';
 import ButtonContent, { ButtonContentProps } from '../button-content/button-content';
 
-export interface InternalAnchorProps {
-  /**
-   * If button should take all the space it has
-   */
-  fullWidth?: boolean;
-}
+export type InternalAnchorProps = {
+  // custom Anchor specific props
+};
 
 type AllowedTags = 'a' | React.ComponentType<IntentionalAny>;
 

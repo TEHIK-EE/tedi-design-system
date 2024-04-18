@@ -1,19 +1,13 @@
-import cn from 'classnames';
 import React, { forwardRef } from 'react';
 
 import { PolymorphicRef } from '../../helpers/polymorphic/types';
 import { IntentionalAny } from '../../types';
 import ButtonContent, { ButtonContentProps } from '../button-content/button-content';
-import styles from './button.module.scss';
 
 export type ButtonType = 'primary' | 'secondary' | 'tertiary' | 'link';
 export type ButtonColor = 'default' | 'important' | 'positive' | 'inverted' | 'text-color';
 
 export interface IInternalButtonProps {
-  /**
-   * If button should take all the space it has
-   */
-  fullWidth?: boolean;
   /**
    * Button type
    * @default button
@@ -45,7 +39,6 @@ const InternalButton = forwardRef(
       as,
       type,
       formNoValidate,
-      className,
       visualType,
       color,
       size,
@@ -56,12 +49,9 @@ const InternalButton = forwardRef(
       isHovered,
       isActive,
       noStyle,
-      fullWidth,
       ...rest
     } = props;
     const ComponentAs = as || 'button';
-
-    const BEM = cn(className, { [styles['btn--full-width']]: fullWidth });
 
     return (
       <ButtonContent
@@ -71,7 +61,6 @@ const InternalButton = forwardRef(
         formNoValidate={formNoValidate ?? type === 'submit' ? true : undefined}
         ref={ref}
         as={ComponentAs}
-        className={BEM}
         visualType={visualType}
         color={color}
         size={size}
