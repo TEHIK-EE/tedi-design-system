@@ -17,7 +17,7 @@
 
 .radio__indicator {
   position: relative;
-  display: inline-block;
+  display: block;
   min-width: 1.125rem;
   height: 1.125rem;
   margin-top: 0.125rem;
@@ -67,6 +67,7 @@
 }
 
 .radio__extra-content {
+  padding-top: 0.125rem;
   padding-bottom: 1rem;
   padding-left: 1.75rem;
 }

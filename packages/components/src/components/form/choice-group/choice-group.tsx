@@ -192,7 +192,7 @@ export const ChoiceGroup = (props: ChoiceGroupProps): React.ReactElement => {
   switch (type) {
     case 'default':
       gutterX = 2;
-      gutterY = 0;
+      gutterY = 1;
       ChoiceGroupItemElement = inputType === 'checkbox' ? ChoiceGroupCheck : ChoiceGroupRadio;
       break;
     case 'selector':
@@ -263,7 +263,14 @@ export const ChoiceGroup = (props: ChoiceGroupProps): React.ReactElement => {
             )}
             <Row className={CheckGroupBEM} direction={direction} gutterX={gutterX} gutterY={gutterY}>
               {items.map((item, key) => (
-                <ChoiceGroupItemElement {...item} direction={direction} key={item.id} />
+                <ChoiceGroupItemElement
+                  className={cn(item.className, {
+                    [styles['choice-group__item--extra-padding']]: item.extraContent && key !== items.length - 1,
+                  })}
+                  {...item}
+                  direction={direction}
+                  key={item.id}
+                />
               ))}
             </Row>
           </>
