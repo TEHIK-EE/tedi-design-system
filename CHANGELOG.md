@@ -1,3 +1,10 @@
+## [6.28.3](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.28.2...v6.28.3) (2024-04-18)
+
+
+### Bug Fixes
+
+* **anchor:** TEHVEER-299 - fullWidth now stretches Anchor ([825511b](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/825511b13df56e92d5b013dfa6af1be82fcb8655))
+
 ## [6.28.2](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.28.1...v6.28.2) (2024-04-17)
 
 
