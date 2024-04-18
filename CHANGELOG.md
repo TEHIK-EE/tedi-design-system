@@ -1,3 +1,10 @@
+## [6.27.5](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.27.4...v6.27.5) (2024-04-18)
+
+
+### Bug Fixes
+
+* **chore:** Removed dist from package.json and changed releaserc.json ([1a63077](https://github.com/TEHIK-EE/tedi-design-system/commit/1a630776b2e77e24c00fc180e9eb5f9aa6bf71f2))
+
 ## [6.26.3](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.26.2...v6.26.3) (2024-04-10)
 
 
