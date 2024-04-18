@@ -1,28 +1,30 @@
-import { Row } from '@tanstack/react-table';
 import { Table as TableType } from '@tanstack/table-core';
 import React from 'react';
 
-import { PlaceholderProps } from '../placeholder/placeholder';
+import { IntentionalAny } from '../../types';
+import { DefaultTData, TableProps } from './table.types';
 
-export interface ITableContext<TData> {
+export interface ITableContext<TData extends DefaultTData<TData>>
+  extends Pick<
+    TableProps<TData>,
+    | 'id'
+    | 'isLoading'
+    | 'isError'
+    | 'hideRowBorder'
+    | 'caption'
+    | 'placeholder'
+    | 'errorPlaceholder'
+    | 'renderSubComponent'
+    | 'renderGroupHeading'
+    | 'onRowClick'
+    | 'size'
+  > {
   table: TableType<TData> | null;
-  id: string;
-  caption?: string;
-  isLoading: boolean;
-  isError: boolean;
-  placeholder?: PlaceholderProps;
-  errorPlaceholder?: PlaceholderProps;
   loadingLabel?: string;
-  renderSubComponent?: (row: Row<TData>) => React.ReactElement;
-  renderGroupHeading?: (row: Row<TData>) => React.ReactElement;
-  rowClassName?: string;
-  hideRowBorder: boolean;
   isFooterVisible?: boolean;
-  onRowClick?: (row: TData) => void;
 }
 
-// eslint-disable-next-line
-export const TableContext = React.createContext<ITableContext<any>>({
+export const TableContext = React.createContext<ITableContext<IntentionalAny>>({
   isLoading: false,
   isError: false,
   table: null,
