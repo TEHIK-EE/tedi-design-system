@@ -38,6 +38,21 @@ jobs:
       - name: Test
         run: npm run test
 
+  sonarqube:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: SonarQube Scan
+        uses: docker://docker.repo.tehik.ee/sonarsource/sonar-scanner-cli
+        with:
+          args: >
+            -Dsonar.projectKey=${{ github.repository }}
+            -Dsonar.host.url=${{ secrets.SONAR_URL }}
+            -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+
   build:
     runs-on: ubuntu-latest
     permissions:
@@ -55,6 +70,15 @@ jobs:
         run: npm ci
       - name: Build project
         run: npm run build
+
+  publish:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
       - name: Publish npm package
         run: |
           HUSKY=0
