@@ -11,7 +11,18 @@
         "message": "chore(release): ${nextRelease.version} \n\n${nextRelease.notes}"
       }
     ],
-    ["@semantic-release/npm", { "pkgRoot": "dist" }]
+    ["@semantic-release/npm", { "pkgRoot": "dist" }],
+    [
+      "@semantic-release/github",
+      {
+        "assets": [
+          {
+            "path": "dist/*.tgz",
+            "label": "Package"
+          }
+        ]
+      }
+    ]
   ],
   "prerelease": "rc"
 }
