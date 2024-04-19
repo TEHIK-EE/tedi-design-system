@@ -1,3 +1,11 @@
+## [6.27.9](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.27.8...v6.27.9) (2024-04-19)
+
+
+### Bug Fixes
+
+* **chore:** CI fix ([c47ff9c](https://github.com/TEHIK-EE/tedi-design-system/commit/c47ff9c08596b0bbda07e21b466b0cea2a84bac9))
+* **chore:** Removed sonar from pipeline ([df286ed](https://github.com/TEHIK-EE/tedi-design-system/commit/df286edc5e710e17708e3e65fc248ab148d54753))
+
 ## [6.27.8](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.27.7...v6.27.8) (2024-04-19)
 
 
