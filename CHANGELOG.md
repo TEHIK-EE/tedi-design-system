@@ -1,3 +1,10 @@
+# [6.28.0-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.27.13-rc.1...v6.28.0-rc.1) (2024-04-19)
+
+
+### Features
+
+* **chore:** Added comment ([ec0b274](https://github.com/TEHIK-EE/tedi-design-system/commit/ec0b274691293b95f0878089ed47b6fe8faff917))
+
 ## [6.27.13-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.27.12...v6.27.13-rc.1) (2024-04-19)
 
 
