@@ -1,3 +1,10 @@
+## [6.27.7](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.27.6...v6.27.7) (2024-04-19)
+
+
+### Bug Fixes
+
+* **chore:** Renamed yml file and added Sonar action ([db286d3](https://github.com/TEHIK-EE/tedi-design-system/commit/db286d3ca2a6cff674692fe39be7f2e614f66716))
+
 ## [6.27.6](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.27.5...v6.27.6) (2024-04-18)
 
 
