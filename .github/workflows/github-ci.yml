@@ -38,20 +38,20 @@ jobs:
       - name: Test
         run: npm run test
 
-  # sonarqube:
-  #   needs: test
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Checkout repository
-  #       uses: actions/checkout@v2
+  sonarqube:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-  #     - name: SonarQube Scan
-  #       uses: docker://docker.repo.tehik.ee/sonarsource/sonar-scanner-cli
-  #       with:
-  #         args: >
-  #           -Dsonar.projectKey=${{ github.repository }}
-  #           -Dsonar.host.url=${{ secrets.SONAR_URL }}
-  #           -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+      - name: SonarQube Scan
+        uses: sonarsource/sonarqube-scan-action@v1.2.0
+        with:
+          args: >
+            -Dsonar.projectKey=${{ github.repository }}
+            -Dsonar.host.url=${{ secrets.SONAR_URL }}
+            -Dsonar.login=${{ secrets.SONAR_TOKEN }}
 
   build-and-deploy:
     runs-on: ubuntu-latest
