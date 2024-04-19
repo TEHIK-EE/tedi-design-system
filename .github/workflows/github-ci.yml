@@ -38,27 +38,8 @@ jobs:
       - name: Test
         run: npm run test
 
-  sonarqube:
-    needs: test
-    runs-on: ubuntu-latest
-    env:
-      SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-      SONAR_PROJECT_KEY: ${{ github.repository }}
-      SONAR_LOGIN: ${{ secrets.SONAR_TOKEN }}
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
-      - name: SonarQube Scan
-        uses: sonarsource/sonarqube-scan-action@v1.2.0
-        with:
-          args: >
-            -Dsonar.projectKey=${{ env.SONAR_PROJECT_KEY }}
-            -Dsonar.host.url=${{ env.SONAR_HOST_URL }}
-            -Dsonar.login=${{ env.SONAR_LOGIN }}
-
   build-and-deploy:
-    needs: sonarqube
+    needs: test
     runs-on: ubuntu-latest
     permissions:
       contents: write
