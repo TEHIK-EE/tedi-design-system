@@ -12,5 +12,6 @@
       }
     ],
     ["@semantic-release/npm", { "pkgRoot": "dist" }]
-  ]
+  ],
+  "prerelease": "rc"
 }
