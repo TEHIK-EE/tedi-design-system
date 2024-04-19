@@ -1,3 +1,12 @@
+## [6.27.12](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.27.11...v6.27.12) (2024-04-19)
+
+
+### Bug Fixes
+
+* **chore:** Fixed releaserc.json ([e3d6739](https://github.com/TEHIK-EE/tedi-design-system/commit/e3d673992990c3821937b860c96989c1eff3ddbb))
+* **chore:** releaserc.json changes ([ed5c496](https://github.com/TEHIK-EE/tedi-design-system/commit/ed5c4961587e24a179a98866c65b7cabb19985c6))
+* **chore:** releaserc.json changes ([88d295b](https://github.com/TEHIK-EE/tedi-design-system/commit/88d295b8e3bf4f67ccecff06c4315783e5348809))
+
 ## [6.27.11](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.27.10...v6.27.11) (2024-04-19)
 
 
