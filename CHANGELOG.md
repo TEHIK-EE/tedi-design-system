@@ -1,3 +1,12 @@
+## [6.27.13-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.27.12...v6.27.13-rc.1) (2024-04-19)
+
+
+### Bug Fixes
+
+* **chore:** Pipeline changes ([fb7f89e](https://github.com/TEHIK-EE/tedi-design-system/commit/fb7f89ed43c6cdc8c8eeae127700167093b7fc43))
+* **chore:** Pipeline update ([b041452](https://github.com/TEHIK-EE/tedi-design-system/commit/b0414521e03d92fe59bad3518cb51f9be94d93b0))
+* **chore:** releaserc.json changes ([e1d974c](https://github.com/TEHIK-EE/tedi-design-system/commit/e1d974c09a03d294ee3c95a0be56e0687ff9b0de))
+
 ## [6.27.12](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.27.11...v6.27.12) (2024-04-19)
 
 
