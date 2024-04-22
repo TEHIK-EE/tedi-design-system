@@ -1,5 +1,5 @@
 {
-  "name": "@tehik/react-components",
+  "name": "@tehik-ee/tedi-design-system",
   "version": "0.0.0-semantic-version",
   "publishConfig": {
     "registry": "https://repo.tehik.ee/artifactory/api/npm/tehik-npm-release/"

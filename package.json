@@ -1,19 +1,20 @@
 {
-  "name": "tehik-react-components",
+  "name": "@tehik-ee/tedi-design-system",
   "version": "0.0.0",
+  "main": "dist/index.js",
   "scripts": {
     "prepare": "husky install",
     "semantic-release": "semantic-release",
     "start": "nx start",
     "test": "nx test --update-snapshot",
-    "build": "nx build --skip-nx-cache &&  cp -a dist/packages/components/src/. dist/ && rm -rf dist/packages && replace-in-file //fonts//g \"./fonts/\" dist/index.css --isRegex",
+    "build": "nx build --skip-nx-cache &&  cp -a dist/packages/components/src/. dist/community/ && rm -rf dist/packages && replace-in-file //fonts//g \"./fonts/\" dist/index.css --isRegex",
     "build:sb": "cross-env NODE_ENV=production nx build:storybook",
     "lint": "npx stylelint \"**/*.scss\" --fix && nx affected:lint --all --fix",
     "lint:ci": "npx stylelint \"**/*.scss\" && nx affected:lint --all"
   },
   "repository": {
     "type": "git",
-    "url": "https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components.git"
+    "url": "https://github.com/TEHIK-EE/tedi-design-system.git"
   },
   "engines": {
     "npm": ">=8.0.0",

@@ -1,0 +1,104 @@
+name: Continuous Deployment
+
+on:
+  push:
+    branches:
+      - "**"
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+  actions: read
+
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  build_matrix:
+    runs-on: ubuntu-latest
+    outputs:
+      json_branches: ${{ steps.generate-matrix.outputs.json_branches }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Generate Matrix
+        id: generate-matrix
+        run: |
+          branches=($(git branch -r | cut -c 3- | sed 's/origin\///g'))
+          json_branches=$(printf '%s\n' "${branches[@]}" | jq -R . | jq -s -c .)
+          echo "json_branches=${json_branches}" >> $GITHUB_OUTPUT
+
+  build:
+    runs-on: ubuntu-latest
+    name: Build
+    needs:
+      - build_matrix
+    strategy:
+      matrix:
+        branch: ${{ fromJSON(needs.build_matrix.outputs.json_branches) }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ matrix.branch }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Build
+        run: |
+          npm ci
+          npm run build:sb
+      - uses: actions/upload-artifact@v3
+        with:
+          name: ${{ strategy.job-index }}
+          path: dist/storybook/components/
+
+  deploy:
+    runs-on: ubuntu-latest
+    name: Deploy
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    needs:
+      - build_matrix
+      - build
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+      - run: gh run download ${{ vars.GITHUB_RUN_ID }} --dir branches
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create public folder
+        run: |
+          ls -la branches
+          mkdir public
+          mv .github/workflows/index.html ./public/index.html
+          cd public
+          branches=$(echo '${{ needs.build_matrix.outputs.json_branches }}' | jq -r '.[]')
+          i=0
+          for branch in ${branches}
+          do
+            mkdir -p -- $branch
+            mv ../branches/$i/* ./$branch
+
+            echo "<li class="py-2"><a href=\"./${branch}\">${branch}</a></li>" >> index.html
+
+            i=$((i+1))
+          done
+          cat ../.github/workflows/index_suffix.html >> index.html
+          ls -lR
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: ./public/
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
