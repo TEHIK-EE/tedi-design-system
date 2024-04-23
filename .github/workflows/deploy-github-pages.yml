@@ -72,10 +72,13 @@ jobs:
           fetch-depth: 0
       - name: Setup Pages
         uses: actions/configure-pages@v3
-      - run: printenv && gh run download $GITHUB_RUN_ID --dir branches
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
+#      - run: printenv && gh run download $GITHUB_RUN_ID --dir branches
+#        env:
+#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/download-artifact@v4
+        name: "Download artifacts"
+        with:
+          path: branches/
       - name: Create public folder
         run: |
           ls -la branches
