@@ -23,7 +23,7 @@ const config: UserConfig = {
     checker({
       overlay: false,
       eslint: {
-        lintCommand: 'eslint "./packages/components/src/**/*.{ts,tsx}"',
+        lintCommand: 'eslint "./libs/react-components/community/src/**/*.{ts,tsx}"',
       },
       // e.g. use TypeScript check
       typescript: {
