@@ -4,7 +4,7 @@ import { join } from 'path';
 import checker from 'vite-plugin-checker';
 
 // eslint-disable-next-line @nx/enforce-module-boundaries
-import rootMain from '../../../.storybook/main';
+import rootMain from '../../../../.storybook/main';
 
 const config: StorybookConfig = {
   ...rootMain,
