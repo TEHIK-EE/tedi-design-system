@@ -7,6 +7,7 @@ import {
   PaginationState,
   RowSelectionState,
   SortingState,
+  VisibilityState,
 } from '@tanstack/react-table';
 import dayjs from 'dayjs';
 import React from 'react';
@@ -15,6 +16,7 @@ import { getBackgroundColorClass } from '../../helpers/background-colors/backgro
 import { IntentionalAny } from '../../types';
 import Anchor from '../anchor/anchor';
 import { Card, CardContent } from '../card';
+import Check from '../form/check/check';
 import Status from '../status/status';
 import Tag from '../tag/tag';
 import Heading from '../typography/heading/heading';
@@ -606,7 +608,7 @@ export const WithFiltersControlledFromOutside: Story = {
 };
 
 /**
- * Entire table sorting/pagination/filtering state can be stored outside the component.<br />
+ * Entire table sorting/pagination/filtering/columnVisibility state can be stored outside the component.<br />
  * If you don't want to sort/paginate/filter the data yourself, you can set `manualFiltering={false}`, `manualSorting={false}` and `manualPagination={false}`.<br />
  * This way you have control of the table sorting/pagination/filtering state, but don't have to write your own logic for parsing the data.
  */
@@ -630,20 +632,35 @@ export const TableStateControlledFromOutside: Story = {
     const [filters, setFilters] = React.useState<ColumnFiltersState>([]);
     const [sorting, setSorting] = React.useState<SortingState>([]);
     const [pagination, setPagination] = React.useState<PaginationState>({ pageIndex: 0, pageSize: 5 });
+    const [columnVisibility, setColumnVisibility] = React.useState<VisibilityState>({
+      personName: true,
+    });
 
     return (
-      <Table
-        {...args}
-        manualFiltering={false}
-        manualSorting={false}
-        manualPagination={false}
-        columnFilters={filters}
-        sorting={sorting}
-        pagination={pagination}
-        onColumnFiltersChange={setFilters}
-        onSortingChange={setSorting}
-        onPaginationChange={setPagination}
-      />
+      <VerticalSpacing>
+        <Check
+          id="hide-child"
+          label="Show child column"
+          value="hide-child"
+          name="hide-child"
+          checked={columnVisibility.personName}
+          onChange={(_, checked) => setColumnVisibility((prevState) => ({ ...prevState, ...{ personName: checked } }))}
+        />
+        <Table
+          {...args}
+          manualFiltering={false}
+          manualSorting={false}
+          manualPagination={false}
+          columnFilters={filters}
+          sorting={sorting}
+          pagination={pagination}
+          onColumnFiltersChange={setFilters}
+          onSortingChange={setSorting}
+          onPaginationChange={setPagination}
+          columnVisibility={columnVisibility}
+          onColumnVisibilityChange={setColumnVisibility}
+        />
+      </VerticalSpacing>
     );
   },
 };
@@ -657,6 +674,22 @@ export const DisableSorting: Story = {
     columns,
     id: 'disabled-sort-table',
     enableSorting: false,
+  },
+};
+
+/**
+ * Default column visibility can be controlled by passing `defaultColumnVisibility` prop. It is an objects with key-value pairs where key is the column id and value is a boolean.
+ * By default all columns are visible.
+ * Can be used when you want to hide some columns on some use cases, when rendering table.
+ */
+export const ColumnVisibility: Story = {
+  args: {
+    data: data(),
+    columns,
+    id: 'disabled-sort-table',
+    defaultColumnVisibility: {
+      personName: false,
+    },
   },
 };
 
