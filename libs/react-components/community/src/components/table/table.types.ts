@@ -8,6 +8,7 @@ import {
   RowData,
   RowSelectionState,
   SortingState,
+  VisibilityState,
 } from '@tanstack/react-table';
 import React from 'react';
 
@@ -125,14 +126,6 @@ export interface TableProps<TData extends DefaultTData<TData>> {
    */
   cardProps?: CardProps;
   /**
-   * Pagination data to server-side pagination use with `onPaginationChange` and `totalRows`
-   */
-  pagination?: PaginationState;
-  /**
-   * Initial internal pagination state on render. This only applies when `pagination` prop is not defined.
-   */
-  defaultPagination?: PaginationState;
-  /**
    * If internal pagination logic is ignored. If true, then pagination must be handled in the app.
    * If omitted, then the value is inherited from `!!pagination` prop.
    */
@@ -148,17 +141,25 @@ export interface TableProps<TData extends DefaultTData<TData>> {
    */
   manualFiltering?: boolean;
   /**
+   * Initial internal pagination state on render. This only applies when `pagination` prop is not defined.
+   */
+  defaultPagination?: PaginationState;
+  /**
+   * Pagination data to server-side pagination use with `onPaginationChange` and `totalRows`
+   */
+  pagination?: PaginationState;
+  /**
    * Callback on Pagination data change. Use combined with `pagination` and `totalRows` props to make server-side pagination
    */
   onPaginationChange?: (state: PaginationState) => void;
   /**
-   * Sorting data to server-side pagination use with onSortingChange
-   */
-  sorting?: SortingState;
-  /**
    * Initial internal sorting state on render. This only applies when `sorting` prop is not defined.
    */
   defaultSorting?: SortingState;
+  /**
+   * Sorting data to server-side pagination use with onSortingChange
+   */
+  sorting?: SortingState;
   /**
    * Callback on Sorting data change. Use combined with sorting prop to make server-side sorting.
    */
@@ -172,6 +173,10 @@ export interface TableProps<TData extends DefaultTData<TData>> {
    */
   onColumnFiltersChange?: (state: ColumnFiltersState) => void;
   /**
+   * Default selected rows
+   */
+  defaultRowSelection?: RowSelectionState;
+  /**
    * Row selection data use with `onRowSelectionChange`.
    */
   rowSelection?: RowSelectionState;
@@ -180,13 +185,21 @@ export interface TableProps<TData extends DefaultTData<TData>> {
    */
   onRowSelectionChange?: (state: RowSelectionState) => void;
   /**
+   * Initial internal columnVisibility state on render. This only applies when `columnVisibility` prop is not defined.
+   */
+  defaultColumnVisibility?: VisibilityState;
+  /**
+   * ColumnVisibility state, use with onColumnVisbilityChange
+   */
+  columnVisibility?: VisibilityState;
+  /**
+   * Callback on column visibility change. Use combined with `columnVisibility` prop to hide/show columns.
+   */
+  onColumnVisibilityChange?: (state: VisibilityState) => void;
+  /**
    * Called when row is clicked
    */
   onRowClick?: (row: TData) => void;
-  /**
-   * Default selected rows
-   */
-  defaultRowSelection?: RowSelectionState;
   /**
    * This optional function is used to derive a unique ID for any given row. If not provided the rows index is used (nested rows join together with . using their grandparents' index eg. index.index.index).
    * Its recommended to use Row ID when using row selection
