@@ -1,6 +1,6 @@
 {
   "name": "components",
-  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/react-components/community/src",
   "projectType": "library",
   "tags": [],
