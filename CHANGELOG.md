@@ -1,3 +1,11 @@
+# [6.29.0-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.28.4...v6.29.0-rc.1) (2024-04-24)
+
+
+### Features
+
+* **migration:** GitHub migration ([d8f9be5](https://github.com/TEHIK-EE/tedi-design-system/commit/d8f9be52b9c54bc94fc35bfc066e09cbc0846f68))
+* **migration:** GitHub migration ([bf56030](https://github.com/TEHIK-EE/tedi-design-system/commit/bf560304b81b04d35b967c190816b0d9325b6735)), closes [#1](https://github.com/TEHIK-EE/tedi-design-system/issues/1) [#8](https://github.com/TEHIK-EE/tedi-design-system/issues/8) [#8](https://github.com/TEHIK-EE/tedi-design-system/issues/8) [#8](https://github.com/TEHIK-EE/tedi-design-system/issues/8) [#8](https://github.com/TEHIK-EE/tedi-design-system/issues/8) [#8](https://github.com/TEHIK-EE/tedi-design-system/issues/8) [#8](https://github.com/TEHIK-EE/tedi-design-system/issues/8) [#8](https://github.com/TEHIK-EE/tedi-design-system/issues/8) [#8](https://github.com/TEHIK-EE/tedi-design-system/issues/8)
+
 ## [6.28.4](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.28.3...v6.28.4) (2024-04-18)
 
 
