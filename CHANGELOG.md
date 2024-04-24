@@ -1,3 +1,10 @@
+# [6.29.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.28.4...v6.29.0) (2024-04-24)
+
+
+### Features
+
+* **table:** add visibilityState, to hide columns - TEHVEER-303 ([d5f4d85](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/d5f4d85c2aa65c91e6e5e78c45d11b8951cc103b))
+
 ## [6.28.4](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.28.3...v6.28.4) (2024-04-18)
 
 
