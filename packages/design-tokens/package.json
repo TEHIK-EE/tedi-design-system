@@ -1,5 +1,5 @@
 {
-  "name": "@tehik/design-tokens",
+  "name": "@tehik-ee/design-tokens",
   "version": "0.0.1",
   "main": "tokens.json",
   "scripts": {
