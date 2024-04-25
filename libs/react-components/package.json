@@ -16,6 +16,7 @@
     "@emotion/styled": "*",
     "@floating-ui/react": "*",
     "@mui/material": "*",
+    "@mui/icons-material": "*",
     "@mui/x-date-pickers": "*",
     "@tanstack/react-table": "*",
     "classnames": "*",

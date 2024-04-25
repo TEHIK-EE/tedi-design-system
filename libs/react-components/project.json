@@ -1,7 +1,7 @@
 {
   "name": "components",
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "libs/react-components/community/src",
+  "sourceRoot": "libs/react-components",
   "projectType": "library",
   "tags": [],
   "targets": {
@@ -55,5 +55,13 @@
         "passWithNoTests": true
       }
     }
+  },
+  "enforceModuleBoundaries": {
+    "allow": [
+      {
+        "from": "libs/react-components/community",
+        "to": "libs/react-components/tedi"
+      }
+    ]
   }
 }
