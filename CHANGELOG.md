@@ -1,3 +1,10 @@
+# [6.29.0-rc.4](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.29.0-rc.3...v6.29.0-rc.4) (2024-04-25)
+
+
+### Bug Fixes
+
+* Fixed semantic-release config ([cca9bec](https://github.com/TEHIK-EE/tedi-design-system/commit/cca9bec8dffb9a2f0854c11084e92f98bd2fecee))
+
 # [6.29.0-rc.3](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.29.0-rc.2...v6.29.0-rc.3) (2024-04-25)
 
 
