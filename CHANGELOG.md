@@ -1,3 +1,10 @@
+## [6.29.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.29.0...v6.29.1) (2024-04-25)
+
+
+### Bug Fixes
+
+* **modal:** TEHVEER-240 - Prevent close button and content overlap ([f152de9](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/f152de9d66ad698362f639e55c1745a5e9ed38e8))
+
 # [6.29.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.28.4...v6.29.0) (2024-04-24)
 
 
