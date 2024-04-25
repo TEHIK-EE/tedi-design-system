@@ -39,10 +39,11 @@ jobs:
     needs:
       - build_matrix
     strategy:
+      fail-fast: false
       matrix:
         branch: ${{ fromJSON(needs.build_matrix.outputs.json_branches) }}
     continue-on-error: true
-    fail-fast: false
+
     steps:
       - uses: actions/checkout@v4
         with:
