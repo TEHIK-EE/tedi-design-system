@@ -12,6 +12,7 @@ import {
   SortingState,
   Updater,
   useReactTable,
+  VisibilityState,
 } from '@tanstack/react-table';
 import cn from 'classnames';
 import React from 'react';
@@ -62,8 +63,11 @@ export function Table<TData extends DefaultTData<TData>>(props: TableProps<TData
     defaultExpanded = {},
     onPaginationChange,
     onSortingChange,
-    rowSelection: rowSelectionOutside,
+    rowSelection: rowSelectionOuter,
     onRowSelectionChange,
+    defaultColumnVisibility = {},
+    columnVisibility: columnVisibilityOuter,
+    onColumnVisibilityChange,
     getRowId,
     onRowClick,
     defaultRowSelection,
@@ -96,6 +100,7 @@ export function Table<TData extends DefaultTData<TData>>(props: TableProps<TData
   const [expanded, setExpanded] = React.useState<ExpandedState>(defaultExpanded);
   const [rowSelection, setRowSelection] = React.useState<RowSelectionState>(defaultRowSelection || {});
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([]);
+  const [columnVisibility, setColumnVisibility] = React.useState<VisibilityState>(defaultColumnVisibility);
 
   // during printing expand subRows/subComponents
   const getExpanded = React.useMemo(() => (isPrinting ? true : expanded), [expanded, isPrinting]);
@@ -117,8 +122,13 @@ export function Table<TData extends DefaultTData<TData>>(props: TableProps<TData
 
   const getRowSelection = React.useMemo(() => {
     // If row selection is controlled outside, don't use local state
-    return rowSelectionOutside || rowSelection;
-  }, [rowSelection, rowSelectionOutside]);
+    return rowSelectionOuter || rowSelection;
+  }, [rowSelection, rowSelectionOuter]);
+
+  const getColumnVisibility = React.useMemo(() => {
+    // If columnVisibility is controlled outside, don't use local state
+    return columnVisibilityOuter || columnVisibility;
+  }, [columnVisibility, columnVisibilityOuter]);
 
   const handlePaginationChange = (data: Updater<PaginationState>): void => {
     if (typeof data !== 'function') return;
@@ -132,16 +142,24 @@ export function Table<TData extends DefaultTData<TData>>(props: TableProps<TData
     sortingOuter && onSortingChange ? onSortingChange(newData) : setSorting(newData);
   };
 
-  const rowSelectionChange = (data: Updater<RowSelectionState>): void => {
+  const handleRowSelectionChange = (data: Updater<RowSelectionState>): void => {
     if (typeof data !== 'function') return;
     const newData = data(getRowSelection);
-    rowSelectionOutside && onRowSelectionChange ? onRowSelectionChange(newData) : setRowSelection(newData);
+    rowSelectionOuter && onRowSelectionChange ? onRowSelectionChange(newData) : setRowSelection(newData);
   };
 
   const handleColumnFilteringChange = (data: Updater<ColumnFiltersState>): void => {
     if (typeof data !== 'function') return;
     const newData = data(getColumnFilter);
     columnFiltersOuter && onColumnFiltersChange ? onColumnFiltersChange(newData) : setColumnFilters(newData);
+  };
+
+  const handleColumnVisibilityChange = (data: Updater<VisibilityState>): void => {
+    if (typeof data !== 'function') return;
+    const newData = data(getColumnVisibility);
+    columnVisibilityOuter && onColumnVisibilityChange
+      ? onColumnVisibilityChange(newData)
+      : setColumnVisibility(newData);
   };
 
   const groupedData = React.useMemo(() => {
@@ -184,15 +202,17 @@ export function Table<TData extends DefaultTData<TData>>(props: TableProps<TData
       pagination: getPagination,
       sorting: getSorting,
       expanded: getExpanded,
+      columnVisibility: getColumnVisibility,
     },
     manualSorting: manualSorting,
     manualFiltering: manualFiltering,
     pageCount: pagination && totalRows ? Math.ceil(totalRows / pagination.pageSize) : undefined,
-    onRowSelectionChange: rowSelectionChange,
+    onRowSelectionChange: handleRowSelectionChange,
     onExpandedChange: setExpanded,
     onPaginationChange: handlePaginationChange,
     onSortingChange: handleSortingChange,
     onColumnFiltersChange: handleColumnFilteringChange,
+    onColumnVisibilityChange: handleColumnVisibilityChange,
     getCoreRowModel: getCoreRowModel(),
     getSortedRowModel: getSortedRowModel(),
     getPaginationRowModel: getPaginationRowModel(),

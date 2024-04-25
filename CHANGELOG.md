@@ -1,3 +1,25 @@
+# [6.29.0-rc.2](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.29.0-rc.1...v6.29.0-rc.2) (2024-04-25)
+
+
+### Features
+
+* **table:** add visibilityState, to hide columns - TEHVEER-303 ([c3b57ae](https://github.com/TEHIK-EE/tedi-design-system/commit/c3b57aea8ddd325961e7126d9adac656a408c5fc))
+
+# [6.29.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.28.4...v6.29.0) (2024-04-24)
+
+
+### Features
+
+* **table:** add visibilityState, to hide columns - TEHVEER-303 ([d5f4d85](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/d5f4d85c2aa65c91e6e5e78c45d11b8951cc103b))
+
+# [6.29.0-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.28.4...v6.29.0-rc.1) (2024-04-24)
+
+
+### Features
+
+* **migration:** GitHub migration ([d8f9be5](https://github.com/TEHIK-EE/tedi-design-system/commit/d8f9be52b9c54bc94fc35bfc066e09cbc0846f68))
+* **migration:** GitHub migration ([bf56030](https://github.com/TEHIK-EE/tedi-design-system/commit/bf560304b81b04d35b967c190816b0d9325b6735)), closes [#1](https://github.com/TEHIK-EE/tedi-design-system/issues/1) [#8](https://github.com/TEHIK-EE/tedi-design-system/issues/8) [#8](https://github.com/TEHIK-EE/tedi-design-system/issues/8) [#8](https://github.com/TEHIK-EE/tedi-design-system/issues/8) [#8](https://github.com/TEHIK-EE/tedi-design-system/issues/8) [#8](https://github.com/TEHIK-EE/tedi-design-system/issues/8) [#8](https://github.com/TEHIK-EE/tedi-design-system/issues/8) [#8](https://github.com/TEHIK-EE/tedi-design-system/issues/8) [#8](https://github.com/TEHIK-EE/tedi-design-system/issues/8)
+
 ## [6.28.4](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.28.3...v6.28.4) (2024-04-18)
 
 
