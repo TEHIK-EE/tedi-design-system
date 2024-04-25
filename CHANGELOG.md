@@ -1,3 +1,10 @@
+## [6.29.2](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.29.1...v6.29.2) (2024-04-25)
+
+
+### Bug Fixes
+
+* **modal:** TEHVEER-240 - Add displayNames to CardHeader and CardContent ([3134464](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/313446443871c9cc3c3bf095d9c3cc4668cbe7d6))
+
 ## [6.29.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.29.0...v6.29.1) (2024-04-25)
 
 
