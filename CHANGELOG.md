@@ -1,3 +1,10 @@
+# [6.29.0-rc.2](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.29.0-rc.1...v6.29.0-rc.2) (2024-04-25)
+
+
+### Features
+
+* **table:** add visibilityState, to hide columns - TEHVEER-303 ([c3b57ae](https://github.com/TEHIK-EE/tedi-design-system/commit/c3b57aea8ddd325961e7126d9adac656a408c5fc))
+
 # [6.29.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.28.4...v6.29.0) (2024-04-24)
 
 
