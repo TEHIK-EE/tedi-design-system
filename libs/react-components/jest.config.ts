@@ -1,6 +1,6 @@
 const jestConfig = {
   displayName: 'components',
-  preset: '../../../jest.preset.js',
+  preset: '../../jest.preset.js',
   transform: {
     '^.+\\.[tj]sx?$': ['babel-jest', { presets: ['@nx/react/babel'] }],
   },

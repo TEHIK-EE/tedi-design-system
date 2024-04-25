@@ -4,23 +4,23 @@ import { join } from 'path';
 import checker from 'vite-plugin-checker';
 
 // eslint-disable-next-line @nx/enforce-module-boundaries
-import rootMain from '../../../../.storybook/main';
+import rootMain from '../../../.storybook/main';
 
 const config: StorybookConfig = {
   ...rootMain,
   core: { ...rootMain.core },
   stories: [
-    '../src/docs/_welcome.mdx',
-    '../src/docs/getStarted.mdx',
-    '../src/docs/colors/colorTokens.mdx',
-    '../src/docs/colors/colorGuidelines.mdx',
-    '../src/docs/scale-layout/spacing.mdx',
-    '../src/docs/scale-layout/grid.mdx',
-    '../src/docs/labels/labels.mdx',
-    '../src/docs/printing.mdx',
-    '../src/docs/changelog.mdx',
-    '../src/**/**/*.stories.tsx',
-    '../src/**/**/*.mdx',
+    '../community/src/docs/_welcome.mdx',
+    '../community/src/docs/getStarted.mdx',
+    '../community/src/docs/colors/colorTokens.mdx',
+    '../community/src/docs/colors/colorGuidelines.mdx',
+    '../community/src/docs/scale-layout/spacing.mdx',
+    '../community/src/docs/scale-layout/grid.mdx',
+    '../community/src/docs/labels/labels.mdx',
+    '../community/src/docs/printing.mdx',
+    '../community/src/docs/changelog.mdx',
+    '../community/src/**/**/*.stories.tsx',
+    '../community/src/**/**/*.mdx',
   ],
   typescript: {
     reactDocgen: 'react-docgen-typescript',
