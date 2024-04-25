@@ -86,18 +86,17 @@ jobs:
           mv .github/workflows/index.html ./public/index.html
           cd public
           branches=$(echo '${{ needs.build_matrix.outputs.json_branches }}' | jq -r '.[]')
-          i=0
+          i=-1
           for branch in ${branches}
           do
+            i=$((i+1))
             if [[ ! -d ../branches/$i ]]; then
               continue
             fi
             mkdir -p -- $branch
             mv ../branches/$i/* ./$branch
-
+            ls .
             echo "<li class="py-2"><a href=\"./${branch}\">${branch}</a></li>" >> index.html
-
-            i=$((i+1))
           done
           cat ../.github/workflows/index_suffix.html >> index.html
           ls -lR
