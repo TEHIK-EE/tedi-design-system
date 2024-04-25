@@ -4,8 +4,8 @@ import React from 'react';
 
 import StorybookDecorator from './storybook-decorator';
 
-import '../src/styles/index.scss';
-import '../src/styles/storybook.scss';
+import '../community/src/styles/index.scss';
+import '../community/src/styles/storybook.scss';
 import 'what-input';
 
 export const decorators = [
