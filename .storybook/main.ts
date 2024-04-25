@@ -12,6 +12,7 @@ const config: StorybookConfig = {
       },
     },
     getAbsolutePath('@storybook/addon-a11y'),
+    getAbsolutePath('@storybook/whatever'),
   ],
   core: {
     builder: getAbsolutePath('@storybook/builder-vite'),
