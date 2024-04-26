@@ -1,31 +1,39 @@
-.tedi-icon.icon--block {
-  display: block;
+.tedi-icon--wrapper {
+  display: inline-block;
 }
 
-.tedi-icon.icon--inline {
-  display: inline;
-  vertical-align: text-top;
+.tedi-icon {
+  &--block {
+    display: block;
+  }
+
+  &--inline {
+    display: inline;
+  }
 }
 
-.tedi-icon.icon--background {
+.tedi-icon--bg {
+  padding: 0.5rem;
+  line-height: 0;
+  border-radius: 100%;
+
   &-primary {
-    padding: 8px;
-    color: var(--neutral-100);
-    background-color: var(--blue-600);
-    border-radius: 100%;
+    color: var(--icon-secondary-light-mode);
+    background-color: var(--neutral-100);
   }
 
   &-secondary {
-    padding: 8px;
     color: var(--neutral-100);
-    background-color: var(--green-700);
-    border-radius: 100%;
+    background-color: var(--alpha-white-300);
   }
 
-  &-white {
-    padding: 8px;
-    color: var(--icon-secondary-light-mode);
-    background-color: var(--neutral-100);
-    border-radius: 100%;
+  &-distinctive-primary {
+    color: var(--neutral-100);
+    background-color: var(--blue-600);
+  }
+
+  &-distinctive-secondary {
+    color: var(--blue-600);
+    background-color: var(--blue-200);
   }
 }

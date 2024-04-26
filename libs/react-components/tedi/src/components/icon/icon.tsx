@@ -1,16 +1,15 @@
 import * as MaterialIcons from '@mui/icons-material';
 import { capitalize } from '@mui/material';
 import cn from 'classnames';
-import { TColorsBackground } from 'libs/react-components/community/src/components/commonTypes';
 import { TextColor } from 'libs/react-components/community/src/components/typography/text/text';
 import { IntentionalAny } from 'libs/react-components/community/src/types';
 import React from 'react';
 
 import styles from './icon.module.scss';
 
-export type IconSize = 8 | 16 | 24 | 36 | 48 | 120;
+export type IconSize = 8 | 12 | 16 | 18 | 24 | 36 | 48 | 120;
 export type IconType = 'outlined' | 'sharp' | 'rounded';
-export type IconBackgroundColor = 'default' | Extract<TColorsBackground, 'primary' | 'primary-active' | 'white'>;
+export type IconBackgroundColor = 'primary' | 'secondary' | 'distinctive-primary' | 'distinctive-secondary';
 
 export interface IconProps {
   /**
@@ -78,25 +77,30 @@ export const Icon = React.forwardRef<HTMLDivElement, IconProps>((props, ref): JS
   } = props;
 
   const MaterialIcon = (MaterialIcons as IntentionalAny)[`${name}${filled ? '' : capitalize(type)}`];
-
   const iconBEM = cn(
     'notranslate',
     styles['tedi-icon'],
     styles[`tedi-icon--${display}`],
     { [`text-${color}`]: color },
-    styles[`tedi-icon--background-${background}`],
     className
   );
 
+  const wrapperBEM = cn(styles['tedi-icon--wrapper'], {
+    [styles['tedi-icon--bg']]: background,
+    [styles[`tedi-icon--bg-${background}`]]: background,
+  });
+
   return (
-    <MaterialIcon
-      aria-label={label}
-      className={iconBEM}
-      style={{ fontSize: `${size / 16}rem` }}
-      aria-hidden={!label}
-      ref={ref}
-      {...rest}
-    />
+    <div className={wrapperBEM}>
+      <MaterialIcon
+        aria-label={label}
+        className={iconBEM}
+        style={{ fontSize: `${size / 16}rem` }}
+        aria-hidden={!label}
+        ref={ref}
+        {...rest}
+      />
+    </div>
   );
 });
 

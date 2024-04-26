@@ -1,4 +1,5 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
+import classNames from 'classnames';
 
 import { Col, Row } from '../../../../community/src/components/grid';
 import { Text } from '../../../../community/src/components/typography/text/text';
@@ -22,7 +23,7 @@ const meta: Meta<typeof Icon> = {
     },
     size: {
       control: { type: 'select' },
-      options: [8, 24, 36, 48, 120],
+      options: [8, 12, 16, 18, 24, 36, 48, 120],
       description: 'Size of the icon',
       table: { defaultValue: { summary: '36' } },
     },
@@ -41,7 +42,7 @@ const meta: Meta<typeof Icon> = {
     },
     background: {
       control: { type: 'select' },
-      options: ['default', 'primary', 'secondary', 'white'],
+      options: ['default', 'primary', 'secondary', 'distinctive-primary', 'distinctive-secondary'],
       description: 'Add a background to the icon',
       table: { defaultValue: { summary: 'default' } },
     },
@@ -62,7 +63,7 @@ const meta: Meta<typeof Icon> = {
 export default meta;
 type Story = StoryObj<TemplateMultipleProps>;
 
-const sizeArray: IconProps['size'][] = [8, 24, 36, 48, 120];
+const sizeArray: IconProps['size'][] = [8, 12, 16, 18, 24, 36, 48, 120];
 const colorArray: IconProps['color'][] = [
   'inverted',
   'primary',
@@ -72,8 +73,16 @@ const colorArray: IconProps['color'][] = [
   'warning',
   'important',
 ];
+const backgroundArray: IconProps['background'][] = [
+  'primary',
+  'secondary',
+  'distinctive-primary',
+  'distinctive-secondary',
+];
 
-interface TemplateMultipleProps<Type = IconProps['size'] | IconProps['color'] | IconProps['type']> extends IconProps {
+interface TemplateMultipleProps<
+  Type = IconProps['size'] | IconProps['color'] | IconProps['type'] | IconProps['background']
+> extends IconProps {
   array: Type[];
   property: keyof IconProps;
 }
@@ -82,15 +91,13 @@ const TemplateRow: StoryFn<TemplateMultipleProps> = (args) => {
   const { array, property, ...iconProps } = args;
 
   return (
-    <VerticalSpacing>
-      <Row alignItems="center" gutterX={4} gap={2}>
-        {array.map((value, key) => (
-          <Col width="auto" key={key} className={`${value === 'inverted' ? 'with-background' : ''}`}>
-            <Icon {...iconProps} {...{ [property]: value }} name="AccountCircle" />
-          </Col>
-        ))}
-      </Row>
-    </VerticalSpacing>
+    <Row alignItems="center" gutterX={4} gap={2}>
+      {array.map((value, key) => (
+        <Col width="auto" key={key} className={classNames({ 'with-background': value === 'inverted' })}>
+          <Icon {...iconProps} {...{ [property]: value }} name="AccountCircle" />
+        </Col>
+      ))}
+    </Row>
   );
 };
 
@@ -132,6 +139,16 @@ export const Sizes: Story = {
     property: 'size',
     color: 'primary',
     array: sizeArray,
+  },
+};
+
+export const Backgrounds: Story = {
+  render: TemplateRow,
+
+  args: {
+    property: 'background',
+    array: backgroundArray,
+    size: 18,
   },
 };
 
