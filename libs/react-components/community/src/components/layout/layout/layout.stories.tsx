@@ -38,11 +38,13 @@ const meta: Meta<typeof Layout> = {
     Footer,
     Breadcrumbs,
   } as never,
-  argTypes: {
-    children: {
-      control: { type: 'function' },
-    },
-  },
+  // argTypes: {
+  //   children: {
+  //     table: {
+  //       disable: false, // Ensure it shows up in the argstable
+  //     },
+  //   },
+  // },
   parameters: {
     docs: {
       story: {

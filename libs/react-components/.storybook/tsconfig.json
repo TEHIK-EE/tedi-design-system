@@ -16,7 +16,7 @@
     "../**/*.spec.tsx",
     "../**/*.spec.jsx",
     "jest.config.ts",
-    "../../../node_modules"
+    "../../node_modules"
   ],
   "include": ["../src/**/*", "*.js"]
 }

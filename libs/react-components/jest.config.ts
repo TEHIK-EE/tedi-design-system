@@ -6,7 +6,7 @@ const jestConfig = {
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
   transformIgnorePatterns: ['/node_modules/(?!(lodash-es)/)'],
-  coverageDirectory: '../../coverage/packages/components',
+  coverageDirectory: '../../coverage/libs/react-components/community',
   setupFilesAfterEnv: ['<rootDir>/jest-setup.js'],
 };
 

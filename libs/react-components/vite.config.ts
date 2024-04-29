@@ -23,7 +23,7 @@ const config: UserConfig = {
     checker({
       overlay: false,
       eslint: {
-        lintCommand: 'eslint "./packages/components/src/**/*.{ts,tsx}"',
+        lintCommand: 'eslint "./libs/react-components/community/src/**/*.{ts,tsx}"',
       },
       // e.g. use TypeScript check
       typescript: {
@@ -48,7 +48,7 @@ const config: UserConfig = {
     outDir: '../../dist',
     emptyOutDir: true,
     lib: {
-      entry: path.resolve(__dirname, 'src/index.ts'),
+      entry: path.resolve(__dirname, 'community/src/index.ts'),
       name: '@tehik-ee/tedi-design-system',
       fileName: 'index',
       formats: ['es', 'cjs'],
@@ -56,7 +56,7 @@ const config: UserConfig = {
     rollupOptions: {
       external: ['next', 'react', 'react/jsx-runtime', 'react-dom', 'dayjs'],
       input: {
-        community: path.resolve(__dirname, 'src/index.ts'),
+        community: path.resolve(__dirname, 'community/src/index.ts'),
       },
       output: {
         assetFileNames: (assetInfo) => {

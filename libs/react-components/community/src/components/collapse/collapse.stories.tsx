@@ -9,14 +9,14 @@ import Collapse, { CollapseProps } from './collapse';
 export default {
   title: 'components/Collapse',
   component: Collapse,
-  argTypes: {
-    children: {
-      control: { type: 'function' },
-    },
-    title: {
-      control: { type: 'function' },
-    },
-  },
+  // argTypes: {
+  //   children: {
+  //     control: { type: 'function' },
+  //   },
+  //   title: {
+  //     control: { type: 'function' },
+  //   },
+  // },
 } as Meta;
 
 const Template: StoryFn<CollapseProps> = (args) => <Collapse {...args} />;
