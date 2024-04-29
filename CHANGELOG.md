@@ -1,3 +1,10 @@
+## [6.29.3](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.29.2...v6.29.3) (2024-04-29)
+
+
+### Bug Fixes
+
+* **select:**  fix multiselect do not scroll top after selection - TEHVEER-304 ([7f9e142](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/7f9e142abc27debac90e41aab2146671af422504))
+
 ## [6.29.2](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.29.1...v6.29.2) (2024-04-25)
 
 
