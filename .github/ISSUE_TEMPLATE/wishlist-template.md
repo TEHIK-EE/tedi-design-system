@@ -1,7 +1,7 @@
 ---
 name: Wishlist template
-about: Describe this issue template's purpose here.
-title: ''
+about: If you have new wish for new component or changes for existing
+title: "[Component name]:"
 labels: wishlist
 assignees: ''
 
