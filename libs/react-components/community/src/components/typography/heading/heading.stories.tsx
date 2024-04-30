@@ -8,6 +8,7 @@ import Heading, { HeadingProps } from './heading';
  */
 const meta: Meta<typeof Heading> = {
   component: Heading,
+  title: 'Community-components/Typography/Heading',
 };
 
 export default meta;

@@ -4,6 +4,7 @@ import Status from './status';
 
 const meta: Meta<typeof Status> = {
   component: Status,
+  title: 'Community-components/Status',
 };
 
 export default meta;

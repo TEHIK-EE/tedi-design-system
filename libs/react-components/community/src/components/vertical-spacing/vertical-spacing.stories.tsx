@@ -11,6 +11,7 @@ import VerticalSpacingItem from './vertical-spacing-item';
 
 const meta: Meta<typeof VerticalSpacing> = {
   component: VerticalSpacing,
+  title: 'Community-components/VerticalSpacing',
   subcomponents: { VerticalSpacingItem } as never,
 };
 

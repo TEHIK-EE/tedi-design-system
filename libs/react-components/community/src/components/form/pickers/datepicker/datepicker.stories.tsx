@@ -8,6 +8,7 @@ import DatePicker, { DatePickerProps } from './datepicker';
 
 const meta: Meta<typeof DatePicker> = {
   component: DatePicker,
+  title: 'Community-components/Form/Pickers/DatePicker',
 };
 
 export default meta;

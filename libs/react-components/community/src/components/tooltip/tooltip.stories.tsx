@@ -14,6 +14,7 @@ import TooltipTrigger from './tooltip-trigger';
 
 const meta: Meta<TemplateProps> = {
   component: TooltipProvider,
+  title: 'Community-components/Tooltip',
   subcomponents: { Tooltip, TooltipTrigger } as never,
   parameters: {
     layout: 'padded',

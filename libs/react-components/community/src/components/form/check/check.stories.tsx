@@ -11,6 +11,7 @@ import Check, { CheckProps } from './check';
  */
 const meta: Meta<typeof Check> = {
   component: Check,
+  title: 'Community-components/Form/Check',
 };
 
 export default meta;

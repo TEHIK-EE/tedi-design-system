@@ -15,7 +15,7 @@ const Grid = () => {
         <Row gutter={5}>
           <Col md={6}>
             <VerticalSpacing>
-              <img alt="Visual example of 12-column grid" src="/layout/columns.svg" />
+              <img alt="Visual example of 12-column grid" src="layout/columns.svg" />
               <Heading element="h3">Columns</Heading>
               <p>
                 Columns are vertical divisions within a container that provide a framework for organising and aligning
@@ -30,7 +30,7 @@ const Grid = () => {
           </Col>
           <Col md={6}>
             <VerticalSpacing>
-              <img alt="Visual example of gutters in grid" src="/layout/gutter.svg" />
+              <img alt="Visual example of gutters in grid" src="layout/gutter.svg" />
               <Heading element="h3">Gutter</Heading>
               <p>
                 Gutters are the gaps between the columns, created by horizontal padding. Gutters can be responsively
@@ -45,7 +45,7 @@ const Grid = () => {
           </Col>
           <Col md={6}>
             <VerticalSpacing>
-              <img alt="Visual example of layout variatsions" src="/layout/layout-variatsions.svg" />
+              <img alt="Visual example of layout variatsions" src="layout/layout-variatsions.svg" />
               <Heading element="h3">Layout variations</Heading>
               <div>
                 12 columns grid is extremely adaptable and provides a lot of flexible combinations. For example content
@@ -60,7 +60,7 @@ const Grid = () => {
           </Col>
           <Col md={6}>
             <VerticalSpacing>
-              <img alt="Visual example of column offset" src="/layout/offset.svg" />
+              <img alt="Visual example of column offset" src="layout/offset.svg" />
               <Heading element="h3">Column offset</Heading>
               <p>
                 Column offset functionality is available for use in development. Use offsets very intentionally, as

@@ -79,6 +79,7 @@ const Template = (args: TemplateProps) => {
  */
 const meta: Meta<typeof Stepper> = {
   component: Stepper,
+  title: 'Community-components/Stepper',
   subcomponents: { Step } as never,
   render: Template,
 };

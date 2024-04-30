@@ -1,19 +1,14 @@
-# [6.29.0-rc.5](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.29.0-rc.4...v6.29.0-rc.5) (2024-04-29)
-
-
-### Features
-
-* **chore:** Library structure changes ([80a142d](https://github.com/TEHIK-EE/tedi-design-system/commit/80a142d9328e0212b830c1ea08535ceebdec27cf)), closes [#12](https://github.com/TEHIK-EE/tedi-design-system/issues/12) [#8](https://github.com/TEHIK-EE/tedi-design-system/issues/8) [#8](https://github.com/TEHIK-EE/tedi-design-system/issues/8) [#8](https://github.com/TEHIK-EE/tedi-design-system/issues/8) [#8](https://github.com/TEHIK-EE/tedi-design-system/issues/8) [#8](https://github.com/TEHIK-EE/tedi-design-system/issues/8) [#8](https://github.com/TEHIK-EE/tedi-design-system/issues/8) [#8](https://github.com/TEHIK-EE/tedi-design-system/issues/8) [#8](https://github.com/TEHIK-EE/tedi-design-system/issues/8) [#8](https://github.com/TEHIK-EE/tedi-design-system/issues/8) [#8](https://github.com/TEHIK-EE/tedi-design-system/issues/8) [#8](https://github.com/TEHIK-EE/tedi-design-system/issues/8) [#8](https://github.com/TEHIK-EE/tedi-design-system/issues/8) [#8](https://github.com/TEHIK-EE/tedi-design-system/issues/8) [#8](https://github.com/TEHIK-EE/tedi-design-system/issues/8) [#8](https://github.com/TEHIK-EE/tedi-design-system/issues/8)
-
 # [6.29.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.28.4...v6.29.0) (2024-04-24)
 
 ### Features
 
 * **table:** add visibilityState, to hide columns - TEHVEER-303 ([c3b57ae](https://github.com/TEHIK-EE/tedi-design-system/commit/c3b57aea8ddd325961e7126d9adac656a408c5fc))
 
-### Bug Fixes
+# [6.29.0-rc.5](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.29.0-rc.4...v6.29.0-rc.5) (2024-04-29)
 
-* Fixed semantic-release config ([cca9bec](https://github.com/TEHIK-EE/tedi-design-system/commit/cca9bec8dffb9a2f0854c11084e92f98bd2fecee))
+### Features
+
+* **chore:** Library structure changes ([80a142d](https://github.com/TEHIK-EE/tedi-design-system/commit/80a142d9328e0212b830c1ea08535ceebdec27cf)), closes [#12](https://github.com/TEHIK-EE/tedi-design-system/issues/12) [#8](https://github.com/TEHIK-EE/tedi-design-system/issues/8)
 
 # [6.29.0-rc.4](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.29.0-rc.3...v6.29.0-rc.4) (2024-04-25)
 

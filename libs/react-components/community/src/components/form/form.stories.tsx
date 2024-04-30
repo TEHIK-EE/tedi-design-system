@@ -6,8 +6,8 @@ import { Button, Col, Row, TextField, VerticalSpacing } from '../../index';
 const EmptyComponent = () => <p>Empty component</p>;
 
 const meta: Meta = {
-  title: 'Components/Form',
   component: EmptyComponent,
+  title: 'Community-components/Form',
   parameters: {
     docs: {
       page: () => (

@@ -7,16 +7,28 @@ import { VerticalSpacing } from '../vertical-spacing';
 import Collapse, { CollapseProps } from './collapse';
 
 export default {
-  title: 'components/Collapse',
+  title: 'Community-components/Collapse',
   component: Collapse,
-  // argTypes: {
-  //   children: {
-  //     control: { type: 'function' },
-  //   },
-  //   title: {
-  //     control: { type: 'function' },
-  //   },
-  // },
+  argTypes: {
+    children: {
+      control: {
+        type: 'text',
+        defaultValue: '-',
+      },
+      table: {
+        type: { summary: '-' },
+      },
+    },
+    title: {
+      control: {
+        type: 'text',
+        defaultValue: '-',
+      },
+      table: {
+        type: { summary: '-' },
+      },
+    },
+  },
 } as Meta;
 
 const Template: StoryFn<CollapseProps> = (args) => <Collapse {...args} />;

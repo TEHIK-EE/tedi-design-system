@@ -215,7 +215,7 @@ const RightAlignment = () => (
         </li>
       </ul>
     </p>
-    <img alt="Right alignment examples" src="/buttons/right-alignment.svg" />
+    <img alt="Right alignment examples" src="buttons/right-alignment.svg" />
   </VerticalSpacing>
 );
 const RightAlignmentBack = () => (
@@ -248,7 +248,7 @@ const RightAlignmentBack = () => (
         </li>
       </ul>
     </p>
-    <img alt="Right alignment with back buttons examples" src="/buttons/right-alignment-back.svg" />
+    <img alt="Right alignment with back buttons examples" src="buttons/right-alignment-back.svg" />
   </VerticalSpacing>
 );
 
@@ -265,7 +265,7 @@ const CentralAlignment = () => (
         <li>button alignment center.</li>
       </ul>
     </p>
-    <img alt="Central alignment examples" src="/buttons/central-alignment.svg" />
+    <img alt="Central alignment examples" src="buttons/central-alignment.svg" />
   </VerticalSpacing>
 );
 
@@ -273,7 +273,7 @@ const LeftAlignment = () => (
   <VerticalSpacing>
     <Heading element="h3">Left alignment</Heading>
     <p>Left alignment is also possible, but not endorsed. Use with great care.</p>
-    <img alt="Left alignment examples" src="/buttons/left-alignment.svg" />
+    <img alt="Left alignment examples" src="buttons/left-alignment.svg" />
   </VerticalSpacing>
 );
 

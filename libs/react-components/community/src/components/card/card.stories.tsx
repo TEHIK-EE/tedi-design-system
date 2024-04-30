@@ -14,7 +14,7 @@ import CardHeader, { CardHeaderProps } from './card-header/card-header';
 import CardNotification, { CardNotificationProps } from './card-notification/card-notification';
 
 export default {
-  title: 'components/Card',
+  title: 'Community-components/Card',
   component: Card,
   subcomponents: { CardContent, CardHeader, CardNotification },
 } as Meta;

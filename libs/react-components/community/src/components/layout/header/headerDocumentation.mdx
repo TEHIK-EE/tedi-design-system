@@ -1,6 +1,6 @@
 import { Meta } from '@storybook/blocks';
 
-<Meta name="Header overview" title="Components/layout/header/Header overview" />
+<Meta name="Header overview" title="Community-components/Layout/Header/Header overview" />
 
 # Header overview
 
@@ -12,7 +12,7 @@ Both headers are using the same markup and styling, but system header has additi
 
 Header is divided into 3 main areas: `Logo`, `Content` and `Settings`. <br />
 
-<img alt="Illustrative example for areas with possible components inside" src="/layout/header-areas.svg" />
+<img alt="Illustrative example for areas with possible components inside" src="layout/header-areas.svg" />
 ### Logo
 
 Inside logo area, logo of the application & SidenavToggle is rendered. Logo is always rendered in every breakpoint. SidenavToggle is only rendered on mobile breakpoint and when sidenav is present. <br />
@@ -28,7 +28,7 @@ Inside Settings area predefined functionality is rendered. It can be used to ren
 **Note:** When custom Anchor component wrapper is used inside application, then there should be displayName set to tehik-components Anchor displayName to use it as direct children of Header. <br />
 
 ```tsx
-import { Anchor } from '@tehik/react-components';
+import { Anchor } from '@tehik-ee/tedi-design-system';
 
 const AppAnchor = (props) => {
   ...

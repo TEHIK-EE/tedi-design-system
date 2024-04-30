@@ -12,6 +12,7 @@ import RoleSelection from './header-role';
  */
 const meta: Meta<typeof RoleSelection> = {
   component: RoleSelection,
+  title: 'Community-components/Layout/Header/HeaderRole',
 };
 
 export default meta;

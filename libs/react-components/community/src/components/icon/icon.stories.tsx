@@ -8,6 +8,7 @@ import { Icon, IconProps } from './icon';
 
 const meta: Meta<typeof Icon> = {
   component: Icon,
+  title: 'Community-components/Icon',
 };
 
 export default meta;

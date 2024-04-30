@@ -5,6 +5,7 @@ import FileUpload from './file-upload';
 
 const meta: Meta<typeof FileUpload> = {
   component: FileUpload,
+  title: 'Community-components/Form/FileUpload',
 };
 
 export default meta;
