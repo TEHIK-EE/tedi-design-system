@@ -76,7 +76,7 @@ const Template: StoryFn<typeof Footer> = (args) => {
   const isMobileLayout = useLayout(['mobile']);
 
   const logo: FooterProps['logo'] = {
-    src: isMobileLayout ? '/sf_logod.jpg' : '/sf_logod_vertikaalne.jpg',
+    src: isMobileLayout ? 'sf_logod.jpg' : 'sf_logod_vertikaalne.jpg',
     alt: 'logo',
     style: isMobileLayout
       ? {

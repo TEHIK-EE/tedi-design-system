@@ -69,7 +69,7 @@ const Template: StoryFn<typeof Layout> = (args) => {
   const isSmallLayout = useLayout(['mobile', 'tablet']);
 
   const footerLogo: FooterProps['logo'] = {
-    src: isSmallLayout ? '/sf_logod.jpg' : '/sf_logod_vertikaalne.jpg',
+    src: isSmallLayout ? 'sf_logod.jpg' : 'sf_logod_vertikaalne.jpg',
     alt: 'logo',
     style: isSmallLayout
       ? { width: '9rem', height: '5.25rem', borderRadius: '0.25rem' }
@@ -164,7 +164,7 @@ export const MainGrow: Story = {
       <>
         {/* NB! This is only an example. Illustrations responsiveness must be implemented in app. */}
         <StretchContent className="not-found">
-          <img alt="404 Page" src="/404.svg" className="not-found__image" />
+          <img alt="404 Page" src="404.svg" className="not-found__image" />
         </StretchContent>
       </>
     ),

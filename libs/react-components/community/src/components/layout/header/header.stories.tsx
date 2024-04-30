@@ -26,7 +26,7 @@ export const Default: Story = {
   render: Template,
   args: {
     logo: {
-      imageUrl: '/logo.svg',
+      imageUrl: 'logo.svg',
       anchorProps: {
         href: '#',
       },
