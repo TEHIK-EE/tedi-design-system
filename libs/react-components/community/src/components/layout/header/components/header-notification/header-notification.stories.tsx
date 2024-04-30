@@ -8,6 +8,7 @@ import HeaderNotification from './header-notification';
  */
 const meta: Meta<typeof HeaderNotification> = {
   component: HeaderNotification,
+  title: 'Community-components/Layout/Header/HeaderNotification',
 };
 
 export default meta;

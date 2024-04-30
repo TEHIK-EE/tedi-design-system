@@ -7,6 +7,7 @@ import HiddenField from './hidden-field';
 
 const meta: Meta<typeof HiddenField> = {
   component: HiddenField,
+  title: 'Community-components/Form/HiddenField',
   argTypes: {
     content: { control: false },
     fieldType: { control: false },

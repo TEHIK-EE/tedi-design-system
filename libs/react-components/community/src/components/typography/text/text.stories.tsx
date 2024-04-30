@@ -15,6 +15,7 @@ import Text, { TextProps } from './text';
  */
 const meta: Meta<typeof Text> = {
   component: Text,
+  title: 'Community-components/Typography/Text',
 };
 
 export default meta;

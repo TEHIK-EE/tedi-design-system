@@ -32,19 +32,24 @@ const defaultContent = (
 
 const meta: Meta<typeof Layout> = {
   component: Layout,
+  title: 'Community-components/Layout',
   subcomponents: {
     Header,
     SideNav,
     Footer,
     Breadcrumbs,
   } as never,
-  // argTypes: {
-  //   children: {
-  //     table: {
-  //       disable: false, // Ensure it shows up in the argstable
-  //     },
-  //   },
-  // },
+  argTypes: {
+    children: {
+      control: {
+        type: 'text',
+        defaultValue: '-',
+      },
+      table: {
+        type: { summary: '-' },
+      },
+    },
+  },
   parameters: {
     docs: {
       story: {

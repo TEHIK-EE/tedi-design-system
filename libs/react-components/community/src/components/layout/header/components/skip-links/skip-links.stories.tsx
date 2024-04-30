@@ -4,6 +4,7 @@ import SkipLinks from './skip-links';
 
 const meta: Meta<typeof SkipLinks> = {
   component: SkipLinks,
+  title: 'Community-components/Layout/Header/SkipLinks',
 };
 
 export default meta;

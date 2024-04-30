@@ -3,6 +3,7 @@ import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import ScrollFade, { ScrollFadeProps } from './scroll-fade';
 const meta: Meta<typeof ScrollFade> = {
   component: ScrollFade,
+  title: 'Community-components/ScrollFade',
 };
 
 export default meta;

@@ -16,6 +16,7 @@ import Header, { HeaderProps } from './header/header';
 
 export default {
   component: Header,
+  title: 'Community-components/Layout/Header',
 } as Meta;
 type Story = StoryObj<typeof Header>;
 

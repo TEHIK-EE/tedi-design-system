@@ -8,6 +8,7 @@ import HeaderContent from './header-content';
  */
 const meta: Meta<typeof HeaderContent> = {
   component: HeaderContent,
+  title: 'Community-components/Layout/Header/HeaderContent',
 };
 
 export default meta;

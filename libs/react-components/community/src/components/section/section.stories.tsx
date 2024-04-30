@@ -6,6 +6,7 @@ import { Section } from './section';
 
 const meta: Meta<typeof Section> = {
   component: Section,
+  title: 'Community-components/Section',
   parameters: {
     layout: 'fullscreen',
   },

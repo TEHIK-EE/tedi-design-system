@@ -15,7 +15,7 @@ const converter = new showdown.Converter({ simpleLineBreaks: true });
  * before using HTML content inside your app
  */
 const meta: Meta<typeof TextEditor> = {
-  title: 'components/Form/TextEditor',
+  title: 'Community-components/Form/TextEditor',
   component: TextEditor,
 };
 
