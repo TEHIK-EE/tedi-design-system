@@ -5,6 +5,7 @@ import { Breadcrumbs } from './breadcrumbs';
 
 const meta: Meta<typeof Breadcrumbs> = {
   component: Breadcrumbs,
+  title: 'Community-components/Layout/Breadcrumbs',
   argTypes: {
     linkAs: {
       type: 'function',

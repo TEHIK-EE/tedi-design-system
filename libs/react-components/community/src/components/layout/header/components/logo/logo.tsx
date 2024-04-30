@@ -17,7 +17,7 @@ export interface LogoProps<H extends React.ElementType = 'a'> {
 }
 
 export const Logo = <H extends React.ElementType = 'a'>(props: LogoProps<H>) => {
-  const { imageUrl = '/logo.svg', anchorProps } = props;
+  const { imageUrl = 'logo.svg', anchorProps } = props;
   const { getLabel } = useLabels();
 
   const LogoWrapper = anchorProps ? Anchor : React.Fragment;

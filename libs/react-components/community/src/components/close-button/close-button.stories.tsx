@@ -4,6 +4,7 @@ import CloseButton from './close-button';
 
 const meta: Meta<typeof CloseButton> = {
   component: CloseButton,
+  title: 'Community-components/CloseButton',
 };
 
 export default meta;

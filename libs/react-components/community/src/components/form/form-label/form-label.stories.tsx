@@ -4,6 +4,7 @@ import FormLabel from './form-label';
 
 const meta: Meta<typeof FormLabel> = {
   component: FormLabel,
+  title: 'Community-components/Form/FormLabel',
 };
 
 export default meta;

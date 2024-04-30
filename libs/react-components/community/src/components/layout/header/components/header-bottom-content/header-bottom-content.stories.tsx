@@ -9,6 +9,7 @@ import HeaderBottomContent from './header-bottom-content';
  */
 const meta: Meta<typeof HeaderBottomContent> = {
   component: HeaderBottomContent,
+  title: 'Community-components/Layout/Header/HeaderBottomContent',
 };
 
 export default meta;

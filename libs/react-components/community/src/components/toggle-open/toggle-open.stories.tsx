@@ -8,6 +8,7 @@ import ToggleOpen from './toggle-open';
  */
 const meta: Meta<typeof ToggleOpen> = {
   component: ToggleOpen,
+  title: 'Community-components/ToggleOpen',
 };
 
 export default meta;

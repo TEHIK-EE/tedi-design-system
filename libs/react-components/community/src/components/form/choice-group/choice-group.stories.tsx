@@ -13,6 +13,7 @@ import { ChoiceGroupItemProps } from './choice-group.types';
  */
 const meta: Meta<typeof ChoiceGroup> = {
   component: ChoiceGroup,
+  title: 'Community-components/Form/ChoiceGroup',
 };
 
 export default meta;

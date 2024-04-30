@@ -7,7 +7,7 @@ import LabelProvider, { LabelProviderProps } from './label-provider';
 import { useLabels } from './use-labels';
 
 export default {
-  title: 'components/LabelProvider',
+  title: 'Community-components/LabelProvider',
   component: LabelProvider,
   decorators: [
     (Story, options) => {

@@ -8,6 +8,7 @@ import Notification from './notification';
 
 const meta: Meta<typeof Notification> = {
   component: Notification,
+  title: 'Community-components/Notification',
   parameters: {
     docs: {
       page: () => (
