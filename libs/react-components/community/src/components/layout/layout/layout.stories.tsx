@@ -95,7 +95,7 @@ export const Default: Story = {
     footer: FooterDefault.args as FooterProps,
     breadcrumbsProps: BreadcrumbsDefault.args as BreadcrumbsProps,
     mainLogo: {
-      src: '/sf_logod.jpg',
+      src: 'sf_logod.jpg',
       alt: 'European structure and investing logo',
       style: { width: '6.625rem', height: '4rem', borderRadius: '0.25rem' },
     },
