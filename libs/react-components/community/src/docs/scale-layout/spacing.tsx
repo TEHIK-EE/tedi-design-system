@@ -11,14 +11,14 @@ const Spacing = () => {
         <Row>
           <Col md={6}>
             <VerticalSpacing>
-              <img alt="Soft 8px grid" src="/layout/spacing.svg" />
+              <img alt="Soft 8px grid" src="layout/spacing.svg" />
               <Heading element="h2">Soft 8px grid</Heading>
               <p>To create harmonious and visually pleasing designs, a soft 8px grid system is used.</p>
             </VerticalSpacing>
           </Col>
           <Col md={6}>
             <VerticalSpacing>
-              <img alt="Example how spacing is used between elements" src="/layout/spacing-in-elements.svg" />
+              <img alt="Example how spacing is used between elements" src="layout/spacing-in-elements.svg" />
               <Heading element="h2">Use in the elements</Heading>
               <p>
                 Spacing is measured from the edges of the element boxes. All user interface elements are designed with

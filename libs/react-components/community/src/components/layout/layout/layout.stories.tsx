@@ -32,19 +32,24 @@ const defaultContent = (
 
 const meta: Meta<typeof Layout> = {
   component: Layout,
+  title: 'Community-components/Layout',
   subcomponents: {
     Header,
     SideNav,
     Footer,
     Breadcrumbs,
   } as never,
-  // argTypes: {
-  //   children: {
-  //     table: {
-  //       disable: false, // Ensure it shows up in the argstable
-  //     },
-  //   },
-  // },
+  argTypes: {
+    children: {
+      control: {
+        type: 'text',
+        defaultValue: '-',
+      },
+      table: {
+        type: { summary: '-' },
+      },
+    },
+  },
   parameters: {
     docs: {
       story: {
@@ -64,7 +69,7 @@ const Template: StoryFn<typeof Layout> = (args) => {
   const isSmallLayout = useLayout(['mobile', 'tablet']);
 
   const footerLogo: FooterProps['logo'] = {
-    src: isSmallLayout ? '/sf_logod.jpg' : '/sf_logod_vertikaalne.jpg',
+    src: isSmallLayout ? 'sf_logod.jpg' : 'sf_logod_vertikaalne.jpg',
     alt: 'logo',
     style: isSmallLayout
       ? { width: '9rem', height: '5.25rem', borderRadius: '0.25rem' }
@@ -90,7 +95,7 @@ export const Default: Story = {
     footer: FooterDefault.args as FooterProps,
     breadcrumbsProps: BreadcrumbsDefault.args as BreadcrumbsProps,
     mainLogo: {
-      src: '/sf_logod.jpg',
+      src: 'sf_logod.jpg',
       alt: 'European structure and investing logo',
       style: { width: '6.625rem', height: '4rem', borderRadius: '0.25rem' },
     },
@@ -159,7 +164,7 @@ export const MainGrow: Story = {
       <>
         {/* NB! This is only an example. Illustrations responsiveness must be implemented in app. */}
         <StretchContent className="not-found">
-          <img alt="404 Page" src="/404.svg" className="not-found__image" />
+          <img alt="404 Page" src="404.svg" className="not-found__image" />
         </StretchContent>
       </>
     ),

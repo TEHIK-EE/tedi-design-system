@@ -6,6 +6,7 @@ import { Print, PrintProps } from './print';
 
 const meta: Meta<typeof Print> = {
   component: Print,
+  title: 'Community-components/Print',
 };
 
 export default meta;

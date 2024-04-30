@@ -4,7 +4,7 @@ import { Dropdown, DropdownItem, DropdownProps } from './dropdown';
 
 export default {
   component: Dropdown,
-  title: 'components/Dropdown',
+  title: 'Community-components/Dropdown',
 } as Meta;
 
 const items: DropdownItem[] = [

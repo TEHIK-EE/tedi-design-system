@@ -12,7 +12,7 @@ import { Row, RowProps } from './row';
  * through component props. https://getbootstrap.com/docs/5.1/layout/grid/
  */
 const meta: Meta<typeof Row> = {
-  title: 'components/Grid',
+  title: 'Community-components/Grid',
   component: Row,
   subcomponents: { Col: Col } as never,
   parameters: {

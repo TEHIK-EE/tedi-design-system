@@ -8,7 +8,7 @@ import Affix, { AffixProps } from './affix';
  * To see an example of a more complex use case for Affix, check [TableOfContent](/docs/components-table-of-contents--docs) component.
  */
 export default {
-  title: 'components/Affix',
+  title: 'Community-components/Affix',
   component: Affix,
   parameters: {
     docs: {

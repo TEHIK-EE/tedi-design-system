@@ -3,10 +3,10 @@ import { Col, Heading, Row, VerticalSpacing, VerticalSpacingItem } from '../../i
 const ColorRows = ({ inverted }: { inverted?: boolean }) => (
   <Row>
     <Col md={6}>
-      <img alt="text (fourgrounds) examples" src={`/colors/foregrounds${inverted ? '-inverted' : ''}.svg`} />
+      <img alt="text (fourgrounds) examples" src={`colors/foregrounds${inverted ? '-inverted' : ''}.svg`} />
     </Col>
     <Col md={6}>
-      <img alt="backgrounds examples" src={`/colors/backgrounds${inverted ? '-inverted' : ''}.svg`} />
+      <img alt="backgrounds examples" src={`colors/backgrounds${inverted ? '-inverted' : ''}.svg`} />
     </Col>
   </Row>
 );
@@ -110,7 +110,7 @@ const GuideLines = () => (
         are designed to express disabled states. Keep in mind that disabled elements should be used with case and only
         if absolutely necessary. It’s good practice to consider other design patterns if possible.
       </p>
-      <img alt="disabled examples" src="/colors/disabled.svg" />
+      <img alt="disabled examples" src="colors/disabled.svg" />
     </ColorExamples>
   </VerticalSpacing>
 );
