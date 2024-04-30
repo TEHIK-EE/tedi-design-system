@@ -1,3 +1,10 @@
+# [6.29.0-rc.6](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.29.0-rc.5...v6.29.0-rc.6) (2024-04-30)
+
+
+### Bug Fixes
+
+* **chore:** TEDI-216 - Stories paths, changelog and readme fixes ([af5d743](https://github.com/TEHIK-EE/tedi-design-system/commit/af5d743e8df1e0c2d7d7d2592df39ae12dda2c4e))
+
 # [6.29.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.28.4...v6.29.0) (2024-04-24)
 
 ### Features
