@@ -1,3 +1,10 @@
+## [6.29.5](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.29.4...v6.29.5) (2024-05-03)
+
+
+### Bug Fixes
+
+* **common:** Remove unused react-test-renderer ([a73dadd](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/a73dadd2bc1425ad516fac73d8b06b4eb2688679))
+
 ## [6.29.4](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.29.3...v6.29.4) (2024-05-03)
 
 
