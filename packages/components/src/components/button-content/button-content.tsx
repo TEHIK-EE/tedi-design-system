@@ -131,7 +131,7 @@ const InternalButtonContent = forwardRef(
           { [styles['btn--icon-only']]: icon },
           { [styles['btn--full-width']]: fullWidth }
         )
-      : cn(styles['btn--no-style'], className);
+      : cn(styles['btn--no-style'], className, { [styles['btn--full-width']]: fullWidth });
 
     const getIcon = (location: string, icon: string | IconProps): JSX.Element => {
       const iconBEM = cn(styles['btn__icon'], styles[`btn__icon--${location}`], {
