@@ -1,3 +1,10 @@
+## [6.29.4](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.29.3...v6.29.4) (2024-05-03)
+
+
+### Bug Fixes
+
+* **button:** TEHVEER-299 - fullWidth prop should still work with noStyle ([9caa42f](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/9caa42f3ca025f52457a8bd240e664bb0e41e1d8))
+
 ## [6.29.3](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.29.2...v6.29.3) (2024-04-29)
 
 
