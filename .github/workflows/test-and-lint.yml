@@ -1,4 +1,4 @@
-name: Release TEDI library
+name: Test and lint
 
 on:
   pull_request:
@@ -36,3 +36,15 @@ jobs:
         run: npm ci --cache .npm --prefer-offline
       - name: Test
         run: npm run test
+
+  code-scanning:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v2
+        with:
+          languages: typescript
