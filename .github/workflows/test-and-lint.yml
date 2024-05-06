@@ -1,4 +1,4 @@
-name: Release TEDI library
+name: Test and lint
 
 on:
   pull_request:
