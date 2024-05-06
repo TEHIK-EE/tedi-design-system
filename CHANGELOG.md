@@ -1,3 +1,10 @@
+# [6.29.0-rc.7](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.29.0-rc.6...v6.29.0-rc.7) (2024-05-06)
+
+
+### Features
+
+* **pipeline:** Added GitHub Code scanning ([#31](https://github.com/TEHIK-EE/tedi-design-system/issues/31)) ([72d5a04](https://github.com/TEHIK-EE/tedi-design-system/commit/72d5a04ccfad82c7aba903ce294504974aa9c2fd))
+
 # [6.29.0-rc.6](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.29.0-rc.5...v6.29.0-rc.6) (2024-04-30)
 
 
