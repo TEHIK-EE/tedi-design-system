@@ -1,3 +1,10 @@
+# [6.29.0-rc.8](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.29.0-rc.7...v6.29.0-rc.8) (2024-05-06)
+
+
+### Features
+
+* **chore:** Move Welcome, GetStarted and Changelog docs to shared folder ([#33](https://github.com/TEHIK-EE/tedi-design-system/issues/33)) ([10fa8cb](https://github.com/TEHIK-EE/tedi-design-system/commit/10fa8cb2f1c6aa77a1a21d217a24f5591f709cda))
+
 # [6.29.0-rc.7](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.29.0-rc.6...v6.29.0-rc.7) (2024-05-06)
 
 
