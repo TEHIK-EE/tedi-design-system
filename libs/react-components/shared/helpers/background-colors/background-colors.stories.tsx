@@ -1,8 +1,8 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 
-import { Card } from '../../components/card';
-import CardContent from '../../components/card/card-content/card-content';
-import { TColorsBackground } from '../../components/commonTypes';
+import { Card } from '../../../community/src/components/card/card';
+import CardContent from '../../../community/src/components/card/card-content/card-content';
+import { TColorsBackground } from '../../commonTypes';
 
 const meta: Meta = {
   component: Card,

@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { useLayout } from '../../../../../helpers/hooks/use-layout';
-import { useLabels } from '../../../../../providers/label-provider';
+import { useLayout } from '../../../../../../../shared/helpers/hooks/use-layout';
+import { useLabels } from '../../../../../../../shared/providers/label-provider';
 import Button, { ButtonProps } from '../../../../button/button';
 import { Card, CardContent } from '../../../../card';
 import { Col, Row } from '../../../../grid';

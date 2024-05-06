@@ -1,8 +1,8 @@
 import cn from 'classnames';
 import React, { forwardRef } from 'react';
 
-import { BreakpointSupport, useBreakpointProps } from '../../helpers';
-import { TColorsBorder } from '../commonTypes';
+import { TColorsBorder } from '../../../../shared/commonTypes';
+import { BreakpointSupport, useBreakpointProps } from '../../../../shared/helpers';
 import styles from './card.module.scss';
 import { CardContentProps } from './card-content/card-content';
 import { CardContext } from './card-context';

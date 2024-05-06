@@ -22,8 +22,8 @@ import {
 } from '@floating-ui/react';
 import React from 'react';
 
-import { useIsMounted, useIsTouchDevice } from '../../helpers';
-import { useLabels } from '../../providers/label-provider';
+import { useLabels } from '../../../../shared/providers/label-provider';
+import { useIsMounted, useIsTouchDevice } from '../..';
 
 export type TooltipOpenWith = 'click' | 'hover';
 export const ARROW_HEIGHT = 7;

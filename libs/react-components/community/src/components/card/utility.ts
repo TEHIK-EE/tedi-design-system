@@ -1,4 +1,4 @@
-import { TColorsBorder } from '../commonTypes';
+import { TColorsBorder } from '../../../../shared/commonTypes';
 import { CardBorderPlacement, CardProps } from './card';
 import { CardContentPaddingNumber, CardContentProps } from './card-content/card-content';
 

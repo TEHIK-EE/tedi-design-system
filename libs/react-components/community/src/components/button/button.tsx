@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react';
 
-import { PolymorphicRef } from '../../helpers/polymorphic/types';
-import { IntentionalAny } from '../../types';
+import { PolymorphicRef } from '../../../../shared/helpers/polymorphic/types';
+import { IntentionalAny } from '../../../../shared/types';
 import ButtonContent, { ButtonContentProps } from '../button-content/button-content';
 
 export type ButtonType = 'primary' | 'secondary' | 'tertiary' | 'link';

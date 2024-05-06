@@ -1,4 +1,4 @@
-import { ColorsFunctional } from '../../commonTypes';
+import { ColorsFunctional } from '../../../../../shared/commonTypes';
 import { ColProps, Direction } from '../../grid';
 import { ChoiceInputProps } from '../choice-input.types';
 

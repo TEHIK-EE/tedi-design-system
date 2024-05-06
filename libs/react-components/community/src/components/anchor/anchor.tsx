@@ -1,8 +1,8 @@
 import React, { forwardRef } from 'react';
 
-import { PolymorphicRef } from '../../helpers/polymorphic/types';
-import { useLabels } from '../../providers/label-provider';
-import { IntentionalAny } from '../../types';
+import { PolymorphicRef } from '../../../../shared/helpers/polymorphic/types';
+import { IntentionalAny } from '../../../../shared/types';
+import { useLabels } from '../..';
 import ButtonContent, { ButtonContentProps } from '../button-content/button-content';
 
 export type InternalAnchorProps = {

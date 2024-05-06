@@ -1,7 +1,7 @@
 import { Row } from '@tanstack/react-table';
 import dayjs, { ConfigType } from 'dayjs';
 
-import { IntentionalAny } from '../../../../types';
+import { IntentionalAny } from '../../../../../../shared/types';
 import { DateRangeFilterValues } from './table-filter-context';
 
 export const textFilterFn = (filterValue: string, data: unknown) =>

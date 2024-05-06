@@ -1,8 +1,8 @@
 import { Meta, StoryFn } from '@storybook/react';
 
-import StorybookDecorator from '../../../../.storybook/storybook-decorator';
-import Text from '../../components/typography/text/text';
-import { IntentionalAny } from '../../types';
+import StorybookDecorator from '../../../.storybook/storybook-decorator';
+import Text from '../../../community/src/components/typography/text/text';
+import { IntentionalAny } from '../../../shared/types';
 import LabelProvider, { LabelProviderProps } from './label-provider';
 import { useLabels } from './use-labels';
 

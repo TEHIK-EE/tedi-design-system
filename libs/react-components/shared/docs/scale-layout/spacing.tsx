@@ -1,7 +1,7 @@
 import { Title } from '@storybook/blocks';
 import { ColumnDef, createColumnHelper } from '@tanstack/react-table';
 
-import { Col, Heading, Row, Separator, Table, VerticalSpacing } from '../../index';
+import { Col, Heading, Row, Separator, Table, VerticalSpacing } from '../../../community/src/index';
 
 const Spacing = () => {
   return (

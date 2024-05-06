@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 
-import { useLayout } from '../../../../../helpers/hooks/use-layout';
+import { useLayout } from '../../../../../../../shared/helpers/hooks/use-layout';
 import Anchor from '../../../../anchor/anchor';
 import { Card, CardContent } from '../../../../card';
 import Separator from '../../../../separator/separator';

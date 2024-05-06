@@ -1,7 +1,7 @@
 import React from 'react';
 import { flushSync } from 'react-dom';
 
-import { useLayout } from '../../helpers';
+import { useLayout } from '../..';
 import { Row } from '../grid';
 import { ModalContext } from '../modal';
 import Heading from '../typography/heading/heading';

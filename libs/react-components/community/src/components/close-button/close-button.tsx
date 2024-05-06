@@ -1,4 +1,4 @@
-import { useLabels } from '../../providers/label-provider';
+import { useLabels } from '../../../../shared/providers/label-provider';
 import Button, { ButtonProps } from '../button/button';
 import styles from './close-button.module.scss';
 

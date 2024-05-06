@@ -1,4 +1,14 @@
-import { Button, Card, CardContent, Col, Heading, Row, Separator, Text, VerticalSpacing } from '../../index';
+import {
+  Button,
+  Card,
+  CardContent,
+  Col,
+  Heading,
+  Row,
+  Separator,
+  Text,
+  VerticalSpacing,
+} from '../../../community/src/index';
 
 const ButtonGroups = () => (
   <VerticalSpacing>

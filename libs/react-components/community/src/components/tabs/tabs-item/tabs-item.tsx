@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { BreakpointSupport, useBreakpointProps } from '../../../helpers';
+import { BreakpointSupport, useBreakpointProps } from '../../../../../shared/helpers';
 import { Card, CardContent, CardContentProps } from '../../card';
 import HashTrigger from '../../hash-trigger/hash-trigger';
 import { TabsContext } from '../tabs-context';

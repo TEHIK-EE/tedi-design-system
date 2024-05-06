@@ -2,9 +2,9 @@ import { FloatingArrow, FloatingFocusManager, FloatingPortal } from '@floating-u
 import cn from 'classnames';
 import React from 'react';
 
+import { TColorsBackground, TColorsBorder } from '../../../../shared/commonTypes';
 import { Card, CardContent, CardProps } from '../card';
 import { getCardBorderPlacementColor } from '../card/utility';
-import { TColorsBackground, TColorsBorder } from '../commonTypes';
 import styles from './tooltip.module.scss';
 import { ARROW_HEIGHT, ARROW_WIDTH, TooltipContext } from './tooltip-provider';
 

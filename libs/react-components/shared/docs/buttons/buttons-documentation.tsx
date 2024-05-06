@@ -12,7 +12,7 @@ import {
   Separator,
   Text,
   VerticalSpacing,
-} from '../../index';
+} from '../../../community/src/index';
 
 interface ExampleButtonProps {
   heading?: string;

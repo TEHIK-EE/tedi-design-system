@@ -1,10 +1,10 @@
 import cn from 'classnames';
 import React from 'react';
 
-import useLayout, { Layouts } from '../../../helpers/hooks/use-layout';
-import { AllowedHTMLTags } from '../../../helpers/polymorphic/types';
-import { useLabels } from '../../../providers/label-provider';
-import { IntentionalAny } from '../../../types';
+import useLayout, { Layouts } from '../../../../../shared/helpers/hooks/use-layout';
+import { AllowedHTMLTags } from '../../../../../shared/helpers/polymorphic/types';
+import { useLabels } from '../../../../../shared/providers/label-provider';
+import { IntentionalAny } from '../../../../../shared/types';
 import Print from '../../print/print';
 import styles from './breadcrumbs.module.scss';
 import Crumb, { CrumbProps } from './crumb/crumb';

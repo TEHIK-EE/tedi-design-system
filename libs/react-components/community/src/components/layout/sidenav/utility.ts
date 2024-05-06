@@ -1,5 +1,5 @@
-import useLayout from '../../../helpers/hooks/use-layout';
-import { IntentionalAny } from '../../../types';
+import useLayout from '../../../../../shared/helpers/hooks/use-layout';
+import { IntentionalAny } from '../../../../../shared/types';
 import { ILayoutProps } from '../layout/layout';
 import { SideNavProps } from './sidenav';
 

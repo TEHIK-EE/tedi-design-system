@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import React, { forwardRef } from 'react';
 
-import { useScroll } from '../../helpers';
+import { useScroll } from '../..';
 import styles from './hide-on-scroll.module.scss';
 
 export type AnimationDirection = 'left' | 'right' | 'down' | 'up' | 'center';

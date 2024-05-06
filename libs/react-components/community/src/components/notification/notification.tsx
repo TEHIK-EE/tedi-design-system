@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import React from 'react';
 
-import { useIsMounted } from '../../helpers';
+import { useIsMounted } from '../..';
 import CloseButton from '../close-button/close-button';
 import { Col, Row } from '../grid';
 import Icon, { IconProps } from '../icon/icon';

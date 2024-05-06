@@ -1,5 +1,5 @@
-import { AllowedHTMLTags } from '../../../../../helpers/polymorphic/types';
-import { IntentionalAny } from '../../../../../types';
+import { AllowedHTMLTags } from '../../../../../../../shared/helpers/polymorphic/types';
+import { IntentionalAny } from '../../../../../../../shared/types';
 import Anchor, { AnchorProps } from '../../../../anchor/anchor';
 import styles from './skip-links.module.scss';
 

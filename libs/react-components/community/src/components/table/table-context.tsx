@@ -1,7 +1,7 @@
 import { Table as TableType } from '@tanstack/table-core';
 import React from 'react';
 
-import { IntentionalAny } from '../../types';
+import { IntentionalAny } from '../../../../shared/types';
 import { DefaultTData, TableProps } from './table.types';
 
 export interface ITableContext<TData extends DefaultTData<TData>>

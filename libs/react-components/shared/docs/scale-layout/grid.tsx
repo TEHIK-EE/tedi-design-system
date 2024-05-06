@@ -1,6 +1,6 @@
 import { Title } from '@storybook/blocks';
 
-import { Col, Heading, Row, Separator, VerticalSpacing } from '../../index';
+import { Col, Heading, Row, Separator, VerticalSpacing } from '../../../community/src/index';
 import BreakingpointsTable from './breaking-points';
 
 const Grid = () => {

@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import React from 'react';
 
-import { useLabels } from '../../../providers/label-provider';
+import { useLabels } from '../../../../../shared/providers/label-provider';
 import { Direction, Gutter, Row, RowProps } from '../../grid';
 import Check, { CheckProps } from '../check/check';
 import FormHelper, { FormHelperProps } from '../form-helper/form-helper';

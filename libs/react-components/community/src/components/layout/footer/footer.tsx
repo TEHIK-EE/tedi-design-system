@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import React from 'react';
 
-import { useLabels } from '../../../providers/label-provider';
+import { useLabels } from '../../../../../shared/providers/label-provider';
 import { Col, Row } from '../../grid';
 import Icon, { IconProps } from '../../icon/icon';
 import Print from '../../print/print';

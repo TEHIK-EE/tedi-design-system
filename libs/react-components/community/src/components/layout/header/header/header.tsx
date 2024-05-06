@@ -1,8 +1,8 @@
 import cn from 'classnames';
 import React from 'react';
 
-import { Layouts, useLayout } from '../../../../helpers';
-import { IntentionalAny } from '../../../../types';
+import { Layouts, useLayout } from '../../../../../../shared/helpers';
+import { IntentionalAny } from '../../../../../../shared/types';
 import Affix from '../../../affix/affix';
 import Anchor from '../../../anchor/anchor';
 import { Col, Row } from '../../../grid';

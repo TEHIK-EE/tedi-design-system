@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import React, { ChangeEvent, useCallback, useMemo, useRef, useState } from 'react';
 
-import { useLabels } from '../../../providers/label-provider/use-labels';
+import { useLabels } from '../../../../../shared/providers/label-provider/use-labels';
 import { Button } from '../../button/button';
 import Text from '../../typography/text/text';
 import FormHelper, { FormHelperProps } from '../form-helper/form-helper';

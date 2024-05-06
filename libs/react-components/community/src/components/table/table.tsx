@@ -17,9 +17,9 @@ import {
 import cn from 'classnames';
 import React from 'react';
 
-import usePrint from '../../helpers/hooks/use-print';
-import { useLabels } from '../../providers/label-provider';
-import { IntentionalAny } from '../../types';
+import usePrint from '../../../../shared/helpers/hooks/use-print';
+import { IntentionalAny } from '../../../../shared/types';
+import { useLabels } from '../..';
 import { Card, CardContent } from '../card';
 import { PlaceholderProps } from '../placeholder/placeholder';
 import Pagination from './components/pagination/pagination';

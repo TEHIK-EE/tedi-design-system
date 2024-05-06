@@ -3,8 +3,8 @@ import { useFormik } from 'formik';
 import React from 'react';
 import * as Yup from 'yup';
 
-import { useLabels } from '../../../../../providers/label-provider';
-import { IntentionalAny } from '../../../../../types';
+import { useLabels } from '../../../../../../../shared/providers/label-provider';
+import { IntentionalAny } from '../../../../../../../shared/types';
 import Button from '../../../../button/button';
 import { DatePicker, DatePickerProps } from '../../../../form/pickers';
 import Col from '../../../../grid/col';

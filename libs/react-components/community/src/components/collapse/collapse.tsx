@@ -2,8 +2,7 @@ import cn from 'classnames';
 import React from 'react';
 import AnimateHeight from 'react-animate-height';
 
-import { usePrint } from '../../helpers';
-import { useLabels } from '../../providers/label-provider';
+import { useLabels, usePrint } from '../..';
 import { Col, Row, RowProps } from '../grid';
 import Icon from '../icon/icon';
 import Print from '../print/print';

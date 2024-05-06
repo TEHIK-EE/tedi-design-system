@@ -22,9 +22,9 @@ import ReactSelect, {
 import AsyncSelect from 'react-select/async';
 import { MenuPortalProps } from 'react-select/dist/declarations/src/components/Menu';
 
-import { getBackgroundColorClass } from '../../../helpers';
-import { useLabels } from '../../../providers/label-provider';
-import { TColorsBackground } from '../../commonTypes';
+import { TColorsBackground } from '../../../../../shared/commonTypes';
+import { getBackgroundColorClass } from '../../../../../shared/helpers';
+import { useLabels } from '../../../../../shared/providers/label-provider';
 import { Icon } from '../../icon/icon';
 import Tag from '../../tag/tag';
 import Text, { TextProps } from '../../typography/text/text';

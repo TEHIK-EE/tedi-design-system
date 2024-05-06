@@ -2,9 +2,9 @@ import { FloatingFocusManager, FloatingOverlay } from '@floating-ui/react';
 import cn from 'classnames';
 import React from 'react';
 
-import useLayout, { Layouts } from '../../../helpers/hooks/use-layout';
-import { AllowedHTMLTags } from '../../../helpers/polymorphic/types';
-import { IntentionalAny } from '../../../types';
+import useLayout, { Layouts } from '../../../../../shared/helpers/hooks/use-layout';
+import { AllowedHTMLTags } from '../../../../../shared/helpers/polymorphic/types';
+import { IntentionalAny } from '../../../../../shared/types';
 import Anchor, { AnchorProps } from '../../anchor/anchor';
 import Icon, { IconProps } from '../../icon/icon';
 import Print from '../../print/print';

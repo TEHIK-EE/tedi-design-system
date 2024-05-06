@@ -1,6 +1,7 @@
 import { ColumnDef, createColumnHelper } from '@tanstack/react-table';
+import { CustomizeTableCell, Table, Text } from '@tehik-ee/tedi-design-system/community';
 
-import { Breakpoint, CustomizeTableCell, getBackgroundColorClass, Table, Text } from '../../index';
+import { Breakpoint, getBackgroundColorClass } from '../../helpers';
 
 interface BreakpointRow {
   type: 'mobile' | 'tablet' | 'desktop';

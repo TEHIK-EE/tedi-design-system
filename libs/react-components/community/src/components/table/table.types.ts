@@ -12,7 +12,7 @@ import {
 } from '@tanstack/react-table';
 import React from 'react';
 
-import { IntentionalAny } from '../../types';
+import { IntentionalAny } from '../../../../shared/types';
 import { CardProps } from '../card';
 import { ChoiceGroupItemProps } from '../form/choice-group';
 import { PlaceholderProps } from '../placeholder/placeholder';

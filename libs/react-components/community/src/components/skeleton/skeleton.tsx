@@ -1,8 +1,8 @@
 import cn from 'classnames';
 import React from 'react';
 
-import { useDeclareLoader } from '../../providers/accessibility-provider/use-declare-loader';
-import { useLabels } from '../../providers/label-provider';
+import { useDeclareLoader } from '../../../../shared/providers/accessibility-provider/use-declare-loader';
+import { useLabels } from '../../../../shared/providers/label-provider';
 import styles from './skeleton.module.scss';
 
 export interface SkeletonProps {

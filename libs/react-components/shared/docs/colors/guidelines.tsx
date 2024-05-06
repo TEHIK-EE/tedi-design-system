@@ -1,4 +1,4 @@
-import { Col, Heading, Row, VerticalSpacing, VerticalSpacingItem } from '../../index';
+import { Col, Heading, Row, VerticalSpacing, VerticalSpacingItem } from '../../../community/src/index';
 
 const ColorRows = ({ inverted }: { inverted?: boolean }) => (
   <Row>

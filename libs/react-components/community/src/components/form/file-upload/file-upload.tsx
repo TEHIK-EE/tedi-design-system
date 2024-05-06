@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import React from 'react';
 
-import { useLabels } from '../../../providers/label-provider';
+import { useLabels } from '../../../../../shared/providers/label-provider';
 import Button from '../../button/button';
 import { Card, CardContent } from '../../card';
 import CloseButton from '../../close-button/close-button';

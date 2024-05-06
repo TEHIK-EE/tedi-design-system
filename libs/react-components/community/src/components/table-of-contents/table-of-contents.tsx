@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { Layouts, useLayout } from '../../helpers';
-import { useLabels } from '../../providers/label-provider';
+import { useLabels } from '../../../../shared/providers/label-provider';
+import { Layouts, useLayout } from '../..';
 import Affix from '../affix/affix';
 import { Card, CardContent } from '../card';
 import HideOnScroll from '../hide-on-scroll/hide-on-scroll';

@@ -19,8 +19,8 @@
         "@nx/enforce-module-boundaries": [
           "error",
           {
-            "enforceBuildableLibDependency": true,
-            "allow": [],
+            "enforceBuildableLibDependency": false,
+            "allow": ["community", "shared", "tedi"],
             "depConstraints": [
               {
                 "sourceTag": "*",

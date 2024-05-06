@@ -2,7 +2,7 @@ import { flexRender, Header, HeaderGroup, Row as TSRow, SortDirection } from '@t
 import cn from 'classnames';
 import React from 'react';
 
-import { useLabels } from '../../../../providers/label-provider';
+import { useLabels } from '../../../../../../shared/providers/label-provider';
 import Button from '../../../button/button';
 import { Col, Row } from '../../../grid';
 import Placeholder from '../../../placeholder/placeholder';

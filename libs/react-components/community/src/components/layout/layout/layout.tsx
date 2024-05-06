@@ -2,8 +2,8 @@ import { autoUpdate, useClick, useDismiss, useFloating, useInteractions, useRole
 import cn from 'classnames';
 import React from 'react';
 
-import { useElementSize } from '../../../helpers';
-import { AccessibilityProvider } from '../../../providers/accessibility-provider/accessibility-provider';
+import { useElementSize } from '../../../../../shared/helpers';
+import { AccessibilityProvider } from '../../../../../shared/providers/accessibility-provider/accessibility-provider';
 import Section from '../../section/section';
 import Breadcrumbs, { BreadcrumbsProps } from '../breadcrumbs/breadcrumbs';
 import { Footer, FooterProps } from '../footer/footer';

@@ -1,7 +1,7 @@
 import { FloatingContext, ReferenceType } from '@floating-ui/react';
 import React from 'react';
 
-import { IntentionalAny } from '../../types';
+import { IntentionalAny } from '../../../../shared/types';
 import { SideNavProps } from './sidenav/sidenav';
 
 export interface ILayoutContext {

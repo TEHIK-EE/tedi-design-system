@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import React, { useContext } from 'react';
 
-import { useLabels } from '../../providers/label-provider';
+import { useLabels } from '../../../../shared/providers/label-provider';
 import Button from '../button/button';
 import ButtonContent from '../button-content/button-content';
 import { Card, CardContent, CardHeader } from '../card';

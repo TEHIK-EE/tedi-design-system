@@ -1,8 +1,12 @@
 import cn from 'classnames';
 import React, { forwardRef } from 'react';
 
-import { AllowedHTMLTags, PolymorphicComponentPropWithRef, PolymorphicRef } from '../../helpers/polymorphic/types';
-import { IntentionalAny } from '../../types';
+import {
+  AllowedHTMLTags,
+  PolymorphicComponentPropWithRef,
+  PolymorphicRef,
+} from '../../../../shared/helpers/polymorphic/types';
+import { IntentionalAny } from '../../../../shared/types';
 import { ButtonColor, ButtonType } from '../button/button';
 import Icon, { IconProps } from '../icon/icon';
 import Print from '../print/print';

@@ -1,8 +1,8 @@
 import cn from 'classnames';
 import React from 'react';
 
-import { useLabels } from '../../providers/label-provider';
-import { TColorsBackground } from '../commonTypes';
+import { TColorsBackground } from '../../../../shared/commonTypes';
+import { useLabels } from '../../../../shared/providers/label-provider';
 import styles from './spinner.module.scss';
 
 export interface SpinnerProps {

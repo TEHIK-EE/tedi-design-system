@@ -3,7 +3,7 @@ import type { Dayjs } from 'dayjs';
 import dayjs from 'dayjs';
 import React from 'react';
 
-import { IntentionalAny } from '../../../../types';
+import { IntentionalAny } from '../../../../../../shared/types';
 import TextField, { TextFieldForwardRef, TextFieldProps } from '../../textfield/textfield';
 
 export interface MuiInputTransitionProps {

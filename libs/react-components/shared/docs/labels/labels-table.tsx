@@ -1,7 +1,7 @@
 import { ColumnDef, createColumnHelper } from '@tanstack/react-table';
 import linkifyStr from 'linkify-string';
 
-import { Table, Tooltip, TooltipProvider, TooltipTrigger } from '../../index';
+import { Table, Tooltip, TooltipProvider, TooltipTrigger } from '../../../community/src/index';
 import { LabelProvider, labelsMap } from '../../providers/label-provider';
 import { IntentionalAny } from '../../types';
 

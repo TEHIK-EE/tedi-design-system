@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import React from 'react';
 
-import useLayout from '../../helpers/hooks/use-layout';
+import useLayout from '../../../../shared/helpers/hooks/use-layout';
 import { Card, CardContent, CardProps } from '../card';
 import { Col, Row, RowProps } from '../grid';
 import Icon, { IconProps } from '../icon/icon';

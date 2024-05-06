@@ -1,6 +1,6 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 
-import useLayout from '../../../helpers/hooks/use-layout';
+import useLayout from '../../../../../shared/helpers/hooks/use-layout';
 import Button from '../../button/button';
 import Section from '../../section/section';
 import StretchContent from '../../stretch-content/stretch-content';

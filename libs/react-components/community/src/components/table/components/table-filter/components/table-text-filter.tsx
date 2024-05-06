@@ -2,7 +2,7 @@ import { useFormik } from 'formik';
 import React from 'react';
 import * as Yup from 'yup';
 
-import { useLabels } from '../../../../../providers/label-provider';
+import { useLabels } from '../../../../../../../shared/providers/label-provider';
 import Button from '../../../../button/button';
 import TextField from '../../../../form/textfield/textfield';
 import Col from '../../../../grid/col';

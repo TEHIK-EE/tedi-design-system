@@ -12,8 +12,8 @@ import {
 import dayjs from 'dayjs';
 import React from 'react';
 
-import { getBackgroundColorClass } from '../../helpers/background-colors/background-colors';
-import { IntentionalAny } from '../../types';
+import { getBackgroundColorClass } from '../../../../shared/helpers/background-colors/background-colors';
+import { IntentionalAny } from '../../../../shared/types';
 import Anchor from '../anchor/anchor';
 import { Card, CardContent } from '../card';
 import Check from '../form/check/check';

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { useLabels } from '../../providers/label-provider';
+import { useLabels } from '../../../../shared/providers/label-provider';
 import Button from '../button/button';
 import { Card, CardContent } from '../card';
 import { Col, Row } from '../grid';

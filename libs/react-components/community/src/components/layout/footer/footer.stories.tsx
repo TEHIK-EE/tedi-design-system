@@ -1,7 +1,7 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import React from 'react';
 
-import useLayout from '../../../helpers/hooks/use-layout';
+import useLayout from '../../../../../shared/helpers/hooks/use-layout';
 import Anchor from '../../anchor/anchor';
 import { Col, Row } from '../../grid';
 import Icon from '../../icon/icon';

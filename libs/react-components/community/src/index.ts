@@ -1,6 +1,6 @@
 import 'what-input';
 
-export * from './components/commonTypes';
+export * from '../../shared/commonTypes';
 export * from './components/typography/heading/heading';
 export * from './components/typography/text/text';
 export * from './components/button/button';
@@ -55,7 +55,7 @@ export * from './components/list';
 export * from './components/modal';
 export * from './components/placeholder/placeholder';
 
-export * from './helpers';
+export * from '../../shared/helpers';
 
-export * from './providers/label-provider';
-export * from './providers/style-provider/style-provider';
+export * from '../../shared/providers/label-provider';
+export * from '../../shared/providers/style-provider/style-provider';

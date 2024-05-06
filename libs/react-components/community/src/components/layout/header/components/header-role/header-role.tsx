@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { useLabels } from '../../../../../providers/label-provider';
+import { useLabels } from '../../../../../../../shared/providers/label-provider';
 import { Card, CardContent } from '../../../../card';
 import Collapse from '../../../../collapse/collapse';
 import ScrollFade from '../../../../scroll-fade/scroll-fade';

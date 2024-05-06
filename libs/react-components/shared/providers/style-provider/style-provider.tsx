@@ -1,6 +1,6 @@
 import React from 'react';
 
-import '../../styles/index.scss';
+import '../../../community/src/styles/index.scss';
 
 export interface StyleProviderProps {
   children: React.ReactNode;

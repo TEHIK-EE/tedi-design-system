@@ -5,7 +5,7 @@ const jestConfig = {
     '^.+\\.[tj]sx?$': ['babel-jest', { presets: ['@nx/react/babel'] }],
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
-  transformIgnorePatterns: ['/node_modules/(?!(lodash-es)/)'],
+  transformIgnorePatterns: ['/node_modules/(?!(lodash-es|react-sticky-box)/)'],
   coverageDirectory: '../../coverage/libs/react-components/community',
   setupFilesAfterEnv: ['<rootDir>/jest-setup.js'],
 };

@@ -2,7 +2,7 @@ import { FloatingFocusManager, FloatingOverlay, FloatingPortal } from '@floating
 import cn from 'classnames';
 import React from 'react';
 
-import { useLabels } from '../../providers/label-provider';
+import { useLabels } from '../../../../shared/providers/label-provider';
 import Button from '../button/button';
 import Card, { CardProps } from '../card/card';
 import styles from './modal.module.scss';

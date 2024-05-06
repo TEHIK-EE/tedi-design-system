@@ -2,7 +2,7 @@ import cn from 'classnames';
 import React from 'react';
 import AnimateHeight from 'react-animate-height';
 
-import { usePrint } from '../../../helpers';
+import { usePrint } from '../../..';
 import { CardContent, CardContentProps } from '../../card';
 import { AccordionContext } from '../accordion';
 import styles from '../accordion.module.scss';
