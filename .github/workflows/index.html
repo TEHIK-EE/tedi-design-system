@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <base href="https://tehik-ee.github.io/tedi-design-system/">
+  <!--<base href="https://tehik-ee.github.io/tedi-design-system/">-->
   <meta charset="UTF-8">
   <meta http-equiv="Cache-Control" content="max-age=0, no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache" />
@@ -13,6 +13,9 @@
     a    {color: #fff;}
     ul { list-style: none; }
   </style>
+  <script type="text/javascript">
+      document.head.innerHTML = document.head.innerHTML + "<base href='" + document.location.href + "' />";
+  </script>
 </head>
 <body>
   <div class="container">
