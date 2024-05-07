@@ -16,24 +16,4 @@
   padding: 0.5rem;
   line-height: 0;
   border-radius: 100%;
-
-  &-primary {
-    color: var(--icon-secondary-light-mode);
-    background-color: var(--neutral-100);
-  }
-
-  &-secondary {
-    color: var(--neutral-100);
-    background-color: var(--alpha-white-300);
-  }
-
-  &-distinctive-primary {
-    color: var(--neutral-100);
-    background-color: var(--blue-600);
-  }
-
-  &-distinctive-secondary {
-    color: var(--blue-600);
-    background-color: var(--blue-200);
-  }
 }

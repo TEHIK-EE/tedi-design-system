@@ -4,8 +4,9 @@ import React from 'react';
 
 import StorybookDecorator from './storybook-decorator';
 
-import '../community/src/styles/index.scss';
 import '../tedi/src/styles/index.scss';
+import '../community/src/styles/index.scss';
+import '../tedi/src/styles/tedi-storybook-styles.scss';
 import '../community/src/styles/storybook.scss';
 import 'what-input';
 

@@ -1,11 +1,13 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import classNames from 'classnames';
 
-import { Col, Row } from '../../../../community/src/components/grid';
-import { Text } from '../../../../community/src/components/typography/text/text';
-import { VerticalSpacing } from '../../../../community/src/components/vertical-spacing/vertical-spacing';
 import Icon, { IconProps } from './icon';
 
+/**
+ * Icons source: [Material icons](https://mui.com/material-ui/material-icons/)<br/>
+ * Documentation: [Zeroheight](https://tedi.zeroheight.com/styleguide/s/118912/p/28835d-icon)<br/>
+ * Design: [Figma](https://#)<br/>
+ */
 const meta: Meta<typeof Icon> = {
   title: 'Tedi-components/Icon',
   component: Icon,
@@ -14,48 +16,42 @@ const meta: Meta<typeof Icon> = {
     name: {
       control: 'text',
       description: 'Name of the icon',
-      table: { defaultValue: { summary: 'AccountCircle' } },
+      table: { defaultValue: { summary: '-' } },
     },
     className: {
       control: 'text',
-      description: 'Additional classes.',
+      description: 'Additional classes',
       table: { defaultValue: { summary: '' } },
     },
     size: {
       control: { type: 'select' },
       options: [8, 12, 16, 18, 24, 36, 48, 120],
       description: 'Size of the icon',
-      table: { defaultValue: { summary: '36' } },
+      table: { defaultValue: { summary: '24' } },
     },
     type: {
       control: { type: 'select' },
-      options: ['outlined', 'rounded', 'sharp'],
+      options: ['outlined', 'filled', 'rounded', 'sharp'],
       description: 'Type of the icon',
       table: { defaultValue: { summary: 'outlined' } },
     },
     color: {
       control: { type: 'select' },
-      options: ['primary', 'muted', 'disabled', 'inverted', 'positive', 'important', 'warning'],
-      description:
-        'Which color Icon should be. Use "positive", "important" or "warning" with caution, usually they should not be in application UI',
-      table: { defaultValue: { summary: 'default' } },
+      options: ['primary', 'secondary', 'tertiary', 'success', 'warning', 'danger', 'white'],
+      description: 'Color of the icon',
+      table: { defaultValue: { summary: 'primary' } },
     },
     background: {
       control: { type: 'select' },
-      options: ['default', 'primary', 'secondary', 'distinctive-primary', 'distinctive-secondary'],
+      options: ['primary', 'secondary', 'distinctive-primary', 'distinctive-secondary'],
       description: 'Add a background to the icon',
-      table: { defaultValue: { summary: 'default' } },
+      table: { defaultValue: { summary: '-' } },
     },
     display: {
       control: 'radio',
       options: ['block', 'inline'],
-      description: 'Type of display. block by default',
+      description: 'Type of display. Block by default',
       table: { defaultValue: { summary: 'block' } },
-    },
-    filled: {
-      control: 'boolean',
-      description: 'Render a filled variant of the icon',
-      table: { defaultValue: { summary: 'false' } },
     },
   },
 };
@@ -64,15 +60,7 @@ export default meta;
 type Story = StoryObj<TemplateMultipleProps>;
 
 const sizeArray: IconProps['size'][] = [8, 12, 16, 18, 24, 36, 48, 120];
-const colorArray: IconProps['color'][] = [
-  'inverted',
-  'primary',
-  'muted',
-  'disabled',
-  'positive',
-  'warning',
-  'important',
-];
+const colorArray: IconProps['color'][] = ['white', 'primary', 'secondary', 'tertiary', 'success', 'warning', 'danger'];
 const backgroundArray: IconProps['background'][] = [
   'primary',
   'secondary',
@@ -91,13 +79,13 @@ const TemplateRow: StoryFn<TemplateMultipleProps> = (args) => {
   const { array, property, ...iconProps } = args;
 
   return (
-    <Row alignItems="center" gutterX={4} gap={2}>
+    <div className="row">
       {array.map((value, key) => (
-        <Col width="auto" key={key} className={classNames({ 'with-background': value === 'inverted' })}>
+        <div key={key} className={classNames({ 'with-background': value === 'white' }, 'column')}>
           <Icon {...iconProps} {...{ [property]: value }} name="AccountCircle" />
-        </Col>
+        </div>
       ))}
-    </Row>
+    </div>
   );
 };
 
@@ -105,19 +93,24 @@ const TemplateColumn: StoryFn<TemplateMultipleProps> = (args) => {
   const { array, property, ...iconProps } = args;
 
   return (
-    <VerticalSpacing>
+    <div className="example-list w-50">
       {array.map((value, key) => (
-        <Row alignItems="center" gutterX={2} key={key}>
-          <Col width={1}>
-            <Text modifiers="capitalize">{value?.toString()}</Text>
-          </Col>
-          <Col width="auto" className="d-flex">
-            <Icon {...iconProps} {...{ [property]: value }} name="AccountCircle" display="inline" />
-            <Icon {...iconProps} {...{ [property]: value }} name="AccountCircle" display="inline" filled />
-          </Col>
-        </Row>
+        <div className={`row ${key === array.length - 1 ? '' : 'border-bottom'}`} key={key}>
+          <div className="column w-50">
+            <div className="display-flex">
+              {value?.toString()}&nbsp;{value === 24 && <span className="example-text--secondary">default</span>}
+            </div>
+          </div>
+          <div className="column">
+            <div className="display-flex">
+              <Icon {...iconProps} {...{ [property]: value }} name="AccountCircle" display="inline" />
+              &nbsp;
+              <Icon {...iconProps} {...{ [property]: value }} name="AccountCircle" display="inline" type="filled" />
+            </div>
+          </div>
+        </div>
       ))}
-    </VerticalSpacing>
+    </div>
   );
 };
 
@@ -128,11 +121,14 @@ export const Default: Story = {
 
   args: {
     name: 'AccountCircle',
-    size: 36,
+    size: 24,
+    label: 'Example icon',
+    color: 'primary',
   },
 };
 
 export const Sizes: Story = {
+  name: 'Icon Size',
   render: TemplateColumn,
 
   args: {
@@ -142,13 +138,28 @@ export const Sizes: Story = {
   },
 };
 
+export const SizesWithBackground: Story = {
+  name: 'Icon with background size',
+  render: TemplateColumn,
+
+  args: {
+    property: 'size',
+    color: 'primary',
+    background: 'distinctive-secondary',
+    array: [16, 24],
+  },
+};
+
 export const Backgrounds: Story = {
   render: TemplateRow,
 
   args: {
     property: 'background',
     array: backgroundArray,
-    size: 18,
+    size: 24,
+  },
+  parameters: {
+    backgrounds: { default: 'inverted' },
   },
 };
 
@@ -158,6 +169,7 @@ export const Colors: Story = {
   args: {
     property: 'color',
     array: colorArray,
+    size: 24,
   },
 
   parameters: {

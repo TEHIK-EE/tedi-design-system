@@ -105,10 +105,3 @@ li > ol {
   // Storybook has new styles that overwrite this on "un-styled" elements
   font-family: 'Material Symbols Outlined', sans-serif !important;
 }
-
-.with-background {
-  padding: 15px 20px;
-  line-height: 0;
-  background-color: var(--color-primary-main);
-  border-radius: 8px;
-}

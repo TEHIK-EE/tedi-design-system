@@ -1,0 +1,49 @@
+.with-background {
+  background-color: var(--color-primary-main);
+  border-radius: 8px;
+}
+
+.display-flex {
+  display: flex;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  line-height: 0;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.w-50 {
+  width: 50%;
+}
+
+.example-list {
+  border: 1px solid var(--neutral-400);
+  border-radius: 12px;
+}
+
+.example-text {
+  &--primary {
+    color: var(--neutral-1100);
+  }
+
+  &--secondary {
+    color: var(--neutral-700);
+  }
+}
+
+.border-bottom {
+  border-bottom: 1px solid var(--neutral-400);
+}
