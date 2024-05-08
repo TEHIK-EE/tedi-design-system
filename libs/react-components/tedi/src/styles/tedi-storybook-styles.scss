@@ -1,10 +1,12 @@
 .with-background {
+  padding: 16px;
   background-color: var(--color-primary-main);
   border-radius: 8px;
 }
 
 .display-flex {
   display: flex;
+  align-items: center;
 }
 
 .row {
@@ -17,7 +19,7 @@
 .column {
   display: flex;
   flex-direction: column;
-  padding: 15px;
+  padding: 0 8px;
   line-height: 0;
 }
 
@@ -46,4 +48,8 @@
 
 .border-bottom {
   border-bottom: 1px solid var(--neutral-400);
+}
+
+.padding-14-16 {
+  padding: 14px 16px;
 }

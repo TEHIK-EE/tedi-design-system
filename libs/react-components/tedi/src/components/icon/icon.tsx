@@ -5,7 +5,7 @@ import React from 'react';
 
 import styles from './icon.module.scss';
 
-export type IconSize = 8 | 12 | 16 | 18 | 24 | 36 | 48 | 120;
+export type IconSize = 8 | 12 | 16 | 18 | 24 | 36 | 48;
 export type IconType = 'filled' | 'outlined' | 'sharp' | 'rounded';
 export type IconColor = 'primary' | 'secondary' | 'tertiary' | 'success' | 'warning' | 'danger' | 'white';
 export type IconBackgroundColor = 'primary' | 'secondary' | 'distinctive-primary' | 'distinctive-secondary';
@@ -57,7 +57,17 @@ export interface IconProps {
 }
 
 export const Icon: React.FC<IconProps> = (props): JSX.Element => {
-  const { className, name, label, type = 'outlined', size = 24, display = 'block', color, background, ...rest } = props;
+  const {
+    className,
+    name,
+    label,
+    type = 'outlined',
+    size = 24,
+    display = 'block',
+    color = 'primary',
+    background,
+    ...rest
+  } = props;
 
   if (!MaterialIcons[name as keyof typeof MaterialIcons]) {
     return <></>;
