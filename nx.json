@@ -2,7 +2,7 @@
   "extends": "nx/presets/npm.json",
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
   "affected": {
-    "defaultBase": "origin/main"
+    "defaultBase": "origin/rc"
   },
   "defaultProject": "components",
   "targetDefaults": {
