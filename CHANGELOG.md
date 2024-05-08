@@ -1,3 +1,10 @@
+# [6.29.0-rc.9](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.29.0-rc.8...v6.29.0-rc.9) (2024-05-08)
+
+
+### Bug Fixes
+
+* **Continious deployment:** Fixed the way base href is composed to exclude query part ([5c3e973](https://github.com/TEHIK-EE/tedi-design-system/commit/5c3e973bd05d4eb31c9537162e09646acbb24b1a))
+
 # [6.29.0-rc.8](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.29.0-rc.7...v6.29.0-rc.8) (2024-05-06)
 
 
