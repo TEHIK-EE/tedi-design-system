@@ -4,11 +4,12 @@ import classNames from 'classnames';
 import Icon, { IconProps } from './icon';
 
 /**
+ * [Figma ↗](https://www.figma.com/file/jWiRIXhHRxwVdMSimKX2FF/TEDI-Design-System-(draft)?type=design&node-id=45-30752&mode=dev)<br/>
+ * [Zeroheight ↗](https://tedi.zeroheight.com/styleguide/s/118912/p/28835d-icons)<hr/>
  * [Official Google Material Icons homepage icons ↗](https://fonts.google.com/icons?icon.set=Material+Icons)<br/>
  * [Material Icons for Developers ↗](https://mui.com/material-ui/material-icons/)<br/>
  * [Material Icons Figma ↗](https://www.figma.com/community/file/1014241558898418245/material-design-icons?searchSessionId=lvxhc4l5-a6)<br/>
- * [Figma Material Symbols plugin ↗](https://www.figma.com/community/plugin/740272380439725040/material-design-icons)<br/>
- * [Figma Design for Icon ↗](https://www.figma.com/file/jWiRIXhHRxwVdMSimKX2FF/TEDI-Design-System-(draft)?type=design&node-id=45-30752&mode=dev)<br/>
+ * [Figma Material Symbols plugin ↗](https://www.figma.com/community/plugin/740272380439725040/material-design-icons)
  */
 const meta: Meta<typeof Icon> = {
   title: 'Tedi-components/Icon',
