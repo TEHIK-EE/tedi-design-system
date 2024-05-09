@@ -13,6 +13,7 @@ const config: StorybookConfig = {
     '../shared/docs/_welcome.mdx',
     '../shared/docs/getStarted.mdx',
     '../shared/docs/changelog.mdx',
+    '../shared/docs/colors/tedi-colors.mdx',
     '../community/src/docs/colors/colorTokens.mdx',
     '../community/src/docs/colors/colorGuidelines.mdx',
     '../community/src/docs/scale-layout/spacing.mdx',

@@ -1,0 +1,461 @@
+[
+  {
+    "mode": {
+      "name": "TEHIK brand",
+      "id": "21:1"
+    },
+    "color": [
+      {
+        "name": "alpha-100",
+        "color": "#00000000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "alpha-200",
+        "color": "#00000033",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "alpha-500",
+        "color": "#17171780",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "alpha-800",
+        "color": "#22232bcc",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "alpha-white-100",
+        "color": "#ffffff1a",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "alpha-white-300",
+        "color": "#ffffff4d",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "alpha-white-500",
+        "color": "#ffffff80",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "alpha-white-800",
+        "color": "#ffffffcc",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "blue-100",
+        "color": "#eaf6ff",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "blue-200",
+        "color": "#ccdeed",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "blue-300",
+        "color": "#99bdda",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "blue-400",
+        "color": "#669cc8",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "blue-500",
+        "color": "#337bb5",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "blue-600",
+        "color": "#005aa3",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "blue-700",
+        "color": "#004882",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "blue-800",
+        "color": "#003662",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "green-100",
+        "color": "#eaf3ee",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "green-200",
+        "color": "#d6e7dd",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "green-300",
+        "color": "#accfba",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "green-400",
+        "color": "#83b698",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "green-500",
+        "color": "#599e75",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "green-600",
+        "color": "#308653",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "green-700",
+        "color": "#266b42",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "green-800",
+        "color": "#1d5032",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "neutral-100",
+        "color": "#ffffff",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "neutral-1000",
+        "color": "#202128",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "neutral-1100",
+        "color": "#131317",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "neutral-200",
+        "color": "#f9f9f9",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "neutral-300",
+        "color": "#f0f0f2",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "neutral-400",
+        "color": "#e1e2e5",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "neutral-500",
+        "color": "#c0c2c9",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "neutral-600",
+        "color": "#878a97",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "neutral-700",
+        "color": "#5d6071",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "neutral-800",
+        "color": "#454854",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "neutral-900",
+        "color": "#30323b",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "orange-100",
+        "color": "#fff2e6",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "orange-200",
+        "color": "#ffe6cc",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "orange-300",
+        "color": "#ffcc99",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "orange-400",
+        "color": "#ffb366",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "orange-500",
+        "color": "#ff9933",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "orange-600",
+        "color": "#ff8000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "orange-700",
+        "color": "#994d00",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "orange-800",
+        "color": "#663300",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "primary-100",
+        "color": "#eaf6ff",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "primary-200",
+        "color": "#ccdeed",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "primary-300",
+        "color": "#99bdda",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "primary-400",
+        "color": "#669cc8",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "primary-500",
+        "color": "#337bb5",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "primary-600",
+        "color": "#005aa3",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "primary-700",
+        "color": "#004882",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "primary-800",
+        "color": "#003662",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "red-100",
+        "color": "#fbecec",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "red-200",
+        "color": "#f7d8d8",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "red-300",
+        "color": "#efb2b2",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "red-400",
+        "color": "#e78b8b",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "red-500",
+        "color": "#df6565",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "red-600",
+        "color": "#d73e3e",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "red-700",
+        "color": "#ac3232",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "red-800",
+        "color": "#812525",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "secondary-100",
+        "color": "#fff2e6",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "secondary-200",
+        "color": "#ffe6cc",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "secondary-300",
+        "color": "#ffcc99",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "secondary-400",
+        "color": "#ffb366",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "secondary-500",
+        "color": "#ff9933",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "secondary-600",
+        "color": "#ff8000",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "secondary-700",
+        "color": "#994d00",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "secondary-800",
+        "color": "#663300",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "yellow-100",
+        "color": "#fff8e7",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "yellow-200",
+        "color": "#fff0cf",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "yellow-300",
+        "color": "#ffe1a0",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "yellow-400",
+        "color": "#ffd370",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "yellow-500",
+        "color": "#ffb511",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "yellow-600",
+        "color": "#ba830d",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "yellow-700",
+        "color": "#94690d",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "yellow-800",
+        "color": "#664807",
+        "var": "",
+        "rootAlias": ""
+      }
+    ],
+    "number": []
+  }
+]
