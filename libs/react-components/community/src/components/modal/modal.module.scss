@@ -66,15 +66,9 @@ $modal-max-width: 1230px;
 }
 
 .close-button {
-  position: absolute;
-  top: 1.25rem;
-  right: 1.25rem;
-  z-index: 2;
+  z-index: 1;
+  float: right;
+  margin-bottom: 0.5rem;
+  margin-left: 0.5rem;
   color: var(--color-text-muted);
-}
-
-.close-button .close-button-icon {
-  width: 1.5rem;
-  height: 1.5rem;
-  font-size: 1.5rem;
 }
