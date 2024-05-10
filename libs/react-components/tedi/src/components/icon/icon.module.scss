@@ -1,0 +1,19 @@
+.tedi-icon--wrapper {
+  display: inline-block;
+}
+
+.tedi-icon {
+  &--block {
+    display: block;
+  }
+
+  &--inline {
+    display: inline;
+  }
+}
+
+.tedi-icon--bg {
+  padding: 0.5rem;
+  line-height: 0;
+  border-radius: 100%;
+}

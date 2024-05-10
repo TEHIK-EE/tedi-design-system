@@ -1,0 +1,54 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta name="Get Started" title="Documentation/Get started" />
+
+# Get started with TEHIK tedi-design-system
+
+### Installation
+
+```bash
+npm install @tehik-ee/tedi-design-system
+```
+
+### Labels - LabelProvider
+
+Tehik react-components use labels that are provided with <b>{'<LabelProvider>'}</b> component. Every
+application should be wrapped with LabelProvider to provider all necessary labels for users (mostly for
+accessibility). See all labels under [Documentation/Labels](/docs/documentation-labels--docs).
+More documentation about LabelProvider can be found under [components](/docs/components-labelprovider--docs).
+
+#### 1. Wrap Application with LabelProvider
+
+```tsx
+<LabelProvider labels={labels} locale={locale}>
+  <YourApp />
+</LabelProvider>
+```
+
+### Styles - StyleProvider
+
+tedi-design-system are depending on some global styles. Follow next steps to import styles to your
+application.
+
+#### 1. Wrap Application with StyleProvider
+
+```tsx
+<StyleProvider>
+  <YourApp />
+</StyleProvider>
+```
+
+#### 2. Add styles import to the root of application
+
+```tsx
+import '@tehik-ee/tedi-design-system/index.css';
+```
+
+### Dayjs
+
+Some of the tedi-design-system depend on [dayjs](https://day.js.org/docs/en/installation/installation)
+and [Mui x](https://mui.com/x/introduction/).
+Dayjs must be application dependencie, so its recommended to use dayjs to handle dates.
+
+<code>'en'</code> locale have one overwritten rule, that sets weekStart to monday, currently it isn’t supported to override
+it. Contact slack if u need to override it.
