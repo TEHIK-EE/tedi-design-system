@@ -1,3 +1,48 @@
+## [6.29.5](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.29.4...v6.29.5) (2024-05-03)
+
+
+### Bug Fixes
+
+* **common:** Remove unused react-test-renderer ([a73dadd](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/a73dadd2bc1425ad516fac73d8b06b4eb2688679))
+
+## [6.29.4](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.29.3...v6.29.4) (2024-05-03)
+
+
+### Bug Fixes
+
+* **button:** TEHVEER-299 - fullWidth prop should still work with noStyle ([9caa42f](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/9caa42f3ca025f52457a8bd240e664bb0e41e1d8))
+
+## [6.29.3](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.29.2...v6.29.3) (2024-04-29)
+
+
+### Bug Fixes
+
+* **select:**  fix multiselect do not scroll top after selection - TEHVEER-304 ([7f9e142](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/7f9e142abc27debac90e41aab2146671af422504))
+
+## [6.29.2](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.29.1...v6.29.2) (2024-04-25)
+
+
+### Bug Fixes
+
+* **modal:** TEHVEER-240 - Add displayNames to CardHeader and CardContent ([3134464](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/313446443871c9cc3c3bf095d9c3cc4668cbe7d6))
+
+## [6.29.1](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.29.0...v6.29.1) (2024-04-25)
+
+
+### Bug Fixes
+
+* **modal:** TEHVEER-240 - Prevent close button and content overlap ([f152de9](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/f152de9d66ad698362f639e55c1745a5e9ed38e8))
+
+# [6.29.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.28.4...v6.29.0) (2024-04-24)
+
+### Bug Fixes
+
+* Fixed semantic-release config ([66c5183](https://github.com/TEHIK-EE/tedi-design-system/commit/66c5183f301d7015d1683b4514433f12957e2ce2))
+
+### Features
+
+* **table:** add visibilityState, to hide columns - TEHVEER-303 ([d5f4d85](https://github.com/TEHIK-EE/tedi-design-system/commit/d5f4d85c2aa65c91e6e5e78c45d11b8951cc103b))
+
 # [6.29.0-rc.9](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.29.0-rc.8...v6.29.0-rc.9) (2024-05-08)
 
 
@@ -26,12 +71,6 @@
 
 * **chore:** TEDI-216 - Stories paths, changelog and readme fixes ([af5d743](https://github.com/TEHIK-EE/tedi-design-system/commit/af5d743e8df1e0c2d7d7d2592df39ae12dda2c4e))
 
-# [6.29.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.28.4...v6.29.0) (2024-04-24)
-
-### Features
-
-* **table:** add visibilityState, to hide columns - TEHVEER-303 ([c3b57ae](https://github.com/TEHIK-EE/tedi-design-system/commit/c3b57aea8ddd325961e7126d9adac656a408c5fc))
-
 # [6.29.0-rc.5](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.29.0-rc.4...v6.29.0-rc.5) (2024-04-29)
 
 ### Features
@@ -54,7 +93,7 @@
 
 ### Features
 
-* **table:** add visibilityState, to hide columns - TEHVEER-303 ([d5f4d85](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/d5f4d85c2aa65c91e6e5e78c45d11b8951cc103b))
+* **table:** add visibilityState, to hide columns - TEHVEER-303 ([c3b57ae](https://github.com/TEHIK-EE/tedi-design-system/commit/c3b57aea8ddd325961e7126d9adac656a408c5fc))
 
 # [6.29.0-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.28.4...v6.29.0-rc.1) (2024-04-24)
 
@@ -64,7 +103,6 @@
 * **migration:** GitHub migration ([bf56030](https://github.com/TEHIK-EE/tedi-design-system/commit/bf560304b81b04d35b967c190816b0d9325b6735)), closes [#1](https://github.com/TEHIK-EE/tedi-design-system/issues/1) [#8](https://github.com/TEHIK-EE/tedi-design-system/issues/8) [#8](https://github.com/TEHIK-EE/tedi-design-system/issues/8) [#8](https://github.com/TEHIK-EE/tedi-design-system/issues/8) [#8](https://github.com/TEHIK-EE/tedi-design-system/issues/8) [#8](https://github.com/TEHIK-EE/tedi-design-system/issues/8) [#8](https://github.com/TEHIK-EE/tedi-design-system/issues/8) [#8](https://github.com/TEHIK-EE/tedi-design-system/issues/8) [#8](https://github.com/TEHIK-EE/tedi-design-system/issues/8)
 
 ## [6.28.4](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.28.3...v6.28.4) (2024-04-18)
-
 
 ### Bug Fixes
 
