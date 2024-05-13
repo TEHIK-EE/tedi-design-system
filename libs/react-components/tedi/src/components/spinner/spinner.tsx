@@ -36,7 +36,7 @@ export interface SpinnerProps {
 export const Spinner = (props: SpinnerProps): JSX.Element => {
   const { className, size = 16, color = 'primary', label = props.label, position } = props;
 
-  const strokeWidth = size === 48 ? 6 : 4;
+  const strokeWidth = 4;
   const radius = 24 - strokeWidth;
 
   const spinnerVariant = {
