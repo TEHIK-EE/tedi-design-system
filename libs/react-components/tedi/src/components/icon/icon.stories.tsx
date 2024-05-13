@@ -82,7 +82,7 @@ const TemplateRow: StoryFn<TemplateMultipleProps> = (args) => {
   const { array, property, ...iconProps } = args;
 
   return (
-    <>
+    <div>
       <div className="row padding-14-16">Outlined</div>
       <div className="row">
         {array.map((value, key) => (
@@ -103,7 +103,7 @@ const TemplateRow: StoryFn<TemplateMultipleProps> = (args) => {
           </div>
         ))}
       </div>
-    </>
+    </div>
   );
 };
 
@@ -161,6 +161,45 @@ const TemplateColumnWithMultipleVariants: StoryFn<TemplateMultipleProps> = (args
           </div>
         </div>
       ))}
+    </div>
+  );
+};
+
+const TemplateColumnWithBackgroundCircleVarians: StoryFn<TemplateMultipleProps> = (args) => {
+  return (
+    <div className="row w-50">
+      <div className="column">
+        <div className="row">
+          <div className="column">
+            <Icon name="Vaccines" background="distinctive-primary" color="white" />
+          </div>
+          <div className="column">
+            <Icon name="Info" background="distinctive-primary" color="white" size={16} />
+          </div>
+          <div className="column">
+            <Icon name="Vaccines" background="distinctive-secondary" color="secondary" />
+          </div>
+          <div className="column">
+            <Icon name="Info" background="distinctive-secondary" color="secondary" size={16} />
+          </div>
+        </div>
+      </div>
+      <div className="column">
+        <div className="row with-background">
+          <div className="column">
+            <Icon name="Vaccines" background="primary" color="secondary" />
+          </div>
+          <div className="column">
+            <Icon name="Info" background="primary" color="secondary" size={16} />
+          </div>
+          <div className="column">
+            <Icon name="Vaccines" background="secondary" color="white" />
+          </div>
+          <div className="column">
+            <Icon name="Info" background="secondary" color="white" size={16} />
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
@@ -223,44 +262,6 @@ export const Colors: Story = {
 };
 
 export const Backgrounds: Story = {
+  render: TemplateColumnWithBackgroundCircleVarians,
   name: 'Icon background colors',
-
-  render: () => {
-    return (
-      <div className="row w-50">
-        <div className="column">
-          <div className="row">
-            <div className="column">
-              <Icon name="Vaccines" background="distinctive-primary" color="white" />
-            </div>
-            <div className="column">
-              <Icon name="Info" background="distinctive-primary" color="white" size={16} />
-            </div>
-            <div className="column">
-              <Icon name="Vaccines" background="distinctive-secondary" color="secondary" />
-            </div>
-            <div className="column">
-              <Icon name="Info" background="distinctive-secondary" color="secondary" size={16} />
-            </div>
-          </div>
-        </div>
-        <div className="column">
-          <div className="row with-background">
-            <div className="column">
-              <Icon name="Vaccines" background="primary" color="secondary" />
-            </div>
-            <div className="column">
-              <Icon name="Info" background="primary" color="secondary" size={16} />
-            </div>
-            <div className="column">
-              <Icon name="Vaccines" background="secondary" color="white" />
-            </div>
-            <div className="column">
-              <Icon name="Info" background="secondary" color="white" size={16} />
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  },
 };
