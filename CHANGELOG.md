@@ -1,3 +1,15 @@
+# [6.30.0-rc.2](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.30.0-rc.1...v6.30.0-rc.2) (2024-05-15)
+
+
+### Bug Fixes
+
+* **chore:** Fixed breakpoints style path in variables ([5d59860](https://github.com/TEHIK-EE/tedi-design-system/commit/5d598607423dd6ea149abc21ab5af3cc25538a4c))
+
+
+### Features
+
+* **typography:** TEHVEER-302 - Add typography styles for mobile ([215fddb](https://github.com/TEHIK-EE/tedi-design-system/commit/215fddb5c95411c98a5e72be0d24b4ef2d85be24))
+
 # [6.30.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.29.5...v6.30.0) (2024-05-15)
 
 
