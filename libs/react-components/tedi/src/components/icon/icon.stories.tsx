@@ -12,50 +12,8 @@ import Icon, { IconProps } from './icon';
  * [Figma Material Symbols plugin ↗](https://www.figma.com/community/plugin/740272380439725040/material-design-icons)
  */
 const meta: Meta<typeof Icon> = {
-  title: 'Tedi-components/Icon',
+  title: 'Tedi-components/Base/Icon',
   component: Icon,
-  argTypes: {
-    name: {
-      control: 'text',
-      description: 'Name of the icon',
-      table: { defaultValue: { summary: '-' } },
-    },
-    className: {
-      control: 'text',
-      description: 'Additional classes',
-      table: { defaultValue: { summary: '' } },
-    },
-    size: {
-      control: { type: 'select' },
-      options: [8, 12, 16, 18, 24, 36, 48],
-      description: 'Size of the icon',
-      table: { defaultValue: { summary: '24' } },
-    },
-    type: {
-      control: { type: 'select' },
-      options: ['outlined', 'filled', 'rounded', 'sharp'],
-      description: 'Type of the icon',
-      table: { defaultValue: { summary: 'outlined' } },
-    },
-    color: {
-      control: { type: 'select' },
-      options: ['primary', 'secondary', 'tertiary', 'success', 'warning', 'danger', 'white'],
-      description: 'Color of the icon',
-      table: { defaultValue: { summary: 'primary' } },
-    },
-    background: {
-      control: { type: 'select' },
-      options: ['primary', 'secondary', 'distinctive-primary', 'distinctive-secondary'],
-      description: 'Add a background to the icon',
-      table: { defaultValue: { summary: '-' } },
-    },
-    display: {
-      control: 'radio',
-      options: ['block', 'inline'],
-      description: 'Type of display. Block by default',
-      table: { defaultValue: { summary: 'block' } },
-    },
-  },
 };
 
 export default meta;

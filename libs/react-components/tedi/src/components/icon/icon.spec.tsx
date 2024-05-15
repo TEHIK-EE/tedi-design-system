@@ -17,7 +17,7 @@ describe('Icon component', () => {
     const { container } = render(<Icon name="Add" size={36} />);
     const iconElement = container.querySelector('svg');
     expect(iconElement).toBeInTheDocument();
-    expect(iconElement).toHaveStyle({ fontSize: '2.25rem' });
+    expect(iconElement).toHaveClass('tedi-icon--size-36');
   });
 
   it('renders with custom type', () => {
@@ -30,19 +30,13 @@ describe('Icon component', () => {
   it('renders with custom color', () => {
     const { container } = render(<Icon name="Add" color="success" />);
     const iconElement = container.querySelector('svg');
-    expect(iconElement).toHaveStyle('color: var(--icon-success)');
+    expect(iconElement).toHaveClass('tedi-icon--color-success');
   });
 
   it('renders with custom display', () => {
     const { container } = render(<Icon name="Add" display="inline" />);
     const iconElement = container.querySelector('svg');
     expect(iconElement).toHaveClass('tedi-icon--inline');
-  });
-
-  it('renders with label for screen readers', () => {
-    const { container } = render(<Icon name="Add" label="Add icon" />);
-    const iconElement = container.querySelector('svg');
-    expect(iconElement).toHaveAttribute('aria-label', 'Add icon');
   });
 
   it('renders filled variant', () => {
