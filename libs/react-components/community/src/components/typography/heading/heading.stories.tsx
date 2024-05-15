@@ -4,7 +4,8 @@ import Heading, { HeadingProps } from './heading';
 
 /**
  * This component is a wrapper for the `<Text>` component. It should only be used when we want to semantically render h1-h6 tags.<br />
- * The same result can be achieved by using the `<Text element="h1">`, but using this component gives a better indicator in code that we are using semantic headings.
+ * The same result can be achieved by using the `<Text element="h1">`, but using this component gives a better indicator in code that we are using semantic headings.<br/>
+ * **NB!** Headings have dynamic font styles, which means that they have different font-size/font-weight/line-height values for desktop/mobile.
  */
 const meta: Meta<typeof Heading> = {
   component: Heading,

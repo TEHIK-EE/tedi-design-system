@@ -1,3 +1,10 @@
+# [6.30.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.29.5...v6.30.0) (2024-05-15)
+
+
+### Features
+
+* **typography:** TEHVEER-302 - Add typography styles for mobile ([d4e87b0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/d4e87b0e84a6aa82227fdc7d86ed8aea756b563c))
+
 # [6.30.0-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.29.0...v6.30.0-rc.1) (2024-05-10)
 
 
