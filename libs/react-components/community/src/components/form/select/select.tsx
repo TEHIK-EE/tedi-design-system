@@ -64,6 +64,14 @@ const CustomInput = (props: InputProps<ISelectOption, boolean>): JSX.Element => 
   />
 );
 
+const Menu = (props: MenuProps<ISelectOption, boolean>): JSX.Element => (
+  <ReactSelectComponents.Menu {...props} className={cn(props.className, styles['select__menu'])} />
+);
+
+const MenuPortal = (props: MenuPortalProps<ISelectOption, boolean, IGroupedOptions<ISelectOption>>): JSX.Element => (
+  <ReactSelectComponents.MenuPortal {...props} className={cn(props.className, styles['select__menu-portal'])} />
+);
+
 export interface SelectProps extends FormLabelProps {
   /**
    * ID attribute.
@@ -347,29 +355,22 @@ export const Select = forwardRef<SelectInstance<ISelectOption, boolean, IGrouped
       <Icon name={iconName} size={24} className={styles['select__arrow']} />
     );
 
-    const getMenuPortal = (
-      props: MenuPortalProps<ISelectOption, boolean, IGroupedOptions<ISelectOption>>
-    ): JSX.Element => (
-      <ReactSelectComponents.MenuPortal {...props} className={cn(props.className, styles['select__menu-portal'])} />
-    );
-
-    const getMenu = (props: MenuProps<ISelectOption, boolean>): JSX.Element => (
-      <ReactSelectComponents.Menu {...props} className={cn(props.className, styles['select__menu'])} />
-    );
-
     const getPlaceholder = (props: PlaceholderProps<ISelectOption>): JSX.Element => (
       <ReactSelectComponents.Placeholder {...props} className={cn(props.className, 'inline-block')} />
     );
 
-    const getMenuList = (props: MenuListProps<ISelectOption, boolean>): JSX.Element => (
-      <div className={styles['select__menu-list-wrapper']}>
-        <ReactSelectComponents.MenuList {...props} className={cn(props.className, styles['select__menu-list'])}>
-          {props.children}
-        </ReactSelectComponents.MenuList>
-        {renderMessageListFooter && (
-          <div className={styles['select__menu-list-footer']}>{renderMessageListFooter(props)}</div>
-        )}
-      </div>
+    const MenuList = React.useCallback(
+      (props: MenuListProps<ISelectOption, boolean>) => (
+        <div className={styles['select__menu-list-wrapper']}>
+          <ReactSelectComponents.MenuList {...props} className={cn(props.className, styles['select__menu-list'])}>
+            {props.children}
+          </ReactSelectComponents.MenuList>
+          {renderMessageListFooter && (
+            <div className={styles['select__menu-list-footer']}>{renderMessageListFooter(props)}</div>
+          )}
+        </div>
+      ),
+      [renderMessageListFooter]
     );
 
     const getMultiOption = (props: OptionProps<ISelectOption, boolean>): JSX.Element => {
@@ -483,9 +484,9 @@ export const Select = forwardRef<SelectInstance<ISelectOption, boolean, IGrouped
         ClearIndicator: getClearIndicator,
         DropdownIndicator: getDropDownIndicator,
         IndicatorSeparator: () => null,
-        MenuPortal: getMenuPortal,
-        Menu: getMenu,
-        MenuList: getMenuList,
+        MenuPortal: MenuPortal,
+        Menu: Menu,
+        MenuList: MenuList,
         Option: getOption,
         Control: CustomControl,
         Input: CustomInput,

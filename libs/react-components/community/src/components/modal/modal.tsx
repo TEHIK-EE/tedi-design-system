@@ -3,6 +3,7 @@ import cn from 'classnames';
 import React from 'react';
 
 import { useLabels } from '../../providers/label-provider';
+import { IntentionalAny } from '../../types';
 import Button from '../button/button';
 import Card, { CardProps } from '../card/card';
 import styles from './modal.module.scss';
@@ -86,6 +87,43 @@ export const Modal = (props: ModalProps): JSX.Element | null => {
   const descriptionId = props['aria-describedby'];
   const { isOpen, floating, getFloatingProps, context, isDismissable } = React.useContext(ModalContext);
 
+  // add close button to the first CardHeader or CardContent
+  const parsedChildren = React.useMemo(() => {
+    let buttonRendered = false;
+
+    const getComponentDisplayName = (element: React.ReactElement<unknown, IntentionalAny>) => {
+      return element.type.displayName;
+    };
+
+    return !hideCloseButton
+      ? React.Children.map(children, (child, index) => {
+          if (
+            !buttonRendered &&
+            React.isValidElement(child) &&
+            (getComponentDisplayName(child) === 'CardHeader' || getComponentDisplayName(child) === 'CardContent')
+          ) {
+            buttonRendered = true; // only render close button once
+
+            return React.cloneElement(child, {
+              ...child.props,
+              children: (
+                <>
+                  <ModalCloser>
+                    <Button icon={{ name: 'close', size: 24 }} visualType="link" className={styles['close-button']}>
+                      {getLabel('modal.close')}
+                    </Button>
+                  </ModalCloser>
+                  {child.props.children}
+                </>
+              ),
+            });
+          }
+
+          return child;
+        })
+      : children;
+  }, [children, getLabel, hideCloseButton]);
+
   return (
     <FloatingPortal data-name="modal">
       {isOpen && (
@@ -112,18 +150,7 @@ export const Modal = (props: ModalProps): JSX.Element | null => {
               })}
             >
               <Card {...cardProps} className={cn(styles['modal__card'], cardProps?.className)}>
-                {!hideCloseButton && (
-                  <ModalCloser>
-                    <Button
-                      icon={{ name: 'close', className: styles['close-button-icon'] }}
-                      visualType="link"
-                      className={styles['close-button']}
-                    >
-                      {getLabel('modal.close')}
-                    </Button>
-                  </ModalCloser>
-                )}
-                {children}
+                {parsedChildren}
               </Card>
             </div>
           </FloatingFocusManager>

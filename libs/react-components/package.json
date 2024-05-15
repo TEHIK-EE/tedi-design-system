@@ -32,7 +32,6 @@
     "react-dom": "*",
     "react-select": "*",
     "react-sticky-box": "*",
-    "react-test-renderer": "*",
     "react-toastify": "*",
     "what-input": "*",
     "yup": "*"

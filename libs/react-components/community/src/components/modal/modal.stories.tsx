@@ -10,6 +10,7 @@ import Modal, { ModalProps } from './modal';
 import ModalCloser from './modal-closer';
 import ModalProvider, { ModalProviderProps } from './modal-provider';
 import ModalTrigger from './modal-trigger';
+
 /**
  * Modal consist of 4 components: <b>ModalProvider</b>, <b>Modal</b>, <b>ModalTrigger</b> and <b>ModalCloser</b>.<br />
  * **ModalProvider** - Provider context for other components. Handles modal open state.<br />
@@ -112,6 +113,16 @@ export const OpenByDefault: Story = {
     modalProvider: {
       defaultOpen: true,
     },
+  },
+};
+
+export const WithoutHeader: Story = {
+  render: Template,
+
+  args: {
+    heading: 'Error type modal',
+    content: 'Use to display error notifications',
+    renderHeader: false,
   },
 };
 

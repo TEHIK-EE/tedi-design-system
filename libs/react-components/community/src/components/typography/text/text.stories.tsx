@@ -11,7 +11,8 @@ import Text, { TextProps } from './text';
 /**
  * Text is helper component to use different color and modifiers on text.<br/>
  * Modifiers prop accepts array of modifiers or single modifier. It helps you to combine modifiers if needed.<br/>
- * Every modifier and color of text has its own global css class also, but using Text component is highly recommended.
+ * Every modifier and color of text has its own global css class also, but using Text component is highly recommended.<br/>
+ * **NB!** Headings have dynamic font styles, which means that they have different font-size/font-weight/line-height values for desktop/mobile.
  */
 const meta: Meta<typeof Text> = {
   component: Text,
@@ -23,26 +24,186 @@ type Story = StoryObj<typeof Text>;
 
 interface TextTableRow {
   name: string;
-  rem: string;
-  px: string;
+  desktop: {
+    fontSize: number;
+    lineHeight: number;
+  };
+  mobile: {
+    fontSize: number;
+    lineHeight: number;
+  };
   props: Partial<TextProps>;
 }
 
 const DefaultRows: TextTableRow[] = [
-  { name: 'Heading 1', rem: '2/3', px: '32/48', props: { element: 'h1' } },
-  { name: 'Heading 2', rem: '1.75/2.625', px: '28/42', props: { element: 'h2' } },
-  { name: 'Heading 3', rem: '1.5/2.25', px: '24/36', props: { element: 'h3' } },
-  { name: 'Heading 4', rem: '1.25/1.875', px: '20/30', props: { element: 'h4' } },
-  { name: 'Heading 5', rem: '1.125/1.625', px: '18/26', props: { element: 'h5' } },
-  { name: 'Heading 6', rem: '1/1.5', px: '16/24', props: { element: 'h6' } },
-  { name: 'Body Regular', rem: '1/1.5', px: '16/24', props: { element: 'p' } },
-  { name: 'Body Regular Italic', rem: '1/1.5', px: '16/24', props: { modifiers: ['italic'] } },
-  { name: 'Body Regular Bold', rem: '1/1.5', px: '16/24', props: { modifiers: ['bold'] } },
-  { name: 'Body Small', rem: '0.875/1.25', px: '14/20', props: { modifiers: ['small'] } },
-  { name: 'Body Small Italic', rem: '0.875/1.25', px: '14/20', props: { modifiers: ['small', 'italic'] } },
-  { name: 'Body Small Bold', rem: '0.875/1.25', px: '14/20', props: { modifiers: ['small', 'bold'] } },
-  { name: 'Subtitles regular', rem: '1/1.5', px: '16/24', props: { modifiers: ['uppercase', 'bold'] } },
-  { name: 'Subtitles small', rem: '0.875/1.25', px: '14/20', props: { modifiers: ['uppercase', 'small'] } },
+  {
+    name: 'Heading 1',
+    desktop: {
+      fontSize: 2,
+      lineHeight: 2.875,
+    },
+    mobile: {
+      fontSize: 1.5,
+      lineHeight: 2,
+    },
+    props: { element: 'h1' },
+  },
+  {
+    name: 'Heading 2',
+    desktop: {
+      fontSize: 1.75,
+      lineHeight: 2.25,
+    },
+    mobile: {
+      fontSize: 1.375,
+      lineHeight: 1.75,
+    },
+    props: { element: 'h2' },
+  },
+  {
+    name: 'Heading 3',
+    desktop: {
+      fontSize: 1.5,
+      lineHeight: 2,
+    },
+    mobile: {
+      fontSize: 1.25,
+      lineHeight: 1.625,
+    },
+    props: { element: 'h3' },
+  },
+  {
+    name: 'Heading 4',
+    desktop: {
+      fontSize: 1.25,
+      lineHeight: 1.625,
+    },
+    mobile: {
+      fontSize: 1.125,
+      lineHeight: 1.5,
+    },
+    props: { element: 'h4' },
+  },
+  {
+    name: 'Heading 5',
+    desktop: {
+      fontSize: 1.125,
+      lineHeight: 1.5,
+    },
+    mobile: {
+      fontSize: 1,
+      lineHeight: 1.5,
+    },
+    props: { element: 'h5' },
+  },
+  {
+    name: 'Heading 6',
+    desktop: {
+      fontSize: 1,
+      lineHeight: 1.5,
+    },
+    mobile: {
+      fontSize: 1,
+      lineHeight: 1.5,
+    },
+    props: { element: 'h6' },
+  },
+  {
+    name: 'Body Regular',
+    desktop: {
+      fontSize: 1,
+      lineHeight: 1.5,
+    },
+    mobile: {
+      fontSize: 1,
+      lineHeight: 1.5,
+    },
+    props: { element: 'p' },
+  },
+  {
+    name: 'Body Regular Italic',
+    desktop: {
+      fontSize: 1,
+      lineHeight: 1.5,
+    },
+    mobile: {
+      fontSize: 1,
+      lineHeight: 1.5,
+    },
+    props: { modifiers: ['italic'] },
+  },
+  {
+    name: 'Body Regular Bold',
+    desktop: {
+      fontSize: 1,
+      lineHeight: 1.5,
+    },
+    mobile: {
+      fontSize: 1,
+      lineHeight: 1.5,
+    },
+    props: { modifiers: ['bold'] },
+  },
+  {
+    name: 'Body Small',
+    desktop: {
+      fontSize: 0.875,
+      lineHeight: 1.25,
+    },
+    mobile: {
+      fontSize: 0.875,
+      lineHeight: 1.25,
+    },
+    props: { modifiers: ['small'] },
+  },
+  {
+    name: 'Body Small Italic',
+    desktop: {
+      fontSize: 0.875,
+      lineHeight: 1.25,
+    },
+    mobile: {
+      fontSize: 0.875,
+      lineHeight: 1.25,
+    },
+    props: { modifiers: ['small', 'italic'] },
+  },
+  {
+    name: 'Body Small Bold',
+    desktop: {
+      fontSize: 0.875,
+      lineHeight: 1.25,
+    },
+    mobile: {
+      fontSize: 0.875,
+      lineHeight: 1.25,
+    },
+    props: { modifiers: ['small', 'bold'] },
+  },
+  {
+    name: 'Subtitles regular',
+    desktop: {
+      fontSize: 1,
+      lineHeight: 1.5,
+    },
+    mobile: {
+      fontSize: 1,
+      lineHeight: 1.5,
+    },
+    props: { modifiers: ['uppercase', 'bold'] },
+  },
+  {
+    name: 'Subtitles small',
+    desktop: {
+      fontSize: 0.875,
+      lineHeight: 1.25,
+    },
+    mobile: {
+      fontSize: 0.875,
+      lineHeight: 1.25,
+    },
+    props: { modifiers: ['uppercase', 'small'] },
+  },
 ];
 
 const FontVariantRows: TextProps[] = [
@@ -62,12 +223,37 @@ const columns: ColumnDef<TextTableRow, any>[] = [
     header: 'Name',
     cell: (info) => <Text {...info.row.original.props}>{info.renderValue()}</Text>,
   }),
-  columnHelper.accessor('rem', {
-    header: 'font size/line-height (rem)',
-    cell: (info) => info.renderValue(),
+  columnHelper.accessor('desktop', {
+    header: 'desktop',
+    cell: (info) => {
+      const { fontSize, lineHeight } = info.row.original.desktop ?? {};
+      return (
+        <VerticalSpacing size={0}>
+          <Text>
+            font-size: <Text element="span" modifiers="bold">{`${fontSize * 16}px/${fontSize}rem`}</Text>
+          </Text>
+          <Text>
+            line-height: <Text element="span" modifiers="bold">{`${lineHeight * 16}px/${lineHeight}rem`}</Text>
+          </Text>
+        </VerticalSpacing>
+      );
+    },
   }),
-  columnHelper.accessor('px', {
-    header: 'font size/line-height (px)',
+  columnHelper.accessor('mobile', {
+    header: 'mobile',
+    cell: (info) => {
+      const { fontSize, lineHeight } = info.row.original.mobile ?? {};
+      return (
+        <VerticalSpacing size={0}>
+          <Text>
+            font-size: <Text element="span" modifiers="bold">{`${fontSize * 16}px/${fontSize}rem`}</Text>
+          </Text>
+          <Text>
+            line-height: <Text element="span" modifiers="bold">{`${lineHeight * 16}px/${lineHeight}rem`}</Text>
+          </Text>
+        </VerticalSpacing>
+      );
+    },
   }),
 ];
 

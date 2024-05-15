@@ -10,8 +10,9 @@ const config: StorybookConfig = {
   ...rootMain,
   core: { ...rootMain.core },
   stories: [
-    '../community/src/docs/_welcome.mdx',
-    '../community/src/docs/getStarted.mdx',
+    '../shared/docs/_welcome.mdx',
+    '../shared/docs/getStarted.mdx',
+    '../shared/docs/changelog.mdx',
     '../community/src/docs/colors/colorTokens.mdx',
     '../community/src/docs/colors/colorGuidelines.mdx',
     '../community/src/docs/scale-layout/spacing.mdx',
