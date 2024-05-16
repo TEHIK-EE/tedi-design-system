@@ -19,6 +19,8 @@ const config: StorybookConfig = {
     '../community/src/docs/scale-layout/grid.mdx',
     '../community/src/docs/labels/labels.mdx',
     '../community/src/docs/printing.mdx',
+    '../community/src/docs/changelog.mdx',
+    '../tedi/src/**/**/*.stories.tsx',
     '../community/src/**/**/*.stories.tsx',
     '../community/src/**/**/*.mdx',
   ],

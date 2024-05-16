@@ -55,5 +55,13 @@
         "passWithNoTests": true
       }
     }
+  },
+  "enforceModuleBoundaries": {
+    "allow": [
+      {
+        "from": "libs/react-components/community",
+        "to": "libs/react-components/tedi"
+      }
+    ]
   }
 }
