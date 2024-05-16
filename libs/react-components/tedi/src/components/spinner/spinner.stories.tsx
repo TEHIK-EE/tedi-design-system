@@ -42,6 +42,21 @@ const TemplateColumn: StoryFn<TemplateMultipleProps> = (args) => {
   );
 };
 
+const TemplateColors: StoryFn<TemplateMultipleProps> = () => {
+  return (
+    <div className="row w-50">
+      <div className="column">
+        <Spinner color="primary" size={48} />
+      </div>
+      <div className="column">
+        <div className="with-background">
+          <Spinner color="secondary" size={48} />
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const Template: StoryFn<SpinnerProps> = (args) => <Spinner {...args} />;
 
 export const Default: Story = {
@@ -65,21 +80,7 @@ export const Size: StoryObj<TemplateMultipleProps> = {
   },
 };
 
-export const Inverted: Story = {
+export const Color: StoryObj<TemplateMultipleProps> = {
+  render: TemplateColors,
   name: 'Spinner colors',
-
-  render: () => {
-    return (
-      <div className="row w-50">
-        <div className="column">
-          <Spinner color="primary" size={48} />
-        </div>
-        <div className="column">
-          <div className="with-background">
-            <Spinner color="secondary" size={48} />
-          </div>
-        </div>
-      </div>
-    );
-  },
 };

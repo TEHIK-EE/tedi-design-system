@@ -1,19 +1,39 @@
+$spinner-colors: (
+  'primary': 'loader-spinner-color-primary',
+  'secondary': 'loader-spinner-color-secondary',
+);
+$spinner-sizes: (
+  10: var(--loader-spinner-sizing-sm),
+  16: var(--loader-spinner-sizing-md),
+  48: var(--loader-spinner-sizing-lg),
+);
+
 .tedi-spinner {
   display: flex;
-  width: var(--spinner-internal-variation-size, 1rem);
-  height: var(--spinner-internal-variation-size, 1rem);
-  stroke: var(--spinner-internal-variation-stroke-color, var(--loader-color-primary));
   animation: 1.4s linear 0s infinite normal none running tedi-spinner-outer;
 
   &--absolute {
     position: absolute;
   }
+
+  @each $color, $var in $spinner-colors {
+    &--color-#{$color} {
+      stroke: var(--#{$var});
+    }
+  }
+
+  @each $size, $var in $spinner-sizes {
+    &--size-#{$size} {
+      width: #{$size}px;
+      height: #{$size}px;
+    }
+  }
 }
 
-.tedi-spinner__inner {
+.tedi-spinner--inner {
   stroke-dasharray: 80px, 200px;
   stroke-dashoffset: 0;
-  stroke-width: var(--spinner-internal-variation-stroke-width, 0.25rem);
+  stroke-width: 4px;
   animation: 1.4s ease-in-out 0s infinite normal none running tedi-spinner-inner;
 }
 

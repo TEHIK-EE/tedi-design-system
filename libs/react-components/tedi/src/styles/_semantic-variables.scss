@@ -47,8 +47,11 @@
   --icon-background-secondary: var(--alpha-white-300);
   --icon-background-distinctive-primary: var(--general-surface-distinctive-primary);
   --icon-background-distinctive-secondary: var(--general-surface-distinctive-secondary);
-  --loader-color-primary: var(--neutral-600);
-  --loader-color-secondary: var(--alpha-white-800);
+  --loader-spinner-color-primary: var(--neutral-600);
+  --loader-spinner-color-secondary: var(--alpha-white-800);
+  --loader-spinner-sizing-sm: 10;
+  --loader-spinner-sizing-md: 16;
+  --loader-spinner-sizing-lg: 48;
   --general-text-white: var(--neutral-100);
   --link-primary-default: var(--blue-600);
   --list-icon: var(--primary-600);
