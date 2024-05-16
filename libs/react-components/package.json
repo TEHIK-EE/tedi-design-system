@@ -5,9 +5,13 @@
   "main": "index.js",
   "module": "index.js",
   "exports": {
+    "./tedi": {
+      "types": "./tedi/index.d.ts",
+      "import": "./index.js"
+    },
     "./community": {
       "types": "./community/index.d.ts",
-      "import": "./index.js"
+      "import": "./index2.js"
     },
     "./index.css": "./index.css"
   },
