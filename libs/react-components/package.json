@@ -7,11 +7,11 @@
   "exports": {
     "./tedi": {
       "types": "./tedi/index.d.ts",
-      "import": "./index.js"
+      "import": "./tedi.js"
     },
     "./community": {
       "types": "./community/index.d.ts",
-      "import": "./index2.js"
+      "import": "./community.js"
     },
     "./index.css": "./index.css"
   },

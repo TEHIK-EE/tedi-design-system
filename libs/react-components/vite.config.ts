@@ -60,6 +60,11 @@ const config: UserConfig = {
         community: path.resolve(__dirname, 'community/src/index.ts'),
       },
       output: {
+        entryFileNames: (chunkInfo) => {
+          if (chunkInfo.name === 'tedi') return 'tedi.js';
+          if (chunkInfo.name === 'community') return 'community.js';
+          return 'index.js';
+        },
         assetFileNames: (assetInfo) => {
           if (assetInfo.name === 'style.css') return 'index.css';
           return assetInfo.name || '';
