@@ -1,3 +1,10 @@
+# [6.30.0-rc.3](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.30.0-rc.2...v6.30.0-rc.3) (2024-05-16)
+
+
+### Features
+
+* **icon:** TEDI-41 - TEDI icon component ([da3b2e4](https://github.com/TEHIK-EE/tedi-design-system/commit/da3b2e426fc1d80229214489b39fb4e0f6ed9607)), closes [#12](https://github.com/TEHIK-EE/tedi-design-system/issues/12) [#8](https://github.com/TEHIK-EE/tedi-design-system/issues/8) [#8](https://github.com/TEHIK-EE/tedi-design-system/issues/8) [#8](https://github.com/TEHIK-EE/tedi-design-system/issues/8) [#8](https://github.com/TEHIK-EE/tedi-design-system/issues/8) [#8](https://github.com/TEHIK-EE/tedi-design-system/issues/8) [#8](https://github.com/TEHIK-EE/tedi-design-system/issues/8) [#8](https://github.com/TEHIK-EE/tedi-design-system/issues/8)
+
 # [6.30.0-rc.2](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.30.0-rc.1...v6.30.0-rc.2) (2024-05-15)
 
 
