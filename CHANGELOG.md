@@ -1,3 +1,10 @@
+# [6.30.0-rc.4](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.30.0-rc.3...v6.30.0-rc.4) (2024-05-16)
+
+
+### Features
+
+* **general:** TEDI-261 - Added TEDI components export ([919319e](https://github.com/TEHIK-EE/tedi-design-system/commit/919319ecdaa63b785951def02083343d52a9df43)), closes [#12](https://github.com/TEHIK-EE/tedi-design-system/issues/12) [#8](https://github.com/TEHIK-EE/tedi-design-system/issues/8) [#8](https://github.com/TEHIK-EE/tedi-design-system/issues/8) [#8](https://github.com/TEHIK-EE/tedi-design-system/issues/8) [#8](https://github.com/TEHIK-EE/tedi-design-system/issues/8) [#8](https://github.com/TEHIK-EE/tedi-design-system/issues/8)
+
 # [6.30.0-rc.3](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.30.0-rc.2...v6.30.0-rc.3) (2024-05-16)
 
 
