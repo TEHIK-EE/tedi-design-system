@@ -2,6 +2,9 @@ import cn from 'classnames';
 
 import styles from './spinner.module.scss';
 
+export type SpinnerSizeProps = 10 | 16 | 48;
+export type SpinnerColorProps = 'primary' | 'secondary';
+
 export interface SpinnerProps {
   /**
    * Additional class name
@@ -11,12 +14,12 @@ export interface SpinnerProps {
    * Size of the spinner
    * @default 16
    */
-  size?: 10 | 16 | 48;
+  size?: SpinnerSizeProps;
   /**
    * Which color spinner should be
    * @default 'primary'
    */
-  color?: 'primary' | 'secondary';
+  color?: SpinnerColorProps;
   /**
    * Label for screen-readers
    * If omitted then the spinner is hidden for screen-readers
@@ -28,14 +31,16 @@ export interface SpinnerProps {
   position?: 'absolute';
 }
 
-export const Spinner = (props: SpinnerProps): JSX.Element => {
+const Spinner = (props: SpinnerProps): JSX.Element => {
   const { className, size = 16, color = 'primary', label = props.label, position } = props;
 
-  const spinnerBEM = cn(styles['tedi-spinner'], className, {
-    [styles[`tedi-spinner--${position}`]]: !!position,
-    [styles[`tedi-spinner--size-${size}`]]: !!size,
-    [styles[`tedi-spinner--color-${color}`]]: !!color,
-  });
+  const spinnerBEM = cn(
+    styles['tedi-spinner'],
+    className,
+    position && styles[`tedi-spinner--${position}`],
+    size && styles[`tedi-spinner--size-${size}`],
+    color && styles[`tedi-spinner--color-${color}`]
+  );
 
   return (
     <span data-testid="spinner" className={spinnerBEM} aria-hidden={!label} aria-label={label}>
@@ -45,5 +50,7 @@ export const Spinner = (props: SpinnerProps): JSX.Element => {
     </span>
   );
 };
+
+Spinner.displayName = 'Spinner';
 
 export default Spinner;
