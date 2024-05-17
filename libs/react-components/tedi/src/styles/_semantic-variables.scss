@@ -47,6 +47,13 @@
   --icon-background-secondary: var(--alpha-white-300);
   --icon-background-distinctive-primary: var(--general-surface-distinctive-primary);
   --icon-background-distinctive-secondary: var(--general-surface-distinctive-secondary);
+  --icon-00: var(--dimensions-05-rem);
+  --icon-01: var(--dimensions-06-rem);
+  --icon-02: var(--dimensions-08-rem);
+  --icon-03: var(--dimensions-09-rem);
+  --icon-04: var(--dimensions-11-rem);
+  --icon-05: var(--dimensions-13-rem);
+  --icon-06: var(--dimensions-15-rem);
   --loader-spinner-color-primary: var(--neutral-600);
   --loader-spinner-color-secondary: var(--alpha-white-800);
   --loader-spinner-sizing-sm: 10;
@@ -414,8 +421,11 @@
   --icon-background-secondary: var(--alpha-white-300);
   --icon-background-distinctive-primary: var(--general-surface-distinctive-primary);
   --icon-background-distinctive-secondary: var(--general-surface-distinctive-secondary);
-  --loader-color-primary: var(--alpha-white-800);
-  --loader-color-secondary: var(--alpha-white-800);
+  --loader-spinner-color-primary: var(--neutral-600);
+  --loader-spinner-color-secondary: var(--alpha-white-800);
+  --loader-spinner-sizing-sm: 10;
+  --loader-spinner-sizing-md: 16;
+  --loader-spinner-sizing-lg: 48;
   --general-text-white: var(--neutral-800);
   --link-primary-default: var(--blue-500);
   --list-icon: var(--primary-500);

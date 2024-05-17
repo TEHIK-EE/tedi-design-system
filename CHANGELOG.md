@@ -1,90 +1,37 @@
-# [6.29.0-rc.9](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.29.0-rc.8...v6.29.0-rc.9) (2024-05-08)
+# [6.30.0-rc.4](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.30.0-rc.3...v6.30.0-rc.4) (2024-05-16)
+
+
+### Features
+
+* **general:** TEDI-261 - Added TEDI components export ([919319e](https://github.com/TEHIK-EE/tedi-design-system/commit/919319ecdaa63b785951def02083343d52a9df43)), closes [#12](https://github.com/TEHIK-EE/tedi-design-system/issues/12) [#8](https://github.com/TEHIK-EE/tedi-design-system/issues/8) [#8](https://github.com/TEHIK-EE/tedi-design-system/issues/8) [#8](https://github.com/TEHIK-EE/tedi-design-system/issues/8) [#8](https://github.com/TEHIK-EE/tedi-design-system/issues/8) [#8](https://github.com/TEHIK-EE/tedi-design-system/issues/8)
+
+# [6.30.0-rc.3](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.30.0-rc.2...v6.30.0-rc.3) (2024-05-16)
+
+
+### Features
+
+* **icon:** TEDI-41 - TEDI icon component ([da3b2e4](https://github.com/TEHIK-EE/tedi-design-system/commit/da3b2e426fc1d80229214489b39fb4e0f6ed9607)), closes [#12](https://github.com/TEHIK-EE/tedi-design-system/issues/12) [#8](https://github.com/TEHIK-EE/tedi-design-system/issues/8) [#8](https://github.com/TEHIK-EE/tedi-design-system/issues/8) [#8](https://github.com/TEHIK-EE/tedi-design-system/issues/8) [#8](https://github.com/TEHIK-EE/tedi-design-system/issues/8) [#8](https://github.com/TEHIK-EE/tedi-design-system/issues/8) [#8](https://github.com/TEHIK-EE/tedi-design-system/issues/8) [#8](https://github.com/TEHIK-EE/tedi-design-system/issues/8)
+
+# [6.30.0-rc.2](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.30.0-rc.1...v6.30.0-rc.2) (2024-05-15)
 
 
 ### Bug Fixes
 
-* **Continious deployment:** Fixed the way base href is composed to exclude query part ([5c3e973](https://github.com/TEHIK-EE/tedi-design-system/commit/5c3e973bd05d4eb31c9537162e09646acbb24b1a))
-
-# [6.29.0-rc.8](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.29.0-rc.7...v6.29.0-rc.8) (2024-05-06)
+* **chore:** Fixed breakpoints style path in variables ([5d59860](https://github.com/TEHIK-EE/tedi-design-system/commit/5d598607423dd6ea149abc21ab5af3cc25538a4c))
 
 
 ### Features
 
-* **chore:** Move Welcome, GetStarted and Changelog docs to shared folder ([#33](https://github.com/TEHIK-EE/tedi-design-system/issues/33)) ([10fa8cb](https://github.com/TEHIK-EE/tedi-design-system/commit/10fa8cb2f1c6aa77a1a21d217a24f5591f709cda))
+* **typography:** TEHVEER-302 - Add typography styles for mobile ([215fddb](https://github.com/TEHIK-EE/tedi-design-system/commit/215fddb5c95411c98a5e72be0d24b4ef2d85be24))
 
-# [6.29.0-rc.7](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.29.0-rc.6...v6.29.0-rc.7) (2024-05-06)
-
-
-### Features
-
-* **pipeline:** Added GitHub Code scanning ([#31](https://github.com/TEHIK-EE/tedi-design-system/issues/31)) ([72d5a04](https://github.com/TEHIK-EE/tedi-design-system/commit/72d5a04ccfad82c7aba903ce294504974aa9c2fd))
-
-# [6.29.0-rc.6](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.29.0-rc.5...v6.29.0-rc.6) (2024-04-30)
-
-
-### Bug Fixes
-
-* **chore:** TEDI-216 - Stories paths, changelog and readme fixes ([af5d743](https://github.com/TEHIK-EE/tedi-design-system/commit/af5d743e8df1e0c2d7d7d2592df39ae12dda2c4e))
-
-# [6.29.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.28.4...v6.29.0) (2024-04-24)
-
-### Features
-
-* **table:** add visibilityState, to hide columns - TEHVEER-303 ([c3b57ae](https://github.com/TEHIK-EE/tedi-design-system/commit/c3b57aea8ddd325961e7126d9adac656a408c5fc))
-
-# [6.29.0-rc.5](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.29.0-rc.4...v6.29.0-rc.5) (2024-04-29)
-
-### Features
-
-* **chore:** Library structure changes ([80a142d](https://github.com/TEHIK-EE/tedi-design-system/commit/80a142d9328e0212b830c1ea08535ceebdec27cf)), closes [#12](https://github.com/TEHIK-EE/tedi-design-system/issues/12) [#8](https://github.com/TEHIK-EE/tedi-design-system/issues/8)
-
-# [6.29.0-rc.4](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.29.0-rc.3...v6.29.0-rc.4) (2024-04-25)
-
-### Bug Fixes
-
-* Fixed semantic-release config ([cca9bec](https://github.com/TEHIK-EE/tedi-design-system/commit/cca9bec8dffb9a2f0854c11084e92f98bd2fecee))
-
-# [6.29.0-rc.3](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.29.0-rc.2...v6.29.0-rc.3) (2024-04-25)
-
-### Features
-
-* **table:** add visibilityState, to hide columns - TEHVEER-303 ([d5f4d85](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/d5f4d85c2aa65c91e6e5e78c45d11b8951cc103b))
-
-# [6.29.0-rc.2](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.29.0-rc.1...v6.29.0-rc.2) (2024-04-25)
-
-### Features
-
-* **table:** add visibilityState, to hide columns - TEHVEER-303 ([d5f4d85](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/d5f4d85c2aa65c91e6e5e78c45d11b8951cc103b))
-
-# [6.29.0-rc.3](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.29.0-rc.2...v6.29.0-rc.3) (2024-04-25)
+# [6.30.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.29.5...v6.30.0) (2024-05-15)
 
 
 ### Features
 
-* **table:** add visibilityState, to hide columns - TEHVEER-303 ([d5f4d85](https://github.com/TEHIK-EE/tedi-design-system/commit/d5f4d85c2aa65c91e6e5e78c45d11b8951cc103b))
+* **typography:** TEHVEER-302 - Add typography styles for mobile ([d4e87b0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/d4e87b0e84a6aa82227fdc7d86ed8aea756b563c))
 
-# [6.29.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.28.4...v6.29.0) (2024-04-24)
-
-
-### Features
-
-* **table:** add visibilityState, to hide columns - TEHVEER-303 ([d5f4d85](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/d5f4d85c2aa65c91e6e5e78c45d11b8951cc103b))
-
-# [6.29.0-rc.2](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.29.0-rc.1...v6.29.0-rc.2) (2024-04-25)
-
-
-### Features
-
-* **table:** add visibilityState, to hide columns - TEHVEER-303 ([c3b57ae](https://github.com/TEHIK-EE/tedi-design-system/commit/c3b57aea8ddd325961e7126d9adac656a408c5fc))
-
-# [6.29.0](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/compare/v6.28.4...v6.29.0) (2024-04-24)
-
-
-### Features
-
-* **table:** add visibilityState, to hide columns - TEHVEER-303 ([d5f4d85](https://gitlab.sotsiaalministeerium.ee/tehik-react/tehik-react-components/commit/d5f4d85c2aa65c91e6e5e78c45d11b8951cc103b))
-
-# [6.29.0-rc.4](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.29.0-rc.3...v6.29.0-rc.4) (2024-04-25)
+# [6.30.0-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.29.0...v6.30.0-rc.1) (2024-05-10)
 
 
 ### Bug Fixes

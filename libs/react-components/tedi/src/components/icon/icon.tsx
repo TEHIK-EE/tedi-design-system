@@ -1,7 +1,6 @@
 import * as MaterialIcons from '@mui/icons-material';
 import { capitalize } from '@mui/material';
 import cn from 'classnames';
-import React from 'react';
 
 import styles from './icon.module.scss';
 
@@ -12,55 +11,46 @@ export type IconBackgroundColor = 'primary' | 'secondary' | 'distinctive-primary
 
 export interface IconProps {
   /**
-   * Name of material icon.
+   * Name of material icon
    * https://mui.com/material-ui/material-icons/
    */
   name: string;
   /**
-   * Additional classes.
+   * Additional classes
    */
   className?: string;
   /**
-   * Type of icon.
-   * It is recommended to only use one type throughout your app.
-   * This ensures that only one icon font is downloaded.
+   * Type of icon
+   * It is recommended to only use one type throughout your app
    * @default outlined
    */
   type?: IconType;
   /**
-   * Size of the icon.
+   * Size of the icon
    * @default 24
    */
   size?: IconSize;
   /**
-   * Which color Icon should be.
-   * Use 'positive', 'important' or 'warning' with caution, usually they should not be in application UI.
-   * @default default
+   * Which color Icon should be
+   * Use 'positive', 'important' or 'warning' with caution, usually they should not be in application UI
+   * @default primary
    */
   color?: IconColor;
   /**
-   * Type of display. block by default.
+   * Type of display
    * @default block
    */
   display?: 'block' | 'inline';
   /**
-   * Icons label for screen-readers.
-   * If omitted then the icon is hidden for screen-readers.
-   */
-  label?: string;
-  /**
-   * Add a background to the icon.
-   * Use 'default' for white circle and 'transparent'for slightly transparent one.
-   * Default is without a background.
+   * Add round background
    */
   background?: IconBackgroundColor;
 }
 
-export const Icon: React.FC<IconProps> = (props): JSX.Element => {
+export const Icon = (props: IconProps): JSX.Element => {
   const {
     className,
     name,
-    label,
     type = 'outlined',
     size = 24,
     display = 'block',
@@ -70,28 +60,29 @@ export const Icon: React.FC<IconProps> = (props): JSX.Element => {
   } = props;
 
   if (!MaterialIcons[name as keyof typeof MaterialIcons]) {
-    return <></>;
+    throw new Error(`Component name of '${name}' doesn't exist in Material Icons`);
   }
 
   const MaterialIcon =
     MaterialIcons[`${name}${type === 'filled' ? '' : capitalize(type)}` as keyof typeof MaterialIcons];
 
-  const iconStyles = {
-    fontSize: `${size / 16}rem`,
-    ...(color && { color: `var(--icon-${color})` }),
-  } as React.CSSProperties;
-
-  const wrapperStyles = background ? { backgroundColor: `var(--icon-background-${background})` } : {};
-
-  const iconBEM = cn('notranslate', styles['tedi-icon'], styles[`tedi-icon--${display}`], className);
-
   const wrapperBEM = cn(styles['tedi-icon--wrapper'], {
     [styles['tedi-icon--bg']]: background,
+    [styles[`tedi-icon--bg-${background}`]]: background,
   });
 
+  const iconBEM = cn(
+    className,
+    'notranslate',
+    styles['tedi-icon'],
+    display && styles[`tedi-icon--${display}`],
+    color && styles[`tedi-icon--color-${color}`],
+    size && styles[`tedi-icon--size-${size}`]
+  );
+
   return (
-    <div className={wrapperBEM} style={wrapperStyles}>
-      <MaterialIcon aria-label={label} aria-hidden={!label} className={iconBEM} style={iconStyles} {...rest} />
+    <div className={wrapperBEM}>
+      <MaterialIcon aria-hidden={true} className={iconBEM} {...rest} />
     </div>
   );
 };
