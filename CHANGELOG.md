@@ -1,3 +1,10 @@
+# [6.30.0-rc.5](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.30.0-rc.4...v6.30.0-rc.5) (2024-05-17)
+
+
+### Features
+
+* **spinner:** TEDI-199 - TEDI Spinner component ([fb24128](https://github.com/TEHIK-EE/tedi-design-system/commit/fb24128f7798bf952d382d6cfc35e20a138e9e72)), closes [#12](https://github.com/TEHIK-EE/tedi-design-system/issues/12) [#8](https://github.com/TEHIK-EE/tedi-design-system/issues/8) [#8](https://github.com/TEHIK-EE/tedi-design-system/issues/8) [#8](https://github.com/TEHIK-EE/tedi-design-system/issues/8) [#8](https://github.com/TEHIK-EE/tedi-design-system/issues/8) [#8](https://github.com/TEHIK-EE/tedi-design-system/issues/8) [#8](https://github.com/TEHIK-EE/tedi-design-system/issues/8) [#8](https://github.com/TEHIK-EE/tedi-design-system/issues/8) [#8](https://github.com/TEHIK-EE/tedi-design-system/issues/8) [#8](https://github.com/TEHIK-EE/tedi-design-system/issues/8) [#8](https://github.com/TEHIK-EE/tedi-design-system/issues/8) [#8](https://github.com/TEHIK-EE/tedi-design-system/issues/8) [#8](https://github.com/TEHIK-EE/tedi-design-system/issues/8) [#8](https://github.com/TEHIK-EE/tedi-design-system/issues/8) [#8](https://github.com/TEHIK-EE/tedi-design-system/issues/8) [#8](https://github.com/TEHIK-EE/tedi-design-system/issues/8)
+
 # [6.30.0-rc.4](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.30.0-rc.3...v6.30.0-rc.4) (2024-05-16)
 
 
