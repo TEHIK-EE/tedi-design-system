@@ -1,7 +1,7 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import classNames from 'classnames';
 
-import Icon, { IconProps } from './icon';
+import { Icon, IconProps } from './icon';
 
 /**
  * [Figma ↗](https://www.figma.com/file/jWiRIXhHRxwVdMSimKX2FF/TEDI-Design-System-(draft)?type=design&node-id=45-30752&mode=dev)<br/>
