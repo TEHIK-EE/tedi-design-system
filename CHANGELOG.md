@@ -1,3 +1,10 @@
+# [6.30.0-rc.7](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.30.0-rc.6...v6.30.0-rc.7) (2024-05-20)
+
+
+### Bug Fixes
+
+* **library:** TEDI-277 - Library components export fix ([#43](https://github.com/TEHIK-EE/tedi-design-system/issues/43)) ([f4ba2cb](https://github.com/TEHIK-EE/tedi-design-system/commit/f4ba2cb2c3ef491c94e084a992001be5ed415105))
+
 # [6.30.0-rc.6](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.30.0-rc.5...v6.30.0-rc.6) (2024-05-20)
 
 
