@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 
-import Spinner from './spinner';
+import { Spinner } from './spinner';
 
 import '@testing-library/jest-dom';
 
