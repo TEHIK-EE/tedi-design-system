@@ -32,7 +32,7 @@ export interface SpinnerProps {
   position?: SpinnerPosition;
 }
 
-const Spinner = (props: SpinnerProps): JSX.Element => {
+export const Spinner = (props: SpinnerProps): JSX.Element => {
   const { className, size = 16, color = 'primary', label = props.label, position } = props;
 
   const spinnerBEM = cn(
@@ -53,5 +53,3 @@ const Spinner = (props: SpinnerProps): JSX.Element => {
 };
 
 Spinner.displayName = 'Spinner';
-
-export default Spinner;

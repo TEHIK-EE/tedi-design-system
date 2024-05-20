@@ -88,5 +88,3 @@ export const Icon = (props: IconProps): JSX.Element => {
 };
 
 Icon.displayName = 'Icon';
-
-export default Icon;
