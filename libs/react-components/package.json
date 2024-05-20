@@ -11,7 +11,7 @@
     },
     "./community": {
       "types": "./community/index.d.ts",
-      "import": "./community.js"
+      "import": "./index.js"
     },
     "./index.css": "./index.css"
   },
