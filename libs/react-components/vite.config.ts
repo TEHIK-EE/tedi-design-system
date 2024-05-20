@@ -62,7 +62,6 @@ const config: UserConfig = {
       output: {
         entryFileNames: (chunkInfo) => {
           if (chunkInfo.name === 'tedi') return 'tedi.js';
-          if (chunkInfo.name === 'community') return 'community.js';
           return 'index.js';
         },
         assetFileNames: (assetInfo) => {
