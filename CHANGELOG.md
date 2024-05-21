@@ -1,3 +1,10 @@
+# [6.30.0-rc.10](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.30.0-rc.9...v6.30.0-rc.10) (2024-05-21)
+
+
+### Bug Fixes
+
+* **Breadcrumbs:** Make last element text ([1f78783](https://github.com/TEHIK-EE/tedi-design-system/commit/1f787832c615b712f1370799c16b8df1542898c9))
+
 # [6.30.0-rc.9](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.30.0-rc.8...v6.30.0-rc.9) (2024-05-21)
 
 
