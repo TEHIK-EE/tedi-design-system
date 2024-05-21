@@ -1,6 +1,6 @@
 ---
 name: General issue template
-about: Issue for general issues, enhancements etc
+about: Issue tempalte for general issues
 title: ''
 labels: ''
 assignees: ''
