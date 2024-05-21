@@ -1,3 +1,10 @@
+# [6.30.0-rc.9](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.30.0-rc.8...v6.30.0-rc.9) (2024-05-21)
+
+
+### Bug Fixes
+
+* **chore:** TEDI-278 - Fixed TEDI Icon rendering in next.js project ([f5ffd87](https://github.com/TEHIK-EE/tedi-design-system/commit/f5ffd873d2e1f1518d4b890e1a418ffc73124e57))
+
 # [6.30.0-rc.8](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.30.0-rc.7...v6.30.0-rc.8) (2024-05-20)
 
 
