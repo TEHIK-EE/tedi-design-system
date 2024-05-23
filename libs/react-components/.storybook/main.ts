@@ -25,7 +25,10 @@ const config: StorybookConfig = {
   ],
   typescript: {
     reactDocgen: 'react-docgen-typescript',
-    reactDocgenTypescriptOptions: {},
+    reactDocgenTypescriptOptions: {
+      shouldExtractLiteralValuesFromEnum: true,
+      shouldRemoveUndefinedFromOptional: true,
+    },
   },
   addons: rootMain.addons || [],
   async viteFinal(config, { configType }) {
