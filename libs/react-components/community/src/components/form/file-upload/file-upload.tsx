@@ -69,6 +69,14 @@ export interface FileUploadProps extends FormLabelProps {
    * @default false
    */
   disabled?: boolean;
+  /**
+   * Size limit in bytes
+   */
+  sizeLimit?: number;
+  /**
+   * Callback to be used when files are rejected due to size
+   */
+  onInvalidSize?: (files: File[]) => void;
 }
 
 export const FileUpload = (props: FileUploadProps): JSX.Element => {
@@ -85,6 +93,8 @@ export const FileUpload = (props: FileUploadProps): JSX.Element => {
     files,
     readOnly,
     disabled = false,
+    sizeLimit,
+    onInvalidSize,
     ...rest
   } = props;
   const { getLabel } = useLabels();
@@ -113,14 +123,25 @@ export const FileUpload = (props: FileUploadProps): JSX.Element => {
 
   const onFileChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     if (e.target.files) {
-      const uploadedFiles = [...Array.from(e.target.files)];
-      const newFiles = [...getFiles, ...uploadedFiles.filter((file) => validFileType(file))];
+      const invalidSizeFiles: File[] = [];
+      const uploadedFiles = [...Array.from(e.target.files)]
+        .filter((file) => validFileType(file))
+        .filter((file) => {
+          if (!sizeLimit || file.size <= sizeLimit) return true;
+
+          invalidSizeFiles.push(file);
+          return false;
+        });
+      const newFiles = [...getFiles, ...uploadedFiles];
 
       if (typeof files === 'undefined') {
         setInnerFiles(newFiles);
       }
 
       onChange?.(newFiles);
+      if (onInvalidSize && invalidSizeFiles.length) {
+        onInvalidSize(invalidSizeFiles);
+      }
     }
   };
 

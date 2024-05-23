@@ -84,3 +84,12 @@ export const PdfAndTxtOnly: Story = {
     accept: '.pdf,.txt',
   },
 };
+
+export const SizeLimited: Story = {
+  args: {
+    id: 'file-upload-size-limited',
+    name: 'file-size-limited',
+    label: 'Upload file',
+    sizeLimit: 1000,
+  },
+};
