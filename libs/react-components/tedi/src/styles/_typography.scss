@@ -1,0 +1,191 @@
+$headings: (h1, h2, h3, h4, h5, h6);
+$heading-sizes: (
+  h1: (
+    desktop: var(--heading-h1-size-desktop),
+    mobile: var(--heading-h1-size-mobile),
+  ),
+  h2: (
+    desktop: var(--heading-h2-size-desktop),
+    mobile: var(--heading-h2-size-mobile),
+  ),
+  h3: (
+    desktop: var(--heading-h3-size-desktop),
+    mobile: var(--heading-h3-size-mobile),
+  ),
+  h4: (
+    desktop: var(--heading-h4-size-desktop),
+    mobile: var(--heading-h4-size-mobile),
+  ),
+  h5: (
+    desktop: var(--heading-h5-size-desktop),
+    mobile: var(--heading-h5-size-mobile),
+  ),
+  h6: (
+    desktop: var(--heading-h6-size-desktop),
+    mobile: var(--heading-h6-size-mobile),
+  ),
+);
+$heading-weights: (
+  h1: (
+    desktop: var(--heading-h1-weight-desktop),
+    mobile: var(--heading-h1-weight-mobile),
+  ),
+  h2: (
+    desktop: var(--heading-h2-weight-desktop),
+    mobile: var(--heading-h2-weight-mobile),
+  ),
+  h3: (
+    desktop: var(--heading-h3-weight-desktop),
+    mobile: var(--heading-h3-weight-mobile),
+  ),
+  h4: (
+    desktop: var(--heading-h4-weight-desktop),
+    mobile: var(--heading-h4-weight-mobile),
+  ),
+  h5: (
+    desktop: var(--heading-h5-weight-desktop),
+    mobile: var(--heading-h5-weight-mobile),
+  ),
+  h6: (
+    desktop: var(--heading-h6-weight-desktop),
+    mobile: var(--heading-h6-weight-mobile),
+  ),
+);
+$heading-line-heights: (
+  h1: (
+    desktop: var(--heading-h1-line-height-desktop),
+    mobile: var(--heading-h1-line-height-mobile),
+  ),
+  h2: (
+    desktop: var(--heading-h2-line-height-desktop),
+    mobile: var(--heading-h2-line-height-mobile),
+  ),
+  h3: (
+    desktop: var(--heading-h3-line-height-desktop),
+    mobile: var(--heading-h3-line-height-mobile),
+  ),
+  h4: (
+    desktop: var(--heading-h4-line-height-desktop),
+    mobile: var(--heading-h4-line-height-mobile),
+  ),
+  h5: (
+    desktop: var(--heading-h5-line-height-desktop),
+    mobile: var(--heading-h5-line-height-mobile),
+  ),
+  h6: (
+    desktop: var(--heading-h6-line-height-desktop),
+    mobile: var(--heading-h6-line-height-mobile),
+  ),
+);
+
+// Mixin for heading styles
+@mixin heading-styles($level) {
+  @include apply-styles(
+    font-size,
+    map-get(map-get($heading-sizes, $level), desktop),
+    map-get(map-get($heading-sizes, $level), mobile)
+  );
+  @include apply-styles(
+    font-weight,
+    map-get(map-get($heading-weights, $level), desktop),
+    map-get(map-get($heading-weights, $level), mobile)
+  );
+  @include apply-styles(
+    line-height,
+    map-get(map-get($heading-line-heights, $level), desktop),
+    map-get(map-get($heading-line-heights, $level), mobile)
+  );
+}
+
+@each $level in $headings {
+  #{$level},
+  .tedi-#{$level} {
+    @include heading-styles($level);
+  }
+}
+
+.tedi-text {
+  @each $level in $headings {
+    &--#{$level} {
+      @include heading-styles($level);
+    }
+  }
+
+  &--primary {
+    @include apply-styles(font-family, var(--family-primary-desktop), var(--family-primary-mobile));
+    @include apply-styles(font-size, var(--body-regular-size-desktop), var(--body-regular-size-mobile));
+    @include apply-styles(font-weight, var(--body-regular-weight-desktop), var(--body-regular-weight-mobile));
+    @include apply-styles(line-height, var(--body-regular-line-height-desktop), var(--body-regular-line-height-mobile));
+  }
+
+  &--small {
+    @include apply-styles(font-size, var(--body-small-regular-size-desktop), var(--body-small-regular-size-mobile));
+    @include apply-styles(
+      font-weight,
+      var(--body-small-regular-weight-desktop),
+      var(--body-small-regular-weight-mobile)
+    );
+    @include apply-styles(
+      line-height,
+      var(--body-small-regular-line-height-desktop),
+      var(--body-small-regular-line-height-mobile)
+    );
+  }
+
+  @each $color,
+    $var
+      in (
+        'default': var(--general-text-primary),
+        'primary': var(--general-text-primary),
+        'secondary': var(--general-text-secondary),
+        'tertiary': var(--general-text-tertiary),
+        'white': var(--general-text-white),
+        'disabled': var(--general-text-disabled),
+        'distinctive': var(--general-text-distinctive),
+        'success': var(--general-status-success-text-secondary),
+        'warning': var(--general-status-warning-text-secondary),
+        'danger': var(--general-status-danger-text-secondary)
+      )
+  {
+    &--#{$color} {
+      color: $var;
+    }
+  }
+
+  &--subtitle {
+    @extend.text-uppercase;
+    @include apply-styles(
+      font-size,
+      var(--heading-subtitle-regular-size-desktop),
+      var(--heading-subtitle-regular-size-mobile)
+    );
+    @include apply-styles(
+      font-weight,
+      var(--heading-subtitle-regular-weight-desktop),
+      var(--heading-subtitle-regular-weight-mobile)
+    );
+    @include apply-styles(
+      line-height,
+      var(--heading-subtitle-regular-line-height-desktop),
+      var(--heading-subtitle-regular-line-height-mobile)
+    );
+
+    &.text-small {
+      @include apply-styles(
+        font-size,
+        var(--heading-subtitle-small-size-desktop),
+        var(--heading-subtitle-small-size-mobile)
+      );
+      @include apply-styles(
+        font-weight,
+        var(--heading-subtitle-small-weight-desktop),
+        var(--heading-subtitle-small-weight-mobile)
+      );
+      @include apply-styles(
+        line-height,
+        var(--heading-subtitle-small-line-height-desktop),
+        var(--heading-subtitle-small-line-height-mobile)
+      );
+    }
+  }
+}

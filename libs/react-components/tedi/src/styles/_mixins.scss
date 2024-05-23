@@ -1,0 +1,11 @@
+// Variables for breakpoints
+$breakpoint-desktop: 768px;
+
+// Mixin for applying desktop and mobile styles
+@mixin apply-styles($property, $value-desktop, $value-mobile) {
+  #{$property}: $value-mobile;
+
+  @media (min-width: $breakpoint-desktop) {
+    #{$property}: $value-desktop;
+  }
+}
