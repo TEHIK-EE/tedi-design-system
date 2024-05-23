@@ -1,3 +1,10 @@
+# [6.30.0-rc.11](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.30.0-rc.10...v6.30.0-rc.11) (2024-05-23)
+
+
+### Bug Fixes
+
+* **storybook:** TEDI-271 - Display type values in argsTable ([88a4507](https://github.com/TEHIK-EE/tedi-design-system/commit/88a4507fbe8a6ec23ea6ea4f64a923ad14da7901))
+
 # [6.30.0-rc.10](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.30.0-rc.9...v6.30.0-rc.10) (2024-05-21)
 
 
