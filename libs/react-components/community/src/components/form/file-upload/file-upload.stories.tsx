@@ -1,5 +1,8 @@
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryFn, StoryObj } from '@storybook/react';
+import { ComponentProps, useState } from 'react';
 
+import { VerticalSpacing } from '../../vertical-spacing';
+import FormHelper from '../form-helper/form-helper';
 import { MultipleHandledTemplate } from './examples/multiple-handled';
 import FileUpload from './file-upload';
 
@@ -83,4 +86,32 @@ export const PdfAndTxtOnly: Story = {
     label: 'Upload file',
     accept: '.pdf,.txt',
   },
+};
+
+const MaxSizeTemplate: StoryFn<ComponentProps<typeof FileUpload>> = (args) => {
+  const [helperText, setHelperText] = useState<string | undefined>();
+  const handleInvalidFiles = (files: File[]) => {
+    setHelperText(`File(s) ${files.map((file) => `'${file.name}'`).join(', ')} are too big`);
+  };
+  return (
+    <VerticalSpacing>
+      <FileUpload
+        {...args}
+        onInvalidSize={handleInvalidFiles}
+        onChange={() => setHelperText(undefined)}
+        helper={helperText ? { text: helperText } : undefined}
+      />
+    </VerticalSpacing>
+  );
+};
+
+export const SizeLimited: Story = {
+  args: {
+    id: 'file-upload-size-limited',
+    name: 'file-size-limited',
+    label: 'Upload file',
+    maxSize: 0.001,
+    multiple: true,
+  },
+  render: MaxSizeTemplate,
 };
