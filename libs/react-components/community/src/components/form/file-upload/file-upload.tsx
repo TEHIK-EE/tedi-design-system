@@ -83,12 +83,13 @@ const getDefaultHelpers = (
   { accept, maxSize }: Partial<FileUploadProps>,
   getLabel: ILabelContext['getLabel']
 ): FormHelperProps | undefined => {
+  if (!accept && !maxSize) return;
   const text = [
     accept && `${getLabel('file-upload.accept')} ${accept.replace(',', ', ')}`,
     maxSize && `${getLabel('file-upload.max-size')} ${maxSize}MB`,
   ]
     .filter(Boolean)
-    .join(', ');
+    .join('. ');
   return text.length ? { text } : undefined;
 };
 

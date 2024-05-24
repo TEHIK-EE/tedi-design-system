@@ -1,8 +1,8 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import { ComponentProps, useState } from 'react';
 
-import Notification from '../../notification/notification';
 import { VerticalSpacing } from '../../vertical-spacing';
+import FormHelper from '../form-helper/form-helper';
 import { MultipleHandledTemplate } from './examples/multiple-handled';
 import FileUpload from './file-upload';
 
@@ -89,16 +89,14 @@ export const PdfAndTxtOnly: Story = {
 };
 
 const MaxSizeTemplate: StoryFn<ComponentProps<typeof FileUpload>> = (args) => {
-  const [invalidSizeFiles, setInvalidSizeFiles] = useState<File[]>([]);
-
+  const [helperText, setHelperText] = useState<string | undefined>();
+  const handleInvalidFiles = (files: File[]) => {
+    setHelperText(`File(s) ${files.map((file) => `'${file.name}'`).join(', ')} are too big`);
+  };
   return (
     <VerticalSpacing>
-      <FileUpload {...args} onInvalidSize={setInvalidSizeFiles} />
-      {invalidSizeFiles.length > 0 && (
-        <Notification type="error">
-          File(s) {invalidSizeFiles.map((file) => `'${file.name}'`).join(', ')} are too big
-        </Notification>
-      )}
+      <FileUpload {...args} onInvalidSize={handleInvalidFiles} onChange={() => setHelperText(undefined)} />
+      {helperText && <FormHelper text={helperText} type="error" />}
     </VerticalSpacing>
   );
 };
