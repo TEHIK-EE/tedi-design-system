@@ -7,7 +7,9 @@
     "semantic-release": "semantic-release",
     "start": "nx start",
     "test": "nx test --update-snapshot",
-    "build": "nx build --skip-nx-cache &&  cp -a dist/libs/react-components/community/src/. dist/community/ && rm -rf dist/libs && replace-in-file //fonts//g \"./fonts/\" dist/index.css --isRegex",
+    "copy:community": "cp -a dist/libs/react-components/community/src/. dist/community/",
+    "copy:tedi": "cp -a dist/libs/react-components/tedi/src/. dist/tedi/",
+    "build": "nx build --skip-nx-cache && npm run copy:community && npm run copy:tedi && rm -rf dist/libs && replace-in-file //fonts//g \"./fonts/\" dist/index.css --isRegex",
     "build:sb": "cross-env NODE_ENV=production nx build:storybook",
     "lint": "npx stylelint \"**/*.scss\" --fix && nx affected:lint --all --fix",
     "lint:ci": "npx stylelint \"**/*.scss\" && nx affected:lint --all"
@@ -24,6 +26,7 @@
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.0",
     "@floating-ui/react": "^0.26.9",
+    "@mui/icons-material": "^5.15.15",
     "@mui/material": "^5.15.13",
     "@mui/x-date-pickers": "^5.0.20",
     "@storybook/blocks": "^8.0.2",

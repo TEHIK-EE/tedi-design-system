@@ -1,0 +1,62 @@
+$icon-colors: (
+  'primary': 'icon-primary',
+  'secondary': 'icon-secondary',
+  'tertiary': 'icon-tertiary',
+  'success': 'icon-success',
+  'warning': 'icon-warning',
+  'danger': 'icon-danger',
+  'white': 'icon-white',
+);
+$icon-backgrounds: (
+  'primary': 'icon-background-primary',
+  'secondary': 'icon-background-secondary',
+  'distinctive-primary': 'icon-background-distinctive-primary',
+  'distinctive-secondary': 'icon-background-distinctive-secondary',
+);
+$icon-sizes: (
+  8: var(--icon-00),
+  12: var(--icon-01),
+  16: var(--icon-02),
+  18: var(--icon-03),
+  24: var(--icon-04),
+  36: var(--icon-05),
+  48: var(--icon-06),
+);
+
+.tedi-icon--wrapper {
+  display: inline-block;
+
+  &.tedi-icon--bg {
+    padding: 0.5rem;
+    line-height: 0;
+    border-radius: 100%;
+
+    @each $name, $var in $icon-backgrounds {
+      &-#{$name} {
+        background-color: var(--#{$var});
+      }
+    }
+  }
+}
+
+.tedi-icon {
+  &--block {
+    display: block;
+  }
+
+  &--inline {
+    display: inline;
+  }
+
+  @each $name, $var in $icon-colors {
+    &--color-#{$name} {
+      color: var(--#{$var});
+    }
+  }
+
+  @each $size, $var in $icon-sizes {
+    &--size-#{$size} {
+      font-size: #{$var} !important;
+    }
+  }
+}

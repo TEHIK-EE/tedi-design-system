@@ -70,4 +70,6 @@ export const CardContent = (props: CardContentProps): JSX.Element => {
   );
 };
 
+CardContent.displayName = 'CardContent';
+
 export default CardContent;

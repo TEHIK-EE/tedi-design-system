@@ -2,12 +2,16 @@
   "name": "@tehik-ee/tedi-design-system",
   "version": "0.0.0-semantic-version",
   "type": "module",
-  "main": "index.js",
-  "module": "index.js",
+  "main": "community.es.js",
+  "module": "community.es.js",
   "exports": {
+    "./tedi": {
+      "types": "./tedi/index.d.ts",
+      "import": "./tedi.es.js"
+    },
     "./community": {
       "types": "./community/index.d.ts",
-      "import": "./index.js"
+      "import": "./community.es.js"
     },
     "./index.css": "./index.css"
   },
@@ -16,6 +20,7 @@
     "@emotion/styled": "*",
     "@floating-ui/react": "*",
     "@mui/material": "*",
+    "@mui/icons-material": "*",
     "@mui/x-date-pickers": "*",
     "@tanstack/react-table": "*",
     "classnames": "*",
@@ -31,7 +36,6 @@
     "react-dom": "*",
     "react-select": "*",
     "react-sticky-box": "*",
-    "react-test-renderer": "*",
     "react-toastify": "*",
     "what-input": "*",
     "yup": "*"

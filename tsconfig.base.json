@@ -17,7 +17,8 @@
     "baseUrl": ".",
     "paths": {
       "@tehik-ee/design-tokens": ["libs/react-components//design-tokens/tokens.js"],
-      "@tehik-ee/tedi-design-system/community": ["libs/react-components/community/src/index.ts"]
+      "@tehik-ee/tedi-design-system/community": ["libs/react-components/community/src/index.ts"],
+      "@tehik-ee/tedi-design-system/tedi": ["libs/react-components/tedi/src/index.ts"]
     },
     "plugins": [
       {

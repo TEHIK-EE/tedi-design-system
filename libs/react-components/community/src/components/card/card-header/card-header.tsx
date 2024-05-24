@@ -66,4 +66,6 @@ export const CardHeader = (props: CardHeaderProps): JSX.Element => {
   );
 };
 
+CardHeader.displayName = 'CardHeader';
+
 export default CardHeader;
