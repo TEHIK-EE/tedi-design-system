@@ -95,8 +95,12 @@ const MaxSizeTemplate: StoryFn<ComponentProps<typeof FileUpload>> = (args) => {
   };
   return (
     <VerticalSpacing>
-      <FileUpload {...args} onInvalidSize={handleInvalidFiles} onChange={() => setHelperText(undefined)} />
-      {helperText && <FormHelper text={helperText} type="error" />}
+      <FileUpload
+        {...args}
+        onInvalidSize={handleInvalidFiles}
+        onChange={() => setHelperText(undefined)}
+        helper={helperText ? { text: helperText } : undefined}
+      />
     </VerticalSpacing>
   );
 };
