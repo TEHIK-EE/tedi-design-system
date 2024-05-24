@@ -29,15 +29,13 @@ const ColorStory: React.FC = () => {
         <div className="color__example__wrapper" key={groupName}>
           <div className="row">
             <div className="column">
-              <h2 className="color__example__title" style={{ textTransform: 'capitalize' }}>
-                {groupName}
-              </h2>
+              <h3 className="text-capitalize w-100">{groupName}</h3>
             </div>
           </div>
           <div className="row" style={{ display: 'flex' }}>
-            {colors.map((color: Color, index: number) => (
-              <div className="column" style={{ width: '40%', padding: '0 8px' }} key={`${groupName}-${index}`}>
-                <div className="color__example" style={{ backgroundColor: color.color }}></div>
+            {colors.map((color, index) => (
+              <div className="column" style={{ width: '12%' }} key={`${groupName}-${index}`}>
+                <div className="color-card" style={{ backgroundColor: color.color }}></div>
                 <p style={{ marginBottom: 0 }}>
                   <strong>--{color.name}</strong>
                 </p>
