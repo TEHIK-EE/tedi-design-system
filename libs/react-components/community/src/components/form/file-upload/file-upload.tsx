@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import React from 'react';
 
-import { useLabels } from '../../../providers/label-provider';
+import { ILabelContext, useLabels } from '../../../providers/label-provider';
 import Button from '../../button/button';
 import { Card, CardContent } from '../../card';
 import CloseButton from '../../close-button/close-button';
@@ -70,20 +70,33 @@ export interface FileUploadProps extends FormLabelProps {
    */
   disabled?: boolean;
   /**
-   * Size limit in bytes
+   * Size limit in megabytes
    */
-  sizeLimit?: number;
+  maxSize?: number;
   /**
    * Callback to be used when files are rejected due to size
    */
   onInvalidSize?: (files: File[]) => void;
 }
 
+const getDefaultHelpers = (
+  { accept, maxSize }: Partial<FileUploadProps>,
+  getLabel: ILabelContext['getLabel']
+): FormHelperProps | undefined => {
+  const text = [
+    accept && `${getLabel('file-upload.accept')} ${accept.replace(',', ', ')}`,
+    maxSize && `${getLabel('file-upload.max-size')} ${maxSize}MB`,
+  ]
+    .filter(Boolean)
+    .join(', ');
+  return text.length ? { text } : undefined;
+};
+
 export const FileUpload = (props: FileUploadProps): JSX.Element => {
+  const { getLabel } = useLabels();
   const {
     id,
     name,
-    helper,
     accept,
     multiple,
     onChange,
@@ -93,11 +106,11 @@ export const FileUpload = (props: FileUploadProps): JSX.Element => {
     files,
     readOnly,
     disabled = false,
-    sizeLimit,
+    maxSize,
     onInvalidSize,
+    helper = getDefaultHelpers({ accept, maxSize }, getLabel),
     ...rest
   } = props;
-  const { getLabel } = useLabels();
   const helperId = helper ? helper?.id ?? `${id}-helper` : undefined;
 
   const [hovered, setHovered] = React.useState(false);
@@ -127,7 +140,7 @@ export const FileUpload = (props: FileUploadProps): JSX.Element => {
       const uploadedFiles = [...Array.from(e.target.files)]
         .filter((file) => validFileType(file))
         .filter((file) => {
-          if (!sizeLimit || file.size <= sizeLimit) return true;
+          if (!maxSize || file.size <= maxSize * 1024 ** 2) return true;
 
           invalidSizeFiles.push(file);
           return false;
