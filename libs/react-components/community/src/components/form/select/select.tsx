@@ -61,6 +61,7 @@ const CustomInput = (props: InputProps<ISelectOption, boolean>): JSX.Element => 
     {...props}
     className={cn(props.className, styles['select__input'])}
     isHidden={props.selectProps.inputIsHidden !== undefined ? props.selectProps.inputIsHidden : props.isHidden}
+    required
   />
 );
 
@@ -385,6 +386,7 @@ export const Select = forwardRef<SelectInstance<ISelectOption, boolean, IGrouped
       return (
         <ReactSelectComponents.Option
           {...props}
+          isSelected={props.isSelected}
           innerProps={{ ...innerProps, role: 'option', 'aria-selected': props.isSelected }}
           className={OptionBEM}
         >
