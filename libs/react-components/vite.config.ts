@@ -48,23 +48,17 @@ const config: UserConfig = {
     outDir: '../../dist',
     emptyOutDir: true,
     lib: {
-      entry: path.resolve(__dirname, 'community/src/index.ts'),
+      entry: {
+        community: path.resolve(__dirname, 'community/src/index.ts'),
+        tedi: path.resolve(__dirname, 'tedi/src/index.ts'),
+      },
       name: '@tehik-ee/tedi-design-system',
-      fileName: 'index',
+      fileName: (format, entryName) => `${entryName}.${format}.js`,
       formats: ['es', 'cjs'],
     },
     rollupOptions: {
-      external: ['next', 'react', 'react/jsx-runtime', 'react-dom', 'dayjs'],
-      input: {
-        tedi: path.resolve(__dirname, 'tedi/src/index.ts'),
-        community: path.resolve(__dirname, 'community/src/index.ts'),
-      },
+      external: ['next', 'react', 'react/jsx-runtime', 'react-dom', 'dayjs', '@mui/icons-material'],
       output: {
-        entryFileNames: (chunkInfo) => {
-          if (chunkInfo.name === 'tedi') return 'tedi.js';
-          if (chunkInfo.name === 'community') return 'community.js';
-          return 'index.js';
-        },
         assetFileNames: (assetInfo) => {
           if (assetInfo.name === 'style.css') return 'index.css';
           return assetInfo.name || '';
