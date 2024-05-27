@@ -1,3 +1,4 @@
+import { BADGE } from '@geometricpanda/storybook-addon-badges';
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import classNames from 'classnames';
 
@@ -14,6 +15,9 @@ import { Icon, IconProps } from './icon';
 const meta: Meta<typeof Icon> = {
   title: 'Tedi-components/Base/Icon',
   component: Icon,
+  parameters: {
+    badges: [BADGE.BETA],
+  },
 };
 
 export default meta;
