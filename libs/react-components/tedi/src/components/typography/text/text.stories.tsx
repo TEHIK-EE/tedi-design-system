@@ -1,7 +1,7 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 
 import { Column, Row, TextRow } from '../../../providers/storybook-provider/storybook-provider';
-import { HeadingModifiers, Text, TextColor } from './text';
+import { Text } from './text';
 
 /**
  * [Figma ↗](https://www.figma.com/design/jWiRIXhHRxwVdMSimKX2FF/TEDI-Design-System-(draft)?node-id=115-11630&m=dev)<br/>
@@ -151,39 +151,38 @@ const TemplateBodyText: StoryFn = (args) => (
   </div>
 );
 
-interface GeneralTextTemplateProps {
-  color: TextColor;
-  children: React.ReactNode;
-}
-
-const GeneralTextTemplate: React.FC<GeneralTextTemplateProps> = ({ color, children }) => (
-  <Row>
-    <Text color={color}>{children}</Text>
-  </Row>
-);
-
 const TemplateGeneralText: StoryFn = (args) => (
   <div className="text-story-wrapper">
-    <GeneralTextTemplate color="primary">
-      Rebane on väikese koera suurune ja pika koheva sabaga. Joostes hoiab ta saba horisontaalselt. Tema selja karvad on
-      oranžid. Eestis eelistab ta elupaigana metsatukkasid.
-    </GeneralTextTemplate>
-    <GeneralTextTemplate color="secondary">
-      Rebane on väikese koera suurune ja pika koheva sabaga. Joostes hoiab ta saba horisontaalselt. Tema selja karvad on
-      oranžid. Eestis eelistab ta elupaigana metsatukkasid.
-    </GeneralTextTemplate>
-    <GeneralTextTemplate color="tertiary">
-      Rebane on väikese koera suurune ja pika koheva sabaga. Joostes hoiab ta saba horisontaalselt. Tema selja karvad on
-      oranžid. Eestis eelistab ta elupaigana metsatukkasid.
-    </GeneralTextTemplate>
-    <GeneralTextTemplate color="disabled">
-      Rebane on väikese koera suurune ja pika koheva sabaga. Joostes hoiab ta saba horisontaalselt. Tema selja karvad on
-      oranžid. Eestis eelistab ta elupaigana metsatukkasid.
-    </GeneralTextTemplate>
-    <GeneralTextTemplate color="distinctive">
-      Rebane on väikese koera suurune ja pika koheva sabaga. Joostes hoiab ta saba horisontaalselt. Tema selja karvad on
-      oranžid. Eestis eelistab ta elupaigana metsatukkasid.
-    </GeneralTextTemplate>
+    <Row>
+      <Text color="primary">
+        Rebane on väikese koera suurune ja pika koheva sabaga. Joostes hoiab ta saba horisontaalselt. Tema selja karvad
+        on oranžid. Eestis eelistab ta elupaigana metsatukkasid.
+      </Text>
+    </Row>
+    <Row>
+      <Text color="secondary">
+        Rebane on väikese koera suurune ja pika koheva sabaga. Joostes hoiab ta saba horisontaalselt. Tema selja karvad
+        on oranžid. Eestis eelistab ta elupaigana metsatukkasid.
+      </Text>
+    </Row>
+    <Row>
+      <Text color="tertiary">
+        Rebane on väikese koera suurune ja pika koheva sabaga. Joostes hoiab ta saba horisontaalselt. Tema selja karvad
+        on oranžid. Eestis eelistab ta elupaigana metsatukkasid.
+      </Text>
+    </Row>
+    <Row>
+      <Text color="disabled">
+        Rebane on väikese koera suurune ja pika koheva sabaga. Joostes hoiab ta saba horisontaalselt. Tema selja karvad
+        on oranžid. Eestis eelistab ta elupaigana metsatukkasid.
+      </Text>
+    </Row>
+    <Row>
+      <Text color="distinctive">
+        Rebane on väikese koera suurune ja pika koheva sabaga. Joostes hoiab ta saba horisontaalselt. Tema selja karvad
+        on oranžid. Eestis eelistab ta elupaigana metsatukkasid.
+      </Text>
+    </Row>
     <Row className="with-background">
       <Text color="white">
         Rebane on väikese koera suurune ja pika koheva sabaga. Joostes hoiab ta saba horisontaalselt. Tema selja karvad
@@ -195,54 +194,62 @@ const TemplateGeneralText: StoryFn = (args) => (
 
 const TemplateLinkColors: StoryFn = (args) => (
   <div className="text-story-wrapper">
-    <GeneralTextTemplate color="primary">
+    <Row>
       <a href="#" className="underlined">
         Rebane on väikese koera suurune ja pika koheva sabaga. Joostes hoiab ta saba horisontaalselt. Tema selja karvad
         on oranžid. Eestis eelistab ta elupaigana metsatukkasid.
       </a>
-    </GeneralTextTemplate>
-    <GeneralTextTemplate color="primary">
+    </Row>
+    <Row>
       <a href="#" className="no-underline">
         Rebane on väikese koera suurune ja pika koheva sabaga. Joostes hoiab ta saba horisontaalselt. Tema selja karvad
         on oranžid. Eestis eelistab ta elupaigana metsatukkasid.
       </a>
-    </GeneralTextTemplate>
-    <GeneralTextTemplate color="primary">
+    </Row>
+    <Row>
       <div className="with-background">
         <a href="#" className="link-white underlined">
           Rebane on väikese koera suurune ja pika koheva sabaga. Joostes hoiab ta saba horisontaalselt. Tema selja
           karvad on oranžid. Eestis eelistab ta elupaigana metsatukkasid.
         </a>
       </div>
-    </GeneralTextTemplate>
-    <GeneralTextTemplate color="primary">
+    </Row>
+    <Row>
       <div className="with-background">
         <a href="#" className="no-underline link-white">
           Rebane on väikese koera suurune ja pika koheva sabaga. Joostes hoiab ta saba horisontaalselt. Tema selja
           karvad on oranžid. Eestis eelistab ta elupaigana metsatukkasid.
         </a>
       </div>
-    </GeneralTextTemplate>
+    </Row>
   </div>
 );
 const TemplateStatusText: StoryFn = (args) => (
   <div className="text-story-wrapper">
-    <GeneralTextTemplate color="success">
-      Rebane on väikese koera suurune ja pika koheva sabaga. Joostes hoiab ta saba horisontaalselt. Tema selja karvad on
-      oranžid. Eestis eelistab ta elupaigana metsatukkasid.
-    </GeneralTextTemplate>
-    <GeneralTextTemplate color="warning">
-      Rebane on väikese koera suurune ja pika koheva sabaga. Joostes hoiab ta saba horisontaalselt. Tema selja karvad on
-      oranžid. Eestis eelistab ta elupaigana metsatukkasid.
-    </GeneralTextTemplate>
-    <GeneralTextTemplate color="danger">
-      Rebane on väikese koera suurune ja pika koheva sabaga. Joostes hoiab ta saba horisontaalselt. Tema selja karvad on
-      oranžid. Eestis eelistab ta elupaigana metsatukkasid.
-    </GeneralTextTemplate>
-    <GeneralTextTemplate color="primary">
-      Rebane on väikese koera suurune ja pika koheva sabaga. Joostes hoiab ta saba horisontaalselt. Tema selja karvad on
-      oranžid. Eestis eelistab ta elupaigana metsatukkasid.
-    </GeneralTextTemplate>
+    <Row>
+      <Text color="success">
+        Rebane on väikese koera suurune ja pika koheva sabaga. Joostes hoiab ta saba horisontaalselt. Tema selja karvad
+        on oranžid. Eestis eelistab ta elupaigana metsatukkasid.
+      </Text>
+    </Row>
+    <Row>
+      <Text color="warning">
+        Rebane on väikese koera suurune ja pika koheva sabaga. Joostes hoiab ta saba horisontaalselt. Tema selja karvad
+        on oranžid. Eestis eelistab ta elupaigana metsatukkasid.
+      </Text>
+    </Row>
+    <Row>
+      <Text color="danger">
+        Rebane on väikese koera suurune ja pika koheva sabaga. Joostes hoiab ta saba horisontaalselt. Tema selja karvad
+        on oranžid. Eestis eelistab ta elupaigana metsatukkasid.
+      </Text>
+    </Row>
+    <Row>
+      <Text color="primary">
+        Rebane on väikese koera suurune ja pika koheva sabaga. Joostes hoiab ta saba horisontaalselt. Tema selja karvad
+        on oranžid. Eestis eelistab ta elupaigana metsatukkasid.
+      </Text>
+    </Row>
   </div>
 );
 

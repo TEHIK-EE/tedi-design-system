@@ -37,28 +37,27 @@ export type TextColor =
   | 'distinctive'
   | 'success'
   | 'warning'
-  | 'danger'
-  | 'subtitle';
+  | 'danger';
 
 export type TextElement = 'div' | 'p' | 'span' | 'li' | 'label' | HeadingModifiers;
 
 type TextBreakpointProps = {
   /**
-   * Additional class.
+   * Additional class
    */
   className?: string;
   /**
-   * Base element.
+   * Base element
    * @default p
    */
   element?: TextElement;
   /**
-   * Single or multiple modifiers to change the text behavior.
+   * Single or multiple modifiers to change the text behavior
    */
   modifiers?: TextModifiers[] | TextModifiers;
   /**
-   * Which color text should be.
-   * Use 'positive', 'important' or 'warning' with caution, usually they should not be in application UI.
+   * Color of the text
+   * Use 'success', 'important' or 'warning' with caution, usually they should not be in application UI
    * @default default
    */
   color?: TextColor;
@@ -66,11 +65,11 @@ type TextBreakpointProps = {
 
 export interface TextProps extends BreakpointSupport<TextBreakpointProps> {
   /**
-   * Children of the text.
+   * Children of the text
    */
   children: React.ReactNode;
   /**
-   * ID attribute.
+   * ID attribute
    */
   id?: string;
   /**
@@ -84,7 +83,7 @@ export interface TextProps extends BreakpointSupport<TextBreakpointProps> {
 }
 
 const isHeadingModifier = (modifier: TextModifiers): modifier is HeadingModifiers => {
-  return modifier.startsWith('h');
+  return /^h[1-6]$/.test(modifier);
 };
 
 export const Text = (props: TextProps): JSX.Element => {

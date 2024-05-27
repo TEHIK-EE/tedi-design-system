@@ -4,7 +4,8 @@ export type HeadingLevel = 1 | 2 | 3 | 4 | 5 | 6;
 
 export type HeadingProps = Omit<TextProps, 'element'> & {
   /**
-   * Semantic heading tag. h1-h6 are allowed values.
+   * Semantic heading tag
+   * h1-h6 are allowed values
    * @default h1
    */
   element?: Extract<TextProps['element'], HeadingModifiers>;
