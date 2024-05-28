@@ -23,10 +23,10 @@
     "node": ">=18.0.0"
   },
   "dependencies": {
+    "@avalane/storybook-addon-status": "^5.0.1",
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.0",
     "@floating-ui/react": "^0.26.9",
-    "@geometricpanda/storybook-addon-badges": "^2.0.2",
     "@mui/icons-material": "^5.15.15",
     "@mui/material": "^5.15.13",
     "@mui/x-date-pickers": "^5.0.20",
