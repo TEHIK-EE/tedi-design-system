@@ -142,9 +142,11 @@ $heading-line-heights: (
         'white': var(--general-text-white),
         'disabled': var(--general-text-disabled),
         'distinctive': var(--general-text-distinctive),
-        'success': var(--general-status-success-text-secondary),
-        'warning': var(--general-status-warning-text-secondary),
-        'danger': var(--general-status-danger-text-secondary)
+        'success': var(--general-status-success-text),
+        'warning': var(--general-status-warning-text),
+        'danger': var(--general-status-danger-text),
+        'info': var(--general-status-info-text),
+        'neutral': var(--general-status-neutral-text)
       )
   {
     &--#{$color} {
@@ -188,4 +190,8 @@ $heading-line-heights: (
       );
     }
   }
+}
+
+label {
+  color: var(--general-text-secondary);
 }

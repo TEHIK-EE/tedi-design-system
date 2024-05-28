@@ -37,7 +37,9 @@ export type TextColor =
   | 'distinctive'
   | 'success'
   | 'warning'
-  | 'danger';
+  | 'danger'
+  | 'info'
+  | 'neutral';
 
 export type TextElement = 'div' | 'p' | 'span' | 'li' | 'label' | HeadingModifiers;
 
@@ -58,7 +60,7 @@ type TextBreakpointProps = {
   /**
    * Color of the text
    * Use 'success', 'important' or 'warning' with caution, usually they should not be in application UI
-   * @default default
+   * @default primary
    */
   color?: TextColor;
 };

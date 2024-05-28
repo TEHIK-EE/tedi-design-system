@@ -91,6 +91,10 @@ a {
 
 .border-bottom {
   border-bottom: 1px solid var(--neutral-400);
+
+  &--3x {
+    border-width: 3px;
+  }
 }
 
 .padding-14-16 {

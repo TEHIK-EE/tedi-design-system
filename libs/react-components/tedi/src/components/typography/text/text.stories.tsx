@@ -18,7 +18,7 @@ type Story = StoryObj<typeof Text>;
 
 const TemplateSubtitles: StoryFn = (args) => (
   <div className="example-list w-100">
-    <Row className="border-bottom">
+    <Row className="border-bottom border-bottom--3x">
       <Column>
         <Text color="primary">Desktop</Text>
       </Column>
@@ -54,12 +54,12 @@ const TemplateSubtitles: StoryFn = (args) => (
     />
     <TextRow
       desktopText={
-        <Text color="primary" element="label">
+        <Text color="secondary" element="label">
           Label
         </Text>
       }
       mobileText={
-        <Text color="primary" element="label">
+        <Text color="secondary" element="label">
           Label
         </Text>
       }
@@ -67,55 +67,22 @@ const TemplateSubtitles: StoryFn = (args) => (
     />
     <TextRow
       desktopText={
-        <Text color="primary" element="label" modifiers="small">
-          Label Small
+        <Text element="label" modifiers="bold">
+          Label bold
         </Text>
       }
       mobileText={
-        <Text color="primary" element="label" modifiers="small">
-          Label Small
+        <Text element="label" modifiers="bold">
+          Label bold
         </Text>
       }
-    />
-  </div>
-);
-
-const TemplateLink: StoryFn = (args) => (
-  <div className="example-list w-100">
-    <Row className="border-bottom">
-      <Column>
-        <Text color="primary">Desktop</Text>
-      </Column>
-      <Column>
-        <Text color="primary">Mobile</Text>
-      </Column>
-    </Row>
-    <TextRow desktopText="Link regular" mobileText="Link regular" isLink={true} className="border-bottom" />
-    <TextRow
-      desktopText="Link regular no underline"
-      mobileText="Link regular no underline"
-      isLink={true}
-      noUnderline={true}
-      className="border-bottom"
-    />
-    <TextRow
-      desktopText={<small>Link small</small>}
-      mobileText={<small>Link small</small>}
-      isLink={true}
-      className="border-bottom"
-    />
-    <TextRow
-      desktopText={<small>Link small</small>}
-      mobileText={<small>Link small</small>}
-      isLink={true}
-      noUnderline={true}
     />
   </div>
 );
 
 const TemplateBodyText: StoryFn = (args) => (
   <div className="example-list w-100">
-    <Row className="border-bottom">
+    <Row className="border-bottom border-bottom--3x">
       <Column>
         <Text color="primary">Desktop</Text>
       </Column>
@@ -192,38 +159,6 @@ const TemplateGeneralText: StoryFn = (args) => (
   </div>
 );
 
-const TemplateLinkColors: StoryFn = (args) => (
-  <div className="text-story-wrapper">
-    <Row>
-      <a href="#" className="underlined">
-        Rebane on väikese koera suurune ja pika koheva sabaga. Joostes hoiab ta saba horisontaalselt. Tema selja karvad
-        on oranžid. Eestis eelistab ta elupaigana metsatukkasid.
-      </a>
-    </Row>
-    <Row>
-      <a href="#" className="no-underline">
-        Rebane on väikese koera suurune ja pika koheva sabaga. Joostes hoiab ta saba horisontaalselt. Tema selja karvad
-        on oranžid. Eestis eelistab ta elupaigana metsatukkasid.
-      </a>
-    </Row>
-    <Row>
-      <div className="with-background">
-        <a href="#" className="link-white underlined">
-          Rebane on väikese koera suurune ja pika koheva sabaga. Joostes hoiab ta saba horisontaalselt. Tema selja
-          karvad on oranžid. Eestis eelistab ta elupaigana metsatukkasid.
-        </a>
-      </div>
-    </Row>
-    <Row>
-      <div className="with-background">
-        <a href="#" className="no-underline link-white">
-          Rebane on väikese koera suurune ja pika koheva sabaga. Joostes hoiab ta saba horisontaalselt. Tema selja
-          karvad on oranžid. Eestis eelistab ta elupaigana metsatukkasid.
-        </a>
-      </div>
-    </Row>
-  </div>
-);
 const TemplateStatusText: StoryFn = (args) => (
   <div className="text-story-wrapper">
     <Row>
@@ -245,7 +180,13 @@ const TemplateStatusText: StoryFn = (args) => (
       </Text>
     </Row>
     <Row>
-      <Text color="primary">
+      <Text color="info">
+        Rebane on väikese koera suurune ja pika koheva sabaga. Joostes hoiab ta saba horisontaalselt. Tema selja karvad
+        on oranžid. Eestis eelistab ta elupaigana metsatukkasid.
+      </Text>
+    </Row>
+    <Row>
+      <Text color="neutral">
         Rebane on väikese koera suurune ja pika koheva sabaga. Joostes hoiab ta saba horisontaalselt. Tema selja karvad
         on oranžid. Eestis eelistab ta elupaigana metsatukkasid.
       </Text>
@@ -262,19 +203,9 @@ export const Subtitles: Story = {
   render: TemplateSubtitles,
 };
 
-export const Links: Story = {
-  render: TemplateLink,
-  name: 'Link',
-};
-
 export const GeneralText: Story = {
   render: TemplateGeneralText,
   name: 'General text colors',
-};
-
-export const LinkText: Story = {
-  render: TemplateLinkColors,
-  name: 'Link colors',
 };
 
 export const StatusText: Story = {

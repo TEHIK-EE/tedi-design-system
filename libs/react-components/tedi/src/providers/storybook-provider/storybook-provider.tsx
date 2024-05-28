@@ -38,7 +38,7 @@ export const TextRow: React.FC<TextRowProps> = ({
   <Row className={className}>
     <Column>
       {isLink ? (
-        <a href="#" className={noUnderline ? 'no-underline' : 'underlined'}>
+        <a href="javascript: void(0)" className={noUnderline ? 'no-underline' : 'underlined'}>
           {desktopText}
         </a>
       ) : (
@@ -47,7 +47,7 @@ export const TextRow: React.FC<TextRowProps> = ({
     </Column>
     <Column>
       {isLink ? (
-        <a href="#" className={noUnderline ? 'no-underline' : 'underlined'}>
+        <a href="javascript: void(0)" className={noUnderline ? 'no-underline' : 'underlined'}>
           {mobileText}
         </a>
       ) : (
