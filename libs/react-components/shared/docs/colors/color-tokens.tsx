@@ -1,18 +1,21 @@
 import React from 'react';
 
-import colorData from './base-color-variables.json';
-
 interface Color {
   name: string;
   color: string;
+  main?: boolean;
 }
 
 interface GroupedColors {
   [groupName: string]: Color[];
 }
 
-const ColorStory: React.FC = () => {
-  const groupedColors: GroupedColors = colorData.reduce((acc: GroupedColors, item) => {
+interface ColorStoryProps {
+  data: Color[];
+}
+
+const ColorStory: React.FC<ColorStoryProps> = ({ data }) => {
+  const groupedColors: GroupedColors = data.reduce((acc: GroupedColors, item) => {
     item.color.forEach((color: Color) => {
       const baseName = color.name.split('-')[0];
       if (!acc[baseName]) {
@@ -39,9 +42,7 @@ const ColorStory: React.FC = () => {
                 <p style={{ marginBottom: 0 }}>
                   <strong>--{color.name}</strong>
                 </p>
-                <p style={{ marginTop: 0 }}>
-                  <code>{color.color}</code>
-                </p>
+                <p style={{ marginTop: 0 }}>{color.main && <code>Main</code>}</p>
               </div>
             ))}
           </div>

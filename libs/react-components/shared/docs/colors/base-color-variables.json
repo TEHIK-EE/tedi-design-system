@@ -6,108 +6,6 @@
     },
     "color": [
       {
-        "name": "primary-100",
-        "color": "#eaf6ff",
-        "var": "",
-        "rootAlias": ""
-      },
-      {
-        "name": "primary-200",
-        "color": "#ccdeed",
-        "var": "",
-        "rootAlias": ""
-      },
-      {
-        "name": "primary-300",
-        "color": "#99bdda",
-        "var": "",
-        "rootAlias": ""
-      },
-      {
-        "name": "primary-400",
-        "color": "#669cc8",
-        "var": "",
-        "rootAlias": ""
-      },
-      {
-        "name": "primary-500",
-        "color": "#337bb5",
-        "var": "",
-        "rootAlias": ""
-      },
-      {
-        "name": "primary-600",
-        "color": "#005aa3",
-        "var": "",
-        "rootAlias": ""
-      },
-      {
-        "name": "primary-700",
-        "color": "#004882",
-        "var": "",
-        "rootAlias": ""
-      },
-      {
-        "name": "primary-800",
-        "color": "#003662",
-        "var": "",
-        "rootAlias": ""
-      },
-      {
-        "name": "secondary-100",
-        "color": "#fff2e6",
-        "var": "",
-        "rootAlias": ""
-      },
-      {
-        "name": "secondary-200",
-        "color": "#ffe6cc",
-        "var": "",
-        "rootAlias": ""
-      },
-      {
-        "name": "secondary-300",
-        "color": "#ffcc99",
-        "var": "",
-        "rootAlias": ""
-      },
-      {
-        "name": "secondary-400",
-        "color": "#ffb366",
-        "var": "",
-        "rootAlias": ""
-      },
-      {
-        "name": "secondary-500",
-        "color": "#ff9933",
-        "var": "",
-        "rootAlias": ""
-      },
-      {
-        "name": "secondary-600",
-        "color": "#ff8000",
-        "var": "",
-        "rootAlias": ""
-      },
-      {
-        "name": "secondary-700",
-        "color": "#994d00",
-        "var": "",
-        "rootAlias": ""
-      },
-      {
-        "name": "secondary-800",
-        "color": "#663300",
-        "var": "",
-        "rootAlias": ""
-      },
-      {
-        "name": "neutral-100",
-        "color": "#ffffff",
-        "var": "",
-        "rootAlias": ""
-      },
-      {
         "name": "neutral-200",
         "color": "#f9f9f9",
         "var": "",
@@ -408,14 +306,8 @@
         "rootAlias": ""
       },
       {
-        "name": "alpha-white-100",
-        "color": "#ffffff1a",
-        "var": "",
-        "rootAlias": ""
-      },
-      {
-        "name": "alpha-white-300",
-        "color": "#ffffff4d",
+        "name": "alpha-white-800",
+        "color": "#ffffffcc",
         "var": "",
         "rootAlias": ""
       },
@@ -426,8 +318,14 @@
         "rootAlias": ""
       },
       {
-        "name": "alpha-white-800",
-        "color": "#ffffffcc",
+        "name": "alpha-white-300",
+        "color": "#ffffff1a",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "alpha-white-100",
+        "color": "#ffffff4d",
         "var": "",
         "rootAlias": ""
       },
