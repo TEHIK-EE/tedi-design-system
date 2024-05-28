@@ -6,10 +6,8 @@ import { Icon, IconProps } from './icon';
 /**
  * [Figma ↗](https://www.figma.com/file/jWiRIXhHRxwVdMSimKX2FF/TEDI-Design-System-(draft)?type=design&node-id=45-30752&mode=dev)<br/>
  * [Zeroheight ↗](https://tedi.zeroheight.com/styleguide/s/118912/p/28835d-icons)<hr/>
- * [Official Google Material Icons homepage icons ↗](https://fonts.google.com/icons?icon.set=Material+Icons)<br/>
- * [Material Icons for Developers ↗](https://mui.com/material-ui/material-icons/)<br/>
- * [Material Icons Figma ↗](https://www.figma.com/community/file/1014241558898418245/material-design-icons?searchSessionId=lvxhc4l5-a6)<br/>
- * [Figma Material Symbols plugin ↗](https://www.figma.com/community/plugin/740272380439725040/material-design-icons)
+ * [Official Google Material Icons homepage icons ↗](https://fonts.google.com/icons)<br/>
+ * [Figma Material Symbols plugin ↗](https://www.figma.com/community/plugin/1088610476491668236/material-symbols)
  */
 const meta: Meta<typeof Icon> = {
   title: 'Tedi-components/Base/Icon',
@@ -61,7 +59,7 @@ const TemplateRow: StoryFn<TemplateMultipleProps> = (args) => {
         {array.map((value, key) => (
           <div key={key} className="column">
             <div className={classNames({ 'with-background': value === 'white' })}>
-              <Icon {...iconProps} {...{ [property]: value }} type="filled" />
+              <Icon {...iconProps} {...{ [property]: value }} filled={true} />
             </div>
           </div>
         ))}
@@ -86,7 +84,7 @@ const TemplateColumn: StoryFn<TemplateMultipleProps> = (args) => {
             <div className="display-flex">
               <Icon {...iconProps} {...{ [property]: value }} display="inline" />
               &nbsp;
-              <Icon {...iconProps} {...{ [property]: value }} display="inline" type="filled" />
+              <Icon {...iconProps} {...{ [property]: value }} display="inline" filled={true} />
             </div>
           </div>
         </div>
@@ -118,7 +116,7 @@ const TemplateColumnWithMultipleVariants: StoryFn<TemplateMultipleProps> = (args
               <Icon
                 {...{ size: item.size, background: item.background, name: item.name, color: item.color }}
                 display="inline"
-                type="filled"
+                filled={true}
               />
             </div>
           </div>
@@ -134,32 +132,32 @@ const TemplateColumnWithBackgroundCircleVarians: StoryFn<TemplateMultipleProps> 
       <div className="column">
         <div className="row">
           <div className="column">
-            <Icon name="Vaccines" background="distinctive-primary" color="white" />
+            <Icon name="vaccines" background="distinctive-primary" color="white" />
           </div>
           <div className="column">
-            <Icon name="Info" background="distinctive-primary" color="white" size={16} />
+            <Icon name="info" background="distinctive-primary" color="white" size={16} />
           </div>
           <div className="column">
-            <Icon name="Vaccines" background="distinctive-secondary" color="secondary" />
+            <Icon name="vaccines" background="distinctive-secondary" color="secondary" />
           </div>
           <div className="column">
-            <Icon name="Info" background="distinctive-secondary" color="secondary" size={16} />
+            <Icon name="info" background="distinctive-secondary" color="secondary" size={16} />
           </div>
         </div>
       </div>
       <div className="column">
         <div className="row with-background">
           <div className="column">
-            <Icon name="Vaccines" background="primary" color="secondary" />
+            <Icon name="vaccines" background="primary" color="secondary" />
           </div>
           <div className="column">
-            <Icon name="Info" background="primary" color="secondary" size={16} />
+            <Icon name="info" background="primary" color="secondary" size={16} />
           </div>
           <div className="column">
-            <Icon name="Vaccines" background="secondary" color="white" />
+            <Icon name="vaccines" background="secondary" color="white" />
           </div>
           <div className="column">
-            <Icon name="Info" background="secondary" color="white" size={16} />
+            <Icon name="info" background="secondary" color="white" size={16} />
           </div>
         </div>
       </div>
@@ -173,7 +171,7 @@ export const Default: Story = {
   render: Template,
 
   args: {
-    name: 'AccountCircle',
+    name: 'account_circle',
   },
 };
 
@@ -182,7 +180,7 @@ export const Sizes: Story = {
   render: TemplateColumn,
 
   args: {
-    name: 'AccountCircle',
+    name: 'account_circle',
     property: 'size',
     color: 'primary',
     array: sizeArray,
@@ -195,14 +193,14 @@ export const SizesWithBackground: Story = {
   args: {
     items: [
       {
-        name: 'Info',
+        name: 'info',
         property: 'size',
         color: 'secondary',
         background: 'distinctive-secondary',
         size: 16,
       },
       {
-        name: 'Vaccines',
+        name: 'vaccines',
         property: 'size',
         color: 'secondary',
         background: 'distinctive-secondary',
@@ -217,7 +215,7 @@ export const Colors: Story = {
   name: 'Icon colors',
 
   args: {
-    name: 'AccountCircle',
+    name: 'account_circle',
     property: 'color',
     array: colorArray,
     size: 48,

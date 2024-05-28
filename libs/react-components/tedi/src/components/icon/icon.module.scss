@@ -1,3 +1,5 @@
+@import 'material-symbols/index.css';
+
 $icon-colors: (
   'primary': 'icon-primary',
   'secondary': 'icon-secondary',
@@ -58,5 +60,10 @@ $icon-sizes: (
     &--size-#{$size} {
       font-size: #{$var} !important;
     }
+  }
+
+  &--filled {
+    font-variation-settings: 'FILL' 1;
+    font-optical-sizing: auto;
   }
 }
