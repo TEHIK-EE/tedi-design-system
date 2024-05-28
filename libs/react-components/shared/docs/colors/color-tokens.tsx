@@ -11,7 +11,7 @@ interface GroupedColors {
 }
 
 interface ColorStoryProps {
-  data: Color[];
+  data: { mode: { name: string; id: string }; color: Color[] }[];
 }
 
 const ColorStory: React.FC<ColorStoryProps> = ({ data }) => {
@@ -37,7 +37,7 @@ const ColorStory: React.FC<ColorStoryProps> = ({ data }) => {
           </div>
           <div className="row" style={{ display: 'flex' }}>
             {colors.map((color, index) => (
-              <div className="column" style={{ width: '12%' }} key={`${groupName}-${index}`}>
+              <div className="column" key={`${groupName}-${index}`}>
                 <div className="color-card" style={{ backgroundColor: color.color }}></div>
                 <p style={{ marginBottom: 0 }}>
                   <strong>--{color.name}</strong>
