@@ -1,8 +1,9 @@
-import { ClockPickerView, DateTimePicker as MuiDateTimePicker } from '@mui/x-date-pickers';
+import { ClockPickerView, DesktopDateTimePicker, MobileDateTimePicker } from '@mui/x-date-pickers';
 import { DateTimeValidationError } from '@mui/x-date-pickers/internals/hooks/validation/useDateTimeValidation';
 import type { Dayjs } from 'dayjs';
 import React from 'react';
 
+import { useLayout } from '../../../../helpers';
 import { TextFieldProps } from '../../textfield/textfield';
 import MuiInputTransition from '../mui-input-transition/mui-input-transition';
 
@@ -181,6 +182,10 @@ export const DateTimePicker = (props: DateTimePickerProps): JSX.Element => {
     setOpen(false);
     onClose?.();
   };
+
+  // Mui doesn't pick correctly which component to render, thus it was unusable when zooming in on bigger screens
+  const isMobileLayout = useLayout(['mobile']);
+  const MuiDateTimePicker = isMobileLayout ? MobileDateTimePicker : DesktopDateTimePicker;
 
   return (
     <MuiDateTimePicker<DateTimepickerValue>
