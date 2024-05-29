@@ -1,0 +1,109 @@
+[
+  {
+    "mode": {
+      "name": "TEHIK brand",
+      "id": "21:1"
+    },
+    "color": [
+      {
+        "name": "primary-100",
+        "color": "#eaf6ff",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "primary-200",
+        "color": "#ccdeed",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "primary-300",
+        "color": "#99bdda",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "primary-400",
+        "color": "#669cc8",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "primary-500",
+        "color": "#337bb5",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "primary-600",
+        "color": "#005aa3",
+        "var": "",
+        "rootAlias": "",
+        "main": true
+      },
+      {
+        "name": "primary-700",
+        "color": "#004882",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "primary-800",
+        "color": "#003662",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "secondary-100",
+        "color": "#fff2e6",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "secondary-200",
+        "color": "#ffe6cc",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "secondary-300",
+        "color": "#ffcc99",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "secondary-400",
+        "color": "#ffb366",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "secondary-500",
+        "color": "#ff9933",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "secondary-600",
+        "color": "#ff8000",
+        "var": "",
+        "rootAlias": "",
+        "main": true
+      },
+      {
+        "name": "secondary-700",
+        "color": "#994d00",
+        "var": "",
+        "rootAlias": ""
+      },
+      {
+        "name": "secondary-800",
+        "color": "#663300",
+        "var": "",
+        "rootAlias": ""
+      }
+    ],
+    "number": []
+  }
+]
