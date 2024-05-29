@@ -162,6 +162,20 @@ export const labelsMap = {
     en: 'Add attachment',
     ru: 'Загрузить файл',
   }),
+  'file-upload.accept': validateLabel({
+    description: 'Default label for file extensions',
+    components: ['FileUpload'],
+    et: 'Lubatud faililaiendid:',
+    en: 'Allowed file extensions:',
+    ru: 'Разрешенные расширения файлов:',
+  }),
+  'file-upload.max-size': validateLabel({
+    description: 'Default label for file size restriction',
+    components: ['FileUpload'],
+    et: 'Maksimaalne suurus:',
+    en: 'Maximum size:',
+    ru: 'Максимальный размер:',
+  }),
   'modal.close': validateLabel({
     description: 'Label for modals close button',
     components: ['Modal'],

@@ -1,3 +1,10 @@
+# [6.30.0-rc.12](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.30.0-rc.11...v6.30.0-rc.12) (2024-05-24)
+
+
+### Features
+
+* **FileUpload:** added optional size checking and callback ([#55](https://github.com/TEHIK-EE/tedi-design-system/issues/55)) ([569f1d6](https://github.com/TEHIK-EE/tedi-design-system/commit/569f1d68f0c04c9de80886ef1a2ba9dcae17bf46))
+
 # [6.30.0-rc.11](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.30.0-rc.10...v6.30.0-rc.11) (2024-05-23)
 
 

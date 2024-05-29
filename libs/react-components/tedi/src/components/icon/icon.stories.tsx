@@ -14,6 +14,11 @@ import { Icon, IconProps } from './icon';
 const meta: Meta<typeof Icon> = {
   title: 'Tedi-components/Base/Icon',
   component: Icon,
+  parameters: {
+    status: {
+      type: 'beta',
+    },
+  },
 };
 
 export default meta;
