@@ -1,3 +1,10 @@
+# [6.30.0-rc.13](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.30.0-rc.12...v6.30.0-rc.13) (2024-05-29)
+
+
+### Features
+
+* **colors:** TEDI-242 - Added TEDI colors docs ([12aae95](https://github.com/TEHIK-EE/tedi-design-system/commit/12aae957ca067d7a9871454f83af96f640ef0e03))
+
 # [6.30.0-rc.12](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.30.0-rc.11...v6.30.0-rc.12) (2024-05-24)
 
 
