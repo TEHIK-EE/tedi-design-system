@@ -1,0 +1,3 @@
+community:
+  - changed-files:
+      - any-glow-to-all-files: ['libs/react-components/community/**', 'libs/react-components/design-tokens/**']
