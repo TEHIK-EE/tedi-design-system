@@ -1,3 +1,10 @@
+# [6.30.0-rc.14](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.30.0-rc.13...v6.30.0-rc.14) (2024-05-29)
+
+
+### Bug Fixes
+
+* **select:** required props passed to input ([#58](https://github.com/TEHIK-EE/tedi-design-system/issues/58)) ([eb6428f](https://github.com/TEHIK-EE/tedi-design-system/commit/eb6428fc73773157148d2368802c7047f5ff9a21))
+
 # [6.30.0-rc.13](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.30.0-rc.12...v6.30.0-rc.13) (2024-05-29)
 
 
