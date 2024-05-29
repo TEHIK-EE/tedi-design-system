@@ -1,5 +1,5 @@
 import 'what-input';
-// Sample change
+
 export * from './components/commonTypes';
 export * from './components/typography/heading/heading';
 export * from './components/typography/text/text';
