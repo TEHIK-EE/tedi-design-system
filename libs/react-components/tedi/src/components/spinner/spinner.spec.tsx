@@ -22,13 +22,12 @@ describe('Spinner component', () => {
     expect(spinner).toHaveClass('tedi-spinner--size-48');
     expect(spinner).toHaveClass('tedi-spinner--color-secondary');
     expect(spinner).toHaveClass('tedi-spinner--absolute');
-    expect(spinner).toHaveAttribute('aria-label', 'Loading...');
   });
 
   it('shows label for screen readers if label prop is provided', () => {
     const { container } = render(<Spinner label="Loading..." />);
-    const spinner = container.querySelector('.tedi-spinner');
+    const srOnlyText = container.querySelector('.sr-only');
 
-    expect(spinner).toHaveAttribute('aria-label', 'Loading...');
+    expect(srOnlyText).toHaveTextContent('Loading...');
   });
 });

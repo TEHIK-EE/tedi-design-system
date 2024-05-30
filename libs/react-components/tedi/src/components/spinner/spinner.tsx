@@ -44,10 +44,11 @@ export const Spinner = (props: SpinnerProps): JSX.Element => {
   );
 
   return (
-    <span className={spinnerBEM} role="status" aria-live="polite" aria-label={label}>
+    <span className={spinnerBEM} role="status" aria-live="polite">
       <svg viewBox="22 22 44 44" aria-hidden="true">
         <circle className={styles['tedi-spinner--inner']} cx="44" cy="44" r="20" fill="none"></circle>
       </svg>
+      <label className="sr-only">{label}</label>
     </span>
   );
 };
