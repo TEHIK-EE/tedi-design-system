@@ -151,6 +151,7 @@ export const FileUpload = (props: FileUploadProps): JSX.Element => {
           if (onInvalidExtension) {
             invalidExtensionFiles.push(file);
           }
+          return false;
         })
         .filter((file) => {
           if (!maxSize || file.size <= maxSize * 1024 ** 2) return true;
