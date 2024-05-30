@@ -22,8 +22,10 @@ export interface FileUploadFile extends Partial<File> {
   isLoading?: boolean;
 }
 
+export type FileRejectionType = 'size' | 'extension';
+
 export interface RejectedFile {
-  type: 'size' | 'extension';
+  type: FileRejectionType;
   file: File;
 }
 
@@ -109,7 +111,7 @@ const getUploadErrorHelperText = (rejectedFiles: RejectedFile[], getLabel: ILabe
     .filter(([_, names]) => names.length)
     .map(([type, names]) => {
       const joinedNames = names.map((name) => `'${name}'`).join(', ');
-      const label = getLabel(`file-upload.${type as 'size' | 'extension'}-rejected`);
+      const label = getLabel(`file-upload.${type as FileRejectionType}-rejected`);
       if (typeof label === 'string') {
         return label;
       }
