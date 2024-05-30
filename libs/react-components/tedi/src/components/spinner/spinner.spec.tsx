@@ -26,7 +26,7 @@ describe('Spinner component', () => {
 
   it('shows label for screen readers if label prop is provided', () => {
     const { container } = render(<Spinner label="Loading..." />);
-    const srOnlyText = container.querySelector('.sr-only');
+    const srOnlyText = container.querySelector('.screen-reader-only');
 
     expect(srOnlyText).toHaveTextContent('Loading...');
   });
