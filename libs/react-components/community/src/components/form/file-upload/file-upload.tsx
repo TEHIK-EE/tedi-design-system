@@ -1,4 +1,5 @@
 import cn from 'classnames';
+import { join } from 'path';
 import React from 'react';
 
 import { ILabelContext, useLabels } from '../../../providers/label-provider';
@@ -21,6 +22,11 @@ export interface FileUploadFile extends Partial<File> {
   isLoading?: boolean;
 }
 
+export interface RejectedFile {
+  type: 'size' | 'extension';
+  file: File;
+}
+
 export interface FileUploadProps extends FormLabelProps {
   /**
    * Additional classes.
@@ -39,10 +45,6 @@ export interface FileUploadProps extends FormLabelProps {
    * For example '.pdf,.jpg'
    */
   accept?: string;
-  /**
-   * Callback to be used when files are rejected due to file extension
-   */
-  onInvalidExtension?: (files: File[]) => void;
   /**
    * When the multiple Boolean attribute is true, the file input allows the user to select more than one file.
    */
@@ -77,10 +79,6 @@ export interface FileUploadProps extends FormLabelProps {
    * Size limit in megabytes
    */
   maxSize?: number;
-  /**
-   * Callback to be used when files are rejected due to size
-   */
-  onInvalidSize?: (files: File[]) => void;
 }
 
 const getDefaultHelpers = (
@@ -95,6 +93,29 @@ const getDefaultHelpers = (
     .filter(Boolean)
     .join('. ');
   return text.length ? { text } : undefined;
+};
+
+const getUploadErrorHelperText = (rejectedFiles: RejectedFile[], getLabel: ILabelContext['getLabel']): string => {
+  const textMap = rejectedFiles.reduce(
+    (acc, { type, file }) => {
+      acc[type].push(file.name);
+      return acc;
+    },
+    { extension: [] as string[], size: [] as string[] }
+  );
+
+  // Get labels based on rejection type
+  return Object.entries(textMap)
+    .filter(([_, names]) => names.length)
+    .map(([type, names]) => {
+      const joinedNames = names.map((name) => `'${name}'`).join(', ');
+      const label = getLabel(`file-upload.${type as 'size' | 'extension'}-rejected`);
+      if (typeof label === 'string') {
+        return label;
+      }
+      return label(joinedNames);
+    })
+    .join('. ');
 };
 
 export const FileUpload = (props: FileUploadProps): JSX.Element => {
@@ -112,8 +133,6 @@ export const FileUpload = (props: FileUploadProps): JSX.Element => {
     readOnly,
     disabled = false,
     maxSize,
-    onInvalidSize,
-    onInvalidExtension,
     helper = getDefaultHelpers({ accept, maxSize }, getLabel),
     ...rest
   } = props;
@@ -121,6 +140,7 @@ export const FileUpload = (props: FileUploadProps): JSX.Element => {
 
   const [hovered, setHovered] = React.useState(false);
   const [innerFiles, setInnerFiles] = React.useState<FileUploadFile[]>(defaultFiles || []);
+  const [uploadErrorHelper, setUploadErrorHelper] = React.useState<FormHelperProps | undefined>();
 
   const fileUploadBEM = cn(styles['file-upload'], { [styles['file-upload-disabled']]: disabled });
 
@@ -142,23 +162,18 @@ export const FileUpload = (props: FileUploadProps): JSX.Element => {
 
   const onFileChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     if (e.target.files) {
-      const invalidSizeFiles: File[] = [];
-      const invalidExtensionFiles: File[] = [];
+      const rejectedFiles: RejectedFile[] = [];
       const uploadedFiles = [...Array.from(e.target.files)]
         .filter((file) => {
           if (validFileType(file)) return true;
 
-          if (onInvalidExtension) {
-            invalidExtensionFiles.push(file);
-          }
+          rejectedFiles.push({ type: 'extension', file });
           return false;
         })
         .filter((file) => {
           if (!maxSize || file.size <= maxSize * 1024 ** 2) return true;
 
-          if (onInvalidSize) {
-            invalidSizeFiles.push(file);
-          }
+          rejectedFiles.push({ type: 'size', file });
           return false;
         });
       const newFiles = [...getFiles, ...uploadedFiles];
@@ -168,11 +183,10 @@ export const FileUpload = (props: FileUploadProps): JSX.Element => {
       }
 
       onChange?.(newFiles);
-      if (onInvalidSize && invalidSizeFiles.length) {
-        onInvalidSize(invalidSizeFiles);
-      }
-      if (onInvalidExtension && invalidExtensionFiles.length) {
-        onInvalidExtension(invalidExtensionFiles);
+      if (rejectedFiles.length) {
+        setUploadErrorHelper({ type: 'error', text: getUploadErrorHelperText(rejectedFiles, getLabel) });
+      } else {
+        setUploadErrorHelper(undefined);
       }
     }
   };
@@ -267,7 +281,9 @@ export const FileUpload = (props: FileUploadProps): JSX.Element => {
           </CardContent>
         </Card>
       )}
-      {helper && <FormHelper {...helper} id={helperId} />}
+      {(uploadErrorHelper || helper) && (
+        <FormHelper {...((uploadErrorHelper || helper) as FormHelperProps)} id={helperId} />
+      )}
     </div>
   );
 };
