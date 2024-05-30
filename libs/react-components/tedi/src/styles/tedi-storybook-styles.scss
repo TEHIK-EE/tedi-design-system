@@ -1,3 +1,47 @@
+.mobile {
+  .tedi-text {
+    &--h1 {
+      font-size: var(--heading-h1-size-mobile);
+    }
+
+    &--h2 {
+      font-size: var(--heading-h2-size-mobile);
+    }
+
+    &--h3 {
+      font-size: var(--heading-h3-size-mobile);
+    }
+
+    &--h4 {
+      font-size: var(--heading-h4-size-mobile);
+    }
+
+    &--h5 {
+      font-size: var(--heading-h5-size-mobile);
+    }
+
+    &--h6 {
+      font-size: var(--heading-h6-size-mobile);
+    }
+
+    &--subtitle {
+      font-size: var(--heading-subtitle-small-size-mobile);
+    }
+  }
+}
+
+a {
+  color: var(--link-primary-default);
+
+  &.underlined {
+    text-decoration: underline;
+  }
+
+  &.no-underline {
+    text-decoration: none;
+  }
+}
+
 .with-background {
   padding: 16px;
   background-color: var(--color-primary-main);
@@ -11,11 +55,14 @@
 
 .row {
   display: flex;
-  flex-wrap: wrap;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 .column {
-  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
   padding: 0 8px;
 }
 
@@ -44,6 +91,10 @@
 
 .border-bottom {
   border-bottom: 1px solid var(--neutral-400);
+
+  &--3x {
+    border-width: 3px;
+  }
 }
 
 .padding-14-16 {

@@ -35,7 +35,7 @@ const ColorStory: React.FC<ColorStoryProps> = ({ data }) => {
               <h3 className="text-capitalize w-100">{groupName}</h3>
             </div>
           </div>
-          <div className="row" style={{ display: 'flex' }}>
+          <div className="row" style={{ alignItems: 'start' }}>
             {colors.map((color, index) => (
               <div className="column" key={`${groupName}-${index}`}>
                 <div className="color-card" style={{ backgroundColor: color.color }}></div>

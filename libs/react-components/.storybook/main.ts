@@ -21,6 +21,7 @@ const config: StorybookConfig = {
     '../community/src/docs/labels/labels.mdx',
     '../community/src/docs/printing.mdx',
     '../tedi/src/**/**/*.stories.tsx',
+    '../tedi/src/**/**/*.mdx',
     '../community/src/**/**/*.stories.tsx',
     '../community/src/**/**/*.mdx',
   ],
