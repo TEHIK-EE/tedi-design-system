@@ -1,0 +1,65 @@
+$spinner-colors: (
+  'primary': 'loader-spinner-color-primary',
+  'secondary': 'loader-spinner-color-secondary',
+);
+$spinner-sizes: (
+  10: var(--loader-spinner-sizing-sm),
+  16: var(--loader-spinner-sizing-md),
+  48: var(--loader-spinner-sizing-lg),
+);
+
+.tedi-spinner {
+  display: flex;
+  animation: 1.4s linear 0s infinite normal none running tedi-spinner-outer;
+
+  &--absolute {
+    position: absolute;
+  }
+
+  @each $color, $var in $spinner-colors {
+    &--color-#{$color} {
+      stroke: var(--#{$var});
+    }
+  }
+
+  @each $size, $var in $spinner-sizes {
+    &--size-#{$size} {
+      width: #{$size}px;
+      height: #{$size}px;
+    }
+  }
+}
+
+.tedi-spinner--inner {
+  stroke-dasharray: 80px, 200px;
+  stroke-dashoffset: 0;
+  stroke-width: 4px;
+  animation: 1.4s ease-in-out 0s infinite normal none running tedi-spinner-inner;
+}
+
+@keyframes tedi-spinner-outer {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes tedi-spinner-inner {
+  0% {
+    stroke-dasharray: 1px, 200px;
+    stroke-dashoffset: 0;
+  }
+
+  50% {
+    stroke-dasharray: 100px, 200px;
+    stroke-dashoffset: -15px;
+  }
+
+  100% {
+    stroke-dasharray: 100px, 200px;
+    stroke-dashoffset: -125px;
+  }
+}

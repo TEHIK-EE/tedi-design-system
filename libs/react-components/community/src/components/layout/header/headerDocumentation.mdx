@@ -1,0 +1,106 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta name="Header overview" title="Community-components/Layout/Header/Header overview" />
+
+# Header overview
+
+Currently we support two main header types: `public` and `system`.
+Public header is used for public (landing)pages and system header is used for pages that require authentication.
+Both headers are using the same markup and styling, but system header has additional functionality like user menu, notifications, custom content etc. <br/>
+
+## Header areas
+
+Header is divided into 3 main areas: `Logo`, `Content` and `Settings`. <br />
+
+<img alt="Illustrative example for areas with possible components inside" src="layout/header-areas.svg" />
+### Logo
+
+Inside logo area, logo of the application & SidenavToggle is rendered. Logo is always rendered in every breakpoint. SidenavToggle is only rendered on mobile breakpoint and when sidenav is present. <br />
+
+### Content
+
+Inside Content area custom features of application is rendered. It can be used to render links, search, secondary role selection etc. Content area takes all the remaining space of the header.
+And can be aligned every way Grid supports it (left, right, center, space-between etc). <br />
+
+### Settings
+
+Inside Settings area predefined functionality is rendered. It can be used to render HeaderLanguage, HeaderSettings, RoleSelection & Custom Anchors. <br />
+**Note:** When custom Anchor component wrapper is used inside application, then there should be displayName set to tehik-components Anchor displayName to use it as direct children of Header. <br />
+
+```tsx
+import { Anchor } from '@tehik-ee/tedi-design-system';
+
+const AppAnchor = (props) => {
+  ...
+};
+
+AppAnchor.displayName = Anchor.displayName
+```
+
+**Note-2:** Pass those components directly as Header children to render them inside Settings area. They will be reordered to certain order. <br />
+**Note-3:** In mobile breakpoints only HeaderLanguage and HeaderSettings are rendered. Other components should be rendered inside HeaderSettings dropdown/modal. <br />
+**In-future**: We are planning to add more predefined components to Settings area. (notifications etc.) <br />
+
+## Main components of header
+
+Tehik Header main goal is be as Modular as possible. But also provide users consistent and familiar UI/UX.<br />
+Using this approach we can provide a lot of flexibility for teams to create their own header designs, but also provide some basic functionality out of the box & be easy to use. <br />
+
+To achieve this we have created a few main components that are used to build the header:
+
+- [SkipLinks](/docs/components-layout-header-components-skip-links--docs)
+- [HeaderBottomContent](/docs/components-layout-header-components-header-bottom-content--docs)
+- [HeaderContent](/docs/components-layout-header-components-header-content--docs)
+- [HeaderLanguage](/docs/components-layout-header-components-header-language--docs)
+- [HeaderSettings](/docs/components-layout-header-components-header-settings--docs)
+- [HeaderRole](/docs/components-layout-header-components-header-role--docs)
+
+And also exported custom design [Tooltip/Dropdown](/docs/components-layout-header-components-header-dropdown--docs) and [Modal](/docs/components-layout-header-components-header-modal--docs) for header.
+Which can be used to create custom header components inside custom content of `system` header.
+
+### SkipLinks
+
+SkipLinks is a component that is used to provide users with a way to skip to main content of the page.
+It is used to improve accessibility of the page and provide end-users with a way to navigate faster to main content of the page. Mainly for end-users with screen readers. <br />
+SkipLinks are **mandatory** to force teams to use them and improve accessibility of the page. <br />
+
+**Note:** Use SkipLinks by passing its properties to Header component as a prop.
+
+### HeaderBottomContent
+
+HeaderBottomContent is a component that is used to provide users with a way to add custom content to the bottom of the header.
+It can be used to provide important information to users, like maintenance information, notices etc. <br />
+Visual look of ButtomContent is up to the team that is using it. It can be customised by passing different Card properties to it.<br />
+**Note:** Use HeaderBottomContent by passing its properties to Header component as a prop. <br />
+**Note-2:** `Public` header does not support `HeaderBottomContent` component, when navigation is rendered there.
+
+### HeaderContent
+
+HeaderContent is a component that is used to provide teams with a way to add custom content to the header depending on the needs of application.
+It can be used to provide users with a way to navigate to different pages, search functionality, secondary role selection etc. <br />
+HeaderContent can take all the remaining space of other Header areas (Settings & Logo), so it can be aligned every way Grid supports it. <br />
+**Note:** Use HeaderContent by passing it as direct children of Header. <br />
+**Note-2:** Order of Header children does not count, Header orders and filters children in itself. <br />
+**Note-3:** Bear in mind that HeaderContent is not rendered in every breakpoint. By deafult it's not rendered in mobile breakpoints. Those breakpoints can be customized by passing other valeue to `showSystemCustomContent`property in Header.
+And application should handle passing same functionality to HeaderSettings in mobile breakpoints. Look Layout examples to inspiration. <br />
+
+### HeaderLanguage
+
+HeaderLanguage is a component that is used to provide end-users with a way to change language of the application. HeaderLanguge is positioned inside Settings area and will be rendered in every breakpoint for accessibility reasons. <br />
+**Note:** Use HeaderLanguage by passing it as direct children of Header. <br />
+
+### HeaderRole
+
+HeaderRole is a pre-defined component that is used to provide end-users with a way to change and show their role in the application. HeaderRole is positioned inside Settings area and will be rendered in HeaderSettings modal inside mobile breakpoints (Application needs to handle it itself). <br />
+**Note:** Use RoleSelection by passing it as direct children of Header. <br />
+
+### HeaderSettings
+
+HeaderSettings includes buttons for logging end-user out and in. It also accepts custom children to add custom functionality to the HeaderSettingsDropdown. If no children is passed only login/out buttons are rendered. <br />
+When Application has custom HeaderContent, HeaderSettings is usually the place this functionality is rendered in mobile breakpoints. <br />
+HeaderSettings is positioned inside Settings area and will be rendered in every breakpoint.
+**Note:** Use HeaderSettings by passing it as direct children of Header. <br />
+
+## System
+
+## Public

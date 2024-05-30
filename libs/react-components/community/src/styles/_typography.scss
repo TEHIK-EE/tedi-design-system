@@ -1,0 +1,108 @@
+@use './mixins';
+
+h1,
+.h1,
+.text-h1 {
+  font-size: var(--font-size-h1);
+  font-weight: var(--font-weight-h1);
+  line-height: var(--font-line-height-h1);
+}
+
+h2,
+.h2,
+.text-h2 {
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-h2);
+  line-height: var(--font-line-height-h2);
+}
+
+h3,
+.h3,
+.text-h3 {
+  font-size: var(--font-size-h3);
+  font-weight: var(--font-weight-h3);
+  line-height: var(--font-line-height-h3);
+}
+
+h4,
+.h4,
+.text-h4 {
+  font-size: var(--font-size-h4);
+  font-weight: var(--font-weight-h4);
+  line-height: var(--font-line-height-h4);
+}
+
+h5,
+.h5,
+.text-h5 {
+  font-size: var(--font-size-h5);
+  font-weight: var(--font-weight-h5);
+  line-height: var(--font-line-height-h5);
+}
+
+h6,
+.h6,
+.text-h6 {
+  font-size: var(--font-size-h6);
+  font-weight: var(--font-weight-h6);
+  line-height: var(--font-line-height-h6);
+  color: var(--color-text-muted);
+}
+
+.text-normal {
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  font-weight: 400;
+  line-height: var(--font-line-height-base);
+  color: var(--color-text-default);
+}
+
+small,
+.text-small {
+  font-size: var(--font-size-small);
+  line-height: var(--font-line-height-small);
+}
+
+.text-default {
+  color: var(--color-text-default);
+}
+
+.text-primary {
+  color: var(--color-primary-main);
+
+  @include mixins.print-grayscale;
+}
+
+.text-muted {
+  color: var(--color-text-muted);
+}
+
+.text-subtle {
+  color: var(--color-text-subtle);
+}
+
+.text-disabled {
+  color: var(--color-text-disabled);
+}
+
+.text-inverted {
+  color: var(--color-text-inverted);
+}
+
+.text-positive {
+  color: var(--color-positive-main);
+
+  @include mixins.print-grayscale;
+}
+
+.text-important {
+  color: var(--color-important-main);
+
+  @include mixins.print-grayscale;
+}
+
+.text-warning {
+  color: var(--color-warning-main);
+
+  @include mixins.print-grayscale;
+}

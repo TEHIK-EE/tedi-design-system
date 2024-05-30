@@ -1,0 +1,19 @@
+{
+  "name": "design-tokens",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/react-components/design-tokens/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/design-tokens",
+        "main": "libs/react-components/design-tokens/src/index.ts",
+        "tsConfig": "libs/react-components/design-tokens/tsconfig.lib.json",
+        "assets": ["libs/react-components/design-tokens/*.md"]
+      }
+    }
+  },
+  "tags": []
+}

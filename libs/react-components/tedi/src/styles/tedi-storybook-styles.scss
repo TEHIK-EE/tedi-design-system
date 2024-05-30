@@ -1,0 +1,147 @@
+.mobile {
+  .tedi-text {
+    &--h1 {
+      font-size: var(--heading-h1-size-mobile);
+    }
+
+    &--h2 {
+      font-size: var(--heading-h2-size-mobile);
+    }
+
+    &--h3 {
+      font-size: var(--heading-h3-size-mobile);
+    }
+
+    &--h4 {
+      font-size: var(--heading-h4-size-mobile);
+    }
+
+    &--h5 {
+      font-size: var(--heading-h5-size-mobile);
+    }
+
+    &--h6 {
+      font-size: var(--heading-h6-size-mobile);
+    }
+
+    &--subtitle {
+      font-size: var(--heading-subtitle-small-size-mobile);
+    }
+  }
+}
+
+a {
+  color: var(--link-primary-default);
+
+  &.underlined {
+    text-decoration: underline;
+  }
+
+  &.no-underline {
+    text-decoration: none;
+  }
+}
+
+.with-background {
+  padding: 16px;
+  background-color: var(--color-primary-main);
+  border-radius: 8px;
+}
+
+.display-flex {
+  display: flex;
+  align-items: center;
+}
+
+.row {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  padding: 0 8px;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.w-50 {
+  width: 50%;
+}
+
+.example-list {
+  border: 1px solid var(--neutral-400);
+  border-radius: 12px;
+}
+
+.example-text {
+  &--primary {
+    color: var(--neutral-1100);
+  }
+
+  &--secondary {
+    color: var(--neutral-700);
+  }
+}
+
+.border-bottom {
+  border-bottom: 1px solid var(--neutral-400);
+
+  &--3x {
+    border-width: 3px;
+  }
+}
+
+.padding-14-16 {
+  padding: 14px 16px;
+}
+
+.color {
+  width: 200px;
+}
+
+.color-card {
+  position: relative;
+  width: 100%;
+  width: 120px;
+  height: 120px;
+  overflow: hidden;
+  border-radius: var(--dimensions-05);
+}
+
+.color-card::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  content: '';
+  background-color: var(--neutral-200);
+  background-image: linear-gradient(
+      45deg,
+      var(--neutral-400) 25%,
+      transparent 25%,
+      transparent 75%,
+      var(--neutral-400) 75%
+    ),
+    linear-gradient(45deg, var(--neutral-400) 25%, transparent 25%, transparent 75%, var(--neutral-400) 75%);
+  background-position: 0 0, 10px 10px;
+  background-size: 20px 20px;
+}
+
+.color-card::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  content: '';
+  background: inherit;
+}
