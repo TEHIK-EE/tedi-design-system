@@ -1,3 +1,10 @@
+# [6.30.0-rc.15](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.30.0-rc.14...v6.30.0-rc.15) (2024-05-30)
+
+
+### Features
+
+* **typography:** TEDI-264 - TEDI typography component ([033fb7d](https://github.com/TEHIK-EE/tedi-design-system/commit/033fb7dd40f5f65d2ec7647ad1bd34ed8efe7064))
+
 # [6.30.0-rc.14](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.30.0-rc.13...v6.30.0-rc.14) (2024-05-29)
 
 
