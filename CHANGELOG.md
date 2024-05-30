@@ -1,3 +1,10 @@
+# [6.30.0-rc.16](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.30.0-rc.15...v6.30.0-rc.16) (2024-05-30)
+
+
+### Bug Fixes
+
+* **spinner:** TEDI-304 - WCAG changes ([#73](https://github.com/TEHIK-EE/tedi-design-system/issues/73)) ([12ec7b9](https://github.com/TEHIK-EE/tedi-design-system/commit/12ec7b9e2d77e34f4553588d09e69f46d213fb20))
+
 # [6.30.0-rc.15](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.30.0-rc.14...v6.30.0-rc.15) (2024-05-30)
 
 
