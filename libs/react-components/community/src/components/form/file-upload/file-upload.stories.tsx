@@ -95,10 +95,10 @@ export const SizeLimited: Story = {
   },
 };
 
-export const ExtensionAndSizeRejection: Story = {
+export const ExtensionAndSizeLimit: Story = {
   args: {
-    id: 'file-upload-size-limited',
-    name: 'file-size-limited',
+    id: 'file-upload-size-extension-limited',
+    name: 'file-size-extension-limited',
     label: 'Upload file',
     maxSize: 0.001,
     accept: '.pdf,.txt',
