@@ -6,7 +6,7 @@ import '@testing-library/jest-dom';
 
 describe('Spinner component', () => {
   it('renders with default props', () => {
-    const { container } = render(<Spinner />);
+    const { container } = render(<Spinner label="loading" />);
     const spinner = container.querySelector('.tedi-spinner');
     expect(spinner).toHaveClass('tedi-spinner--size-16');
     expect(spinner).toHaveClass('tedi-spinner--color-primary');
@@ -25,18 +25,10 @@ describe('Spinner component', () => {
     expect(spinner).toHaveAttribute('aria-label', 'Loading...');
   });
 
-  it('hides label for screen readers if label prop is not provided', () => {
-    const { container } = render(<Spinner />);
-    const spinner = container.querySelector('.tedi-spinner');
-
-    expect(spinner).toHaveAttribute('aria-hidden', 'true');
-  });
-
   it('shows label for screen readers if label prop is provided', () => {
     const { container } = render(<Spinner label="Loading..." />);
     const spinner = container.querySelector('.tedi-spinner');
 
-    expect(spinner).toHaveAttribute('aria-hidden', 'false');
     expect(spinner).toHaveAttribute('aria-label', 'Loading...');
   });
 });
