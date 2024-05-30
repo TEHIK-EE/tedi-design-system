@@ -55,11 +55,14 @@ a {
 
 .row {
   display: flex;
-  flex-wrap: wrap;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 .column {
-  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
   padding: 0 8px;
 }
 

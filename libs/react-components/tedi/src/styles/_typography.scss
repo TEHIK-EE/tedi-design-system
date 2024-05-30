@@ -153,45 +153,47 @@ $heading-line-heights: (
       color: $var;
     }
   }
+}
 
-  &--subtitle {
-    @extend.text-uppercase;
+.text-subtitle {
+  @extend.text-uppercase;
+  @include apply-styles(
+    font-size,
+    var(--heading-subtitle-regular-size-desktop),
+    var(--heading-subtitle-regular-size-mobile)
+  );
+  @include apply-styles(
+    font-weight,
+    var(--heading-subtitle-regular-weight-desktop),
+    var(--heading-subtitle-regular-weight-mobile)
+  );
+  @include apply-styles(
+    line-height,
+    var(--heading-subtitle-regular-line-height-desktop),
+    var(--heading-subtitle-regular-line-height-mobile)
+  );
+
+  &.text-small {
     @include apply-styles(
       font-size,
-      var(--heading-subtitle-regular-size-desktop),
-      var(--heading-subtitle-regular-size-mobile)
+      var(--heading-subtitle-small-size-desktop),
+      var(--heading-subtitle-small-size-mobile)
     );
     @include apply-styles(
       font-weight,
-      var(--heading-subtitle-regular-weight-desktop),
-      var(--heading-subtitle-regular-weight-mobile)
+      var(--heading-subtitle-small-weight-desktop),
+      var(--heading-subtitle-small-weight-mobile)
     );
     @include apply-styles(
       line-height,
-      var(--heading-subtitle-regular-line-height-desktop),
-      var(--heading-subtitle-regular-line-height-mobile)
+      var(--heading-subtitle-small-line-height-desktop),
+      var(--heading-subtitle-small-line-height-mobile)
     );
-
-    &.text-small {
-      @include apply-styles(
-        font-size,
-        var(--heading-subtitle-small-size-desktop),
-        var(--heading-subtitle-small-size-mobile)
-      );
-      @include apply-styles(
-        font-weight,
-        var(--heading-subtitle-small-weight-desktop),
-        var(--heading-subtitle-small-weight-mobile)
-      );
-      @include apply-styles(
-        line-height,
-        var(--heading-subtitle-small-line-height-desktop),
-        var(--heading-subtitle-small-line-height-mobile)
-      );
-    }
   }
 }
 
 label {
   color: var(--general-text-secondary);
+
+  @include apply-styles(line-height, var(--body-regular-line-height-desktop), var(--body-regular-line-height-mobile));
 }

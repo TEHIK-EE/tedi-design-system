@@ -49,16 +49,4 @@ describe('Text Component', () => {
     expect(textElement).toHaveClass('tedi-text--primary');
     expect(textElement).toHaveTextContent('Text test');
   });
-
-  it('renders text as subtitle correctly', () => {
-    const { getByTestId } = render(
-      <Text subtitle data-testid="text">
-        Text test
-      </Text>
-    );
-    const textElement = getByTestId('text');
-    expect(textElement).toBeInTheDocument();
-    expect(textElement).toHaveClass('tedi-text--subtitle');
-    expect(textElement).toHaveTextContent('Text test');
-  });
 });

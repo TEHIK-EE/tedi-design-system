@@ -11,6 +11,8 @@ export const Row: React.FC<RowProps> = ({ children, className = '' }) => (
   <div className={`row ${className} padding-14-16`}>{children}</div>
 );
 
+Row.displayName = 'Row';
+
 interface ColumnProps {
   children: React.ReactNode;
   className?: string;
@@ -19,6 +21,8 @@ interface ColumnProps {
 export const Column: React.FC<ColumnProps> = ({ children, className = '' }) => (
   <div className={`column w-50 text-left ${className}`}>{children}</div>
 );
+
+Column.displayName = 'Column';
 
 interface TextRowProps {
   desktopText: React.ReactNode;
@@ -56,3 +60,5 @@ export const TextRow: React.FC<TextRowProps> = ({
     </Column>
   </Row>
 );
+
+TextRow.displayName = 'TextRow';

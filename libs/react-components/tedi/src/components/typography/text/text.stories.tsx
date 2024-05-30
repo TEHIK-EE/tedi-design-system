@@ -28,12 +28,12 @@ const TemplateSubtitles: StoryFn = (args) => (
     </Row>
     <TextRow
       desktopText={
-        <Text color="primary" subtitle={true}>
+        <Text color="primary" modifiers="subtitle">
           Subtitle
         </Text>
       }
       mobileText={
-        <Text color="primary" subtitle={true}>
+        <Text color="primary" modifiers="subtitle">
           Subtitle
         </Text>
       }
@@ -41,12 +41,12 @@ const TemplateSubtitles: StoryFn = (args) => (
     />
     <TextRow
       desktopText={
-        <Text color="primary" subtitle={true} modifiers="small">
+        <Text color="primary" modifiers={['subtitle', 'small']}>
           Subtitle Small
         </Text>
       }
       mobileText={
-        <Text color="primary" subtitle={true} modifiers="small">
+        <Text color="primary" modifiers={['subtitle', 'small']}>
           Subtitle Small
         </Text>
       }

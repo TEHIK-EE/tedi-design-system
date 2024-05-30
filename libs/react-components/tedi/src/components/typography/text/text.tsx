@@ -26,7 +26,8 @@ export type TextModifiers =
   | 'inline-block'
   | 'inline'
   | 'line-normal'
-  | 'line-condensed';
+  | 'line-condensed'
+  | 'subtitle';
 
 export type TextColor =
   | 'primary'
@@ -78,10 +79,6 @@ export interface TextProps extends BreakpointSupport<TextBreakpointProps> {
    * Allows to focus the element
    */
   tabIndex?: number;
-  /**
-   * Text is subtitle
-   */
-  subtitle?: boolean;
 }
 
 const isHeadingModifier = (modifier: TextModifiers): modifier is HeadingModifiers => {
@@ -97,7 +94,6 @@ export const Text = (props: TextProps): JSX.Element => {
     element: Element = 'p',
     modifiers,
     color,
-    subtitle,
     ...rest
   } = getCurrentBreakpointProps<TextProps>(props);
 
@@ -106,8 +102,7 @@ export const Text = (props: TextProps): JSX.Element => {
   const BEM = cn(
     className,
     modifiersArray?.map((modifier) => (isHeadingModifier(modifier) ? `tedi-text--${modifier}` : `text-${modifier}`)),
-    { [`tedi-text--${color}`]: color },
-    { [`tedi-text--subtitle`]: subtitle }
+    { [`tedi-text--${color}`]: color }
   );
 
   return (
