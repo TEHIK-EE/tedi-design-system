@@ -1,8 +1,6 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import { ComponentProps, useState } from 'react';
 
-import { VerticalSpacing } from '../../vertical-spacing';
-import FormHelper from '../form-helper/form-helper';
 import { MultipleHandledTemplate } from './examples/multiple-handled';
 import FileUpload from './file-upload';
 
@@ -79,6 +77,21 @@ export const Disabled: Story = {
   },
 };
 
+const AcceptTemplate: StoryFn<ComponentProps<typeof FileUpload>> = (args) => {
+  const [helperText, setHelperText] = useState<string | undefined>();
+  const handleInvalidFiles = (files: File[]) => {
+    setHelperText(`File(s) ${files.map((file) => `'${file.name}'`).join(', ')} have the wrong extension`);
+  };
+  return (
+    <FileUpload
+      {...args}
+      onInvalidExtension={handleInvalidFiles}
+      onChange={() => setHelperText(undefined)}
+      helper={helperText ? { text: helperText, type: 'error' } : undefined}
+    />
+  );
+};
+
 export const PdfAndTxtOnly: Story = {
   args: {
     id: 'file-upload-accepts',
@@ -86,6 +99,7 @@ export const PdfAndTxtOnly: Story = {
     label: 'Upload file',
     accept: '.pdf,.txt',
   },
+  render: AcceptTemplate,
 };
 
 const MaxSizeTemplate: StoryFn<ComponentProps<typeof FileUpload>> = (args) => {
@@ -94,14 +108,12 @@ const MaxSizeTemplate: StoryFn<ComponentProps<typeof FileUpload>> = (args) => {
     setHelperText(`File(s) ${files.map((file) => `'${file.name}'`).join(', ')} are too big`);
   };
   return (
-    <VerticalSpacing>
-      <FileUpload
-        {...args}
-        onInvalidSize={handleInvalidFiles}
-        onChange={() => setHelperText(undefined)}
-        helper={helperText ? { text: helperText } : undefined}
-      />
-    </VerticalSpacing>
+    <FileUpload
+      {...args}
+      onInvalidSize={handleInvalidFiles}
+      onChange={() => setHelperText(undefined)}
+      helper={helperText ? { text: helperText, type: 'error' } : undefined}
+    />
   );
 };
 

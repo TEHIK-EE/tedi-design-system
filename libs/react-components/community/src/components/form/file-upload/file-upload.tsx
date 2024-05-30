@@ -40,6 +40,10 @@ export interface FileUploadProps extends FormLabelProps {
    */
   accept?: string;
   /**
+   * Callback to be used when files are rejected due to file extension
+   */
+  onInvalidExtension?: (files: File[]) => void;
+  /**
    * When the multiple Boolean attribute is true, the file input allows the user to select more than one file.
    */
   multiple?: boolean;
@@ -85,7 +89,7 @@ const getDefaultHelpers = (
 ): FormHelperProps | undefined => {
   if (!accept && !maxSize) return;
   const text = [
-    accept && `${getLabel('file-upload.accept')} ${accept.replace(',', ', ')}`,
+    accept && `${getLabel('file-upload.accept')} ${accept.replaceAll(',', ', ')}`,
     maxSize && `${getLabel('file-upload.max-size')} ${maxSize}MB`,
   ]
     .filter(Boolean)
@@ -109,6 +113,7 @@ export const FileUpload = (props: FileUploadProps): JSX.Element => {
     disabled = false,
     maxSize,
     onInvalidSize,
+    onInvalidExtension,
     helper = getDefaultHelpers({ accept, maxSize }, getLabel),
     ...rest
   } = props;
@@ -138,12 +143,21 @@ export const FileUpload = (props: FileUploadProps): JSX.Element => {
   const onFileChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     if (e.target.files) {
       const invalidSizeFiles: File[] = [];
+      const invalidExtensionFiles: File[] = [];
       const uploadedFiles = [...Array.from(e.target.files)]
-        .filter((file) => validFileType(file))
+        .filter((file) => {
+          if (validFileType(file)) return true;
+
+          if (onInvalidExtension) {
+            invalidExtensionFiles.push(file);
+          }
+        })
         .filter((file) => {
           if (!maxSize || file.size <= maxSize * 1024 ** 2) return true;
 
-          invalidSizeFiles.push(file);
+          if (onInvalidSize) {
+            invalidSizeFiles.push(file);
+          }
           return false;
         });
       const newFiles = [...getFiles, ...uploadedFiles];
@@ -155,6 +169,9 @@ export const FileUpload = (props: FileUploadProps): JSX.Element => {
       onChange?.(newFiles);
       if (onInvalidSize && invalidSizeFiles.length) {
         onInvalidSize(invalidSizeFiles);
+      }
+      if (onInvalidExtension && invalidExtensionFiles.length) {
+        onInvalidExtension(invalidExtensionFiles);
       }
     }
   };
