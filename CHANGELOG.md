@@ -1,3 +1,73 @@
+# [6.30.0-rc.15](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.30.0-rc.14...v6.30.0-rc.15) (2024-05-30)
+
+
+### Features
+
+* **typography:** TEDI-264 - TEDI typography component ([033fb7d](https://github.com/TEHIK-EE/tedi-design-system/commit/033fb7dd40f5f65d2ec7647ad1bd34ed8efe7064))
+
+# [6.30.0-rc.14](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.30.0-rc.13...v6.30.0-rc.14) (2024-05-29)
+
+
+### Bug Fixes
+
+* **select:** required props passed to input ([#58](https://github.com/TEHIK-EE/tedi-design-system/issues/58)) ([eb6428f](https://github.com/TEHIK-EE/tedi-design-system/commit/eb6428fc73773157148d2368802c7047f5ff9a21))
+
+# [6.30.0-rc.13](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.30.0-rc.12...v6.30.0-rc.13) (2024-05-29)
+
+
+### Features
+
+* **colors:** TEDI-242 - Added TEDI colors docs ([12aae95](https://github.com/TEHIK-EE/tedi-design-system/commit/12aae957ca067d7a9871454f83af96f640ef0e03))
+
+# [6.30.0-rc.12](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.30.0-rc.11...v6.30.0-rc.12) (2024-05-24)
+
+
+### Features
+
+* **FileUpload:** added optional size checking and callback ([#55](https://github.com/TEHIK-EE/tedi-design-system/issues/55)) ([569f1d6](https://github.com/TEHIK-EE/tedi-design-system/commit/569f1d68f0c04c9de80886ef1a2ba9dcae17bf46))
+
+# [6.30.0-rc.11](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.30.0-rc.10...v6.30.0-rc.11) (2024-05-23)
+
+
+### Bug Fixes
+
+* **storybook:** TEDI-271 - Display type values in argsTable ([88a4507](https://github.com/TEHIK-EE/tedi-design-system/commit/88a4507fbe8a6ec23ea6ea4f64a923ad14da7901))
+
+# [6.30.0-rc.10](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.30.0-rc.9...v6.30.0-rc.10) (2024-05-21)
+
+
+### Bug Fixes
+
+* **Breadcrumbs:** Make last element text ([1f78783](https://github.com/TEHIK-EE/tedi-design-system/commit/1f787832c615b712f1370799c16b8df1542898c9))
+
+# [6.30.0-rc.9](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.30.0-rc.8...v6.30.0-rc.9) (2024-05-21)
+
+
+### Bug Fixes
+
+* **chore:** TEDI-278 - Fixed TEDI Icon rendering in next.js project ([f5ffd87](https://github.com/TEHIK-EE/tedi-design-system/commit/f5ffd873d2e1f1518d4b890e1a418ffc73124e57))
+
+# [6.30.0-rc.8](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.30.0-rc.7...v6.30.0-rc.8) (2024-05-20)
+
+
+### Bug Fixes
+
+* **chore:** TEDI-277 - TEDI components export ([168fffc](https://github.com/TEHIK-EE/tedi-design-system/commit/168fffc975462a8507c7bd33792ab7810af760ee))
+
+# [6.30.0-rc.7](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.30.0-rc.6...v6.30.0-rc.7) (2024-05-20)
+
+
+### Bug Fixes
+
+* **library:** TEDI-277 - Library components export fix ([#43](https://github.com/TEHIK-EE/tedi-design-system/issues/43)) ([f4ba2cb](https://github.com/TEHIK-EE/tedi-design-system/commit/f4ba2cb2c3ef491c94e084a992001be5ed415105))
+
+# [6.30.0-rc.6](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.30.0-rc.5...v6.30.0-rc.6) (2024-05-20)
+
+
+### Bug Fixes
+
+* **library:** TEDI-277 - Library components export fix ([5ef9d39](https://github.com/TEHIK-EE/tedi-design-system/commit/5ef9d39a7809b08039a6bf3eb06a370f4a5fc4b6))
+
 # [6.30.0-rc.5](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.30.0-rc.4...v6.30.0-rc.5) (2024-05-17)
 
 

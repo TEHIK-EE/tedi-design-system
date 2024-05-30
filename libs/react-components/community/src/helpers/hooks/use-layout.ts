@@ -1,4 +1,4 @@
-import useBreakpoint, { Breakpoint } from './use-breakpoint';
+import useBreakpoint, { Breakpoint } from '../../../../shared/hooks/use-breakpoint';
 
 export const mobileBreakpoints: Breakpoint[] = ['xs', 'sm'];
 export const tabletBreakpoints: Breakpoint[] = ['md'];

@@ -13,6 +13,7 @@ const config: StorybookConfig = {
     '../shared/docs/_welcome.mdx',
     '../shared/docs/getStarted.mdx',
     '../shared/docs/changelog.mdx',
+    '../shared/docs/colors/tedi-colors.mdx',
     '../community/src/docs/colors/colorTokens.mdx',
     '../community/src/docs/colors/colorGuidelines.mdx',
     '../community/src/docs/scale-layout/spacing.mdx',
@@ -20,12 +21,16 @@ const config: StorybookConfig = {
     '../community/src/docs/labels/labels.mdx',
     '../community/src/docs/printing.mdx',
     '../tedi/src/**/**/*.stories.tsx',
+    '../tedi/src/**/**/*.mdx',
     '../community/src/**/**/*.stories.tsx',
     '../community/src/**/**/*.mdx',
   ],
   typescript: {
     reactDocgen: 'react-docgen-typescript',
-    reactDocgenTypescriptOptions: {},
+    reactDocgenTypescriptOptions: {
+      shouldExtractLiteralValuesFromEnum: true,
+      shouldRemoveUndefinedFromOptional: true,
+    },
   },
   addons: rootMain.addons || [],
   async viteFinal(config, { configType }) {

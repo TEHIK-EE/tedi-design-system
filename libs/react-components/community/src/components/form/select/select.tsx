@@ -546,6 +546,7 @@ export const Select = forwardRef<SelectInstance<ISelectOption, boolean, IGrouped
           menuPosition="fixed"
           menuPlacement="auto"
           inputIsHidden={inputIsHidden}
+          required={required}
           theme={(theme) => ({
             ...theme,
             colors: {

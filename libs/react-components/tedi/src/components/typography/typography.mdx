@@ -1,0 +1,75 @@
+import { Meta, Unstyled } from '@storybook/blocks';
+
+<Meta name="Welcome" title="Tedi-components/Base/Typography/Guidelines" />
+
+[Figma ↗](<https://www.figma.com/design/jWiRIXhHRxwVdMSimKX2FF/TEDI-Design-System-(draft)?node-id=115-11630&m=dev>)<br/>
+[Zeroheight ↗](https://zeroheight.com/1ee8444b7/p/4651ec-typography) <hr/>
+
+### Text
+
+Text is a helper component used to apply different colors and modifiers to text.
+Modifiers prop accepts array of modifiers or single modifier. It helps you to combine modifiers if needed.
+Every text modifier and color has its own global CSS class, but using the Text component is <u>recommended</u>, as it allows your IDE to suggest possible values and helps reduce mistakes.
+
+Basic usage:
+
+```jsx
+<Text element="h1" modifiers="capitalize" color="primary">
+  Some text
+</Text>
+```
+
+Multiple modifiers:
+
+```jsx
+<Text color="tertiary" modifiers={['bold', 'uppercase']}>
+  Some text
+</Text>
+```
+
+You can also use:
+
+```jsx
+<h1>Some text</h1>
+```
+
+You can also use TEDI classes, such as:
+
+```jsx
+<p class="tedi-text--distinctive">Some text</p>
+```
+
+### Heading
+
+This component is a wrapper around the `<Text>` component. It should only be used when we want to semantically render h1-h6 tags.
+The same result can be achieved by using `<Text element="h1">`, but using this component provides a better indicator in code that we are using semantic headings.
+
+<strong>NB!</strong> Headings have dynamic font styles, which means that they have different font-size/font-weight/line-height
+values for desktop/mobile.
+
+Basic usage:
+
+```jsx
+<Heading element="h2">Some heading</Heading>
+```
+
+### Breakpoint support
+
+You can use breakpoint props to render modifiers, colors, or even elements differently based on different breakpoints. Simply pass an object as a prop
+corresponding to the desired breakpoint. Each object can contain any combination of `modifiers` and `color` to adjust the text styling.
+
+Breakpoints available: `sm` `md` `lg` `xl` `xxl`
+
+Basic usage:
+
+```jsx
+<Text element="span" modifiers="uppercase" sm={{ modifiers: 'small', color: 'primary' }}>
+  Responsive Text
+</Text>
+```
+
+```jsx
+<Heading element="h1" modifiers="uppercase" md={{ modifiers: 'lowercase' }}>
+  Responsive Heading
+</Heading>
+```

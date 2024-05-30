@@ -14,12 +14,4 @@
 .breadcrumbs__item {
   display: flex;
   align-items: center;
-
-  &--current {
-    color: var(--color-text-muted);
-  }
-}
-
-.breadcrumbs__link--current {
-  cursor: text;
 }
