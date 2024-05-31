@@ -1,3 +1,10 @@
+# [6.31.0-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.30.0...v6.31.0-rc.1) (2024-05-31)
+
+
+### Features
+
+* **FileUpload:** added default helper texts, onInvalid size or file extension ([#72](https://github.com/TEHIK-EE/tedi-design-system/issues/72)) ([142520a](https://github.com/TEHIK-EE/tedi-design-system/commit/142520abe9a2282d3af8bf7e81dca098a3bcd139))
+
 # [6.30.0](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.29.0...v6.30.0) (2024-05-30)
 
 
