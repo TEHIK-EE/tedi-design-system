@@ -27,7 +27,6 @@
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.0",
     "@floating-ui/react": "^0.26.9",
-    "@mui/icons-material": "^5.15.15",
     "@mui/material": "^5.15.13",
     "@mui/x-date-pickers": "^5.0.20",
     "@storybook/blocks": "^8.0.2",
@@ -131,6 +130,7 @@
     "vite-plugin-checker": "^0.6.4",
     "vite-plugin-dts": "3.7.3",
     "vite-plugin-eslint": "^1.8.1",
+    "vite-plugin-webfont-dl": "^3.9.4",
     "vite-tsconfig-paths": "4.3.2"
   },
   "overrides": {

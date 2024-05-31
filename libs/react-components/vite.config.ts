@@ -6,6 +6,7 @@ import { visualizer } from 'rollup-plugin-visualizer';
 import { defineConfig, PluginOption, UserConfig } from 'vite';
 import checker from 'vite-plugin-checker';
 import dts from 'vite-plugin-dts';
+import webfontDownload from 'vite-plugin-webfont-dl';
 
 // https://vitejs.dev/config/
 
@@ -35,6 +36,11 @@ const config: UserConfig = {
       filename: './dist/bundle-stats.html',
       title: '@tehik-ee/tedi-design-system bundle stats',
     }) as PluginOption,
+    webfontDownload([
+      'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:fill,wght@1,400&display=swap',
+      'https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:fill,wght@400&display=swap',
+      'https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:fill,wght@400&display=swap',
+    ]),
   ],
   css: {
     modules: {
@@ -57,10 +63,12 @@ const config: UserConfig = {
       formats: ['es', 'cjs'],
     },
     rollupOptions: {
-      external: ['next', 'react', 'react/jsx-runtime', 'react-dom', 'dayjs', '@mui/icons-material'],
+      external: ['next', 'react', 'react/jsx-runtime', 'react-dom', 'dayjs'],
       output: {
         assetFileNames: (assetInfo) => {
-          if (assetInfo.name === 'style.css') return 'index.css';
+          const name = assetInfo.name || '';
+          if (name === 'style.css') return 'index.css';
+          if (name.endsWith('.woff') || name.endsWith('.woff2')) return 'fonts/[name]-[hash][extname]';
           return assetInfo.name || '';
         },
       },

@@ -6,7 +6,7 @@ import { Icon, IconProps } from './icon';
 /**
  * [Figma ↗](https://www.figma.com/file/jWiRIXhHRxwVdMSimKX2FF/TEDI-Design-System-(draft)?type=design&node-id=45-30752&mode=dev)<br/>
  * [Zeroheight ↗](https://tedi.zeroheight.com/styleguide/s/118912/p/28835d-icons)<hr/>
- * [Official Google Material Icons homepage icons ↗](https://fonts.google.com/icons)<br/>
+ * [Official Google Material Symbols homepage ↗](https://fonts.google.com/icons)<br/>
  * [Figma Material Symbols plugin ↗](https://www.figma.com/community/plugin/1088610476491668236/material-symbols)
  */
 const meta: Meta<typeof Icon> = {

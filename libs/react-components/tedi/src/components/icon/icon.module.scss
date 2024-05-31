@@ -1,5 +1,3 @@
-@import 'material-symbols/index.css';
-
 $icon-colors: (
   'primary': 'icon-primary',
   'secondary': 'icon-secondary',
@@ -58,7 +56,7 @@ $icon-sizes: (
 
   @each $size, $var in $icon-sizes {
     &--size-#{$size} {
-      font-size: #{$var} !important;
+      font-size: #{$var};
     }
   }
 
