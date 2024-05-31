@@ -1,3 +1,10 @@
+# [6.31.0-rc.2](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.31.0-rc.1...v6.31.0-rc.2) (2024-05-31)
+
+
+### Bug Fixes
+
+* Fixed breakpoint helpers imports ([72400d4](https://github.com/TEHIK-EE/tedi-design-system/commit/72400d4dc4dd851ad0a949a38a7876e3b976ad3a))
+
 ## [6.30.1](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.30.0...v6.30.1) (2024-05-31)
 
 
