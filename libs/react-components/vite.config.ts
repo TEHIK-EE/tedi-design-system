@@ -57,7 +57,7 @@ const config: UserConfig = {
       formats: ['es', 'cjs'],
     },
     rollupOptions: {
-      external: ['next', 'react', 'react/jsx-runtime', 'react-dom', 'dayjs', '@mui/icons-material'],
+      external: ['next', 'react', 'react/jsx-runtime', 'react-dom', 'dayjs', 'lodash-es', 'classnames'],
       output: {
         assetFileNames: (assetInfo) => {
           if (assetInfo.name === 'style.css') return 'index.css';
