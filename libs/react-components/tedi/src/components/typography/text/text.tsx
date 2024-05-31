@@ -1,6 +1,6 @@
 import cn from 'classnames';
 
-import { BreakpointSupport, useBreakpointProps } from '../../../../../shared/hooks/use-breakpoint-props';
+import { BreakpointSupport, useBreakpointProps } from '../../../helpers';
 import type { HeadingLevel } from '../heading/heading';
 
 export type HeadingModifiers = `h${HeadingLevel}`;
