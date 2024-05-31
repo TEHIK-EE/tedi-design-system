@@ -1,5 +1,4 @@
 import cn from 'classnames';
-import { join } from 'path';
 import React from 'react';
 
 import { ILabelContext, useLabels } from '../../../providers/label-provider';
