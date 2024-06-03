@@ -134,7 +134,7 @@ function SideNavItem<C extends React.ElementType = 'a'>(props: SideNavItem<C>) {
         onClick={handleClick}
         className={styles['sidenav__link']}
         noStyle={true}
-        role="navigation"
+        role="menuitem"
         aria-current={isActive ? 'page' : undefined}
       >
         {icon && getIcon(icon)}
