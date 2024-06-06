@@ -37,9 +37,9 @@ const config: UserConfig = {
       title: '@tehik-ee/tedi-design-system bundle stats',
     }) as PluginOption,
     webfontDownload([
-      'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:fill,wght@1,400&display=swap',
-      'https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:fill,wght@400&display=swap',
-      'https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:fill,wght@400&display=swap',
+      'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@400,0..1',
+      'https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:wght,FILL@400,0..1',
+      'https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:wght,FILL@400,0..1',
     ]),
   ],
   css: {
