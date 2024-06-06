@@ -1,3 +1,10 @@
+# [6.31.0-rc.3](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.31.0-rc.2...v6.31.0-rc.3) (2024-06-06)
+
+
+### Features
+
+* **table:** add options for 50 and 100 rows for tables ([#84](https://github.com/TEHIK-EE/tedi-design-system/issues/84)) ([a00256c](https://github.com/TEHIK-EE/tedi-design-system/commit/a00256c171ccf5ffd5ad1b90f0ca644c01f190b9))
+
 # [6.31.0-rc.2](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.31.0-rc.1...v6.31.0-rc.2) (2024-05-31)
 
 
