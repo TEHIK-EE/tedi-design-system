@@ -176,6 +176,20 @@ export const labelsMap = {
     en: 'Maximum size:',
     ru: 'Максимальный размер:',
   }),
+  'file-upload.size-rejected': validateLabel({
+    description: 'Error label for rejected size',
+    components: ['FileUpload'],
+    et: (files: string) => `Fail(id) ${files} on liiga suured`,
+    en: (files: string) => `File(s) ${files} are too large`,
+    ru: (files: string) => `Файл(ы) ${files} слишком велики`,
+  }),
+  'file-upload.extension-rejected': validateLabel({
+    description: 'Error label for rejected extension',
+    components: ['FileUpload'],
+    et: (files: string) => `Fail(id) ${files} on vale laiendiga`,
+    en: (files: string) => `File(s) ${files} have the wrong extension`,
+    ru: (files: string) => `Файл(ы) ${files} имеют неправильное расширение`,
+  }),
   'modal.close': validateLabel({
     description: 'Label for modals close button',
     components: ['Modal'],

@@ -63,7 +63,7 @@ const config: UserConfig = {
       formats: ['es', 'cjs'],
     },
     rollupOptions: {
-      external: ['next', 'react', 'react/jsx-runtime', 'react-dom', 'dayjs'],
+      external: ['next', 'react', 'react/jsx-runtime', 'react-dom', 'dayjs', 'lodash-es', 'classnames'],
       output: {
         assetFileNames: (assetInfo) => {
           const name = assetInfo.name || '';

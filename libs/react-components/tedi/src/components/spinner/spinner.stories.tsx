@@ -46,11 +46,11 @@ const TemplateColors: StoryFn<TemplateMultipleProps> = () => {
   return (
     <div className="row w-50">
       <div className="column">
-        <Spinner color="primary" size={48} />
+        <Spinner color="primary" label="Loading..." size={48} />
       </div>
       <div className="column">
         <div className="with-background">
-          <Spinner color="secondary" size={48} />
+          <Spinner color="secondary" label="Loading..." size={48} />
         </div>
       </div>
     </div>
@@ -77,6 +77,7 @@ export const Size: StoryObj<TemplateMultipleProps> = {
     property: 'size',
     color: 'primary',
     array: sizeArray,
+    label: 'Loading...',
   },
 };
 

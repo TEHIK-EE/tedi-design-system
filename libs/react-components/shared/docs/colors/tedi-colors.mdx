@@ -1,0 +1,20 @@
+import { Meta } from '@storybook/blocks';
+import ColorStory from './color-tokens';
+import baseColorData from './base-color-variables.json';
+import semanticColorData from './brand-color-variables.json';
+
+<Meta name="Color tokens" title="Tedi-Components/Base/Colors/TEDI Colors" />
+
+# TEDI Colors
+
+[Figma ↗](<https://www.figma.com/file/jWiRIXhHRxwVdMSimKX2FF/TEDI-Design-System-(draft)?type=design&node-id=47-32908&mode=dev>)<br/>
+[Zeroheight documentation ↗](https://zeroheight.com/1ee8444b7/v/latest/p/231068-color-variables/b/30bd91)
+
+<h3>Brand colors</h3>
+<div className="example-list padding-14-16">
+  <ColorStory data={semanticColorData} />
+</div>
+<h3>Base colors</h3>
+<div className="example-list padding-14-16">
+  <ColorStory data={baseColorData} />
+</div>
