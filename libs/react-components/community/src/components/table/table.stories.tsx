@@ -311,15 +311,20 @@ export const RowSelection: Story = {
   },
 };
 
+/**
+ * Row selection can be controlled from outside by passing 'rowSelection' and 'onRowSelectionChange' props. 'rowSelection' is an object with row id as key and boolean as value. <br />
+ * enableRowSelection is a function that is called for each row to determine if row can be selected. @defaults to true <br />
+ */
 export const RowSelectionControlledFromOutside: Story = {
   args: {
     data: data(),
     columns: [getRowSelectionColumn('test-2', true), ...columns],
     id: 'row-selection-table-outside',
     getRowId: (row) => row.id,
+    enableRowSelection: (row) => row.original.age > 40,
   },
   render: (args) => {
-    const [rowSelection, setRowSelection] = React.useState<RowSelectionState>({});
+    const [rowSelection, setRowSelection] = React.useState<RowSelectionState>({ 1: true });
 
     return (
       <Table

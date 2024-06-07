@@ -185,6 +185,11 @@ export interface TableProps<TData extends DefaultTData<TData>> {
    */
   onRowSelectionChange?: (state: RowSelectionState) => void;
   /**
+   * Enables/disables row selection for all rows in the table OR
+   * A function that given a row, returns whether to enable/disable row selection for that row
+   */
+  enableRowSelection?: boolean | ((row: Row<TData>) => boolean);
+  /**
    * Initial internal columnVisibility state on render. This only applies when `columnVisibility` prop is not defined.
    */
   defaultColumnVisibility?: VisibilityState;
