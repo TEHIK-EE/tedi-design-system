@@ -324,7 +324,7 @@ export const RowSelectionControlledFromOutside: Story = {
     enableRowSelection: (row) => row.original.age > 40,
   },
   render: (args) => {
-    const [rowSelection, setRowSelection] = React.useState<RowSelectionState>({ 1: true });
+    const [rowSelection, setRowSelection] = React.useState<RowSelectionState>({});
 
     return (
       <Table
