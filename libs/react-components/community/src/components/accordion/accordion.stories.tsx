@@ -260,6 +260,12 @@ export const Background: Story = {
         headerProps: { background: 'white/primary' },
         itemProps: { background: 'bg-subtle' },
       },
+      {
+        id: 'muted/primary',
+        header: 'Muted/primary',
+        content: ACCORDION_ITEM_CONTENT,
+        headerProps: { background: 'muted/primary' },
+      },
     ],
     accordionItemHeader: {
       openText: ' ',
