@@ -1,3 +1,11 @@
+# [6.31.0-rc.5](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.31.0-rc.4...v6.31.0-rc.5) (2024-06-10)
+
+
+### Features
+
+* **table:** add enableRowSelection to table [#86](https://github.com/TEHIK-EE/tedi-design-system/issues/86) ([7ff33c9](https://github.com/TEHIK-EE/tedi-design-system/commit/7ff33c9ca7491c29d9cd7d36569219946fc4a12f))
+* **table:** add enableRowSelection to table [#86](https://github.com/TEHIK-EE/tedi-design-system/issues/86) ([b8dbd92](https://github.com/TEHIK-EE/tedi-design-system/commit/b8dbd9210a8eaa886ee4ca2e682937a065533be3))
+
 # [6.31.0-rc.4](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.31.0-rc.3...v6.31.0-rc.4) (2024-06-10)
 
 
