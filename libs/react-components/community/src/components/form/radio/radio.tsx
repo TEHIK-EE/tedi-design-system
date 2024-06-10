@@ -55,6 +55,7 @@ export const Radio = (props: RadioProps): JSX.Element => {
             checked={getChecked}
             onChange={onChangeHandler}
             className={styles['radio__input']}
+            aria-labelledby={`label-${id}`}
           />
           <div
             aria-hidden="true"
@@ -63,7 +64,7 @@ export const Radio = (props: RadioProps): JSX.Element => {
           />
         </Col>
         <Col>
-          <label ref={labelRef} className={LabelBEM} htmlFor={id}>
+          <label ref={labelRef} className={LabelBEM} id={`label-${id}`} aria-hidden="true">
             <span className={cn({ 'visually-hidden': hideLabel })}>{label}</span>
           </label>
           {tooltip && (
