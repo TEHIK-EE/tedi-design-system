@@ -13,7 +13,7 @@ export type ColorsBackground =
   | 'bg-disabled'
   | 'bg-inverted'
   | 'bg-inverted-contrast';
-export type ColorsShades = 'black' | 'white' | 'muted';
+export type ColorsShades = 'black' | 'white';
 export type ColorsBorder = 'border-default' | 'border-contrast';
 export type ColorsFunctional =
   | 'positive-main'

@@ -71,13 +71,13 @@ export const AccordionItemHeader = (props: AccordionItemHeaderProps): JSX.Elemen
       case 'white/primary':
         return isOpen(id) ? 'primary-active' : 'white';
       case 'muted/primary':
-        return isOpen(id) ? 'primary-active' : 'muted';
+        return isOpen(id) ? 'primary-active' : 'bg-muted';
       default:
         return background;
     }
   }, [background, id, isOpen]);
 
-  const buttonColor = dynamicBackground === 'white' || dynamicBackground === 'muted' ? undefined : 'inverted'; // for blue backgrounds show the white button
+  const buttonColor = dynamicBackground === 'white' || dynamicBackground === 'bg-muted' ? undefined : 'inverted'; // for blue backgrounds show the white button
 
   const renderItem = (content: AccordionItemHeaderProps['children']) => (
     <CardHeader
