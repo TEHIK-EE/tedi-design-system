@@ -98,7 +98,7 @@ const FooterCategory = (props: FooterCategory): JSX.Element => {
           <VerticalSpacing element="ul" size={0.5} className={cn(styles['footer__category-list'])}>
             {elements?.map((item, index) => (
               <li key={index}>
-                <Text color="inverted" element="span">
+                <Text color="inverted" element="span" modifiers="break-all">
                   {item}
                 </Text>
               </li>
