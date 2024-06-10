@@ -102,6 +102,12 @@
   border-bottom: 1px solid var(--color-border-default);
 }
 
+.card__header--bg-muted {
+  color: var(--color-text-muted);
+  background: var(--color-bg-muted);
+  border-bottom: 1px solid var(--color-border-default);
+}
+
 .card__header {
   z-index: 1;
   padding: var(--card-content-padding-top, 1rem) var(--card-content-padding-right, 1rem)
