@@ -1,3 +1,12 @@
+# [6.31.0-rc.4](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.31.0-rc.3...v6.31.0-rc.4) (2024-06-10)
+
+
+### Bug Fixes
+
+* **choice-group:** fix radio and check button screenreader bug ([c57e700](https://github.com/TEHIK-EE/tedi-design-system/commit/c57e70040a9064cb32e82d18714081f90e824ad6))
+* **layout:** fix role for sidenav and add break-all to footer links ([1d547a8](https://github.com/TEHIK-EE/tedi-design-system/commit/1d547a8830fb16e7a431da7a0690d622e3a54b80))
+* **layout:** remove fix role for sidenav ([4130bdb](https://github.com/TEHIK-EE/tedi-design-system/commit/4130bdbe65b642f251012cb22a5c686172ee2b87))
+
 # [6.31.0-rc.3](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.31.0-rc.2...v6.31.0-rc.3) (2024-06-06)
 
 
