@@ -1,3 +1,10 @@
+# [6.31.0-rc.6](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.31.0-rc.5...v6.31.0-rc.6) (2024-06-10)
+
+
+### Features
+
+* **accordion, card-header:** add muted-bg for accordion header ([#85](https://github.com/TEHIK-EE/tedi-design-system/issues/85)) ([577c13f](https://github.com/TEHIK-EE/tedi-design-system/commit/577c13fdbaa6c97f9521d2d0c72da08d778467eb))
+
 # [6.31.0-rc.5](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.31.0-rc.4...v6.31.0-rc.5) (2024-06-10)
 
 
