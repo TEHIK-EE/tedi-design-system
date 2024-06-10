@@ -63,7 +63,6 @@ export const Check = (props: CheckProps): JSX.Element => {
             aria-checked={getChecked}
             onChange={onChangeHandler}
             className={styles['check__input']}
-            aria-labelledby={`label-${id}`}
           />
           <div
             aria-hidden="true"
@@ -78,7 +77,7 @@ export const Check = (props: CheckProps): JSX.Element => {
           </div>
         </Col>
         <Col>
-          <label ref={labelRef} className={LabelBEM} id={`label-${id}`} aria-hidden="true">
+          <label ref={labelRef} className={LabelBEM} htmlFor={id}>
             <span className={cn({ 'visually-hidden': hideLabel })}>{label}</span>
           </label>
           {tooltip && (
