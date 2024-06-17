@@ -1,9 +1,8 @@
-import { ClockPickerView, DesktopTimePicker, MobileTimePicker } from '@mui/x-date-pickers';
+import { ClockPickerView, TimePicker as MuiTimePicker } from '@mui/x-date-pickers';
 import { TimeValidationError } from '@mui/x-date-pickers/internals/hooks/validation/useTimeValidation';
 import type { Dayjs } from 'dayjs';
 import React from 'react';
 
-import { useLayout } from '../../../../helpers';
 import { TextFieldProps } from '../../textfield/textfield';
 import MuiInputTransition from '../mui-input-transition/mui-input-transition';
 
@@ -74,6 +73,11 @@ export interface TimePickerProps extends Omit<TextFieldProps, 'defaultValue' | '
    * Callback fired when the popup requests to be closed.
    */
   onClose?: () => void;
+  /**
+   * CSS media query when `Mobile` mode will be changed to `Desktop`.
+   * @default '@media (min-width: 768px)'
+   */
+  desktopModeMediaQuery?: string;
 }
 
 export const TimePicker = (props: TimePickerProps): JSX.Element => {
@@ -93,6 +97,7 @@ export const TimePicker = (props: TimePickerProps): JSX.Element => {
     views = ['hours', 'minutes'],
     ampm = false,
     onClose,
+    desktopModeMediaQuery = '@media (min-width: 768px)',
     ...rest
   } = props;
   const [innerTime, setInnerTime] = React.useState<TimePickerValue>(defaultValue || null);
@@ -118,10 +123,6 @@ export const TimePicker = (props: TimePickerProps): JSX.Element => {
     setOpen(false);
     onClose?.();
   };
-
-  // Mui doesn't pick correctly which component to render, thus it was unusable when zooming in on bigger screens
-  const isMobileLayout = useLayout(['mobile']);
-  const MuiTimePicker = isMobileLayout ? MobileTimePicker : DesktopTimePicker;
 
   return (
     <MuiTimePicker<TimePickerValue>
@@ -151,6 +152,7 @@ export const TimePicker = (props: TimePickerProps): JSX.Element => {
       shouldDisableTime={shouldDisableTime}
       views={views}
       ampm={ampm}
+      desktopModeMediaQuery={desktopModeMediaQuery}
     />
   );
 };

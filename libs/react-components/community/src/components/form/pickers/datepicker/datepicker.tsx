@@ -1,9 +1,8 @@
-import { DesktopDatePicker, MobileDatePicker } from '@mui/x-date-pickers';
+import { DatePicker as MuiDatePicker } from '@mui/x-date-pickers';
 import { DateValidationError } from '@mui/x-date-pickers/internals';
 import type { Dayjs } from 'dayjs';
 import React from 'react';
 
-import { useLayout } from '../../../../helpers';
 import { TextFieldProps } from '../../textfield/textfield';
 import MuiInputTransition from '../mui-input-transition/mui-input-transition';
 
@@ -87,6 +86,11 @@ export interface DatePickerProps extends Omit<TextFieldProps, 'defaultValue' | '
    * Callback fired when the popup requests to be closed.
    */
   onClose?: () => void;
+  /**
+   * CSS media query when `Mobile` mode will be changed to `Desktop`.
+   * @default '@media (min-width: 768px)'
+   */
+  desktopModeMediaQuery?: string;
 }
 
 export const DatePicker = (props: DatePickerProps): JSX.Element => {
@@ -110,6 +114,7 @@ export const DatePicker = (props: DatePickerProps): JSX.Element => {
     onError,
     loading,
     onClose,
+    desktopModeMediaQuery = '@media (min-width: 768px)',
     ...rest
   } = props;
   const [innerDate, setInnerDate] = React.useState<DatepickerValue>(defaultValue || null);
@@ -135,10 +140,6 @@ export const DatePicker = (props: DatePickerProps): JSX.Element => {
     setOpen(false);
     onClose?.();
   };
-
-  // Mui doesn't pick correctly which component to render, thus it was unusable when zooming in on bigger screens
-  const isMobileLayout = useLayout(['mobile']);
-  const MuiDatePicker = isMobileLayout ? MobileDatePicker : DesktopDatePicker;
 
   return (
     <MuiDatePicker<DatepickerValue>
@@ -171,6 +172,7 @@ export const DatePicker = (props: DatePickerProps): JSX.Element => {
       onError={onError}
       loading={loading}
       views={views}
+      desktopModeMediaQuery={desktopModeMediaQuery}
     />
   );
 };

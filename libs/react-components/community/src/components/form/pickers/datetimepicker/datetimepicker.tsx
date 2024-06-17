@@ -1,9 +1,8 @@
-import { ClockPickerView, DesktopDateTimePicker, MobileDateTimePicker } from '@mui/x-date-pickers';
+import { ClockPickerView, DateTimePicker as MuiDateTimePicker } from '@mui/x-date-pickers';
 import { DateTimeValidationError } from '@mui/x-date-pickers/internals/hooks/validation/useDateTimeValidation';
 import type { Dayjs } from 'dayjs';
 import React from 'react';
 
-import { useLayout } from '../../../../helpers';
 import { TextFieldProps } from '../../textfield/textfield';
 import MuiInputTransition from '../mui-input-transition/mui-input-transition';
 
@@ -126,6 +125,11 @@ export interface DateTimePickerProps extends Omit<TextFieldProps, 'defaultValue'
    * Callback fired when the popup requests to be closed.
    */
   onClose?: () => void;
+  /**
+   * CSS media query when `Mobile` mode will be changed to `Desktop`.
+   * @default '@media (min-width: 768px)'
+   */
+  desktopModeMediaQuery?: string;
 }
 
 export const DateTimePicker = (props: DateTimePickerProps): JSX.Element => {
@@ -157,6 +161,7 @@ export const DateTimePicker = (props: DateTimePickerProps): JSX.Element => {
     mask = '__.__.____ __:__',
     ampm = false,
     onClose,
+    desktopModeMediaQuery = '@media (min-width: 768px)',
     ...rest
   } = props;
   const [innerDate, setInnerDate] = React.useState<DateTimepickerValue>(defaultValue || null);
@@ -182,10 +187,6 @@ export const DateTimePicker = (props: DateTimePickerProps): JSX.Element => {
     setOpen(false);
     onClose?.();
   };
-
-  // Mui doesn't pick correctly which component to render, thus it was unusable when zooming in on bigger screens
-  const isMobileLayout = useLayout(['mobile']);
-  const MuiDateTimePicker = isMobileLayout ? MobileDateTimePicker : DesktopDateTimePicker;
 
   return (
     <MuiDateTimePicker<DateTimepickerValue>
@@ -226,6 +227,7 @@ export const DateTimePicker = (props: DateTimePickerProps): JSX.Element => {
       mask={mask}
       minutesStep={minutesStep}
       ampm={ampm}
+      desktopModeMediaQuery={desktopModeMediaQuery}
     />
   );
 };
