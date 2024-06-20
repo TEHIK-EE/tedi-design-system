@@ -109,6 +109,10 @@
     padding: 0.25rem;
   }
 
+  .textfield--large & {
+    padding: 1rem;
+  }
+
   .textfield__input[aria-invalid='true'] + & {
     color: var(--color-important-main);
   }
@@ -132,5 +136,17 @@ div.textfield__icon-wrapper {
 
   &.textfield--with-icon .textfield__input {
     padding-right: 1.5rem;
+  }
+}
+
+/* Large */
+.textfield--large {
+  & .textfield__input {
+    height: 3.5rem;
+    padding: 1rem;
+  }
+
+  &.textfield--with-icon .textfield__input {
+    padding-right: 3.5rem;
   }
 }

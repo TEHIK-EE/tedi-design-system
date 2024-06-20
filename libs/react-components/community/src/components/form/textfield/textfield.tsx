@@ -72,7 +72,7 @@ export interface TextFieldProps extends FormLabelProps {
   /**
    * Input textfield size.
    */
-  size?: 'small';
+  size?: 'small' | 'large';
   /**
    * If textfield is disabled.
    */
@@ -173,7 +173,7 @@ export const TextField = forwardRef<TextFieldForwardRef, TextFieldProps>((props,
 
   const getIcon = (icon: string | IconProps): JSX.Element => {
     const defaultIconProps: Partial<IconProps> = {
-      size: 16,
+      size: size === 'large' ? 24 : 16,
       className: cn(styles['textfield__icon']),
     };
     const iconProps: IconProps =
