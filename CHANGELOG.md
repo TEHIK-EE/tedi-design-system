@@ -1,3 +1,11 @@
+# [6.31.0-rc.8](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.31.0-rc.7...v6.31.0-rc.8) (2024-06-20)
+
+
+### Features
+
+* **TextField:** [#89](https://github.com/TEHIK-EE/tedi-design-system/issues/89) - Add clearable option ([7cee277](https://github.com/TEHIK-EE/tedi-design-system/commit/7cee277003126482b91f684a923a6cf8bf8ee58a))
+* **TextField:** [#89](https://github.com/TEHIK-EE/tedi-design-system/issues/89) - Add large size option ([af58659](https://github.com/TEHIK-EE/tedi-design-system/commit/af586592c402c4ac9c5a22ddcbdc05d73d0465fa))
+
 # [6.31.0-rc.7](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.31.0-rc.6...v6.31.0-rc.7) (2024-06-20)
 
 
