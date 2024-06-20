@@ -30,6 +30,16 @@ export const Icon: Story = {
   },
 };
 
+export const Clearable: Story = {
+  args: {
+    ...Default.args,
+    icon: 'search',
+    defaultValue: '1234',
+    isClearable: true,
+    placeholder: 'Search',
+  },
+};
+
 export const Error: Story = {
   args: {
     ...Default.args,
