@@ -1,3 +1,10 @@
+# [6.31.0-rc.7](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.31.0-rc.6...v6.31.0-rc.7) (2024-06-20)
+
+
+### Bug Fixes
+
+* **TextField:** [#88](https://github.com/TEHIK-EE/tedi-design-system/issues/88) - Icon now aligns correctly in small TextField ([#90](https://github.com/TEHIK-EE/tedi-design-system/issues/90)) ([d76ebb2](https://github.com/TEHIK-EE/tedi-design-system/commit/d76ebb256c2c7f2abee7267d557df826e7f828f3))
+
 # [6.31.0-rc.6](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.31.0-rc.5...v6.31.0-rc.6) (2024-06-10)
 
 
