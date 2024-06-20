@@ -106,7 +106,7 @@
   }
 
   .textfield--small & {
-    padding: 0.5rem;
+    padding: 0.25rem;
   }
 
   .textfield__input[aria-invalid='true'] + & {
@@ -131,6 +131,6 @@ div.textfield__icon-wrapper {
   }
 
   &.textfield--with-icon .textfield__input {
-    padding-right: 1rem;
+    padding-right: 1.5rem;
   }
 }
