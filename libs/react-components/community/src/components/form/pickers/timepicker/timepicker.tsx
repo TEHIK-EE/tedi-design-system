@@ -73,6 +73,11 @@ export interface TimePickerProps extends Omit<TextFieldProps, 'defaultValue' | '
    * Callback fired when the popup requests to be closed.
    */
   onClose?: () => void;
+  /**
+   * CSS media query when `Mobile` mode will be changed to `Desktop`.
+   * @default '@media (min-width: 768px)'
+   */
+  desktopModeMediaQuery?: string;
 }
 
 export const TimePicker = (props: TimePickerProps): JSX.Element => {
@@ -92,6 +97,7 @@ export const TimePicker = (props: TimePickerProps): JSX.Element => {
     views = ['hours', 'minutes'],
     ampm = false,
     onClose,
+    desktopModeMediaQuery = '@media (min-width: 768px)',
     ...rest
   } = props;
   const [innerTime, setInnerTime] = React.useState<TimePickerValue>(defaultValue || null);
@@ -146,6 +152,7 @@ export const TimePicker = (props: TimePickerProps): JSX.Element => {
       shouldDisableTime={shouldDisableTime}
       views={views}
       ampm={ampm}
+      desktopModeMediaQuery={desktopModeMediaQuery}
     />
   );
 };
