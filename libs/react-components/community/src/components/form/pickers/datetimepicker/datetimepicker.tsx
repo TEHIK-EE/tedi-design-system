@@ -192,7 +192,11 @@ export const DateTimePicker = (props: DateTimePickerProps): JSX.Element => {
           muiTextfieldProps={props}
           inputFormat={inputFormat}
           onChangeHandler={onChangeHandler}
-          textfieldProps={{ ...rest, onIconClick: !readOnly ? () => setOpen((open) => !open) : undefined }}
+          textfieldProps={{
+            ...rest,
+            onClear: () => onChangeHandler(null),
+            onIconClick: !readOnly ? () => setOpen((open) => !open) : undefined,
+          }}
         />
       )}
       open={open}

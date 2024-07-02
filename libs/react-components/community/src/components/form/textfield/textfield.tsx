@@ -114,6 +114,11 @@ export interface TextFieldProps extends FormLabelProps {
    */
   isClearable?: boolean;
   /**
+   * Callback when clear button is clicked.
+   * Useful in other components like pickers to clear the internally managed state
+   */
+  onClear?: () => void;
+  /**
    * Additional input attributes.
    */
   input?: React.InputHTMLAttributes<HTMLInputElement> | React.TextareaHTMLAttributes<HTMLTextAreaElement>;
@@ -142,6 +147,7 @@ export const TextField = forwardRef<TextFieldForwardRef, TextFieldProps>((props,
     placeholder,
     isArrowsHidden = true,
     isClearable,
+    onClear,
     onChange,
     onChangeEvent,
     onKeyUp,
@@ -224,7 +230,8 @@ export const TextField = forwardRef<TextFieldForwardRef, TextFieldProps>((props,
   const clearInput = React.useCallback(() => {
     setInnerValue('');
     onChange?.('');
-  }, [onChange]);
+    onClear?.();
+  }, [onChange, onClear]);
 
   const isTextAreaRef = React.useCallback(
     (
