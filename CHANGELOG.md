@@ -1,3 +1,11 @@
+# [6.31.0-rc.9](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.31.0-rc.8...v6.31.0-rc.9) (2024-07-02)
+
+
+### Bug Fixes
+
+* **ellipsis:** [#92](https://github.com/TEHIK-EE/tedi-design-system/issues/92) - Add responsivness support for ellipsis ([00311f8](https://github.com/TEHIK-EE/tedi-design-system/commit/00311f8127df07c2b6b677bc721aa1b6ce1bf0ae))
+* **pickers:** [#94](https://github.com/TEHIK-EE/tedi-design-system/issues/94) - Clear picker value with the clear button ([78f9468](https://github.com/TEHIK-EE/tedi-design-system/commit/78f9468b7d103be4e3064b89e414be42b33317e3))
+
 # [6.31.0-rc.8](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.31.0-rc.7...v6.31.0-rc.8) (2024-06-20)
 
 
