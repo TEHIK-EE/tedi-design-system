@@ -93,6 +93,7 @@ div .select__menu {
 
 div.select__multi-value-item {
   display: inline-block;
+  flex-shrink: 0;
   margin-right: 0.25rem;
 
   &--big {
@@ -120,4 +121,33 @@ div.select__multi-value-item {
 .select .select__group-heading {
   padding: 0.5rem 0.75rem;
   margin-bottom: 0;
+}
+
+.select--tags-row {
+  :global .select__control > .select__value-container--is-multi {
+    display: inline-flex;
+    flex-wrap: nowrap;
+
+    &::after {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      content: '';
+      box-shadow: inset 0.5rem 0 0.25rem -0.25rem var(--color-white);
+    }
+  }
+
+  &.select--searchable :global .select__control > .select__value-container--is-multi {
+    justify-content: flex-end;
+  }
+
+  :global .select__control--is-focused .select__input {
+    min-width: 5rem !important;
+  }
+}
+
+.select--tags-stack {
+  :global .select__input-container {
+    grid-template-columns: 0 min-content;
+  }
 }

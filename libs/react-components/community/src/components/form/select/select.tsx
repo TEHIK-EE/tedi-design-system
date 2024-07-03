@@ -178,6 +178,11 @@ export interface SelectProps extends FormLabelProps {
    */
   multiple?: boolean;
   /**
+   * How tags should position themselves
+   * @default row
+   */
+  tagsDirection?: 'stack' | 'row';
+  /**
    * If menu should open when select is focused.
    * @default false
    */
@@ -296,6 +301,7 @@ export const Select = forwardRef<SelectInstance<ISelectOption, boolean, IGrouped
       requiredLabel,
       value,
       defaultValue,
+      tagsDirection = 'row',
       onChange,
       onInputChange,
       inputValue,
@@ -571,7 +577,9 @@ export const Select = forwardRef<SelectInstance<ISelectOption, boolean, IGrouped
       styles['select'],
       className,
       { [styles['select--invalid']]: invalid || helper?.type === 'error' },
-      { [styles[`select--${size}`]]: size }
+      { [styles[`select--${size}`]]: size },
+      { [styles[`select--tags-${tagsDirection}`]]: tagsDirection },
+      { [styles['select--searchable']]: isSearchable }
     );
 
     return (
