@@ -24,6 +24,7 @@ import { MenuPortalProps } from 'react-select/dist/declarations/src/components/M
 
 import { getBackgroundColorClass } from '../../../helpers';
 import { useLabels } from '../../../providers/label-provider';
+import Button from '../../button/button';
 import { TColorsBackground } from '../../commonTypes';
 import { Icon } from '../../icon/icon';
 import Tag from '../../tag/tag';
@@ -456,8 +457,19 @@ export const Select = forwardRef<SelectInstance<ISelectOption, boolean, IGrouped
       );
     };
 
-    const getClearIndicator = (props: ClearIndicatorProps<ISelectOption>) =>
-      isClearIndicatorVisible ? <ReactSelectComponents.ClearIndicator {...props} /> : null;
+    const getClearIndicator = ({ innerProps: { ref, ...restInnerProps } }: ClearIndicatorProps<ISelectOption>) => {
+      return isClearIndicatorVisible ? (
+        <Button
+          icon={{ name: 'clear', color: 'muted' }}
+          visualType="link"
+          tabIndex={-1}
+          ref={ref as IntentionalAny}
+          {...(restInnerProps as IntentionalAny)}
+        >
+          {getLabel('clear')}
+        </Button>
+      ) : null;
+    };
 
     const getGroup = (props: GroupProps<ISelectOption, boolean, IGroupedOptions<ISelectOption>>): JSX.Element => {
       const GroupBEM = cn(styles['select__group']);

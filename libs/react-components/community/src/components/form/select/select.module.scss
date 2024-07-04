@@ -16,7 +16,7 @@ div.select__control {
 
 .select__arrow {
   // -1px to account for border on top and bottom, making input height 40px
-  padding: calc(0.5rem - 1px) 2rem calc(0.5rem - 1px) 0.5rem;
+  padding: calc(0.5rem - 1px) 2rem calc(0.5rem - 1px) 0;
 
   .select__control--focused & {
     color: var(--color-primary-main);
