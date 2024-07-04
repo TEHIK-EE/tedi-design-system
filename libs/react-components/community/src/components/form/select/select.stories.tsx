@@ -127,8 +127,22 @@ export const MultipleHandled: Story = {
 export const StackingTags: Story = {
   render: MultipleHandledTemplate,
   args: {
+    id: 'stacking-tags-example',
+    label: 'Stacking Tags',
     defaultValue: colourOptions.filter((option) => !option.isDisabled),
     multiple: true,
+    tagsDirection: 'stack',
+  },
+};
+
+export const RemovableTags: Story = {
+  render: MultipleHandledTemplate,
+  args: {
+    id: 'removable-tags-example',
+    label: 'Removable Tags',
+    defaultValue: colourOptions.filter((option) => !option.isDisabled),
+    multiple: true,
+    isTagRemovable: true,
     tagsDirection: 'stack',
   },
 };

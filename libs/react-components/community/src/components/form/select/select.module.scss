@@ -92,13 +92,9 @@ div .select__menu {
 }
 
 div.select__multi-value-item {
-  display: inline-block;
+  display: flex;
   flex-shrink: 0;
-  margin-right: 0.25rem;
-
-  &--big {
-    margin-bottom: 0.25rem;
-  }
+  align-items: center;
 }
 
 .select__checkbox {
@@ -123,9 +119,19 @@ div.select__multi-value-item {
   margin-bottom: 0;
 }
 
+.select__multi-value-clear {
+  margin: -0.125rem -0.25rem -0.125rem 0;
+}
+
+:global {
+  .select__value-container--is-multi {
+    gap: 0.25rem;
+  }
+}
+
 .select--tags-row {
   :global .select__control > .select__value-container--is-multi {
-    display: inline-flex;
+    display: flex;
     flex-wrap: nowrap;
 
     &::after {
@@ -142,12 +148,13 @@ div.select__multi-value-item {
   }
 
   :global .select__control--is-focused .select__input {
-    min-width: 5rem !important;
+    min-width: 5rem !important; // no other way to override style
   }
 }
 
 .select--tags-stack {
   :global .select__input-container {
     grid-template-columns: 0 min-content;
+    margin: 0;
   }
 }
