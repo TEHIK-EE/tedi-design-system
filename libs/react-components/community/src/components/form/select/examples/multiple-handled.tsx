@@ -4,7 +4,7 @@ import React from 'react';
 import { Col, Row } from '../../../grid';
 import Select, { ISelectOption, TSelectValue } from '../select';
 
-const colourOptions: ISelectOption[] = [
+export const colourOptions: ISelectOption[] = [
   { value: 'ocean', label: 'Ocean' },
   { value: 'blue', label: 'Blue', isDisabled: true },
   { value: 'purple', label: 'Purple' },
@@ -17,10 +17,10 @@ const colourOptions: ISelectOption[] = [
   { value: 'silver', label: 'Silver' },
 ];
 
-const defaultOptions: TSelectValue = [colourOptions[0]];
+const defaultOptions: TSelectValue = [colourOptions[0], colourOptions[2]];
 
 export const MultipleHandledTemplate: StoryFn<typeof Select> = (args) => {
-  const [inputValue, setInputValue] = React.useState<TSelectValue>(defaultOptions);
+  const [inputValue, setInputValue] = React.useState<TSelectValue>(args.defaultValue ?? defaultOptions);
 
   const handleInputChange = (newValue: TSelectValue) => {
     setInputValue(newValue);

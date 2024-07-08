@@ -4,7 +4,7 @@ import { OptionsOrGroups } from 'react-select';
 import { AsyncSelectTemplate } from './examples/async';
 import { CustomOptionSelectTemplate } from './examples/custom-option';
 import { EditableSelectTemplate } from './examples/editable';
-import { MultipleHandledTemplate } from './examples/multiple-handled';
+import { colourOptions, MultipleHandledTemplate } from './examples/multiple-handled';
 import Select, { IGroupedOptions, ISelectOption } from './select';
 
 const meta: Meta<typeof Select> = {
@@ -121,6 +121,29 @@ export const MultipleHandled: Story = {
     id: 'multiple-handled-example',
     label: 'Multiple Select',
     multiple: true,
+  },
+};
+
+export const StackingTags: Story = {
+  render: MultipleHandledTemplate,
+  args: {
+    id: 'stacking-tags-example',
+    label: 'Stacking Tags',
+    defaultValue: colourOptions.filter((option) => !option.isDisabled),
+    multiple: true,
+    tagsDirection: 'stack',
+  },
+};
+
+export const RemovableTags: Story = {
+  render: MultipleHandledTemplate,
+  args: {
+    id: 'removable-tags-example',
+    label: 'Removable Tags',
+    defaultValue: colourOptions.filter((option) => !option.isDisabled),
+    multiple: true,
+    isTagRemovable: true,
+    tagsDirection: 'stack',
   },
 };
 

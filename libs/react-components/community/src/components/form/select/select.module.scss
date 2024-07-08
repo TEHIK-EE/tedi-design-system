@@ -16,7 +16,7 @@ div.select__control {
 
 .select__arrow {
   // -1px to account for border on top and bottom, making input height 40px
-  padding: calc(0.5rem - 1px) 2rem calc(0.5rem - 1px) 0.5rem;
+  padding: calc(0.5rem - 1px) 2rem calc(0.5rem - 1px) 0;
 
   .select__control--focused & {
     color: var(--color-primary-main);
@@ -92,12 +92,9 @@ div .select__menu {
 }
 
 div.select__multi-value-item {
-  display: inline-block;
-  margin-right: 0.25rem;
-
-  &--big {
-    margin-bottom: 0.25rem;
-  }
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
 }
 
 .select__checkbox {
@@ -120,4 +117,44 @@ div.select__multi-value-item {
 .select .select__group-heading {
   padding: 0.5rem 0.75rem;
   margin-bottom: 0;
+}
+
+.select__multi-value-clear {
+  margin: -0.125rem -0.25rem -0.125rem 0;
+}
+
+:global {
+  .select__value-container--is-multi {
+    gap: 0.25rem;
+  }
+}
+
+.select--tags-row {
+  :global .select__control > .select__value-container--is-multi {
+    display: flex;
+    flex-wrap: nowrap;
+
+    &::after {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      content: '';
+      box-shadow: inset 0.5rem 0 0.25rem -0.25rem var(--color-white);
+    }
+  }
+
+  &.select--searchable :global .select__control > .select__value-container--is-multi {
+    justify-content: flex-end;
+  }
+
+  :global .select__control--is-focused .select__input {
+    min-width: 5rem !important; // no other way to override style
+  }
+}
+
+.select--tags-stack {
+  :global .select__input-container {
+    grid-template-columns: 0 min-content;
+    margin: 0;
+  }
 }
