@@ -1,3 +1,12 @@
+# [6.31.0-rc.10](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.31.0-rc.9...v6.31.0-rc.10) (2024-07-08)
+
+
+### Features
+
+* **select:** [#93](https://github.com/TEHIK-EE/tedi-design-system/issues/93) - Add support for stacked tags ([fc149e0](https://github.com/TEHIK-EE/tedi-design-system/commit/fc149e0718aa8af2c667d99ab2da0b90a8789f0d))
+* **select:** [#97](https://github.com/TEHIK-EE/tedi-design-system/issues/97) - Add individual tag clearing ([44763c7](https://github.com/TEHIK-EE/tedi-design-system/commit/44763c7a1e0331d3ded6663f373b70ebb8a5c5ff))
+* **select:** [#97](https://github.com/TEHIK-EE/tedi-design-system/issues/97) - Restyle clear button ([deca20c](https://github.com/TEHIK-EE/tedi-design-system/commit/deca20c80298f35239b227c647052b2ca55f7c5b))
+
 # [6.31.0-rc.9](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.31.0-rc.8...v6.31.0-rc.9) (2024-07-02)
 
 
