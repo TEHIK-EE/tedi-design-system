@@ -44,6 +44,15 @@ export const ReadOnly: Story = {
   },
 };
 
+export const ReferenceDate: Story = {
+  render: Template,
+
+  args: {
+    id: 'datepicker-reference-date',
+    referenceDate: dayjs().add(1, 'month'),
+  },
+};
+
 export const DisableFuture: Story = {
   render: Template,
 

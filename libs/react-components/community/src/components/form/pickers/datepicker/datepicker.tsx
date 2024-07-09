@@ -1,6 +1,6 @@
 import { DatePicker as MuiDatePicker } from '@mui/x-date-pickers';
 import { DateValidationError } from '@mui/x-date-pickers/internals';
-import type { Dayjs } from 'dayjs';
+import dayjs, { Dayjs } from 'dayjs';
 import React from 'react';
 
 import { TextFieldProps } from '../../textfield/textfield';
@@ -33,6 +33,10 @@ export interface DatePickerProps extends Omit<TextFieldProps, 'defaultValue' | '
    * If want to disable future dates use disableFuture boolean.
    */
   maxDate?: Dayjs;
+  /**
+   * Controls the date the picker is opened to
+   */
+  referenceDate?: Dayjs;
   /**
    * If true future days are disabled.
    */
@@ -104,6 +108,7 @@ export const DatePicker = (props: DatePickerProps): JSX.Element => {
     shouldDisableMonth,
     shouldDisableYear,
     disableHighlightToday,
+    referenceDate,
     inputFormat = 'DD.MM.YYYY',
     views = ['year', 'day'],
     onError,
@@ -156,6 +161,7 @@ export const DatePicker = (props: DatePickerProps): JSX.Element => {
       inputFormat={inputFormat}
       onOpen={() => setOpen(true)}
       onClose={onCloseHandler}
+      defaultCalendarMonth={referenceDate}
       disabled={disabled}
       disableFuture={disableFuture}
       disablePast={disablePast}
