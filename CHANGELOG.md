@@ -1,3 +1,10 @@
+# [6.31.0-rc.11](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.31.0-rc.10...v6.31.0-rc.11) (2024-07-09)
+
+
+### Features
+
+* **pickers:** [#99](https://github.com/TEHIK-EE/tedi-design-system/issues/99) - Added referenceDate prop to the pickers ([4639385](https://github.com/TEHIK-EE/tedi-design-system/commit/4639385a89f109a069e38b523420d4760fd04944))
+
 # [6.31.0-rc.10](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.31.0-rc.9...v6.31.0-rc.10) (2024-07-08)
 
 
