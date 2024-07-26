@@ -4,7 +4,7 @@ import React from 'react';
 import { CardHeader, CardHeaderBackground, CardHeaderProps } from '../../card';
 import Col from '../../grid/col';
 import Row from '../../grid/row';
-import ToggleOpen from '../../toggle-open/toggle-open';
+import Icon from '../../icon/icon';
 import Heading, { HeadingProps } from '../../typography/heading/heading';
 import Text from '../../typography/text/text';
 import { AccordionContext } from '../accordion';
@@ -100,15 +100,14 @@ export const AccordionItemHeader = (props: AccordionItemHeaderProps): JSX.Elemen
         <Row justifyContent="between" alignItems="center">
           <Col>{content}</Col>
           <Col width="auto">
-            <ToggleOpen
-              openText={openText}
-              closeText={closeText}
-              isActive={isHovered}
-              isOpen={isOpen(id)}
+            <Icon
+              name="expand_more"
+              size={16}
+              className={cn(
+                { [styles['accordion__item-header-icon--open']]: isOpen(id) },
+                { [styles['accordion__item-header-icon--close']]: !isOpen(id) }
+              )}
               color={buttonColor}
-              visualType="link"
-              aria-hidden={true}
-              tabIndex={-1}
             />
           </Col>
         </Row>
