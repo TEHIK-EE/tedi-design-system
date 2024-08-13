@@ -1,3 +1,10 @@
+# [6.31.0-rc.12](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.31.0-rc.11...v6.31.0-rc.12) (2024-08-13)
+
+
+### Bug Fixes
+
+* **table:** [#48](https://github.com/TEHIK-EE/tedi-design-system/issues/48) - add scope col to table headers for a11y ([1d2614a](https://github.com/TEHIK-EE/tedi-design-system/commit/1d2614abbb356d6038a0b57b36734b734b9cf9ed))
+
 # [6.31.0-rc.11](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.31.0-rc.10...v6.31.0-rc.11) (2024-07-09)
 
 
