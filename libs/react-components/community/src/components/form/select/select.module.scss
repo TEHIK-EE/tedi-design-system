@@ -127,6 +127,10 @@ div.select__multi-value-item {
   .select__value-container--is-multi {
     gap: 0.25rem;
   }
+
+  .select__value-container .select__placeholder {
+    color: var(--color-text-subtle);
+  }
 }
 
 .select--tags-row {
