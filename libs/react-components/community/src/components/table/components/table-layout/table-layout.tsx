@@ -194,6 +194,7 @@ const TableLayout = <TData extends DefaultTData<TData>>(): JSX.Element | null =>
           <tr key={headerGroup.id}>
             {headerGroup.headers.map((header) => (
               <th
+                scope="col"
                 key={header.id}
                 style={{ width: header.getSize() }}
                 className={cn({ [styles['th--sortable']]: header.column.getCanSort() })}
@@ -238,7 +239,7 @@ const TableLayout = <TData extends DefaultTData<TData>>(): JSX.Element | null =>
             <tr key={footerGroup.id}>
               {footerGroup.headers.map((header, index) =>
                 header.column.columnDef.footer ? (
-                  <th key={header.id} colSpan={footerColSpan(footerGroup.headers.slice(index + 1))}>
+                  <th scope="col" key={header.id} colSpan={footerColSpan(footerGroup.headers.slice(index + 1))}>
                     {header.isPlaceholder ? null : flexRender(header.column.columnDef.footer, header.getContext())}
                   </th>
                 ) : null
