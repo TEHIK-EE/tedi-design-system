@@ -1,3 +1,10 @@
+# [6.31.0-rc.13](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.31.0-rc.12...v6.31.0-rc.13) (2024-08-14)
+
+
+### Bug Fixes
+
+* **select:** [#103](https://github.com/TEHIK-EE/tedi-design-system/issues/103) - Increase placeholder contrast ([2602358](https://github.com/TEHIK-EE/tedi-design-system/commit/260235800f0d5d4fe4032a11057c76c02c98dac2))
+
 # [6.31.0-rc.12](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.31.0-rc.11...v6.31.0-rc.12) (2024-08-13)
 
 
