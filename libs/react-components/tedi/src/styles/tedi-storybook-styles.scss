@@ -86,13 +86,13 @@ a {
 }
 
 .example-list {
-  border: 1px solid var(--neutral-400);
+  border: 1px solid var(--neutral-150);
   border-radius: 12px;
 }
 
 .example-text {
   &--primary {
-    color: var(--neutral-1100);
+    color: var(--neutral-900);
   }
 
   &--secondary {
@@ -101,7 +101,7 @@ a {
 }
 
 .border-bottom {
-  border-bottom: 1px solid var(--neutral-400);
+  border-bottom: 1px solid var(--neutral-150);
 
   &--3x {
     border-width: 3px;
@@ -133,15 +133,15 @@ a {
   width: 100%;
   height: 100%;
   content: '';
-  background-color: var(--neutral-200);
+  background-color: var(--neutral-150);
   background-image: linear-gradient(
       45deg,
-      var(--neutral-400) 25%,
+      var(--neutral-300) 25%,
       transparent 25%,
       transparent 75%,
-      var(--neutral-400) 75%
+      var(--neutral-300) 75%
     ),
-    linear-gradient(45deg, var(--neutral-400) 25%, transparent 25%, transparent 75%, var(--neutral-400) 75%);
+    linear-gradient(45deg, var(--neutral-300) 25%, transparent 25%, transparent 75%, var(--neutral-300) 75%);
   background-position: 0 0, 10px 10px;
   background-size: 20px 20px;
 }
