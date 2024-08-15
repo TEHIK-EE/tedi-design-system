@@ -2,7 +2,7 @@ import React from 'react';
 
 interface Color {
   name: string;
-  color: string;
+  value: string;
   main?: boolean;
 }
 
@@ -38,7 +38,7 @@ const ColorStory: React.FC<ColorStoryProps> = ({ data }) => {
           <div className="row" style={{ alignItems: 'start' }}>
             {colors.map((color, index) => (
               <div className="column" key={`${groupName}-${index}`}>
-                <div className="color-card" style={{ backgroundColor: color.color }}></div>
+                <div className="color-card" style={{ backgroundColor: color.value }}></div>
                 <p style={{ marginBottom: 0 }}>
                   <strong>--{color.name}</strong>
                 </p>
