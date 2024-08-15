@@ -8,7 +8,7 @@ import Toggle, { ToggleProps } from './toggle';
 
 const meta: Meta<ToggleProps> = {
   component: Toggle,
-  title: 'Community-components/Form/Toggle',
+  title: 'Community/Form/Toggle',
 };
 
 export default meta;

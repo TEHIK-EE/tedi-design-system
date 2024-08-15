@@ -8,7 +8,7 @@ import { VerticalProgress, VerticalProgressItem } from '.';
 
 const meta: Meta<typeof VerticalProgressItem> = {
   component: VerticalProgressItem,
-  title: 'Community-components/VerticalProgress/VerticalProgressItem',
+  title: 'Community/VerticalProgress/VerticalProgressItem',
 };
 
 export default meta;

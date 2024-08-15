@@ -9,7 +9,7 @@ import { NumberField } from './number-field';
 
 const meta: Meta<typeof NumberField> = {
   component: NumberField,
-  title: 'Community-components/Form/NumberField',
+  title: 'Community/Form/NumberField',
 };
 export default meta;
 

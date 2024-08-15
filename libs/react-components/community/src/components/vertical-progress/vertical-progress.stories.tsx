@@ -11,7 +11,7 @@ import { VerticalProgress, VerticalProgressItem, VerticalProgressItemProps, Vert
 
 const meta: Meta<typeof VerticalProgress> = {
   component: VerticalProgress,
-  title: 'Community-components/VerticalProgress',
+  title: 'Community/VerticalProgress',
   subcomponents: { VerticalProgressItem } as never,
   parameters: {
     docs: {

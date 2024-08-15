@@ -14,7 +14,7 @@ import Separator, { SeparatorProps } from './separator';
  */
 const meta: Meta<typeof Separator> = {
   component: Separator,
-  title: 'Community-components/Separator',
+  title: 'Community/Separator',
 };
 
 export default meta;

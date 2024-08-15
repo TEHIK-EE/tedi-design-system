@@ -9,7 +9,7 @@ import { Spinner, SpinnerProps } from './spinner';
 
 const meta: Meta<typeof Spinner> = {
   component: Spinner,
-  title: 'Tedi-components/Loader/Spinner',
+  title: 'Tedi-ready/Loader/Spinner',
 };
 
 export default meta;

@@ -9,7 +9,7 @@ import { Icon, IconProps } from './icon';
 
 const meta: Meta<typeof Icon> = {
   component: Icon,
-  title: 'Community-components/Icon',
+  title: 'Community/Icon',
 };
 
 export default meta;

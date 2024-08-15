@@ -10,7 +10,7 @@ import { Text } from './text';
 
 const meta: Meta<typeof Text> = {
   component: Text,
-  title: 'Tedi-components/Base/Typography/Text',
+  title: 'Tedi-ready/Base/Typography/Text',
 };
 
 export default meta;

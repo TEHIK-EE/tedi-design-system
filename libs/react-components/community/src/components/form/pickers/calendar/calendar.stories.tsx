@@ -5,7 +5,7 @@ import Calendar, { CalendarStatus } from './calendar';
 
 const meta: Meta<typeof Calendar> = {
   component: Calendar,
-  title: 'Community-components/Form/Pickers/Calendar',
+  title: 'Community/Form/Pickers/Calendar',
 };
 
 export default meta;

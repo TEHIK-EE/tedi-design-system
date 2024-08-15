@@ -12,7 +12,7 @@ import { sendNotification } from './toast';
  * `ToastContainer` component is also exported and has to be added to index of application.
  */
 const meta: Meta<typeof Notification> = {
-  title: 'Community-components/Toast',
+  title: 'Community/Toast',
   component: Notification,
 };
 

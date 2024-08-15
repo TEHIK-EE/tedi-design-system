@@ -6,7 +6,7 @@ import { Tabs, TabsItem, TabsItemProps, TabsProps } from '.';
 
 const meta: Meta<typeof Tabs> = {
   component: Tabs,
-  title: 'Community-components/Tabs',
+  title: 'Community/Tabs',
   subcomponents: { TabsItem } as never,
 };
 

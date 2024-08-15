@@ -13,7 +13,7 @@ import HeaderDropdown from './header-dropdown';
  */
 const meta: Meta<typeof HeaderDropdown> = {
   component: HeaderDropdown,
-  title: 'Community-components/Layout/Header/HeaderDropdown',
+  title: 'Community/Layout/Header/HeaderDropdown',
 };
 
 export default meta;

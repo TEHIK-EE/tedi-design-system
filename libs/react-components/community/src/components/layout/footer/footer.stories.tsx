@@ -9,7 +9,7 @@ import Footer, { FooterProps } from './footer';
 
 const meta: Meta<typeof Footer> = {
   component: Footer,
-  title: 'Community-components/Layout/Footer',
+  title: 'Community/Layout/Footer',
 };
 
 export default meta;

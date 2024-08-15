@@ -6,7 +6,7 @@ import { VerticalSpacing } from '../vertical-spacing';
 import { Button, ButtonProps } from './button';
 
 const meta: Meta<ButtonProps> = {
-  title: 'Community-components/Button',
+  title: 'Community/Button',
   component: Button,
 };
 

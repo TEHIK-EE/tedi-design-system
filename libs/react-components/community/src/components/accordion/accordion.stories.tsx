@@ -14,7 +14,7 @@ import AccordionItemHeader, { AccordionItemHeaderProps } from './accordion-item-
 const meta: Meta<typeof Accordion> = {
   component: Accordion,
   subcomponents: { AccordionItem, AccordionItemContent, AccordionItemHeader } as never,
-  title: 'Community-components/Accordion',
+  title: 'Community/Accordion',
 };
 
 const ACCORDION_ITEM_CONTENT =
