@@ -42,10 +42,21 @@ a {
   }
 }
 
-.with-background {
+.bg {
   padding: 16px;
-  background-color: var(--color-primary-main);
   border-radius: 8px;
+
+  &-primary {
+    background-color: var(--color-primary-main);
+  }
+
+  &-success {
+    background-color: var(--general-status-success-text);
+  }
+
+  &-danger {
+    background-color: var(--general-status-danger-text);
+  }
 }
 
 .display-flex {

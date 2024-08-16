@@ -49,7 +49,17 @@ const TemplateColors: StoryFn<TemplateMultipleProps> = () => {
         <Spinner color="primary" label="Loading..." size={48} />
       </div>
       <div className="column">
-        <div className="with-background">
+        <div className="bg bg-primary">
+          <Spinner color="secondary" label="Loading..." size={48} />
+        </div>
+      </div>
+      <div className="column">
+        <div className="bg bg-danger">
+          <Spinner color="secondary" label="Loading..." size={48} />
+        </div>
+      </div>
+      <div className="column">
+        <div className="bg bg-success">
           <Spinner color="secondary" label="Loading..." size={48} />
         </div>
       </div>
