@@ -1,3 +1,10 @@
+# [6.31.0-rc.14](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.31.0-rc.13...v6.31.0-rc.14) (2024-08-21)
+
+
+### Bug Fixes
+
+* **typography:** TEDI-349 - Harmonizing the colors/typography of TEDI & Community ([bea5c77](https://github.com/TEHIK-EE/tedi-design-system/commit/bea5c77a7564723752819dda318959d3a1a37214))
+
 # [6.31.0-rc.13](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.31.0-rc.12...v6.31.0-rc.13) (2024-08-14)
 
 
