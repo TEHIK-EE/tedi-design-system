@@ -14,7 +14,7 @@ import { HideOnScroll, HideOnScrollProps } from './hide-on-scroll';
 
 const meta: Meta<HideOnScrollProps> = {
   component: HideOnScroll,
-  title: 'Community-components/HideOnScroll',
+  title: 'Community/HideOnScroll',
   parameters: {
     docs: {
       story: {

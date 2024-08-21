@@ -20,7 +20,7 @@ import HeaderSettings from './header-settings';
  */
 const meta: Meta<typeof HeaderSettings> = {
   component: HeaderSettings,
-  title: 'Community-components/Layout/Header/HeaderSettings',
+  title: 'Community/Layout/Header/HeaderSettings',
 };
 
 export default meta;

@@ -4,7 +4,7 @@ import Truncate from './truncate';
 
 const meta: Meta<typeof Truncate> = {
   component: Truncate,
-  title: 'Community-components/Truncate',
+  title: 'Community/Truncate',
 };
 
 export default meta;

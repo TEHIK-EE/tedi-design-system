@@ -4,7 +4,7 @@ import Sidenav, { SideNavItem } from './sidenav';
 
 const meta: Meta<typeof Sidenav> = {
   component: Sidenav,
-  title: 'Community-components/Layout/Sidenav',
+  title: 'Community/Layout/Sidenav',
   parameters: {
     layout: 'fullscreen',
   },

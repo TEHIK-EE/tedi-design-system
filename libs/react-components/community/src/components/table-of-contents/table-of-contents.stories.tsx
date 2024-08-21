@@ -17,7 +17,7 @@ import { TableOfContents, TableOfContentsProps } from './table-of-contents';
 
 const meta: Meta<TableOfContentsProps> = {
   component: TableOfContents,
-  title: 'Community-components/TableOfContents',
+  title: 'Community/TableOfContents',
   parameters: {
     docs: {
       story: {

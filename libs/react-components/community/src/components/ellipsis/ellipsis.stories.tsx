@@ -4,7 +4,7 @@ import React from 'react';
 import Ellipsis, { EllipsisProps } from './ellipsis';
 
 export default {
-  title: 'Community-components/Ellipsis',
+  title: 'Community/Ellipsis',
   component: Ellipsis,
 } as Meta;
 

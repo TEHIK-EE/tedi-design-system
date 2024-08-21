@@ -7,7 +7,7 @@ import { VerticalSpacing } from '../vertical-spacing';
 import Collapse, { CollapseProps } from './collapse';
 
 export default {
-  title: 'Community-components/Collapse',
+  title: 'Community/Collapse',
   component: Collapse,
   argTypes: {
     children: {

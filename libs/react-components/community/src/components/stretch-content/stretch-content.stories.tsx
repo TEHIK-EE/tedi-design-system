@@ -15,7 +15,7 @@ import StretchContent, { StretchContentProps } from './stretch-content';
  */
 const meta: Meta<typeof StretchContent> = {
   component: StretchContent,
-  title: 'Community-components/StretchContent',
+  title: 'Community/StretchContent',
 };
 
 export default meta;

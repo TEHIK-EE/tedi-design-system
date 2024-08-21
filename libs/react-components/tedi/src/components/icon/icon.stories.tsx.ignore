@@ -12,7 +12,7 @@ import { Icon, IconProps } from './icon';
  * [Figma Material Symbols plugin ↗](https://www.figma.com/community/plugin/740272380439725040/material-design-icons)
  */
 const meta: Meta<typeof Icon> = {
-  title: 'Tedi-components/Base/Icon',
+  title: 'Tedi-ready/Base/Icon',
   component: Icon,
   parameters: {
     status: {

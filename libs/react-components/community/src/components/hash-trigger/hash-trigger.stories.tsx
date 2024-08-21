@@ -14,7 +14,7 @@ import HashTrigger, { HashTriggerProps } from './hash-trigger';
  */
 const meta: Meta<typeof HashTrigger> = {
   component: HashTrigger,
-  title: 'Community-components/HashTrigger',
+  title: 'Community/HashTrigger',
 };
 
 export default meta;

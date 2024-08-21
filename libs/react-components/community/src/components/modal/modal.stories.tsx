@@ -21,7 +21,7 @@ import ModalTrigger from './modal-trigger';
 const meta: Meta<typeof ModalProvider> = {
   component: ModalProvider,
   subcomponents: { Modal, ModalTrigger, ModalCloser } as never,
-  title: 'Community-components/Modal',
+  title: 'Community/Modal',
 };
 
 export default meta;

@@ -14,7 +14,7 @@ import HeaderModal from './header-modal';
  */
 const meta: Meta<typeof HeaderModal> = {
   component: HeaderModal,
-  title: 'Community-components/Layout/Header/HeaderModal',
+  title: 'Community/Layout/Header/HeaderModal',
 };
 
 export default meta;

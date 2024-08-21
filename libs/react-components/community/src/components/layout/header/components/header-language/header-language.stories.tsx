@@ -9,7 +9,7 @@ positioned. <br />
  */
 const meta: Meta<typeof HeaderLanguage> = {
   component: HeaderLanguage,
-  title: 'Community-components/Layout/Header/HeaderLanguage',
+  title: 'Community/Layout/Header/HeaderLanguage',
 };
 
 export default meta;

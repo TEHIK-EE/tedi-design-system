@@ -11,7 +11,7 @@ import Radio, { RadioProps } from './radio';
  */
 const meta: Meta<typeof Radio> = {
   component: Radio,
-  title: 'Community-components/Form/Radio',
+  title: 'Community/Form/Radio',
 };
 
 export default meta;
