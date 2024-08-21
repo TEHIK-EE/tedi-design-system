@@ -5,7 +5,7 @@ html {
   box-sizing: border-box;
   font-family: var(--font-family);
   line-height: var(--font-line-height-base);
-  color: var(--color-text-default);
+  color: var(--general-text-primary);
   scroll-padding-top: var(--header-bottom-height, 0);
   scroll-behavior: smooth;
 }
