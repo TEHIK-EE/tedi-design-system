@@ -717,3 +717,22 @@ export const WithFooterAndPagination: Story = {
 };
 
 export { CustomExpandRowExample };
+
+/**
+ * Column pinning can be controlled from outside by passing 'columnPinning' prop.
+ * 'columnPinning' is an object with 'left' and 'right' properties, each containing an array of column ids to be pinned.
+ * 'onColumnPinningChange' is a function that is called when pinning is changed.
+ * Can be used to control column pinning and make them sticky to the left or right side of the table.
+ */
+
+export const WithColumnPinning: Story = {
+  args: {
+    data: data(),
+    columns,
+    id: 'table-with-column-pinning',
+    columnPinning: {
+      left: ['personName'],
+      right: ['age'],
+    },
+  },
+};

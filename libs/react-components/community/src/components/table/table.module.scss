@@ -152,3 +152,18 @@
   background: var(--color-bg-default);
   border-bottom: 1px solid var(--color-border-default);
 }
+
+.sticky-column {
+  position: sticky;
+  z-index: 1;
+  background-color: var(--color-bg-default);
+  opacity: 0.95;
+}
+
+.sticky-column--left {
+  left: 0;
+}
+
+.sticky-column--right {
+  right: 0;
+}
