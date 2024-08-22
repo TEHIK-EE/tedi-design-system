@@ -43,8 +43,10 @@ a {
 }
 
 .bg {
-  padding: 16px;
-  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  padding: var(--dimensions-08);
+  border-radius: var(--radius-04);
 
   &-primary {
     background-color: var(--color-primary-main);
