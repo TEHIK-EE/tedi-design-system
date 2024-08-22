@@ -9,7 +9,7 @@ import Select, { IGroupedOptions, ISelectOption } from './select';
 
 const meta: Meta<typeof Select> = {
   component: Select,
-  title: 'Community-components/Form/Select',
+  title: 'Community/Form/Select',
 };
 
 export default meta;

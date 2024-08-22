@@ -32,7 +32,7 @@ const defaultContent = (
 
 const meta: Meta<typeof Layout> = {
   component: Layout,
-  title: 'Community-components/Layout',
+  title: 'Community/Layout',
   subcomponents: {
     Header,
     SideNav,

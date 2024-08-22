@@ -34,7 +34,7 @@ import { TableProps } from './table.types';
 
 const meta: Meta<typeof Table> = {
   component: Table,
-  title: 'Community-components/Table',
+  title: 'Community/Table',
   argTypes: {
     data: {
       control: false,

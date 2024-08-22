@@ -8,7 +8,7 @@ import Placeholder from './placeholder';
 
 const meta: Meta<typeof Placeholder> = {
   component: Placeholder,
-  title: 'Community-components/Placeholder',
+  title: 'Community/Placeholder',
 };
 
 export default meta;

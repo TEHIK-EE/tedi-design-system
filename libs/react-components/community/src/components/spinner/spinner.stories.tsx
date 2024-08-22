@@ -4,7 +4,7 @@ import Spinner from './spinner';
 
 const meta: Meta<typeof Spinner> = {
   component: Spinner,
-  title: 'Community-components/Spinner',
+  title: 'Community/Spinner',
   parameters: {
     status: {
       type: 'deprecated',

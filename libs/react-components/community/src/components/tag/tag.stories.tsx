@@ -65,7 +65,7 @@ const Template: StoryFn<TagTemplateProps> = (args) => {
  */
 const meta: Meta<TagTemplateProps> = {
   component: Tag,
-  title: 'Community-components/Tag',
+  title: 'Community/Tag',
   argTypes: {
     array: { table: { disable: true } },
     property: { table: { disable: true } },

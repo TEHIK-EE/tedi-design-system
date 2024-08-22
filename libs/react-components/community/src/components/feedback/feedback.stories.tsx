@@ -18,7 +18,7 @@ import Feedback, { FeedbackProps } from './feedback';
  * Feedback component should be rendered after the main content to have the correct focus order.
  */
 export default {
-  title: 'Community-components/Feedback',
+  title: 'Community/Feedback',
   component: Feedback,
   parameters: {
     docs: {

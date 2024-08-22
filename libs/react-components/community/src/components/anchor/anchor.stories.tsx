@@ -9,7 +9,7 @@ import { Anchor, AnchorProps } from './anchor';
 
 const meta: Meta<AnchorProps> = {
   component: Anchor,
-  title: 'Community-components/Anchor',
+  title: 'Community/Anchor',
 };
 
 export default meta;

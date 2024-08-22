@@ -1,3 +1,34 @@
+# [6.31.0-rc.15](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.31.0-rc.14...v6.31.0-rc.15) (2024-08-22)
+
+
+### Bug Fixes
+
+* **icon:** TEDI-350 Added TEDI Icon export ([c7a5a8b](https://github.com/TEHIK-EE/tedi-design-system/commit/c7a5a8b11cd7b289858d66dc3a7ad67729b9db14))
+* **icon:** TEDI-350 TEDI Icon changes ([d0f5d5a](https://github.com/TEHIK-EE/tedi-design-system/commit/d0f5d5af519c64e0c2f28ef0acd7b518a7a119b8))
+* **icon:** TEDI-350 TEDI Icon changes and font update  ([9f73f78](https://github.com/TEHIK-EE/tedi-design-system/commit/9f73f7870f29d5c79b5138f376930ce1bff05934))
+* **typography:** TEDI-349 - Harmonizing the colors/typography of TEDI & Community ([a10415c](https://github.com/TEHIK-EE/tedi-design-system/commit/a10415c7a6cdb214d6b44774684a5d4e503d0855))
+
+# [6.31.0-rc.14](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.31.0-rc.13...v6.31.0-rc.14) (2024-08-21)
+
+
+### Bug Fixes
+
+* **typography:** TEDI-349 - Harmonizing the colors/typography of TEDI & Community ([bea5c77](https://github.com/TEHIK-EE/tedi-design-system/commit/bea5c77a7564723752819dda318959d3a1a37214))
+
+# [6.31.0-rc.13](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.31.0-rc.12...v6.31.0-rc.13) (2024-08-14)
+
+
+### Bug Fixes
+
+* **select:** [#103](https://github.com/TEHIK-EE/tedi-design-system/issues/103) - Increase placeholder contrast ([2602358](https://github.com/TEHIK-EE/tedi-design-system/commit/260235800f0d5d4fe4032a11057c76c02c98dac2))
+
+# [6.31.0-rc.12](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.31.0-rc.11...v6.31.0-rc.12) (2024-08-13)
+
+
+### Bug Fixes
+
+* **table:** [#48](https://github.com/TEHIK-EE/tedi-design-system/issues/48) - add scope col to table headers for a11y ([1d2614a](https://github.com/TEHIK-EE/tedi-design-system/commit/1d2614abbb356d6038a0b57b36734b734b9cf9ed))
+
 # [6.31.0-rc.11](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.31.0-rc.10...v6.31.0-rc.11) (2024-07-09)
 
 

@@ -13,7 +13,7 @@ import { Skeleton, SkeletonBlock, SkeletonProps } from '.';
  */
 const meta: Meta<typeof Skeleton> = {
   component: Skeleton,
-  title: 'Community-components/Skeleton',
+  title: 'Community/Skeleton',
   subcomponents: { SkeletonBlock } as never,
 };
 

@@ -7,7 +7,7 @@ const EmptyComponent = () => <p>Empty component</p>;
 
 const meta: Meta = {
   component: EmptyComponent,
-  title: 'Community-components/Form',
+  title: 'Community/Form',
   parameters: {
     docs: {
       page: () => (
