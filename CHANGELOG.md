@@ -1,3 +1,13 @@
+# [6.31.0-rc.15](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.31.0-rc.14...v6.31.0-rc.15) (2024-08-22)
+
+
+### Bug Fixes
+
+* **icon:** TEDI-350 Added TEDI Icon export ([c7a5a8b](https://github.com/TEHIK-EE/tedi-design-system/commit/c7a5a8b11cd7b289858d66dc3a7ad67729b9db14))
+* **icon:** TEDI-350 TEDI Icon changes ([d0f5d5a](https://github.com/TEHIK-EE/tedi-design-system/commit/d0f5d5af519c64e0c2f28ef0acd7b518a7a119b8))
+* **icon:** TEDI-350 TEDI Icon changes and font update  ([9f73f78](https://github.com/TEHIK-EE/tedi-design-system/commit/9f73f7870f29d5c79b5138f376930ce1bff05934))
+* **typography:** TEDI-349 - Harmonizing the colors/typography of TEDI & Community ([a10415c](https://github.com/TEHIK-EE/tedi-design-system/commit/a10415c7a6cdb214d6b44774684a5d4e503d0855))
+
 # [6.31.0-rc.14](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.31.0-rc.13...v6.31.0-rc.14) (2024-08-21)
 
 
