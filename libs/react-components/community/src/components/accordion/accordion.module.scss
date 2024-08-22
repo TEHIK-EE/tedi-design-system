@@ -38,18 +38,3 @@
   border-start-start-radius: 0;
   border-start-end-radius: 0;
 }
-
-.accordion__item-header-icon--open {
-  margin-left: 0.5rem;
-  transition-timing-function: ease-in-out;
-  transition-duration: 600ms;
-  transition-property: transform;
-  transform: rotate(180deg);
-}
-
-.accordion__item-header-icon--close {
-  margin-left: 0.5rem;
-  transition-timing-function: ease-in-out;
-  transition-duration: 600ms;
-  transition-property: transform;
-}
