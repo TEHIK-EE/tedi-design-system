@@ -59,6 +59,14 @@ a {
   &-danger {
     background-color: var(--general-status-danger-text);
   }
+
+  &-warning {
+    background-color: var(--general-status-warning-text);
+  }
+
+  &-tab {
+    background-color: var(--tab-background);
+  }
 }
 
 .display-flex {
