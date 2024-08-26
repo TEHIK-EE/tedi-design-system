@@ -1,7 +1,8 @@
 import { Description, Stories, Title } from '@storybook/addon-docs';
 import { Meta, StoryObj } from '@storybook/react';
 
-import { Button, Col, Row, TextField, VerticalSpacing } from '../../index';
+import { VerticalSpacing } from '../../../../tedi/src/components/vertical-spacing';
+import { Button, Col, Row, TextField } from '../../index';
 
 const EmptyComponent = () => <p>Empty component</p>;
 
