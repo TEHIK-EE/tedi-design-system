@@ -1,7 +1,8 @@
 import { Unstyled } from '@storybook/blocks';
 import * as tokens from '@tehik-ee/design-tokens/tokens.json';
 
-import { Col, Heading, Row, VerticalSpacing, VerticalSpacingItem } from '../../index';
+import { VerticalSpacing, VerticalSpacingItem } from '../../../../tedi/src/components/vertical-spacing';
+import { Col, Heading, Row } from '../../index';
 
 interface ISection {
   title: string;

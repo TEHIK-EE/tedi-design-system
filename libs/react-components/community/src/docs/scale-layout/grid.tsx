@@ -1,6 +1,7 @@
 import { Title } from '@storybook/blocks';
 
-import { Col, Heading, Row, Separator, VerticalSpacing } from '../../index';
+import { VerticalSpacing } from '../../../../tedi/src/components/vertical-spacing';
+import { Col, Heading, Row, Separator } from '../../index';
 import BreakingpointsTable from './breaking-points';
 
 const Grid = () => {

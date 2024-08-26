@@ -43,6 +43,4 @@ export const VerticalSpacing = (props: VerticalSpacingProps): JSX.Element => {
   );
 };
 
-VerticalSpacing.displayName = 'VerticalSpacing';
-
 export default VerticalSpacing;

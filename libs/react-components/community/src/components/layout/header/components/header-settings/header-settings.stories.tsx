@@ -1,10 +1,10 @@
 import { Meta, StoryObj } from '@storybook/react';
 
+import { VerticalSpacing } from '../../../../../../../tedi/src/components/vertical-spacing';
 import { useLayout } from '../../../../../helpers/hooks/use-layout';
 import Anchor from '../../../../anchor/anchor';
 import { Card, CardContent } from '../../../../card';
 import Separator from '../../../../separator/separator';
-import VerticalSpacing from '../../../../vertical-spacing/vertical-spacing';
 import HeaderRole, { HeaderRoleProps } from '../header-role/header-role';
 import { WithSecondaryInfo as HeaderRoleDefault } from '../header-role/header-role.stories';
 import HeaderSettings from './header-settings';

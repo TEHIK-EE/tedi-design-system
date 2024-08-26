@@ -1,18 +1,8 @@
 import { Title } from '@storybook/blocks';
 import React from 'react';
 
-import {
-  Button,
-  ButtonProps,
-  Card,
-  CardContent,
-  Col,
-  Heading,
-  Row,
-  Separator,
-  Text,
-  VerticalSpacing,
-} from '../../index';
+import { VerticalSpacing } from '../../../../tedi/src/components/vertical-spacing';
+import { Button, ButtonProps, Card, CardContent, Col, Heading, Row, Separator, Text } from '../../index';
 
 interface ExampleButtonProps {
   heading?: string;

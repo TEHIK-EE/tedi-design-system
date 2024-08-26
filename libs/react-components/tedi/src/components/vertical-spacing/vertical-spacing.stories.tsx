@@ -1,10 +1,10 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 
-import { Spinner } from '../spinner/spinner';
+import { Icon } from '../icon/icon';
 import { Heading } from '../typography/heading/heading';
 import { Text } from '../typography/text/text';
-import VerticalSpacing, { VerticalSpacingProps } from './vertical-spacing';
-import VerticalSpacingItem from './vertical-spacing-item';
+import { VerticalSpacing, VerticalSpacingProps } from './vertical-spacing';
+import { VerticalSpacingItem } from './vertical-spacing-item';
 
 const meta: Meta<typeof VerticalSpacing> = {
   component: VerticalSpacing,
@@ -73,9 +73,11 @@ const NestedTemplate: StoryFn<VerticalSpacingProps> = (args) => (
 const MixedContentTemplate: StoryFn<VerticalSpacingProps> = (args) => (
   <VerticalSpacing {...args}>
     <Heading element="h1">Mixed Content Example</Heading>
-    <img src="https://via.placeholder.com/150" alt="Placeholder" />
     <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam pretium lacinia urna in efficitur.</Text>
-    <Spinner label="Loading..." />
+    <Heading element="h4">Mixed Content Example</Heading>
+    <img src="https://www.neti.ee/img/neti-logo-2015-1.png" alt="neti.ee" />
+    <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam pretium lacinia urna in efficitur.</Text>
+    <Icon name="home" />
   </VerticalSpacing>
 );
 
@@ -86,14 +88,6 @@ const OverwriteItemSpacingTemplate: StoryFn<VerticalSpacingProps> = (args) => (
       <p>Overwritten spacing for this item</p>
     </VerticalSpacingItem>
     <p>Default spacing resumed</p>
-  </VerticalSpacing>
-);
-
-const MultipleChildrenTemplate: StoryFn<VerticalSpacingProps> = (args) => (
-  <VerticalSpacing {...args}>
-    {Array.from({ length: 5 }, (_, i) => (
-      <p key={i}>Child {i + 1}</p>
-    ))}
   </VerticalSpacing>
 );
 
@@ -143,13 +137,6 @@ export const MixedContent: Story = {
 
 export const OverwriteItemSpacing: Story = {
   render: OverwriteItemSpacingTemplate,
-  args: {
-    size: 1,
-  },
-};
-
-export const MultipleChildren: Story = {
-  render: MultipleChildrenTemplate,
   args: {
     size: 1,
   },

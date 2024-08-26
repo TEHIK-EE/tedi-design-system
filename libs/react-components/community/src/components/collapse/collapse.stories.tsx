@@ -1,9 +1,9 @@
 import { Meta, StoryFn } from '@storybook/react';
 import React from 'react';
 
+import { VerticalSpacing } from '../../../../tedi/src/components/vertical-spacing';
 import Heading from '../typography/heading/heading';
 import Text from '../typography/text/text';
-import { VerticalSpacing } from '../vertical-spacing';
 import Collapse, { CollapseProps } from './collapse';
 
 export default {

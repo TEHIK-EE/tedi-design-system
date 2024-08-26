@@ -1,7 +1,7 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 
+import { VerticalSpacing } from '../../../../tedi/src/components/vertical-spacing';
 import Heading from '../typography/heading/heading';
-import { VerticalSpacing } from '../vertical-spacing';
 import { Tabs, TabsItem, TabsItemProps, TabsProps } from '.';
 
 const meta: Meta<typeof Tabs> = {

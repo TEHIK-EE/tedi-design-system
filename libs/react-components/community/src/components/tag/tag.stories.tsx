@@ -1,12 +1,12 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import React from 'react';
 
+import { VerticalSpacing } from '../../../../tedi/src/components/vertical-spacing';
 import Card from '../card/card';
 import CardContent from '../card/card-content/card-content';
 import { Col, Row } from '../grid';
 import Icon from '../icon/icon';
 import { Text, TextProps } from '../typography/text/text';
-import { VerticalSpacing } from '../vertical-spacing';
 import Tag, { TagColor, TagProps, TagSize, TagStatus, TagType } from './tag';
 
 type TagTemplateProps<Type = string | boolean> = React.ComponentProps<typeof Tag> & {

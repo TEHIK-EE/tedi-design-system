@@ -18,7 +18,7 @@ export interface VerticalSpacingItemProps {
    */
   className?: string;
   /**
-   * size of spacing {size}em unit of margin-bottom
+   * Size of spacing {size}em unit of margin-bottom
    * @default 1
    */
   size?: VerticalSpacingSize;
@@ -39,7 +39,5 @@ export const VerticalSpacingItem = (props: VerticalSpacingItemProps): JSX.Elemen
     </Element>
   );
 };
-
-VerticalSpacingItem.displayName = 'VerticalSpacingItem';
 
 export default VerticalSpacingItem;

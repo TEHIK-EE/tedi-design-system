@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { VerticalSpacing } from '../vertical-spacing';
+import { VerticalSpacing } from '../../../../tedi/src/components/vertical-spacing';
 
 export interface VerticalProgressProps {
   /**

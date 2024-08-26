@@ -1,9 +1,9 @@
 import { Controls, Primary, Stories, Title } from '@storybook/addon-docs';
 import { Meta, StoryObj } from '@storybook/react';
 
+import { VerticalSpacing } from '../../../../tedi/src/components/vertical-spacing';
 import Anchor from '../anchor/anchor';
 import Heading from '../typography/heading/heading';
-import { VerticalSpacing } from '../vertical-spacing';
 import Notification from './notification';
 
 const meta: Meta<typeof Notification> = {
