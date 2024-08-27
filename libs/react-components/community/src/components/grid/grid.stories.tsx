@@ -1,9 +1,9 @@
 import { Controls, Description, Primary, Stories, Subtitle, Title } from '@storybook/addon-docs';
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 
+import { VerticalSpacing } from '../../../../tedi/src/components/vertical-spacing';
 import Notification from '../notification/notification';
 import Heading from '../typography/heading/heading';
-import { VerticalSpacing } from '../vertical-spacing';
 import { Col } from './col';
 import { Row, RowProps } from './row';
 

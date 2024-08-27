@@ -1,7 +1,7 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 
+import { VerticalSpacing } from '../../../../tedi/src/components/vertical-spacing';
 import Button from '../button/button';
-import { VerticalSpacing } from '../vertical-spacing';
 import { Print, PrintProps } from './print';
 
 const meta: Meta<typeof Print> = {

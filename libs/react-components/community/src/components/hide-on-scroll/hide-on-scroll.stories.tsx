@@ -1,6 +1,7 @@
 import { faker } from '@faker-js/faker';
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 
+import { VerticalSpacing } from '../../../../tedi/src/components/vertical-spacing';
 import Affix, { AffixPosition } from '../affix/affix';
 import Button from '../button/button';
 import Card from '../card/card';
@@ -9,7 +10,6 @@ import Col from '../grid/col';
 import Row from '../grid/row';
 import StretchContent, { StretchContentProps } from '../stretch-content/stretch-content';
 import Text from '../typography/text/text';
-import VerticalSpacing from '../vertical-spacing/vertical-spacing';
 import { HideOnScroll, HideOnScrollProps } from './hide-on-scroll';
 
 const meta: Meta<HideOnScrollProps> = {

@@ -12,6 +12,7 @@ import {
 import dayjs from 'dayjs';
 import React from 'react';
 
+import { VerticalSpacing } from '../../../../tedi/src/components/vertical-spacing';
 import { getBackgroundColorClass } from '../../helpers/background-colors/background-colors';
 import { IntentionalAny } from '../../types';
 import Anchor from '../anchor/anchor';
@@ -20,7 +21,6 @@ import Check from '../form/check/check';
 import Status from '../status/status';
 import Tag from '../tag/tag';
 import Heading from '../typography/heading/heading';
-import { VerticalSpacing } from '../vertical-spacing';
 import { CustomExpandRowExample } from './components/examples/custom-expand-row';
 import {
   CustomizeTableCell,

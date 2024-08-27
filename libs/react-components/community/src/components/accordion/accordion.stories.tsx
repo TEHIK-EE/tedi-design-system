@@ -1,11 +1,11 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import React from 'react';
 
+import { VerticalSpacing } from '../../../../tedi/src/components/vertical-spacing/vertical-spacing';
 import Button from '../button/button';
 import { Col, Row } from '../grid';
 import Separator from '../separator/separator';
 import Heading from '../typography/heading/heading';
-import { VerticalSpacing } from '../vertical-spacing';
 import Accordion, { AccordionProps } from './accordion';
 import AccordionItem, { AccordionItemProps } from './accordion-item/accordion-item';
 import AccordionItemContent, { AccordionItemContentProps } from './accordion-item-content/accordion-item-content';

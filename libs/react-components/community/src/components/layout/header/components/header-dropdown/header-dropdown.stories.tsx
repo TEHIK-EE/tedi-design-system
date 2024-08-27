@@ -1,10 +1,10 @@
 import { Meta, StoryObj } from '@storybook/react';
 
+import { VerticalSpacing } from '../../../../../../../tedi/src/components/vertical-spacing';
 import Anchor from '../../../../anchor/anchor';
 import Button from '../../../../button/button';
 import { List, ListItem } from '../../../../list';
 import Separator from '../../../../separator/separator';
-import { VerticalSpacing } from '../../../../vertical-spacing';
 import HeaderDropdown from './header-dropdown';
 
 /**
