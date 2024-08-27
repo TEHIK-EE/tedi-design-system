@@ -1,3 +1,10 @@
+# [6.31.0-rc.17](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.31.0-rc.16...v6.31.0-rc.17) (2024-08-27)
+
+
+### Features
+
+* **heading-with-icon:** Component HeadingWithIcon ([2997811](https://github.com/TEHIK-EE/tedi-design-system/commit/2997811c5db38a05f6c8f36ee58e4f5b1e300679))
+
 # [6.31.0-rc.16](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.31.0-rc.15...v6.31.0-rc.16) (2024-08-27)
 
 
