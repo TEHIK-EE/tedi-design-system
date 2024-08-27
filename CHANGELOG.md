@@ -1,3 +1,15 @@
+# [6.31.0-rc.16](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.31.0-rc.15...v6.31.0-rc.16) (2024-08-27)
+
+
+### Bug Fixes
+
+* **accordionitemheader:** [#102](https://github.com/TEHIK-EE/tedi-design-system/issues/102) - Swap ToggleOpen Button for an Icon ([8c765cd](https://github.com/TEHIK-EE/tedi-design-system/commit/8c765cdd6e184924c8ae5dc42170d8c6ee69c61e))
+
+
+### Features
+
+* **table:** [#151](https://github.com/TEHIK-EE/tedi-design-system/issues/151) - add columnPinning prop to make columns sticky ([bba0c91](https://github.com/TEHIK-EE/tedi-design-system/commit/bba0c91aacf4b1fee7b0f21ba468279c63985c91))
+
 # [6.31.0-rc.15](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.31.0-rc.14...v6.31.0-rc.15) (2024-08-22)
 
 
