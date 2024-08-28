@@ -19,6 +19,6 @@ export const Default: Story = {
   render: Template,
   args: {
     children: 'My family physician',
-    icon: 'assignment_ind',
+    name: 'assignment_ind',
   },
 };
