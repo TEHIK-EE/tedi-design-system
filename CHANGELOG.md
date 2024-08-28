@@ -3,8 +3,6 @@
 
 ### Features
 
-* **vertical-spacing:** TEDI-195 Fixed community story import ([5f65277](https://github.com/TEHIK-EE/tedi-design-system/commit/5f65277d235ba58e766ee1bbf7d9f05860e350c6))
-* **vertical-spacing:** TEDI-195 Fixed community story import ([7a1e4d7](https://github.com/TEHIK-EE/tedi-design-system/commit/7a1e4d762958b70adf97c82cda62d3038001c8ea))
 * **vertical-spacing:** TEDI-358 Replaced Community components with Tedi-ready VerticalSpacing ([586dd5c](https://github.com/TEHIK-EE/tedi-design-system/commit/586dd5cd0e42da89a7e0fc71bc2efd51ac3fa5d5))
 * **vertical-spacing:** VerticalSpacing component ([fb4b901](https://github.com/TEHIK-EE/tedi-design-system/commit/fb4b90107eae3f3a139ebb00bcf7163c4919387b))
 
@@ -16,11 +14,6 @@
 * **heading-with-icon:** Component HeadingWithIcon ([2997811](https://github.com/TEHIK-EE/tedi-design-system/commit/2997811c5db38a05f6c8f36ee58e4f5b1e300679))
 
 # [6.31.0-rc.16](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.31.0-rc.15...v6.31.0-rc.16) (2024-08-27)
-
-
-### Bug Fixes
-
-* **accordionitemheader:** [#102](https://github.com/TEHIK-EE/tedi-design-system/issues/102) - Swap ToggleOpen Button for an Icon ([8c765cd](https://github.com/TEHIK-EE/tedi-design-system/commit/8c765cdd6e184924c8ae5dc42170d8c6ee69c61e))
 
 
 ### Features
