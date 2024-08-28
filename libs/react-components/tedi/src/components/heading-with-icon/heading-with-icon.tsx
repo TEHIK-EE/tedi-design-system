@@ -15,7 +15,7 @@ export interface HeadingWithIconProps extends HeadingProps, Pick<IconProps, 'nam
   className?: string;
 }
 
-const HeadingWithIcon = (props: HeadingWithIconProps) => {
+export const HeadingWithIcon = (props: HeadingWithIconProps): JSX.Element => {
   const { children, className, element = 'h4', name, size = 24 } = props;
   const headingWithIconBEM = cn(styles['tedi-heading-with-icon'], className);
 
