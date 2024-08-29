@@ -3,7 +3,7 @@ import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import HeadingWithIcon, { HeadingWithIconProps } from './heading-with-icon';
 
 /**
- * [Figma ↗](#)<br/>
+ * [Figma ↗](https://www.figma.com/file/jWiRIXhHRxwVdMSimKX2FF/TEDI-Design-System-(draft)?type=design&node-id=2137-19827&mode=dev)<br/>
  * [Zeroheight ↗](https://zeroheight.com/1ee8444b7/p/94147f-heading-with-icon/b/23093e)
  */
 
@@ -19,6 +19,6 @@ export const Default: Story = {
   render: Template,
   args: {
     children: 'My family physician',
-    icon: 'assignment_ind',
+    name: 'assignment_ind',
   },
 };

@@ -6,7 +6,7 @@ import '@testing-library/jest-dom';
 
 describe('HeadingWithIcon', () => {
   it('renders children and icon correctly', () => {
-    const { container } = render(<HeadingWithIcon icon="home">Child content</HeadingWithIcon>);
+    const { container } = render(<HeadingWithIcon name="home">Child content</HeadingWithIcon>);
 
     const iconElement = container.querySelector('.tedi-heading-with-icon .tedi-icon');
     expect(iconElement).toBeInTheDocument();
@@ -19,7 +19,7 @@ describe('HeadingWithIcon', () => {
 
   it('renders the correct heading element based on the element prop', () => {
     const { container } = render(
-      <HeadingWithIcon icon="home" element="h2">
+      <HeadingWithIcon name="home" element="h2">
         Child content
       </HeadingWithIcon>
     );
