@@ -1,3 +1,10 @@
+# [6.31.0-rc.22](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.31.0-rc.21...v6.31.0-rc.22) (2024-08-29)
+
+
+### Bug Fixes
+
+* **heading-with-icon:** TEDI-370 Allow all props from HeadingProps and IconProps ([a1c54fb](https://github.com/TEHIK-EE/tedi-design-system/commit/a1c54fb7c7ecc342bc917cee642fb6f262db2b4a))
+
 # [6.31.0-rc.21](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.31.0-rc.20...v6.31.0-rc.21) (2024-08-29)
 
 
