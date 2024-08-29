@@ -1,3 +1,10 @@
+# [6.31.0-rc.20](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.31.0-rc.19...v6.31.0-rc.20) (2024-08-29)
+
+
+### Bug Fixes
+
+* **heading-with-icon:** TEDI-370 Improved type extending ([a2de154](https://github.com/TEHIK-EE/tedi-design-system/commit/a2de154b0841a0bbfee1c5e58e587852688bbd92))
+
 # [6.31.0-rc.19](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.31.0-rc.18...v6.31.0-rc.19) (2024-08-29)
 
 
