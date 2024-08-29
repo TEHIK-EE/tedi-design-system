@@ -1,3 +1,10 @@
+# [6.31.0-rc.19](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.31.0-rc.18...v6.31.0-rc.19) (2024-08-29)
+
+
+### Bug Fixes
+
+* **vertical-spacing:** TEDI-367 Added VerticalSpacingItem unit test, improved story with badge ([0096a1c](https://github.com/TEHIK-EE/tedi-design-system/commit/0096a1cbb402648cb230b4320ea88bb5e86587a6))
+
 # [6.31.0-rc.18](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.31.0-rc.17...v6.31.0-rc.18) (2024-08-27)
 
 
