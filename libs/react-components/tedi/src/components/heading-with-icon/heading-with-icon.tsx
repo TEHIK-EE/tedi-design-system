@@ -4,7 +4,7 @@ import { Icon, IconProps } from '../icon/icon';
 import { Heading, HeadingProps } from '../typography/heading/heading';
 import styles from './heading-with-icon.module.scss';
 
-export interface HeadingWithIconProps extends HeadingProps, Pick<IconProps, 'name' | 'size'> {
+export interface HeadingWithIconProps extends Pick<HeadingProps, 'element'>, Pick<IconProps, 'name' | 'size'> {
   /**
    * Heading text
    */
