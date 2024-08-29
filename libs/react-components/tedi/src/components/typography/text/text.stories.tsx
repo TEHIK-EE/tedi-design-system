@@ -10,7 +10,7 @@ import { Text } from './text';
 
 const meta: Meta<typeof Text> = {
   component: Text,
-  title: 'Tedi-components/Base/Typography/Text',
+  title: 'Tedi-ready/Base/Typography/Text',
 };
 
 export default meta;
@@ -139,12 +139,12 @@ const TemplateGeneralText: StoryFn = (args) => (
       </Text>
     </Row>
     <Row>
-      <Text color="distinctive">
+      <Text color="brand">
         Rebane on väikese koera suurune ja pika koheva sabaga. Joostes hoiab ta saba horisontaalselt. Tema selja karvad
         on oranžid. Eestis eelistab ta elupaigana metsatukkasid.
       </Text>
     </Row>
-    <Row className="with-background">
+    <Row className="bg bg-primary">
       <Text color="white">
         Rebane on väikese koera suurune ja pika koheva sabaga. Joostes hoiab ta saba horisontaalselt. Tema selja karvad
         on oranžid. Eestis eelistab ta elupaigana metsatukkasid.

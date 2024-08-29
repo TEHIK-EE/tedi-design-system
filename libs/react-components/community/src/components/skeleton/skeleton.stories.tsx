@@ -1,10 +1,10 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import React from 'react';
 
+import { VerticalSpacing } from '../../../../tedi/src/components/vertical-spacing';
 import Button from '../button/button';
 import { Card, CardContent } from '../card';
 import { Col, Row } from '../grid';
-import { VerticalSpacing } from '../vertical-spacing';
 import { Skeleton, SkeletonBlock, SkeletonProps } from '.';
 
 /**
@@ -13,7 +13,7 @@ import { Skeleton, SkeletonBlock, SkeletonProps } from '.';
  */
 const meta: Meta<typeof Skeleton> = {
   component: Skeleton,
-  title: 'Community-components/Skeleton',
+  title: 'Community/Skeleton',
   subcomponents: { SkeletonBlock } as never,
 };
 

@@ -1,4 +1,5 @@
-import { Col, Heading, Row, VerticalSpacing, VerticalSpacingItem } from '../../index';
+import { VerticalSpacing, VerticalSpacingItem } from '../../../../tedi/src/components/vertical-spacing';
+import { Col, Heading, Row } from '../../index';
 
 const ColorRows = ({ inverted }: { inverted?: boolean }) => (
   <Row>

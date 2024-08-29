@@ -12,6 +12,7 @@ import {
 import dayjs from 'dayjs';
 import React from 'react';
 
+import { VerticalSpacing } from '../../../../tedi/src/components/vertical-spacing';
 import { getBackgroundColorClass } from '../../helpers/background-colors/background-colors';
 import { IntentionalAny } from '../../types';
 import Anchor from '../anchor/anchor';
@@ -20,7 +21,6 @@ import Check from '../form/check/check';
 import Status from '../status/status';
 import Tag from '../tag/tag';
 import Heading from '../typography/heading/heading';
-import { VerticalSpacing } from '../vertical-spacing';
 import { CustomExpandRowExample } from './components/examples/custom-expand-row';
 import {
   CustomizeTableCell,
@@ -34,7 +34,7 @@ import { TableProps } from './table.types';
 
 const meta: Meta<typeof Table> = {
   component: Table,
-  title: 'Community-components/Table',
+  title: 'Community/Table',
   argTypes: {
     data: {
       control: false,
@@ -311,12 +311,17 @@ export const RowSelection: Story = {
   },
 };
 
+/**
+ * Row selection can be controlled from outside by passing 'rowSelection' and 'onRowSelectionChange' props. 'rowSelection' is an object with row id as key and boolean as value. <br />
+ * enableRowSelection is a function that is called for each row to determine if row can be selected. @defaults to true <br />
+ */
 export const RowSelectionControlledFromOutside: Story = {
   args: {
     data: data(),
     columns: [getRowSelectionColumn('test-2', true), ...columns],
     id: 'row-selection-table-outside',
     getRowId: (row) => row.id,
+    enableRowSelection: (row) => row.original.age > 40,
   },
   render: (args) => {
     const [rowSelection, setRowSelection] = React.useState<RowSelectionState>({});
@@ -712,3 +717,22 @@ export const WithFooterAndPagination: Story = {
 };
 
 export { CustomExpandRowExample };
+
+/**
+ * Column pinning can be controlled from outside by passing 'columnPinning' prop.
+ * 'columnPinning' is an object with 'left' and 'right' properties, each containing an array of column ids to be pinned.
+ * 'onColumnPinningChange' is a function that is called when pinning is changed.
+ * Can be used to control column pinning and make them sticky to the left or right side of the table.
+ */
+
+export const WithColumnPinning: Story = {
+  args: {
+    data: data(),
+    columns,
+    id: 'table-with-column-pinning',
+    columnPinning: {
+      left: ['personName'],
+      right: ['age'],
+    },
+  },
+};

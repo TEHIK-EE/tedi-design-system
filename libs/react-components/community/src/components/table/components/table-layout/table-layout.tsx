@@ -172,7 +172,17 @@ const TableLayout = <TData extends DefaultTData<TData>>(): JSX.Element | null =>
               onClick={() => handleRowClick(row)}
             >
               {row.getVisibleCells().map((cell) => (
-                <td key={cell.id} style={{ width: cell.column.getSize() }}>
+                <td
+                  key={cell.id}
+                  style={{
+                    width: cell.column.getSize(),
+                  }}
+                  className={cn({
+                    [styles['sticky-column']]: cell.column.getIsPinned(),
+                    [styles['sticky-column--left']]: cell.column.getIsPinned() === 'left',
+                    [styles['sticky-column--right']]: cell.column.getIsPinned() === 'right',
+                  })}
+                >
                   {flexRender(cell.column.columnDef.cell, cell.getContext())}
                 </td>
               ))}
@@ -194,9 +204,17 @@ const TableLayout = <TData extends DefaultTData<TData>>(): JSX.Element | null =>
           <tr key={headerGroup.id}>
             {headerGroup.headers.map((header) => (
               <th
+                scope="col"
                 key={header.id}
-                style={{ width: header.getSize() }}
-                className={cn({ [styles['th--sortable']]: header.column.getCanSort() })}
+                style={{
+                  width: header.getSize(),
+                }}
+                className={cn({
+                  [styles['th--sortable']]: header.column.getCanSort(),
+                  [styles['sticky-column']]: header.column.getIsPinned(),
+                  [styles['sticky-column--left']]: header.column.getIsPinned() === 'left',
+                  [styles['sticky-column--right']]: header.column.getIsPinned() === 'right',
+                })}
                 aria-sort={
                   header.column.getIsSorted() === 'asc'
                     ? 'ascending'
@@ -238,7 +256,16 @@ const TableLayout = <TData extends DefaultTData<TData>>(): JSX.Element | null =>
             <tr key={footerGroup.id}>
               {footerGroup.headers.map((header, index) =>
                 header.column.columnDef.footer ? (
-                  <th key={header.id} colSpan={footerColSpan(footerGroup.headers.slice(index + 1))}>
+                  <th
+                    scope="col"
+                    key={header.id}
+                    colSpan={footerColSpan(footerGroup.headers.slice(index + 1))}
+                    className={cn({
+                      [styles['sticky-column']]: header.column.getIsPinned(),
+                      [styles['sticky-column--left']]: header.column.getIsPinned() === 'left',
+                      [styles['sticky-column--right']]: header.column.getIsPinned() === 'right',
+                    })}
+                  >
                     {header.isPlaceholder ? null : flexRender(header.column.columnDef.footer, header.getContext())}
                   </th>
                 ) : null

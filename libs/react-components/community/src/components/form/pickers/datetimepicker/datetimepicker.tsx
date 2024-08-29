@@ -50,6 +50,10 @@ export interface DateTimePickerProps extends Omit<TextFieldProps, 'defaultValue'
    */
   maxTime?: Dayjs;
   /**
+   * Controls the date the picker is opened to
+   */
+  referenceDate?: Dayjs;
+  /**
    * Step over minutes.
    * @default 1
    */
@@ -149,6 +153,7 @@ export const DateTimePicker = (props: DateTimePickerProps): JSX.Element => {
     shouldDisableMonth,
     shouldDisableYear,
     disableHighlightToday,
+    referenceDate,
     inputFormat = 'DD.MM.YYYY HH:mm',
     views = ['year', 'day', 'hours', 'minutes'],
     onError,
@@ -192,13 +197,18 @@ export const DateTimePicker = (props: DateTimePickerProps): JSX.Element => {
           muiTextfieldProps={props}
           inputFormat={inputFormat}
           onChangeHandler={onChangeHandler}
-          textfieldProps={{ ...rest, onIconClick: !readOnly ? () => setOpen((open) => !open) : undefined }}
+          textfieldProps={{
+            ...rest,
+            onClear: () => onChangeHandler(null),
+            onIconClick: !readOnly ? () => setOpen((open) => !open) : undefined,
+          }}
         />
       )}
       open={open}
       inputFormat={inputFormat}
       onOpen={() => setOpen(true)}
       onClose={onCloseHandler}
+      defaultCalendarMonth={referenceDate}
       disabled={disabled}
       disableFuture={disableFuture}
       disablePast={disablePast}

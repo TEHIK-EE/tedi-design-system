@@ -68,6 +68,10 @@ export function getRowSelectionColumn<TData>(id = 'row-selection', showSelectAll
             const toggleLabel = getLabel('table.select-row');
             const finalLabel = typeof toggleLabel === 'string' ? toggleLabel : toggleLabel(row.getIsSelected());
 
+            if (!row.getCanSelect()) {
+              return null;
+            }
+
             return (
               <Check
                 id={`${id}-${row.id}`}

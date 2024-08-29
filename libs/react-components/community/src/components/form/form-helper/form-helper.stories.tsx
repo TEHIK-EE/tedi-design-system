@@ -4,7 +4,7 @@ import FormHelper from './form-helper';
 
 const meta: Meta<typeof FormHelper> = {
   component: FormHelper,
-  title: 'Community-components/Form/FormHelper',
+  title: 'Community/Form/FormHelper',
 };
 
 export default meta;

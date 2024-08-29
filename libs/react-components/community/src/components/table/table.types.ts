@@ -1,6 +1,7 @@
 import {
   ColumnDef,
   ColumnFiltersState,
+  ColumnPinningState,
   ExpandedState,
   FilterFn,
   PaginationState,
@@ -185,6 +186,11 @@ export interface TableProps<TData extends DefaultTData<TData>> {
    */
   onRowSelectionChange?: (state: RowSelectionState) => void;
   /**
+   * Enables/disables row selection for all rows in the table OR
+   * A function that given a row, returns whether to enable/disable row selection for that row
+   */
+  enableRowSelection?: boolean | ((row: Row<TData>) => boolean);
+  /**
    * Initial internal columnVisibility state on render. This only applies when `columnVisibility` prop is not defined.
    */
   defaultColumnVisibility?: VisibilityState;
@@ -196,6 +202,14 @@ export interface TableProps<TData extends DefaultTData<TData>> {
    * Callback on column visibility change. Use combined with `columnVisibility` prop to hide/show columns.
    */
   onColumnVisibilityChange?: (state: VisibilityState) => void;
+  /**
+   * Column pinning state, used to stick columns to the left or right side of the table
+   */
+  columnPinning?: ColumnPinningState;
+  /**
+   * Callback on column pinning change
+   */
+  onColumnPinningChange?: (state: ColumnPinningState) => void;
   /**
    * Called when row is clicked
    */

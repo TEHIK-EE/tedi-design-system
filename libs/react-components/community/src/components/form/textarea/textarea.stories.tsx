@@ -4,7 +4,7 @@ import TextArea from './textarea';
 
 const meta: Meta<typeof TextArea> = {
   component: TextArea,
-  title: 'Community-components/Form/TextArea',
+  title: 'Community/Form/TextArea',
 };
 
 export default meta;

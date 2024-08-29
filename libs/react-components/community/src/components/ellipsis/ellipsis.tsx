@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { useElementSize } from '../../helpers';
 import { Card, CardContent } from '../card';
 import { Tooltip, TooltipProvider, TooltipTrigger } from '../tooltip';
 import styles from './ellipsis.module.scss';
@@ -20,12 +21,13 @@ export const Ellipsis = (props: EllipsisProps): JSX.Element => {
   const { children, lineClamp = 2, ...rest } = props;
   const elementRef = React.useRef<HTMLDivElement>(null);
   const [showTooltip, setShowTooltip] = React.useState(false);
+  const elementSize = useElementSize(elementRef);
 
   React.useEffect(() => {
     if (elementRef.current) {
       setShowTooltip(elementRef.current.scrollHeight > elementRef.current.clientHeight);
     }
-  }, [elementRef]);
+  }, [elementRef, elementSize]);
 
   const ellipsis = (
     <div

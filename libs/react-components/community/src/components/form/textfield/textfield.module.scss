@@ -66,8 +66,13 @@
     @include textfield-focus(var(--color-positive-main));
   }
 
+  .textfield--clearable &,
   .textfield--with-icon & {
     padding-right: 2rem;
+  }
+
+  .textfield--clearable.textfield--with-icon & {
+    padding-right: 4rem;
   }
 }
 
@@ -82,14 +87,32 @@
   }
 }
 
-.textfield__icon-wrapper {
-  @include mixins.button-reset;
-
+.textfield__right-area {
   position: absolute;
   top: 0;
   right: 0;
+  display: flex;
+  align-items: center;
   height: 100%;
   padding: 0.75rem 0.5rem;
+
+  .textfield--small & {
+    padding: 0.25rem 0.5rem;
+  }
+
+  .textfield--large & {
+    padding: 1rem;
+  }
+}
+
+.textfield__separator {
+  margin-right: 0.5rem;
+  margin-left: 0.25rem;
+}
+
+.textfield__icon-wrapper {
+  @include mixins.button-reset;
+
   color: var(--color-text-muted);
   transition: color 0.2s ease;
 
@@ -103,10 +126,6 @@
 
   .textfield--inline & {
     padding: 2px 0.25rem;
-  }
-
-  .textfield--small & {
-    padding: 0.5rem;
   }
 
   .textfield__input[aria-invalid='true'] + & {
@@ -130,7 +149,34 @@ div.textfield__icon-wrapper {
     padding-left: 0.25rem;
   }
 
+  &.textfield--clearable .textfield__input,
   &.textfield--with-icon .textfield__input {
-    padding-right: 1rem;
+    padding-right: 2rem;
+  }
+
+  &.textfield--clearable.textfield--with-icon .textfield__input {
+    padding-right: 4rem;
+  }
+}
+
+/* Large */
+.textfield--large {
+  & .textfield__input {
+    height: 3.5rem;
+    padding: 1rem;
+  }
+
+  & .textfield__separator {
+    margin-right: 0.5rem;
+    margin-left: 0.5rem;
+  }
+
+  &.textfield--clearable .textfield__input,
+  &.textfield--with-icon .textfield__input {
+    padding-right: 3.5rem;
+  }
+
+  &.textfield--clearable.textfield--with-icon .textfield__input {
+    padding-right: 6rem;
   }
 }

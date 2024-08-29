@@ -2,6 +2,7 @@ import { faker } from '@faker-js/faker';
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import React from 'react';
 
+import { VerticalSpacing } from '../../../../tedi/src/components/vertical-spacing';
 import Anchor from '../anchor/anchor';
 import Button from '../button/button';
 import { Card, CardContent } from '../card';
@@ -12,12 +13,11 @@ import { Section } from '../section/section';
 import ToggleOpen from '../toggle-open/toggle-open';
 import Heading from '../typography/heading/heading';
 import Text from '../typography/text/text';
-import { VerticalSpacing } from '../vertical-spacing';
 import { TableOfContents, TableOfContentsProps } from './table-of-contents';
 
 const meta: Meta<TableOfContentsProps> = {
   component: TableOfContents,
-  title: 'Community-components/TableOfContents',
+  title: 'Community/TableOfContents',
   parameters: {
     docs: {
       story: {

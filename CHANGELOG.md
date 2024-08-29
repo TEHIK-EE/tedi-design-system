@@ -1,9 +1,174 @@
+# [6.31.0-rc.22](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.31.0-rc.21...v6.31.0-rc.22) (2024-08-29)
+
+
+### Bug Fixes
+
+* **heading-with-icon:** TEDI-370 Allow all props from HeadingProps and IconProps ([a1c54fb](https://github.com/TEHIK-EE/tedi-design-system/commit/a1c54fb7c7ecc342bc917cee642fb6f262db2b4a))
+
+# [6.31.0-rc.21](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.31.0-rc.20...v6.31.0-rc.21) (2024-08-29)
+
+
+### Bug Fixes
+
+* **typography:** TEDI-371 Browser font scale fix ([3306f46](https://github.com/TEHIK-EE/tedi-design-system/commit/3306f46957303f876f512745b539d80a8dbec4db))
+
+# [6.31.0-rc.20](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.31.0-rc.19...v6.31.0-rc.20) (2024-08-29)
+
+
+### Bug Fixes
+
+* **heading-with-icon:** TEDI-370 Improved type extending ([a2de154](https://github.com/TEHIK-EE/tedi-design-system/commit/a2de154b0841a0bbfee1c5e58e587852688bbd92))
+
+# [6.31.0-rc.19](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.31.0-rc.18...v6.31.0-rc.19) (2024-08-29)
+
+
+### Bug Fixes
+
+* **vertical-spacing:** TEDI-367 Added VerticalSpacingItem unit test, improved story with badge ([0096a1c](https://github.com/TEHIK-EE/tedi-design-system/commit/0096a1cbb402648cb230b4320ea88bb5e86587a6))
+
+# [6.31.0-rc.18](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.31.0-rc.17...v6.31.0-rc.18) (2024-08-27)
+
+
+### Features
+
+* **vertical-spacing:** TEDI-358 Replaced Community components with Tedi-ready VerticalSpacing ([586dd5c](https://github.com/TEHIK-EE/tedi-design-system/commit/586dd5cd0e42da89a7e0fc71bc2efd51ac3fa5d5))
+* **vertical-spacing:** VerticalSpacing component ([fb4b901](https://github.com/TEHIK-EE/tedi-design-system/commit/fb4b90107eae3f3a139ebb00bcf7163c4919387b))
+
+# [6.31.0-rc.17](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.31.0-rc.16...v6.31.0-rc.17) (2024-08-27)
+
+
+### Features
+
+* **heading-with-icon:** Component HeadingWithIcon ([2997811](https://github.com/TEHIK-EE/tedi-design-system/commit/2997811c5db38a05f6c8f36ee58e4f5b1e300679))
+
+# [6.31.0-rc.16](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.31.0-rc.15...v6.31.0-rc.16) (2024-08-27)
+
+
+### Features
+
+* **table:** [#151](https://github.com/TEHIK-EE/tedi-design-system/issues/151) - add columnPinning prop to make columns sticky ([bba0c91](https://github.com/TEHIK-EE/tedi-design-system/commit/bba0c91aacf4b1fee7b0f21ba468279c63985c91))
+
+# [6.31.0-rc.15](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.31.0-rc.14...v6.31.0-rc.15) (2024-08-22)
+
+
+### Bug Fixes
+
+* **icon:** TEDI-350 Added TEDI Icon export ([c7a5a8b](https://github.com/TEHIK-EE/tedi-design-system/commit/c7a5a8b11cd7b289858d66dc3a7ad67729b9db14))
+* **icon:** TEDI-350 TEDI Icon changes ([d0f5d5a](https://github.com/TEHIK-EE/tedi-design-system/commit/d0f5d5af519c64e0c2f28ef0acd7b518a7a119b8))
+* **icon:** TEDI-350 TEDI Icon changes and font update  ([9f73f78](https://github.com/TEHIK-EE/tedi-design-system/commit/9f73f7870f29d5c79b5138f376930ce1bff05934))
+* **typography:** TEDI-349 - Harmonizing the colors/typography of TEDI & Community ([a10415c](https://github.com/TEHIK-EE/tedi-design-system/commit/a10415c7a6cdb214d6b44774684a5d4e503d0855))
+
+# [6.31.0-rc.14](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.31.0-rc.13...v6.31.0-rc.14) (2024-08-21)
+
+
+### Bug Fixes
+
+* **typography:** TEDI-349 - Harmonizing the colors/typography of TEDI & Community ([bea5c77](https://github.com/TEHIK-EE/tedi-design-system/commit/bea5c77a7564723752819dda318959d3a1a37214))
+
+# [6.31.0-rc.13](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.31.0-rc.12...v6.31.0-rc.13) (2024-08-14)
+
+
+### Bug Fixes
+
+* **select:** [#103](https://github.com/TEHIK-EE/tedi-design-system/issues/103) - Increase placeholder contrast ([2602358](https://github.com/TEHIK-EE/tedi-design-system/commit/260235800f0d5d4fe4032a11057c76c02c98dac2))
+
+# [6.31.0-rc.12](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.31.0-rc.11...v6.31.0-rc.12) (2024-08-13)
+
+
+### Bug Fixes
+
+* **table:** [#48](https://github.com/TEHIK-EE/tedi-design-system/issues/48) - add scope col to table headers for a11y ([1d2614a](https://github.com/TEHIK-EE/tedi-design-system/commit/1d2614abbb356d6038a0b57b36734b734b9cf9ed))
+
+# [6.31.0-rc.11](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.31.0-rc.10...v6.31.0-rc.11) (2024-07-09)
+
+
+### Features
+
+* **pickers:** [#99](https://github.com/TEHIK-EE/tedi-design-system/issues/99) - Added referenceDate prop to the pickers ([4639385](https://github.com/TEHIK-EE/tedi-design-system/commit/4639385a89f109a069e38b523420d4760fd04944))
+
+# [6.31.0-rc.10](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.31.0-rc.9...v6.31.0-rc.10) (2024-07-08)
+
+
+### Features
+
+* **select:** [#93](https://github.com/TEHIK-EE/tedi-design-system/issues/93) - Add support for stacked tags ([fc149e0](https://github.com/TEHIK-EE/tedi-design-system/commit/fc149e0718aa8af2c667d99ab2da0b90a8789f0d))
+* **select:** [#97](https://github.com/TEHIK-EE/tedi-design-system/issues/97) - Add individual tag clearing ([44763c7](https://github.com/TEHIK-EE/tedi-design-system/commit/44763c7a1e0331d3ded6663f373b70ebb8a5c5ff))
+* **select:** [#97](https://github.com/TEHIK-EE/tedi-design-system/issues/97) - Restyle clear button ([deca20c](https://github.com/TEHIK-EE/tedi-design-system/commit/deca20c80298f35239b227c647052b2ca55f7c5b))
+
+# [6.31.0-rc.9](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.31.0-rc.8...v6.31.0-rc.9) (2024-07-02)
+
+
+### Bug Fixes
+
+* **ellipsis:** [#92](https://github.com/TEHIK-EE/tedi-design-system/issues/92) - Add responsivness support for ellipsis ([00311f8](https://github.com/TEHIK-EE/tedi-design-system/commit/00311f8127df07c2b6b677bc721aa1b6ce1bf0ae))
+* **pickers:** [#94](https://github.com/TEHIK-EE/tedi-design-system/issues/94) - Clear picker value with the clear button ([78f9468](https://github.com/TEHIK-EE/tedi-design-system/commit/78f9468b7d103be4e3064b89e414be42b33317e3))
+
+# [6.31.0-rc.8](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.31.0-rc.7...v6.31.0-rc.8) (2024-06-20)
+
+
+### Features
+
+* **TextField:** [#89](https://github.com/TEHIK-EE/tedi-design-system/issues/89) - Add clearable option ([7cee277](https://github.com/TEHIK-EE/tedi-design-system/commit/7cee277003126482b91f684a923a6cf8bf8ee58a))
+* **TextField:** [#89](https://github.com/TEHIK-EE/tedi-design-system/issues/89) - Add large size option ([af58659](https://github.com/TEHIK-EE/tedi-design-system/commit/af586592c402c4ac9c5a22ddcbdc05d73d0465fa))
+
+# [6.31.0-rc.7](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.31.0-rc.6...v6.31.0-rc.7) (2024-06-20)
+
+
+### Bug Fixes
+
+* **TextField:** [#88](https://github.com/TEHIK-EE/tedi-design-system/issues/88) - Icon now aligns correctly in small TextField ([#90](https://github.com/TEHIK-EE/tedi-design-system/issues/90)) ([d76ebb2](https://github.com/TEHIK-EE/tedi-design-system/commit/d76ebb256c2c7f2abee7267d557df826e7f828f3))
+
+# [6.31.0-rc.6](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.31.0-rc.5...v6.31.0-rc.6) (2024-06-10)
+
+
+### Features
+
+* **accordion, card-header:** add muted-bg for accordion header ([#85](https://github.com/TEHIK-EE/tedi-design-system/issues/85)) ([577c13f](https://github.com/TEHIK-EE/tedi-design-system/commit/577c13fdbaa6c97f9521d2d0c72da08d778467eb))
+
+# [6.31.0-rc.5](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.31.0-rc.4...v6.31.0-rc.5) (2024-06-10)
+
+
+### Features
+
+* **table:** add enableRowSelection to table [#86](https://github.com/TEHIK-EE/tedi-design-system/issues/86) ([7ff33c9](https://github.com/TEHIK-EE/tedi-design-system/commit/7ff33c9ca7491c29d9cd7d36569219946fc4a12f))
+* **table:** add enableRowSelection to table [#86](https://github.com/TEHIK-EE/tedi-design-system/issues/86) ([b8dbd92](https://github.com/TEHIK-EE/tedi-design-system/commit/b8dbd9210a8eaa886ee4ca2e682937a065533be3))
+
+# [6.31.0-rc.4](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.31.0-rc.3...v6.31.0-rc.4) (2024-06-10)
+
+
+### Bug Fixes
+
+* **choice-group:** fix radio and check button screenreader bug ([c57e700](https://github.com/TEHIK-EE/tedi-design-system/commit/c57e70040a9064cb32e82d18714081f90e824ad6))
+* **layout:** fix role for sidenav and add break-all to footer links ([1d547a8](https://github.com/TEHIK-EE/tedi-design-system/commit/1d547a8830fb16e7a431da7a0690d622e3a54b80))
+* **layout:** remove fix role for sidenav ([4130bdb](https://github.com/TEHIK-EE/tedi-design-system/commit/4130bdbe65b642f251012cb22a5c686172ee2b87))
+
+# [6.31.0-rc.3](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.31.0-rc.2...v6.31.0-rc.3) (2024-06-06)
+
+
+### Features
+
+* **table:** add options for 50 and 100 rows for tables ([#84](https://github.com/TEHIK-EE/tedi-design-system/issues/84)) ([a00256c](https://github.com/TEHIK-EE/tedi-design-system/commit/a00256c171ccf5ffd5ad1b90f0ca644c01f190b9))
+
+# [6.31.0-rc.2](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.31.0-rc.1...v6.31.0-rc.2) (2024-05-31)
+
+
+### Bug Fixes
+
+* Fixed breakpoint helpers imports ([72400d4](https://github.com/TEHIK-EE/tedi-design-system/commit/72400d4dc4dd851ad0a949a38a7876e3b976ad3a))
+
 ## [6.30.1](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.30.0...v6.30.1) (2024-05-31)
 
 
 ### Bug Fixes
 
 * Fixed breakpoint helpers imports ([72400d4](https://github.com/TEHIK-EE/tedi-design-system/commit/72400d4dc4dd851ad0a949a38a7876e3b976ad3a))
+
+# [6.31.0-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.30.0...v6.31.0-rc.1) (2024-05-31)
+
+
+### Features
+
+* **FileUpload:** added default helper texts, onInvalid size or file extension ([#72](https://github.com/TEHIK-EE/tedi-design-system/issues/72)) ([142520a](https://github.com/TEHIK-EE/tedi-design-system/commit/142520abe9a2282d3af8bf7e81dca098a3bcd139))
 
 # [6.30.0](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.29.0...v6.30.0) (2024-05-30)
 

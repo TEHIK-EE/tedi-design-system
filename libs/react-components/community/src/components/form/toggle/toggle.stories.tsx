@@ -1,14 +1,14 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import React from 'react';
 
+import { VerticalSpacing } from '../../../../../tedi/src/components/vertical-spacing';
 import { Col, Row } from '../../grid';
 import Text from '../../typography/text/text';
-import { VerticalSpacing } from '../../vertical-spacing';
 import Toggle, { ToggleProps } from './toggle';
 
 const meta: Meta<ToggleProps> = {
   component: Toggle,
-  title: 'Community-components/Form/Toggle',
+  title: 'Community/Form/Toggle',
 };
 
 export default meta;

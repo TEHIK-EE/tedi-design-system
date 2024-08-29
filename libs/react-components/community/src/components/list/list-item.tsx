@@ -1,6 +1,6 @@
 import cn from 'classnames';
 
-import { VerticalSpacingItem, VerticalSpacingItemProps } from '../vertical-spacing';
+import { VerticalSpacingItem, VerticalSpacingItemProps } from '../../../../tedi/src/components/vertical-spacing';
 import styles from './list.module.scss';
 
 export interface ListItemProps {

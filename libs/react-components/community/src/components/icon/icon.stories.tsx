@@ -1,15 +1,15 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 
+import { VerticalSpacing } from '../../../../tedi/src/components/vertical-spacing';
 import useLayout from '../../helpers/hooks/use-layout';
 import { Col, Row } from '../grid';
 import Heading from '../typography/heading/heading';
 import Text from '../typography/text/text';
-import { VerticalSpacing } from '../vertical-spacing';
 import { Icon, IconProps } from './icon';
 
 const meta: Meta<typeof Icon> = {
   component: Icon,
-  title: 'Community-components/Icon',
+  title: 'Community/Icon',
 };
 
 export default meta;

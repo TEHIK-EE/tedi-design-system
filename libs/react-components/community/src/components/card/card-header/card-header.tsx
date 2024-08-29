@@ -11,7 +11,9 @@ import { getPaddingCssVariables } from '../utility';
 /**
  * @deprecated use CardHeaderBackground
  */
-export type CardHeaderVariant = 'default' | Extract<TColorsBackground, 'primary-main' | 'primary-active' | 'white'>; // primary-main and primary-active are mainly used inside AccordionItemHeader
+export type CardHeaderVariant =
+  | 'default'
+  | Extract<TColorsBackground, 'primary-main' | 'primary-active' | 'white' | 'bg-muted'>; // bg-muted, primary-main and primary-active are mainly used inside AccordionItemHeader
 export type CardHeaderBackground = CardHeaderVariant;
 
 type CardHeaderBreakpointProps = {

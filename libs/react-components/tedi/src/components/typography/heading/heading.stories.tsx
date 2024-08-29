@@ -11,7 +11,7 @@ import { Heading } from './heading';
  */
 
 const meta: Meta<typeof Heading> = {
-  title: 'Tedi-Components/Base/Typography/Heading',
+  title: 'Tedi-ready/Base/Typography/Heading',
   component: Heading,
 };
 

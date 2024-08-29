@@ -1,17 +1,18 @@
 $icon-colors: (
-  'primary': 'icon-primary',
-  'secondary': 'icon-secondary',
-  'tertiary': 'icon-tertiary',
-  'success': 'icon-success',
-  'warning': 'icon-warning',
-  'danger': 'icon-danger',
-  'white': 'icon-white',
+  'primary': 'general-icon-primary',
+  'secondary': 'general-icon-secondary',
+  'tertiary': 'general-icon-tertiary',
+  'brand': 'general-icon-brand',
+  'success': 'general-icon-success',
+  'warning': 'general-icon-warning',
+  'danger': 'general-icon-danger',
+  'white': 'general-icon-white',
 );
 $icon-backgrounds: (
-  'primary': 'icon-background-primary',
-  'secondary': 'icon-background-secondary',
-  'distinctive-primary': 'icon-background-distinctive-primary',
-  'distinctive-secondary': 'icon-background-distinctive-secondary',
+  'primary': 'general-icon-background-primary',
+  'secondary': 'general-icon-background-secondary',
+  'brand-primary': 'general-icon-background-brand-primary',
+  'brand-secondary': 'general-icon-background-brand-secondary',
 );
 $icon-sizes: (
   8: var(--icon-00),
@@ -58,5 +59,10 @@ $icon-sizes: (
     &--size-#{$size} {
       font-size: #{$var} !important;
     }
+  }
+
+  &--filled {
+    font-variation-settings: 'FILL' 1;
+    font-optical-sizing: auto;
   }
 }

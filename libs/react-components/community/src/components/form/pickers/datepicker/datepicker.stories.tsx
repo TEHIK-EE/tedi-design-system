@@ -8,7 +8,7 @@ import DatePicker, { DatePickerProps } from './datepicker';
 
 const meta: Meta<typeof DatePicker> = {
   component: DatePicker,
-  title: 'Community-components/Form/Pickers/DatePicker',
+  title: 'Community/Form/Pickers/DatePicker',
 };
 
 export default meta;
@@ -41,6 +41,15 @@ export const ReadOnly: Story = {
     id: 'datepicker-read-only',
     readOnly: true,
     defaultValue: dayjs(),
+  },
+};
+
+export const ReferenceDate: Story = {
+  render: Template,
+
+  args: {
+    id: 'datepicker-reference-date',
+    referenceDate: dayjs().add(1, 'month'),
   },
 };
 

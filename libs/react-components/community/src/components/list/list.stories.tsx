@@ -5,7 +5,7 @@ import List, { ListProps } from './list';
 import ListItem from './list-item';
 
 export default {
-  title: 'Community-components/List',
+  title: 'Community/List',
   component: List,
   subcomponents: { ListItem } as never,
 } as Meta;
