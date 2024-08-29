@@ -51,6 +51,15 @@ const preview: Preview = {
         </>
       ),
     },
+    status: {
+      statuses: {
+        devComponent: {
+          background: '#ff8000',
+          color: '#ffffff',
+          description: 'This component is dev only and not found in Figma',
+        },
+      },
+    },
   },
 };
 
