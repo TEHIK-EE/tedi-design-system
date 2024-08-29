@@ -1,10 +1,10 @@
 import cn from 'classnames';
 
-import { Icon, IconProps } from '../icon/icon';
+import { Icon, IconColor, IconProps } from '../icon/icon';
 import { Heading, HeadingProps } from '../typography/heading/heading';
 import styles from './heading-with-icon.module.scss';
 
-export interface HeadingWithIconProps extends Pick<HeadingProps, 'element'>, Pick<IconProps, 'name' | 'size'> {
+export interface HeadingWithIconProps extends Omit<HeadingProps, 'color'>, Omit<IconProps, 'color'> {
   /**
    * Heading text
    */
@@ -13,15 +13,41 @@ export interface HeadingWithIconProps extends Pick<HeadingProps, 'element'>, Pic
    * Additional class
    */
   className?: string;
+  /**
+   * Heading text color
+   */
+  headingColor?: HeadingProps['color'];
+  /**
+   * Icon color
+   */
+  iconColor?: IconColor;
 }
 
 export const HeadingWithIcon = (props: HeadingWithIconProps): JSX.Element => {
-  const { children, className, element = 'h4', name, size = 24 } = props;
-  const headingWithIconBEM = cn(styles['tedi-heading-with-icon'], className);
+  const {
+    children,
+    className,
+    element = 'h4',
+    name,
+    size = 24,
+    headingColor = 'primary',
+    iconColor = 'primary',
+    ...rest
+  } = props;
+
+  const headingProps: HeadingProps = {
+    children,
+    element,
+    className: cn(styles['tedi-heading-with-icon'], className),
+    color: headingColor,
+    ...rest,
+  };
+
+  const iconProps: IconProps = { name, color: iconColor, size, ...rest };
 
   return (
-    <Heading element={element} className={headingWithIconBEM}>
-      {name && <Icon name={name} color="brand" size={size} />}
+    <Heading {...headingProps}>
+      {name && <Icon {...iconProps} />}
       {children}
     </Heading>
   );
