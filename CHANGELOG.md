@@ -1,3 +1,10 @@
+# [6.31.0-rc.21](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.31.0-rc.20...v6.31.0-rc.21) (2024-08-29)
+
+
+### Bug Fixes
+
+* **typography:** TEDI-371 Browser font scale fix ([3306f46](https://github.com/TEHIK-EE/tedi-design-system/commit/3306f46957303f876f512745b539d80a8dbec4db))
+
 # [6.31.0-rc.20](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.31.0-rc.19...v6.31.0-rc.20) (2024-08-29)
 
 
