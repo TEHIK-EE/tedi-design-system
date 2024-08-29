@@ -1,15 +1,15 @@
-html {
+html,
+body {
+  height: 100%;
+}
+
+body {
   box-sizing: border-box;
   color: var(--general-text-primary);
 
   @include apply-styles(font-family, var(--family-primary-desktop), var(--family-primary-mobile));
   @include apply-styles(line-height, var(--body-regular-line-height-desktop), var(--body-regular-line-height-mobile));
   @include apply-styles(font-size, var(--body-regular-size-desktop), var(--body-regular-size-mobile));
-}
-
-html,
-body {
-  height: 100%;
 }
 
 *,
