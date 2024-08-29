@@ -139,7 +139,7 @@ const TemplateGeneralText: StoryFn = (args) => (
       </Text>
     </Row>
     <Row>
-      <Text color="distinctive">
+      <Text color="brand">
         Rebane on väikese koera suurune ja pika koheva sabaga. Joostes hoiab ta saba horisontaalselt. Tema selja karvad
         on oranžid. Eestis eelistab ta elupaigana metsatukkasid.
       </Text>

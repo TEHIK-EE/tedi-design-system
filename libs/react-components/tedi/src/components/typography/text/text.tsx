@@ -35,7 +35,7 @@ export type TextColor =
   | 'tertiary'
   | 'white'
   | 'disabled'
-  | 'distinctive'
+  | 'brand'
   | 'success'
   | 'warning'
   | 'danger'

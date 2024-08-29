@@ -111,7 +111,7 @@ $heading-line-heights: (
     }
   }
 
-  &--primary {
+  &--default {
     @include apply-styles(font-family, var(--family-primary-desktop), var(--family-primary-mobile));
     @include apply-styles(font-size, var(--body-regular-size-desktop), var(--body-regular-size-mobile));
     @include apply-styles(font-weight, var(--body-regular-weight-desktop), var(--body-regular-weight-mobile));
@@ -141,7 +141,7 @@ $heading-line-heights: (
         'tertiary': var(--general-text-tertiary),
         'white': var(--general-text-white),
         'disabled': var(--general-text-disabled),
-        'distinctive': var(--general-text-distinctive),
+        'brand': var(--general-text-brand),
         'success': var(--general-status-success-text),
         'warning': var(--general-status-warning-text),
         'danger': var(--general-status-danger-text),
