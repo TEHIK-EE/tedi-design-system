@@ -6,10 +6,20 @@ import { Text } from '../typography/text/text';
 import { VerticalSpacing, VerticalSpacingProps } from './vertical-spacing';
 import { VerticalSpacingItem } from './vertical-spacing-item';
 
+/**
+ * VerticalSpacing is development only component and won't be found in Figma <br/>
+ * [Zeroheight ↗](https://zeroheight.com/1ee8444b7/p/759180-verticalspacing)
+ **/
+
 const meta: Meta<typeof VerticalSpacing> = {
   component: VerticalSpacing,
-  title: 'Tedi-ready/VerticalSpacing',
+  title: 'Tedi-ready/Content/VerticalSpacing',
   subcomponents: { VerticalSpacingItem } as never,
+  parameters: {
+    status: {
+      type: 'devComponent',
+    },
+  },
 };
 
 export default meta;
