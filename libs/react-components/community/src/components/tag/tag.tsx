@@ -66,6 +66,10 @@ export interface TagProps {
    * @default false
    */
   isDisabled?: boolean;
+  /**
+   * ID attribute
+   */
+  id?: string;
 }
 
 export const Tag = forwardRef<HTMLDivElement, TagProps>((props, ref): JSX.Element => {
