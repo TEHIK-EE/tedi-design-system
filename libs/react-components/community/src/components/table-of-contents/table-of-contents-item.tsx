@@ -67,7 +67,7 @@ export function TableOfContentsItem(props: TableOfContentsItemProps & { handleCl
 
   return (
     <>
-      <Col>
+      <Col aria-expanded={id && openItems?.includes(id) ? true : false}>
         <Row gutter={2}>
           {showIcons && (
             <>
