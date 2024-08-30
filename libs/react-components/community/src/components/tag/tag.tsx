@@ -86,6 +86,7 @@ export const Tag = forwardRef<HTMLDivElement, TagProps>((props, ref): JSX.Elemen
     isLoading = false,
     isDisabled = false,
     iconOnly = false,
+    id,
   } = props;
 
   const TagElement = isLoading ? SkeletonBlock : title ? 'abbr' : 'div';
@@ -104,7 +105,7 @@ export const Tag = forwardRef<HTMLDivElement, TagProps>((props, ref): JSX.Elemen
   );
 
   return (
-    <TagElement data-name="tag" className={TagsBEM} title={title} ref={ref}>
+    <TagElement id={id} data-name="tag" className={TagsBEM} title={title} ref={ref}>
       {children}
     </TagElement>
   );
