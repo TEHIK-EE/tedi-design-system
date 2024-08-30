@@ -1,11 +1,11 @@
 import { StoryFn } from '@storybook/react';
 import { MenuListProps, OptionProps } from 'react-select';
 
+import { VerticalSpacing } from '../../../../../../tedi/src/components/vertical-spacing';
 import Button from '../../../button/button';
 import { Col, Row } from '../../../grid';
 import Tag from '../../../tag/tag';
 import Text from '../../../typography/text/text';
-import { VerticalSpacing } from '../../../vertical-spacing';
 import Select, { ISelectOption } from '../select';
 
 interface AppealData {

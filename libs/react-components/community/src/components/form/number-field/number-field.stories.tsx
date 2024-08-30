@@ -1,15 +1,15 @@
 import { Meta, StoryObj } from '@storybook/react';
 import { useState } from 'react';
 
+import { VerticalSpacing } from '../../../../../tedi/src/components/vertical-spacing';
 import Button from '../../button/button';
 import Col from '../../grid/col';
 import Row from '../../grid/row';
-import VerticalSpacing from '../../vertical-spacing/vertical-spacing';
 import { NumberField } from './number-field';
 
 const meta: Meta<typeof NumberField> = {
   component: NumberField,
-  title: 'Community-components/Form/NumberField',
+  title: 'Community/Form/NumberField',
 };
 export default meta;
 

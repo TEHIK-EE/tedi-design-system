@@ -1,11 +1,11 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import React from 'react';
 
+import { VerticalSpacing } from '../../../../tedi/src/components/vertical-spacing/vertical-spacing';
 import Button from '../button/button';
 import { Col, Row } from '../grid';
 import Separator from '../separator/separator';
 import Heading from '../typography/heading/heading';
-import { VerticalSpacing } from '../vertical-spacing';
 import Accordion, { AccordionProps } from './accordion';
 import AccordionItem, { AccordionItemProps } from './accordion-item/accordion-item';
 import AccordionItemContent, { AccordionItemContentProps } from './accordion-item-content/accordion-item-content';
@@ -14,7 +14,7 @@ import AccordionItemHeader, { AccordionItemHeaderProps } from './accordion-item-
 const meta: Meta<typeof Accordion> = {
   component: Accordion,
   subcomponents: { AccordionItem, AccordionItemContent, AccordionItemHeader } as never,
-  title: 'Community-components/Accordion',
+  title: 'Community/Accordion',
 };
 
 const ACCORDION_ITEM_CONTENT =
@@ -259,6 +259,12 @@ export const Background: Story = {
         content: ACCORDION_ITEM_CONTENT,
         headerProps: { background: 'white/primary' },
         itemProps: { background: 'bg-subtle' },
+      },
+      {
+        id: 'muted/primary',
+        header: 'Muted/primary',
+        content: ACCORDION_ITEM_CONTENT,
+        headerProps: { background: 'muted/primary' },
       },
     ],
     accordionItemHeader: {

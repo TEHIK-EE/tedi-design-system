@@ -8,7 +8,7 @@ import TimePicker, { TimePickerProps } from './timepicker';
 
 const meta: Meta<typeof TimePicker> = {
   component: TimePicker,
-  title: 'Community-components/Form/Pickers/TimePicker',
+  title: 'Community/Form/Pickers/TimePicker',
 };
 
 export default meta;

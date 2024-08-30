@@ -5,20 +5,20 @@ import styles from './vertical-spacing.module.scss';
 
 export interface VerticalSpacingItemProps {
   /**
-   * Any content.
+   * Any content to be rendered within the spacing component
    */
   children: React.ReactNode;
   /**
-   * Rendered HTML Element.
+   * The HTML element to render, such as `div`, `section`, `article`, etc
    * @default div
    */
   element?: keyof JSX.IntrinsicElements;
   /**
-   * Additional class name.
+   * Additional class name(s) to apply to the element
    */
   className?: string;
   /**
-   * size of spacing {size}em unit of margin-bottom
+   * Size of spacing {size}em unit of margin-bottom
    * @default 1
    */
   size?: VerticalSpacingSize;

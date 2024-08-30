@@ -1,5 +1,6 @@
 import {
   ColumnFiltersState,
+  ColumnPinningState,
   ExpandedState,
   getCoreRowModel,
   getExpandedRowModel,
@@ -65,9 +66,12 @@ export function Table<TData extends DefaultTData<TData>>(props: TableProps<TData
     onSortingChange,
     rowSelection: rowSelectionOuter,
     onRowSelectionChange,
+    enableRowSelection,
     defaultColumnVisibility = {},
     columnVisibility: columnVisibilityOuter,
     onColumnVisibilityChange,
+    columnPinning: columnPinningOuter,
+    onColumnPinningChange,
     getRowId,
     onRowClick,
     defaultRowSelection,
@@ -101,6 +105,10 @@ export function Table<TData extends DefaultTData<TData>>(props: TableProps<TData
   const [rowSelection, setRowSelection] = React.useState<RowSelectionState>(defaultRowSelection || {});
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([]);
   const [columnVisibility, setColumnVisibility] = React.useState<VisibilityState>(defaultColumnVisibility);
+  const [columnPinning, setColumnPinning] = React.useState<ColumnPinningState>({
+    left: [],
+    right: [],
+  });
 
   // during printing expand subRows/subComponents
   const getExpanded = React.useMemo(() => (isPrinting ? true : expanded), [expanded, isPrinting]);
@@ -129,6 +137,11 @@ export function Table<TData extends DefaultTData<TData>>(props: TableProps<TData
     // If columnVisibility is controlled outside, don't use local state
     return columnVisibilityOuter || columnVisibility;
   }, [columnVisibility, columnVisibilityOuter]);
+
+  const getColumnPinning = React.useMemo(() => {
+    // If columnPinning is controlled outside, don't use local state
+    return columnPinningOuter || columnPinning;
+  }, [columnPinning, columnPinningOuter]);
 
   const handlePaginationChange = (data: Updater<PaginationState>): void => {
     if (typeof data !== 'function') return;
@@ -160,6 +173,12 @@ export function Table<TData extends DefaultTData<TData>>(props: TableProps<TData
     columnVisibilityOuter && onColumnVisibilityChange
       ? onColumnVisibilityChange(newData)
       : setColumnVisibility(newData);
+  };
+
+  const handleColumnPinningChange = (data: Updater<ColumnPinningState>): void => {
+    if (typeof data !== 'function') return;
+    const newData = data(getColumnPinning);
+    columnPinningOuter && onColumnPinningChange ? onColumnPinningChange(newData) : setColumnPinning(newData);
   };
 
   const groupedData = React.useMemo(() => {
@@ -203,16 +222,19 @@ export function Table<TData extends DefaultTData<TData>>(props: TableProps<TData
       sorting: getSorting,
       expanded: getExpanded,
       columnVisibility: getColumnVisibility,
+      columnPinning: getColumnPinning,
     },
     manualSorting: manualSorting,
     manualFiltering: manualFiltering,
     pageCount: pagination && totalRows ? Math.ceil(totalRows / pagination.pageSize) : undefined,
     onRowSelectionChange: handleRowSelectionChange,
+    enableRowSelection,
     onExpandedChange: setExpanded,
     onPaginationChange: handlePaginationChange,
     onSortingChange: handleSortingChange,
     onColumnFiltersChange: handleColumnFilteringChange,
     onColumnVisibilityChange: handleColumnVisibilityChange,
+    onColumnPinningChange: handleColumnPinningChange,
     getCoreRowModel: getCoreRowModel(),
     getSortedRowModel: getSortedRowModel(),
     getPaginationRowModel: getPaginationRowModel(),

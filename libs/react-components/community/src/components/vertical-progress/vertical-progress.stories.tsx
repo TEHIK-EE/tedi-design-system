@@ -3,15 +3,15 @@ import { Controls, Description, Primary, Stories, Title } from '@storybook/addon
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import React from 'react';
 
+import { VerticalSpacing } from '../../../../tedi/src/components/vertical-spacing';
 import Button from '../button/button';
 import Heading from '../typography/heading/heading';
 import Text from '../typography/text/text';
-import { VerticalSpacing } from '../vertical-spacing';
 import { VerticalProgress, VerticalProgressItem, VerticalProgressItemProps, VerticalProgressProps } from '.';
 
 const meta: Meta<typeof VerticalProgress> = {
   component: VerticalProgress,
-  title: 'Community-components/VerticalProgress',
+  title: 'Community/VerticalProgress',
   subcomponents: { VerticalProgressItem } as never,
   parameters: {
     docs: {

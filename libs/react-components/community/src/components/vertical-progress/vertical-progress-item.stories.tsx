@@ -1,14 +1,14 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 
+import { VerticalSpacing } from '../../../../tedi/src/components/vertical-spacing';
 import Button from '../button/button';
 import { Heading } from '../typography/heading/heading';
 import { Text } from '../typography/text/text';
-import { VerticalSpacing } from '../vertical-spacing';
 import { VerticalProgress, VerticalProgressItem } from '.';
 
 const meta: Meta<typeof VerticalProgressItem> = {
   component: VerticalProgressItem,
-  title: 'Community-components/VerticalProgress/VerticalProgressItem',
+  title: 'Community/VerticalProgress/VerticalProgressItem',
 };
 
 export default meta;

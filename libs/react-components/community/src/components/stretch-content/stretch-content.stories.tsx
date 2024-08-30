@@ -1,12 +1,12 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 
+import { VerticalSpacing } from '../../../../tedi/src/components/vertical-spacing';
 import Button from '../button/button';
 import { Card } from '../card';
 import CardContent from '../card/card-content/card-content';
 import CardHeader from '../card/card-header/card-header';
 import { Col, Row } from '../grid';
 import Heading from '../typography/heading/heading';
-import { VerticalSpacing } from '../vertical-spacing';
 import StretchContent, { StretchContentProps } from './stretch-content';
 
 /**
@@ -15,7 +15,7 @@ import StretchContent, { StretchContentProps } from './stretch-content';
  */
 const meta: Meta<typeof StretchContent> = {
   component: StretchContent,
-  title: 'Community-components/StretchContent',
+  title: 'Community/StretchContent',
 };
 
 export default meta;

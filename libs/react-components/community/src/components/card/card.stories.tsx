@@ -1,5 +1,6 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 
+import { VerticalSpacing } from '../../../../tedi/src/components/vertical-spacing';
 import Collapse from '../collapse/collapse';
 import { Col, Row } from '../grid';
 import Icon from '../icon/icon';
@@ -7,14 +8,13 @@ import Separator from '../separator/separator';
 import StretchContent from '../stretch-content/stretch-content';
 import { CardsExample } from '../stretch-content/stretch-content.stories';
 import Heading from '../typography/heading/heading';
-import { VerticalSpacing } from '../vertical-spacing';
 import { Card, CardProps } from './card';
 import CardContent, { CardContentPadding, CardContentProps } from './card-content/card-content';
 import CardHeader, { CardHeaderProps } from './card-header/card-header';
 import CardNotification, { CardNotificationProps } from './card-notification/card-notification';
 
 export default {
-  title: 'Community-components/Card',
+  title: 'Community/Card',
   component: Card,
   subcomponents: { CardContent, CardHeader, CardNotification },
 } as Meta;

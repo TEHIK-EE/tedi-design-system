@@ -1,13 +1,13 @@
 import cn from 'classnames';
 import React from 'react';
 
+import { VerticalSpacing } from '../../../../../tedi/src/components/vertical-spacing';
 import { useLabels } from '../../../providers/label-provider';
 import { Col, Row } from '../../grid';
 import Icon, { IconProps } from '../../icon/icon';
 import Print from '../../print/print';
 import StretchContent from '../../stretch-content/stretch-content';
 import Text from '../../typography/text/text';
-import { VerticalSpacing } from '../../vertical-spacing';
 import styles from './footer.module.scss';
 
 export type FooterCategory = {
@@ -98,7 +98,7 @@ const FooterCategory = (props: FooterCategory): JSX.Element => {
           <VerticalSpacing element="ul" size={0.5} className={cn(styles['footer__category-list'])}>
             {elements?.map((item, index) => (
               <li key={index}>
-                <Text color="inverted" element="span">
+                <Text color="inverted" element="span" modifiers="break-all">
                   {item}
                 </Text>
               </li>

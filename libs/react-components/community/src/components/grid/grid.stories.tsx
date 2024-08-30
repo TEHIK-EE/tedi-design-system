@@ -1,9 +1,9 @@
 import { Controls, Description, Primary, Stories, Subtitle, Title } from '@storybook/addon-docs';
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 
+import { VerticalSpacing } from '../../../../tedi/src/components/vertical-spacing';
 import Notification from '../notification/notification';
 import Heading from '../typography/heading/heading';
-import { VerticalSpacing } from '../vertical-spacing';
 import { Col } from './col';
 import { Row, RowProps } from './row';
 
@@ -12,7 +12,7 @@ import { Row, RowProps } from './row';
  * through component props. https://getbootstrap.com/docs/5.1/layout/grid/
  */
 const meta: Meta<typeof Row> = {
-  title: 'Community-components/Grid',
+  title: 'Community/Grid',
   component: Row,
   subcomponents: { Col: Col } as never,
   parameters: {

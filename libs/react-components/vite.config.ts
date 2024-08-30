@@ -7,8 +7,6 @@ import { defineConfig, PluginOption, UserConfig } from 'vite';
 import checker from 'vite-plugin-checker';
 import dts from 'vite-plugin-dts';
 
-// https://vitejs.dev/config/
-
 const config: UserConfig = {
   define: {
     'process.env.JEST_WORKER_ID': JSON.stringify(process.env.JEST_WORKER_ID),
@@ -25,7 +23,6 @@ const config: UserConfig = {
       eslint: {
         lintCommand: 'eslint "./libs/react-components/**/src/**/*.{ts,tsx}"',
       },
-      // e.g. use TypeScript check
       typescript: {
         root: join(__dirname),
         tsconfigPath: 'tsconfig.lib.json',
@@ -57,11 +54,20 @@ const config: UserConfig = {
       formats: ['es', 'cjs'],
     },
     rollupOptions: {
-      external: ['next', 'react', 'react/jsx-runtime', 'react-dom', 'dayjs', '@mui/icons-material'],
+      external: ['next', 'react', 'react/jsx-runtime', 'react-dom', 'dayjs', 'lodash-es', 'classnames'],
       output: {
         assetFileNames: (assetInfo) => {
           if (assetInfo.name === 'style.css') return 'index.css';
           return assetInfo.name || '';
+        },
+        manualChunks: (id) => {
+          if (id.includes('community')) {
+            return 'community';
+          }
+          if (id.includes('tedi')) {
+            return 'tedi';
+          }
+          return undefined;
         },
       },
     },

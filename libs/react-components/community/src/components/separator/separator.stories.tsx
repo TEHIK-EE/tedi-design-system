@@ -1,10 +1,10 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import React from 'react';
 
+import { VerticalSpacing } from '../../../../tedi/src/components/vertical-spacing';
 import { Card, CardContent } from '../card';
 import { Col, Row } from '../grid';
 import { Text } from '../typography/text/text';
-import { VerticalSpacing } from '../vertical-spacing';
 import Separator, { SeparatorProps } from './separator';
 
 /**
@@ -14,7 +14,7 @@ import Separator, { SeparatorProps } from './separator';
  */
 const meta: Meta<typeof Separator> = {
   component: Separator,
-  title: 'Community-components/Separator',
+  title: 'Community/Separator',
 };
 
 export default meta;

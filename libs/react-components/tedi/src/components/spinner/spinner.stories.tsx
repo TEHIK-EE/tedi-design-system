@@ -9,7 +9,7 @@ import { Spinner, SpinnerProps } from './spinner';
 
 const meta: Meta<typeof Spinner> = {
   component: Spinner,
-  title: 'Tedi-components/Loader/Spinner',
+  title: 'Tedi-ready/Loader/Spinner',
 };
 
 export default meta;
@@ -46,11 +46,21 @@ const TemplateColors: StoryFn<TemplateMultipleProps> = () => {
   return (
     <div className="row w-50">
       <div className="column">
-        <Spinner color="primary" size={48} />
+        <Spinner color="primary" label="Loading..." size={48} />
       </div>
       <div className="column">
-        <div className="with-background">
-          <Spinner color="secondary" size={48} />
+        <div className="bg bg-primary">
+          <Spinner color="secondary" label="Loading..." size={48} />
+        </div>
+      </div>
+      <div className="column">
+        <div className="bg bg-danger">
+          <Spinner color="secondary" label="Loading..." size={48} />
+        </div>
+      </div>
+      <div className="column">
+        <div className="bg bg-success">
+          <Spinner color="secondary" label="Loading..." size={48} />
         </div>
       </div>
     </div>
@@ -77,6 +87,7 @@ export const Size: StoryObj<TemplateMultipleProps> = {
     property: 'size',
     color: 'primary',
     array: sizeArray,
+    label: 'Loading...',
   },
 };
 

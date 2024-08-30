@@ -3,8 +3,8 @@ import dompurify from 'dompurify';
 import React from 'react';
 import * as showdown from 'showdown';
 
+import { VerticalSpacing } from '../../../../../tedi/src/components/vertical-spacing';
 import Heading from '../../typography/heading/heading';
-import { VerticalSpacing } from '../../vertical-spacing';
 import TextEditor, { TextEditorProps } from './text-editor';
 const converter = new showdown.Converter({ simpleLineBreaks: true });
 
@@ -15,7 +15,7 @@ const converter = new showdown.Converter({ simpleLineBreaks: true });
  * before using HTML content inside your app
  */
 const meta: Meta<typeof TextEditor> = {
-  title: 'Community-components/Form/TextEditor',
+  title: 'Community/Form/TextEditor',
   component: TextEditor,
 };
 

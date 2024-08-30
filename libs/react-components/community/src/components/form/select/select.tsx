@@ -12,6 +12,7 @@ import ReactSelect, {
   MenuListProps,
   MenuProps,
   MultiValueProps,
+  MultiValueRemoveProps,
   OnChangeValue,
   OptionProps,
   OptionsOrGroups,
@@ -24,6 +25,8 @@ import { MenuPortalProps } from 'react-select/dist/declarations/src/components/M
 
 import { getBackgroundColorClass } from '../../../helpers';
 import { useLabels } from '../../../providers/label-provider';
+import { IntentionalAny } from '../../../types';
+import Button from '../../button/button';
 import { TColorsBackground } from '../../commonTypes';
 import { Icon } from '../../icon/icon';
 import Tag from '../../tag/tag';
@@ -178,6 +181,11 @@ export interface SelectProps extends FormLabelProps {
    */
   multiple?: boolean;
   /**
+   * How tags should position themselves
+   * @default row
+   */
+  tagsDirection?: 'stack' | 'row';
+  /**
    * If menu should open when select is focused.
    * @default false
    */
@@ -222,6 +230,11 @@ export interface SelectProps extends FormLabelProps {
    * @defaults true
    */
   isSearchable?: boolean;
+  /**
+   * Should tags be individually removable
+   * @default false
+   */
+  isTagRemovable?: boolean;
   /**
    * Whether the menu is open
    */
@@ -296,11 +309,13 @@ export const Select = forwardRef<SelectInstance<ISelectOption, boolean, IGrouped
       requiredLabel,
       value,
       defaultValue,
+      tagsDirection = 'row',
       onChange,
       onInputChange,
       inputValue,
       loadOptions,
       isLoading,
+      isTagRemovable = false,
       openMenuOnFocus = false,
       openMenuOnClick = true,
       tabSelectsValue = false,
@@ -436,7 +451,14 @@ export const Select = forwardRef<SelectInstance<ISelectOption, boolean, IGrouped
       return multiple ? getMultiOption(props) : getSingleOption(props);
     };
 
-    const getMultiValue = ({ children, ...rest }: MultiValueProps<ISelectOption>): JSX.Element => {
+    const getMultiValue = ({
+      children,
+      components: { Remove },
+      data,
+      selectProps,
+      removeProps,
+      ...rest
+    }: MultiValueProps<ISelectOption>): JSX.Element => {
       return (
         <Tag
           color="default"
@@ -446,12 +468,40 @@ export const Select = forwardRef<SelectInstance<ISelectOption, boolean, IGrouped
           })}
         >
           {children}
+          {isTagRemovable && <Remove data={data} selectProps={selectProps} innerProps={removeProps} />}
         </Tag>
       );
     };
 
-    const getClearIndicator = (props: ClearIndicatorProps<ISelectOption>) =>
-      isClearIndicatorVisible ? <ReactSelectComponents.ClearIndicator {...props} /> : null;
+    const getMultiValueRemove = ({ data, innerProps }: MultiValueRemoveProps<ISelectOption>): JSX.Element => {
+      return (
+        <Button
+          icon={{ name: 'clear', color: 'muted' }}
+          className={styles['select__multi-value-clear']}
+          visualType="link"
+          tabIndex={-1}
+          {...(innerProps as IntentionalAny)}
+        >
+          {`${getLabel('remove')} ${data.label}`}
+        </Button>
+      );
+    };
+
+    // Clear currently is not focusable and that is by react-select design
+    // https://github.com/JedWatson/react-select/issues/4988
+    const getClearIndicator = ({ innerProps: { ref, ...restInnerProps } }: ClearIndicatorProps<ISelectOption>) => {
+      return isClearIndicatorVisible ? (
+        <Button
+          icon={{ name: 'clear', color: 'muted' }}
+          visualType="link"
+          tabIndex={-1}
+          ref={ref as IntentionalAny}
+          {...(restInnerProps as IntentionalAny)}
+        >
+          {getLabel('clear')}
+        </Button>
+      ) : null;
+    };
 
     const getGroup = (props: GroupProps<ISelectOption, boolean, IGroupedOptions<ISelectOption>>): JSX.Element => {
       const GroupBEM = cn(styles['select__group']);
@@ -491,7 +541,7 @@ export const Select = forwardRef<SelectInstance<ISelectOption, boolean, IGrouped
         Control: CustomControl,
         Input: CustomInput,
         MultiValue: getMultiValue,
-        MultiValueRemove: () => null,
+        MultiValueRemove: getMultiValueRemove,
         Placeholder: getPlaceholder,
         Group: getGroup,
         GroupHeading: getGroupHeading,
@@ -546,6 +596,7 @@ export const Select = forwardRef<SelectInstance<ISelectOption, boolean, IGrouped
           menuPosition="fixed"
           menuPlacement="auto"
           inputIsHidden={inputIsHidden}
+          required={required}
           theme={(theme) => ({
             ...theme,
             colors: {
@@ -570,7 +621,9 @@ export const Select = forwardRef<SelectInstance<ISelectOption, boolean, IGrouped
       styles['select'],
       className,
       { [styles['select--invalid']]: invalid || helper?.type === 'error' },
-      { [styles[`select--${size}`]]: size }
+      { [styles[`select--${size}`]]: size },
+      { [styles[`select--tags-${tagsDirection}`]]: tagsDirection },
+      { [styles['select--searchable']]: isSearchable }
     );
 
     return (

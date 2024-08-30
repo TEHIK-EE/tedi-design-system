@@ -1,11 +1,11 @@
 import React from 'react';
 import { flushSync } from 'react-dom';
 
+import { VerticalSpacing } from '../../../../tedi/src/components/vertical-spacing';
 import { useLayout } from '../../helpers';
 import { Row } from '../grid';
 import { ModalContext } from '../modal';
 import Heading from '../typography/heading/heading';
-import { VerticalSpacing } from '../vertical-spacing';
 import { TableOfContentsProps } from './table-of-contents';
 import { TableOfContentsItem } from './table-of-contents-item';
 

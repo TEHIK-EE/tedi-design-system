@@ -4,7 +4,7 @@ import TextField from './textfield';
 
 const meta: Meta<typeof TextField> = {
   component: TextField,
-  title: 'Community-components/Form/TextField',
+  title: 'Community/Form/TextField',
   argTypes: {
     icon: {
       type: 'string',
@@ -19,6 +19,24 @@ export const Default: Story = {
   args: {
     id: 'example-1',
     label: 'Label',
+  },
+};
+
+export const Icon: Story = {
+  args: {
+    ...Default.args,
+    icon: 'search',
+    placeholder: 'Search',
+  },
+};
+
+export const Clearable: Story = {
+  args: {
+    ...Default.args,
+    icon: 'search',
+    defaultValue: '1234',
+    isClearable: true,
+    placeholder: 'Search',
   },
 };
 
@@ -48,6 +66,15 @@ export const Small: Story = {
   args: {
     ...Default.args,
     size: 'small',
+    icon: 'search',
+    placeholder: 'Search',
+  },
+};
+
+export const Large: Story = {
+  args: {
+    ...Default.args,
+    size: 'large',
     icon: 'search',
     placeholder: 'Search',
   },

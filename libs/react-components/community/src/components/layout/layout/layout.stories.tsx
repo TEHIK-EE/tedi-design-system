@@ -1,11 +1,11 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 
+import { VerticalSpacing } from '../../../../../tedi/src/components/vertical-spacing';
 import useLayout from '../../../helpers/hooks/use-layout';
 import Button from '../../button/button';
 import Section from '../../section/section';
 import StretchContent from '../../stretch-content/stretch-content';
 import Heading from '../../typography/heading/heading';
-import { VerticalSpacing } from '../../vertical-spacing';
 import Breadcrumbs, { BreadcrumbsProps } from '../breadcrumbs/breadcrumbs';
 import { Default as BreadcrumbsDefault } from '../breadcrumbs/breadcrumbs.stories';
 import Footer, { FooterProps } from '../footer/footer';
@@ -32,7 +32,7 @@ const defaultContent = (
 
 const meta: Meta<typeof Layout> = {
   component: Layout,
-  title: 'Community-components/Layout',
+  title: 'Community/Layout',
   subcomponents: {
     Header,
     SideNav,

@@ -46,7 +46,7 @@ h6,
   font-size: var(--font-size-h6);
   font-weight: var(--font-weight-h6);
   line-height: var(--font-line-height-h6);
-  color: var(--color-text-muted);
+  color: var(--general-text-secondary);
 }
 
 .text-normal {
@@ -54,47 +54,7 @@ h6,
   font-size: var(--font-size-base);
   font-weight: 400;
   line-height: var(--font-line-height-base);
-  color: var(--color-text-default);
-}
-
-.text-nowrap {
-  white-space: nowrap;
-}
-
-.text-break-all {
-  word-break: break-all;
-}
-
-.text-break-word {
-  word-break: break-word;
-}
-
-.text-uppercase {
-  text-transform: uppercase;
-}
-
-.text-lowercase {
-  text-transform: lowercase;
-}
-
-.text-capitalize {
-  text-transform: capitalize;
-}
-
-.text-capitalize-first::first-letter {
-  text-transform: capitalize;
-}
-
-.text-break-spaces {
-  white-space: break-spaces;
-}
-
-.text-inline-block {
-  display: inline-block;
-}
-
-.text-inline {
-  display: inline;
+  color: var(--general-text-primary);
 }
 
 small,
@@ -103,81 +63,46 @@ small,
   line-height: var(--font-line-height-small);
 }
 
-b,
-strong,
-.text-bold {
-  font-weight: 700;
-}
-
-.text-thin {
-  font-weight: 300;
-}
-
-i,
-.text-italic {
-  font-style: italic;
-}
-
-.text-center {
-  text-align: center;
-}
-
-.text-left {
-  text-align: left;
-}
-
-.text-right {
-  text-align: right;
-}
-
-.text-line-normal {
-  line-height: normal;
-}
-
-.text-line-condensed {
-  line-height: 1;
-}
-
 .text-default {
-  color: var(--color-text-default);
+  color: var(--general-text-primary);
 }
 
 .text-primary {
-  color: var(--color-primary-main);
+  color: var(--general-text-brand);
 
   @include mixins.print-grayscale;
 }
 
 .text-muted {
-  color: var(--color-text-muted);
+  color: var(--general-text-secondary);
 }
 
 .text-subtle {
-  color: var(--color-text-subtle);
+  color: var(--general-text-tertiary);
 }
 
 .text-disabled {
-  color: var(--color-text-disabled);
+  color: var(--general-text-disabled);
 }
 
 .text-inverted {
-  color: var(--color-text-inverted);
+  color: var(--general-text-white);
 }
 
 .text-positive {
-  color: var(--color-positive-main);
+  color: var(--general-status-success-text);
 
   @include mixins.print-grayscale;
 }
 
 .text-important {
-  color: var(--color-important-main);
+  color: var(--general-status-danger-text);
 
   @include mixins.print-grayscale;
 }
 
 .text-warning {
-  color: var(--color-warning-main);
+  color: var(--general-status-warning-text);
 
   @include mixins.print-grayscale;
 }

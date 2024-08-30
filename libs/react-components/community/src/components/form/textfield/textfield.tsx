@@ -1,7 +1,10 @@
 import cn from 'classnames';
 import React, { forwardRef } from 'react';
 
+import { useLabels } from '../../../providers/label-provider';
+import Button, { ButtonProps } from '../../button/button';
 import { Icon, IconProps } from '../../icon/icon';
+import Separator from '../../separator/separator';
 import FormHelper, { FormHelperProps } from '../form-helper/form-helper';
 import FormLabel, { FormLabelProps } from '../form-label/form-label';
 import styles from './textfield.module.scss';
@@ -72,7 +75,7 @@ export interface TextFieldProps extends FormLabelProps {
   /**
    * Input textfield size.
    */
-  size?: 'small';
+  size?: 'small' | 'large';
   /**
    * If textfield is disabled.
    */
@@ -107,6 +110,15 @@ export interface TextFieldProps extends FormLabelProps {
    */
   isArrowsHidden?: boolean;
   /**
+   * Adds a clear button to the input when input is filled
+   */
+  isClearable?: boolean;
+  /**
+   * Callback when clear button is clicked.
+   * Useful in other components like pickers to clear the internally managed state
+   */
+  onClear?: () => void;
+  /**
    * Additional input attributes.
    */
   input?: React.InputHTMLAttributes<HTMLInputElement> | React.TextareaHTMLAttributes<HTMLTextAreaElement>;
@@ -134,13 +146,15 @@ export const TextField = forwardRef<TextFieldForwardRef, TextFieldProps>((props,
     size,
     placeholder,
     isArrowsHidden = true,
+    isClearable,
+    onClear,
     onChange,
     onChangeEvent,
     onKeyUp,
     onKeyDown,
     onKeyPress,
     defaultValue,
-    value,
+    value: externalValue,
     onFocus,
     onBlur,
     onClick,
@@ -150,9 +164,14 @@ export const TextField = forwardRef<TextFieldForwardRef, TextFieldProps>((props,
     isTextArea,
     ...rest
   } = props || {};
+  const { getLabel } = useLabels();
   const inputRef = React.useRef<HTMLInputElement | HTMLTextAreaElement | null>(null);
   const innerRef = React.useRef<HTMLDivElement | null>(null);
+  const [innerValue, setInnerValue] = React.useState(externalValue ?? defaultValue ?? '');
   const helperId = helper ? helper?.id ?? `${id}-helper` : undefined;
+
+  const value = React.useMemo(() => externalValue ?? innerValue, [externalValue, innerValue]);
+  const showClearButton = isClearable && value;
 
   React.useImperativeHandle(ref, () => ({
     get input() {
@@ -171,51 +190,70 @@ export const TextField = forwardRef<TextFieldForwardRef, TextFieldProps>((props,
     return !invalid && helper?.type === 'valid';
   }, [invalid, helper]);
 
-  const getIcon = (icon: string | IconProps): JSX.Element => {
-    const defaultIconProps: Partial<IconProps> = {
-      size: 16,
-      className: cn(styles['textfield__icon']),
-    };
-    const iconProps: IconProps =
-      typeof icon === 'string'
-        ? { ...defaultIconProps, name: icon }
-        : { ...defaultIconProps, ...icon, className: cn(defaultIconProps.className, icon?.className) };
-    const iconComponent = <Icon {...iconProps} />;
-    const WrapperElement = onIconClick ? 'button' : 'div';
+  const getIcon = React.useCallback(
+    (icon: string | IconProps): JSX.Element => {
+      const defaultIconProps: Partial<IconProps> = {
+        size: size === 'large' ? 24 : 16,
+        className: cn(styles['textfield__icon']),
+      };
+      const iconProps: IconProps =
+        typeof icon === 'string'
+          ? { ...defaultIconProps, name: icon }
+          : { ...defaultIconProps, ...icon, className: cn(defaultIconProps.className, icon?.className) };
+      const iconComponent = <Icon {...iconProps} />;
+      const WrapperElement = onIconClick ? 'button' : 'div';
 
-    return (
-      <WrapperElement
-        className={styles['textfield__icon-wrapper']}
-        type={onIconClick ? 'button' : undefined}
-        onClick={onIconClick}
-        disabled={disabled}
-      >
-        {iconComponent}
-      </WrapperElement>
-    );
-  };
+      return (
+        <WrapperElement
+          className={styles['textfield__icon-wrapper']}
+          type={onIconClick ? 'button' : undefined}
+          onClick={onIconClick}
+          disabled={disabled}
+        >
+          {iconComponent}
+        </WrapperElement>
+      );
+    },
+    [disabled, onIconClick, size]
+  );
 
-  const onChangeHandler: React.ChangeEventHandler<HTMLTextAreaElement | HTMLInputElement> = (event) => {
-    const value = event.currentTarget.value;
-    onChange?.(value);
-    onChangeEvent?.(event);
-  };
+  const onChangeHandler: React.ChangeEventHandler<HTMLTextAreaElement | HTMLInputElement> = React.useCallback(
+    (event) => {
+      const newValue = event.currentTarget.value;
+      setInnerValue(newValue);
+      onChange?.(newValue);
+      onChangeEvent?.(event);
+    },
+    [onChange, onChangeEvent]
+  );
 
-  const isTextAreaRef = (
-    props: TextFieldProps,
-    ref: React.ForwardedRef<any> // eslint-disable-line  @typescript-eslint/no-explicit-any
-  ): ref is React.ForwardedRef<HTMLTextAreaElement> => {
-    return !!isTextArea;
-  };
+  const clearInput = React.useCallback(() => {
+    setInnerValue('');
+    onChange?.('');
+    onClear?.();
+  }, [onChange, onClear]);
 
-  const isInputRef = (
-    props: TextFieldProps,
-    ref: React.ForwardedRef<any> // eslint-disable-line  @typescript-eslint/no-explicit-any
-  ): ref is React.ForwardedRef<HTMLInputElement> => {
-    return !isTextArea;
-  };
+  const isTextAreaRef = React.useCallback(
+    (
+      props: TextFieldProps,
+      ref: React.ForwardedRef<any> // eslint-disable-line  @typescript-eslint/no-explicit-any
+    ): ref is React.ForwardedRef<HTMLTextAreaElement> => {
+      return !!isTextArea;
+    },
+    [isTextArea]
+  );
 
-  const renderInputElement = (): JSX.Element | null => {
+  const isInputRef = React.useCallback(
+    (
+      props: TextFieldProps,
+      ref: React.ForwardedRef<any> // eslint-disable-line  @typescript-eslint/no-explicit-any
+    ): ref is React.ForwardedRef<HTMLInputElement> => {
+      return !isTextArea;
+    },
+    [isTextArea]
+  );
+
+  const renderInputElement = React.useMemo((): JSX.Element | null => {
     const sharedProps = {
       'aria-describedby': helperId,
       ...input,
@@ -230,7 +268,6 @@ export const TextField = forwardRef<TextFieldForwardRef, TextFieldProps>((props,
       readOnly,
       onChange: onChangeHandler,
       value,
-      defaultValue,
       onBlur,
       onFocus,
       name,
@@ -245,7 +282,49 @@ export const TextField = forwardRef<TextFieldForwardRef, TextFieldProps>((props,
     }
 
     return null;
-  };
+  }, [
+    disabled,
+    helperId,
+    id,
+    input,
+    inputClassName,
+    isArrowsHidden,
+    isInputRef,
+    isInvalid,
+    isTextAreaRef,
+    name,
+    onBlur,
+    onChangeHandler,
+    onFocus,
+    placeholder,
+    props,
+    readOnly,
+    required,
+    value,
+  ]);
+
+  const renderClearButton = React.useMemo(() => {
+    const defaultButtonProps: Partial<ButtonProps> = {
+      icon: { name: 'clear', size: size === 'large' ? 24 : 16, color: 'muted' },
+      visualType: 'link',
+    };
+
+    return (
+      <Button {...defaultButtonProps} onClick={clearInput}>
+        {`${getLabel('clear')} ${label}`}
+      </Button>
+    );
+  }, [clearInput, getLabel, label, size]);
+
+  const renderRightArea = React.useMemo(() => {
+    return (
+      <div className={styles['textfield__right-area']}>
+        {showClearButton && renderClearButton}
+        {showClearButton && icon ? <Separator axis="vertical" className={styles['textfield__separator']} /> : null}
+        {icon && getIcon(icon)}
+      </div>
+    );
+  }, [getIcon, icon, renderClearButton, showClearButton]);
 
   const TextFieldBEM = cn(
     styles['textfield'],
@@ -253,6 +332,7 @@ export const TextField = forwardRef<TextFieldForwardRef, TextFieldProps>((props,
     { [styles['textfield--with-icon']]: icon },
     { [styles['textfield--invalid']]: isInvalid },
     { [styles['textfield--valid']]: isValid },
+    { [styles['textfield--clearable']]: showClearButton },
     className
   );
 
@@ -274,8 +354,8 @@ export const TextField = forwardRef<TextFieldForwardRef, TextFieldProps>((props,
         onClick={onClick}
         ref={innerRef}
       >
-        {renderInputElement()}
-        {icon && getIcon(icon)}
+        {renderInputElement}
+        {isClearable || icon ? renderRightArea : null}
       </div>
       {helper && <FormHelper {...helper} id={helperId} />}
     </div>

@@ -1,10 +1,10 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 
+import { VerticalSpacing } from '../../../../tedi/src/components/vertical-spacing';
 import { Anchor } from '../anchor/anchor';
 import { Col, Row } from '../grid';
 import { Tabs, TabsItem } from '../tabs';
 import { Heading } from '../typography/heading/heading';
-import { VerticalSpacing } from '../vertical-spacing';
 import HashTrigger, { HashTriggerProps } from './hash-trigger';
 
 /**
@@ -14,7 +14,7 @@ import HashTrigger, { HashTriggerProps } from './hash-trigger';
  */
 const meta: Meta<typeof HashTrigger> = {
   component: HashTrigger,
-  title: 'Community-components/HashTrigger',
+  title: 'Community/HashTrigger',
 };
 
 export default meta;

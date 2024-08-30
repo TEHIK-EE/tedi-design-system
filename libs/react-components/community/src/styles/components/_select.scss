@@ -1,9 +1,0 @@
-/**
- * Needed because rendering custom react-select ValueContainer (to add custom className),
- * creates a bug when selecting multiple option then input loses focus.
-**/
-.select__control > .select__value-container--is-multi {
-  display: inline-block;
-  overflow: hidden;
-  white-space: nowrap;
-}

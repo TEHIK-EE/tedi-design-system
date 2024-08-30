@@ -2,14 +2,14 @@ import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import Link from 'next/link';
 import React, { ComponentProps, forwardRef } from 'react';
 
+import { VerticalSpacing } from '../../../../tedi/src/components/vertical-spacing';
 import { Col, Row } from '../grid';
 import Text from '../typography/text/text';
-import { VerticalSpacing } from '../vertical-spacing';
 import { Anchor, AnchorProps } from './anchor';
 
 const meta: Meta<AnchorProps> = {
   component: Anchor,
-  title: 'Community-components/Anchor',
+  title: 'Community/Anchor',
 };
 
 export default meta;

@@ -3,6 +3,7 @@ import { useFormik } from 'formik';
 import React from 'react';
 import * as Yup from 'yup';
 
+import { VerticalSpacing } from '../../../../../../../tedi/src/components/vertical-spacing';
 import { useLabels } from '../../../../../providers/label-provider';
 import { IntentionalAny } from '../../../../../types';
 import Button from '../../../../button/button';
@@ -10,7 +11,6 @@ import { DatePicker, DatePickerProps } from '../../../../form/pickers';
 import Col from '../../../../grid/col';
 import Row from '../../../../grid/row';
 import Text from '../../../../typography/text/text';
-import VerticalSpacing from '../../../../vertical-spacing/vertical-spacing';
 import { TableFilterContext } from '../table-filter-context';
 
 // DatePicker props that we allow to override through the column.meta

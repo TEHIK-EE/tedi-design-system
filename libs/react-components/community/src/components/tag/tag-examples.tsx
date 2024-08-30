@@ -1,3 +1,4 @@
+import { VerticalSpacing } from '../../../../tedi/src/components/vertical-spacing';
 import {
   Card,
   CardContent,
@@ -11,7 +12,6 @@ import {
   Skeleton,
   Tag,
   TagProps,
-  VerticalSpacing,
 } from '../../index';
 
 const TagExamples = () => {
