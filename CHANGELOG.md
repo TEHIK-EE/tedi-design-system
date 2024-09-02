@@ -1,3 +1,13 @@
+# [6.32.0-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.31.0...v6.32.0-rc.1) (2024-09-02)
+
+
+### Features
+
+* [#163](https://github.com/TEHIK-EE/tedi-design-system/issues/163) add missing attribute ([7962566](https://github.com/TEHIK-EE/tedi-design-system/commit/796256603e96fa801d52d17e0142fd47811045bd))
+* **tableOfContents:** [#163](https://github.com/TEHIK-EE/tedi-design-system/issues/163) add roles ([0e40037](https://github.com/TEHIK-EE/tedi-design-system/commit/0e40037af406e632682f2ae733d9340edf9097d5))
+* **tag:** [#163](https://github.com/TEHIK-EE/tedi-design-system/issues/163) add id ([61a72a0](https://github.com/TEHIK-EE/tedi-design-system/commit/61a72a017a99972a7a2bab9d77d733f6db7def5e))
+* **Tag:** [#163](https://github.com/TEHIK-EE/tedi-design-system/issues/163) add id to Tag element ([553aa52](https://github.com/TEHIK-EE/tedi-design-system/commit/553aa52119f5f3e3baacdbd1c184f5fc7474cb14))
+
 # [6.31.0](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.30.1...v6.31.0) (2024-08-29)
 
 
