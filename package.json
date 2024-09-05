@@ -142,6 +142,10 @@
         1,
         "always",
         "start-case"
+      ],
+      "references-empty": [
+        2,
+        "never"
       ]
     }
   },
