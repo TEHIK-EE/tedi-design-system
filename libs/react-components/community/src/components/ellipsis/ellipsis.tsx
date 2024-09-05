@@ -15,17 +15,22 @@ export interface EllipsisProps {
    * @default 2
    */
   lineClamp?: number;
+  /**
+   * Render Ellipsis with Tooltip
+   * @default true
+   */
+  showTooltip?: boolean;
 }
 
 export const Ellipsis = (props: EllipsisProps): JSX.Element => {
-  const { children, lineClamp = 2, ...rest } = props;
+  const { children, lineClamp = 2, showTooltip = true, ...rest } = props;
   const elementRef = React.useRef<HTMLDivElement>(null);
-  const [showTooltip, setShowTooltip] = React.useState(false);
+  const [renderTooltip, setRenderTooltip] = React.useState(false);
   const elementSize = useElementSize(elementRef);
 
   React.useEffect(() => {
     if (elementRef.current) {
-      setShowTooltip(elementRef.current.scrollHeight > elementRef.current.clientHeight);
+      setRenderTooltip(elementRef.current.scrollHeight > elementRef.current.clientHeight);
     }
   }, [elementRef, elementSize]);
 
@@ -41,7 +46,7 @@ export const Ellipsis = (props: EllipsisProps): JSX.Element => {
     </div>
   );
 
-  return showTooltip ? (
+  return renderTooltip && showTooltip ? (
     <TooltipProvider>
       <TooltipTrigger>{ellipsis}</TooltipTrigger>
       <Tooltip>
