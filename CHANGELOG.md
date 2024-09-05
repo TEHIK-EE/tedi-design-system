@@ -1,3 +1,10 @@
+# [6.32.0-rc.2](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.32.0-rc.1...v6.32.0-rc.2) (2024-09-05)
+
+
+### Features
+
+* **ellipsis:** add showTooltip property ([#170](https://github.com/TEHIK-EE/tedi-design-system/issues/170)) ([37e5e70](https://github.com/TEHIK-EE/tedi-design-system/commit/37e5e70f716eb110e27e71e5d4433979fc26acfb)), closes [#169](https://github.com/TEHIK-EE/tedi-design-system/issues/169)
+
 # [6.32.0-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.31.0...v6.32.0-rc.1) (2024-09-02)
 
 
