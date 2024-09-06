@@ -50,7 +50,7 @@
     "yup": "^1.4.0"
   },
   "devDependencies": {
-    "@commitlint/config-conventional": "^19.1.0",
+    "@commitlint/config-conventional": "^19.4.1",
     "@faker-js/faker": "^8.4.1",
     "@nrwl/cli": "15.9.3",
     "@nx/eslint": "18.0.8",
@@ -92,7 +92,7 @@
     "@typescript-eslint/eslint-plugin": "6.21.0",
     "@typescript-eslint/parser": "6.21.0",
     "@vitejs/plugin-react": "4.2.1",
-    "commitlint": "^19.2.0",
+    "commitlint": "^19.4.1",
     "cross-env": "^7.0.3",
     "dompurify": "^3.0.9",
     "eslint": "8.48.0",
@@ -142,6 +142,11 @@
         1,
         "always",
         "start-case"
+      ],
+      "subject-min-length": [
+        2,
+        "always",
+        10
       ],
       "references-empty": [
         2,
