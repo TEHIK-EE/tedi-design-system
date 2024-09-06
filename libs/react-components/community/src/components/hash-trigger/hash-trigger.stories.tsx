@@ -1,8 +1,8 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 
+import { Col, Row } from '../../../../tedi/src/components/grid';
 import { VerticalSpacing } from '../../../../tedi/src/components/vertical-spacing';
 import { Anchor } from '../anchor/anchor';
-import { Col, Row } from '../grid';
 import { Tabs, TabsItem } from '../tabs';
 import { Heading } from '../typography/heading/heading';
 import HashTrigger, { HashTriggerProps } from './hash-trigger';

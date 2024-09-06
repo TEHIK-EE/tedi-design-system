@@ -1,11 +1,11 @@
 import cn from 'classnames';
 import React, { useContext } from 'react';
 
+import { Col, Row } from '../../../../tedi/src/components/grid';
 import { useLabels } from '../../providers/label-provider';
 import Button from '../button/button';
 import ButtonContent from '../button-content/button-content';
 import { Card, CardContent, CardHeader } from '../card';
-import { Col, Row } from '../grid';
 import Icon from '../icon/icon';
 import { Modal, ModalProvider, ModalTrigger } from '../modal';
 import Heading from '../typography/heading/heading';

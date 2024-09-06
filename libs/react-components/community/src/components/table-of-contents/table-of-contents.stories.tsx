@@ -2,11 +2,11 @@ import { faker } from '@faker-js/faker';
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import React from 'react';
 
+import { Col, Row } from '../../../../tedi/src/components/grid';
 import { VerticalSpacing } from '../../../../tedi/src/components/vertical-spacing';
 import Anchor from '../anchor/anchor';
 import Button from '../button/button';
 import { Card, CardContent } from '../card';
-import { Col, Row } from '../grid';
 import Layout, { ILayoutProps } from '../layout/layout/layout';
 import { WithNotice as LayoutDefault } from '../layout/layout/layout.stories';
 import { Section } from '../section/section';

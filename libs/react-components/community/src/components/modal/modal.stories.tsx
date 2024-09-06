@@ -1,10 +1,10 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import React from 'react';
 
+import { Col, Row } from '../../../../tedi/src/components/grid';
 import { VerticalSpacing } from '../../../../tedi/src/components/vertical-spacing';
 import Button from '../button/button';
 import { CardContent, CardHeader } from '../card';
-import { Col, Row } from '../grid';
 import Heading from '../typography/heading/heading';
 import Modal, { ModalProps } from './modal';
 import ModalCloser from './modal-closer';

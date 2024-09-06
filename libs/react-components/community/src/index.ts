@@ -12,7 +12,6 @@ export * from './components/hash-trigger/hash-trigger';
 export * from './components/notification/notification';
 export * from './components/ellipsis/ellipsis';
 export * from './components/dropdown/dropdown';
-export * from './components/grid';
 export * from './components/scroll-fade/scroll-fade';
 export * from './components/section/section';
 export * from './components/stepper';

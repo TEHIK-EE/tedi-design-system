@@ -1,9 +1,8 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 
+import { Col, Row } from '../../../../../../../tedi/src/components/grid';
 import { useLayout } from '../../../../../helpers/hooks/use-layout';
 import Button from '../../../../button/button';
-import Col from '../../../../grid/col';
-import Row from '../../../../grid/row';
 import RoleSelection from './header-role';
 
 /**

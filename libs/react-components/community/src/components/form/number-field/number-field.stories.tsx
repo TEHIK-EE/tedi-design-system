@@ -1,10 +1,9 @@
 import { Meta, StoryObj } from '@storybook/react';
 import { useState } from 'react';
 
+import { Col, Row } from '../../../../../tedi/src/components/grid';
 import { VerticalSpacing } from '../../../../../tedi/src/components/vertical-spacing';
 import Button from '../../button/button';
-import Col from '../../grid/col';
-import Row from '../../grid/row';
 import { NumberField } from './number-field';
 
 const meta: Meta<typeof NumberField> = {

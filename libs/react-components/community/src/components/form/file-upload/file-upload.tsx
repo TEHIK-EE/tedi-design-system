@@ -1,12 +1,12 @@
 import cn from 'classnames';
 import React from 'react';
 
+import { Col, Row } from '../../../../../tedi/src/components/grid';
 import { ILabelContext, useLabels } from '../../../providers/label-provider';
 import Button from '../../button/button';
 import { Card, CardContent } from '../../card';
 import CloseButton from '../../close-button/close-button';
 import Ellipsis from '../../ellipsis/ellipsis';
-import { Col, Row } from '../../grid';
 import Spinner from '../../spinner/spinner';
 import Text from '../../typography/text/text';
 import FormHelper, { FormHelperProps } from '../form-helper/form-helper';

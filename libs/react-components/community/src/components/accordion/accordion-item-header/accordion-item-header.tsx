@@ -1,9 +1,8 @@
 import cn from 'classnames';
 import React from 'react';
 
+import { Col, Row } from '../../../../../tedi/src/components/grid';
 import { CardHeader, CardHeaderBackground, CardHeaderProps } from '../../card';
-import Col from '../../grid/col';
-import Row from '../../grid/row';
 import ToggleOpen from '../../toggle-open/toggle-open';
 import Heading, { HeadingProps } from '../../typography/heading/heading';
 import Text from '../../typography/text/text';

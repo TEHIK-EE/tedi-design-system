@@ -1,9 +1,9 @@
 import cn from 'classnames';
 import React from 'react';
 
+import { Col, Row, RowProps } from '../../../../tedi/src/components/grid';
 import useLayout from '../../helpers/hooks/use-layout';
 import { Card, CardContent, CardProps } from '../card';
-import { Col, Row, RowProps } from '../grid';
 import Icon, { IconProps } from '../icon/icon';
 import Print from '../print/print';
 import Text from '../typography/text/text';
