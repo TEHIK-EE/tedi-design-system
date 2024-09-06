@@ -1,3 +1,10 @@
+# [6.32.0-rc.3](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.32.0-rc.2...v6.32.0-rc.3) (2024-09-06)
+
+
+### Bug Fixes
+
+* **general:** Modify commitlint rules to include GitHub issue key [#172](https://github.com/TEHIK-EE/tedi-design-system/issues/172) ([a6ec381](https://github.com/TEHIK-EE/tedi-design-system/commit/a6ec381d0bab88e915cffa3e17c3c931436eb472))
+
 # [6.32.0-rc.2](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.32.0-rc.1...v6.32.0-rc.2) (2024-09-05)
 
 
