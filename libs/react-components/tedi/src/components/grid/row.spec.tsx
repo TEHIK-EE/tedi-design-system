@@ -53,4 +53,41 @@ describe('Row Component', () => {
     expect(rowElement).toHaveClass('row-cols-md-10');
     expect(rowElement).toHaveClass('row-cols-lg-12');
   });
+
+  test('applies gutterX and gutterY classes correctly', () => {
+    const { getByTestId } = render(
+      <Row gutterX={4} gutterY={2}>
+        <Col>Column 1</Col>
+        <Col>Column 2</Col>
+      </Row>
+    );
+
+    const rowElement = getByTestId('row');
+    expect(rowElement).toHaveClass('gx-4');
+    expect(rowElement).toHaveClass('gy-2');
+  });
+
+  test('renders the Row component with a different element', () => {
+    const { getByTestId } = render(
+      <Row element="ul">
+        <Col>Column 1</Col>
+        <Col>Column 2</Col>
+      </Row>
+    );
+
+    const rowElement = getByTestId('row');
+    expect(rowElement.tagName).toBe('UL');
+  });
+
+  test('renders Row component with custom className', () => {
+    const { getByTestId } = render(
+      <Row className="custom-row">
+        <Col>Column 1</Col>
+        <Col>Column 2</Col>
+      </Row>
+    );
+
+    const rowElement = getByTestId('row');
+    expect(rowElement).toHaveClass('custom-row');
+  });
 });

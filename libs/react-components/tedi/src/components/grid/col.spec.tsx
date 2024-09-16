@@ -52,4 +52,59 @@ describe('Col Component', () => {
     expect(colElement).toHaveClass('offset-md-1');
     expect(colElement).toHaveClass('col-lg-3');
   });
+
+  test('applies grow and shrink classes correctly', () => {
+    const { getByTestId } = render(
+      <Row>
+        <Col grow={1} shrink={1}>
+          Column 1
+        </Col>
+      </Row>
+    );
+
+    const colElement = getByTestId('col');
+    expect(colElement).toHaveClass('flex-grow-1');
+    expect(colElement).toHaveClass('flex-shrink-1');
+  });
+
+  test('renders the Col component with a different element', () => {
+    const { getByTestId } = render(
+      <Row element="ul">
+        <Col element="dd">Column 1</Col>
+      </Row>
+    );
+
+    const colElement = getByTestId('col');
+    expect(colElement.tagName).toBe('DD');
+  });
+
+  test('renders Col component with custom className', () => {
+    const { getByTestId } = render(
+      <Row>
+        <Col className="custom-col">Column 1</Col>
+      </Row>
+    );
+
+    const colElement = getByTestId('col');
+    expect(colElement).toHaveClass('custom-col');
+  });
+
+  test('applies all props together', () => {
+    const { getByTestId } = render(
+      <Row>
+        <Col width={8} offset={2} order="last" align="end" grow={1} shrink={1} className="custom-col">
+          Column 1
+        </Col>
+      </Row>
+    );
+
+    const colElement = getByTestId('col');
+    expect(colElement).toHaveClass('col-8');
+    expect(colElement).toHaveClass('offset-2');
+    expect(colElement).toHaveClass('order-last');
+    expect(colElement).toHaveClass('align-self-end');
+    expect(colElement).toHaveClass('flex-grow-1');
+    expect(colElement).toHaveClass('flex-shrink-1');
+    expect(colElement).toHaveClass('custom-col');
+  });
 });
