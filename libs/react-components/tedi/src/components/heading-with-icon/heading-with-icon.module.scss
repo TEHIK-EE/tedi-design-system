@@ -1,5 +1,8 @@
+@import '../../styles/mixins';
+
 .tedi-heading-with-icon {
   display: flex;
-  gap: var(--content-heading-inner-spacing-x);
   align-items: center;
+
+  @include responsive-styles(gap, content-heading-inner-spacing-x);
 }

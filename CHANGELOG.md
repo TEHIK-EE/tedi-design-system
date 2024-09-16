@@ -1,3 +1,34 @@
+# [6.32.0-rc.4](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.32.0-rc.3...v6.32.0-rc.4) (2024-09-16)
+
+
+### Bug Fixes
+
+* TEDI-381 Organize TEDI CSS variables ([#168](https://github.com/TEHIK-EE/tedi-design-system/issues/168)) ([#175](https://github.com/TEHIK-EE/tedi-design-system/issues/175)) ([5037137](https://github.com/TEHIK-EE/tedi-design-system/commit/5037137092942e557870d389dc4c7f262809a26d))
+
+# [6.32.0-rc.3](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.32.0-rc.2...v6.32.0-rc.3) (2024-09-06)
+
+
+### Bug Fixes
+
+* **general:** Modify commitlint rules to include GitHub issue key [#172](https://github.com/TEHIK-EE/tedi-design-system/issues/172) ([a6ec381](https://github.com/TEHIK-EE/tedi-design-system/commit/a6ec381d0bab88e915cffa3e17c3c931436eb472))
+
+# [6.32.0-rc.2](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.32.0-rc.1...v6.32.0-rc.2) (2024-09-05)
+
+
+### Features
+
+* **ellipsis:** add showTooltip property ([#170](https://github.com/TEHIK-EE/tedi-design-system/issues/170)) ([37e5e70](https://github.com/TEHIK-EE/tedi-design-system/commit/37e5e70f716eb110e27e71e5d4433979fc26acfb)), closes [#169](https://github.com/TEHIK-EE/tedi-design-system/issues/169)
+
+# [6.32.0-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.31.0...v6.32.0-rc.1) (2024-09-02)
+
+
+### Features
+
+* [#163](https://github.com/TEHIK-EE/tedi-design-system/issues/163) add missing attribute ([7962566](https://github.com/TEHIK-EE/tedi-design-system/commit/796256603e96fa801d52d17e0142fd47811045bd))
+* **tableOfContents:** [#163](https://github.com/TEHIK-EE/tedi-design-system/issues/163) add roles ([0e40037](https://github.com/TEHIK-EE/tedi-design-system/commit/0e40037af406e632682f2ae733d9340edf9097d5))
+* **tag:** [#163](https://github.com/TEHIK-EE/tedi-design-system/issues/163) add id ([61a72a0](https://github.com/TEHIK-EE/tedi-design-system/commit/61a72a017a99972a7a2bab9d77d733f6db7def5e))
+* **Tag:** [#163](https://github.com/TEHIK-EE/tedi-design-system/issues/163) add id to Tag element ([553aa52](https://github.com/TEHIK-EE/tedi-design-system/commit/553aa52119f5f3e3baacdbd1c184f5fc7474cb14))
+
 # [6.31.0](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.30.1...v6.31.0) (2024-08-29)
 
 
