@@ -7,11 +7,45 @@ $breakpoints: (
   xxl: 1400px,
 );
 
-// Mixin for applying desktop and mobile styles
-@mixin apply-styles($property, $value-desktop, $value-mobile) {
-  #{$property}: $value-mobile;
+@function construct-variables($variable-names, $suffix, $calc) {
+  $result: '';
 
-  @media (min-width: map-get($breakpoints, md)) {
-    #{$property}: $value-desktop;
+  @each $name in $variable-names {
+    $result: #{$result} apply-calculation(var(--#{$name}-#{$suffix}), $calc);
+  }
+
+  @return $result;
+}
+
+@function apply-calculation($value, $calc) {
+  @if $calc {
+    @return calc(#{$value} #{$calc});
+  } @else {
+    @return $value;
+  }
+}
+
+// Mixin for applying responsive styles
+@mixin responsive-styles($property, $names, $exclude: null, $calc: null) {
+  $variable-names: ();
+
+  @if type-of($names) == 'string' {
+    $variable-names: (str-slice($names, 1, -1));
+  } @else {
+    $variable-names: $names;
+  }
+
+  #{$property}: #{construct-variables($variable-names, mobile, $calc)};
+
+  @if $exclude != 'tablet' {
+    @media (min-width: map-get($breakpoints, sm)) {
+      #{$property}: #{construct-variables($variable-names, tablet, $calc)};
+    }
+  }
+
+  @if $exclude != 'desktop' {
+    @media (min-width: map-get($breakpoints, lg)) {
+      #{$property}: #{construct-variables($variable-names, desktop, $calc)};
+    }
   }
 }
