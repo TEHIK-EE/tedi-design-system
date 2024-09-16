@@ -1,3 +1,10 @@
+# [6.32.0-rc.4](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.32.0-rc.3...v6.32.0-rc.4) (2024-09-16)
+
+
+### Bug Fixes
+
+* TEDI-381 Organize TEDI CSS variables ([#168](https://github.com/TEHIK-EE/tedi-design-system/issues/168)) ([#175](https://github.com/TEHIK-EE/tedi-design-system/issues/175)) ([5037137](https://github.com/TEHIK-EE/tedi-design-system/commit/5037137092942e557870d389dc4c7f262809a26d))
+
 # [6.32.0-rc.3](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.32.0-rc.2...v6.32.0-rc.3) (2024-09-06)
 
 
