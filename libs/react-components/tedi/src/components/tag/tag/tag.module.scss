@@ -1,0 +1,33 @@
+@import '../../../styles/mixins';
+
+.tedi-tag {
+  --loader-spinner-color-primary: var(--button-close-text-default);
+  --general-icon-primary: var(--button-close-text-default);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--general-text-primary);
+  background-color: var(--tag-background);
+  border: 1px solid var(--tag-border);
+
+  @include responsive-styles(gap, tag-inner-spacing);
+  @include responsive-styles(border-radius, tag-radius);
+  @include responsive-styles(padding, tag-padding-y tag-padding-x);
+  @include responsive-styles(font-size, body-small-regular-size);
+  @include responsive-styles(font-weight, body-small-regular-weight);
+  @include responsive-styles(line-height, body-small-regular-line-height);
+
+  &__close {
+    display: inline-flex;
+    align-items: center;
+    padding: 0;
+    color: var(--button-close-text-default);
+    background: transparent;
+    border: 0;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
