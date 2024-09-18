@@ -7,10 +7,10 @@ div.select__control {
 }
 
 .select--invalid .select__control {
-  border-color: var(--color-important-main);
+  border-color: var(--color-important-active);
 
   &.select__control--focused {
-    box-shadow: 0 0 0 1px var(--color-important-main);
+    box-shadow: 0 0 0 1px var(--color-important-active);
   }
 }
 
@@ -19,11 +19,11 @@ div.select__control {
   padding: calc(0.5rem - 1px) 2rem calc(0.5rem - 1px) 0;
 
   .select__control--focused & {
-    color: var(--color-primary-main);
+    color: var(--color-primary-active);
   }
 
   .select--invalid .select__control--focused & {
-    color: var(--color-important-main);
+    color: var(--color-important-active);
   }
 }
 

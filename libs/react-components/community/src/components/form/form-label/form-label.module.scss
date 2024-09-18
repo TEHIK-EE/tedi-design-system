@@ -19,7 +19,7 @@
 .form-label__required {
   margin-left: 0.25rem;
   font-size: 0.875rem;
-  color: var(--color-important-main);
+  color: var(--color-important-active);
 
   @include mixins.print-grayscale;
 }
