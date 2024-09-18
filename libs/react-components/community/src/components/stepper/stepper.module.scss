@@ -24,18 +24,11 @@ $stepper-step-bg-active-hover: var(--color-primary-active);
   align-items: center;
   color: var(--color-text-default);
   white-space: nowrap;
-  transition: $stepper-transition;
-  transition-property: background-color, color;
 
   @include mixins.print-grayscale;
 
   &--active {
     color: var(--color-text-inverted);
-    background-color: $stepper-step-bg-active;
-
-    &:hover:not(.stepper__nav-item--disabled) {
-      background-color: $stepper-step-bg-active-hover;
-    }
   }
 
   &:first-of-type {
@@ -55,11 +48,23 @@ $stepper-step-bg-active-hover: var(--color-primary-active);
   display: flex;
   align-items: center;
   padding: 0.625rem;
+  transition: $stepper-transition;
+  transition-property: all;
 
   .stepper__nav-item--active & {
+    background-color: $stepper-step-bg-active;
+
     --global-outline-offset: -4px;
     --global-outline-color: var(--color-primary-highlight);
+
+    &:hover:not(.stepper__nav-item--disabled) {
+      background-color: $stepper-step-bg-active-hover;
+    }
   }
+}
+
+.stepper__nav-item-inner:has(+ span.stepper__nav-item-arrow:hover) {
+  background-color: $stepper-step-bg-active-hover !important;
 }
 
 .stepper__nav-item-counter {
@@ -100,7 +105,7 @@ $stepper-step-bg-active-hover: var(--color-primary-active);
 
 .stepper__nav-item-arrow {
   background-color: $stepper-step-bg;
-  border: 20px solid var(--color-transparent);
+  border: 1.25rem solid $stepper-step-bg;
   border-right: 0;
   border-left-color: $stepper-step-bg-active;
   transition: $stepper-transition;
