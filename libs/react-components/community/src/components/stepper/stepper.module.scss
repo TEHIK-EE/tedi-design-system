@@ -64,7 +64,7 @@ $stepper-step-bg-active-hover: var(--color-primary-active);
 }
 
 .stepper__nav-item-inner:has(+ span.stepper__nav-item-arrow:hover) {
-  background-color: $stepper-step-bg-active-hover !important;
+  background-color: $stepper-step-bg-active-hover;
 }
 
 .stepper__nav-item-counter {
