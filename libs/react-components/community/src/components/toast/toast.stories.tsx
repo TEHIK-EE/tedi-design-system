@@ -1,8 +1,8 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import { ToastContainer } from 'react-toastify';
 
+import { Col, Row } from '../../../../tedi/src/components/grid';
 import Button from '../button/button';
-import { Col, Row } from '../grid';
 import Notification, { NotificationProps } from '../notification/notification';
 import { sendNotification } from './toast';
 
