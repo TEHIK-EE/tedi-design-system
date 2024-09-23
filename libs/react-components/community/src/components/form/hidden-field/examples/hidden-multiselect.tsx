@@ -1,8 +1,7 @@
 import { StoryFn } from '@storybook/react';
 import React from 'react';
 
-import { Col } from '../../../grid/col';
-import { Row } from '../../../grid/row';
+import { Col, Row } from '../../../../../../tedi/src/components/grid';
 import { Tag } from '../../../tag/tag';
 import { HiddenField } from '../hidden-field';
 

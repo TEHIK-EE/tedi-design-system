@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import { useContext } from 'react';
 
-import { Col, Row } from '../grid';
+import { Col, Row } from '../../../../tedi/src/components/grid';
 import Icon from '../icon/icon';
 import { IModalContext } from '../modal';
 import Separator from '../separator/separator';

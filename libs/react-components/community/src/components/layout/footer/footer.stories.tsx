@@ -1,9 +1,8 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
-import React from 'react';
 
+import { Col, Row } from '../../../../../tedi/src/components/grid';
 import useLayout from '../../../helpers/hooks/use-layout';
 import Anchor from '../../anchor/anchor';
-import { Col, Row } from '../../grid';
 import Icon from '../../icon/icon';
 import Footer, { FooterProps } from './footer';
 

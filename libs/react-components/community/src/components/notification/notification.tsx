@@ -1,10 +1,10 @@
 import cn from 'classnames';
 import React from 'react';
 
+import { Col, Row } from '../../../../tedi/src/components/grid';
 import { VerticalSpacing } from '../../../../tedi/src/components/vertical-spacing';
 import { useIsMounted } from '../../helpers';
 import CloseButton from '../close-button/close-button';
-import { Col, Row } from '../grid';
 import Icon, { IconProps } from '../icon/icon';
 import styles from './notification.module.scss';
 

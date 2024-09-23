@@ -1,3 +1,17 @@
+# [6.32.0-rc.6](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.32.0-rc.5...v6.32.0-rc.6) (2024-09-23)
+
+
+### Features
+
+* **vertical-spacing:** Add BreakpointSupport [#182](https://github.com/TEHIK-EE/tedi-design-system/issues/182) ([#183](https://github.com/TEHIK-EE/tedi-design-system/issues/183)) ([9582bd6](https://github.com/TEHIK-EE/tedi-design-system/commit/9582bd66b93f4210b77cf1917ffc249c2c777cb9))
+
+# [6.32.0-rc.5](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.32.0-rc.4...v6.32.0-rc.5) (2024-09-23)
+
+
+### Features
+
+* **grid:** TEDI-375 Component Grid [#165](https://github.com/TEHIK-EE/tedi-design-system/issues/165) ([#176](https://github.com/TEHIK-EE/tedi-design-system/issues/176)) ([d13624c](https://github.com/TEHIK-EE/tedi-design-system/commit/d13624c6a719069965585db0d7407e845b488db4))
+
 # [6.32.0-rc.4](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.32.0-rc.3...v6.32.0-rc.4) (2024-09-16)
 
 

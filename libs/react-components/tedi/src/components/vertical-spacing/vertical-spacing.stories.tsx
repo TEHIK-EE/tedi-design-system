@@ -7,7 +7,7 @@ import { VerticalSpacing, VerticalSpacingProps } from './vertical-spacing';
 import { VerticalSpacingItem } from './vertical-spacing-item';
 
 /**
- * VerticalSpacing is development only component and won't be found in Figma <br/>
+ * VerticalSpacing is development only component and won't be found in Figma<br/>
  * [Zeroheight ↗](https://zeroheight.com/1ee8444b7/p/759180-verticalspacing)
  **/
 
@@ -17,7 +17,13 @@ const meta: Meta<typeof VerticalSpacing> = {
   subcomponents: { VerticalSpacingItem } as never,
   parameters: {
     status: {
-      type: 'devComponent',
+      type: [
+        'devComponent',
+        { name: 'breakpointSupport', url: '?path=/docs/helpers-usebreakpointprops--usebreakpointprops' },
+      ],
+    },
+    controls: {
+      exclude: ['sm', 'md', 'lg', 'xl', 'xxl'],
     },
   },
 };

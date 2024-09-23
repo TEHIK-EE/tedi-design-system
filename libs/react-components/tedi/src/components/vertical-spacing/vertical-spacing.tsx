@@ -1,10 +1,20 @@
 import cn from 'classnames';
 
+import { BreakpointSupport, useBreakpointProps } from '../../helpers';
 import styles from './vertical-spacing.module.scss';
 
 export type VerticalSpacingSize = 0 | 0.25 | 0.5 | 0.75 | 1 | 1.25 | 1.5 | 1.75 | 2 | 2.5 | 3 | 4 | 5;
 
-export interface VerticalSpacingProps {
+type VerticalSpacingBreakpointProps = {
+  /**
+   * The size of the vertical spacing, applied as `margin-bottom`
+   * The value corresponds to `em` units
+   * @default 1
+   */
+  size?: VerticalSpacingSize;
+};
+
+export interface VerticalSpacingProps extends BreakpointSupport<VerticalSpacingBreakpointProps> {
   /**
    * Any content to be rendered within the spacing component
    */
@@ -18,16 +28,18 @@ export interface VerticalSpacingProps {
    * Additional class name(s) to apply to the element
    */
   className?: string;
-  /**
-   * The size of the vertical spacing, applied as `margin-bottom`
-   * The value corresponds to `em` units
-   * @default 1
-   */
-  size?: VerticalSpacingSize;
 }
 
 export const VerticalSpacing = (props: VerticalSpacingProps): JSX.Element => {
-  const { children, className, element: Element = 'div', size = 1, ...rest } = props;
+  const { getCurrentBreakpointProps } = useBreakpointProps();
+  const {
+    children,
+    className,
+    element: Element = 'div',
+    size = 1,
+    ...rest
+  } = getCurrentBreakpointProps<VerticalSpacingProps>(props);
+
   const VerticalSpacingBEM = cn(styles['vertical-spacing'], className);
 
   return (
