@@ -16,6 +16,10 @@
     color: $primary-bg;
     background-color: var(--color-bg-default);
     border: 1px solid $primary-bg;
+
+    &.tag--color-accent {
+      color: $primary-text;
+    }
   }
 
   &.tag--type-borderless {
