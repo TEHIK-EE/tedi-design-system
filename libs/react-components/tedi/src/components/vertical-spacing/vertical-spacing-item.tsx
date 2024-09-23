@@ -4,7 +4,7 @@ import { BreakpointSupport, useBreakpointProps } from '../../helpers';
 import { VerticalSpacingSize } from './vertical-spacing';
 import styles from './vertical-spacing.module.scss';
 
-type VerticalSpacingBreakpointProps = {
+type VerticalSpacingItemBreakpointProps = {
   /**
    * Size of spacing {size}em unit of margin-bottom
    * @default 1
@@ -12,7 +12,7 @@ type VerticalSpacingBreakpointProps = {
   size?: VerticalSpacingSize;
 };
 
-export interface VerticalSpacingItemProps extends BreakpointSupport<VerticalSpacingBreakpointProps> {
+export interface VerticalSpacingItemProps extends BreakpointSupport<VerticalSpacingItemBreakpointProps> {
   /**
    * Any content to be rendered within the spacing component
    */
