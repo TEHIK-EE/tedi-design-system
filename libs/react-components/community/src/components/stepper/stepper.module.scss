@@ -23,6 +23,7 @@ $stepper-step-bg-active-hover: var(--color-primary-active);
   position: relative;
   display: flex;
   align-items: center;
+  overflow: clip;
   color: var(--color-text-default);
   white-space: nowrap;
 
@@ -50,10 +51,11 @@ $stepper-step-bg-active-hover: var(--color-primary-active);
   align-items: center;
   padding: 0.625rem;
   transition: $stepper-transition;
-  transition-property: all;
+  transition-property: background-color;
 
   .stepper__nav-item--active & {
     background-color: $stepper-step-bg-active;
+    border-radius: 0;
 
     --global-outline-offset: -4px;
     --global-outline-color: var(--color-primary-highlight);
@@ -111,10 +113,10 @@ $stepper-step-bg-active-hover: var(--color-primary-active);
 
 .stepper__nav-item-arrow {
   position: absolute;
-  right: 0.375rem;
+  right: 0.5rem;
   z-index: 1;
-  width: hypot(1.25rem, 1.25rem);
-  height: hypot(1.25rem, 1.25rem);
+  height: 100%;
+  aspect-ratio: 1 / 1;
   background-color: $stepper-step-bg-active;
   transition: $stepper-transition;
   transition-property: background-color;
