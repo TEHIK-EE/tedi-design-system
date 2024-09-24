@@ -1,3 +1,10 @@
+# [6.32.0-rc.8](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.32.0-rc.7...v6.32.0-rc.8) (2024-09-24)
+
+
+### Bug Fixes
+
+* **stepper:** [#70](https://github.com/TEHIK-EE/tedi-design-system/issues/70) - Background bleed on different zoom levels, active arrow scaling ([#186](https://github.com/TEHIK-EE/tedi-design-system/issues/186)) ([972e090](https://github.com/TEHIK-EE/tedi-design-system/commit/972e090c76ec747777da5dd3abe4a43b5b8328a6))
+
 # [6.32.0-rc.7](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.32.0-rc.6...v6.32.0-rc.7) (2024-09-24)
 
 
