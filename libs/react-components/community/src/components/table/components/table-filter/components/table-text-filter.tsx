@@ -2,12 +2,11 @@ import { useFormik } from 'formik';
 import React from 'react';
 import * as Yup from 'yup';
 
+import { Col, Row } from '../../../../../../../tedi/src/components/grid';
 import { VerticalSpacing } from '../../../../../../../tedi/src/components/vertical-spacing';
 import { useLabels } from '../../../../../providers/label-provider';
 import Button from '../../../../button/button';
 import TextField from '../../../../form/textfield/textfield';
-import Col from '../../../../grid/col';
-import Row from '../../../../grid/row';
 import { TableFilterContext } from '../table-filter-context';
 
 export const TableTextFilter = () => {

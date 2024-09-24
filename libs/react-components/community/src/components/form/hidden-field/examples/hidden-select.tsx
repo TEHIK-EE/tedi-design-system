@@ -1,8 +1,7 @@
 import { StoryFn } from '@storybook/react';
 import React from 'react';
 
-import { Col } from '../../../grid/col';
-import { Row } from '../../../grid/row';
+import { Col, Row } from '../../../../../../tedi/src/components/grid';
 import { Icon } from '../../../icon/icon';
 import { Tag } from '../../../tag/tag';
 import { ISelectOption } from '../../select/select';

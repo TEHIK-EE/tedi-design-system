@@ -1,7 +1,7 @@
 import { StoryFn } from '@storybook/react';
 import React from 'react';
 
-import { Col, Row } from '../../../grid';
+import { Col, Row } from '../../../../../../tedi/src/components/grid';
 import Select, { ISelectOption, TSelectValue } from '../select';
 
 export const colourOptions: ISelectOption[] = [

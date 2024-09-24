@@ -2,9 +2,9 @@ import { faker } from '@faker-js/faker';
 import { StoryFn, StoryObj } from '@storybook/react';
 import { ColumnDef, createColumnHelper, Row as TSRow } from '@tanstack/react-table';
 
+import { Col, Row } from '../../../../../../tedi/src/components/grid';
 import { getBackgroundColorClass } from '../../../../helpers/background-colors/background-colors';
 import { IntentionalAny } from '../../../../types';
-import { Col, Row } from '../../../grid';
 import Print from '../../../print/print';
 import Tag from '../../../tag/tag';
 import ToggleOpen from '../../../toggle-open/toggle-open';

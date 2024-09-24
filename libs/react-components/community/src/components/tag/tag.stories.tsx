@@ -1,10 +1,10 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import React from 'react';
 
+import { Col, Row } from '../../../../tedi/src/components/grid';
 import { VerticalSpacing } from '../../../../tedi/src/components/vertical-spacing';
 import Card from '../card/card';
 import CardContent from '../card/card-content/card-content';
-import { Col, Row } from '../grid';
 import Icon from '../icon/icon';
 import { Text, TextProps } from '../typography/text/text';
 import Tag, { TagColor, TagProps, TagSize, TagStatus, TagType } from './tag';

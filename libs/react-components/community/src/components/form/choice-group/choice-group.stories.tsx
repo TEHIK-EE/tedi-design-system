@@ -1,7 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
-import React from 'react';
 
-import { ColProps } from '../../grid/col';
+import { ColProps } from '../../../../../tedi/src/components/grid/col';
 import Text from '../../typography/text/text';
 import ChoiceGroup from './choice-group';
 import { ChoiceGroupItemProps } from './choice-group.types';

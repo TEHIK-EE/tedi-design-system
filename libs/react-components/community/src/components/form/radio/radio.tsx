@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import React from 'react';
 
-import { Col, Row } from '../../grid';
+import { Col, Row } from '../../../../../tedi/src/components/grid';
 import Icon from '../../icon/icon';
 import { Tooltip, TooltipProvider, TooltipTrigger } from '../../tooltip';
 import { ChoiceInputProps } from '../choice-input.types';

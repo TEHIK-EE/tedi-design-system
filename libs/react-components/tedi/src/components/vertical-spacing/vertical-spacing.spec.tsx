@@ -1,10 +1,21 @@
 import { render } from '@testing-library/react';
 
+import { useBreakpointProps } from '../../helpers';
 import { VerticalSpacing } from './vertical-spacing';
 
 import '@testing-library/jest-dom';
 
+jest.mock('../../helpers', () => ({
+  useBreakpointProps: jest.fn(),
+}));
+
 describe('VerticalSpacing component', () => {
+  beforeEach(() => {
+    (useBreakpointProps as jest.Mock).mockReturnValue({
+      getCurrentBreakpointProps: jest.fn((props) => props),
+    });
+  });
+
   it('renders with default props', () => {
     const { container } = render(
       <VerticalSpacing>
@@ -59,5 +70,23 @@ describe('VerticalSpacing component', () => {
     );
 
     expect(getByText('Child element')).toBeInTheDocument();
+  });
+
+  it('handles breakpoint props correctly', () => {
+    (useBreakpointProps as jest.Mock).mockReturnValue({
+      getCurrentBreakpointProps: jest.fn(() => ({
+        size: 3,
+      })),
+    });
+
+    const { container } = render(
+      <VerticalSpacing>
+        <p>Breakpoint-specific content</p>
+      </VerticalSpacing>
+    );
+
+    const element = container.querySelector('[data-name="vertical-spacing"]');
+    expect(element).toBeInTheDocument();
+    expect(element).toHaveStyle('--vertical-spacing-internal: 3em');
   });
 });

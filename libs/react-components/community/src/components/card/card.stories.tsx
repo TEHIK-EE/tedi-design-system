@@ -1,8 +1,8 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 
+import { Col, Row } from '../../../../tedi/src/components/grid';
 import { VerticalSpacing } from '../../../../tedi/src/components/vertical-spacing';
 import Collapse from '../collapse/collapse';
-import { Col, Row } from '../grid';
 import Icon from '../icon/icon';
 import Separator from '../separator/separator';
 import StretchContent from '../stretch-content/stretch-content';
