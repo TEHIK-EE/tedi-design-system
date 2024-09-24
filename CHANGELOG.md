@@ -1,3 +1,10 @@
+# [6.32.0-rc.7](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.32.0-rc.6...v6.32.0-rc.7) (2024-09-24)
+
+
+### Bug Fixes
+
+* **colors:** [#179](https://github.com/TEHIK-EE/tedi-design-system/issues/179) Community colors improvements, WCAG fixes ([#185](https://github.com/TEHIK-EE/tedi-design-system/issues/185)) ([434c722](https://github.com/TEHIK-EE/tedi-design-system/commit/434c722fa321c2c1078a0b8219143dbe6ed88e2b))
+
 # [6.32.0-rc.6](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.32.0-rc.5...v6.32.0-rc.6) (2024-09-23)
 
 
