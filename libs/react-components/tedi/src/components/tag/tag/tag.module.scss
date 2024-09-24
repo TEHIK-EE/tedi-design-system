@@ -8,12 +8,12 @@
   align-items: center;
   justify-content: center;
   color: var(--general-text-primary);
-  background-color: var(--tag-background);
-  border: 1px solid var(--tag-border);
+  background-color: var(--tag-default-background);
+  border: 1px solid var(--tag-default-border);
 
-  @include responsive-styles(gap, tag-inner-spacing);
-  @include responsive-styles(border-radius, tag-radius);
-  @include responsive-styles(padding, tag-padding-y tag-padding-x);
+  @include responsive-styles(gap, tag-default-inner-spacing);
+  @include responsive-styles(border-radius, tag-default-radius);
+  @include responsive-styles(padding, tag-default-padding-y tag-default-padding-x);
   @include responsive-styles(font-size, body-small-regular-size);
   @include responsive-styles(font-weight, body-small-regular-weight);
   @include responsive-styles(line-height, body-small-regular-line-height);
@@ -29,5 +29,16 @@
     &:hover {
       cursor: pointer;
     }
+  }
+
+  &__loader {
+    width: 0.75rem;
+    height: 0.75rem;
+  }
+
+  &--has-error {
+    color: var(--general-text-primary);
+    background-color: var(--tag-danger-background);
+    border: 1px solid var(--tag-danger-border);
   }
 }
