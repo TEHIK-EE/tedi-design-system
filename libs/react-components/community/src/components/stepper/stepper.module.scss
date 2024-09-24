@@ -20,22 +20,17 @@ $stepper-step-bg-active-hover: var(--color-primary-active);
 }
 
 .stepper__nav-item {
+  position: relative;
   display: flex;
   align-items: center;
+  overflow: clip;
   color: var(--color-text-default);
   white-space: nowrap;
-  transition: $stepper-transition;
-  transition-property: background-color, color;
 
   @include mixins.print-grayscale;
 
   &--active {
     color: var(--color-text-inverted);
-    background-color: $stepper-step-bg-active;
-
-    &:hover:not(.stepper__nav-item--disabled) {
-      background-color: $stepper-step-bg-active-hover;
-    }
   }
 
   &:first-of-type {
@@ -55,10 +50,28 @@ $stepper-step-bg-active-hover: var(--color-primary-active);
   display: flex;
   align-items: center;
   padding: 0.625rem;
+  transition: $stepper-transition;
+  transition-property: background-color;
 
   .stepper__nav-item--active & {
+    background-color: $stepper-step-bg-active;
+    border-radius: 0;
+
     --global-outline-offset: -4px;
     --global-outline-color: var(--color-primary-highlight);
+  }
+
+  .stepper__nav-item--active:hover:not(.stepper__nav-item--disabled) & {
+    background-color: $stepper-step-bg-active-hover;
+  }
+
+  &:has(+ span.stepper__nav-item-arrow:hover) {
+    background-color: $stepper-step-bg-active-hover;
+  }
+
+  &:has(+ span.stepper__nav-item-arrow) {
+    z-index: 2;
+    margin-right: 1.25rem;
   }
 }
 
@@ -99,15 +112,22 @@ $stepper-step-bg-active-hover: var(--color-primary-active);
 }
 
 .stepper__nav-item-arrow {
-  background-color: $stepper-step-bg;
-  border: 20px solid var(--color-transparent);
-  border-right: 0;
-  border-left-color: $stepper-step-bg-active;
+  position: absolute;
+  right: 0.5rem;
+  z-index: 1;
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  background-color: $stepper-step-bg-active;
   transition: $stepper-transition;
-  transition-property: border-left-color;
+  transition-property: background-color;
+  transform: rotate(45deg);
+
+  &:hover:not(.stepper__nav-item--disabled) {
+    background-color: $stepper-step-bg-active-hover;
+  }
 
   .stepper__nav-item--active:hover:not(.stepper__nav-item--disabled) & {
-    border-left-color: $stepper-step-bg-active-hover;
+    background-color: $stepper-step-bg-active-hover;
   }
 }
 
