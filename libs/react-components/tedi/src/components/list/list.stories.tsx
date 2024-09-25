@@ -8,12 +8,22 @@ import ListItem from './list-item';
  * [Zeroheight ↗](https://tedi.tehik.ee/1ee8444b7/p/37b651-list)
  */
 
-export default {
-  title: 'Tedi-ready/Content/List',
+const meta: Meta<typeof List> = {
   component: List,
+  title: 'Tedi-ready/Content/List',
   subcomponents: { ListItem } as never,
-} as Meta;
-type Story = StoryObj<ListProps>;
+  parameters: {
+    status: {
+      type: [{ name: 'breakpointSupport', url: '?path=/docs/helpers-usebreakpointprops--usebreakpointprops' }],
+    },
+    controls: {
+      exclude: ['sm', 'md', 'lg', 'xl', 'xxl'],
+    },
+  },
+};
+
+export default meta;
+type Story = StoryObj<typeof List>;
 
 const Template: StoryFn<Omit<ListProps, 'children'>> = (args) => (
   <List {...args}>
@@ -67,16 +77,23 @@ const TemplateOrderedNested: StoryFn<Omit<ListProps, 'children'>> = (args) => (
 
 export const Default: Story = {
   render: Template,
+  args: {
+    style: 'styled',
+  },
 };
 
 export const NestedUnordered: Story = {
   render: TemplateUnorderedNested,
+  args: {
+    style: 'styled',
+  },
 };
 
 export const NestedOrdered: Story = {
   render: TemplateOrderedNested,
   args: {
-    as: 'ol',
+    element: 'ol',
+    style: 'styled',
   },
 };
 

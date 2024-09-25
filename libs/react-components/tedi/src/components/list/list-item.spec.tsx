@@ -1,10 +1,21 @@
 import { render } from '@testing-library/react';
 
+import { useBreakpointProps } from '../../helpers';
 import ListItem, { ListItemProps } from './list-item';
 
 import '@testing-library/jest-dom';
 
+jest.mock('../../helpers', () => ({
+  useBreakpointProps: jest.fn(),
+}));
+
 describe('ListItem Component', () => {
+  beforeEach(() => {
+    (useBreakpointProps as jest.Mock).mockReturnValue({
+      getCurrentBreakpointProps: jest.fn((props) => props),
+    });
+  });
+
   const renderListItem = (props: Partial<ListItemProps> = {}) => {
     return render(<ListItem {...props}>Test Item</ListItem>);
   };
