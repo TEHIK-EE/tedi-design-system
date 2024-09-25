@@ -5,6 +5,7 @@ export * from './components/icon/icon';
 export * from './components/heading-with-icon/heading-with-icon';
 export * from './components/vertical-spacing';
 export * from './components/list';
+export * from './components/grid';
 
 export * from './helpers';
 

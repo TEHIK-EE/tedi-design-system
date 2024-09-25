@@ -1,25 +1,29 @@
 @use '../../styles/mixins';
 
-@mixin tag-variant($bg, $secondary-bg, $secondary-text) {
+@mixin tag-variant($primary-bg, $secondary-bg, $primary-text, $secondary-text) {
   &,
   &.tag--type-default {
-    color: var(--color-text-inverted);
-    background-color: $bg;
+    color: $secondary-text;
+    background-color: $primary-bg;
   }
 
   &.tag--type-secondary {
-    color: $secondary-text;
+    color: $primary-text;
     background-color: $secondary-bg;
   }
 
   &.tag--type-ghost {
-    color: $bg;
+    color: $primary-bg;
     background-color: var(--color-bg-default);
-    border: 1px solid $bg;
+    border: 1px solid $primary-bg;
+
+    &.tag--color-accent {
+      color: $primary-text;
+    }
   }
 
   &.tag--type-borderless {
-    color: $bg;
+    color: $primary-bg;
     background-color: var(--color-bg-default);
   }
 
@@ -29,7 +33,7 @@
   }
 
   &.tag--type-invisible {
-    color: $bg;
+    color: $primary-bg;
     background-color: var(--color-transparent);
     border-color: var(--color-transparent);
   }
@@ -79,27 +83,57 @@
 }
 
 .tag--color-default {
-  @include tag-variant(var(--color-bg-inverted), var(--color-bg-subtle), var(--color-text-subtle));
+  @include tag-variant(
+    var(--color-bg-inverted),
+    var(--color-bg-subtle),
+    var(--color-text-subtle),
+    var(--color-text-inverted)
+  );
 }
 
 .tag--color-primary {
-  @include tag-variant(var(--color-primary-main), var(--color-primary-highlight-subtle), var(--color-primary-main));
+  @include tag-variant(
+    var(--color-primary-main),
+    var(--color-primary-highlight-subtle),
+    var(--color-primary-active),
+    var(--color-text-inverted)
+  );
 }
 
 .tag--color-accent {
-  @include tag-variant(var(--color-accent-main), var(--color-accent-highlight), var(--color-accent-main));
+  @include tag-variant(
+    var(--color-accent-main),
+    var(--color-accent-highlight),
+    var(--color-accent-active),
+    var(--color-text-inverted)
+  );
 }
 
 .tag--color-positive {
-  @include tag-variant(var(--color-positive-main), var(--color-positive-highlight), var(--color-positive-main));
+  @include tag-variant(
+    var(--color-positive-main),
+    var(--color-positive-highlight),
+    var(--color-positive-active),
+    var(--color-text-inverted)
+  );
 }
 
 .tag--color-warning {
-  @include tag-variant(var(--color-warning-main), var(--color-warning-highlight), var(--color-warning-main));
+  @include tag-variant(
+    var(--color-warning-main),
+    var(--color-warning-highlight),
+    var(--color-warning-active),
+    var(--color-text-inverted)
+  );
 }
 
 .tag--color-important {
-  @include tag-variant(var(--color-important-main), var(--color-important-highlight), var(--color-important-main));
+  @include tag-variant(
+    var(--color-important-main),
+    var(--color-important-highlight),
+    var(--color-important-active),
+    var(--color-text-inverted)
+  );
 }
 
 .tag--with-arrow {

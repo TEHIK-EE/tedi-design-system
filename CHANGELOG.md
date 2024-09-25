@@ -1,3 +1,31 @@
+# [6.32.0-rc.8](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.32.0-rc.7...v6.32.0-rc.8) (2024-09-24)
+
+
+### Bug Fixes
+
+* **stepper:** [#70](https://github.com/TEHIK-EE/tedi-design-system/issues/70) - Background bleed on different zoom levels, active arrow scaling ([#186](https://github.com/TEHIK-EE/tedi-design-system/issues/186)) ([972e090](https://github.com/TEHIK-EE/tedi-design-system/commit/972e090c76ec747777da5dd3abe4a43b5b8328a6))
+
+# [6.32.0-rc.7](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.32.0-rc.6...v6.32.0-rc.7) (2024-09-24)
+
+
+### Bug Fixes
+
+* **colors:** [#179](https://github.com/TEHIK-EE/tedi-design-system/issues/179) Community colors improvements, WCAG fixes ([#185](https://github.com/TEHIK-EE/tedi-design-system/issues/185)) ([434c722](https://github.com/TEHIK-EE/tedi-design-system/commit/434c722fa321c2c1078a0b8219143dbe6ed88e2b))
+
+# [6.32.0-rc.6](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.32.0-rc.5...v6.32.0-rc.6) (2024-09-23)
+
+
+### Features
+
+* **vertical-spacing:** Add BreakpointSupport [#182](https://github.com/TEHIK-EE/tedi-design-system/issues/182) ([#183](https://github.com/TEHIK-EE/tedi-design-system/issues/183)) ([9582bd6](https://github.com/TEHIK-EE/tedi-design-system/commit/9582bd66b93f4210b77cf1917ffc249c2c777cb9))
+
+# [6.32.0-rc.5](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.32.0-rc.4...v6.32.0-rc.5) (2024-09-23)
+
+
+### Features
+
+* **grid:** TEDI-375 Component Grid [#165](https://github.com/TEHIK-EE/tedi-design-system/issues/165) ([#176](https://github.com/TEHIK-EE/tedi-design-system/issues/176)) ([d13624c](https://github.com/TEHIK-EE/tedi-design-system/commit/d13624c6a719069965585db0d7407e845b488db4))
+
 # [6.32.0-rc.4](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.32.0-rc.3...v6.32.0-rc.4) (2024-09-16)
 
 

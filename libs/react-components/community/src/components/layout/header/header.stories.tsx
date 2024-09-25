@@ -1,7 +1,7 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 
+import { Col, Row } from '../../../../../tedi/src/components/grid';
 import Anchor from '../../anchor/anchor';
-import { Col, Row } from '../../grid';
 import StretchContent from '../../stretch-content/stretch-content';
 import { Notice as BottomContentNotice } from './components/header-bottom-content/header-bottom-content.stories';
 import HeaderContent from './components/header-content/header-content';
