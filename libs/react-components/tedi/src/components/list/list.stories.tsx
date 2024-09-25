@@ -79,6 +79,7 @@ export const Default: Story = {
   render: Template,
   args: {
     style: 'styled',
+    element: 'ul',
   },
 };
 
