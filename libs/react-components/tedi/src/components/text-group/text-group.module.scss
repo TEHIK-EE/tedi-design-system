@@ -1,0 +1,16 @@
+.tedi-text-group {
+  &--horizontal {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  &__label {
+    display: flex;
+    width: var(--label-width, auto);
+  }
+
+  &__value {
+    display: flex;
+  }
+}
