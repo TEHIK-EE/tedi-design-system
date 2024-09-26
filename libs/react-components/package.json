@@ -6,11 +6,11 @@
   "module": "community.es.js",
   "exports": {
     "./tedi": {
-      "types": "./tedi/src/index.d.ts",
+      "types": "./tedi/index.d.ts",
       "import": "./tedi.es.js"
     },
     "./community": {
-      "types": "./community/src/index.d.ts",
+      "types": "./community/index.d.ts",
       "import": "./community.es.js"
     },
     "./index.css": "./index.css"
