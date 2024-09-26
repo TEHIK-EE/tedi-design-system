@@ -18,7 +18,7 @@ $breakpoints: (
 }
 
 @function apply-calculation($value, $calc) {
-  @if $calc {
+  @if $calc != null {
     @return calc(#{$value} #{$calc});
   } @else {
     @return $value;
@@ -35,6 +35,7 @@ $breakpoints: (
     $variable-names: $names;
   }
 
+  // Use construct-variables with calc
   #{$property}: #{construct-variables($variable-names, mobile, $calc)};
 
   @if $exclude != 'tablet' {

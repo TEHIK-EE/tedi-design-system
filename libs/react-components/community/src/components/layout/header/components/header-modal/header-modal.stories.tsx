@@ -1,10 +1,10 @@
 import { Meta, StoryObj } from '@storybook/react';
 
+import { List, ListItem } from '../../../../../../../tedi/src/components/list';
 import { VerticalSpacing } from '../../../../../../../tedi/src/components/vertical-spacing';
 import Anchor from '../../../../anchor/anchor';
 import Button from '../../../../button/button';
 import { Card, CardContent } from '../../../../card';
-import { List, ListItem } from '../../../../list';
 import Separator from '../../../../separator/separator';
 import HeaderModal from './header-modal';
 

@@ -49,7 +49,6 @@ export * from './components/stretch-content/stretch-content';
 export * from './components/vertical-progress';
 export * from './components/accordion';
 export * from './components/toggle-open/toggle-open';
-export * from './components/list';
 export * from './components/modal';
 export * from './components/placeholder/placeholder';
 
