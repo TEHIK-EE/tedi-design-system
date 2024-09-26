@@ -1,3 +1,10 @@
+# [6.32.0-rc.11](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.32.0-rc.10...v6.32.0-rc.11) (2024-09-26)
+
+
+### Bug Fixes
+
+* **general:** Changed built package structure to fix type imports [#194](https://github.com/TEHIK-EE/tedi-design-system/issues/194) ([#196](https://github.com/TEHIK-EE/tedi-design-system/issues/196)) ([f96453d](https://github.com/TEHIK-EE/tedi-design-system/commit/f96453d17868de92e8f89f89d9b5f3990f4a0f84))
+
 # [6.32.0-rc.10](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.32.0-rc.9...v6.32.0-rc.10) (2024-09-26)
 
 
