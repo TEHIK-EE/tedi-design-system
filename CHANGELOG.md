@@ -1,3 +1,17 @@
+# [7.0.0-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.32.0-rc.11...v7.0.0-rc.1) (2024-09-26)
+
+
+### Bug Fixes
+
+* **general:** Reverted built package structure changes [#194](https://github.com/TEHIK-EE/tedi-design-system/issues/194) ([#198](https://github.com/TEHIK-EE/tedi-design-system/issues/198)) ([a651bea](https://github.com/TEHIK-EE/tedi-design-system/commit/a651bea76c08bf4ef721e6dc0e8c208d9f904a61))
+
+
+### BREAKING CHANGES
+
+* **general:** List, VerticalSpacing, Grid components imports changed from community to tedi
+
+Co-authored-by: Airike Jaska <airike.jaska@bitweb.ee>
+
 # [6.32.0-rc.11](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.32.0-rc.10...v6.32.0-rc.11) (2024-09-26)
 
 
