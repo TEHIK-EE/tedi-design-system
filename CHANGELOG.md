@@ -1,3 +1,10 @@
+# [6.32.0-rc.10](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.32.0-rc.9...v6.32.0-rc.10) (2024-09-26)
+
+
+### Bug Fixes
+
+* **list:** VerticalSpacing margin override fixes [#177](https://github.com/TEHIK-EE/tedi-design-system/issues/177) ([#197](https://github.com/TEHIK-EE/tedi-design-system/issues/197)) ([3915619](https://github.com/TEHIK-EE/tedi-design-system/commit/3915619fc531c993c0498d9ba838b094050b1a48))
+
 # [6.32.0-rc.9](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.32.0-rc.8...v6.32.0-rc.9) (2024-09-26)
 
 
