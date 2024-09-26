@@ -1,5 +1,16 @@
 @import '../../styles/mixins';
 
+.list {
+  &:not([data-name='vertical-spacing']) {
+    .list__item {
+      &:not([data-name='vertical-spacing-item']) {
+        @include responsive-styles(margin-top, list-list-item-margin-y);
+        @include responsive-styles(margin-bottom, list-list-item-margin-y);
+      }
+    }
+  }
+}
+
 .list--unordered {
   padding-left: 0;
   list-style: none;
@@ -7,8 +18,6 @@
   .list__item {
     position: relative;
     padding-left: 1rem;
-
-    @include responsive-styles(margin, list-list-item-margin-y);
 
     &::before {
       position: absolute;
@@ -39,8 +48,6 @@
 
   .list__item {
     counter-increment: item;
-
-    @include responsive-styles(margin, list-list-item-margin-y);
 
     &::before {
       content: counters(item, '.') '. ';
