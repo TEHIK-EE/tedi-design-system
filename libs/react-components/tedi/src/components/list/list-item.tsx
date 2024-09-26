@@ -21,7 +21,7 @@ export interface ListItemProps extends BreakpointSupport<ListItemBreakpointProps
 
 export const ListItem = (props: ListItemProps) => {
   const { getCurrentBreakpointProps } = useBreakpointProps();
-  const { children, verticalSpacingItem } = getCurrentBreakpointProps<ListItemProps>(props);
+  const { children, verticalSpacingItem = { size: 0.5 } } = getCurrentBreakpointProps<ListItemProps>(props);
   const listItemBEM = cn(styles['list__item'], verticalSpacingItem?.className);
 
   if (props.verticalSpacingItem) {

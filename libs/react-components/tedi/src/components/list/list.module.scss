@@ -8,8 +8,6 @@
     position: relative;
     padding-left: 1rem;
 
-    @include responsive-styles(margin, list-list-item-margin-y);
-
     &::before {
       position: absolute;
       top: 0.5em;
@@ -39,8 +37,6 @@
 
   .list__item {
     counter-increment: item;
-
-    @include responsive-styles(margin, list-list-item-margin-y);
 
     &::before {
       content: counters(item, '.') '. ';

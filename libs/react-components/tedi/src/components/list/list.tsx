@@ -35,7 +35,12 @@ export interface ListProps extends BreakpointSupport<ListBreakpointProps> {
 
 export const List = (props: ListProps) => {
   const { getCurrentBreakpointProps } = useBreakpointProps();
-  const { children, element = 'ul', style = 'none', verticalSpacing } = getCurrentBreakpointProps<ListProps>(props);
+  const {
+    children,
+    element = 'ul',
+    style = 'none',
+    verticalSpacing = { size: 0.5 },
+  } = getCurrentBreakpointProps<ListProps>(props);
   const listBEM = cn(
     styles['list'],
     styles[`list--${element === 'ul' ? 'unordered' : 'ordered'}`],
