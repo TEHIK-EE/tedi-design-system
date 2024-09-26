@@ -1,5 +1,16 @@
 @import '../../styles/mixins';
 
+.list {
+  &:not([data-name='vertical-spacing']) {
+    .list__item {
+      &:not([data-name='vertical-spacing-item']) {
+        @include responsive-styles(margin-top, list-list-item-margin-y);
+        @include responsive-styles(margin-bottom, list-list-item-margin-y);
+      }
+    }
+  }
+}
+
 .list--unordered {
   padding-left: 0;
   list-style: none;
