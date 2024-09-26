@@ -2,9 +2,9 @@ import cn from 'classnames';
 import React from 'react';
 import AnimateHeight from 'react-animate-height';
 
+import { Col, Row, RowProps } from '../../../../tedi/src/components/grid';
 import { usePrint } from '../../helpers';
 import { useLabels } from '../../providers/label-provider';
-import { Col, Row, RowProps } from '../grid';
 import Icon from '../icon/icon';
 import Print from '../print/print';
 import { Text } from '../typography/text/text';

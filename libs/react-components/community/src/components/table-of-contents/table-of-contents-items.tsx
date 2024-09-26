@@ -1,9 +1,9 @@
 import React from 'react';
 import { flushSync } from 'react-dom';
 
+import { Row } from '../../../../tedi/src/components/grid';
 import { VerticalSpacing } from '../../../../tedi/src/components/vertical-spacing';
 import { useLayout } from '../../helpers';
-import { Row } from '../grid';
 import { ModalContext } from '../modal';
 import Heading from '../typography/heading/heading';
 import { TableOfContentsProps } from './table-of-contents';
@@ -37,7 +37,7 @@ export const TableOfContentsItems = (
         </Heading>
       )}
       <nav aria-labelledby={id}>
-        <Row element="ul" direction="column" gap={2}>
+        <Row role="tree" element="ul" direction="column" gap={2}>
           {items.map((i, index) => (
             <TableOfContentsItem key={`toc-item-${index}`} handleCloseModal={handleCloseModal} {...i} />
           ))}

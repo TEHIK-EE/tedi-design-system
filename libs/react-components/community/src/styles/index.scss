@@ -1,6 +1,6 @@
-@import 'bootstrap-utility/breakpoints';
-@import 'bootstrap-utility/grid';
-@import 'bootstrap-variables';
+@import '../../../shared/styles/bootstrap-utility/breakpoints';
+@import '../../../shared/styles/bootstrap-utility/grid';
+@import '../../../shared/styles/variables/bootstrap-variables';
 @import '../../../design-tokens/index';
 @import 'mixins';
 @import 'base';

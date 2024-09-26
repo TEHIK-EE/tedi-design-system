@@ -3,9 +3,9 @@ import { FilterFns } from '@tanstack/table-core';
 import cn from 'classnames';
 import React from 'react';
 
+import { Col } from '../../../../../../tedi/src/components/grid';
 import { useLabels } from '../../../../providers/label-provider';
 import Button from '../../../button/button';
-import { Col } from '../../../grid';
 import { Tooltip, TooltipProvider, TooltipTrigger } from '../../../tooltip';
 import styles from '../../table.module.scss';
 import { DefaultTData } from '../../table.types';

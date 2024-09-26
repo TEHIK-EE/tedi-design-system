@@ -58,6 +58,11 @@ const preview: Preview = {
           color: '#ffffff',
           description: 'This component is dev only and not found in Figma',
         },
+        breakpointSupport: {
+          background: '#308653',
+          color: '#ffffff',
+          description: 'This component has breakpoint support',
+        },
       },
     },
   },

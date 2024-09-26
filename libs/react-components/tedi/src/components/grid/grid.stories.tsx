@@ -1,36 +1,23 @@
-import { Controls, Description, Primary, Stories, Subtitle, Title } from '@storybook/addon-docs';
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 
-import { VerticalSpacing } from '../../../../tedi/src/components/vertical-spacing';
-import Notification from '../notification/notification';
-import Heading from '../typography/heading/heading';
+import { Heading } from '../typography/heading/heading';
+import { VerticalSpacing } from '../vertical-spacing';
 import { Col } from './col';
 import { Row, RowProps } from './row';
 
 /**
- * Row and Col components are inspired by bootstrap V5 Grid System. <br/> U can use different bootstrap grid classes
- * through component props. https://getbootstrap.com/docs/5.1/layout/grid/
+ * [Zeroheight ↗](https://zeroheight.com/1ee8444b7/p/24da19-grid) <br/>
+ * [Boostrap docs ↗](https://getbootstrap.com/docs/5.1/layout/grid/) <br/>
+ * Row and Col components are inspired by Bootstrap V5 Grid System. <br/> You can use different Bootstrap grid classes
+ * through component props.
  */
 const meta: Meta<typeof Row> = {
-  title: 'Community/Grid',
+  title: 'Tedi-Ready/Content/Grid',
   component: Row,
   subcomponents: { Col: Col } as never,
   parameters: {
-    docs: {
-      page: () => (
-        <>
-          <Title />
-          <Subtitle>Grid that is built with Row and Col components</Subtitle>
-          <Description />
-          <Notification>
-            Row component should be always used with Col components as direct children. And Col component should always
-            have Row as wrapper!
-          </Notification>
-          <Primary />
-          <Controls />
-          <Stories includePrimary={false} />
-        </>
-      ),
+    status: {
+      type: 'devComponent',
     },
   },
 };

@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import React from 'react';
 
-import { DEVICE_SIZES } from '../commonTypes';
+import { DEVICE_SIZES } from '../../types/commonTypes';
 import { ColProps } from './col';
 import styles from './grid.module.scss';
 import { RowContext } from './row-context';
@@ -162,7 +162,7 @@ export const Row = (props: RowProps): JSX.Element => {
 
   return (
     <RowContext.Provider value={{ element: Element }}>
-      <Element data-name="row" {...rest} className={BEM()}>
+      <Element data-name="row" {...rest} className={BEM()} data-testid="row">
         {children}
       </Element>
     </RowContext.Provider>

@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import { useContext } from 'react';
 
-import { Col, Row } from '../grid';
+import { Col, Row } from '../../../../tedi/src/components/grid';
 import Icon from '../icon/icon';
 import { IModalContext } from '../modal';
 import Separator from '../separator/separator';
@@ -67,7 +67,7 @@ export function TableOfContentsItem(props: TableOfContentsItemProps & { handleCl
 
   return (
     <>
-      <Col>
+      <Col role="treeitem" aria-expanded={id && openItems?.includes(id) ? true : false}>
         <Row gutter={2}>
           {showIcons && (
             <>
@@ -92,7 +92,14 @@ export function TableOfContentsItem(props: TableOfContentsItemProps & { handleCl
         openItems?.includes(id) &&
         children?.map((child, i) => (
           <Col key={`${id}-${i}`}>
-            <Row element="ul" gutterX={0} gutterY={2} direction="column" className={styles['table-of-contents__child']}>
+            <Row
+              role="treeitem"
+              element="ul"
+              gutterX={0}
+              gutterY={2}
+              direction="column"
+              className={styles['table-of-contents__child']}
+            >
               <TableOfContentsItem key={`${id}-${i}`} {...child} handleCloseModal={handleCloseModal} />
             </Row>
           </Col>

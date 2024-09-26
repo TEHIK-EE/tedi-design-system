@@ -1,6 +1,7 @@
 import cn from 'classnames';
 import React from 'react';
 
+import { DEVICE_SIZES } from '../../types/commonTypes';
 import styles from './grid.module.scss';
 import { RowContext } from './row-context';
 
@@ -95,8 +96,6 @@ export interface ColProps extends ColSpec, React.HTMLAttributes<HTMLElement> {
   onClick?: (e: React.MouseEvent<HTMLDivElement | HTMLSpanElement | HTMLLinkElement>) => void;
 }
 
-const DEVICE_SIZES = ['xxl', 'xl', 'lg', 'md', 'sm', 'xs'] as const;
-
 export const Col = (props: ColProps): JSX.Element => {
   const {
     className,
@@ -168,7 +167,7 @@ export const Col = (props: ColProps): JSX.Element => {
   };
 
   return (
-    <Element data-name="col" {...rest} className={BEM()} onClick={onClick}>
+    <Element data-name="col" {...rest} className={BEM()} onClick={onClick} data-testid="col">
       {children}
     </Element>
   );

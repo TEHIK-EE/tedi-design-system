@@ -1,8 +1,9 @@
 import { Title } from '@storybook/blocks';
 import { ColumnDef, createColumnHelper } from '@tanstack/react-table';
 
+import { Col, Row } from '../../../../tedi/src/components/grid';
 import { VerticalSpacing } from '../../../../tedi/src/components/vertical-spacing';
-import { Col, Heading, Row, Separator, Table } from '../../index';
+import { Heading, Separator, Table } from '../../index';
 
 const Spacing = () => {
   return (

@@ -55,9 +55,9 @@
 
   .textfield--invalid &,
   &[aria-invalid='true'] {
-    border-color: var(--color-important-main);
+    border-color: var(--color-important-active);
 
-    @include textfield-focus(var(--color-important-main));
+    @include textfield-focus(var(--color-important-active));
   }
 
   .textfield--valid & {
