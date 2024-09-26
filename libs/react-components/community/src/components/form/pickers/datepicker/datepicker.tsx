@@ -90,6 +90,11 @@ export interface DatePickerProps extends Omit<TextFieldProps, 'defaultValue' | '
    * Callback fired when the popup requests to be closed.
    */
   onClose?: () => void;
+  /**
+   * CSS media query when `Mobile` mode will be changed to `Desktop`.
+   * @default '@media (min-width: 768px)'
+   */
+  desktopModeMediaQuery?: string;
 }
 
 export const DatePicker = (props: DatePickerProps): JSX.Element => {
@@ -114,6 +119,7 @@ export const DatePicker = (props: DatePickerProps): JSX.Element => {
     onError,
     loading,
     onClose,
+    desktopModeMediaQuery = '@media (min-width: 768px)',
     ...rest
   } = props;
   const [innerDate, setInnerDate] = React.useState<DatepickerValue>(defaultValue || null);
@@ -176,6 +182,7 @@ export const DatePicker = (props: DatePickerProps): JSX.Element => {
       onError={onError}
       loading={loading}
       views={views}
+      desktopModeMediaQuery={desktopModeMediaQuery}
     />
   );
 };
