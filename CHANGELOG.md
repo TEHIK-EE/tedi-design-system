@@ -1,3 +1,10 @@
+# [6.32.0-rc.9](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.32.0-rc.8...v6.32.0-rc.9) (2024-09-26)
+
+
+### Features
+
+* **list:** TEDI-202 Component List [#177](https://github.com/TEHIK-EE/tedi-design-system/issues/177) ([#195](https://github.com/TEHIK-EE/tedi-design-system/issues/195)) ([d931d72](https://github.com/TEHIK-EE/tedi-design-system/commit/d931d72622d1f86b5142694fb63ebfb57c80658f))
+
 # [6.32.0-rc.8](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.32.0-rc.7...v6.32.0-rc.8) (2024-09-24)
 
 
