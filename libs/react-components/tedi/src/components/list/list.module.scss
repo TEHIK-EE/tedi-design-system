@@ -38,9 +38,9 @@
   counter-reset: item;
 
   .list__item {
-    @include responsive-styles(margin, list-list-item-margin-y);
-
     counter-increment: item;
+
+    @include responsive-styles(margin, list-list-item-margin-y);
 
     &::before {
       content: counters(item, '.') '. ';
