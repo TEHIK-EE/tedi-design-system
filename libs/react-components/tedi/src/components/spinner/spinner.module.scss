@@ -1,11 +1,13 @@
+@import '../../styles/mixins';
+
 $spinner-colors: (
   'primary': 'loader-spinner-color-primary',
   'secondary': 'loader-spinner-color-secondary',
 );
 $spinner-sizes: (
-  10: var(--loader-spinner-sizing-sm),
-  16: var(--loader-spinner-sizing-md),
-  48: var(--loader-spinner-sizing-lg),
+  10: loader-spinner-sizing-sm,
+  16: loader-spinner-sizing-md,
+  48: loader-spinner-sizing-lg,
 );
 
 .tedi-spinner {
@@ -24,8 +26,8 @@ $spinner-sizes: (
 
   @each $size, $var in $spinner-sizes {
     &--size-#{$size} {
-      width: #{$size}px;
-      height: #{$size}px;
+      @include responsive-styles(width, $var);
+      @include responsive-styles(height, $var);
     }
   }
 }

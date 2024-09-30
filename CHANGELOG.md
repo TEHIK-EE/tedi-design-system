@@ -1,3 +1,112 @@
+# [7.0.0](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.31.0...v7.0.0) (2024-09-26)
+
+
+### Bug Fixes
+
+* **colors:** [#179](https://github.com/TEHIK-EE/tedi-design-system/issues/179) Community colors improvements, WCAG fixes ([#185](https://github.com/TEHIK-EE/tedi-design-system/issues/185)) ([434c722](https://github.com/TEHIK-EE/tedi-design-system/commit/434c722fa321c2c1078a0b8219143dbe6ed88e2b))
+* **general:** Changed built package structure to fix type imports [#194](https://github.com/TEHIK-EE/tedi-design-system/issues/194) ([#196](https://github.com/TEHIK-EE/tedi-design-system/issues/196)) ([f96453d](https://github.com/TEHIK-EE/tedi-design-system/commit/f96453d17868de92e8f89f89d9b5f3990f4a0f84))
+* **general:** Modify commitlint rules to include GitHub issue key [#172](https://github.com/TEHIK-EE/tedi-design-system/issues/172) ([a6ec381](https://github.com/TEHIK-EE/tedi-design-system/commit/a6ec381d0bab88e915cffa3e17c3c931436eb472))
+* **general:** Reverted built package structure changes [#194](https://github.com/TEHIK-EE/tedi-design-system/issues/194) ([#198](https://github.com/TEHIK-EE/tedi-design-system/issues/198)) ([a651bea](https://github.com/TEHIK-EE/tedi-design-system/commit/a651bea76c08bf4ef721e6dc0e8c208d9f904a61))
+* **list:** VerticalSpacing margin override fixes [#177](https://github.com/TEHIK-EE/tedi-design-system/issues/177) ([#197](https://github.com/TEHIK-EE/tedi-design-system/issues/197)) ([3915619](https://github.com/TEHIK-EE/tedi-design-system/commit/3915619fc531c993c0498d9ba838b094050b1a48))
+* **stepper:** [#70](https://github.com/TEHIK-EE/tedi-design-system/issues/70) - Background bleed on different zoom levels, active arrow scaling ([#186](https://github.com/TEHIK-EE/tedi-design-system/issues/186)) ([972e090](https://github.com/TEHIK-EE/tedi-design-system/commit/972e090c76ec747777da5dd3abe4a43b5b8328a6))
+* TEDI-381 Organize TEDI CSS variables ([#168](https://github.com/TEHIK-EE/tedi-design-system/issues/168)) ([#175](https://github.com/TEHIK-EE/tedi-design-system/issues/175)) ([5037137](https://github.com/TEHIK-EE/tedi-design-system/commit/5037137092942e557870d389dc4c7f262809a26d))
+
+
+### Features
+
+* [#163](https://github.com/TEHIK-EE/tedi-design-system/issues/163) add missing attribute ([7962566](https://github.com/TEHIK-EE/tedi-design-system/commit/796256603e96fa801d52d17e0142fd47811045bd))
+* **ellipsis:** add showTooltip property ([#170](https://github.com/TEHIK-EE/tedi-design-system/issues/170)) ([37e5e70](https://github.com/TEHIK-EE/tedi-design-system/commit/37e5e70f716eb110e27e71e5d4433979fc26acfb)), closes [#169](https://github.com/TEHIK-EE/tedi-design-system/issues/169)
+* **grid:** TEDI-375 Component Grid [#165](https://github.com/TEHIK-EE/tedi-design-system/issues/165) ([#176](https://github.com/TEHIK-EE/tedi-design-system/issues/176)) ([d13624c](https://github.com/TEHIK-EE/tedi-design-system/commit/d13624c6a719069965585db0d7407e845b488db4))
+* **list:** TEDI-202 Component List [#177](https://github.com/TEHIK-EE/tedi-design-system/issues/177) ([#195](https://github.com/TEHIK-EE/tedi-design-system/issues/195)) ([d931d72](https://github.com/TEHIK-EE/tedi-design-system/commit/d931d72622d1f86b5142694fb63ebfb57c80658f))
+* **tableOfContents:** [#163](https://github.com/TEHIK-EE/tedi-design-system/issues/163) add roles ([0e40037](https://github.com/TEHIK-EE/tedi-design-system/commit/0e40037af406e632682f2ae733d9340edf9097d5))
+* **tag:** [#163](https://github.com/TEHIK-EE/tedi-design-system/issues/163) add id ([61a72a0](https://github.com/TEHIK-EE/tedi-design-system/commit/61a72a017a99972a7a2bab9d77d733f6db7def5e))
+* **Tag:** [#163](https://github.com/TEHIK-EE/tedi-design-system/issues/163) add id to Tag element ([553aa52](https://github.com/TEHIK-EE/tedi-design-system/commit/553aa52119f5f3e3baacdbd1c184f5fc7474cb14))
+* **vertical-spacing:** Add BreakpointSupport [#182](https://github.com/TEHIK-EE/tedi-design-system/issues/182) ([#183](https://github.com/TEHIK-EE/tedi-design-system/issues/183)) ([9582bd6](https://github.com/TEHIK-EE/tedi-design-system/commit/9582bd66b93f4210b77cf1917ffc249c2c777cb9))
+
+
+### BREAKING CHANGES
+
+* **general:** List, VerticalSpacing, Grid components imports changed from community to tedi
+
+Co-authored-by: Airike Jaska <airike.jaska@bitweb.ee>
+
+# [7.0.0-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.32.0-rc.11...v7.0.0-rc.1) (2024-09-26)
+
+
+### Bug Fixes
+
+* **general:** Reverted built package structure changes [#194](https://github.com/TEHIK-EE/tedi-design-system/issues/194) ([#198](https://github.com/TEHIK-EE/tedi-design-system/issues/198)) ([a651bea](https://github.com/TEHIK-EE/tedi-design-system/commit/a651bea76c08bf4ef721e6dc0e8c208d9f904a61))
+
+
+### BREAKING CHANGES
+
+* **general:** List, VerticalSpacing, Grid components imports changed from community to tedi
+
+Co-authored-by: Airike Jaska <airike.jaska@bitweb.ee>
+
+# [6.32.0-rc.11](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.32.0-rc.10...v6.32.0-rc.11) (2024-09-26)
+
+
+### Bug Fixes
+
+* **general:** Changed built package structure to fix type imports [#194](https://github.com/TEHIK-EE/tedi-design-system/issues/194) ([#196](https://github.com/TEHIK-EE/tedi-design-system/issues/196)) ([f96453d](https://github.com/TEHIK-EE/tedi-design-system/commit/f96453d17868de92e8f89f89d9b5f3990f4a0f84))
+
+# [6.32.0-rc.10](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.32.0-rc.9...v6.32.0-rc.10) (2024-09-26)
+
+
+### Bug Fixes
+
+* **list:** VerticalSpacing margin override fixes [#177](https://github.com/TEHIK-EE/tedi-design-system/issues/177) ([#197](https://github.com/TEHIK-EE/tedi-design-system/issues/197)) ([3915619](https://github.com/TEHIK-EE/tedi-design-system/commit/3915619fc531c993c0498d9ba838b094050b1a48))
+
+# [6.32.0-rc.9](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.32.0-rc.8...v6.32.0-rc.9) (2024-09-26)
+
+
+### Features
+
+* **list:** TEDI-202 Component List [#177](https://github.com/TEHIK-EE/tedi-design-system/issues/177) ([#195](https://github.com/TEHIK-EE/tedi-design-system/issues/195)) ([d931d72](https://github.com/TEHIK-EE/tedi-design-system/commit/d931d72622d1f86b5142694fb63ebfb57c80658f))
+
+# [6.32.0-rc.8](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.32.0-rc.7...v6.32.0-rc.8) (2024-09-24)
+
+
+### Bug Fixes
+
+* **stepper:** [#70](https://github.com/TEHIK-EE/tedi-design-system/issues/70) - Background bleed on different zoom levels, active arrow scaling ([#186](https://github.com/TEHIK-EE/tedi-design-system/issues/186)) ([972e090](https://github.com/TEHIK-EE/tedi-design-system/commit/972e090c76ec747777da5dd3abe4a43b5b8328a6))
+
+# [6.32.0-rc.7](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.32.0-rc.6...v6.32.0-rc.7) (2024-09-24)
+
+
+### Bug Fixes
+
+* **colors:** [#179](https://github.com/TEHIK-EE/tedi-design-system/issues/179) Community colors improvements, WCAG fixes ([#185](https://github.com/TEHIK-EE/tedi-design-system/issues/185)) ([434c722](https://github.com/TEHIK-EE/tedi-design-system/commit/434c722fa321c2c1078a0b8219143dbe6ed88e2b))
+
+# [6.32.0-rc.6](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.32.0-rc.5...v6.32.0-rc.6) (2024-09-23)
+
+
+### Features
+
+* **vertical-spacing:** Add BreakpointSupport [#182](https://github.com/TEHIK-EE/tedi-design-system/issues/182) ([#183](https://github.com/TEHIK-EE/tedi-design-system/issues/183)) ([9582bd6](https://github.com/TEHIK-EE/tedi-design-system/commit/9582bd66b93f4210b77cf1917ffc249c2c777cb9))
+
+# [6.32.0-rc.5](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.32.0-rc.4...v6.32.0-rc.5) (2024-09-23)
+
+
+### Features
+
+* **grid:** TEDI-375 Component Grid [#165](https://github.com/TEHIK-EE/tedi-design-system/issues/165) ([#176](https://github.com/TEHIK-EE/tedi-design-system/issues/176)) ([d13624c](https://github.com/TEHIK-EE/tedi-design-system/commit/d13624c6a719069965585db0d7407e845b488db4))
+
+# [6.32.0-rc.4](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.32.0-rc.3...v6.32.0-rc.4) (2024-09-16)
+
+
+### Bug Fixes
+
+* TEDI-381 Organize TEDI CSS variables ([#168](https://github.com/TEHIK-EE/tedi-design-system/issues/168)) ([#175](https://github.com/TEHIK-EE/tedi-design-system/issues/175)) ([5037137](https://github.com/TEHIK-EE/tedi-design-system/commit/5037137092942e557870d389dc4c7f262809a26d))
+
+# [6.32.0-rc.3](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.32.0-rc.2...v6.32.0-rc.3) (2024-09-06)
+
+
+### Bug Fixes
+
+* **general:** Modify commitlint rules to include GitHub issue key [#172](https://github.com/TEHIK-EE/tedi-design-system/issues/172) ([a6ec381](https://github.com/TEHIK-EE/tedi-design-system/commit/a6ec381d0bab88e915cffa3e17c3c931436eb472))
+
 # [6.32.0-rc.2](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.32.0-rc.1...v6.32.0-rc.2) (2024-09-05)
 
 

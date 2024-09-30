@@ -1,13 +1,12 @@
 import { faker } from '@faker-js/faker';
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 
+import { Col, Row } from '../../../../tedi/src/components/grid';
 import { VerticalSpacing } from '../../../../tedi/src/components/vertical-spacing';
 import Affix, { AffixPosition } from '../affix/affix';
 import Button from '../button/button';
 import Card from '../card/card';
 import CardContent from '../card/card-content/card-content';
-import Col from '../grid/col';
-import Row from '../grid/row';
 import StretchContent, { StretchContentProps } from '../stretch-content/stretch-content';
 import Text from '../typography/text/text';
 import { HideOnScroll, HideOnScrollProps } from './hide-on-scroll';

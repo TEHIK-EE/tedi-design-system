@@ -98,17 +98,17 @@ $border-width: 1px;
     .number-field__button:disabled,
     .number-field__button:hover,
     .number-field__input-wrapper {
-      border-color: var(--color-important-main);
+      border-color: var(--color-important-active);
     }
 
     .number-field__input-wrapper {
       &:focus-within {
-        outline-color: var(--color-important-main);
+        outline-color: var(--color-important-active);
       }
 
       &:active {
         z-index: 2;
-        border-color: var(--color-important-main);
+        border-color: var(--color-important-active);
         border-radius: 0;
         outline: none;
       }
