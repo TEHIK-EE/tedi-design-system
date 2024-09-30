@@ -162,7 +162,7 @@ export const Row = (props: RowProps): JSX.Element => {
 
   return (
     <RowContext.Provider value={{ element: Element }}>
-      <Element data-name="row" {...rest} className={BEM()} data-testid="row">
+      <Element data-name="row" {...rest} className={BEM()}>
         {children}
       </Element>
     </RowContext.Provider>
