@@ -25,7 +25,6 @@ $breakpoints: (
   }
 }
 
-// Mixin for applying responsive styles
 @mixin responsive-styles($property, $names, $exclude: null, $calc: null) {
   $variable-names: ();
 
@@ -35,8 +34,9 @@ $breakpoints: (
     $variable-names: $names;
   }
 
-  // Use construct-variables with calc
-  #{$property}: #{construct-variables($variable-names, mobile, $calc)};
+  & {
+    #{$property}: #{construct-variables($variable-names, mobile, $calc)};
+  }
 
   @if $exclude != 'tablet' {
     @media (min-width: map-get($breakpoints, sm)) {
