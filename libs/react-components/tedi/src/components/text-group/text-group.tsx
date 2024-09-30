@@ -16,7 +16,7 @@ type TextGroupBreakpointProps = {
    * Width for the label (e.g., '200px', '30%', etc.)
    * @default 'auto'
    */
-  labelWidth?: string;
+  labelWidth?: string | number;
   /**
    * VerticalSpacing props, if needed different spacing between items
    */
@@ -44,14 +44,15 @@ export const TextGroup = (props: TextGroupProps): JSX.Element => {
     label,
     value,
     labelWidth = 'auto',
-    verticalSpacing = { size: 0.5 },
+    verticalSpacing = { size: 0.25 },
     className,
     type = 'vertical',
   } = getCurrentBreakpointProps<TextGroupProps>(props);
   const textGroupBEM = cn(styles['tedi-text-group'], styles[`tedi-text-group--${type}`], className);
+  const labelWidthStyle = typeof labelWidth === 'number' ? `${labelWidth}%` : labelWidth;
 
   return (
-    <dl className={textGroupBEM} style={{ '--label-width': labelWidth }} role="group">
+    <dl className={textGroupBEM} style={{ '--label-width': labelWidthStyle }} role="group">
       <VerticalSpacingItem element="dt" className={cn(styles['tedi-text-group__label'])} {...verticalSpacing}>
         {label}
       </VerticalSpacingItem>
