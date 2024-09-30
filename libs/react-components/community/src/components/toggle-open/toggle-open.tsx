@@ -1,11 +1,11 @@
 import cn from 'classnames';
 import React from 'react';
 
-import Icon, { IconProps } from '../icon/icon';
-import Text from '../typography/text/text';
+import Button, { ButtonProps } from '../button/button';
+import { IconProps } from '../icon/icon';
 import styles from './toggle-open.module.scss';
 
-export interface ToggleOpenProps {
+export interface ToggleOpenProps extends Omit<ButtonProps, 'children' | 'iconRight' | 'as'> {
   /**
    * Name on the button to open the item
    */
@@ -18,70 +18,40 @@ export interface ToggleOpenProps {
    * If the element currently open
    */
   isOpen: boolean;
-  visualType?: string;
   /**
-   * Icon to show on the right
+   * Name of the icon we want to show on the right.
+   * Overidden from ButtonProps, because we dont support string as icon name here
    */
   iconRight?: Partial<IconProps>;
-  onClick?: () => void;
-  isActive?: boolean;
-  className?: string;
-  color?: 'inverted';
-  tabIndex?: number;
-  size?: 'small';
+  /**
+   * If the element is a button or a div
+   * @default button
+   */
+  as?: 'button' | 'div';
 }
-
 export const ToggleOpen = ({
   openText,
   closeText,
   isOpen,
-  onClick,
-  className,
-  visualType,
   iconRight,
-  isActive,
-  color,
-  tabIndex,
-  size,
+  as = 'button',
+  ...rest
 }: ToggleOpenProps): JSX.Element => {
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      onClick?.();
-    }
-  };
-
-  const containerClassName = cn(
-    styles.toggleContainer,
-    styles[visualType || 'default'],
-    { [styles.active]: isActive },
-    className
-  );
-
-  const textClassName = cn(styles.toggleText, styles[`toggleText-${visualType}`], size && styles[`toggleText-${size}`]);
-
-  const iconClassName = cn(
-    styles.toggleIcon,
-    styles[`toggleIcon-${visualType}`],
+  const ToggleOpenBEM = cn(
     { [styles['toggle--open']]: isOpen },
     { [styles['toggle--close']]: !isOpen },
-    iconRight?.className,
-    color && styles[`toggleIcon-${color}`]
+    iconRight?.className
   );
+
   return (
-    <div className={containerClassName} onClick={onClick} onKeyDown={handleKeyDown} tabIndex={tabIndex}>
-      <div className={styles.contentWrapper}>
-        <Text element="span" className={textClassName}>
-          {isOpen ? closeText : openText}
-        </Text>
-        <Icon
-          {...iconRight}
-          size={iconRight?.size || 16}
-          className={iconClassName}
-          name={iconRight?.name || 'expand_more'}
-        />
-      </div>
-    </div>
+    <Button
+      data-name="button"
+      as={as as 'button' | 'div'}
+      iconRight={{ ...iconRight, className: ToggleOpenBEM, name: 'expand_more' }}
+      {...rest}
+    >
+      {isOpen ? closeText : openText}
+    </Button>
   );
 };
 export default ToggleOpen;

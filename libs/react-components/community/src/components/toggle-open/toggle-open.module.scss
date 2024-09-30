@@ -1,126 +1,14 @@
-.contentWrapper {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  min-width: 1.5rem;
-  min-height: 1.5rem;
-}
-
-.toggleContainer {
-  display: inline-flex;
-  align-items: center;
-  height: 2.5rem;
-  padding: 0.5rem 1.625rem;
-  cursor: pointer;
-  border: 1px solid;
-  border-radius: 1.5rem;
-
-  &.default {
-    color: var(--color-black);
-    background-color: var(--color-bg-subtle);
-    border-color: var(--general-text-primary);
-  }
-
-  &.primary {
-    color: var(--color-text-inverted);
-    background-color: var(--color-primary-main);
-    border-color: var(--color-primary-main);
-
-    &:hover {
-      background-color: var(--color-primary-active);
-      border-color: var(--color-primary-active);
-    }
-  }
-
-  &.secondary {
-    background-color: var(--color-white);
-    border-color: var(--color-border-contrast);
-
-    &:hover {
-      background-color: var(--alpha-primary-08);
-      border-color: var(--color-primary-main);
-    }
-  }
-
-  &.tertiary {
-    padding: 0 0.75rem;
-    color: var(--color-primary-main);
-    border-color: var(--color-transparent);
-
-    &:hover {
-      background-color: var(--alpha-primary-08);
-    }
-  }
-
-  &.link {
-    height: auto;
-    padding: 0;
-    color: var(--color-primary-main);
-    border: 0;
-
-    &:hover {
-      .toggleText {
-        text-decoration: underline;
-      }
-
-      .toggleIcon {
-        text-decoration: none;
-      }
-    }
-  }
-}
-
-.toggleText {
-  &-primary {
-    color: var(--color-white);
-  }
-
-  &-secondary,
-  &-tertiary,
-  &-link {
-    color: var(--color-primary-main);
-  }
-
-  &-small {
-    font-size: 0.875rem;
-  }
-}
-
-.toggleIcon {
-  display: inline-block;
-  width: auto;
-  min-width: 1rem;
-  height: auto;
-  min-height: 1rem;
+.toggle--open {
   margin-left: 0.5rem;
   transition-timing-function: ease-in-out;
   transition-duration: 600ms;
   transition-property: transform;
+  transform: rotate(180deg);
+}
 
-  &-primary {
-    color: var(--color-white);
-  }
-
-  &-secondary,
-  &-tertiary,
-  &-link {
-    color: var(--color-primary-main);
-  }
-
-  &-link {
-    margin-left: 0.25rem;
-  }
-
-  &-inverted {
-    color: var(--color-white);
-  }
-
-  &.toggle--open {
-    transform: rotate(180deg);
-  }
-
-  &.toggle--close {
-    transform: rotate(0deg);
-  }
+.toggle--close {
+  margin-left: 0.5rem;
+  transition-timing-function: ease-in-out;
+  transition-duration: 600ms;
+  transition-property: transform;
 }
