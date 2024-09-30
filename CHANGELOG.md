@@ -1,3 +1,10 @@
+## [7.0.1-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/v7.0.0...v7.0.1-rc.1) (2024-09-30)
+
+
+### Bug Fixes
+
+* **grid:** Removed test-id attribute and improved unit tests [#201](https://github.com/TEHIK-EE/tedi-design-system/issues/201) ([#202](https://github.com/TEHIK-EE/tedi-design-system/issues/202)) ([e980eb5](https://github.com/TEHIK-EE/tedi-design-system/commit/e980eb52096edac4e35477f76c9a68e0c0756d32))
+
 # [7.0.0](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.31.0...v7.0.0) (2024-09-26)
 
 
