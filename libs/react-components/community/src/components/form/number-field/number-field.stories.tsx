@@ -90,7 +90,7 @@ export const Invalid: Story = {
       <VerticalSpacing size={2}>
         <Row>
           <Col>
-            <NumberField {...args} id="example-5" label={'With "invalid" prop'} invalid={true}></NumberField>
+            <NumberField {...args} id="example-5" label="With 'invalid' prop" invalid={true}></NumberField>
           </Col>
         </Row>
         <Row>
@@ -98,7 +98,7 @@ export const Invalid: Story = {
             <NumberField
               {...args}
               id="example-6"
-              label={'With helper "type: "error"" prop'}
+              label='With helper "type: error" prop'
               helper={{ id: 'example-3', text: 'Error text here', type: 'error' }}
             ></NumberField>
           </Col>
