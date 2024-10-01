@@ -25,7 +25,7 @@ export interface SpinnerProps {
    * Label for screen-readers
    * If omitted then the spinner is hidden for screen-readers
    */
-  label: string;
+  label?: string;
   /**
    * Position of the spinner
    */
@@ -44,13 +44,10 @@ export const Spinner = (props: SpinnerProps): JSX.Element => {
   );
 
   return (
-    <span className={spinnerBEM} role="status" aria-live="polite">
+    <span className={spinnerBEM} role="status" aria-live="polite" aria-label={label}>
       <svg viewBox="22 22 44 44" aria-hidden="true">
         <circle className={styles['tedi-spinner--inner']} cx="44" cy="44" r="20" fill="none"></circle>
       </svg>
-      <label className="screen-reader-only">{label}</label>
     </span>
   );
 };
-
-Spinner.displayName = 'Spinner';

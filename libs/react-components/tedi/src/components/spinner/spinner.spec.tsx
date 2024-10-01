@@ -24,10 +24,10 @@ describe('Spinner component', () => {
     expect(spinner).toHaveClass('tedi-spinner--absolute');
   });
 
-  it('shows label for screen readers if label prop is provided', () => {
-    const { container } = render(<Spinner label="Loading..." />);
-    const srOnlyText = container.querySelector('.screen-reader-only');
+  it('applies aria-label for screen readers if label prop is provided', () => {
+    const { getByRole } = render(<Spinner label="Loading..." />);
+    const spinner = getByRole('status');
 
-    expect(srOnlyText).toHaveTextContent('Loading...');
+    expect(spinner).toHaveAttribute('aria-label', 'Loading...');
   });
 });
