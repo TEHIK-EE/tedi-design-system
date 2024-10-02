@@ -3,7 +3,7 @@ import weekday from 'dayjs/plugin/weekday';
 import React from 'react';
 
 import { AccessibilityProvider } from '../community/src/providers/accessibility-provider/accessibility-provider';
-import { LabelProvider, LabelProviderProps } from '../community/src/providers/label-provider';
+import { LabelProvider, LabelProviderProps } from '../tedi/src/providers/label-provider';
 
 import 'dayjs/locale/et';
 

@@ -54,5 +54,4 @@ export * from './components/placeholder/placeholder';
 
 export * from './helpers';
 
-export * from './providers/label-provider';
 export * from './providers/style-provider/style-provider';

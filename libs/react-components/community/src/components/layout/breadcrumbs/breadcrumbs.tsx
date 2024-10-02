@@ -1,9 +1,9 @@
 import cn from 'classnames';
 import React from 'react';
 
+import { useLabels } from '../../../../../tedi/src/providers/label-provider';
 import useLayout, { Layouts } from '../../../helpers/hooks/use-layout';
 import { AllowedHTMLTags } from '../../../helpers/polymorphic/types';
-import { useLabels } from '../../../providers/label-provider';
 import { IntentionalAny } from '../../../types';
 import Print from '../../print/print';
 import styles from './breadcrumbs.module.scss';

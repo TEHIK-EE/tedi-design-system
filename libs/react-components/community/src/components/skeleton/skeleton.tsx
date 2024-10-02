@@ -1,8 +1,8 @@
 import cn from 'classnames';
 import React from 'react';
 
+import { useLabels } from '../../../../tedi/src/providers/label-provider';
 import { useDeclareLoader } from '../../providers/accessibility-provider/use-declare-loader';
-import { useLabels } from '../../providers/label-provider';
 import styles from './skeleton.module.scss';
 
 export interface SkeletonProps {

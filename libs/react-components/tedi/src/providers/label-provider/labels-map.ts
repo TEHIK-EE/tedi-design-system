@@ -1,8 +1,7 @@
 import type { CalendarPickerView, ClockPickerView } from '@mui/x-date-pickers';
 import type { MuiPickersAdapter } from '@mui/x-date-pickers/internals/models';
 
-import type { TimePickerValue } from '../../components/form/pickers';
-import type { DatepickerValue } from '../../components/form/pickers';
+import type { DatepickerValue, TimePickerValue } from '../../../../community/src/components/form/pickers';
 
 interface SharedLabel {
   description: string;

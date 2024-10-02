@@ -15,7 +15,7 @@ import {
 import cn from 'classnames';
 import React from 'react';
 
-import { useLabels } from '../../providers/label-provider';
+import { useLabels } from '../../../../tedi/src/providers/label-provider';
 import { Button, ButtonProps } from '../button/button';
 import styles from './dropdown.module.scss';
 

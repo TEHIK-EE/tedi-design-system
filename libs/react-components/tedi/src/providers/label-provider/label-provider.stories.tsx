@@ -1,13 +1,13 @@
 import { Meta, StoryFn } from '@storybook/react';
 
 import StorybookDecorator from '../../../../.storybook/storybook-decorator';
-import Text from '../../components/typography/text/text';
-import { IntentionalAny } from '../../types';
+import { Text } from '../../components/typography/text/text';
+import { UnknownType } from '../../types/commonTypes';
 import LabelProvider, { LabelProviderProps } from './label-provider';
 import { useLabels } from './use-labels';
 
 export default {
-  title: 'Community/LabelProvider',
+  title: 'TEDI-Ready/Providers/LabelProvider',
   component: LabelProvider,
   decorators: [
     (Story, options) => {
@@ -28,7 +28,7 @@ const Template: StoryFn<LabelProviderProps> = (args) => {
     <>
       <p>
         {getLabel('close')}
-        <Text color="muted" modifiers="small" element="span">
+        <Text color="secondary" modifiers="small" element="span">
           (Custom label provided by Application)
         </Text>
       </p>
@@ -36,8 +36,8 @@ const Template: StoryFn<LabelProviderProps> = (args) => {
       <p>4 {typeof pluralLabel === 'string' ? pluralLabel : pluralLabel(4)}</p>
       <p>
         {/* Intentional missing label to showcase error in console */}
-        {getLabel('missing.label' as IntentionalAny)} -{' '}
-        <Text color="muted" modifiers="small" element="span">
+        {getLabel('missing.label' as UnknownType)} -{' '}
+        <Text color="secondary" modifiers="small" element="span">
           (Error in console that label is missing for key: missing.label)
         </Text>
       </p>
