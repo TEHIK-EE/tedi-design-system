@@ -1,3 +1,10 @@
+## [7.0.1-rc.2](https://github.com/TEHIK-EE/tedi-design-system/compare/v7.0.1-rc.1...v7.0.1-rc.2) (2024-10-02)
+
+
+### Bug Fixes
+
+* **icon:** Remove material-symbols font-size to respect custom Icon sizes [#208](https://github.com/TEHIK-EE/tedi-design-system/issues/208) ([#209](https://github.com/TEHIK-EE/tedi-design-system/issues/209)) ([b4e1d61](https://github.com/TEHIK-EE/tedi-design-system/commit/b4e1d618b1b1c4346684340cbe92f484e471d4ea))
+
 ## [7.0.1-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/v7.0.0...v7.0.1-rc.1) (2024-09-30)
 
 
