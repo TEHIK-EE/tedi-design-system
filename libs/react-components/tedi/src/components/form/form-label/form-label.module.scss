@@ -1,0 +1,24 @@
+@import '../../../styles/mixins';
+
+.form-label {
+  display: block;
+
+  &--hidden {
+    @include visually-hidden;
+  }
+
+  &--hidden-keep-space {
+    visibility: hidden;
+  }
+}
+
+.form-label__required {
+  margin-left: 0.25rem;
+  color: var(--general-status-danger-text);
+
+  @include print-grayscale;
+}
+
+.form-label--small {
+  font-size: 0.875rem;
+}
