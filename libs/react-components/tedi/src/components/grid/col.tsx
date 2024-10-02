@@ -167,7 +167,7 @@ export const Col = (props: ColProps): JSX.Element => {
   };
 
   return (
-    <Element data-name="col" {...rest} className={BEM()} onClick={onClick} data-testid="col">
+    <Element data-name="col" {...rest} className={BEM()} onClick={onClick}>
       {children}
     </Element>
   );
