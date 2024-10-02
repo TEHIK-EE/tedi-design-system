@@ -9,7 +9,7 @@ $badge-status-colors: ('inactive', 'success', 'danger', 'warning');
   --status-badge-icon-secondary: var(--orange-700);
 }
 
-.tedi-badge {
+.tedi-status-badge {
   position: relative;
   display: inline-flex;
   align-items: center;
