@@ -20,11 +20,6 @@ export interface FormLabelProps {
    */
   hideLabel?: boolean | 'keep-space';
   /**
-   * The text to display alongside the label when the input field is marked as required.
-   * By default, an asterisk (*) is used to indicate required fields.
-   */
-  requiredLabel?: string;
-  /**
    * Indicates whether the input field is required.
    * If set to `true`, the required indicator (if provided) will be displayed next to the label.
    */
@@ -47,21 +42,16 @@ export interface FormLabelProps {
 }
 
 export const FormLabel = (props: FormLabelProps): JSX.Element => {
-  const {
-    label,
-    hideLabel,
-    required,
-    requiredLabel,
-    id,
-    className,
-    renderWithoutLabel,
-    size = 'default',
-    ...rest
-  } = props;
+  const { label, hideLabel, required, id, renderWithoutLabel, size = 'default', className, ...rest } = props;
 
-  const FormLabelBEM = cn(styles['form-label'], className, styles[`form-label--${size}`], {
-    [styles[`form-label--hidden${hideLabel === 'keep-space' ? '-keep-space' : ''}`]]: hideLabel,
-  });
+  const FormLabelBEM = cn(
+    styles['form-label'],
+    styles[`form-label--${size}`],
+    {
+      [styles[`form-label--hidden${hideLabel === 'keep-space' ? '-keep-space' : ''}`]]: hideLabel,
+    },
+    className
+  );
 
   return (
     <Label
@@ -69,6 +59,7 @@ export const FormLabel = (props: FormLabelProps): JSX.Element => {
       className={FormLabelBEM}
       htmlFor={id}
       required={required}
+      isSmall={size === 'small'}
       {...rest}
     >
       {label}

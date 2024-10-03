@@ -25,22 +25,13 @@ export const Default: Story = {
   },
 };
 
-export const Mandatory: Story = {
+export const Required: Story = {
   render: Template,
-  name: 'Mandatory field',
+  name: 'Required field',
 
   args: {
     children: 'Active ingredient',
     required: true,
-  },
-};
-
-export const Tooltip: Story = {
-  render: Template,
-  name: 'With info tooltip',
-
-  args: {
-    children: 'Active ingredient',
   },
 };
 
@@ -50,17 +41,36 @@ export const DefaultBold: Story = {
 
   args: {
     children: 'Active ingredient',
-    bold: true,
+    isBold: true,
   },
 };
 
-export const MandatoryBold: Story = {
+export const RequiredBold: Story = {
   render: Template,
-  name: 'Bold mandatory field',
+  name: 'Bold Required field',
 
   args: {
     children: 'Active ingredient',
     required: true,
-    bold: true,
+    isBold: true,
+  },
+};
+
+export const DefaultSmall: Story = {
+  render: Template,
+
+  args: {
+    children: 'Active ingredient',
+    isSmall: true,
+  },
+};
+
+export const DefaultSmallBold: Story = {
+  render: Template,
+
+  args: {
+    children: 'Active ingredient',
+    isBold: true,
+    isSmall: true,
   },
 };

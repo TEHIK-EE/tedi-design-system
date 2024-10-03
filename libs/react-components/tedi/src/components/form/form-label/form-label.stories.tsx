@@ -24,3 +24,11 @@ export const Required: Story = {
     required: true,
   },
 };
+
+export const Small: Story = {
+  args: {
+    id: 'input-id-2',
+    label: 'Label of input',
+    size: 'small',
+  },
+};
