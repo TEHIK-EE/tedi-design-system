@@ -1,0 +1,30 @@
+@import '../../styles/mixins';
+
+.tedi-label {
+  display: inline-flex;
+  align-items: center;
+  font-style: normal;
+  font-feature-settings: 'clig' off, 'liga' off;
+  color: var(--general-text-secondary);
+
+  @include responsive-styles(gap, inputs-label-inner-spacing);
+  @include responsive-styles(font-family, family-primary);
+  @include responsive-styles(font-size, body-regular-size);
+  @include responsive-styles(font-weight, body-regular-weight);
+  @include responsive-styles(line-height, body-regular-line-height);
+
+  &--small {
+    @include responsive-styles(font-size, body-small-regular-size, $exclude: tablet);
+    @include responsive-styles(font-weight, body-small-regular-weight, $exclude: tablet);
+    @include responsive-styles(line-height, body-small-regular-line-height, $exclude: tablet);
+  }
+
+  &--bold {
+    @include responsive-styles(font-weight, body-bold-weight);
+    @include responsive-styles(line-height, body-bold-line-height);
+  }
+
+  &__required {
+    color: var(--form-general-feedback-error-border);
+  }
+}
