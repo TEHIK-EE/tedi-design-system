@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Col, Row } from '../../../../tedi/src/components/grid';
-import { useLabels } from '../../providers/label-provider';
+import { useLabels } from '../../../../tedi/src/providers/label-provider';
 import Button from '../button/button';
 import { Card, CardContent } from '../card';
 import Icon, { IconProps } from '../icon/icon';

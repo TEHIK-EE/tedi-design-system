@@ -4,7 +4,7 @@ import * as Yup from 'yup';
 
 import { Col, Row } from '../../../../../../../tedi/src/components/grid';
 import { VerticalSpacing } from '../../../../../../../tedi/src/components/vertical-spacing';
-import { useLabels } from '../../../../../providers/label-provider';
+import { useLabels } from '../../../../../../../tedi/src/providers/label-provider';
 import Button from '../../../../button/button';
 import TextField from '../../../../form/textfield/textfield';
 import { TableFilterContext } from '../table-filter-context';

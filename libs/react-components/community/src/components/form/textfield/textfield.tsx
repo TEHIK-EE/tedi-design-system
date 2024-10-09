@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import React, { forwardRef } from 'react';
 
-import { useLabels } from '../../../providers/label-provider';
+import { useLabels } from '../../../../../tedi/src/providers/label-provider';
 import Button, { ButtonProps } from '../../button/button';
 import { Icon, IconProps } from '../../icon/icon';
 import Separator from '../../separator/separator';
