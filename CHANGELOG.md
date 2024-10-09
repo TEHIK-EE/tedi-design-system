@@ -1,3 +1,10 @@
+# [7.1.0-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/v7.0.1-rc.3...v7.1.0-rc.1) (2024-10-09)
+
+
+### Features
+
+* **separator:** add height to Vertical Separator, deprecate fullWidth to isStretched [#218](https://github.com/TEHIK-EE/tedi-design-system/issues/218) ([#219](https://github.com/TEHIK-EE/tedi-design-system/issues/219)) ([b0c9536](https://github.com/TEHIK-EE/tedi-design-system/commit/b0c9536a9edd5df654033b823382ab1d9bf2dc17))
+
 ## [7.0.1-rc.3](https://github.com/TEHIK-EE/tedi-design-system/compare/v7.0.1-rc.2...v7.0.1-rc.3) (2024-10-09)
 
 
