@@ -1,3 +1,10 @@
+## [7.0.1-rc.3](https://github.com/TEHIK-EE/tedi-design-system/compare/v7.0.1-rc.2...v7.0.1-rc.3) (2024-10-09)
+
+
+### Bug Fixes
+
+* **button, anchor:** inline link style button icon [#216](https://github.com/TEHIK-EE/tedi-design-system/issues/216) ([#217](https://github.com/TEHIK-EE/tedi-design-system/issues/217)) ([a48ed15](https://github.com/TEHIK-EE/tedi-design-system/commit/a48ed1554a59f0d13d5c9019263eb1cd40b66f7d))
+
 ## [7.0.1-rc.2](https://github.com/TEHIK-EE/tedi-design-system/compare/v7.0.1-rc.1...v7.0.1-rc.2) (2024-10-02)
 
 
