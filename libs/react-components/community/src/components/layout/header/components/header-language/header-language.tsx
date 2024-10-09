@@ -2,8 +2,8 @@ import React from 'react';
 
 import { Col, Row } from '../../../../../../../tedi/src/components/grid';
 import { List, ListItem } from '../../../../../../../tedi/src/components/list';
+import { useLabels } from '../../../../../../../tedi/src/providers/label-provider';
 import { useLayout } from '../../../../../helpers/hooks/use-layout';
-import { useLabels } from '../../../../../providers/label-provider';
 import Button, { ButtonProps } from '../../../../button/button';
 import { Card, CardContent } from '../../../../card';
 import { Heading } from '../../../../typography/heading/heading';

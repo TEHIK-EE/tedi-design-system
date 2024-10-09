@@ -2,7 +2,7 @@ import { FloatingFocusManager, FloatingOverlay, FloatingPortal } from '@floating
 import cn from 'classnames';
 import React from 'react';
 
-import { useLabels } from '../../providers/label-provider';
+import { useLabels } from '../../../../tedi/src/providers/label-provider';
 import { IntentionalAny } from '../../types';
 import Button from '../button/button';
 import Card, { CardProps } from '../card/card';

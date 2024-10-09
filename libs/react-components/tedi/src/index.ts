@@ -9,4 +9,5 @@ export * from './components/grid';
 
 export * from './helpers';
 
+export * from './providers/label-provider';
 export * from './providers/style-provider/style-provider';
