@@ -1,3 +1,10 @@
+# [7.1.0-rc.2](https://github.com/TEHIK-EE/tedi-design-system/compare/v7.1.0-rc.1...v7.1.0-rc.2) (2024-10-09)
+
+
+### Features
+
+* **label-provider:** Move LabelProvider to TEDI-Ready [#207](https://github.com/TEHIK-EE/tedi-design-system/issues/207) ([#211](https://github.com/TEHIK-EE/tedi-design-system/issues/211)) ([86d259f](https://github.com/TEHIK-EE/tedi-design-system/commit/86d259fcf21febff48f03f2ef9095bd5a828198c))
+
 # [7.1.0-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/v7.0.1-rc.3...v7.1.0-rc.1) (2024-10-09)
 
 
