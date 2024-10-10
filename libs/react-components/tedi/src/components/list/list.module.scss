@@ -62,8 +62,9 @@
     }
 
     ol.list--ordered {
-      padding-left: 1rem;
       counter-reset: subitem;
+
+      @include responsive-styles(padding-left, list-padding-left-level-1);
     }
 
     ol.list--ordered .list__item {
