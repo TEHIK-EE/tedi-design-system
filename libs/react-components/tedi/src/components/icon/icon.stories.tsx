@@ -24,8 +24,10 @@ const colorArray: IconProps['color'][] = [
   'secondary',
   'tertiary',
   'brand',
+  'brand-dark',
   'success',
   'warning',
+  'warning-dark',
   'danger',
   'white',
 ];

@@ -4,7 +4,17 @@ import styles from './icon.module.scss';
 
 export type IconSize = 8 | 12 | 16 | 18 | 24 | 36 | 48;
 export type IconType = 'outlined' | 'sharp' | 'rounded';
-export type IconColor = 'primary' | 'secondary' | 'tertiary' | 'brand' | 'success' | 'warning' | 'danger' | 'white';
+export type IconColor =
+  | 'primary'
+  | 'secondary'
+  | 'tertiary'
+  | 'brand'
+  | 'brand-dark'
+  | 'success'
+  | 'warning'
+  | 'warning-dark'
+  | 'danger'
+  | 'white';
 export type IconBackgroundColor = 'primary' | 'secondary' | 'brand-primary' | 'brand-secondary';
 
 export interface IconProps {
