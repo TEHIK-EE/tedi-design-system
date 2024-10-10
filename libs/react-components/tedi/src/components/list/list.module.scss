@@ -18,8 +18,7 @@
 
   .list__item {
     position: relative;
-
-    @include responsive-styles(padding-left, list-padding-left-level-1);
+    padding-left: var(--list-padding-left-level-1-desktop);
 
     &::before {
       position: absolute;
