@@ -1,3 +1,10 @@
+# [7.1.0-rc.3](https://github.com/TEHIK-EE/tedi-design-system/compare/v7.1.0-rc.2...v7.1.0-rc.3) (2024-10-10)
+
+
+### Bug Fixes
+
+* **spinner:** Added default label, breakpointSupport, fixed test [#148](https://github.com/TEHIK-EE/tedi-design-system/issues/148) ([#220](https://github.com/TEHIK-EE/tedi-design-system/issues/220)) ([43599ee](https://github.com/TEHIK-EE/tedi-design-system/commit/43599ee4dc3c287fe84979176c1355d44e5c50ee))
+
 # [7.1.0-rc.2](https://github.com/TEHIK-EE/tedi-design-system/compare/v7.1.0-rc.1...v7.1.0-rc.2) (2024-10-09)
 
 
