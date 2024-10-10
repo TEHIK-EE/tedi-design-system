@@ -17,12 +17,16 @@ export interface ListItemProps extends BreakpointSupport<ListItemBreakpointProps
    * List children should be ListItem components
    */
   children: React.ReactNode;
+  /**
+   * Adds a custom CSS class to the ListItem element for additional styling or theming purposes
+   */
+  className?: string;
 }
 
 export const ListItem = (props: ListItemProps) => {
   const { getCurrentBreakpointProps } = useBreakpointProps();
-  const { children, verticalSpacingItem } = getCurrentBreakpointProps<ListItemProps>(props);
-  const listItemBEM = cn(styles['list__item'], verticalSpacingItem?.className);
+  const { children, verticalSpacingItem, className } = getCurrentBreakpointProps<ListItemProps>(props);
+  const listItemBEM = cn(styles['list__item'], verticalSpacingItem?.className, className);
 
   if (props.verticalSpacingItem) {
     return (

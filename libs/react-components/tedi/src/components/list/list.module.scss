@@ -12,12 +12,14 @@
 }
 
 .list--unordered {
-  padding-left: 0;
   list-style: none;
+
+  @include responsive-styles(padding-left, list-padding-left-level-1);
 
   .list__item {
     position: relative;
-    padding-left: 1rem;
+
+    @include responsive-styles(padding-left, list-padding-left-level-1);
 
     &::before {
       position: absolute;
@@ -40,11 +42,17 @@
       @include responsive-styles(height, list-icon-size, null, '* 0.9');
     }
   }
+
+  ul.list {
+    padding-left: 0;
+  }
 }
 
 .list--ordered {
   list-style: none;
   counter-reset: item;
+
+  @include responsive-styles(padding-left, list-padding-left-level-1);
 
   .list__item {
     counter-increment: item;
@@ -69,6 +77,7 @@
 }
 
 .list--style-none {
+  padding: 0;
   list-style: none;
 
   .list__item {
