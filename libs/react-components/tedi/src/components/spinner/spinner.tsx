@@ -1,39 +1,57 @@
 import cn from 'classnames';
 
+import { BreakpointSupport, useBreakpointProps } from '../../helpers';
+import { useLabels } from '../../providers/label-provider';
 import styles from './spinner.module.scss';
 
 export type SpinnerSize = 10 | 16 | 48;
 export type SpinnerColor = 'primary' | 'secondary';
 export type SpinnerPosition = 'absolute';
 
-export interface SpinnerProps {
+type SpinnerBreakpointProps = {
   /**
-   * Additional class name
-   */
-  className?: string;
-  /**
-   * Size of the spinner
+   * Defines the size of the spinner.
+   * Accepted values: 10 (small), 16 (default), 48 (large).
+   *
    * @default 16
    */
   size?: SpinnerSize;
   /**
-   * Which color spinner should be
+   * Specifies the color theme of the spinner.
+   * The color should meet accessibility standards for color contrast.
+   *
    * @default 'primary'
    */
   color?: SpinnerColor;
   /**
-   * Label for screen-readers
-   * If omitted then the spinner is hidden for screen-readers
-   */
-  label: string;
-  /**
-   * Position of the spinner
+   * Sets the spinner's positioning behavior.
+   * This is useful when you want to position the spinner over other elements.
    */
   position?: SpinnerPosition;
+};
+
+export interface SpinnerProps extends BreakpointSupport<SpinnerBreakpointProps> {
+  /**
+   * Adds a custom CSS class to the spinner element for additional styling or theming purposes.
+   */
+  className?: string;
+  /**
+   * Provides a text label for screen readers to announce the spinner's purpose or status.
+   */
+  label?: string;
 }
 
 export const Spinner = (props: SpinnerProps): JSX.Element => {
-  const { className, size = 16, color = 'primary', label = props.label, position } = props;
+  const { getLabel } = useLabels();
+  const { getCurrentBreakpointProps } = useBreakpointProps();
+
+  const {
+    className,
+    size = 16,
+    color = 'primary',
+    label = getLabel('spinner.loading'),
+    position,
+  } = getCurrentBreakpointProps<SpinnerProps>(props);
 
   const spinnerBEM = cn(
     styles['tedi-spinner'],
@@ -44,13 +62,10 @@ export const Spinner = (props: SpinnerProps): JSX.Element => {
   );
 
   return (
-    <span className={spinnerBEM} role="status" aria-live="polite">
+    <span className={spinnerBEM} role="status" aria-live="polite" aria-label={label} aria-hidden={!label}>
       <svg viewBox="22 22 44 44" aria-hidden="true">
         <circle className={styles['tedi-spinner--inner']} cx="44" cy="44" r="20" fill="none"></circle>
       </svg>
-      <label className="screen-reader-only">{label}</label>
     </span>
   );
 };
-
-Spinner.displayName = 'Spinner';

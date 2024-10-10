@@ -10,6 +10,14 @@ import { Spinner, SpinnerProps } from './spinner';
 const meta: Meta<typeof Spinner> = {
   component: Spinner,
   title: 'Tedi-ready/Loader/Spinner',
+  parameters: {
+    status: {
+      type: [{ name: 'breakpointSupport', url: '?path=/docs/helpers-usebreakpointprops--usebreakpointprops' }],
+    },
+    controls: {
+      exclude: ['sm', 'md', 'lg', 'xl', 'xxl'],
+    },
+  },
 };
 
 export default meta;
