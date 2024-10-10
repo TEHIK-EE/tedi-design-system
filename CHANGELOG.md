@@ -1,3 +1,10 @@
+# [7.1.0-rc.4](https://github.com/TEHIK-EE/tedi-design-system/compare/v7.1.0-rc.3...v7.1.0-rc.4) (2024-10-10)
+
+
+### Bug Fixes
+
+* **anchor, button:** align link type button to the left [#223](https://github.com/TEHIK-EE/tedi-design-system/issues/223) ([#224](https://github.com/TEHIK-EE/tedi-design-system/issues/224)) ([effc0a4](https://github.com/TEHIK-EE/tedi-design-system/commit/effc0a45c95d92619ab11fe0ba65741223d6b301))
+
 # [7.1.0-rc.3](https://github.com/TEHIK-EE/tedi-design-system/compare/v7.1.0-rc.2...v7.1.0-rc.3) (2024-10-10)
 
 
