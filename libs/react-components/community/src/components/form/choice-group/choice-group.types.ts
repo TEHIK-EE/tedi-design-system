@@ -1,5 +1,5 @@
+import { ColProps, Direction } from '../../../../../tedi/src/components/grid';
 import { ColorsFunctional } from '../../commonTypes';
-import { ColProps, Direction } from '../../grid';
 import { ChoiceInputProps } from '../choice-input.types';
 
 export type ChoiceGroupItemBackground = Extract<ColorsFunctional, 'positive-main' | 'important-main' | 'warning-main'>;

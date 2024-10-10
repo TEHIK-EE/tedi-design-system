@@ -1,9 +1,10 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import React from 'react';
 
+import { Col, Row } from '../../../../tedi/src/components/grid';
 import { VerticalSpacing } from '../../../../tedi/src/components/vertical-spacing';
+import Button from '../button/button';
 import { Card, CardContent } from '../card';
-import { Col, Row } from '../grid';
 import { Text } from '../typography/text/text';
 import Separator, { SeparatorProps } from './separator';
 
@@ -163,4 +164,29 @@ export const VerticalDotted: Story = {
 export const VerticalDottedSmall: Story = {
   render: TemplateVertical,
   args: { axis: 'vertical', variant: 'dotted-small', color: 'accent', fullWidth: true },
+};
+
+const TemplateCustomHeight: StoryFn<SeparatorProps> = (args) => (
+  <Row alignItems="center">
+    <Col xs="auto" md={2}>
+      <p className="text-right">12.12.2012</p>
+    </Col>
+    <Col width="auto">
+      <Separator {...args} />
+    </Col>
+    <Col>
+      <Button>Button</Button>
+    </Col>
+  </Row>
+);
+
+/**
+ * Height property can be used to set custom height of vertical separator. Mainly used when separating vertically two components. And design needs the separator follow the height of the smaller component.
+ */
+export const VerticalCustomHeight: Story = {
+  render: TemplateCustomHeight,
+  args: {
+    axis: 'vertical',
+    height: 1.5,
+  },
 };

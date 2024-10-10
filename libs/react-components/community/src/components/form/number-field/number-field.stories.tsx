@@ -1,10 +1,9 @@
 import { Meta, StoryObj } from '@storybook/react';
 import { useState } from 'react';
 
+import { Col, Row } from '../../../../../tedi/src/components/grid';
 import { VerticalSpacing } from '../../../../../tedi/src/components/vertical-spacing';
 import Button from '../../button/button';
-import Col from '../../grid/col';
-import Row from '../../grid/row';
 import { NumberField } from './number-field';
 
 const meta: Meta<typeof NumberField> = {
@@ -91,7 +90,7 @@ export const Invalid: Story = {
       <VerticalSpacing size={2}>
         <Row>
           <Col>
-            <NumberField {...args} id="example-5" label={'With "invalid" prop'} invalid={true}></NumberField>
+            <NumberField {...args} id="example-5" label="With 'invalid' prop" invalid={true}></NumberField>
           </Col>
         </Row>
         <Row>
@@ -99,7 +98,7 @@ export const Invalid: Story = {
             <NumberField
               {...args}
               id="example-6"
-              label={'With helper "type: "error"" prop'}
+              label='With helper "type: error" prop'
               helper={{ id: 'example-3', text: 'Error text here', type: 'error' }}
             ></NumberField>
           </Col>

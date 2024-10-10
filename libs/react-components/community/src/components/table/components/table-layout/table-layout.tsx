@@ -2,9 +2,9 @@ import { flexRender, Header, HeaderGroup, Row as TSRow, SortDirection } from '@t
 import cn from 'classnames';
 import React from 'react';
 
-import { useLabels } from '../../../../providers/label-provider';
+import { Col, Row } from '../../../../../../tedi/src/components/grid';
+import { useLabels } from '../../../../../../tedi/src/providers/label-provider';
 import Button from '../../../button/button';
-import { Col, Row } from '../../../grid';
 import Placeholder from '../../../placeholder/placeholder';
 import Print from '../../../print/print';
 import styles from '../../table.module.scss';

@@ -23,8 +23,8 @@ import ReactSelect, {
 import AsyncSelect from 'react-select/async';
 import { MenuPortalProps } from 'react-select/dist/declarations/src/components/Menu';
 
+import { useLabels } from '../../../../../tedi/src/providers/label-provider';
 import { getBackgroundColorClass } from '../../../helpers';
-import { useLabels } from '../../../providers/label-provider';
 import { IntentionalAny } from '../../../types';
 import Button from '../../button/button';
 import { TColorsBackground } from '../../commonTypes';

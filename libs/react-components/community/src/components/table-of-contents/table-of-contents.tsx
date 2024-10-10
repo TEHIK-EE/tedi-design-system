@@ -1,7 +1,7 @@
 import React from 'react';
 
+import { useLabels } from '../../../../tedi/src/providers/label-provider';
 import { Layouts, useLayout } from '../../helpers';
-import { useLabels } from '../../providers/label-provider';
 import Affix from '../affix/affix';
 import { Card, CardContent } from '../card';
 import HideOnScroll from '../hide-on-scroll/hide-on-scroll';

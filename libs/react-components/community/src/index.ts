@@ -12,7 +12,6 @@ export * from './components/hash-trigger/hash-trigger';
 export * from './components/notification/notification';
 export * from './components/ellipsis/ellipsis';
 export * from './components/dropdown/dropdown';
-export * from './components/grid';
 export * from './components/scroll-fade/scroll-fade';
 export * from './components/section/section';
 export * from './components/stepper';
@@ -50,11 +49,9 @@ export * from './components/stretch-content/stretch-content';
 export * from './components/vertical-progress';
 export * from './components/accordion';
 export * from './components/toggle-open/toggle-open';
-export * from './components/list';
 export * from './components/modal';
 export * from './components/placeholder/placeholder';
 
 export * from './helpers';
 
-export * from './providers/label-provider';
 export * from './providers/style-provider/style-provider';

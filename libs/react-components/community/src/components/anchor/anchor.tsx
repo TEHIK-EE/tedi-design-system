@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react';
 
+import { useLabels } from '../../../../tedi/src/providers/label-provider';
 import { PolymorphicRef } from '../../helpers/polymorphic/types';
-import { useLabels } from '../../providers/label-provider';
 import { IntentionalAny } from '../../types';
 import ButtonContent, { ButtonContentProps } from '../button-content/button-content';
 

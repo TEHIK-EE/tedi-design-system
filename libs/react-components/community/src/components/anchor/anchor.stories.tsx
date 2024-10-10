@@ -2,8 +2,8 @@ import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import Link from 'next/link';
 import React, { ComponentProps, forwardRef } from 'react';
 
+import { Col, Row } from '../../../../tedi/src/components/grid';
 import { VerticalSpacing } from '../../../../tedi/src/components/vertical-spacing';
-import { Col, Row } from '../grid';
 import Text from '../typography/text/text';
 import { Anchor, AnchorProps } from './anchor';
 
@@ -178,5 +178,16 @@ export const FullWidth: Story = {
     href: '#',
     visualType: 'primary',
     children: 'Anchor that stretches',
+  },
+};
+
+/**
+ * When link text wraps to multiple lines, the icon should be inline with the text.
+ */
+export const LongText: Story = {
+  args: {
+    href: '#',
+    iconRight: 'north_east',
+    children: 'This is a very long link text that should wrap to multiple lines',
   },
 };

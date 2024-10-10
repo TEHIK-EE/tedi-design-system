@@ -18,14 +18,13 @@ $breakpoints: (
 }
 
 @function apply-calculation($value, $calc) {
-  @if $calc {
+  @if $calc != null {
     @return calc(#{$value} #{$calc});
   } @else {
     @return $value;
   }
 }
 
-// Mixin for applying responsive styles
 @mixin responsive-styles($property, $names, $exclude: null, $calc: null) {
   $variable-names: ();
 
@@ -35,7 +34,9 @@ $breakpoints: (
     $variable-names: $names;
   }
 
-  #{$property}: #{construct-variables($variable-names, mobile, $calc)};
+  & {
+    #{$property}: #{construct-variables($variable-names, mobile, $calc)};
+  }
 
   @if $exclude != 'tablet' {
     @media (min-width: map-get($breakpoints, sm)) {

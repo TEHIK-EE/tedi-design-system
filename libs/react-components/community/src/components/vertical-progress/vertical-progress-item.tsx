@@ -1,9 +1,9 @@
 import React from 'react';
 
-import { useLabels } from '../../providers/label-provider';
+import { Col, Row } from '../../../../tedi/src/components/grid';
+import { useLabels } from '../../../../tedi/src/providers/label-provider';
 import Button from '../button/button';
 import { Card, CardContent } from '../card';
-import { Col, Row } from '../grid';
 import Icon, { IconProps } from '../icon/icon';
 import Tag, { TagProps } from '../tag/tag';
 import { VerticalProgressContext } from './vertical-progress';

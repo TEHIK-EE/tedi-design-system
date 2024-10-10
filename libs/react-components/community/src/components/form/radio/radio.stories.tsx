@@ -1,8 +1,7 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import React from 'react';
 
-import Col from '../../grid/col';
-import Row from '../../grid/row';
+import { Col, Row } from '../../../../../tedi/src/components/grid';
 import Text from '../../typography/text/text';
 import Radio, { RadioProps } from './radio';
 

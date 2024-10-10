@@ -3,13 +3,12 @@ import { useFormik } from 'formik';
 import React from 'react';
 import * as Yup from 'yup';
 
+import { Col, Row } from '../../../../../../../tedi/src/components/grid';
 import { VerticalSpacing } from '../../../../../../../tedi/src/components/vertical-spacing';
-import { useLabels } from '../../../../../providers/label-provider';
+import { useLabels } from '../../../../../../../tedi/src/providers/label-provider';
 import { IntentionalAny } from '../../../../../types';
 import Button from '../../../../button/button';
 import { DatePicker, DatePickerProps } from '../../../../form/pickers';
-import Col from '../../../../grid/col';
-import Row from '../../../../grid/row';
 import Text from '../../../../typography/text/text';
 import { TableFilterContext } from '../table-filter-context';
 

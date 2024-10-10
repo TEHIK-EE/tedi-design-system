@@ -2,8 +2,8 @@ import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import dayjs, { Dayjs } from 'dayjs';
 import React from 'react';
 
+import { Col, Row } from '../../../../../../tedi/src/components/grid';
 import Button from '../../../button/button';
-import { Col, Row } from '../../../grid';
 import DateTimePicker, { DateTimePickerProps } from './datetimepicker';
 
 const meta: Meta<typeof DateTimePicker> = {

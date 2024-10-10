@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import React from 'react';
 
-import { DEVICE_SIZES } from '../commonTypes';
+import { DEVICE_SIZES } from '../../types/commonTypes';
 import { ColProps } from './col';
 import styles from './grid.module.scss';
 import { RowContext } from './row-context';

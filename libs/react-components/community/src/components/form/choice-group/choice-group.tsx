@@ -1,8 +1,8 @@
 import cn from 'classnames';
 import React from 'react';
 
-import { useLabels } from '../../../providers/label-provider';
-import { Direction, Gutter, Row, RowProps } from '../../grid';
+import { Direction, Gutter, Row, RowProps } from '../../../../../tedi/src/components/grid';
+import { useLabels } from '../../../../../tedi/src/providers/label-provider';
 import Check, { CheckProps } from '../check/check';
 import FormHelper, { FormHelperProps } from '../form-helper/form-helper';
 import FormLabel, { FormLabelProps } from '../form-label/form-label';
