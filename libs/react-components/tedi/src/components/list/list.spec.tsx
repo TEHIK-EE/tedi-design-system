@@ -46,4 +46,10 @@ describe('List Component', () => {
     const { container } = renderList({ style: 'none' });
     expect(container.firstChild).toHaveClass('list--style-none');
   });
+
+  test('applies custom className', () => {
+    const customClass = 'custom-list';
+    const { container } = renderList({ className: customClass });
+    expect(container.firstChild).toHaveClass(customClass);
+  });
 });

@@ -41,4 +41,10 @@ describe('ListItem Component', () => {
     const { getByText } = renderListItem();
     expect(getByText('Test Item')).toBeInTheDocument();
   });
+
+  test('applies custom className', () => {
+    const customClass = 'custom-list';
+    const { container } = renderListItem({ className: customClass });
+    expect(container.firstChild).toHaveClass(customClass);
+  });
 });
