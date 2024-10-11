@@ -21,18 +21,18 @@ describe('Badge component', () => {
     const badge = container.querySelector('.tedi-status-badge');
     expect(badge).toHaveTextContent('Default Badge');
     expect(badge).toHaveClass('tedi-status-badge');
-    expect(badge).toHaveClass('tedi-status-badge--filled--default');
+    expect(badge).toHaveClass('tedi-status-badge--filled--neutral');
   });
 
   it('renders with specified color and variant', () => {
     const { container } = render(
-      <StatusBadge color="primary" variant="bordered">
+      <StatusBadge color="brand" variant="bordered">
         Primary Bordered Badge
       </StatusBadge>
     );
     const badge = container.querySelector('.tedi-status-badge');
     expect(badge).toHaveTextContent('Primary Bordered Badge');
-    expect(badge).toHaveClass('tedi-status-badge--bordered--primary');
+    expect(badge).toHaveClass('tedi-status-badge--bordered--brand');
   });
 
   it('renders with large size', () => {
@@ -43,7 +43,7 @@ describe('Badge component', () => {
 
   it('renders with status indicator', () => {
     const { container } = render(
-      <StatusBadge status="warning" color="default" variant="filled">
+      <StatusBadge status="warning" color="neutral" variant="filled">
         Warning Badge
       </StatusBadge>
     );
@@ -55,7 +55,7 @@ describe('Badge component', () => {
   it('renders with icon only', () => {
     const { container } = render(<StatusBadge icon="check_circle" />);
     const badge = container.querySelector('.tedi-status-badge');
-    const icon = container.querySelector('.tedi-status-badge__icon-default');
+    const icon = container.querySelector('.tedi-status-badge__icon-neutral');
     expect(badge).toHaveClass('tedi-status-badge--icon-only');
     expect(icon).toBeInTheDocument();
   });
@@ -63,7 +63,7 @@ describe('Badge component', () => {
   it('renders with icon and text', () => {
     const { container } = render(<StatusBadge icon="check_circle">Badge with Icon</StatusBadge>);
     const badge = container.querySelector('.tedi-status-badge');
-    const icon = container.querySelector('.tedi-status-badge__icon-default');
+    const icon = container.querySelector('.tedi-status-badge__icon-neutral');
     expect(badge).toHaveTextContent('Badge with Icon');
     expect(icon).toBeInTheDocument();
   });

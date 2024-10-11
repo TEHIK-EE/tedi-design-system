@@ -26,7 +26,7 @@ export default meta;
 
 type Story = StoryObj<typeof StatusBadge>;
 
-const colors: StatusBadgeColor[] = ['default', 'primary', 'accent', 'success', 'danger', 'warning'];
+const colors: StatusBadgeColor[] = ['neutral', 'brand', 'accent', 'success', 'danger', 'warning'];
 const variants: StatusBadgeProps['variant'][] = ['filled', 'filled-bordered', 'bordered'];
 const statuses: StatusBadgeProps['status'][] = ['inactive', 'success', 'warning', 'danger'];
 
@@ -35,7 +35,7 @@ const Template: StoryFn<StatusBadgeProps> = (args) => <StatusBadge {...args} />;
 export const Default: Story = {
   render: Template,
   args: {
-    color: 'default',
+    color: 'neutral',
     variant: 'filled',
     children: 'Default StatusBadge',
   },
@@ -86,17 +86,17 @@ const TemplateStatusGrid: StoryFn<StatusBadgeProps> = (args) => {
             {variants.map((variant) => (
               <>
                 <Col width="auto" key={`${status}-${variant}`}>
-                  <StatusBadge {...args} color="default" variant={variant} status={status}>
+                  <StatusBadge {...args} color="neutral" variant={variant} status={status}>
                     Text
                   </StatusBadge>
                 </Col>
                 <Col width="auto" key={`${status}-${variant}`}>
-                  <StatusBadge {...args} color="default" variant={variant} icon="check_circle" status={status}>
+                  <StatusBadge {...args} color="neutral" variant={variant} icon="check_circle" status={status}>
                     Text
                   </StatusBadge>
                 </Col>
                 <Col width="auto" key={`${status}-${variant}`}>
-                  <StatusBadge {...args} color="default" variant={variant} icon="check_circle" status={status} />
+                  <StatusBadge {...args} color="neutral" variant={variant} icon="check_circle" status={status} />
                 </Col>
               </>
             ))}
@@ -114,7 +114,7 @@ export const Colors: Story = {
 export const StatusIndicator: Story = {
   render: TemplateStatusGrid,
   args: {
-    color: 'default',
+    color: 'neutral',
   },
 };
 
@@ -132,7 +132,7 @@ const TemplateLarge: StoryFn<StatusBadgeProps> = (args) => (
 export const Large: Story = {
   render: TemplateLarge,
   args: {
-    color: 'default',
+    color: 'neutral',
     size: 'large',
     children: 'Large StatusBadge',
   },

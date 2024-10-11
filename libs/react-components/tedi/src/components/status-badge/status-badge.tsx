@@ -4,7 +4,7 @@ import { BreakpointSupport, useBreakpointProps } from '../../helpers';
 import { Icon, IconColor } from '../icon/icon';
 import styles from './status-badge.module.scss';
 
-export type StatusBadgeColor = 'default' | 'primary' | 'accent' | 'success' | 'danger' | 'warning' | 'transparent';
+export type StatusBadgeColor = 'neutral' | 'brand' | 'accent' | 'success' | 'danger' | 'warning' | 'transparent';
 export type StatusBadgeVariant = 'filled' | 'filled-bordered' | 'bordered';
 export type StatusBadgeSize = 'default' | 'large';
 export type StatusBadgeStatus = 'danger' | 'success' | 'warning' | 'inactive';
@@ -59,7 +59,7 @@ export interface StatusBadgeProps extends BreakpointSupport<StatusBadgePropsBrea
 export const StatusBadge = (props: StatusBadgeProps): JSX.Element => {
   const { getCurrentBreakpointProps } = useBreakpointProps();
   const {
-    color = 'default',
+    color = 'neutral',
     variant = 'filled',
     size = 'default',
     children,
@@ -75,7 +75,7 @@ export const StatusBadge = (props: StatusBadgeProps): JSX.Element => {
 
   const mapBadgeColorToIconColor = (badgeColor: StatusBadgeColor): IconColor => {
     switch (badgeColor) {
-      case 'primary':
+      case 'brand':
         return 'brand-dark';
       case 'success':
         return 'success';
