@@ -1,3 +1,10 @@
+# [7.1.0-rc.5](https://github.com/TEHIK-EE/tedi-design-system/compare/v7.1.0-rc.4...v7.1.0-rc.5) (2024-10-11)
+
+
+### Features
+
+* **list:** Added indent to styled lists and className property [#221](https://github.com/TEHIK-EE/tedi-design-system/issues/221) ([#222](https://github.com/TEHIK-EE/tedi-design-system/issues/222)) ([3e0a253](https://github.com/TEHIK-EE/tedi-design-system/commit/3e0a2532fc0b00e927ef504b89fe71ac04872662))
+
 # [7.1.0-rc.4](https://github.com/TEHIK-EE/tedi-design-system/compare/v7.1.0-rc.3...v7.1.0-rc.4) (2024-10-10)
 
 
