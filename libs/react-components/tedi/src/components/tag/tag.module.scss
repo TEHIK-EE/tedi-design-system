@@ -1,4 +1,10 @@
-@import '../../../styles/mixins';
+@import '../../styles/mixins';
+
+$tag-colors: (
+  'primary': 'tag-primary',
+  'secondary': 'tag-secondary',
+  'danger': 'tag-danger',
+);
 
 .tedi-tag {
   --loader-spinner-color-primary: var(--button-close-text-default);
@@ -8,8 +14,6 @@
   align-items: center;
   justify-content: center;
   color: var(--general-text-primary);
-  background-color: var(--tag-default-background);
-  border: 1px solid var(--tag-default-border);
 
   @include responsive-styles(gap, tag-default-inner-spacing);
   @include responsive-styles(border-radius, tag-default-radius);
@@ -17,6 +21,13 @@
   @include responsive-styles(font-size, body-small-regular-size);
   @include responsive-styles(font-weight, body-small-regular-weight);
   @include responsive-styles(line-height, body-small-regular-line-height);
+
+  @each $color, $var in $tag-colors {
+    &--color-#{$color} {
+      background-color: var(--#{$var}-background);
+      box-shadow: inset 0 0 0 1px var(--#{$var}-border);
+    }
+  }
 
   &__close {
     display: inline-flex;
@@ -32,13 +43,7 @@
   }
 
   &__loader {
-    width: 0.75rem;
-    height: 0.75rem;
-  }
-
-  &--has-error {
-    color: var(--general-text-primary);
-    background-color: var(--tag-danger-background);
-    border: 1px solid var(--tag-danger-border);
+    width: var(--dimensions-06-rem);
+    height: var(--dimensions-06-rem);
   }
 }

@@ -117,6 +117,7 @@
     "semantic-release": "^23.0.3",
     "showdown": "^2.1.0",
     "storybook": "^8.0.2",
+    "storybook-addon-pseudo-states": "^4.0.2",
     "stylelint": "^15.7.0",
     "stylelint-config-recess-order": "^4.2.0",
     "stylelint-config-standard-scss": "^9.0.0",
