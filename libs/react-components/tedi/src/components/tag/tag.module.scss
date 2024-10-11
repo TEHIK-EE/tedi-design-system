@@ -43,7 +43,7 @@ $tag-colors: (
   }
 
   &__loader {
-    width: var(--dimensions-06-rem);
-    height: var(--dimensions-06-rem);
+    @include responsive-styles(width, icon-01);
+    @include responsive-styles(height, icon-01);
   }
 }
