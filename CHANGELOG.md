@@ -1,3 +1,10 @@
+# [7.1.0-rc.6](https://github.com/TEHIK-EE/tedi-design-system/compare/v7.1.0-rc.5...v7.1.0-rc.6) (2024-10-11)
+
+
+### Bug Fixes
+
+* **button:** fix loading icons [#216](https://github.com/TEHIK-EE/tedi-design-system/issues/216) ([#226](https://github.com/TEHIK-EE/tedi-design-system/issues/226)) ([4310979](https://github.com/TEHIK-EE/tedi-design-system/commit/431097901bebb266196d0a0fd98d30e2a8b8f787))
+
 # [7.1.0-rc.5](https://github.com/TEHIK-EE/tedi-design-system/compare/v7.1.0-rc.4...v7.1.0-rc.5) (2024-10-11)
 
 
