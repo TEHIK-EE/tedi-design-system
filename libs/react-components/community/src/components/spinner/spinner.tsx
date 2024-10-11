@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import React from 'react';
 
-import { useLabels } from '../../providers/label-provider';
+import { useLabels } from '../../../../tedi/src/providers/label-provider';
 import { TColorsBackground } from '../commonTypes';
 import styles from './spinner.module.scss';
 

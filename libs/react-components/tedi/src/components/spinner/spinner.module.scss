@@ -18,6 +18,17 @@ $spinner-sizes: (
     position: absolute;
   }
 
+  &--inner {
+    stroke-dasharray: 80px, 200px;
+    stroke-dashoffset: 0;
+    stroke-width: 4px;
+    animation: 1.4s ease-in-out 0s infinite normal none running tedi-spinner-inner;
+
+    @media (prefers-reduced-motion: reduce) {
+      animation: none;
+    }
+  }
+
   @each $color, $var in $spinner-colors {
     &--color-#{$color} {
       stroke: var(--#{$var});
@@ -30,13 +41,10 @@ $spinner-sizes: (
       @include responsive-styles(height, $var);
     }
   }
-}
 
-.tedi-spinner--inner {
-  stroke-dasharray: 80px, 200px;
-  stroke-dashoffset: 0;
-  stroke-width: 4px;
-  animation: 1.4s ease-in-out 0s infinite normal none running tedi-spinner-inner;
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
 }
 
 @keyframes tedi-spinner-outer {

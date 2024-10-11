@@ -180,3 +180,14 @@ export const FullWidth: Story = {
     children: 'Anchor that stretches',
   },
 };
+
+/**
+ * When link text wraps to multiple lines, the icon should be inline with the text.
+ */
+export const LongText: Story = {
+  args: {
+    href: '#',
+    iconRight: 'north_east',
+    children: 'This is a very long link text that should wrap to multiple lines',
+  },
+};

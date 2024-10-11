@@ -1,7 +1,7 @@
 import React from 'react';
 
+import { useLabels } from '../../../../tedi/src/providers/label-provider';
 import { useFirstRender } from '../../helpers';
-import { useLabels } from '../../providers/label-provider';
 import { Button, ButtonProps } from '../button/button';
 
 export interface TruncateProps {

@@ -31,16 +31,27 @@ export interface ListProps extends BreakpointSupport<ListBreakpointProps> {
    * @default 'ul'
    */
   element?: ListElement;
+  /**
+   * Adds a custom CSS class to the List element for additional styling or theming purposes
+   */
+  className?: string;
 }
 
 export const List = (props: ListProps) => {
   const { getCurrentBreakpointProps } = useBreakpointProps();
-  const { children, element = 'ul', style = 'none', verticalSpacing } = getCurrentBreakpointProps<ListProps>(props);
+  const {
+    children,
+    element = 'ul',
+    style = 'none',
+    verticalSpacing,
+    className,
+  } = getCurrentBreakpointProps<ListProps>(props);
   const listBEM = cn(
     styles['list'],
     styles[`list--${element === 'ul' ? 'unordered' : 'ordered'}`],
     styles[`list--style-${style}`],
-    verticalSpacing?.className
+    verticalSpacing?.className,
+    className
   );
   const Element = element;
 

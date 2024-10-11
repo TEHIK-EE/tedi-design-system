@@ -18,8 +18,8 @@ import {
 import cn from 'classnames';
 import React from 'react';
 
+import { useLabels } from '../../../../tedi/src/providers/label-provider';
 import usePrint from '../../helpers/hooks/use-print';
-import { useLabels } from '../../providers/label-provider';
 import { IntentionalAny } from '../../types';
 import { Card, CardContent } from '../card';
 import { PlaceholderProps } from '../placeholder/placeholder';

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { useLabels } from '../../../../../providers/label-provider';
+import { useLabels } from '../../../../../../../tedi/src/providers/label-provider';
 import Anchor, { AnchorProps } from '../../../../anchor/anchor';
 import styles from './logo.module.scss';
 

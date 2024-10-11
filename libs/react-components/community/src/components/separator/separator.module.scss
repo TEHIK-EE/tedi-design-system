@@ -15,6 +15,8 @@ $sizes: (
 );
 
 .separator {
+  --vertical-separator-height: 100%;
+
   position: relative;
   display: block;
   margin: 0;
@@ -24,7 +26,7 @@ $sizes: (
   @include mixins.print-grayscale;
 
   &--vertical {
-    height: 100%;
+    height: var(--vertical-separator-height);
     border-top: 0;
     border-left: 1px solid var(--color-border-default);
   }
@@ -70,7 +72,7 @@ $sizes: (
   transform: translateX(-5px);
 }
 
-.separator--full-width {
+.separator--is-stretched {
   margin-right: calc(var(--card-content-padding-right) * -1);
   margin-left: calc(var(--card-content-padding-left) * -1);
 
@@ -81,15 +83,15 @@ $sizes: (
 }
 
 @each $size, $value in $sizes {
-  .separator.separator--top-#{$size} {
+  .separator--horizontal.separator--top-#{$size} {
     margin-top: #{$value};
   }
 
-  .separator.separator--bottom-#{$size} {
+  .separator--horizontal.separator--bottom-#{$size} {
     margin-bottom: #{$value};
   }
 
-  .separator.separator--spacing-#{$size} {
+  .separator--horizontal.separator--spacing-#{$size} {
     margin-top: #{$value};
     margin-bottom: #{$value};
   }

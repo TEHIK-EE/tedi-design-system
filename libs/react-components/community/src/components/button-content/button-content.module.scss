@@ -290,6 +290,7 @@ $btn-height-small: 2.25rem;
   height: auto;
   padding: 0;
   color: var(--color-primary-main);
+  text-align: left;
   text-decoration: none;
   background: none;
   border: none;
@@ -319,6 +320,10 @@ $btn-height-small: 2.25rem;
   justify-content: center;
   min-width: 1.5rem;
   min-height: 1.5rem;
+
+  .btn--link & {
+    display: inline;
+  }
 }
 
 .btn__icon {
@@ -348,6 +353,11 @@ $btn-height-small: 2.25rem;
     .btn--link & {
       margin-left: $button-link-icon-margin;
     }
+  }
+
+  .btn--link & {
+    display: inline;
+    vertical-align: middle;
   }
 }
 

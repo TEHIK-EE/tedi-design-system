@@ -2,7 +2,7 @@ import cn from 'classnames';
 import React from 'react';
 
 import { Col, Row } from '../../../../../tedi/src/components/grid';
-import { ILabelContext, useLabels } from '../../../providers/label-provider';
+import { ILabelContext, useLabels } from '../../../../../tedi/src/providers/label-provider';
 import Button from '../../button/button';
 import { Card, CardContent } from '../../card';
 import CloseButton from '../../close-button/close-button';
