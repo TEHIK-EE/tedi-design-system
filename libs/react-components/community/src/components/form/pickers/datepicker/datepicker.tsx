@@ -1,6 +1,6 @@
 import { DatePicker as MuiDatePicker } from '@mui/x-date-pickers';
 import { DateValidationError } from '@mui/x-date-pickers/internals';
-import dayjs, { Dayjs } from 'dayjs';
+import { Dayjs } from 'dayjs';
 import React from 'react';
 
 import { TextFieldProps } from '../../textfield/textfield';

@@ -2,7 +2,7 @@ import { Table as TableType } from '@tanstack/table-core';
 import cn from 'classnames';
 import React from 'react';
 
-import { useLabels } from '../../../../providers/label-provider';
+import { useLabels } from '../../../../../../tedi/src/providers/label-provider';
 import Select, { ISelectOption, TSelectValue } from '../../../form/select/select';
 import Text from '../../../typography/text/text';
 import { DefaultTData } from '../../table.types';

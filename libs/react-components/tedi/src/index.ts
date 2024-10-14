@@ -10,4 +10,5 @@ export * from './components/label/label';
 
 export * from './helpers';
 
+export * from './providers/label-provider';
 export * from './providers/style-provider/style-provider';

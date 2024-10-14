@@ -3,8 +3,8 @@ import React from 'react';
 import AnimateHeight from 'react-animate-height';
 
 import { Col, Row, RowProps } from '../../../../tedi/src/components/grid';
+import { useLabels } from '../../../../tedi/src/providers/label-provider';
 import { usePrint } from '../../helpers';
-import { useLabels } from '../../providers/label-provider';
 import Icon from '../icon/icon';
 import Print from '../print/print';
 import { Text } from '../typography/text/text';

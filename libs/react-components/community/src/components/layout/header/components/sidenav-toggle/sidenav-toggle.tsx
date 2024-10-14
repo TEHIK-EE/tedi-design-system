@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import React from 'react';
 
-import { useLabels } from '../../../../../providers/label-provider';
+import { useLabels } from '../../../../../../../tedi/src/providers/label-provider';
 import Button from '../../../../button/button';
 import { LayoutContext } from '../../../layout-context';
 import styles from './sidenav-toggle.module.scss';
