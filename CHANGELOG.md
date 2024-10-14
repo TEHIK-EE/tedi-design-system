@@ -1,3 +1,10 @@
+# [7.1.0-rc.7](https://github.com/TEHIK-EE/tedi-design-system/compare/v7.1.0-rc.6...v7.1.0-rc.7) (2024-10-14)
+
+
+### Features
+
+* **form-label:** Component Label and FormLabel [#181](https://github.com/TEHIK-EE/tedi-design-system/issues/181) ([#214](https://github.com/TEHIK-EE/tedi-design-system/issues/214)) ([17f5c1d](https://github.com/TEHIK-EE/tedi-design-system/commit/17f5c1d4e4ae07718a17031cdeed653adb5fbf32))
+
 # [7.1.0-rc.6](https://github.com/TEHIK-EE/tedi-design-system/compare/v7.1.0-rc.5...v7.1.0-rc.6) (2024-10-11)
 
 
