@@ -7,6 +7,7 @@ export * from './components/vertical-spacing';
 export * from './components/list';
 export * from './components/grid';
 export * from './components/label/label';
+export * from './components/status-badge/status-badge';
 
 export * from './helpers';
 
