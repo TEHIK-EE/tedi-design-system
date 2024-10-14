@@ -42,11 +42,7 @@ const MultipleTextGroupsTemplate: StoryFn<TextGroupProps> = (args) => {
       labelWidth: '150px',
       items: [
         {
-          label: (
-            <Text modifiers="thin" color="secondary">
-              Patient
-            </Text>
-          ),
+          label: 'Patient',
           value: (
             <>
               <Icon name="person" size={18} color="tertiary" />
@@ -55,11 +51,7 @@ const MultipleTextGroupsTemplate: StoryFn<TextGroupProps> = (args) => {
           ),
         },
         {
-          label: (
-            <Text modifiers="thin" color="secondary">
-              Address
-            </Text>
-          ),
+          label: 'Address',
           value: (
             <>
               <Icon name="location_on" size={16} color="tertiary" />
@@ -73,19 +65,11 @@ const MultipleTextGroupsTemplate: StoryFn<TextGroupProps> = (args) => {
       labelWidth: '180px',
       items: [
         {
-          label: (
-            <Text modifiers="thin" color="secondary">
-              Vaccine
-            </Text>
-          ),
+          label: 'Vaccine',
           value: <Text>Mari Maasikas</Text>,
         },
         {
-          label: (
-            <Text modifiers="thin" color="secondary">
-              Next vaccination
-            </Text>
-          ),
+          label: 'Next vaccination',
           value: <Text>Immunization finished</Text>,
         },
       ],
@@ -94,27 +78,15 @@ const MultipleTextGroupsTemplate: StoryFn<TextGroupProps> = (args) => {
       labelWidth: '200px',
       items: [
         {
-          label: (
-            <Text modifiers="thin" color="secondary">
-              Healthcare provider
-            </Text>
-          ),
+          label: 'Healthcare provider',
           value: <Text>SA Põhja-Eesti Regionaalhaigla</Text>,
         },
         {
-          label: (
-            <Text modifiers="thin" color="secondary">
-              Healthcare specialist
-            </Text>
-          ),
+          label: 'Healthcare specialist',
           value: <Text>Mart Mets</Text>,
         },
         {
-          label: (
-            <Text modifiers="thin" color="secondary">
-              Document creation time
-            </Text>
-          ),
+          label: 'Document creation time',
           value: <Text>16.08.2023 14:51:48</Text>,
         },
       ],
@@ -140,14 +112,10 @@ const TemplateWithTypes: StoryFn<TextGroupProps> = (args) => {
   return (
     <Row>
       <Col>
+        <TextGroup type="vertical" label="Accessibility" value={<Text>Visible to doctor and representative</Text>} />
         <TextGroup
           type="vertical"
-          label={<Text modifiers="thin">Accessibility</Text>}
-          value={<Text>Visible to doctor and representative</Text>}
-        />
-        <TextGroup
-          type="vertical"
-          label={<Text modifiers="thin">Accessibility</Text>}
+          label="Accessibility"
           value={
             <>
               <Icon name="lock" size={16} color="tertiary" />
@@ -155,14 +123,10 @@ const TemplateWithTypes: StoryFn<TextGroupProps> = (args) => {
             </>
           }
         />
+        <TextGroup type="vertical" label="Accessibility" value={<Text>Visible to doctor and representative</Text>} />
         <TextGroup
           type="vertical"
-          label={<Text modifiers="bold">Accessibility</Text>}
-          value={<Text>Visible to doctor and representative</Text>}
-        />
-        <TextGroup
-          type="vertical"
-          label={<Text modifiers="thin">Accessibility</Text>}
+          label="Accessibility"
           value={<Text modifiers="bold">Visible to doctor and representative</Text>}
         />
       </Col>
@@ -173,7 +137,7 @@ const TemplateWithTypes: StoryFn<TextGroupProps> = (args) => {
 export const Default: Story = {
   render: TemplateWithLayouts,
   args: {
-    label: <Text>Accessibility</Text>,
+    label: 'Accessibility',
     value: <Text>Visible to doctor and representative</Text>,
   },
 };
@@ -185,7 +149,7 @@ export const Types: Story = {
 export const PositionType: Story = {
   render: TemplateWithLayouts,
   args: {
-    label: <Text>Accessibility</Text>,
+    label: 'Accessibility',
     value: <Text>Visible to doctor and representative</Text>,
   },
 };

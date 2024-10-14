@@ -2,6 +2,7 @@ import cn from 'classnames';
 import React from 'react';
 
 import { BreakpointSupport, useBreakpointProps } from '../../helpers';
+import { Label } from '../label/label';
 import { VerticalSpacingItem, VerticalSpacingProps } from '../vertical-spacing';
 import styles from './text-group.module.scss';
 
@@ -27,7 +28,7 @@ export interface TextGroupProps extends BreakpointSupport<TextGroupBreakpointPro
   /**
    * Label for the text group
    */
-  label: React.ReactNode;
+  label: string;
   /**
    * Value displayed alongside the label
    */
@@ -53,8 +54,8 @@ export const TextGroup = (props: TextGroupProps): JSX.Element => {
 
   return (
     <dl className={textGroupBEM} style={{ '--label-width': labelWidthStyle }} role="group">
-      <VerticalSpacingItem element="dt" className={cn(styles['tedi-text-group__label'])} {...verticalSpacing}>
-        {label}
+      <VerticalSpacingItem element="dt" {...verticalSpacing}>
+        <Label className={cn(styles['tedi-text-group__label'])}>{label}</Label>
       </VerticalSpacingItem>
       <VerticalSpacingItem element="dd" className={cn(styles['tedi-text-group__value'])} {...verticalSpacing}>
         {value}
