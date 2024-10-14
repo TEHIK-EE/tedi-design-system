@@ -1,6 +1,6 @@
 import React from 'react';
 
-import SkeletonBlock from '../../../skeleton/skeleton-block/skeleton-block';
+import { SkeletonBlock } from '../../../../../../tedi/src/components/skeleton';
 import { PAGE_SIZE_WITHOUT_PAGINATION } from '../../table';
 import { TableContext } from '../../table-context';
 

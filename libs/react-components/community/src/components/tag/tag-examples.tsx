@@ -1,6 +1,7 @@
 import { Col, ColProps, Row } from '../../../../tedi/src/components/grid';
+import { Skeleton } from '../../../../tedi/src/components/skeleton';
 import { VerticalSpacing } from '../../../../tedi/src/components/vertical-spacing';
-import { Card, CardContent, CardProps, Heading, Icon, Separator, Skeleton, Tag, TagProps } from '../../index';
+import { Card, CardContent, CardProps, Heading, Icon, Separator, Tag, TagProps } from '../../index';
 
 const TagExamples = () => {
   return (
