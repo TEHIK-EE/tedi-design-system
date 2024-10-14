@@ -127,8 +127,9 @@ const InternalButtonContent = forwardRef(
           { [styles['btn--underline']]: underline },
           { [styles['btn--is-hovered']]: isHovered },
           { [styles['btn--is-active']]: isActive },
-          { [styles['btn--is-loading']]: isLoading && !hasIcon },
+          { [styles['btn--is-loading']]: isLoading },
           { [styles['btn--icon-only']]: icon },
+          { [styles['btn--icon']]: hasIcon },
           { [styles['btn--full-width']]: fullWidth }
         )
       : cn(styles['btn--no-style'], className, { [styles['btn--full-width']]: fullWidth });
