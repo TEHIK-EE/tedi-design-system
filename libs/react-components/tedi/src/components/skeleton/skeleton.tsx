@@ -7,27 +7,30 @@ import styles from './skeleton.module.scss';
 
 export interface SkeletonProps {
   /**
-   * PlaceholderBlocks content
+   * The content to be rendered inside the skeleton placeholder.
    */
   children?: React.ReactNode | React.ReactNode[];
   /**
-   * Additional custom class
+   * Custom class names to apply to the skeleton component for styling purposes.
    */
   className?: string;
   /**
-   * Accessibility label for screen-readers when component mounts and certain delay has passed
-   * When omitted then info about all the skeletons currently on the page get combined into one info message.
+   * The accessibility label announced by screen readers when the skeleton component mounts.
+   * This message informs users that content is loading.
+   * If omitted, all skeletons on the page are combined into a single status message.
    * @default getLabel('skeleton.loading')
    */
   label?: string;
   /**
-   * Accessibility label for screen-readers that gets read when component unmounts
-   * When label isn't read due to not meeting labelDelay requirement, then this props is ignored
+   * The accessibility label announced by screen readers when the skeleton component unmounts.
+   * This message informs users that content has finished loading.
+   * This label is only announced if the delay specified by `labelDelay` is met.
    * @default getLabel('skeleton.loading-completed')
    */
   completedLabel?: string;
   /**
-   * Delay in ms before the label is announced by screen-readers
+   * The delay, in milliseconds, before the screen reader announces the `label` when the component mounts.
+   * If the content loads faster than this delay, the label may not be announced to avoid unnecessary interruptions.
    * @default 1000ms
    */
   labelDelay?: number;
@@ -43,12 +46,14 @@ export const Skeleton = (props: SkeletonProps): JSX.Element => {
     labelDelay = 1000,
     ...rest
   } = props;
-  const SkeletonBEM = cn(styles['skeleton'], className);
+  const SkeletonBEM = cn(styles['tedi-skeleton'], className);
   useDeclareLoader(label, completedLabel, labelDelay);
 
   return (
     <div data-name="skeleton" {...rest} className={SkeletonBEM}>
-      <span className="sr-only">{label}</span>
+      <span className="sr-only" aria-live="polite">
+        {label}
+      </span>
       {children}
     </div>
   );
