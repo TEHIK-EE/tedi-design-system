@@ -1,3 +1,10 @@
+# [7.1.0-rc.8](https://github.com/TEHIK-EE/tedi-design-system/compare/v7.1.0-rc.7...v7.1.0-rc.8) (2024-10-14)
+
+
+### Features
+
+* **badge:** TEDI-402 Component: Badge [#174](https://github.com/TEHIK-EE/tedi-design-system/issues/174) ([#215](https://github.com/TEHIK-EE/tedi-design-system/issues/215)) ([a884f8e](https://github.com/TEHIK-EE/tedi-design-system/commit/a884f8e947fc9d1e03052f7be412a21c5c412217)), closes [#70](https://github.com/TEHIK-EE/tedi-design-system/issues/70) [#186](https://github.com/TEHIK-EE/tedi-design-system/issues/186) [TEHIK-EE#70](https://github.com/TEHIK-EE/issues/70) [#70](https://github.com/TEHIK-EE/tedi-design-system/issues/70) [#186](https://github.com/TEHIK-EE/tedi-design-system/issues/186) [#177](https://github.com/TEHIK-EE/tedi-design-system/issues/177) [#195](https://github.com/TEHIK-EE/tedi-design-system/issues/195) [#177](https://github.com/TEHIK-EE/tedi-design-system/issues/177) [#177](https://github.com/TEHIK-EE/tedi-design-system/issues/177) [#177](https://github.com/TEHIK-EE/tedi-design-system/issues/177) [#177](https://github.com/TEHIK-EE/tedi-design-system/issues/177)
+
 # [7.1.0-rc.7](https://github.com/TEHIK-EE/tedi-design-system/compare/v7.1.0-rc.6...v7.1.0-rc.7) (2024-10-14)
 
 
