@@ -5,7 +5,7 @@ import { useLabels } from '../../providers/label-provider';
 import { Icon } from '../icon/icon';
 import styles from './closing-button.module.scss';
 
-type ClosingButtonSize = 'medium' | 'large' | 'small';
+type ClosingButtonSize = 'small' | 'medium' | 'large';
 
 export interface ClosingButtonProps {
   /**
