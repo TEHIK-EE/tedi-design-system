@@ -1,15 +1,15 @@
 import cn from 'classnames';
 import React, { forwardRef } from 'react';
 
+import FormLabel, { FormLabelProps } from '../../../../../tedi/src/components/form/form-label/form-label';
 import { useLabels } from '../../../../../tedi/src/providers/label-provider';
 import Button, { ButtonProps } from '../../button/button';
 import { Icon, IconProps } from '../../icon/icon';
 import Separator from '../../separator/separator';
 import FormHelper, { FormHelperProps } from '../form-helper/form-helper';
-import FormLabel, { FormLabelProps } from '../form-label/form-label';
 import styles from './textfield.module.scss';
 
-export interface TextFieldProps extends FormLabelProps {
+export interface TextFieldProps extends Omit<FormLabelProps, 'size'> {
   /**
    * ID attribute.
    */
@@ -75,7 +75,7 @@ export interface TextFieldProps extends FormLabelProps {
   /**
    * Input textfield size.
    */
-  size?: 'small' | 'large';
+  size?: 'default' | 'small' | 'large';
   /**
    * If textfield is disabled.
    */
@@ -137,7 +137,6 @@ export const TextField = forwardRef<TextFieldForwardRef, TextFieldProps>((props,
     inputClassName,
     disabled,
     required,
-    requiredLabel,
     hideLabel,
     invalid,
     readOnly,
@@ -189,6 +188,8 @@ export const TextField = forwardRef<TextFieldForwardRef, TextFieldProps>((props,
   const isValid = React.useMemo((): boolean => {
     return !invalid && helper?.type === 'valid';
   }, [invalid, helper]);
+
+  const labelSize = size === 'large' ? 'default' : size;
 
   const getIcon = React.useCallback(
     (icon: string | IconProps): JSX.Element => {
@@ -338,14 +339,7 @@ export const TextField = forwardRef<TextFieldForwardRef, TextFieldProps>((props,
 
   return (
     <div data-name="textfield" {...rest} className={TextFieldBEM}>
-      <FormLabel
-        id={id}
-        label={label}
-        requiredLabel={requiredLabel}
-        required={required}
-        hideLabel={hideLabel}
-        size={size}
-      />
+      <FormLabel id={id} label={label} required={required} hideLabel={hideLabel} size={labelSize} />
       <div
         className={styles['textfield__inner']}
         onKeyDown={onKeyDown}
