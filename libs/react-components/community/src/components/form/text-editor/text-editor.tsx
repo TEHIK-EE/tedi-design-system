@@ -13,9 +13,9 @@ import {
 import { draftjsToMd, mdToDraftjs } from 'draftjs-md-converter';
 import React from 'react';
 
+import { FormLabel, FormLabelProps } from '../../../../../tedi/src/components/form/form-label/form-label';
 import { useIsMounted } from '../../../helpers';
 import FormHelper, { FormHelperProps } from '../form-helper/form-helper';
-import FormLabel, { FormLabelProps } from '../form-label/form-label';
 import BlockStyleControls from './components/block-style-controls';
 import InlineStyleControls from './components/inline-style-controls';
 import styles from './text-editor.module.scss';
@@ -82,7 +82,6 @@ export const TextEditor = (props: TextEditorProps): JSX.Element => {
     label,
     id,
     required,
-    requiredLabel,
     helper,
     className,
     hideLabel,
@@ -153,7 +152,7 @@ export const TextEditor = (props: TextEditorProps): JSX.Element => {
 
   return (
     <div data-name="text-editor" {...rest} className={TextEditorBEM}>
-      <FormLabel id={id} label={label} requiredLabel={requiredLabel} required={required} hideLabel={hideLabel} />
+      <FormLabel id={id} label={label} required={required} hideLabel={hideLabel} />
       <div
         className={styles['text-editor__inner']}
         onClick={() => setIsFocused(true)}
