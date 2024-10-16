@@ -1,3 +1,10 @@
+# [7.1.0-rc.10](https://github.com/TEHIK-EE/tedi-design-system/compare/v7.1.0-rc.9...v7.1.0-rc.10) (2024-10-16)
+
+
+### Bug Fixes
+
+* **icon:** Optimize material-symbols font pack [#230](https://github.com/TEHIK-EE/tedi-design-system/issues/230) ([#232](https://github.com/TEHIK-EE/tedi-design-system/issues/232)) ([76a388d](https://github.com/TEHIK-EE/tedi-design-system/commit/76a388d0ce272e4a6a298b870047bf6b7a38d8fb))
+
 # [7.1.0-rc.9](https://github.com/TEHIK-EE/tedi-design-system/compare/v7.1.0-rc.8...v7.1.0-rc.9) (2024-10-16)
 
 
