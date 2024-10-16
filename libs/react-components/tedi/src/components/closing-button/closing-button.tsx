@@ -16,7 +16,7 @@ export interface ClosingButtonProps {
    * Size of the ClosingButton
    * @default 'medium'
    */
-  size: ClosingButtonSize;
+  size?: ClosingButtonSize;
   /**
    * Event handler for the button click event. Triggered when the user clicks on the close button.
    */

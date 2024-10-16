@@ -1,11 +1,11 @@
 import cn from 'classnames';
 import React from 'react';
 
+import { ClosingButton } from '../../../../../tedi/src/components/closing-button/closing-button';
 import { Col, Row } from '../../../../../tedi/src/components/grid';
 import { ILabelContext, useLabels } from '../../../../../tedi/src/providers/label-provider';
 import Button from '../../button/button';
 import { Card, CardContent } from '../../card';
-import CloseButton from '../../close-button/close-button';
 import Ellipsis from '../../ellipsis/ellipsis';
 import Spinner from '../../spinner/spinner';
 import Text from '../../typography/text/text';
@@ -222,7 +222,7 @@ export const FileUpload = (props: FileUploadProps): JSX.Element => {
                   {file.isLoading ? (
                     <Spinner />
                   ) : (
-                    <CloseButton onClick={() => onFileRemove(file)}>{getLabel('remove')}</CloseButton>
+                    <ClosingButton title={getLabel('remove')} onClick={() => onFileRemove(file)} />
                   )}
                 </Col>
               )}
