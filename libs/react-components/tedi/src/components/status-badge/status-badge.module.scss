@@ -18,19 +18,19 @@ $badge-status-colors: ('inactive', 'success', 'danger', 'warning');
   @include responsive-styles(font-size, body-small-regular-size, $exclude: tablet);
   @include responsive-styles(font-weight, body-small-regular-weight, $exclude: tablet);
   @include responsive-styles(line-height, body-small-regular-line-height, $exclude: tablet);
-  @include responsive-styles(padding, status-badge-default-padding-y status-badge-default-padding-x);
-  @include responsive-styles(border-radius, status-badge-radius);
+  @include responsive-styles(padding, tag-default-padding-y tag-default-padding-x);
+  @include responsive-styles(border-radius, tag-default-radius);
 
   &__inner-text {
     min-width: fit-content;
 
-    @include responsive-styles(padding-left, status-badge-inner-spacing);
-    @include responsive-styles(padding-right, status-badge-inner-spacing);
+    @include responsive-styles(padding-left, tag-default-inner-spacing);
+    @include responsive-styles(padding-right, tag-default-inner-spacing);
   }
 
   &--large {
-    @include responsive-styles(min-width, status-badge-large-min-width);
-    @include responsive-styles(padding, status-badge-large-padding-y status-badge-large-padding-x);
+    @include responsive-styles(min-width, tag-status-large-min-width);
+    @include responsive-styles(padding, tag-status-large-padding-y tag-status-large-padding-x);
   }
 
   @each $variant in $badge-variants {
