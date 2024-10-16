@@ -1,11 +1,11 @@
 import cn from 'classnames';
 import React from 'react';
 
+import FormLabel, { FormLabelProps } from '../../../../../tedi/src/components/form/form-label/form-label';
 import { Direction, Gutter, Row, RowProps } from '../../../../../tedi/src/components/grid';
 import { useLabels } from '../../../../../tedi/src/providers/label-provider';
 import Check, { CheckProps } from '../check/check';
 import FormHelper, { FormHelperProps } from '../form-helper/form-helper';
-import FormLabel, { FormLabelProps } from '../form-label/form-label';
 import styles from './choice-group.module.scss';
 import { ChoiceGroupItemProps } from './choice-group.types';
 import { ChoiceGroupContext, IChoiceGroupContext } from './choice-group-context';
@@ -97,7 +97,6 @@ export const ChoiceGroup = (props: ChoiceGroupProps): React.ReactElement => {
     id,
     className,
     label,
-    requiredLabel,
     required,
     helper,
     items,
@@ -244,14 +243,7 @@ export const ChoiceGroup = (props: ChoiceGroupProps): React.ReactElement => {
         aria-describedby={helperId}
       >
         <legend>
-          <FormLabel
-            id={id}
-            label={label}
-            requiredLabel={requiredLabel}
-            required={required}
-            hideLabel={hideLabel}
-            renderWithoutLabel={true}
-          />
+          <FormLabel id={id} label={label} required={required} hideLabel={hideLabel} renderWithoutLabel={true} />
         </legend>
         {items?.length ? (
           <>
