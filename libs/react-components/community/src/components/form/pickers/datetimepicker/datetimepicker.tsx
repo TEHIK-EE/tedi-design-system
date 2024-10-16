@@ -129,6 +129,11 @@ export interface DateTimePickerProps extends Omit<TextFieldProps, 'defaultValue'
    * Callback fired when the popup requests to be closed.
    */
   onClose?: () => void;
+  /**
+   * CSS media query when `Mobile` mode will be changed to `Desktop`.
+   * @default '@media (min-width: 768px)'
+   */
+  desktopModeMediaQuery?: string;
 }
 
 export const DateTimePicker = (props: DateTimePickerProps): JSX.Element => {
@@ -161,6 +166,7 @@ export const DateTimePicker = (props: DateTimePickerProps): JSX.Element => {
     mask = '__.__.____ __:__',
     ampm = false,
     onClose,
+    desktopModeMediaQuery = '@media (min-width: 768px)',
     ...rest
   } = props;
   const [innerDate, setInnerDate] = React.useState<DateTimepickerValue>(defaultValue || null);
@@ -231,6 +237,7 @@ export const DateTimePicker = (props: DateTimePickerProps): JSX.Element => {
       mask={mask}
       minutesStep={minutesStep}
       ampm={ampm}
+      desktopModeMediaQuery={desktopModeMediaQuery}
     />
   );
 };
