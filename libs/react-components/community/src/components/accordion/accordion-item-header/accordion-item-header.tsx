@@ -108,7 +108,6 @@ export const AccordionItemHeader = (props: AccordionItemHeaderProps): JSX.Elemen
               visualType="link"
               aria-hidden={true}
               tabIndex={-1}
-              as="div"
             />
           </Col>
         </Row>

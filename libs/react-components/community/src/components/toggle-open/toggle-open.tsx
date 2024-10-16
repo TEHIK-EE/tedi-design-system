@@ -5,7 +5,7 @@ import Button, { ButtonProps } from '../button/button';
 import { IconProps } from '../icon/icon';
 import styles from './toggle-open.module.scss';
 
-export interface ToggleOpenProps extends Omit<ButtonProps, 'children' | 'iconRight' | 'as'> {
+export interface ToggleOpenProps extends Omit<ButtonProps, 'children' | 'iconRight'> {
   /**
    * Name on the button to open the item
    */
@@ -23,20 +23,9 @@ export interface ToggleOpenProps extends Omit<ButtonProps, 'children' | 'iconRig
    * Overidden from ButtonProps, because we dont support string as icon name here
    */
   iconRight?: Partial<IconProps>;
-  /**
-   * If the element is a button or a div
-   * @default button
-   */
-  as?: 'button' | 'div';
 }
-export const ToggleOpen = ({
-  openText,
-  closeText,
-  isOpen,
-  iconRight,
-  as = 'button',
-  ...rest
-}: ToggleOpenProps): JSX.Element => {
+
+export const ToggleOpen = ({ openText, closeText, isOpen, iconRight, ...rest }: ToggleOpenProps): JSX.Element => {
   const ToggleOpenBEM = cn(
     { [styles['toggle--open']]: isOpen },
     { [styles['toggle--close']]: !isOpen },
@@ -44,14 +33,10 @@ export const ToggleOpen = ({
   );
 
   return (
-    <Button
-      data-name="button"
-      as={as as 'button' | 'div'}
-      iconRight={{ ...iconRight, className: ToggleOpenBEM, name: 'expand_more' }}
-      {...rest}
-    >
+    <Button data-name="button" iconRight={{ ...iconRight, className: ToggleOpenBEM, name: 'expand_more' }} {...rest}>
       {isOpen ? closeText : openText}
     </Button>
   );
 };
+
 export default ToggleOpen;
