@@ -1,3 +1,15 @@
+# [7.1.0-rc.9](https://github.com/TEHIK-EE/tedi-design-system/compare/v7.1.0-rc.8...v7.1.0-rc.9) (2024-10-16)
+
+
+### Features
+
+* **toggleOpen:** [#102](https://github.com/TEHIK-EE/tedi-design-system/issues/102) - Add an optional prop to render ToggleOpen as div instead of button  ([#171](https://github.com/TEHIK-EE/tedi-design-system/issues/171)) ([62c9c4e](https://github.com/TEHIK-EE/tedi-design-system/commit/62c9c4e16b67e951f104d6bdca428aeab7e51f84))
+
+
+### Reverts
+
+* Revert " feat(toggleOpen): #102 - Add an optional prop to render ToggleOpen a…" (#231) ([1179ad5](https://github.com/TEHIK-EE/tedi-design-system/commit/1179ad5110a6447db3c4abe7510e04f283f65c60)), closes [#102](https://github.com/TEHIK-EE/tedi-design-system/issues/102) [#231](https://github.com/TEHIK-EE/tedi-design-system/issues/231)
+
 # [7.1.0-rc.8](https://github.com/TEHIK-EE/tedi-design-system/compare/v7.1.0-rc.7...v7.1.0-rc.8) (2024-10-14)
 
 
