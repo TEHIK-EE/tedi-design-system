@@ -290,6 +290,7 @@ $btn-height-small: 2.25rem;
   height: auto;
   padding: 0;
   color: var(--color-primary-main);
+  text-align: left;
   text-decoration: none;
   background: none;
   border: none;
@@ -308,7 +309,7 @@ $btn-height-small: 2.25rem;
     text-decoration: underline;
   }
 
-  .btn--is-loading & {
+  .btn--is-loading:not(.btn--icon) & {
     color: var(--color-transparent);
   }
 }
@@ -320,7 +321,7 @@ $btn-height-small: 2.25rem;
   min-width: 1.5rem;
   min-height: 1.5rem;
 
-  .btn--link & {
+  .btn--link:not(.btn--is-loading) & {
     display: inline;
   }
 }
