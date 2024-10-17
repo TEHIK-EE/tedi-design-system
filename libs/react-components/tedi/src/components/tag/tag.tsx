@@ -11,21 +11,15 @@ type TagColor = 'primary' | 'secondary' | 'danger';
 
 type TagBreakpointProps = {
   /**
-   * Function to be called when the close button is clicked.
-   * If provided, a close button will be rendered inside the Tag.
-   */
-  onClose?: MouseEventHandler<HTMLButtonElement>;
-  /**
-   * Determines whether the Tag is in a loading state
-   * @default false
-   */
-  isLoading?: boolean;
-  /**
    * Determines Tag color
    * When true, the Tag will be styled accordingly and an error icon will be displayed.
    * @default 'primary'
    */
   color?: TagColor;
+  /**
+   * Additional classes to apply custom styles to the Tag.
+   */
+  className?: string;
 };
 
 export interface TagProps extends BreakpointSupport<TagBreakpointProps> {
@@ -35,9 +29,15 @@ export interface TagProps extends BreakpointSupport<TagBreakpointProps> {
    */
   children: React.ReactNode;
   /**
-   * Additional classes to apply custom styles to the Tag.
+   * Function to be called when the close button is clicked.
+   * If provided, a close button will be rendered inside the Tag.
    */
-  className?: string;
+  onClose?: MouseEventHandler<HTMLButtonElement>;
+  /**
+   * Determines whether the Tag is in a loading state
+   * @default false
+   */
+  isLoading?: boolean;
 }
 
 export const Tag = (props: TagProps): JSX.Element => {

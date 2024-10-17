@@ -10,19 +10,9 @@ import ClosingButton, { ClosingButtonProps } from './closing-button';
 const meta: Meta<typeof ClosingButton> = {
   component: ClosingButton,
   title: 'Tedi-ready/Components/ClosingButton',
-  parameters: {
-    status: {
-      type: [{ name: 'internalComponent' }],
-    },
-  },
 };
 
 const sizeArray: ClosingButtonProps['size'][] = ['small', 'medium', 'large'];
-const iconSizeMap = {
-  small: '16px',
-  medium: '18px',
-  large: '24px',
-};
 
 export default meta;
 type Story = StoryObj<typeof ClosingButton>;
@@ -46,29 +36,6 @@ const SizeTemplate: StoryFn = () => {
   );
 };
 
-const IconSizeTemplate: StoryFn = () => {
-  return (
-    <div className="example-list w-50">
-      {sizeArray.map((size, key) => (
-        <div className={`row ${key === sizeArray.length - 1 ? '' : 'border-bottom'} padding-14-16`} key={key}>
-          <div className="column w-50">
-            <div className="display-flex">{iconSizeMap[size]}</div>
-          </div>
-          <div className="column">
-            <div className="display-flex">
-              <ClosingButton
-                className="closing-button--hover"
-                size={size}
-                onClick={() => alert(`${size} button clicked`)}
-              />
-            </div>
-          </div>
-        </div>
-      ))}
-    </div>
-  );
-};
-
 export const Default: Story = {
   args: {
     title: 'close',
@@ -78,13 +45,4 @@ export const Default: Story = {
 
 export const Size: Story = {
   render: SizeTemplate,
-};
-
-export const IconSize: Story = {
-  render: IconSizeTemplate,
-  parameters: {
-    pseudo: {
-      hover: '.closing-button--hover',
-    },
-  },
 };

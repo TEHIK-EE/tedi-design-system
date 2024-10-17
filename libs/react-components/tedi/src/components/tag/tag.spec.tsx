@@ -1,8 +1,19 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 
+import { useBreakpointProps } from '../../helpers';
 import { Tag } from './tag';
 
+jest.mock('../../helpers', () => ({
+  useBreakpointProps: jest.fn(),
+}));
+
 describe('Tag component', () => {
+  beforeEach(() => {
+    (useBreakpointProps as jest.Mock).mockReturnValue({
+      getCurrentBreakpointProps: jest.fn((props) => props),
+    });
+  });
+
   it('renders default tag', () => {
     render(<Tag>Default Tag</Tag>);
 
