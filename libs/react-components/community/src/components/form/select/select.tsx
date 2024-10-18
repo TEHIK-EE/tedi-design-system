@@ -23,6 +23,7 @@ import ReactSelect, {
 import AsyncSelect from 'react-select/async';
 import { MenuPortalProps } from 'react-select/dist/declarations/src/components/Menu';
 
+import { FormLabel, FormLabelProps } from '../../../../../tedi/src/components/form/form-label/form-label';
 import { useLabels } from '../../../../../tedi/src/providers/label-provider';
 import { getBackgroundColorClass } from '../../../helpers';
 import { IntentionalAny } from '../../../types';
@@ -33,7 +34,6 @@ import Tag from '../../tag/tag';
 import Text, { TextProps } from '../../typography/text/text';
 import Check from '../check/check';
 import FormHelper, { FormHelperProps } from '../form-helper/form-helper';
-import FormLabel, { FormLabelProps } from '../form-label/form-label';
 import styles from './select.module.scss';
 
 /**
@@ -306,7 +306,6 @@ export const Select = forwardRef<SelectInstance<ISelectOption, boolean, IGrouped
       iconName = 'arrow_drop_down',
       label,
       required,
-      requiredLabel,
       value,
       defaultValue,
       tagsDirection = 'row',
@@ -629,13 +628,7 @@ export const Select = forwardRef<SelectInstance<ISelectOption, boolean, IGrouped
     return (
       <div data-name="select" {...rest} className={SelectBEM}>
         <div className={styles['select__inner']}>
-          <FormLabel
-            id={`${id}-input`}
-            label={label}
-            requiredLabel={requiredLabel}
-            required={required}
-            hideLabel={hideLabel}
-          />
+          <FormLabel id={`${id}-input`} label={label} required={required} hideLabel={hideLabel} />
           {renderReactSelect()}
         </div>
         {helper && <FormHelper {...helper} id={helperId} />}
