@@ -1,3 +1,17 @@
+# [8.0.0-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/v7.1.0-rc.10...v8.0.0-rc.1) (2024-10-18)
+
+
+### Features
+
+* **form-label:** Replace FormLabel in Community components with TEDI-Ready FormLabel [#227](https://github.com/TEHIK-EE/tedi-design-system/issues/227) ([#229](https://github.com/TEHIK-EE/tedi-design-system/issues/229)) ([ade9f77](https://github.com/TEHIK-EE/tedi-design-system/commit/ade9f776309ea5aa2bd34ae1b83f6cecd7cb680f))
+
+
+### BREAKING CHANGES
+
+* **form-label:** The FormLabel component has been replaced with TEDI-FormLabel in Community
+
+Co-authored-by: Airike Jaska <airike.jaska@bitweb.ee>
+
 # [7.1.0-rc.10](https://github.com/TEHIK-EE/tedi-design-system/compare/v7.1.0-rc.9...v7.1.0-rc.10) (2024-10-16)
 
 
