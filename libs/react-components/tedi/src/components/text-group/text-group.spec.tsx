@@ -12,7 +12,7 @@ describe('TextGroup component', () => {
     expect(textGroup).toHaveClass('tedi-text-group--vertical');
     expect(textGroup).toHaveStyle('--label-width: auto');
 
-    const labelElement = container.querySelector('dt .tedi-text-group__label');
+    const labelElement = container.querySelector('dt');
     const valueElement = container.querySelector('dd');
 
     expect(labelElement).toHaveClass('tedi-text-group__label');
@@ -30,7 +30,7 @@ describe('TextGroup component', () => {
     expect(textGroup).toHaveClass('tedi-text-group--horizontal');
     expect(textGroup).toHaveStyle('--label-width: 200px');
 
-    const labelElement = container.querySelector('dt .tedi-text-group__label');
+    const labelElement = container.querySelector('dt');
     const valueElement = container.querySelector('dd');
 
     expect(labelElement).toHaveTextContent('Custom Label');

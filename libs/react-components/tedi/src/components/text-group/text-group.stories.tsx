@@ -29,7 +29,7 @@ type Story = StoryObj<typeof TextGroup>;
 
 const TemplateWithLayouts: StoryFn<TextGroupProps> = (args) => {
   return (
-    <VerticalSpacing size={1.5}>
+    <VerticalSpacing size={1}>
       <TextGroup type="vertical" {...args} />
       <TextGroup type="horizontal" labelWidth="150px" {...args} />
     </VerticalSpacing>
@@ -112,23 +112,25 @@ const TemplateWithTypes: StoryFn<TextGroupProps> = (args) => {
   return (
     <Row>
       <Col>
-        <TextGroup type="vertical" label="Accessibility" value={<Text>Visible to doctor and representative</Text>} />
-        <TextGroup
-          type="vertical"
-          label="Accessibility"
-          value={
-            <>
-              <Icon name="lock" size={16} color="tertiary" />
-              <Text>Visible to doctor and representative</Text>
-            </>
-          }
-        />
-        <TextGroup type="vertical" label="Accessibility" value={<Text>Visible to doctor and representative</Text>} />
-        <TextGroup
-          type="vertical"
-          label="Accessibility"
-          value={<Text modifiers="bold">Visible to doctor and representative</Text>}
-        />
+        <VerticalSpacing size={1}>
+          <TextGroup type="vertical" {...args} />
+          <TextGroup
+            {...args}
+            type="vertical"
+            value={
+              <>
+                <Icon name="lock" size={16} color="tertiary" />
+                <Text>Visible to doctor and representative</Text>
+              </>
+            }
+          />
+          <TextGroup {...args} type="vertical" value={<Text>Visible to doctor and representative</Text>} />
+          <TextGroup
+            {...args}
+            type="vertical"
+            value={<Text modifiers="bold">Visible to doctor and representative</Text>}
+          />
+        </VerticalSpacing>
       </Col>
     </Row>
   );
@@ -144,6 +146,10 @@ export const Default: Story = {
 
 export const Types: Story = {
   render: TemplateWithTypes,
+  args: {
+    label: 'Accessibility',
+    value: <Text>Visible to doctor and representative</Text>,
+  },
 };
 
 export const PositionType: Story = {
