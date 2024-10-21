@@ -5,7 +5,7 @@ import { useLabels } from '../../providers/label-provider';
 import { Icon } from '../icon/icon';
 import styles from './closing-button.module.scss';
 
-type ClosingButtonSize = 'small' | 'medium' | 'large';
+type ClosingButtonSize = 'medium' | 'large';
 
 export interface ClosingButtonProps {
   /**
@@ -35,13 +35,12 @@ export const ClosingButton = (props: ClosingButtonProps): JSX.Element => {
   const buttonClass = cn(
     styles['tedi-closing-button'],
     {
-      [styles['tedi-closing-button--small']]: size === 'small',
       [styles['tedi-closing-button--large']]: size === 'large',
     },
     className
   );
 
-  const iconSize = size === 'large' ? 24 : size === 'small' ? 16 : 18;
+  const iconSize = size === 'large' ? 24 : 18;
 
   return (
     <button

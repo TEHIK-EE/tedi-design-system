@@ -9,6 +9,9 @@ $tag-colors: (
 .tedi-tag {
   --loader-spinner-color-primary: var(--button-close-text-default);
   --general-icon-primary: var(--button-close-text-default);
+  --button-radius-default-desktop: var(--button-radius-sm-desktop);
+  --button-radius-default-tablet: var(--button-radius-sm-tablet);
+  --button-radius-default-mobile: var(--button-radius-sm-mobile);
 
   display: inline-flex;
   align-items: center;

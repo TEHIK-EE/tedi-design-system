@@ -26,12 +26,6 @@
     }
   }
 
-  &--small {
-    @include responsive-styles(width, button-xxs-icon-size);
-    @include responsive-styles(height, button-xxs-icon-size);
-    @include responsive-styles(border-radius, button-radius-sm);
-  }
-
   &--medium {
     @include responsive-styles(width, button-xs-icon-size);
     @include responsive-styles(height, button-xs-icon-size);

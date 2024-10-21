@@ -12,7 +12,7 @@ const meta: Meta<typeof ClosingButton> = {
   title: 'Tedi-ready/Components/ClosingButton',
 };
 
-const sizeArray: ClosingButtonProps['size'][] = ['small', 'medium', 'large'];
+const sizeArray: ClosingButtonProps['size'][] = ['medium', 'large'];
 
 export default meta;
 type Story = StoryObj<typeof ClosingButton>;

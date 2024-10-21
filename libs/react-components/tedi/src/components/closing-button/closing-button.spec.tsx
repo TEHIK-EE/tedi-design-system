@@ -28,25 +28,6 @@ describe('ClosingButton component', () => {
     expect(icon).toHaveClass('tedi-icon--size-18');
   });
 
-  it('renders with the correct small size class and icon size', () => {
-    render(
-      <ClosingButton
-        size="small"
-        onClick={() => {
-          console.log('Button pressed');
-        }}
-      />
-    );
-
-    const button = screen.getByRole('button', { name: /close/i });
-    expect(button).toBeInTheDocument();
-    expect(button).toHaveClass('tedi-closing-button tedi-closing-button--small');
-
-    const icon = button.querySelector('span[data-name="icon"]');
-    expect(icon).toBeInTheDocument();
-    expect(icon).toHaveClass('tedi-icon--size-16');
-  });
-
   it('renders with the correct large size class and icon size', () => {
     render(
       <ClosingButton
@@ -67,10 +48,10 @@ describe('ClosingButton component', () => {
   });
 
   it('applies custom class names', () => {
-    render(<ClosingButton size="small" className="custom-class" />);
+    render(<ClosingButton size="large" className="custom-class" />);
 
     const button = screen.getByRole('button', { name: /Close/i });
-    expect(button).toHaveClass('tedi-closing-button tedi-closing-button--small custom-class');
+    expect(button).toHaveClass('tedi-closing-button tedi-closing-button--large custom-class');
   });
 
   it('triggers onClick handler when clicked', () => {
