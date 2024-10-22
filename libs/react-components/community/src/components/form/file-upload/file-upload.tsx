@@ -1,6 +1,7 @@
 import cn from 'classnames';
 import React from 'react';
 
+import { FormLabel, FormLabelProps } from '../../../../../tedi/src/components/form/form-label/form-label';
 import { Col, Row } from '../../../../../tedi/src/components/grid';
 import { ILabelContext, useLabels } from '../../../../../tedi/src/providers/label-provider';
 import Button from '../../button/button';
@@ -10,7 +11,6 @@ import Ellipsis from '../../ellipsis/ellipsis';
 import Spinner from '../../spinner/spinner';
 import Text from '../../typography/text/text';
 import FormHelper, { FormHelperProps } from '../form-helper/form-helper';
-import FormLabel, { FormLabelProps } from '../form-label/form-label';
 import styles from './file-upload.module.scss';
 
 export interface FileUploadFile extends Partial<File> {

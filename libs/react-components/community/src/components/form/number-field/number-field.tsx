@@ -1,11 +1,11 @@
 import cn from 'classnames';
 import React, { ChangeEvent, useCallback, useMemo, useRef, useState } from 'react';
 
+import { FormLabel, FormLabelProps } from '../../../../../tedi/src/components/form/form-label/form-label';
 import { useLabels } from '../../../../../tedi/src/providers/label-provider';
 import { Button } from '../../button/button';
 import Text from '../../typography/text/text';
 import FormHelper, { FormHelperProps } from '../form-helper/form-helper';
-import FormLabel, { FormLabelProps } from '../form-label/form-label';
 import styles from './number-field.module.scss';
 
 export interface NumberStepperProps extends FormLabelProps {
@@ -83,7 +83,6 @@ export const NumberField = (props: NumberStepperProps) => {
     id,
     label,
     hideLabel,
-    requiredLabel,
     required,
     className,
     size,
@@ -247,14 +246,7 @@ export const NumberField = (props: NumberStepperProps) => {
 
   return (
     <div data-name="number-field" className={className}>
-      <FormLabel
-        id={id}
-        label={label}
-        requiredLabel={requiredLabel}
-        required={required}
-        hideLabel={hideLabel}
-        size={size}
-      />
+      <FormLabel id={id} label={label} required={required} hideLabel={hideLabel} size={size} />
       <div className={NumberFieldBem}>
         {renderButton('decrement')}
         {renderInputElement()}

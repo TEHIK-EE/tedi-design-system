@@ -1,3 +1,43 @@
+# [8.0.0-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/v7.1.0-rc.10...v8.0.0-rc.1) (2024-10-18)
+
+
+### Features
+
+* **form-label:** Replace FormLabel in Community components with TEDI-Ready FormLabel [#227](https://github.com/TEHIK-EE/tedi-design-system/issues/227) ([#229](https://github.com/TEHIK-EE/tedi-design-system/issues/229)) ([ade9f77](https://github.com/TEHIK-EE/tedi-design-system/commit/ade9f776309ea5aa2bd34ae1b83f6cecd7cb680f))
+
+
+### BREAKING CHANGES
+
+* **form-label:** The FormLabel component has been replaced with TEDI-FormLabel in Community
+
+Co-authored-by: Airike Jaska <airike.jaska@bitweb.ee>
+
+# [7.1.0-rc.10](https://github.com/TEHIK-EE/tedi-design-system/compare/v7.1.0-rc.9...v7.1.0-rc.10) (2024-10-16)
+
+
+### Bug Fixes
+
+* **icon:** Optimize material-symbols font pack [#230](https://github.com/TEHIK-EE/tedi-design-system/issues/230) ([#232](https://github.com/TEHIK-EE/tedi-design-system/issues/232)) ([76a388d](https://github.com/TEHIK-EE/tedi-design-system/commit/76a388d0ce272e4a6a298b870047bf6b7a38d8fb))
+
+# [7.1.0-rc.9](https://github.com/TEHIK-EE/tedi-design-system/compare/v7.1.0-rc.8...v7.1.0-rc.9) (2024-10-16)
+
+
+### Features
+
+* **toggleOpen:** [#102](https://github.com/TEHIK-EE/tedi-design-system/issues/102) - Add an optional prop to render ToggleOpen as div instead of button  ([#171](https://github.com/TEHIK-EE/tedi-design-system/issues/171)) ([62c9c4e](https://github.com/TEHIK-EE/tedi-design-system/commit/62c9c4e16b67e951f104d6bdca428aeab7e51f84))
+
+
+### Reverts
+
+* Revert " feat(toggleOpen): #102 - Add an optional prop to render ToggleOpen a…" (#231) ([1179ad5](https://github.com/TEHIK-EE/tedi-design-system/commit/1179ad5110a6447db3c4abe7510e04f283f65c60)), closes [#102](https://github.com/TEHIK-EE/tedi-design-system/issues/102) [#231](https://github.com/TEHIK-EE/tedi-design-system/issues/231)
+
+# [7.1.0-rc.8](https://github.com/TEHIK-EE/tedi-design-system/compare/v7.1.0-rc.7...v7.1.0-rc.8) (2024-10-14)
+
+
+### Features
+
+* **badge:** TEDI-402 Component: Badge [#174](https://github.com/TEHIK-EE/tedi-design-system/issues/174) ([#215](https://github.com/TEHIK-EE/tedi-design-system/issues/215)) ([a884f8e](https://github.com/TEHIK-EE/tedi-design-system/commit/a884f8e947fc9d1e03052f7be412a21c5c412217)), closes [#70](https://github.com/TEHIK-EE/tedi-design-system/issues/70) [#186](https://github.com/TEHIK-EE/tedi-design-system/issues/186) [TEHIK-EE#70](https://github.com/TEHIK-EE/issues/70) [#70](https://github.com/TEHIK-EE/tedi-design-system/issues/70) [#186](https://github.com/TEHIK-EE/tedi-design-system/issues/186) [#177](https://github.com/TEHIK-EE/tedi-design-system/issues/177) [#195](https://github.com/TEHIK-EE/tedi-design-system/issues/195) [#177](https://github.com/TEHIK-EE/tedi-design-system/issues/177) [#177](https://github.com/TEHIK-EE/tedi-design-system/issues/177) [#177](https://github.com/TEHIK-EE/tedi-design-system/issues/177) [#177](https://github.com/TEHIK-EE/tedi-design-system/issues/177)
+
 # [7.1.0-rc.7](https://github.com/TEHIK-EE/tedi-design-system/compare/v7.1.0-rc.6...v7.1.0-rc.7) (2024-10-14)
 
 
