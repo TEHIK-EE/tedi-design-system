@@ -11,6 +11,7 @@ $tooltip-max-width: (
   background-color: var(--color-bg-default);
   filter: drop-shadow(0 4px 10px rgb(0 0 0 / 14%));
   border-radius: var(--border-radius-default);
+  transform: translateZ(0);
 }
 
 @each $name, $width in $tooltip-max-width {
