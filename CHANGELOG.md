@@ -1,3 +1,10 @@
+# [8.0.0-rc.4](https://github.com/TEHIK-EE/tedi-design-system/compare/v8.0.0-rc.3...v8.0.0-rc.4) (2024-10-23)
+
+
+### Bug Fixes
+
+* **label:** add aria-hidden true to required label [#245](https://github.com/TEHIK-EE/tedi-design-system/issues/245) ([#246](https://github.com/TEHIK-EE/tedi-design-system/issues/246)) ([0deb6e6](https://github.com/TEHIK-EE/tedi-design-system/commit/0deb6e6fb2bd4a7197904240521cc6073669dd55))
+
 # [8.0.0-rc.3](https://github.com/TEHIK-EE/tedi-design-system/compare/v8.0.0-rc.2...v8.0.0-rc.3) (2024-10-22)
 
 
