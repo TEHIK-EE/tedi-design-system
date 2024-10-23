@@ -7,20 +7,18 @@ import Button from '../button/button';
 import { CardContent, CardHeader } from '../card';
 import Heading from '../typography/heading/heading';
 import Modal, { ModalProps } from './modal';
-import ModalCloser from './modal-closer';
 import ModalProvider, { ModalProviderProps } from './modal-provider';
 import ModalTrigger from './modal-trigger';
 
 /**
- * Modal consist of 4 components: <b>ModalProvider</b>, <b>Modal</b>, <b>ModalTrigger</b> and <b>ModalCloser</b>.<br />
+ * Modal consist of 4 components: <b>ModalProvider</b>, <b>Modal</b> and <b>ModalTrigger</b>.<br />
  * **ModalProvider** - Provider context for other components. Handles modal open state.<br />
  * **Modal** - Visual UI component. Should always contain CardContent or CardHeader as children.<br />
  * **ModalTrigger** - Wrapper component around buttons/links to trigger modalOpen after click.<br />
- * **ModalClose** - Wrapper component around buttons/links to trigger modalClose after click.
  */
 const meta: Meta<typeof ModalProvider> = {
   component: ModalProvider,
-  subcomponents: { Modal, ModalTrigger, ModalCloser } as never,
+  subcomponents: { Modal, ModalTrigger } as never,
   title: 'Community/Modal',
 };
 
@@ -31,20 +29,12 @@ interface TemplateProps extends ModalProps {
   content?: string;
   modalProvider?: Partial<ModalProviderProps>;
   renderHeader?: boolean;
-  renderModalCloser?: boolean;
 }
 
 type Story = StoryObj<TemplateProps>;
 
 const Template: StoryFn<TemplateProps> = (args): JSX.Element => {
-  const {
-    heading = 'Heading',
-    content = 'Default content',
-    modalProvider,
-    renderHeader = true,
-    renderModalCloser = true,
-    ...modal
-  } = args;
+  const { heading = 'Heading', content = 'Default content', modalProvider, renderHeader = true, ...modal } = args;
   return (
     <ModalProvider {...modalProvider}>
       <ModalTrigger>
@@ -59,11 +49,6 @@ const Template: StoryFn<TemplateProps> = (args): JSX.Element => {
         <CardContent>
           {!renderHeader && <Heading id="default-label">{heading}</Heading>}
           <p>{content}</p>
-          {renderModalCloser && (
-            <ModalCloser>
-              <Button onClick={() => console.log('Im called')}>Close</Button>
-            </ModalCloser>
-          )}
         </CardContent>
       </Modal>
     </ModalProvider>
@@ -134,7 +119,7 @@ export const ErrorTopModal: Story = {
     content: 'Use to display error notifications',
     cardProps: { border: 'top-important-main' },
     renderHeader: false,
-    renderModalCloser: false,
+    hideCloseButton: true,
   },
 };
 
@@ -146,7 +131,7 @@ export const SuccessTopModal: Story = {
     content: 'Use to display success notifications',
     cardProps: { border: 'top-positive-main' },
     renderHeader: false,
-    renderModalCloser: false,
+    hideCloseButton: true,
   },
 };
 
@@ -158,7 +143,7 @@ export const WarningTopModal: Story = {
     content: 'Use to display Warning notifications',
     cardProps: { border: 'top-warning-main' },
     renderHeader: false,
-    renderModalCloser: false,
+    hideCloseButton: true,
   },
 };
 
@@ -177,9 +162,6 @@ export const Position: StoryFn<ModalProps> = () => {
       {ipsum}
       {ipsum}
       {ipsum}
-      <ModalCloser>
-        <Button>Close</Button>
-      </ModalCloser>
     </VerticalSpacing>
   );
 

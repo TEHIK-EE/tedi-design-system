@@ -2,12 +2,11 @@ import { FloatingFocusManager, FloatingOverlay, FloatingPortal } from '@floating
 import cn from 'classnames';
 import React from 'react';
 
+import { ClosingButton } from '../../../../tedi/src/components/closing-button/closing-button';
 import { useLabels } from '../../../../tedi/src/providers/label-provider';
 import { IntentionalAny } from '../../types';
-import Button from '../button/button';
 import Card, { CardProps } from '../card/card';
 import styles from './modal.module.scss';
-import ModalCloser from './modal-closer';
 import { ModalContext } from './modal-provider';
 
 export interface ModalProps {
@@ -85,7 +84,15 @@ export const Modal = (props: ModalProps): JSX.Element | null => {
   const { getLabel } = useLabels();
   const labelId = props['aria-labelledby'];
   const descriptionId = props['aria-describedby'];
-  const { isOpen, floating, getFloatingProps, context, isDismissable } = React.useContext(ModalContext);
+  const { isOpen, floating, getFloatingProps, context, isDismissable, closeModal } = React.useContext(ModalContext);
+  const modalContentRef = React.useRef<HTMLDivElement | null>(null);
+
+  // Prevent the close button from receiving focus when the modal opens
+  React.useEffect(() => {
+    if (isOpen && modalContentRef.current) {
+      modalContentRef.current.focus();
+    }
+  }, [isOpen]);
 
   // add close button to the first CardHeader or CardContent
   const parsedChildren = React.useMemo(() => {
@@ -102,17 +109,13 @@ export const Modal = (props: ModalProps): JSX.Element | null => {
             React.isValidElement(child) &&
             (getComponentDisplayName(child) === 'CardHeader' || getComponentDisplayName(child) === 'CardContent')
           ) {
-            buttonRendered = true; // only render close button once
+            buttonRendered = true;
 
             return React.cloneElement(child, {
               ...child.props,
               children: (
                 <>
-                  <ModalCloser>
-                    <Button icon={{ name: 'close', size: 24 }} visualType="link" className={styles['close-button']}>
-                      {getLabel('modal.close')}
-                    </Button>
-                  </ModalCloser>
+                  <ClosingButton size="large" onClick={closeModal} className={styles['close-button']} />
                   {child.props.children}
                 </>
               ),
@@ -122,7 +125,7 @@ export const Modal = (props: ModalProps): JSX.Element | null => {
           return child;
         })
       : children;
-  }, [children, getLabel, hideCloseButton]);
+  }, [children, getLabel, closeModal, hideCloseButton]);
 
   return (
     <FloatingPortal data-name="modal">
@@ -148,6 +151,7 @@ export const Modal = (props: ModalProps): JSX.Element | null => {
                 'aria-describedby': descriptionId,
                 'aria-modal': trapFocus,
               })}
+              ref={modalContentRef}
             >
               <Card {...cardProps} className={cn(styles['modal__card'], cardProps?.className)}>
                 {parsedChildren}
