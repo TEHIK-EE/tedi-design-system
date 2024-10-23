@@ -1,0 +1,66 @@
+@use '../../../../shared/styles/bootstrap-utility/breakpoints';
+
+.container-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.container {
+  position: relative;
+  display: flex;
+  flex-grow: 1;
+
+  // This is required due to a bug in FF.
+  // If an element is a descendant of flexbox layout and is pre-paginated with break-inside: avoid,
+  // it will extend out of the flexbox area.
+  // This prevents the overflow from happening, but also causes break-inside: avoid; from having any effect in FF.
+  // Using this hack allows us to still have the benefits of break-inside: avoid; in Chrome and Edge
+  // TODO track progress of these bugs
+  // https://bugzilla.mozilla.org/show_bug.cgi?id=1807406
+  // https://bugzilla.mozilla.org/show_bug.cgi?id=1695475
+  // https://bugzilla.mozilla.org/show_bug.cgi?id=939897
+  @media print {
+    overflow: auto;
+  }
+}
+
+.main {
+  position: relative;
+  flex: 1;
+  max-width: 100%; // 100% is width without scrollbar, vw is with the scrollbar
+}
+
+@media not print {
+  .main--with-sidenav {
+    @include breakpoints.media-breakpoint-up(lg) {
+      max-width: calc(100% - 15rem); // 100% - sidenav width
+    }
+  }
+}
+
+.main__breadcrumbs {
+  margin: 0 0 1.5rem;
+}
+
+.main__content {
+  max-width: 95rem;
+  height: 100%;
+  padding: 1.5rem 0;
+  margin: 0 auto;
+
+  .main--grow & {
+    max-width: none;
+    padding: 0;
+  }
+
+  @media print {
+    height: auto;
+  }
+}
+
+.main__logos {
+  position: absolute;
+  top: 0.125rem;
+  right: 0;
+}
