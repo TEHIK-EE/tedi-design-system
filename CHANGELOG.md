@@ -1,3 +1,17 @@
+# [8.0.0-rc.3](https://github.com/TEHIK-EE/tedi-design-system/compare/v8.0.0-rc.2...v8.0.0-rc.3) (2024-10-22)
+
+
+### Bug Fixes
+
+* **tooltip:** add tooltip box shadow change [#243](https://github.com/TEHIK-EE/tedi-design-system/issues/243) ([#244](https://github.com/TEHIK-EE/tedi-design-system/issues/244)) ([96ec34e](https://github.com/TEHIK-EE/tedi-design-system/commit/96ec34e264180b0b728a0e76a19b15ceabef96d3))
+
+# [8.0.0-rc.2](https://github.com/TEHIK-EE/tedi-design-system/compare/v8.0.0-rc.1...v8.0.0-rc.2) (2024-10-22)
+
+
+### Features
+
+* **text-group:** TEDI-Ready component TextGroup [#180](https://github.com/TEHIK-EE/tedi-design-system/issues/180) ([#242](https://github.com/TEHIK-EE/tedi-design-system/issues/242)) ([ae2c637](https://github.com/TEHIK-EE/tedi-design-system/commit/ae2c637e33cc645cb45904ffb23c639320c51ea1)), closes [#181](https://github.com/TEHIK-EE/tedi-design-system/issues/181) [#181](https://github.com/TEHIK-EE/tedi-design-system/issues/181)
+
 # [8.0.0-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/v7.1.0-rc.10...v8.0.0-rc.1) (2024-10-18)
 
 
