@@ -56,7 +56,11 @@ export const Label = (props: LabelProps): JSX.Element => {
   return (
     <Element className={labelBEM} {...rest}>
       {children}
-      {required && <span className={styles['tedi-label__required']}>*</span>}
+      {required && (
+        <span className={styles['tedi-label__required']} aria-hidden="true">
+          *
+        </span>
+      )}
     </Element>
   );
 };
