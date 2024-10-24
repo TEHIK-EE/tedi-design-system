@@ -1,3 +1,10 @@
+# [8.0.0-rc.6](https://github.com/TEHIK-EE/tedi-design-system/compare/v8.0.0-rc.5...v8.0.0-rc.6) (2024-10-24)
+
+
+### Bug Fixes
+
+* **general:** Library structure fix [#247](https://github.com/TEHIK-EE/tedi-design-system/issues/247) ([#248](https://github.com/TEHIK-EE/tedi-design-system/issues/248)) ([293f644](https://github.com/TEHIK-EE/tedi-design-system/commit/293f644cc438af68a5d438d1029390bbc035371d))
+
 # [8.0.0-rc.5](https://github.com/TEHIK-EE/tedi-design-system/compare/v8.0.0-rc.4...v8.0.0-rc.5) (2024-10-24)
 
 
