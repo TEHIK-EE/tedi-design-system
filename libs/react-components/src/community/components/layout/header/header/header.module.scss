@@ -1,0 +1,76 @@
+@use '../../../../styles/mixins';
+@use '../../../../../shared/styles/bootstrap-utility/breakpoints';
+
+$header-min-height: 3.5rem;
+
+.header {
+  position: relative;
+  z-index: var(--z-index-header);
+  display: flex;
+  align-items: center;
+  min-height: $header-min-height;
+  padding-right: 1rem;
+  background: var(--color-bg-default);
+  box-shadow: 0 1px 2px rgb(0 0 0 / 14%);
+
+  @include breakpoints.media-breakpoint-up(lg) {
+    min-height: 5rem;
+    padding: 1rem 1.5rem;
+  }
+
+  @include mixins.print-grayscale;
+
+  &--with-bottom-content {
+    box-shadow: none;
+  }
+}
+
+.header__content {
+  display: flex;
+  flex-grow: 1;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+.header__affix {
+  z-index: var(--z-index-bottom-header);
+}
+
+.header__content-left {
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+  margin-right: 1rem;
+
+  @include breakpoints.media-breakpoint-up(lg) {
+    margin-right: 2rem;
+  }
+}
+
+.header__content-right {
+  position: relative;
+}
+
+.header__content-item:not(:first-of-type)::before {
+  position: absolute;
+  top: 50%;
+  min-height: $header-min-height;
+  margin-left: -0.75rem;
+  content: '';
+  border-left: 1px solid var(--color-border-default);
+  translate: 0 -50%;
+
+  @include breakpoints.media-breakpoint-up(lg) {
+    height: 100%;
+  }
+
+  @include breakpoints.media-breakpoint-up(xl) {
+    margin-left: -1.5rem;
+  }
+}
+
+.header-modal {
+  &__close {
+    display: inline-flex;
+  }
+}
