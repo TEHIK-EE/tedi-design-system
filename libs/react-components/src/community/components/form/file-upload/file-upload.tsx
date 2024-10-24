@@ -3,11 +3,11 @@ import React from 'react';
 
 import { FormLabel, FormLabelProps } from '../../../../tedi/components/form/form-label/form-label';
 import { Col, Row } from '../../../../tedi/components/grid';
+import { Tag } from '../../../../tedi/components/tag/tag';
 import { ILabelContext, useLabels } from '../../../../tedi/providers/label-provider';
 import Button from '../../button/button';
 import { Card, CardContent } from '../../card';
 import FormHelper, { FormHelperProps } from '../form-helper/form-helper';
-import { Tag } from './../../../../../tedi/src/components/tag/tag';
 import styles from './file-upload.module.scss';
 
 export interface FileUploadFile extends Partial<File> {
