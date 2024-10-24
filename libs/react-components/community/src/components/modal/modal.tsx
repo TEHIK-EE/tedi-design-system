@@ -7,6 +7,7 @@ import { useLabels } from '../../../../tedi/src/providers/label-provider';
 import { IntentionalAny } from '../../types';
 import Card, { CardProps } from '../card/card';
 import styles from './modal.module.scss';
+import ModalCloser from './modal-closer';
 import { ModalContext } from './modal-provider';
 
 export interface ModalProps {
@@ -84,15 +85,8 @@ export const Modal = (props: ModalProps): JSX.Element | null => {
   const { getLabel } = useLabels();
   const labelId = props['aria-labelledby'];
   const descriptionId = props['aria-describedby'];
-  const { isOpen, floating, getFloatingProps, context, isDismissable, closeModal } = React.useContext(ModalContext);
+  const { isOpen, floating, getFloatingProps, context, isDismissable } = React.useContext(ModalContext);
   const modalContentRef = React.useRef<HTMLDivElement | null>(null);
-
-  // Prevent the close button from receiving focus when the modal opens
-  React.useEffect(() => {
-    if (isOpen && modalContentRef.current) {
-      modalContentRef.current.focus();
-    }
-  }, [isOpen]);
 
   // add close button to the first CardHeader or CardContent
   const parsedChildren = React.useMemo(() => {
@@ -115,7 +109,9 @@ export const Modal = (props: ModalProps): JSX.Element | null => {
               ...child.props,
               children: (
                 <>
-                  <ClosingButton size="large" onClick={closeModal} className={styles['close-button']} />
+                  <ModalCloser>
+                    <ClosingButton size="large" className={styles['close-button']} />
+                  </ModalCloser>
                   {child.props.children}
                 </>
               ),
@@ -125,7 +121,7 @@ export const Modal = (props: ModalProps): JSX.Element | null => {
           return child;
         })
       : children;
-  }, [children, getLabel, closeModal, hideCloseButton]);
+  }, [children, getLabel, hideCloseButton]);
 
   return (
     <FloatingPortal data-name="modal">

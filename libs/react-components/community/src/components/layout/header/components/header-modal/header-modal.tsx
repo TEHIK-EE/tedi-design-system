@@ -4,7 +4,7 @@ import { ClosingButton } from '../../../../../../../tedi/src/components/closing-
 import { useLabels } from '../../../../../../../tedi/src/providers/label-provider';
 import Button, { ButtonProps } from '../../../../button/button';
 import { Card, CardContent } from '../../../../card';
-import { Modal, ModalContext, ModalProvider, ModalTrigger } from '../../../../modal';
+import { Modal, ModalCloser, ModalProvider, ModalTrigger } from '../../../../modal';
 import { Text } from '../../../../typography/text/text';
 import styles from '../../header/header.module.scss';
 
@@ -52,16 +52,13 @@ export const HeaderModal = (props: HeaderModalProps) => {
           <Card borderless background="primary-highlight-subtle" padding={0.5} borderRadius={false}>
             <CardContent>
               <Text element="div" modifiers="right">
-                <ModalContext.Consumer>
-                  {({ closeModal }) => (
-                    <ClosingButton
-                      title={getLabel('modal.close')}
-                      size="large"
-                      className={styles['header-modal__close']}
-                      onClick={closeModal}
-                    />
-                  )}
-                </ModalContext.Consumer>
+                <ModalCloser>
+                  <ClosingButton
+                    title={getLabel('modal.close')}
+                    size="large"
+                    className={styles['header-modal__close']}
+                  />
+                </ModalCloser>
               </Text>
             </CardContent>
           </Card>
