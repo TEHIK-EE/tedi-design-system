@@ -2,9 +2,9 @@ import { FloatingFocusManager, FloatingOverlay, FloatingPortal } from '@floating
 import cn from 'classnames';
 import React from 'react';
 
+import { ClosingButton } from '../../../tedi/components/closing-button/closing-button';
 import { useLabels } from '../../../tedi/providers/label-provider';
 import { IntentionalAny } from '../../types';
-import Button from '../button/button';
 import Card, { CardProps } from '../card/card';
 import styles from './modal.module.scss';
 import ModalCloser from './modal-closer';
@@ -86,6 +86,7 @@ export const Modal = (props: ModalProps): JSX.Element | null => {
   const labelId = props['aria-labelledby'];
   const descriptionId = props['aria-describedby'];
   const { isOpen, floating, getFloatingProps, context, isDismissable } = React.useContext(ModalContext);
+  const modalContentRef = React.useRef<HTMLDivElement | null>(null);
 
   // add close button to the first CardHeader or CardContent
   const parsedChildren = React.useMemo(() => {
@@ -102,16 +103,14 @@ export const Modal = (props: ModalProps): JSX.Element | null => {
             React.isValidElement(child) &&
             (getComponentDisplayName(child) === 'CardHeader' || getComponentDisplayName(child) === 'CardContent')
           ) {
-            buttonRendered = true; // only render close button once
+            buttonRendered = true;
 
             return React.cloneElement(child, {
               ...child.props,
               children: (
                 <>
                   <ModalCloser>
-                    <Button icon={{ name: 'close', size: 24 }} visualType="link" className={styles['close-button']}>
-                      {getLabel('modal.close')}
-                    </Button>
+                    <ClosingButton size="large" className={styles['close-button']} />
                   </ModalCloser>
                   {child.props.children}
                 </>
@@ -148,6 +147,7 @@ export const Modal = (props: ModalProps): JSX.Element | null => {
                 'aria-describedby': descriptionId,
                 'aria-modal': trapFocus,
               })}
+              ref={modalContentRef}
             >
               <Card {...cardProps} className={cn(styles['modal__card'], cardProps?.className)}>
                 {parsedChildren}

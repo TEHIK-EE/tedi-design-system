@@ -1,10 +1,10 @@
 import cn from 'classnames';
 import React from 'react';
 
+import { ClosingButton } from '../../../tedi/components/closing-button/closing-button';
 import { Col, Row } from '../../../tedi/components/grid';
 import { VerticalSpacing } from '../../../tedi/components/vertical-spacing';
 import { useIsMounted } from '../../helpers';
-import CloseButton from '../close-button/close-button';
 import Icon, { IconProps } from '../icon/icon';
 import styles from './notification.module.scss';
 
@@ -71,7 +71,7 @@ export const Notification = (props: NotificationProps) => {
           </Col>
           {onClose && (
             <Col width="auto">
-              <CloseButton onClick={onClose} />
+              <ClosingButton onClick={onClose} />
             </Col>
           )}
         </Row>

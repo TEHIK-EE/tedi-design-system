@@ -6,11 +6,8 @@ import { Col, Row } from '../../../../tedi/components/grid';
 import { ILabelContext, useLabels } from '../../../../tedi/providers/label-provider';
 import Button from '../../button/button';
 import { Card, CardContent } from '../../card';
-import CloseButton from '../../close-button/close-button';
-import Ellipsis from '../../ellipsis/ellipsis';
-import Spinner from '../../spinner/spinner';
-import Text from '../../typography/text/text';
 import FormHelper, { FormHelperProps } from '../form-helper/form-helper';
+import { Tag } from './../../../../../tedi/src/components/tag/tag';
 import styles from './file-upload.module.scss';
 
 export interface FileUploadFile extends Partial<File> {
@@ -209,26 +206,13 @@ export const FileUpload = (props: FileUploadProps): JSX.Element => {
   const getFileElement = (file: FileUploadFile, index: number) => {
     return (
       <li key={index}>
-        <Card borderless={true}>
-          <CardContent padding={0.5} background="bg-subtle">
-            <Row justifyContent="between" alignItems="center" wrap="nowrap" gutter={file.isLoading ? 2 : 1}>
-              <Col>
-                <Ellipsis lineClamp={1}>
-                  <Text modifiers="break-all">{file.name}</Text>
-                </Ellipsis>
-              </Col>
-              {!readOnly && !disabled && (
-                <Col width="auto">
-                  {file.isLoading ? (
-                    <Spinner />
-                  ) : (
-                    <CloseButton onClick={() => onFileRemove(file)}>{getLabel('remove')}</CloseButton>
-                  )}
-                </Col>
-              )}
-            </Row>
-          </CardContent>
-        </Card>
+        <Tag
+          color="secondary"
+          onClose={!file.isLoading && !disabled && !readOnly ? () => onFileRemove(file) : undefined}
+          isLoading={file.isLoading}
+        >
+          {file.name}
+        </Tag>
       </li>
     );
   };

@@ -1,8 +1,12 @@
+import React from 'react';
+
+import { ClosingButton } from '../../../../../../tedi/components/closing-button/closing-button';
 import { useLabels } from '../../../../../../tedi/providers/label-provider';
 import Button, { ButtonProps } from '../../../../button/button';
 import { Card, CardContent } from '../../../../card';
 import { Modal, ModalCloser, ModalProvider, ModalTrigger } from '../../../../modal';
 import { Text } from '../../../../typography/text/text';
+import styles from '../../header/header.module.scss';
 
 export interface HeaderModalProps {
   /**
@@ -49,9 +53,11 @@ export const HeaderModal = (props: HeaderModalProps) => {
             <CardContent>
               <Text element="div" modifiers="right">
                 <ModalCloser>
-                  <Button visualType="tertiary" icon={{ name: 'close', color: 'primary', size: 24 }}>
-                    {getLabel('modal.close')}
-                  </Button>
+                  <ClosingButton
+                    title={getLabel('modal.close')}
+                    size="large"
+                    className={styles['header-modal__close']}
+                  />
                 </ModalCloser>
               </Text>
             </CardContent>

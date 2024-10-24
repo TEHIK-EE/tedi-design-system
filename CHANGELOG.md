@@ -1,3 +1,10 @@
+# [8.0.0-rc.5](https://github.com/TEHIK-EE/tedi-design-system/compare/v8.0.0-rc.4...v8.0.0-rc.5) (2024-10-24)
+
+
+### Features
+
+* **tag, closing-button:** Component Tag and ClosingButton [#166](https://github.com/TEHIK-EE/tedi-design-system/issues/166) [#203](https://github.com/TEHIK-EE/tedi-design-system/issues/203)  ([#233](https://github.com/TEHIK-EE/tedi-design-system/issues/233)) ([77095dc](https://github.com/TEHIK-EE/tedi-design-system/commit/77095dc4c35f4393f2bf9cd207155eafe90c0483)), closes [#163](https://github.com/TEHIK-EE/tedi-design-system/issues/163)
+
 # [8.0.0-rc.4](https://github.com/TEHIK-EE/tedi-design-system/compare/v8.0.0-rc.3...v8.0.0-rc.4) (2024-10-23)
 
 

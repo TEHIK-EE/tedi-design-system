@@ -63,6 +63,11 @@ const preview: Preview = {
           color: '#ffffff',
           description: 'This component has breakpoint support',
         },
+        internalComponent: {
+          background: '#fff',
+          color: '#000',
+          description: 'This component is only used to build other components and not being exported from library',
+        },
       },
     },
   },
