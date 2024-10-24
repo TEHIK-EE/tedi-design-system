@@ -1,5 +1,6 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 
+import { Col, Row } from '../grid';
 import ClosingButton, { ClosingButtonProps } from './closing-button';
 
 /**
@@ -21,16 +22,12 @@ const SizeTemplate: StoryFn = () => {
   return (
     <div className="example-list w-50">
       {sizeArray.map((size, key) => (
-        <div className={`row ${key === sizeArray.length - 1 ? '' : 'border-bottom'} padding-14-16`} key={key}>
-          <div className="column w-50">
-            <div className="display-flex">{size}</div>
-          </div>
-          <div className="column">
-            <div className="display-flex">
-              <ClosingButton size={size} onClick={() => alert(`${size} button clicked`)} />
-            </div>
-          </div>
-        </div>
+        <Row className={`${key === sizeArray.length - 1 ? '' : 'border-bottom'} padding-14-16 m-0`} key={key}>
+          <Col className="d-flex w-50">{size}</Col>
+          <Col className="display-flex">
+            <ClosingButton size={size} onClick={() => alert(`${size} button clicked`)} />
+          </Col>
+        </Row>
       ))}
     </div>
   );

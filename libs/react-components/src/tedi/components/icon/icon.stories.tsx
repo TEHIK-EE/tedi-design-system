@@ -1,6 +1,7 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import classNames from 'classnames';
 
+import { Col, Row } from '../grid';
 import { Icon, IconProps } from './icon';
 
 /**
@@ -50,28 +51,32 @@ const TemplateRow: StoryFn<TemplateMultipleProps> = (args) => {
   const { array, property, ...iconProps } = args;
 
   return (
-    <div>
-      <div className="row padding-14-16">Outlined</div>
-      <div className="row">
+    <>
+      <Row>
+        <Col>Outlined</Col>
+      </Row>
+      <Row alignItems="center">
         {array.map((value, key) => (
-          <div key={key} className="column">
+          <Col md="auto" key={key}>
             <div className={classNames({ 'bg bg-primary': value === 'white' })}>
               <Icon {...iconProps} {...{ [property]: value }} />
             </div>
-          </div>
+          </Col>
         ))}
-      </div>
-      <div className="row padding-14-16">Filled</div>
-      <div className="row">
+      </Row>
+      <Row>
+        <Col>Filled</Col>
+      </Row>
+      <Row alignItems="center">
         {array.map((value, key) => (
-          <div key={key} className="column">
+          <Col md="auto" key={key}>
             <div className={classNames({ 'bg bg-primary': value === 'white' })}>
               <Icon {...iconProps} {...{ [property]: value }} filled={true} />
             </div>
-          </div>
+          </Col>
         ))}
-      </div>
-    </div>
+      </Row>
+    </>
   );
 };
 
@@ -81,20 +86,16 @@ const TemplateColumn: StoryFn<TemplateMultipleProps> = (args) => {
   return (
     <div className="example-list w-50">
       {array.map((value, key) => (
-        <div className={`row ${key === array.length - 1 ? '' : 'border-bottom'} padding-14-16`} key={key}>
-          <div className="column w-50">
-            <div className="display-flex">
-              {value?.toString()}&nbsp;{value === 24 && <small className="example-text--secondary">default</small>}
-            </div>
-          </div>
-          <div className="column">
-            <div className="display-flex">
-              <Icon {...iconProps} {...{ [property]: value }} display="inline" />
-              &nbsp;
-              <Icon {...iconProps} {...{ [property]: value }} display="inline" filled={true} />
-            </div>
-          </div>
-        </div>
+        <Row className={`${key === array.length - 1 ? '' : 'border-bottom'} padding-14-16`} key={key}>
+          <Col className="w-50 d-flex">
+            {value?.toString()}&nbsp;{value === 24 && <small className="example-text--secondary">default</small>}
+          </Col>
+          <Col className="d-flex">
+            <Icon {...iconProps} {...{ [property]: value }} display="inline" />
+            &nbsp;
+            <Icon {...iconProps} {...{ [property]: value }} display="inline" filled={true} />
+          </Col>
+        </Row>
       ))}
     </div>
   );
@@ -106,28 +107,28 @@ const TemplateColumnWithMultipleVariants: StoryFn<TemplateMultipleProps> = (args
   return (
     <div className="example-list w-50">
       {items.map((item, key) => (
-        <div className={`row ${key === items.length - 1 ? '' : 'border-bottom'} padding-14-16`} key={key}>
-          <div className="column w-50">
-            <div className="display-flex">
-              {item.size?.toString()}&nbsp;
-              {item.size === 24 && <small className="example-text--secondary">default</small>}
-            </div>
-          </div>
-          <div className="column">
-            <div className="display-flex">
-              <Icon
-                {...{ size: item.size, background: item.background, name: item.name, color: item.color }}
-                display="inline"
-              />
-              &nbsp;
-              <Icon
-                {...{ size: item.size, background: item.background, name: item.name, color: item.color }}
-                display="inline"
-                filled={true}
-              />
-            </div>
-          </div>
-        </div>
+        <Row
+          justifyContent="start"
+          className={`${key === items.length - 1 ? '' : 'border-bottom'} padding-14-16`}
+          key={key}
+        >
+          <Col className="w-50 d-flex">
+            {item.size?.toString()}&nbsp;
+            {item.size === 24 && <small className="example-text--secondary">default</small>}
+          </Col>
+          <Col className="d-flex">
+            <Icon
+              {...{ size: item.size, background: item.background, name: item.name, color: item.color }}
+              display="inline"
+            />
+            &nbsp;
+            <Icon
+              {...{ size: item.size, background: item.background, name: item.name, color: item.color }}
+              display="inline"
+              filled={true}
+            />
+          </Col>
+        </Row>
       ))}
     </div>
   );
@@ -135,40 +136,40 @@ const TemplateColumnWithMultipleVariants: StoryFn<TemplateMultipleProps> = (args
 
 const TemplateColumnWithBackgroundCircleVarians: StoryFn<TemplateMultipleProps> = (args) => {
   return (
-    <div className="row w-50">
-      <div className="column">
-        <div className="row">
-          <div className="column">
+    <Row alignItems="center">
+      <Col md={4} sm={6}>
+        <Row alignItems="center">
+          <Col>
             <Icon name="Vaccines" background="brand-primary" color="white" />
-          </div>
-          <div className="column">
+          </Col>
+          <Col>
             <Icon name="Info" background="brand-primary" color="white" size={16} />
-          </div>
-          <div className="column">
+          </Col>
+          <Col>
             <Icon name="Vaccines" background="brand-secondary" color="brand" />
-          </div>
-          <div className="column">
+          </Col>
+          <Col>
             <Icon name="Info" background="brand-secondary" color="brand" size={16} />
-          </div>
-        </div>
-      </div>
-      <div className="column">
-        <div className="row bg bg-primary">
-          <div className="column">
+          </Col>
+        </Row>
+      </Col>
+      <Col md={4} sm={6}>
+        <Row alignItems="center" className="bg bg-primary">
+          <Col>
             <Icon name="Vaccines" background="primary" color="brand" />
-          </div>
-          <div className="column">
+          </Col>
+          <Col>
             <Icon name="Info" background="primary" color="brand" size={16} />
-          </div>
-          <div className="column">
+          </Col>
+          <Col>
             <Icon name="Vaccines" background="secondary" color="white" />
-          </div>
-          <div className="column">
+          </Col>
+          <Col>
             <Icon name="Info" background="secondary" color="white" size={16} />
-          </div>
-        </div>
-      </div>
-    </div>
+          </Col>
+        </Row>
+      </Col>
+    </Row>
   );
 };
 

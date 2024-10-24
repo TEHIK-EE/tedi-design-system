@@ -61,7 +61,8 @@ const Template: StoryFn<TagTemplateProps> = (args) => {
 };
 
 /**
- * More about usage of Tag can be found <a href="/docs/components-tag--tag-usage">here</a>
+ * <b>Community Tag is now deprecated</b><br/>
+ * Use TEDI-Ready <a href="/docs/tedi-ready-components-tag--docs">Tag</a> or <a href="/docs/tedi-ready-components-statusbadge--docs">StatusBadge</a> instead
  */
 const meta: Meta<TagTemplateProps> = {
   component: Tag,
@@ -71,6 +72,11 @@ const meta: Meta<TagTemplateProps> = {
     property: { table: { disable: true } },
   },
   render: Template,
+  parameters: {
+    status: {
+      type: 'deprecated',
+    },
+  },
 };
 
 export default meta;
