@@ -68,3 +68,9 @@ $header-min-height: 3.5rem;
     margin-left: -1.5rem;
   }
 }
+
+.header-modal {
+  &__close {
+    display: inline-flex;
+  }
+}
