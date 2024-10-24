@@ -13,6 +13,7 @@ const config: StorybookConfig = {
     },
     getAbsolutePath('@storybook/addon-a11y'),
     getAbsolutePath('@avalane/storybook-addon-status'),
+    getAbsolutePath('storybook-addon-pseudo-states'),
   ],
   core: {
     builder: getAbsolutePath('@storybook/builder-vite'),
