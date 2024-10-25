@@ -1,0 +1,14 @@
+@use '../../../shared/styles/bootstrap-utility/breakpoints';
+
+.section {
+  padding: 0 0.5rem;
+  overflow: clip; // same as overflow, but supports sticky items inside
+
+  @include breakpoints.media-breakpoint-up(md) {
+    padding: 0 1.5rem;
+  }
+
+  @include breakpoints.media-breakpoint-up(lg) {
+    padding: 0 2.5rem;
+  }
+}

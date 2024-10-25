@@ -4,10 +4,10 @@ import React from 'react';
 
 import StorybookDecorator from './storybook-decorator';
 
-import '../tedi/src/styles/index.scss';
-import '../community/src/styles/index.scss';
-import '../tedi/src/styles/tedi-storybook-styles.scss';
-import '../community/src/styles/storybook.scss';
+import '../src/tedi/styles/index.scss';
+import '../src/community/styles/index.scss';
+import '../src/tedi/styles/tedi-storybook-styles.scss';
+import '../src/community/styles/storybook.scss';
 import 'what-input';
 
 export const decorators = [
@@ -62,6 +62,11 @@ const preview: Preview = {
           background: '#308653',
           color: '#ffffff',
           description: 'This component has breakpoint support',
+        },
+        internalComponent: {
+          background: '#fff',
+          color: '#000',
+          description: 'This component is only used to build other components and not being exported from library',
         },
       },
     },

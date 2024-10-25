@@ -1,0 +1,73 @@
+@use 'sass:math';
+@use '../../../shared/styles/bootstrap-utility/breakpoints';
+
+$modal-max-width: 1230px;
+
+.modal,
+.modal--center {
+  z-index: var(--z-index-modal);
+  display: grid;
+  place-items: center;
+  background: rgb(0 0 0 / 25%);
+}
+
+.modal--no-overlay {
+  pointer-events: none;
+  background: none;
+
+  & .modal__inner {
+    pointer-events: auto;
+  }
+}
+
+.modal--right {
+  place-items: flex-end;
+}
+
+.modal--bottom {
+  place-items: flex-end center;
+}
+
+.modal__inner {
+  width: calc(100vw - 2rem);
+  max-width: $modal-max-width;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+
+  .modal--right & {
+    width: 100%;
+    height: 100%;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  @include breakpoints.media-breakpoint-up(lg) {
+    .modal--10 & {
+      width: math.div(10, 12) * 100%;
+      max-width: $modal-max-width * math.div(10, 12);
+    }
+
+    .modal--8 & {
+      width: math.div(8, 12) * 100%;
+      max-width: $modal-max-width * math.div(8, 12);
+    }
+
+    .modal--6 & {
+      width: math.div(6, 12) * 100%;
+      max-width: $modal-max-width * math.div(6, 12);
+    }
+  }
+}
+
+.modal__card {
+  .modal--right & {
+    height: 100%;
+  }
+}
+
+.close-button {
+  z-index: 1;
+  float: right;
+  margin-bottom: 0.5rem;
+  margin-left: 0.5rem;
+}

@@ -1,0 +1,61 @@
+@use '../../../styles/mixins';
+@use '../../../../shared/styles/bootstrap-utility/breakpoints';
+
+.footer__bottom {
+  padding: 0.5rem 2.5rem;
+  background-color: var(--color-bg-inverted-contrast);
+}
+
+.footer__inner {
+  display: flex;
+  flex-direction: column;
+  row-gap: 2.5rem;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2.5rem;
+  background-color: var(--color-bg-inverted);
+
+  @include mixins.print-grayscale;
+
+  @include breakpoints.media-breakpoint-up(lg) {
+    justify-content: space-around;
+  }
+
+  @include breakpoints.media-breakpoint-up(md) {
+    flex-direction: row;
+    align-items: start;
+  }
+}
+
+.footer__category {
+  text-align: center;
+
+  @include breakpoints.media-breakpoint-up(md) {
+    text-align: left;
+  }
+}
+
+.footer__category-icon {
+  --footer-icon-bg: rgb(255 255 255 / 20%);
+
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  background-color: var(--footer-icon-bg);
+  border-radius: 50%;
+
+  @include breakpoints.media-breakpoint-up(lg) {
+    display: flex;
+  }
+}
+
+.footer__link {
+  word-break: break-all;
+}
+
+.footer__category-list {
+  margin: 0;
+  list-style: none;
+}

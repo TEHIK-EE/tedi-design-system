@@ -1,3 +1,52 @@
+# [8.0.0-rc.6](https://github.com/TEHIK-EE/tedi-design-system/compare/v8.0.0-rc.5...v8.0.0-rc.6) (2024-10-24)
+
+
+### Bug Fixes
+
+* **general:** Library structure fix [#247](https://github.com/TEHIK-EE/tedi-design-system/issues/247) ([#248](https://github.com/TEHIK-EE/tedi-design-system/issues/248)) ([293f644](https://github.com/TEHIK-EE/tedi-design-system/commit/293f644cc438af68a5d438d1029390bbc035371d))
+
+# [8.0.0-rc.5](https://github.com/TEHIK-EE/tedi-design-system/compare/v8.0.0-rc.4...v8.0.0-rc.5) (2024-10-24)
+
+
+### Features
+
+* **tag, closing-button:** Component Tag and ClosingButton [#166](https://github.com/TEHIK-EE/tedi-design-system/issues/166) [#203](https://github.com/TEHIK-EE/tedi-design-system/issues/203)  ([#233](https://github.com/TEHIK-EE/tedi-design-system/issues/233)) ([77095dc](https://github.com/TEHIK-EE/tedi-design-system/commit/77095dc4c35f4393f2bf9cd207155eafe90c0483)), closes [#163](https://github.com/TEHIK-EE/tedi-design-system/issues/163)
+
+# [8.0.0-rc.4](https://github.com/TEHIK-EE/tedi-design-system/compare/v8.0.0-rc.3...v8.0.0-rc.4) (2024-10-23)
+
+
+### Bug Fixes
+
+* **label:** add aria-hidden true to required label [#245](https://github.com/TEHIK-EE/tedi-design-system/issues/245) ([#246](https://github.com/TEHIK-EE/tedi-design-system/issues/246)) ([0deb6e6](https://github.com/TEHIK-EE/tedi-design-system/commit/0deb6e6fb2bd4a7197904240521cc6073669dd55))
+
+# [8.0.0-rc.3](https://github.com/TEHIK-EE/tedi-design-system/compare/v8.0.0-rc.2...v8.0.0-rc.3) (2024-10-22)
+
+
+### Bug Fixes
+
+* **tooltip:** add tooltip box shadow change [#243](https://github.com/TEHIK-EE/tedi-design-system/issues/243) ([#244](https://github.com/TEHIK-EE/tedi-design-system/issues/244)) ([96ec34e](https://github.com/TEHIK-EE/tedi-design-system/commit/96ec34e264180b0b728a0e76a19b15ceabef96d3))
+
+# [8.0.0-rc.2](https://github.com/TEHIK-EE/tedi-design-system/compare/v8.0.0-rc.1...v8.0.0-rc.2) (2024-10-22)
+
+
+### Features
+
+* **text-group:** TEDI-Ready component TextGroup [#180](https://github.com/TEHIK-EE/tedi-design-system/issues/180) ([#242](https://github.com/TEHIK-EE/tedi-design-system/issues/242)) ([ae2c637](https://github.com/TEHIK-EE/tedi-design-system/commit/ae2c637e33cc645cb45904ffb23c639320c51ea1)), closes [#181](https://github.com/TEHIK-EE/tedi-design-system/issues/181) [#181](https://github.com/TEHIK-EE/tedi-design-system/issues/181)
+
+# [8.0.0-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/v7.1.0-rc.10...v8.0.0-rc.1) (2024-10-18)
+
+
+### Features
+
+* **form-label:** Replace FormLabel in Community components with TEDI-Ready FormLabel [#227](https://github.com/TEHIK-EE/tedi-design-system/issues/227) ([#229](https://github.com/TEHIK-EE/tedi-design-system/issues/229)) ([ade9f77](https://github.com/TEHIK-EE/tedi-design-system/commit/ade9f776309ea5aa2bd34ae1b83f6cecd7cb680f))
+
+
+### BREAKING CHANGES
+
+* **form-label:** The FormLabel component has been replaced with TEDI-FormLabel in Community
+
+Co-authored-by: Airike Jaska <airike.jaska@bitweb.ee>
+
 # [7.1.0-rc.10](https://github.com/TEHIK-EE/tedi-design-system/compare/v7.1.0-rc.9...v7.1.0-rc.10) (2024-10-16)
 
 
