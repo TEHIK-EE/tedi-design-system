@@ -1,12 +1,12 @@
 import { render } from '@testing-library/react';
 
-import { useLabels } from '../../../../tedi/src/providers/label-provider';
+import { useLabels } from '../../../tedi/providers/label-provider';
 import { useDeclareLoader } from '../../providers/accessibility-provider/use-declare-loader';
 import Skeleton, { SkeletonProps } from './skeleton';
 
 import '@testing-library/jest-dom';
 
-jest.mock('../../../../tedi/src/providers/label-provider', () => ({
+jest.mock('../../../tedi/providers/label-provider', () => ({
   useLabels: jest.fn(),
 }));
 
