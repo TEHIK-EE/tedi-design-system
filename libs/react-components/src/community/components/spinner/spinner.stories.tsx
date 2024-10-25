@@ -2,6 +2,11 @@ import { Meta, StoryObj } from '@storybook/react';
 
 import Spinner from './spinner';
 
+/**
+ * <b>Community Spinner is now deprecated</b><br/>
+ * Use TEDI-Ready <a href="/docs/tedi-ready-loader-spinner--docs">Spinner</a> instead
+ */
+
 const meta: Meta<typeof Spinner> = {
   component: Spinner,
   title: 'Community/Spinner',
