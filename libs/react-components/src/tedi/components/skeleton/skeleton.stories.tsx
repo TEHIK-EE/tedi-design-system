@@ -97,10 +97,10 @@ const AccessibilityTemplate: StoryFn<AccessibilityTemplateProps> = ({ style, id,
   return (
     <Skeleton {...args}>
       <VerticalSpacing>
-        <SkeletonBlock width={100} height="p" />
-        <SkeletonBlock width={75} height={29} />
-        <SkeletonBlock width={40} height={50} />
-        <SkeletonBlock width={80} />
+        <SkeletonBlock width={100} height="p" style={style} />
+        <SkeletonBlock width={75} height={29} style={style} />
+        <SkeletonBlock width={40} height={50} style={style} />
+        <SkeletonBlock width={80} style={style} />
       </VerticalSpacing>
     </Skeleton>
   );
@@ -147,11 +147,11 @@ export const Accessibility: Story = {
           {renderButton('Add a short loading block', { id: `skeleton-${skeletons.length}`, delay: 900 })}
           {renderButton('Add a long loading block', {
             id: `skeleton-${skeletons.length}`,
-            style: { '--loader-skeleton-color': '#ff0000' } as React.CSSProperties,
+            style: { '--loader-skeleton-color': 'var(--red-200)' },
           })}
           {renderButton('Render loading block with custom labels', {
             id: `skeleton-${skeletons.length}`,
-            style: { '--loader-skeleton-color': '140 99 10' } as React.CSSProperties,
+            style: { '--loader-skeleton-color': 'var(--green-200)' },
             label: 'Custom block is loading',
             completedLabel: 'Custom block has finished loading',
           })}
