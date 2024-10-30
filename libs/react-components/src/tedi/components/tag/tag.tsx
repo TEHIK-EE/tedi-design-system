@@ -51,13 +51,18 @@ export const Tag = (props: TagProps): JSX.Element => {
     ...rest
   } = getCurrentBreakpointProps<TagProps>(props);
 
-  const tagBEM = cn(styles['tedi-tag'], color && styles[`tedi-tag--color-${color}`], className);
+  const tagBEM = cn(
+    styles['tedi-tag'],
+    color && styles[`tedi-tag--color-${color}`],
+    onClose && !isLoading && styles['tedi-tag__close'],
+    className
+  );
 
   return (
     <div className={tagBEM} role="status" aria-live={isLoading ? 'polite' : undefined} {...rest}>
       {color === 'danger' && <Icon name="info" color="danger" size={16} />}
       {children}
-      {isLoading && <Spinner className={styles['tedi-tag__loader']} />}
+      {isLoading && !onClose && <Spinner className={styles['tedi-tag__loader']} />}
       {!isLoading && onClose && <ClosingButton onClick={onClose} />}
     </div>
   );
