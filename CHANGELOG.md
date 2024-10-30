@@ -1,3 +1,10 @@
+# [8.0.0-rc.7](https://github.com/TEHIK-EE/tedi-design-system/compare/v8.0.0-rc.6...v8.0.0-rc.7) (2024-10-30)
+
+
+### Bug Fixes
+
+* **tag:** Close button size and tag paddings fix [#262](https://github.com/TEHIK-EE/tedi-design-system/issues/262) ([#263](https://github.com/TEHIK-EE/tedi-design-system/issues/263)) ([553507b](https://github.com/TEHIK-EE/tedi-design-system/commit/553507b945936e39309ae1ad1c0a876672172c56))
+
 # [8.0.0-rc.6](https://github.com/TEHIK-EE/tedi-design-system/compare/v8.0.0-rc.5...v8.0.0-rc.6) (2024-10-24)
 
 
