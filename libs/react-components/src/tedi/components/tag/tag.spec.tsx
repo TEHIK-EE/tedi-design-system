@@ -62,14 +62,20 @@ describe('Tag component', () => {
 
     const closeButton = screen.queryByRole('button', { name: /close/i });
     expect(closeButton).not.toBeInTheDocument();
+
+    const tag = screen.getByText('Tag');
+    expect(tag).not.toHaveClass('tedi-tag__close');
   });
 
-  it('renders close button when onClose prop is provided', () => {
+  it('renders close button and close class when onClose prop is provided', () => {
     const onCloseMock = jest.fn();
     render(<Tag onClose={onCloseMock}>Closable Tag</Tag>);
 
     const closeButton = screen.getByRole('button', { name: /close/i });
     expect(closeButton).toBeInTheDocument();
+
+    const tag = screen.getByText('Closable Tag').closest('.tedi-tag');
+    expect(tag).toHaveClass('tedi-tag__close');
 
     fireEvent.click(closeButton);
     expect(onCloseMock).toHaveBeenCalledTimes(1);
@@ -85,6 +91,9 @@ describe('Tag component', () => {
 
     const closeButton = screen.queryByRole('button', { name: /close/i });
     expect(closeButton).not.toBeInTheDocument();
+
+    const tag = screen.getByText('Loading Tag').closest('.tedi-tag');
+    expect(tag).not.toHaveClass('tedi-tag__close');
   });
 
   it('accessibility', () => {
