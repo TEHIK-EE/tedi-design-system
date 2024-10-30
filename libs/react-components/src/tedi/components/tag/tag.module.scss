@@ -35,13 +35,18 @@ $tag-colors: (
   }
 
   &__close {
-    --button-radius-default-desktop: var(--button-radius-sm-desktop);
-    --button-radius-default-tablet: var(--button-radius-sm-tablet);
-    --button-radius-default-mobile: var(--button-radius-sm-mobile);
+    --button-radius-default-desktop: 0;
+    --button-radius-default-tablet: 0;
+    --button-radius-default-mobile: 0;
 
     padding: 0;
     overflow: hidden;
 
     @include responsive-styles(padding-left, tag-default-padding-x);
+
+    > button {
+      @include responsive-styles(border-top-right-radius, button-radius-sm);
+      @include responsive-styles(border-bottom-right-radius, button-radius-sm);
+    }
   }
 }
