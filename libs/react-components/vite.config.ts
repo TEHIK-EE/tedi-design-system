@@ -21,7 +21,7 @@ const config: UserConfig = {
     checker({
       overlay: false,
       eslint: {
-        lintCommand: 'eslint "./libs/react-components/**/src/**/*.{ts,tsx}"',
+        lintCommand: 'eslint "./libs/react-components/src/**/*.{ts,tsx}"',
       },
       typescript: {
         root: join(__dirname),
@@ -46,8 +46,8 @@ const config: UserConfig = {
     emptyOutDir: true,
     lib: {
       entry: {
-        community: path.resolve(__dirname, 'community/src/index.ts'),
-        tedi: path.resolve(__dirname, 'tedi/src/index.ts'),
+        community: path.resolve(__dirname, 'src/community/index.ts'),
+        tedi: path.resolve(__dirname, 'src/tedi/index.ts'),
       },
       name: '@tehik-ee/tedi-design-system',
       fileName: (format, entryName) => `${entryName}.${format}.js`,

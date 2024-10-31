@@ -1,3 +1,155 @@
+# [8.0.0-rc.7](https://github.com/TEHIK-EE/tedi-design-system/compare/v8.0.0-rc.6...v8.0.0-rc.7) (2024-10-30)
+
+
+### Bug Fixes
+
+* **tag:** Close button size and tag paddings fix [#262](https://github.com/TEHIK-EE/tedi-design-system/issues/262) ([#263](https://github.com/TEHIK-EE/tedi-design-system/issues/263)) ([553507b](https://github.com/TEHIK-EE/tedi-design-system/commit/553507b945936e39309ae1ad1c0a876672172c56))
+
+# [8.0.0-rc.6](https://github.com/TEHIK-EE/tedi-design-system/compare/v8.0.0-rc.5...v8.0.0-rc.6) (2024-10-24)
+
+
+### Bug Fixes
+
+* **general:** Library structure fix [#247](https://github.com/TEHIK-EE/tedi-design-system/issues/247) ([#248](https://github.com/TEHIK-EE/tedi-design-system/issues/248)) ([293f644](https://github.com/TEHIK-EE/tedi-design-system/commit/293f644cc438af68a5d438d1029390bbc035371d))
+
+# [8.0.0-rc.5](https://github.com/TEHIK-EE/tedi-design-system/compare/v8.0.0-rc.4...v8.0.0-rc.5) (2024-10-24)
+
+
+### Features
+
+* **tag, closing-button:** Component Tag and ClosingButton [#166](https://github.com/TEHIK-EE/tedi-design-system/issues/166) [#203](https://github.com/TEHIK-EE/tedi-design-system/issues/203)  ([#233](https://github.com/TEHIK-EE/tedi-design-system/issues/233)) ([77095dc](https://github.com/TEHIK-EE/tedi-design-system/commit/77095dc4c35f4393f2bf9cd207155eafe90c0483)), closes [#163](https://github.com/TEHIK-EE/tedi-design-system/issues/163)
+
+# [8.0.0-rc.4](https://github.com/TEHIK-EE/tedi-design-system/compare/v8.0.0-rc.3...v8.0.0-rc.4) (2024-10-23)
+
+
+### Bug Fixes
+
+* **label:** add aria-hidden true to required label [#245](https://github.com/TEHIK-EE/tedi-design-system/issues/245) ([#246](https://github.com/TEHIK-EE/tedi-design-system/issues/246)) ([0deb6e6](https://github.com/TEHIK-EE/tedi-design-system/commit/0deb6e6fb2bd4a7197904240521cc6073669dd55))
+
+# [8.0.0-rc.3](https://github.com/TEHIK-EE/tedi-design-system/compare/v8.0.0-rc.2...v8.0.0-rc.3) (2024-10-22)
+
+
+### Bug Fixes
+
+* **tooltip:** add tooltip box shadow change [#243](https://github.com/TEHIK-EE/tedi-design-system/issues/243) ([#244](https://github.com/TEHIK-EE/tedi-design-system/issues/244)) ([96ec34e](https://github.com/TEHIK-EE/tedi-design-system/commit/96ec34e264180b0b728a0e76a19b15ceabef96d3))
+
+# [8.0.0-rc.2](https://github.com/TEHIK-EE/tedi-design-system/compare/v8.0.0-rc.1...v8.0.0-rc.2) (2024-10-22)
+
+
+### Features
+
+* **text-group:** TEDI-Ready component TextGroup [#180](https://github.com/TEHIK-EE/tedi-design-system/issues/180) ([#242](https://github.com/TEHIK-EE/tedi-design-system/issues/242)) ([ae2c637](https://github.com/TEHIK-EE/tedi-design-system/commit/ae2c637e33cc645cb45904ffb23c639320c51ea1)), closes [#181](https://github.com/TEHIK-EE/tedi-design-system/issues/181) [#181](https://github.com/TEHIK-EE/tedi-design-system/issues/181)
+
+# [8.0.0-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/v7.1.0-rc.10...v8.0.0-rc.1) (2024-10-18)
+
+
+### Features
+
+* **form-label:** Replace FormLabel in Community components with TEDI-Ready FormLabel [#227](https://github.com/TEHIK-EE/tedi-design-system/issues/227) ([#229](https://github.com/TEHIK-EE/tedi-design-system/issues/229)) ([ade9f77](https://github.com/TEHIK-EE/tedi-design-system/commit/ade9f776309ea5aa2bd34ae1b83f6cecd7cb680f))
+
+
+### BREAKING CHANGES
+
+* **form-label:** The FormLabel component has been replaced with TEDI-FormLabel in Community
+
+Co-authored-by: Airike Jaska <airike.jaska@bitweb.ee>
+
+# [7.1.0-rc.10](https://github.com/TEHIK-EE/tedi-design-system/compare/v7.1.0-rc.9...v7.1.0-rc.10) (2024-10-16)
+
+
+### Bug Fixes
+
+* **icon:** Optimize material-symbols font pack [#230](https://github.com/TEHIK-EE/tedi-design-system/issues/230) ([#232](https://github.com/TEHIK-EE/tedi-design-system/issues/232)) ([76a388d](https://github.com/TEHIK-EE/tedi-design-system/commit/76a388d0ce272e4a6a298b870047bf6b7a38d8fb))
+
+# [7.1.0-rc.9](https://github.com/TEHIK-EE/tedi-design-system/compare/v7.1.0-rc.8...v7.1.0-rc.9) (2024-10-16)
+
+
+### Features
+
+* **toggleOpen:** [#102](https://github.com/TEHIK-EE/tedi-design-system/issues/102) - Add an optional prop to render ToggleOpen as div instead of button  ([#171](https://github.com/TEHIK-EE/tedi-design-system/issues/171)) ([62c9c4e](https://github.com/TEHIK-EE/tedi-design-system/commit/62c9c4e16b67e951f104d6bdca428aeab7e51f84))
+
+
+### Reverts
+
+* Revert " feat(toggleOpen): #102 - Add an optional prop to render ToggleOpen a…" (#231) ([1179ad5](https://github.com/TEHIK-EE/tedi-design-system/commit/1179ad5110a6447db3c4abe7510e04f283f65c60)), closes [#102](https://github.com/TEHIK-EE/tedi-design-system/issues/102) [#231](https://github.com/TEHIK-EE/tedi-design-system/issues/231)
+
+# [7.1.0-rc.8](https://github.com/TEHIK-EE/tedi-design-system/compare/v7.1.0-rc.7...v7.1.0-rc.8) (2024-10-14)
+
+
+### Features
+
+* **badge:** TEDI-402 Component: Badge [#174](https://github.com/TEHIK-EE/tedi-design-system/issues/174) ([#215](https://github.com/TEHIK-EE/tedi-design-system/issues/215)) ([a884f8e](https://github.com/TEHIK-EE/tedi-design-system/commit/a884f8e947fc9d1e03052f7be412a21c5c412217)), closes [#70](https://github.com/TEHIK-EE/tedi-design-system/issues/70) [#186](https://github.com/TEHIK-EE/tedi-design-system/issues/186) [TEHIK-EE#70](https://github.com/TEHIK-EE/issues/70) [#70](https://github.com/TEHIK-EE/tedi-design-system/issues/70) [#186](https://github.com/TEHIK-EE/tedi-design-system/issues/186) [#177](https://github.com/TEHIK-EE/tedi-design-system/issues/177) [#195](https://github.com/TEHIK-EE/tedi-design-system/issues/195) [#177](https://github.com/TEHIK-EE/tedi-design-system/issues/177) [#177](https://github.com/TEHIK-EE/tedi-design-system/issues/177) [#177](https://github.com/TEHIK-EE/tedi-design-system/issues/177) [#177](https://github.com/TEHIK-EE/tedi-design-system/issues/177)
+
+# [7.1.0-rc.7](https://github.com/TEHIK-EE/tedi-design-system/compare/v7.1.0-rc.6...v7.1.0-rc.7) (2024-10-14)
+
+
+### Features
+
+* **form-label:** Component Label and FormLabel [#181](https://github.com/TEHIK-EE/tedi-design-system/issues/181) ([#214](https://github.com/TEHIK-EE/tedi-design-system/issues/214)) ([17f5c1d](https://github.com/TEHIK-EE/tedi-design-system/commit/17f5c1d4e4ae07718a17031cdeed653adb5fbf32))
+
+# [7.1.0-rc.6](https://github.com/TEHIK-EE/tedi-design-system/compare/v7.1.0-rc.5...v7.1.0-rc.6) (2024-10-11)
+
+
+### Bug Fixes
+
+* **button:** fix loading icons [#216](https://github.com/TEHIK-EE/tedi-design-system/issues/216) ([#226](https://github.com/TEHIK-EE/tedi-design-system/issues/226)) ([4310979](https://github.com/TEHIK-EE/tedi-design-system/commit/431097901bebb266196d0a0fd98d30e2a8b8f787))
+
+# [7.1.0-rc.5](https://github.com/TEHIK-EE/tedi-design-system/compare/v7.1.0-rc.4...v7.1.0-rc.5) (2024-10-11)
+
+
+### Features
+
+* **list:** Added indent to styled lists and className property [#221](https://github.com/TEHIK-EE/tedi-design-system/issues/221) ([#222](https://github.com/TEHIK-EE/tedi-design-system/issues/222)) ([3e0a253](https://github.com/TEHIK-EE/tedi-design-system/commit/3e0a2532fc0b00e927ef504b89fe71ac04872662))
+
+# [7.1.0-rc.4](https://github.com/TEHIK-EE/tedi-design-system/compare/v7.1.0-rc.3...v7.1.0-rc.4) (2024-10-10)
+
+
+### Bug Fixes
+
+* **anchor, button:** align link type button to the left [#223](https://github.com/TEHIK-EE/tedi-design-system/issues/223) ([#224](https://github.com/TEHIK-EE/tedi-design-system/issues/224)) ([effc0a4](https://github.com/TEHIK-EE/tedi-design-system/commit/effc0a45c95d92619ab11fe0ba65741223d6b301))
+
+# [7.1.0-rc.3](https://github.com/TEHIK-EE/tedi-design-system/compare/v7.1.0-rc.2...v7.1.0-rc.3) (2024-10-10)
+
+
+### Bug Fixes
+
+* **spinner:** Added default label, breakpointSupport, fixed test [#148](https://github.com/TEHIK-EE/tedi-design-system/issues/148) ([#220](https://github.com/TEHIK-EE/tedi-design-system/issues/220)) ([43599ee](https://github.com/TEHIK-EE/tedi-design-system/commit/43599ee4dc3c287fe84979176c1355d44e5c50ee))
+
+# [7.1.0-rc.2](https://github.com/TEHIK-EE/tedi-design-system/compare/v7.1.0-rc.1...v7.1.0-rc.2) (2024-10-09)
+
+
+### Features
+
+* **label-provider:** Move LabelProvider to TEDI-Ready [#207](https://github.com/TEHIK-EE/tedi-design-system/issues/207) ([#211](https://github.com/TEHIK-EE/tedi-design-system/issues/211)) ([86d259f](https://github.com/TEHIK-EE/tedi-design-system/commit/86d259fcf21febff48f03f2ef9095bd5a828198c))
+
+# [7.1.0-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/v7.0.1-rc.3...v7.1.0-rc.1) (2024-10-09)
+
+
+### Features
+
+* **separator:** add height to Vertical Separator, deprecate fullWidth to isStretched [#218](https://github.com/TEHIK-EE/tedi-design-system/issues/218) ([#219](https://github.com/TEHIK-EE/tedi-design-system/issues/219)) ([b0c9536](https://github.com/TEHIK-EE/tedi-design-system/commit/b0c9536a9edd5df654033b823382ab1d9bf2dc17))
+
+## [7.0.1-rc.3](https://github.com/TEHIK-EE/tedi-design-system/compare/v7.0.1-rc.2...v7.0.1-rc.3) (2024-10-09)
+
+
+### Bug Fixes
+
+* **button, anchor:** inline link style button icon [#216](https://github.com/TEHIK-EE/tedi-design-system/issues/216) ([#217](https://github.com/TEHIK-EE/tedi-design-system/issues/217)) ([a48ed15](https://github.com/TEHIK-EE/tedi-design-system/commit/a48ed1554a59f0d13d5c9019263eb1cd40b66f7d))
+
+## [7.0.1-rc.2](https://github.com/TEHIK-EE/tedi-design-system/compare/v7.0.1-rc.1...v7.0.1-rc.2) (2024-10-02)
+
+
+### Bug Fixes
+
+* **icon:** Remove material-symbols font-size to respect custom Icon sizes [#208](https://github.com/TEHIK-EE/tedi-design-system/issues/208) ([#209](https://github.com/TEHIK-EE/tedi-design-system/issues/209)) ([b4e1d61](https://github.com/TEHIK-EE/tedi-design-system/commit/b4e1d618b1b1c4346684340cbe92f484e471d4ea))
+
+## [7.0.1-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/v7.0.0...v7.0.1-rc.1) (2024-09-30)
+
+
+### Bug Fixes
+
+* **grid:** Removed test-id attribute and improved unit tests [#201](https://github.com/TEHIK-EE/tedi-design-system/issues/201) ([#202](https://github.com/TEHIK-EE/tedi-design-system/issues/202)) ([e980eb5](https://github.com/TEHIK-EE/tedi-design-system/commit/e980eb52096edac4e35477f76c9a68e0c0756d32))
+
 # [7.0.0](https://github.com/TEHIK-EE/tedi-design-system/compare/v6.31.0...v7.0.0) (2024-09-26)
 
 

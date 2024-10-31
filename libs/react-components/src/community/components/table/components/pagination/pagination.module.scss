@@ -1,0 +1,96 @@
+@use '../../../../styles/mixins';
+@use '../../../../../shared/styles/bootstrap-utility/breakpoints';
+
+.pagination__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.625rem 0.875rem;
+}
+
+.pagination__pages {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  list-style: none;
+}
+
+.pagination__page {
+  display: none;
+  min-width: 1.5rem;
+  min-height: 1.5rem;
+  padding: 0 0.125rem;
+  margin: 0 0.125rem;
+  color: var(--color-text-muted);
+  text-align: center;
+  background: var(--color-transparent);
+
+  // Only styles applied to button elements (not ellipsis)
+  &:is(button) {
+    cursor: pointer;
+    border: none;
+    border-radius: 1.5rem;
+    transition-timing-function: ease;
+    transition-duration: 0.2s;
+    transition-property: color, background-color;
+  }
+
+  &:hover:is(button) {
+    color: var(--color-primary-main);
+    background-color: var(--color-bg-subtle);
+  }
+
+  @media print {
+    display: block;
+  }
+
+  &:focus {
+    border-radius: 1.5rem;
+  }
+
+  &--current {
+    display: block;
+    color: var(--color-text-inverted);
+    background-color: var(--color-primary-active);
+
+    @media print {
+      color: var(--color-text-inverted) !important;
+      background-color: var(--color-text-muted);
+    }
+  }
+
+  @include breakpoints.media-breakpoint-up(md) {
+    display: block;
+  }
+}
+
+.pagination__arrow-item {
+  display: flex;
+
+  &:first-of-type {
+    padding-right: 1rem;
+  }
+
+  &:last-child {
+    padding-left: 1rem;
+  }
+}
+
+.pagination__arrow {
+  height: 1rem;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  background-color: var(--color-transparent);
+  border: none;
+  transition: color 0.2s ease;
+
+  &:disabled {
+    color: var(--color-text-disabled);
+    cursor: initial;
+  }
+
+  &:hover:not(:disabled) {
+    color: var(--color-primary-active);
+  }
+}

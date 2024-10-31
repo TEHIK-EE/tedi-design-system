@@ -9,9 +9,9 @@
       "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/packages/design-tokens",
-        "main": "libs/react-components/design-tokens/src/index.ts",
-        "tsConfig": "libs/react-components/design-tokens/tsconfig.lib.json",
-        "assets": ["libs/react-components/design-tokens/*.md"]
+        "main": "libs/react-components/src/design-tokens/index.ts",
+        "tsConfig": "libs/react-components/src/design-tokens/tsconfig.lib.json",
+        "assets": ["libs/react-components/src/design-tokens/*.md"]
       }
     }
   },
