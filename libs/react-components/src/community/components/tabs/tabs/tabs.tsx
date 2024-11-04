@@ -1,6 +1,8 @@
 import cn from 'classnames';
 import React from 'react';
 
+import { usePrint } from '../../../helpers';
+import Print, { PrintProps } from '../../print/print';
 import { TabsContext } from '../tabs-context';
 import TabsItem, { TabsItemProps } from '../tabs-item/tabs-item';
 import TabsNav from '../tabs-nav/tabs-nav';
@@ -33,10 +35,16 @@ export interface TabsProps {
    * ID of heading labelling the tabs.
    */
   'aria-labelledby': string;
+  /**
+   * Hide navigation and card when printing
+   * @default 'show'
+   */
+  hideNavOnPrint?: PrintProps['visibility'];
 }
 
 export const Tabs = (props: TabsProps): JSX.Element => {
-  const { defaultCurrentTab, onTabChange, className, children } = props;
+  const isPrinting = usePrint();
+  const { defaultCurrentTab, onTabChange, className, children, hideNavOnPrint = 'show' } = props;
   const [innerCurrentTab, setInnerCurrentTab] = React.useState(defaultCurrentTab || '');
 
   const isCurrentTabControlled = (tab = props.currentTab): tab is string => {
@@ -127,8 +135,13 @@ export const Tabs = (props: TabsProps): JSX.Element => {
         setCurrentTab,
       }}
     >
-      <div data-name="tabs" className={cn(styles['tabs'], className)}>
-        <TabsNav items={navItemAnchors} aria-labelledby={props['aria-labelledby']} />
+      <div
+        data-name="tabs"
+        className={isPrinting && hideNavOnPrint === 'hide' ? className : cn(styles['tabs'], className)}
+      >
+        <Print visibility={hideNavOnPrint}>
+          <TabsNav items={navItemAnchors} aria-labelledby={props['aria-labelledby']} />
+        </Print>
         <div className={styles['tabs__content']}>{children}</div>
       </div>
     </TabsContext.Provider>
