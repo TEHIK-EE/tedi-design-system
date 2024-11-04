@@ -13,13 +13,13 @@ const meta: Meta<typeof Tabs> = {
 export default meta;
 
 export interface TabsStory {
-  tabs: Omit<TabsProps, 'aria-labelledby'>;
+  tabs: Omit<TabsProps, 'aria-labelledby' | 'children'>;
   tabsItem: Partial<Omit<TabsItemProps, 'id' | 'label'>>;
 }
 
 type Story = StoryObj<TabsStory>;
 
-const Template: StoryFn<TabsStory> = ({ tabs, tabsItem }) => (
+const Template: StoryFn<TabsStory> = ({ tabs, tabsItem }: TabsStory) => (
   <>
     <Heading id="tabs-heading" className="visually-hidden">
       Tabs title
@@ -73,6 +73,18 @@ export const Padding: Story = {
   args: {
     tabsItem: {
       padding: 1,
+    },
+  },
+};
+
+/**
+ * Hides navigation when printing
+ */
+export const HideNavOnPrint: Story = {
+  render: Template,
+  args: {
+    tabs: {
+      hideNavOnPrint: 'hide',
     },
   },
 };
