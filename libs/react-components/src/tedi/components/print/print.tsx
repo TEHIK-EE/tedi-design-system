@@ -5,29 +5,34 @@ export type BreakTypes = 'auto' | 'avoid' | 'avoid-column' | 'avoid-page' | 'avo
 
 export interface PrintProps {
   /**
-   * Content.
+   * The content to be rendered within the `Print` component.
+   * This can be a single element or an array of elements.
    */
   children: JSX.Element | Array<JSX.Element | null | undefined | false | ''>;
   /**
-   * Show or hide content during printing
-   * Show is useful when the content is hidden by default during printing
+   * Controls the visibility of the content when printing.
+   * - 'show': The content will be visible during printing.
+   * - 'hide': The content will be hidden during printing.
    */
   visibility?: 'show' | 'hide';
   /**
-   * How page, column, or region breaks should behave before a generated box
+   * Determines how page, column, or region breaks behave before the element.
+   * Uses CSS `break-before` property values.
    */
   breakBefore?: BreakTypes;
   /**
-   * How page, column, or region breaks should behave after a generated box
+   * Determines how page, column, or region breaks behave after the element.
+   * Uses CSS `break-after` property values.
    */
   breakAfter?: BreakTypes;
   /**
-   * How page, column, or region breaks should behave inside a generated box
+   * Determines how page, column, or region breaks behave inside the element.
+   * Uses CSS `break-inside` property values.
    */
   breakInside?: BreakTypes;
 }
 
-export const Print = forwardRef<HTMLElement, PrintProps>((props, ref): JSX.Element | null => {
+export const Print = forwardRef<HTMLElement, PrintProps>((props): JSX.Element | null => {
   const { children, visibility, breakBefore, breakInside, breakAfter } = props;
 
   const renderChild = (child?: JSX.Element, key?: number) => {
