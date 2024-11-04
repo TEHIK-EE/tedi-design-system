@@ -1,3 +1,10 @@
+# [9.0.0-rc.2](https://github.com/TEHIK-EE/tedi-design-system/compare/v9.0.0-rc.1...v9.0.0-rc.2) (2024-11-04)
+
+
+### Features
+
+* **tabs:** add possibility to hide nav when printing [#266](https://github.com/TEHIK-EE/tedi-design-system/issues/266) ([#267](https://github.com/TEHIK-EE/tedi-design-system/issues/267)) ([49916a3](https://github.com/TEHIK-EE/tedi-design-system/commit/49916a3ccdc74358c7524252885f4321d967a060))
+
 # [9.0.0-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/v8.0.0...v9.0.0-rc.1) (2024-11-04)
 
 
