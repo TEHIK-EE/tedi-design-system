@@ -1,3 +1,17 @@
+# [9.0.0-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/v8.0.0...v9.0.0-rc.1) (2024-11-04)
+
+
+### Features
+
+* **print:** New TEDI-Ready component Print [#251](https://github.com/TEHIK-EE/tedi-design-system/issues/251) ([#259](https://github.com/TEHIK-EE/tedi-design-system/issues/259)) ([b9a333b](https://github.com/TEHIK-EE/tedi-design-system/commit/b9a333bcd21943f9e4590284f51da46e4e78b6f0))
+
+
+### BREAKING CHANGES
+
+* **print:** This component will be removed from the Community in the next major release.
+
+Co-authored-by: Airike Jaska <airike.jaska@bitweb.ee>
+
 # [8.0.0](https://github.com/TEHIK-EE/tedi-design-system/compare/v7.0.0...v8.0.0) (2024-10-31)
 
 
