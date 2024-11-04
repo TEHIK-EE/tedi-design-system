@@ -1,3 +1,10 @@
+# [9.0.0-rc.3](https://github.com/TEHIK-EE/tedi-design-system/compare/v9.0.0-rc.2...v9.0.0-rc.3) (2024-11-04)
+
+
+### Bug Fixes
+
+* **print:** Print helper styles missing [#269](https://github.com/TEHIK-EE/tedi-design-system/issues/269) ([#270](https://github.com/TEHIK-EE/tedi-design-system/issues/270)) ([a534d60](https://github.com/TEHIK-EE/tedi-design-system/commit/a534d60b3e38c2a26ac7fb1b9679c23073925798))
+
 # [9.0.0-rc.2](https://github.com/TEHIK-EE/tedi-design-system/compare/v9.0.0-rc.1...v9.0.0-rc.2) (2024-11-04)
 
 
