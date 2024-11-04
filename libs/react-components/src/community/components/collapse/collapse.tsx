@@ -3,10 +3,10 @@ import React from 'react';
 import AnimateHeight from 'react-animate-height';
 
 import { Col, Row, RowProps } from '../../../tedi/components/grid';
+import Print from '../../../tedi/components/print/print';
+import { usePrint } from '../../../tedi/helpers';
 import { useLabels } from '../../../tedi/providers/label-provider';
-import { usePrint } from '../../helpers';
 import Icon from '../icon/icon';
-import Print from '../print/print';
 import { Text } from '../typography/text/text';
 import styles from './collapse.module.scss';
 

@@ -2,11 +2,11 @@ import cn from 'classnames';
 import React from 'react';
 
 import { Col, Row } from '../../../../../tedi/components/grid';
+import Print from '../../../../../tedi/components/print/print';
 import { Layouts, useLayout } from '../../../../helpers';
 import { IntentionalAny } from '../../../../types';
 import Affix from '../../../affix/affix';
 import Anchor from '../../../anchor/anchor';
-import Print from '../../../print/print';
 import { LayoutContext } from '../../layout-context';
 import { useSidenavRendered } from '../../sidenav/utility';
 import HeaderBottomContent, {

@@ -2,12 +2,12 @@ import { FloatingFocusManager, FloatingOverlay } from '@floating-ui/react';
 import cn from 'classnames';
 import React from 'react';
 
+import Print from '../../../../tedi/components/print/print';
 import useLayout, { Layouts } from '../../../helpers/hooks/use-layout';
 import { AllowedHTMLTags } from '../../../helpers/polymorphic/types';
 import { IntentionalAny } from '../../../types';
 import Anchor, { AnchorProps } from '../../anchor/anchor';
 import Icon, { IconProps } from '../../icon/icon';
-import Print from '../../print/print';
 import { LayoutContext } from '../layout-context';
 import styles from './sidenav.module.scss';
 import { useSidenavRendered } from './utility';
