@@ -1,3 +1,10 @@
+# [9.0.0-rc.5](https://github.com/TEHIK-EE/tedi-design-system/compare/v9.0.0-rc.4...v9.0.0-rc.5) (2024-11-05)
+
+
+### Bug Fixes
+
+* **colors:** Update color variables [#268](https://github.com/TEHIK-EE/tedi-design-system/issues/268) ([#273](https://github.com/TEHIK-EE/tedi-design-system/issues/273)) ([e62595e](https://github.com/TEHIK-EE/tedi-design-system/commit/e62595e6b64d4f3521f5a30248019bf45efe6218))
+
 # [9.0.0-rc.4](https://github.com/TEHIK-EE/tedi-design-system/compare/v9.0.0-rc.3...v9.0.0-rc.4) (2024-11-05)
 
 
