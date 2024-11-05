@@ -22,6 +22,7 @@ describe('ClosingButton component', () => {
     const button = screen.getByRole('button', { name: /close/i });
     expect(button).toBeInTheDocument();
     expect(button).toHaveClass('tedi-closing-button');
+    expect(button).toHaveClass('tedi-closing-button tedi-closing-button--medium');
 
     const icon = button.querySelector('span[data-name="icon"]');
     expect(icon).toBeInTheDocument();
