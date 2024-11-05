@@ -32,7 +32,7 @@ export interface PrintProps {
   breakInside?: BreakTypes;
 }
 
-export const Print = forwardRef<HTMLElement, PrintProps>((props): JSX.Element | null => {
+export const Print = forwardRef<HTMLElement, PrintProps>((props, ref): JSX.Element | null => {
   const { children, visibility, breakBefore, breakInside, breakAfter } = props;
 
   const renderChild = (child?: JSX.Element, key?: number) => {
