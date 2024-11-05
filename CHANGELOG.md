@@ -1,3 +1,10 @@
+# [9.0.0-rc.4](https://github.com/TEHIK-EE/tedi-design-system/compare/v9.0.0-rc.3...v9.0.0-rc.4) (2024-11-05)
+
+
+### Bug Fixes
+
+* **print:** new Tedi Print component shows console.error on tests [#271](https://github.com/TEHIK-EE/tedi-design-system/issues/271) ([#272](https://github.com/TEHIK-EE/tedi-design-system/issues/272)) ([311e659](https://github.com/TEHIK-EE/tedi-design-system/commit/311e659c0947f2effdfa19fbdbf621a23997f62a))
+
 # [9.0.0-rc.3](https://github.com/TEHIK-EE/tedi-design-system/compare/v9.0.0-rc.2...v9.0.0-rc.3) (2024-11-04)
 
 
