@@ -4,7 +4,6 @@ import React from 'react';
 import { Card } from '../../../community/components/card/card';
 import { CardContent } from '../../../community/components/card/card-content/card-content';
 import { Col, Row } from '../../../tedi/components/grid';
-import { VerticalSpacing } from '../../../tedi/components/vertical-spacing';
 import { Text } from '../typography/text/text';
 import Separator, { SeparatorProps } from './separator';
 
@@ -39,29 +38,35 @@ const Template: StoryFn<SeparatorProps> = (args) => (
   </>
 );
 
-const ColorTemplate: StoryFn<SeparatorProps> = (args) => (
-  <VerticalSpacing>
-    {colorArray.map((color) => (
-      <React.Fragment key={color}>
-        <Text modifiers="capitalize" element="span">
-          {color}
-        </Text>
-        <Separator {...args} color={color} />
-      </React.Fragment>
+const ColorsAndThickness: StoryFn<SeparatorProps> = (args) => (
+  <>
+    {colorArray.map((color, index) => (
+      <>
+        <Row key={index}>
+          <Col>
+            <Separator color={color} thickness={1} {...args} />
+          </Col>
+        </Row>
+        <Row key={index}>
+          <Col>
+            <Separator color={color} thickness={2} {...args} />
+          </Col>
+        </Row>
+      </>
     ))}
-  </VerticalSpacing>
+  </>
 );
 
 const VerticalColorTemplate: StoryFn<SeparatorProps> = (args) => (
   <Row>
     {colorArray.map((color) => (
-      <Col key={color}>
+      <Col width="auto" key={color}>
         <Row>
           <Col width="auto">
-            <Text modifiers="capitalize-first">{color}</Text>
+            <Separator {...args} color={color} />
           </Col>
           <Col width="auto">
-            <Separator {...args} color={color} />
+            <Separator {...args} thickness={2} color={color} />
           </Col>
         </Row>
       </Col>
@@ -71,24 +76,17 @@ const VerticalColorTemplate: StoryFn<SeparatorProps> = (args) => (
 
 export const Default: Story = {
   render: Template,
-  args: {},
+  args: { spacing: 1 },
 };
 
-export const Colors: Story = {
-  render: ColorTemplate,
-  args: {},
+export const HorizontalColors: Story = {
+  render: ColorsAndThickness,
+  args: { spacing: 1 },
 };
 
 export const VerticalColors: Story = {
   render: VerticalColorTemplate,
-  args: {
-    axis: 'vertical',
-  },
-};
-
-export const Thick: Story = {
-  render: Template,
-  args: { thickness: 2 },
+  args: { axis: 'vertical', height: 5 },
 };
 
 export const PaddedEven: Story = {
@@ -124,11 +122,6 @@ const TemplateVertical: StoryFn<SeparatorProps> = (args) => (
   </Card>
 );
 
-export const Vertical: Story = {
-  render: TemplateVertical,
-  args: { axis: 'vertical', isStretched: true },
-};
-
 export const VerticalThick: Story = {
   render: TemplateVertical,
   args: { axis: 'vertical', thickness: 2, isStretched: true },
@@ -142,23 +135,4 @@ export const VerticalDotted: Story = {
 export const VerticalDottedSmall: Story = {
   render: TemplateVertical,
   args: { axis: 'vertical', variant: 'dotted-small', color: 'accent', isStretched: true },
-};
-
-const TemplateCustomHeight: StoryFn<SeparatorProps> = (args) => (
-  <Row alignItems="center">
-    <Col xs="auto" md={2}>
-      <p className="text-right">12.12.2012</p>
-    </Col>
-    <Col width="auto">
-      <Separator {...args} />
-    </Col>
-  </Row>
-);
-
-export const VerticalCustomHeight: Story = {
-  render: TemplateCustomHeight,
-  args: {
-    axis: 'vertical',
-    height: 1.5,
-  },
 };
