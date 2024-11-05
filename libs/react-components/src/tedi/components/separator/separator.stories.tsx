@@ -74,6 +74,16 @@ const VerticalColorTemplate: StoryFn<SeparatorProps> = (args) => (
   </Row>
 );
 
+const DotOnlyTemplate: StoryFn<SeparatorProps> = (args) => (
+  <Row>
+    <Col>
+      <Separator {...args} variant="dot-only" color="secondary" dotSize="small" />
+      <Separator {...args} variant="dot-only" color="secondary" dotSize="medium" />
+      <Separator {...args} variant="dot-only" color="secondary" dotSize="large" />
+    </Col>
+  </Row>
+);
+
 export const Default: Story = {
   render: Template,
   args: { spacing: 1 },
@@ -135,4 +145,9 @@ export const VerticalDotted: Story = {
 export const VerticalDottedSmall: Story = {
   render: TemplateVertical,
   args: { axis: 'vertical', variant: 'dotted-small', color: 'accent', isStretched: true },
+};
+
+export const DotOnly: Story = {
+  render: DotOnlyTemplate,
+  args: { spacing: 0.5 },
 };

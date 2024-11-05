@@ -92,9 +92,14 @@ $sizes: (
     margin-bottom: #{$value};
   }
 
-  .separator--horizontal.separator--spacing-#{$size} {
+  .separator--horizontal.separator--spacing-#{$size}:not(.separator--dot-only) {
     margin-top: #{$value};
     margin-bottom: #{$value};
+  }
+
+  .separator--horizontal.separator--dot-only.separator--spacing-#{$size} {
+    margin-right: #{$value};
+    margin-left: #{$value};
   }
 }
 
@@ -112,5 +117,50 @@ $thicknesses: (
     &--vertical.separator--thickness-#{$thickness} {
       border-left-width: #{$value};
     }
+  }
+}
+
+.separator--dot-only {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  border: none;
+
+  &::before {
+    position: relative;
+    display: block;
+    content: '';
+    border-radius: 100%;
+
+    @include mixins.print-grayscale;
+    @include mixins.responsive-styles(height, separator-dotted-dot-lg);
+    @include mixins.responsive-styles(width, separator-dotted-dot-lg);
+  }
+
+  &.separator--dot-only-small::before {
+    @include mixins.responsive-styles(width, separator-dotted-dot-sm);
+    @include mixins.responsive-styles(height, separator-dotted-dot-sm);
+  }
+
+  &.separator--dot-only-medium::before {
+    @include mixins.responsive-styles(width, separator-dotted-dot-md);
+    @include mixins.responsive-styles(height, separator-dotted-dot-md);
+  }
+
+  &.separator--dot-only-large::before {
+    @include mixins.responsive-styles(width, separator-dotted-dot-lg);
+    @include mixins.responsive-styles(height, separator-dotted-dot-lg);
+  }
+
+  &.separator--primary::before {
+    background-color: var(--general-border-primary);
+  }
+
+  &.separator--secondary::before {
+    background-color: var(--general-border-secondary);
+  }
+
+  &.separator--accent::before {
+    background-color: var(--general-border-accent);
   }
 }

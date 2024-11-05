@@ -1,11 +1,22 @@
 import { render } from '@testing-library/react';
 
+import { useBreakpointProps } from '../../helpers';
 import Separator, { SeparatorProps } from './separator';
 import styles from './separator.module.scss';
 
 import '@testing-library/jest-dom';
 
+jest.mock('../../helpers', () => ({
+  useBreakpointProps: jest.fn(),
+}));
+
 describe('Separator Component', () => {
+  beforeEach(() => {
+    (useBreakpointProps as jest.Mock).mockReturnValue({
+      getCurrentBreakpointProps: jest.fn((props) => props),
+    });
+  });
+
   const renderComponent = (props: SeparatorProps) => render(<Separator {...props} data-testid="separator" />);
 
   it('should render a div element by default', () => {
@@ -75,5 +86,30 @@ describe('Separator Component', () => {
   it('should set height CSS variable for vertical separator', () => {
     const { getByTestId } = renderComponent({ axis: 'vertical', height: 2 });
     expect(getByTestId('separator')).toHaveStyle(`--vertical-separator-height: 2rem`);
+  });
+
+  it('should apply dot-only variant class', () => {
+    const { getByTestId } = renderComponent({ variant: 'dot-only' });
+    expect(getByTestId('separator')).toHaveClass(styles['separator--dot-only']);
+  });
+
+  it('should apply correct dot size class when variant is dot-only and dotSize is small', () => {
+    const { getByTestId } = renderComponent({ variant: 'dot-only', dotSize: 'small' });
+    expect(getByTestId('separator')).toHaveClass(styles['separator--dot-only-small']);
+  });
+
+  it('should apply correct dot size class when variant is dot-only and dotSize is medium', () => {
+    const { getByTestId } = renderComponent({ variant: 'dot-only', dotSize: 'medium' });
+    expect(getByTestId('separator')).toHaveClass(styles['separator--dot-only-medium']);
+  });
+
+  it('should apply correct dot size class when variant is dot-only and dotSize is large', () => {
+    const { getByTestId } = renderComponent({ variant: 'dot-only', dotSize: 'large' });
+    expect(getByTestId('separator')).toHaveClass(styles['separator--dot-only-large']);
+  });
+
+  it('should not apply dot size class when variant is not dot-only', () => {
+    const { getByTestId } = renderComponent({ variant: 'dotted', dotSize: 'large' });
+    expect(getByTestId('separator')).not.toHaveClass(styles['separator--dot-only-large']);
   });
 });

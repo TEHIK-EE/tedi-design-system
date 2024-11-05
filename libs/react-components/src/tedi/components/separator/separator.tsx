@@ -28,7 +28,12 @@ export interface SeparatorSharedProps {
   /*
    * Separator style variant.
    */
-  variant?: 'dotted' | 'dotted-small';
+  variant?: 'dotted' | 'dotted-small' | 'dot-only';
+  /*
+   * Dot size.
+   * Only used when variant="dot-only"
+   */
+  dotSize?: 'large' | 'medium' | 'small';
   /*
    * Thickness in pixels (ignored if variant is used).
    * @default 1
@@ -99,6 +104,7 @@ export const Separator = (props: SeparatorProps): JSX.Element => {
     variant,
     thickness = 1,
     height,
+    dotSize,
     ...rest
   } = getCurrentBreakpointProps<SeparatorProps>(props);
 
@@ -108,6 +114,7 @@ export const Separator = (props: SeparatorProps): JSX.Element => {
     { [styles[`separator--${color}`]]: color },
     { [styles[`separator--${axis}`]]: axis },
     { [styles[`separator--${variant}`]]: variant },
+    { [styles[`separator--${variant}-${dotSize}`]]: variant && dotSize },
     { [styles[`separator--thickness-${thickness}`]]: thickness && !variant },
     { [styles['separator--is-stretched']]: isStretched },
     { [styles[`separator--spacing-${spacing}`.replace('.', '-')]]: spacing },
