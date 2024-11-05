@@ -33,7 +33,7 @@ export interface SeparatorSharedProps {
    * Dot size.
    * Only used when variant="dot-only"
    */
-  dotSize?: 'large' | 'medium' | 'small';
+  dotSize?: 'large' | 'medium' | 'small' | 'extra-small';
   /*
    * Thickness in pixels (ignored if variant is used).
    * @default 1

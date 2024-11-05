@@ -93,6 +93,11 @@ describe('Separator Component', () => {
     expect(getByTestId('separator')).toHaveClass(styles['separator--dot-only']);
   });
 
+  it('should apply correct dot size class when variant is dot-only and dotSize is extra small', () => {
+    const { getByTestId } = renderComponent({ variant: 'dot-only', dotSize: 'extra-small' });
+    expect(getByTestId('separator')).toHaveClass(styles['separator--dot-only-extra-small']);
+  });
+
   it('should apply correct dot size class when variant is dot-only and dotSize is small', () => {
     const { getByTestId } = renderComponent({ variant: 'dot-only', dotSize: 'small' });
     expect(getByTestId('separator')).toHaveClass(styles['separator--dot-only-small']);

@@ -77,6 +77,7 @@ const VerticalColorTemplate: StoryFn<SeparatorProps> = (args) => (
 const DotOnlyTemplate: StoryFn<SeparatorProps> = (args) => (
   <Row>
     <Col>
+      <Separator {...args} variant="dot-only" color="secondary" dotSize="extra-small" />
       <Separator {...args} variant="dot-only" color="secondary" dotSize="small" />
       <Separator {...args} variant="dot-only" color="secondary" dotSize="medium" />
       <Separator {...args} variant="dot-only" color="secondary" dotSize="large" />

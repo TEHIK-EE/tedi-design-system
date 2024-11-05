@@ -133,8 +133,13 @@ $thicknesses: (
     border-radius: 100%;
 
     @include mixins.print-grayscale;
-    @include mixins.responsive-styles(height, separator-dotted-dot-lg);
-    @include mixins.responsive-styles(width, separator-dotted-dot-lg);
+    @include mixins.responsive-styles(height, separator-dotted-dot-sm);
+    @include mixins.responsive-styles(width, separator-dotted-dot-sm);
+  }
+
+  &.separator--dot-only-extra-small::before {
+    @include mixins.responsive-styles(width, separator-dotted-dot-xs);
+    @include mixins.responsive-styles(height, separator-dotted-dot-xs);
   }
 
   &.separator--dot-only-small::before {
