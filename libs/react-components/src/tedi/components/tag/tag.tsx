@@ -2,7 +2,7 @@ import cn from 'classnames';
 import { MouseEventHandler } from 'react';
 
 import { BreakpointSupport, useBreakpointProps } from '../../helpers';
-import ClosingButton from '../closing-button/closing-button';
+import ClosingButton from '../buttons/closing-button/closing-button';
 import { Icon } from '../icon/icon';
 import { Spinner } from '../spinner/spinner';
 import styles from './tag.module.scss';
