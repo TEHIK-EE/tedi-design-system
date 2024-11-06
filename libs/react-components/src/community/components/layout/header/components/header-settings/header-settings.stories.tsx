@@ -1,10 +1,10 @@
 import { Meta, StoryObj } from '@storybook/react';
 
+import Separator from '../../../../../../tedi/components/separator/separator';
 import { VerticalSpacing } from '../../../../../../tedi/components/vertical-spacing';
 import { useLayout } from '../../../../../helpers/hooks/use-layout';
 import Anchor from '../../../../anchor/anchor';
 import { Card, CardContent } from '../../../../card';
-import Separator from '../../../../separator/separator';
 import HeaderRole, { HeaderRoleProps } from '../header-role/header-role';
 import { WithSecondaryInfo as HeaderRoleDefault } from '../header-role/header-role.stories';
 import HeaderSettings from './header-settings';
@@ -39,17 +39,17 @@ const DefaultContent = ({ onToggle }: { onToggle?: (open: boolean) => void }) =>
       {isMobile && (
         <>
           {renderAnchor('Custom Content')}
-          <Separator fullWidth />
+          <Separator isStretched />
         </>
       )}
       {renderAnchor('My data')}
-      <Separator fullWidth />
+      <Separator isStretched />
       {renderAnchor('Representation rights')}
-      <Separator fullWidth />
+      <Separator isStretched />
       {renderAnchor('Access to health data')}
-      <Separator fullWidth />
+      <Separator isStretched />
       {renderAnchor('Statements of intention')}
-      <Separator fullWidth />
+      <Separator isStretched />
       {renderAnchor('Contacts')}
     </VerticalSpacing>
   );

@@ -1,11 +1,11 @@
 import React from 'react';
 
+import Separator from '../../../../../../tedi/components/separator/separator';
 import { VerticalSpacing } from '../../../../../../tedi/components/vertical-spacing';
 import { useLabels } from '../../../../../../tedi/providers/label-provider';
 import { useLayout } from '../../../../../helpers/hooks/use-layout';
 import Button, { ButtonProps } from '../../../../button/button';
 import { Card, CardContent } from '../../../../card';
-import Separator from '../../../../separator/separator';
 import { Heading } from '../../../../typography/heading/heading';
 import { LayoutContext } from '../../../layout-context';
 import HeaderDropdown from '../header-dropdown/header-dropdown';
@@ -93,7 +93,7 @@ export const HeaderSettings: React.FC<HeaderSettingsProps> = (props) => {
     >
       <VerticalSpacing size={1}>
         {getChildren}
-        <Separator fullWidth />
+        <Separator isStretched />
         <LogOutAnchor />
       </VerticalSpacing>
     </HeaderDropdown>
@@ -110,13 +110,13 @@ export const HeaderSettings: React.FC<HeaderSettingsProps> = (props) => {
         {getLabel('header.settings')}
       </Heading>
       {getChildren}
-      <Separator fullWidth />
+      <Separator isStretched />
       <Card borderless>
         <CardContent>
           <LogOutAnchor />
         </CardContent>
       </Card>
-      <Separator fullWidth />
+      <Separator isStretched />
     </HeaderModal>
   );
 

@@ -1,11 +1,11 @@
 import { Meta, StoryObj } from '@storybook/react';
 
 import { List, ListItem } from '../../../../../../tedi/components/list';
+import Separator from '../../../../../../tedi/components/separator/separator';
 import { VerticalSpacing } from '../../../../../../tedi/components/vertical-spacing';
 import Anchor from '../../../../anchor/anchor';
 import Button from '../../../../button/button';
 import { Card, CardContent } from '../../../../card';
-import Separator from '../../../../separator/separator';
 import HeaderModal from './header-modal';
 
 /**
@@ -32,19 +32,19 @@ export const Default: Story = {
         <CardContent>
           <VerticalSpacing>
             <Anchor href="#">My data</Anchor>
-            <Separator fullWidth />
+            <Separator isStretched />
             <Anchor href="#">Representation rights</Anchor>
-            <Separator fullWidth />
+            <Separator isStretched />
             <Anchor href="#">Access to health data</Anchor>
-            <Separator fullWidth />
+            <Separator isStretched />
             <Anchor href="#">Statements of itention</Anchor>
-            <Separator fullWidth />
+            <Separator isStretched />
             <Anchor href="#">Contacts</Anchor>
-            <Separator fullWidth />
+            <Separator isStretched />
             <Anchor href="#" iconLeft="logout">
               Log out
             </Anchor>
-            <Separator fullWidth />
+            <Separator isStretched />
           </VerticalSpacing>
         </CardContent>
       </Card>
