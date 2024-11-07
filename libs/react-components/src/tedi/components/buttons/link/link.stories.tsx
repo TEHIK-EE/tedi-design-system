@@ -34,7 +34,6 @@ export const Default = {
   },
   args: {
     children: 'Link',
-    underline: true,
   },
 };
 
@@ -106,7 +105,6 @@ export const DefaultUnderlined: StoryObj<TemplateMultipleProps> = {
   render: TemplateColumn,
   args: {
     array: linkStateArray,
-    underline: true,
   },
   parameters: {
     pseudo: {
@@ -138,7 +136,6 @@ export const DefaultInverted: StoryObj<TemplateMultipleProps> = {
     array: linkStateArray,
     color: 'inverted',
     titleColor: 'white',
-    underline: true,
   },
   parameters: {
     pseudo: {
@@ -156,6 +153,7 @@ export const NoUnderlineInverted: StoryObj<TemplateMultipleProps> = {
     array: linkStateArray,
     color: 'inverted',
     titleColor: 'white',
+    underline: false,
   },
   parameters: {
     pseudo: {
@@ -172,6 +170,7 @@ export const AsPrimaryButton: StoryObj<TemplateMultipleProps> = {
   args: {
     array: linkStateArray,
     visualType: 'primary',
+    underline: false,
   },
   parameters: {
     pseudo: {
@@ -236,5 +235,6 @@ export const FullWidth = {
     href: '#',
     visualType: 'primary',
     children: 'Link that stretches',
+    underline: false,
   },
 };

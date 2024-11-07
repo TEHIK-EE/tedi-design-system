@@ -11,19 +11,32 @@ export type InternalLinkProps = {
 
 type AllowedTags = 'a' | React.ComponentType<UnknownType>;
 
-export type LinkProps<C extends React.ElementType = 'a'> = ButtonContentProps<C, InternalLinkProps, AllowedTags>;
+export type LinkProps<C extends React.ElementType = 'a'> = ButtonContentProps<C, InternalLinkProps, AllowedTags> & {
+  /**
+   * Whether the link should be underlined by default
+   * @default true
+   */
+  underline?: boolean;
+};
 
 type LinkComponentProps<C extends React.ElementType> = LinkProps<C> & { ref?: PolymorphicRef<C> };
 
 const LinkComponent = forwardRef(
   <C extends React.ElementType = 'a'>(props: LinkComponentProps<C>, ref?: PolymorphicRef<C>) => {
     const { getLabel } = useLabels();
-    const { visualType = 'link', as, children, ...rest } = props;
+    const { visualType = 'link', underline = true, as, children, ...rest } = props;
 
     const ComponentAs = as || 'a';
 
     return (
-      <ButtonContent data-name="link" {...(rest as UnknownType)} ref={ref} as={ComponentAs} visualType={visualType}>
+      <ButtonContent
+        data-name="link"
+        {...(rest as UnknownType)}
+        ref={ref}
+        as={ComponentAs}
+        visualType={visualType}
+        underline={underline}
+      >
         {children}
         {rest.target === '_blank' && <span className="sr-only">({getLabel('anchor.new-tab')})</span>}
       </ButtonContent>
