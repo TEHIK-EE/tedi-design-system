@@ -15,7 +15,6 @@ export * from './components/scroll-fade/scroll-fade';
 export * from './components/section/section';
 export * from './components/stepper';
 export * from './components/affix/affix';
-export * from './components/separator/separator';
 export * from './components/card';
 export * from './components/icon/icon';
 export * from './components/feedback/feedback';
