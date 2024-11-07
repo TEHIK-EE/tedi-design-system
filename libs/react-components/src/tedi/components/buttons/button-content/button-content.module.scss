@@ -84,18 +84,24 @@ $btn-height-small: 2.25rem;
   );
 }
 
-@mixin link-variant($color, $color-hover, $color-disabled) {
+@mixin link-variant($color, $color-hover, $color-active, $color-focus) {
   color: $color;
 
   &.btn--is-hovered:not(:disabled, [aria-disabled='true']),
-  &.btn--is-active:not(:disabled, [aria-disabled='true']),
-  &:hover:not(:disabled, [aria-disabled='true']),
-  &:active:not(:disabled, [aria-disabled='true']) {
+  &:hover:not(:disabled, [aria-disabled='true']) {
     color: $color-hover;
   }
 
-  &:disabled {
-    color: $color-disabled;
+  &.btn--is-active:not(:disabled, [aria-disabled='true']),
+  &:active:not(:disabled, [aria-disabled='true']) {
+    color: $color-active;
+  }
+
+  &:focus:not(:disabled) {
+    color: $color-focus;
+    text-decoration: underline;
+    border: 2px solid $color-focus;
+    border-radius: 0;
   }
 }
 
@@ -321,16 +327,22 @@ $btn-height-small: 2.25rem;
 
   &.btn--link {
     @include link-variant(
-      var(--button-main-neutral-inverted-text-default),
-      var(--button-main-neutral-inverted-text-hover),
-      var(--button-main-disabled-general-text)
+      var(--link-inverted-default),
+      var(--link-inverted-hover),
+      var(--link-inverted-active),
+      var(--link-inverted-focus)
     );
   }
 }
 
 .btn--text-color {
   &.btn--link {
-    @include link-variant(inherit, var(--button-main-neutral-text-hover), var(--button-main-disabled-general-text));
+    @include link-variant(
+      inherit,
+      var(--button-main-neutral-text-hover),
+      var(--button-main-disabled-general-text),
+      inherit
+    );
   }
 }
 
@@ -339,17 +351,16 @@ $btn-height-small: 2.25rem;
   width: auto;
   height: auto;
   padding: 0;
-  color: var(--button-main-neutral-text-default);
   text-align: left;
   text-decoration: none;
   background: none;
   border: none;
-  border-radius: 3px;
 
   @include link-variant(
-    var(--button-main-neutral-text-default),
-    var(--button-main-neutral-text-hover),
-    var(--button-main-disabled-general-text)
+    var(--link-primary-default),
+    var(--link-primary-hover),
+    var(--link-primary-active),
+    var(--link-primary-focus)
   );
 }
 
