@@ -1,3 +1,10 @@
+# [9.0.0-rc.6](https://github.com/TEHIK-EE/tedi-design-system/compare/v9.0.0-rc.5...v9.0.0-rc.6) (2024-11-07)
+
+
+### Features
+
+* **separator:** New TEDI-Ready component Separator [#206](https://github.com/TEHIK-EE/tedi-design-system/issues/206) ([#258](https://github.com/TEHIK-EE/tedi-design-system/issues/258)) ([cd57691](https://github.com/TEHIK-EE/tedi-design-system/commit/cd576912434f2599c93120686f96d9a0173b0cc2))
+
 # [9.0.0-rc.5](https://github.com/TEHIK-EE/tedi-design-system/compare/v9.0.0-rc.4...v9.0.0-rc.5) (2024-11-05)
 
 
