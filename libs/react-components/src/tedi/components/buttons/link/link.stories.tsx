@@ -14,7 +14,15 @@ import { Link, LinkProps } from './link';
 
 const meta: Meta<typeof Link> = {
   component: Link,
-  title: 'TEDI-Ready/Buttons/Link',
+  title: 'TEDI-Ready/Navigation/Link',
+  parameters: {
+    status: {
+      type: [{ name: 'breakpointSupport', url: '?path=/docs/helpers-usebreakpointprops--usebreakpointprops' }],
+    },
+    controls: {
+      exclude: ['sm', 'md', 'lg', 'xl', 'xxl'],
+    },
+  },
 };
 
 export default meta;
@@ -161,7 +169,7 @@ export const NoUnderlineInverted: StoryObj<TemplateMultipleProps> = {
       active: '#Active',
       focus: '#Focus',
     },
-    backgrounds: { default: 'inverted' },
+    backgrounds: { default: 'brand' },
   },
 };
 
