@@ -18,6 +18,9 @@ const meta: Meta<typeof Button> = {
     status: {
       type: [{ name: 'breakpointSupport', url: '?path=/docs/helpers-usebreakpointprops--usebreakpointprops' }],
     },
+    controls: {
+      exclude: ['sm', 'md', 'lg', 'xl', 'xxl'],
+    },
   },
 };
 
