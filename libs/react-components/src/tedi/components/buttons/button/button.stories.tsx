@@ -181,7 +181,7 @@ export const PrimaryInverted: StoryObj<TemplateMultipleProps> = {
       active: '#Active',
       focus: '#Focus',
     },
-    backgrounds: { default: 'inverted' },
+    backgrounds: { default: 'brand' },
   },
 };
 
@@ -214,7 +214,7 @@ export const SecondaryInverted: StoryObj<TemplateMultipleProps> = {
       active: '#Active',
       focus: '#Focus',
     },
-    backgrounds: { default: 'inverted' },
+    backgrounds: { default: 'brand' },
   },
 };
 
@@ -247,7 +247,7 @@ export const NeutralInverted: StoryObj<TemplateMultipleProps> = {
       active: '#Active',
       focus: '#Focus',
     },
-    backgrounds: { default: 'inverted' },
+    backgrounds: { default: 'brand' },
   },
 };
 
