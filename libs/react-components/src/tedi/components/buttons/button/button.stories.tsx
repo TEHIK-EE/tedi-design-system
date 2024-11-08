@@ -77,7 +77,7 @@ const TemplateColumn: StoryFn<TemplateMultipleProps> = (args) => {
               </Text>
             </Col>
             <Col>
-              <div className="display-flex align-items-center gap-3 justify-content-center">
+              <div className="display-flex align-items-center gap-3">
                 <Button id={value} {...buttonProps} disabled={value === 'Disabled'} isLoading={value === 'Loading'}>
                   Create
                 </Button>
@@ -110,7 +110,7 @@ const TemplateColumn: StoryFn<TemplateMultipleProps> = (args) => {
                 </Button>
               </div>
             </Col>
-            <Col>
+            <Col className="display-flex align-items-center">
               <div className="display-flex align-items-center gap-3">
                 <Button
                   id={value}

@@ -1,7 +1,7 @@
 @use '../../../styles/mixins';
 
 $btn-height: 2.5rem;
-$btn-height-small: 2.25rem;
+$btn-height-small: 2rem;
 
 @mixin button-variant(
   $background,
