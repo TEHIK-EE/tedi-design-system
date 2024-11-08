@@ -163,6 +163,16 @@ $btn-height-small: 2.25rem;
       background-color: var(--button-main-neutral-icon-only-background-active);
     }
   }
+
+  &.btn--danger.btn--icon-only {
+    &:hover:not(:disabled) {
+      background-color: var(--button-main-danger-neutral-icon-only-background-hover);
+    }
+
+    &:active:not(:disabled) {
+      background-color: var(--button-main-danger-neutral-icon-only-background-active);
+    }
+  }
 }
 
 .btn--icon-only {
@@ -383,7 +393,7 @@ $btn-height-small: 2.25rem;
   }
 
   .btn--is-loading:not(.btn--icon) & {
-    color: var(--color-transparent);
+    color: var(--alpha-01);
   }
 }
 

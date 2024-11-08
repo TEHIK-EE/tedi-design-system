@@ -14,6 +14,11 @@ import { Button, ButtonProps } from './button';
 const meta: Meta<typeof Button> = {
   component: Button,
   title: 'TEDI-Ready/Buttons/Button',
+  parameters: {
+    status: {
+      type: [{ name: 'breakpointSupport', url: '?path=/docs/helpers-usebreakpointprops--usebreakpointprops' }],
+    },
+  },
 };
 
 export default meta;
@@ -69,7 +74,7 @@ const TemplateColumn: StoryFn<TemplateMultipleProps> = (args) => {
               </Text>
             </Col>
             <Col>
-              <div className="display-flex align-items-center gap-3">
+              <div className="display-flex align-items-center gap-3 justify-content-center">
                 <Button id={value} {...buttonProps} disabled={value === 'Disabled'} isLoading={value === 'Loading'}>
                   Create
                 </Button>
@@ -309,5 +314,33 @@ export const FullWidth: Story = {
   args: {
     fullWidth: true,
     children: 'Button',
+  },
+};
+
+const ResponsiveTemplate: StoryFn<ButtonProps<ElementType>> = (args) => (
+  <Row>
+    <div className="display-flex align-items-center gap-3 justify-content-center">
+      <Button {...args} sm={{ color: 'default', visualType: 'primary', size: 'small' }}>
+        Button - Small (sm)
+      </Button>
+      <Button {...args} md={{ color: 'success', visualType: 'primary' }}>
+        Button - Medium (md)
+      </Button>
+      <Button {...args} lg={{ color: 'danger', visualType: 'primary', size: 'small' }}>
+        Button - Small (lg)
+      </Button>
+    </div>
+  </Row>
+);
+
+export const ResponsiveButton: Story = {
+  render: ResponsiveTemplate,
+  args: {
+    children: 'Responsive Button',
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'responsive',
+    },
   },
 };

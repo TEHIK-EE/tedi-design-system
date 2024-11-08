@@ -144,7 +144,7 @@ const InternalButtonContent = forwardRef(
           ? { ...defaultIconProps, name: icon }
           : { ...defaultIconProps, ...icon, className: cn(defaultIconProps.className, icon?.className) };
 
-      return isLoading ? <Spinner className={iconProps.className} /> : <Icon {...iconProps} />;
+      return isLoading ? <Spinner className={iconProps.className} size={18} /> : <Icon {...iconProps} />;
     };
 
     const renderContent = (): JSX.Element => (
@@ -152,7 +152,7 @@ const InternalButtonContent = forwardRef(
         {icon && getIcon('centre', icon)}
         {iconLeft && getIcon('left', iconLeft)}
         <span className={styles['btn__text']}>{children}</span>
-        {isLoading && !hasIcon && <Spinner position="absolute" className={styles['btn__spinner']} />}
+        {isLoading && !hasIcon && <Spinner position="absolute" className={styles['btn__spinner']} size={18} />}
         {iconRight && getIcon('right', iconRight)}
       </span>
     );

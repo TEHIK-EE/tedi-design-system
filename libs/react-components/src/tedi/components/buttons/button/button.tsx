@@ -1,5 +1,6 @@
 import React, { forwardRef } from 'react';
 
+import { BreakpointSupport, useBreakpointProps } from '../../../helpers';
 import { PolymorphicRef } from '../../../helpers/polymorphic/types';
 import { UnknownType } from '../../../types/commonTypes';
 import ButtonContent, { ButtonContentProps } from '../button-content/button-content';
@@ -22,31 +23,21 @@ interface IInternalButtonProps {
 
 type AllowedTags = 'button';
 
-export type ButtonProps<C extends React.ElementType = 'button'> = ButtonContentProps<
-  C,
-  IInternalButtonProps,
-  AllowedTags
+export type ButtonProps<C extends React.ElementType = 'button'> = BreakpointSupport<
+  ButtonContentProps<C, IInternalButtonProps, AllowedTags>
 >;
 
 const ButtonComponent = forwardRef(
   <C extends React.ElementType = 'button'>(props: ButtonProps<C>, ref?: PolymorphicRef<C>) => {
+    const { getCurrentBreakpointProps } = useBreakpointProps();
+
     const {
       children,
       as,
       type = 'button',
       formNoValidate = type === 'submit' ? true : undefined,
-      visualType,
-      color,
-      size,
-      icon,
-      iconLeft,
-      iconRight,
-      underline,
-      isHovered,
-      isActive,
-      noStyle,
       ...rest
-    } = props;
+    } = getCurrentBreakpointProps<ButtonProps<C>>(props);
 
     const ComponentAs = as || 'button';
 
@@ -58,16 +49,6 @@ const ButtonComponent = forwardRef(
         formNoValidate={formNoValidate}
         ref={ref}
         as={ComponentAs}
-        visualType={visualType}
-        color={color}
-        size={size}
-        icon={icon}
-        iconLeft={iconLeft}
-        iconRight={iconRight}
-        underline={underline}
-        isHovered={isHovered}
-        isActive={isActive}
-        noStyle={noStyle}
       >
         {children}
       </ButtonContent>

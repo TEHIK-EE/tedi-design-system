@@ -4,11 +4,7 @@ $spinner-colors: (
   'primary': 'loader-spinner-color-primary',
   'secondary': 'loader-spinner-color-secondary',
 );
-$spinner-sizes: (
-  10: loader-spinner-sizing-sm,
-  16: loader-spinner-sizing-md,
-  48: loader-spinner-sizing-lg,
-);
+$spinner-sizes: (10, 16, 18, 48);
 
 .tedi-spinner {
   display: flex;
@@ -35,10 +31,10 @@ $spinner-sizes: (
     }
   }
 
-  @each $size, $var in $spinner-sizes {
+  @each $size in $spinner-sizes {
     &--size-#{$size} {
-      @include responsive-styles(width, $var);
-      @include responsive-styles(height, $var);
+      width: #{$size}px;
+      height: #{$size}px;
     }
   }
 
