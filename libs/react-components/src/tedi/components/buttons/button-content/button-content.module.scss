@@ -37,7 +37,7 @@ $btn-height-small: 2.25rem;
     border-color: $border-hover;
   }
 
-  &:focus:not(:disabled) {
+  &:focus:not(:disabled, [aria-disabled='true']) {
     background-color: $background-focus;
     border-color: $border;
     outline: 2px solid $border-focus;
@@ -114,21 +114,24 @@ $btn-height-small: 2.25rem;
   justify-content: center;
   max-width: 100%;
   height: $btn-height;
-  padding: 0 1.625rem;
   margin: 0;
   font-family: Roboto, Arial, Helvetica, sans-serif;
-  font-size: 1rem;
   text-align: center;
   text-decoration: none;
   cursor: pointer;
   background-image: none;
   border-style: solid;
   border-width: 1px;
-  border-radius: 3rem;
   transition: 150ms ease;
   transition-property: background-color, border-color;
 
   @include mixins.print-grayscale;
+  @include mixins.responsive-styles(font-size, button-text-size-default);
+  @include mixins.responsive-styles(padding-top, button-md-padding-y);
+  @include mixins.responsive-styles(padding-bottom, button-md-padding-y);
+  @include mixins.responsive-styles(padding-left, button-md-padding-x);
+  @include mixins.responsive-styles(padding-right, button-md-padding-x);
+  @include mixins.responsive-styles(border-radius, button-radius-default);
 }
 
 .btn:disabled,
@@ -138,9 +141,12 @@ $btn-height-small: 2.25rem;
 
 .btn--small {
   height: $btn-height-small;
-  padding: 0 1.125rem;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
+
+  @include mixins.responsive-styles(font-size, button-text-size-sm);
+  @include mixins.responsive-styles(padding-top, button-sm-padding-y);
+  @include mixins.responsive-styles(padding-bottom, button-sm-padding-y);
+  @include mixins.responsive-styles(padding-left, button-sm-padding-x);
+  @include mixins.responsive-styles(padding-right, button-sm-padding-x);
 
   &.btn--icon-only {
     width: $btn-height-small;
@@ -148,8 +154,31 @@ $btn-height-small: 2.25rem;
 }
 
 .btn--neutral {
-  padding: 0 0.75rem;
+  padding: 0;
   background-clip: padding-box;
+
+  @include mixins.responsive-styles(padding-top, button-md-neutral-padding-y);
+  @include mixins.responsive-styles(padding-bottom, button-md-neutral-padding-y);
+
+  &.btn--default.btn--icon-only {
+    &:hover:not(:disabled) {
+      background-color: var(--button-main-neutral-icon-only-background-hover);
+    }
+
+    &:active:not(:disabled) {
+      background-color: var(--button-main-neutral-icon-only-background-active);
+    }
+  }
+
+  &.btn--danger.btn--icon-only {
+    &:hover:not(:disabled) {
+      background-color: var(--button-main-danger-neutral-icon-only-background-hover);
+    }
+
+    &:active:not(:disabled) {
+      background-color: var(--button-main-danger-neutral-icon-only-background-active);
+    }
+  }
 }
 
 .btn--icon-only {
@@ -375,7 +404,7 @@ $btn-height-small: 2.25rem;
   }
 
   .btn--is-loading:not(.btn--icon) & {
-    color: var(--color-transparent);
+    color: var(--alpha-01);
   }
 }
 
