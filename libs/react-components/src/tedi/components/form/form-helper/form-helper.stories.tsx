@@ -4,7 +4,7 @@ import FormHelper from './form-helper';
 
 const meta: Meta<typeof FormHelper> = {
   component: FormHelper,
-  title: 'Community/Form/FormHelper',
+  title: 'TEDI-Ready/Form/FormHelper',
 };
 
 export default meta;

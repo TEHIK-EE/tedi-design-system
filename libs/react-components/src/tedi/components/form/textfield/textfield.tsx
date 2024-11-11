@@ -2,10 +2,10 @@ import cn from 'classnames';
 import React, { forwardRef } from 'react';
 
 import FormLabel, { FormLabelProps } from '../../../../tedi/components/form/form-label/form-label';
-import Separator from '../../../../tedi/components/separator/separator';
 import { useLabels } from '../../../../tedi/providers/label-provider';
-import Button, { ButtonProps } from '../../button/button';
+import { ClosingButton } from '../../closing-button/closing-button';
 import { Icon, IconProps } from '../../icon/icon';
+import Separator from '../../separator/separator';
 import FormHelper, { FormHelperProps } from '../form-helper/form-helper';
 import styles from './textfield.module.scss';
 
@@ -194,7 +194,7 @@ export const TextField = forwardRef<TextFieldForwardRef, TextFieldProps>((props,
   const getIcon = React.useCallback(
     (icon: string | IconProps): JSX.Element => {
       const defaultIconProps: Partial<IconProps> = {
-        size: size === 'large' ? 24 : 16,
+        size: size === 'large' ? 24 : size === 'small' ? 16 : 18,
         className: cn(styles['textfield__icon']),
       };
       const iconProps: IconProps =
@@ -305,23 +305,23 @@ export const TextField = forwardRef<TextFieldForwardRef, TextFieldProps>((props,
   ]);
 
   const renderClearButton = React.useMemo(() => {
-    const defaultButtonProps: Partial<ButtonProps> = {
-      icon: { name: 'clear', size: size === 'large' ? 24 : 16, color: 'muted' },
-      visualType: 'link',
+    const clearButtonProps = {
+      size: (size === 'large' ? 'large' : 'medium') as 'medium' | 'large',
+      onClick: clearInput,
+      title: `${getLabel('clear')} ${label}`,
+      className: cn(styles['textfield__clear-button']),
     };
 
-    return (
-      <Button {...defaultButtonProps} onClick={clearInput}>
-        {`${getLabel('clear')} ${label}`}
-      </Button>
-    );
+    return <ClosingButton {...clearButtonProps} />;
   }, [clearInput, getLabel, label, size]);
 
   const renderRightArea = React.useMemo(() => {
     return (
       <div className={styles['textfield__right-area']}>
         {showClearButton && renderClearButton}
-        {showClearButton && icon ? <Separator axis="vertical" className={styles['textfield__separator']} /> : null}
+        {showClearButton && icon ? (
+          <Separator color="secondary" axis="vertical" className={styles['textfield__separator']} />
+        ) : null}
         {icon && getIcon(icon)}
       </div>
     );

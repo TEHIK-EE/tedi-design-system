@@ -13,9 +13,9 @@ import {
 import { draftjsToMd, mdToDraftjs } from 'draftjs-md-converter';
 import React from 'react';
 
+import FormHelper, { FormHelperProps } from '../../../../tedi/components/form/form-helper/form-helper';
 import { FormLabel, FormLabelProps } from '../../../../tedi/components/form/form-label/form-label';
 import { useIsMounted } from '../../../helpers';
-import FormHelper, { FormHelperProps } from '../form-helper/form-helper';
 import BlockStyleControls from './components/block-style-controls';
 import InlineStyleControls from './components/inline-style-controls';
 import styles from './text-editor.module.scss';

@@ -1,13 +1,13 @@
 import cn from 'classnames';
 import React from 'react';
 
+import FormHelper, { FormHelperProps } from '../../../../tedi/components/form/form-helper/form-helper';
 import { FormLabel, FormLabelProps } from '../../../../tedi/components/form/form-label/form-label';
 import { Col, Row } from '../../../../tedi/components/grid';
 import { Tag } from '../../../../tedi/components/tag/tag';
 import { ILabelContext, useLabels } from '../../../../tedi/providers/label-provider';
 import Button from '../../button/button';
 import { Card, CardContent } from '../../card';
-import FormHelper, { FormHelperProps } from '../form-helper/form-helper';
 import styles from './file-upload.module.scss';
 
 export interface FileUploadFile extends Partial<File> {

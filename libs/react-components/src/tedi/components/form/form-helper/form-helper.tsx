@@ -30,6 +30,7 @@ export const FormHelper = (props: FormHelperProps): JSX.Element => {
   const { text, id, className, type = 'help', ...rest } = props;
 
   const role: AriaRole | undefined = type === 'valid' || type === 'error' ? 'alert' : undefined;
+  const ariaLive = status === 'error' || status === 'valid' ? 'assertive' : 'polite';
 
   return (
     <div
@@ -38,6 +39,7 @@ export const FormHelper = (props: FormHelperProps): JSX.Element => {
       id={id}
       className={cn(styles['form-helper'], styles[`form-helper--${type}`], className)}
       role={role}
+      aria-live={ariaLive}
     >
       {text}
     </div>

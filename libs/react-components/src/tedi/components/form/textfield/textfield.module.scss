@@ -5,7 +5,9 @@
     &:focus {
       border-color: $border-color;
       outline: none;
-      box-shadow: 0 0 0 1px $border-color;
+      outline: 2px solid $border-color;
+      outline-offset: 1px;
+      box-shadow: 0 0 0 1px var(--form-input-background-default);
     }
   } @else {
     outline: none;
@@ -14,7 +16,7 @@
 
   @if $border-color {
     &:active {
-      border-color: $border-color;
+      border: 2px solid $border-color;
       outline: none;
       box-shadow: none;
     }
@@ -39,31 +41,40 @@
   display: block;
   width: 100%;
   height: 2.5rem;
-  padding: 0.5rem;
   font-family: inherit;
-  font-size: 1rem;
-  color: var(--color-text-default);
-  border: 1px solid var(--color-border-contrast);
-  border-radius: var(--border-radius-default);
+  color: var(--form-input-text-filled);
+  background-color: var(--form-input-background-default);
+  border: 1px solid var(--form-input-border-default);
 
-  @include textfield-focus(var(--color-primary-active-subtle));
+  @include textfield-focus(var(--form-input-border-hover));
+  @include mixins.responsive-styles(font-size, body-regular-size);
+  @include mixins.responsive-styles(border-radius, form-field-radius);
+  @include mixins.responsive-styles(padding-left, form-field-padding-x-default);
+  @include mixins.responsive-styles(padding-right, form-field-padding-x-default);
+  @include mixins.responsive-styles(padding-top, form-field-padding-y-3-default);
+  @include mixins.responsive-styles(padding-bottom, form-field-padding-y-3-default);
+
+  &:hover {
+    border-color: var(--form-input-border-hover);
+  }
 
   &:disabled {
-    color: var(--color-text-disabled);
-    background-color: var(--color-bg-disabled);
+    color: var(--form-input-text-disabled);
+    background-color: var(--form-input-background-disabled);
+    border-color: var(--form-input-border-disabled);
   }
 
   .textfield--invalid &,
   &[aria-invalid='true'] {
-    border-color: var(--color-important-active);
+    border-color: var(--form-general-feedback-error-border);
 
-    @include textfield-focus(var(--color-important-active));
+    @include textfield-focus(var(--form-general-feedback-error-border));
   }
 
   .textfield--valid & {
-    border-color: var(--color-positive-main);
+    border-color: var(--form-general-feedback-success-border);
 
-    @include textfield-focus(var(--color-positive-main));
+    @include textfield-focus(var(--form-general-feedback-success-border));
   }
 
   .textfield--clearable &,
@@ -73,6 +84,11 @@
 
   .textfield--clearable.textfield--with-icon & {
     padding-right: 4rem;
+  }
+
+  &::placeholder {
+    color: var(--form-input-text-placeholder);
+    opacity: 1;
   }
 }
 
@@ -111,13 +127,14 @@
 }
 
 .textfield__icon-wrapper {
-  @include mixins.button-reset;
-
-  color: var(--color-text-muted);
+  display: flex;
+  color: var(--form-input-text-filled);
   transition: color 0.2s ease;
 
+  @include mixins.button-reset;
+
   &:not(div, :disabled):hover {
-    color: var(--color-text-default);
+    color: var(--form-input-text-filled);
   }
 
   &:disabled {
@@ -129,7 +146,7 @@
   }
 
   .textfield__input[aria-invalid='true'] + & {
-    color: var(--color-important-main);
+    color: var(--form-general-feedback-error-text);
   }
 }
 
@@ -144,9 +161,13 @@ div.textfield__icon-wrapper {
 /* Small */
 .textfield--small {
   & .textfield__input {
-    height: 1.5rem;
-    padding-right: 0.25rem;
-    padding-left: 0.25rem;
+    height: 2rem;
+
+    @include mixins.responsive-styles(font-size, body-small-regular-size);
+    @include mixins.responsive-styles(padding-left, form-field-padding-x-2);
+    @include mixins.responsive-styles(padding-right, form-field-padding-x-2);
+    @include mixins.responsive-styles(padding-top, form-field-padding-y-2);
+    @include mixins.responsive-styles(padding-bottom, form-field-padding-y-2);
   }
 
   &.textfield--clearable .textfield__input,

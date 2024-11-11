@@ -1,11 +1,11 @@
 import cn from 'classnames';
 import React, { ChangeEvent, useCallback, useMemo, useRef, useState } from 'react';
 
+import FormHelper, { FormHelperProps } from '../../../../tedi/components/form/form-helper/form-helper';
 import { FormLabel, FormLabelProps } from '../../../../tedi/components/form/form-label/form-label';
 import { useLabels } from '../../../../tedi/providers/label-provider';
 import { Button } from '../../button/button';
 import Text from '../../typography/text/text';
-import FormHelper, { FormHelperProps } from '../form-helper/form-helper';
 import styles from './number-field.module.scss';
 
 export interface NumberStepperProps extends FormLabelProps {

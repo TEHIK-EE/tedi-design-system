@@ -58,6 +58,11 @@ export interface IconProps {
    * Add round background
    */
   background?: IconBackgroundColor;
+  /**
+   * Icons label for screen-readers.
+   * If omitted then the icon is hidden for screen-readers.
+   */
+  label?: string;
 }
 
 export const Icon = (props: IconProps): JSX.Element => {
@@ -70,6 +75,7 @@ export const Icon = (props: IconProps): JSX.Element => {
     display = 'block',
     color = 'primary',
     background,
+    label,
     ...rest
   } = props;
 
@@ -92,7 +98,7 @@ export const Icon = (props: IconProps): JSX.Element => {
 
   return (
     <div className={wrapperBEM}>
-      <span className={iconBEM} data-name="icon" role="img" aria-hidden={true} {...rest}>
+      <span className={iconBEM} data-name="icon" role="img" aria-label={label} aria-hidden={!label} {...rest}>
         {name}
       </span>
     </div>
