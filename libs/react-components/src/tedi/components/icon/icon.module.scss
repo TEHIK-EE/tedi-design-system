@@ -46,11 +46,11 @@ $icon-sizes: (
 
 .tedi-icon {
   &--block {
-    display: block;
+    display: block !important;
   }
 
   &--inline {
-    display: inline;
+    display: inline !important;
   }
 
   @each $name, $var in $icon-colors {
