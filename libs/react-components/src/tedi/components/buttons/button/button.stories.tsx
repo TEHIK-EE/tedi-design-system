@@ -322,17 +322,21 @@ export const FullWidth: Story = {
 
 const ResponsiveTemplate: StoryFn<ButtonProps<ElementType>> = (args) => (
   <Row>
-    <div className="display-flex align-items-center gap-3 justify-content-center">
-      <Button {...args} sm={{ color: 'default', visualType: 'primary', size: 'small' }}>
-        Button - Small (sm)
+    <Col lg="auto">
+      <Button {...args} lg={{ color: 'default' }} sm={{ color: 'success', visualType: 'primary' }}>
+        Button - Success (sm)
       </Button>
-      <Button {...args} md={{ color: 'success', visualType: 'primary' }}>
-        Button - Medium (md)
+    </Col>
+    <Col lg="auto">
+      <Button
+        {...args}
+        lg={{ color: 'default', visualType: 'primary' }}
+        md={{ color: 'danger', visualType: 'neutral' }}
+        sm={{ color: 'danger', visualType: 'primary' }}
+      >
+        Button - Danger neutral (md)
       </Button>
-      <Button {...args} lg={{ color: 'danger', visualType: 'primary', size: 'small' }}>
-        Button - Small (lg)
-      </Button>
-    </div>
+    </Col>
   </Row>
 );
 

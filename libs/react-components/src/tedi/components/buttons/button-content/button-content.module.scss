@@ -384,6 +384,9 @@ $btn-height-small: 2rem;
 .btn__text {
   text-align: start;
 
+  @include mixins.responsive-styles(padding-left, button-md-inner-spacing);
+  @include mixins.responsive-styles(padding-right, button-md-inner-spacing);
+
   .btn--link.btn--is-hovered:not(:disabled) &,
   .btn--link.btn--is-active:not(:disabled) &,
   .btn--link:hover:not(:disabled) &,
@@ -393,6 +396,11 @@ $btn-height-small: 2rem;
 
   .btn--is-loading:not(.btn--icon) & {
     color: var(--alpha-01);
+  }
+
+  .btn--small & {
+    @include mixins.responsive-styles(padding-left, button-sm-inner-spacing);
+    @include mixins.responsive-styles(padding-right, button-sm-inner-spacing);
   }
 }
 
@@ -415,30 +423,6 @@ $btn-height-small: 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
-
-  &--left {
-    @include mixins.responsive-styles(margin-right, button-md-inner-spacing);
-
-    .btn--small & {
-      @include mixins.responsive-styles(margin-right, button-sm-inner-spacing);
-    }
-
-    .btn--link & {
-      @include mixins.responsive-styles(margin-right, link-inner-spacing-x);
-    }
-  }
-
-  &--right {
-    @include mixins.responsive-styles(margin-left, button-md-inner-spacing);
-
-    .btn--small & {
-      @include mixins.responsive-styles(margin-left, button-sm-inner-spacing);
-    }
-
-    .btn--link & {
-      @include mixins.responsive-styles(margin-left, link-inner-spacing-x);
-    }
-  }
 
   .btn--link & {
     display: inline;
