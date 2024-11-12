@@ -6,6 +6,7 @@ export * from './components/heading-with-icon/heading-with-icon';
 export * from './components/vertical-spacing';
 export * from './components/list';
 export * from './components/grid';
+export * from './components/skeleton';
 export * from './components/tag/tag';
 export * from './components/label/label';
 export * from './components/status-badge/status-badge';

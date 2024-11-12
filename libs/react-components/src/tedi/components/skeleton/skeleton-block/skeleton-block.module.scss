@@ -1,0 +1,38 @@
+@import '../../../styles/mixins';
+
+$headings: (h1, h2, h3, h4, h5, h6);
+
+.tedi-skeleton-block {
+  display: block;
+  width: 100%;
+  background: linear-gradient(
+    to right,
+    color-mix(in srgb, var(--loader-skeleton-color) 100%, transparent) 0%,
+    color-mix(in srgb, var(--loader-skeleton-color) 35%, transparent) 20%,
+    color-mix(in srgb, var(--loader-skeleton-color) 100%, transparent) 40%
+  );
+  background-size: 1000px 100px;
+  animation: wave-lines 2s infinite ease-in-out;
+
+  @include responsive-styles(border-radius, loader-skeleton-radius);
+
+  @each $heading in $headings {
+    &.tedi-skeleton-block--#{$heading} {
+      @include responsive-styles(height, heading-#{$heading}-line-height, $exclude: tablet);
+    }
+  }
+
+  &.tedi-skeleton-block--p {
+    @include responsive-styles(height, body-regular-line-height, $exclude: tablet);
+  }
+}
+
+@keyframes wave-lines {
+  0% {
+    background-position: -400px 0;
+  }
+
+  100% {
+    background-position: 600px 0;
+  }
+}
