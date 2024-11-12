@@ -1,7 +1,7 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
-import React from 'react';
 
-import { Column, Row, TextRow } from '../../../providers/storybook-provider/storybook-provider';
+import { TextRow } from '../../../providers/storybook-provider/storybook-provider';
+import { Col, Row } from '../../grid';
 import { HeadingModifiers, Text } from '../text/text';
 import { Heading } from './heading';
 
@@ -22,13 +22,17 @@ const headings: HeadingModifiers[] = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
 
 const TemplateHeadings: StoryFn = (args) => (
   <div className="example-list w-100">
-    <Row className="border-bottom">
-      <Column>
-        <Text color="primary">Desktop</Text>
-      </Column>
-      <Column>
-        <Text color="primary">Mobile</Text>
-      </Column>
+    <Row className="border-bottom border-bottom--3x">
+      <Col>
+        <Text color="primary" className="padding-14-16">
+          Desktop
+        </Text>
+      </Col>
+      <Col>
+        <Text color="primary" className="padding-14-16">
+          Mobile
+        </Text>
+      </Col>
     </Row>
     {headings.map((heading, key) => (
       <TextRow

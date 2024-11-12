@@ -32,13 +32,7 @@ export const ClosingButton = (props: ClosingButtonProps): JSX.Element => {
   const { getLabel } = useLabels();
   const { title = getLabel('close'), onClick, size = 'medium', className, ...rest } = props;
 
-  const buttonClass = cn(
-    styles['tedi-closing-button'],
-    {
-      [styles['tedi-closing-button--large']]: size === 'large',
-    },
-    className
-  );
+  const buttonClass = cn(styles['tedi-closing-button'], styles[`tedi-closing-button--${size}`], className);
 
   const iconSize = size === 'large' ? 24 : 18;
 

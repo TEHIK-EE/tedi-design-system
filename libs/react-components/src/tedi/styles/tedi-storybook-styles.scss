@@ -46,7 +46,7 @@ a {
   display: flex;
   align-items: center;
   padding: var(--dimensions-08);
-  border-radius: var(--radius-04);
+  border-radius: var(--radius-03);
 
   &-primary {
     background-color: var(--color-primary-main);
@@ -74,19 +74,6 @@ a {
   align-items: center;
 }
 
-.row {
-  display: flex;
-  flex-flow: row wrap;
-  align-items: center;
-  justify-content: flex-start;
-}
-
-.column {
-  display: flex;
-  flex-direction: column;
-  padding: 0 8px;
-}
-
 .w-100 {
   width: 100%;
 }
@@ -96,8 +83,9 @@ a {
 }
 
 .example-list {
-  border: 1px solid var(--neutral-150);
-  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--neutral-350);
+  border-radius: var(--radius-03);
 }
 
 .example-text {
@@ -111,7 +99,7 @@ a {
 }
 
 .border-bottom {
-  border-bottom: 1px solid var(--neutral-150);
+  border-bottom: 1px solid var(--neutral-350);
 
   &--3x {
     border-width: 3px;
@@ -120,6 +108,7 @@ a {
 
 .padding-14-16 {
   padding: 14px 16px;
+  margin: 0;
 }
 
 .color {
@@ -129,8 +118,8 @@ a {
 .color-card {
   position: relative;
   width: 100%;
-  width: 120px;
-  height: 120px;
+  width: 110px;
+  height: 110px;
   overflow: hidden;
   border-radius: var(--dimensions-05);
 }

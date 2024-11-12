@@ -1,9 +1,9 @@
 import cn from 'classnames';
 import React from 'react';
 
+import Print from '../../../../../tedi/components/print/print';
 import { Anchor, AnchorProps } from '../../../anchor/anchor';
 import Icon from '../../../icon/icon';
-import Print from '../../../print/print';
 import Text from '../../../typography/text/text';
 import styles from '../breadcrumbs.module.scss';
 

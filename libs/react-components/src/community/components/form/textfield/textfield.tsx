@@ -2,10 +2,10 @@ import cn from 'classnames';
 import React, { forwardRef } from 'react';
 
 import FormLabel, { FormLabelProps } from '../../../../tedi/components/form/form-label/form-label';
+import Separator from '../../../../tedi/components/separator/separator';
 import { useLabels } from '../../../../tedi/providers/label-provider';
 import Button, { ButtonProps } from '../../button/button';
 import { Icon, IconProps } from '../../icon/icon';
-import Separator from '../../separator/separator';
 import FormHelper, { FormHelperProps } from '../form-helper/form-helper';
 import styles from './textfield.module.scss';
 

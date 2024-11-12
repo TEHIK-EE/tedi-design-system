@@ -1,5 +1,6 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 
+import { Col, Row } from '../grid';
 import { Spinner, SpinnerProps } from './spinner';
 
 /**
@@ -37,14 +38,12 @@ const TemplateColumn: StoryFn<TemplateMultipleProps> = (args) => {
   return (
     <div className="example-list w-50">
       {array.map((value, key) => (
-        <div className={`row ${key === array.length - 1 ? '' : 'border-bottom'} padding-14-16`} key={key}>
-          <div className="column w-50">{value?.toString()}</div>
-          <div className="column w-50">
-            <div className="display-flex">
-              <Spinner {...spinnerProps} {...{ [property]: value }} />
-            </div>
-          </div>
-        </div>
+        <Row className={`${key === array.length - 1 ? '' : 'border-bottom'} padding-14-16`} key={key}>
+          <Col>{value?.toString()}</Col>
+          <Col className="d-flex">
+            <Spinner {...spinnerProps} {...{ [property]: value }} />
+          </Col>
+        </Row>
       ))}
     </div>
   );
@@ -52,26 +51,26 @@ const TemplateColumn: StoryFn<TemplateMultipleProps> = (args) => {
 
 const TemplateColors: StoryFn<TemplateMultipleProps> = () => {
   return (
-    <div className="row w-50">
-      <div className="column">
+    <Row alignItems="center">
+      <Col md="auto">
         <Spinner color="primary" label="Loading..." size={48} />
-      </div>
-      <div className="column">
+      </Col>
+      <Col md="auto">
         <div className="bg bg-primary">
           <Spinner color="secondary" label="Loading..." size={48} />
         </div>
-      </div>
-      <div className="column">
+      </Col>
+      <Col md="auto">
         <div className="bg bg-danger">
           <Spinner color="secondary" label="Loading..." size={48} />
         </div>
-      </div>
-      <div className="column">
+      </Col>
+      <Col md="auto">
         <div className="bg bg-success">
           <Spinner color="secondary" label="Loading..." size={48} />
         </div>
-      </div>
-    </div>
+      </Col>
+    </Row>
   );
 };
 

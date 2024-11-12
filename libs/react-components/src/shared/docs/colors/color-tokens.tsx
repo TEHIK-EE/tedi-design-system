@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { Col, Row } from '../../../tedi/components/grid';
+
 interface Color {
   name: string;
   value: string;
@@ -30,22 +32,22 @@ const ColorStory: React.FC<ColorStoryProps> = ({ data }) => {
     <>
       {Object.entries(groupedColors).map(([groupName, colors]: [string, Color[]]) => (
         <div className="color__example__wrapper" key={groupName}>
-          <div className="row">
-            <div className="column">
+          <Row>
+            <Col>
               <h3 className="text-capitalize w-100">{groupName}</h3>
-            </div>
-          </div>
-          <div className="row" style={{ alignItems: 'start' }}>
+            </Col>
+          </Row>
+          <Row alignItems="start">
             {colors.map((color, index) => (
-              <div className="column" key={`${groupName}-${index}`}>
+              <Col md="auto" key={`${groupName}-${index}`}>
                 <div className="color-card" style={{ backgroundColor: color.value }}></div>
                 <p style={{ marginBottom: 0 }}>
                   <strong>--{color.name}</strong>
                 </p>
                 <p style={{ marginTop: 0 }}>{color.main && <code>Main</code>}</p>
-              </div>
+              </Col>
             ))}
-          </div>
+          </Row>
         </div>
       ))}
     </>

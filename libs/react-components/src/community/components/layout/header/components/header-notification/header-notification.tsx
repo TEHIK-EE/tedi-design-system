@@ -1,9 +1,9 @@
 import React from 'react';
 
 import { Col, Row } from '../../../../../../tedi/components/grid';
+import Print from '../../../../../../tedi/components/print/print';
 import { Card, CardContent, CardProps } from '../../../../card';
 import Icon from '../../../../icon/icon';
-import Print from '../../../../print/print';
 import styles from './header-notification.module.scss';
 
 export interface HeaderNotificationProps {

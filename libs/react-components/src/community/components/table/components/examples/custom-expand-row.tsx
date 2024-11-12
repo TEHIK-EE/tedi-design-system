@@ -3,9 +3,9 @@ import { StoryFn, StoryObj } from '@storybook/react';
 import { ColumnDef, createColumnHelper, Row as TSRow } from '@tanstack/react-table';
 
 import { Col, Row } from '../../../../../tedi/components/grid';
+import Print from '../../../../../tedi/components/print/print';
 import { getBackgroundColorClass } from '../../../../helpers/background-colors/background-colors';
 import { IntentionalAny } from '../../../../types';
-import Print from '../../../print/print';
 import Tag from '../../../tag/tag';
 import ToggleOpen from '../../../toggle-open/toggle-open';
 import Text from '../../../typography/text/text';

@@ -1,7 +1,7 @@
 import cn from 'classnames';
 
+import Print from '../../../../tedi/components/print/print';
 import Anchor, { AnchorProps } from '../../anchor/anchor';
-import Print from '../../print/print';
 import styles from './tabs-nav.module.scss';
 
 export type TabsNavItemProps<C extends React.ElementType = 'a'> = AnchorProps<C>;
