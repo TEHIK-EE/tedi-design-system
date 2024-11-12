@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import React, { forwardRef } from 'react';
 
-import { SkeletonBlock } from '../skeleton';
+import { SkeletonBlock } from '../../../tedi/components/skeleton';
 import styles from './tag.module.scss';
 
 export type TagColor = 'default' | 'primary' | 'accent' | 'positive' | 'warning' | 'important';
