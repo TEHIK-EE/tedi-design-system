@@ -1,3 +1,15 @@
+# [9.0.0-rc.8](https://github.com/TEHIK-EE/tedi-design-system/compare/v9.0.0-rc.7...v9.0.0-rc.8) (2024-11-12)
+
+
+### Features
+
+* **skeleton:** TEDI-Ready component Skeleton [#167](https://github.com/TEHIK-EE/tedi-design-system/issues/167) ([#252](https://github.com/TEHIK-EE/tedi-design-system/issues/252)) ([abf93e9](https://github.com/TEHIK-EE/tedi-design-system/commit/abf93e9948c20a2e745c1d088a7353b423c8b26f))
+
+
+### BREAKING CHANGES
+
+* **skeleton:** Communitys Skeleton removed, TEDI-Ready Skeleton is now available
+
 # [9.0.0-rc.7](https://github.com/TEHIK-EE/tedi-design-system/compare/v9.0.0-rc.6...v9.0.0-rc.7) (2024-11-11)
 
 
