@@ -1,3 +1,10 @@
+# [9.0.0-rc.9](https://github.com/TEHIK-EE/tedi-design-system/compare/v9.0.0-rc.8...v9.0.0-rc.9) (2024-11-13)
+
+
+### Features
+
+* **button:** TEDI-Ready Button development [#225](https://github.com/TEHIK-EE/tedi-design-system/issues/225) ([#281](https://github.com/TEHIK-EE/tedi-design-system/issues/281)) ([9f794ee](https://github.com/TEHIK-EE/tedi-design-system/commit/9f794eeb4b8df2855ae65bc871e39489cef6d83a))
+
 # [9.0.0-rc.8](https://github.com/TEHIK-EE/tedi-design-system/compare/v9.0.0-rc.7...v9.0.0-rc.8) (2024-11-12)
 
 
