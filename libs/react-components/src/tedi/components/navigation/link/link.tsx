@@ -4,7 +4,7 @@ import { BreakpointSupport, useBreakpointProps } from '../../../helpers';
 import { PolymorphicRef } from '../../../helpers/polymorphic/types';
 import { useLabels } from '../../../providers/label-provider';
 import { UnknownType } from '../../../types/commonTypes';
-import ButtonContent, { ButtonContentProps } from '../button-content/button-content';
+import ButtonContent, { ButtonContentProps } from '../../buttons/button-content/button-content';
 
 export type InternalLinkProps = {
   // custom Link specific props
