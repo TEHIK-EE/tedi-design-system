@@ -18,6 +18,9 @@ const meta: Meta<typeof Button> = {
     status: {
       type: [{ name: 'breakpointSupport', url: '?path=/docs/helpers-usebreakpointprops--usebreakpointprops' }],
     },
+    controls: {
+      exclude: ['sm', 'md', 'lg', 'xl', 'xxl'],
+    },
   },
 };
 
@@ -74,7 +77,7 @@ const TemplateColumn: StoryFn<TemplateMultipleProps> = (args) => {
               </Text>
             </Col>
             <Col>
-              <div className="display-flex align-items-center gap-3 justify-content-center">
+              <div className="display-flex align-items-center gap-3">
                 <Button id={value} {...buttonProps} disabled={value === 'Disabled'} isLoading={value === 'Loading'}>
                   Create
                 </Button>
@@ -107,7 +110,7 @@ const TemplateColumn: StoryFn<TemplateMultipleProps> = (args) => {
                 </Button>
               </div>
             </Col>
-            <Col>
+            <Col className="display-flex align-items-center">
               <div className="display-flex align-items-center gap-3">
                 <Button
                   id={value}
@@ -319,17 +322,21 @@ export const FullWidth: Story = {
 
 const ResponsiveTemplate: StoryFn<ButtonProps<ElementType>> = (args) => (
   <Row>
-    <div className="display-flex align-items-center gap-3 justify-content-center">
-      <Button {...args} sm={{ color: 'default', visualType: 'primary', size: 'small' }}>
-        Button - Small (sm)
+    <Col lg="auto">
+      <Button {...args} lg={{ color: 'default' }} sm={{ color: 'success', visualType: 'primary' }}>
+        Button - Success (sm)
       </Button>
-      <Button {...args} md={{ color: 'success', visualType: 'primary' }}>
-        Button - Medium (md)
+    </Col>
+    <Col lg="auto">
+      <Button
+        {...args}
+        lg={{ color: 'default', visualType: 'primary' }}
+        md={{ color: 'danger', visualType: 'neutral' }}
+        sm={{ color: 'danger', visualType: 'primary' }}
+      >
+        Button - Danger neutral (md)
       </Button>
-      <Button {...args} lg={{ color: 'danger', visualType: 'primary', size: 'small' }}>
-        Button - Small (lg)
-      </Button>
-    </div>
+    </Col>
   </Row>
 );
 

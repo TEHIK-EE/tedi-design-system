@@ -37,14 +37,17 @@
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizelegibility;
 
+  &-outlined,
   &--outlined {
     font-family: 'Material Symbols Outlined', sans-serif;
   }
 
+  &-rounded,
   &--rounded {
     font-family: 'Material Symbols Rounded', sans-serif;
   }
 
+  &-sharp,
   &--sharp {
     font-family: 'Material Symbols Sharp', sans-serif;
   }

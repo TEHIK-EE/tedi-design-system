@@ -149,7 +149,7 @@ const InternalButtonContent = forwardRef(
 
     const renderContent = (): JSX.Element => (
       <span className={styles['btn__inner']}>
-        {icon && getIcon('centre', icon)}
+        {icon && getIcon('center', icon)}
         {iconLeft && getIcon('left', iconLeft)}
         <span className={styles['btn__text']}>{children}</span>
         {isLoading && !hasIcon && <Spinner position="absolute" className={styles['btn__spinner']} size={18} />}

@@ -1,6 +1,7 @@
 import cn from 'classnames';
 import { CSSProperties } from 'react';
 
+import { BreakpointSupport, useBreakpointProps } from '../../helpers';
 import styles from './separator.module.scss';
 
 export type SeparatorSpacing = 0 | 0.25 | 0.5 | 0.75 | 1 | 1.25 | 1.5 | 1.75 | 2 | 2.5 | 5;
@@ -19,22 +20,22 @@ export interface SeparatorSharedProps {
    * Whether the separator should stretch to fill the full spacing inside cardContent.
    */
   isStretched?: boolean;
-  /**
-   * Full-width separator.
-   * @deprecated use `isStretched` instead
-   */
-  fullWidth?: boolean;
   /*
    * Color of separator
    * @default default
    */
-  color?: 'default' | 'contrast' | 'accent';
+  color?: 'primary' | 'secondary' | 'accent';
   /*
-   * Variant of separator
+   * Separator style variant.
    */
-  variant?: 'dotted' | 'dotted-small';
+  variant?: 'dotted' | 'dotted-small' | 'dot-only';
   /*
-   * Thickness of separator in pixels, only when variant is not used
+   * Dot size.
+   * Only used when variant="dot-only"
+   */
+  dotSize?: 'large' | 'medium' | 'small' | 'extra-small';
+  /*
+   * Thickness in pixels (ignored if variant is used).
    * @default 1
    */
   thickness?: 1 | 2;
@@ -75,13 +76,25 @@ export interface SeparatorHorizontalProps extends SeparatorSharedProps {
   height?: undefined;
 }
 
-export type SeparatorProps = SeparatorHorizontalProps | SeparatorVerticalProps;
+export type SeparatorBreakpointProps = {
+  /**
+   * Spacing values based on breakpoints.
+   */
+  spacing?: Omit<SeparatorHorizontalProps['spacing'], 'axis'>;
+  /**
+   * Height values based on breakpoints (for vertical separators).
+   */
+  height?: Omit<SeparatorVerticalProps['height'], 'axis'>;
+};
+
+export type SeparatorProps = BreakpointSupport<SeparatorHorizontalProps | SeparatorVerticalProps> &
+  SeparatorBreakpointProps;
 
 export const Separator = (props: SeparatorProps): JSX.Element => {
+  const { getCurrentBreakpointProps } = useBreakpointProps();
   const {
     className,
     element: Element = 'div',
-    fullWidth,
     isStretched,
     spacing,
     topSpacing,
@@ -91,8 +104,9 @@ export const Separator = (props: SeparatorProps): JSX.Element => {
     variant,
     thickness = 1,
     height,
+    dotSize,
     ...rest
-  } = props;
+  } = getCurrentBreakpointProps<SeparatorProps>(props);
 
   const SeparatorBEM = cn(
     styles['separator'],
@@ -100,8 +114,9 @@ export const Separator = (props: SeparatorProps): JSX.Element => {
     { [styles[`separator--${color}`]]: color },
     { [styles[`separator--${axis}`]]: axis },
     { [styles[`separator--${variant}`]]: variant },
+    { [styles[`separator--${variant}-${dotSize}`]]: variant && dotSize },
     { [styles[`separator--thickness-${thickness}`]]: thickness && !variant },
-    { [styles['separator--is-stretched']]: fullWidth || isStretched },
+    { [styles['separator--is-stretched']]: isStretched },
     { [styles[`separator--spacing-${spacing}`.replace('.', '-')]]: spacing },
     { [styles[`separator--top-${topSpacing}`.replace('.', '-')]]: !spacing && topSpacing },
     { [styles[`separator--bottom-${bottomSpacing}`.replace('.', '-')]]: !spacing && bottomSpacing }

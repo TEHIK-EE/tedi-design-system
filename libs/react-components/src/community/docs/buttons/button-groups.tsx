@@ -1,6 +1,7 @@
 import { Col, Row } from '../../../tedi/components/grid';
+import { Separator } from '../../../tedi/components/separator/separator';
 import { VerticalSpacing } from '../../../tedi/components/vertical-spacing';
-import { Button, Card, CardContent, Heading, Separator, Text } from '../../index';
+import { Button, Card, CardContent, Heading, Text } from '../../index';
 
 const ButtonGroups = () => (
   <VerticalSpacing>
