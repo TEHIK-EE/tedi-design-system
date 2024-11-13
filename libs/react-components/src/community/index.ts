@@ -39,7 +39,6 @@ export * from './components/tabs';
 export * from './components/tag/tag';
 export * from './components/toast/toast';
 export * from './components/tooltip';
-export * from './components/spinner/spinner';
 export * from './components/status/status';
 export * from './components/stretch-content/stretch-content';
 export * from './components/vertical-progress';
