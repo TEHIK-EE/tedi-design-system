@@ -11,8 +11,9 @@ export * from './components/tag/tag';
 export * from './components/label/label';
 export * from './components/status-badge/status-badge';
 export * from './components/separator/separator';
-export * from './components/closing-button/closing-button';
+export * from './components/buttons/closing-button/closing-button';
 export * from './components/print/print';
+export * from './components/buttons/button/button';
 
 export * from './helpers';
 

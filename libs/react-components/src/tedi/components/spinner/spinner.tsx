@@ -4,7 +4,7 @@ import { BreakpointSupport, useBreakpointProps } from '../../helpers';
 import { useLabels } from '../../providers/label-provider';
 import styles from './spinner.module.scss';
 
-export type SpinnerSize = 10 | 16 | 48;
+export type SpinnerSize = 10 | 16 | 18 | 48;
 export type SpinnerColor = 'primary' | 'secondary';
 export type SpinnerPosition = 'absolute';
 

@@ -1,0 +1,459 @@
+@use '../../../styles/mixins';
+
+$btn-height: 2.5rem;
+$btn-height-small: 2rem;
+
+@mixin button-variant(
+  $background,
+  $border,
+  $color,
+  $background-hover,
+  $border-hover,
+  $color-hover,
+  $border-focus,
+  $background-focus,
+  $color-active,
+  $border-active,
+  $background-active,
+  $background-disabled: var(--button-main-disabled-general-background),
+  $border-disabled: var(--button-main-disabled-general-border),
+  $color-disabled: var(--button-main-disabled-general-text)
+) {
+  color: $color;
+  background-color: $background;
+  border-color: $border;
+
+  &.btn--is-active:not(:disabled, [aria-disabled='true']),
+  &:active:not(:disabled, [aria-disabled='true']) {
+    color: $color-active;
+    background-color: $background-active;
+    border-color: $border-active;
+  }
+
+  &.btn--is-hovered:not(:disabled, [aria-disabled='true']),
+  &:hover:not(:disabled, [aria-disabled='true']) {
+    color: $color-hover;
+    background-color: $background-hover;
+    border-color: $border-hover;
+  }
+
+  &:focus:not(:disabled, [aria-disabled='true']) {
+    background-color: $background-focus;
+    border-color: $border;
+    outline: 2px solid $border-focus;
+    outline-offset: 1px;
+  }
+
+  &:disabled {
+    color: $color-disabled;
+    background-color: $background-disabled;
+    border-color: $border-disabled;
+  }
+}
+
+@mixin button-secondary-variant(
+  $border,
+  $color,
+  $background-hover,
+  $border-hover,
+  $color-hover,
+  $border-focus,
+  $background-focus,
+  $color-active,
+  $border-active,
+  $background-active,
+  $background-disabled: var(--button-main-disabled-general-background),
+  $border-disabled: var(--button-main-disabled-general-border),
+  $color-disabled: var(--button-main-disabled-general-text)
+) {
+  @include button-variant(
+    var(--button-main-secondary-background-default),
+    $border,
+    $color,
+    $background-hover,
+    $border-hover,
+    $color-hover,
+    $border-focus,
+    $background-focus,
+    $color-active,
+    $border-active,
+    $background-active,
+    $background-disabled,
+    $border-disabled,
+    $color-disabled
+  );
+}
+
+@mixin link-variant($color, $color-hover, $color-disabled) {
+  color: $color;
+
+  &.btn--is-hovered:not(:disabled, [aria-disabled='true']),
+  &.btn--is-active:not(:disabled, [aria-disabled='true']),
+  &:hover:not(:disabled, [aria-disabled='true']),
+  &:active:not(:disabled, [aria-disabled='true']) {
+    color: $color-hover;
+  }
+
+  &:disabled {
+    color: $color-disabled;
+  }
+}
+
+.btn {
+  --general-icon-primary: currentcolor;
+
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+  height: $btn-height;
+  margin: 0;
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  background-image: none;
+  border-style: solid;
+  border-width: 1px;
+  transition: 150ms ease;
+  transition-property: background-color, border-color;
+
+  @include mixins.print-grayscale;
+  @include mixins.responsive-styles(font-size, button-text-size-default);
+  @include mixins.responsive-styles(padding-top, button-md-padding-y);
+  @include mixins.responsive-styles(padding-bottom, button-md-padding-y);
+  @include mixins.responsive-styles(padding-left, button-md-padding-x);
+  @include mixins.responsive-styles(padding-right, button-md-padding-x);
+  @include mixins.responsive-styles(border-radius, button-radius-default);
+}
+
+.btn:disabled,
+.btn[aria-disabled='true'] {
+  cursor: auto;
+}
+
+.btn--small {
+  height: $btn-height-small;
+
+  @include mixins.responsive-styles(font-size, button-text-size-sm);
+  @include mixins.responsive-styles(padding-top, button-sm-padding-y);
+  @include mixins.responsive-styles(padding-bottom, button-sm-padding-y);
+  @include mixins.responsive-styles(padding-left, button-sm-padding-x);
+  @include mixins.responsive-styles(padding-right, button-sm-padding-x);
+
+  &.btn--icon-only {
+    width: $btn-height-small;
+  }
+}
+
+.btn--neutral {
+  padding: 0;
+  background-clip: padding-box;
+
+  @include mixins.responsive-styles(padding-top, button-md-neutral-padding-y);
+  @include mixins.responsive-styles(padding-bottom, button-md-neutral-padding-y);
+
+  &.btn--default.btn--icon-only {
+    &:hover:not(:disabled) {
+      background-color: var(--button-main-neutral-icon-only-background-hover);
+    }
+
+    &:active:not(:disabled) {
+      background-color: var(--button-main-neutral-icon-only-background-active);
+    }
+  }
+
+  &.btn--danger.btn--icon-only {
+    &:hover:not(:disabled) {
+      background-color: var(--button-main-danger-neutral-icon-only-background-hover);
+    }
+
+    &:active:not(:disabled) {
+      background-color: var(--button-main-danger-neutral-icon-only-background-active);
+    }
+  }
+}
+
+.btn--icon-only {
+  width: $btn-height;
+  padding: 0;
+
+  .btn__text {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+    border: 0 !important;
+
+    @include mixins.visually-hidden;
+  }
+}
+
+.btn--default {
+  &.btn--primary {
+    @include button-variant(
+      var(--button-main-primary-background-default),
+      var(--button-main-primary-border-default),
+      var(--button-main-primary-text-default),
+      var(--button-main-primary-background-hover),
+      var(--button-main-primary-border-hover),
+      var(--button-main-primary-text-default),
+      var(--button-main-primary-border-focus),
+      var(--button-main-primary-background-focus),
+      var(--button-main-primary-text-default),
+      var(--button-main-primary-border-active),
+      var(--button-main-primary-background-active)
+    );
+  }
+
+  &.btn--secondary {
+    @include button-secondary-variant(
+      var(--button-main-secondary-border-default),
+      var(--button-main-secondary-text-default),
+      var(--button-main-secondary-background-hover),
+      var(--button-main-secondary-border-hover),
+      var(--button-main-secondary-text-default),
+      var(--button-main-secondary-border-focus),
+      var(--button-main-secondary-background-focus),
+      var(--button-main-secondary-text-default),
+      var(--button-main-secondary-border-active),
+      var(--button-main-secondary-background-active)
+    );
+  }
+
+  &.btn--neutral {
+    @include button-variant(
+      var(--button-main-neutral-background-default),
+      var(--button-main-neutral-border-default),
+      var(--button-main-neutral-text-default),
+      var(--button-main-neutral-background-hover),
+      var(--button-main-neutral-border-hover),
+      var(--button-main-neutral-text-hover),
+      var(--button-main-primary-border-focus),
+      var(--button-main-neutral-background-focus),
+      var(--button-main-neutral-text-active),
+      var(--button-main-neutral-border-active),
+      var(--button-main-neutral-background-active),
+      var(--button-main-neutral-background-default),
+      var(--button-main-neutral-background-default)
+    );
+  }
+}
+
+.btn--danger {
+  &.btn--primary {
+    @include button-variant(
+      var(--button-main-danger-background-default),
+      var(--button-main-danger-border-default),
+      var(--button-main-danger-text-default),
+      var(--button-main-danger-background-hover),
+      var(--button-main-danger-border-hover),
+      var(--button-main-danger-text-default),
+      var(--button-main-primary-border-focus),
+      var(--button-main-danger-background-focus),
+      var(--button-main-danger-text-default),
+      var(--button-main-danger-border-active),
+      var(--button-main-danger-background-active)
+    );
+  }
+
+  &.btn--neutral {
+    @include button-variant(
+      var(--button-main-danger-neutral-background-default),
+      var(--button-main-danger-neutral-border-default),
+      var(--button-main-danger-neutral-text-default),
+      var(--button-main-danger-neutral-background-hover),
+      var(--button-main-danger-neutral-border-hover),
+      var(--button-main-danger-neutral-text-hover),
+      var(--button-main-primary-border-focus),
+      var(--button-main-danger-neutral-background-focus),
+      var(--button-main-danger-neutral-text-active),
+      var(--button-main-danger-neutral-border-active),
+      var(--button-main-danger-neutral-background-active),
+      var(--button-main-neutral-background-default),
+      var(--button-main-neutral-background-default)
+    );
+  }
+}
+
+.btn--success {
+  &.btn--primary {
+    @include button-variant(
+      var(--button-main-success-background-default),
+      var(--button-main-success-border-default),
+      var(--button-main-success-text-default),
+      var(--button-main-success-background-hover),
+      var(--button-main-success-border-hover),
+      var(--button-main-success-text-default),
+      var(--button-main-primary-border-focus),
+      var(--button-main-success-background-focus),
+      var(--button-main-success-text-default),
+      var(--button-main-success-border-active),
+      var(--button-main-success-background-active)
+    );
+  }
+}
+
+.btn--inverted {
+  &.btn--primary {
+    @include button-variant(
+      var(--button-main-primary-inverted-background-default),
+      var(--button-main-primary-inverted-border-default),
+      var(--button-main-primary-inverted-text-default),
+      var(--button-main-primary-inverted-background-hover),
+      var(--button-main-primary-inverted-border-hover),
+      var(--button-main-primary-inverted-text-hover),
+      var(--button-main-primary-inverted-border-focus),
+      var(--button-main-primary-inverted-background-focus),
+      var(--button-main-primary-inverted-text-default),
+      var(--button-main-primary-inverted-border-active),
+      var(--button-main-primary-inverted-background-active)
+    );
+  }
+
+  &.btn--secondary {
+    @include button-variant(
+      var(--button-main-secondary-inverted-background-default),
+      var(--button-main-secondary-inverted-border-default),
+      var(--button-main-secondary-inverted-text-default),
+      var(--button-main-secondary-inverted-background-hover),
+      var(--button-main-secondary-inverted-border-hover),
+      var(--button-main-secondary-inverted-text-default),
+      var(--button-main-secondary-inverted-border-focus),
+      var(--button-main-secondary-inverted-background-focus),
+      var(--button-main-secondary-inverted-text-default),
+      var(--button-main-secondary-inverted-border-active),
+      var(--button-main-secondary-inverted-background-active)
+    );
+  }
+
+  &.btn--neutral {
+    @include button-variant(
+      var(--button-main-neutral-inverted-background-default),
+      var(--button-main-neutral-inverted-border-default),
+      var(--button-main-neutral-inverted-text-default),
+      var(--button-main-neutral-inverted-background-hover),
+      var(--button-main-neutral-inverted-border-hover),
+      var(--button-main-neutral-inverted-text-hover),
+      var(--button-main-neutral-inverted-border-focus),
+      var(--button-main-neutral-inverted-background-focus),
+      var(--button-main-neutral-inverted-text-default),
+      var(--button-main-neutral-inverted-border-active),
+      var(--button-main-neutral-inverted-background-active),
+      var(--button-main-neutral-inverted-background-default),
+      var(--button-main-neutral-inverted-background-default)
+    );
+  }
+
+  &.btn--link {
+    @include link-variant(
+      var(--button-main-neutral-inverted-text-default),
+      var(--button-main-neutral-inverted-text-hover),
+      var(--button-main-disabled-general-text)
+    );
+  }
+}
+
+.btn--text-color {
+  &.btn--link {
+    @include link-variant(inherit, var(--button-main-neutral-text-hover), var(--button-main-disabled-general-text));
+  }
+}
+
+.btn--link {
+  display: inline-block;
+  width: auto;
+  height: auto;
+  padding: 0;
+  color: var(--button-main-neutral-text-default);
+  text-align: left;
+  text-decoration: none;
+  background: none;
+  border: none;
+
+  @include link-variant(
+    var(--button-main-neutral-text-default),
+    var(--button-main-neutral-text-hover),
+    var(--button-main-disabled-general-text)
+  );
+}
+
+.btn__text {
+  text-align: start;
+
+  @include mixins.responsive-styles(padding-left, button-md-inner-spacing);
+  @include mixins.responsive-styles(padding-right, button-md-inner-spacing);
+
+  .btn--link.btn--is-hovered:not(:disabled) &,
+  .btn--link.btn--is-active:not(:disabled) &,
+  .btn--link:hover:not(:disabled) &,
+  .btn--link:active:not(:disabled) & {
+    text-decoration: underline;
+  }
+
+  .btn--is-loading:not(.btn--icon) & {
+    color: var(--alpha-01);
+  }
+
+  .btn--small & {
+    @include mixins.responsive-styles(padding-left, button-sm-inner-spacing);
+    @include mixins.responsive-styles(padding-right, button-sm-inner-spacing);
+  }
+}
+
+.btn__icon--start,
+.btn__icon--end {
+  display: inline-flex;
+  flex-shrink: 0;
+  padding: 0;
+}
+
+.btn__icon--start {
+  @include mixins.responsive-styles(margin-right, button-sm-inner-spacing);
+}
+
+.btn__icon--end {
+  @include mixins.responsive-styles(margin-left, button-sm-inner-spacing);
+}
+
+.btn__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .btn--link & {
+    display: inline;
+    vertical-align: middle;
+  }
+}
+
+.btn__inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.5rem;
+  min-height: 1.5rem;
+
+  .btn--link:not(.btn--is-loading) & {
+    display: inline;
+  }
+}
+
+.btn__spinner {
+  stroke: currentcolor;
+}
+
+.btn--underline {
+  text-decoration: underline;
+}
+
+.btn--no-style {
+  @include mixins.button-reset;
+}
+
+.btn--full-width {
+  width: 100%;
+}

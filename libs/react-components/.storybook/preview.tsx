@@ -36,6 +36,7 @@ const preview: Preview = {
         { name: 'black', value: 'var(--color-black)' },
         { name: 'inverted', value: 'var(--color-bg-inverted)' },
         { name: 'inverted-contrast', value: 'var(--color-bg-inverted-contrast)' },
+        { name: 'brand', value: 'var(--primary-600)' },
       ],
     },
     docs: {

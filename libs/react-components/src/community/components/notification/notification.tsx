@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import React from 'react';
 
-import { ClosingButton } from '../../../tedi/components/closing-button/closing-button';
+import { ClosingButton } from '../../../tedi/components/buttons/closing-button/closing-button';
 import { Col, Row } from '../../../tedi/components/grid';
 import { VerticalSpacing } from '../../../tedi/components/vertical-spacing';
 import { useIsMounted } from '../../helpers';
