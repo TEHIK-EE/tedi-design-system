@@ -27,3 +27,12 @@ export const Default: Story = {
     visualType: 'secondary',
   },
 };
+
+export const TypeLink: Story = {
+  render: Template,
+  args: {
+    openText: 'Open',
+    closeText: 'Close',
+    visualType: 'link',
+  },
+};

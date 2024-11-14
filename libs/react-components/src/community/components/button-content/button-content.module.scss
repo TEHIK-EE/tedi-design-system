@@ -356,7 +356,7 @@ $btn-height-small: 2.25rem;
   }
 
   .btn--link & {
-    display: inline;
+    display: inline-block;
     vertical-align: middle;
   }
 }
