@@ -1,3 +1,10 @@
+# [9.0.0-rc.11](https://github.com/TEHIK-EE/tedi-design-system/compare/v9.0.0-rc.10...v9.0.0-rc.11) (2024-11-14)
+
+
+### Bug Fixes
+
+* **anchor, toggleOpen, Accordion:** link toggle-open not rotating [#286](https://github.com/TEHIK-EE/tedi-design-system/issues/286) ([#287](https://github.com/TEHIK-EE/tedi-design-system/issues/287)) ([23d342e](https://github.com/TEHIK-EE/tedi-design-system/commit/23d342ed550ada67c98955f2b322d7dc201f7f29))
+
 # [9.0.0-rc.10](https://github.com/TEHIK-EE/tedi-design-system/compare/v9.0.0-rc.9...v9.0.0-rc.10) (2024-11-14)
 
 
