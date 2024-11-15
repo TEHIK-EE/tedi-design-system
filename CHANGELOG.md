@@ -1,3 +1,22 @@
+# [9.0.0-rc.13](https://github.com/TEHIK-EE/tedi-design-system/compare/v9.0.0-rc.12...v9.0.0-rc.13) (2024-11-15)
+
+
+### Features
+
+* **stretch-content:** TEDI-Ready StretchContent development [#288](https://github.com/TEHIK-EE/tedi-design-system/issues/288) ([#289](https://github.com/TEHIK-EE/tedi-design-system/issues/289)) ([d16fa51](https://github.com/TEHIK-EE/tedi-design-system/commit/d16fa51a68ca4aab668028a5ae348920418e0c0c))
+
+
+### BREAKING CHANGES
+
+* **stretch-content:** Community StretchContent removed. Replace with TEDI-Ready StretchContent
+
+# [9.0.0-rc.12](https://github.com/TEHIK-EE/tedi-design-system/compare/v9.0.0-rc.11...v9.0.0-rc.12) (2024-11-15)
+
+
+### Features
+
+* **link:** TEDI-Ready Link development [#213](https://github.com/TEHIK-EE/tedi-design-system/issues/213) ([#283](https://github.com/TEHIK-EE/tedi-design-system/issues/283)) ([92b25b9](https://github.com/TEHIK-EE/tedi-design-system/commit/92b25b9ed23a4855d63163c7efc4c4bc5846cfa8)), closes [#225](https://github.com/TEHIK-EE/tedi-design-system/issues/225) [#225](https://github.com/TEHIK-EE/tedi-design-system/issues/225) [#225](https://github.com/TEHIK-EE/tedi-design-system/issues/225)
+
 # [9.0.0-rc.11](https://github.com/TEHIK-EE/tedi-design-system/compare/v9.0.0-rc.10...v9.0.0-rc.11) (2024-11-14)
 
 

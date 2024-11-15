@@ -15,6 +15,8 @@ export * from './components/buttons/closing-button/closing-button';
 export * from './components/print/print';
 export * from './components/buttons/button/button';
 export * from './components/alert/alert';
+export * from './components/stretch-content/stretch-content';
+export * from './components/navigation/link/link';
 
 export * from './helpers';
 

@@ -1,21 +1,32 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 
-import { Col, Row } from '../../../tedi/components/grid';
-import { VerticalSpacing } from '../../../tedi/components/vertical-spacing';
-import Button from '../button/button';
-import { Card } from '../card';
-import CardContent from '../card/card-content/card-content';
-import CardHeader from '../card/card-header/card-header';
-import Heading from '../typography/heading/heading';
+import { Card } from '../../../community/components/card';
+import CardContent from '../../../community/components/card/card-content/card-content';
+import CardHeader from '../../../community/components/card/card-header/card-header';
+import { Button } from '../buttons/button/button';
+import { Col, Row } from '../grid';
+import { Heading } from '../typography/heading/heading';
+import { VerticalSpacing } from '../vertical-spacing';
 import StretchContent, { StretchContentProps } from './stretch-content';
 
 /**
- * StretchContent helps with cases where parent size is not defined by its children, and you need to scale the children to take all available space.<br/>
- * A real world use-case would be multiple Cards in one row. Example for that can be found in Equal Height Card stories.
+ * [Zeroheight ↗](https://zeroheight.com/1ee8444b7/p/76550e-stretchcontent)
  */
+
 const meta: Meta<typeof StretchContent> = {
   component: StretchContent,
-  title: 'Community/StretchContent',
+  title: 'TEDI-Ready/Helpers/StretchContent',
+  parameters: {
+    status: {
+      type: [
+        'devComponent',
+        { name: 'breakpointSupport', url: '?path=/docs/helpers-usebreakpointprops--usebreakpointprops' },
+      ],
+    },
+    controls: {
+      exclude: ['sm', 'md', 'lg', 'xl', 'xxl'],
+    },
+  },
 };
 
 export default meta;
