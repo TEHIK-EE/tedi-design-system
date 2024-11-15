@@ -13,3 +13,5 @@ export const useIsMounted = (): boolean => {
 
   return isMounted;
 };
+
+export default useIsMounted;
