@@ -10,12 +10,12 @@ import { VerticalSpacing } from '../vertical-spacing';
 import StretchContent, { StretchContentProps } from './stretch-content';
 
 /**
- * [Zeroheight ↗](https://zeroheight.com/1ee8444b7/p/76550e-stretchcontent)
+ * [Zeroheight ↗](https://tedi.tehik.ee/1ee8444b7/p/76550e-stretchcontent)
  */
 
 const meta: Meta<typeof StretchContent> = {
   component: StretchContent,
-  title: 'TEDI-Ready/Helpers/StretchContent',
+  title: 'TEDI-Ready/Components/Helpers/StretchContent',
   parameters: {
     status: {
       type: [

@@ -8,7 +8,7 @@ import { TextGroup, TextGroupProps } from './text-group';
 
 /**
  * [Figma ↗](https://www.figma.com/file/jWiRIXhHRxwVdMSimKX2FF/TEDI-Design-System-(draft)?type=design&node-id=45-30752&mode=dev)<br/>
- * [Zeroheight ↗](https://tedi.zeroheight.com/styleguide/s/118912/p/28835d-icons)
+ * [Zeroheight ↗](https://tedi.tehik.ee/1ee8444b7/p/433820-text-group)
  */
 
 const meta: Meta<typeof TextGroup> = {

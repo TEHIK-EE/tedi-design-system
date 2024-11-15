@@ -8,12 +8,12 @@ import { Button, ButtonProps } from './button';
 
 /**
  * [Figma ↗](https://www.figma.com/file/jWiRIXhHRxwVdMSimKX2FF/TEDI-Design-System-(draft)?type=design&node-id=136-29124&m=dev)<br/>
- * [Zeroheight ↗](https://zeroheight.com/1ee8444b7/p/10984a-button)
+ * [Zeroheight ↗](https://tedi.tehik.ee/1ee8444b7/p/10984a-button)
  */
 
 const meta: Meta<typeof Button> = {
   component: Button,
-  title: 'TEDI-Ready/Buttons/Button',
+  title: 'TEDI-Ready/Components/Buttons/Button',
   parameters: {
     status: {
       type: [{ name: 'breakpointSupport', url: '?path=/docs/helpers-usebreakpointprops--usebreakpointprops' }],

@@ -11,7 +11,7 @@ import { StatusBadge, StatusBadgeColor, StatusBadgeProps } from './status-badge'
 
 const meta: Meta<typeof StatusBadge> = {
   component: StatusBadge,
-  title: 'Tedi-ready/Components/StatusBadge',
+  title: 'Tedi-ready/Components/Tag/StatusBadge',
   parameters: {
     status: {
       type: [{ name: 'breakpointSupport', url: '?path=/docs/helpers-usebreakpointprops--usebreakpointprops' }],
