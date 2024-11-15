@@ -1,6 +1,6 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 
-import Anchor from '../../../community/components/anchor/anchor';
+import Link from '../navigation/link/link';
 import { VerticalSpacing } from '../vertical-spacing';
 import Alert, { AlertProps } from './alert';
 
@@ -48,7 +48,7 @@ export const Default: Story = {
     title: 'Title',
     children: (
       <p>
-        Content description. <Anchor href="#">Inline link example</Anchor>
+        Content description. <Link href="#">Inline link example</Link>
       </p>
     ),
   },
