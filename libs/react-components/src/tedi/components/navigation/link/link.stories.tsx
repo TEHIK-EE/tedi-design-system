@@ -151,7 +151,7 @@ export const DefaultInverted: StoryObj<TemplateMultipleProps> = {
       active: '#Active',
       focus: '#Focus',
     },
-    backgrounds: { default: 'inverted' },
+    backgrounds: { default: 'brand' },
   },
 };
 
@@ -231,8 +231,8 @@ export const CustomComponent: StoryObj<LinkProps> = {
 export const NoStyleLink = {
   args: {
     noStyle: true,
-    href: 'https://www.neti.ee/',
-    children: <img src="https://www.neti.ee/img/neti-logo-2015-1.png" alt="neti.ee" />,
+    href: 'https://www.tehik.ee/',
+    children: <img width={200} src="/tehik_logo.png" alt="tehik.ee" />,
     target: '_blank',
   },
 };
