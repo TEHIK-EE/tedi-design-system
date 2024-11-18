@@ -8,7 +8,6 @@ export * from './components/collapse/collapse';
 export * from './components/anchor/anchor';
 export * from './components/layout';
 export * from './components/hash-trigger/hash-trigger';
-export * from './components/notification/notification';
 export * from './components/ellipsis/ellipsis';
 export * from './components/dropdown/dropdown';
 export * from './components/scroll-fade/scroll-fade';
