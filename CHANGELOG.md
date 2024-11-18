@@ -1,3 +1,10 @@
+# [9.0.0-rc.14](https://github.com/TEHIK-EE/tedi-design-system/compare/v9.0.0-rc.13...v9.0.0-rc.14) (2024-11-18)
+
+
+### Bug Fixes
+
+* **link:** Fix horizontal paddings [#293](https://github.com/TEHIK-EE/tedi-design-system/issues/293) ([#295](https://github.com/TEHIK-EE/tedi-design-system/issues/295)) ([3580270](https://github.com/TEHIK-EE/tedi-design-system/commit/358027071221037e114cc19a50e884826158f21a))
+
 # [9.0.0-rc.13](https://github.com/TEHIK-EE/tedi-design-system/compare/v9.0.0-rc.12...v9.0.0-rc.13) (2024-11-15)
 
 
