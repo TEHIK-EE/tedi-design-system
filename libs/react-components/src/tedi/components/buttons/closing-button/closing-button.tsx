@@ -35,7 +35,7 @@ export const ClosingButton = (props: ClosingButtonProps): JSX.Element => {
   const buttonClass = cn(
     styles['tedi-closing-button'],
     {
-      [styles['tedi-closing-button--large']]: size === 'large',
+      [styles[`tedi-closing-button--${size}`]]: size,
     },
     className
   );

@@ -39,12 +39,12 @@ describe('List Component', () => {
 
   test('does not apply special styling class when style is "styled"', () => {
     const { container } = renderList({ style: 'styled' });
-    expect(container.firstChild).not.toHaveClass('list--style-none');
+    expect(container.firstChild).not.toHaveClass('tedi-list--style-none');
   });
 
   test('applies "list--style-none" class when style is "none"', () => {
     const { container } = renderList({ style: 'none' });
-    expect(container.firstChild).toHaveClass('list--style-none');
+    expect(container.firstChild).toHaveClass('tedi-list--style-none');
   });
 
   test('applies custom className', () => {
