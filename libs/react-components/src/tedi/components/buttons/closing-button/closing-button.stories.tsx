@@ -5,12 +5,12 @@ import ClosingButton, { ClosingButtonProps } from './closing-button';
 
 /**
  * [Figma ↗](https://www.figma.com/file/jWiRIXhHRxwVdMSimKX2FF/TEDI-Design-System-(draft)?type=designnode-id=4514-63815&m=dev)<br/>
- * [Zeroheight ↗](https://zeroheight.com/1ee8444b7/p/30df1b-closing-button)
+ * [Zeroheight ↗](https://tedi.tehik.ee/1ee8444b7/p/30df1b-closing-button)
  */
 
 const meta: Meta<typeof ClosingButton> = {
   component: ClosingButton,
-  title: 'Tedi-ready/Buttons/ClosingButton',
+  title: 'Tedi-ready/Components/Buttons/ClosingButton',
 };
 
 const sizeArray: ClosingButtonProps['size'][] = ['medium', 'large'];

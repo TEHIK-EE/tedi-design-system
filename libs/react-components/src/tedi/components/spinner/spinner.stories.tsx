@@ -5,12 +5,12 @@ import { Spinner, SpinnerProps } from './spinner';
 
 /**
  * [Figma ↗](https://www.figma.com/file/jWiRIXhHRxwVdMSimKX2FF/TEDI-Design-System-(draft)?type=design&node-id=2768-42334&mode=dev)<br/>
- * [Zeroheight ↗](https://zeroheight.com/1ee8444b7/p/13d6ac-spinner/b/78b62d)
+ * [Zeroheight ↗](https://tedi.tehik.ee/1ee8444b7/p/13d6ac-spinner)
  */
 
 const meta: Meta<typeof Spinner> = {
   component: Spinner,
-  title: 'Tedi-ready/Loader/Spinner',
+  title: 'Tedi-ready/Components/Loader/Spinner',
   parameters: {
     status: {
       type: [{ name: 'breakpointSupport', url: '?path=/docs/helpers-usebreakpointprops--usebreakpointprops' }],

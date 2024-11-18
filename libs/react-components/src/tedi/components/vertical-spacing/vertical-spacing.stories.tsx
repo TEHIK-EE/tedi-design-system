@@ -13,7 +13,7 @@ import { VerticalSpacingItem } from './vertical-spacing-item';
 
 const meta: Meta<typeof VerticalSpacing> = {
   component: VerticalSpacing,
-  title: 'Tedi-ready/Content/VerticalSpacing',
+  title: 'Tedi-ready/Components/Helpers/VerticalSpacing',
   subcomponents: { VerticalSpacingItem } as never,
   parameters: {
     status: {

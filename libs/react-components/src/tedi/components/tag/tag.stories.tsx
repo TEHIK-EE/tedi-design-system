@@ -5,11 +5,11 @@ import { Tag, TagProps } from './tag';
 
 /**
  * [Figma ↗](https://www.figma.com/file/jWiRIXhHRxwVdMSimKX2FF/TEDI-Design-System-(draft)?type=design&node-id=2405-49832&m=dev)<br/>
- * [Zeroheight ↗](https://zeroheight.com/1ee8444b7/p/6524c4-tag)
+ * [Zeroheight ↗](https://tedi.tehik.ee/1ee8444b7/p/6524c4-tag)
  */
 
 export default {
-  title: 'Tedi-ready/Components/Tag',
+  title: 'Tedi-ready/Components/Tag/Tag',
   component: Tag,
   parameters: {
     status: {

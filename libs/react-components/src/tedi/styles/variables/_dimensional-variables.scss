@@ -487,9 +487,9 @@
   --alert-default-padding-y-desktop: var(--dimensions-09);
   --alert-default-padding-y-tablet: var(--dimensions-09);
   --alert-default-padding-y-mobile: var(--dimensions-09);
-  --alert-radius-desktop: var(--card-radius-rounded);
-  --alert-radius-tablet: var(--card-radius-rounded);
-  --alert-radius-mobile: var(--card-radius-rounded);
+  --alert-radius-desktop: var(--card-radius-rounded-desktop);
+  --alert-radius-tablet: var(--card-radius-rounded-tablet);
+  --alert-radius-mobile: var(--card-radius-rounded-mobile);
   --alert-default-inner-spacing-y-desktop: var(--dimensions-03);
   --alert-default-inner-spacing-y-tablet: var(--dimensions-03);
   --alert-default-inner-spacing-y-mobile: var(--dimensions-03);

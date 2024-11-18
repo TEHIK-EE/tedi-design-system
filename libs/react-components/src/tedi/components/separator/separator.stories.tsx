@@ -9,12 +9,12 @@ import Separator, { SeparatorProps } from './separator';
 
 /**
  * [Figma ↗](https://www.figma.com/file/jWiRIXhHRxwVdMSimKX2FF/TEDI-Design-System-(draft)?type=design&node-id=3518-32729&m=dev)<br/>
- * [Zeroheight ↗](https://zeroheight.com/1ee8444b7/p/01debb-separator)
+ * [Zeroheight ↗](https://tedi.tehik.ee/1ee8444b7/p/01debb-separator)
  */
 
 const meta: Meta<typeof Separator> = {
   component: Separator,
-  title: 'TEDI-Ready/Helpers/Separator',
+  title: 'TEDI-Ready/Components/Helpers/Separator',
   parameters: {
     status: {
       type: [{ name: 'breakpointSupport', url: '?path=/docs/helpers-usebreakpointprops--usebreakpointprops' }],

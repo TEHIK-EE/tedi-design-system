@@ -9,12 +9,12 @@ import { Link, LinkProps } from './link';
 
 /**
  * [Figma ↗](https://www.figma.com/file/jWiRIXhHRxwVdMSimKX2FF/TEDI-Design-System-(draft)?type=design&node-id=2160-25385&m=dev)<br/>
- * [Zeroheight ↗](https://zeroheight.com/1ee8444b7/p/76e0c0-link)
+ * [Zeroheight ↗](https://tedi.tehik.ee/1ee8444b7/p/76e0c0-link)
  */
 
 const meta: Meta<typeof Link> = {
   component: Link,
-  title: 'TEDI-Ready/Navigation/Link',
+  title: 'TEDI-Ready/Components/Navigation/Link',
   parameters: {
     status: {
       type: [{ name: 'breakpointSupport', url: '?path=/docs/helpers-usebreakpointprops--usebreakpointprops' }],
@@ -151,7 +151,7 @@ export const DefaultInverted: StoryObj<TemplateMultipleProps> = {
       active: '#Active',
       focus: '#Focus',
     },
-    backgrounds: { default: 'inverted' },
+    backgrounds: { default: 'brand' },
   },
 };
 
@@ -231,8 +231,8 @@ export const CustomComponent: StoryObj<LinkProps> = {
 export const NoStyleLink = {
   args: {
     noStyle: true,
-    href: 'https://www.neti.ee/',
-    children: <img src="https://www.neti.ee/img/neti-logo-2015-1.png" alt="neti.ee" />,
+    href: 'https://www.tehik.ee/',
+    children: <img width={200} src="/tehik_logo.png" alt="tehik.ee" />,
     target: '_blank',
   },
 };

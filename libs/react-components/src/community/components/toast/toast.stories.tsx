@@ -1,9 +1,9 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import { ToastContainer } from 'react-toastify';
 
+import Alert, { AlertProps } from '../../../tedi/components/alert/alert';
 import { Col, Row } from '../../../tedi/components/grid';
 import Button from '../button/button';
-import Notification, { NotificationProps } from '../notification/notification';
 import { sendNotification } from './toast';
 
 /**
@@ -11,15 +11,15 @@ import { sendNotification } from './toast';
  * Second parameter of sendNotification function is react-toastify options to overwrite default behavior if needed.<br/>
  * `ToastContainer` component is also exported and has to be added to index of application.
  */
-const meta: Meta<typeof Notification> = {
+const meta: Meta<typeof Alert> = {
   title: 'Community/Toast',
-  component: Notification,
+  component: Alert,
 };
 
 export default meta;
-type Story = StoryObj<typeof Notification>;
+type Story = StoryObj<typeof Alert>;
 
-const Template: StoryFn<NotificationProps> = (args) => (
+const Template: StoryFn<AlertProps> = (args) => (
   <>
     <ToastContainer />
     <Row>
@@ -48,7 +48,7 @@ const Template: StoryFn<NotificationProps> = (args) => (
         <Button
           color="important"
           onClick={() =>
-            sendNotification({ type: 'error', title: 'Notice', children: 'Something went wrong!', ...args })
+            sendNotification({ type: 'danger', title: 'Notice', children: 'Something went wrong!', ...args })
           }
         >
           Error

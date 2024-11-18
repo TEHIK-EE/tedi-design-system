@@ -7,12 +7,12 @@ import { Skeleton, SkeletonBlock, SkeletonProps } from '.';
 
 /**
  * [Figma ↗](https://www.figma.com/file/jWiRIXhHRxwVdMSimKX2FF/TEDI-Design-System-(draft)?type=design&node-id=2188-34298&m=dev)<br/>
- * [Zeroheight ↗](https://zeroheight.com/1ee8444b7/p/429294-skeleton)
+ * [Zeroheight ↗](https://tedi.tehik.ee/1ee8444b7/p/429294-skeleton)
  */
 
 const meta: Meta<typeof Skeleton> = {
   component: Skeleton,
-  title: 'TEDI-Ready/Loader/Skeleton',
+  title: 'TEDI-Ready/Components/Loader/Skeleton',
   subcomponents: { SkeletonBlock } as never,
   parameters: {
     status: {
