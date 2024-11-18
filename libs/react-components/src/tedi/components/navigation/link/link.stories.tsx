@@ -78,26 +78,26 @@ const TemplateColumn: StoryFn<TemplateMultipleProps> = (args) => {
             </Col>
             <Col>
               <div className="display-flex align-items-center gap-3">
-                <Link id={value} {...buttonProps}>
+                <Link id={value} href="#" {...buttonProps}>
                   Create
                 </Link>
-                <Link id={value} {...buttonProps} iconRight="arrow_right_alt">
+                <Link id={value} href="#" {...buttonProps} iconRight="arrow_right_alt">
                   Continue
                 </Link>
-                <Link id={value} {...buttonProps} iconLeft="edit">
+                <Link id={value} href="#" {...buttonProps} iconLeft="edit">
                   Edit
                 </Link>
               </div>
             </Col>
             <Col>
               <div className="display-flex align-items-center gap-3">
-                <Link id={value} size="small" {...buttonProps}>
+                <Link id={value} href="#" size="small" {...buttonProps}>
                   Create
                 </Link>
-                <Link id={value} size="small" {...buttonProps} iconRight="arrow_right_alt">
+                <Link id={value} href="#" size="small" {...buttonProps} iconRight="arrow_right_alt">
                   Continue
                 </Link>
-                <Link id={value} size="small" {...buttonProps} iconLeft="edit">
+                <Link id={value} href="#" size="small" {...buttonProps} iconLeft="edit">
                   Edit
                 </Link>
               </div>
@@ -232,7 +232,7 @@ export const NoStyleLink = {
   args: {
     noStyle: true,
     href: 'https://www.tehik.ee/',
-    children: <img width={200} src="/tehik_logo.png" alt="tehik.ee" />,
+    children: <img width={200} src="tehik_logo.png" alt="tehik.ee" />,
     target: '_blank',
   },
 };

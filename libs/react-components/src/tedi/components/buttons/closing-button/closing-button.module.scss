@@ -22,6 +22,7 @@
 
       @if $state == focus {
         border-color: var(--blue-500);
+        outline: none;
       }
     }
   }

@@ -91,7 +91,7 @@ const MixedContentTemplate: StoryFn<VerticalSpacingProps> = (args) => (
     <Heading element="h1">Mixed Content Example</Heading>
     <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam pretium lacinia urna in efficitur.</Text>
     <Heading element="h4">Mixed Content Example</Heading>
-    <img src="https://www.neti.ee/img/neti-logo-2015-1.png" alt="neti.ee" />
+    <img width={200} src="tehik_logo.png" alt="tehik.ee" />
     <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam pretium lacinia urna in efficitur.</Text>
     <Icon name="home" />
   </VerticalSpacing>

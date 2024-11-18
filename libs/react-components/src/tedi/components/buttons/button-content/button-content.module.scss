@@ -100,8 +100,9 @@ $btn-height-small: 2rem;
   &:focus:not(:disabled) {
     color: $color-focus;
     text-decoration: underline;
-    border: 2px solid $color-focus;
     border-radius: 0;
+    outline: 2px solid $color-focus;
+    outline-offset: 1px;
   }
 }
 
