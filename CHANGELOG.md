@@ -1,3 +1,15 @@
+# [9.0.0-rc.15](https://github.com/TEHIK-EE/tedi-design-system/compare/v9.0.0-rc.14...v9.0.0-rc.15) (2024-11-18)
+
+
+### Features
+
+* **alert:** TEDI-Ready Alert development [#290](https://github.com/TEHIK-EE/tedi-design-system/issues/290) ([#294](https://github.com/TEHIK-EE/tedi-design-system/issues/294)) ([f7b7a2d](https://github.com/TEHIK-EE/tedi-design-system/commit/f7b7a2d04c69d20015ce8d36593486f47ff6f9e1))
+
+
+### BREAKING CHANGES
+
+* **alert:** Community Notification removed. Replace with TEDI-Ready Alert
+
 # [9.0.0-rc.14](https://github.com/TEHIK-EE/tedi-design-system/compare/v9.0.0-rc.13...v9.0.0-rc.14) (2024-11-18)
 
 
