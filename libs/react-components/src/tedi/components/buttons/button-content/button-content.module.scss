@@ -414,6 +414,10 @@ $btn-height-small: 2rem;
     @include mixins.responsive-styles(padding-left, button-sm-inner-spacing);
     @include mixins.responsive-styles(padding-right, button-sm-inner-spacing);
   }
+
+  .btn--link & {
+    padding: 0;
+  }
 }
 
 .btn__icon--start,
@@ -450,7 +454,9 @@ $btn-height-small: 2rem;
   min-height: 1.5rem;
 
   .btn--link:not(.btn--is-loading) & {
-    display: inline;
+    display: inline-flex;
+
+    @include mixins.responsive-styles(gap, link-inner-spacing-x);
   }
 }
 
