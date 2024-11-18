@@ -99,10 +99,13 @@ $btn-height-small: 2rem;
 
   &:focus:not(:disabled) {
     color: $color-focus;
-    text-decoration: underline;
     border-radius: 0;
     outline: 2px solid $color-focus;
     outline-offset: 1px;
+
+    .btn__text {
+      text-decoration: underline;
+    }
   }
 }
 
@@ -377,7 +380,7 @@ $btn-height-small: 2rem;
 }
 
 .btn--link {
-  display: inline-block;
+  display: inline-flex;
   width: auto;
   height: auto;
   padding: 0;
@@ -466,7 +469,9 @@ $btn-height-small: 2rem;
 }
 
 .btn--underline {
-  text-decoration: underline;
+  .btn__text {
+    text-decoration: underline;
+  }
 }
 
 .btn--no-style {
