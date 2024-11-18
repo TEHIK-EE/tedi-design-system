@@ -7,7 +7,7 @@ import { Heading } from './heading';
 
 /**
  * [Figma ↗](https://www.figma.com/design/jWiRIXhHRxwVdMSimKX2FF/TEDI-Design-System-(draft)?node-id=115-11630&m=dev)<br/>
- * [Zeroheight ↗](https://zeroheight.com/1ee8444b7/p/4651ec-typography)
+ * [Zeroheight ↗](https://tedi.tehik.ee/1ee8444b7/p/4651ec-typography)
  */
 
 const meta: Meta<typeof Heading> = {

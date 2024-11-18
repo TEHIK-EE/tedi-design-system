@@ -9,12 +9,12 @@ import { Link, LinkProps } from './link';
 
 /**
  * [Figma ↗](https://www.figma.com/file/jWiRIXhHRxwVdMSimKX2FF/TEDI-Design-System-(draft)?type=design&node-id=2160-25385&m=dev)<br/>
- * [Zeroheight ↗](https://zeroheight.com/1ee8444b7/p/76e0c0-link)
+ * [Zeroheight ↗](https://tedi.tehik.ee/1ee8444b7/p/76e0c0-link)
  */
 
 const meta: Meta<typeof Link> = {
   component: Link,
-  title: 'TEDI-Ready/Navigation/Link',
+  title: 'TEDI-Ready/Components/Navigation/Link',
   parameters: {
     status: {
       type: [{ name: 'breakpointSupport', url: '?path=/docs/helpers-usebreakpointprops--usebreakpointprops' }],
