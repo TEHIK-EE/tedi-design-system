@@ -1,3 +1,10 @@
+# [9.0.0-rc.17](https://github.com/TEHIK-EE/tedi-design-system/compare/v9.0.0-rc.16...v9.0.0-rc.17) (2024-11-19)
+
+
+### Bug Fixes
+
+* **link, closing-button:** Fix double focus border [#297](https://github.com/TEHIK-EE/tedi-design-system/issues/297) ([#299](https://github.com/TEHIK-EE/tedi-design-system/issues/299)) ([7a8212e](https://github.com/TEHIK-EE/tedi-design-system/commit/7a8212e789d28ca6680c017b9775aef398cf894a))
+
 # [9.0.0-rc.16](https://github.com/TEHIK-EE/tedi-design-system/compare/v9.0.0-rc.15...v9.0.0-rc.16) (2024-11-19)
 
 
