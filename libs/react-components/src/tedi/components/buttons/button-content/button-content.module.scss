@@ -99,9 +99,13 @@ $btn-height-small: 2rem;
 
   &:focus:not(:disabled) {
     color: $color-focus;
-    text-decoration: underline;
-    border: 2px solid $color-focus;
     border-radius: 0;
+    outline: 2px solid $color-focus;
+    outline-offset: 1px;
+
+    .tedi-btn__text {
+      text-decoration: underline;
+    }
   }
 }
 
@@ -376,7 +380,7 @@ $btn-height-small: 2rem;
 }
 
 .tedi-btn--link {
-  display: inline-block;
+  display: inline-flex;
   width: auto;
   height: auto;
   padding: 0;
@@ -465,7 +469,9 @@ $btn-height-small: 2rem;
 }
 
 .tedi-btn--underline {
-  text-decoration: underline;
+  .tedi-btn__text {
+    text-decoration: underline;
+  }
 }
 
 .tedi-btn--no-style {
