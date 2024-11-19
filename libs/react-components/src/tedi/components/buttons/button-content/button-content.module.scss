@@ -23,14 +23,14 @@ $btn-height-small: 2rem;
   background-color: $background;
   border-color: $border;
 
-  &.btn--is-active:not(:disabled, [aria-disabled='true']),
+  &.tedi-btn--is-active:not(:disabled, [aria-disabled='true']),
   &:active:not(:disabled, [aria-disabled='true']) {
     color: $color-active;
     background-color: $background-active;
     border-color: $border-active;
   }
 
-  &.btn--is-hovered:not(:disabled, [aria-disabled='true']),
+  &.tedi-btn--is-hovered:not(:disabled, [aria-disabled='true']),
   &:hover:not(:disabled, [aria-disabled='true']) {
     color: $color-hover;
     background-color: $background-hover;
@@ -160,7 +160,7 @@ $btn-height-small: 2rem;
   @include mixins.responsive-styles(padding-top, button-md-neutral-padding-y);
   @include mixins.responsive-styles(padding-bottom, button-md-neutral-padding-y);
 
-  &.tedi-btn--default.btn--icon-only {
+  &.tedi-btn--default.tedi-btn--icon-only {
     &:hover:not(:disabled) {
       background-color: var(--button-main-neutral-icon-only-background-hover);
     }
@@ -170,7 +170,7 @@ $btn-height-small: 2rem;
     }
   }
 
-  &.tedi-btn--danger.btn--icon-only {
+  &.tedi-btn--danger.tedi-btn--icon-only {
     &:hover:not(:disabled) {
       background-color: var(--button-main-danger-neutral-icon-only-background-hover);
     }
