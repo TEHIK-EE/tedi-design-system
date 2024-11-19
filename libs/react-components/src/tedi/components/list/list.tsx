@@ -47,9 +47,9 @@ export const List = (props: ListProps) => {
     className,
   } = getCurrentBreakpointProps<ListProps>(props);
   const listBEM = cn(
-    styles['list'],
-    styles[`list--${element === 'ul' ? 'unordered' : 'ordered'}`],
-    styles[`list--style-${style}`],
+    styles['tedi-list'],
+    styles[`tedi-list--${element === 'ul' ? 'unordered' : 'ordered'}`],
+    styles[`tedi-list--style-${style}`],
     verticalSpacing?.className,
     className
   );

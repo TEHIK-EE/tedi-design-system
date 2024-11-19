@@ -119,24 +119,24 @@ const InternalButtonContent = forwardRef(
 
     const BEM = !noStyle
       ? cn(
-          styles['btn'],
-          styles[`btn--${visualType}`],
-          styles[`btn--${color}`],
+          styles['tedi-btn'],
+          styles[`tedi-btn--${visualType}`],
+          styles[`tedi-btn--${color}`],
           className,
-          { [styles[`btn--${size}`]]: size },
-          { [styles['btn--underline']]: underline },
-          { [styles['btn--is-hovered']]: isHovered },
-          { [styles['btn--is-active']]: isActive },
-          { [styles['btn--is-loading']]: isLoading },
-          { [styles['btn--icon-only']]: icon },
-          { [styles['btn--icon']]: hasIcon },
-          { [styles['btn--full-width']]: fullWidth }
+          { [styles[`tedi-btn--${size}`]]: size },
+          { [styles['tedi-btn--underline']]: underline },
+          { [styles['tedi-btn--is-hovered']]: isHovered },
+          { [styles['tedi-btn--is-active']]: isActive },
+          { [styles['tedi-btn--is-loading']]: isLoading },
+          { [styles['tedi-btn--icon-only']]: icon },
+          { [styles['tedi-btn--icon']]: hasIcon },
+          { [styles['tedi-btn--full-width']]: fullWidth }
         )
-      : cn(styles['btn--no-style'], className, { [styles['btn--full-width']]: fullWidth });
+      : cn(styles['tedi-btn--no-style'], className, { [styles['tedi-btn--full-width']]: fullWidth });
 
     const getIcon = (location: string, icon: string | IconProps): JSX.Element => {
-      const iconBEM = cn(styles['btn__icon'], styles[`btn__icon--${location}`], {
-        [styles['btn__spinner']]: isLoading,
+      const iconBEM = cn(styles['tedi-btn__icon'], styles[`tedi-btn__icon--${location}`], {
+        [styles['tedi-btn__spinner']]: isLoading,
       });
       const defaultIconProps: Partial<IconProps> = { size: 18, className: iconBEM };
       const iconProps: IconProps =
@@ -148,11 +148,11 @@ const InternalButtonContent = forwardRef(
     };
 
     const renderContent = (): JSX.Element => (
-      <span className={styles['btn__inner']}>
+      <span className={styles['tedi-btn__inner']}>
         {icon && getIcon('center', icon)}
         {iconLeft && getIcon('left', iconLeft)}
-        <span className={styles['btn__text']}>{children}</span>
-        {isLoading && !hasIcon && <Spinner position="absolute" className={styles['btn__spinner']} size={18} />}
+        <span className={styles['tedi-btn__text']}>{children}</span>
+        {isLoading && !hasIcon && <Spinner position="absolute" className={styles['tedi-btn__spinner']} size={18} />}
         {iconRight && getIcon('right', iconRight)}
       </span>
     );
