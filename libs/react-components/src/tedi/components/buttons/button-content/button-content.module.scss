@@ -469,7 +469,9 @@ $btn-height-small: 2rem;
 }
 
 .tedi-btn--underline {
-  text-decoration: underline;
+  .tedi-btn__text {
+    text-decoration: underline;
+  }
 }
 
 .tedi-btn--no-style {
