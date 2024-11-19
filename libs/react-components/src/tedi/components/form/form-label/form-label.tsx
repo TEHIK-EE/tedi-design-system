@@ -45,10 +45,10 @@ export const FormLabel = (props: FormLabelProps): JSX.Element => {
   const { label, hideLabel, required, id, renderWithoutLabel, size = 'default', className, ...rest } = props;
 
   const FormLabelBEM = cn(
-    styles['form-label'],
-    styles[`form-label--${size}`],
+    styles['tedi-form-label'],
+    styles[`tedi-form-label--${size}`],
     {
-      [styles[`form-label--hidden${hideLabel === 'keep-space' ? '-keep-space' : ''}`]]: hideLabel,
+      [styles[`tedi-form-label--hidden${hideLabel === 'keep-space' ? '-keep-space' : ''}`]]: hideLabel,
     },
     className
   );

@@ -42,20 +42,20 @@ describe('Button component', () => {
   it('renders with ButtonContent styles based on props', () => {
     render(<Button {...defaultProps} type="button" />);
     const button = screen.getByRole('button');
-    expect(button).toHaveClass('btn');
+    expect(button).toHaveClass('tedi-btn');
   });
 
   it('renders an icon if specified in ButtonContent', () => {
     render(<Button {...defaultProps} icon="check" />);
     const icon = screen.getByRole('img', { hidden: true });
     expect(icon).toBeInTheDocument();
-    expect(icon).toHaveClass('btn__icon btn__icon--center');
+    expect(icon).toHaveClass('tedi-btn__icon tedi-btn__icon--center');
   });
 
   it('renders with full width when fullWidth prop is true', () => {
     render(<Button {...defaultProps} fullWidth />);
     const button = screen.getByRole('button');
-    expect(button).toHaveClass('btn--full-width');
+    expect(button).toHaveClass('tedi-btn--full-width');
   });
 
   it('does not trigger onClick when isLoading is true', () => {
