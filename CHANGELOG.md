@@ -1,3 +1,10 @@
+# [9.0.0-rc.19](https://github.com/TEHIK-EE/tedi-design-system/compare/v9.0.0-rc.18...v9.0.0-rc.19) (2024-11-19)
+
+
+### Bug Fixes
+
+* **ClosingButton:** add type button [#302](https://github.com/TEHIK-EE/tedi-design-system/issues/302) ([#305](https://github.com/TEHIK-EE/tedi-design-system/issues/305)) ([4188d1b](https://github.com/TEHIK-EE/tedi-design-system/commit/4188d1b22ddb6d2b46d5608fac9a526f1f4ff2a9))
+
 # [9.0.0-rc.18](https://github.com/TEHIK-EE/tedi-design-system/compare/v9.0.0-rc.17...v9.0.0-rc.18) (2024-11-19)
 
 
