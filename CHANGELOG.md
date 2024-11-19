@@ -1,3 +1,10 @@
+# [9.0.0-rc.18](https://github.com/TEHIK-EE/tedi-design-system/compare/v9.0.0-rc.17...v9.0.0-rc.18) (2024-11-19)
+
+
+### Bug Fixes
+
+* **check:** Check icon positioning bug [#300](https://github.com/TEHIK-EE/tedi-design-system/issues/300) ([#301](https://github.com/TEHIK-EE/tedi-design-system/issues/301)) ([3c85ec4](https://github.com/TEHIK-EE/tedi-design-system/commit/3c85ec4760875e2a71e662ff5ab6f964e8c0c077))
+
 # [9.0.0-rc.17](https://github.com/TEHIK-EE/tedi-design-system/compare/v9.0.0-rc.16...v9.0.0-rc.17) (2024-11-19)
 
 
