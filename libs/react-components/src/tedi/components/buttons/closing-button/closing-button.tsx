@@ -45,6 +45,7 @@ export const ClosingButton = (props: ClosingButtonProps): JSX.Element => {
   return (
     <button
       data-name="closing-button"
+      type="button"
       {...rest}
       className={buttonClass}
       onClick={onClick}
