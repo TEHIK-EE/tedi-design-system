@@ -1,11 +1,11 @@
 import cn from 'classnames';
 import React from 'react';
 
+import FormHelper, { FormHelperProps } from '../../../../tedi/components/form/form-helper/form-helper';
 import FormLabel, { FormLabelProps } from '../../../../tedi/components/form/form-label/form-label';
 import { Direction, Gutter, Row, RowProps } from '../../../../tedi/components/grid';
 import { useLabels } from '../../../../tedi/providers/label-provider';
 import Check, { CheckProps } from '../check/check';
-import FormHelper, { FormHelperProps } from '../form-helper/form-helper';
 import styles from './choice-group.module.scss';
 import { ChoiceGroupItemProps } from './choice-group.types';
 import { ChoiceGroupContext, IChoiceGroupContext } from './choice-group-context';

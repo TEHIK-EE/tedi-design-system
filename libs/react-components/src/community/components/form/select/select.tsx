@@ -23,6 +23,7 @@ import ReactSelect, {
 import AsyncSelect from 'react-select/async';
 import { MenuPortalProps } from 'react-select/dist/declarations/src/components/Menu';
 
+import FormHelper, { FormHelperProps } from '../../../../tedi/components/form/form-helper/form-helper';
 import { FormLabel, FormLabelProps } from '../../../../tedi/components/form/form-label/form-label';
 import { useLabels } from '../../../../tedi/providers/label-provider';
 import { getBackgroundColorClass } from '../../../helpers';
@@ -33,7 +34,6 @@ import { Icon } from '../../icon/icon';
 import Tag from '../../tag/tag';
 import Text, { TextProps } from '../../typography/text/text';
 import Check from '../check/check';
-import FormHelper, { FormHelperProps } from '../form-helper/form-helper';
 import styles from './select.module.scss';
 
 /**

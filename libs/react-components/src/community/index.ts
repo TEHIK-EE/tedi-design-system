@@ -31,7 +31,6 @@ export * from './components/form/textfield/textfield';
 export * from './components/form/textarea/textarea';
 export * from './components/form/toggle/toggle';
 export * from './components/truncate/truncate';
-export * from './components/form/form-helper/form-helper';
 export * from './components/table';
 export * from './components/table-of-contents';
 export * from './components/tabs';
