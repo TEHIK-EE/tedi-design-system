@@ -1,3 +1,10 @@
+# [9.0.0-rc.16](https://github.com/TEHIK-EE/tedi-design-system/compare/v9.0.0-rc.15...v9.0.0-rc.16) (2024-11-19)
+
+
+### Bug Fixes
+
+* **button, link, formLabel, list, separator, verticalSpacing:** Added tedi- prefix to classes [#291](https://github.com/TEHIK-EE/tedi-design-system/issues/291) ([#298](https://github.com/TEHIK-EE/tedi-design-system/issues/298)) ([489d577](https://github.com/TEHIK-EE/tedi-design-system/commit/489d577bdf98af39aba2ef0384901d4b93ffee13))
+
 # [9.0.0-rc.15](https://github.com/TEHIK-EE/tedi-design-system/compare/v9.0.0-rc.14...v9.0.0-rc.15) (2024-11-18)
 
 
