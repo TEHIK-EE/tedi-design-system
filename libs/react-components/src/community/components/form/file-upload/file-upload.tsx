@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import React from 'react';
 
-import FormHelper, { FormHelperProps } from '../../../../tedi/components/form/form-helper/form-helper';
+import { FeedbackText, FeedbackTextProps } from '../../../../tedi/components/form/feedback-text/feedback-text';
 import { FormLabel, FormLabelProps } from '../../../../tedi/components/form/form-label/form-label';
 import { Col, Row } from '../../../../tedi/components/grid';
 import { Tag } from '../../../../tedi/components/tag/tag';
@@ -37,7 +37,7 @@ export interface FileUploadProps extends FormLabelProps {
   /**
    * FileUpload helper
    */
-  helper?: FormHelperProps;
+  helper?: FeedbackTextProps;
   /**
    * The accept attribute value is a string that defines the file types the file input should accept
    * For example '.pdf,.jpg'
@@ -82,7 +82,7 @@ export interface FileUploadProps extends FormLabelProps {
 const getDefaultHelpers = (
   { accept, maxSize }: Partial<FileUploadProps>,
   getLabel: ILabelContext['getLabel']
-): FormHelperProps | undefined => {
+): FeedbackTextProps | undefined => {
   if (!accept && !maxSize) return;
   const text = [
     accept && `${getLabel('file-upload.accept')} ${accept.replaceAll(',', ', ')}`,
@@ -138,7 +138,7 @@ export const FileUpload = (props: FileUploadProps): JSX.Element => {
 
   const [hovered, setHovered] = React.useState(false);
   const [innerFiles, setInnerFiles] = React.useState<FileUploadFile[]>(defaultFiles || []);
-  const [uploadErrorHelper, setUploadErrorHelper] = React.useState<FormHelperProps | undefined>();
+  const [uploadErrorHelper, setUploadErrorHelper] = React.useState<FeedbackTextProps | undefined>();
 
   const fileUploadBEM = cn(styles['file-upload'], { [styles['file-upload-disabled']]: disabled });
 
@@ -267,7 +267,7 @@ export const FileUpload = (props: FileUploadProps): JSX.Element => {
         </Card>
       )}
       {(uploadErrorHelper || helper) && (
-        <FormHelper {...((uploadErrorHelper || helper) as FormHelperProps)} id={helperId} />
+        <FeedbackText {...((uploadErrorHelper || helper) as FeedbackTextProps)} id={helperId} />
       )}
     </div>
   );

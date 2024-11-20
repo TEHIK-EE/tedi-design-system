@@ -13,7 +13,7 @@ import {
 import { draftjsToMd, mdToDraftjs } from 'draftjs-md-converter';
 import React from 'react';
 
-import FormHelper, { FormHelperProps } from '../../../../tedi/components/form/form-helper/form-helper';
+import { FeedbackText, FeedbackTextProps } from '../../../../tedi/components/form/feedback-text/feedback-text';
 import { FormLabel, FormLabelProps } from '../../../../tedi/components/form/form-label/form-label';
 import { useIsMounted } from '../../../../tedi/helpers';
 import BlockStyleControls from './components/block-style-controls';
@@ -60,7 +60,7 @@ export interface TextEditorProps extends FormLabelProps {
   /**
    * Textfield helper.
    */
-  helper?: FormHelperProps;
+  helper?: FeedbackTextProps;
   /**
    * onFocus callback handler.
    */
@@ -186,7 +186,7 @@ export const TextEditor = (props: TextEditorProps): JSX.Element => {
           )}
         </div>
       </div>
-      {helper && <FormHelper {...helper} id={helperId} />}
+      {helper && <FeedbackText {...helper} id={helperId} />}
     </div>
   );
 };

@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import React, { forwardRef } from 'react';
 
-import FormHelper, { FormHelperProps } from '../../../../tedi/components/form/form-helper/form-helper';
+import { FeedbackText, FeedbackTextProps } from '../../../../tedi/components/form/feedback-text/feedback-text';
 import FormLabel, { FormLabelProps } from '../../../../tedi/components/form/form-label/form-label';
 import Separator from '../../../../tedi/components/separator/separator';
 import { useLabels } from '../../../../tedi/providers/label-provider';
@@ -91,7 +91,7 @@ export interface TextFieldProps extends Omit<FormLabelProps, 'size'> {
   /**
    * Textfield helper.
    */
-  helper?: FormHelperProps;
+  helper?: FeedbackTextProps;
   /**
    * If textfield is textarea
    */
@@ -351,7 +351,7 @@ export const TextField = forwardRef<TextFieldForwardRef, TextFieldProps>((props,
         {renderInputElement}
         {isClearable || icon ? renderRightArea : null}
       </div>
-      {helper && <FormHelper {...helper} id={helperId} />}
+      {helper && <FeedbackText {...helper} id={helperId} />}
     </div>
   );
 });

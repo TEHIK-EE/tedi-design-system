@@ -1,12 +1,12 @@
 import cn from 'classnames';
 import { AriaRole } from 'react';
 
-import styles from './form-helper.module.scss';
+import styles from './feedback-text.module.scss';
 
-export type FormHelperType = 'help' | 'valid' | 'error';
-export type FormHelperPosition = 'left' | 'right';
+export type FeedbackTextType = 'hint' | 'valid' | 'error';
+export type FeedbackTextPosition = 'left' | 'right';
 
-export interface FormHelperProps {
+export interface FeedbackTextProps {
   /**
    * Helper text
    */
@@ -24,29 +24,29 @@ export interface FormHelperProps {
    * Type of form-helper.
    * @default help
    */
-  type?: FormHelperType;
+  type?: FeedbackTextType;
   /**
    * Position of the helper.
    * @default left
    */
-  position?: FormHelperPosition;
+  position?: FeedbackTextPosition;
 }
 
-export const FormHelper = (props: FormHelperProps): JSX.Element => {
-  const { text, id, className, type = 'help', position = 'left', ...rest } = props;
+export const FeedbackText = (props: FeedbackTextProps): JSX.Element => {
+  const { text, id, className, type = 'hint', position = 'left', ...rest } = props;
 
   const role: AriaRole | undefined = type === 'valid' || type === 'error' ? 'alert' : undefined;
   const ariaLive = type === 'error' || type === 'valid' ? 'assertive' : 'polite';
 
   return (
     <div
-      data-name="form-helper"
+      data-name="feedback-text"
       {...rest}
       id={id}
       className={cn(
-        styles['tedi-form-helper'],
-        styles[`tedi-form-helper--${type}`],
-        styles[`tedi-form-helper--${position}`],
+        styles['tedi-feedback-text'],
+        styles[`tedi-feedback-text--${type}`],
+        styles[`tedi-feedback-text--${position}`],
         className
       )}
       role={role}
@@ -57,4 +57,4 @@ export const FormHelper = (props: FormHelperProps): JSX.Element => {
   );
 };
 
-export default FormHelper;
+export default FeedbackText;

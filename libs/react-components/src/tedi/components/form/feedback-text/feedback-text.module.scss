@@ -1,6 +1,6 @@
 @use '../../../styles/mixins';
 
-.tedi-form-helper {
+.tedi-feedback-text {
   color: var(--general-text-tertiary);
 
   @include mixins.responsive-styles(font-size, body-small-regular-size, $exclude: tablet);
