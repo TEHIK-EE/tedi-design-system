@@ -4,12 +4,12 @@ import { VerticalSpacing } from '../vertical-spacing';
 import HeadingWithIcon, { HeadingWithIconProps } from './heading-with-icon';
 
 /**
- * [Figma ↗](https://www.figma.com/file/jWiRIXhHRxwVdMSimKX2FF/TEDI-Design-System-(draft)?type=design&node-id=2137-19827&mode=dev)<br/>
- * [Zeroheight ↗](https://tedi.tehik.ee/1ee8444b7/p/94147f-heading-with-icon)
+ * <a href="https://www.figma.com/file/jWiRIXhHRxwVdMSimKX2FF/TEDI-Design-System-(draft)?type=design&node-id=2137-19827&mode=dev" target="_BLANK">Figma ↗</a><br/>
+ * <a href="https://tedi.tehik.ee/1ee8444b7/p/94147f-heading-with-icon" target="_BLANK">Zeroheight ↗</a>
  */
 
 export default {
-  title: 'Tedi-ready/Content/HeadingWithIcon',
+  title: 'Tedi-Ready/Content/HeadingWithIcon',
   component: HeadingWithIcon,
 } as Meta;
 type Story = StoryObj<HeadingWithIconProps>;

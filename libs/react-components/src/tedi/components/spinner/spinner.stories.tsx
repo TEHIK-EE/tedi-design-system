@@ -4,13 +4,13 @@ import { Col, Row } from '../grid';
 import { Spinner, SpinnerProps } from './spinner';
 
 /**
- * [Figma ↗](https://www.figma.com/file/jWiRIXhHRxwVdMSimKX2FF/TEDI-Design-System-(draft)?type=design&node-id=2768-42334&mode=dev)<br/>
- * [Zeroheight ↗](https://tedi.tehik.ee/1ee8444b7/p/13d6ac-spinner)
+ * <a href="https://www.figma.com/file/jWiRIXhHRxwVdMSimKX2FF/TEDI-Design-System-(draft)?type=design&node-id=2768-42334&mode=dev" target="_BLANK">Figma ↗</a><br/>
+ * <a href="https://tedi.tehik.ee/1ee8444b7/p/13d6ac-spinner" target="_BLANK">Zeroheight ↗</a>
  */
 
 const meta: Meta<typeof Spinner> = {
   component: Spinner,
-  title: 'Tedi-ready/Components/Loader/Spinner',
+  title: 'Tedi-Ready/Components/Loader/Spinner',
   parameters: {
     status: {
       type: [{ name: 'breakpointSupport', url: '?path=/docs/helpers-usebreakpointprops--usebreakpointprops' }],
