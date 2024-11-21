@@ -1,0 +1,38 @@
+import { Meta, Title, Subtitle, Unstyled } from '@storybook/blocks';
+
+<Meta name="Printing" title="TEDI-Ready/Components/Helpers/Print/Documentation" />
+
+# Printing
+
+## Components have built-in styles for printing
+
+- Text colors and some components are converted to grayscale.
+- Most background colors are set to white.
+- The base font size is 14px, with other font sizes and spacing adjusted accordingly.
+- Some components are hidden by default, including Buttons, Anchors, Header, Footer, Breadcrumbs, and Sidenav.
+- Expandable components are open by default, such as Accordion, Collapse, and Table subRow/subComponent.
+- Page breaks are prevented in certain components (e.g., Placeholder, Table rows). Other page break locations should be defined in the application using the `<Print>` component.  
+  _Note: Page breaks do not work in Firefox. See the following issues for more details:_  
+  [Bug 1](https://bugzilla.mozilla.org/show_bug.cgi?id=1807406), [Bug 2](https://bugzilla.mozilla.org/show_bug.cgi?id=1695475), [Bug 3](https://bugzilla.mozilla.org/show_bug.cgi?id=939897)
+- Tables are printed by default, but each table should be reviewed on a case-by-case basis. If a table does not fit horizontally, it will include a scrollbar. Tables with many columns may not fit well in the print view.
+
+**The UI can be adjusted using the following methods:**
+
+### `<Print>` component
+
+Preferred method. [More info here](/docs/tedi-ready-components-helpers-print--docs).
+
+### Hooks
+
+- `const isPrinting = usePrint()` - This hook checks if `window.matchMedia('print')` matches. It is useful for conditionally re-rendering the UI during printing.
+
+### Utility classes
+
+**Note:** Use utility classes only when the `<Print>` component cannot be used.
+
+- `no-print` - Hides a component from the print view.
+- `show-print` - Shows components in the print view that are hidden by default.
+- Determines where page breaks occur during printing. Accepted values include `auto`, `avoid`, `avoid-column`, `avoid-page`, `avoid-region`
+  - `break-before-{value}` - Controls how page, column, or region breaks behave **before** a generated box.
+  - `break-after-{value}` - Controls how page, column, or region breaks behave **after** a generated box.
+  - `break-inside-{value}` - Controls how page, column, or region breaks behave **inside** a generated box.

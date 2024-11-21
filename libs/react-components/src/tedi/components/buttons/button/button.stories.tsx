@@ -7,8 +7,8 @@ import { VerticalSpacing } from '../../vertical-spacing';
 import { Button, ButtonProps } from './button';
 
 /**
- * [Figma ↗](https://www.figma.com/file/jWiRIXhHRxwVdMSimKX2FF/TEDI-Design-System-(draft)?type=design&node-id=136-29124&m=dev)<br/>
- * [Zeroheight ↗](https://tedi.tehik.ee/1ee8444b7/p/10984a-button)
+ * <a href="https://www.figma.com/file/jWiRIXhHRxwVdMSimKX2FF/TEDI-Design-System-(draft)?type=design&node-id=136-29124&m=dev" target="_BLANK">Figma ↗</a><br/>
+ * <a href="https://tedi.tehik.ee/1ee8444b7/p/10984a-button" target="_BLANK">Zeroheight ↗</a>
  */
 
 const meta: Meta<typeof Button> = {

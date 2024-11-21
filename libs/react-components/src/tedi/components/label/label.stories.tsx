@@ -3,8 +3,8 @@ import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import { Label, LabelProps } from './label';
 
 /**
- * [Figma ↗](https://www.figma.com/design/jWiRIXhHRxwVdMSimKX2FF/%E2%9D%97TEDI-Design-System%E2%9D%97(draft---DO-NOT-USE-it-in-projects-yet)?node-id=2137-19406&m=dev)<br />
- * [Zeroheight ↗](https://tedi.tehik.ee/1ee8444b7/p/64479c-label)
+ * <a href="https://www.figma.com/design/jWiRIXhHRxwVdMSimKX2FF/%E2%9D%97TEDI-Design-System%E2%9D%97(draft---DO-NOT-USE-it-in-projects-yet)?node-id=2137-19406&m=dev" target="_BLANK">Figma ↗</a><br />
+ * <a href="https://tedi.tehik.ee/1ee8444b7/p/64479c-label" target="_BLANK">Zeroheight ↗</a>
  */
 
 const meta: Meta<typeof Label> = {

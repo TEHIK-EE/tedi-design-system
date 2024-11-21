@@ -6,13 +6,13 @@ import { VerticalSpacing } from '../../vertical-spacing';
 import { Text } from './text';
 
 /**
- * [Figma ↗](https://www.figma.com/design/jWiRIXhHRxwVdMSimKX2FF/TEDI-Design-System-(draft)?node-id=115-11630&m=dev)<br/>
- * [Zeroheight ↗](https://tedi.tehik.ee/1ee8444b7/p/4651ec-typography)
+ * <a href="https://www.figma.com/design/jWiRIXhHRxwVdMSimKX2FF/TEDI-Design-System-(draft)?node-id=115-11630&m=dev" target="_BLANK">Figma ↗</a><br/>
+ * <a href="https://tedi.tehik.ee/1ee8444b7/p/4651ec-typography" target="_BLANK">Zeroheight ↗</a>
  */
 
 const meta: Meta<typeof Text> = {
   component: Text,
-  title: 'Tedi-ready/Base/Typography/Text',
+  title: 'Tedi-Ready/Base/Typography/Text',
 };
 
 export default meta;
