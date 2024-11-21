@@ -17,6 +17,7 @@ export * from './components/buttons/button/button';
 export * from './components/alert/alert';
 export * from './components/stretch-content/stretch-content';
 export * from './components/navigation/link/link';
+export * from './components/cards/card';
 
 export * from './helpers';
 

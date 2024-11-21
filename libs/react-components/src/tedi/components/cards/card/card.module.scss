@@ -1,0 +1,157 @@
+@use '../../../styles/mixins';
+
+$card-colors: (
+  'accent': '--card-background-accent',
+  'brand-primary': '--card-background-brand-primary',
+  'brand-secondary': '--card-background-brand-secondary',
+  'brand-tertiary': '--card-background-brand-tertiary',
+  'brand-quaternary': '--card-background-brand-quaternary',
+  'primary': '--card-background-primary',
+  'secondary': '--card-background-secondary',
+  'tertiary': '--card-background-tertiary',
+  'danger-primary': '--general-status-danger-background-light',
+  'info-primary': '--general-status-info-background-light',
+  'neutral-primary': '--general-status-neutral-background-light',
+  'success-primary': '--general-status-success-background-light',
+  'warning-primary': '--general-status-warning-background-light',
+  'danger-secondary': '--general-status-danger-background-secondary',
+  'info-secondary': '--general-status-info-background-dark',
+  'neutral-secondary': '--general-status-neutral-background-secondary',
+  'success-secondary': '--general-status-success-background-dark',
+  'warning-secondary': '--general-status-warning-background-secondary',
+);
+
+@mixin border-radius-reset($sides...) {
+  @each $side in $sides {
+    border-#{$side}-radius: 0;
+
+    > .tedi-card__content:first-of-type,
+    > .tedi-card__content:last-child {
+      border-#{$side}-radius: 0;
+    }
+  }
+}
+
+@mixin card-padding {
+  padding: var(--card-content-padding-top, 1rem) var(--card-content-padding-right, 1rem)
+    var(--card-content-padding-bottom, 1rem) var(--card-content-padding-left, 1rem);
+}
+
+.tedi-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--card-border-primary);
+
+  @include mixins.responsive-styles(border-radius, card-radius-rounded);
+
+  @mixin card-color($name, $color-var) {
+    &--background--#{$name} {
+      background-color: var(#{$color-var});
+    }
+
+    &--border--#{$name} {
+      border-color: var(#{$color-var});
+
+      --card-border-color: var(#{$color-var});
+    }
+  }
+
+  @each $name, $color-var in $card-colors {
+    @include card-color($name, $color-var);
+  }
+
+  &--border-left {
+    border-top-color: var(--card-border-primary);
+    border-right-color: var(--card-border-primary);
+    border-bottom-color: var(--card-border-primary);
+    border-left: 4px solid var(--card-border-color);
+  }
+
+  &--border-top {
+    border-top: 4px solid var(--card-border-color);
+    border-right-color: var(--card-border-primary);
+    border-bottom-color: var(--card-border-primary);
+    border-left-color: var(--card-border-primary);
+  }
+
+  &--borderless {
+    border: none;
+  }
+
+  &--no-border-radius-top {
+    @include border-radius-reset(top-left, top-right);
+  }
+
+  &--no-border-radius-right {
+    @include border-radius-reset(top-right, bottom-right);
+  }
+
+  &--no-border-radius-bottom {
+    @include border-radius-reset(bottom-right, bottom-left);
+  }
+
+  &--no-border-radius-left {
+    @include border-radius-reset(bottom-left, top-left);
+  }
+
+  &--border-left,
+  &--border-top {
+    @media print {
+      border-color: var(--color-border-contrast);
+    }
+  }
+
+  &--background--brand-primary,
+  &--background--brand-secondary {
+    color: var(--general-text-white);
+  }
+}
+
+.tedi-card__content {
+  flex: 1 1 1px;
+
+  @include card-padding;
+
+  &--separator {
+    border-bottom: 1px solid var(--card-border-primary);
+  }
+}
+
+.tedi-card__header {
+  z-index: 1;
+  flex: 0;
+
+  @include card-padding;
+
+  @media print {
+    color: var(--color-text-default);
+    background: var(--color-bg-default);
+    border-bottom: 1px solid var(--color-border-default);
+  }
+}
+
+.tedi-card__header:first-of-type,
+.tedi-card__content:first-of-type {
+  border-start-start-radius: var(--border-radius-default);
+  border-start-end-radius: var(--border-radius-default);
+
+  .tedi-card--border-top & {
+    border-start-start-radius: 0;
+    border-start-end-radius: 0;
+  }
+}
+
+.tedi-card__header:last-child,
+.tedi-card__content:last-child {
+  border-end-start-radius: var(--border-radius-default);
+  border-end-end-radius: var(--border-radius-default);
+}
+
+.tedi-card__header,
+.tedi-card__content {
+  .tedi-card--border-left & {
+    border-start-start-radius: 0;
+    border-end-start-radius: 0;
+  }
+}

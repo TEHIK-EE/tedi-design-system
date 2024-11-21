@@ -1,0 +1,17 @@
+.tedi-card__notification-content {
+  z-index: 1;
+  padding: 0;
+
+  [data-name='card-header'] + & {
+    margin-top: -1px;
+  }
+
+  &:last-child {
+    margin-bottom: -1px;
+  }
+}
+
+.tedi-card__notification {
+  padding: var(--card-content-padding-top, 1rem) var(--card-content-padding-right, 1rem)
+    var(--card-content-padding-bottom, 1rem) var(--card-content-padding-left, 1rem);
+}
