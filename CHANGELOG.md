@@ -1,3 +1,15 @@
+# [9.0.0-rc.20](https://github.com/TEHIK-EE/tedi-design-system/compare/v9.0.0-rc.19...v9.0.0-rc.20) (2024-11-21)
+
+
+### Features
+
+* **feedback-text:** TEDI-Ready FeedbackText component development [#304](https://github.com/TEHIK-EE/tedi-design-system/issues/304) ([#306](https://github.com/TEHIK-EE/tedi-design-system/issues/306)) ([7341d8c](https://github.com/TEHIK-EE/tedi-design-system/commit/7341d8c5e48f94bba9896855978f96a707b1cc9d))
+
+
+### BREAKING CHANGES
+
+* **feedback-text:** Community FormLabel removed, use TEDI-Ready FormLabel
+
 # [9.0.0-rc.19](https://github.com/TEHIK-EE/tedi-design-system/compare/v9.0.0-rc.18...v9.0.0-rc.19) (2024-11-19)
 
 
