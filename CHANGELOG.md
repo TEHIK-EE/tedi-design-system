@@ -1,3 +1,10 @@
+# [9.0.0-rc.22](https://github.com/TEHIK-EE/tedi-design-system/compare/v9.0.0-rc.21...v9.0.0-rc.22) (2024-11-22)
+
+
+### Bug Fixes
+
+* **icon:** Add material-symbols class to Community Icon to fix icon dimensions [#313](https://github.com/TEHIK-EE/tedi-design-system/issues/313) ([#315](https://github.com/TEHIK-EE/tedi-design-system/issues/315)) ([d63c86a](https://github.com/TEHIK-EE/tedi-design-system/commit/d63c86a6507f76fe78054b6383145473a192837e))
+
 # [9.0.0-rc.21](https://github.com/TEHIK-EE/tedi-design-system/compare/v9.0.0-rc.20...v9.0.0-rc.21) (2024-11-22)
 
 
