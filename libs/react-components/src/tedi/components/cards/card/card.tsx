@@ -38,7 +38,7 @@ export const Card = forwardRef<HTMLDivElement, CardProps>((props, ref): JSX.Elem
 
   const [borderPlacement, borderColor] = getCardBorderPlacementColor(border);
 
-  const BEM = cn(
+  const cardBEM = cn(
     styles['tedi-card'],
     {
       [styles[`tedi-card--border-${borderPlacement}`]]: borderPlacement,
@@ -54,7 +54,7 @@ export const Card = forwardRef<HTMLDivElement, CardProps>((props, ref): JSX.Elem
 
   return (
     <CardContext.Provider value={{ padding, background }}>
-      <div data-name="card" {...rest} className={BEM} ref={ref}>
+      <div data-name="card" data-testid="tedi-card" {...rest} className={cardBEM} ref={ref}>
         {children}
       </div>
     </CardContext.Provider>

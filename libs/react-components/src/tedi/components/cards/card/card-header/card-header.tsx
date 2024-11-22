@@ -5,7 +5,7 @@ import { BreakpointSupport, useBreakpointProps } from '../../../../helpers';
 import styles from '../card.module.scss';
 import CardContent, { CardContentPadding, CardContentProps } from '../card-content/card-content';
 import { CardContext } from '../card-context';
-import { CardBackground } from '../utility';
+import { CardBackground, getPaddingCssVariables } from '../utility';
 
 export type CardHeaderBreakpointProps = {
   /**
@@ -77,6 +77,7 @@ export const CardHeader = (props: CardHeaderProps): JSX.Element => {
     backgroundPosition,
     backgroundSize,
     backgroundRepeat,
+    ...getPaddingCssVariables(padding),
   };
 
   return (
@@ -84,7 +85,7 @@ export const CardHeader = (props: CardHeaderProps): JSX.Element => {
       className={cn(styles['tedi-card__header'], backgroundClass, className)}
       padding={padding}
       role={role}
-      style={backgroundStyle as React.CSSProperties}
+      style={backgroundStyle}
       hasSeparator={hasSeparator}
       {...rest}
     >

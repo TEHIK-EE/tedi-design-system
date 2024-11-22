@@ -30,10 +30,8 @@ export const HeaderTypesTemplate: StoryFn<CardStory> = () => (
         <Card>
           <CardHeader>
             <Heading element="h3">Title</Heading>
-          </CardHeader>
-          <CardContent padding={{ top: 0, right: 1, bottom: 1, left: 1 }}>
             <Text>Description</Text>
-          </CardContent>
+          </CardHeader>
         </Card>
       </Col>
     </Row>
@@ -49,10 +47,12 @@ export const HeaderTypesTemplate: StoryFn<CardStory> = () => (
                 <Button>Create</Button>
               </Col>
             </Row>
+            <Row>
+              <Col>
+                <Text>Description</Text>
+              </Col>
+            </Row>
           </CardHeader>
-          <CardContent padding={{ top: 0, right: 1, bottom: 1, left: 1 }}>
-            <Text>Description</Text>
-          </CardContent>
         </Card>
       </Col>
     </Row>
@@ -73,10 +73,12 @@ export const HeaderTypesTemplate: StoryFn<CardStory> = () => (
                 </Button>
               </Col>
             </Row>
+            <Row>
+              <Col>
+                <Text>Description</Text>
+              </Col>
+            </Row>
           </CardHeader>
-          <CardContent padding={{ top: 0, right: 1, bottom: 1, left: 1 }}>
-            <Text>Description</Text>
-          </CardContent>
         </Card>
       </Col>
     </Row>
@@ -94,10 +96,12 @@ export const HeaderTypesTemplate: StoryFn<CardStory> = () => (
                 </Link>
               </Col>
             </Row>
+            <Row>
+              <Col>
+                <Text>Description</Text>
+              </Col>
+            </Row>
           </CardHeader>
-          <CardContent padding={{ top: 0, right: 1, bottom: 1, left: 1 }}>
-            <Text>Description</Text>
-          </CardContent>
         </Card>
       </Col>
     </Row>
@@ -113,10 +117,96 @@ export const HeaderTypesTemplate: StoryFn<CardStory> = () => (
                 <StatusBadge color="brand">Approved</StatusBadge>
               </Col>
             </Row>
+            <Row>
+              <Col>
+                <Text>Description</Text>
+              </Col>
+            </Row>
           </CardHeader>
-          <CardContent padding={{ top: 0, right: 1, bottom: 1, left: 1 }}>
-            <Text>Description</Text>
-          </CardContent>
+        </Card>
+      </Col>
+    </Row>
+    <Row>
+      <Col>
+        <Card>
+          <CardHeader background="secondary">
+            <Row>
+              <Col>
+                <Heading element="h3">Title</Heading>
+              </Col>
+              <Col width="auto">
+                <Button>Create</Button>
+              </Col>
+            </Row>
+            <Row>
+              <Col>
+                <Text>Description</Text>
+              </Col>
+            </Row>
+          </CardHeader>
+        </Card>
+      </Col>
+    </Row>
+    <Row>
+      <Col>
+        <Card>
+          <CardHeader background="tertiary">
+            <Row>
+              <Col>
+                <Heading element="h3">Title</Heading>
+              </Col>
+              <Col width="auto">
+                <Button>Create</Button>
+              </Col>
+            </Row>
+            <Row>
+              <Col>
+                <Text>Description</Text>
+              </Col>
+            </Row>
+          </CardHeader>
+        </Card>
+      </Col>
+    </Row>
+    <Row>
+      <Col>
+        <Card>
+          <CardHeader background="brand-primary">
+            <Row>
+              <Col>
+                <Heading element="h3">Title</Heading>
+              </Col>
+              <Col width="auto">
+                <Button visualType="secondary">Create</Button>
+              </Col>
+            </Row>
+            <Row>
+              <Col>
+                <Text>Description</Text>
+              </Col>
+            </Row>
+          </CardHeader>
+        </Card>
+      </Col>
+    </Row>
+    <Row>
+      <Col>
+        <Card>
+          <CardHeader background="brand-secondary">
+            <Row>
+              <Col>
+                <Heading element="h3">Title</Heading>
+              </Col>
+              <Col width="auto">
+                <Button visualType="secondary">Create</Button>
+              </Col>
+            </Row>
+            <Row>
+              <Col>
+                <Text>Description</Text>
+              </Col>
+            </Row>
+          </CardHeader>
         </Card>
       </Col>
     </Row>
@@ -457,7 +547,7 @@ export const BackgroundColorsTemplate: StoryFn<CardStory> = () => {
     <Row>
       {backgroundColors.map((color, index) => (
         <Col lg={4} sm={12} key={index} style={{ marginBottom: '1.5rem' }}>
-          <Card background={color} border={color !== 'primary' ? color : undefined}>
+          <Card background={color} borderless={color !== 'primary' ? true : false}>
             <CardContent>
               <Text>
                 Cabbage, comprising several cultivars of Brassica oleracea, is a leafy green, red (purple), or white
