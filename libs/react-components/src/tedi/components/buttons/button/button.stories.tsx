@@ -76,82 +76,78 @@ const TemplateColumn: StoryFn<TemplateMultipleProps> = (args) => {
                 {value}
               </Text>
             </Col>
-            <Col>
-              <div className="display-flex align-items-center gap-3">
-                <Button id={value} {...buttonProps} disabled={value === 'Disabled'} isLoading={value === 'Loading'}>
-                  Create
-                </Button>
-                <Button
-                  id={value}
-                  {...buttonProps}
-                  iconRight="arrow_right_alt"
-                  disabled={value === 'Disabled'}
-                  isLoading={value === 'Loading'}
-                >
-                  Continue
-                </Button>
-                <Button
-                  id={value}
-                  {...buttonProps}
-                  iconLeft="edit"
-                  disabled={value === 'Disabled'}
-                  isLoading={value === 'Loading'}
-                >
-                  Edit
-                </Button>
-                <Button
-                  id={value}
-                  {...buttonProps}
-                  icon="arrow_right_alt"
-                  disabled={value === 'Disabled'}
-                  isLoading={value === 'Loading'}
-                >
-                  Icon Only
-                </Button>
-              </div>
+            <Col className="display-flex align-items-center gap-3">
+              <Button id={value} {...buttonProps} disabled={value === 'Disabled'} isLoading={value === 'Loading'}>
+                Create
+              </Button>
+              <Button
+                id={value}
+                {...buttonProps}
+                iconRight="arrow_right_alt"
+                disabled={value === 'Disabled'}
+                isLoading={value === 'Loading'}
+              >
+                Continue
+              </Button>
+              <Button
+                id={value}
+                {...buttonProps}
+                iconLeft="edit"
+                disabled={value === 'Disabled'}
+                isLoading={value === 'Loading'}
+              >
+                Edit
+              </Button>
+              <Button
+                id={value}
+                {...buttonProps}
+                icon="arrow_right_alt"
+                disabled={value === 'Disabled'}
+                isLoading={value === 'Loading'}
+              >
+                Icon Only
+              </Button>
             </Col>
-            <Col className="display-flex align-items-center">
-              <div className="display-flex align-items-center gap-3">
-                <Button
-                  id={value}
-                  size="small"
-                  {...buttonProps}
-                  disabled={value === 'Disabled'}
-                  isLoading={value === 'Loading'}
-                >
-                  Create
-                </Button>
-                <Button
-                  id={value}
-                  size="small"
-                  {...buttonProps}
-                  iconRight="arrow_right_alt"
-                  disabled={value === 'Disabled'}
-                  isLoading={value === 'Loading'}
-                >
-                  Continue
-                </Button>
-                <Button
-                  id={value}
-                  size="small"
-                  {...buttonProps}
-                  iconLeft="edit"
-                  disabled={value === 'Disabled'}
-                  isLoading={value === 'Loading'}
-                >
-                  Edit
-                </Button>
-                <Button
-                  id={value}
-                  size="small"
-                  {...buttonProps}
-                  icon="arrow_right_alt"
-                  disabled={value === 'Disabled'}
-                  isLoading={value === 'Loading'}
-                >
-                  Icon Only
-                </Button>
-              </div>
+            <Col className="display-flex align-items-center gap-3">
+              <Button
+                id={value}
+                size="small"
+                {...buttonProps}
+                disabled={value === 'Disabled'}
+                isLoading={value === 'Loading'}
+              >
+                Create
+              </Button>
+              <Button
+                id={value}
+                size="small"
+                {...buttonProps}
+                iconRight="arrow_right_alt"
+                disabled={value === 'Disabled'}
+                isLoading={value === 'Loading'}
+              >
+                Continue
+              </Button>
+              <Button
+                id={value}
+                size="small"
+                {...buttonProps}
+                iconLeft="edit"
+                disabled={value === 'Disabled'}
+                isLoading={value === 'Loading'}
+              >
+                Edit
+              </Button>
+              <Button
+                id={value}
+                size="small"
+                {...buttonProps}
+                icon="arrow_right_alt"
+                disabled={value === 'Disabled'}
+                isLoading={value === 'Loading'}
+              >
+                Icon Only
+              </Button>
             </Col>
           </Row>
         ))}

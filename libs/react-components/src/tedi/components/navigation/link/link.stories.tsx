@@ -76,31 +76,27 @@ const TemplateColumn: StoryFn<TemplateMultipleProps> = (args) => {
                 {value}
               </Text>
             </Col>
-            <Col>
-              <div className="display-flex align-items-center gap-3">
-                <Link id={value} href="#" {...buttonProps}>
-                  Create
-                </Link>
-                <Link id={value} href="#" {...buttonProps} iconRight="arrow_right_alt">
-                  Continue
-                </Link>
-                <Link id={value} href="#" {...buttonProps} iconLeft="edit">
-                  Edit
-                </Link>
-              </div>
+            <Col className="display-flex align-items-center gap-3">
+              <Link id={value} href="#" {...buttonProps}>
+                Create
+              </Link>
+              <Link id={value} href="#" {...buttonProps} iconRight="arrow_right_alt">
+                Continue
+              </Link>
+              <Link id={value} href="#" {...buttonProps} iconLeft="edit">
+                Edit
+              </Link>
             </Col>
-            <Col>
-              <div className="display-flex align-items-center gap-3">
-                <Link id={value} href="#" size="small" {...buttonProps}>
-                  Create
-                </Link>
-                <Link id={value} href="#" size="small" {...buttonProps} iconRight="arrow_right_alt">
-                  Continue
-                </Link>
-                <Link id={value} href="#" size="small" {...buttonProps} iconLeft="edit">
-                  Edit
-                </Link>
-              </div>
+            <Col className="display-flex align-items-center gap-3">
+              <Link id={value} href="#" size="small" {...buttonProps}>
+                Create
+              </Link>
+              <Link id={value} href="#" size="small" {...buttonProps} iconRight="arrow_right_alt">
+                Continue
+              </Link>
+              <Link id={value} href="#" size="small" {...buttonProps} iconLeft="edit">
+                Edit
+              </Link>
             </Col>
           </Row>
         ))}
