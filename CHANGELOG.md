@@ -1,3 +1,10 @@
+# [9.0.0-rc.23](https://github.com/TEHIK-EE/tedi-design-system/compare/v9.0.0-rc.22...v9.0.0-rc.23) (2024-11-22)
+
+
+### Bug Fixes
+
+* **alert:** Wrap title and children inside a div to prevent display flex problems [#314](https://github.com/TEHIK-EE/tedi-design-system/issues/314) ([#317](https://github.com/TEHIK-EE/tedi-design-system/issues/317)) ([c1a5994](https://github.com/TEHIK-EE/tedi-design-system/commit/c1a5994c5c3d214c6d67cdc2a4c62e63c183badf))
+
 # [9.0.0-rc.22](https://github.com/TEHIK-EE/tedi-design-system/compare/v9.0.0-rc.21...v9.0.0-rc.22) (2024-11-22)
 
 
