@@ -65,6 +65,7 @@ export const Icon = forwardRef<HTMLDivElement, IconProps>((props, ref): JSX.Elem
   } = props;
   const iconBEM = cn(
     'notranslate', // Added to prevent Google Translate from translating the icon
+    'material-symbols',
     styles['icon'],
     styles[`icon--${display}`],
     { [`material-symbols-${type}`]: type, [`text-${color}`]: color },
