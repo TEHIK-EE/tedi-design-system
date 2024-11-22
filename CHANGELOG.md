@@ -1,3 +1,10 @@
+# [9.0.0-rc.21](https://github.com/TEHIK-EE/tedi-design-system/compare/v9.0.0-rc.20...v9.0.0-rc.21) (2024-11-22)
+
+
+### Bug Fixes
+
+* **button, link:** Prevent text wrapping in Button and Link components [#311](https://github.com/TEHIK-EE/tedi-design-system/issues/311) ([#312](https://github.com/TEHIK-EE/tedi-design-system/issues/312)) ([8fb3016](https://github.com/TEHIK-EE/tedi-design-system/commit/8fb301602e624d75752623cfc6a8783b17736051))
+
 # [9.0.0-rc.20](https://github.com/TEHIK-EE/tedi-design-system/compare/v9.0.0-rc.19...v9.0.0-rc.20) (2024-11-21)
 
 
