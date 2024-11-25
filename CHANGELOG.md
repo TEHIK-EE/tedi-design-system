@@ -1,3 +1,10 @@
+# [9.0.0-rc.24](https://github.com/TEHIK-EE/tedi-design-system/compare/v9.0.0-rc.23...v9.0.0-rc.24) (2024-11-25)
+
+
+### Bug Fixes
+
+* **icon:** Added forwardRef possibility to Icon [#318](https://github.com/TEHIK-EE/tedi-design-system/issues/318) ([#321](https://github.com/TEHIK-EE/tedi-design-system/issues/321)) ([7719a76](https://github.com/TEHIK-EE/tedi-design-system/commit/7719a764da2f3167af2ce23434814e4dc3ada0d2))
+
 # [9.0.0-rc.23](https://github.com/TEHIK-EE/tedi-design-system/compare/v9.0.0-rc.22...v9.0.0-rc.23) (2024-11-22)
 
 
