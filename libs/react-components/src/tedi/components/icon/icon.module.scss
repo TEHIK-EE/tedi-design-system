@@ -62,11 +62,11 @@ $icon-sizes: (
 }
 
 .tedi-icon {
-  &--block {
+  &.tedi-icon--block {
     display: block;
   }
 
-  &--inline {
+  &.tedi-icon--inline {
     display: inline;
     vertical-align: text-top;
   }
