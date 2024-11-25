@@ -1,4 +1,5 @@
 import cn from 'classnames';
+import { forwardRef } from 'react';
 
 import styles from './icon.module.scss';
 
@@ -60,7 +61,7 @@ export interface IconProps {
   background?: IconBackgroundColor;
 }
 
-export const Icon = (props: IconProps): JSX.Element => {
+export const Icon = forwardRef<HTMLDivElement, IconProps>((props: IconProps, ref): JSX.Element => {
   const {
     className,
     name,
@@ -91,12 +92,12 @@ export const Icon = (props: IconProps): JSX.Element => {
   );
 
   return (
-    <div className={wrapperBEM}>
+    <div className={wrapperBEM} ref={ref}>
       <span className={iconBEM} data-name="icon" role="img" aria-hidden={true} {...rest}>
         {name}
       </span>
     </div>
   );
-};
+});
 
 Icon.displayName = 'Icon';
