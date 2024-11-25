@@ -116,7 +116,7 @@ export const Alert = (props: AlertProps): JSX.Element | null => {
       {...rest}
       className={alertBEM}
     >
-      <VerticalSpacing size={!title ? 0 : 0.25}>
+      <VerticalSpacing size={0.25}>
         <Row gutterX={2} alignItems={title ? 'center' : 'start'}>
           <Col grow={1} className={styles['tedi-alert__content']}>
             {icon && getIcon(icon)}
@@ -130,7 +130,7 @@ export const Alert = (props: AlertProps): JSX.Element | null => {
             </Col>
           )}
         </Row>
-        <div className="tedi-alert__content-wrapper">{title && children}</div>
+        {title && children && <div className="tedi-alert__content-wrapper">{title && children}</div>}
       </VerticalSpacing>
     </div>
   ) : null;
