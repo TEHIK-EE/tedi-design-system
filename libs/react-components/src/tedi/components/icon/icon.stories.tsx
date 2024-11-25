@@ -2,6 +2,8 @@ import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import classNames from 'classnames';
 
 import { Col, Row } from '../grid';
+import { Heading } from '../typography/heading/heading';
+import { VerticalSpacing } from '../vertical-spacing';
 import { Icon, IconProps } from './icon';
 
 /**
@@ -137,34 +139,34 @@ const TemplateColumnWithMultipleVariants: StoryFn<TemplateMultipleProps> = (args
 const TemplateColumnWithBackgroundCircleVarians: StoryFn<TemplateMultipleProps> = (args) => {
   return (
     <Row alignItems="center">
-      <Col md={4} sm={6}>
+      <Col width="auto">
         <Row alignItems="center">
-          <Col>
+          <Col width="auto">
             <Icon name="Vaccines" background="brand-primary" color="white" />
           </Col>
-          <Col>
+          <Col width="auto">
             <Icon name="Info" background="brand-primary" color="white" size={16} />
           </Col>
-          <Col>
+          <Col width="auto">
             <Icon name="Vaccines" background="brand-secondary" color="brand" />
           </Col>
-          <Col>
+          <Col width="auto">
             <Icon name="Info" background="brand-secondary" color="brand" size={16} />
           </Col>
         </Row>
       </Col>
-      <Col md={4} sm={6}>
+      <Col width="auto">
         <Row alignItems="center" className="bg bg-primary">
-          <Col>
+          <Col width="auto">
             <Icon name="Vaccines" background="primary" color="brand" />
           </Col>
-          <Col>
+          <Col width="auto">
             <Icon name="Info" background="primary" color="brand" size={16} />
           </Col>
-          <Col>
+          <Col width="auto">
             <Icon name="Vaccines" background="secondary" color="white" />
           </Col>
-          <Col>
+          <Col width="auto">
             <Icon name="Info" background="secondary" color="white" size={16} />
           </Col>
         </Row>
@@ -233,4 +235,57 @@ export const Colors: Story = {
 export const Backgrounds: Story = {
   render: TemplateColumnWithBackgroundCircleVarians,
   name: 'Icon background colors',
+};
+
+export const UsedInsideText: Story = {
+  render: (args) => {
+    return (
+      <VerticalSpacing size={0.25}>
+        <Heading element="h1">
+          <Icon name={args.name} display="inline" size={36} />
+          This is level 1 heading with inline{' '}
+          <Icon background="brand-secondary" color="brand" name={args.name} display="inline" size={18} /> icon
+        </Heading>
+        <Heading element="h2">
+          <Icon name={args.name} display="inline" size={36} />
+          This is level 2 heading with inline{' '}
+          <Icon background="brand-secondary" color="brand" name={args.name} display="inline" size={16} /> icon
+        </Heading>
+        <Heading element="h3">
+          <Icon name={args.name} display="inline" size={24} />
+          This is level 3 heading with inline{' '}
+          <Icon background="brand-secondary" color="brand" name={args.name} display="inline" size={12} /> icon
+        </Heading>
+        <Heading element="h4">
+          <Icon name={args.name} display="inline" size={24} />
+          This is level 4 heading with inline{' '}
+          <Icon background="brand-secondary" color="brand" name={args.name} display="inline" size={12} /> icon
+        </Heading>
+        <Heading element="h5">
+          <Icon name={args.name} display="inline" size={18} />
+          This is level 5 heading with inline{' '}
+          <Icon background="brand-secondary" color="brand" name={args.name} display="inline" size={12} /> icon
+        </Heading>
+        <Heading element="h6">
+          <Icon name={args.name} display="inline" size={16} />
+          This is level 6 heading with inline{' '}
+          <Icon background="brand-secondary" color="brand" name={args.name} display="inline" size={8} /> icon
+        </Heading>
+        <p>
+          <Icon name={args.name} display="inline" size={16} />
+          This is paragraph text with inline{' '}
+          <Icon background="brand-secondary" color="brand" name={args.name} display="inline" size={8} /> icon
+        </p>
+        <small>
+          <Icon name={args.name} display="inline" size={16} />
+          This is small text with inline{' '}
+          <Icon background="brand-secondary" color="brand" name={args.name} display="inline" size={8} /> icon
+        </small>
+      </VerticalSpacing>
+    );
+  },
+
+  args: {
+    name: 'cancel',
+  },
 };
