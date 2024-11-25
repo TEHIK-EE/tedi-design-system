@@ -399,7 +399,6 @@ $btn-height-small: 2rem;
 
 .tedi-btn__text {
   text-align: start;
-  text-wrap: nowrap;
 
   @include mixins.responsive-styles(padding-left, button-md-inner-spacing);
   @include mixins.responsive-styles(padding-right, button-md-inner-spacing);
@@ -422,6 +421,10 @@ $btn-height-small: 2rem;
 
   .tedi-btn--link & {
     padding: 0;
+  }
+
+  &:not(.tedi-btn--link .tedi-btn__text) {
+    text-wrap: nowrap;
   }
 }
 
