@@ -60,7 +60,7 @@ export interface IconProps {
   background?: IconBackgroundColor;
 }
 
-export const Icon = (props: IconProps): JSX.Element => {
+export const Icon = (props: IconProps, ref: React.ForwardedRef<HTMLDivElement>): JSX.Element => {
   const {
     className,
     name,
@@ -91,7 +91,7 @@ export const Icon = (props: IconProps): JSX.Element => {
   );
 
   return (
-    <div className={wrapperBEM}>
+    <div className={wrapperBEM} ref={ref}>
       <span className={iconBEM} data-name="icon" role="img" aria-hidden={true} {...rest}>
         {name}
       </span>
