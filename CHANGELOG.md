@@ -1,3 +1,24 @@
+# [9.0.0-rc.27](https://github.com/TEHIK-EE/tedi-design-system/compare/v9.0.0-rc.26...v9.0.0-rc.27) (2024-11-25)
+
+
+### Bug Fixes
+
+* **icon:** Improve display style usage [#323](https://github.com/TEHIK-EE/tedi-design-system/issues/323) ([#325](https://github.com/TEHIK-EE/tedi-design-system/issues/325)) ([315a64e](https://github.com/TEHIK-EE/tedi-design-system/commit/315a64e79ac3dea7a2033af4cd843ba079d8afee))
+
+# [9.0.0-rc.26](https://github.com/TEHIK-EE/tedi-design-system/compare/v9.0.0-rc.25...v9.0.0-rc.26) (2024-11-25)
+
+
+### Bug Fixes
+
+* **alert:** Fix content only alignment [#320](https://github.com/TEHIK-EE/tedi-design-system/issues/320) ([#324](https://github.com/TEHIK-EE/tedi-design-system/issues/324)) ([fa44d69](https://github.com/TEHIK-EE/tedi-design-system/commit/fa44d6921159b960511e4600e511720db22fa9e3))
+
+# [9.0.0-rc.25](https://github.com/TEHIK-EE/tedi-design-system/compare/v9.0.0-rc.24...v9.0.0-rc.25) (2024-11-25)
+
+
+### Bug Fixes
+
+* **link:** Allow link wrapping into multiple lines [#316](https://github.com/TEHIK-EE/tedi-design-system/issues/316) ([#322](https://github.com/TEHIK-EE/tedi-design-system/issues/322)) ([8b651f2](https://github.com/TEHIK-EE/tedi-design-system/commit/8b651f22c1b4203b217c52b4032e405dcf636feb))
+
 # [9.0.0-rc.24](https://github.com/TEHIK-EE/tedi-design-system/compare/v9.0.0-rc.23...v9.0.0-rc.24) (2024-11-25)
 
 
