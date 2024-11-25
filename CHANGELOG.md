@@ -1,3 +1,10 @@
+# [9.0.0-rc.26](https://github.com/TEHIK-EE/tedi-design-system/compare/v9.0.0-rc.25...v9.0.0-rc.26) (2024-11-25)
+
+
+### Bug Fixes
+
+* **alert:** Fix content only alignment [#320](https://github.com/TEHIK-EE/tedi-design-system/issues/320) ([#324](https://github.com/TEHIK-EE/tedi-design-system/issues/324)) ([fa44d69](https://github.com/TEHIK-EE/tedi-design-system/commit/fa44d6921159b960511e4600e511720db22fa9e3))
+
 # [9.0.0-rc.25](https://github.com/TEHIK-EE/tedi-design-system/compare/v9.0.0-rc.24...v9.0.0-rc.25) (2024-11-25)
 
 
