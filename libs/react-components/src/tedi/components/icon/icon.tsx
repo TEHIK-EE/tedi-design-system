@@ -1,4 +1,5 @@
 import cn from 'classnames';
+import { forwardRef } from 'react';
 
 import styles from './icon.module.scss';
 
@@ -60,7 +61,7 @@ export interface IconProps {
   background?: IconBackgroundColor;
 }
 
-export const Icon = (props: IconProps, ref: React.ForwardedRef<HTMLDivElement>): JSX.Element => {
+export const Icon = forwardRef<HTMLDivElement, IconProps>((props: IconProps, ref): JSX.Element => {
   const {
     className,
     name,
@@ -97,6 +98,6 @@ export const Icon = (props: IconProps, ref: React.ForwardedRef<HTMLDivElement>):
       </span>
     </div>
   );
-};
+});
 
 Icon.displayName = 'Icon';
