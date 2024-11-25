@@ -1,11 +1,11 @@
 import cn from 'classnames';
 import React from 'react';
 
+import { FeedbackText, FeedbackTextProps } from '../../../../tedi/components/form/feedback-text/feedback-text';
 import FormLabel, { FormLabelProps } from '../../../../tedi/components/form/form-label/form-label';
 import { Direction, Gutter, Row, RowProps } from '../../../../tedi/components/grid';
 import { useLabels } from '../../../../tedi/providers/label-provider';
 import Check, { CheckProps } from '../check/check';
-import FormHelper, { FormHelperProps } from '../form-helper/form-helper';
 import styles from './choice-group.module.scss';
 import { ChoiceGroupItemProps } from './choice-group.types';
 import { ChoiceGroupContext, IChoiceGroupContext } from './choice-group-context';
@@ -50,7 +50,7 @@ export interface ChoiceGroupProps extends FormLabelProps {
   /**
    * Form helper props
    */
-  helper?: FormHelperProps;
+  helper?: FeedbackTextProps;
   /**
    * Custom class
    */
@@ -275,7 +275,7 @@ export const ChoiceGroup = (props: ChoiceGroupProps): React.ReactElement => {
         ) : (
           <p>{getLabel('table.filter.no-options')}</p>
         )}
-        {helper && <FormHelper {...helper} id={helperId} />}
+        {helper && <FeedbackText {...helper} id={helperId} />}
       </fieldset>
     </ChoiceGroupContext.Provider>
   );

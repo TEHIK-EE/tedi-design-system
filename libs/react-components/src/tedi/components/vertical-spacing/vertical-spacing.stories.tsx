@@ -7,13 +7,12 @@ import { VerticalSpacing, VerticalSpacingProps } from './vertical-spacing';
 import { VerticalSpacingItem } from './vertical-spacing-item';
 
 /**
- * VerticalSpacing is development only component and won't be found in Figma<br/>
- * [Zeroheight ↗](https://zeroheight.com/1ee8444b7/p/759180-verticalspacing)
+ * <a href="https://zeroheight.com/1ee8444b7/p/759180-verticalspacing" target="_BLANK">Zeroheight ↗</a>
  **/
 
 const meta: Meta<typeof VerticalSpacing> = {
   component: VerticalSpacing,
-  title: 'Tedi-ready/Components/Helpers/VerticalSpacing',
+  title: 'Tedi-Ready/Components/Helpers/VerticalSpacing',
   subcomponents: { VerticalSpacingItem } as never,
   parameters: {
     status: {

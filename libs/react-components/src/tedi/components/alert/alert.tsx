@@ -120,7 +120,9 @@ export const Alert = (props: AlertProps): JSX.Element | null => {
         <Row gutterX={2} alignItems={title ? 'center' : 'start'}>
           <Col grow={1} className={styles['tedi-alert__content']}>
             {icon && getIcon(icon)}
-            {title ? <Heading element="h5">{title}</Heading> : children}
+            <div className="tedi-alert__content-wrapper">
+              {title ? <Heading element="h5">{title}</Heading> : children}
+            </div>
           </Col>
           {onClose && (
             <Col width="auto">
@@ -128,7 +130,7 @@ export const Alert = (props: AlertProps): JSX.Element | null => {
             </Col>
           )}
         </Row>
-        {title && <div>{children}</div>}
+        {title && children && <div className="tedi-alert__content-wrapper">{children}</div>}
       </VerticalSpacing>
     </div>
   ) : null;

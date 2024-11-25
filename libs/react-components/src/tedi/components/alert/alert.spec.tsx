@@ -44,12 +44,10 @@ describe('Alert component', () => {
   it('renders an icon when provided', () => {
     const { container } = render(<Alert icon="info">Alert with Icon</Alert>);
 
-    const iconWrapper = container.querySelector('.tedi-icon--wrapper');
-    expect(iconWrapper).toBeInTheDocument();
-
-    const icon = iconWrapper?.querySelector('[data-name="icon"]');
-    expect(icon).toBeInTheDocument();
-    expect(icon).toHaveClass('tedi-icon');
+    const iconElement = container.querySelector('span[data-name="icon"]');
+    expect(iconElement).toBeInTheDocument();
+    expect(iconElement).toHaveClass('tedi-icon');
+    expect(iconElement).toHaveClass('tedi-icon--size-18');
   });
 
   it('applies global styles when isGlobal is true', () => {

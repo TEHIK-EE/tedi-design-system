@@ -1,11 +1,11 @@
 import cn from 'classnames';
 import React, { ChangeEvent, useCallback, useMemo, useRef, useState } from 'react';
 
+import { FeedbackText, FeedbackTextProps } from '../../../../tedi/components/form/feedback-text/feedback-text';
 import { FormLabel, FormLabelProps } from '../../../../tedi/components/form/form-label/form-label';
 import { useLabels } from '../../../../tedi/providers/label-provider';
 import { Button } from '../../button/button';
 import Text from '../../typography/text/text';
-import FormHelper, { FormHelperProps } from '../form-helper/form-helper';
 import styles from './number-field.module.scss';
 
 export interface NumberStepperProps extends FormLabelProps {
@@ -69,7 +69,7 @@ export interface NumberStepperProps extends FormLabelProps {
   /**
    * TextField helper.
    */
-  helper?: FormHelperProps;
+  helper?: FeedbackTextProps;
   /**
    * Additional input attributes.
    */
@@ -252,7 +252,7 @@ export const NumberField = (props: NumberStepperProps) => {
         {renderInputElement()}
         {renderButton('increment')}
       </div>
-      {helper && <FormHelper {...helper} id={helperId} />}
+      {helper && <FeedbackText {...helper} id={helperId} />}
       {/*This is used to announce value updates for screen reader*/}
       <div aria-live="polite" className="visually-hidden">
         {inputUpdated}

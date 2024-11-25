@@ -1,3 +1,71 @@
+# [9.0.0-rc.27](https://github.com/TEHIK-EE/tedi-design-system/compare/v9.0.0-rc.26...v9.0.0-rc.27) (2024-11-25)
+
+
+### Bug Fixes
+
+* **icon:** Improve display style usage [#323](https://github.com/TEHIK-EE/tedi-design-system/issues/323) ([#325](https://github.com/TEHIK-EE/tedi-design-system/issues/325)) ([315a64e](https://github.com/TEHIK-EE/tedi-design-system/commit/315a64e79ac3dea7a2033af4cd843ba079d8afee))
+
+# [9.0.0-rc.26](https://github.com/TEHIK-EE/tedi-design-system/compare/v9.0.0-rc.25...v9.0.0-rc.26) (2024-11-25)
+
+
+### Bug Fixes
+
+* **alert:** Fix content only alignment [#320](https://github.com/TEHIK-EE/tedi-design-system/issues/320) ([#324](https://github.com/TEHIK-EE/tedi-design-system/issues/324)) ([fa44d69](https://github.com/TEHIK-EE/tedi-design-system/commit/fa44d6921159b960511e4600e511720db22fa9e3))
+
+# [9.0.0-rc.25](https://github.com/TEHIK-EE/tedi-design-system/compare/v9.0.0-rc.24...v9.0.0-rc.25) (2024-11-25)
+
+
+### Bug Fixes
+
+* **link:** Allow link wrapping into multiple lines [#316](https://github.com/TEHIK-EE/tedi-design-system/issues/316) ([#322](https://github.com/TEHIK-EE/tedi-design-system/issues/322)) ([8b651f2](https://github.com/TEHIK-EE/tedi-design-system/commit/8b651f22c1b4203b217c52b4032e405dcf636feb))
+
+# [9.0.0-rc.24](https://github.com/TEHIK-EE/tedi-design-system/compare/v9.0.0-rc.23...v9.0.0-rc.24) (2024-11-25)
+
+
+### Bug Fixes
+
+* **icon:** Added forwardRef possibility to Icon [#318](https://github.com/TEHIK-EE/tedi-design-system/issues/318) ([#321](https://github.com/TEHIK-EE/tedi-design-system/issues/321)) ([7719a76](https://github.com/TEHIK-EE/tedi-design-system/commit/7719a764da2f3167af2ce23434814e4dc3ada0d2))
+
+# [9.0.0-rc.23](https://github.com/TEHIK-EE/tedi-design-system/compare/v9.0.0-rc.22...v9.0.0-rc.23) (2024-11-22)
+
+
+### Bug Fixes
+
+* **alert:** Wrap title and children inside a div to prevent display flex problems [#314](https://github.com/TEHIK-EE/tedi-design-system/issues/314) ([#317](https://github.com/TEHIK-EE/tedi-design-system/issues/317)) ([c1a5994](https://github.com/TEHIK-EE/tedi-design-system/commit/c1a5994c5c3d214c6d67cdc2a4c62e63c183badf))
+
+# [9.0.0-rc.22](https://github.com/TEHIK-EE/tedi-design-system/compare/v9.0.0-rc.21...v9.0.0-rc.22) (2024-11-22)
+
+
+### Bug Fixes
+
+* **icon:** Add material-symbols class to Community Icon to fix icon dimensions [#313](https://github.com/TEHIK-EE/tedi-design-system/issues/313) ([#315](https://github.com/TEHIK-EE/tedi-design-system/issues/315)) ([d63c86a](https://github.com/TEHIK-EE/tedi-design-system/commit/d63c86a6507f76fe78054b6383145473a192837e))
+
+# [9.0.0-rc.21](https://github.com/TEHIK-EE/tedi-design-system/compare/v9.0.0-rc.20...v9.0.0-rc.21) (2024-11-22)
+
+
+### Bug Fixes
+
+* **button, link:** Prevent text wrapping in Button and Link components [#311](https://github.com/TEHIK-EE/tedi-design-system/issues/311) ([#312](https://github.com/TEHIK-EE/tedi-design-system/issues/312)) ([8fb3016](https://github.com/TEHIK-EE/tedi-design-system/commit/8fb301602e624d75752623cfc6a8783b17736051))
+
+# [9.0.0-rc.20](https://github.com/TEHIK-EE/tedi-design-system/compare/v9.0.0-rc.19...v9.0.0-rc.20) (2024-11-21)
+
+
+### Features
+
+* **feedback-text:** TEDI-Ready FeedbackText component development [#304](https://github.com/TEHIK-EE/tedi-design-system/issues/304) ([#306](https://github.com/TEHIK-EE/tedi-design-system/issues/306)) ([7341d8c](https://github.com/TEHIK-EE/tedi-design-system/commit/7341d8c5e48f94bba9896855978f96a707b1cc9d))
+
+
+### BREAKING CHANGES
+
+* **feedback-text:** Community FormLabel removed, use TEDI-Ready FormLabel
+
+# [9.0.0-rc.19](https://github.com/TEHIK-EE/tedi-design-system/compare/v9.0.0-rc.18...v9.0.0-rc.19) (2024-11-19)
+
+
+### Bug Fixes
+
+* **ClosingButton:** add type button [#302](https://github.com/TEHIK-EE/tedi-design-system/issues/302) ([#305](https://github.com/TEHIK-EE/tedi-design-system/issues/305)) ([4188d1b](https://github.com/TEHIK-EE/tedi-design-system/commit/4188d1b22ddb6d2b46d5608fac9a526f1f4ff2a9))
+
 # [9.0.0-rc.18](https://github.com/TEHIK-EE/tedi-design-system/compare/v9.0.0-rc.17...v9.0.0-rc.18) (2024-11-19)
 
 

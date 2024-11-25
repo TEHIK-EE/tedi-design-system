@@ -5,13 +5,13 @@ import { VerticalSpacing } from '../vertical-spacing';
 import { StatusBadge, StatusBadgeColor, StatusBadgeProps } from './status-badge';
 
 /**
- * [Figma ↗](https://www.figma.com/file/jWiRIXhHRxwVdMSimKX2FF/TEDI-Design-System-(draft)?type=design&node-id=2385-24154&m=dev)<br/>
- * [ZeroHeight ↗](https://tedi.tehik.ee/1ee8444b7/p/764a67-status-badge)
+ * <a href="https://www.figma.com/file/jWiRIXhHRxwVdMSimKX2FF/TEDI-Design-System-(draft)?type=design&node-id=2385-24154&m=dev" target="_BLANK">Figma ↗</a><br/>
+ * <a href="https://tedi.tehik.ee/1ee8444b7/p/764a67-status-badge" target="_BLANK">ZeroHeight ↗</a>
  */
 
 const meta: Meta<typeof StatusBadge> = {
   component: StatusBadge,
-  title: 'Tedi-ready/Components/Tag/StatusBadge',
+  title: 'Tedi-Ready/Components/Tag/StatusBadge',
   parameters: {
     status: {
       type: [{ name: 'breakpointSupport', url: '?path=/docs/helpers-usebreakpointprops--usebreakpointprops' }],

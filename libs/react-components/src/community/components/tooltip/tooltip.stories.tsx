@@ -1,11 +1,11 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 
 import { Col, Row } from '../../../tedi/components/grid';
+import { Icon } from '../../../tedi/components/icon/icon';
 import Anchor from '../anchor/anchor';
 import Button from '../button/button';
 import { Card, CardContent } from '../card';
 import Toggle from '../form/toggle/toggle';
-import Icon from '../icon/icon';
 import Heading from '../typography/heading/heading';
 import Tooltip, { TooltipProps } from './tooltip';
 import TooltipProvider, { TooltipProviderProps } from './tooltip-provider';

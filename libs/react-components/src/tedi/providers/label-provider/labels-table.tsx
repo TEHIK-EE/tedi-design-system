@@ -1,9 +1,9 @@
 import { ColumnDef, createColumnHelper } from '@tanstack/react-table';
 import linkifyStr from 'linkify-string';
 
-import { LabelProvider, labelsMap } from '../../../tedi/providers/label-provider';
-import { Table, Tooltip, TooltipProvider, TooltipTrigger } from '../../index';
-import { IntentionalAny } from '../../types';
+import { Table, Tooltip, TooltipProvider, TooltipTrigger } from '../../../community/index';
+import { IntentionalAny } from '../../../community/types';
+import { LabelProvider, labelsMap } from '.';
 
 interface LabelRow {
   key: string;

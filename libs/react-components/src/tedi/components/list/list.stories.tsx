@@ -4,13 +4,13 @@ import List, { ListProps } from './list';
 import ListItem from './list-item';
 
 /**
- * [Figma ↗](https://www.figma.com/file/jWiRIXhHRxwVdMSimKX2FF/TEDI-Design-System-(draft)?type=design&node-id=2137-19322&m=dev)<br/>
- * [Zeroheight ↗](https://tedi.tehik.ee/1ee8444b7/p/37b651-list)
+ * <a href="https://www.figma.com/file/jWiRIXhHRxwVdMSimKX2FF/TEDI-Design-System-(draft)?type=design&node-id=2137-19322&m=dev" target="_BLANK">Figma ↗</a><br/>
+ * <a href="https://tedi.tehik.ee/1ee8444b7/p/37b651-list" target="_BLANK">Zeroheight ↗</a>
  */
 
 const meta: Meta<typeof List> = {
   component: List,
-  title: 'Tedi-ready/Content/List',
+  title: 'Tedi-Ready/Content/List',
   subcomponents: { ListItem } as never,
   parameters: {
     status: {
