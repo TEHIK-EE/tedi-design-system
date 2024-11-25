@@ -122,7 +122,6 @@ const InternalButtonContent = forwardRef(
           styles['tedi-btn'],
           styles[`tedi-btn--${visualType}`],
           styles[`tedi-btn--${color}`],
-          className,
           { [styles[`tedi-btn--${size}`]]: size },
           { [styles['tedi-btn--underline']]: underline },
           { [styles['tedi-btn--is-hovered']]: isHovered },
@@ -130,7 +129,8 @@ const InternalButtonContent = forwardRef(
           { [styles['tedi-btn--is-loading']]: isLoading },
           { [styles['tedi-btn--icon-only']]: icon },
           { [styles['tedi-btn--icon']]: hasIcon },
-          { [styles['tedi-btn--full-width']]: fullWidth }
+          { [styles['tedi-btn--full-width']]: fullWidth },
+          className
         )
       : cn(styles['tedi-btn--no-style'], className, { [styles['tedi-btn--full-width']]: fullWidth });
 

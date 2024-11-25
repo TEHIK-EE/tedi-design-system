@@ -242,3 +242,11 @@ export const FullWidth = {
     underline: false,
   },
 };
+
+export const LongText = {
+  args: {
+    href: '#',
+    iconRight: 'north_east',
+    children: 'This is a very long link text that should wrap into multiple lines',
+  },
+};
