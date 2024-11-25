@@ -1,3 +1,10 @@
+# [9.0.0-rc.27](https://github.com/TEHIK-EE/tedi-design-system/compare/v9.0.0-rc.26...v9.0.0-rc.27) (2024-11-25)
+
+
+### Bug Fixes
+
+* **icon:** Improve display style usage [#323](https://github.com/TEHIK-EE/tedi-design-system/issues/323) ([#325](https://github.com/TEHIK-EE/tedi-design-system/issues/325)) ([315a64e](https://github.com/TEHIK-EE/tedi-design-system/commit/315a64e79ac3dea7a2033af4cd843ba079d8afee))
+
 # [9.0.0-rc.26](https://github.com/TEHIK-EE/tedi-design-system/compare/v9.0.0-rc.25...v9.0.0-rc.26) (2024-11-25)
 
 
