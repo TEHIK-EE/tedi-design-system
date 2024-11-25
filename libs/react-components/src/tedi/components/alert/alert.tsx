@@ -130,7 +130,7 @@ export const Alert = (props: AlertProps): JSX.Element | null => {
             </Col>
           )}
         </Row>
-        <div className="tedi-alert__content-wrapper">{title && children}</div>
+        {title && children && <div className="tedi-alert__content-wrapper">{children}</div>}
       </VerticalSpacing>
     </div>
   ) : null;
