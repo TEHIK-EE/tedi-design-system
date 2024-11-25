@@ -1,3 +1,10 @@
+# [9.0.0-rc.25](https://github.com/TEHIK-EE/tedi-design-system/compare/v9.0.0-rc.24...v9.0.0-rc.25) (2024-11-25)
+
+
+### Bug Fixes
+
+* **link:** Allow link wrapping into multiple lines [#316](https://github.com/TEHIK-EE/tedi-design-system/issues/316) ([#322](https://github.com/TEHIK-EE/tedi-design-system/issues/322)) ([8b651f2](https://github.com/TEHIK-EE/tedi-design-system/commit/8b651f22c1b4203b217c52b4032e405dcf636feb))
+
 # [9.0.0-rc.24](https://github.com/TEHIK-EE/tedi-design-system/compare/v9.0.0-rc.23...v9.0.0-rc.24) (2024-11-25)
 
 
