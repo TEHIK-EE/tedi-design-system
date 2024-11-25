@@ -1,0 +1,71 @@
+@import '../../../styles/mixins';
+@import '../button-content/button-content.module';
+
+.tedi-floating-button {
+  &--horizontal {
+    @include responsive-styles(border-radius, button-radius-default);
+  }
+
+  &--vertical {
+    transform: rotate(-90deg);
+
+    @include responsive-styles(border-radius, button-radius-sm);
+  }
+
+  &--primary {
+    @include button-variant(
+      var(--button-floating-primary-background-default),
+      var(--button-floating-primary-border-default),
+      var(--button-floating-primary-text-default),
+      var(--button-floating-primary-background-hover),
+      var(--button-floating-primary-border-hover),
+      var(--button-floating-primary-text-hover),
+      var(--button-floating-primary-border-focus),
+      var(--button-floating-primary-background-focus),
+      var(--button-floating-primary-text-active),
+      var(--button-floating-primary-border-active),
+      var(--button-floating-primary-background-active)
+    );
+  }
+
+  &--secondary {
+    @include button-variant(
+      var(--button-floating-secondary-background-default),
+      var(--button-floating-secondary-border-default),
+      var(--button-floating-secondary-text-default),
+      var(--button-floating-secondary-background-hover),
+      var(--button-floating-secondary-border-hover),
+      var(--button-floating-secondary-text-hover),
+      var(--button-floating-secondary-border-focus),
+      var(--button-floating-secondary-background-focus),
+      var(--button-floating-secondary-text-active),
+      var(--button-floating-secondary-border-active),
+      var(--button-floating-secondary-background-active)
+    );
+  }
+
+  &--medium {
+    @include responsive-styles(padding, button-md-padding-y button-md-padding-x);
+
+    &.tedi-floating-button--icon-only {
+      @include responsive-styles(width, button-md-icon-size);
+      @include responsive-styles(height, button-md-icon-size);
+      @include responsive-styles(padding, button-md-icon-padding);
+    }
+  }
+
+  &--large {
+    @include responsive-styles(padding, button-xl-padding-y button-xl-padding-x);
+
+    &.tedi-floating-button--icon-only {
+      @include responsive-styles(width, button-xl-icon-size);
+      @include responsive-styles(height, button-xl-icon-size);
+      @include responsive-styles(padding, button-xl-icon-padding);
+    }
+  }
+
+  &:not(&--icon-only) {
+    @include responsive-styles(min-width, button-width-min);
+    @include responsive-styles(max-width, button-width-max);
+  }
+}
