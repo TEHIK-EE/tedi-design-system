@@ -395,6 +395,14 @@ $btn-height-small: 2rem;
     var(--link-primary-active),
     var(--link-primary-focus)
   );
+
+  .tedi-btn__icon--left {
+    @include mixins.responsive-styles(margin-right, button-sm-inner-spacing);
+  }
+
+  .tedi-btn__icon--right {
+    @include mixins.responsive-styles(margin-left, button-sm-inner-spacing);
+  }
 }
 
 .tedi-btn__text {
@@ -428,19 +436,11 @@ $btn-height-small: 2rem;
   }
 }
 
-.tedi-btn__icon--start,
-.tedi-btn__icon--end {
+.tedi-btn__icon--left,
+.tedi-btn__icon--right {
   display: inline-flex;
   flex-shrink: 0;
   padding: 0;
-}
-
-.tedi-btn__icon--start {
-  @include mixins.responsive-styles(margin-right, button-sm-inner-spacing);
-}
-
-.tedi-btn__icon--end {
-  @include mixins.responsive-styles(margin-left, button-sm-inner-spacing);
 }
 
 .tedi-btn__icon {
@@ -462,9 +462,7 @@ $btn-height-small: 2rem;
   min-height: 1.5rem;
 
   .tedi-btn--link:not(.tedi-btn--is-loading) & {
-    display: inline-flex;
-
-    @include mixins.responsive-styles(gap, link-inner-spacing-x);
+    display: inline;
   }
 }
 
