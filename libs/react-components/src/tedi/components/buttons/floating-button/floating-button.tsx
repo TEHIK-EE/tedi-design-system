@@ -73,7 +73,7 @@ export const FloatingButton = (props: FloatingButtonProps): JSX.Element => {
     styles[`tedi-floating-button--${axis}`],
     styles[`tedi-floating-button--${visualType}`],
     styles[`tedi-floating-button--${size}`],
-    { [styles['tedi-floating-button--icon-only']]: rest.icon },
+    { [styles['tedi-floating-button__icon-only']]: rest.icon },
     className
   );
 
