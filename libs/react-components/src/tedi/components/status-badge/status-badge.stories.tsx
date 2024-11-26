@@ -2,7 +2,7 @@ import { Meta, StoryFn, StoryObj } from '@storybook/react';
 
 import { Col, Row } from '../grid';
 import { VerticalSpacing } from '../vertical-spacing';
-import { StatusBadge, StatusBadgeColor, StatusBadgeProps } from './status-badge';
+import { StatusBadge, StatusBadgeColor, StatusBadgeProps, StatusBadgeStatus } from './status-badge';
 
 /**
  * <a href="https://www.figma.com/file/jWiRIXhHRxwVdMSimKX2FF/TEDI-Design-System-(draft)?type=design&node-id=2385-24154&m=dev" target="_BLANK">Figma ↗</a><br/>
@@ -28,7 +28,22 @@ type Story = StoryObj<typeof StatusBadge>;
 
 const colors: StatusBadgeColor[] = ['neutral', 'brand', 'accent', 'success', 'danger', 'warning'];
 const variants: StatusBadgeProps['variant'][] = ['filled', 'filled-bordered', 'bordered'];
-const statuses: StatusBadgeProps['status'][] = ['inactive', 'success', 'warning', 'danger'];
+const statuses: StatusBadgeStatus[] = ['inactive', 'success', 'warning', 'danger'];
+const colorToIconMap: Record<StatusBadgeColor, string> = {
+  neutral: 'edit',
+  brand: 'send',
+  accent: 'sync',
+  success: 'check_circle',
+  danger: 'error',
+  warning: 'warning',
+  transparent: 'edit',
+};
+const statusToIconMap: Record<StatusBadgeStatus, string> = {
+  inactive: 'edit',
+  success: 'send',
+  warning: 'sync',
+  danger: 'error',
+};
 
 const Template: StoryFn<StatusBadgeProps> = (args) => <StatusBadge {...args} />;
 
@@ -37,7 +52,7 @@ export const Default: Story = {
   args: {
     color: 'neutral',
     variant: 'filled',
-    children: 'Default StatusBadge',
+    children: 'Text',
   },
 };
 
@@ -58,12 +73,12 @@ const TemplateAllCombos: StoryFn<StatusBadgeProps> = (args) => {
                   </StatusBadge>
                 </Col>
                 <Col width="auto" key={`${color}-${variant}-icon`}>
-                  <StatusBadge {...args} color={color} variant={variant} icon="check_circle">
+                  <StatusBadge {...args} color={color} variant={variant} icon={colorToIconMap[color]}>
                     Text
                   </StatusBadge>
                 </Col>
                 <Col width="auto" key={`${color}-${variant}-icon`}>
-                  <StatusBadge {...args} color={color} variant={variant} icon="check_circle" />
+                  <StatusBadge {...args} color={color} variant={variant} icon={colorToIconMap[color]} />
                 </Col>
               </>
             ))}
@@ -91,12 +106,24 @@ const TemplateStatusGrid: StoryFn<StatusBadgeProps> = (args) => {
                   </StatusBadge>
                 </Col>
                 <Col width="auto" key={`${status}-${variant}`}>
-                  <StatusBadge {...args} color="neutral" variant={variant} icon="check_circle" status={status}>
+                  <StatusBadge
+                    {...args}
+                    color="neutral"
+                    variant={variant}
+                    icon={statusToIconMap[status]}
+                    status={status}
+                  >
                     Text
                   </StatusBadge>
                 </Col>
                 <Col width="auto" key={`${status}-${variant}`}>
-                  <StatusBadge {...args} color="neutral" variant={variant} icon="check_circle" status={status} />
+                  <StatusBadge
+                    {...args}
+                    color="neutral"
+                    variant={variant}
+                    icon={statusToIconMap[status]}
+                    status={status}
+                  />
                 </Col>
               </>
             ))}
@@ -134,6 +161,6 @@ export const Large: Story = {
   args: {
     color: 'neutral',
     size: 'large',
-    children: 'Large StatusBadge',
+    children: 'Draft',
   },
 };
