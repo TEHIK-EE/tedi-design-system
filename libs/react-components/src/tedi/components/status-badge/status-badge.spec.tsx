@@ -21,7 +21,8 @@ describe('Badge component', () => {
     const badge = container.querySelector('.tedi-status-badge');
     expect(badge).toHaveTextContent('Default Badge');
     expect(badge).toHaveClass('tedi-status-badge');
-    expect(badge).toHaveClass('tedi-status-badge--filled--neutral');
+    expect(badge).toHaveClass('tedi-status-badge--variant-filled');
+    expect(badge).toHaveClass('tedi-status-badge--color-neutral');
   });
 
   it('renders with specified color and variant', () => {
@@ -32,7 +33,8 @@ describe('Badge component', () => {
     );
     const badge = container.querySelector('.tedi-status-badge');
     expect(badge).toHaveTextContent('Primary Bordered Badge');
-    expect(badge).toHaveClass('tedi-status-badge--bordered--brand');
+    expect(badge).toHaveClass('tedi-status-badge--variant-bordered');
+    expect(badge).toHaveClass('tedi-status-badge--color-brand');
   });
 
   it('renders with large size', () => {
@@ -56,7 +58,7 @@ describe('Badge component', () => {
     const { container } = render(<StatusBadge icon="check_circle" />);
     const badge = container.querySelector('.tedi-status-badge');
     const icon = container.querySelector('.tedi-status-badge__icon-neutral');
-    expect(badge).toHaveClass('tedi-status-badge--icon-only');
+    expect(badge).toHaveClass('tedi-status-badge__icon-only');
     expect(icon).toBeInTheDocument();
   });
 
@@ -94,7 +96,8 @@ describe('Badge component', () => {
 
     const { container } = render(<StatusBadge {...props}>All Props Badge</StatusBadge>);
     const badge = container.querySelector('.tedi-status-badge');
-    expect(badge).toHaveClass('tedi-status-badge--filled-bordered--accent');
+    expect(badge).toHaveClass('tedi-status-badge--variant-filled-bordered');
+    expect(badge).toHaveClass('tedi-status-badge--color-accent');
     expect(badge).toHaveClass('tedi-status-badge--status-success');
     expect(badge).toHaveClass('tedi-status-badge--large');
     expect(badge).toHaveClass('custom-class');

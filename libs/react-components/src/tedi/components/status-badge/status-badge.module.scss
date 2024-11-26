@@ -34,9 +34,9 @@ $badge-status-colors: ('inactive', 'success', 'danger', 'warning');
   }
 
   @each $variant in $badge-variants {
-    &--#{$variant} {
+    &.tedi-status-badge--variant-#{$variant} {
       @each $color in $badge-colors {
-        &--#{$color} {
+        &.tedi-status-badge--color-#{$color} {
           color: var(--status-badge-text-#{$color});
 
           @if $variant == 'bordered' {
@@ -82,7 +82,7 @@ $badge-status-colors: ('inactive', 'success', 'danger', 'warning');
     }
   }
 
-  &--icon-only {
+  &__icon-only {
     display: inline-flex;
     align-items: center;
     min-height: 24px;
