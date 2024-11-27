@@ -24,7 +24,7 @@ export interface FloatingButtonProps
     'visualType' | 'fullWidth' | 'color' | 'size' | 'isLoading' | 'noStyle' | 'renderWrapperElement'
   > {
   /**
-   * Button visual type
+   * Button axis
    * @default horizontal
    */
   axis?: FloatingButtonAxis;
@@ -34,16 +34,24 @@ export interface FloatingButtonProps
    */
   visualType?: FloatingButtonColor;
   /**
-   * Size of the FloatingButton
+   * Button size
    * @default medium
    */
   size?: FloatingButtonSize;
   /**
-   * Position of the FloatingButton
+   * Button position
    * @default fixed
    */
   position?: CSSProperties['position'];
+  /**
+   * Button placement
+   * @default fixed
+   */
   placement?: FloatingButtonPlacement;
+  /**
+   * Button offset
+   * @default fixed
+   */
   offset?: FloatingButtonOffset;
   zIndex?: number;
   /**
