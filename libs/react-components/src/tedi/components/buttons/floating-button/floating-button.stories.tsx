@@ -79,6 +79,7 @@ const TemplateColumn: StoryFn<TemplateMultipleProps> = (args) => {
 export const Default: Story = {
   args: {
     children: 'Scroll up',
+    position: 'static',
   },
 };
 
@@ -126,6 +127,24 @@ export const SecondaryHorizontal: StoryObj<TemplateMultipleProps> = {
     visualType: 'secondary',
     position: 'static',
     marginTop: 10,
+  },
+  parameters: {
+    pseudo: {
+      hover: '#Hover',
+      active: '#Active',
+      focus: '#Focus',
+    },
+  },
+};
+
+export const SecondaryVertical: StoryObj<TemplateMultipleProps> = {
+  render: TemplateColumn,
+  args: {
+    array: buttonStateArray,
+    axis: 'vertical',
+    visualType: 'secondary',
+    position: 'static',
+    marginTop: 100,
   },
   parameters: {
     pseudo: {
