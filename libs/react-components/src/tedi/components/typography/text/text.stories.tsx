@@ -1,16 +1,18 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 
-import { Column, Row, TextRow } from '../../../providers/storybook-provider/storybook-provider';
+import { TextRow } from '../../../providers/storybook-provider/storybook-provider';
+import { Col, Row } from '../../grid';
+import { VerticalSpacing } from '../../vertical-spacing';
 import { Text } from './text';
 
 /**
- * [Figma ↗](https://www.figma.com/design/jWiRIXhHRxwVdMSimKX2FF/TEDI-Design-System-(draft)?node-id=115-11630&m=dev)<br/>
- * [Zeroheight ↗](https://zeroheight.com/1ee8444b7/p/4651ec-typography)
+ * <a href="https://www.figma.com/design/jWiRIXhHRxwVdMSimKX2FF/TEDI-Design-System-(draft)?node-id=115-11630&m=dev" target="_BLANK">Figma ↗</a><br/>
+ * <a href="https://tedi.tehik.ee/1ee8444b7/p/4651ec-typography" target="_BLANK">Zeroheight ↗</a>
  */
 
 const meta: Meta<typeof Text> = {
   component: Text,
-  title: 'Tedi-ready/Base/Typography/Text',
+  title: 'Tedi-Ready/Base/Typography/Text',
 };
 
 export default meta;
@@ -19,12 +21,16 @@ type Story = StoryObj<typeof Text>;
 const TemplateSubtitles: StoryFn = (args) => (
   <div className="example-list w-100">
     <Row className="border-bottom border-bottom--3x">
-      <Column>
-        <Text color="primary">Desktop</Text>
-      </Column>
-      <Column>
-        <Text color="primary">Mobile</Text>
-      </Column>
+      <Col>
+        <Text color="primary" className="padding-14-16">
+          Desktop
+        </Text>
+      </Col>
+      <Col>
+        <Text color="primary" className="padding-14-16">
+          Mobile
+        </Text>
+      </Col>
     </Row>
     <TextRow
       desktopText={
@@ -83,12 +89,16 @@ const TemplateSubtitles: StoryFn = (args) => (
 const TemplateBodyText: StoryFn = (args) => (
   <div className="example-list w-100">
     <Row className="border-bottom border-bottom--3x">
-      <Column>
-        <Text color="primary">Desktop</Text>
-      </Column>
-      <Column>
-        <Text color="primary">Mobile</Text>
-      </Column>
+      <Col>
+        <Text color="primary" className="padding-14-16">
+          Desktop
+        </Text>
+      </Col>
+      <Col>
+        <Text color="primary" className="padding-14-16">
+          Mobile
+        </Text>
+      </Col>
     </Row>
     <TextRow desktopText="Body Regular" mobileText="Body Regular" className="border-bottom" />
     <TextRow
@@ -119,73 +129,93 @@ const TemplateBodyText: StoryFn = (args) => (
 );
 
 const TemplateGeneralText: StoryFn = (args) => (
-  <div className="text-story-wrapper">
+  <VerticalSpacing>
     <Row>
-      <Text color="primary">
-        Rebane on väikese koera suurune ja pika koheva sabaga. Joostes hoiab ta saba horisontaalselt. Tema selja karvad
-        on oranžid. Eestis eelistab ta elupaigana metsatukkasid.
-      </Text>
+      <Col>
+        <Text color="primary">
+          Rebane on väikese koera suurune ja pika koheva sabaga. Joostes hoiab ta saba horisontaalselt. Tema selja
+          karvad on oranžid. Eestis eelistab ta elupaigana metsatukkasid.
+        </Text>
+      </Col>
     </Row>
     <Row>
-      <Text color="secondary">
-        Rebane on väikese koera suurune ja pika koheva sabaga. Joostes hoiab ta saba horisontaalselt. Tema selja karvad
-        on oranžid. Eestis eelistab ta elupaigana metsatukkasid.
-      </Text>
+      <Col>
+        <Text color="secondary">
+          Rebane on väikese koera suurune ja pika koheva sabaga. Joostes hoiab ta saba horisontaalselt. Tema selja
+          karvad on oranžid. Eestis eelistab ta elupaigana metsatukkasid.
+        </Text>
+      </Col>
     </Row>
     <Row>
-      <Text color="tertiary">
-        Rebane on väikese koera suurune ja pika koheva sabaga. Joostes hoiab ta saba horisontaalselt. Tema selja karvad
-        on oranžid. Eestis eelistab ta elupaigana metsatukkasid.
-      </Text>
+      <Col>
+        <Text color="tertiary">
+          Rebane on väikese koera suurune ja pika koheva sabaga. Joostes hoiab ta saba horisontaalselt. Tema selja
+          karvad on oranžid. Eestis eelistab ta elupaigana metsatukkasid.
+        </Text>
+      </Col>
     </Row>
     <Row>
-      <Text color="brand">
-        Rebane on väikese koera suurune ja pika koheva sabaga. Joostes hoiab ta saba horisontaalselt. Tema selja karvad
-        on oranžid. Eestis eelistab ta elupaigana metsatukkasid.
-      </Text>
+      <Col>
+        <Text color="brand">
+          Rebane on väikese koera suurune ja pika koheva sabaga. Joostes hoiab ta saba horisontaalselt. Tema selja
+          karvad on oranžid. Eestis eelistab ta elupaigana metsatukkasid.
+        </Text>
+      </Col>
     </Row>
     <Row className="bg bg-primary">
-      <Text color="white">
-        Rebane on väikese koera suurune ja pika koheva sabaga. Joostes hoiab ta saba horisontaalselt. Tema selja karvad
-        on oranžid. Eestis eelistab ta elupaigana metsatukkasid.
-      </Text>
+      <Col>
+        <Text color="white">
+          Rebane on väikese koera suurune ja pika koheva sabaga. Joostes hoiab ta saba horisontaalselt. Tema selja
+          karvad on oranžid. Eestis eelistab ta elupaigana metsatukkasid.
+        </Text>
+      </Col>
     </Row>
-  </div>
+  </VerticalSpacing>
 );
 
 const TemplateStatusText: StoryFn = (args) => (
-  <div className="text-story-wrapper">
+  <VerticalSpacing>
     <Row>
-      <Text color="success">
-        Rebane on väikese koera suurune ja pika koheva sabaga. Joostes hoiab ta saba horisontaalselt. Tema selja karvad
-        on oranžid. Eestis eelistab ta elupaigana metsatukkasid.
-      </Text>
+      <Col>
+        <Text color="success">
+          Rebane on väikese koera suurune ja pika koheva sabaga. Joostes hoiab ta saba horisontaalselt. Tema selja
+          karvad on oranžid. Eestis eelistab ta elupaigana metsatukkasid.
+        </Text>
+      </Col>
     </Row>
     <Row>
-      <Text color="warning">
-        Rebane on väikese koera suurune ja pika koheva sabaga. Joostes hoiab ta saba horisontaalselt. Tema selja karvad
-        on oranžid. Eestis eelistab ta elupaigana metsatukkasid.
-      </Text>
+      <Col>
+        <Text color="warning">
+          Rebane on väikese koera suurune ja pika koheva sabaga. Joostes hoiab ta saba horisontaalselt. Tema selja
+          karvad on oranžid. Eestis eelistab ta elupaigana metsatukkasid.
+        </Text>
+      </Col>
     </Row>
     <Row>
-      <Text color="danger">
-        Rebane on väikese koera suurune ja pika koheva sabaga. Joostes hoiab ta saba horisontaalselt. Tema selja karvad
-        on oranžid. Eestis eelistab ta elupaigana metsatukkasid.
-      </Text>
+      <Col>
+        <Text color="danger">
+          Rebane on väikese koera suurune ja pika koheva sabaga. Joostes hoiab ta saba horisontaalselt. Tema selja
+          karvad on oranžid. Eestis eelistab ta elupaigana metsatukkasid.
+        </Text>
+      </Col>
     </Row>
     <Row>
-      <Text color="info">
-        Rebane on väikese koera suurune ja pika koheva sabaga. Joostes hoiab ta saba horisontaalselt. Tema selja karvad
-        on oranžid. Eestis eelistab ta elupaigana metsatukkasid.
-      </Text>
+      <Col>
+        <Text color="info">
+          Rebane on väikese koera suurune ja pika koheva sabaga. Joostes hoiab ta saba horisontaalselt. Tema selja
+          karvad on oranžid. Eestis eelistab ta elupaigana metsatukkasid.
+        </Text>
+      </Col>
     </Row>
     <Row>
-      <Text color="neutral">
-        Rebane on väikese koera suurune ja pika koheva sabaga. Joostes hoiab ta saba horisontaalselt. Tema selja karvad
-        on oranžid. Eestis eelistab ta elupaigana metsatukkasid.
-      </Text>
+      <Col>
+        <Text color="neutral">
+          Rebane on väikese koera suurune ja pika koheva sabaga. Joostes hoiab ta saba horisontaalselt. Tema selja
+          karvad on oranžid. Eestis eelistab ta elupaigana metsatukkasid.
+        </Text>
+      </Col>
     </Row>
-  </div>
+  </VerticalSpacing>
 );
 
 export const BodyText: Story = {

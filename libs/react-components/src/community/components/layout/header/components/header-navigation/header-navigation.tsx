@@ -1,8 +1,8 @@
 import React from 'react';
 
 import { Col, Row } from '../../../../../../tedi/components/grid';
+import { StretchContent } from '../../../../../../tedi/components/stretch-content/stretch-content';
 import { Anchor } from '../../../../anchor/anchor';
-import { StretchContent } from '../../../../stretch-content/stretch-content';
 import { LayoutContext } from '../../../layout-context';
 
 export const HeaderNavigation = () => {

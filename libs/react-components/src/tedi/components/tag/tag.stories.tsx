@@ -4,12 +4,12 @@ import { Col, Row } from '../grid';
 import { Tag, TagProps } from './tag';
 
 /**
- * [Figma ↗](https://www.figma.com/file/jWiRIXhHRxwVdMSimKX2FF/TEDI-Design-System-(draft)?type=design&node-id=2405-49832&m=dev)<br/>
- * [Zeroheight ↗](https://zeroheight.com/1ee8444b7/p/6524c4-tag)
+ * <a href="https://www.figma.com/file/jWiRIXhHRxwVdMSimKX2FF/TEDI-Design-System-(draft)?type=design&node-id=2405-49832&m=dev" target="_BLANK">Figma ↗</a><br/>
+ * <a href="https://tedi.tehik.ee/1ee8444b7/p/6524c4-tag" target="_BLANK">Zeroheight ↗</a>
  */
 
 export default {
-  title: 'Tedi-ready/Components/Tag',
+  title: 'Tedi-Ready/Components/Tag/Tag',
   component: Tag,
   parameters: {
     status: {

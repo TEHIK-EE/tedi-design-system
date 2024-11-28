@@ -3,10 +3,10 @@ import cn from 'classnames';
 import React from 'react';
 
 import { Col, Row } from '../../../../../tedi/components/grid';
+import Print from '../../../../../tedi/components/print/print';
 import { useLabels } from '../../../../../tedi/providers/label-provider';
 import Button from '../../../button/button';
 import Placeholder from '../../../placeholder/placeholder';
-import Print from '../../../print/print';
 import styles from '../../table.module.scss';
 import { DefaultTData } from '../../table.types';
 import { ITableContext, TableContext } from '../../table-context';

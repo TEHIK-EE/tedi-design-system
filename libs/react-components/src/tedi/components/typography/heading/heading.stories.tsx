@@ -1,17 +1,17 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
-import React from 'react';
 
-import { Column, Row, TextRow } from '../../../providers/storybook-provider/storybook-provider';
+import { TextRow } from '../../../providers/storybook-provider/storybook-provider';
+import { Col, Row } from '../../grid';
 import { HeadingModifiers, Text } from '../text/text';
 import { Heading } from './heading';
 
 /**
- * [Figma ↗](https://www.figma.com/design/jWiRIXhHRxwVdMSimKX2FF/TEDI-Design-System-(draft)?node-id=115-11630&m=dev)<br/>
- * [Zeroheight ↗](https://zeroheight.com/1ee8444b7/p/4651ec-typography)
+ * <a href="https://www.figma.com/design/jWiRIXhHRxwVdMSimKX2FF/TEDI-Design-System-(draft)?node-id=115-11630&m=dev" target="_BLANK">Figma ↗</a><br/>
+ * <a href="https://tedi.tehik.ee/1ee8444b7/p/4651ec-typography" target="_BLANK">Zeroheight ↗</a>
  */
 
 const meta: Meta<typeof Heading> = {
-  title: 'Tedi-ready/Base/Typography/Heading',
+  title: 'Tedi-Ready/Base/Typography/Heading',
   component: Heading,
 };
 
@@ -22,13 +22,17 @@ const headings: HeadingModifiers[] = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
 
 const TemplateHeadings: StoryFn = (args) => (
   <div className="example-list w-100">
-    <Row className="border-bottom">
-      <Column>
-        <Text color="primary">Desktop</Text>
-      </Column>
-      <Column>
-        <Text color="primary">Mobile</Text>
-      </Column>
+    <Row className="border-bottom border-bottom--3x">
+      <Col>
+        <Text color="primary" className="padding-14-16">
+          Desktop
+        </Text>
+      </Col>
+      <Col>
+        <Text color="primary" className="padding-14-16">
+          Mobile
+        </Text>
+      </Col>
     </Row>
     {headings.map((heading, key) => (
       <TextRow

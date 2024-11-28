@@ -2,11 +2,11 @@ import cn from 'classnames';
 import React from 'react';
 
 import { Col, Row } from '../../../../tedi/components/grid';
+import { Print } from '../../../../tedi/components/print/print';
+import { StretchContent } from '../../../../tedi/components/stretch-content/stretch-content';
 import { VerticalSpacing } from '../../../../tedi/components/vertical-spacing';
 import { useLabels } from '../../../../tedi/providers/label-provider';
 import Icon, { IconProps } from '../../icon/icon';
-import Print from '../../print/print';
-import StretchContent from '../../stretch-content/stretch-content';
 import Text from '../../typography/text/text';
 import styles from './footer.module.scss';
 

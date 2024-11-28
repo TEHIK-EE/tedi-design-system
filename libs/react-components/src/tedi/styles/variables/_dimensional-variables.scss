@@ -142,24 +142,6 @@
   --icon-background-radius-desktop: var(--radius-08);
   --icon-background-radius-tablet: var(--radius-08);
   --icon-background-radius-mobile: var(--radius-08);
-  --loader-spinner-sizing-sm-desktop: 10px;
-  --loader-spinner-sizing-sm-rem-desktop: 0.625rem;
-  --loader-spinner-sizing-sm-tablet: 10px;
-  --loader-spinner-sizing-sm-rem-tablet: 0.625rem;
-  --loader-spinner-sizing-sm-mobile: 10px;
-  --loader-spinner-sizing-sm-rem-mobile: 0.625rem;
-  --loader-spinner-sizing-md-desktop: 16px;
-  --loader-spinner-sizing-md-rem-desktop: 1rem;
-  --loader-spinner-sizing-md-tablet: 16px;
-  --loader-spinner-sizing-md-rem-tablet: 1rem;
-  --loader-spinner-sizing-md-mobile: 16px;
-  --loader-spinner-sizing-md-rem-mobile: 1rem;
-  --loader-spinner-sizing-lg-desktop: 48px;
-  --loader-spinner-sizing-lg-rem-desktop: 3rem;
-  --loader-spinner-sizing-lg-tablet: 48px;
-  --loader-spinner-sizing-lg-rem-tablet: 3rem;
-  --loader-spinner-sizing-lg-mobile: 48px;
-  --loader-spinner-sizing-lg-rem-mobile: 3rem;
   --loader-spinner-page-spacing-top-desktop: 80px;
   --loader-spinner-page-spacing-top-rem-desktop: 5rem;
   --loader-spinner-page-spacing-top-tablet: 80px;
@@ -505,9 +487,9 @@
   --alert-default-padding-y-desktop: var(--dimensions-09);
   --alert-default-padding-y-tablet: var(--dimensions-09);
   --alert-default-padding-y-mobile: var(--dimensions-09);
-  --alert-radius-desktop: var(--card-radius-rounded);
-  --alert-radius-tablet: var(--card-radius-rounded);
-  --alert-radius-mobile: var(--card-radius-rounded);
+  --alert-radius-desktop: var(--card-radius-rounded-desktop);
+  --alert-radius-tablet: var(--card-radius-rounded-tablet);
+  --alert-radius-mobile: var(--card-radius-rounded-mobile);
   --alert-default-inner-spacing-y-desktop: var(--dimensions-03);
   --alert-default-inner-spacing-y-tablet: var(--dimensions-03);
   --alert-default-inner-spacing-y-mobile: var(--dimensions-03);
@@ -1001,4 +983,10 @@
   --list-padding-left-level-1-desktop: var(--dimensions-09);
   --list-padding-left-level-1-tablet: var(--dimensions-09);
   --list-padding-left-level-1-mobile: var(--dimensions-05);
+  --button-text-size-sm-desktop: var(--body-small-regular-size-desktop);
+  --button-text-size-sm-tablet: var(--body-small-regular-size-desktop);
+  --button-text-size-sm-mobile: var(--body-regular-size-mobile);
+  --button-text-size-default-desktop: var(--body-regular-size-desktop);
+  --button-text-size-default-tablet: var(--body-regular-size-desktop);
+  --button-text-size-default-mobile: var(--body-regular-size-mobile);
 }

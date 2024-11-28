@@ -1,12 +1,12 @@
 import cn from 'classnames';
 import React, { forwardRef } from 'react';
 
+import Print from '../../../tedi/components/print/print';
+import { Spinner } from '../../../tedi/components/spinner/spinner';
 import { AllowedHTMLTags, PolymorphicComponentPropWithRef, PolymorphicRef } from '../../helpers/polymorphic/types';
 import { IntentionalAny } from '../../types';
 import { ButtonColor, ButtonType } from '../button/button';
 import Icon, { IconProps } from '../icon/icon';
-import Print from '../print/print';
-import Spinner from '../spinner/spinner';
 import styles from './button-content.module.scss';
 
 export type ButtonContentProps<

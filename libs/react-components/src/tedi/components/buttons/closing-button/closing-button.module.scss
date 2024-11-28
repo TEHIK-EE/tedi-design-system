@@ -1,0 +1,39 @@
+@import '../../../styles/mixins';
+
+.tedi-closing-button {
+  --general-icon-primary: var(--button-close-text-default);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  cursor: pointer;
+  background-color: var(--button-close-background-default);
+  border: 1px solid var(--button-close-background-default);
+  transition: background 0.5s ease;
+
+  @include responsive-styles(border-radius, button-radius-default);
+
+  @each $state in hover, active, focus {
+    &:#{ $state } {
+      --general-icon-primary: var(--button-close-text-#{$state});
+
+      background-color: var(--button-close-background-#{$state});
+
+      @if $state == focus {
+        border-color: var(--blue-500);
+        outline: none;
+      }
+    }
+  }
+
+  &--medium {
+    @include responsive-styles(width, button-xs-icon-size);
+    @include responsive-styles(height, button-xs-icon-size);
+  }
+
+  &--large {
+    @include responsive-styles(width, button-sm-icon-size);
+    @include responsive-styles(height, button-sm-icon-size);
+  }
+}

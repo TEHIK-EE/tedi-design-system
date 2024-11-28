@@ -1,4 +1,5 @@
 import cn from 'classnames';
+import { forwardRef } from 'react';
 
 import styles from './icon.module.scss';
 
@@ -60,7 +61,7 @@ export interface IconProps {
   background?: IconBackgroundColor;
 }
 
-export const Icon = (props: IconProps): JSX.Element => {
+export const Icon = forwardRef<HTMLDivElement, IconProps>((props: IconProps, ref): JSX.Element => {
   const {
     className,
     name,
@@ -73,9 +74,11 @@ export const Icon = (props: IconProps): JSX.Element => {
     ...rest
   } = props;
 
-  const wrapperBEM = cn(styles['tedi-icon--wrapper'], {
-    [styles['tedi-icon--bg']]: background,
-    [styles[`tedi-icon--bg-${background}`]]: background,
+  const wrapperBEM = cn(styles['tedi-icon__wrapper'], {
+    [styles['tedi-icon__wrapper--bg']]: background,
+    [styles[`tedi-icon__wrapper--bg-${background}`]]: background,
+    [styles[`tedi-icon__wrapper--size-${size}`]]: size,
+    [styles[`tedi-icon__wrapper--${display}`]]: display,
   });
 
   const iconBEM = cn(
@@ -83,20 +86,28 @@ export const Icon = (props: IconProps): JSX.Element => {
     'material-symbols',
     type && [`material-symbols--${type}`],
     styles['tedi-icon'],
-    display && styles[`tedi-icon--${display}`],
     color && styles[`tedi-icon--color-${color}`],
     size && styles[`tedi-icon--size-${size}`],
+    display && styles[`tedi-icon--${display}`],
     filled && styles['tedi-icon--filled'],
     className
   );
 
-  return (
-    <div className={wrapperBEM}>
-      <span className={iconBEM} data-name="icon" role="img" aria-hidden={true} {...rest}>
-        {name}
-      </span>
-    </div>
+  const iconElement = (
+    <span ref={!background ? ref : null} className={iconBEM} data-name="icon" role="img" aria-hidden={true} {...rest}>
+      {name}
+    </span>
   );
-};
+
+  if (background) {
+    return (
+      <div className={wrapperBEM} ref={ref}>
+        {iconElement}
+      </div>
+    );
+  }
+
+  return iconElement;
+});
 
 Icon.displayName = 'Icon';

@@ -26,7 +26,7 @@ export interface ListItemProps extends BreakpointSupport<ListItemBreakpointProps
 export const ListItem = (props: ListItemProps) => {
   const { getCurrentBreakpointProps } = useBreakpointProps();
   const { children, verticalSpacingItem, className } = getCurrentBreakpointProps<ListItemProps>(props);
-  const listItemBEM = cn(styles['list__item'], verticalSpacingItem?.className, className);
+  const listItemBEM = cn(styles['tedi-list__item'], verticalSpacingItem?.className, className);
 
   if (props.verticalSpacingItem) {
     return (

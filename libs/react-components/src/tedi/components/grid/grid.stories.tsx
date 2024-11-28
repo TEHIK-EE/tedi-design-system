@@ -6,13 +6,13 @@ import { Col } from './col';
 import { Row, RowProps } from './row';
 
 /**
- * [Zeroheight ↗](https://zeroheight.com/1ee8444b7/p/24da19-grid) <br/>
- * [Boostrap docs ↗](https://getbootstrap.com/docs/5.1/layout/grid/) <br/>
+ * <a href="https://tedi.tehik.ee/1ee8444b7/p/24da19-grid" target="_BLANK">Zeroheight ↗</a><br/>
+ * <a hreg="https://getbootstrap.com/docs/5.1/layout/grid" target="_BLANK">Boostrap docs ↗</a> <br/>
  * Row and Col components are inspired by Bootstrap V5 Grid System. <br/> You can use different Bootstrap grid classes
  * through component props.
  */
 const meta: Meta<typeof Row> = {
-  title: 'Tedi-Ready/Content/Grid',
+  title: 'Tedi-Ready/Components/Helpers/Grid',
   component: Row,
   subcomponents: { Col: Col } as never,
   parameters: {

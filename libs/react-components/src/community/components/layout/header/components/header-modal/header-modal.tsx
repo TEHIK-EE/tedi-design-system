@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ClosingButton } from '../../../../../../tedi/components/closing-button/closing-button';
+import { ClosingButton } from '../../../../../../tedi/components/buttons/closing-button/closing-button';
 import { useLabels } from '../../../../../../tedi/providers/label-provider';
 import Button, { ButtonProps } from '../../../../button/button';
 import { Card, CardContent } from '../../../../card';

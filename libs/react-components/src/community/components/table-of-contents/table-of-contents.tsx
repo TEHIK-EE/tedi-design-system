@@ -1,12 +1,12 @@
 import React from 'react';
 
+import { StretchContent } from '../../../tedi/components/stretch-content/stretch-content';
 import { useLabels } from '../../../tedi/providers/label-provider';
 import { Layouts, useLayout } from '../../helpers';
 import Affix from '../affix/affix';
 import { Card, CardContent } from '../card';
 import HideOnScroll from '../hide-on-scroll/hide-on-scroll';
 import { ModalProps, ModalProviderProps } from '../modal';
-import StretchContent from '../stretch-content/stretch-content';
 import { TableOfContentsItemProps } from './table-of-contents-item';
 import { TableOfContentsItems } from './table-of-contents-items';
 import { TableOfContentsModal } from './table-of-contents-modal';

@@ -1,7 +1,6 @@
-import React from 'react';
 import { Slide, toast, ToastContainer, ToastOptions } from 'react-toastify';
 
-import { Notification, NotificationProps } from '../notification/notification';
+import { Alert, AlertProps } from '../../../tedi/components/alert/alert';
 
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -18,11 +17,11 @@ const toastDefaultOptions: ToastOptions = {
   closeButton: false,
 };
 
-export const sendNotification = (props: NotificationProps, toastOptions?: ToastOptions) => {
+export const sendNotification = (props: AlertProps, toastOptions?: ToastOptions) => {
   const mergedToastOptions = { ...toastDefaultOptions, ...toastOptions };
   const id = toast(
     () => (
-      <Notification
+      <Alert
         data-name="toast"
         {...props}
         onClose={() => {
@@ -31,7 +30,7 @@ export const sendNotification = (props: NotificationProps, toastOptions?: ToastO
         }}
       >
         {props.children}
-      </Notification>
+      </Alert>
     ),
     mergedToastOptions
   );

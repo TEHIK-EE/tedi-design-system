@@ -5,12 +5,6 @@ const config: StorybookConfig = {
   stories: [],
   addons: [
     getAbsolutePath('@storybook/addon-essentials'),
-    {
-      name: '@storybook/addon-docs',
-      options: {
-        transcludeMarkdown: true,
-      },
-    },
     getAbsolutePath('@storybook/addon-a11y'),
     getAbsolutePath('@avalane/storybook-addon-status'),
     getAbsolutePath('storybook-addon-pseudo-states'),

@@ -2,7 +2,7 @@ import { FloatingFocusManager, FloatingOverlay, FloatingPortal } from '@floating
 import cn from 'classnames';
 import React from 'react';
 
-import { ClosingButton } from '../../../tedi/components/closing-button/closing-button';
+import { ClosingButton } from '../../../tedi/components/buttons/closing-button/closing-button';
 import { useLabels } from '../../../tedi/providers/label-provider';
 import { IntentionalAny } from '../../types';
 import Card, { CardProps } from '../card/card';

@@ -5,7 +5,6 @@
 @import 'mixins';
 @import 'base';
 @import 'fonts';
-@import 'icons';
 @import 'typography';
 @import '../../shared/styles/typography-utilities';
 @import 'components/datepicker';
@@ -15,4 +14,4 @@
 
 // Helpers should overwrite all other styles
 @import 'helpers';
-@import 'print';
+@import '../../shared/styles/print';

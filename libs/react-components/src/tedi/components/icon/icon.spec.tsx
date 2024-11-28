@@ -11,7 +11,9 @@ describe('Icon component', () => {
     expect(iconElement).toBeInTheDocument();
     expect(iconElement).toHaveClass('notranslate');
     expect(iconElement).toHaveClass('material-symbols--outlined');
-    expect(iconElement).toHaveStyle({ fontSize: '24' });
+    expect(iconElement).toHaveClass('tedi-icon');
+    expect(iconElement).toHaveClass('tedi-icon--size-24');
+    expect(iconElement).toHaveClass('tedi-icon--block');
   });
 
   it('renders with custom size', () => {
@@ -51,9 +53,18 @@ describe('Icon component', () => {
 
   it('renders with background color', () => {
     const { container } = render(<Icon name="Add" background="primary" />);
-    const wrapperElement = container.querySelector('div');
+    const wrapperElement = container.querySelector('div.tedi-icon__wrapper');
+    const iconElement = container.querySelector('span[data-name="icon"]');
+
     expect(wrapperElement).toBeInTheDocument();
-    expect(wrapperElement).toHaveClass('tedi-icon--bg');
-    expect(wrapperElement).toHaveClass('tedi-icon--bg-primary');
+    expect(wrapperElement).toHaveClass('tedi-icon__wrapper--bg');
+    expect(wrapperElement).toHaveClass('tedi-icon__wrapper--bg-primary');
+    expect(iconElement).toBeInTheDocument();
+  });
+
+  it('renders with custom wrapper size', () => {
+    const { container } = render(<Icon name="Add" size={48} background="secondary" />);
+    const wrapperElement = container.querySelector('div.tedi-icon__wrapper');
+    expect(wrapperElement).toHaveClass('tedi-icon__wrapper--size-48');
   });
 });
