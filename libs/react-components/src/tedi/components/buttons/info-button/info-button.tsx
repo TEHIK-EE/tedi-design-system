@@ -11,7 +11,7 @@ export const InfoButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
       data-name="info-button"
       {...props}
       type="button"
-      icon={{ name: 'info', size: 16 }}
+      icon={{ name: 'info', size: 18 }}
       visualType="neutral"
       ref={ref}
     >
