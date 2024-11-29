@@ -1,32 +1,24 @@
+import cn from 'classnames';
 import React from 'react';
 
 import { Button, ButtonProps } from '../button/button';
+import styles from './info-button.module.scss';
 
-export interface InfoButtonProps extends Pick<ButtonProps, 'children' | 'onClick' | 'title' | 'id'> {
-  /**
-   * Additional classes to apply custom styles to the InfoButton.
-   */
-  className?: string;
-}
-
-export const InfoButton = React.forwardRef<HTMLButtonElement, InfoButtonProps>((props, ref): JSX.Element => {
-  const { className, ...rest } = props;
-
-  return (
+export const InfoButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  (props, ref): JSX.Element => (
     <Button
+      className={cn(styles['tedi-info-button'])}
       data-name="info-button"
+      {...props}
       type="button"
-      className={className}
-      icon={{ name: 'info' }}
+      icon={{ name: 'info', size: 16 }}
       visualType="neutral"
-      size="small"
       ref={ref}
-      {...rest}
     >
-      {rest.children}
+      {props.children}
     </Button>
-  );
-});
+  )
+);
 
 InfoButton.displayName = 'InfoButton';
 

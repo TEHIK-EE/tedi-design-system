@@ -1,0 +1,6 @@
+@import '../../../styles/mixins';
+
+.tedi-info-button {
+  @include responsive-styles(width, button-xs-icon-size);
+  @include responsive-styles(height, button-xs-icon-size);
+}
