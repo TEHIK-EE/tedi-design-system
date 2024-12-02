@@ -1,3 +1,10 @@
+# [9.1.0-rc.2](https://github.com/TEHIK-EE/tedi-design-system/compare/v9.1.0-rc.1...v9.1.0-rc.2) (2024-12-02)
+
+
+### Bug Fixes
+
+* **skeleton:** Apply opacity to skeleton background [#341](https://github.com/TEHIK-EE/tedi-design-system/issues/341) ([#342](https://github.com/TEHIK-EE/tedi-design-system/issues/342)) ([bf31f15](https://github.com/TEHIK-EE/tedi-design-system/commit/bf31f1571599efcfae3f63976339b3db3a35e453))
+
 # [9.1.0-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/v9.0.0...v9.1.0-rc.1) (2024-12-02)
 
 
