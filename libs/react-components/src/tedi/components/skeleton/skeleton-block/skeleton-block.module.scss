@@ -9,7 +9,7 @@ $headings: (h1, h2, h3, h4, h5, h6);
     to right,
     color-mix(in srgb, var(--loader-skeleton-color) 20%, transparent 20%) 8%,
     color-mix(in srgb, var(--loader-skeleton-color) 30%, transparent 30%) 18%,
-    olor-mix(in srgb, var(--loader-skeleton-color) 20%, transparent 20%) 33%
+    color-mix(in srgb, var(--loader-skeleton-color) 20%, transparent 20%) 33%
   );
   background-size: 1000px 100px;
   animation: wave-lines 2s infinite ease-in-out;
