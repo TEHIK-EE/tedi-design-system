@@ -323,7 +323,11 @@ export const DefaultCardTemplates: StoryFn<CardStory> = () => (
                 <Text modifiers="bold">Title</Text>
                 <Text>Description</Text>
                 <Separator spacing={1.5} />
-                <Button>Create</Button>
+                <Row justifyContent="center">
+                  <Col width="auto">
+                    <Button>Create</Button>
+                  </Col>
+                </Row>
               </Col>
             </Row>
           </CardContent>
@@ -373,9 +377,9 @@ export const CardInfoTemplate: StoryFn<CardStory> = () => (
         <Card>
           <CardContent
             background="brand-tertiary"
-            backgroundImage="/card-background-example.svg"
-            backgroundSize="65px"
-            backgroundPosition="right"
+            backgroundImage="card-background-example.svg"
+            backgroundSize="75px"
+            backgroundPosition="right center"
             backgroundRepeat="no-repeat"
           >
             <Row>
