@@ -1,3 +1,10 @@
+# [9.1.0-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/v9.0.0...v9.1.0-rc.1) (2024-12-02)
+
+
+### Features
+
+* **info-button:** New TEDI-Ready InfoButton component development [#332](https://github.com/TEHIK-EE/tedi-design-system/issues/332) ([#338](https://github.com/TEHIK-EE/tedi-design-system/issues/338)) ([635916f](https://github.com/TEHIK-EE/tedi-design-system/commit/635916f628b97a458c7ace62530c8799e5c6322e))
+
 # [9.0.0](https://github.com/TEHIK-EE/tedi-design-system/compare/v8.0.0...v9.0.0) (2024-11-28)
 
 
