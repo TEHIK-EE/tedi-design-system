@@ -2,6 +2,8 @@ import cn from 'classnames';
 import { ElementType, LabelHTMLAttributes } from 'react';
 
 import { BreakpointSupport, useBreakpointProps } from '../../helpers';
+import { ButtonProps } from '../buttons/button/button';
+import InfoButton from '../buttons/info-button/info-button';
 import styles from './label.module.scss';
 
 type LabelBreakpointProps = {
@@ -33,6 +35,12 @@ export interface LabelProps
    * @default false
    */
   required?: boolean;
+  /**
+   * Configuration for the InfoButton displayed alongside the label.
+   * Pass an object with properties accepted by the InfoButton component.
+   * If not provided, the InfoButton will not be rendered.
+   */
+  infoButton?: ButtonProps;
 }
 
 export const Label = (props: LabelProps): JSX.Element => {
@@ -44,6 +52,7 @@ export const Label = (props: LabelProps): JSX.Element => {
     isBold,
     isSmall,
     required,
+    infoButton,
     ...rest
   } = getCurrentBreakpointProps<LabelProps>(props);
   const labelBEM = cn(
@@ -61,6 +70,7 @@ export const Label = (props: LabelProps): JSX.Element => {
           *
         </span>
       )}
+      {infoButton && <InfoButton {...infoButton} />}
     </Element>
   );
 };
