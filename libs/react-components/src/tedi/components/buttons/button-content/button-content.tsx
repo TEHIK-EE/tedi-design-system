@@ -132,7 +132,7 @@ const InternalButtonContent = forwardRef(
           { [styles['tedi-btn--full-width']]: fullWidth },
           className
         )
-      : cn(styles['tedi-btn--no-style'], className, { [styles['tedi-btn--full-width']]: fullWidth });
+      : cn(styles['tedi-btn--no-style'], { [styles['tedi-btn--full-width']]: fullWidth }, className);
 
     const getIcon = (location: string, icon: string | IconProps): JSX.Element => {
       const iconBEM = cn(styles['tedi-btn__icon'], styles[`tedi-btn__icon--${location}`], {
