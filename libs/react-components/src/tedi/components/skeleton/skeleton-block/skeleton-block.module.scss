@@ -7,9 +7,9 @@ $headings: (h1, h2, h3, h4, h5, h6);
   width: 100%;
   background: linear-gradient(
     to right,
-    color-mix(in srgb, var(--loader-skeleton-color) 100%, transparent) 0%,
-    color-mix(in srgb, var(--loader-skeleton-color) 35%, transparent) 20%,
-    color-mix(in srgb, var(--loader-skeleton-color) 100%, transparent) 40%
+    rgb(var(--loader-skeleton-color) / 20%) 8%,
+    rgb(var(--loader-skeleton-color) / 30%) 18%,
+    rgb(var(--loader-skeleton-color) / 20%) 33%
   );
   background-size: 1000px 100px;
   animation: wave-lines 2s infinite ease-in-out;
