@@ -11,9 +11,9 @@ export const TextArea = (props: TextAreaProps): JSX.Element => {
     <TextField
       {...rest}
       data-name="textarea"
-      inputClassName={styles['textarea__input']}
+      inputClassName={styles['tedi-textarea__input']}
       isTextArea={true}
-      className={cn(styles['textarea'], className)}
+      className={cn(styles['tedi-textarea'], className)}
     />
   );
 };
