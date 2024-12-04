@@ -29,6 +29,8 @@
   }
 
   &.tedi-floating-button--secondary {
+    box-shadow: 0 4px 10px 0 rgb(0 0 0 / 14%);
+
     @include button-variant(
       var(--button-floating-secondary-background-default),
       var(--button-floating-secondary-border-default),
