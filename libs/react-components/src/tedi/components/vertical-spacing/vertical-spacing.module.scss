@@ -1,4 +1,4 @@
-.vertical-spacing[data-name='vertical-spacing'] {
+.tedi-vertical-spacing[data-name='vertical-spacing'] {
   > * {
     margin-bottom: var(--vertical-spacing-internal, 0);
   }
@@ -12,6 +12,6 @@
   }
 }
 
-.vertical-spacing__item[data-name='vertical-spacing-item'] {
+.tedi-vertical-spacing__item[data-name='vertical-spacing-item'] {
   margin-bottom: var(--vertical-spacing-internal, 0);
 }

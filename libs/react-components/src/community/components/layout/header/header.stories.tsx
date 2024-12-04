@@ -1,8 +1,8 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 
 import { Col, Row } from '../../../../tedi/components/grid';
+import { StretchContent } from '../../../../tedi/components/stretch-content/stretch-content';
 import Anchor from '../../anchor/anchor';
-import StretchContent from '../../stretch-content/stretch-content';
 import { Notice as BottomContentNotice } from './components/header-bottom-content/header-bottom-content.stories';
 import HeaderContent from './components/header-content/header-content';
 import HeaderLanguage, { HeaderLanguageProps } from './components/header-language/header-language';

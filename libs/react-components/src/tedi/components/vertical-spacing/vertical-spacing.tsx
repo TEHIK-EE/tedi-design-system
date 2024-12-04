@@ -40,7 +40,7 @@ export const VerticalSpacing = (props: VerticalSpacingProps): JSX.Element => {
     ...rest
   } = getCurrentBreakpointProps<VerticalSpacingProps>(props);
 
-  const VerticalSpacingBEM = cn(styles['vertical-spacing'], className);
+  const VerticalSpacingBEM = cn(styles['tedi-vertical-spacing'], className);
 
   return (
     <Element

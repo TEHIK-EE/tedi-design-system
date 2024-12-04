@@ -1,0 +1,16 @@
+import { Meta, Title, Subtitle, Unstyled } from '@storybook/blocks';
+
+import LabelsTable from './labels-table';
+
+<Meta name="Labels" title="TEDI-Ready/Providers/LabelProvider/Available labels" />
+
+# Labels
+
+## Here you can find all the labels used inside components.
+
+You need to wrap your APP in <code>{'<LabelProvider labels={labels} locale={locale}>'}</code> and pass in your own labels.
+
+However, components will fall back to the translations defined in the library itself. Currently, we have default translations for Estonian, English, and Russian.
+You can control which default translations are used with the <code>locale</code> prop. If the <code>locale</code> prop is not set, the default language is English.
+
+<LabelsTable />

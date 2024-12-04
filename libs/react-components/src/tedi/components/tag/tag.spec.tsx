@@ -35,12 +35,10 @@ describe('Tag component', () => {
     const tag = screen.getByRole('status');
     expect(tag).toHaveClass('tedi-tag tedi-tag--color-danger');
 
-    const errorIconWrapper = tag.querySelector('.tedi-icon--wrapper');
-    expect(errorIconWrapper).toBeInTheDocument();
-
-    const errorIcon = errorIconWrapper?.querySelector('[role="img"]');
+    const errorIcon = tag.querySelector('span[data-name="icon"]');
     expect(errorIcon).toBeInTheDocument();
-    expect(errorIcon).toHaveClass('tedi-icon tedi-icon--color-danger');
+    expect(errorIcon).toHaveClass('tedi-icon');
+    expect(errorIcon).toHaveClass('tedi-icon--color-danger');
     expect(errorIcon).toHaveClass('tedi-icon--size-16');
   });
 

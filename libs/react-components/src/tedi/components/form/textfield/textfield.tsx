@@ -1,12 +1,12 @@
 import cn from 'classnames';
 import React, { forwardRef } from 'react';
 
+import { FeedbackText, FeedbackTextProps } from '../../../../tedi/components/form/feedback-text/feedback-text';
 import FormLabel, { FormLabelProps } from '../../../../tedi/components/form/form-label/form-label';
 import { useLabels } from '../../../../tedi/providers/label-provider';
-import { ClosingButton } from '../../closing-button/closing-button';
+import { ClosingButton } from '../../buttons/closing-button/closing-button';
 import { Icon, IconProps } from '../../icon/icon';
 import Separator from '../../separator/separator';
-import FormHelper, { FormHelperProps } from '../form-helper/form-helper';
 import styles from './textfield.module.scss';
 
 export interface TextFieldProps extends Omit<FormLabelProps, 'size'> {
@@ -91,7 +91,7 @@ export interface TextFieldProps extends Omit<FormLabelProps, 'size'> {
   /**
    * Textfield helper.
    */
-  helper?: FormHelperProps;
+  helper?: FeedbackTextProps;
   /**
    * If textfield is textarea
    */
@@ -351,7 +351,7 @@ export const TextField = forwardRef<TextFieldForwardRef, TextFieldProps>((props,
         {renderInputElement}
         {isClearable || icon ? renderRightArea : null}
       </div>
-      {helper && <FormHelper {...helper} id={helperId} />}
+      {helper && <FeedbackText {...helper} id={helperId} />}
     </div>
   );
 });

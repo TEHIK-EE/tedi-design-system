@@ -109,17 +109,17 @@ export const Separator = (props: SeparatorProps): JSX.Element => {
   } = getCurrentBreakpointProps<SeparatorProps>(props);
 
   const SeparatorBEM = cn(
-    styles['separator'],
+    styles['tedi-separator'],
     className,
-    { [styles[`separator--${color}`]]: color },
-    { [styles[`separator--${axis}`]]: axis },
-    { [styles[`separator--${variant}`]]: variant },
-    { [styles[`separator--${variant}-${dotSize}`]]: variant && dotSize },
-    { [styles[`separator--thickness-${thickness}`]]: thickness && !variant },
-    { [styles['separator--is-stretched']]: isStretched },
-    { [styles[`separator--spacing-${spacing}`.replace('.', '-')]]: spacing },
-    { [styles[`separator--top-${topSpacing}`.replace('.', '-')]]: !spacing && topSpacing },
-    { [styles[`separator--bottom-${bottomSpacing}`.replace('.', '-')]]: !spacing && bottomSpacing }
+    { [styles[`tedi-separator--${color}`]]: color },
+    { [styles[`tedi-separator--${axis}`]]: axis },
+    { [styles[`tedi-separator--${variant}`]]: variant },
+    { [styles[`tedi-separator--${variant}-${dotSize}`]]: variant && dotSize },
+    { [styles[`tedi-separator--thickness-${thickness}`]]: thickness && !variant },
+    { [styles['tedi-separator--is-stretched']]: isStretched },
+    { [styles[`tedi-separator--spacing-${spacing}`.replace('.', '-')]]: spacing },
+    { [styles[`tedi-separator--top-${topSpacing}`.replace('.', '-')]]: !spacing && topSpacing },
+    { [styles[`tedi-separator--bottom-${bottomSpacing}`.replace('.', '-')]]: !spacing && bottomSpacing }
   );
 
   const getCssVars = () => {

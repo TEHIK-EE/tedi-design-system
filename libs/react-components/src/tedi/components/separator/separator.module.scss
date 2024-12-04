@@ -14,7 +14,7 @@ $sizes: (
   '5': 5rem,
 );
 
-.separator {
+.tedi-separator {
   --vertical-separator-height: 100%;
 
   position: relative;
@@ -40,8 +40,8 @@ $sizes: (
   }
 }
 
-.separator--dotted,
-.separator--dotted-small {
+.tedi-separator--dotted,
+.tedi-separator--dotted-small {
   &::before {
     position: absolute;
     top: 1.25rem;
@@ -56,11 +56,11 @@ $sizes: (
     @include mixins.responsive-styles(width, separator-dotted-dot-lg);
   }
 
-  &.separator--secondary::before {
+  &.tedi-separator--secondary::before {
     background-color: var(--general-border-secondary);
   }
 
-  &.separator--accent::before {
+  &.tedi-separator--accent::before {
     background-color: var(--general-border-accent);
   }
 }
@@ -73,31 +73,31 @@ $sizes: (
   @include mixins.responsive-styles(width, separator-dotted-dot-md);
 }
 
-.separator--is-stretched {
+.tedi-separator--is-stretched {
   margin-right: calc(var(--card-content-padding-right) * -1);
   margin-left: calc(var(--card-content-padding-left) * -1);
 
-  &.separator--vertical {
+  &.tedi-separator--vertical {
     height: calc(100% + (var(--card-content-padding-top) + var(--card-content-padding-bottom)));
     margin: calc(var(--card-content-padding-top) * -1) 0 calc(var(--card-content-padding-bottom) * -1);
   }
 }
 
 @each $size, $value in $sizes {
-  .separator--horizontal.separator--top-#{$size} {
+  .tedi-separator--horizontal.tedi-separator--top-#{$size} {
     margin-top: #{$value};
   }
 
-  .separator--horizontal.separator--bottom-#{$size} {
+  .tedi-separator--horizontal.tedi-separator--bottom-#{$size} {
     margin-bottom: #{$value};
   }
 
-  .separator--horizontal.separator--spacing-#{$size}:not(.separator--dot-only) {
+  .tedi-separator--horizontal.tedi-separator--spacing-#{$size}:not(.tedi-separator--dot-only) {
     margin-top: #{$value};
     margin-bottom: #{$value};
   }
 
-  .separator--horizontal.separator--dot-only.separator--spacing-#{$size} {
+  .tedi-separator--horizontal.tedi-separator--dot-only.tedi-separator--spacing-#{$size} {
     margin-right: #{$value};
     margin-left: #{$value};
   }
@@ -109,18 +109,18 @@ $thicknesses: (
 );
 
 @each $thickness, $value in $thicknesses {
-  .separator {
-    &.separator--thickness-#{$thickness} {
+  .tedi-separator {
+    &.tedi-separator--thickness-#{$thickness} {
       border-top-width: #{$value};
     }
 
-    &--vertical.separator--thickness-#{$thickness} {
+    &--vertical.tedi-separator--thickness-#{$thickness} {
       border-left-width: #{$value};
     }
   }
 }
 
-.separator--dot-only {
+.tedi-separator--dot-only {
   position: relative;
   display: inline-block;
   vertical-align: middle;
@@ -137,35 +137,35 @@ $thicknesses: (
     @include mixins.responsive-styles(width, separator-dotted-dot-sm);
   }
 
-  &.separator--dot-only-extra-small::before {
+  &.tedi-separator--dot-only-extra-small::before {
     @include mixins.responsive-styles(width, separator-dotted-dot-xs);
     @include mixins.responsive-styles(height, separator-dotted-dot-xs);
   }
 
-  &.separator--dot-only-small::before {
+  &.tedi-separator--dot-only-small::before {
     @include mixins.responsive-styles(width, separator-dotted-dot-sm);
     @include mixins.responsive-styles(height, separator-dotted-dot-sm);
   }
 
-  &.separator--dot-only-medium::before {
+  &.tedi-separator--dot-only-medium::before {
     @include mixins.responsive-styles(width, separator-dotted-dot-md);
     @include mixins.responsive-styles(height, separator-dotted-dot-md);
   }
 
-  &.separator--dot-only-large::before {
+  &.tedi-separator--dot-only-large::before {
     @include mixins.responsive-styles(width, separator-dotted-dot-lg);
     @include mixins.responsive-styles(height, separator-dotted-dot-lg);
   }
 
-  &.separator--primary::before {
+  &.tedi-separator--primary::before {
     background-color: var(--general-border-primary);
   }
 
-  &.separator--secondary::before {
+  &.tedi-separator--secondary::before {
     background-color: var(--general-border-secondary);
   }
 
-  &.separator--accent::before {
+  &.tedi-separator--accent::before {
     background-color: var(--general-border-accent);
   }
 }

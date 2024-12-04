@@ -7,13 +7,13 @@ import { VerticalSpacing } from '../vertical-spacing';
 import { TextGroup, TextGroupProps } from './text-group';
 
 /**
- * [Figma ↗](https://www.figma.com/file/jWiRIXhHRxwVdMSimKX2FF/TEDI-Design-System-(draft)?type=design&node-id=45-30752&mode=dev)<br/>
- * [Zeroheight ↗](https://tedi.zeroheight.com/styleguide/s/118912/p/28835d-icons)
+ * <a href="https://www.figma.com/file/jWiRIXhHRxwVdMSimKX2FF/TEDI-Design-System-(draft)?type=design&node-id=45-30752&mode=dev" target="_BLANK">Figma ↗</a><br/>
+ * <a href="https://tedi.tehik.ee/1ee8444b7/p/433820-text-group" target="_BLANK">Zeroheight ↗</a>
  */
 
 const meta: Meta<typeof TextGroup> = {
   component: TextGroup,
-  title: 'Tedi-ready/Content/TextGroup',
+  title: 'Tedi-Ready/Content/TextGroup',
   parameters: {
     status: {
       type: [{ name: 'breakpointSupport', url: '?path=/docs/helpers-usebreakpointprops--usebreakpointprops' }],

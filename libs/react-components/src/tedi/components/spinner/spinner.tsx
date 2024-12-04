@@ -4,7 +4,7 @@ import { BreakpointSupport, useBreakpointProps } from '../../helpers';
 import { useLabels } from '../../providers/label-provider';
 import styles from './spinner.module.scss';
 
-export type SpinnerSize = 10 | 16 | 48;
+export type SpinnerSize = 10 | 16 | 18 | 48;
 export type SpinnerColor = 'primary' | 'secondary';
 export type SpinnerPosition = 'absolute';
 
@@ -64,7 +64,7 @@ export const Spinner = (props: SpinnerProps): JSX.Element => {
   return (
     <span className={spinnerBEM} role="status" aria-live="polite" aria-label={label} aria-hidden={!label}>
       <svg viewBox="22 22 44 44" aria-hidden="true">
-        <circle className={styles['tedi-spinner--inner']} cx="44" cy="44" r="20" fill="none"></circle>
+        <circle className={styles['tedi-spinner__inner']} cx="44" cy="44" r="20" fill="none"></circle>
       </svg>
     </span>
   );

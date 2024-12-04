@@ -1,10 +1,10 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 
+import { StretchContent } from '../../../../tedi/components/stretch-content/stretch-content';
 import { VerticalSpacing } from '../../../../tedi/components/vertical-spacing';
 import useLayout from '../../../helpers/hooks/use-layout';
 import Button from '../../button/button';
 import Section from '../../section/section';
-import StretchContent from '../../stretch-content/stretch-content';
 import Heading from '../../typography/heading/heading';
 import Breadcrumbs, { BreadcrumbsProps } from '../breadcrumbs/breadcrumbs';
 import { Default as BreadcrumbsDefault } from '../breadcrumbs/breadcrumbs.stories';

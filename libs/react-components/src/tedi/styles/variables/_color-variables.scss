@@ -6,6 +6,7 @@
   --alert-default-border-danger: var(--general-status-danger-border);
   --alert-default-border-success: var(--general-status-success-border);
   --alert-default-border-warning: var(--general-status-warning-border);
+  --alert-default-border-info: var(--general-status-info-border);
   --alert-default-text-danger: var(--general-text-primary);
   --alert-default-text-info: var(--general-text-primary);
   --alert-default-text-success: var(--general-text-primary);
@@ -134,10 +135,10 @@
   --button-main-neutral-border-default: var(--alpha-01);
   --button-main-neutral-border-focus: var(--neutral-100);
   --button-main-neutral-border-hover: var(--alpha-01);
-  --button-main-neutral-icon-only-background-active: var(--button-info-background-active);
-  --button-main-neutral-icon-only-background-default: var(--button-info-background-default);
-  --button-main-neutral-icon-only-background-focus: var(--button-info-background-focus);
-  --button-main-neutral-icon-only-background-hover: var(--button-info-background-hover);
+  --button-main-neutral-icon-only-background-active: var(--button-main-secondary-background-active);
+  --button-main-neutral-icon-only-background-default: var(--alpha-01);
+  --button-main-neutral-icon-only-background-focus: var(--button-main-neutral-icon-only-background-default);
+  --button-main-neutral-icon-only-background-hover: var(--button-main-secondary-background-hover);
   --button-main-neutral-text-active: var(--primary-800);
   --button-main-neutral-text-default: var(--primary-600);
   --button-main-neutral-text-focus: var(--primary-800);
@@ -418,7 +419,7 @@
   --link-primary-focus: var(--blue-600);
   --link-primary-hover: var(--blue-700);
   --list-icon: var(--primary-600);
-  --loader-skeleton-color: var(--neutral-350);
+  --loader-skeleton-color: var(--neutral-450);
   --loader-spinner-color-primary: var(--neutral-450);
   --loader-spinner-color-secondary: var(--alpha-white-80);
   --modal-background: var(--general-surface-primary);
@@ -498,6 +499,7 @@
   --alert-default-border-danger: var(--general-status-danger-border);
   --alert-default-border-success: var(--general-status-success-border);
   --alert-default-border-warning: var(--general-status-warning-border);
+  --alert-default-border-info: var(--general-status-info-border);
   --alert-default-text-danger: var(--general-text-primary);
   --alert-default-text-info: var(--general-text-primary);
   --alert-default-text-success: var(--general-text-primary);
@@ -626,10 +628,10 @@
   --button-main-neutral-border-default: var(--alpha-01);
   --button-main-neutral-border-focus: var(--general-surface-primary);
   --button-main-neutral-border-hover: var(--alpha-01);
-  --button-main-neutral-icon-only-background-active: var(--button-info-background-active);
-  --button-main-neutral-icon-only-background-default: var(--button-info-background-default);
-  --button-main-neutral-icon-only-background-focus: var(--button-info-background-focus);
-  --button-main-neutral-icon-only-background-hover: var(--button-info-background-hover);
+  --button-main-neutral-icon-only-background-active: var(--button-main-secondary-background-active);
+  --button-main-neutral-icon-only-background-default: var(--alpha-01);
+  --button-main-neutral-icon-only-background-focus: var(--button-main-neutral-icon-only-background-default);
+  --button-main-neutral-icon-only-background-hover: var(--button-main-secondary-background-hover);
   --button-main-neutral-text-active: var(--primary-300);
   --button-main-neutral-text-default: var(--neutral-100);
   --button-main-neutral-text-focus: var(--neutral-100);

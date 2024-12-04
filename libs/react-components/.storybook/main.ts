@@ -16,8 +16,6 @@ const config: StorybookConfig = {
     '../src/shared/docs/colors/tedi-colors.mdx',
     '../src/community/docs/scale-layout/spacing.mdx',
     '../src/community/docs/scale-layout/grid.mdx',
-    '../src/community/docs/labels/labels.mdx',
-    '../src/community/docs/printing.mdx',
     '../src/tedi/**/**/*.stories.tsx',
     '../src/tedi/**/**/*.mdx',
     '../src/community/**/**/*.stories.tsx',

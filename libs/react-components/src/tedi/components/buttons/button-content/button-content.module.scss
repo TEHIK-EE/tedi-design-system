@@ -1,0 +1,485 @@
+@use '../../../styles/mixins';
+
+$btn-height: 2.5rem;
+$btn-height-small: 2rem;
+
+@mixin button-variant(
+  $background,
+  $border,
+  $color,
+  $background-hover,
+  $border-hover,
+  $color-hover,
+  $border-focus,
+  $background-focus,
+  $color-active,
+  $border-active,
+  $background-active,
+  $background-disabled: var(--button-main-disabled-general-background),
+  $border-disabled: var(--button-main-disabled-general-border),
+  $color-disabled: var(--button-main-disabled-general-text)
+) {
+  color: $color;
+  background-color: $background;
+  border-color: $border;
+
+  &.tedi-btn--is-active:not(:disabled, [aria-disabled='true']),
+  &:active:not(:disabled, [aria-disabled='true']) {
+    color: $color-active;
+    background-color: $background-active;
+    border-color: $border-active;
+  }
+
+  &.tedi-btn--is-hovered:not(:disabled, [aria-disabled='true']),
+  &:hover:not(:disabled, [aria-disabled='true']) {
+    color: $color-hover;
+    background-color: $background-hover;
+    border-color: $border-hover;
+  }
+
+  &:focus:not(:disabled, [aria-disabled='true']) {
+    background-color: $background-focus;
+    border-color: $border;
+    outline: 2px solid $border-focus;
+    outline-offset: 1px;
+  }
+
+  &:disabled {
+    color: $color-disabled;
+    background-color: $background-disabled;
+    border-color: $border-disabled;
+  }
+}
+
+@mixin button-secondary-variant(
+  $border,
+  $color,
+  $background-hover,
+  $border-hover,
+  $color-hover,
+  $border-focus,
+  $background-focus,
+  $color-active,
+  $border-active,
+  $background-active,
+  $background-disabled: var(--button-main-disabled-general-background),
+  $border-disabled: var(--button-main-disabled-general-border),
+  $color-disabled: var(--button-main-disabled-general-text)
+) {
+  @include button-variant(
+    var(--button-main-secondary-background-default),
+    $border,
+    $color,
+    $background-hover,
+    $border-hover,
+    $color-hover,
+    $border-focus,
+    $background-focus,
+    $color-active,
+    $border-active,
+    $background-active,
+    $background-disabled,
+    $border-disabled,
+    $color-disabled
+  );
+}
+
+@mixin link-variant($color, $color-hover, $color-active, $color-focus) {
+  color: $color;
+
+  &.tedi-btn--is-hovered:not(:disabled, [aria-disabled='true']),
+  &:hover:not(:disabled, [aria-disabled='true']) {
+    color: $color-hover;
+  }
+
+  &.tedi-btn--is-active:not(:disabled, [aria-disabled='true']),
+  &:active:not(:disabled, [aria-disabled='true']) {
+    color: $color-active;
+  }
+
+  &:focus:not(:disabled) {
+    color: $color-focus;
+    border-radius: 0;
+    outline: 2px solid $color-focus;
+    outline-offset: 1px;
+
+    .tedi-btn__text {
+      text-decoration: underline;
+    }
+  }
+}
+
+.tedi-btn {
+  --general-icon-primary: currentcolor;
+
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+  height: $btn-height;
+  margin: 0;
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  background-image: none;
+  border-style: solid;
+  border-width: 1px;
+  transition: 150ms ease;
+  transition-property: background-color, border-color;
+
+  @include mixins.print-grayscale;
+  @include mixins.responsive-styles(font-size, button-text-size-default);
+  @include mixins.responsive-styles(padding-top, button-md-padding-y);
+  @include mixins.responsive-styles(padding-bottom, button-md-padding-y);
+  @include mixins.responsive-styles(padding-left, button-md-padding-x);
+  @include mixins.responsive-styles(padding-right, button-md-padding-x);
+  @include mixins.responsive-styles(border-radius, button-radius-default);
+}
+
+.tedi-btn:disabled,
+.tedi-btn[aria-disabled='true'] {
+  cursor: auto;
+}
+
+.tedi-btn--small {
+  height: $btn-height-small;
+
+  @include mixins.responsive-styles(font-size, button-text-size-sm);
+  @include mixins.responsive-styles(padding-top, button-sm-padding-y);
+  @include mixins.responsive-styles(padding-bottom, button-sm-padding-y);
+  @include mixins.responsive-styles(padding-left, button-sm-padding-x);
+  @include mixins.responsive-styles(padding-right, button-sm-padding-x);
+
+  &.tedi-btn--icon-only {
+    width: $btn-height-small;
+  }
+}
+
+.tedi-btn--neutral {
+  padding: 0;
+  background-clip: padding-box;
+
+  @include mixins.responsive-styles(padding-top, button-md-neutral-padding-y);
+  @include mixins.responsive-styles(padding-bottom, button-md-neutral-padding-y);
+
+  &.tedi-btn--default.tedi-btn--icon-only {
+    &:hover:not(:disabled) {
+      background-color: var(--button-main-neutral-icon-only-background-hover);
+    }
+
+    &:active:not(:disabled) {
+      background-color: var(--button-main-neutral-icon-only-background-active);
+    }
+  }
+
+  &.tedi-btn--danger.tedi-btn--icon-only {
+    &:hover:not(:disabled) {
+      background-color: var(--button-main-danger-neutral-icon-only-background-hover);
+    }
+
+    &:active:not(:disabled) {
+      background-color: var(--button-main-danger-neutral-icon-only-background-active);
+    }
+  }
+}
+
+.tedi-btn--icon-only {
+  width: $btn-height;
+  padding: 0;
+
+  .tedi-btn__text {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+    border: 0 !important;
+
+    @include mixins.visually-hidden;
+  }
+}
+
+.tedi-btn--default {
+  &.tedi-btn--primary {
+    @include button-variant(
+      var(--button-main-primary-background-default),
+      var(--button-main-primary-border-default),
+      var(--button-main-primary-text-default),
+      var(--button-main-primary-background-hover),
+      var(--button-main-primary-border-hover),
+      var(--button-main-primary-text-default),
+      var(--button-main-primary-border-focus),
+      var(--button-main-primary-background-focus),
+      var(--button-main-primary-text-default),
+      var(--button-main-primary-border-active),
+      var(--button-main-primary-background-active)
+    );
+  }
+
+  &.tedi-btn--secondary {
+    @include button-secondary-variant(
+      var(--button-main-secondary-border-default),
+      var(--button-main-secondary-text-default),
+      var(--button-main-secondary-background-hover),
+      var(--button-main-secondary-border-hover),
+      var(--button-main-secondary-text-default),
+      var(--button-main-secondary-border-focus),
+      var(--button-main-secondary-background-focus),
+      var(--button-main-secondary-text-default),
+      var(--button-main-secondary-border-active),
+      var(--button-main-secondary-background-active)
+    );
+  }
+
+  &.tedi-btn--neutral {
+    @include button-variant(
+      var(--button-main-neutral-background-default),
+      var(--button-main-neutral-border-default),
+      var(--button-main-neutral-text-default),
+      var(--button-main-neutral-background-hover),
+      var(--button-main-neutral-border-hover),
+      var(--button-main-neutral-text-hover),
+      var(--button-main-primary-border-focus),
+      var(--button-main-neutral-background-focus),
+      var(--button-main-neutral-text-active),
+      var(--button-main-neutral-border-active),
+      var(--button-main-neutral-background-active),
+      var(--button-main-neutral-background-default),
+      var(--button-main-neutral-background-default)
+    );
+  }
+}
+
+.tedi-btn--danger {
+  &.tedi-btn--primary {
+    @include button-variant(
+      var(--button-main-danger-background-default),
+      var(--button-main-danger-border-default),
+      var(--button-main-danger-text-default),
+      var(--button-main-danger-background-hover),
+      var(--button-main-danger-border-hover),
+      var(--button-main-danger-text-default),
+      var(--button-main-primary-border-focus),
+      var(--button-main-danger-background-focus),
+      var(--button-main-danger-text-default),
+      var(--button-main-danger-border-active),
+      var(--button-main-danger-background-active)
+    );
+  }
+
+  &.tedi-btn--neutral {
+    @include button-variant(
+      var(--button-main-danger-neutral-background-default),
+      var(--button-main-danger-neutral-border-default),
+      var(--button-main-danger-neutral-text-default),
+      var(--button-main-danger-neutral-background-hover),
+      var(--button-main-danger-neutral-border-hover),
+      var(--button-main-danger-neutral-text-hover),
+      var(--button-main-primary-border-focus),
+      var(--button-main-danger-neutral-background-focus),
+      var(--button-main-danger-neutral-text-active),
+      var(--button-main-danger-neutral-border-active),
+      var(--button-main-danger-neutral-background-active),
+      var(--button-main-neutral-background-default),
+      var(--button-main-neutral-background-default)
+    );
+  }
+}
+
+.tedi-btn--success {
+  &.tedi-btn--primary {
+    @include button-variant(
+      var(--button-main-success-background-default),
+      var(--button-main-success-border-default),
+      var(--button-main-success-text-default),
+      var(--button-main-success-background-hover),
+      var(--button-main-success-border-hover),
+      var(--button-main-success-text-default),
+      var(--button-main-primary-border-focus),
+      var(--button-main-success-background-focus),
+      var(--button-main-success-text-default),
+      var(--button-main-success-border-active),
+      var(--button-main-success-background-active)
+    );
+  }
+}
+
+.tedi-btn--inverted {
+  &.tedi-btn--primary {
+    @include button-variant(
+      var(--button-main-primary-inverted-background-default),
+      var(--button-main-primary-inverted-border-default),
+      var(--button-main-primary-inverted-text-default),
+      var(--button-main-primary-inverted-background-hover),
+      var(--button-main-primary-inverted-border-hover),
+      var(--button-main-primary-inverted-text-hover),
+      var(--button-main-primary-inverted-border-focus),
+      var(--button-main-primary-inverted-background-focus),
+      var(--button-main-primary-inverted-text-default),
+      var(--button-main-primary-inverted-border-active),
+      var(--button-main-primary-inverted-background-active)
+    );
+  }
+
+  &.tedi-btn--secondary {
+    @include button-variant(
+      var(--button-main-secondary-inverted-background-default),
+      var(--button-main-secondary-inverted-border-default),
+      var(--button-main-secondary-inverted-text-default),
+      var(--button-main-secondary-inverted-background-hover),
+      var(--button-main-secondary-inverted-border-hover),
+      var(--button-main-secondary-inverted-text-default),
+      var(--button-main-secondary-inverted-border-focus),
+      var(--button-main-secondary-inverted-background-focus),
+      var(--button-main-secondary-inverted-text-default),
+      var(--button-main-secondary-inverted-border-active),
+      var(--button-main-secondary-inverted-background-active)
+    );
+  }
+
+  &.tedi-btn--neutral {
+    @include button-variant(
+      var(--button-main-neutral-inverted-background-default),
+      var(--button-main-neutral-inverted-border-default),
+      var(--button-main-neutral-inverted-text-default),
+      var(--button-main-neutral-inverted-background-hover),
+      var(--button-main-neutral-inverted-border-hover),
+      var(--button-main-neutral-inverted-text-hover),
+      var(--button-main-neutral-inverted-border-focus),
+      var(--button-main-neutral-inverted-background-focus),
+      var(--button-main-neutral-inverted-text-default),
+      var(--button-main-neutral-inverted-border-active),
+      var(--button-main-neutral-inverted-background-active),
+      var(--button-main-neutral-inverted-background-default),
+      var(--button-main-neutral-inverted-background-default)
+    );
+  }
+
+  &.tedi-btn--link {
+    @include link-variant(
+      var(--link-inverted-default),
+      var(--link-inverted-hover),
+      var(--link-inverted-active),
+      var(--link-inverted-focus)
+    );
+  }
+}
+
+.tedi-btn--text-color {
+  &.tedi-btn--link {
+    @include link-variant(
+      inherit,
+      var(--button-main-neutral-text-hover),
+      var(--button-main-disabled-general-text),
+      inherit
+    );
+  }
+}
+
+.tedi-btn--link {
+  display: inline-flex;
+  width: auto;
+  height: auto;
+  padding: 0;
+  text-align: left;
+  text-decoration: none;
+  background: none;
+  border: none;
+
+  @include link-variant(
+    var(--link-primary-default),
+    var(--link-primary-hover),
+    var(--link-primary-active),
+    var(--link-primary-focus)
+  );
+
+  .tedi-btn__icon--left {
+    @include mixins.responsive-styles(margin-right, button-sm-inner-spacing);
+  }
+
+  .tedi-btn__icon--right {
+    @include mixins.responsive-styles(margin-left, button-sm-inner-spacing);
+  }
+}
+
+.tedi-btn__text {
+  text-align: start;
+
+  @include mixins.responsive-styles(padding-left, button-md-inner-spacing);
+  @include mixins.responsive-styles(padding-right, button-md-inner-spacing);
+
+  .tedi-btn--link.tedi-btn--is-hovered:not(:disabled) &,
+  .tedi-btn--link.tedi-btn--is-active:not(:disabled) &,
+  .tedi-btn--link:hover:not(:disabled) &,
+  .tedi-btn--link:active:not(:disabled) & {
+    text-decoration: underline;
+  }
+
+  .tedi-btn--is-loading:not(.tedi-btn--icon) & {
+    color: var(--alpha-01);
+  }
+
+  .tedi-btn--small & {
+    @include mixins.responsive-styles(padding-left, button-sm-inner-spacing);
+    @include mixins.responsive-styles(padding-right, button-sm-inner-spacing);
+  }
+
+  .tedi-btn--link & {
+    padding: 0;
+  }
+
+  &:not(.tedi-btn--link .tedi-btn__text) {
+    text-wrap: nowrap;
+  }
+}
+
+.tedi-btn__icon--left,
+.tedi-btn__icon--right {
+  display: inline-flex;
+  flex-shrink: 0;
+  padding: 0;
+}
+
+.tedi-btn__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .tedi-btn--link & {
+    display: inline !important;
+    vertical-align: middle;
+  }
+}
+
+.tedi-btn__inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.5rem;
+  min-height: 1.5rem;
+
+  .tedi-btn--link:not(.tedi-btn--is-loading) & {
+    display: inline;
+  }
+}
+
+.tedi-btn__spinner {
+  stroke: currentcolor;
+}
+
+.tedi-btn--underline {
+  .tedi-btn__text {
+    text-decoration: underline;
+  }
+}
+
+.tedi-btn--no-style {
+  @include mixins.button-reset;
+}
+
+.tedi-btn--full-width {
+  width: 100%;
+}

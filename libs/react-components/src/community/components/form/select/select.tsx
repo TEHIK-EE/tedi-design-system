@@ -23,7 +23,7 @@ import ReactSelect, {
 import AsyncSelect from 'react-select/async';
 import { MenuPortalProps } from 'react-select/dist/declarations/src/components/Menu';
 
-import FormHelper, { FormHelperProps } from '../../../../tedi/components/form/form-helper/form-helper';
+import { FeedbackText, FeedbackTextProps } from '../../../../tedi/components/form/feedback-text/feedback-text';
 import { FormLabel, FormLabelProps } from '../../../../tedi/components/form/form-label/form-label';
 import { useLabels } from '../../../../tedi/providers/label-provider';
 import { getBackgroundColorClass } from '../../../helpers';
@@ -150,7 +150,7 @@ export interface SelectProps extends FormLabelProps {
   /**
    * Textfield helper.
    */
-  helper?: FormHelperProps;
+  helper?: FeedbackTextProps;
   /**
    * Size of select.
    */
@@ -631,7 +631,7 @@ export const Select = forwardRef<SelectInstance<ISelectOption, boolean, IGrouped
           <FormLabel id={`${id}-input`} label={label} required={required} hideLabel={hideLabel} />
           {renderReactSelect()}
         </div>
-        {helper && <FormHelper {...helper} id={helperId} />}
+        {helper && <FeedbackText {...helper} id={helperId} />}
       </div>
     );
   }

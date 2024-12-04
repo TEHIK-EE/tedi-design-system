@@ -22,8 +22,9 @@ import {
 } from '@floating-ui/react';
 import React from 'react';
 
+import { useIsMounted } from '../../../tedi/helpers';
 import { useLabels } from '../../../tedi/providers/label-provider';
-import { useIsMounted, useIsTouchDevice } from '../../helpers';
+import { useIsTouchDevice } from '../../helpers';
 
 export type TooltipOpenWith = 'click' | 'hover';
 export const ARROW_HEIGHT = 7;
