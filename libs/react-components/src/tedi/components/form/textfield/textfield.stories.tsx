@@ -11,31 +11,41 @@ import TextField, { TextFieldProps } from './textfield';
 
 const meta: Meta<typeof TextField> = {
   component: TextField,
-  title: 'TEDI-Ready/Form/TextField',
+  title: 'TEDI-Ready/Components/Form/TextField',
+  parameters: {
+    status: {
+      type: [{ name: 'breakpointSupport', url: '?path=/docs/helpers-usebreakpointprops--usebreakpointprops' }],
+    },
+    controls: {
+      exclude: ['sm', 'md', 'lg', 'xl', 'xxl'],
+    },
+  },
 };
 
 export default meta;
 type Story = StoryObj<typeof TextField>;
 
-const sizeArray: TextFieldProps['size'][] = ['small', 'default', 'large'];
+const stateArray = ['Default', 'Hover', 'Focus', 'Active', 'Disabled'];
 
-interface TemplateMultipleProps<Type = TextFieldProps['size']> extends TextFieldProps {
-  array: Type[];
-  property: keyof TextFieldProps;
+interface TemplateStateProps extends TextFieldProps {
+  array: typeof stateArray;
 }
 
-const TemplateColumn: StoryFn<TemplateMultipleProps> = (args) => {
-  const { array, property, ...textFieldProps } = args;
+const TemplateColumnWithStates: StoryFn<TemplateStateProps> = (args) => {
+  const { array, id, ...textFieldProps } = args;
 
   return (
-    <div className="example-list">
-      {array.map((value, key) => (
-        <Row className={`${key === array.length - 1 ? '' : 'border-bottom'} padding-14-16`} key={key}>
-          <Col>
-            <Text modifiers="capitalize">{value?.toString()}</Text>
+    <div className="state-example">
+      {array.map((state, index) => (
+        <Row key={index} className="padding-14-16">
+          <Col width={2} className="display-flex align-items-center">
+            <Text modifiers="bold">{state}</Text>
           </Col>
-          <Col className="d-flex">
-            <TextField {...textFieldProps} {...{ [property]: value }} />
+          <Col className="display-flex align-items-center">
+            <TextField disabled={state === 'Disabled'} id={state} {...textFieldProps} />
+          </Col>
+          <Col className="display-flex align-items-end">
+            <TextField disabled={state === 'Disabled'} size="small" id={state} {...textFieldProps} />
           </Col>
         </Row>
       ))}
@@ -50,31 +60,34 @@ export const Default: Story = {
   },
 };
 
-export const Size: StoryObj<TemplateMultipleProps> = {
-  render: TemplateColumn,
-  name: 'TextField size',
-
+export const TextFieldStates: StoryObj<TemplateStateProps> = {
+  render: TemplateColumnWithStates,
   args: {
-    property: 'size',
-    array: sizeArray,
+    array: stateArray,
     label: 'Label',
   },
-};
-
-export const Icon: Story = {
-  args: {
-    ...Default.args,
-    icon: 'person',
+  parameters: {
+    pseudo: {
+      hover: '#Hover',
+      focus: '#Focus',
+      active: '#Active',
+    },
   },
 };
 
-export const Clearable: Story = {
+export const WithIllustrativeIcon: StoryObj<TemplateStateProps> = {
+  render: TemplateColumnWithStates,
   args: {
-    ...Default.args,
-    icon: 'search',
-    defaultValue: '1234',
-    isClearable: true,
-    placeholder: 'Search',
+    array: stateArray,
+    label: 'Label',
+    icon: 'person',
+  },
+  parameters: {
+    pseudo: {
+      hover: '#Hover',
+      focus: '#Focus',
+      active: '#Active',
+    },
   },
 };
 
@@ -84,7 +97,7 @@ export const WithHint: Story = {
     helper: {
       id: 'example-3',
       text: 'Hint text',
-      type: 'help',
+      type: 'hint',
     },
   },
 };
@@ -94,7 +107,7 @@ export const Error: Story = {
     ...Default.args,
     helper: {
       id: 'example-3',
-      text: 'Error text here',
+      text: 'Feedback text',
       type: 'error',
     },
   },
@@ -105,27 +118,28 @@ export const Success: Story = {
     ...Default.args,
     helper: {
       id: 'example-4',
-      text: 'Success text here',
+      text: 'Feedback text',
       type: 'valid',
     },
   },
 };
 
-export const Small: Story = {
+export const MultipleHintText: Story = {
   args: {
     ...Default.args,
-    size: 'small',
-    icon: 'search',
-    placeholder: 'Search',
-  },
-};
-
-export const Large: Story = {
-  args: {
-    ...Default.args,
-    size: 'large',
-    icon: 'search',
-    placeholder: 'Search',
+    helper: [
+      {
+        id: 'example-warning',
+        text: 'Feedback text',
+        type: 'error',
+      },
+      {
+        id: 'example-count',
+        text: '0/300',
+        type: 'hint',
+        position: 'right',
+      },
+    ],
   },
 };
 
@@ -137,10 +151,9 @@ export const Password: Story = {
   },
 };
 
-export const Disabled: Story = {
+export const Placeholder: Story = {
   args: {
     ...Default.args,
-    disabled: true,
     placeholder: 'Text value',
   },
 };

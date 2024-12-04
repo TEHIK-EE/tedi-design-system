@@ -5,9 +5,7 @@
     &:focus {
       border-color: $border-color;
       outline: none;
-      outline: 2px solid $border-color;
-      outline-offset: 1px;
-      box-shadow: 0 0 0 1px var(--form-input-background-default);
+      box-shadow: 0 0 0 1px $border-color;
     }
   } @else {
     outline: none;
@@ -16,7 +14,7 @@
 
   @if $border-color {
     &:active {
-      border: 2px solid $border-color;
+      border-color: $border-color;
       outline: none;
       box-shadow: none;
     }
@@ -26,18 +24,18 @@
   }
 }
 
-.textfield {
+.tedi-textfield {
   width: 100%;
   max-width: 100%;
 
   @include mixins.print-grayscale;
 }
 
-.textfield__inner {
+.tedi-textfield__inner {
   position: relative;
 }
 
-.textfield__input {
+.tedi-textfield__input {
   display: block;
   width: 100%;
   height: 2.5rem;
@@ -64,25 +62,25 @@
     border-color: var(--form-input-border-disabled);
   }
 
-  .textfield--invalid &,
+  .tedi-textfield--invalid &,
   &[aria-invalid='true'] {
     border-color: var(--form-general-feedback-error-border);
 
     @include textfield-focus(var(--form-general-feedback-error-border));
   }
 
-  .textfield--valid & {
+  .tedi-textfield--valid & {
     border-color: var(--form-general-feedback-success-border);
 
     @include textfield-focus(var(--form-general-feedback-success-border));
   }
 
-  .textfield--clearable &,
-  .textfield--with-icon & {
+  .tedi-textfield--clearable &,
+  .tedi-textfield--with-icon & {
     padding-right: 2rem;
   }
 
-  .textfield--clearable.textfield--with-icon & {
+  .tedi-textfield--clearable.textfield--with-icon & {
     padding-right: 4rem;
   }
 
@@ -93,7 +91,7 @@
 }
 
 // hide arrows on number inputs
-.textfield__input--hidden-arrows[type='number'] {
+.tedi-textfield__input--hidden-arrows[type='number'] {
   appearance: textfield; // for Firefox
 
   &::-webkit-outer-spin-button,
@@ -103,7 +101,7 @@
   }
 }
 
-.textfield__right-area {
+.tedi-textfield__right-area {
   position: absolute;
   top: 0;
   right: 0;
@@ -112,21 +110,21 @@
   height: 100%;
   padding: 0.75rem 0.5rem;
 
-  .textfield--small & {
+  .tedi-textfield--small & {
     padding: 0.25rem 0.5rem;
   }
 
-  .textfield--large & {
+  .tedi-textfield--large & {
     padding: 1rem;
   }
 }
 
-.textfield__separator {
+.tedi-textfield__separator {
   margin-right: 0.5rem;
   margin-left: 0.25rem;
 }
 
-.textfield__icon-wrapper {
+.tedi-textfield__icon-wrapper {
   display: flex;
   color: var(--form-input-text-filled);
   transition: color 0.2s ease;
@@ -141,26 +139,26 @@
     cursor: initial;
   }
 
-  .textfield--inline & {
+  .tedi-textfield--inline & {
     padding: 2px 0.25rem;
   }
 
-  .textfield__input[aria-invalid='true'] + & {
+  .tedi-textfield__input[aria-invalid='true'] + & {
     color: var(--form-general-feedback-error-text);
   }
 }
 
-div.textfield__icon-wrapper {
+div.tedi-textfield__icon-wrapper {
   cursor: initial;
 }
 
-.textfield__icon {
+.tedi-textfield__icon {
   vertical-align: text-top;
 }
 
 /* Small */
-.textfield--small {
-  & .textfield__input {
+.tedi-textfield--small {
+  & .tedi-textfield__input {
     height: 2rem;
 
     @include mixins.responsive-styles(font-size, body-small-regular-size);
@@ -170,34 +168,38 @@ div.textfield__icon-wrapper {
     @include mixins.responsive-styles(padding-bottom, form-field-padding-y-2);
   }
 
-  &.textfield--clearable .textfield__input,
-  &.textfield--with-icon .textfield__input {
+  &.tedi-textfield--clearable .tedi-textfield__input,
+  &.tedi-textfield--with-icon .tedi-textfield__input {
     padding-right: 2rem;
   }
 
-  &.textfield--clearable.textfield--with-icon .textfield__input {
+  &.tedi-textfield--clearable.tedi-textfield--with-icon .tedi-textfield__input {
     padding-right: 4rem;
   }
 }
 
 /* Large */
-.textfield--large {
-  & .textfield__input {
+.tedi-textfield--large {
+  & .tedi-textfield__input {
     height: 3.5rem;
     padding: 1rem;
   }
 
-  & .textfield__separator {
+  & .tedi-textfield__separator {
     margin-right: 0.5rem;
     margin-left: 0.5rem;
   }
 
-  &.textfield--clearable .textfield__input,
-  &.textfield--with-icon .textfield__input {
+  &.tedi-textfield--clearable .tedi-textfield__input,
+  &.tedi-textfield--with-icon .tedi-textfield__input {
     padding-right: 3.5rem;
   }
 
-  &.textfield--clearable.textfield--with-icon .textfield__input {
+  &.tedi-textfield--clearable.tedi-textfield--with-icon .tedi-textfield__input {
     padding-right: 6rem;
   }
+}
+
+.tedi-textfield__feedback-wrapper {
+  display: flex;
 }
