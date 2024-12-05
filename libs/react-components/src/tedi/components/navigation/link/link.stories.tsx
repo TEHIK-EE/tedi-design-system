@@ -27,7 +27,7 @@ const meta: Meta<typeof Link> = {
 
 export default meta;
 
-const linkStateArray = ['Default', 'Hover', 'Active', 'Focus'];
+const linkStateArray = ['Default', 'Hover', 'Active'];
 const Template: StoryFn<LinkProps<ElementType>> = (args) => <Link href="#" {...args} />;
 
 export const Default = {
