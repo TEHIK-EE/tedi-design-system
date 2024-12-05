@@ -95,17 +95,3 @@ export const DefaultSmallBold: Story = {
     isSmall: true,
   },
 };
-
-export const SmallInfoButtonStory: Story = {
-  render: Template,
-
-  args: {
-    children: 'Active ingredient',
-    isSmall: true,
-    required: true,
-    infoButton: {
-      onClick: () => alert('More Info'),
-      children: 'More Info',
-    },
-  },
-};

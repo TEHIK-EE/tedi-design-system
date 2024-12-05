@@ -70,7 +70,7 @@ export const Label = (props: LabelProps): JSX.Element => {
           *
         </span>
       )}
-      {infoButton && <InfoButton {...infoButton} />}
+      {infoButton && <InfoButton isSmall={isSmall} {...infoButton} />}
     </Element>
   );
 };

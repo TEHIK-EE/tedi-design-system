@@ -16,7 +16,6 @@
   &--small {
     @include responsive-styles(font-size, body-small-regular-size, $exclude: tablet);
     @include responsive-styles(font-weight, body-small-regular-weight, $exclude: tablet);
-    @include responsive-styles(line-height, body-small-regular-line-height, $exclude: tablet);
   }
 
   &--bold {
