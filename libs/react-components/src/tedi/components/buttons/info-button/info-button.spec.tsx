@@ -23,10 +23,18 @@ describe('InfoButton Component', () => {
     expect(button).toHaveClass('custom-class');
   });
 
-  it('renders with the correct icon', () => {
+  it('renders with the correct default icon size', () => {
     const { container } = render(<InfoButton>Info</InfoButton>);
     const icon = container.querySelector('span[data-name="icon"]');
     expect(icon).toBeInTheDocument();
+    expect(icon).toHaveClass('tedi-icon--size-18');
+  });
+
+  it('renders with the smaller icon when isSmall is true', () => {
+    const { container } = render(<InfoButton isSmall>Info</InfoButton>);
+    const icon = container.querySelector('span[data-name="icon"]');
+    expect(icon).toBeInTheDocument();
+    expect(icon).toHaveClass('tedi-icon--size-16');
   });
 
   it('passes ref correctly to Button component', () => {
