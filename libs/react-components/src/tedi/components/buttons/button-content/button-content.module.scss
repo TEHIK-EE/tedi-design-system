@@ -37,7 +37,7 @@ $btn-height-small: 2rem;
     border-color: $border-hover;
   }
 
-  &:focus:not(:disabled, [aria-disabled='true']) {
+  &:focus-visible:not(:disabled, [aria-disabled='true']) {
     background-color: $background-focus;
     border-color: $border;
     outline: 2px solid $border-focus;
@@ -97,7 +97,7 @@ $btn-height-small: 2rem;
     color: $color-active;
   }
 
-  &:focus:not(:disabled) {
+  &:focus-visible:not(:disabled) {
     color: $color-focus;
     border-radius: 0;
     outline: 2px solid $color-focus;
@@ -449,8 +449,7 @@ $btn-height-small: 2rem;
   justify-content: center;
 
   .tedi-btn--link & {
-    display: inline !important;
-    vertical-align: middle;
+    vertical-align: text-bottom;
   }
 }
 
