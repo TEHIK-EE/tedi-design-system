@@ -19,6 +19,7 @@ export * from './components/alert/alert';
 export * from './components/stretch-content/stretch-content';
 export * from './components/navigation/link/link';
 export * from './components/form/feedback-text/feedback-text';
+export * from './components/section/section';
 
 export * from './helpers';
 
