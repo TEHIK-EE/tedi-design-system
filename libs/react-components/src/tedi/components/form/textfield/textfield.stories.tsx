@@ -31,6 +31,33 @@ interface TemplateStateProps extends TextFieldProps {
   array: typeof stateArray;
 }
 
+const sizeArray: TextFieldProps['size'][] = ['default', 'small'];
+
+interface TemplateMultipleProps<Type = TextFieldProps['size']> extends TextFieldProps {
+  array: Type[];
+  property: keyof TextFieldProps;
+}
+
+const TemplateColumn: StoryFn<TemplateMultipleProps> = (args) => {
+  const { array, property, ...textFieldProps } = args;
+
+  return (
+    <div className="example-list">
+      {array.map((value, key) => (
+        <Row className={`${key === array.length - 1 ? '' : 'border-bottom'} padding-14-16`} key={key}>
+          <Col width={2}>{value?.toString()}</Col>
+          <Col className="d-flex">
+            <TextField {...textFieldProps} {...{ [property]: value }} />
+          </Col>
+          <Col className="d-flex">
+            <TextField icon={{ name: 'person' }} {...textFieldProps} {...{ [property]: value }} />
+          </Col>
+        </Row>
+      ))}
+    </div>
+  );
+};
+
 const TemplateColumnWithStates: StoryFn<TemplateStateProps> = (args) => {
   const { array, id, ...textFieldProps } = args;
 
@@ -43,9 +70,6 @@ const TemplateColumnWithStates: StoryFn<TemplateStateProps> = (args) => {
           </Col>
           <Col className="display-flex align-items-center">
             <TextField disabled={state === 'Disabled'} id={state} {...textFieldProps} />
-          </Col>
-          <Col className="display-flex align-items-end">
-            <TextField disabled={state === 'Disabled'} size="small" id={state} {...textFieldProps} />
           </Col>
         </Row>
       ))}
@@ -60,27 +84,22 @@ export const Default: Story = {
   },
 };
 
-export const TextFieldStates: StoryObj<TemplateStateProps> = {
-  render: TemplateColumnWithStates,
+export const Sizes: StoryObj<TemplateMultipleProps> = {
+  render: TemplateColumn,
+
   args: {
-    array: stateArray,
+    id: 'example-1',
     label: 'Label',
-  },
-  parameters: {
-    pseudo: {
-      hover: '#Hover',
-      focus: '#Focus',
-      active: '#Active',
-    },
+    property: 'size',
+    array: sizeArray,
   },
 };
 
-export const WithIllustrativeIcon: StoryObj<TemplateStateProps> = {
+export const States: StoryObj<TemplateStateProps> = {
   render: TemplateColumnWithStates,
   args: {
     array: stateArray,
     label: 'Label',
-    icon: 'person',
   },
   parameters: {
     pseudo: {
@@ -121,25 +140,6 @@ export const Success: Story = {
       text: 'Feedback text',
       type: 'valid',
     },
-  },
-};
-
-export const MultipleHintText: Story = {
-  args: {
-    ...Default.args,
-    helper: [
-      {
-        id: 'example-warning',
-        text: 'Feedback text',
-        type: 'error',
-      },
-      {
-        id: 'example-count',
-        text: '0/300',
-        type: 'hint',
-        position: 'right',
-      },
-    ],
   },
 };
 
