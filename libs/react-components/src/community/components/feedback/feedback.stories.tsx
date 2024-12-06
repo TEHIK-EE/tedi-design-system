@@ -1,6 +1,6 @@
 import { Meta, StoryFn } from '@storybook/react';
 
-import TextField from '../../../tedi/components/form/textfield/textfield';
+import { TextField } from '../../../tedi/components/form/textfield/textfield';
 import { Col, Row } from '../../../tedi/components/grid';
 import { VerticalSpacing } from '../../../tedi/components/vertical-spacing';
 import Button from '../button/button';

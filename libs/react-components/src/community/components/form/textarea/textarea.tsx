@@ -1,6 +1,6 @@
 import cn from 'classnames';
 
-import TextField, { TextFieldProps } from '../../../../tedi/components/form/textfield/textfield';
+import { TextField, TextFieldProps } from '../../../../tedi/components/form/textfield/textfield';
 import styles from './textarea.module.scss';
 
 export type TextAreaProps = TextFieldProps;
