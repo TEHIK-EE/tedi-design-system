@@ -59,11 +59,11 @@ export const ScrollFade = forwardRef<HTMLDivElement, ScrollFadeProps>((props, re
     const { scrollHeight, scrollTop, clientHeight } = getElementSizes();
 
     if (element.current) {
-      if (Math.abs(scrollHeight - scrollTop - clientHeight) < 1 && fadeBottom) {
+      if (Math.abs(scrollHeight - scrollTop - clientHeight) <= 1 && fadeBottom) {
         setFadeBottom(false);
 
         onScrollToBottom?.();
-      } else if (clientHeight && scrollHeight - scrollTop !== clientHeight && !fadeBottom) {
+      } else if (Math.abs(scrollHeight - scrollTop - clientHeight) > 1 && !fadeBottom) {
         setFadeBottom(true);
       }
     }
