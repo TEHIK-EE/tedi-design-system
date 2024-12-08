@@ -1,3 +1,10 @@
+# [9.1.0-rc.4](https://github.com/TEHIK-EE/tedi-design-system/compare/v9.1.0-rc.3...v9.1.0-rc.4) (2024-12-08)
+
+
+### Bug Fixes
+
+* **scroll-fade:** round calculation for scrollToBottom [#353](https://github.com/TEHIK-EE/tedi-design-system/issues/353) ([#355](https://github.com/TEHIK-EE/tedi-design-system/issues/355)) ([762982c](https://github.com/TEHIK-EE/tedi-design-system/commit/762982c7ced2de8e630d62620d5fdc8f836cda83))
+
 # [9.1.0-rc.3](https://github.com/TEHIK-EE/tedi-design-system/compare/v9.1.0-rc.2...v9.1.0-rc.3) (2024-12-06)
 
 
