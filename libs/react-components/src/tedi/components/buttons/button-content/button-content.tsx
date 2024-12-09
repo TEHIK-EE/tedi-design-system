@@ -139,7 +139,7 @@ const InternalButtonContent = forwardRef(
         [styles['tedi-btn__spinner']]: isLoading,
       });
 
-      const isAnchor = Component === 'a';
+      const isAnchor = as === 'a' || !!rest.href;
 
       const defaultIconProps: Partial<IconProps> = {
         size: 18,

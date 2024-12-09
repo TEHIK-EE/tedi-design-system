@@ -210,12 +210,16 @@ export const CustomComponent: StoryObj<LinkProps> = {
           <Link href="#">Plain link</Link>
         </Col>
         <Col width="auto">
-          <Link as={LinkBehaviour} href={{ pathname: '/path', query: { personalCode: '1234567' } }}>
+          <Link
+            as={LinkBehaviour}
+            iconRight="north_east"
+            href={{ pathname: '/path', query: { personalCode: '1234567' } }}
+          >
             Next.js link with custom logic
           </Link>
         </Col>
         <Col width="auto">
-          <CustomAnchor href={{ pathname: '/path', query: { personalCode: '1234567' } }}>
+          <CustomAnchor iconRight="north_east" href={{ pathname: '/path', query: { personalCode: '1234567' } }}>
             Wrapped Next.js link
           </CustomAnchor>
         </Col>
