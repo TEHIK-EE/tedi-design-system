@@ -19,12 +19,11 @@
       --general-icon-primary: var(--button-close-text-#{$state});
 
       background-color: var(--button-close-background-#{$state});
-
-      @if $state == focus {
-        border-color: var(--blue-500);
-        outline: none;
-      }
     }
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--button-main-primary-border-focus);
   }
 
   &--medium {

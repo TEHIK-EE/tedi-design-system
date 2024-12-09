@@ -86,7 +86,6 @@ export const Modal = (props: ModalProps): JSX.Element | null => {
   const labelId = props['aria-labelledby'];
   const descriptionId = props['aria-describedby'];
   const { isOpen, floating, getFloatingProps, context, isDismissable } = React.useContext(ModalContext);
-  const modalContentRef = React.useRef<HTMLDivElement | null>(null);
 
   // add close button to the first CardHeader or CardContent
   const parsedChildren = React.useMemo(() => {
@@ -147,7 +146,6 @@ export const Modal = (props: ModalProps): JSX.Element | null => {
                 'aria-describedby': descriptionId,
                 'aria-modal': trapFocus,
               })}
-              ref={modalContentRef}
             >
               <Card {...cardProps} className={cn(styles['modal__card'], cardProps?.className)}>
                 {parsedChildren}
