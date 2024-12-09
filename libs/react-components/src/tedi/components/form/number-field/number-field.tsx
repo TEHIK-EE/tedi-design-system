@@ -4,81 +4,80 @@ import React, { ChangeEvent, useCallback, useMemo, useRef, useState } from 'reac
 import { FeedbackText, FeedbackTextProps } from '../../../../tedi/components/form/feedback-text/feedback-text';
 import { FormLabel, FormLabelProps } from '../../../../tedi/components/form/form-label/form-label';
 import { useLabels } from '../../../../tedi/providers/label-provider';
-import { Button } from '../../button/button';
-import Text from '../../typography/text/text';
+import { BreakpointSupport, useBreakpointProps } from '../../../helpers';
+import { Button } from '../../buttons/button/button';
+import { Text } from '../../typography/text/text';
 import styles from './number-field.module.scss';
 
-export interface NumberStepperProps extends FormLabelProps {
+type TDirection = 'increment' | 'decrement';
+
+type NumberFieldBreakpointProps = {
   /**
-   * Default value of input.
-   */
-  defaultValue?: number;
-  /**
-   * Value of input to control input value from outside of component.
-   * Do not use with defaultValue.
-   */
-  value?: number;
-  /**
-   * onChange callback handler.
-   */
-  onChange?: (value: number) => void;
-  /**
-   * Input's inputmode
-   * @default numeic
-   */
-  inputmode?: 'numeric' | 'decimal';
-  /**
-   * Use if you plan to use decimal values.
-   * Rounds floating point calculations with 'decimalPlaces' accuracy
-   */
-  decimalPlaces?: number;
-  /**
-   * Minimal allowed value of input.
-   * Will disable button after input reaches this value.
-   * Will not allow to enter value lower than this.
-   */
-  min?: number;
-  /**
-   * Maximal allowed value of input.
-   * Will disable button after input reaches this value.
-   * Will not allow to enter value higher than this.
-   */
-  max?: number;
-  /**
-   * Increment or decrement amount.
-   * @default 1
-   */
-  step?: number;
-  /**
-   * Suffix to the input value. Usually some unit.
+   * Text displayed after the input value, typically a unit.
    */
   suffix?: string;
   /**
-   * Full-width number-field.
+   * Whether the number field occupies the full width of its container.
    * @default false
    */
   fullWidth?: boolean;
   /**
-   * Is field disabled.
-   */
-  disabled?: boolean;
-  /**
-   * Is field invalid.
-   */
-  invalid?: boolean;
-  /**
-   * TextField helper.
+   * Helper text displayed below the input.
    */
   helper?: FeedbackTextProps;
   /**
-   * Additional input attributes.
+   * Step size for incrementing or decrementing the value.
+   * @default 1
+   */
+  step?: number;
+  /**
+   * Additional attributes for the underlying input element.
    */
   input?: React.InputHTMLAttributes<HTMLInputElement>;
+};
+
+export interface NumberFieldProps extends BreakpointSupport<NumberFieldBreakpointProps>, FormLabelProps {
+  /**
+   * Initial value of the input field.
+   */
+  defaultValue?: number;
+  /**
+   * Controlled value of the input field. Overrides defaultValue.
+   */
+  value?: number;
+  /**
+   * Callback fired when the input value changes.
+   */
+  onChange?: (value: number) => void;
+  /**
+   * Specifies the input mode for the field (e.g., numeric or decimal).
+   * @default numeric
+   */
+  inputMode?: 'numeric' | 'decimal';
+  /**
+   * Number of decimal places for rounding calculations.
+   */
+  decimalPlaces?: number;
+  /**
+   * Minimum allowed value. Disables decrementing below this value and restricts manual input.
+   */
+  min?: number;
+  /**
+   * Maximum allowed value. Disables incrementing above this value and restricts manual input.
+   */
+  max?: number;
+  /**
+   * Disables the input field.
+   */
+  disabled?: boolean;
+  /**
+   * Marks the field as invalid for validation purposes.
+   */
+  invalid?: boolean;
 }
 
-type TDirection = 'increment' | 'decrement';
-
-export const NumberField = (props: NumberStepperProps) => {
+export const NumberField = (props: NumberFieldProps) => {
+  const { getCurrentBreakpointProps } = useBreakpointProps();
   const {
     id,
     label,
@@ -86,7 +85,7 @@ export const NumberField = (props: NumberStepperProps) => {
     required,
     className,
     size,
-    inputmode = 'numeric',
+    inputMode = 'numeric',
     decimalPlaces,
     min,
     max,
@@ -100,7 +99,7 @@ export const NumberField = (props: NumberStepperProps) => {
     invalid = false,
     helper,
     input,
-  } = props;
+  } = getCurrentBreakpointProps<NumberFieldProps>(props);
 
   const { getLabel } = useLabels();
 
@@ -118,24 +117,17 @@ export const NumberField = (props: NumberStepperProps) => {
 
   const isInvalid = useCallback(
     (currentValue: number): boolean => {
-      const isBelowMinValue = Boolean(min && currentValue < min);
-      const isAboveMaxValue = Boolean(max && currentValue > max);
+      const isBelowMinValue = Boolean(min !== undefined && currentValue < min);
+      const isAboveMaxValue = Boolean(max !== undefined && currentValue > max);
       return invalid || isBelowMinValue || isAboveMaxValue || helper?.type === 'error';
     },
     [invalid, helper, max, min]
   );
 
   const forceToLimits = (currentValue: number) => {
-    if (min && currentValue < min) {
-      currentValue = min;
-    }
-    if (max && currentValue > max) {
-      currentValue = max;
-    }
-    return currentValue;
+    return Math.min(max ?? Infinity, Math.max(min ?? -Infinity, currentValue));
   };
 
-  // Needed for screen reader to announce latest new value, if updated through button click
   const updateValueUpdatedLabel = (newValue: number) => {
     const valueUpdated = getLabel('numberField.quantityUpdated');
     const valueUpdatedLabel = typeof valueUpdated === 'string' ? valueUpdated : valueUpdated(newValue);
@@ -146,13 +138,8 @@ export const NumberField = (props: NumberStepperProps) => {
     }, 5000);
   };
 
-  // Floating point calculations are not precise. This helps to deal with that issue
   const roundValue = (currentValue: number) => {
-    if (decimalPlaces) {
-      const multiplier = Math.pow(10, decimalPlaces);
-      return Math.round(currentValue * multiplier) / multiplier;
-    }
-    return currentValue;
+    return decimalPlaces !== undefined ? parseFloat(currentValue.toFixed(decimalPlaces)) : currentValue;
   };
 
   const handleButtonClick = (direction: TDirection) => {
@@ -179,8 +166,14 @@ export const NumberField = (props: NumberStepperProps) => {
   };
 
   const renderButton = (direction: TDirection) => {
-    const ButtonBEM = cn(styles['number-field__button'], styles[`number-field__button--${direction}`]);
-    const isOnOrOutOfBounds = direction === 'increment' ? max && getCurrentValue >= max : min && getCurrentValue <= min;
+    const isOnOrOutOfBounds =
+      direction === 'increment'
+        ? max !== undefined && getCurrentValue >= max
+        : min !== undefined && getCurrentValue <= min;
+
+    const ButtonBEM = cn(styles['tedi-number-field__button'], styles[`tedi-number-field__button--${direction}`], {
+      [styles['tedi-number-field__button--disabled']]: isOnOrOutOfBounds || disabled,
+    });
 
     const changeValue = getLabel(`numberField.${direction}`);
     const ariaLabel = typeof changeValue === 'string' ? changeValue : changeValue(step);
@@ -190,8 +183,9 @@ export const NumberField = (props: NumberStepperProps) => {
         aria-label={ariaLabel}
         onClick={() => handleButtonClick(direction)}
         disabled={isOnOrOutOfBounds || disabled}
-        visualType="tertiary"
+        visualType="secondary"
         className={ButtonBEM}
+        icon={{ name: direction === 'increment' ? 'add' : 'remove' }}
       >
         {direction === 'increment' ? '+' : '-'}
       </Button>
@@ -199,14 +193,12 @@ export const NumberField = (props: NumberStepperProps) => {
   };
 
   const renderInputElement = () => {
-    const InputWrapperBEM = cn(styles['number-field__input-wrapper'], {
-      [styles['number-field__input-wrapper--with-suffix']]: suffix,
-      [styles['number-field__input-wrapper--full-width']]: fullWidth,
+    const InputWrapperBEM = cn(styles['tedi-number-field__input-wrapper'], {
+      [styles['tedi-number-field__input-wrapper--with-suffix']]: suffix,
+      [styles['tedi-number-field__input-wrapper--full-width']]: fullWidth,
     });
 
-    const InputBEM = cn(styles['number-field__input'], input?.className);
-
-    // when clicking the suffix part we need to manually set focus to input
+    const InputBEM = cn(styles['tedi-number-field__input'], input?.className);
     const focusInput = () => inputRef?.current?.focus();
 
     return (
@@ -217,7 +209,7 @@ export const NumberField = (props: NumberStepperProps) => {
           aria-describedby={helperId}
           aria-invalid={invalid}
           type="number"
-          inputMode={inputmode}
+          inputMode={inputMode}
           value={getCurrentValue}
           min={min}
           max={max}
@@ -229,7 +221,7 @@ export const NumberField = (props: NumberStepperProps) => {
           {...input}
         />
         {suffix && (
-          <Text element="span" modifiers="small" color="subtle" className={styles['number-field__suffix']}>
+          <Text element="span" modifiers="small" color="tertiary" className={styles['tedi-number-field__suffix']}>
             {suffix}
           </Text>
         )}
@@ -238,9 +230,9 @@ export const NumberField = (props: NumberStepperProps) => {
   };
 
   const NumberFieldBem = cn(
-    styles['number-field'],
-    { [styles['number-field--invalid']]: isInvalid(getCurrentValue) },
-    { [styles['number-field--disabled']]: disabled },
+    styles['tedi-number-field'],
+    { [styles['tedi-number-field--invalid']]: isInvalid(getCurrentValue) },
+    { [styles['tedi-number-field--disabled']]: disabled },
     className
   );
 
@@ -253,7 +245,6 @@ export const NumberField = (props: NumberStepperProps) => {
         {renderButton('increment')}
       </div>
       {helper && <FeedbackText {...helper} id={helperId} />}
-      {/*This is used to announce value updates for screen reader*/}
       <div aria-live="polite" className="visually-hidden">
         {inputUpdated}
       </div>

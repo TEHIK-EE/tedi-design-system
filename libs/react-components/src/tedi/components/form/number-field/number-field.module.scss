@@ -1,0 +1,143 @@
+@import '../../../styles/mixins';
+
+$input-height: 2.5rem;
+$border-radius: 0.25rem;
+$border-width: 1px;
+
+.tedi-number-field {
+  display: flex;
+
+  &:hover:not(.tedi-number-field--disabled) {
+    .tedi-number-field__button:not(:disabled),
+    .tedi-number-field__input-wrapper:not(:disabled) {
+      border-color: var(--form-input-border-hover);
+    }
+  }
+
+  .tedi-number-field__button {
+    width: $input-height;
+    border: $border-width solid var(--form-input-border-default);
+
+    &__disabled,
+    &:disabled {
+      background-color: var(--form-input-background-default);
+      border: $border-width solid var(--form-input-border-default);
+      opacity: 0.5;
+    }
+
+    &--decrement {
+      margin-right: -$border-width;
+      border-radius: $border-radius 0 0 $border-radius;
+    }
+
+    &--increment {
+      margin-left: -$border-width;
+      border-radius: 0 $border-radius $border-radius 0;
+    }
+  }
+
+  &--invalid:not(.tedi-number-field--disabled) {
+    .tedi-number-field__button,
+    .tedi-number-field__button:disabled,
+    .tedi-number-field__button:hover,
+    .tedi-number-field__input-wrapper {
+      border-color: var(--form-general-feedback-error-border);
+    }
+
+    .tedi-number-field__input-wrapper {
+      &:focus-within {
+        outline-color: var(--form-general-feedback-error-border);
+      }
+
+      &:active {
+        z-index: 2;
+        border-color: var(--form-general-feedback-error-border);
+        border-radius: 0;
+        outline: none;
+      }
+    }
+  }
+
+  &--disabled {
+    .tedi-number-field__button,
+    .tedi-number-field__button:disabled,
+    .tedi-number-field__input-wrapper {
+      background-color: var(--form-input-background-default);
+      border-color: var(--form-input-border-default);
+    }
+
+    .tedi-number-field__input-wrapper {
+      background-color: var(--form-input-background-default);
+      opacity: 0.5;
+    }
+  }
+}
+
+.tedi-number-field__input-wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: stretch;
+  width: 5rem;
+  height: $input-height;
+  background-color: var(--form-input-background-default);
+  border: $border-width solid var(--form-input-border-default);
+
+  @include responsive-styles(padding-left, form-field-padding-y-3-default);
+  @include responsive-styles(padding-right, form-field-padding-y-3-default);
+  @include responsive-styles(gap, form-field-inner-spacing-sm);
+
+  &:focus-within {
+    z-index: 1;
+    border-color: var(--form-input-border-active);
+    border-radius: $border-radius;
+    outline: calc(2 * $border-width) solid var(--form-input-border-active);
+    outline-offset: -$border-width;
+  }
+
+  &:active {
+    z-index: 2;
+    border-color: var(--form-input-border-active);
+    border-radius: 0;
+    outline: none;
+  }
+
+  &--full-width {
+    width: 100%;
+  }
+
+  &--with-suffix {
+    .tedi-number-field__input {
+      grid-column: span 1;
+      text-align: right;
+    }
+
+    .tedi-number-field__suffix {
+      align-self: center;
+      text-align: left;
+      user-select: none;
+    }
+  }
+}
+
+.tedi-number-field__input {
+  grid-column: span 2;
+  width: 100%;
+  text-align: center;
+  background-color: var(--form-input-background-default);
+  border: 0;
+  border-radius: 0;
+  outline: none;
+
+  @include responsive-styles(font-size, heading-h6-size);
+
+  //  /* Chrome, Safari, Edge, Opera */
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    appearance: none;
+  }
+
+  /* Firefox */
+  &[type='number'] {
+    appearance: textfield;
+  }
+}
