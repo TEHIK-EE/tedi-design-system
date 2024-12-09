@@ -3,8 +3,12 @@ import type { Dayjs } from 'dayjs';
 import dayjs from 'dayjs';
 import React from 'react';
 
+import {
+  TextField,
+  TextFieldForwardRef,
+  TextFieldProps,
+} from '../../../../../tedi/components/form/textfield/textfield';
 import { IntentionalAny } from '../../../../types';
-import TextField, { TextFieldForwardRef, TextFieldProps } from '../../textfield/textfield';
 
 export interface MuiInputTransitionProps {
   muiTextfieldProps: MuiTextFieldPropsType;
