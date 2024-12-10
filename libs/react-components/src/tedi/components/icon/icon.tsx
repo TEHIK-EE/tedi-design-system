@@ -25,7 +25,9 @@ export interface IconProps {
    */
   name: string;
   /**
-   * Additional classes
+   * Additional classes to style the icon or its wrapper.
+   * - If `background` is provided, the `className` will be applied to the wrapper element.
+   * - If `background` is not provided, the `className` will be applied directly to the icon element.
    */
   className?: string;
   /**
