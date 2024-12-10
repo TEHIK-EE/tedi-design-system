@@ -27,13 +27,13 @@ export interface SectionProps {
 }
 
 export const Section = (props: SectionProps): JSX.Element => {
-  const { children, className, as = 'section', role, ...rest } = props;
+  const { children, className, as = 'section', ...rest } = props;
   const SectionBEM = cn(styles['tedi-section'], className);
 
   const Element = as;
 
   return (
-    <Element data-name="section" {...rest} className={SectionBEM} role={role}>
+    <Element data-name="section" {...rest} className={SectionBEM}>
       {children}
     </Element>
   );
