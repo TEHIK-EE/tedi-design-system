@@ -266,10 +266,8 @@ export const DefaultCardTemplates: StoryFn<CardStory> = () => (
         <Card>
           <CardContent>
             <Row>
-              <Col width="auto" className="display-flex align-items-center">
+              <Col className="display-flex align-items-center gap-3">
                 <Icon name="monitor_heart" />
-              </Col>
-              <Col>
                 <Text>Description</Text>
               </Col>
             </Row>
@@ -282,12 +280,12 @@ export const DefaultCardTemplates: StoryFn<CardStory> = () => (
         <Card>
           <CardContent>
             <Row>
-              <Col width="auto" className="display-flex align-items-center">
+              <Col className="display-flex align-items-center gap-3">
                 <Icon name="monitor_heart" />
-              </Col>
-              <Col>
-                <Text modifiers="bold">Title</Text>
-                <Text>Description</Text>
+                <VerticalSpacing size={0}>
+                  <Text modifiers="bold">Title</Text>
+                  <Text>Description</Text>
+                </VerticalSpacing>
               </Col>
             </Row>
           </CardContent>
@@ -299,12 +297,12 @@ export const DefaultCardTemplates: StoryFn<CardStory> = () => (
         <Card>
           <CardContent>
             <Row>
-              <Col width="auto" className="display-flex align-items-center">
+              <Col className="display-flex align-items-center gap-3">
                 <Icon name="monitor_heart" />
-              </Col>
-              <Col>
-                <Text modifiers="bold">Title</Text>
-                <Text>Description</Text>
+                <VerticalSpacing size={0}>
+                  <Text modifiers="bold">Title</Text>
+                  <Text>Description</Text>
+                </VerticalSpacing>
               </Col>
               <Col width="auto" className="display-flex align-items-center">
                 <Button>Create</Button>
@@ -344,28 +342,12 @@ export const CardInfoTemplate: StoryFn<CardStory> = () => (
         <Card>
           <CardContent background="brand-tertiary">
             <Row>
-              <Col width="auto" className="display-flex align-items-center">
+              <Col width="auto" className="display-flex align-items-center gap-3">
                 <Icon background="primary" name="assignment_late" />
-              </Col>
-              <Col>
-                <Text modifiers="bold">Title</Text>
-                <Text>Description</Text>
-              </Col>
-            </Row>
-          </CardContent>
-        </Card>
-      </Col>
-    </Row>
-    <Row>
-      <Col>
-        <Card>
-          <CardContent background="brand-tertiary">
-            <Row alignItems="center">
-              <Col width="auto" className="display-flex align-items-center">
-                <Icon background="primary" name="assignment_late" />
-              </Col>
-              <Col>
-                <Text>Description</Text>
+                <VerticalSpacing size={0}>
+                  <Text modifiers="bold">Title</Text>
+                  <Text>Description</Text>
+                </VerticalSpacing>
               </Col>
             </Row>
           </CardContent>
@@ -383,12 +365,12 @@ export const CardInfoTemplate: StoryFn<CardStory> = () => (
             backgroundRepeat="no-repeat"
           >
             <Row>
-              <Col width="auto" className="display-flex align-items-center">
+              <Col width="auto" className="display-flex align-items-center gap-3">
                 <Icon background="primary" name="assignment_late" />
-              </Col>
-              <Col>
-                <Text modifiers="bold">Title</Text>
-                <Text>Description</Text>
+                <VerticalSpacing size={0}>
+                  <Text modifiers="bold">Title</Text>
+                  <Text>Description</Text>
+                </VerticalSpacing>
               </Col>
             </Row>
           </CardContent>
@@ -400,12 +382,12 @@ export const CardInfoTemplate: StoryFn<CardStory> = () => (
         <Card border="accent">
           <CardContent background="accent">
             <Row>
-              <Col width="auto" className="display-flex align-items-center">
+              <Col width="auto" className="display-flex align-items-center gap-3">
                 <Icon background="primary" name="assignment_late" />
-              </Col>
-              <Col>
-                <Text modifiers="bold">Title</Text>
-                <Text>Description</Text>
+                <VerticalSpacing size={0}>
+                  <Text modifiers="bold">Title</Text>
+                  <Text>Description</Text>
+                </VerticalSpacing>
               </Col>
             </Row>
           </CardContent>
@@ -417,10 +399,8 @@ export const CardInfoTemplate: StoryFn<CardStory> = () => (
         <Card border="neutral-primary">
           <CardContent background="neutral-primary">
             <Row>
-              <Col width="auto">
-                <Icon background="primary" name="calendar_today" />
-              </Col>
-              <Col width="auto" className="display-flex align-items-center">
+              <Col width="auto" className="display-flex align-items-center gap-3">
+                <Icon background="primary" name="assignment_late" />
                 <p>
                   Haigusleht: <strong>118.</strong> päev
                 </p>
@@ -566,24 +546,7 @@ export const BackgroundColorsTemplate: StoryFn<CardStory> = () => {
 };
 
 export const BorderColorsTemplate: StoryFn<CardStory> = () => {
-  const borderColors: CardBackground[] = [
-    'primary',
-    'secondary',
-    'tertiary',
-    'brand-primary',
-    'brand-secondary',
-    'brand-tertiary',
-    'brand-quaternary',
-    'success-primary',
-    'success-secondary',
-    'info-primary',
-    'info-secondary',
-    'danger-primary',
-    'danger-secondary',
-    'warning-primary',
-    'warning-secondary',
-    'accent',
-  ];
+  const borderColors: CardBackground[] = ['primary', 'secondary', 'tertiary'];
 
   return (
     <VerticalSpacing>
