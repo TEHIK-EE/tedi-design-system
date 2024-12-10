@@ -1,3 +1,10 @@
+# [9.1.0-rc.7](https://github.com/TEHIK-EE/tedi-design-system/compare/v9.1.0-rc.6...v9.1.0-rc.7) (2024-12-10)
+
+
+### Bug Fixes
+
+* **link:** Icon not vertically center [#347](https://github.com/TEHIK-EE/tedi-design-system/issues/347) ([#349](https://github.com/TEHIK-EE/tedi-design-system/issues/349)) ([4d209bc](https://github.com/TEHIK-EE/tedi-design-system/commit/4d209bc53c8285804b695dd5d65989fa6ffebd9d))
+
 # [9.1.0-rc.6](https://github.com/TEHIK-EE/tedi-design-system/compare/v9.1.0-rc.5...v9.1.0-rc.6) (2024-12-10)
 
 
