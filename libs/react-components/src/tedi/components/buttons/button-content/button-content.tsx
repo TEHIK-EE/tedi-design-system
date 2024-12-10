@@ -139,12 +139,12 @@ const InternalButtonContent = forwardRef(
         [styles['tedi-btn__spinner']]: isLoading,
       });
 
-      const isAnchor = as === 'a' || !!rest.href;
+      const isLink = visualType === 'link';
 
       const defaultIconProps: Partial<IconProps> = {
         size: 18,
         className: iconBEM,
-        ...(isAnchor ? { display: 'inline' } : {}),
+        ...(isLink ? { display: 'inline' } : {}),
       };
 
       const iconProps: IconProps =
