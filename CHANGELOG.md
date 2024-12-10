@@ -1,3 +1,11 @@
+# [9.1.0-rc.5](https://github.com/TEHIK-EE/tedi-design-system/compare/v9.1.0-rc.4...v9.1.0-rc.5) (2024-12-10)
+
+
+### Bug Fixes
+
+* **grid:** Increase $grid-row-columns to 12 [#345](https://github.com/TEHIK-EE/tedi-design-system/issues/345) ([#358](https://github.com/TEHIK-EE/tedi-design-system/issues/358)) ([4326af5](https://github.com/TEHIK-EE/tedi-design-system/commit/4326af5705d27002faaece768505b3dba0382fc1))
+* **modal:** Modal open focus fix [#343](https://github.com/TEHIK-EE/tedi-design-system/issues/343) ([#357](https://github.com/TEHIK-EE/tedi-design-system/issues/357)) ([0a8b54c](https://github.com/TEHIK-EE/tedi-design-system/commit/0a8b54c777da611367c1e2007170848939623d5e))
+
 # [9.1.0-rc.4](https://github.com/TEHIK-EE/tedi-design-system/compare/v9.1.0-rc.3...v9.1.0-rc.4) (2024-12-08)
 
 
