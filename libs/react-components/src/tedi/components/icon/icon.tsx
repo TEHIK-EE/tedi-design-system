@@ -74,12 +74,16 @@ export const Icon = forwardRef<HTMLDivElement, IconProps>((props: IconProps, ref
     ...rest
   } = props;
 
-  const wrapperBEM = cn(styles['tedi-icon__wrapper'], {
-    [styles['tedi-icon__wrapper--bg']]: background,
-    [styles[`tedi-icon__wrapper--bg-${background}`]]: background,
-    [styles[`tedi-icon__wrapper--size-${size}`]]: size,
-    [styles[`tedi-icon__wrapper--${display}`]]: display,
-  });
+  const wrapperBEM = cn(
+    styles['tedi-icon__wrapper'],
+    {
+      [styles['tedi-icon__wrapper--bg']]: background,
+      [styles[`tedi-icon__wrapper--bg-${background}`]]: background,
+      [styles[`tedi-icon__wrapper--size-${size}`]]: size,
+      [styles[`tedi-icon__wrapper--${display}`]]: display,
+    },
+    background && className
+  );
 
   const iconBEM = cn(
     'notranslate',
@@ -90,7 +94,7 @@ export const Icon = forwardRef<HTMLDivElement, IconProps>((props: IconProps, ref
     size && styles[`tedi-icon--size-${size}`],
     display && styles[`tedi-icon--${display}`],
     filled && styles['tedi-icon--filled'],
-    className
+    !background && className
   );
 
   const iconElement = (
