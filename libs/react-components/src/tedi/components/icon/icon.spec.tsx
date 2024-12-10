@@ -16,6 +16,26 @@ describe('Icon component', () => {
     expect(iconElement).toHaveClass('tedi-icon--block');
   });
 
+  it('applies custom className to the icon when no background is set', () => {
+    const { container } = render(<Icon name="Add" className="custom-class" />);
+    const iconElement = container.querySelector('span[data-name="icon"]');
+    expect(iconElement).toBeInTheDocument();
+    expect(iconElement).toHaveClass('custom-class');
+  });
+
+  it('applies custom className to the wrapper when background is set', () => {
+    const { container } = render(<Icon name="Add" background="primary" className="custom-class" />);
+    const wrapperElement = container.querySelector('div.tedi-icon__wrapper');
+    const iconElement = container.querySelector('span[data-name="icon"]');
+
+    expect(wrapperElement).toBeInTheDocument();
+    expect(wrapperElement).toHaveClass('custom-class');
+    expect(wrapperElement).toHaveClass('tedi-icon__wrapper--bg');
+    expect(wrapperElement).toHaveClass('tedi-icon__wrapper--bg-primary');
+    expect(iconElement).toBeInTheDocument();
+    expect(iconElement).not.toHaveClass('custom-class');
+  });
+
   it('renders with custom size', () => {
     const { container } = render(<Icon name="Add" size={36} />);
     const iconElement = container.querySelector('span[data-name="icon"]');
