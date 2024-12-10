@@ -23,14 +23,10 @@ const TemplateColumn: StoryFn<TemplateMultipleProps> = (args) => {
   const { array, ...buttonProps } = args;
 
   return (
-    <Row
-      xs={{ gap: buttonProps.axis === 'vertical' ? undefined : 3 }}
-      xl={{ gap: 0 }}
-      style={{ gap: buttonProps.axis === 'vertical' ? 100 : undefined }}
-    >
+    <Row style={{ gap: buttonProps.axis === 'vertical' ? 100 : 30 }}>
       {buttonSizeArray.map((size) => (
-        <Col xs={12} xl={6} key={size}>
-          <Col>
+        <Col key={size}>
+          <Col style={{ paddingBottom: 16 }}>
             <Text modifiers="bold">{size}</Text>
           </Col>
           <Row style={{ gap: buttonProps.axis === 'vertical' ? 100 : 16 }}>
@@ -39,18 +35,33 @@ const TemplateColumn: StoryFn<TemplateMultipleProps> = (args) => {
                 <Col xs={2}>
                   <Text>{value}</Text>
                 </Col>
-                <Col className="display-flex align-items-center gap-2" style={{ padding: 0 }}>
-                  <FloatingButton id={value} {...buttonProps}>
+                <Col className="display-flex align-items-center gap-3">
+                  <FloatingButton id={value} size={size === 'Large' ? 'large' : 'medium'} {...buttonProps}>
                     Scroll up
                   </FloatingButton>
-                  <FloatingButton id={value} {...buttonProps} iconRight="arrow_upward">
+                  <FloatingButton
+                    id={value}
+                    size={size === 'Large' ? 'large' : 'medium'}
+                    {...buttonProps}
+                    iconRight="arrow_upward"
+                  >
                     Scroll up
                   </FloatingButton>
-                  <FloatingButton id={value} {...buttonProps} iconLeft="arrow_upward">
+                  <FloatingButton
+                    id={value}
+                    size={size === 'Large' ? 'large' : 'medium'}
+                    {...buttonProps}
+                    iconLeft="arrow_upward"
+                  >
                     Scroll up
                   </FloatingButton>
                   {buttonProps.axis === 'horizontal' && (
-                    <FloatingButton id={value} {...buttonProps} icon="arrow_upward">
+                    <FloatingButton
+                      id={value}
+                      size={size === 'Large' ? 'large' : 'medium'}
+                      {...buttonProps}
+                      icon="arrow_upward"
+                    >
                       Scroll up
                     </FloatingButton>
                   )}

@@ -1,7 +1,10 @@
 @import '../../../styles/mixins';
+@import '../../../../shared/styles/bootstrap-utility/breakpoints';
 @import '../button-content/button-content.module';
 
 .tedi-floating-button {
+  box-shadow: 0 4px 10px 0 rgb(0 0 0 / 14%);
+
   &--horizontal {
     @include responsive-styles(border-radius, button-radius-default);
   }
@@ -29,8 +32,6 @@
   }
 
   &.tedi-floating-button--secondary {
-    box-shadow: 0 4px 10px 0 rgb(0 0 0 / 14%);
-
     @include button-variant(
       var(--button-floating-secondary-background-default),
       var(--button-floating-secondary-border-default),
@@ -47,6 +48,12 @@
   }
 
   &--medium {
+    height: 44px;
+
+    @include media-breakpoint-up(md) {
+      height: 40px;
+    }
+
     @include responsive-styles(padding, button-md-padding-y button-md-padding-x);
 
     &.tedi-floating-button__icon-only {
@@ -57,6 +64,8 @@
   }
 
   &--large {
+    height: 48px;
+
     @include responsive-styles(padding, button-xl-padding-y button-xl-padding-x);
 
     &.tedi-floating-button__icon-only {
