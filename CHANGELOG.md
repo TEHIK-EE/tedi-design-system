@@ -1,3 +1,10 @@
+# [9.1.0-rc.8](https://github.com/TEHIK-EE/tedi-design-system/compare/v9.1.0-rc.7...v9.1.0-rc.8) (2024-12-10)
+
+
+### Features
+
+* **label:** Add infobutton props [#340](https://github.com/TEHIK-EE/tedi-design-system/issues/340) ([#348](https://github.com/TEHIK-EE/tedi-design-system/issues/348)) ([a1f9532](https://github.com/TEHIK-EE/tedi-design-system/commit/a1f953265eac9cb8bb8b57312df1c8f0cf85185c))
+
 # [9.1.0-rc.7](https://github.com/TEHIK-EE/tedi-design-system/compare/v9.1.0-rc.6...v9.1.0-rc.7) (2024-12-10)
 
 
