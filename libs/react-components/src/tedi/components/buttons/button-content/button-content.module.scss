@@ -119,7 +119,6 @@ $btn-height-small: 2rem;
   max-width: 100%;
   height: $btn-height;
   margin: 0;
-  font-family: Roboto, Arial, Helvetica, sans-serif;
   text-align: center;
   text-decoration: none;
   cursor: pointer;
@@ -130,6 +129,7 @@ $btn-height-small: 2rem;
   transition-property: background-color, border-color;
 
   @include mixins.print-grayscale;
+  @include mixins.responsive-styles(font-family, family-primary, $exclude: tablet);
   @include mixins.responsive-styles(font-size, button-text-size-default);
   @include mixins.responsive-styles(padding-top, button-md-padding-y);
   @include mixins.responsive-styles(padding-bottom, button-md-padding-y);
