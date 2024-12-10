@@ -1,9 +1,9 @@
 import cn from 'classnames';
 import React from 'react';
 
+import { TextField, TextFieldForwardRef, TextFieldProps } from '../../../../tedi/components/form/textfield/textfield';
 import { DateTimePicker, DateTimePickerProps } from '../pickers';
 import Select, { SelectProps, TSelectValue } from '../select/select';
-import TextField, { TextFieldForwardRef, TextFieldProps } from '../textfield/textfield';
 import styles from './hidden-field.module.scss';
 
 export interface HiddenFieldDefaultProps {
