@@ -1,0 +1,27 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "module": "ESNext",
+    "target": "ES6",
+    "types": ["node"],
+    "paths": {
+      "@angular-components/*": ["../src/*"]
+    }
+  },
+  "files": [
+    "../../../node_modules/@nx/react/typings/styled-jsx.d.ts",
+    "../../../node_modules/@nx/react/typings/cssmodule.d.ts",
+    "../../../node_modules/@nx/react/typings/image.d.ts",
+    "./preview.ts"
+  ],
+  "include": ["../src/**/*.ts", "../src/**/*.stories.ts", "./*.js"],
+  "exclude": [
+    "../angular-components/src/**/*.spec.ts",
+    "../angular-components/src/**/*.spec.js",
+    "../angular-components/src/**/*.metadata.json",
+    "../angular-components/src/test-setup.ts",
+    "../../node_modules"
+  ]
+}

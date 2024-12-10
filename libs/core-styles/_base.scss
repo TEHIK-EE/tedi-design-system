@@ -1,0 +1,90 @@
+@import './mixins';
+
+html,
+body {
+  height: 100%;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  box-sizing: border-box;
+  color: var(--general-text-primary);
+
+  @include responsive-styles(font-family, family-primary, $exclude: tablet);
+  @include responsive-styles(line-height, body-regular-line-height, $exclude: tablet);
+  @include responsive-styles(font-size, body-regular-size, $exclude: tablet);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+/**
+ * To overwrite behavior of focus outline
+ * Set '--global-outline-color' and '--global-outline-offset' inside component scope
+ */
+*:where(:focus) {
+  @include focus-element;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+dl,
+dd,
+ul {
+  padding: 0;
+  margin: 0;
+  font-weight: normal;
+}
+
+ol,
+ul {
+  margin: 0.25rem 0;
+  list-style-position: inside;
+}
+
+ol.public-DraftStyleDefault-ul,
+ul.public-DraftStyleDefault-ul {
+  list-style-position: outside;
+}
+
+button {
+  line-height: 1.5;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: var(--link-primary-default);
+  text-decoration: underline;
+
+  &.link-white {
+    color: var(--link-white-default);
+  }
+
+  &.no-underline {
+    text-decoration: none;
+  }
+}
+
+.scroll-disabled {
+  @include media-breakpoint-down(lg) {
+    height: 100%;
+    overflow-y: hidden;
+  }
+}

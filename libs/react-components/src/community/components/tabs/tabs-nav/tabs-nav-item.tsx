@@ -13,10 +13,6 @@ export const TabsNavItem = <C extends React.ElementType = 'a'>(props: TabsNavIte
   return (
     <li data-name="tabs-nav-item" className={TabsNavItemBEM} role="presentation">
       <Print visibility="show">
-        {/*
-          // // TODO: Remove ts-ignore
-          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-          // @ts-ignore */}
         <Anchor {...rest} className={cn(styles['tabs__nav-link'])}>
           {children}
         </Anchor>

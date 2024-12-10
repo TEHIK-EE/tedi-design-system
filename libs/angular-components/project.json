@@ -1,0 +1,40 @@
+{
+  "name": "angular-components",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/angular-components/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:ng-packagr",
+      "options": {
+        "tsConfig": "libs/angular-components/tsconfig.lib.json",
+        "project": "libs/angular-components/ng-package.json"
+      },
+      "outputs": ["{workspaceRoot}/dist/libs/angular-components"]
+    },
+    "test": {
+      "executor": "@angular-devkit/build-angular:karma",
+      "options": {
+        "main": "libs/angular-components/src/test.ts",
+        "tsConfig": "libs/angular-components/tsconfig.spec.json",
+        "karmaConfig": "libs/angular-components/karma.conf.js"
+      }
+    },
+    "start": {
+      "executor": "@storybook/angular:start-storybook",
+      "options": {
+        "configDir": "libs/angular-components/.storybook",
+        "browserTarget": "angular-components:build",
+        "port": 6006
+      }
+    },
+    "build-storybook": {
+      "executor": "@storybook/angular:build-storybook",
+      "options": {
+        "configDir": "libs/angular-components/.storybook",
+        "outputDir": "dist/storybook/angular-components"
+      }
+    }
+  },
+  "tags": []
+}

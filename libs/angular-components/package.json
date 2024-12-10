@@ -1,0 +1,41 @@
+{
+  "name": "@tehik-ee/tedi-design-system-angular",
+  "version": "0.0.0-semantic-version",
+  "type": "module",
+  "main": "community.mjs",
+  "module": "community.mjs",
+  "exports": {
+    "./tedi": {
+      "types": "./tedi/index.d.ts",
+      "import": "./tedi.mjs"
+    },
+    "./community": {
+      "types": "./community/index.d.ts",
+      "import": "./community.mjs"
+    },
+    "./index.css": "./index.css"
+  },
+  "peerDependencies": {
+    "@angular/core": "^16.0.0",
+    "@angular/common": "^16.0.0",
+    "@angular/forms": "^16.0.0",
+    "@angular/animations": "^16.0.0",
+    "@angular/cdk": "^16.0.0",
+    "@angular/material": "^16.0.0",
+    "rxjs": "^7.0.0",
+    "tslib": "^2.5.0",
+    "zone.js": "^0.12.0",
+    "lodash-es": "*",
+    "dayjs": "*"
+  },
+  "dependencies": {
+    "tslib": "^2.5.0"
+  },
+  "overrides": {
+    "dayjs": "$dayjs"
+  },
+  "scripts": {
+    "build": "nx build tedi-design-system",
+    "test": "nx test tedi-design-system"
+  }
+}

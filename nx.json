@@ -4,36 +4,41 @@
   "affected": {
     "defaultBase": "origin/rc"
   },
-  "defaultProject": "components",
+  "defaultProject": "react-components",
   "targetDefaults": {
     "build": {
       "inputs": ["default", "^default", "{workspaceRoot}/.storybook/**/*"],
       "cache": true
     },
-    "@nx/jest:jest": {
+    "lint": {
+      "inputs": ["default", "{workspaceRoot}/.eslintrc.json"],
+      "cache": true
+    },
+    "test": {
       "inputs": ["default", "^default", "{workspaceRoot}/jest.preset.js"],
       "cache": true,
       "options": {
         "passWithNoTests": true
-      },
-      "configurations": {
-        "ci": {
-          "ci": true,
-          "codeCoverage": true
-        }
       }
     },
-    "@nx/eslint:lint": {
-      "inputs": ["default", "{workspaceRoot}/.eslintrc.json"],
-      "cache": true
-    }
-  },
-  "generators": {
-    "@nx/react": {
-      "application": {
-        "babel": true
+    "storybook": {
+      "options": {
+        "port": 6006,
+        "configDir": "{projectRoot}/.storybook",
+        "outputDir": "{workspaceRoot}/dist/storybook/{projectRoot}"
       }
     }
   },
-  "neverConnectToCloud": true
+  "projects": {
+    "angular-components": {
+      "projectType": "library",
+      "root": "libs/angular-components",
+      "sourceRoot": "libs/angular-components"
+    },
+    "react-components": {
+      "projectType": "library",
+      "root": "libs/react-components",
+      "sourceRoot": "libs/react-components"
+    }
+  }
 }

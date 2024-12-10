@@ -125,10 +125,6 @@ function SideNavItem<C extends React.ElementType = 'a'>(props: SideNavItem<C>) {
 
   return (
     <li data-name="sidenav-item" className={SideNavItemBEM} role="presentation">
-      {/*
-        // // TODO: Remove ts-ignore
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore */}
       <Anchor
         {...rest}
         onClick={handleClick}

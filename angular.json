@@ -1,0 +1,43 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "projects": {
+    "angular-components": {
+      "projectType": "library",
+      "root": "libs/angular-components",
+      "sourceRoot": "libs/angular-components/src",
+      "architect": {
+        "start": {
+          "builder": "@storybook/angular:start-storybook",
+          "options": {
+            "configDir": "libs/angular-components/.storybook",
+            "browserTarget": "angular-components:build",
+            "port": 6006
+          }
+        },
+        "build-storybook": {
+          "builder": "@storybook/angular:build-storybook",
+          "options": {
+            "configDir": "libs/angular-components/.storybook",
+            "outputDir": "dist/storybook/angular-components"
+          }
+        },
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/libs/angular-components",
+            "index": "libs/angular-components/src/index.html",
+            "main": "libs/angular-components/src/main.ts",
+            "tsConfig": "libs/angular-components/tsconfig.app.json",
+            "assets": ["libs/angular-components/src/favicon.ico", "libs/angular-components/src/assets"],
+            "styles": [
+              "libs/core-styles/index.scss",
+              "libs/angular-components/src/tedi/styles/index.scss",
+              "libs/angular-components/src/tedi/styles/storybook-styles.scss"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    }
+  }
+}

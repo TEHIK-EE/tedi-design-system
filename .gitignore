@@ -47,3 +47,7 @@ Thumbs.db
 
 migrations.json
 /.nx
+
+.angular
+
+documentation.json
