@@ -18,7 +18,7 @@ const meta: Meta<typeof InfoButton> = {
 export default meta;
 type Story = StoryObj<typeof InfoButton>;
 
-const buttonStateArray = ['Default', 'Hover', 'Active', 'Focus'];
+const buttonStateArray = ['Default', 'Hover', 'Active'];
 
 type TemplateMultipleProps = {
   array: typeof buttonStateArray;

@@ -27,7 +27,7 @@ const meta: Meta<typeof Button> = {
 export default meta;
 type Story = StoryObj<typeof Button>;
 
-const buttonStateArray = ['Default', 'Hover', 'Active', 'Focus', 'Loading', 'Disabled'];
+const buttonStateArray = ['Default', 'Hover', 'Active', 'Loading', 'Disabled'];
 const Template: StoryFn<ButtonProps<ElementType>> = (args) => <Button {...args} />;
 
 export const Default: Story = {
