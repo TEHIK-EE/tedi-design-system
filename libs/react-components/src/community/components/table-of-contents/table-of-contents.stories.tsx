@@ -3,13 +3,13 @@ import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import React from 'react';
 
 import { Col, Row } from '../../../tedi/components/grid';
+import { Section } from '../../../tedi/components/section/section';
 import { VerticalSpacing } from '../../../tedi/components/vertical-spacing';
 import Anchor from '../anchor/anchor';
 import Button from '../button/button';
 import { Card, CardContent } from '../card';
 import Layout, { ILayoutProps } from '../layout/layout/layout';
 import { WithNotice as LayoutDefault } from '../layout/layout/layout.stories';
-import { Section } from '../section/section';
 import ToggleOpen from '../toggle-open/toggle-open';
 import Heading from '../typography/heading/heading';
 import Text from '../typography/text/text';
