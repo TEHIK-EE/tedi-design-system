@@ -1,11 +1,11 @@
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import { useState } from 'react';
 
 import { Col, Row } from '../../../../tedi/components/grid';
 import { VerticalSpacing } from '../../../../tedi/components/vertical-spacing';
 import { Button } from '../../buttons/button/button';
 import { Text } from '../../typography/text/text';
-import { NumberField } from './number-field';
+import { NumberField, NumberFieldProps } from './number-field';
 
 /**
  * <a href="https://www.figma.com/design/jWiRIXhHRxwVdMSimKX2FF/TEDI-READY-(work-in-progress)?node-id=4536-78765&m=dev" target="_BLANK">Figma ↗</a><br />
@@ -15,14 +15,52 @@ import { NumberField } from './number-field';
 const meta: Meta<typeof NumberField> = {
   component: NumberField,
   title: 'TEDI-Ready/Components/Form/NumberField',
+  parameters: {
+    status: {
+      type: [{ name: 'breakpointSupport', url: '?path=/docs/helpers-usebreakpointprops--usebreakpointprops' }],
+    },
+    controls: {
+      exclude: ['sm', 'md', 'lg', 'xl', 'xxl'],
+    },
+  },
 };
 export default meta;
 
 type Story = StoryObj<typeof NumberField>;
 
+const sizesArray: Array<'default' | 'small'> = ['default', 'small'];
+
+const TemplateSizes: StoryFn<NumberFieldProps> = (args) => {
+  return (
+    <div className="example-list w-50">
+      {sizesArray.map((size, key) => (
+        <Row className={`${key === sizesArray.length - 1 ? '' : 'border-bottom'} padding-14-16`} key={key}>
+          <Col>
+            <Text modifiers="bold">{size.charAt(0).toUpperCase() + size.slice(1)}</Text>
+          </Col>
+          <Col>
+            <NumberField {...args} size={size} id={`numberfield-size-${size}`} />
+          </Col>
+        </Row>
+      ))}
+    </div>
+  );
+};
+
 export const Default: Story = {
   args: {
     id: 'example-1',
+    label: 'Label',
+    defaultValue: 1,
+    step: 1,
+    max: 10,
+    min: 0,
+  },
+};
+
+export const Sizes: StoryObj<typeof TemplateSizes> = {
+  render: TemplateSizes,
+  args: {
     label: 'Label',
     defaultValue: 1,
     step: 1,

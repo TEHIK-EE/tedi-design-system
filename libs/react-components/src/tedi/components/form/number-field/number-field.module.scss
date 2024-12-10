@@ -1,6 +1,7 @@
 @import '../../../styles/mixins';
 
 $input-height: 2.5rem;
+$small-input-height: 2rem;
 $border-radius: 0.25rem;
 $border-width: 1px;
 
@@ -69,6 +70,13 @@ $border-width: 1px;
     .tedi-number-field__input-wrapper {
       background-color: var(--form-input-background-default);
       opacity: 0.5;
+    }
+  }
+
+  &--small {
+    .tedi-number-field__input-wrapper,
+    .tedi-number-field__button {
+      height: $small-input-height;
     }
   }
 }

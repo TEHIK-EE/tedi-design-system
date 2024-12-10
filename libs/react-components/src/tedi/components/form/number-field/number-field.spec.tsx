@@ -112,4 +112,10 @@ describe('NumberField component', () => {
 
     expect(handleChange).toHaveBeenCalledWith(5);
   });
+
+  it('applies the "small" class when size is set to "small"', () => {
+    render(<NumberField {...defaultProps} size="small" />);
+    const container = document.querySelector('.tedi-number-field');
+    expect(container).toHaveClass('tedi-number-field--small');
+  });
 });

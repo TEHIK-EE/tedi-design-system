@@ -233,6 +233,7 @@ export const NumberField = (props: NumberFieldProps) => {
     styles['tedi-number-field'],
     { [styles['tedi-number-field--invalid']]: isInvalid(getCurrentValue) },
     { [styles['tedi-number-field--disabled']]: disabled },
+    { [styles['tedi-number-field--small']]: size === 'small' },
     className
   );
 
