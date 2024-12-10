@@ -34,7 +34,6 @@ describe('TextArea component', () => {
 
   it('applies the correct CSS classes', () => {
     render(<TextArea {...defaultProps} className="custom-class" />);
-
     const wrapper = screen.getByRole('textbox').closest('div[data-name="textarea"]');
     expect(wrapper).toHaveClass('tedi-textarea', 'custom-class');
     const textarea = screen.getByRole('textbox');
@@ -48,6 +47,15 @@ describe('TextArea component', () => {
     fireEvent.change(textarea, { target: { value: 'New Value' } });
     expect(handleChange).toHaveBeenCalledTimes(1);
     expect(handleChange).toHaveBeenCalledWith('New Value');
+  });
+
+  it('enforces character limit when provided', () => {
+    const handleChange = jest.fn();
+    render(<TextArea {...defaultProps} characterLimit={10} onChange={handleChange} />);
+    const textarea = screen.getByPlaceholderText(/enter text/i);
+    fireEvent.change(textarea, { target: { value: 'This text is too long' } });
+    expect(textarea).toHaveValue('This text ');
+    expect(handleChange).toHaveBeenCalledWith('This text ');
   });
 
   it('disables the textarea when disabled prop is true', () => {
@@ -66,5 +74,21 @@ describe('TextArea component', () => {
     render(<TextArea {...defaultProps} invalid helper={{ type: 'error', text: 'Error message' }} />);
     const error = screen.getByText(/error message/i);
     expect(error).toHaveClass('tedi-feedback-text--error');
+  });
+
+  it('displays a character counter when showCounter is true', () => {
+    render(<TextArea {...defaultProps} showCounter characterLimit={15} />);
+    const textarea = screen.getByPlaceholderText(/enter text/i);
+    fireEvent.change(textarea, { target: { value: 'Some text' } });
+    const counter = screen.getByText(/9\/15/i);
+    expect(counter).toBeInTheDocument();
+  });
+
+  it('does not display a character counter when showCounter is false', () => {
+    render(<TextArea {...defaultProps} characterLimit={15} />);
+    const textarea = screen.getByPlaceholderText(/enter text/i);
+    fireEvent.change(textarea, { target: { value: 'Some text' } });
+    const counter = screen.queryByText(/\d+\/\d+/i);
+    expect(counter).not.toBeInTheDocument();
   });
 });
