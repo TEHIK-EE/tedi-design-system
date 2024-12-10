@@ -1,3 +1,10 @@
+# [9.1.0-rc.6](https://github.com/TEHIK-EE/tedi-design-system/compare/v9.1.0-rc.5...v9.1.0-rc.6) (2024-12-10)
+
+
+### Bug Fixes
+
+* **icon:** Apply className to wrapper when background is set [#344](https://github.com/TEHIK-EE/tedi-design-system/issues/344) ([#359](https://github.com/TEHIK-EE/tedi-design-system/issues/359)) ([f0e1a68](https://github.com/TEHIK-EE/tedi-design-system/commit/f0e1a68ef4cdd1bed19cf9b89b8f6c123fd1ba80))
+
 # [9.1.0-rc.5](https://github.com/TEHIK-EE/tedi-design-system/compare/v9.1.0-rc.4...v9.1.0-rc.5) (2024-12-10)
 
 
