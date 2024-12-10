@@ -30,7 +30,7 @@ export const HeaderTypesTemplate: StoryFn<CardStory> = () => (
         <Card>
           <CardHeader>
             <Heading element="h3">Title</Heading>
-            <Text>Description</Text>
+            <Text color="secondary">Description</Text>
           </CardHeader>
         </Card>
       </Col>
@@ -49,7 +49,7 @@ export const HeaderTypesTemplate: StoryFn<CardStory> = () => (
             </Row>
             <Row>
               <Col>
-                <Text>Description</Text>
+                <Text color="secondary">Description</Text>
               </Col>
             </Row>
           </CardHeader>
@@ -75,7 +75,7 @@ export const HeaderTypesTemplate: StoryFn<CardStory> = () => (
             </Row>
             <Row>
               <Col>
-                <Text>Description</Text>
+                <Text color="secondary">Description</Text>
               </Col>
             </Row>
           </CardHeader>
@@ -98,7 +98,7 @@ export const HeaderTypesTemplate: StoryFn<CardStory> = () => (
             </Row>
             <Row>
               <Col>
-                <Text>Description</Text>
+                <Text color="secondary">Description</Text>
               </Col>
             </Row>
           </CardHeader>
@@ -119,7 +119,7 @@ export const HeaderTypesTemplate: StoryFn<CardStory> = () => (
             </Row>
             <Row>
               <Col>
-                <Text>Description</Text>
+                <Text color="secondary">Description</Text>
               </Col>
             </Row>
           </CardHeader>
@@ -140,7 +140,7 @@ export const HeaderTypesTemplate: StoryFn<CardStory> = () => (
             </Row>
             <Row>
               <Col>
-                <Text>Description</Text>
+                <Text color="secondary">Description</Text>
               </Col>
             </Row>
           </CardHeader>
@@ -161,7 +161,7 @@ export const HeaderTypesTemplate: StoryFn<CardStory> = () => (
             </Row>
             <Row>
               <Col>
-                <Text>Description</Text>
+                <Text color="secondary">Description</Text>
               </Col>
             </Row>
           </CardHeader>
@@ -219,7 +219,7 @@ export const DefaultCardTemplates: StoryFn<CardStory> = () => (
       <Col>
         <Card>
           <CardContent>
-            <Text>Description</Text>
+            <Text color="secondary">Description</Text>
           </CardContent>
         </Card>
       </Col>
@@ -228,7 +228,7 @@ export const DefaultCardTemplates: StoryFn<CardStory> = () => (
       <Col>
         <Card>
           <CardContent>
-            <Text>Description</Text>
+            <Text color="secondary">Description</Text>
             <StatusBadge color="brand">Approved</StatusBadge>
           </CardContent>
         </Card>
@@ -239,7 +239,7 @@ export const DefaultCardTemplates: StoryFn<CardStory> = () => (
         <Card>
           <CardContent>
             <Text modifiers="bold">Title</Text>
-            <Text>Description</Text>
+            <Text color="secondary">Description</Text>
           </CardContent>
         </Card>
       </Col>
@@ -251,7 +251,7 @@ export const DefaultCardTemplates: StoryFn<CardStory> = () => (
             <Text modifiers="bold">Title</Text>
             <Row>
               <Col>
-                <Text>Description</Text>
+                <Text color="secondary">Description</Text>
               </Col>
               <Col width="auto">
                 <StatusBadge color="brand">Approved</StatusBadge>
@@ -268,7 +268,7 @@ export const DefaultCardTemplates: StoryFn<CardStory> = () => (
             <Row>
               <Col className="display-flex align-items-center gap-3">
                 <Icon name="monitor_heart" />
-                <Text>Description</Text>
+                <Text color="secondary">Description</Text>
               </Col>
             </Row>
           </CardContent>
@@ -284,7 +284,7 @@ export const DefaultCardTemplates: StoryFn<CardStory> = () => (
                 <Icon name="monitor_heart" />
                 <VerticalSpacing size={0}>
                   <Text modifiers="bold">Title</Text>
-                  <Text>Description</Text>
+                  <Text color="secondary">Description</Text>
                 </VerticalSpacing>
               </Col>
             </Row>
@@ -301,7 +301,7 @@ export const DefaultCardTemplates: StoryFn<CardStory> = () => (
                 <Icon name="monitor_heart" />
                 <VerticalSpacing size={0}>
                   <Text modifiers="bold">Title</Text>
-                  <Text>Description</Text>
+                  <Text color="secondary">Description</Text>
                 </VerticalSpacing>
               </Col>
               <Col width="auto" className="display-flex align-items-center">
@@ -319,7 +319,7 @@ export const DefaultCardTemplates: StoryFn<CardStory> = () => (
             <Row>
               <Col>
                 <Text modifiers="bold">Title</Text>
-                <Text>Description</Text>
+                <Text color="secondary">Description</Text>
                 <Separator spacing={1.5} />
                 <Row justifyContent="center">
                   <Col width="auto">
@@ -346,7 +346,7 @@ export const CardInfoTemplate: StoryFn<CardStory> = () => (
                 <Icon background="primary" name="assignment_late" />
                 <VerticalSpacing size={0}>
                   <Text modifiers="bold">Title</Text>
-                  <Text>Description</Text>
+                  <Text color="secondary">Description</Text>
                 </VerticalSpacing>
               </Col>
             </Row>
@@ -369,7 +369,7 @@ export const CardInfoTemplate: StoryFn<CardStory> = () => (
                 <Icon background="primary" name="assignment_late" />
                 <VerticalSpacing size={0}>
                   <Text modifiers="bold">Title</Text>
-                  <Text>Description</Text>
+                  <Text color="secondary">Description</Text>
                 </VerticalSpacing>
               </Col>
             </Row>
@@ -386,7 +386,7 @@ export const CardInfoTemplate: StoryFn<CardStory> = () => (
                 <Icon background="primary" name="assignment_late" />
                 <VerticalSpacing size={0}>
                   <Text modifiers="bold">Title</Text>
-                  <Text>Description</Text>
+                  <Text color="secondary">Description</Text>
                 </VerticalSpacing>
               </Col>
             </Row>
@@ -400,10 +400,10 @@ export const CardInfoTemplate: StoryFn<CardStory> = () => (
           <CardContent background="neutral-primary">
             <Row>
               <Col width="auto" className="display-flex align-items-center gap-3">
-                <Icon background="primary" name="assignment_late" />
-                <p>
+                <Icon background="primary" name="calendar_today" filled />
+                <Text color="secondary">
                   Haigusleht: <strong>118.</strong> päev
-                </p>
+                </Text>
               </Col>
             </Row>
           </CardContent>
@@ -426,7 +426,7 @@ export const AlternativeCardsTemplate: StoryFn<CardStory> = () => (
           <CardContent padding={{ top: 0, right: 1, bottom: 1, left: 1 }}>
             <Row>
               <Col>
-                <Text>For example organ donation and blood transfusion</Text>
+                <Text color="secondary">For example organ donation and blood transfusion</Text>
                 <Separator spacing={1.5} />
                 <Button visualType="secondary">View statements of intention</Button>
               </Col>
@@ -440,7 +440,7 @@ export const AlternativeCardsTemplate: StoryFn<CardStory> = () => (
             <Row>
               <Col>
                 <Text modifiers="bold">Title</Text>
-                <Text>For example organ donation and blood transfusion</Text>
+                <Text color="secondary">For example organ donation and blood transfusion</Text>
                 <Separator spacing={1.5} />
                 <Button visualType="secondary">View statements of intention</Button>
               </Col>
@@ -461,7 +461,7 @@ export const AlternativeCardsTemplate: StoryFn<CardStory> = () => (
             <Row>
               <Col>
                 <VerticalSpacing>
-                  <Text>For example organ donation and blood transfusion</Text>
+                  <Text color="secondary">For example organ donation and blood transfusion</Text>
                   <Button visualType="secondary">View statements of intention</Button>
                 </VerticalSpacing>
               </Col>
@@ -472,7 +472,7 @@ export const AlternativeCardsTemplate: StoryFn<CardStory> = () => (
       <Col lg={6} sm={12}>
         <Card>
           <CardContent>
-            <Text>For example organ donation and blood transfusion</Text>
+            <Text color="secondary">For example organ donation and blood transfusion</Text>
           </CardContent>
         </Card>
       </Col>
@@ -542,25 +542,5 @@ export const BackgroundColorsTemplate: StoryFn<CardStory> = () => {
         </Col>
       ))}
     </Row>
-  );
-};
-
-export const BorderColorsTemplate: StoryFn<CardStory> = () => {
-  const borderColors: CardBackground[] = ['primary', 'secondary', 'tertiary'];
-
-  return (
-    <VerticalSpacing>
-      {borderColors.map((color, index) => (
-        <Row key={index}>
-          <Col>
-            <Card border={color}>
-              <CardContent>
-                <Text>Description</Text>
-              </CardContent>
-            </Card>
-          </Col>
-        </Row>
-      ))}
-    </VerticalSpacing>
   );
 };

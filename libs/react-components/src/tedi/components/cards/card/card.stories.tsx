@@ -9,7 +9,6 @@ import { Heading } from '../../typography/heading/heading';
 import {
   AlternativeCardsTemplate,
   BackgroundColorsTemplate,
-  BorderColorsTemplate,
   CardInfoTemplate,
   DefaultCardTemplates,
   HeaderTypesTemplate,
@@ -146,7 +145,7 @@ export const Backgrounds: Story = {
 };
 
 export const BorderColors: Story = {
-  render: BorderColorsTemplate,
+  render: Template,
 };
 
 export const MultipleContent: Story = {
