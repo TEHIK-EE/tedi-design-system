@@ -4,6 +4,10 @@ import { Heading } from '../typography/heading/heading';
 import { VerticalSpacing } from '../vertical-spacing';
 import { Section } from './section';
 
+/**
+ * <a href="https://tedi.tehik.ee/1ee8444b7/p/369823-section" target="_BLANK">Zeroheight ↗</a>
+ */
+
 const meta: Meta<typeof Section> = {
   component: Section,
   title: 'TEDI-Ready/Components/Helpers/Section',
