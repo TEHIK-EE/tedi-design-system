@@ -25,7 +25,9 @@ export interface IconProps {
    */
   name: string;
   /**
-   * Additional classes
+   * Additional classes to style the icon or its wrapper.
+   * - If `background` is provided, the `className` will be applied to the wrapper element.
+   * - If `background` is not provided, the `className` will be applied directly to the icon element.
    */
   className?: string;
   /**
@@ -74,12 +76,16 @@ export const Icon = forwardRef<HTMLDivElement, IconProps>((props: IconProps, ref
     ...rest
   } = props;
 
-  const wrapperBEM = cn(styles['tedi-icon--wrapper'], {
-    [styles['tedi-icon--bg']]: background,
-    [styles[`tedi-icon--bg-${background}`]]: background,
-    [styles[`tedi-icon--wrapper--size-${size}`]]: size,
-    [styles[`tedi-icon--wrapper--${display}`]]: display,
-  });
+  const wrapperBEM = cn(
+    styles['tedi-icon__wrapper'],
+    {
+      [styles['tedi-icon__wrapper--bg']]: background,
+      [styles[`tedi-icon__wrapper--bg-${background}`]]: background,
+      [styles[`tedi-icon__wrapper--size-${size}`]]: size,
+      [styles[`tedi-icon__wrapper--${display}`]]: display,
+    },
+    background && className
+  );
 
   const iconBEM = cn(
     'notranslate',
@@ -90,7 +96,7 @@ export const Icon = forwardRef<HTMLDivElement, IconProps>((props: IconProps, ref
     size && styles[`tedi-icon--size-${size}`],
     display && styles[`tedi-icon--${display}`],
     filled && styles['tedi-icon--filled'],
-    className
+    !background && className
   );
 
   const iconElement = (

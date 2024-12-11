@@ -1,3 +1,137 @@
+# [10.0.0-rc.2](https://github.com/TEHIK-EE/tedi-design-system/compare/v10.0.0-rc.1...v10.0.0-rc.2) (2024-12-11)
+
+
+### Features
+
+* **floating-button:** add component [#303](https://github.com/TEHIK-EE/tedi-design-system/issues/303) ([#360](https://github.com/TEHIK-EE/tedi-design-system/issues/360)) ([c25470e](https://github.com/TEHIK-EE/tedi-design-system/commit/c25470ea7230b143d6a248f5f040d0c46cd5f3a4))
+
+# [10.0.0-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/v9.1.0-rc.8...v10.0.0-rc.1) (2024-12-11)
+
+
+### Features
+
+* **section:** TEDI-Ready Section component development [#350](https://github.com/TEHIK-EE/tedi-design-system/issues/350) ([#351](https://github.com/TEHIK-EE/tedi-design-system/issues/351)) ([fb1db42](https://github.com/TEHIK-EE/tedi-design-system/commit/fb1db423a5118b09ffddd405c13b27afa8149a5b))
+
+
+### BREAKING CHANGES
+
+* **section:** Communitys Section removed, use TEDI-Ready Section instead, update imports
+
+# [9.1.0-rc.8](https://github.com/TEHIK-EE/tedi-design-system/compare/v9.1.0-rc.7...v9.1.0-rc.8) (2024-12-10)
+
+
+### Features
+
+* **label:** Add infobutton props [#340](https://github.com/TEHIK-EE/tedi-design-system/issues/340) ([#348](https://github.com/TEHIK-EE/tedi-design-system/issues/348)) ([a1f9532](https://github.com/TEHIK-EE/tedi-design-system/commit/a1f953265eac9cb8bb8b57312df1c8f0cf85185c))
+
+# [9.1.0-rc.7](https://github.com/TEHIK-EE/tedi-design-system/compare/v9.1.0-rc.6...v9.1.0-rc.7) (2024-12-10)
+
+
+### Bug Fixes
+
+* **link:** Icon not vertically center [#347](https://github.com/TEHIK-EE/tedi-design-system/issues/347) ([#349](https://github.com/TEHIK-EE/tedi-design-system/issues/349)) ([4d209bc](https://github.com/TEHIK-EE/tedi-design-system/commit/4d209bc53c8285804b695dd5d65989fa6ffebd9d))
+
+# [9.1.0-rc.6](https://github.com/TEHIK-EE/tedi-design-system/compare/v9.1.0-rc.5...v9.1.0-rc.6) (2024-12-10)
+
+
+### Bug Fixes
+
+* **icon:** Apply className to wrapper when background is set [#344](https://github.com/TEHIK-EE/tedi-design-system/issues/344) ([#359](https://github.com/TEHIK-EE/tedi-design-system/issues/359)) ([f0e1a68](https://github.com/TEHIK-EE/tedi-design-system/commit/f0e1a68ef4cdd1bed19cf9b89b8f6c123fd1ba80))
+
+# [9.1.0-rc.5](https://github.com/TEHIK-EE/tedi-design-system/compare/v9.1.0-rc.4...v9.1.0-rc.5) (2024-12-10)
+
+
+### Bug Fixes
+
+* **grid:** Increase $grid-row-columns to 12 [#345](https://github.com/TEHIK-EE/tedi-design-system/issues/345) ([#358](https://github.com/TEHIK-EE/tedi-design-system/issues/358)) ([4326af5](https://github.com/TEHIK-EE/tedi-design-system/commit/4326af5705d27002faaece768505b3dba0382fc1))
+* **modal:** Modal open focus fix [#343](https://github.com/TEHIK-EE/tedi-design-system/issues/343) ([#357](https://github.com/TEHIK-EE/tedi-design-system/issues/357)) ([0a8b54c](https://github.com/TEHIK-EE/tedi-design-system/commit/0a8b54c777da611367c1e2007170848939623d5e))
+
+# [9.1.0-rc.4](https://github.com/TEHIK-EE/tedi-design-system/compare/v9.1.0-rc.3...v9.1.0-rc.4) (2024-12-08)
+
+
+### Bug Fixes
+
+* **scroll-fade:** round calculation for scrollToBottom [#353](https://github.com/TEHIK-EE/tedi-design-system/issues/353) ([#355](https://github.com/TEHIK-EE/tedi-design-system/issues/355)) ([762982c](https://github.com/TEHIK-EE/tedi-design-system/commit/762982c7ced2de8e630d62620d5fdc8f836cda83))
+
+# [9.1.0-rc.3](https://github.com/TEHIK-EE/tedi-design-system/compare/v9.1.0-rc.2...v9.1.0-rc.3) (2024-12-06)
+
+
+### Bug Fixes
+
+* **scroll-fade:** round calculation for scrollToBottom [#353](https://github.com/TEHIK-EE/tedi-design-system/issues/353) ([#354](https://github.com/TEHIK-EE/tedi-design-system/issues/354)) ([46b5dce](https://github.com/TEHIK-EE/tedi-design-system/commit/46b5dce1002ec184739484bc3dde4f3de1736c72))
+
+# [9.1.0-rc.2](https://github.com/TEHIK-EE/tedi-design-system/compare/v9.1.0-rc.1...v9.1.0-rc.2) (2024-12-02)
+
+
+### Bug Fixes
+
+* **skeleton:** Apply opacity to skeleton background [#341](https://github.com/TEHIK-EE/tedi-design-system/issues/341) ([#342](https://github.com/TEHIK-EE/tedi-design-system/issues/342)) ([bf31f15](https://github.com/TEHIK-EE/tedi-design-system/commit/bf31f1571599efcfae3f63976339b3db3a35e453))
+
+# [9.1.0-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/v9.0.0...v9.1.0-rc.1) (2024-12-02)
+
+
+### Features
+
+* **info-button:** New TEDI-Ready InfoButton component development [#332](https://github.com/TEHIK-EE/tedi-design-system/issues/332) ([#338](https://github.com/TEHIK-EE/tedi-design-system/issues/338)) ([635916f](https://github.com/TEHIK-EE/tedi-design-system/commit/635916f628b97a458c7ace62530c8799e5c6322e))
+
+# [9.0.0](https://github.com/TEHIK-EE/tedi-design-system/compare/v8.0.0...v9.0.0) (2024-11-28)
+
+
+### Bug Fixes
+
+* **alert:** Fix content only alignment [#320](https://github.com/TEHIK-EE/tedi-design-system/issues/320) ([#324](https://github.com/TEHIK-EE/tedi-design-system/issues/324)) ([fa44d69](https://github.com/TEHIK-EE/tedi-design-system/commit/fa44d6921159b960511e4600e511720db22fa9e3))
+* **alert:** Wrap title and children inside a div to prevent display flex problems [#314](https://github.com/TEHIK-EE/tedi-design-system/issues/314) ([#317](https://github.com/TEHIK-EE/tedi-design-system/issues/317)) ([c1a5994](https://github.com/TEHIK-EE/tedi-design-system/commit/c1a5994c5c3d214c6d67cdc2a4c62e63c183badf))
+* **anchor, toggleOpen, Accordion:** link toggle-open not rotating [#286](https://github.com/TEHIK-EE/tedi-design-system/issues/286) ([#287](https://github.com/TEHIK-EE/tedi-design-system/issues/287)) ([23d342e](https://github.com/TEHIK-EE/tedi-design-system/commit/23d342ed550ada67c98955f2b322d7dc201f7f29))
+* **button, link, formLabel, list, separator, verticalSpacing:** Added tedi- prefix to classes [#291](https://github.com/TEHIK-EE/tedi-design-system/issues/291) ([#298](https://github.com/TEHIK-EE/tedi-design-system/issues/298)) ([489d577](https://github.com/TEHIK-EE/tedi-design-system/commit/489d577bdf98af39aba2ef0384901d4b93ffee13))
+* **button, link:** Prevent text wrapping in Button and Link components [#311](https://github.com/TEHIK-EE/tedi-design-system/issues/311) ([#312](https://github.com/TEHIK-EE/tedi-design-system/issues/312)) ([8fb3016](https://github.com/TEHIK-EE/tedi-design-system/commit/8fb301602e624d75752623cfc6a8783b17736051))
+* **check:** Check icon positioning bug [#300](https://github.com/TEHIK-EE/tedi-design-system/issues/300) ([#301](https://github.com/TEHIK-EE/tedi-design-system/issues/301)) ([3c85ec4](https://github.com/TEHIK-EE/tedi-design-system/commit/3c85ec4760875e2a71e662ff5ab6f964e8c0c077))
+* **ClosingButton:** add type button [#302](https://github.com/TEHIK-EE/tedi-design-system/issues/302) ([#305](https://github.com/TEHIK-EE/tedi-design-system/issues/305)) ([4188d1b](https://github.com/TEHIK-EE/tedi-design-system/commit/4188d1b22ddb6d2b46d5608fac9a526f1f4ff2a9))
+* **colors:** Update color variables [#268](https://github.com/TEHIK-EE/tedi-design-system/issues/268) ([#273](https://github.com/TEHIK-EE/tedi-design-system/issues/273)) ([e62595e](https://github.com/TEHIK-EE/tedi-design-system/commit/e62595e6b64d4f3521f5a30248019bf45efe6218))
+* **icon, spinner, status-badge:** Fix BEM convention [#328](https://github.com/TEHIK-EE/tedi-design-system/issues/328) ([#329](https://github.com/TEHIK-EE/tedi-design-system/issues/329)) ([9082213](https://github.com/TEHIK-EE/tedi-design-system/commit/90822132747ae335bfd96b58c810382a0cf1b0e0))
+* **icon:** Add material-symbols class to Community Icon to fix icon dimensions [#313](https://github.com/TEHIK-EE/tedi-design-system/issues/313) ([#315](https://github.com/TEHIK-EE/tedi-design-system/issues/315)) ([d63c86a](https://github.com/TEHIK-EE/tedi-design-system/commit/d63c86a6507f76fe78054b6383145473a192837e))
+* **icon:** Added forwardRef possibility to Icon [#318](https://github.com/TEHIK-EE/tedi-design-system/issues/318) ([#321](https://github.com/TEHIK-EE/tedi-design-system/issues/321)) ([7719a76](https://github.com/TEHIK-EE/tedi-design-system/commit/7719a764da2f3167af2ce23434814e4dc3ada0d2))
+* **icon:** Improve display style usage [#323](https://github.com/TEHIK-EE/tedi-design-system/issues/323) ([#325](https://github.com/TEHIK-EE/tedi-design-system/issues/325)) ([315a64e](https://github.com/TEHIK-EE/tedi-design-system/commit/315a64e79ac3dea7a2033af4cd843ba079d8afee))
+* **icon:** Material symbols css overriding icon--block css [#276](https://github.com/TEHIK-EE/tedi-design-system/issues/276) ([#277](https://github.com/TEHIK-EE/tedi-design-system/issues/277)) ([65f5741](https://github.com/TEHIK-EE/tedi-design-system/commit/65f5741723d10e33e23f46cd405d3b839ca09f85))
+* **Icon:** specify icon display classes [#326](https://github.com/TEHIK-EE/tedi-design-system/issues/326) ([#327](https://github.com/TEHIK-EE/tedi-design-system/issues/327)) ([9599e85](https://github.com/TEHIK-EE/tedi-design-system/commit/9599e85d0de53f6a2915a7361aa6dda2595b17a8))
+* **link, closing-button:** Fix double focus border [#297](https://github.com/TEHIK-EE/tedi-design-system/issues/297) ([#299](https://github.com/TEHIK-EE/tedi-design-system/issues/299)) ([7a8212e](https://github.com/TEHIK-EE/tedi-design-system/commit/7a8212e789d28ca6680c017b9775aef398cf894a))
+* **link:** Allow link wrapping into multiple lines [#316](https://github.com/TEHIK-EE/tedi-design-system/issues/316) ([#322](https://github.com/TEHIK-EE/tedi-design-system/issues/322)) ([8b651f2](https://github.com/TEHIK-EE/tedi-design-system/commit/8b651f22c1b4203b217c52b4032e405dcf636feb))
+* **link:** Fix horizontal paddings [#293](https://github.com/TEHIK-EE/tedi-design-system/issues/293) ([#295](https://github.com/TEHIK-EE/tedi-design-system/issues/295)) ([3580270](https://github.com/TEHIK-EE/tedi-design-system/commit/358027071221037e114cc19a50e884826158f21a))
+* **print:** new Tedi Print component shows console.error on tests [#271](https://github.com/TEHIK-EE/tedi-design-system/issues/271) ([#272](https://github.com/TEHIK-EE/tedi-design-system/issues/272)) ([311e659](https://github.com/TEHIK-EE/tedi-design-system/commit/311e659c0947f2effdfa19fbdbf621a23997f62a))
+* **print:** Print helper styles missing [#269](https://github.com/TEHIK-EE/tedi-design-system/issues/269) ([#270](https://github.com/TEHIK-EE/tedi-design-system/issues/270)) ([a534d60](https://github.com/TEHIK-EE/tedi-design-system/commit/a534d60b3e38c2a26ac7fb1b9679c23073925798))
+* **spinner:** Remove Community Spinner and Replace with TEDI-Ready Sp… ([#285](https://github.com/TEHIK-EE/tedi-design-system/issues/285)) ([fca3643](https://github.com/TEHIK-EE/tedi-design-system/commit/fca3643471c80fb107136374531803884ca32078)), closes [#228](https://github.com/TEHIK-EE/tedi-design-system/issues/228)
+
+
+### Features
+
+* **alert:** TEDI-Ready Alert development [#290](https://github.com/TEHIK-EE/tedi-design-system/issues/290) ([#294](https://github.com/TEHIK-EE/tedi-design-system/issues/294)) ([f7b7a2d](https://github.com/TEHIK-EE/tedi-design-system/commit/f7b7a2d04c69d20015ce8d36593486f47ff6f9e1))
+* **button:** TEDI-Ready Button development [#225](https://github.com/TEHIK-EE/tedi-design-system/issues/225) ([#281](https://github.com/TEHIK-EE/tedi-design-system/issues/281)) ([9f794ee](https://github.com/TEHIK-EE/tedi-design-system/commit/9f794eeb4b8df2855ae65bc871e39489cef6d83a))
+* **feedback-text:** TEDI-Ready FeedbackText component development [#304](https://github.com/TEHIK-EE/tedi-design-system/issues/304) ([#306](https://github.com/TEHIK-EE/tedi-design-system/issues/306)) ([7341d8c](https://github.com/TEHIK-EE/tedi-design-system/commit/7341d8c5e48f94bba9896855978f96a707b1cc9d))
+* **link:** TEDI-Ready Link development [#213](https://github.com/TEHIK-EE/tedi-design-system/issues/213) ([#283](https://github.com/TEHIK-EE/tedi-design-system/issues/283)) ([92b25b9](https://github.com/TEHIK-EE/tedi-design-system/commit/92b25b9ed23a4855d63163c7efc4c4bc5846cfa8)), closes [#225](https://github.com/TEHIK-EE/tedi-design-system/issues/225) [#225](https://github.com/TEHIK-EE/tedi-design-system/issues/225) [#225](https://github.com/TEHIK-EE/tedi-design-system/issues/225)
+* **print:** New TEDI-Ready component Print [#251](https://github.com/TEHIK-EE/tedi-design-system/issues/251) ([#259](https://github.com/TEHIK-EE/tedi-design-system/issues/259)) ([b9a333b](https://github.com/TEHIK-EE/tedi-design-system/commit/b9a333bcd21943f9e4590284f51da46e4e78b6f0))
+* **separator:** New TEDI-Ready component Separator [#206](https://github.com/TEHIK-EE/tedi-design-system/issues/206) ([#258](https://github.com/TEHIK-EE/tedi-design-system/issues/258)) ([cd57691](https://github.com/TEHIK-EE/tedi-design-system/commit/cd576912434f2599c93120686f96d9a0173b0cc2))
+* **skeleton:** TEDI-Ready component Skeleton [#167](https://github.com/TEHIK-EE/tedi-design-system/issues/167) ([#252](https://github.com/TEHIK-EE/tedi-design-system/issues/252)) ([abf93e9](https://github.com/TEHIK-EE/tedi-design-system/commit/abf93e9948c20a2e745c1d088a7353b423c8b26f))
+* **stretch-content:** TEDI-Ready StretchContent development [#288](https://github.com/TEHIK-EE/tedi-design-system/issues/288) ([#289](https://github.com/TEHIK-EE/tedi-design-system/issues/289)) ([d16fa51](https://github.com/TEHIK-EE/tedi-design-system/commit/d16fa51a68ca4aab668028a5ae348920418e0c0c))
+* **tabs:** add possibility to hide nav when printing [#266](https://github.com/TEHIK-EE/tedi-design-system/issues/266) ([#267](https://github.com/TEHIK-EE/tedi-design-system/issues/267)) ([49916a3](https://github.com/TEHIK-EE/tedi-design-system/commit/49916a3ccdc74358c7524252885f4321d967a060))
+
+
+### BREAKING CHANGES
+
+* **feedback-text:** Community FormLabel removed, use TEDI-Ready FormLabel
+* **alert:** Community Notification removed. Replace with TEDI-Ready Alert
+* **stretch-content:** Community StretchContent removed. Replace with TEDI-Ready StretchContent
+* **spinner:** Community Spinner removed. Replace with TEDI-Ready Spinner
+* **skeleton:** Communitys Skeleton removed, TEDI-Ready Skeleton is now available
+* **print:** This component will be removed from the Community in the next major release.
+
+Co-authored-by: Airike Jaska <airike.jaska@bitweb.ee>
+
+# [9.0.0-rc.29](https://github.com/TEHIK-EE/tedi-design-system/compare/v9.0.0-rc.28...v9.0.0-rc.29) (2024-11-26)
+
+
+### Bug Fixes
+
+* **icon, spinner, status-badge:** Fix BEM convention [#328](https://github.com/TEHIK-EE/tedi-design-system/issues/328) ([#329](https://github.com/TEHIK-EE/tedi-design-system/issues/329)) ([9082213](https://github.com/TEHIK-EE/tedi-design-system/commit/90822132747ae335bfd96b58c810382a0cf1b0e0))
+
 # [9.0.0-rc.28](https://github.com/TEHIK-EE/tedi-design-system/compare/v9.0.0-rc.27...v9.0.0-rc.28) (2024-11-25)
 
 

@@ -146,11 +146,11 @@ export const Accessibility: Story = {
           {renderButton('Add a short loading block', { id: `skeleton-${skeletons.length}`, delay: 900 })}
           {renderButton('Add a long loading block', {
             id: `skeleton-${skeletons.length}`,
-            style: { '--loader-skeleton-color': 'var(--red-200)' },
+            style: { '--loader-skeleton-color': 'var(--red-600)' },
           })}
           {renderButton('Render loading block with custom labels', {
             id: `skeleton-${skeletons.length}`,
-            style: { '--loader-skeleton-color': 'var(--green-200)' },
+            style: { '--loader-skeleton-color': 'var(--green-600)' },
             label: 'Custom block is loading',
             completedLabel: 'Custom block has finished loading',
           })}

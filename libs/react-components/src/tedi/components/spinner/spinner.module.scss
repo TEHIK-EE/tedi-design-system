@@ -14,7 +14,7 @@ $spinner-sizes: (10, 16, 18, 48);
     position: absolute;
   }
 
-  &--inner {
+  &__inner {
     stroke-dasharray: 80px, 200px;
     stroke-dashoffset: 0;
     stroke-width: 4px;
