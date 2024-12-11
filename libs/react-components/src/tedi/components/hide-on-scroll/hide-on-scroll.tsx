@@ -1,5 +1,5 @@
 import cn from 'classnames';
-import { cloneElement, isValidElement, ReactNode, useEffect, useState } from 'react';
+import { cloneElement, isValidElement, ReactNode, useEffect, useRef, useState } from 'react';
 
 import { useScroll } from '../../helpers/hooks/use-scroll';
 import styles from './hide-on-scroll.module.scss';
@@ -21,15 +21,20 @@ export interface HideOnScrollProps {
    */
   className?: string;
   /**
+   * Determines wheter to hide or show on scroll
+   * @default show
+   */
+  visibility?: 'hide' | 'show';
+  /**
+   * Determines if the component's visibility toggles when scrolling up after crossing scrollDistance
+   * @default false
+   */
+  toggleVisibility?: boolean;
+  /**
    * Direction the component animates to
    * @default center
    */
   animationDirection?: AnimationDirection;
-  /**
-   * Hide the component when user scrolls in that direction
-   * @default down
-   */
-  scrollDirection?: 'down' | 'up';
   /**
    * Distance in px user has to scroll for the component to show/hide
    * @default 100
@@ -47,34 +52,39 @@ export const HideOnScroll = (props: HideOnScrollProps) => {
     children,
     enabled = true,
     className,
+    visibility = 'show',
+    toggleVisibility = false,
     scrollDistance = 100,
     scrollContainer,
-    scrollDirection = 'down',
     animationDirection = 'center',
   } = props;
-  const { scrollTop, clientHeight, scrollHeight } = useScroll(scrollContainer);
-  const [prevScrollTop, setPrevScrollTop] = useState(scrollTop);
-  const [isHidden, setIsHidden] = useState(false);
+  const { scrollTop } = useScroll(scrollContainer);
+  const [isHidden, setIsHidden] = useState(() => {
+    if (!enabled) return false;
+
+    if (visibility === 'hide') {
+      return scrollTop > scrollDistance;
+    } else {
+      return scrollTop <= scrollDistance;
+    }
+  });
+  const lastScrollTop = useRef(scrollTop);
 
   useEffect(() => {
-    const bottomOffset = scrollHeight - clientHeight - scrollDistance;
+    if (!enabled) return;
 
-    if (scrollDirection === 'down') {
-      if (scrollTop > scrollDistance && scrollTop > prevScrollTop) {
-        setIsHidden(true);
-      } else if (scrollTop < prevScrollTop - 10 || scrollTop <= scrollDistance) {
-        setIsHidden(false);
-      }
+    const shouldShow = visibility === 'show';
+
+    if (toggleVisibility && scrollTop < lastScrollTop.current) {
+      setIsHidden(shouldShow);
+    } else if (scrollTop > scrollDistance) {
+      setIsHidden(!shouldShow);
     } else {
-      if (scrollTop < bottomOffset && scrollTop < prevScrollTop) {
-        setIsHidden(true);
-      } else if (scrollTop > prevScrollTop + 10 || scrollTop >= bottomOffset) {
-        setIsHidden(false);
-      }
+      setIsHidden(shouldShow);
     }
 
-    setPrevScrollTop(scrollTop);
-  }, [scrollDirection, prevScrollTop, scrollDistance, scrollTop, scrollHeight, clientHeight]);
+    lastScrollTop.current = scrollTop;
+  }, [visibility, toggleVisibility, scrollDistance, scrollTop, enabled]);
 
   const BEM = cn(
     styles['tedi-hide-on-scroll'],
@@ -85,9 +95,11 @@ export const HideOnScroll = (props: HideOnScrollProps) => {
     className
   );
 
-  return isValidElement(children)
-    ? cloneElement(children, { className: cn(children.props.className, BEM) } as { className?: string })
-    : children;
+  return isValidElement(children) ? (
+    cloneElement(children, { className: cn(children.props.className, BEM) } as { className?: string })
+  ) : (
+    <div className={BEM}>{children}</div>
+  );
 };
 
 export default HideOnScroll;
