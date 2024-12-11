@@ -20,6 +20,7 @@ export * from './components/stretch-content/stretch-content';
 export * from './components/navigation/link/link';
 export * from './components/form/feedback-text/feedback-text';
 export * from './components/form/number-field/number-field';
+export * from './components/section/section';
 
 export * from './helpers';
 
