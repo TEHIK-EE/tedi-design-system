@@ -4,6 +4,11 @@ import { Col, Row } from '../../grid';
 import { Text } from '../../typography/text/text';
 import FloatingButton, { FloatingButtonProps } from './floating-button';
 
+/**
+ * <a href="https://www.figma.com/design/jWiRIXhHRxwVdMSimKX2FF/TEDI-READY-(work-in-progress)?node-id=4514-73451&m=dev" target="_BLANK">Figma ↗</a><br/>
+ * <a href="https://tedi.tehik.ee/1ee8444b7/p/546461-floating-button" target="_BLANK">Zeroheight ↗</a>
+ */
+
 const meta: Meta<typeof FloatingButton> = {
   component: FloatingButton,
   title: 'Tedi-ready/Components/Buttons/FloatingButton',
@@ -12,67 +17,66 @@ const meta: Meta<typeof FloatingButton> = {
 export default meta;
 type Story = StoryObj<typeof FloatingButton>;
 
+const buttonSizeArray = ['Default', 'Large'];
 const buttonStateArray = ['Default', 'Hover', 'Active', 'Focus'];
 
 type TemplateMultipleProps<Type = typeof buttonStateArray> = FloatingButtonProps & {
   array: Type;
-  marginTop: number;
 };
 
 const TemplateColumn: StoryFn<TemplateMultipleProps> = (args) => {
-  const { marginTop, array, ...buttonProps } = args;
+  const { array, ...buttonProps } = args;
 
   return (
-    <>
-      <Row>
-        <Col md={1}></Col>
-        <Col>
-          <Text modifiers="bold">Default</Text>
+    <Row style={{ gap: buttonProps.axis === 'vertical' ? 100 : 30 }}>
+      {buttonSizeArray.map((size) => (
+        <Col key={size}>
+          <Col style={{ paddingBottom: 16 }}>
+            <Text modifiers="bold">{size}</Text>
+          </Col>
+          <Row style={{ gap: buttonProps.axis === 'vertical' ? 100 : 16 }}>
+            {array.map((value, key) => (
+              <Col xs={12} key={key} style={{ display: buttonProps.axis === 'vertical' ? 'flex' : undefined }}>
+                <Col xs={2}>
+                  <Text>{value}</Text>
+                </Col>
+                <Col className="display-flex align-items-center gap-3">
+                  <FloatingButton id={value} size={size === 'Large' ? 'large' : 'medium'} {...buttonProps}>
+                    Scroll up
+                  </FloatingButton>
+                  <FloatingButton
+                    id={value}
+                    size={size === 'Large' ? 'large' : 'medium'}
+                    {...buttonProps}
+                    iconRight="arrow_upward"
+                  >
+                    Scroll up
+                  </FloatingButton>
+                  <FloatingButton
+                    id={value}
+                    size={size === 'Large' ? 'large' : 'medium'}
+                    {...buttonProps}
+                    iconLeft="arrow_upward"
+                  >
+                    Scroll up
+                  </FloatingButton>
+                  {buttonProps.axis === 'horizontal' && (
+                    <FloatingButton
+                      id={value}
+                      size={size === 'Large' ? 'large' : 'medium'}
+                      {...buttonProps}
+                      icon="arrow_upward"
+                    >
+                      Scroll up
+                    </FloatingButton>
+                  )}
+                </Col>
+              </Col>
+            ))}
+          </Row>
         </Col>
-        <Col className="text-bold">
-          <Text modifiers="bold">Large</Text>
-        </Col>
-      </Row>
-      {array.map((value, key) => (
-        <Row key={key} style={{ marginTop }}>
-          <Col md={1} className="display-flex align-items-center">
-            <Text modifiers="bold">{value}</Text>
-          </Col>
-          <Col className="display-flex align-items-center gap-3">
-            <FloatingButton id={value} {...buttonProps}>
-              Scroll up
-            </FloatingButton>
-            <FloatingButton id={value} {...buttonProps} iconRight="arrow_upward">
-              Scroll up
-            </FloatingButton>
-            <FloatingButton id={value} {...buttonProps} iconLeft="arrow_upward">
-              Scroll up
-            </FloatingButton>
-            {buttonProps.axis === 'horizontal' && (
-              <FloatingButton id={value} {...buttonProps} icon="arrow_upward">
-                Scroll up
-              </FloatingButton>
-            )}
-          </Col>
-          <Col className="display-flex align-items-center gap-3">
-            <FloatingButton id={value} {...buttonProps} size="large">
-              Scroll up
-            </FloatingButton>
-            <FloatingButton id={value} {...buttonProps} size="large" iconRight="arrow_upward">
-              Scroll up
-            </FloatingButton>
-            <FloatingButton id={value} {...buttonProps} size="large" iconLeft="arrow_upward">
-              Scroll up
-            </FloatingButton>
-            {buttonProps.axis === 'horizontal' && (
-              <FloatingButton id={value} {...buttonProps} size="large" icon="arrow_upward">
-                Scroll up
-              </FloatingButton>
-            )}
-          </Col>
-        </Row>
       ))}
-    </>
+    </Row>
   );
 };
 
@@ -90,7 +94,6 @@ export const PrimaryHorizontal: StoryObj<TemplateMultipleProps> = {
     axis: 'horizontal',
     visualType: 'primary',
     position: 'static',
-    marginTop: 10,
   },
   parameters: {
     pseudo: {
@@ -108,7 +111,6 @@ export const PrimaryVertical: StoryObj<TemplateMultipleProps> = {
     axis: 'vertical',
     visualType: 'primary',
     position: 'static',
-    marginTop: 100,
   },
   parameters: {
     pseudo: {
@@ -126,7 +128,6 @@ export const SecondaryHorizontal: StoryObj<TemplateMultipleProps> = {
     axis: 'horizontal',
     visualType: 'secondary',
     position: 'static',
-    marginTop: 10,
   },
   parameters: {
     pseudo: {
@@ -144,7 +145,6 @@ export const SecondaryVertical: StoryObj<TemplateMultipleProps> = {
     axis: 'vertical',
     visualType: 'secondary',
     position: 'static',
-    marginTop: 100,
   },
   parameters: {
     pseudo: {
