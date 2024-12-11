@@ -26,7 +26,7 @@ describe('FloatingButton component', () => {
   it('renders with icon only', () => {
     render(<FloatingButton {...defaultProps} icon="check" />);
     const button = screen.getByRole('button');
-    expect(button).toHaveClass('tedi-floating-button__icon-only');
+    expect(button).toHaveClass('tedi-floating-button--icon-only');
   });
 
   it('renders vertical button', () => {

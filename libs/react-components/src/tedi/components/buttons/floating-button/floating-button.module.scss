@@ -2,6 +2,10 @@
 @import '../../../../shared/styles/bootstrap-utility/breakpoints';
 @import '../button-content/button-content.module';
 
+$btn-height: 2.75rem;
+$btn-height-small: 2.5rem;
+$btn-height-large: 3rem;
+
 .tedi-floating-button {
   box-shadow: 0 4px 10px 0 rgb(0 0 0 / 14%);
 
@@ -48,15 +52,15 @@
   }
 
   &--medium {
-    height: 44px;
+    height: $btn-height;
 
     @include media-breakpoint-up(md) {
-      height: 40px;
+      height: $btn-height-small;
     }
 
     @include responsive-styles(padding, button-md-padding-y button-md-padding-x);
 
-    &.tedi-floating-button__icon-only {
+    &.tedi-floating-button--icon-only {
       @include responsive-styles(width, button-md-icon-size);
       @include responsive-styles(height, button-md-icon-size);
       @include responsive-styles(padding, button-md-icon-padding);
@@ -64,18 +68,18 @@
   }
 
   &--large {
-    height: 48px;
+    height: $btn-height-large;
 
     @include responsive-styles(padding, button-xl-padding-y button-xl-padding-x);
 
-    &.tedi-floating-button__icon-only {
+    &.tedi-floating-button--icon-only {
       @include responsive-styles(width, button-xl-icon-size);
       @include responsive-styles(height, button-xl-icon-size);
       @include responsive-styles(padding, button-xl-icon-padding);
     }
   }
 
-  &:not(&__icon-only) {
+  &:not(&--icon-only) {
     @include responsive-styles(min-width, button-width-min);
     @include responsive-styles(max-width, button-width-max);
   }
