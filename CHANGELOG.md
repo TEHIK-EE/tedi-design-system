@@ -1,3 +1,15 @@
+# [10.0.0-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/v9.1.0-rc.8...v10.0.0-rc.1) (2024-12-11)
+
+
+### Features
+
+* **section:** TEDI-Ready Section component development [#350](https://github.com/TEHIK-EE/tedi-design-system/issues/350) ([#351](https://github.com/TEHIK-EE/tedi-design-system/issues/351)) ([fb1db42](https://github.com/TEHIK-EE/tedi-design-system/commit/fb1db423a5118b09ffddd405c13b27afa8149a5b))
+
+
+### BREAKING CHANGES
+
+* **section:** Communitys Section removed, use TEDI-Ready Section instead, update imports
+
 # [9.1.0-rc.8](https://github.com/TEHIK-EE/tedi-design-system/compare/v9.1.0-rc.7...v9.1.0-rc.8) (2024-12-10)
 
 
