@@ -1,3 +1,4 @@
+@use '../../../../shared/styles/bootstrap-utility/breakpoints';
 @import '../../../styles/mixins';
 
 $input-height: 2.5rem;
@@ -124,6 +125,10 @@ $border-width: 1px;
       text-align: left;
       user-select: none;
     }
+  }
+
+  @include breakpoints.media-breakpoint-down(md) {
+    width: 100%;
   }
 }
 
