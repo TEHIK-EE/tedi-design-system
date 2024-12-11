@@ -1,4 +1,4 @@
-@import '../../styles/mixins';
+@import '../../../../../core-styles/mixins';
 
 @mixin alert-variant($background, $border) {
   color: var(--general-text-primary);

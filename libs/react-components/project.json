@@ -35,7 +35,7 @@
       "outputs": ["{options.outputDir}"],
       "options": {
         "configDir": "libs/react-components/.storybook",
-        "outputDir": "dist/storybook/components"
+        "outputDir": "dist/storybook/react-components"
       },
       "configurations": {
         "ci": {

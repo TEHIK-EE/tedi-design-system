@@ -1,5 +1,5 @@
-@use '../../styles/mixins';
-@use '../../../shared/styles/bootstrap-utility/breakpoints';
+@use '../../../../../core-styles/mixins';
+@use '../../../../../core-styles/bootstrap-utility/breakpoints';
 
 $stepper-transition: 150ms ease;
 $stepper-step-bg: var(--color-bg-subtle);

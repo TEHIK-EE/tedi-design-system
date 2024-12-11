@@ -10,8 +10,8 @@
     "test": "nx test --update-snapshot",
     "copy:community": "cp -a dist/libs/react-components/src/community/. dist/community/",
     "copy:tedi": "cp -a dist/libs/react-components/src/tedi/. dist/tedi/",
-    "build:sb-react": "cross-env NODE_ENV=production nx storybook build react-components",
-    "build:sb-angular": "cross-env NODE_ENV=production nx storybook build angular-components",
+    "build:sb-react": "cross-env NODE_ENV=production nx build:storybook",
+    "build:sb-angular": "cross-env NODE_ENV=production nx run angular-components:build-storybook",
     "build:react": "nx build --skip-nx-cache && npm run copy:community && npm run copy:tedi && rm -rf dist/libs && replace-in-file //fonts//g \"./fonts/\" dist/index.css --isRegex",
     "build:angular": "nx build angular-components",
     "lint": "npx stylelint \"**/*.scss\" --fix && nx affected:lint --all --fix",
@@ -193,6 +193,6 @@
     "*.{js,jsx,ts,tsx,css,scss,json,md}": "prettier --write"
   },
   "workspaces": [
-    "libs/react-components/**"
+    "libs/**"
   ]
 }

@@ -1,4 +1,4 @@
-@use '../../../styles/mixins';
+@use '../../../../../../core-styles/mixins';
 
 div.select__control {
   @include mixins.print-grayscale;

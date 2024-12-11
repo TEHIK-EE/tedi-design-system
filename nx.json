@@ -6,10 +6,6 @@
   },
   "defaultProject": "react-components",
   "targetDefaults": {
-    "build": {
-      "inputs": ["default", "^default", "{workspaceRoot}/.storybook/**/*"],
-      "cache": true
-    },
     "lint": {
       "inputs": ["default", "{workspaceRoot}/.eslintrc.json"],
       "cache": true
@@ -19,13 +15,6 @@
       "cache": true,
       "options": {
         "passWithNoTests": true
-      }
-    },
-    "storybook": {
-      "options": {
-        "port": 6006,
-        "configDir": "{projectRoot}/.storybook",
-        "outputDir": "{workspaceRoot}/dist/storybook/{projectRoot}"
       }
     }
   },

@@ -18,7 +18,8 @@
           "builder": "@storybook/angular:build-storybook",
           "options": {
             "configDir": "libs/angular-components/.storybook",
-            "outputDir": "dist/storybook/angular-components"
+            "outputDir": "dist/storybook/angular-components",
+            "browserTarget": "angular-components:build"
           }
         },
         "build": {

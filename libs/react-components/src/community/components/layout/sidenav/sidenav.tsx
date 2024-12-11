@@ -125,6 +125,10 @@ function SideNavItem<C extends React.ElementType = 'a'>(props: SideNavItem<C>) {
 
   return (
     <li data-name="sidenav-item" className={SideNavItemBEM} role="presentation">
+      {/*
+          // // TODO: Remove ts-ignore
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-expect-error: 'rest' props do not fully match Anchor's expected props, but they are validated elsewhere */}
       <Anchor
         {...rest}
         onClick={handleClick}

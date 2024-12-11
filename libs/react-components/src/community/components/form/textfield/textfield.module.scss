@@ -1,4 +1,4 @@
-@use '../../../styles/mixins';
+@use '../../../../../../core-styles/mixins';
 
 @mixin textfield-focus($border-color: null) {
   @if $border-color {
