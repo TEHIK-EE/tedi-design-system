@@ -23,19 +23,15 @@
           }
         },
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "outputPath": "dist/libs/angular-components",
-            "index": "libs/angular-components/src/index.html",
-            "main": "libs/angular-components/src/main.ts",
-            "tsConfig": "libs/angular-components/tsconfig.app.json",
-            "assets": ["libs/angular-components/src/favicon.ico", "libs/angular-components/src/assets"],
-            "styles": [
-              "libs/core-styles/index.scss",
-              "libs/angular-components/src/tedi/styles/index.scss",
-              "libs/angular-components/src/tedi/styles/storybook-styles.scss"
-            ],
-            "scripts": []
+            "tsConfig": "libs/angular-components/tsconfig.lib.json",
+            "project": "libs/angular-components/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/angular-components/tsconfig.lib.prod.json"
+            }
           }
         }
       }

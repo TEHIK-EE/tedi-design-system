@@ -11,7 +11,12 @@
         "tsConfig": "libs/angular-components/tsconfig.lib.json",
         "project": "libs/angular-components/ng-package.json"
       },
-      "outputs": ["{workspaceRoot}/dist/libs/angular-components"]
+      "outputs": ["{workspaceRoot}/dist"],
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/angular-components/tsconfig.lib.prod.json"
+        }
+      }
     },
     "test": {
       "executor": "@angular-devkit/build-angular:karma",
