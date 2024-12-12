@@ -61,6 +61,11 @@ export interface IconProps {
    * Add round background
    */
   background?: IconBackgroundColor;
+  /**
+   * Icons label for screen-readers.
+   * If omitted then the icon is hidden for screen-readers.
+   */
+  label?: string;
 }
 
 export const Icon = forwardRef<HTMLDivElement, IconProps>((props: IconProps, ref): JSX.Element => {
@@ -73,6 +78,7 @@ export const Icon = forwardRef<HTMLDivElement, IconProps>((props: IconProps, ref
     display = 'block',
     color = 'primary',
     background,
+    label,
     ...rest
   } = props;
 

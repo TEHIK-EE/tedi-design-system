@@ -628,7 +628,7 @@ export const Select = forwardRef<SelectInstance<ISelectOption, boolean, IGrouped
     return (
       <div data-name="select" {...rest} className={SelectBEM}>
         <div className={styles['select__inner']}>
-          <FormLabel id={`${id}-input`} label={label} required={required} hideLabel={hideLabel} />
+          <FormLabel id={`${id}-input`} label={label} required={required} hideLabel={hideLabel} size={size} />
           {renderReactSelect()}
         </div>
         {helper && <FeedbackText {...helper} id={helperId} />}
