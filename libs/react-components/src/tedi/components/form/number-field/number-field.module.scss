@@ -155,6 +155,7 @@ $border-width: 1px;
 .tedi-number-field__input {
   grid-column: span 2;
   width: 100%;
+  min-width: 2rem;
   text-align: center;
   background-color: var(--form-input-background-default);
   border: 0;
