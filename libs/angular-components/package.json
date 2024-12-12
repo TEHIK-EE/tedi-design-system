@@ -16,15 +16,14 @@
     "./index.css": "./index.css"
   },
   "peerDependencies": {
-    "@angular/core": "^16.0.0",
-    "@angular/common": "^16.0.0",
-    "@angular/forms": "^16.0.0",
-    "@angular/animations": "^16.0.0",
-    "@angular/cdk": "^16.0.0",
-    "@angular/material": "^16.0.0",
+    "@angular/core": "^18.2.0",
+    "@angular/common": "^18.2.0",
+    "@angular/forms": "^18.2.0",
+    "@angular/animations": "^18.2.0",
+    "@angular/cdk": "^18.2.0",
+    "@angular/material": "^18.2.0",
     "rxjs": "^7.0.0",
     "tslib": "^2.5.0",
-    "zone.js": "^0.12.0",
     "lodash-es": "*",
     "dayjs": "*"
   },
