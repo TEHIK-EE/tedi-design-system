@@ -1,3 +1,15 @@
+# [10.0.0-rc.3](https://github.com/TEHIK-EE/tedi-design-system/compare/v10.0.0-rc.2...v10.0.0-rc.3) (2024-12-12)
+
+
+### Features
+
+* **textfield:** TEDI-Ready TextField development [#234](https://github.com/TEHIK-EE/tedi-design-system/issues/234) ([#352](https://github.com/TEHIK-EE/tedi-design-system/issues/352)) ([967b1a1](https://github.com/TEHIK-EE/tedi-design-system/commit/967b1a1d8287f0e2b31e60d201f664dc95d155b3))
+
+
+### BREAKING CHANGES
+
+* **textfield:** Community TextField removed, use TEDI-Ready TextField instead, update imports
+
 # [10.0.0-rc.2](https://github.com/TEHIK-EE/tedi-design-system/compare/v10.0.0-rc.1...v10.0.0-rc.2) (2024-12-11)
 
 
