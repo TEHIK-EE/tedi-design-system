@@ -12,6 +12,7 @@ const config: UserConfig = {
     'process.env.JEST_WORKER_ID': JSON.stringify(process.env.JEST_WORKER_ID),
   },
   mode: 'production',
+  publicDir: join(__dirname, 'public'),
   plugins: [
     nxViteTsPaths(),
     dts({
@@ -42,7 +43,6 @@ const config: UserConfig = {
   build: {
     reportCompressedSize: true,
     commonjsOptions: { transformMixedEsModules: true },
-    outDir: '../../dist',
     emptyOutDir: true,
     lib: {
       entry: {
@@ -56,6 +56,7 @@ const config: UserConfig = {
     rollupOptions: {
       external: ['next', 'react', 'react/jsx-runtime', 'react-dom', 'dayjs', 'lodash-es', 'classnames'],
       output: {
+        dir: join(__dirname, '../../dist'),
         assetFileNames: (assetInfo) => {
           if (assetInfo.name === 'style.css') return 'index.css';
           return assetInfo.name || '';

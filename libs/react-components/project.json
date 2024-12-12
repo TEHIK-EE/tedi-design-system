@@ -22,9 +22,13 @@
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
-        "outputPath": "dist/"
+        "outputPath": "../dist",
+        "root": "libs/react-components/src"
       },
       "configurations": {
+        "production": {
+          "mode": "production"
+        },
         "ci": {
           "quiet": true
         }
