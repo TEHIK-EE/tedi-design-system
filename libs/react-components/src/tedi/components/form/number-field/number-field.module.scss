@@ -3,6 +3,7 @@
 
 $input-height: 2.5rem;
 $small-input-height: 2rem;
+$input-height-mobile: 2.75rem;
 $border-radius: 0.25rem;
 $border-width: 1px;
 
@@ -36,6 +37,12 @@ $border-width: 1px;
       margin-left: -$border-width;
       border-radius: 0 $border-radius $border-radius 0;
     }
+
+    @include breakpoints.media-breakpoint-down(md) {
+      flex: none;
+      width: $input-height-mobile;
+      height: $input-height-mobile;
+    }
   }
 
   &--invalid:not(.tedi-number-field--disabled) {
@@ -58,6 +65,10 @@ $border-width: 1px;
         outline: none;
       }
     }
+
+    @include breakpoints.media-breakpoint-down(md) {
+      height: $input-height-mobile;
+    }
   }
 
   &--disabled {
@@ -78,6 +89,14 @@ $border-width: 1px;
     .tedi-number-field__input-wrapper,
     .tedi-number-field__button {
       height: $small-input-height;
+
+      @include breakpoints.media-breakpoint-down(md) {
+        height: $input-height-mobile;
+      }
+    }
+
+    @include breakpoints.media-breakpoint-down(md) {
+      width: 100%;
     }
   }
 }
@@ -129,6 +148,7 @@ $border-width: 1px;
 
   @include breakpoints.media-breakpoint-down(md) {
     width: 100%;
+    height: $input-height-mobile;
   }
 }
 
