@@ -12,39 +12,46 @@ export interface HideOnScrollProps {
    */
   children: ReactNode;
   /**
+   * Additional class name which applies to first child element
+   */
+  className?: string;
+  /**
    * Conditionally enable the functionality
    * @default true
    */
   enabled?: boolean;
   /**
-   * Additional class name which applies to first child element
-   */
-  className?: string;
-  /**
-   * Determines wheter to hide or show on scroll
-   * @default show
+   * Determines wheter to hide or show when scrolled past scrollDistance
+   * @default hide
    */
   visibility?: 'hide' | 'show';
   /**
-   * Determines if the component's visibility toggles when scrolling up after crossing scrollDistance
+   * Determines if the component's visibility toggles when scrolling opposite direction after crossing scrollDistance
    * @default false
    */
   toggleVisibility?: boolean;
-  /**
-   * Direction the component animates to
-   * @default center
-   */
-  animationDirection?: AnimationDirection;
   /**
    * Distance in px user has to scroll for the component to show/hide
    * @default 100
    */
   scrollDistance?: number;
   /**
+   * Direction used to calculate `scrollDistance`:
+   * - down: Measured from the top of the page.
+   * - up: Measured from the bottom of the page.
+   * @default down
+   */
+  scrollDirection?: 'up' | 'down';
+  /**
    * Detect scroll based on this element
    * @default document.documentElement
    */
   scrollContainer?: HTMLElement;
+  /**
+   * Direction the component animates to
+   * @default center
+   */
+  animationDirection?: AnimationDirection;
 }
 
 export const HideOnScroll = (props: HideOnScrollProps) => {
@@ -52,39 +59,42 @@ export const HideOnScroll = (props: HideOnScrollProps) => {
     children,
     enabled = true,
     className,
-    visibility = 'show',
+    visibility = 'hide',
     toggleVisibility = false,
     scrollDistance = 100,
+    scrollDirection = 'down',
     scrollContainer,
     animationDirection = 'center',
   } = props;
-  const { scrollTop } = useScroll(scrollContainer);
+  const { scrollTop, scrollHeight, clientHeight } = useScroll(scrollContainer);
   const [isHidden, setIsHidden] = useState(() => {
     if (!enabled) return false;
+    const currentScrollDistance = scrollDirection === 'down' ? scrollTop : scrollHeight - clientHeight - scrollTop;
 
     if (visibility === 'hide') {
-      return scrollTop > scrollDistance;
+      return currentScrollDistance > scrollDistance;
     } else {
-      return scrollTop <= scrollDistance;
+      return currentScrollDistance <= scrollDistance;
     }
   });
-  const lastScrollTop = useRef(scrollTop);
+  const lastScrollTop = useRef(scrollDirection === 'down' ? scrollTop : scrollHeight - clientHeight - scrollTop);
 
   useEffect(() => {
     if (!enabled) return;
 
     const shouldShow = visibility === 'show';
+    const currentScrollDistance = scrollDirection === 'down' ? scrollTop : scrollHeight - clientHeight - scrollTop;
 
-    if (toggleVisibility && scrollTop < lastScrollTop.current) {
+    if (toggleVisibility && currentScrollDistance < lastScrollTop.current) {
       setIsHidden(shouldShow);
-    } else if (scrollTop > scrollDistance) {
+    } else if (currentScrollDistance > scrollDistance) {
       setIsHidden(!shouldShow);
     } else {
       setIsHidden(shouldShow);
     }
 
-    lastScrollTop.current = scrollTop;
-  }, [visibility, toggleVisibility, scrollDistance, scrollTop, enabled]);
+    lastScrollTop.current = currentScrollDistance;
+  }, [visibility, toggleVisibility, scrollDistance, scrollTop, enabled, scrollDirection, scrollHeight, clientHeight]);
 
   const BEM = cn(
     styles['tedi-hide-on-scroll'],

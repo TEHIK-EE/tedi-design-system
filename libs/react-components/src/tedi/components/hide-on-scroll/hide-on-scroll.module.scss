@@ -1,29 +1,33 @@
+$animation-time: 0.2s;
+$animation-ease: ease-in-out;
+
 .tedi-hide-on-scroll {
-  --animation-time: 0.2s;
-  --animation-ease: ease-in-out;
-
   opacity: 1;
-  transition: opacity var(--animation-time) var(--animation-ease), translate var(--animation-time) var(--animation-ease);
+  transition: opacity $animation-time $animation-ease, translate $animation-time $animation-ease;
   translate: none;
-}
 
-.tedi-hide-on-scroll--hidden:not(:focus-within) {
-  opacity: 0;
-  transition: opacity var(--animation-time) var(--animation-ease), translate var(--animation-time) var(--animation-ease);
+  &--hidden {
+    pointer-events: none;
+    opacity: 0;
 
-  &.tedi-hide-on-scroll--down {
-    translate: 0 100%;
-  }
+    &.tedi-hide-on-scroll--down {
+      translate: 0 100%;
+    }
 
-  &.tedi-hide-on-scroll--up {
-    translate: 0 -100%;
-  }
+    &.tedi-hide-on-scroll--up {
+      translate: 0 -100%;
+    }
 
-  &.tedi-hide-on-scroll--left {
-    translate: -100% 0;
-  }
+    &.tedi-hide-on-scroll--left {
+      translate: -100% 0;
+    }
 
-  &.tedi-hide-on-scroll--right {
-    translate: 100% 0;
+    &.tedi-hide-on-scroll--right {
+      translate: 100% 0;
+    }
+
+    &.tedi-hide-on-scroll--center {
+      translate: none;
+    }
   }
 }
