@@ -1,26 +1,25 @@
+@use '../../../../shared/styles/bootstrap-utility/breakpoints';
 @use '../../../styles/mixins';
+
+$input-height: 2.5rem;
+$input-height-small: 2rem;
+$input-height-large: 3.5rem;
+$input-height-mobile: 2.75rem;
 
 @mixin textfield-focus($border-color: null) {
   @if $border-color {
-    &:focus {
+    &:focus,
+    &:active {
       border-color: $border-color;
       outline: none;
       box-shadow: 0 0 0 1px $border-color;
     }
   } @else {
-    outline: none;
-    box-shadow: none;
-  }
-
-  @if $border-color {
+    &:focus,
     &:active {
-      border-color: $border-color;
       outline: none;
       box-shadow: none;
     }
-  } @else {
-    outline: none;
-    box-shadow: none;
   }
 }
 
@@ -38,7 +37,7 @@
 .tedi-textfield__input {
   display: block;
   width: 100%;
-  height: 2.5rem;
+  height: $input-height;
   font-family: inherit;
   color: var(--form-input-text-filled);
   background-color: var(--form-input-background-default);
@@ -87,6 +86,10 @@
   &::placeholder {
     color: var(--form-input-text-placeholder);
     opacity: 1;
+  }
+
+  @include breakpoints.media-breakpoint-down(md) {
+    height: $input-height-mobile;
   }
 }
 
@@ -158,14 +161,18 @@ div.tedi-textfield__icon-wrapper {
 
 /* Small */
 .tedi-textfield--small {
-  & .tedi-textfield__input {
-    height: 2rem;
+  .tedi-textfield__input {
+    height: $input-height-small;
 
     @include mixins.responsive-styles(font-size, body-small-regular-size);
     @include mixins.responsive-styles(padding-left, form-field-padding-x-2);
     @include mixins.responsive-styles(padding-right, form-field-padding-x-2);
     @include mixins.responsive-styles(padding-top, form-field-padding-y-2);
     @include mixins.responsive-styles(padding-bottom, form-field-padding-y-2);
+
+    @include breakpoints.media-breakpoint-down(md) {
+      height: $input-height-mobile;
+    }
   }
 
   &.tedi-textfield--clearable .tedi-textfield__input,
@@ -180,12 +187,16 @@ div.tedi-textfield__icon-wrapper {
 
 /* Large */
 .tedi-textfield--large {
-  & .tedi-textfield__input {
-    height: 3.5rem;
+  .tedi-textfield__input {
+    height: $input-height-large;
     padding: 1rem;
+
+    @include breakpoints.media-breakpoint-down(md) {
+      height: $input-height-mobile;
+    }
   }
 
-  & .tedi-textfield__separator {
+  .tedi-textfield__separator {
     margin-right: 0.5rem;
     margin-left: 0.5rem;
   }
