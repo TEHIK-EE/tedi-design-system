@@ -12,7 +12,7 @@ import { TableOfContentsItem } from './table-of-contents-item';
 export const TableOfContentsItems = (
   props: TableOfContentsProps & { setReturnFocus?: React.Dispatch<React.SetStateAction<boolean>> }
 ) => {
-  const { items, setReturnFocus, showIcons, heading, breakToMobile = ['mobile'] } = props;
+  const { items, setReturnFocus, showIcons, heading, breakToMobile = ['mobile'], className } = props;
   const isMobileLayout = useLayout(breakToMobile);
   const showTitle = showIcons ? true : !isMobileLayout;
   const { closeModal } = React.useContext(ModalContext);
@@ -30,7 +30,7 @@ export const TableOfContentsItems = (
   };
 
   return (
-    <VerticalSpacing size={0.5}>
+    <VerticalSpacing size={0.5} className={className}>
       {showTitle && (
         <Heading element="h3" modifiers="h4" id={id}>
           {heading}
