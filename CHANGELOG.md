@@ -1,3 +1,16 @@
+# [10.0.0-rc.4](https://github.com/TEHIK-EE/tedi-design-system/compare/v10.0.0-rc.3...v10.0.0-rc.4) (2024-12-13)
+
+
+### Features
+
+* **number-field:** TEDI-Ready NumberField development [#309](https://github.com/TEHIK-EE/tedi-design-system/issues/309) ([#361](https://github.com/TEHIK-EE/tedi-design-system/issues/361)) ([cafd8e4](https://github.com/TEHIK-EE/tedi-design-system/commit/cafd8e4d74dcb57331859bd07ca5ebca06edfb7e)), closes [#234](https://github.com/TEHIK-EE/tedi-design-system/issues/234) [#234](https://github.com/TEHIK-EE/tedi-design-system/issues/234) [#234](https://github.com/TEHIK-EE/tedi-design-system/issues/234) [#234](https://github.com/TEHIK-EE/tedi-design-system/issues/234) [#234](https://github.com/TEHIK-EE/tedi-design-system/issues/234) [#234](https://github.com/TEHIK-EE/tedi-design-system/issues/234) [#234](https://github.com/TEHIK-EE/tedi-design-system/issues/234) [#234](https://github.com/TEHIK-EE/tedi-design-system/issues/234)
+
+
+### BREAKING CHANGES
+
+* **number-field:** Community TextField removed, use TEDI-Ready TextField instead, update imports
+* **number-field:** Community NumberField replaced with TEDI-Ready NumberField, update imports
+
 # [10.0.0-rc.3](https://github.com/TEHIK-EE/tedi-design-system/compare/v10.0.0-rc.2...v10.0.0-rc.3) (2024-12-12)
 
 
