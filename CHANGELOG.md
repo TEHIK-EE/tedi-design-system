@@ -1,3 +1,17 @@
+# [9.0.0-rc.29](https://github.com/TEHIK-EE/tedi-design-system/compare/v9.0.0-rc.28...v9.0.0-rc.29) (2024-11-26)
+
+
+### Bug Fixes
+
+* **icon, spinner, status-badge:** Fix BEM convention [#328](https://github.com/TEHIK-EE/tedi-design-system/issues/328) ([#329](https://github.com/TEHIK-EE/tedi-design-system/issues/329)) ([9082213](https://github.com/TEHIK-EE/tedi-design-system/commit/90822132747ae335bfd96b58c810382a0cf1b0e0))
+
+# [9.0.0-rc.28](https://github.com/TEHIK-EE/tedi-design-system/compare/v9.0.0-rc.27...v9.0.0-rc.28) (2024-11-25)
+
+
+### Bug Fixes
+
+* **Icon:** specify icon display classes [#326](https://github.com/TEHIK-EE/tedi-design-system/issues/326) ([#327](https://github.com/TEHIK-EE/tedi-design-system/issues/327)) ([9599e85](https://github.com/TEHIK-EE/tedi-design-system/commit/9599e85d0de53f6a2915a7361aa6dda2595b17a8))
+
 # [9.0.0-rc.27](https://github.com/TEHIK-EE/tedi-design-system/compare/v9.0.0-rc.26...v9.0.0-rc.27) (2024-11-25)
 
 

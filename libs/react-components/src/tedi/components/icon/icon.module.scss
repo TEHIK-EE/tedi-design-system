@@ -28,20 +28,20 @@ $icon-sizes: (
   48: icon-06,
 );
 
-.tedi-icon--wrapper {
+.tedi-icon__wrapper {
   &--block {
-    &.tedi-icon--bg {
+    &.tedi-icon__wrapper--bg {
       display: flex;
     }
   }
 
   &--inline {
-    &.tedi-icon--bg {
+    &.tedi-icon__wrapper--bg {
       display: inline-flex;
     }
   }
 
-  &.tedi-icon--bg {
+  &.tedi-icon__wrapper--bg {
     align-items: center;
     justify-content: center;
     border-radius: 100%;
@@ -53,7 +53,7 @@ $icon-sizes: (
     }
 
     @each $size, $vars in $icon-sizes {
-      &.tedi-icon--wrapper--size-#{$size} {
+      &.tedi-icon__wrapper--size-#{$size} {
         @include responsive-styles(width, $vars, null, '* 2');
         @include responsive-styles(height, $vars, null, '* 2');
       }
@@ -62,11 +62,11 @@ $icon-sizes: (
 }
 
 .tedi-icon {
-  &--block {
+  &.tedi-icon--block {
     display: block;
   }
 
-  &--inline {
+  &.tedi-icon--inline {
     display: inline;
     vertical-align: text-top;
   }
