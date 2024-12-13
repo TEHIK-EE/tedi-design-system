@@ -1,3 +1,10 @@
+# [10.0.0-rc.5](https://github.com/TEHIK-EE/tedi-design-system/compare/v10.0.0-rc.4...v10.0.0-rc.5) (2024-12-13)
+
+
+### Bug Fixes
+
+* **typography:** Base font values to rem [#365](https://github.com/TEHIK-EE/tedi-design-system/issues/365) ([#366](https://github.com/TEHIK-EE/tedi-design-system/issues/366)) ([074c590](https://github.com/TEHIK-EE/tedi-design-system/commit/074c590be2334e291b6903444d921dd548caa09a))
+
 # [10.0.0-rc.4](https://github.com/TEHIK-EE/tedi-design-system/compare/v10.0.0-rc.3...v10.0.0-rc.4) (2024-12-13)
 
 
