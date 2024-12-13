@@ -1,6 +1,6 @@
 import { Slide, toast, ToastContainer, ToastOptions } from 'react-toastify';
 
-import { Alert, AlertProps } from '../../../tedi/components/alert/alert';
+import { Alert, AlertProps } from '../alert/alert';
 
 import 'react-toastify/dist/ReactToastify.css';
 

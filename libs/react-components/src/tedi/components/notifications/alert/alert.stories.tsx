@@ -1,8 +1,8 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 
-import Link from '../navigation/link/link';
-import { VerticalSpacing } from '../vertical-spacing';
-import Alert, { AlertProps } from './alert';
+import Link from '../../navigation/link/link';
+import { VerticalSpacing } from '../../vertical-spacing';
+import Alert, { AlertProps } from '../alert/alert';
 
 /**
  * <a href="https://www.figma.com/design/jWiRIXhHRxwVdMSimKX2FF/TEDI-READY-(work-in-progress)?node-id=4263-61880&m=dev" target="_blank">Figma ↗</a><br/>

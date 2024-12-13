@@ -1,12 +1,12 @@
 import cn from 'classnames';
 import React from 'react';
 
-import { BreakpointSupport, useBreakpointProps, useIsMounted } from '../../helpers';
-import { ClosingButton } from '../buttons/closing-button/closing-button';
-import { Col, Row } from '../grid';
-import { Icon, IconProps } from '../icon/icon';
-import { Heading } from '../typography/heading/heading';
-import { VerticalSpacing } from '../vertical-spacing';
+import { BreakpointSupport, useBreakpointProps, useIsMounted } from '../../../helpers';
+import { ClosingButton } from '../../buttons/closing-button/closing-button';
+import { Col, Row } from '../../grid';
+import { Icon, IconProps } from '../../icon/icon';
+import { Heading } from '../../typography/heading/heading';
+import { VerticalSpacing } from '../../vertical-spacing';
 import styles from './alert.module.scss';
 
 export type AlertType = 'info' | 'success' | 'warning' | 'danger';

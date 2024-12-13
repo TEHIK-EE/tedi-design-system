@@ -1,7 +1,6 @@
 import cn from 'classnames';
-import React from 'react';
 
-import Alert, { AlertProps } from '../../../../tedi/components/alert/alert';
+import Alert, { AlertProps } from '../../../../tedi/components/notifications/alert/alert';
 import CardContent, { CardContentProps } from '../card-content/card-content';
 import style from './card-notification.module.scss';
 
