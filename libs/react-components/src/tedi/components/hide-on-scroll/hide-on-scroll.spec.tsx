@@ -71,7 +71,7 @@ describe('HideOnScroll component', () => {
     expect(container.firstChild).toHaveClass('tedi-hide-on-scroll--hidden');
   });
 
-  it('shows component when scrolling up', () => {
+  it('shows component when scrolling to top', () => {
     const { container } = render(
       <HideOnScroll scrollDistance={100}>
         <div>Test Content</div>
@@ -82,7 +82,25 @@ describe('HideOnScroll component', () => {
     fireEvent.scroll(window);
     jest.runAllTimers();
 
-    scrollContainer.scrollTop = 50;
+    scrollContainer.scrollTop = 0;
+    fireEvent.scroll(window);
+    jest.runAllTimers();
+
+    expect(container.firstChild).not.toHaveClass('tedi-hide-on-scroll--hidden');
+  });
+
+  it('shows component when toggle visibility is set and scrolling up', () => {
+    const { container } = render(
+      <HideOnScroll scrollDistance={100} toggleVisibility>
+        <div>Test Content</div>
+      </HideOnScroll>
+    );
+
+    scrollContainer.scrollTop = 150;
+    fireEvent.scroll(window);
+    jest.runAllTimers();
+
+    scrollContainer.scrollTop = 140;
     fireEvent.scroll(window);
     jest.runAllTimers();
 

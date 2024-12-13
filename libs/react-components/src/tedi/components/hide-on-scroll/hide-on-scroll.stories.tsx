@@ -36,7 +36,85 @@ const NavigationTemplate: StoryFn<typeof HideOnScroll> = (args) => {
   );
 };
 
-const DocumentTemplate: StoryFn<typeof HideOnScroll> = (args) => {
+const AnimationDirectionTemplate: StoryFn<typeof HideOnScroll> = (args) => {
+  return (
+    <>
+      <HideOnScroll {...args} animationDirection="up">
+        <nav
+          style={{
+            width: '100%',
+            position: 'fixed',
+            top: 0,
+            background: 'rgb(0, 72, 130)',
+            color: 'white',
+            borderBottom: '1px solid black',
+            height: NAVIGATION_HEIGHT,
+            alignContent: 'center',
+            textAlign: 'center',
+          }}
+        >
+          Up
+        </nav>
+      </HideOnScroll>
+      <HideOnScroll {...args} animationDirection="left">
+        <nav
+          style={{
+            width: NAVIGATION_HEIGHT,
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            background: 'rgb(0, 72, 130)',
+            color: 'white',
+            borderBottom: '1px solid black',
+            height: CONTAINER_HEIGHT,
+            alignContent: 'center',
+            textAlign: 'center',
+          }}
+        >
+          Left
+        </nav>
+      </HideOnScroll>
+      <HideOnScroll {...args} animationDirection="right">
+        <nav
+          style={{
+            width: NAVIGATION_HEIGHT,
+            position: 'fixed',
+            top: 0,
+            right: 0,
+            background: 'rgb(0, 72, 130)',
+            color: 'white',
+            borderBottom: '1px solid black',
+            height: CONTAINER_HEIGHT,
+            alignContent: 'center',
+            textAlign: 'center',
+          }}
+        >
+          Right
+        </nav>
+      </HideOnScroll>
+      <HideOnScroll {...args} animationDirection="down">
+        <nav
+          style={{
+            width: '100%',
+            position: 'fixed',
+            bottom: 0,
+            background: 'rgb(0, 72, 130)',
+            color: 'white',
+            borderBottom: '1px solid black',
+            height: NAVIGATION_HEIGHT,
+            alignContent: 'center',
+            textAlign: 'center',
+          }}
+        >
+          Down
+        </nav>
+      </HideOnScroll>
+      <Text>{lorem.map((text) => text)}</Text>
+    </>
+  );
+};
+
+const FloatingButtonTemplate: StoryFn<typeof HideOnScroll> = (args) => {
   return (
     <>
       <HideOnScroll {...args} />
@@ -49,6 +127,33 @@ const DocumentTemplate: StoryFn<typeof HideOnScroll> = (args) => {
 };
 
 export const Default: Story = {
+  render: FloatingButtonTemplate,
+  args: {
+    children: (
+      <FloatingButton
+        position="fixed"
+        placement={{ vertical: 'bottom', horizontal: 'right' }}
+        offset={{ right: 32, bottom: 32 }}
+        onClick={() => scrollTo({ top: 0 })}
+        icon="arrow_upward"
+      >
+        Scroll Up
+      </FloatingButton>
+    ),
+    enabled: true,
+    visibility: 'show',
+    toggleVisibility: false,
+    scrollDirection: 'down',
+    scrollDistance: 30,
+    animationDirection: 'down',
+  },
+  parameters: {
+    docs: { story: { inline: false, iframeHeight: CONTAINER_HEIGHT } },
+    layout: 'fullscreen',
+  },
+};
+
+export const ToggleVisibility: Story = {
   render: NavigationTemplate,
   args: {
     children: (
@@ -56,7 +161,8 @@ export const Default: Story = {
         style={{
           position: 'sticky',
           top: 0,
-          background: 'white',
+          background: 'rgb(0, 72, 130)',
+          color: 'white',
           borderBottom: '1px solid black',
           height: NAVIGATION_HEIGHT,
           alignContent: 'center',
@@ -75,22 +181,11 @@ export const Default: Story = {
   },
 };
 
-export const DocumentContainer: Story = {
-  render: DocumentTemplate,
+export const AnimationDirection: Story = {
+  render: AnimationDirectionTemplate,
   args: {
-    children: (
-      <FloatingButton
-        position="fixed"
-        placement={{ vertical: 'bottom', horizontal: 'right' }}
-        offset={{ right: 32, bottom: 32 }}
-        onClick={() => scrollTo({ top: 0 })}
-        icon="arrow_upward"
-      >
-        Scroll Up
-      </FloatingButton>
-    ),
-    animationDirection: 'down',
-    visibility: 'show',
+    visibility: 'hide',
+    scrollDistance: NAVIGATION_HEIGHT,
   },
   parameters: {
     docs: { story: { inline: false, iframeHeight: CONTAINER_HEIGHT } },
