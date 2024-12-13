@@ -8,9 +8,18 @@ import HideOnScroll from './hide-on-scroll';
 
 const CONTAINER_HEIGHT = 300;
 
+/**
+ * <a href="https://tedi.tehik.ee/1ee8444b7/p/00ab5a-scrollvisibility-dev" target="_BLANK">Zeroheight ↗</a>
+ **/
+
 const meta: Meta<typeof HideOnScroll> = {
   component: HideOnScroll,
   title: 'Tedi-ready/Components/HideOnScroll/HideOnScroll',
+  parameters: {
+    status: {
+      type: ['devComponent'],
+    },
+  },
 };
 
 export default meta;
