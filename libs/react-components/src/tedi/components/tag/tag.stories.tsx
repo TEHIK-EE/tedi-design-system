@@ -72,7 +72,7 @@ export const Secondary: Story = {
   },
 };
 
-export const Invalid: Story = {
+export const Danger: Story = {
   render: ColorTemplate,
   args: {
     onClose: (e) => console.log('Close button clicked', e),
