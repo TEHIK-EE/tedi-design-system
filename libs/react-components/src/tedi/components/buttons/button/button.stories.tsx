@@ -7,8 +7,8 @@ import { VerticalSpacing } from '../../vertical-spacing';
 import { Button, ButtonProps } from './button';
 
 /**
- * [Figma ↗](https://www.figma.com/file/jWiRIXhHRxwVdMSimKX2FF/TEDI-Design-System-(draft)?type=design&node-id=136-29124&m=dev)<br/>
- * [Zeroheight ↗](https://tedi.tehik.ee/1ee8444b7/p/10984a-button)
+ * <a href="https://www.figma.com/file/jWiRIXhHRxwVdMSimKX2FF/TEDI-Design-System-(draft)?type=design&node-id=136-29124&m=dev" target="_BLANK">Figma ↗</a><br/>
+ * <a href="https://tedi.tehik.ee/1ee8444b7/p/10984a-button" target="_BLANK">Zeroheight ↗</a>
  */
 
 const meta: Meta<typeof Button> = {
@@ -27,7 +27,7 @@ const meta: Meta<typeof Button> = {
 export default meta;
 type Story = StoryObj<typeof Button>;
 
-const buttonStateArray = ['Default', 'Hover', 'Active', 'Focus', 'Loading', 'Disabled'];
+const buttonStateArray = ['Default', 'Hover', 'Active', 'Loading', 'Disabled'];
 const Template: StoryFn<ButtonProps<ElementType>> = (args) => <Button {...args} />;
 
 export const Default: Story = {
@@ -76,82 +76,78 @@ const TemplateColumn: StoryFn<TemplateMultipleProps> = (args) => {
                 {value}
               </Text>
             </Col>
-            <Col>
-              <div className="display-flex align-items-center gap-3">
-                <Button id={value} {...buttonProps} disabled={value === 'Disabled'} isLoading={value === 'Loading'}>
-                  Create
-                </Button>
-                <Button
-                  id={value}
-                  {...buttonProps}
-                  iconRight="arrow_right_alt"
-                  disabled={value === 'Disabled'}
-                  isLoading={value === 'Loading'}
-                >
-                  Continue
-                </Button>
-                <Button
-                  id={value}
-                  {...buttonProps}
-                  iconLeft="edit"
-                  disabled={value === 'Disabled'}
-                  isLoading={value === 'Loading'}
-                >
-                  Edit
-                </Button>
-                <Button
-                  id={value}
-                  {...buttonProps}
-                  icon="arrow_right_alt"
-                  disabled={value === 'Disabled'}
-                  isLoading={value === 'Loading'}
-                >
-                  Icon Only
-                </Button>
-              </div>
+            <Col className="display-flex align-items-center gap-3">
+              <Button id={value} {...buttonProps} disabled={value === 'Disabled'} isLoading={value === 'Loading'}>
+                Create
+              </Button>
+              <Button
+                id={value}
+                {...buttonProps}
+                iconRight="arrow_right_alt"
+                disabled={value === 'Disabled'}
+                isLoading={value === 'Loading'}
+              >
+                Continue
+              </Button>
+              <Button
+                id={value}
+                {...buttonProps}
+                iconLeft="edit"
+                disabled={value === 'Disabled'}
+                isLoading={value === 'Loading'}
+              >
+                Edit
+              </Button>
+              <Button
+                id={value}
+                {...buttonProps}
+                icon="arrow_right_alt"
+                disabled={value === 'Disabled'}
+                isLoading={value === 'Loading'}
+              >
+                Icon Only
+              </Button>
             </Col>
-            <Col className="display-flex align-items-center">
-              <div className="display-flex align-items-center gap-3">
-                <Button
-                  id={value}
-                  size="small"
-                  {...buttonProps}
-                  disabled={value === 'Disabled'}
-                  isLoading={value === 'Loading'}
-                >
-                  Create
-                </Button>
-                <Button
-                  id={value}
-                  size="small"
-                  {...buttonProps}
-                  iconRight="arrow_right_alt"
-                  disabled={value === 'Disabled'}
-                  isLoading={value === 'Loading'}
-                >
-                  Continue
-                </Button>
-                <Button
-                  id={value}
-                  size="small"
-                  {...buttonProps}
-                  iconLeft="edit"
-                  disabled={value === 'Disabled'}
-                  isLoading={value === 'Loading'}
-                >
-                  Edit
-                </Button>
-                <Button
-                  id={value}
-                  size="small"
-                  {...buttonProps}
-                  icon="arrow_right_alt"
-                  disabled={value === 'Disabled'}
-                  isLoading={value === 'Loading'}
-                >
-                  Icon Only
-                </Button>
-              </div>
+            <Col className="display-flex align-items-center gap-3">
+              <Button
+                id={value}
+                size="small"
+                {...buttonProps}
+                disabled={value === 'Disabled'}
+                isLoading={value === 'Loading'}
+              >
+                Create
+              </Button>
+              <Button
+                id={value}
+                size="small"
+                {...buttonProps}
+                iconRight="arrow_right_alt"
+                disabled={value === 'Disabled'}
+                isLoading={value === 'Loading'}
+              >
+                Continue
+              </Button>
+              <Button
+                id={value}
+                size="small"
+                {...buttonProps}
+                iconLeft="edit"
+                disabled={value === 'Disabled'}
+                isLoading={value === 'Loading'}
+              >
+                Edit
+              </Button>
+              <Button
+                id={value}
+                size="small"
+                {...buttonProps}
+                icon="arrow_right_alt"
+                disabled={value === 'Disabled'}
+                isLoading={value === 'Loading'}
+              >
+                Icon Only
+              </Button>
             </Col>
           </Row>
         ))}

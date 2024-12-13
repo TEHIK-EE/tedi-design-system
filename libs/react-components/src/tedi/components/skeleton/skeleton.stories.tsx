@@ -6,8 +6,8 @@ import { VerticalSpacing } from '../../../tedi/components/vertical-spacing';
 import { Skeleton, SkeletonBlock, SkeletonProps } from '.';
 
 /**
- * [Figma ↗](https://www.figma.com/file/jWiRIXhHRxwVdMSimKX2FF/TEDI-Design-System-(draft)?type=design&node-id=2188-34298&m=dev)<br/>
- * [Zeroheight ↗](https://tedi.tehik.ee/1ee8444b7/p/429294-skeleton)
+ * <a href="https://www.figma.com/file/jWiRIXhHRxwVdMSimKX2FF/TEDI-Design-System-(draft)?type=design&node-id=2188-34298&m=dev" target="_BLANK">Figma ↗</a><br/>
+ * <a href="https://tedi.tehik.ee/1ee8444b7/p/429294-skeleton" target="_BLANK">Zeroheight ↗</a>
  */
 
 const meta: Meta<typeof Skeleton> = {
@@ -147,11 +147,11 @@ export const Accessibility: Story = {
           {renderButton('Add a short loading block', { id: `skeleton-${skeletons.length}`, delay: 900 })}
           {renderButton('Add a long loading block', {
             id: `skeleton-${skeletons.length}`,
-            style: { '--loader-skeleton-color': 'var(--red-200)' },
+            style: { '--loader-skeleton-color': 'var(--red-600)' },
           })}
           {renderButton('Render loading block with custom labels', {
             id: `skeleton-${skeletons.length}`,
-            style: { '--loader-skeleton-color': 'var(--green-200)' },
+            style: { '--loader-skeleton-color': 'var(--green-600)' },
             label: 'Custom block is loading',
             completedLabel: 'Custom block has finished loading',
           })}

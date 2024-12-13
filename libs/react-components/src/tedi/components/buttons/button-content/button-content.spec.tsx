@@ -14,7 +14,7 @@ describe('ButtonContent component', () => {
     render(<ButtonContent {...defaultProps} />);
     const button = screen.getByRole('button', { name: /click me/i });
     expect(button).toBeInTheDocument();
-    expect(button).toHaveClass('btn btn--primary btn--default');
+    expect(button).toHaveClass('tedi-btn tedi-btn--primary tedi-btn--default');
   });
 
   it('applies custom class names', () => {
@@ -27,40 +27,40 @@ describe('ButtonContent component', () => {
     render(<ButtonContent {...defaultProps} icon="check" />);
     const icon = screen.getByRole('img', { hidden: true });
     expect(icon).toBeInTheDocument();
-    expect(icon).toHaveClass('btn__icon btn__icon--center');
+    expect(icon).toHaveClass('tedi-btn__icon tedi-btn__icon--center');
   });
 
   it('renders with left icon', () => {
     render(<ButtonContent {...defaultProps} iconLeft="left-icon" />);
     const leftIcon = screen.getByRole('img', { hidden: true });
     expect(leftIcon).toBeInTheDocument();
-    expect(leftIcon).toHaveClass('btn__icon btn__icon--left');
+    expect(leftIcon).toHaveClass('tedi-btn__icon tedi-btn__icon--left');
   });
 
   it('renders with right icon', () => {
     render(<ButtonContent {...defaultProps} iconRight="right-icon" />);
     const rightIcon = screen.getByRole('img', { hidden: true });
     expect(rightIcon).toBeInTheDocument();
-    expect(rightIcon).toHaveClass('btn__icon btn__icon--right');
+    expect(rightIcon).toHaveClass('tedi-btn__icon tedi-btn__icon--right');
   });
 
   it('renders underline when underline prop is true', () => {
     render(<ButtonContent {...defaultProps} underline />);
     const button = screen.getByRole('button');
-    expect(button).toHaveClass('btn--underline');
+    expect(button).toHaveClass('tedi-btn--underline');
   });
 
   it('renders in loading state with spinner', () => {
     render(<ButtonContent {...defaultProps} isLoading />);
     const spinner = screen.getByRole('status');
     expect(spinner).toBeInTheDocument();
-    expect(spinner).toHaveClass('btn__spinner');
+    expect(spinner).toHaveClass('tedi-btn__spinner');
   });
 
   it('renders with full width when fullWidth is true', () => {
     render(<ButtonContent {...defaultProps} fullWidth />);
     const button = screen.getByRole('button');
-    expect(button).toHaveClass('btn--full-width');
+    expect(button).toHaveClass('tedi-btn--full-width');
   });
 
   it('does not trigger onClick when isLoading is true', () => {

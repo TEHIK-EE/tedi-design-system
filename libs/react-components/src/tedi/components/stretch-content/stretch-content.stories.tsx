@@ -8,7 +8,7 @@ import { VerticalSpacing } from '../vertical-spacing';
 import StretchContent, { StretchContentProps } from './stretch-content';
 
 /**
- * [Zeroheight ↗](https://tedi.tehik.ee/1ee8444b7/p/76550e-stretchcontent)
+ * <a href="https://tedi.tehik.ee/1ee8444b7/p/76550e-stretchcontent" target="_BLANK">Zeroheight ↗</a>
  */
 
 const meta: Meta<typeof StretchContent> = {

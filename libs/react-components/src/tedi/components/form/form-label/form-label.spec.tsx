@@ -6,11 +6,15 @@ import { FormLabel } from './form-label';
 import '@testing-library/jest-dom';
 
 jest.mock('../../label/label', () => ({
-  Label: jest.fn(({ children, className, as: Element = 'label', ...rest }) => (
-    <Element className={className} {...rest}>
-      {children}
-    </Element>
-  )),
+  Label: jest.fn(({ children, className, as: Element = 'label', ...rest }) => {
+    const { isSmall, ...filteredRest } = rest;
+
+    return (
+      <Element className={className} {...filteredRest}>
+        {children}
+      </Element>
+    );
+  }),
 }));
 
 describe('FormLabel component', () => {
@@ -21,21 +25,21 @@ describe('FormLabel component', () => {
     expect(label).toBeInTheDocument();
     expect(label).toHaveTextContent('Test Label');
     expect(label).toHaveAttribute('for', 'test-id');
-    expect(label).not.toHaveClass('form-label--small');
+    expect(label).not.toHaveClass('tedi-form-label--small');
   });
 
   it('renders with hideLabel as true', () => {
     const { container } = render(<FormLabel id="test-id" label="Test Label" hideLabel />);
 
-    const label = container.querySelector('.form-label');
-    expect(label).toHaveClass('form-label--hidden');
+    const label = container.querySelector('.tedi-form-label');
+    expect(label).toHaveClass('tedi-form-label--hidden');
   });
 
   it('renders with hideLabel as "keep-space"', () => {
     const { container } = render(<FormLabel id="test-id" label="Test Label" hideLabel="keep-space" />);
 
-    const label = container.querySelector('.form-label');
-    expect(label).toHaveClass('form-label--hidden-keep-space');
+    const label = container.querySelector('.tedi-form-label');
+    expect(label).toHaveClass('tedi-form-label--hidden-keep-space');
   });
 
   it('renders with required prop', () => {
@@ -49,7 +53,7 @@ describe('FormLabel component', () => {
   it('renders with a custom class name', () => {
     const { container } = render(<FormLabel id="test-id" label="Test Label" className="custom-class" />);
 
-    const label = container.querySelector('.form-label');
+    const label = container.querySelector('.tedi-form-label');
     expect(label).toHaveClass('custom-class');
   });
 
@@ -64,15 +68,15 @@ describe('FormLabel component', () => {
   it('renders with small size', () => {
     const { container } = render(<FormLabel id="test-id" label="Test Label" size="small" />);
 
-    const label = container.querySelector('.form-label');
-    expect(label).toHaveClass('form-label--small');
+    const label = container.querySelector('.tedi-form-label');
+    expect(label).toHaveClass('tedi-form-label--small');
   });
 
   it('renders with default size', () => {
     const { container } = render(<FormLabel id="test-id" label="Test Label" size="default" />);
 
-    const label = container.querySelector('.form-label');
-    expect(label).toHaveClass('form-label--default');
+    const label = container.querySelector('.tedi-form-label');
+    expect(label).toHaveClass('tedi-form-label--default');
   });
 
   it('renders the label text correctly', () => {

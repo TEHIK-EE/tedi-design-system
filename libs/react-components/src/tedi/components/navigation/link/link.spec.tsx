@@ -26,19 +26,19 @@ describe('Link component', () => {
     const link = screen.getByRole('link', { name: /visit site/i });
     expect(link).toBeInTheDocument();
     expect(link).toHaveAttribute('href', '#');
-    expect(link).toHaveClass('btn--underline');
+    expect(link).toHaveClass('tedi-btn--underline');
   });
 
   it('renders with underline by default', () => {
     render(<Link {...defaultProps} />);
     const link = screen.getByRole('link');
-    expect(link).toHaveClass('btn--underline');
+    expect(link).toHaveClass('tedi-btn--underline');
   });
 
   it('disables underline when underline prop is false', () => {
     render(<Link {...defaultProps} underline={false} />);
     const link = screen.getByRole('link');
-    expect(link).not.toHaveClass('btn--underline');
+    expect(link).not.toHaveClass('tedi-btn--underline');
   });
 
   it('renders accessibility label when target is _blank', () => {

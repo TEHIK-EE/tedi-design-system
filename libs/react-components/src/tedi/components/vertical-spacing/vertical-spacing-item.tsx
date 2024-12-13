@@ -38,7 +38,7 @@ export const VerticalSpacingItem = (props: VerticalSpacingItemProps): JSX.Elemen
     ...rest
   } = getCurrentBreakpointProps<VerticalSpacingItemProps>(props);
 
-  const VerticalSpacingItemBEM = cn(styles['vertical-spacing__item'], className);
+  const VerticalSpacingItemBEM = cn(styles['tedi-vertical-spacing__item'], className);
 
   return (
     <Element

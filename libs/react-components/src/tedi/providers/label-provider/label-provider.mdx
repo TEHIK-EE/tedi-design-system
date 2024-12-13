@@ -4,8 +4,8 @@ import * as LabelProviderStories from './label-provider.stories.tsx';
 <Meta of={LabelProviderStories} />
 
 <Title />
-This component provides the labels helper function to other components via context api. Currently defined labels can be found
-[here](/docs/documentation-labels--labels)
+This component provides the labels helper function to other components via the context API. Currently, defined labels can
+be found [here](/docs/tedi-ready-providers-labelprovider-labels--labels)
 
 ## Usage
 
@@ -19,17 +19,17 @@ Wrap the provider around your app.
 </LabelProvider>
 ```
 
-Labels is an object of key and value pairs. Keys should follow pattern:
+`Label` is an object of key-value pairs. Keys should follow this pattern:
 
 <ul>
   <li>`<labelName>`</li>
   <li>`<componentName>.<labelName>`</li>
 </ul>
-Values are either plain strings or some keys also support functions. Functions can be used for conditional translations like plurals.
+Values can be either plain strings or, in some cases, functions. Functions can be used for conditional translations, such as plurals.
 
 ### Consumer
 
-Use as hook:
+You can use the hook:
 
 ```js
 const { getLabel } = useLabels();

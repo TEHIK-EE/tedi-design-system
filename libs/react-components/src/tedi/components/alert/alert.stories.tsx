@@ -5,8 +5,8 @@ import { VerticalSpacing } from '../vertical-spacing';
 import Alert, { AlertProps } from './alert';
 
 /**
- * [Figma ↗](https://www.figma.com/design/jWiRIXhHRxwVdMSimKX2FF/TEDI-READY-(work-in-progress)?node-id=4263-61880&m=dev)<br/>
- * [Zeroheight ↗](https://tedi.tehik.ee/1ee8444b7/p/63ede6-alert)
+ * <a href="https://www.figma.com/design/jWiRIXhHRxwVdMSimKX2FF/TEDI-READY-(work-in-progress)?node-id=4263-61880&m=dev" target="_blank">Figma ↗</a><br/>
+ * <a href="https://tedi.tehik.ee/1ee8444b7/p/63ede6-alert" target="_blank">Zeroheight ↗</a>
  */
 
 const meta: Meta<typeof Alert> = {
@@ -36,7 +36,7 @@ const ColorsTemplate: StoryFn<AlertProps> = (args) => (
   <VerticalSpacing size={1}>
     {alertTypes.map(({ type, icon }) => (
       <Alert key={type} type={type} icon={icon} {...args}>
-        <p>{`This is a ${type} alert.`}</p>
+        This is a {type} alert.
       </Alert>
     ))}
   </VerticalSpacing>
@@ -47,9 +47,9 @@ export const Default: Story = {
   args: {
     title: 'Title',
     children: (
-      <p>
+      <>
         Content description. <Link href="#">Inline link example</Link>
-      </p>
+      </>
     ),
   },
 };
@@ -68,14 +68,14 @@ const WithAndWithoutHeading: StoryFn<AlertProps> = (args) => {
 export const Headless: Story = {
   render: Template,
   args: {
-    children: <p>Content description</p>,
+    children: 'Content description',
   },
 };
 
 export const Global: Story = {
   render: WithAndWithoutHeading,
   args: {
-    children: <p>Content description</p>,
+    children: 'Content description',
     isGlobal: true,
   },
 };
@@ -83,7 +83,7 @@ export const Global: Story = {
 export const WithoutSideBorders: Story = {
   render: WithAndWithoutHeading,
   args: {
-    children: <p>Content description</p>,
+    children: 'Content description',
     noSideBorders: true,
   },
 };
@@ -91,7 +91,7 @@ export const WithoutSideBorders: Story = {
 export const WithIcon: Story = {
   render: WithAndWithoutHeading,
   args: {
-    children: <p>Content description</p>,
+    children: 'Content description',
     icon: 'check_circle',
   },
 };
@@ -99,7 +99,7 @@ export const WithIcon: Story = {
 export const WithCloseButton: Story = {
   render: WithAndWithoutHeading,
   args: {
-    children: <p>Content description</p>,
+    children: 'Content description',
     onClose: () => null,
   },
 };
@@ -107,7 +107,7 @@ export const WithCloseButton: Story = {
 export const AlertColors: Story = {
   render: ColorsTemplate,
   args: {
-    children: <p>Content description</p>,
+    children: 'Content description',
     onClose: () => null,
   },
 };
