@@ -1,3 +1,16 @@
+# [10.0.0-rc.7](https://github.com/TEHIK-EE/tedi-design-system/compare/v10.0.0-rc.6...v10.0.0-rc.7) (2024-12-16)
+
+
+### Features
+
+* **hide-on-scroll:** add component [#339](https://github.com/TEHIK-EE/tedi-design-system/issues/339) ([#363](https://github.com/TEHIK-EE/tedi-design-system/issues/363)) ([9b356f0](https://github.com/TEHIK-EE/tedi-design-system/commit/9b356f0c2801ca5d86bca7750952ad034ce74b4d)), closes [#303](https://github.com/TEHIK-EE/tedi-design-system/issues/303) [#303](https://github.com/TEHIK-EE/tedi-design-system/issues/303) [#303](https://github.com/TEHIK-EE/tedi-design-system/issues/303) [#303](https://github.com/TEHIK-EE/tedi-design-system/issues/303) [#303](https://github.com/TEHIK-EE/tedi-design-system/issues/303) [#303](https://github.com/TEHIK-EE/tedi-design-system/issues/303) [#303](https://github.com/TEHIK-EE/tedi-design-system/issues/303) [#303](https://github.com/TEHIK-EE/tedi-design-system/issues/303) [#303](https://github.com/TEHIK-EE/tedi-design-system/issues/303)
+
+
+### BREAKING CHANGES
+
+* **hide-on-scroll:** remove community component
+* **hide-on-scroll:** show component when scrolling back up needs now toggleVisibility prop
+
 # [10.0.0-rc.6](https://github.com/TEHIK-EE/tedi-design-system/compare/v10.0.0-rc.5...v10.0.0-rc.6) (2024-12-16)
 
 
