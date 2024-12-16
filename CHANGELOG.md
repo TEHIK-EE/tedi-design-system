@@ -1,3 +1,10 @@
+# [10.0.0-rc.8](https://github.com/TEHIK-EE/tedi-design-system/compare/v10.0.0-rc.7...v10.0.0-rc.8) (2024-12-16)
+
+
+### Features
+
+* **floating-button:** add export [#371](https://github.com/TEHIK-EE/tedi-design-system/issues/371) ([#372](https://github.com/TEHIK-EE/tedi-design-system/issues/372)) ([37ab729](https://github.com/TEHIK-EE/tedi-design-system/commit/37ab729a6597e542eed020ad49a9cd951ba6e27d))
+
 # [10.0.0-rc.7](https://github.com/TEHIK-EE/tedi-design-system/compare/v10.0.0-rc.6...v10.0.0-rc.7) (2024-12-16)
 
 
