@@ -14,7 +14,7 @@ const CONTAINER_HEIGHT = 300;
 
 const meta: Meta<typeof HideOnScroll> = {
   component: HideOnScroll,
-  title: 'Tedi-ready/Components/HideOnScroll/HideOnScroll',
+  title: 'Tedi-ready/Components/Helpers/HideOnScroll',
   parameters: {
     status: {
       type: ['devComponent'],
