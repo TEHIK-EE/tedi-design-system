@@ -16,7 +16,6 @@ export * from './components/affix/affix';
 export * from './components/card';
 export * from './components/icon/icon';
 export * from './components/feedback/feedback';
-export * from './components/hide-on-scroll/hide-on-scroll';
 export * from './components/form/hidden-field/hidden-field';
 export * from './components/form/choice-group';
 export * from './components/form/check/check';
