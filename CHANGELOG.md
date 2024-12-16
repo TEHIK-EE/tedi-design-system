@@ -1,3 +1,10 @@
+# [10.0.0-rc.6](https://github.com/TEHIK-EE/tedi-design-system/compare/v10.0.0-rc.5...v10.0.0-rc.6) (2024-12-16)
+
+
+### Features
+
+* **select:** Align clear icon with tag text [#367](https://github.com/TEHIK-EE/tedi-design-system/issues/367) ([#368](https://github.com/TEHIK-EE/tedi-design-system/issues/368)) ([d723de0](https://github.com/TEHIK-EE/tedi-design-system/commit/d723de0d2b9822feb5c5aefe64cacdb826003da9))
+
 # [10.0.0-rc.5](https://github.com/TEHIK-EE/tedi-design-system/compare/v10.0.0-rc.4...v10.0.0-rc.5) (2024-12-13)
 
 
