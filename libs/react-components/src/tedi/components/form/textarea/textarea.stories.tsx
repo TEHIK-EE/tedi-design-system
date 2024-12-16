@@ -2,7 +2,13 @@ import { Meta, StoryFn, StoryObj } from '@storybook/react';
 
 import { Col, Row } from '../../grid';
 import { Text } from '../../typography/text/text';
+import { VerticalSpacing } from '../../vertical-spacing';
 import TextArea, { TextAreaProps } from './textarea';
+
+/**
+ * [Figma ↗](https://www.figma.com/design/jWiRIXhHRxwVdMSimKX2FF/TEDI-READY-(work-in-progress)?node-id=3486-37618&m=dev)<br/>
+ * [Zeroheight ↗](https://tedi.tehik.ee/1ee8444b7/p/25f281-text-area)
+ */
 
 const meta: Meta<typeof TextArea> = {
   component: TextArea,
@@ -30,9 +36,9 @@ const TemplateColumnWithStates: StoryFn<TemplateStateProps> = (args) => {
   const { array, id, ...textFieldProps } = args;
 
   return (
-    <div className="state-example">
+    <VerticalSpacing>
       {array.map((state, index) => (
-        <Row key={index} className="padding-14-16">
+        <Row key={index}>
           <Col width={2} className="display-flex align-items-center">
             <Text modifiers="bold">{state}</Text>
           </Col>
@@ -41,7 +47,7 @@ const TemplateColumnWithStates: StoryFn<TemplateStateProps> = (args) => {
           </Col>
         </Row>
       ))}
-    </div>
+    </VerticalSpacing>
   );
 };
 
@@ -101,13 +107,23 @@ export const WithHintText: Story = {
     helper: { text: 'Hint text' },
   },
 };
-export const MultipleHintTexts: Story = {
+
+export const HintTextAndCharacterCount: Story = {
   args: {
     id: 'example-1',
     label: 'Label',
     showCounter: true,
     characterLimit: 400,
     helper: [{ text: 'Hint text' }],
+  },
+};
+
+export const OnlyCharacterCount: Story = {
+  args: {
+    id: 'example-1',
+    label: 'Label',
+    showCounter: true,
+    characterLimit: 400,
   },
 };
 

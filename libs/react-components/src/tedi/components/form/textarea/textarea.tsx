@@ -1,7 +1,8 @@
 import cn from 'classnames';
 import React from 'react';
 
-import TextField, { TextFieldProps } from '../../../../tedi/components/form/textfield/textfield';
+import { FeedbackTextProps } from '../feedback-text/feedback-text';
+import { TextField, TextFieldProps } from '../textfield/textfield';
 import styles from './textarea.module.scss';
 
 export interface TextAreaProps extends TextFieldProps {
@@ -15,14 +16,8 @@ export interface TextAreaProps extends TextFieldProps {
   characterLimit?: number;
 }
 
-export const TextArea: React.FC<TextAreaProps> = ({
-  className,
-  showCounter = false,
-  helper = [],
-  characterLimit,
-  onChange,
-  ...rest
-}): JSX.Element => {
+export const TextArea = (props: TextAreaProps): JSX.Element => {
+  const { className, showCounter = false, helper = [], characterLimit, onChange, ...rest } = props;
   const [value, setValue] = React.useState<string>('');
 
   const handleInputChange = (inputValue: string) => {
@@ -41,6 +36,19 @@ export const TextArea: React.FC<TextAreaProps> = ({
 
   const charCount = value.length;
   const charCountHelper = showCounter && characterLimit ? `${charCount}/${characterLimit}` : '';
+  const combinedHelpers = [
+    ...(Array.isArray(helper) ? helper : [helper]),
+    ...(showCounter && characterLimit
+      ? [
+          {
+            type: 'hint',
+            text: charCountHelper,
+            position: 'right',
+            className: cn(styles['tedi-textarea__character-count']),
+          },
+        ]
+      : []),
+  ];
 
   return (
     <TextField
@@ -51,7 +59,7 @@ export const TextArea: React.FC<TextAreaProps> = ({
       className={cn(styles['tedi-textarea'], className)}
       value={value}
       onChange={handleInputChange}
-      helper={[...(Array.isArray(helper) ? helper : [helper]), { text: charCountHelper, position: 'right' }]}
+      helper={combinedHelpers as FeedbackTextProps[]}
     />
   );
 };
