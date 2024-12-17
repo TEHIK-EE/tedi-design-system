@@ -54,8 +54,7 @@ export const Truncate = (props: TruncateProps): JSX.Element => {
 
   const [isTruncated, setIsTruncated] = useState(true);
   const truncatedText = useMemo(() => {
-    let slicedText = children.slice(0, maxLength);
-    slicedText = slicedText.replace(/[^a-zA-Z0-9]+$/, '');
+    const slicedText = children.slice(0, maxLength).trimEnd();
     return slicedText + ellipsis + ' ';
   }, [children, maxLength, ellipsis]);
 
@@ -66,6 +65,7 @@ export const Truncate = (props: TruncateProps): JSX.Element => {
         <Button
           style={{ display: isTruncated ? undefined : 'block' }}
           visualType="link"
+          aria-expanded={!isTruncated}
           {...button}
           onClick={(e) => {
             button?.onClick?.(e, isTruncated);
