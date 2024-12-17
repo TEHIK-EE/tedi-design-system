@@ -11,6 +11,14 @@ import { Truncate } from './truncate';
 const meta: Meta<typeof Truncate> = {
   component: Truncate,
   title: 'Tedi-ready/Components/Helpers/Truncate',
+  parameters: {
+    status: {
+      type: [{ name: 'breakpointSupport', url: '?path=/docs/helpers-usebreakpointprops--usebreakpointprops' }],
+    },
+    controls: {
+      exclude: ['sm', 'md', 'lg', 'xl', 'xxl'],
+    },
+  },
 };
 
 export default meta;

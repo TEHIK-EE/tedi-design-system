@@ -1,14 +1,11 @@
 import React, { ReactNode, useMemo, useState } from 'react';
 
+import { BreakpointSupport, useBreakpointProps } from '../../helpers';
 import { useLabels } from '../../providers/label-provider';
 import Button, { ButtonProps } from '../buttons/button/button';
 import { Text } from '../typography/text/text';
 
-export interface TruncateProps {
-  /**
-   * Text that will be truncated
-   */
-  children: string;
+type TruncateBreakpointProps = {
   /**
    * Additional class name
    */
@@ -18,6 +15,13 @@ export interface TruncateProps {
    * @default 200
    */
   maxLength?: number;
+};
+
+export interface TruncateProps extends BreakpointSupport<TruncateBreakpointProps> {
+  /**
+   * Text that will be truncated
+   */
+  children: string;
   /**
    * Custom content to display at the end of truncated text
    * @default '...'
@@ -37,7 +41,15 @@ export interface TruncateProps {
 }
 
 export const Truncate = (props: TruncateProps): JSX.Element => {
-  const { children, className, maxLength = 200, ellipsis = '...', expandable = true, button } = props;
+  const { getCurrentBreakpointProps } = useBreakpointProps();
+  const {
+    children,
+    className,
+    maxLength = 200,
+    ellipsis = '...',
+    expandable = true,
+    button,
+  } = getCurrentBreakpointProps<TruncateProps>(props);
   const { getLabel } = useLabels();
 
   const [isTruncated, setIsTruncated] = useState(true);
