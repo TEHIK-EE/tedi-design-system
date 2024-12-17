@@ -41,7 +41,7 @@ export type ButtonContentProps<
     /**
      * Button size
      */
-    size?: 'small';
+    size?: 'default' | 'small' | 'large';
     /**
      * Name of the icon when button only has an icon in it.
      */

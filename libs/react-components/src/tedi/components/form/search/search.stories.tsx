@@ -2,16 +2,17 @@ import { Meta, StoryFn, StoryObj } from '@storybook/react';
 
 import { Col, Row } from '../../grid';
 import { Text } from '../../typography/text/text';
-import TextField, { TextFieldProps } from './textfield';
+import { VerticalSpacing } from '../../vertical-spacing';
+import { Search, SearchProps } from './search';
 
 /**
- * [Figma ↗](https://www.figma.com/design/jWiRIXhHRxwVdMSimKX2FF/TEDI-READY-(work-in-progress)?node-id=3486-37649&m=dev)<br/>
- * [Zeroheight ↗](https://zeroheight.com/1ee8444b7/p/328d11-text-field)
+ * [Figma ↗](https://www.figma.com/design/jWiRIXhHRxwVdMSimKX2FF/TEDI-READY-(work-in-progress)?node-id=4620-82860&m=dev)<br/>
+ * [Zeroheight ↗](https://tedi.tehik.ee/1ee8444b7/p/4013b4-search)
  */
 
-const meta: Meta<typeof TextField> = {
-  component: TextField,
-  title: 'TEDI-Ready/Components/Form/TextField',
+const meta: Meta<SearchProps> = {
+  component: Search,
+  title: 'TEDI-Ready/Components/Form/Search',
   parameters: {
     status: {
       type: [{ name: 'breakpointSupport', url: '?path=/docs/helpers-usebreakpointprops--usebreakpointprops' }],
@@ -23,19 +24,19 @@ const meta: Meta<typeof TextField> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof TextField>;
+type Story = StoryObj<SearchProps>;
 
 const stateArray = ['Default', 'Hover', 'Focus', 'Active', 'Disabled'];
 
-interface TemplateStateProps extends TextFieldProps {
+interface TemplateStateProps extends SearchProps {
   array: typeof stateArray;
 }
 
-const sizeArray: TextFieldProps['size'][] = ['default', 'small'];
+const sizeArray: SearchProps['size'][] = ['small', 'default', 'large'];
 
-interface TemplateMultipleProps<Type = TextFieldProps['size']> extends TextFieldProps {
+interface TemplateMultipleProps<Type = SearchProps['size']> extends SearchProps {
   array: Type[];
-  property: keyof TextFieldProps;
+  property: keyof SearchProps;
 }
 
 const TemplateColumn: StoryFn<TemplateMultipleProps> = (args) => {
@@ -48,11 +49,16 @@ const TemplateColumn: StoryFn<TemplateMultipleProps> = (args) => {
           <Col width={2}>
             <Text modifiers="bold">{value ? value.charAt(0).toUpperCase() + value.slice(1) : ''}</Text>
           </Col>
-          <Col className="d-flex">
-            <TextField {...textFieldProps} {...{ [property]: value }} />
-          </Col>
-          <Col className="d-flex">
-            <TextField icon={{ name: 'person' }} {...textFieldProps} {...{ [property]: value }} />
+          <Col>
+            <VerticalSpacing>
+              <Search {...textFieldProps} {...{ [property]: value }} />
+              <Search {...textFieldProps} button={{ icon: 'search', size: value }} {...{ [property]: value }} />
+              <Search
+                {...textFieldProps}
+                button={{ iconLeft: 'search', children: 'Otsi', size: value }}
+                {...{ [property]: value }}
+              />
+            </VerticalSpacing>
           </Col>
         </Row>
       ))}
@@ -70,8 +76,8 @@ const TemplateColumnWithStates: StoryFn<TemplateStateProps> = (args) => {
           <Col width={2} className="display-flex align-items-center">
             <Text modifiers="bold">{state}</Text>
           </Col>
-          <Col className="display-flex align-items-center">
-            <TextField disabled={state === 'Disabled'} id={state} {...textFieldProps} />
+          <Col width={10} className="display-flex align-items-center">
+            <Search disabled={state === 'Disabled'} id={state} {...textFieldProps} />
           </Col>
         </Row>
       ))}
@@ -82,7 +88,7 @@ const TemplateColumnWithStates: StoryFn<TemplateStateProps> = (args) => {
 export const Default: Story = {
   args: {
     id: 'example-1',
-    label: 'Label',
+    label: 'Search',
   },
 };
 
@@ -91,7 +97,7 @@ export const Sizes: StoryObj<TemplateMultipleProps> = {
 
   args: {
     id: 'example-1',
-    label: 'Label',
+    label: 'Search',
     property: 'size',
     array: sizeArray,
   },
@@ -101,7 +107,7 @@ export const States: StoryObj<TemplateStateProps> = {
   render: TemplateColumnWithStates,
   args: {
     array: stateArray,
-    label: 'Label',
+    label: 'Search',
   },
   parameters: {
     pseudo: {
@@ -112,50 +118,37 @@ export const States: StoryObj<TemplateStateProps> = {
   },
 };
 
-export const WithHint: Story = {
-  args: {
-    ...Default.args,
-    helper: {
-      id: 'example-3',
-      text: 'Hint text',
-      type: 'hint',
-    },
-  },
-};
-
-export const Error: Story = {
-  args: {
-    ...Default.args,
-    helper: {
-      id: 'example-3',
-      text: 'Feedback text',
-      type: 'error',
-    },
-  },
-};
-
-export const Success: Story = {
-  args: {
-    ...Default.args,
-    helper: {
-      id: 'example-4',
-      text: 'Feedback text',
-      type: 'valid',
-    },
-  },
-};
-
-export const Password: Story = {
-  args: {
-    ...Default.args,
-    input: { type: 'password' },
-    value: '123456789',
-  },
-};
-
 export const Placeholder: Story = {
   args: {
-    ...Default.args,
-    placeholder: 'Text value',
+    id: 'example-1',
+    label: 'Search',
+    placeholder: 'Name',
+  },
+};
+
+export const Clearable: Story = {
+  args: {
+    id: 'example-1',
+    label: 'Search',
+    isClearable: true,
+    value: 'Lorem ipsum',
+  },
+};
+
+export const ClearableButton: Story = {
+  args: {
+    id: 'example-1',
+    label: 'Search',
+    isClearable: true,
+    value: 'Lorem ipsum',
+    button: { iconLeft: 'search', children: 'Otsi' },
+  },
+};
+
+export const HintText: Story = {
+  args: {
+    id: 'example-1',
+    label: 'Search',
+    helper: { text: 'Hint text' },
   },
 };
