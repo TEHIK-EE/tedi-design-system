@@ -19,6 +19,7 @@ export * from './components/buttons/info-button/info-button';
 export * from './components/alert/alert';
 export * from './components/stretch-content/stretch-content';
 export * from './components/navigation/link/link';
+export * from './components/cards/card';
 export * from './components/form/feedback-text/feedback-text';
 export * from './components/form/number-field/number-field';
 export * from './components/section/section';

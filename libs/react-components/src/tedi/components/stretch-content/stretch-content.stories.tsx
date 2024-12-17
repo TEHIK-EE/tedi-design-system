@@ -1,9 +1,7 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 
-import { Card } from '../../../community/components/card';
-import CardContent from '../../../community/components/card/card-content/card-content';
-import CardHeader from '../../../community/components/card/card-header/card-header';
 import { Button } from '../buttons/button/button';
+import { Card, CardContent, CardHeader } from '../cards/card';
 import { Col, Row } from '../grid';
 import { Heading } from '../typography/heading/heading';
 import { VerticalSpacing } from '../vertical-spacing';
@@ -58,7 +56,7 @@ export const CardsExample: StoryObj<Partial<StretchContentProps>> = {
     const card = (title: string, content: JSX.Element) => {
       return (
         <Card>
-          <CardHeader>
+          <CardHeader background="brand-primary">
             <Heading element="h2">{title}</Heading>
           </CardHeader>
           <CardContent>

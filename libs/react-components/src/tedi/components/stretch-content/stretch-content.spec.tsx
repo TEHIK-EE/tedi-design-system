@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 
 import { useBreakpointProps } from '../../helpers';
-import StretchContent, { StretchContentProps } from './stretch-content';
+import { StretchContent } from './stretch-content';
 
 jest.mock('../../helpers', () => ({
   useBreakpointProps: jest.fn(),
