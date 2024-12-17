@@ -1,3 +1,44 @@
+# [10.0.0-rc.9](https://github.com/TEHIK-EE/tedi-design-system/compare/v10.0.0-rc.8...v10.0.0-rc.9) (2024-12-17)
+
+
+### Features
+
+* **truncate:** TEDI-Ready Truncate development [#364](https://github.com/TEHIK-EE/tedi-design-system/issues/364) ([#370](https://github.com/TEHIK-EE/tedi-design-system/issues/370)) ([6cbac4c](https://github.com/TEHIK-EE/tedi-design-system/commit/6cbac4cbb6c3e550fe2dc394bc60c938ab8072f0))
+
+# [10.0.0-rc.8](https://github.com/TEHIK-EE/tedi-design-system/compare/v10.0.0-rc.7...v10.0.0-rc.8) (2024-12-16)
+
+
+### Features
+
+* **floating-button:** add export [#371](https://github.com/TEHIK-EE/tedi-design-system/issues/371) ([#372](https://github.com/TEHIK-EE/tedi-design-system/issues/372)) ([37ab729](https://github.com/TEHIK-EE/tedi-design-system/commit/37ab729a6597e542eed020ad49a9cd951ba6e27d))
+
+# [10.0.0-rc.7](https://github.com/TEHIK-EE/tedi-design-system/compare/v10.0.0-rc.6...v10.0.0-rc.7) (2024-12-16)
+
+
+### Features
+
+* **hide-on-scroll:** add component [#339](https://github.com/TEHIK-EE/tedi-design-system/issues/339) ([#363](https://github.com/TEHIK-EE/tedi-design-system/issues/363)) ([9b356f0](https://github.com/TEHIK-EE/tedi-design-system/commit/9b356f0c2801ca5d86bca7750952ad034ce74b4d)), closes [#303](https://github.com/TEHIK-EE/tedi-design-system/issues/303) [#303](https://github.com/TEHIK-EE/tedi-design-system/issues/303) [#303](https://github.com/TEHIK-EE/tedi-design-system/issues/303) [#303](https://github.com/TEHIK-EE/tedi-design-system/issues/303) [#303](https://github.com/TEHIK-EE/tedi-design-system/issues/303) [#303](https://github.com/TEHIK-EE/tedi-design-system/issues/303) [#303](https://github.com/TEHIK-EE/tedi-design-system/issues/303) [#303](https://github.com/TEHIK-EE/tedi-design-system/issues/303) [#303](https://github.com/TEHIK-EE/tedi-design-system/issues/303)
+
+
+### BREAKING CHANGES
+
+* **hide-on-scroll:** remove community component
+* **hide-on-scroll:** show component when scrolling back up needs now toggleVisibility prop
+
+# [10.0.0-rc.6](https://github.com/TEHIK-EE/tedi-design-system/compare/v10.0.0-rc.5...v10.0.0-rc.6) (2024-12-16)
+
+
+### Features
+
+* **select:** Align clear icon with tag text [#367](https://github.com/TEHIK-EE/tedi-design-system/issues/367) ([#368](https://github.com/TEHIK-EE/tedi-design-system/issues/368)) ([d723de0](https://github.com/TEHIK-EE/tedi-design-system/commit/d723de0d2b9822feb5c5aefe64cacdb826003da9))
+
+# [10.0.0-rc.5](https://github.com/TEHIK-EE/tedi-design-system/compare/v10.0.0-rc.4...v10.0.0-rc.5) (2024-12-13)
+
+
+### Bug Fixes
+
+* **typography:** Base font values to rem [#365](https://github.com/TEHIK-EE/tedi-design-system/issues/365) ([#366](https://github.com/TEHIK-EE/tedi-design-system/issues/366)) ([074c590](https://github.com/TEHIK-EE/tedi-design-system/commit/074c590be2334e291b6903444d921dd548caa09a))
+
 # [10.0.0-rc.4](https://github.com/TEHIK-EE/tedi-design-system/compare/v10.0.0-rc.3...v10.0.0-rc.4) (2024-12-13)
 
 

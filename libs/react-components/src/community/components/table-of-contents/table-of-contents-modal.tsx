@@ -16,7 +16,7 @@ import { TableOfContentsItems } from './table-of-contents-items';
 
 export const TableOfContentsModal = (props: TableOfContentsProps) => {
   const { getLabel } = useLabels();
-  const { items, modalProps, modalProviderProps, heading, open, defaultOpen, onToggle } = props;
+  const { items, modalProps, modalProviderProps, heading, open, defaultOpen, onToggle, className } = props;
   const correctItems = items.map((i) => i.isValid === true).filter(Boolean).length;
   const invalidItems = items.map((i) => i.isValid === false).filter(Boolean).length;
   const id = React.useId();
@@ -91,7 +91,7 @@ export const TableOfContentsModal = (props: TableOfContentsProps) => {
 
   return (
     <ModalProvider open={isOpen} onToggle={handleToggle} {...modalProviderProps}>
-      <Heading element="h2" modifiers="normal">
+      <Heading element="h2" modifiers="normal" className={className}>
         <ModalTrigger>
           <Button fullWidth noStyle className={styles['table-of-contents__trigger']}>
             <Card className={styles['table-of-contents__trigger-card']}>
