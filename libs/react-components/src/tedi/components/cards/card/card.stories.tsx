@@ -55,7 +55,13 @@ export interface CardStory {
 
 type Story = StoryObj<CardStory>;
 
-const Template: StoryFn<CardStory> = (args) => {
+const Template: StoryFn<CardStory> = (args) => (
+  <Card {...args}>
+    <CardContent>Description</CardContent>
+  </Card>
+);
+
+const GeneralTemplate: StoryFn<CardStory> = (args) => {
   const getSplitContent = () => (
     <CardContent padding={0}>
       <Row gutter={0}>
@@ -117,7 +123,12 @@ const Template: StoryFn<CardStory> = (args) => {
 
 export const Default: Story = {
   render: Template,
-  args: {},
+  args: {
+    cardContent2: {
+      children: <p>Description 2</p>,
+    },
+    cardHeader: false,
+  },
 };
 
 export const HeaderTypes: Story = {
@@ -145,11 +156,11 @@ export const Backgrounds: Story = {
 };
 
 export const BorderColors: Story = {
-  render: Template,
+  render: GeneralTemplate,
 };
 
 export const MultipleContent: Story = {
-  render: Template,
+  render: GeneralTemplate,
 
   args: {
     ...Default.args,
@@ -164,7 +175,7 @@ export const MultipleContent: Story = {
 };
 
 export const SplitCardBody: Story = {
-  render: Template,
+  render: GeneralTemplate,
 
   args: {
     ...Default.args,
@@ -173,7 +184,7 @@ export const SplitCardBody: Story = {
 };
 
 export const Borderless: Story = {
-  render: Template,
+  render: GeneralTemplate,
 
   args: {
     ...Default.args,
@@ -185,7 +196,7 @@ export const Borderless: Story = {
 };
 
 export const WithoutBorderRadius: Story = {
-  render: Template,
+  render: GeneralTemplate,
 
   args: {
     ...Default.args,
@@ -196,7 +207,7 @@ export const WithoutBorderRadius: Story = {
 };
 
 export const BreakpointProps: Story = {
-  render: Template,
+  render: GeneralTemplate,
   args: {
     card: {
       background: 'success-primary',
@@ -226,7 +237,7 @@ export const EqualHeight = {
 };
 
 export const WithNotification: Story = {
-  render: Template,
+  render: GeneralTemplate,
   args: {
     card: {
       padding: 0.75,

@@ -16,302 +16,234 @@ import { CardBackground } from './utility';
 
 export const HeaderTypesTemplate: StoryFn<CardStory> = () => (
   <VerticalSpacing>
-    <Row>
-      <Col>
-        <Card>
-          <CardHeader>
+    <Card>
+      <CardHeader>
+        <Heading element="h3">Title</Heading>
+      </CardHeader>
+    </Card>
+    <Card>
+      <CardHeader>
+        <Heading element="h3">Title</Heading>
+        <Text color="secondary">Description</Text>
+      </CardHeader>
+    </Card>
+    <Card>
+      <CardHeader>
+        <Row>
+          <Col>
             <Heading element="h3">Title</Heading>
-          </CardHeader>
-        </Card>
-      </Col>
-    </Row>
-    <Row>
-      <Col>
-        <Card>
-          <CardHeader>
-            <Heading element="h3">Title</Heading>
+          </Col>
+          <Col width="auto">
+            <Button>Create</Button>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
             <Text color="secondary">Description</Text>
-          </CardHeader>
-        </Card>
-      </Col>
-    </Row>
-    <Row>
-      <Col>
-        <Card>
-          <CardHeader>
-            <Row>
-              <Col>
-                <Heading element="h3">Title</Heading>
-              </Col>
-              <Col width="auto">
-                <Button>Create</Button>
-              </Col>
-            </Row>
-            <Row>
-              <Col>
-                <Text color="secondary">Description</Text>
-              </Col>
-            </Row>
-          </CardHeader>
-        </Card>
-      </Col>
-    </Row>
-    <Row>
-      <Col>
-        <Card>
-          <CardHeader>
-            <Row>
-              <Col>
-                <Heading element="h3">Title</Heading>
-              </Col>
-              <Col width="auto" style={{ display: 'flex', gap: 10 }}>
-                <Button visualType="secondary" iconLeft={{ name: 'share' }}>
-                  Share
-                </Button>
-                <Button visualType="secondary" iconLeft={{ name: 'print' }}>
-                  Print
-                </Button>
-              </Col>
-            </Row>
-            <Row>
-              <Col>
-                <Text color="secondary">Description</Text>
-              </Col>
-            </Row>
-          </CardHeader>
-        </Card>
-      </Col>
-    </Row>
-    <Row>
-      <Col>
-        <Card>
-          <CardHeader>
-            <Row>
-              <Col>
-                <Heading element="h3">Title</Heading>
-              </Col>
-              <Col width="auto">
-                <Link id="card-link" iconRight={{ name: 'arrow_right_alt' }} href="#">
-                  View result
-                </Link>
-              </Col>
-            </Row>
-            <Row>
-              <Col>
-                <Text color="secondary">Description</Text>
-              </Col>
-            </Row>
-          </CardHeader>
-        </Card>
-      </Col>
-    </Row>
-    <Row>
-      <Col>
-        <Card>
-          <CardHeader>
-            <Row>
-              <Col>
-                <Heading element="h3">Title</Heading>
-              </Col>
-              <Col width="auto">
-                <StatusBadge color="brand">Approved</StatusBadge>
-              </Col>
-            </Row>
-            <Row>
-              <Col>
-                <Text color="secondary">Description</Text>
-              </Col>
-            </Row>
-          </CardHeader>
-        </Card>
-      </Col>
-    </Row>
-    <Row>
-      <Col>
-        <Card>
-          <CardHeader background="secondary">
-            <Row>
-              <Col>
-                <Heading element="h3">Title</Heading>
-              </Col>
-              <Col width="auto">
-                <Button>Create</Button>
-              </Col>
-            </Row>
-            <Row>
-              <Col>
-                <Text color="secondary">Description</Text>
-              </Col>
-            </Row>
-          </CardHeader>
-        </Card>
-      </Col>
-    </Row>
-    <Row>
-      <Col>
-        <Card>
-          <CardHeader background="tertiary">
-            <Row>
-              <Col>
-                <Heading element="h3">Title</Heading>
-              </Col>
-              <Col width="auto">
-                <Button>Create</Button>
-              </Col>
-            </Row>
-            <Row>
-              <Col>
-                <Text color="secondary">Description</Text>
-              </Col>
-            </Row>
-          </CardHeader>
-        </Card>
-      </Col>
-    </Row>
-    <Row>
-      <Col>
-        <Card>
-          <CardHeader background="brand-primary">
-            <Row>
-              <Col>
-                <Heading element="h3">Title</Heading>
-              </Col>
-              <Col width="auto">
-                <Button visualType="secondary">Create</Button>
-              </Col>
-            </Row>
-            <Row>
-              <Col>
-                <Text>Description</Text>
-              </Col>
-            </Row>
-          </CardHeader>
-        </Card>
-      </Col>
-    </Row>
-    <Row>
-      <Col>
-        <Card>
-          <CardHeader background="brand-secondary">
-            <Row>
-              <Col>
-                <Heading element="h3">Title</Heading>
-              </Col>
-              <Col width="auto">
-                <Button visualType="secondary">Create</Button>
-              </Col>
-            </Row>
-            <Row>
-              <Col>
-                <Text>Description</Text>
-              </Col>
-            </Row>
-          </CardHeader>
-        </Card>
-      </Col>
-    </Row>
+          </Col>
+        </Row>
+      </CardHeader>
+    </Card>
+    <Card>
+      <CardHeader>
+        <Row>
+          <Col>
+            <Heading element="h3">Title</Heading>
+          </Col>
+          <Col width="auto" style={{ display: 'flex', gap: 10 }}>
+            <Button visualType="secondary" iconLeft={{ name: 'share' }}>
+              Share
+            </Button>
+            <Button visualType="secondary" iconLeft={{ name: 'print' }}>
+              Print
+            </Button>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <Text color="secondary">Description</Text>
+          </Col>
+        </Row>
+      </CardHeader>
+    </Card>
+    <Card>
+      <CardHeader>
+        <Row>
+          <Col>
+            <Heading element="h3">Title</Heading>
+          </Col>
+          <Col width="auto">
+            <Link id="card-link" iconRight={{ name: 'arrow_right_alt' }} href="#">
+              View result
+            </Link>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <Text color="secondary">Description</Text>
+          </Col>
+        </Row>
+      </CardHeader>
+    </Card>
+    <Card>
+      <CardHeader>
+        <Row>
+          <Col>
+            <Heading element="h3">Title</Heading>
+          </Col>
+          <Col width="auto">
+            <StatusBadge color="brand">Approved</StatusBadge>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <Text color="secondary">Description</Text>
+          </Col>
+        </Row>
+      </CardHeader>
+    </Card>
+    <Card>
+      <CardHeader background="secondary">
+        <Row>
+          <Col>
+            <Heading element="h3">Title</Heading>
+          </Col>
+          <Col width="auto">
+            <Button>Create</Button>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <Text color="secondary">Description</Text>
+          </Col>
+        </Row>
+      </CardHeader>
+    </Card>
+    <Card>
+      <CardHeader background="tertiary">
+        <Row>
+          <Col>
+            <Heading element="h3">Title</Heading>
+          </Col>
+          <Col width="auto">
+            <Button>Create</Button>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <Text color="secondary">Description</Text>
+          </Col>
+        </Row>
+      </CardHeader>
+    </Card>
+    <Card>
+      <CardHeader background="brand-primary">
+        <Row>
+          <Col>
+            <Heading element="h3">Title</Heading>
+          </Col>
+          <Col width="auto">
+            <Button visualType="secondary">Create</Button>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <Text>Description</Text>
+          </Col>
+        </Row>
+      </CardHeader>
+    </Card>
+    <Card>
+      <CardHeader background="brand-secondary">
+        <Row>
+          <Col>
+            <Heading element="h3">Title</Heading>
+          </Col>
+          <Col width="auto">
+            <Button visualType="secondary">Create</Button>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <Text>Description</Text>
+          </Col>
+        </Row>
+      </CardHeader>
+    </Card>
   </VerticalSpacing>
 );
 
 export const DefaultCardTemplates: StoryFn<CardStory> = () => (
   <VerticalSpacing>
-    <Row>
-      <Col>
-        <Card>
-          <CardContent>
+    <Card>
+      <CardContent>
+        <Text color="secondary">Description</Text>
+      </CardContent>
+    </Card>
+    <Card>
+      <CardContent>
+        <Text color="secondary">Description</Text>
+        <StatusBadge color="brand">Approved</StatusBadge>
+      </CardContent>
+    </Card>
+    <Card>
+      <CardContent>
+        <Text modifiers="bold">Title</Text>
+        <Text color="secondary">Description</Text>
+      </CardContent>
+    </Card>
+    <Card>
+      <CardContent>
+        <Text modifiers="bold">Title</Text>
+        <Row>
+          <Col>
             <Text color="secondary">Description</Text>
-          </CardContent>
-        </Card>
-      </Col>
-    </Row>
-    <Row>
-      <Col>
-        <Card>
-          <CardContent>
-            <Text color="secondary">Description</Text>
+          </Col>
+          <Col width="auto">
             <StatusBadge color="brand">Approved</StatusBadge>
-          </CardContent>
-        </Card>
-      </Col>
-    </Row>
-    <Row>
-      <Col>
-        <Card>
-          <CardContent>
-            <Text modifiers="bold">Title</Text>
+          </Col>
+        </Row>
+      </CardContent>
+    </Card>
+    <Card>
+      <CardContent>
+        <Row>
+          <Col className="display-flex align-items-center gap-3">
+            <Icon name="monitor_heart" />
             <Text color="secondary">Description</Text>
-          </CardContent>
-        </Card>
-      </Col>
-    </Row>
-    <Row>
-      <Col>
-        <Card>
-          <CardContent>
-            <Text modifiers="bold">Title</Text>
-            <Row>
-              <Col>
-                <Text color="secondary">Description</Text>
-              </Col>
-              <Col width="auto">
-                <StatusBadge color="brand">Approved</StatusBadge>
-              </Col>
-            </Row>
-          </CardContent>
-        </Card>
-      </Col>
-    </Row>
-    <Row>
-      <Col>
-        <Card>
-          <CardContent>
-            <Row>
-              <Col className="display-flex align-items-center gap-3">
-                <Icon name="monitor_heart" />
-                <Text color="secondary">Description</Text>
-              </Col>
-            </Row>
-          </CardContent>
-        </Card>
-      </Col>
-    </Row>
-    <Row>
-      <Col>
-        <Card>
-          <CardContent>
-            <Row>
-              <Col className="display-flex align-items-center gap-3">
-                <Icon name="monitor_heart" />
-                <VerticalSpacing size={0}>
-                  <Text modifiers="bold">Title</Text>
-                  <Text color="secondary">Description</Text>
-                </VerticalSpacing>
-              </Col>
-            </Row>
-          </CardContent>
-        </Card>
-      </Col>
-    </Row>
-    <Row>
-      <Col>
-        <Card>
-          <CardContent>
-            <Row>
-              <Col className="display-flex align-items-center gap-3">
-                <Icon name="monitor_heart" />
-                <VerticalSpacing size={0}>
-                  <Text modifiers="bold">Title</Text>
-                  <Text color="secondary">Description</Text>
-                </VerticalSpacing>
-              </Col>
-              <Col width="auto" className="display-flex align-items-center">
-                <Button>Create</Button>
-              </Col>
-            </Row>
-          </CardContent>
-        </Card>
-      </Col>
-    </Row>
+          </Col>
+        </Row>
+      </CardContent>
+    </Card>
+    <Card>
+      <CardContent>
+        <Row>
+          <Col className="display-flex align-items-center gap-3">
+            <Icon name="monitor_heart" />
+            <VerticalSpacing size={0}>
+              <Text modifiers="bold">Title</Text>
+              <Text color="secondary">Description</Text>
+            </VerticalSpacing>
+          </Col>
+        </Row>
+      </CardContent>
+    </Card>
+    <Card>
+      <CardContent>
+        <Row>
+          <Col className="display-flex align-items-center gap-3">
+            <Icon name="monitor_heart" />
+            <VerticalSpacing size={0}>
+              <Text modifiers="bold">Title</Text>
+              <Text color="secondary">Description</Text>
+            </VerticalSpacing>
+          </Col>
+          <Col width="auto" className="display-flex align-items-center">
+            <Button>Create</Button>
+          </Col>
+        </Row>
+      </CardContent>
+    </Card>
     <Row>
       <Col lg={6} sm={12}>
         <Card>
@@ -337,79 +269,63 @@ export const DefaultCardTemplates: StoryFn<CardStory> = () => (
 
 export const CardInfoTemplate: StoryFn<CardStory> = () => (
   <VerticalSpacing>
-    <Row>
-      <Col>
-        <Card>
-          <CardContent background="brand-tertiary">
-            <Row>
-              <Col width="auto" className="display-flex align-items-center gap-3">
-                <Icon background="primary" name="assignment_late" />
-                <VerticalSpacing size={0}>
-                  <Text modifiers="bold">Title</Text>
-                  <Text color="secondary">Description</Text>
-                </VerticalSpacing>
-              </Col>
-            </Row>
-          </CardContent>
-        </Card>
-      </Col>
-    </Row>
-    <Row>
-      <Col>
-        <Card>
-          <CardContent
-            background="brand-tertiary"
-            backgroundImage="card-background-example.svg"
-            backgroundSize="75px"
-            backgroundPosition="right center"
-            backgroundRepeat="no-repeat"
-          >
-            <Row>
-              <Col width="auto" className="display-flex align-items-center gap-3">
-                <Icon background="primary" name="assignment_late" />
-                <VerticalSpacing size={0}>
-                  <Text modifiers="bold">Title</Text>
-                  <Text color="secondary">Description</Text>
-                </VerticalSpacing>
-              </Col>
-            </Row>
-          </CardContent>
-        </Card>
-      </Col>
-    </Row>
-    <Row>
-      <Col>
-        <Card border="accent">
-          <CardContent background="accent">
-            <Row>
-              <Col width="auto" className="display-flex align-items-center gap-3">
-                <Icon background="primary" name="assignment_late" />
-                <VerticalSpacing size={0}>
-                  <Text modifiers="bold">Title</Text>
-                  <Text color="secondary">Description</Text>
-                </VerticalSpacing>
-              </Col>
-            </Row>
-          </CardContent>
-        </Card>
-      </Col>
-    </Row>
-    <Row>
-      <Col>
-        <Card border="neutral-primary">
-          <CardContent background="neutral-primary">
-            <Row>
-              <Col width="auto" className="display-flex align-items-center gap-3">
-                <Icon background="primary" name="calendar_today" filled />
-                <Text color="secondary">
-                  Haigusleht: <strong>118.</strong> päev
-                </Text>
-              </Col>
-            </Row>
-          </CardContent>
-        </Card>
-      </Col>
-    </Row>
+    <Card>
+      <CardContent background="brand-tertiary">
+        <Row>
+          <Col width="auto" className="display-flex align-items-center gap-3">
+            <Icon background="primary" name="assignment_late" />
+            <VerticalSpacing size={0}>
+              <Text modifiers="bold">Title</Text>
+              <Text color="secondary">Description</Text>
+            </VerticalSpacing>
+          </Col>
+        </Row>
+      </CardContent>
+    </Card>
+    <Card>
+      <CardContent
+        background="brand-tertiary"
+        backgroundImage="card-background-example.svg"
+        backgroundSize="75px"
+        backgroundPosition="right center"
+        backgroundRepeat="no-repeat"
+      >
+        <Row>
+          <Col width="auto" className="display-flex align-items-center gap-3">
+            <Icon background="primary" name="assignment_late" />
+            <VerticalSpacing size={0}>
+              <Text modifiers="bold">Title</Text>
+              <Text color="secondary">Description</Text>
+            </VerticalSpacing>
+          </Col>
+        </Row>
+      </CardContent>
+    </Card>
+    <Card border="accent">
+      <CardContent background="accent">
+        <Row>
+          <Col width="auto" className="display-flex align-items-center gap-3">
+            <Icon background="primary" name="assignment_late" />
+            <VerticalSpacing size={0}>
+              <Text modifiers="bold">Title</Text>
+              <Text color="secondary">Description</Text>
+            </VerticalSpacing>
+          </Col>
+        </Row>
+      </CardContent>
+    </Card>
+    <Card border="neutral-primary">
+      <CardContent background="neutral-primary">
+        <Row>
+          <Col width="auto" className="display-flex align-items-center gap-3">
+            <Icon background="primary" name="calendar_today" filled />
+            <Text color="secondary">
+              Haigusleht: <strong>118.</strong> päev
+            </Text>
+          </Col>
+        </Row>
+      </CardContent>
+    </Card>
   </VerticalSpacing>
 );
 

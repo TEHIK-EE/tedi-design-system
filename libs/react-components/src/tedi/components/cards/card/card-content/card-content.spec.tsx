@@ -75,13 +75,6 @@ describe('CardContent', () => {
     });
   });
 
-  it('renders separator and stretch styles', () => {
-    renderComponent({ hasSeparator: true, stretch: true });
-    const content = screen.getByText('Test Content');
-    expect(content).toHaveClass('tedi-card__content--separator');
-    expect(content).toHaveClass('tedi-card__content--stretch');
-  });
-
   it('renders as a button when role="button"', () => {
     renderComponent({ role: 'button' });
     const content = screen.getByRole('button');

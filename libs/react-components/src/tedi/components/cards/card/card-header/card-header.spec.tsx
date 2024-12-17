@@ -26,11 +26,10 @@ describe('CardHeader', () => {
   };
 
   it('renders without crashing with default props', () => {
-    renderComponent({});
+    renderComponent();
     const header = screen.getByText('Test Header');
     expect(header).toBeInTheDocument();
     expect(header).toHaveClass(styles['tedi-card__header']);
-    expect(header).toHaveClass(styles['tedi-card--background--primary']);
   });
 
   it('applies additional className', () => {
@@ -39,19 +38,16 @@ describe('CardHeader', () => {
     expect(header).toHaveClass('extra-class');
   });
 
-  it('applies numeric padding', () => {
+  it('applies numeric padding correctly', () => {
     renderComponent({ padding: 1.5 });
     const header = screen.getByText('Test Header');
     expect(header).toHaveAttribute('data-padding', '1.5rem');
   });
 
-  it('applies object-based padding', () => {
+  it('applies object-based padding styles', () => {
     renderComponent({ padding: { vertical: 1, horizontal: 2 } });
-    const content = screen.getByText('Test Header');
-
-    expect(content).not.toHaveAttribute('data-padding');
-
-    expect(content).toHaveStyle({
+    const header = screen.getByText('Test Header');
+    expect(header).toHaveStyle({
       '--card-content-padding-top': '1rem',
       '--card-content-padding-bottom': '1rem',
       '--card-content-padding-left': '2rem',
@@ -59,15 +55,15 @@ describe('CardHeader', () => {
     });
   });
 
-  it('applies background properties', () => {
+  it('applies background properties correctly', () => {
     renderComponent({
       backgroundImage: 'test-image.jpg',
       backgroundPosition: 'center',
       backgroundSize: 'cover',
       backgroundRepeat: 'no-repeat',
     });
-    const content = screen.getByText('Test Header');
-    expect(content).toHaveStyle({
+    const header = screen.getByText('Test Header');
+    expect(header).toHaveStyle({
       backgroundImage: 'url(test-image.jpg)',
       backgroundPosition: 'center',
       backgroundSize: 'cover',
@@ -75,20 +71,20 @@ describe('CardHeader', () => {
     });
   });
 
-  it('renders separator style when hasSeparator is true', () => {
+  it('renders with separator class when hasSeparator is true', () => {
     renderComponent({ hasSeparator: true });
     const header = screen.getByText('Test Header');
     expect(header).toHaveClass(styles['tedi-card__content--separator']);
   });
 
-  it('renders as a button when role="button"', () => {
+  it('renders as a button when role="button" is provided', () => {
     renderComponent({ role: 'button' });
     const header = screen.getByRole('button');
     expect(header).toBeInTheDocument();
   });
 
   it('renders as a div by default', () => {
-    renderComponent({});
+    renderComponent();
     const header = screen.getByText('Test Header');
     expect(header.tagName).toBe('DIV');
   });

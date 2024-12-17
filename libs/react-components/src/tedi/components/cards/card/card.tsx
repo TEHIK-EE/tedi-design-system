@@ -1,11 +1,60 @@
 import cn from 'classnames';
-import React, { forwardRef } from 'react';
+import React, { CSSProperties, forwardRef } from 'react';
 
 import { BreakpointSupport, useBreakpointProps } from '../../../helpers';
 import styles from './card.module.scss';
 import { CardContentProps } from './card-content/card-content';
 import { CardContext } from './card-context';
-import { CardBorderType, getCardBorderPlacementColor } from './utility';
+import { CardBackground, CardBorderType, CardContentPaddingNumber, getCardBorderPlacementColor } from './utility';
+
+export type CardContentPadding =
+  | CardContentPaddingNumber
+  | { vertical: CardContentPaddingNumber; horizontal: CardContentPaddingNumber }
+  | {
+      top: CardContentPaddingNumber;
+      right: CardContentPaddingNumber;
+      bottom: CardContentPaddingNumber;
+      left: CardContentPaddingNumber;
+    };
+export interface SharedCardProps {
+  /**
+   * Additional class.
+   */
+  className?: string;
+  /**
+   * Card content padding
+   * Values can be:<br />
+   * - predefined number value in rems<br />
+   * - object of separated horizontal and vertical number values in rems
+   * - object of separated top, right, bottom, left number values in rems
+   */
+  padding?: CardContentPadding;
+  /**
+   * Background color.
+   * @default primary
+   */
+  background?: CardBackground;
+  /**
+   * Background image.
+   */
+  backgroundImage?: string;
+  /**
+   * Background position for the image.
+   */
+  backgroundPosition?: CSSProperties['backgroundPosition'];
+  /**
+   * Background size for the image.
+   */
+  backgroundSize?: CSSProperties['backgroundSize'];
+  /**
+   * Background repeat for the image.
+   */
+  backgroundRepeat?: CSSProperties['backgroundRepeat'];
+  /**
+   * Separator.
+   */
+  hasSeparator?: boolean;
+}
 
 type CardBreakpointProps = {
   /**

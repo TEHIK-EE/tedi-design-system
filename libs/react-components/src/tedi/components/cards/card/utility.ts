@@ -1,9 +1,9 @@
 import { CardProps } from './card';
-import { CardContentPaddingNumber, CardContentProps } from './card-content/card-content';
+import { CardContentProps } from './card-content/card-content';
 
 export type CardBorderPlacement = 'top' | 'left' | undefined;
 export type CardBorderType = 'border-default' | `${CardBorderPlacement}-${CardBackground}` | CardBackground;
-
+export type CardContentPaddingNumber = 0 | 0.5 | 0.75 | 1 | 1.5 | 2 | 2.5 | 3;
 export type CardBackground =
   | 'primary'
   | 'secondary'
