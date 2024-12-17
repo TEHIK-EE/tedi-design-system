@@ -1,3 +1,10 @@
+# [10.0.0-rc.9](https://github.com/TEHIK-EE/tedi-design-system/compare/v10.0.0-rc.8...v10.0.0-rc.9) (2024-12-17)
+
+
+### Features
+
+* **truncate:** TEDI-Ready Truncate development [#364](https://github.com/TEHIK-EE/tedi-design-system/issues/364) ([#370](https://github.com/TEHIK-EE/tedi-design-system/issues/370)) ([6cbac4c](https://github.com/TEHIK-EE/tedi-design-system/commit/6cbac4cbb6c3e550fe2dc394bc60c938ab8072f0))
+
 # [10.0.0-rc.8](https://github.com/TEHIK-EE/tedi-design-system/compare/v10.0.0-rc.7...v10.0.0-rc.8) (2024-12-16)
 
 
