@@ -1,5 +1,5 @@
-@import '../../../../../../core-styles/mixins';
-@import '../../../../../../core-styles/bootstrap-utility/breakpoints';
+@import '@tehik-ee/core-styles/src/mixins';
+@import '@tehik-ee/core-styles/src/bootstrap-utility/breakpoints';
 @import '../button-content/button-content.module';
 
 $btn-height: 2.75rem;

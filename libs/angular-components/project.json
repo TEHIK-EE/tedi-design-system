@@ -3,6 +3,7 @@
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/angular-components/src",
   "projectType": "library",
+  "implicitDependencies": ["core-styles"],
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:ng-packagr",

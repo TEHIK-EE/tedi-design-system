@@ -42,6 +42,7 @@
     "@storybook/manager-api": "^8.4.5",
     "@storybook/preview-api": "^8.4.5",
     "@tanstack/react-table": "^8.13.2",
+    "@tehik-ee/core-styles": "*",
     "classnames": "^2.5.1",
     "dayjs": "^1.11.10",
     "draft-js": "^0.11.7",

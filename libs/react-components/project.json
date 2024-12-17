@@ -4,6 +4,7 @@
   "sourceRoot": "libs/react-components",
   "projectType": "library",
   "tags": [],
+  "implicitDependencies": ["core-styles"],
   "targets": {
     "start": {
       "executor": "@nx/storybook:storybook",

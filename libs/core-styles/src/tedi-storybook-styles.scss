@@ -2,6 +2,38 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.mobile {
+  .tedi-text {
+    &--h1 {
+      font-size: var(--heading-h1-size-mobile);
+    }
+
+    &--h2 {
+      font-size: var(--heading-h2-size-mobile);
+    }
+
+    &--h3 {
+      font-size: var(--heading-h3-size-mobile);
+    }
+
+    &--h4 {
+      font-size: var(--heading-h4-size-mobile);
+    }
+
+    &--h5 {
+      font-size: var(--heading-h5-size-mobile);
+    }
+
+    &--h6 {
+      font-size: var(--heading-h6-size-mobile);
+    }
+
+    &--subtitle {
+      font-size: var(--heading-subtitle-small-size-mobile);
+    }
+  }
+}
+
 a {
   color: var(--link-primary-default);
 
@@ -21,7 +53,7 @@ a {
   border-radius: var(--radius-03);
 
   &-primary {
-    background-color: var(--primary-600);
+    background-color: var(--general-surface-brand-primary);
   }
 
   &-success {

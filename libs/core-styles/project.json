@@ -1,0 +1,16 @@
+{
+  "name": "core-styles",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/core-styles/src",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:run-commands",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "commands": ["sass libs/core-styles/src:index.scss dist/libs/core-styles/core-style.css"],
+        "outputPath": "dist/libs/core-styles"
+      }
+    }
+  }
+}

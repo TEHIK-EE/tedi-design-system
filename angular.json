@@ -11,7 +11,8 @@
           "options": {
             "configDir": "libs/angular-components/.storybook",
             "browserTarget": "angular-components:build",
-            "port": 6006
+            "port": 6006,
+            "styles": ["node_modules/@tehik-ee/core-styles/src/index.scss"]
           }
         },
         "build-storybook": {
