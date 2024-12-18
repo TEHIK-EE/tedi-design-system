@@ -1,0 +1,216 @@
+@use '../../../../shared/styles/bootstrap-utility/breakpoints';
+@use '../../../styles/mixins';
+
+$input-height: 2.5rem;
+$input-height-small: 2rem;
+$input-height-large: 3.5rem;
+$input-height-mobile: 2.75rem;
+
+@mixin textfield-focus($border-color: null) {
+  @if $border-color {
+    &:focus,
+    &:active {
+      border-color: $border-color;
+      outline: none;
+      box-shadow: 0 0 0 1px $border-color;
+    }
+  } @else {
+    &:focus,
+    &:active {
+      outline: none;
+      box-shadow: none;
+    }
+  }
+}
+
+.tedi-textfield {
+  width: 100%;
+  max-width: 100%;
+
+  @include mixins.print-grayscale;
+}
+
+.tedi-textfield__inner {
+  position: relative;
+}
+
+.tedi-textfield__input {
+  display: block;
+  width: 100%;
+  height: $input-height;
+  font-family: inherit;
+  color: var(--form-input-text-filled);
+  background-color: var(--form-input-background-default);
+  border: 1px solid var(--form-input-border-default);
+
+  @include textfield-focus(var(--form-input-border-hover));
+  @include mixins.responsive-styles(font-size, body-regular-size);
+  @include mixins.responsive-styles(border-radius, form-field-radius);
+  @include mixins.responsive-styles(padding-left, form-field-padding-x-default);
+  @include mixins.responsive-styles(padding-right, form-field-padding-x-default);
+  @include mixins.responsive-styles(padding-top, form-field-padding-y-3-default);
+  @include mixins.responsive-styles(padding-bottom, form-field-padding-y-3-default);
+
+  &:hover {
+    border-color: var(--form-input-border-hover);
+  }
+
+  &:disabled {
+    color: var(--form-input-text-disabled);
+    background-color: var(--form-input-background-disabled);
+    border-color: var(--form-input-border-disabled);
+  }
+
+  .tedi-textfield--invalid &,
+  &[aria-invalid='true'] {
+    border-color: var(--form-general-feedback-error-border);
+
+    @include textfield-focus(var(--form-general-feedback-error-border));
+  }
+
+  .tedi-textfield--valid & {
+    border-color: var(--form-general-feedback-success-border);
+
+    @include textfield-focus(var(--form-general-feedback-success-border));
+  }
+
+  .tedi-textfield--clearable &,
+  .tedi-textfield--with-icon & {
+    padding-right: 2rem;
+  }
+
+  .tedi-textfield--clearable.textfield--with-icon & {
+    padding-right: 4rem;
+  }
+
+  &::placeholder {
+    color: var(--form-input-text-placeholder);
+    opacity: 1;
+  }
+
+  @include breakpoints.media-breakpoint-down(md) {
+    height: $input-height-mobile;
+  }
+}
+
+// hide arrows on number inputs
+.tedi-textfield__input--hidden-arrows[type='number'] {
+  appearance: textfield; // for Firefox
+
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    margin: 0;
+    appearance: none;
+  }
+}
+
+.tedi-textfield__right-area {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 0.75rem 0.5rem;
+
+  .tedi-textfield--small & {
+    padding: 0.25rem 0.5rem;
+  }
+
+  .tedi-textfield--large & {
+    padding: 1rem;
+  }
+}
+
+.tedi-textfield__separator {
+  margin-right: 0.5rem;
+  margin-left: 0.25rem;
+}
+
+.tedi-textfield__icon-wrapper {
+  display: flex;
+  color: var(--form-input-text-filled);
+  transition: color 0.2s ease;
+
+  @include mixins.button-reset;
+
+  &:not(div, :disabled):hover {
+    color: var(--form-input-text-filled);
+  }
+
+  &:disabled {
+    cursor: initial;
+  }
+
+  .tedi-textfield--inline & {
+    padding: 2px 0.25rem;
+  }
+
+  .tedi-textfield__input[aria-invalid='true'] + & {
+    color: var(--form-general-feedback-error-text);
+  }
+}
+
+div.tedi-textfield__icon-wrapper {
+  cursor: initial;
+}
+
+.tedi-textfield__icon {
+  vertical-align: text-top;
+}
+
+/* Small */
+.tedi-textfield--small {
+  .tedi-textfield__input {
+    height: $input-height-small;
+
+    @include mixins.responsive-styles(font-size, body-small-regular-size);
+    @include mixins.responsive-styles(padding-left, form-field-padding-x-2);
+    @include mixins.responsive-styles(padding-right, form-field-padding-x-2);
+    @include mixins.responsive-styles(padding-top, form-field-padding-y-2);
+    @include mixins.responsive-styles(padding-bottom, form-field-padding-y-2);
+
+    @include breakpoints.media-breakpoint-down(md) {
+      height: $input-height-mobile;
+    }
+  }
+
+  &.tedi-textfield--clearable .tedi-textfield__input,
+  &.tedi-textfield--with-icon .tedi-textfield__input {
+    padding-right: 2rem;
+  }
+
+  &.tedi-textfield--clearable.tedi-textfield--with-icon .tedi-textfield__input {
+    padding-right: 4rem;
+  }
+}
+
+/* Large */
+.tedi-textfield--large {
+  .tedi-textfield__input {
+    height: $input-height-large;
+    padding: 1rem;
+
+    @include breakpoints.media-breakpoint-down(md) {
+      height: $input-height-mobile;
+    }
+  }
+
+  .tedi-textfield__separator {
+    margin-right: 0.5rem;
+    margin-left: 0.5rem;
+  }
+
+  &.tedi-textfield--clearable .tedi-textfield__input,
+  &.tedi-textfield--with-icon .tedi-textfield__input {
+    padding-right: 3.5rem;
+  }
+
+  &.tedi-textfield--clearable.tedi-textfield--with-icon .tedi-textfield__input {
+    padding-right: 6rem;
+  }
+}
+
+.tedi-textfield__feedback-wrapper {
+  display: flex;
+}

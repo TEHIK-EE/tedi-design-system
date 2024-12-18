@@ -10,6 +10,14 @@ import { Label, LabelProps } from './label';
 const meta: Meta<typeof Label> = {
   component: Label,
   title: 'TEDI-Ready/Content/Label',
+  parameters: {
+    status: {
+      type: [{ name: 'breakpointSupport', url: '?path=/docs/helpers-usebreakpointprops--usebreakpointprops' }],
+    },
+    controls: {
+      exclude: ['sm', 'md', 'lg', 'xl', 'xxl'],
+    },
+  },
 };
 
 export default meta;
@@ -53,6 +61,19 @@ export const RequiredBold: Story = {
     children: 'Active ingredient',
     required: true,
     isBold: true,
+  },
+};
+
+export const InfoButtonStory: Story = {
+  render: Template,
+
+  args: {
+    children: 'Active ingredient',
+    required: true,
+    infoButton: {
+      onClick: () => alert('More Info'),
+      children: 'More Info',
+    },
   },
 };
 

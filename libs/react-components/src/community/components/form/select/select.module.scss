@@ -1,5 +1,7 @@
 @use '../../../styles/mixins';
 
+$input-height-small: 2rem;
+
 div.select__control {
   @include mixins.print-grayscale;
 
@@ -77,8 +79,9 @@ div .select__menu {
 
 .select--small {
   & .select__control {
-    min-height: 1.875rem;
-    font-size: 0.75rem;
+    height: $input-height-small;
+    min-height: $input-height-small;
+    font-size: 0.85rem;
   }
 
   & .select__input {
@@ -94,7 +97,7 @@ div .select__menu {
 div.select__multi-value-item {
   display: flex;
   flex-shrink: 0;
-  align-items: center;
+  align-items: baseline;
 }
 
 .select__checkbox {
