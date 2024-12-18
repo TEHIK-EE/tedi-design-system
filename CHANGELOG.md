@@ -1,3 +1,15 @@
+# [10.0.0-rc.10](https://github.com/TEHIK-EE/tedi-design-system/compare/v10.0.0-rc.9...v10.0.0-rc.10) (2024-12-18)
+
+
+### Features
+
+* **textarea:** TEDI-Ready TextArea development [#282](https://github.com/TEHIK-EE/tedi-design-system/issues/282) ([#369](https://github.com/TEHIK-EE/tedi-design-system/issues/369)) ([857b441](https://github.com/TEHIK-EE/tedi-design-system/commit/857b44115d245da478dbcf0fa2a601b836fa4664)), closes [#234](https://github.com/TEHIK-EE/tedi-design-system/issues/234) [#234](https://github.com/TEHIK-EE/tedi-design-system/issues/234)
+
+
+### BREAKING CHANGES
+
+* **textarea:** Community's TextArea Removed, use TEDI-Ready TextArea, update imports
+
 # [10.0.0-rc.9](https://github.com/TEHIK-EE/tedi-design-system/compare/v10.0.0-rc.8...v10.0.0-rc.9) (2024-12-17)
 
 
