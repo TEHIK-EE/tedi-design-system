@@ -1,9 +1,9 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 
-import { useBreakpointProps } from '../../helpers';
+import { useBreakpointProps } from '../../../helpers';
 import { Alert } from './alert';
 
-jest.mock('../../helpers', () => ({
+jest.mock('../../../helpers', () => ({
   useBreakpointProps: jest.fn(),
   useIsMounted: jest.fn(() => true),
 }));

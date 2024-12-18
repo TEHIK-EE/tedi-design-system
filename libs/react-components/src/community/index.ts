@@ -29,7 +29,6 @@ export * from './components/table';
 export * from './components/table-of-contents';
 export * from './components/tabs';
 export * from './components/tag/tag';
-export * from './components/toast/toast';
 export * from './components/tooltip';
 export * from './components/status/status';
 export * from './components/vertical-progress';
