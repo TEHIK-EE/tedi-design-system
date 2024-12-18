@@ -3,6 +3,7 @@
 $btn-height: 2.5rem;
 $btn-height-small: 2rem;
 $btn-height-large: 3.5rem;
+$btn-width-large: 3.72rem;
 
 @mixin button-variant(
   $background,
@@ -167,7 +168,7 @@ $btn-height-large: 3.5rem;
   @include mixins.responsive-styles(padding-right, button-md-padding-x);
 
   &.tedi-btn--icon-only {
-    width: $btn-height-large;
+    width: $btn-width-large;
   }
 }
 

@@ -1,4 +1,8 @@
 @use '../../../styles/mixins';
+@use '../../../../shared/styles/bootstrap-utility/breakpoints';
+
+$input-height-large: 3.75rem;
+$input-height-mobile: 2.75rem;
 
 .tedi-search {
   &__wrapper {
@@ -12,6 +16,7 @@
     flex: 1;
 
     &--has-button {
+      border-right: 0;
       border-top-right-radius: 0;
       border-bottom-right-radius: 0;
     }
@@ -24,5 +29,10 @@
 
     @include mixins.responsive-styles(border-bottom-right-radius, button-radius-sm);
     @include mixins.responsive-styles(border-top-right-radius, button-radius-sm);
+
+    @include breakpoints.media-breakpoint-down(md) {
+      min-width: $input-height-mobile;
+      height: $input-height-mobile;
+    }
   }
 }

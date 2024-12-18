@@ -73,10 +73,10 @@ const TemplateColumnWithStates: StoryFn<TemplateStateProps> = (args) => {
     <div className="state-example">
       {array.map((state, index) => (
         <Row key={index} className="padding-14-16">
-          <Col width={2} className="display-flex align-items-center">
+          <Col lg={2} md={12} className="display-flex align-items-center">
             <Text modifiers="bold">{state}</Text>
           </Col>
-          <Col width={10} className="display-flex align-items-center">
+          <Col lg={10} md={12} className="display-flex align-items-center">
             <Search disabled={state === 'Disabled'} id={state} {...textFieldProps} />
           </Col>
         </Row>
