@@ -24,7 +24,6 @@ export * from './components/form/pickers';
 export * from './components/form/file-upload';
 export * from './components/form/select/select';
 export * from './components/form/text-editor/text-editor';
-export * from './components/form/textarea/textarea';
 export * from './components/form/toggle/toggle';
 export * from './components/table';
 export * from './components/table-of-contents';
