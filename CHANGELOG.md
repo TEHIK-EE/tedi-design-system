@@ -1,3 +1,17 @@
+# [10.0.0-rc.11](https://github.com/TEHIK-EE/tedi-design-system/compare/v10.0.0-rc.10...v10.0.0-rc.11) (2024-12-18)
+
+
+### Features
+
+* **toast:** TEDI-Ready Toast component development [#356](https://github.com/TEHIK-EE/tedi-design-system/issues/356) ([#375](https://github.com/TEHIK-EE/tedi-design-system/issues/375)) ([850286a](https://github.com/TEHIK-EE/tedi-design-system/commit/850286a5cd6ccd90c51f47441f51d70d584081cd))
+
+
+### BREAKING CHANGES
+
+* **toast:** Community Toast removed, use TEDI-Ready Toast and update imports
+
+Co-authored-by: Airike Jaska <airike.jaska@bitweb.ee>
+
 # [10.0.0-rc.10](https://github.com/TEHIK-EE/tedi-design-system/compare/v10.0.0-rc.9...v10.0.0-rc.10) (2024-12-18)
 
 
