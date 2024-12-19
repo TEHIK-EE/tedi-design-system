@@ -1,4 +1,4 @@
-@import '../../../../../core-styles/mixins';
+@use '@tehik-ee/tedi-core/src/mixins';
 
 @mixin alert-variant($background, $border) {
   color: var(--general-text-primary);
@@ -10,15 +10,15 @@
   border: 1px solid;
 
   @include alert-variant(var(--alert-default-background-info), var(--alert-default-border-info));
-  @include responsive-styles(font-size, body-regular-size);
-  @include responsive-styles(border-radius, alert-radius);
-  @include responsive-styles(padding, alert-default-padding-y alert-default-padding-x);
+  @include mixins.responsive-styles(font-size, body-regular-size);
+  @include mixins.responsive-styles(border-radius, alert-radius);
+  @include mixins.responsive-styles(padding, alert-default-padding-y alert-default-padding-x);
 
   &__content {
     display: flex;
     align-items: center;
 
-    @include responsive-styles(gap, alert-default-inner-spacing-x);
+    @include mixins.responsive-styles(gap, alert-default-inner-spacing-x);
   }
 
   &--info {

@@ -1,6 +1,6 @@
-@import '../../../../../../core-styles/mixins';
+@use '@tehik-ee/tedi-core/src/mixins';
 
 .tedi-info-button {
-  @include responsive-styles(width, button-xs-icon-size);
-  @include responsive-styles(height, button-xs-icon-size);
+  @include mixins.responsive-styles(width, button-xs-icon-size);
+  @include mixins.responsive-styles(height, button-xs-icon-size);
 }

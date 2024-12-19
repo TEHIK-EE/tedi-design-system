@@ -1,5 +1,6 @@
-@import '@tehik-ee/core-styles/src/index';
-@import 'components/datepicker';
-@import 'components/calendar';
-@import 'components/text-editor';
-@import 'components/toast';
+@use '@tehik-ee/tedi-core/src/index';
+@use 'components/datepicker';
+@use 'components/calendar';
+@use 'components/text-editor';
+@use 'components/toast';
+@import '../../../design-tokens/index';

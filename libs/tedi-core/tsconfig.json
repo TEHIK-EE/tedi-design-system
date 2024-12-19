@@ -1,0 +1,11 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "module": "commonjs",
+    "paths": {
+      "@tehik-ee/tedi-core-styles": ["libs/core-styles"]
+    }
+  },
+  "include": [],
+  "files": []
+}

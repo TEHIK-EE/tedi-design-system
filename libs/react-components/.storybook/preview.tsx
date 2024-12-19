@@ -1,6 +1,5 @@
 import { Controls, Description, Primary, Stories, Subtitle, Title } from '@storybook/blocks';
-import { Preview } from '@storybook/react';
-import React from 'react';
+import { Preview, StoryContext } from '@storybook/react';
 
 import StorybookDecorator from './storybook-decorator';
 
@@ -11,9 +10,9 @@ import '../src/community/styles/storybook.scss';
 import 'what-input';
 
 export const decorators = [
-  (Story, options) => {
+  (Story: React.ComponentType, context: StoryContext) => {
     // prevent LabelProvider for label story, because it sets its own provider
-    return options.componentId === 'components-labelprovider' ? (
+    return context.componentId === 'components-labelprovider' ? (
       <Story />
     ) : (
       <StorybookDecorator>

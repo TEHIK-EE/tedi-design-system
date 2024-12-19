@@ -1,4 +1,4 @@
-@import '../../../../../../core-styles/mixins';
+@use '@tehik-ee/tedi-core/src/mixins';
 
 .tedi-closing-button {
   --general-icon-primary: var(--button-close-text-default);
@@ -12,7 +12,7 @@
   border: 1px solid var(--button-close-background-default);
   transition: background 0.5s ease;
 
-  @include responsive-styles(border-radius, button-radius-default);
+  @include mixins.responsive-styles(border-radius, button-radius-default);
 
   @each $state in hover, active, focus {
     &:#{ $state } {
@@ -27,12 +27,12 @@
   }
 
   &--medium {
-    @include responsive-styles(width, button-xs-icon-size);
-    @include responsive-styles(height, button-xs-icon-size);
+    @include mixins.responsive-styles(width, button-xs-icon-size);
+    @include mixins.responsive-styles(height, button-xs-icon-size);
   }
 
   &--large {
-    @include responsive-styles(width, button-sm-icon-size);
-    @include responsive-styles(height, button-sm-icon-size);
+    @include mixins.responsive-styles(width, button-sm-icon-size);
+    @include mixins.responsive-styles(height, button-sm-icon-size);
   }
 }

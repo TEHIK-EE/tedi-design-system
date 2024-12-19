@@ -1,4 +1,5 @@
-@import './mixins';
+@use "mixins";
+@use "bootstrap-utility/breakpoints";
 
 html,
 body {
@@ -13,9 +14,21 @@ body {
   box-sizing: border-box;
   color: var(--general-text-primary);
 
-  @include responsive-styles(font-family, family-primary, $exclude: tablet);
-  @include responsive-styles(line-height, body-regular-line-height, $exclude: tablet);
-  @include responsive-styles(font-size, body-regular-size, $exclude: tablet);
+  @include mixins.responsive-styles(
+    font-family,
+    family-primary,
+    $exclude: tablet
+  );
+  @include mixins.responsive-styles(
+    line-height,
+    body-regular-line-height,
+    $exclude: tablet
+  );
+  @include mixins.responsive-styles(
+    font-size,
+    body-regular-size,
+    $exclude: tablet
+  );
 }
 
 *,
@@ -29,7 +42,7 @@ body {
  * Set '--global-outline-color' and '--global-outline-offset' inside component scope
  */
 *:where(:focus) {
-  @include focus-element;
+  @include mixins.focus-element;
 }
 
 body,
@@ -83,7 +96,7 @@ a {
 }
 
 .scroll-disabled {
-  @include media-breakpoint-down(lg) {
+  @include breakpoints.media-breakpoint-down(lg) {
     height: 100%;
     overflow-y: hidden;
   }

@@ -1,14 +1,9 @@
-import { withoutVitePlugins } from '@storybook/builder-vite';
 import { StorybookConfig } from '@storybook/react-vite';
 import { join } from 'path';
+import { withoutVitePlugins } from '@storybook/builder-vite';
 import checker from 'vite-plugin-checker';
 
-// eslint-disable-next-line @nx/enforce-module-boundaries
-import rootMain from '../../../.storybook/main';
-
 const config: StorybookConfig = {
-  ...rootMain,
-  core: { ...rootMain.core },
   stories: [
     '../src/shared/docs/_welcome.mdx',
     '../src/shared/docs/getStarted.mdx',
@@ -21,6 +16,23 @@ const config: StorybookConfig = {
     '../src/community/**/**/*.stories.tsx',
     '../src/community/**/**/*.mdx',
   ],
+  addons: [
+    '@storybook/addon-essentials',
+    '@storybook/addon-a11y',
+    '@avalane/storybook-addon-status',
+    'storybook-addon-pseudo-states',
+  ],
+  core: {
+    builder: '@storybook/builder-vite',
+  },
+  staticDirs: ['../public'],
+  framework: {
+    name: '@storybook/react-vite',
+    options: {},
+  },
+  docs: {
+    autodocs: true,
+  },
   typescript: {
     reactDocgen: 'react-docgen-typescript',
     reactDocgenTypescriptOptions: {
@@ -28,12 +40,10 @@ const config: StorybookConfig = {
       shouldRemoveUndefinedFromOptional: true,
     },
   },
-  addons: rootMain.addons || [],
   async viteFinal(config, { configType }) {
     return {
       ...config,
       define: {
-        // Fix to process.env variables not being defined with vite
         'process.env.JEST_WORKER_ID': JSON.stringify(process.env.JEST_WORKER_ID),
         'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
       },
@@ -42,13 +52,12 @@ const config: StorybookConfig = {
           config.plugins,
           checker({
             overlay: false,
-
             ...(configType === 'DEVELOPMENT'
               ? {
                   eslint: {
                     lintCommand: 'eslint "./**/*.{ts,tsx}"',
                     dev: {
-                      logLevel: ['error'], // show only eslint errors
+                      logLevel: ['error'],
                     },
                   },
                 }

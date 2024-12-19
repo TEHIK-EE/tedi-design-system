@@ -1,23 +1,26 @@
+@use "sass:map";
+@use "../variables/bootstrap-variables" as vars;
+
 // Utilities
 
 $utilities: () !default;
 // stylelint-disable-next-line scss/dollar-variable-default
-$utilities: map-merge(
+$utilities: map.merge(
   (
-    'flex': (
+    "flex": (
       responsive: true,
       property: flex,
       values: (
         fill: 1 1 auto,
       ),
     ),
-    'flex-direction': (
+    "flex-direction": (
       responsive: true,
       property: flex-direction,
       class: flex,
       values: row column row-reverse column-reverse,
     ),
-    'flex-grow': (
+    "flex-grow": (
       responsive: true,
       property: flex-grow,
       class: flex,
@@ -26,7 +29,7 @@ $utilities: map-merge(
         grow-1: 1,
       ),
     ),
-    'flex-shrink': (
+    "flex-shrink": (
       responsive: true,
       property: flex-shrink,
       class: flex,
@@ -35,13 +38,13 @@ $utilities: map-merge(
         shrink-1: 1,
       ),
     ),
-    'flex-wrap': (
+    "flex-wrap": (
       responsive: true,
       property: flex-wrap,
       class: flex,
       values: wrap nowrap wrap-reverse,
     ),
-    'justify-content': (
+    "justify-content": (
       responsive: true,
       property: justify-content,
       values: (
@@ -53,7 +56,7 @@ $utilities: map-merge(
         evenly: space-evenly,
       ),
     ),
-    'align-items': (
+    "align-items": (
       responsive: true,
       property: align-items,
       values: (
@@ -64,7 +67,7 @@ $utilities: map-merge(
         stretch: stretch,
       ),
     ),
-    'align-self': (
+    "align-self": (
       responsive: true,
       property: align-self,
       values: (
@@ -76,7 +79,7 @@ $utilities: map-merge(
         stretch: stretch,
       ),
     ),
-    'order': (
+    "order": (
       responsive: true,
       property: order,
       values: (
@@ -90,11 +93,11 @@ $utilities: map-merge(
         last: 6,
       ),
     ),
-    'gap': (
+    "gap": (
       responsive: true,
       property: gap,
       class: gap,
-      values: $spacers,
+      values: vars.$spacers,
     ),
   ),
   $utilities

@@ -1,5 +1,5 @@
 {
-  "name": "@tehik-ee/tedi-design-system-angular",
+  "name": "@tehik-ee/tedi-angular",
   "version": "0.0.0-semantic-version",
   "type": "module",
   "main": "community.mjs",
@@ -15,26 +15,60 @@
     },
     "./index.css": "./index.css"
   },
+  "scripts": {
+    "start": "storybook dev -p 6006 -c .storybook",
+    "build": "ng build angular-components --configuration=production",
+    "build:sb": "storybook build -c .storybook -o dist/storybook/angular-components",
+    "storybook": "ng run angular-components:storybook",
+    "build-storybook": "ng run angular-components:build-storybook"
+  },
   "peerDependencies": {
-    "@angular/core": "^18.2.0",
-    "@angular/common": "^18.2.0",
-    "@angular/forms": "^18.2.0",
     "@angular/animations": "^18.2.0",
     "@angular/cdk": "^18.2.0",
+    "@angular/common": "^18.2.0",
+    "@angular/core": "^18.2.0",
+    "@angular/forms": "^18.2.0",
     "@angular/material": "^18.2.0",
-    "rxjs": "^7.0.0",
-    "tslib": "^2.5.0",
+    "dayjs": "*",
     "lodash-es": "*",
-    "dayjs": "*"
+    "rxjs": "^7.0.0",
+    "tslib": "^2.5.0"
   },
   "dependencies": {
-    "tslib": "^2.5.0"
+    "@angular/common": "^18.2.0",
+    "@angular/compiler": "~18.2.0",
+    "@angular/core": "^18.2.0",
+    "@angular/forms": "^18.2.0",
+    "@angular/platform-browser": "~18.2.0",
+    "@angular/platform-browser-dynamic": "~18.2.0",
+    "@angular/router": "~18.2.0",
+    "rxjs": "^7.0.0"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "~18.2.0",
+    "@angular-devkit/core": "~18.2.0",
+    "@angular-devkit/schematics": "~18.2.0",
+    "@angular/cli": "~18.2.0",
+    "@angular/compiler-cli": "~18.2.0",
+    "@angular/language-service": "~18.2.0",
+    "@chromatic-com/storybook": "^3.2.3",
+    "@compodoc/compodoc": "^1.1.26",
+    "@schematics/angular": "~18.2.0",
+    "@storybook/addon-a11y": "^8.4.7",
+    "@storybook/addon-docs": "^8.4.7",
+    "@storybook/addon-essentials": "^8.4.7",
+    "@storybook/addon-interactions": "^8.4.7",
+    "@storybook/addon-onboarding": "^8.4.7",
+    "@storybook/angular": "^8.4.7",
+    "@storybook/blocks": "^8.4.7",
+    "@storybook/manager-api": "^8.4.7",
+    "@storybook/test": "^8.4.7",
+    "@storybook/theming": "^8.4.7",
+    "angular-eslint": "^18.4.2",
+    "ng-packagr": "^18.2.0",
+    "storybook": "^8.4.7"
   },
   "overrides": {
     "dayjs": "$dayjs"
-  },
-  "scripts": {
-    "build": "nx build tedi-design-system",
-    "test": "nx test tedi-design-system"
   }
 }

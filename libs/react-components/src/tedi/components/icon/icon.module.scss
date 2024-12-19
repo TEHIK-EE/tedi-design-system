@@ -1,4 +1,4 @@
-@import '../../../../../core-styles/mixins';
+@use '@tehik-ee/tedi-core/src/mixins';
 
 $icon-colors: (
   'primary': 'general-icon-primary',
@@ -54,8 +54,8 @@ $icon-sizes: (
 
     @each $size, $vars in $icon-sizes {
       &.tedi-icon__wrapper--size-#{$size} {
-        @include responsive-styles(width, $vars, null, '* 2');
-        @include responsive-styles(height, $vars, null, '* 2');
+        @include mixins.responsive-styles(width, $vars, null, '* 2');
+        @include mixins.responsive-styles(height, $vars, null, '* 2');
       }
     }
   }
@@ -79,7 +79,7 @@ $icon-sizes: (
 
   @each $size, $vars in $icon-sizes {
     &--size-#{$size} {
-      @include responsive-styles(font-size, $vars);
+      @include mixins.responsive-styles(font-size, $vars);
     }
   }
 

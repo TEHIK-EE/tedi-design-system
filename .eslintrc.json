@@ -1,71 +1,37 @@
 {
   "root": true,
-  "ignorePatterns": ["**/*"],
-  "plugins": ["@nx", "simple-import-sort"],
+  "ignorePatterns": [
+    "node_modules",
+    "dist",
+    "coverage",
+    "libs/react-components/**",
+    "libs/angular-components/**"
+  ],
+  "plugins": ["simple-import-sort"],
   "parser": "@typescript-eslint/parser",
   "extends": [
     "eslint:recommended",
-    "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
-    "next",
-    "plugin:storybook/recommended",
-    "prettier",
     "plugin:prettier/recommended"
   ],
-  "overrides": [
-    {
-      "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
-      "rules": {
-        "@nx/enforce-module-boundaries": [
-          "error",
-          {
-            "enforceBuildableLibDependency": true,
-            "allow": ["libs/react-components/community", "libs/react-components/tedi"],
-            "depConstraints": [
-              {
-                "sourceTag": "*",
-                "onlyDependOnLibsWithTags": ["*"]
-              }
-            ]
-          }
-        ],
-        "simple-import-sort/imports": [
-          "error",
-          {
-            "groups": [
-              // Packages.
-              // Things that start with a letter (or digit or underscore), or `@` followed by a letter.
-              ["^@?\\w"],
-              // All imports from @ria scope.
-              ["^@ria."],
-              // Relative imports.
-              // Anything that starts with a dot.
-              ["^\\."],
-              // Absolute imports and other imports such as Vue-style `@/foo`.
-              // Anything that does not start with a dot.
-              ["^[^.]"],
-              // Side effect imports.
-              ["^\\u0000"]
-            ]
-          }
-        ],
-        "eqeqeq": ["error", "always"],
-        "object-property-newline": ["error", { "allowAllPropertiesOnSameLine": true }],
-        "object-curly-spacing": ["error", "always"],
-        "quotes": ["error", "single"],
-        "jsx-quotes": ["error", "prefer-double"],
-        "react/jsx-curly-brace-presence": ["error"]
+  "rules": {
+    "simple-import-sort/imports": [
+      "error",
+      {
+        "groups": [
+          ["^@?\\w"], // External packages
+          ["^\\."], // Relative imports
+          ["^[^.]"], // Absolute imports
+          ["^\\u0000"] // Special imports (e.g., CSS, images)
+        ]
       }
-    },
-    {
-      "files": ["*.ts", "*.tsx"],
-      "extends": ["plugin:@nx/typescript"],
-      "rules": {}
-    },
-    {
-      "files": ["*.js", "*.jsx"],
-      "extends": ["plugin:@nx/javascript"],
-      "rules": {}
-    }
-  ]
+    ],
+    "eqeqeq": ["error", "always"],
+    "object-property-newline": [
+      "error",
+      { "allowAllPropertiesOnSameLine": true }
+    ],
+    "object-curly-spacing": ["error", "always"],
+    "quotes": ["error", "single"]
+  }
 }

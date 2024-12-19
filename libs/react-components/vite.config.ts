@@ -1,4 +1,3 @@
-import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin';
 import reactPlugin from '@vitejs/plugin-react';
 import path from 'node:path';
 import { join } from 'path';
@@ -14,7 +13,6 @@ const config: UserConfig = {
   mode: 'production',
   publicDir: join(__dirname, 'public'),
   plugins: [
-    nxViteTsPaths(),
     dts({
       tsconfigPath: join(__dirname, './tsconfig.lib.json'),
     }),
@@ -22,7 +20,7 @@ const config: UserConfig = {
     checker({
       overlay: false,
       eslint: {
-        lintCommand: 'eslint "./libs/react-components/src/**/*.{ts,tsx}"',
+        lintCommand: 'eslint "src/**/*.{ts,tsx}"',
       },
       typescript: {
         root: join(__dirname),
@@ -36,7 +34,7 @@ const config: UserConfig = {
   ],
   css: {
     modules: {
-      generateScopedName: '[local]-[hash:8]',
+      generateScopedName: '[name]__[local]___[hash:base64:5]',
       localsConvention: undefined,
     },
   },

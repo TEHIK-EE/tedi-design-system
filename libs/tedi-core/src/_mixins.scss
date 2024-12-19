@@ -1,3 +1,7 @@
+@use "sass:string";
+@use "sass:map";
+@use "sass:meta";
+
 $breakpoints: (
   xs: 0,
   sm: 576px,
@@ -8,7 +12,7 @@ $breakpoints: (
 );
 
 @function construct-variables($variable-names, $suffix, $calc) {
-  $result: '';
+  $result: "";
 
   @each $name in $variable-names {
     $result: #{$result} apply-calculation(var(--#{$name}-#{$suffix}), $calc);
@@ -28,8 +32,8 @@ $breakpoints: (
 @mixin responsive-styles($property, $names, $exclude: null, $calc: null) {
   $variable-names: ();
 
-  @if type-of($names) == 'string' {
-    $variable-names: (str-slice($names, 1, -1));
+  @if meta.type-of($names) == "string" {
+    $variable-names: (string.slice($names, 1, -1));
   } @else {
     $variable-names: $names;
   }
@@ -38,14 +42,14 @@ $breakpoints: (
     #{$property}: #{construct-variables($variable-names, mobile, $calc)};
   }
 
-  @if $exclude != 'tablet' {
-    @media (min-width: map-get($breakpoints, sm)) {
+  @if $exclude != "tablet" {
+    @media (min-width: map.get($breakpoints, sm)) {
       #{$property}: #{construct-variables($variable-names, tablet, $calc)};
     }
   }
 
-  @if $exclude != 'desktop' {
-    @media (min-width: map-get($breakpoints, lg)) {
+  @if $exclude != "desktop" {
+    @media (min-width: map.get($breakpoints, lg)) {
       #{$property}: #{construct-variables($variable-names, desktop, $calc)};
     }
   }
@@ -67,20 +71,20 @@ $breakpoints: (
   border: 0 !important;
 }
 
-@mixin table-cell-selector($selector: 'all') {
-  @if $selector == 'thead' or $selector == 'all' {
+@mixin table-cell-selector($selector: "all") {
+  @if $selector == "thead" or $selector == "all" {
     & > thead > tr > th {
       @content;
     }
   }
 
-  @if $selector == 'tbody' or $selector == 'all' {
+  @if $selector == "tbody" or $selector == "all" {
     & > tbody > tr > td {
       @content;
     }
   }
 
-  @if $selector == 'tfoot' or $selector == 'all' {
+  @if $selector == "tfoot" or $selector == "all" {
     & > tfoot > tr > th {
       @content;
     }
@@ -92,7 +96,7 @@ $breakpoints: (
   outline: 2px solid var(--global-outline-color, var(--color-primary-main));
   outline-offset: var(--global-outline-offset, 1px);
 
-  html:not([data-whatintent='keyboard']) & {
+  html:not([data-whatintent="keyboard"]) & {
     outline: none;
   }
 }

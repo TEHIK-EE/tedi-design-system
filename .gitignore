@@ -46,8 +46,9 @@ Thumbs.db
 .netlify
 
 migrations.json
-/.nx
 
 .angular
 
 documentation.json
+
+*storybook.log

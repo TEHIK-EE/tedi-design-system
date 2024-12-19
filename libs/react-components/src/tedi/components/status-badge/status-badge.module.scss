@@ -1,4 +1,4 @@
-@import '../../../../../core-styles/mixins';
+@use '@tehik-ee/tedi-core/src/mixins';
 
 $badge-colors: ('neutral', 'brand', 'accent', 'success', 'danger', 'warning', 'transparent');
 $badge-variants: ('filled', 'filled-bordered', 'bordered');
@@ -15,22 +15,22 @@ $badge-status-colors: ('inactive', 'success', 'danger', 'warning');
   align-items: center;
   justify-content: center;
 
-  @include responsive-styles(font-size, body-small-regular-size, $exclude: tablet);
-  @include responsive-styles(font-weight, body-small-regular-weight, $exclude: tablet);
-  @include responsive-styles(line-height, body-small-regular-line-height, $exclude: tablet);
-  @include responsive-styles(padding, tag-default-padding-y tag-default-padding-x);
-  @include responsive-styles(border-radius, tag-default-radius);
+  @include mixins.responsive-styles(font-size, body-small-regular-size, $exclude: tablet);
+  @include mixins.responsive-styles(font-weight, body-small-regular-weight, $exclude: tablet);
+  @include mixins.responsive-styles(line-height, body-small-regular-line-height, $exclude: tablet);
+  @include mixins.responsive-styles(padding, tag-default-padding-y tag-default-padding-x);
+  @include mixins.responsive-styles(border-radius, tag-default-radius);
 
   &__inner-text {
     min-width: fit-content;
 
-    @include responsive-styles(padding-left, tag-default-inner-spacing);
-    @include responsive-styles(padding-right, tag-default-inner-spacing);
+    @include mixins.responsive-styles(padding-left, tag-default-inner-spacing);
+    @include mixins.responsive-styles(padding-right, tag-default-inner-spacing);
   }
 
   &--large {
-    @include responsive-styles(min-width, tag-status-large-min-width);
-    @include responsive-styles(padding, tag-status-large-padding-y tag-status-large-padding-x);
+    @include mixins.responsive-styles(min-width, tag-status-large-min-width);
+    @include mixins.responsive-styles(padding, tag-status-large-padding-y tag-status-large-padding-x);
   }
 
   @each $variant in $badge-variants {
@@ -87,7 +87,7 @@ $badge-status-colors: ('inactive', 'success', 'danger', 'warning');
     align-items: center;
     min-height: 24px;
 
-    @include responsive-styles(line-height, body-small-regular-line-height);
+    @include mixins.responsive-styles(line-height, body-small-regular-line-height);
   }
 
   &__icon-primary {

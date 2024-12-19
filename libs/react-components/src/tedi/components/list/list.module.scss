@@ -1,11 +1,11 @@
-@import '../../../../../core-styles/mixins';
+@use '@tehik-ee/tedi-core/src/mixins';
 
 .tedi-list {
   &:not([data-name='vertical-spacing']) {
     .tedi-list__item {
       &:not([data-name='vertical-spacing-item']) {
-        @include responsive-styles(margin-top, list-list-item-margin-y);
-        @include responsive-styles(margin-bottom, list-list-item-margin-y);
+        @include mixins.responsive-styles(margin-top, list-list-item-margin-y);
+        @include mixins.responsive-styles(margin-bottom, list-list-item-margin-y);
       }
     }
   }
@@ -14,7 +14,7 @@
 .tedi-list--unordered {
   list-style: none;
 
-  @include responsive-styles(padding-left, list-padding-left-level-1);
+  @include mixins.responsive-styles(padding-left, list-padding-left-level-1);
 
   .tedi-list__item {
     position: relative;
@@ -28,8 +28,8 @@
       border: 2px solid var(--list-icon);
       border-radius: 50%;
 
-      @include responsive-styles(width, list-icon-size);
-      @include responsive-styles(height, list-icon-size);
+      @include mixins.responsive-styles(width, list-icon-size);
+      @include mixins.responsive-styles(height, list-icon-size);
     }
 
     ul.tedi-list .tedi-list__item::before {
@@ -37,8 +37,8 @@
     }
 
     ul.tedi-list .tedi-list__item ul.tedi-list .tedi-list__item::before {
-      @include responsive-styles(width, list-icon-size, null, '* 0.9');
-      @include responsive-styles(height, list-icon-size, null, '* 0.9');
+      @include mixins.responsive-styles(width, list-icon-size, null, '* 0.9');
+      @include mixins.responsive-styles(height, list-icon-size, null, '* 0.9');
     }
   }
 
@@ -51,7 +51,7 @@
   list-style: none;
   counter-reset: item;
 
-  @include responsive-styles(padding-left, list-padding-left-level-1);
+  @include mixins.responsive-styles(padding-left, list-padding-left-level-1);
 
   .tedi-list__item {
     counter-increment: item;
@@ -63,7 +63,7 @@
     ol.tedi-list--ordered {
       counter-reset: subitem;
 
-      @include responsive-styles(padding-left, list-padding-left-level-1);
+      @include mixins.responsive-styles(padding-left, list-padding-left-level-1);
     }
 
     ol.tedi-list--ordered .tedi-list__item {

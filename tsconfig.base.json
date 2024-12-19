@@ -17,18 +17,17 @@
     "baseUrl": ".",
     "paths": {
       "@tehik-ee/angular-components": ["angular-components/src/index.ts"],
-      "@tehik-ee/design-tokens": ["libs/react-components/design-tokens/tokens.js"],
-      "@tehik-ee/tedi-design-system/community": ["libs/react-components/src/community/index.ts"],
-      "@tehik-ee/tedi-design-system/tedi": ["libs/react-components/src/tedi/index.ts"]
-    },
-    "plugins": [
-      {
-        "name": "typescript-plugin-css-modules",
-        "options": {
-          "customTemplate": "../../customTemplate.cjs"
-        }
-      }
-    ]
+      "@tehik-ee/design-tokens": [
+        "libs/react-components/design-tokens/tokens.js"
+      ],
+      "@tehik-ee/tedi-design-system/community": [
+        "libs/react-components/src/community/index.ts"
+      ],
+      "@tehik-ee/tedi-design-system/tedi": [
+        "libs/react-components/src/tedi/index.ts"
+      ],
+      "@tehik-ee/tedi-core": ["libs/tedi-core/*"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

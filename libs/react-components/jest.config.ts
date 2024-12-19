@@ -1,13 +1,13 @@
-const jestConfig = {
-  displayName: 'components',
-  preset: '../../jest.preset.js',
+import type { Config } from 'jest';
+
+const config: Config = {
+  roots: ['<rootDir>'],
+  testEnvironment: 'jsdom',
   transform: {
-    '^.+\\.[tj]sx?$': ['babel-jest', { presets: ['@nx/react/babel'] }],
+    '^.+\\.(ts|tsx|js|jsx)$': 'ts-jest',
   },
-  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
-  transformIgnorePatterns: ['/node_modules/(?!(lodash-es)/)'],
-  coverageDirectory: '../../coverage/libs/react-components/community',
-  setupFilesAfterEnv: ['<rootDir>/jest-setup.js'],
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json'],
+  collectCoverageFrom: ['**/*.{ts,tsx}', '!**/node_modules/**', '!**/dist/**'],
 };
 
-export default jestConfig;
+export default config;
