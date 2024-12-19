@@ -1,26 +1,35 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
   "projects": {
     "angular-components": {
       "projectType": "library",
-      "root": "libs/angular-components",
-      "sourceRoot": "libs/angular-components/src",
+      "root": ".",
+      "sourceRoot": ".",
       "architect": {
         "storybook": {
           "builder": "@storybook/angular:start-storybook",
           "options": {
-            "browserTarget": "angular-components:build"
+            "configDir": "./.storybook",
+            "compodoc": true,
+            "compodocArgs": ["-e", "json", "-d", "."],
+            "port": 6006
           }
         },
         "build-storybook": {
           "builder": "@storybook/angular:build-storybook",
           "options": {
-            "configDir": "./libs/angular-components/.storybook",
-            "outputDir": "./dist/storybook/angular-components",
-            "browserTarget": "angular-components:build"
+            "configDir": "./.storybook",
+            "browserTarget": "angular-components:build",
+            "compodoc": true,
+            "compodocArgs": ["-e", "json", "-d", "."],
+            "outputDir": "storybook-static"
           }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }

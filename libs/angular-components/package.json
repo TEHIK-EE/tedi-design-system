@@ -16,7 +16,7 @@
     "./index.css": "./index.css"
   },
   "scripts": {
-    "start": "storybook dev -p 6006 -c .storybook",
+    "start": "ng run angular-components:storybook",
     "build": "ng build angular-components --configuration=production",
     "build:sb": "storybook build -c .storybook -o dist/storybook/angular-components",
     "storybook": "ng run angular-components:storybook",
@@ -42,6 +42,7 @@
     "@angular/platform-browser": "~18.2.0",
     "@angular/platform-browser-dynamic": "~18.2.0",
     "@angular/router": "~18.2.0",
+    "@tehik-ee/tedi-core": "^1.0.0",
     "rxjs": "^7.0.0"
   },
   "devDependencies": {
@@ -70,5 +71,8 @@
   },
   "overrides": {
     "dayjs": "$dayjs"
-  }
+  },
+  "workspaces": [
+    "../tedi-core"
+  ]
 }

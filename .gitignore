@@ -4,6 +4,8 @@
 
 # compiled output
 /dist
+/libs/react-components/dist
+/libs/angular-components/dist
 /tmp
 /out-tsc
 

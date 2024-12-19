@@ -1,7 +1,7 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "outDir": "../../dist/out-tsc",
+    "outDir": "dist/out-tsc",
     "module": "commonjs",
     "types": ["jest", "node", "@testing-library/jest-dom", "@types/css-modules"]
   },
@@ -15,7 +15,6 @@
     "**/*.spec.js",
     "**/*.test.jsx",
     "**/*.spec.jsx",
-    "**/*.d.ts",
-    "declaration.d.ts"
+    "**/*.d.ts"
   ]
 }

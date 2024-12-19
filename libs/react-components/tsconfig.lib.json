@@ -1,8 +1,8 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "outDir": "../../dist/",
-    "types": ["node"],
+    "outDir": "dist/",
+    "types": ["node", "@types/css-modules/index.d.ts"],
     "declaration": true
   },
   "files": ["./declaration.d.ts"],
@@ -21,5 +21,5 @@
     "**/*.stories.jsx",
     "**/*.stories.tsx"
   ],
-  "include": ["**/*.js", "**/*.jsx", "**/*.ts", "**/*.tsx", "declaration.d.ts"]
+  "include": ["**/*.js", "**/*.jsx", "**/*.ts", "**/*.tsx"]
 }

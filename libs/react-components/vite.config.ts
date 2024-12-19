@@ -5,6 +5,7 @@ import { visualizer } from 'rollup-plugin-visualizer';
 import { defineConfig, PluginOption, UserConfig } from 'vite';
 import checker from 'vite-plugin-checker';
 import dts from 'vite-plugin-dts';
+import { viteStaticCopy } from 'vite-plugin-static-copy';
 
 const config: UserConfig = {
   define: {
@@ -31,10 +32,18 @@ const config: UserConfig = {
       filename: './dist/bundle-stats.html',
       title: '@tehik-ee/tedi-design-system bundle stats',
     }) as PluginOption,
+    viteStaticCopy({
+      targets: [
+        {
+          src: ['package.json', 'README.md'],
+          dest: './',
+        },
+      ],
+    }),
   ],
   css: {
     modules: {
-      generateScopedName: '[name]__[local]___[hash:base64:5]',
+      generateScopedName: '[local]-[hash:8]',
       localsConvention: undefined,
     },
   },
@@ -54,7 +63,7 @@ const config: UserConfig = {
     rollupOptions: {
       external: ['next', 'react', 'react/jsx-runtime', 'react-dom', 'dayjs', 'lodash-es', 'classnames'],
       output: {
-        dir: join(__dirname, '../../dist'),
+        dir: join(__dirname, 'dist'),
         assetFileNames: (assetInfo) => {
           if (assetInfo.name === 'style.css') return 'index.css';
           return assetInfo.name || '';
