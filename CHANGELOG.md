@@ -1,3 +1,11 @@
+## [10.0.1-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/v10.0.0...v10.0.1-rc.1) (2024-12-20)
+
+
+### Bug Fixes
+
+* **select:** add cacheOptions as a prop for Select ([#384](https://github.com/TEHIK-EE/tedi-design-system/issues/384)) ([3b1ecc2](https://github.com/TEHIK-EE/tedi-design-system/commit/3b1ecc2cac18700b1f621ccc5afbe28e9a13b139))
+* **select:** cache options prop [#383](https://github.com/TEHIK-EE/tedi-design-system/issues/383) ([#385](https://github.com/TEHIK-EE/tedi-design-system/issues/385)) ([799a989](https://github.com/TEHIK-EE/tedi-design-system/commit/799a989af8e440810d865db7f5bb728fa27ff14d))
+
 # [10.0.0](https://github.com/TEHIK-EE/tedi-design-system/compare/v9.0.0...v10.0.0) (2024-12-20)
 
 
