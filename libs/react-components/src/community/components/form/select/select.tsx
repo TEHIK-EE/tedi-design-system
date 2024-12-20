@@ -2,6 +2,7 @@ import cn from 'classnames';
 import React, { forwardRef, ReactElement } from 'react';
 import ReactSelect, {
   ClearIndicatorProps,
+  components as ReactSelectComponents,
   ControlProps,
   GroupBase,
   GroupHeadingProps,
@@ -16,7 +17,6 @@ import ReactSelect, {
   OptionProps,
   OptionsOrGroups,
   PlaceholderProps,
-  components as ReactSelectComponents,
   SelectComponentsConfig,
   SelectInstance,
 } from 'react-select';
