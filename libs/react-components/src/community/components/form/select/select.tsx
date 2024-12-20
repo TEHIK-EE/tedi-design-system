@@ -264,6 +264,11 @@ export interface SelectProps extends FormLabelProps {
    * Option group heading background color. Can also be set for each option group separately inside `options` prop.
    */
   optionGroupBackgroundColor?: TColorsBackground;
+  /**
+   * If options should be cached
+   * @default true
+   */
+  cacheOptions?: boolean;
 }
 
 export interface ISelectOption<CustomData = unknown> {
