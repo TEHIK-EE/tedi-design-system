@@ -2,7 +2,6 @@ import cn from 'classnames';
 import React, { forwardRef, ReactElement } from 'react';
 import ReactSelect, {
   ClearIndicatorProps,
-  components as ReactSelectComponents,
   ControlProps,
   GroupBase,
   GroupHeadingProps,
@@ -17,6 +16,7 @@ import ReactSelect, {
   OptionProps,
   OptionsOrGroups,
   PlaceholderProps,
+  components as ReactSelectComponents,
   SelectComponentsConfig,
   SelectInstance,
 } from 'react-select';
@@ -264,6 +264,11 @@ export interface SelectProps extends FormLabelProps {
    * Option group heading background color. Can also be set for each option group separately inside `options` prop.
    */
   optionGroupBackgroundColor?: TColorsBackground;
+  /**
+   * If options should be cached
+   * @default true
+   */
+  cacheOptions?: boolean;
 }
 
 export interface ISelectOption<CustomData = unknown> {
