@@ -132,13 +132,21 @@ const InternalButtonContent = forwardRef(
           { [styles['tedi-btn--full-width']]: fullWidth },
           className
         )
-      : cn(styles['tedi-btn--no-style'], className, { [styles['tedi-btn--full-width']]: fullWidth });
+      : cn(styles['tedi-btn--no-style'], { [styles['tedi-btn--full-width']]: fullWidth }, className);
 
     const getIcon = (location: string, icon: string | IconProps): JSX.Element => {
       const iconBEM = cn(styles['tedi-btn__icon'], styles[`tedi-btn__icon--${location}`], {
         [styles['tedi-btn__spinner']]: isLoading,
       });
-      const defaultIconProps: Partial<IconProps> = { size: 18, className: iconBEM };
+
+      const isLink = visualType === 'link';
+
+      const defaultIconProps: Partial<IconProps> = {
+        size: 18,
+        className: iconBEM,
+        ...(isLink ? { display: 'inline' } : {}),
+      };
+
       const iconProps: IconProps =
         typeof icon === 'string'
           ? { ...defaultIconProps, name: icon }
