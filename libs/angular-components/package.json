@@ -17,7 +17,7 @@
   },
   "scripts": {
     "start": "ng run angular-components:storybook",
-    "build": "ng build angular-components --configuration=production",
+    "build": "ng-packagr -p ng-package.json",
     "build:sb": "storybook build -c .storybook -o dist/storybook/angular-components",
     "storybook": "ng run angular-components:storybook",
     "build-storybook": "ng run angular-components:build-storybook"
@@ -26,24 +26,20 @@
     "@angular/animations": "^18.2.0",
     "@angular/cdk": "^18.2.0",
     "@angular/common": "^18.2.0",
-    "@angular/core": "^18.2.0",
-    "@angular/forms": "^18.2.0",
-    "@angular/material": "^18.2.0",
-    "dayjs": "*",
-    "lodash-es": "*",
-    "rxjs": "^7.0.0",
-    "tslib": "^2.5.0"
-  },
-  "dependencies": {
-    "@angular/common": "^18.2.0",
     "@angular/compiler": "~18.2.0",
     "@angular/core": "^18.2.0",
     "@angular/forms": "^18.2.0",
+    "@angular/material": "^18.2.0",
     "@angular/platform-browser": "~18.2.0",
     "@angular/platform-browser-dynamic": "~18.2.0",
     "@angular/router": "~18.2.0",
     "@tehik-ee/tedi-core": "^1.0.0",
-    "rxjs": "^7.0.0"
+    "rxjs": "^7.0.0",
+    "dayjs": "*",
+    "lodash-es": "*"
+  },
+  "dependencies": {
+    "tslib": "^2.5.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~18.2.0",

@@ -13,7 +13,8 @@
             "configDir": "./.storybook",
             "compodoc": true,
             "compodocArgs": ["-e", "json", "-d", "."],
-            "port": 6006
+            "port": 6006,
+            "styles": ["@tehik-ee/tedi-core/src"]
           }
         },
         "build-storybook": {
