@@ -2,7 +2,7 @@ import cn from 'classnames';
 import React from 'react';
 
 import { Col, Row } from '../../../../tedi/components/grid';
-import Icon from '../../icon/icon';
+import { Icon } from '../../../../tedi/components/icon/icon';
 import { Tooltip, TooltipProvider, TooltipTrigger } from '../../tooltip';
 import { ChoiceInputProps } from '../choice-input.types';
 import styles from './radio.module.scss';
@@ -62,20 +62,14 @@ export const Radio = (props: RadioProps): JSX.Element => {
             className={cn(styles['radio__indicator'], { [styles['radio__indicator--hover']]: hover })}
           />
         </Col>
-        <Col>
+        <Col className={styles['radio__label-wrapper']}>
           <label ref={labelRef} className={LabelBEM} htmlFor={id}>
             <span className={cn({ 'visually-hidden': hideLabel })}>{label}</span>
           </label>
           {tooltip && (
             <TooltipProvider>
               <TooltipTrigger>
-                <Icon
-                  name="info"
-                  color="primary"
-                  size={16}
-                  display="inline"
-                  className={styles['radio__tooltip-icon']}
-                />
+                <Icon name="info" color="brand" size={16} display="inline" className={styles['radio__tooltip-icon']} />
               </TooltipTrigger>
               <Tooltip>{tooltip}</Tooltip>
             </TooltipProvider>
