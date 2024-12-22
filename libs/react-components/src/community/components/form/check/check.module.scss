@@ -66,6 +66,11 @@
   }
 }
 
+.check__label-wrapper {
+  display: flex;
+  align-items: center;
+}
+
 .check__tooltip-icon {
   margin-left: 0.25rem;
 }
