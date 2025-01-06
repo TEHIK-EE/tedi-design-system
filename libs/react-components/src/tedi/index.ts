@@ -26,6 +26,7 @@ export * from './components/navigation/link/link';
 export * from './components/section/section';
 export * from './components/scroll-visibility/scroll-visibility';
 export * from './components/truncate/truncate';
+export * from './components/scroll-fade/scroll-fade';
 
 export * from './helpers';
 
