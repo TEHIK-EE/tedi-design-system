@@ -10,7 +10,6 @@ export * from './components/layout';
 export * from './components/hash-trigger/hash-trigger';
 export * from './components/ellipsis/ellipsis';
 export * from './components/dropdown/dropdown';
-export * from './components/scroll-fade/scroll-fade';
 export * from './components/stepper';
 export * from './components/affix/affix';
 export * from './components/card';
