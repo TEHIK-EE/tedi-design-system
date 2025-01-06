@@ -26,7 +26,8 @@ describe('ScrollFade component', () => {
 
   it('should have custom scrollbar', () => {
     const { container } = render(<ScrollFade>Test Content</ScrollFade>);
-    expect(container.firstChild).toHaveClass('tedi-scroll-fade--custom-scroll');
+    const innerDiv = container.querySelector('.tedi-scroll-fade__inner') as HTMLDivElement;
+    expect(innerDiv).toHaveClass('tedi-scroll-fade__inner--custom-scroll');
   });
 
   it('should not have custom scrollbar', () => {
