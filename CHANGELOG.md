@@ -1,3 +1,15 @@
+# [11.0.0-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/v10.0.1-rc.1...v11.0.0-rc.1) (2025-01-06)
+
+
+### Features
+
+* **scroll-visibility:** component rename [#387](https://github.com/TEHIK-EE/tedi-design-system/issues/387) ([#388](https://github.com/TEHIK-EE/tedi-design-system/issues/388)) ([24428f6](https://github.com/TEHIK-EE/tedi-design-system/commit/24428f6d885cc825adac9d7f0e303d24d594328a))
+
+
+### BREAKING CHANGES
+
+* **scroll-visibility:** rename HideOnScroll to ScrollVisibility
+
 ## [10.0.1-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/v10.0.0...v10.0.1-rc.1) (2024-12-20)
 
 
