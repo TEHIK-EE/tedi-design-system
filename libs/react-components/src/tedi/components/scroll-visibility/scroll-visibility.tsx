@@ -2,11 +2,11 @@ import cn from 'classnames';
 import { cloneElement, isValidElement, ReactNode, useEffect, useRef, useState } from 'react';
 
 import { useScroll } from '../../helpers/hooks/use-scroll';
-import styles from './hide-on-scroll.module.scss';
+import styles from './scroll-visibility.module.scss';
 
 export type AnimationDirection = 'left' | 'right' | 'down' | 'up' | 'center';
 
-export interface HideOnScrollProps {
+export interface ScrollVisibilityProps {
   /**
    * Content to hide/show
    */
@@ -54,7 +54,7 @@ export interface HideOnScrollProps {
   animationDirection?: AnimationDirection;
 }
 
-export const HideOnScroll = (props: HideOnScrollProps) => {
+export const ScrollVisibility = (props: ScrollVisibilityProps) => {
   const {
     children,
     enabled = true,
@@ -97,10 +97,10 @@ export const HideOnScroll = (props: HideOnScrollProps) => {
   }, [visibility, toggleVisibility, scrollDistance, scrollTop, enabled, scrollDirection, scrollHeight, clientHeight]);
 
   const BEM = cn(
-    styles['tedi-hide-on-scroll'],
-    styles[`tedi-hide-on-scroll--${animationDirection}`],
+    styles['tedi-scroll-visibility'],
+    styles[`tedi-scroll-visibility--${animationDirection}`],
     {
-      [styles['tedi-hide-on-scroll--hidden']]: enabled && isHidden,
+      [styles['tedi-scroll-visibility--hidden']]: enabled && isHidden,
     },
     className
   );
@@ -112,4 +112,4 @@ export const HideOnScroll = (props: HideOnScrollProps) => {
   );
 };
 
-export default HideOnScroll;
+export default ScrollVisibility;
