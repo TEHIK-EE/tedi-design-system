@@ -4,9 +4,13 @@ import { Col, Row } from '../grid';
 import { Text } from '../typography/text/text';
 import ScrollFade from './scroll-fade';
 
+/**
+ * <a href="https://tedi.tehik.ee/1ee8444b7/p/32b155-scrollfade" target="_BLANK">Zeroheight ↗</a>
+ **/
+
 const meta: Meta<typeof ScrollFade> = {
   component: ScrollFade,
-  title: 'TEDI-Ready/Components/ScrollFade',
+  title: 'TEDI-Ready/Components/Helpers/ScrollFade',
   parameters: {
     status: {
       type: ['devComponent'],
@@ -43,19 +47,19 @@ const ScrollbarTemplate: StoryFn<typeof ScrollFade> = (args) => (
 const FadeSizeTemplate: StoryFn<typeof ScrollFade> = (args) => (
   <Row>
     <Col xs={3}>
-      <Text modifiers="bold">No Fade (0)</Text>
+      <Text modifiers="bold">No Fade (0%)</Text>
       <div style={{ marginTop: '16px', maxWidth: '200px', maxHeight: '200px' }}>
         <ScrollFade {...args} fadeSize={0} />
       </div>
     </Col>
     <Col xs={3}>
-      <Text modifiers="bold">Small Fade (10)</Text>
+      <Text modifiers="bold">Small Fade (10%)</Text>
       <div style={{ marginTop: '16px', maxWidth: '200px', maxHeight: '200px' }}>
         <ScrollFade {...args} fadeSize={10} />
       </div>
     </Col>
     <Col xs={3}>
-      <Text modifiers="bold">Large Fade (20)</Text>
+      <Text modifiers="bold">Large Fade (20%)</Text>
       <div style={{ marginTop: '16px', maxWidth: '200px', maxHeight: '200px' }}>
         <ScrollFade {...args} fadeSize={20} />
       </div>

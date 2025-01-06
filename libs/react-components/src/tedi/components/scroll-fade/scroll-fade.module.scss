@@ -4,6 +4,7 @@ $percentages: (0, 10, 20);
   position: relative;
   display: block;
   max-height: inherit;
+  overflow: hidden;
 
   &__inner {
     height: 100%;

@@ -55,13 +55,13 @@ const ScrollFade = forwardRef<HTMLDivElement, ScrollFadeProps>((props, ref): JSX
       const atBottom = Math.abs(scrollHeight - scrollTop - clientHeight) <= 1;
 
       if (atTop) {
-        setFade((prev) => ({ ...prev, top: false }));
+        setFade({ top: false, bottom: true });
         onScrollToTop?.();
       } else if (atBottom) {
-        setFade((prev) => ({ ...prev, bottom: false }));
+        setFade({ top: true, bottom: false });
         onScrollToBottom?.();
       } else {
-        setFade((prev) => ({ top: true, bottom: true }));
+        setFade({ top: true, bottom: true });
       }
     },
     [onScrollToTop, onScrollToBottom]
@@ -97,13 +97,16 @@ const ScrollFade = forwardRef<HTMLDivElement, ScrollFadeProps>((props, ref): JSX
       [styles[`tedi-scroll-fade--bottom-${fadeSize}`]]:
         fade.bottom && (fadePosition === 'both' || fadePosition === 'bottom'),
     },
-    { [styles[`tedi-scroll-fade--${scrollBar}-scroll`]]: scrollBar === 'custom' },
     className
   );
 
+  const ScrollFadeInnerBEM = cn(styles['tedi-scroll-fade__inner'], {
+    [styles['tedi-scroll-fade__inner--custom-scroll']]: scrollBar === 'custom',
+  });
+
   return (
     <div data-name="scroll-fade" className={ScrollFadeBEM}>
-      <div ref={callbackRef} onScroll={onScroll} className={styles['tedi-scroll-fade__inner']} tabIndex={0}>
+      <div ref={callbackRef} onScroll={onScroll} className={ScrollFadeInnerBEM} tabIndex={0}>
         {children}
       </div>
     </div>
