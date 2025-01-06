@@ -1,6 +1,9 @@
 {
   "root": true,
   "ignorePatterns": ["node_modules", "dist", "coverage"],
+  "env": {
+    "node": true
+  },
   "plugins": ["react", "react-hooks", "simple-import-sort", "@typescript-eslint"],
   "parser": "@typescript-eslint/parser",
   "extends": [
