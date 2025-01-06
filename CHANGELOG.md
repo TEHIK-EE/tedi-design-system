@@ -1,3 +1,10 @@
+# [11.0.0-rc.2](https://github.com/TEHIK-EE/tedi-design-system/compare/v11.0.0-rc.1...v11.0.0-rc.2) (2025-01-06)
+
+
+### Features
+
+* **scroll-fade:** add TEDI-Ready component [#378](https://github.com/TEHIK-EE/tedi-design-system/issues/378) ([#390](https://github.com/TEHIK-EE/tedi-design-system/issues/390)) ([936eeb1](https://github.com/TEHIK-EE/tedi-design-system/commit/936eeb1288af8aa2b5307ae08401e8b775c4921b))
+
 # [11.0.0-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/v10.0.1-rc.1...v11.0.0-rc.1) (2025-01-06)
 
 
