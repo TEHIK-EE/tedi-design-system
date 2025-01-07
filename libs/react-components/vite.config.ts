@@ -38,6 +38,10 @@ const config: UserConfig = {
           src: ['package.json', 'README.md'],
           dest: './',
         },
+        {
+          src: '../tedi-core/public/*',
+          dest: './',
+        },
       ],
     }),
   ],

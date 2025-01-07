@@ -25,7 +25,7 @@ const config: StorybookConfig = {
   core: {
     builder: '@storybook/builder-vite',
   },
-  staticDirs: ['../public'],
+  staticDirs: ['../../tedi-core/public'],
   framework: {
     name: '@storybook/react-vite',
     options: {},
