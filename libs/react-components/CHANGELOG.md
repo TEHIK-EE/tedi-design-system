@@ -1,3 +1,166 @@
+# [11.0.0-rc.2](https://github.com/TEHIK-EE/tedi-design-system/compare/v11.0.0-rc.1...v11.0.0-rc.2) (2025-01-06)
+
+
+### Features
+
+* **scroll-fade:** add TEDI-Ready component [#378](https://github.com/TEHIK-EE/tedi-design-system/issues/378) ([#390](https://github.com/TEHIK-EE/tedi-design-system/issues/390)) ([936eeb1](https://github.com/TEHIK-EE/tedi-design-system/commit/936eeb1288af8aa2b5307ae08401e8b775c4921b))
+
+# [11.0.0-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/v10.0.1-rc.1...v11.0.0-rc.1) (2025-01-06)
+
+
+### Features
+
+* **scroll-visibility:** component rename [#387](https://github.com/TEHIK-EE/tedi-design-system/issues/387) ([#388](https://github.com/TEHIK-EE/tedi-design-system/issues/388)) ([24428f6](https://github.com/TEHIK-EE/tedi-design-system/commit/24428f6d885cc825adac9d7f0e303d24d594328a))
+
+
+### BREAKING CHANGES
+
+* **scroll-visibility:** rename HideOnScroll to ScrollVisibility
+
+## [10.0.1-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/v10.0.0...v10.0.1-rc.1) (2024-12-20)
+
+
+### Bug Fixes
+
+* **select:** add cacheOptions as a prop for Select ([#384](https://github.com/TEHIK-EE/tedi-design-system/issues/384)) ([3b1ecc2](https://github.com/TEHIK-EE/tedi-design-system/commit/3b1ecc2cac18700b1f621ccc5afbe28e9a13b139))
+* **select:** cache options prop [#383](https://github.com/TEHIK-EE/tedi-design-system/issues/383) ([#385](https://github.com/TEHIK-EE/tedi-design-system/issues/385)) ([799a989](https://github.com/TEHIK-EE/tedi-design-system/commit/799a989af8e440810d865db7f5bb728fa27ff14d))
+
+# [10.0.0](https://github.com/TEHIK-EE/tedi-design-system/compare/v9.0.0...v10.0.0) (2024-12-20)
+
+
+### Bug Fixes
+
+* **grid:** Increase $grid-row-columns to 12 [#345](https://github.com/TEHIK-EE/tedi-design-system/issues/345) ([#358](https://github.com/TEHIK-EE/tedi-design-system/issues/358)) ([4326af5](https://github.com/TEHIK-EE/tedi-design-system/commit/4326af5705d27002faaece768505b3dba0382fc1))
+* **icon:** Apply className to wrapper when background is set [#344](https://github.com/TEHIK-EE/tedi-design-system/issues/344) ([#359](https://github.com/TEHIK-EE/tedi-design-system/issues/359)) ([f0e1a68](https://github.com/TEHIK-EE/tedi-design-system/commit/f0e1a68ef4cdd1bed19cf9b89b8f6c123fd1ba80))
+* **link:** Icon not vertically center [#347](https://github.com/TEHIK-EE/tedi-design-system/issues/347) ([#349](https://github.com/TEHIK-EE/tedi-design-system/issues/349)) ([4d209bc](https://github.com/TEHIK-EE/tedi-design-system/commit/4d209bc53c8285804b695dd5d65989fa6ffebd9d))
+* **modal:** Modal open focus fix [#343](https://github.com/TEHIK-EE/tedi-design-system/issues/343) ([#357](https://github.com/TEHIK-EE/tedi-design-system/issues/357)) ([0a8b54c](https://github.com/TEHIK-EE/tedi-design-system/commit/0a8b54c777da611367c1e2007170848939623d5e))
+* **scroll-fade:** round calculation for scrollToBottom [#353](https://github.com/TEHIK-EE/tedi-design-system/issues/353) ([#354](https://github.com/TEHIK-EE/tedi-design-system/issues/354)) ([46b5dce](https://github.com/TEHIK-EE/tedi-design-system/commit/46b5dce1002ec184739484bc3dde4f3de1736c72))
+* **scroll-fade:** round calculation for scrollToBottom [#353](https://github.com/TEHIK-EE/tedi-design-system/issues/353) ([#355](https://github.com/TEHIK-EE/tedi-design-system/issues/355)) ([762982c](https://github.com/TEHIK-EE/tedi-design-system/commit/762982c7ced2de8e630d62620d5fdc8f836cda83))
+* **skeleton:** Apply opacity to skeleton background [#341](https://github.com/TEHIK-EE/tedi-design-system/issues/341) ([#342](https://github.com/TEHIK-EE/tedi-design-system/issues/342)) ([bf31f15](https://github.com/TEHIK-EE/tedi-design-system/commit/bf31f1571599efcfae3f63976339b3db3a35e453))
+* **typography:** Base font values to rem [#365](https://github.com/TEHIK-EE/tedi-design-system/issues/365) ([#366](https://github.com/TEHIK-EE/tedi-design-system/issues/366)) ([074c590](https://github.com/TEHIK-EE/tedi-design-system/commit/074c590be2334e291b6903444d921dd548caa09a))
+
+
+### Features
+
+* **floating-button:** add component [#303](https://github.com/TEHIK-EE/tedi-design-system/issues/303) ([#360](https://github.com/TEHIK-EE/tedi-design-system/issues/360)) ([c25470e](https://github.com/TEHIK-EE/tedi-design-system/commit/c25470ea7230b143d6a248f5f040d0c46cd5f3a4))
+* **floating-button:** add export [#371](https://github.com/TEHIK-EE/tedi-design-system/issues/371) ([#372](https://github.com/TEHIK-EE/tedi-design-system/issues/372)) ([37ab729](https://github.com/TEHIK-EE/tedi-design-system/commit/37ab729a6597e542eed020ad49a9cd951ba6e27d))
+* **hide-on-scroll:** add component [#339](https://github.com/TEHIK-EE/tedi-design-system/issues/339) ([#363](https://github.com/TEHIK-EE/tedi-design-system/issues/363)) ([9b356f0](https://github.com/TEHIK-EE/tedi-design-system/commit/9b356f0c2801ca5d86bca7750952ad034ce74b4d)), closes [#303](https://github.com/TEHIK-EE/tedi-design-system/issues/303) [#303](https://github.com/TEHIK-EE/tedi-design-system/issues/303) [#303](https://github.com/TEHIK-EE/tedi-design-system/issues/303) [#303](https://github.com/TEHIK-EE/tedi-design-system/issues/303) [#303](https://github.com/TEHIK-EE/tedi-design-system/issues/303) [#303](https://github.com/TEHIK-EE/tedi-design-system/issues/303) [#303](https://github.com/TEHIK-EE/tedi-design-system/issues/303) [#303](https://github.com/TEHIK-EE/tedi-design-system/issues/303) [#303](https://github.com/TEHIK-EE/tedi-design-system/issues/303)
+* **info-button:** New TEDI-Ready InfoButton component development [#332](https://github.com/TEHIK-EE/tedi-design-system/issues/332) ([#338](https://github.com/TEHIK-EE/tedi-design-system/issues/338)) ([635916f](https://github.com/TEHIK-EE/tedi-design-system/commit/635916f628b97a458c7ace62530c8799e5c6322e))
+* **label:** Add infobutton props [#340](https://github.com/TEHIK-EE/tedi-design-system/issues/340) ([#348](https://github.com/TEHIK-EE/tedi-design-system/issues/348)) ([a1f9532](https://github.com/TEHIK-EE/tedi-design-system/commit/a1f953265eac9cb8bb8b57312df1c8f0cf85185c))
+* **number-field:** TEDI-Ready NumberField development [#309](https://github.com/TEHIK-EE/tedi-design-system/issues/309) ([#361](https://github.com/TEHIK-EE/tedi-design-system/issues/361)) ([cafd8e4](https://github.com/TEHIK-EE/tedi-design-system/commit/cafd8e4d74dcb57331859bd07ca5ebca06edfb7e)), closes [#234](https://github.com/TEHIK-EE/tedi-design-system/issues/234) [#234](https://github.com/TEHIK-EE/tedi-design-system/issues/234) [#234](https://github.com/TEHIK-EE/tedi-design-system/issues/234) [#234](https://github.com/TEHIK-EE/tedi-design-system/issues/234) [#234](https://github.com/TEHIK-EE/tedi-design-system/issues/234) [#234](https://github.com/TEHIK-EE/tedi-design-system/issues/234) [#234](https://github.com/TEHIK-EE/tedi-design-system/issues/234) [#234](https://github.com/TEHIK-EE/tedi-design-system/issues/234)
+* **section:** TEDI-Ready Section component development [#350](https://github.com/TEHIK-EE/tedi-design-system/issues/350) ([#351](https://github.com/TEHIK-EE/tedi-design-system/issues/351)) ([fb1db42](https://github.com/TEHIK-EE/tedi-design-system/commit/fb1db423a5118b09ffddd405c13b27afa8149a5b))
+* **select:** Align clear icon with tag text [#367](https://github.com/TEHIK-EE/tedi-design-system/issues/367) ([#368](https://github.com/TEHIK-EE/tedi-design-system/issues/368)) ([d723de0](https://github.com/TEHIK-EE/tedi-design-system/commit/d723de0d2b9822feb5c5aefe64cacdb826003da9))
+* **textarea:** TEDI-Ready TextArea development [#282](https://github.com/TEHIK-EE/tedi-design-system/issues/282) ([#369](https://github.com/TEHIK-EE/tedi-design-system/issues/369)) ([857b441](https://github.com/TEHIK-EE/tedi-design-system/commit/857b44115d245da478dbcf0fa2a601b836fa4664)), closes [#234](https://github.com/TEHIK-EE/tedi-design-system/issues/234) [#234](https://github.com/TEHIK-EE/tedi-design-system/issues/234)
+* **textfield:** TEDI-Ready TextField development [#234](https://github.com/TEHIK-EE/tedi-design-system/issues/234) ([#352](https://github.com/TEHIK-EE/tedi-design-system/issues/352)) ([967b1a1](https://github.com/TEHIK-EE/tedi-design-system/commit/967b1a1d8287f0e2b31e60d201f664dc95d155b3))
+* **toast:** TEDI-Ready Toast component development [#356](https://github.com/TEHIK-EE/tedi-design-system/issues/356) ([#375](https://github.com/TEHIK-EE/tedi-design-system/issues/375)) ([850286a](https://github.com/TEHIK-EE/tedi-design-system/commit/850286a5cd6ccd90c51f47441f51d70d584081cd))
+* **truncate:** TEDI-Ready Truncate development [#364](https://github.com/TEHIK-EE/tedi-design-system/issues/364) ([#370](https://github.com/TEHIK-EE/tedi-design-system/issues/370)) ([6cbac4c](https://github.com/TEHIK-EE/tedi-design-system/commit/6cbac4cbb6c3e550fe2dc394bc60c938ab8072f0))
+
+
+### BREAKING CHANGES
+
+* **toast:** Community Toast removed, use TEDI-Ready Toast and update imports
+
+Co-authored-by: Airike Jaska <airike.jaska@bitweb.ee>
+* **textarea:** Community's TextArea Removed, use TEDI-Ready TextArea, update imports
+* **hide-on-scroll:** remove community component
+* **hide-on-scroll:** show component when scrolling back up needs now toggleVisibility prop
+* **number-field:** Community TextField removed, use TEDI-Ready TextField instead, update imports
+* **number-field:** Community NumberField replaced with TEDI-Ready NumberField, update imports
+* **textfield:** Community TextField removed, use TEDI-Ready TextField instead, update imports
+* **section:** Communitys Section removed, use TEDI-Ready Section instead, update imports
+
+# [10.0.0-rc.11](https://github.com/TEHIK-EE/tedi-design-system/compare/v10.0.0-rc.10...v10.0.0-rc.11) (2024-12-18)
+
+
+### Features
+
+* **toast:** TEDI-Ready Toast component development [#356](https://github.com/TEHIK-EE/tedi-design-system/issues/356) ([#375](https://github.com/TEHIK-EE/tedi-design-system/issues/375)) ([850286a](https://github.com/TEHIK-EE/tedi-design-system/commit/850286a5cd6ccd90c51f47441f51d70d584081cd))
+
+
+### BREAKING CHANGES
+
+* **toast:** Community Toast removed, use TEDI-Ready Toast and update imports
+
+Co-authored-by: Airike Jaska <airike.jaska@bitweb.ee>
+
+# [10.0.0-rc.10](https://github.com/TEHIK-EE/tedi-design-system/compare/v10.0.0-rc.9...v10.0.0-rc.10) (2024-12-18)
+
+
+### Features
+
+* **textarea:** TEDI-Ready TextArea development [#282](https://github.com/TEHIK-EE/tedi-design-system/issues/282) ([#369](https://github.com/TEHIK-EE/tedi-design-system/issues/369)) ([857b441](https://github.com/TEHIK-EE/tedi-design-system/commit/857b44115d245da478dbcf0fa2a601b836fa4664)), closes [#234](https://github.com/TEHIK-EE/tedi-design-system/issues/234) [#234](https://github.com/TEHIK-EE/tedi-design-system/issues/234)
+
+
+### BREAKING CHANGES
+
+* **textarea:** Community's TextArea Removed, use TEDI-Ready TextArea, update imports
+
+# [10.0.0-rc.9](https://github.com/TEHIK-EE/tedi-design-system/compare/v10.0.0-rc.8...v10.0.0-rc.9) (2024-12-17)
+
+
+### Features
+
+* **truncate:** TEDI-Ready Truncate development [#364](https://github.com/TEHIK-EE/tedi-design-system/issues/364) ([#370](https://github.com/TEHIK-EE/tedi-design-system/issues/370)) ([6cbac4c](https://github.com/TEHIK-EE/tedi-design-system/commit/6cbac4cbb6c3e550fe2dc394bc60c938ab8072f0))
+
+# [10.0.0-rc.8](https://github.com/TEHIK-EE/tedi-design-system/compare/v10.0.0-rc.7...v10.0.0-rc.8) (2024-12-16)
+
+
+### Features
+
+* **floating-button:** add export [#371](https://github.com/TEHIK-EE/tedi-design-system/issues/371) ([#372](https://github.com/TEHIK-EE/tedi-design-system/issues/372)) ([37ab729](https://github.com/TEHIK-EE/tedi-design-system/commit/37ab729a6597e542eed020ad49a9cd951ba6e27d))
+
+# [10.0.0-rc.7](https://github.com/TEHIK-EE/tedi-design-system/compare/v10.0.0-rc.6...v10.0.0-rc.7) (2024-12-16)
+
+
+### Features
+
+* **hide-on-scroll:** add component [#339](https://github.com/TEHIK-EE/tedi-design-system/issues/339) ([#363](https://github.com/TEHIK-EE/tedi-design-system/issues/363)) ([9b356f0](https://github.com/TEHIK-EE/tedi-design-system/commit/9b356f0c2801ca5d86bca7750952ad034ce74b4d)), closes [#303](https://github.com/TEHIK-EE/tedi-design-system/issues/303) [#303](https://github.com/TEHIK-EE/tedi-design-system/issues/303) [#303](https://github.com/TEHIK-EE/tedi-design-system/issues/303) [#303](https://github.com/TEHIK-EE/tedi-design-system/issues/303) [#303](https://github.com/TEHIK-EE/tedi-design-system/issues/303) [#303](https://github.com/TEHIK-EE/tedi-design-system/issues/303) [#303](https://github.com/TEHIK-EE/tedi-design-system/issues/303) [#303](https://github.com/TEHIK-EE/tedi-design-system/issues/303) [#303](https://github.com/TEHIK-EE/tedi-design-system/issues/303)
+
+
+### BREAKING CHANGES
+
+* **hide-on-scroll:** remove community component
+* **hide-on-scroll:** show component when scrolling back up needs now toggleVisibility prop
+
+# [10.0.0-rc.6](https://github.com/TEHIK-EE/tedi-design-system/compare/v10.0.0-rc.5...v10.0.0-rc.6) (2024-12-16)
+
+
+### Features
+
+* **select:** Align clear icon with tag text [#367](https://github.com/TEHIK-EE/tedi-design-system/issues/367) ([#368](https://github.com/TEHIK-EE/tedi-design-system/issues/368)) ([d723de0](https://github.com/TEHIK-EE/tedi-design-system/commit/d723de0d2b9822feb5c5aefe64cacdb826003da9))
+
+# [10.0.0-rc.5](https://github.com/TEHIK-EE/tedi-design-system/compare/v10.0.0-rc.4...v10.0.0-rc.5) (2024-12-13)
+
+
+### Bug Fixes
+
+* **typography:** Base font values to rem [#365](https://github.com/TEHIK-EE/tedi-design-system/issues/365) ([#366](https://github.com/TEHIK-EE/tedi-design-system/issues/366)) ([074c590](https://github.com/TEHIK-EE/tedi-design-system/commit/074c590be2334e291b6903444d921dd548caa09a))
+
+# [10.0.0-rc.4](https://github.com/TEHIK-EE/tedi-design-system/compare/v10.0.0-rc.3...v10.0.0-rc.4) (2024-12-13)
+
+
+### Features
+
+* **number-field:** TEDI-Ready NumberField development [#309](https://github.com/TEHIK-EE/tedi-design-system/issues/309) ([#361](https://github.com/TEHIK-EE/tedi-design-system/issues/361)) ([cafd8e4](https://github.com/TEHIK-EE/tedi-design-system/commit/cafd8e4d74dcb57331859bd07ca5ebca06edfb7e)), closes [#234](https://github.com/TEHIK-EE/tedi-design-system/issues/234) [#234](https://github.com/TEHIK-EE/tedi-design-system/issues/234) [#234](https://github.com/TEHIK-EE/tedi-design-system/issues/234) [#234](https://github.com/TEHIK-EE/tedi-design-system/issues/234) [#234](https://github.com/TEHIK-EE/tedi-design-system/issues/234) [#234](https://github.com/TEHIK-EE/tedi-design-system/issues/234) [#234](https://github.com/TEHIK-EE/tedi-design-system/issues/234) [#234](https://github.com/TEHIK-EE/tedi-design-system/issues/234)
+
+
+### BREAKING CHANGES
+
+* **number-field:** Community TextField removed, use TEDI-Ready TextField instead, update imports
+* **number-field:** Community NumberField replaced with TEDI-Ready NumberField, update imports
+
+# [10.0.0-rc.3](https://github.com/TEHIK-EE/tedi-design-system/compare/v10.0.0-rc.2...v10.0.0-rc.3) (2024-12-12)
+
+
+### Features
+
+* **textfield:** TEDI-Ready TextField development [#234](https://github.com/TEHIK-EE/tedi-design-system/issues/234) ([#352](https://github.com/TEHIK-EE/tedi-design-system/issues/352)) ([967b1a1](https://github.com/TEHIK-EE/tedi-design-system/commit/967b1a1d8287f0e2b31e60d201f664dc95d155b3))
+
+
+### BREAKING CHANGES
+
+* **textfield:** Community TextField removed, use TEDI-Ready TextField instead, update imports
+
 # [10.0.0-rc.2](https://github.com/TEHIK-EE/tedi-design-system/compare/v10.0.0-rc.1...v10.0.0-rc.2) (2024-12-11)
 
 

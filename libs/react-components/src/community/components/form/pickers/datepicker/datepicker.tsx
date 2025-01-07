@@ -3,7 +3,7 @@ import { DateValidationError } from '@mui/x-date-pickers/internals';
 import { Dayjs } from 'dayjs';
 import React from 'react';
 
-import { TextFieldProps } from '../../textfield/textfield';
+import { TextFieldProps } from '../../../../../tedi/components/form/textfield/textfield';
 import MuiInputTransition from '../mui-input-transition/mui-input-transition';
 
 export type DatepickerValue = Dayjs | null;
