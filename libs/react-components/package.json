@@ -100,7 +100,7 @@
     "@types/showdown": "^2.0.6",
     "@typescript-eslint/parser": "6.21.0",
     "@typescript-eslint/utils": "6.21.0",
-    "@vitejs/plugin-react": "4.2.1",
+    "@vitejs/plugin-react": "^4.3.4",
     "cross-env": "^7.0.3",
     "dompurify": "^3.0.9",
     "eslint-plugin-jsx-a11y": "6.10.1",

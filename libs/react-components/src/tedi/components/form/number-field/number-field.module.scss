@@ -1,5 +1,5 @@
-@use '../../../../shared/styles/bootstrap-utility/breakpoints';
-@import '../../../styles/mixins';
+@use '@tehik-ee/tedi-core/src/bootstrap-utility/breakpoints';
+@use '@tehik-ee/tedi-core/src/mixins';
 
 $input-height: 2.5rem;
 $small-input-height: 2rem;
@@ -110,9 +110,9 @@ $border-width: 1px;
   background-color: var(--form-input-background-default);
   border: $border-width solid var(--form-input-border-default);
 
-  @include responsive-styles(padding-left, form-field-padding-y-3-default);
-  @include responsive-styles(padding-right, form-field-padding-y-3-default);
-  @include responsive-styles(gap, form-field-inner-spacing-sm);
+  @include mixins.responsive-styles(padding-left, form-field-padding-y-3-default);
+  @include mixins.responsive-styles(padding-right, form-field-padding-y-3-default);
+  @include mixins.responsive-styles(gap, form-field-inner-spacing-sm);
 
   &:focus-within {
     z-index: 1;
@@ -162,7 +162,7 @@ $border-width: 1px;
   border-radius: 0;
   outline: none;
 
-  @include responsive-styles(font-size, heading-h6-size);
+  @include mixins.responsive-styles(font-size, heading-h6-size);
 
   //  /* Chrome, Safari, Edge, Opera */
   &::-webkit-outer-spin-button,

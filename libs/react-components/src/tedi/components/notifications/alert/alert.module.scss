@@ -1,8 +1,4 @@
-<<<<<<< HEAD:libs/react-components/src/tedi/components/alert/alert.module.scss
 @use '@tehik-ee/tedi-core/src/mixins';
-=======
-@import '../../../styles/mixins';
->>>>>>> rc:libs/react-components/src/tedi/components/notifications/alert/alert.module.scss
 
 @mixin alert-variant($background, $border) {
   color: var(--general-text-primary);

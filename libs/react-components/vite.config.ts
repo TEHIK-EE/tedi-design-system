@@ -1,4 +1,4 @@
-import reactPlugin from '@vitejs/plugin-react';
+import react from '@vitejs/plugin-react';
 import path from 'node:path';
 import { join } from 'path';
 import { visualizer } from 'rollup-plugin-visualizer';
@@ -17,7 +17,7 @@ const config: UserConfig = {
     dts({
       tsconfigPath: join(__dirname, './tsconfig.lib.json'),
     }),
-    reactPlugin(),
+    react(),
     checker({
       overlay: false,
       eslint: {

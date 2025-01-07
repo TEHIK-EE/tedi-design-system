@@ -7,9 +7,9 @@ import { SpinnerComponent } from './spinner.component';
   selector: 'spinner-list',
   template: `
     <div class="example-list" style="width: 50%;">
-      <div *ngFor="let value of array; let i = index" class="row border-bottom padding-14-16">
-        <div class="col">{{ value }}</div>
-        <div class="col d-flex">
+      <div *ngFor="let value of array; let i = index" class="border-bottom padding-14-16" style="display: flex; gap: 1rem;">
+        <div style="width: auto;">{{ value }}</div>
+        <div style="width: auto; display: flex;">
           <app-spinner [size]="value" [color]="color" [label]="label"></app-spinner>
         </div>
       </div>
@@ -25,8 +25,8 @@ export class SpinnerListComponent {
 @Component({
   selector: 'spinner-colors',
   template: `
-    <div class="row align-items-center">
-      <div class="col col-auto">
+    <div style="display: flex; align-items: center; gap: 1rem;">
+      <div style="width: auto;">
         <app-spinner [size]="size" color="primary" [label]="primaryLabel"></app-spinner>
       </div>
       <div class="col col-auto">
