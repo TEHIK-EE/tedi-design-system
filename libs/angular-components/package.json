@@ -48,7 +48,6 @@
     "@angular/cli": "~18.2.0",
     "@angular/compiler-cli": "~18.2.0",
     "@angular/language-service": "~18.2.0",
-    "@chromatic-com/storybook": "^3.2.3",
     "@compodoc/compodoc": "^1.1.26",
     "@schematics/angular": "~18.2.0",
     "@storybook/addon-a11y": "^8.4.7",

@@ -3,4 +3,4 @@
 @use 'components/calendar';
 @use 'components/text-editor';
 @use 'components/toast';
-@import '../../../design-tokens/index';
+@forward '../../../design-tokens/index';

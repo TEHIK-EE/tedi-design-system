@@ -2,8 +2,9 @@
 @use "sass:map";
 @use "sass:meta";
 @use "../variables/bootstrap-variables" as vars;
-@import "./breakpoints";
-@import "./utilities";
+@use "./breakpoints" as breakpoints;
+@use "./utilities" as utils;
+@use "./utilities-api" as utilsApi;
 
 // Grid system
 //
@@ -96,9 +97,9 @@
   $breakpoints: vars.$grid-breakpoints
 ) {
   @each $breakpoint in map.keys($breakpoints) {
-    $infix: breakpoint-infix($breakpoint, $breakpoints);
+    $infix: breakpoints.breakpoint-infix($breakpoint, $breakpoints);
 
-    @include media-breakpoint-up($breakpoint, $breakpoints) {
+    @include breakpoints.media-breakpoint-up($breakpoint, $breakpoints) {
       // Provide basic `.col-{bp}` classes for equal-width flexbox columns
       .col#{$infix} {
         flex: 1 0 0%; // Flexbugs #4: https://github.com/philipwalton/flexbugs#flexbug-4
@@ -161,9 +162,9 @@
   $breakpoints: vars.$grid-breakpoints
 ) {
   @each $breakpoint in map.keys($breakpoints) {
-    $infix: breakpoint-infix($breakpoint, $breakpoints);
+    $infix: breakpoints.breakpoint-infix($breakpoint, $breakpoints);
 
-    @include media-breakpoint-up($breakpoint, $breakpoints) {
+    @include breakpoints.media-breakpoint-up($breakpoint, $breakpoints) {
       @if $columns > 0 {
         @for $i from 1 through $columns {
           .g-col#{$infix}-#{$i} {
@@ -182,5 +183,3 @@
     }
   }
 }
-
-@import "utilities-api";
