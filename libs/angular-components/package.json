@@ -18,9 +18,7 @@
   "scripts": {
     "start": "ng run angular-components:storybook",
     "build": "ng-packagr -p ng-package.json",
-    "build:sb": "storybook build -c .storybook -o dist/storybook/angular-components",
-    "storybook": "ng run angular-components:storybook",
-    "build-storybook": "ng run angular-components:build-storybook"
+    "build:sb": "ng run angular-components:build-storybook"
   },
   "peerDependencies": {
     "@angular/animations": "^18.2.0",
