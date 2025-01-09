@@ -1,5 +1,10 @@
 {
   "root": true,
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
   "ignorePatterns": ["node_modules", "dist", "coverage"],
   "env": {
     "node": true

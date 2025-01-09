@@ -10,14 +10,30 @@ export interface SpinnerProps {
    * @default 16
    */
   size?: SpinnerSize;
+  /**
+   * Specifies the color theme of the spinner.
+   * The color should meet accessibility standards for color contrast.
+   *
+   * @default 'primary'
+   */
   color?: SpinnerColor;
+  /**
+   * Sets the spinner's positioning behavior.
+   * This is useful when you want to position the spinner over other elements.
+   */
   position?: SpinnerPosition;
+  /**
+   * Adds a custom CSS class to the spinner element for additional styling or theming purposes.
+   */
   className?: string;
+  /**
+   * Provides a text label for screen readers to announce the spinner's purpose or status.
+   */
   label?: string;
 }
 
 @Component({
-  selector: 'app-spinner',
+  selector: 'tedi-spinner',
   templateUrl: './spinner.component.html',
   styleUrls: ['./spinner.component.scss'],
 })
