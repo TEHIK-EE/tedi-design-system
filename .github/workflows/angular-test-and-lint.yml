@@ -5,6 +5,7 @@ on:
     branches:
       - main
       - rc
+      - feat/330-angular-support
     paths-ignore:
       - 'libs/react-components/**'
 jobs:
