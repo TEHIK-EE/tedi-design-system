@@ -12,7 +12,6 @@ const config: UserConfig = {
     'process.env.JEST_WORKER_ID': JSON.stringify(process.env.JEST_WORKER_ID),
   },
   mode: 'production',
-  publicDir: join(__dirname, 'public'),
   plugins: [
     dts({
       tsconfigPath: join(__dirname, './tsconfig.lib.json'),
