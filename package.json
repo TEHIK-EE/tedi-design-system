@@ -17,6 +17,9 @@
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^8.19.1",
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/npm": "^11.0.3",
     "eslint": "8.57.1",
     "eslint-config-prettier": "9.1.0",
     "eslint-plugin-import": "2.31.0",
