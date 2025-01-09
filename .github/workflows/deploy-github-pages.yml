@@ -31,9 +31,7 @@ jobs:
       - name: Generate Matrix
         id: generate-matrix
         run: |
-          branches=($(git branch -r | cut -c 3- | sed 's/origin\///g'))
-          json_branches=$(printf '%s\n' "${branches[@]}" | jq -R . | jq -s -c .)
-          echo "json_branches=${json_branches}" >> $GITHUB_OUTPUT
+          echo "json_branches=$(./list-storybook-branches.sh)" >> $GITHUB_OUTPUT
 
   build:
     runs-on: ubuntu-latest
@@ -55,8 +53,16 @@ jobs:
           node-version: 20
       - name: Build
         run: |
+          cd libs/angular-components
           npm ci
           npm run build:sb
+          cd ../react-components
+          npm ci
+          npm run build:sb
+          cd ../..
+          mkdir compiled-storybook
+          mv libs/angular-components/dist/storybook-static compiled-storybook/angular
+          mv libs/react-components/dist/storybook/components compiled-storybook/react
       - uses: actions/upload-artifact@v3
         with:
           name: ${{ strategy.job-index }}
@@ -98,7 +104,7 @@ jobs:
             mkdir -p -- $branch
             mv ../branches/$i/* ./$branch
             ls .
-            echo "<li class="py-2"><a href=\"./${branch}\">${branch}</a></li>" >> index.html
+            echo "<li class="py-2"><b>${branch}</b> - <a href=\"./${branch}/angular\">Angular</a> | <a href=\"./${branch}/react\">React</a></li>" >> index.html
           done
           cat ../.github/workflows/index_suffix.html >> index.html
           ls -lR
