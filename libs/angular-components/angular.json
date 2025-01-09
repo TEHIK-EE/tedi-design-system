@@ -23,7 +23,8 @@
             "configDir": "./.storybook",
             "compodoc": true,
             "compodocArgs": ["-e", "json", "-d", "."],
-            "outputDir": "dist/storybook-static"
+            "outputDir": "dist/storybook-static",
+            "styles": ["src/tedi/styles/index"]
           }
         },
         "lint": {
