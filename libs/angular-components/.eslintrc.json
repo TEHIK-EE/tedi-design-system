@@ -1,5 +1,4 @@
 {
-  "extends": ["../../.eslintrc.json"],
   "overrides": [
     {
       "files": ["*.ts"],
@@ -23,12 +22,7 @@
           }
         ],
         "complexity": ["error", 14],
-        "@typescript-eslint/array-type": [
-          "error",
-          {
-            "default": "array"
-          }
-        ]
+        "@typescript-eslint/array-type": "off"
       }
     },
     {
