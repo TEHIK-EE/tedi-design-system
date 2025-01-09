@@ -64,7 +64,7 @@ jobs:
           cd ../..
           mkdir compiled-storybook
           mv libs/angular-components/dist/storybook-static compiled-storybook/angular
-          mv libs/react-components/dist/storybook/components compiled-storybook/react
+          mv libs/react-components/dist/storybook/react-components compiled-storybook/react
       - uses: actions/upload-artifact@v3
         with:
           name: ${{ strategy.job-index }}
