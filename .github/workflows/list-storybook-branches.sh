@@ -13,7 +13,7 @@ recent_branches=()
 git fetch --all --prune > /dev/null 2>&1
 
 # Loop through all branches
-for branch in $(git for-each-ref --format="%(refname:short)" refs/heads); do
+for branch in $(git branch -r | sed 's/origin\///g'); do
     # Get the latest commit date for the branch in seconds since epoch
     commit_date=$(git log -1 --format=%ct "$branch")
 
