@@ -68,7 +68,7 @@ jobs:
       - uses: actions/upload-artifact@v3
         with:
           name: ${{ strategy.job-index }}
-          path: dist/storybook/components/
+          path: compiled-storybook/
 
   deploy:
     runs-on: ubuntu-latest
