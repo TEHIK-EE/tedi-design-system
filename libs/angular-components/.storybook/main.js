@@ -8,6 +8,9 @@ const config = {
       builder: 'angular',
     },
   },
-  docs: {},
+  staticDirs: ['../../tedi-core/public'],
+  docs: {
+    autodocs: true,
+  },
 };
 export default config;
