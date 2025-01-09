@@ -21,7 +21,8 @@
     "build:sb": "ng run angular-components:build-storybook",
     "lint": "ng lint angular-components --fix",
     "test": "jest --passWithNoTests",
-    "test:watch": "ng test angular-components --watch"
+    "test:watch": "ng test angular-components --watch",
+    "release": "npx semantic-release --debug --dry-run "
   },
   "peerDependencies": {
     "@angular/animations": "^18.2.0",

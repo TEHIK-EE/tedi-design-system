@@ -1,5 +1,5 @@
 {
-  "tagFormat": "react-${version}",
+  "tagFormat": "angular-${version}",
   "branches": [
     "main",
     {
