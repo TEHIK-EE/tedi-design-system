@@ -37,6 +37,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 'lts/*'
+      - name: Lint
         run: |
           npm ci --cache .npm --prefer-offline
           cd libs/angular-components
