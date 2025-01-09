@@ -25,6 +25,8 @@ jobs:
         run: npm ci --cache .npm --prefer-offline
       - name: Navigate to Angular Library module
         run: cd libs/angular-components
+      - name: DEBUG
+        run: ls -la
       - name: Install module dependencies
         run: npm ci --cache .npm --prefer-offline
       - name: Lint
@@ -43,6 +45,8 @@ jobs:
         run: npm ci --cache .npm --prefer-offline
       - name: Navigate to Angular Library module
         run: cd libs/angular-components
+      - name: DEBUG
+        run: ls -la
       - name: Install module dependencies
         run: npm ci --cache .npm --prefer-offline
       - name: Test
