@@ -54,6 +54,7 @@ jobs:
           node-version: 20
       - name: Build
         run: |
+          npm ci
           cd libs/angular-components
           npm ci
           npm run build:sb
