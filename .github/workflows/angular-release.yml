@@ -65,7 +65,7 @@ jobs:
           cd libs/angular-components
           npm ci
           npm run build
-          npm run semantic-release
+          npm run release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPMJS_TEDI_AUTH_TOKEN }}
