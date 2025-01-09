@@ -1,9 +1,9 @@
-@use "sass:map";
-@use "sass:meta";
-@use "../variables/bootstrap-variables" as vars;
-@use "./mixin-utilities" as mixins;
-@use "./breakpoints" as breakpoints;
-@use "./utilities" as utilities;
+@use 'sass:map';
+@use 'sass:meta';
+@use '../variables/bootstrap-variables' as vars;
+@use './mixin-utilities' as mixins;
+@use './breakpoints' as breakpoints;
+@use './utilities' as utilities;
 
 // Loop over each breakpoint
 @each $breakpoint in map.keys(vars.$grid-breakpoints) {
@@ -15,10 +15,7 @@
     @each $key, $utility in utilities.$utilities {
       // The utility can be disabled with `false`, thus check if the utility is a map first
       // Only proceed if responsive media queries are enabled or if it's the base media query
-      @if meta.type-of($utility) ==
-        "map" and
-        (map.get($utility, responsive) or $infix == "")
-      {
+      @if meta.type-of($utility) == 'map' and (map.get($utility, responsive) or $infix == '') {
         @include mixins.generate-utility($utility, $infix);
       }
     }
