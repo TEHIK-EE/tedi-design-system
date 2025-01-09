@@ -31,8 +31,8 @@ jobs:
       - name: Generate Matrix
         id: generate-matrix
         run: |
-          echo "$(./list-storybook-branches.sh)"
-          echo "json_branches=$(./list-storybook-branches.sh)" >> $GITHUB_OUTPUT
+          echo "$(.github/workflows/list-storybook-branches.sh)"
+          echo "json_branches=$(.github/workflows/list-storybook-branches.sh)" >> $GITHUB_OUTPUT
 
   build:
     runs-on: ubuntu-latest
