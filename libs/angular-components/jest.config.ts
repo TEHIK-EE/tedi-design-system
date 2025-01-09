@@ -1,22 +1,18 @@
-/* eslint-disable */
-export default {
-  displayName: 'angular-components',
-  preset: '../jest.preset.js',
-  setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
-  coverageDirectory: '../coverage/angular-components',
+const jestConfig = {
+  preset: 'jest-preset-angular',
+  setupFilesAfterEnv: ['<rootDir>/setup-jest.ts'],
+  testPathIgnorePatterns: ['/node_modules/', '/dist/'],
+  moduleFileExtensions: ['ts', 'html', 'js', 'json'],
   transform: {
-    '^.+\\.(ts|mjs|js|html)$': [
-      'jest-preset-angular',
-      {
-        tsconfig: '<rootDir>/tsconfig.spec.json',
-        stringifyContentPathRegex: '\\.(html|svg)$',
-      },
-    ],
+    '^.+\\.(ts|js|html)$': 'jest-preset-angular',
   },
   transformIgnorePatterns: ['node_modules/(?!.*\\.mjs$)'],
-  snapshotSerializers: [
-    'jest-preset-angular/build/serializers/no-ng-attributes',
-    'jest-preset-angular/build/serializers/ng-snapshot',
-    'jest-preset-angular/build/serializers/html-comment',
-  ],
+  moduleNameMapper: {
+    "^.+\\.html$": "identity-obj-proxy",
+    "^.+\\.(css|scss|sass|less)$": "identity-obj-proxy"
+  },
+  resolver: "jest-preset-angular/build/resolvers/ng-jest-resolver.js",
+  testEnvironment: 'jsdom',
 };
+
+export default jestConfig;

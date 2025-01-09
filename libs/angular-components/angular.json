@@ -25,6 +25,19 @@
             "compodocArgs": ["-e", "json", "-d", "."],
             "outputDir": "dist/storybook-static"
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": ["src/**/components/**/*.ts", "src/**/components/**/*.html"]
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "tsconfig.spec.json",
+            "codeCoverage": true
+          }
         }
       }
     }
