@@ -48,6 +48,7 @@ const config: StorybookConfig = {
         'process.env.JEST_WORKER_ID': JSON.stringify(process.env.JEST_WORKER_ID),
         'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
       },
+      publicDir: join(__dirname, '../../tedi-core/public'),
       plugins: await withoutVitePlugins(
         [
           config.plugins,
