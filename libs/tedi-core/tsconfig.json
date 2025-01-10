@@ -3,7 +3,7 @@
   "compilerOptions": {
     "module": "commonjs",
     "paths": {
-      "@tehik-ee/tedi-core-styles": ["libs/core-styles"]
+      "@tehik-ee/tedi-core": ["libs/tedi-core"]
     }
   },
   "include": [],

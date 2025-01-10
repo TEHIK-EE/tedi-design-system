@@ -12,5 +12,8 @@ const config = {
   docs: {
     autodocs: true,
   },
+  core: {
+    disableTelemetry: true,
+  },
 };
 export default config;
