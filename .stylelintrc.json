@@ -16,6 +16,7 @@
       {
         "ignorePseudoClasses": ["global"]
       }
-    ]
+    ],
+    "lightness-notation": null
   }
 }

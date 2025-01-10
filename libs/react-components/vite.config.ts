@@ -19,9 +19,6 @@ const config: UserConfig = {
     react(),
     checker({
       overlay: false,
-      eslint: {
-        lintCommand: 'eslint "src/**/*.{ts,tsx}"',
-      },
       typescript: {
         root: join(__dirname),
         tsconfigPath: 'tsconfig.lib.json',
