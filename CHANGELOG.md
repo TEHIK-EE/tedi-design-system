@@ -1,3 +1,10 @@
+# [11.0.0-rc.3](https://github.com/TEHIK-EE/tedi-design-system/compare/v11.0.0-rc.2...v11.0.0-rc.3) (2025-01-10)
+
+
+### Bug Fixes
+
+* **textarea:** default value and forwardref bugs [#391](https://github.com/TEHIK-EE/tedi-design-system/issues/391) ([#392](https://github.com/TEHIK-EE/tedi-design-system/issues/392)) ([827b893](https://github.com/TEHIK-EE/tedi-design-system/commit/827b893488ed540b626a9c9bd4db50f8274af7b7))
+
 # [11.0.0-rc.2](https://github.com/TEHIK-EE/tedi-design-system/compare/v11.0.0-rc.1...v11.0.0-rc.2) (2025-01-06)
 
 
