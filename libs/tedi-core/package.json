@@ -1,6 +1,6 @@
 {
   "name": "@tehik-ee/tedi-core",
-  "version": "1.0.0",
+  "version": "0.0.0-semantic-version",
   "main": "src/index.scss",
   "scripts": {
     "build": "sass src/index.scss dist/index.css --style=compressed && cp README.md dist/ && cp package.json dist/",
