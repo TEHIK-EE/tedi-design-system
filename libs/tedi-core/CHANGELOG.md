@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-core-v1.1.0](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.0.0...core-1.1.0) (2025-01-13)
+
+
+### Features
+
+* **general:** add publishConfig for tedi-core package.json [#330](https://github.com/TEHIK-EE/tedi-design-system/issues/330) ([7fe4445](https://github.com/TEHIK-EE/tedi-design-system/commit/7fe4445435b6cd2a52a1f2302f3e72b505bb8681))
+
 # @tehik-ee/tedi-core-v1.0.0 (2025-01-13)
 
 
