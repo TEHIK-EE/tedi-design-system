@@ -22,7 +22,7 @@
     "lint": "ng lint angular-components --fix",
     "test": "jest --passWithNoTests",
     "test:watch": "ng test angular-components --watch",
-    "release": "npx semantic-release --debug"
+    "release": "npx semantic-release -e semantic-release-monorepo --debug"
   },
   "peerDependencies": {
     "@angular/animations": "^18.2.0",
@@ -80,6 +80,9 @@
     "readdirp": "3.6.0",
     "storybook": "^8.4.7",
     "ts-node": "^10.9.2"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "overrides": {
     "dayjs": "$dayjs"

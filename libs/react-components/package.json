@@ -33,7 +33,7 @@
     "lint:ci": "npx stylelint \"src/**/*.scss\" && eslint",
     "test": "jest --config ./jest.config.ts --passWithNoTests",
     "test:coverage": "jest --config ./jest.config.ts --coverage",
-    "release": "npx semantic-release --debug"
+    "release": "npx semantic-release -e semantic-release-monorepo --debug"
   },
   "dependencies": {
     "@emotion/react": "^11.11.4",
@@ -128,6 +128,9 @@
     "vite-plugin-eslint": "^1.8.1",
     "vite-plugin-static-copy": "^2.2.0",
     "vite-tsconfig-paths": "4.3.2"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "overrides": {
     "dayjs": "$dayjs"
