@@ -32,7 +32,8 @@
     "lint": "npx stylelint \"src/**/*.scss\" --fix && eslint --fix",
     "lint:ci": "npx stylelint \"src/**/*.scss\" && eslint",
     "test": "jest --config ./jest.config.ts --passWithNoTests",
-    "test:coverage": "jest --config ./jest.config.ts --coverage"
+    "test:coverage": "jest --config ./jest.config.ts --coverage",
+    "release": "npx semantic-release --debug"
   },
   "dependencies": {
     "@emotion/react": "^11.11.4",
