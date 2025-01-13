@@ -1,4 +1,4 @@
-name: Release TEDI Angular library
+name: Release TEDI Core library
 
 on:
   push:
