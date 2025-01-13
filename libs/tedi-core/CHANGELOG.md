@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-core-v1.2.0](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.1.0...core-1.2.0) (2025-01-13)
+
+
+### Features
+
+* **general:** add semantic versioning to tedi-core [#330](https://github.com/TEHIK-EE/tedi-design-system/issues/330) ([b266f02](https://github.com/TEHIK-EE/tedi-design-system/commit/b266f029622658162b36b4ef49f73626cfdd09a9))
+
 # [@tehik-ee/tedi-core-v1.1.0](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.0.0...core-1.1.0) (2025-01-13)
 
 
