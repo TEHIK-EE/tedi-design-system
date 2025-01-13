@@ -65,7 +65,7 @@ const config: UserConfig = {
       output: {
         dir: join(__dirname, 'dist'),
         assetFileNames: (assetInfo) => {
-          if (assetInfo.name === 'style.css') return 'index.css';
+          if (assetInfo.name === 'tedi-react.css') return 'index.css';
           return assetInfo.name || '';
         },
         manualChunks: (id) => {
