@@ -106,7 +106,7 @@ jobs:
             mkdir -p -- $branch
             mv ../branches/$i/* ./$branch
             ls .
-            echo "<li class="py-2">${branch} - <a href=\"./${branch}/angular\">Angular</a> | <a href=\"./${branch}/react\">React</a></li>" >> index.html
+            echo "<li class="py-2" style="color:#fff;">${branch} - <a href=\"./${branch}/angular\">Angular</a> | <a href=\"./${branch}/react\">React</a></li>" >> index.html
           done
           cat ../.github/workflows/index_suffix.html >> index.html
           ls -lR
