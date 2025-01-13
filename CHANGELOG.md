@@ -1,3 +1,10 @@
+# [11.0.0-rc.5](https://github.com/TEHIK-EE/tedi-design-system/compare/v11.0.0-rc.4...v11.0.0-rc.5) (2025-01-13)
+
+
+### Bug Fixes
+
+* **scroll-fade:** add export of ScrollFade [#398](https://github.com/TEHIK-EE/tedi-design-system/issues/398) ([#399](https://github.com/TEHIK-EE/tedi-design-system/issues/399)) ([aa777dd](https://github.com/TEHIK-EE/tedi-design-system/commit/aa777dd68943d4716cd7a558009da8e003e61913))
+
 # [11.0.0-rc.4](https://github.com/TEHIK-EE/tedi-design-system/compare/v11.0.0-rc.3...v11.0.0-rc.4) (2025-01-13)
 
 
