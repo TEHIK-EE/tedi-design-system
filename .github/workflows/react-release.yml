@@ -65,6 +65,7 @@ jobs:
           cd libs/react-components
           npm ci
           npm run build
+          ls -la dist
           npm run release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
