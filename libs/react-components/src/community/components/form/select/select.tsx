@@ -264,6 +264,11 @@ export interface SelectProps extends FormLabelProps {
    * Option group heading background color. Can also be set for each option group separately inside `options` prop.
    */
   optionGroupBackgroundColor?: TColorsBackground;
+  /**
+   * If options should be cached
+   * @default true
+   */
+  cacheOptions?: boolean;
 }
 
 export interface ISelectOption<CustomData = unknown> {
@@ -344,6 +349,7 @@ export const Select = forwardRef<SelectInstance<ISelectOption, boolean, IGrouped
       inputIsHidden,
       optionGroupHeadingText = { modifiers: 'small', color: 'subtle' },
       optionGroupBackgroundColor,
+      cacheOptions = true,
       ...rest
     } = props;
     const helperId = helper ? helper?.id ?? `${id}-helper` : undefined;
@@ -564,7 +570,7 @@ export const Select = forwardRef<SelectInstance<ISelectOption, boolean, IGrouped
           defaultOptions={defaultOptions}
           value={value}
           defaultValue={defaultValue}
-          cacheOptions={true}
+          cacheOptions={cacheOptions}
           onChange={onChangeHandler}
           onInputChange={onInputChange}
           onBlur={onBlur}

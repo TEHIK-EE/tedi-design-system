@@ -4,7 +4,7 @@ import { useCallback, useState } from 'react';
 
 import FloatingButton from '../buttons/floating-button/floating-button';
 import { Text } from '../typography/text/text';
-import HideOnScroll from './hide-on-scroll';
+import ScrollVisibility from './scroll-visibility';
 
 const CONTAINER_HEIGHT = 300;
 
@@ -12,9 +12,9 @@ const CONTAINER_HEIGHT = 300;
  * <a href="https://tedi.tehik.ee/1ee8444b7/p/00ab5a-scrollvisibility-dev" target="_BLANK">Zeroheight ↗</a>
  **/
 
-const meta: Meta<typeof HideOnScroll> = {
-  component: HideOnScroll,
-  title: 'Tedi-ready/Components/Helpers/HideOnScroll',
+const meta: Meta<typeof ScrollVisibility> = {
+  component: ScrollVisibility,
+  title: 'Tedi-ready/Components/Helpers/ScrollVisibility',
   parameters: {
     status: {
       type: ['devComponent'],
@@ -26,9 +26,9 @@ export default meta;
 
 const lorem = [...Array(5).keys()].map(() => faker.lorem.paragraphs(4));
 const NAVIGATION_HEIGHT = 48;
-type Story = StoryObj<typeof HideOnScroll>;
+type Story = StoryObj<typeof ScrollVisibility>;
 
-const NavigationTemplate: StoryFn<typeof HideOnScroll> = (args) => {
+const NavigationTemplate: StoryFn<typeof ScrollVisibility> = (args) => {
   const [scrollContainer, setScrollContainer] = useState<HTMLDivElement | undefined>(undefined);
 
   const containerRef = useCallback((node: HTMLDivElement | null) => {
@@ -39,16 +39,16 @@ const NavigationTemplate: StoryFn<typeof HideOnScroll> = (args) => {
 
   return (
     <div ref={containerRef} style={{ height: CONTAINER_HEIGHT, overflowY: 'auto' }}>
-      <HideOnScroll {...args} scrollContainer={scrollContainer} />
+      <ScrollVisibility {...args} scrollContainer={scrollContainer} />
       <Text>{lorem.map((text) => text)}</Text>
     </div>
   );
 };
 
-const AnimationDirectionTemplate: StoryFn<typeof HideOnScroll> = (args) => {
+const AnimationDirectionTemplate: StoryFn<typeof ScrollVisibility> = (args) => {
   return (
     <>
-      <HideOnScroll {...args} animationDirection="up">
+      <ScrollVisibility {...args} animationDirection="up">
         <nav
           style={{
             width: '100%',
@@ -64,8 +64,8 @@ const AnimationDirectionTemplate: StoryFn<typeof HideOnScroll> = (args) => {
         >
           Up
         </nav>
-      </HideOnScroll>
-      <HideOnScroll {...args} animationDirection="left">
+      </ScrollVisibility>
+      <ScrollVisibility {...args} animationDirection="left">
         <nav
           style={{
             width: NAVIGATION_HEIGHT,
@@ -82,8 +82,8 @@ const AnimationDirectionTemplate: StoryFn<typeof HideOnScroll> = (args) => {
         >
           Left
         </nav>
-      </HideOnScroll>
-      <HideOnScroll {...args} animationDirection="right">
+      </ScrollVisibility>
+      <ScrollVisibility {...args} animationDirection="right">
         <nav
           style={{
             width: NAVIGATION_HEIGHT,
@@ -100,8 +100,8 @@ const AnimationDirectionTemplate: StoryFn<typeof HideOnScroll> = (args) => {
         >
           Right
         </nav>
-      </HideOnScroll>
-      <HideOnScroll {...args} animationDirection="down">
+      </ScrollVisibility>
+      <ScrollVisibility {...args} animationDirection="down">
         <nav
           style={{
             width: '100%',
@@ -117,16 +117,16 @@ const AnimationDirectionTemplate: StoryFn<typeof HideOnScroll> = (args) => {
         >
           Down
         </nav>
-      </HideOnScroll>
+      </ScrollVisibility>
       <Text>{lorem.map((text) => text)}</Text>
     </>
   );
 };
 
-const FloatingButtonTemplate: StoryFn<typeof HideOnScroll> = (args) => {
+const FloatingButtonTemplate: StoryFn<typeof ScrollVisibility> = (args) => {
   return (
     <>
-      <HideOnScroll {...args} />
+      <ScrollVisibility {...args} />
       <Text element="h3" modifiers="center">
         Scroll down to see Floating Button
       </Text>

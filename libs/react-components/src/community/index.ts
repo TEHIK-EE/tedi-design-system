@@ -9,7 +9,6 @@ export * from './components/anchor/anchor';
 export * from './components/layout';
 export * from './components/ellipsis/ellipsis';
 export * from './components/dropdown/dropdown';
-export * from './components/scroll-fade/scroll-fade';
 export * from './components/stepper';
 export * from './components/affix/affix';
 export * from './components/card';

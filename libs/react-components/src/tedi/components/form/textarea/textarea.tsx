@@ -1,8 +1,8 @@
 import cn from 'classnames';
-import React from 'react';
+import React, { forwardRef } from 'react';
 
 import { FeedbackTextProps } from '../feedback-text/feedback-text';
-import { TextField, TextFieldProps } from '../textfield/textfield';
+import { TextField, TextFieldForwardRef, TextFieldProps } from '../textfield/textfield';
 import styles from './textarea.module.scss';
 
 export interface TextAreaProps extends TextFieldProps {
@@ -16,9 +16,9 @@ export interface TextAreaProps extends TextFieldProps {
   characterLimit?: number;
 }
 
-export const TextArea = (props: TextAreaProps): JSX.Element => {
+export const TextArea = forwardRef<TextFieldForwardRef, TextAreaProps>((props, ref): JSX.Element => {
   const { className, showCounter = false, helper = [], characterLimit, onChange, ...rest } = props;
-  const [value, setValue] = React.useState<string>('');
+  const [value, setValue] = React.useState<string>(props.value ?? '');
 
   const handleInputChange = (inputValue: string) => {
     let truncatedValue = inputValue;
@@ -53,6 +53,7 @@ export const TextArea = (props: TextAreaProps): JSX.Element => {
   return (
     <TextField
       {...rest}
+      ref={ref}
       data-name="textarea"
       inputClassName={styles['tedi-textarea__input']}
       isTextArea={true}
@@ -62,6 +63,8 @@ export const TextArea = (props: TextAreaProps): JSX.Element => {
       helper={combinedHelpers as FeedbackTextProps[]}
     />
   );
-};
+});
+
+TextArea.displayName = 'TextArea';
 
 export default TextArea;
