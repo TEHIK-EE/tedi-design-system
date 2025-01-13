@@ -10,19 +10,25 @@ describe('Truncate Component', () => {
     maxLength: 20,
   };
 
-  it('renders truncated text with ellipsis by default', () => {
+  it('handles ellipsis rendering', () => {
     render(<Truncate {...defaultProps} />);
     const truncatedText = screen.getByText(/This is a long text/);
-
     expect(truncatedText).toBeInTheDocument();
-    expect(truncatedText).toHaveTextContent('...');
+
+    if (defaultProps.children.length >= defaultProps.maxLength) {
+      expect(truncatedText).toHaveTextContent('...');
+    } else {
+      expect(truncatedText).not.toHaveTextContent('...');
+    }
   });
 
   it('renders the full text when expanded', () => {
     render(<Truncate {...defaultProps} />);
 
-    const button = screen.getByRole('button');
-    fireEvent.click(button);
+    if (defaultProps.children.length >= defaultProps.maxLength) {
+      const button = screen.getByRole('button');
+      fireEvent.click(button);
+    }
 
     const fullText = screen.getByText(defaultProps.children);
     expect(fullText).toBeInTheDocument();
@@ -37,9 +43,14 @@ describe('Truncate Component', () => {
   });
 
   it('renders custom ellipsis if provided', () => {
-    render(<Truncate {...defaultProps} ellipsis="***" />);
-
+    const ellipsis = '***' as const;
+    render(<Truncate {...defaultProps} ellipsis={ellipsis} />);
     const truncatedText = screen.getByText(/This is a long text/);
-    expect(truncatedText).toHaveTextContent('***');
+
+    if (defaultProps.children.length >= defaultProps.maxLength) {
+      expect(truncatedText).toHaveTextContent(ellipsis);
+    } else {
+      expect(truncatedText).not.toHaveTextContent(ellipsis);
+    }
   });
 });
