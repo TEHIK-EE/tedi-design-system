@@ -26,6 +26,7 @@ export * from './components/navigation/link/link';
 export * from './components/section/section';
 export * from './components/hide-on-scroll/hide-on-scroll';
 export * from './components/truncate/truncate';
+export * from './components/hash-trigger/hash-trigger';
 
 export * from './helpers';
 
