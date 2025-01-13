@@ -21,9 +21,11 @@
   margin-top: calc(
     -1 * var(--#{vars.$variable-prefix}gutter-y)
   ); // stylelint-disable-line function-disallowed-list
+
   margin-right: calc(
     -0.5 * var(--#{vars.$variable-prefix}gutter-x)
   ); // stylelint-disable-line function-disallowed-list
+
   margin-left: calc(
     -0.5 * var(--#{vars.$variable-prefix}gutter-x)
   ); // stylelint-disable-line function-disallowed-list
@@ -47,9 +49,11 @@
   padding-right: calc(
     var(--#{vars.$variable-prefix}gutter-x) * 0.5
   ); // stylelint-disable-line function-disallowed-list
+
   padding-left: calc(
     var(--#{vars.$variable-prefix}gutter-x) * 0.5
   ); // stylelint-disable-line function-disallowed-list
+
   margin-top: var(--#{vars.$variable-prefix}gutter-y);
 }
 
