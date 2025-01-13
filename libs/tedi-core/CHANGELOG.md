@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-core-v1.3.0](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.2.0...core-1.3.0) (2025-01-13)
+
+
+### Features
+
+* **general:** release scss file insteaf of css for tedi-core [#330](https://github.com/TEHIK-EE/tedi-design-system/issues/330) ([0cec9e9](https://github.com/TEHIK-EE/tedi-design-system/commit/0cec9e9ce1ac6762742b3d5997ffca8c982984c9))
+
 # [@tehik-ee/tedi-core-v1.2.0](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.1.0...core-1.2.0) (2025-01-13)
 
 
