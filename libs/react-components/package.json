@@ -15,14 +15,6 @@
     },
     "./index.css": "./index.css"
   },
-  "files": [
-    "tedi",
-    "community",
-    "index.css"
-  ],
-  "workspaces": [
-    "../tedi-core"
-  ],
   "scripts": {
     "copy:community": "cp -a dist/libs/react-components/src/community/. dist/community/",
     "copy:tedi": "cp -a dist/libs/react-components/src/tedi/. dist/tedi/",
@@ -42,7 +34,7 @@
     "@mui/material": "^5.15.13",
     "@mui/x-date-pickers": "^5.0.20",
     "@tanstack/react-table": "^8.13.2",
-    "@tehik-ee/tedi-core": "^1.0.0",
+    "@tehik-ee/tedi-core": "^1.4.0",
     "classnames": "^2.5.1",
     "dayjs": "^1.11.10",
     "draft-js": "^0.11.7",
