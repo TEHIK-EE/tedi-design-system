@@ -1,3 +1,11 @@
+# [@tehik-ee/tedi-react-v10.3.0](https://github.com/TEHIK-EE/tedi-design-system/compare/react-10.2.0...react-10.3.0) (2025-01-13)
+
+
+### Features
+
+* **general:** update react components scss imports [#330](https://github.com/TEHIK-EE/tedi-design-system/issues/330) ([5b71d6e](https://github.com/TEHIK-EE/tedi-design-system/commit/5b71d6e22c8468bff310b0481a770fd3507183ab))
+* **general:** update react package.json to include all files from dist [#330](https://github.com/TEHIK-EE/tedi-design-system/issues/330) ([4e13f6a](https://github.com/TEHIK-EE/tedi-design-system/commit/4e13f6a04eb5887d97b15cdac887aa26f87fc7ec))
+
 # [@tehik-ee/tedi-react-v10.2.0](https://github.com/TEHIK-EE/tedi-design-system/compare/react-10.1.0...react-10.2.0) (2025-01-13)
 
 
