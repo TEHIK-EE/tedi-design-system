@@ -66,6 +66,7 @@ jobs:
           npm ci
           npm run build
           ls -la dist
+          git pull
           npm run release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
