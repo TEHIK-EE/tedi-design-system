@@ -1,4 +1,4 @@
-@use '@tehik-ee/tedi-core/src/mixins';
+@use '@tehik-ee/tedi-core/mixins';
 
 @mixin alert-variant($background, $border) {
   color: var(--general-text-primary);

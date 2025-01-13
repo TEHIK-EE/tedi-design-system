@@ -1,4 +1,5 @@
-@use '@tehik-ee/tedi-core/src/bootstrap-utility/breakpoints';
+@use '@tehik-ee/tedi-core/index';
+@use '@tehik-ee/tedi-core/bootstrap-utility/breakpoints';
 
 :root {
   --font-family: roboto, arial, helvetica, sans-serif;

@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-angular-v1.1.0](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.0.0...angular-1.1.0) (2025-01-13)
+
+
+### Features
+
+* **general:** update react components scss imports [#330](https://github.com/TEHIK-EE/tedi-design-system/issues/330) ([5b71d6e](https://github.com/TEHIK-EE/tedi-design-system/commit/5b71d6e22c8468bff310b0481a770fd3507183ab))
+
 # @tehik-ee/tedi-angular-v1.0.0 (2025-01-13)
 
 
