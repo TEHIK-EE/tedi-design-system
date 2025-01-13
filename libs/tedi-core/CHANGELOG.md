@@ -1,3 +1,11 @@
+# [@tehik-ee/tedi-core-v1.4.0](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.3.0...core-1.4.0) (2025-01-13)
+
+
+### Features
+
+* **general:** add tedi-core missing package.lock [#330](https://github.com/TEHIK-EE/tedi-design-system/issues/330) ([f0d5132](https://github.com/TEHIK-EE/tedi-design-system/commit/f0d5132ad08b6f06ccccefc510908e2ed577ff73))
+* **general:** update tedi-core package content [#330](https://github.com/TEHIK-EE/tedi-design-system/issues/330) ([9808f6a](https://github.com/TEHIK-EE/tedi-design-system/commit/9808f6aa5782ca33e5e985d8d4985710e3e06fc3))
+
 # [@tehik-ee/tedi-core-v1.3.0](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.2.0...core-1.3.0) (2025-01-13)
 
 
