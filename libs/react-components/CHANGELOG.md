@@ -1,3 +1,11 @@
+# [@tehik-ee/tedi-react-v10.2.0](https://github.com/TEHIK-EE/tedi-design-system/compare/react-10.1.0...react-10.2.0) (2025-01-13)
+
+
+### Features
+
+* **angular:** Downgrade storybook version for react-docgen-typescript to work [#330](https://github.com/TEHIK-EE/tedi-design-system/issues/330) ([2aa220f](https://github.com/TEHIK-EE/tedi-design-system/commit/2aa220fefadcd7e6a943067f5a382af188fdf9a0))
+* **angular:** update package.lock for react-components [#330](https://github.com/TEHIK-EE/tedi-design-system/issues/330) ([1822854](https://github.com/TEHIK-EE/tedi-design-system/commit/1822854010a3945b2a8ca6b8e15dd9916402f38b))
+
 # [10.1.0](https://github.com/TEHIK-EE/tedi-design-system/compare/react-10.0.0...react-10.1.0) (2025-01-13)
 
 
