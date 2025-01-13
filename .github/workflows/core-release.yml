@@ -10,7 +10,7 @@ on:
       - 'libs/react-components/**'
       - 'libs/angular-components/**'
 
-
+jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     permissions:
