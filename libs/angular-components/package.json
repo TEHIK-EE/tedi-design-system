@@ -81,6 +81,9 @@
     "storybook": "^8.4.7",
     "ts-node": "^10.9.2"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "overrides": {
     "dayjs": "$dayjs"
   },
