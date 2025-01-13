@@ -1,0 +1,33 @@
+$top-spacings: (
+  '0': '0rem',
+  '0-5': '0.5rem',
+  '1': '1rem',
+  '1-5': '1.5rem',
+  '2': '2rem',
+  'unset': 'unset',
+);
+
+.affix {
+  z-index: var(--z-index-sticky);
+}
+
+.affix--fixed {
+  position: fixed;
+  z-index: var(--z-index-fixed);
+  max-height: 100vh;
+}
+
+@each $spacing, $value in $top-spacings {
+  .affix--top-#{$spacing} {
+    top: #{$value};
+  }
+  .affix--bottom-#{$spacing} {
+    bottom: #{$value};
+  }
+  .affix--left-#{$spacing} {
+    left: #{$value};
+  }
+  .affix--right-#{$spacing} {
+    right: #{$value};
+  }
+}
