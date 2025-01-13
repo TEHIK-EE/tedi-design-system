@@ -1,5 +1,5 @@
-@use '@tehik-ee/tedi-core/src/mixins';
-@use '@tehik-ee/tedi-core/src/bootstrap-utility/breakpoints';
+@use '@tehik-ee/tedi-core/mixins';
+@use '@tehik-ee/tedi-core/bootstrap-utility/breakpoints';
 
 $stepper-transition: 150ms ease;
 $stepper-step-bg: var(--color-bg-subtle);

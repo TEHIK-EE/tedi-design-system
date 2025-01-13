@@ -1,5 +1,5 @@
-@use '@tehik-ee/tedi-core/src/mixins';
-@use '@tehik-ee/tedi-core/src/bootstrap-utility/breakpoints';
+@use '@tehik-ee/tedi-core/mixins';
+@use '@tehik-ee/tedi-core/bootstrap-utility/breakpoints';
 
 .sidenav {
   z-index: var(--z-index-sidenav);

@@ -1,10 +1,12 @@
-@use '@tehik-ee/tedi-core/src/mixins';
+@use '@tehik-ee/tedi-core/mixins';
 
 .tedi-label {
   display: inline-flex;
   align-items: center;
   font-style: normal;
-  font-feature-settings: 'clig' off, 'liga' off;
+  font-feature-settings:
+    'clig' off,
+    'liga' off;
   color: var(--general-text-secondary);
 
   @include mixins.responsive-styles(gap, content-label-inner-spacing-x);
