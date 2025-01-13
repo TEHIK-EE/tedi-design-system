@@ -1,12 +1,12 @@
 {
   "name": "@tehik-ee/tedi-core",
-  "version": "1.0.0",
+  "version": "0.0.0-semantic-version",
   "main": "src/index.scss",
   "scripts": {
-    "build": "sass src/index.scss dist/index.css --style=compressed && cp README.md dist/ && cp package.json dist/",
+    "build": "rm -rf dist && mkdir dist && cp -a src/* dist/ && cp README.md dist/ && cp package.json dist/",
     "release": "npx semantic-release -e semantic-release-monorepo --debug"
   },
-  "devDependencies": {
-    "sass": "^1.83.1"
+  "publishConfig": {
+    "access": "public"
   }
 }
