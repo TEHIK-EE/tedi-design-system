@@ -1,9 +1,9 @@
 import cn from 'classnames';
 import React from 'react';
 
+import HashTrigger from '../../../../tedi/components/hash-trigger/hash-trigger';
 import { CardBorderType, CardProps } from '../../card';
 import Card from '../../card/card';
-import HashTrigger from '../../hash-trigger/hash-trigger';
 import { AccordionContext } from '../accordion';
 import styles from '../accordion.module.scss';
 import { AccordionItemContentProps } from '../accordion-item-content/accordion-item-content';
@@ -72,12 +72,10 @@ export const AccordionItem = (props: AccordionItemProps): JSX.Element => {
     <AccordionItemContext.Provider value={{ id, disabled }}>
       <HashTrigger
         id={id}
-        onMatch={(id, _, cb) => {
+        onMatch={(id) => {
           if (!disabled) {
             onToggle(id);
           }
-          // Scroll to element in page, when hash is matched
-          cb?.();
         }}
       >
         <Card data-name="accordion-item" border={mappedBorder} className={BEM} {...rest}>
