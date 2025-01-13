@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "main": "dist/index.js",
   "scripts": {
-    "prepare": "husky install",
+    "prepare": "husky",
     "lint": "npx stylelint \"**/*.scss\" --fix && eslint . --fix",
     "lint:ci": "npx stylelint \"**/*.scss\" && eslint ."
   },
@@ -16,10 +16,13 @@
     "node": ">=18.0.0"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^8.19.1",
+    "@commitlint/cli": "^19.6.1",
+    "@commitlint/config-conventional": "^19.6.0",
     "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/commit-analyzer": "^13.0.0",
     "@semantic-release/git": "^10.0.1",
     "@semantic-release/npm": "^11.0.3",
+    "@typescript-eslint/eslint-plugin": "^8.19.1",
     "eslint": "8.57.1",
     "eslint-config-prettier": "9.1.0",
     "eslint-plugin-import": "2.31.0",
@@ -30,7 +33,7 @@
     "prettier": "^3.0.0",
     "sass": "^1.81.0",
     "semantic-release": "^23.0.3",
-    "@semantic-release/commit-analyzer": "^13.0.0",
+    "semantic-release-monorepo": "^8.0.2",
     "stylelint": "^16.0.2",
     "stylelint-config-recess-order": "^4.2.0",
     "stylelint-config-standard-scss": "^14.0.0",
