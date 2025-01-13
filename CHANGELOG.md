@@ -1,3 +1,10 @@
+# [11.0.0-rc.4](https://github.com/TEHIK-EE/tedi-design-system/compare/v11.0.0-rc.3...v11.0.0-rc.4) (2025-01-13)
+
+
+### Bug Fixes
+
+* **truncate:** fix truncate button [#394](https://github.com/TEHIK-EE/tedi-design-system/issues/394) ([#395](https://github.com/TEHIK-EE/tedi-design-system/issues/395)) ([3cac352](https://github.com/TEHIK-EE/tedi-design-system/commit/3cac352a27fb038b254dd34ed8265ef59c0b196c))
+
 # [11.0.0-rc.3](https://github.com/TEHIK-EE/tedi-design-system/compare/v11.0.0-rc.2...v11.0.0-rc.3) (2025-01-10)
 
 
