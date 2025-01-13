@@ -1,5 +1,11 @@
 {
   "name": "@tehik-ee/tedi-core",
   "version": "1.0.0",
-  "main": "src/index.scss"
+  "main": "src/index.scss",
+  "scripts": {
+    "build": "sass src/index.scss dist/index.css --style=compressed && cp README.md dist/ && cp package.json dist/"
+  },
+  "devDependencies": {
+    "sass": "^1.83.1"
+  }
 }

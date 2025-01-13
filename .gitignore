@@ -6,6 +6,7 @@
 /dist
 /libs/react-components/dist
 /libs/angular-components/dist
+/libs/tedi-core/dist
 /tmp
 /out-tsc
 
