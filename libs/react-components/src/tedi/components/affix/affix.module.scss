@@ -7,27 +7,30 @@ $top-spacings: (
   'unset': 'unset',
 );
 
-.affix {
+.tedi-affix {
   z-index: var(--z-index-sticky);
-}
 
-.affix--fixed {
-  position: fixed;
-  z-index: var(--z-index-fixed);
-  max-height: 100vh;
-}
+  &--fixed {
+    position: fixed;
+    z-index: var(--z-index-fixed);
+    max-height: 100vh;
+  }
 
-@each $spacing, $value in $top-spacings {
-  .affix--top-#{$spacing} {
-    top: #{$value};
-  }
-  .affix--bottom-#{$spacing} {
-    bottom: #{$value};
-  }
-  .affix--left-#{$spacing} {
-    left: #{$value};
-  }
-  .affix--right-#{$spacing} {
-    right: #{$value};
+  @each $spacing, $value in $top-spacings {
+    &--top-#{$spacing} {
+      top: #{$value};
+    }
+
+    &--bottom-#{$spacing} {
+      bottom: #{$value};
+    }
+
+    &--left-#{$spacing} {
+      left: #{$value};
+    }
+
+    &--right-#{$spacing} {
+      right: #{$value};
+    }
   }
 }

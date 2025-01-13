@@ -1,5 +1,5 @@
 import cn from 'classnames';
-import { ReactNode, useContext } from 'react';
+import { useContext } from 'react';
 import StickyBox from 'react-sticky-box';
 
 import { LayoutContext } from '../../../community/components/layout';
@@ -12,7 +12,7 @@ export interface AffixProps {
   /**
    * Affix children
    */
-  children?: ReactNode;
+  children?: React.ReactNode;
   /**
    * Additional class.
    */
@@ -49,16 +49,16 @@ export interface AffixProps {
   relative?: Array<'header'> | 'window';
 }
 
-export default function Affix(props: AffixProps) {
+export const Affix = (props: AffixProps): JSX.Element => {
   const { children, relative = ['header'], className, position = 'sticky', top = 1.5, bottom, right, left } = props;
   const { headerBottomElement } = useContext(LayoutContext);
   const headerBottomSize = useElementSize(headerBottomElement);
 
-  const BEM = cn(styles['affix'], className, styles[`affix--${position}`], {
-    [styles[`affix--top-${top}`.replace('.', '-')]]: typeof top !== 'undefined' && position === 'fixed',
-    [styles[`affix--bottom-${bottom}`.replace('.', '-')]]: typeof bottom !== 'undefined',
-    [styles[`affix--left-${left}`.replace('.', '-')]]: typeof left !== 'undefined',
-    [styles[`affix--right-${right}`.replace('.', '-')]]: typeof right !== 'undefined',
+  const BEM = cn(styles['tedi-affix'], className, styles[`tedi-affix--${position}`], {
+    [styles[`tedi-affix--top-${top}`.replace('.', '-')]]: typeof top !== 'undefined' && position === 'fixed',
+    [styles[`tedi-affix--bottom-${bottom}`.replace('.', '-')]]: typeof bottom !== 'undefined',
+    [styles[`tedi-affix--left-${left}`.replace('.', '-')]]: typeof left !== 'undefined',
+    [styles[`tedi-affix--right-${right}`.replace('.', '-')]]: typeof right !== 'undefined',
   });
 
   if (position === 'fixed') {
@@ -74,4 +74,6 @@ export default function Affix(props: AffixProps) {
       {children}
     </StickyBox>
   );
-}
+};
+
+export default Affix;
