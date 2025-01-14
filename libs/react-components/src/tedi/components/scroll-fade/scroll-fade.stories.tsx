@@ -90,6 +90,16 @@ const FadePositionTemplate: StoryFn<typeof ScrollFade> = (args) => (
   </Row>
 );
 
+const NoFadeWithoutScrollbarTemplate: StoryFn<typeof ScrollFade> = (args) => (
+  <Row>
+    <Col xs={3}>
+      <div style={{ marginTop: '16px', maxWidth: '200px', maxHeight: '400px' }}>
+        <ScrollFade {...args} />
+      </div>
+    </Col>
+  </Row>
+);
+
 export const Default: Story = {
   render: Template,
   args: {
@@ -122,6 +132,15 @@ export const FadeSize: Story = {
 
 export const FadePosition: Story = {
   render: FadePositionTemplate,
+  args: {
+    children: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+      magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris Lorem ipsum dolor sit amet,
+      consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.`,
+  },
+};
+
+export const NoFadeWithoutScrollbar: Story = {
+  render: NoFadeWithoutScrollbarTemplate,
   args: {
     children: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
       magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris Lorem ipsum dolor sit amet,
