@@ -37,7 +37,7 @@ export interface ScrollFadeProps {
   onScrollToBottom?: () => void;
 }
 
-const ScrollFade = forwardRef<HTMLDivElement, ScrollFadeProps>((props, ref): JSX.Element => {
+export const ScrollFade = forwardRef<HTMLDivElement, ScrollFadeProps>((props, ref): JSX.Element => {
   const {
     children,
     className,
