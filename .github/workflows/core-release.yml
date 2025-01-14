@@ -30,6 +30,7 @@ jobs:
           cd libs/tedi-core
           npm ci
           npm run build
+          git pull
           npm run release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
