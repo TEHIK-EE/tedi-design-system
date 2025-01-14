@@ -1,10 +1,10 @@
-@import '../../../styles/mixins';
+@use '@tehik-ee/tedi-core/mixins';
 
 .tedi-form-label {
   display: flex;
 
   &--hidden {
-    @include visually-hidden;
+    @include mixins.visually-hidden;
   }
 
   &--hidden-keep-space {

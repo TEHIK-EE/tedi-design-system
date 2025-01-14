@@ -86,7 +86,7 @@ const TemplateSubtitles: StoryFn = (args) => (
   </div>
 );
 
-const TemplateBodyText: StoryFn = (args) => (
+const TemplateBodyText: StoryFn = () => (
   <div className="example-list w-100">
     <Row className="border-bottom border-bottom--3x">
       <Col>
@@ -128,7 +128,7 @@ const TemplateBodyText: StoryFn = (args) => (
   </div>
 );
 
-const TemplateGeneralText: StoryFn = (args) => (
+const TemplateGeneralText: StoryFn = () => (
   <VerticalSpacing>
     <Row>
       <Col>
@@ -173,7 +173,7 @@ const TemplateGeneralText: StoryFn = (args) => (
   </VerticalSpacing>
 );
 
-const TemplateStatusText: StoryFn = (args) => (
+const TemplateStatusText: StoryFn = () => (
   <VerticalSpacing>
     <Row>
       <Col>

@@ -1,26 +1,25 @@
 import { Controls, Description, Primary, Stories, Subtitle, Title } from '@storybook/blocks';
-import { Preview } from '@storybook/react';
-import React from 'react';
+import { Preview, StoryContext } from '@storybook/react';
 
 import StorybookDecorator from './storybook-decorator';
 
 import '../src/tedi/styles/index.scss';
 import '../src/community/styles/index.scss';
-import '../src/tedi/styles/tedi-storybook-styles.scss';
+import '../../tedi-core/src/tedi-storybook-styles.scss';
 import '../src/community/styles/storybook.scss';
 import 'what-input';
 
-export const decorators = [
-  (Story, options) => {
+export const decorators: Preview['decorators'] = [
+  (Story: React.ComponentType, context: StoryContext) => {
     // prevent LabelProvider for label story, because it sets its own provider
-    return options.componentId === 'components-labelprovider' ? (
+    return context.componentId === 'components-labelprovider' ? (
       <Story />
     ) : (
       <StorybookDecorator>
         <Story />
       </StorybookDecorator>
     );
-  },
+  }
 ];
 
 const preview: Preview = {
