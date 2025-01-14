@@ -1,3 +1,15 @@
+# [@tehik-ee/tedi-core-v1.5.0-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.4.0...core-1.5.0-rc.1) (2025-01-14)
+
+
+### Bug Fixes
+
+* **general:** Remove --dry-run flag from release script [#330](https://github.com/TEHIK-EE/tedi-design-system/issues/330) ([8e2078a](https://github.com/TEHIK-EE/tedi-design-system/commit/8e2078ab5210f3ad32fcb6c01c292bcc74f02690))
+
+
+### Features
+
+* **general:** tedi-core, tedi-angular and tedi-react monorepo [#330](https://github.com/TEHIK-EE/tedi-design-system/issues/330) ([#403](https://github.com/TEHIK-EE/tedi-design-system/issues/403)) ([95654aa](https://github.com/TEHIK-EE/tedi-design-system/commit/95654aa5bb4d26b925ac51e1968f248707acdc07)), closes [#339](https://github.com/TEHIK-EE/tedi-design-system/issues/339) [#339](https://github.com/TEHIK-EE/tedi-design-system/issues/339) [#398](https://github.com/TEHIK-EE/tedi-design-system/issues/398) [#399](https://github.com/TEHIK-EE/tedi-design-system/issues/399)
+
 # [@tehik-ee/tedi-core-v1.4.0](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.3.0...core-1.4.0) (2025-01-13)
 
 
