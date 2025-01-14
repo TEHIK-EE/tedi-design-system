@@ -1,11 +1,11 @@
-import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin';
-import reactPlugin from '@vitejs/plugin-react';
+import react from '@vitejs/plugin-react';
 import path from 'node:path';
 import { join } from 'path';
 import { visualizer } from 'rollup-plugin-visualizer';
 import { defineConfig, PluginOption, UserConfig } from 'vite';
 import checker from 'vite-plugin-checker';
 import dts from 'vite-plugin-dts';
+import { viteStaticCopy } from 'vite-plugin-static-copy';
 
 const config: UserConfig = {
   define: {
@@ -13,16 +13,12 @@ const config: UserConfig = {
   },
   mode: 'production',
   plugins: [
-    nxViteTsPaths(),
     dts({
       tsconfigPath: join(__dirname, './tsconfig.lib.json'),
     }),
-    reactPlugin(),
+    react(),
     checker({
       overlay: false,
-      eslint: {
-        lintCommand: 'eslint "./libs/react-components/src/**/*.{ts,tsx}"',
-      },
       typescript: {
         root: join(__dirname),
         tsconfigPath: 'tsconfig.lib.json',
@@ -32,6 +28,18 @@ const config: UserConfig = {
       filename: './dist/bundle-stats.html',
       title: '@tehik-ee/tedi-design-system bundle stats',
     }) as PluginOption,
+    viteStaticCopy({
+      targets: [
+        {
+          src: ['package.json', 'README.md'],
+          dest: './',
+        },
+        {
+          src: '../tedi-core/public/*',
+          dest: './',
+        },
+      ],
+    }),
   ],
   css: {
     modules: {
@@ -42,7 +50,6 @@ const config: UserConfig = {
   build: {
     reportCompressedSize: true,
     commonjsOptions: { transformMixedEsModules: true },
-    outDir: '../../dist',
     emptyOutDir: true,
     lib: {
       entry: {
@@ -56,6 +63,7 @@ const config: UserConfig = {
     rollupOptions: {
       external: ['next', 'react', 'react/jsx-runtime', 'react-dom', 'dayjs', 'lodash-es', 'classnames'],
       output: {
+        dir: join(__dirname, 'dist'),
         assetFileNames: (assetInfo) => {
           if (assetInfo.name === 'style.css') return 'index.css';
           return assetInfo.name || '';

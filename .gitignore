@@ -4,6 +4,9 @@
 
 # compiled output
 /dist
+/libs/react-components/dist
+/libs/angular-components/dist
+/libs/tedi-core/dist
 /tmp
 /out-tsc
 
@@ -46,4 +49,9 @@ Thumbs.db
 .netlify
 
 migrations.json
-/.nx
+
+.angular
+
+documentation.json
+
+*storybook.log

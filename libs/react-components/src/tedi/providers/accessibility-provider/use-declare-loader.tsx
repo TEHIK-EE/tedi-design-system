@@ -32,7 +32,6 @@ const useDeclareLoader = (mountLabel: string, unmountLabel: string, delay?: numb
     }
 
     return;
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 };
 
