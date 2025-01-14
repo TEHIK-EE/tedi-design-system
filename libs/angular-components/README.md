@@ -1,7 +1,4 @@
-# angular-components
+# TEDI Design System for Angular
 
-This library was generated with [Nx](https://nx.dev).
-
-## Running unit tests
-
-Run `nx test angular-components` to execute the unit tests.
+`@tehik-ee/tedi-angular` is a library of Angular components designed to implement the TEDI Design System, ensuring consistency, accessibility, and efficiency in building user interfaces.
+For installation and usage instructions, visit the [documentation](https://github.com/TEHIK-EE/tedi-design-system/wiki).
