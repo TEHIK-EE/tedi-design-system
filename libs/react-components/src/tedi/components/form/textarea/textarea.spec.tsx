@@ -49,13 +49,15 @@ describe('TextArea component', () => {
     expect(handleChange).toHaveBeenCalledWith('New Value');
   });
 
-  it('enforces character limit when provided', () => {
+  it('displays error when char count is over character limit', () => {
     const handleChange = jest.fn();
-    render(<TextArea {...defaultProps} characterLimit={10} onChange={handleChange} />);
+    const charLimit = 10;
+    const newText = 'This text is too long';
+    render(<TextArea {...defaultProps} characterLimit={charLimit} onChange={handleChange} />);
     const textarea = screen.getByPlaceholderText(/enter text/i);
-    fireEvent.change(textarea, { target: { value: 'This text is too long' } });
-    expect(textarea).toHaveValue('This text ');
-    expect(handleChange).toHaveBeenCalledWith('This text ');
+    fireEvent.change(textarea, { target: { value: newText } });
+    const error = screen.getByText(`${newText.length}/${charLimit}`);
+    expect(error).toHaveClass('tedi-feedback-text--error');
   });
 
   it('disables the textarea when disabled prop is true', () => {
@@ -76,16 +78,16 @@ describe('TextArea component', () => {
     expect(error).toHaveClass('tedi-feedback-text--error');
   });
 
-  it('displays a character counter when showCounter is true', () => {
-    render(<TextArea {...defaultProps} showCounter characterLimit={15} />);
+  it('displays a character counter when characterLimit is set', () => {
+    render(<TextArea {...defaultProps} characterLimit={15} />);
     const textarea = screen.getByPlaceholderText(/enter text/i);
     fireEvent.change(textarea, { target: { value: 'Some text' } });
     const counter = screen.getByText(/9\/15/i);
     expect(counter).toBeInTheDocument();
   });
 
-  it('does not display a character counter when showCounter is false', () => {
-    render(<TextArea {...defaultProps} characterLimit={15} />);
+  it('does not display a character counter when characterLimit is not set', () => {
+    render(<TextArea {...defaultProps} />);
     const textarea = screen.getByPlaceholderText(/enter text/i);
     fireEvent.change(textarea, { target: { value: 'Some text' } });
     const counter = screen.queryByText(/\d+\/\d+/i);
