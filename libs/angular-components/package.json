@@ -22,7 +22,7 @@
     "lint": "ng lint angular-components --fix",
     "test": "jest --passWithNoTests",
     "test:watch": "ng test angular-components --watch",
-    "release": "npx semantic-release -e semantic-release-monorepo --debug --dry-run"
+    "release": "npx semantic-release -e semantic-release-monorepo --debug"
   },
   "peerDependencies": {
     "@angular/animations": "^18.2.0",
