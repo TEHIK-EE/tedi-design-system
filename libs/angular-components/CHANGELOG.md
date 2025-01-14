@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-angular-v1.2.0](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.1.0...angular-1.2.0) (2025-01-14)
+
+
+### Features
+
+* **angular:** update tedi-core version, remove workspaces [#330](https://github.com/TEHIK-EE/tedi-design-system/issues/330) ([9162557](https://github.com/TEHIK-EE/tedi-design-system/commit/9162557602a1db35b6d8f1a19548f9e49c5edd84))
+
 # [@tehik-ee/tedi-angular-v1.1.0](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.0.0...angular-1.1.0) (2025-01-13)
 
 
