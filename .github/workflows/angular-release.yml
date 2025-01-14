@@ -1,0 +1,71 @@
+name: Release TEDI Angular library
+
+on:
+  push:
+    branches:
+      - rc
+      - main
+    paths-ignore:
+      - 'libs/react-components/**'
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 'lts/*'
+      - name: Lint
+        run: |
+          npm ci --cache .npm --prefer-offline
+          cd libs/angular-components
+          npm ci --cache .npm --prefer-offline
+          npm run lint
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 'lts/*'
+      - name: Test
+        run: |
+          npm ci --cache .npm --prefer-offline
+          cd libs/angular-components
+          npm ci --cache .npm --prefer-offline
+          npm run test
+
+  build-and-deploy:
+    needs: [lint, test]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 'lts/*'
+      - name: Build and publish npm package
+        run: |
+          HUSKY=0
+          npm ci
+          cd libs/angular-components
+          npm ci
+          npm run build
+          git pull
+          npm run release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPMJS_TEDI_AUTH_TOKEN }}

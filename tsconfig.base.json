@@ -8,26 +8,26 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "importHelpers": true,
-    "target": "es2015",
+    "target": "es2018",
     "module": "esnext",
-    "lib": ["es2017", "dom", "ES2021.String"],
+    "lib": ["es2018", "dom", "ES2021.String"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "esModuleInterop": true,
     "baseUrl": ".",
     "paths": {
-      "@tehik-ee/design-tokens": ["libs/react-components/design-tokens/tokens.js"],
-      "@tehik-ee/tedi-design-system/community": ["libs/react-components/src/community/index.ts"],
-      "@tehik-ee/tedi-design-system/tedi": ["libs/react-components/src/tedi/index.ts"]
-    },
-    "plugins": [
-      {
-        "name": "typescript-plugin-css-modules",
-        "options": {
-          "customTemplate": "../../customTemplate.cjs"
-        }
-      }
-    ]
+      "@tehik-ee/angular-components": ["angular-components/src/index.ts"],
+      "@tehik-ee/design-tokens": [
+        "libs/react-components/design-tokens/tokens.js"
+      ],
+      "@tehik-ee/tedi-design-system/community": [
+        "libs/react-components/src/community/index.ts"
+      ],
+      "@tehik-ee/tedi-design-system/tedi": [
+        "libs/react-components/src/tedi/index.ts"
+      ],
+      "@tehik-ee/tedi-core": ["libs/tedi-core/*"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

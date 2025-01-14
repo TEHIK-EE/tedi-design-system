@@ -1,4 +1,4 @@
-@use '../../../../../styles/mixins';
+@use '@tehik-ee/tedi-core/mixins';
 
 .light-item__input {
   @include mixins.visually-hidden;

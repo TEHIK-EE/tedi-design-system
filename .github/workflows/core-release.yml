@@ -1,0 +1,37 @@
+name: Release TEDI Core library
+
+on:
+  push:
+    branches:
+      - rc
+      - main
+    paths-ignore:
+      - 'libs/react-components/**'
+      - 'libs/angular-components/**'
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 'lts/*'
+      - name: Build and publish npm package
+        run: |
+          HUSKY=0
+          npm ci
+          cd libs/tedi-core
+          npm ci
+          npm run build
+          git pull
+          npm run release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPMJS_TEDI_AUTH_TOKEN }}
