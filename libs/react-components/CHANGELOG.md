@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-react-v10.3.1](https://github.com/TEHIK-EE/tedi-design-system/compare/react-10.3.0...react-10.3.1) (2025-01-14)
+
+
+### Bug Fixes
+
+* **scroll-fade:** add export of ScrollFade [#398](https://github.com/TEHIK-EE/tedi-design-system/issues/398) ([#399](https://github.com/TEHIK-EE/tedi-design-system/issues/399)) ([aa777dd](https://github.com/TEHIK-EE/tedi-design-system/commit/aa777dd68943d4716cd7a558009da8e003e61913))
+
 # [11.0.0-rc.5](https://github.com/TEHIK-EE/tedi-design-system/compare/v11.0.0-rc.4...v11.0.0-rc.5) (2025-01-13)
 
 
