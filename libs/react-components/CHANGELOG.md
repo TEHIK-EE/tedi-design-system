@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-react-v11.0.0-rc.7](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.0.0-rc.6...react-11.0.0-rc.7) (2025-01-14)
+
+
+### Bug Fixes
+
+* **textarea:** fix char limit and counter [#397](https://github.com/TEHIK-EE/tedi-design-system/issues/397) ([#401](https://github.com/TEHIK-EE/tedi-design-system/issues/401)) ([3e574d1](https://github.com/TEHIK-EE/tedi-design-system/commit/3e574d1b6e28c8fb27f890f89b39449fd84f1351))
+
 # [@tehik-ee/tedi-react-v11.0.0-rc.6](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.0.0-rc.5...react-11.0.0-rc.6) (2025-01-14)
 
 
