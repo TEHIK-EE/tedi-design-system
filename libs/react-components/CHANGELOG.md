@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-react-v11.0.0-rc.8](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.0.0-rc.7...react-11.0.0-rc.8) (2025-01-14)
+
+
+### Bug Fixes
+
+* **scroll-fade:** fix fade without scrollbar [#400](https://github.com/TEHIK-EE/tedi-design-system/issues/400) ([#402](https://github.com/TEHIK-EE/tedi-design-system/issues/402)) ([fe6ecb5](https://github.com/TEHIK-EE/tedi-design-system/commit/fe6ecb5c843a070ca3978ae0ddc08c7250d6acd9))
+
 # [@tehik-ee/tedi-react-v11.0.0-rc.7](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.0.0-rc.6...react-11.0.0-rc.7) (2025-01-14)
 
 
