@@ -1,3 +1,15 @@
+# [@tehik-ee/tedi-react-v11.0.0-rc.6](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.0.0-rc.5...react-11.0.0-rc.6) (2025-01-14)
+
+
+### Bug Fixes
+
+* **general:** Remove --dry-run flag from release script [#330](https://github.com/TEHIK-EE/tedi-design-system/issues/330) ([9c52042](https://github.com/TEHIK-EE/tedi-design-system/commit/9c52042334540edf43817a2e32a2747bb00395fd))
+
+
+### Features
+
+* **general:** tedi-core, tedi-angular and tedi-react monorepo [#330](https://github.com/TEHIK-EE/tedi-design-system/issues/330) ([#403](https://github.com/TEHIK-EE/tedi-design-system/issues/403)) ([95654aa](https://github.com/TEHIK-EE/tedi-design-system/commit/95654aa5bb4d26b925ac51e1968f248707acdc07)), closes [#339](https://github.com/TEHIK-EE/tedi-design-system/issues/339) [#339](https://github.com/TEHIK-EE/tedi-design-system/issues/339) [#398](https://github.com/TEHIK-EE/tedi-design-system/issues/398) [#399](https://github.com/TEHIK-EE/tedi-design-system/issues/399)
+
 # [@tehik-ee/tedi-react-v10.3.1](https://github.com/TEHIK-EE/tedi-design-system/compare/react-10.3.0...react-10.3.1) (2025-01-14)
 
 
