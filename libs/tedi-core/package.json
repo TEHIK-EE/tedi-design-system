@@ -4,7 +4,7 @@
   "main": "src/index.scss",
   "scripts": {
     "build": "rm -rf dist && mkdir dist && cp -a src/* dist/ && cp README.md dist/ && cp package.json dist/",
-    "release": "npx semantic-release -e semantic-release-monorepo --debug"
+    "release": "npx semantic-release -e semantic-release-monorepo --debug --dry-run"
   },
   "publishConfig": {
     "access": "public"

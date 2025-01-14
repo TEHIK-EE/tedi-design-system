@@ -5,8 +5,7 @@
     {
       "name": "rc",
       "prerelease": true
-    },
-    "feat/330-angular-support"
+    }
   ],
   "plugins": [
     "@semantic-release/commit-analyzer",
