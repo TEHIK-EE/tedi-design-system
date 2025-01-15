@@ -1,4 +1,4 @@
-@import '../../styles/mixins';
+@use '@tehik-ee/tedi-core/mixins';
 
 $tag-colors: (
   'primary': 'tag-primary',
@@ -15,12 +15,12 @@ $tag-colors: (
   justify-content: center;
   color: var(--general-text-primary);
 
-  @include responsive-styles(gap, tag-default-inner-spacing);
-  @include responsive-styles(border-radius, tag-default-radius);
-  @include responsive-styles(padding, tag-default-padding-y tag-default-padding-x);
-  @include responsive-styles(font-size, body-small-regular-size);
-  @include responsive-styles(font-weight, body-small-regular-weight);
-  @include responsive-styles(line-height, body-small-regular-line-height);
+  @include mixins.responsive-styles(gap, tag-default-inner-spacing);
+  @include mixins.responsive-styles(border-radius, tag-default-radius);
+  @include mixins.responsive-styles(padding, tag-default-padding-y tag-default-padding-x);
+  @include mixins.responsive-styles(font-size, body-small-regular-size);
+  @include mixins.responsive-styles(font-weight, body-small-regular-weight);
+  @include mixins.responsive-styles(line-height, body-small-regular-line-height);
 
   @each $color, $var in $tag-colors {
     &--color-#{$color} {
@@ -30,8 +30,8 @@ $tag-colors: (
   }
 
   &__loader {
-    @include responsive-styles(width, icon-01);
-    @include responsive-styles(height, icon-01);
+    @include mixins.responsive-styles(width, icon-01);
+    @include mixins.responsive-styles(height, icon-01);
   }
 
   &__close {
@@ -42,11 +42,11 @@ $tag-colors: (
     padding: 0;
     overflow: hidden;
 
-    @include responsive-styles(padding-left, tag-default-padding-x);
+    @include mixins.responsive-styles(padding-left, tag-default-padding-x);
 
     > button {
-      @include responsive-styles(border-top-right-radius, button-radius-sm);
-      @include responsive-styles(border-bottom-right-radius, button-radius-sm);
+      @include mixins.responsive-styles(border-top-right-radius, button-radius-sm);
+      @include mixins.responsive-styles(border-bottom-right-radius, button-radius-sm);
     }
   }
 }

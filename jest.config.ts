@@ -1,5 +1,3 @@
-import { getJestProjects } from '@nx/jest';
-
 export default {
-  projects: getJestProjects(),
+  projects: ['libs/react-components', 'libs/angular-components'],
 };

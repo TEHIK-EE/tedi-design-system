@@ -37,7 +37,7 @@ export interface ScrollFadeProps {
   onScrollToBottom?: () => void;
 }
 
-const ScrollFade = forwardRef<HTMLDivElement, ScrollFadeProps>((props, ref): JSX.Element => {
+export const ScrollFade = forwardRef<HTMLDivElement, ScrollFadeProps>((props, ref): JSX.Element => {
   const {
     children,
     className,
@@ -54,15 +54,20 @@ const ScrollFade = forwardRef<HTMLDivElement, ScrollFadeProps>((props, ref): JSX
       const atTop = scrollTop === 0;
       const atBottom = Math.abs(scrollHeight - scrollTop - clientHeight) <= 1;
 
+      let fadeTop = true;
+      let fadeBottom = true;
+
       if (atTop) {
-        setFade({ top: false, bottom: true });
+        fadeTop = false;
         onScrollToTop?.();
-      } else if (atBottom) {
-        setFade({ top: true, bottom: false });
-        onScrollToBottom?.();
-      } else {
-        setFade({ top: true, bottom: true });
       }
+
+      if (atBottom) {
+        fadeBottom = false;
+        onScrollToBottom?.();
+      }
+
+      setFade({ top: fadeTop, bottom: fadeBottom });
     },
     [onScrollToTop, onScrollToBottom]
   );

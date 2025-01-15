@@ -1,8 +1,8 @@
-@import '../../styles/mixins';
+@use '@tehik-ee/tedi-core/mixins';
 
 .tedi-heading-with-icon {
   display: flex;
   align-items: center;
 
-  @include responsive-styles(gap, content-heading-inner-spacing-x);
+  @include mixins.responsive-styles(gap, content-heading-inner-spacing-x);
 }
