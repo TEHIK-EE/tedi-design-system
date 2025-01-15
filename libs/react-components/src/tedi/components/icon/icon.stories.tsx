@@ -240,36 +240,36 @@ export const UsedInsideText: Story = {
     return (
       <VerticalSpacing size={0.25}>
         <Heading element="h1">
-          <Icon name={args.name} display="inline" size="inherit" />
-          This is level 1 heading with inline <Icon color="brand" name={args.name} display="inline" size="inherit" /> icon
+          <Icon name={args.name} display="inline" />
+          This is level 1 heading with inline <Icon color="brand" name={args.name} display="inline" /> icon
         </Heading>
         <Heading element="h2">
-          <Icon name={args.name} display="inline" size="inherit" />
-          This is level 2 heading with inline <Icon color="brand" name={args.name} display="inline" size="inherit" /> icon
+          <Icon name={args.name} display="inline" />
+          This is level 2 heading with inline <Icon color="brand" name={args.name} display="inline" /> icon
         </Heading>
         <Heading element="h3">
-          <Icon name={args.name} display="inline" size="inherit" />
-          This is level 3 heading with inline <Icon color="brand" name={args.name} display="inline" size="inherit" /> icon
+          <Icon name={args.name} display="inline" />
+          This is level 3 heading with inline <Icon color="brand" name={args.name} display="inline" /> icon
         </Heading>
         <Heading element="h4">
-          <Icon name={args.name} display="inline" size="inherit" />
-          This is level 4 heading with inline <Icon color="brand" name={args.name} display="inline" size="inherit" /> icon
+          <Icon name={args.name} display="inline" />
+          This is level 4 heading with inline <Icon color="brand" name={args.name} display="inline" /> icon
         </Heading>
         <Heading element="h5">
-          <Icon name={args.name} display="inline" size="inherit" />
-          This is level 5 heading with inline <Icon color="brand" name={args.name} display="inline" size="inherit" /> icon
+          <Icon name={args.name} display="inline" />
+          This is level 5 heading with inline <Icon color="brand" name={args.name} display="inline" /> icon
         </Heading>
         <Heading element="h6">
-          <Icon name={args.name} display="inline" size="inherit" />
-          This is level 6 heading with inline <Icon color="brand" name={args.name} display="inline" size="inherit" /> icon
+          <Icon name={args.name} display="inline" />
+          This is level 6 heading with inline <Icon color="brand" name={args.name} display="inline" /> icon
         </Heading>
         <p>
-          <Icon name={args.name} display="inline" size="inherit" />
-          This is paragraph text with inline <Icon color="brand" name={args.name} display="inline" size="inherit" /> icon
+          <Icon name={args.name} display="inline" />
+          This is paragraph text with inline <Icon color="brand" name={args.name} display="inline" /> icon
         </p>
         <small>
-          <Icon name={args.name} display="inline" size="inherit" />
-          This is small text with inline <Icon color="brand" name={args.name} display="inline" size="inherit" /> icon
+          <Icon name={args.name} display="inline" />
+          This is small text with inline <Icon color="brand" name={args.name} display="inline" /> icon
         </small>
       </VerticalSpacing>
     );
