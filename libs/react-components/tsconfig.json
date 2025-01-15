@@ -11,7 +11,10 @@
     "noPropertyAccessFromIndexSignature": false,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "paths": {
+      "@tehik-ee/tedi-core/*": ["../tedi-core/*"]
+    }
   },
   "references": [
     {

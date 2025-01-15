@@ -20,7 +20,7 @@ export default {
   ],
 } as Meta<LabelProviderProps>;
 
-const Template: StoryFn<LabelProviderProps> = (args) => {
+const Template: StoryFn<LabelProviderProps> = () => {
   const { getLabel } = useLabels();
   const pluralLabel = getLabel('pagination.results');
 

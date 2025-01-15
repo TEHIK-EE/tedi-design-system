@@ -1,26 +1,28 @@
-@import '../../styles/mixins';
+@use '@tehik-ee/tedi-core/mixins';
 
 .tedi-label {
   display: inline-flex;
   align-items: center;
   font-style: normal;
-  font-feature-settings: 'clig' off, 'liga' off;
+  font-feature-settings:
+    'clig' off,
+    'liga' off;
   color: var(--general-text-secondary);
 
-  @include responsive-styles(gap, content-label-inner-spacing-x);
-  @include responsive-styles(font-family, family-primary);
-  @include responsive-styles(font-size, body-regular-size);
-  @include responsive-styles(font-weight, body-regular-weight);
-  @include responsive-styles(line-height, body-regular-line-height);
+  @include mixins.responsive-styles(gap, content-label-inner-spacing-x);
+  @include mixins.responsive-styles(font-family, family-primary);
+  @include mixins.responsive-styles(font-size, body-regular-size);
+  @include mixins.responsive-styles(font-weight, body-regular-weight);
+  @include mixins.responsive-styles(line-height, body-regular-line-height);
 
   &--small {
-    @include responsive-styles(font-size, body-small-regular-size, $exclude: tablet);
-    @include responsive-styles(font-weight, body-small-regular-weight, $exclude: tablet);
+    @include mixins.responsive-styles(font-size, body-small-regular-size, $exclude: tablet);
+    @include mixins.responsive-styles(font-weight, body-small-regular-weight, $exclude: tablet);
   }
 
   &--bold {
-    @include responsive-styles(font-weight, body-bold-weight);
-    @include responsive-styles(line-height, body-bold-line-height);
+    @include mixins.responsive-styles(font-weight, body-bold-weight);
+    @include mixins.responsive-styles(line-height, body-bold-line-height);
   }
 
   &__required {

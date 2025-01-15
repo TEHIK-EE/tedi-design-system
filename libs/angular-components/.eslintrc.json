@@ -1,0 +1,38 @@
+{
+  "overrides": [
+    {
+      "files": ["*.ts"],
+      "parserOptions": {
+        "project": ["tsconfig.lib.json"]
+      },
+      "extends": ["plugin:@angular-eslint/recommended", "eslint:recommended"],
+      "rules": {
+        "eslint-plugin/require-meta-fixable": "off",
+        "prefer-arrow/prefer-arrow-functions": "off",
+        "@typescript-eslint/no-non-null-assertion": "off",
+        "@typescript-eslint/prefer-enum-initializers": "off",
+        "indent": "off",
+        "simple-import-sort/imports": "off",
+        "array-bracket-spacing": "off",
+        "brace-style": [
+          "error",
+          "1tbs",
+          {
+            "allowSingleLine": true
+          }
+        ],
+        "complexity": ["error", 14],
+        "@typescript-eslint/array-type": "off"
+      }
+    },
+    {
+      "files": ["*.html"],
+      "extends": ["plugin:@angular-eslint/template/recommended"],
+      "rules": {
+        "@angular-eslint/template/no-negated-async": "warn",
+        "@angular-eslint/template/eqeqeq": "off",
+        "@typescript-eslint/ban-ts-comment": "off"
+      }
+    }
+  ]
+}

@@ -1,15 +1,9 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "outDir": "../../dist/out-tsc",
+    "outDir": "dist/out-tsc",
     "module": "commonjs",
-    "types": [
-      "jest",
-      "node",
-      "@testing-library/jest-dom",
-      "@nx/react/typings/cssmodule.d.ts",
-      "@nx/react/typings/image.d.ts"
-    ]
+    "types": ["jest", "node", "@testing-library/jest-dom", "@types/css-modules"]
   },
   "include": [
     "jest.config.ts",

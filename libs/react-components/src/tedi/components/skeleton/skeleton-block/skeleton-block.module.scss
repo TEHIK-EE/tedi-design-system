@@ -1,4 +1,4 @@
-@import '../../../styles/mixins';
+@use '@tehik-ee/tedi-core/mixins';
 
 $headings: (h1, h2, h3, h4, h5, h6);
 
@@ -14,16 +14,16 @@ $headings: (h1, h2, h3, h4, h5, h6);
   background-size: 1000px 100px;
   animation: wave-lines 2s infinite ease-in-out;
 
-  @include responsive-styles(border-radius, loader-skeleton-radius);
+  @include mixins.responsive-styles(border-radius, loader-skeleton-radius);
 
   @each $heading in $headings {
     &.tedi-skeleton-block--#{$heading} {
-      @include responsive-styles(height, heading-#{$heading}-line-height, $exclude: tablet);
+      @include mixins.responsive-styles(height, heading-#{$heading}-line-height, $exclude: tablet);
     }
   }
 
   &.tedi-skeleton-block--p {
-    @include responsive-styles(height, body-regular-line-height, $exclude: tablet);
+    @include mixins.responsive-styles(height, body-regular-line-height, $exclude: tablet);
   }
 }
 

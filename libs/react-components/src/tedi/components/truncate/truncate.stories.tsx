@@ -45,3 +45,11 @@ export const Default: Story = {
     expandable: true,
   },
 };
+
+export const NoTruncate: Story = {
+  render: TemplateColumn,
+  args: {
+    children: 'This text does not get truncated, because the length is smaller than maxLength property.',
+    maxLength: 100,
+  },
+};
