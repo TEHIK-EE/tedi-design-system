@@ -62,18 +62,18 @@ export const Radio = (props: RadioProps): JSX.Element => {
             className={cn(styles['radio__indicator'], { [styles['radio__indicator--hover']]: hover })}
           />
         </Col>
-        <Col className={styles['radio__label-wrapper']}>
+        <Col>
           <label ref={labelRef} className={LabelBEM} htmlFor={id}>
             <span className={cn({ 'visually-hidden': hideLabel })}>{label}</span>
+            {tooltip && (
+              <TooltipProvider>
+                <TooltipTrigger>
+                  <Icon name="info" color="brand" size={16} display="inline" className={styles['radio__tooltip-icon']} />
+                </TooltipTrigger>
+                <Tooltip>{tooltip}</Tooltip>
+              </TooltipProvider>
+            )}
           </label>
-          {tooltip && (
-            <TooltipProvider>
-              <TooltipTrigger>
-                <Icon name="info" color="brand" size={16} display="inline" className={styles['radio__tooltip-icon']} />
-              </TooltipTrigger>
-              <Tooltip>{tooltip}</Tooltip>
-            </TooltipProvider>
-          )}
         </Col>
       </Row>
 

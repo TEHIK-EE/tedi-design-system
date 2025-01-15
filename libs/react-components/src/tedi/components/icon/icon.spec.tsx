@@ -88,10 +88,4 @@ describe('Icon component', () => {
     const wrapperElement = container.querySelector('div.tedi-icon__wrapper');
     expect(wrapperElement).toHaveClass('tedi-icon__wrapper--size-48');
   });
-  
-  it('renders with inherited size', () => {
-    const { container } = render(<Heading element="h4"><Icon name="Add" size="inherit" /></Heading>);
-    const wrapperElement = container.querySelector('div.tedi-icon__wrapper');
-    expect(wrapperElement).toHaveClass('tedi-icon__wrapper--size-inherit');
-  });
 });

@@ -93,9 +93,9 @@ const TemplateColumn: StoryFn<TemplateMultipleProps> = (args) => {
             {value?.toString()}&nbsp;{value === 24 && <small className="example-text--secondary">default</small>}
           </Col>
           <Col className="display-flex">
-            <Icon {...iconProps} {...{ [property]: value }} display="inline" />
+            <Icon {...iconProps} {...{ [property]: value }} />
             &nbsp;
-            <Icon {...iconProps} {...{ [property]: value }} display="inline" filled={true} />
+            <Icon {...iconProps} {...{ [property]: value }} filled={true} />
           </Col>
         </Row>
       ))}
@@ -121,12 +121,10 @@ const TemplateColumnWithMultipleVariants: StoryFn<TemplateMultipleProps> = (args
           <Col className="display-flex">
             <Icon
               {...{ size: item.size, background: item.background, name: item.name, color: item.color }}
-              display="inline"
             />
             &nbsp;
             <Icon
               {...{ size: item.size, background: item.background, name: item.name, color: item.color }}
-              display="inline"
               filled={true}
             />
           </Col>

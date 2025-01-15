@@ -3,7 +3,7 @@ import { forwardRef } from 'react';
 
 import styles from './icon.module.scss';
 
-export type IconSize = 8 | 12 | 16 | 18 | 24 | 36 | 48 | 'inherit';
+export type IconSize = 8 | 12 | 16 | 18 | 24 | 36 | 48;
 export type IconType = 'outlined' | 'sharp' | 'rounded';
 export type IconColor =
   | 'primary'

@@ -76,18 +76,18 @@ export const Check = (props: CheckProps): JSX.Element => {
             <Icon size={16} name="check" className={cn(styles['check__icon'], styles['check__icon--check'])} />
           </div>
         </Col>
-        <Col className={styles['check__label-wrapper']}>
+        <Col>
           <label ref={labelRef} className={LabelBEM} htmlFor={id}>
             <span className={cn({ 'visually-hidden': hideLabel })}>{label}</span>
+            {tooltip && (
+              <TooltipProvider>
+                <TooltipTrigger>
+                  <Icon name="info" color="brand" size={16} display="inline" className={styles['check__tooltip-icon']} />
+                </TooltipTrigger>
+                <Tooltip>{tooltip}</Tooltip>
+              </TooltipProvider>
+            )}
           </label>
-          {tooltip && (
-            <TooltipProvider>
-              <TooltipTrigger>
-                <Icon name="info" color="brand" size={16} display="inline" className={styles['check__tooltip-icon']} />
-              </TooltipTrigger>
-              <Tooltip>{tooltip}</Tooltip>
-            </TooltipProvider>
-          )}
         </Col>
       </Row>
       {extraContent && <div className={styles['check__extra-content']}>{extraContent}</div>}
