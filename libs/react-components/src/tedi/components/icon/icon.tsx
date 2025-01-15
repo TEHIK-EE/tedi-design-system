@@ -3,7 +3,7 @@ import { forwardRef } from 'react';
 
 import styles from './icon.module.scss';
 
-export type IconSize = 8 | 12 | 16 | 18 | 24 | 36 | 48;
+export type IconSize = 8 | 12 | 16 | 18 | 24 | 36 | 48 | 'inherit';
 export type IconType = 'outlined' | 'sharp' | 'rounded';
 export type IconColor =
   | 'primary'
@@ -88,7 +88,7 @@ export const Icon = forwardRef<HTMLDivElement, IconProps>((props: IconProps, ref
       [styles['tedi-icon__wrapper--bg']]: background,
       [styles[`tedi-icon__wrapper--bg-${background}`]]: background,
       [styles[`tedi-icon__wrapper--size-${size}`]]: size,
-      [styles[`tedi-icon__wrapper--${display}`]]: display,
+      [styles['tedi-icon__wrapper--block']]: background,
     },
     background && className
   );

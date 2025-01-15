@@ -68,7 +68,6 @@ $icon-sizes: (
 
   &.tedi-icon--inline {
     display: inline;
-    vertical-align: text-top;
   }
 
   @each $name, $var in $icon-colors {
@@ -81,6 +80,11 @@ $icon-sizes: (
     &--size-#{$size} {
       @include mixins.responsive-styles(font-size, $vars);
     }
+  }
+
+  &--size-inherit {
+    font-size: inherit;
+    vertical-align: -11.5%;
   }
 
   &--filled {

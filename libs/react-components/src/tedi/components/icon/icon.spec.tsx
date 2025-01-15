@@ -1,5 +1,6 @@
 import { render } from '@testing-library/react';
 
+import { Heading } from '../typography/heading/heading';
 import { Icon } from './icon';
 
 import '@testing-library/jest-dom';
@@ -86,5 +87,11 @@ describe('Icon component', () => {
     const { container } = render(<Icon name="Add" size={48} background="secondary" />);
     const wrapperElement = container.querySelector('div.tedi-icon__wrapper');
     expect(wrapperElement).toHaveClass('tedi-icon__wrapper--size-48');
+  });
+  
+  it('renders with inherited size', () => {
+    const { container } = render(<Heading element="h4"><Icon name="Add" size="inherit" /></Heading>);
+    const wrapperElement = container.querySelector('div.tedi-icon__wrapper');
+    expect(wrapperElement).toHaveClass('tedi-icon__wrapper--size-inherit');
   });
 });

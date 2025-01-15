@@ -89,10 +89,10 @@ const TemplateColumn: StoryFn<TemplateMultipleProps> = (args) => {
     <div className="example-list w-50">
       {array.map((value, key) => (
         <Row className={`${key === array.length - 1 ? '' : 'border-bottom'} padding-14-16`} key={key}>
-          <Col className="w-50 d-flex">
+          <Col className="w-50 display-flex">
             {value?.toString()}&nbsp;{value === 24 && <small className="example-text--secondary">default</small>}
           </Col>
-          <Col className="d-flex">
+          <Col className="display-flex">
             <Icon {...iconProps} {...{ [property]: value }} display="inline" />
             &nbsp;
             <Icon {...iconProps} {...{ [property]: value }} display="inline" filled={true} />
@@ -114,11 +114,11 @@ const TemplateColumnWithMultipleVariants: StoryFn<TemplateMultipleProps> = (args
           className={`${key === items.length - 1 ? '' : 'border-bottom'} padding-14-16`}
           key={key}
         >
-          <Col className="w-50 d-flex">
+          <Col className="w-50 display-flex">
             {item.size?.toString()}&nbsp;
             {item.size === 24 && <small className="example-text--secondary">default</small>}
           </Col>
-          <Col className="d-flex">
+          <Col className="display-flex">
             <Icon
               {...{ size: item.size, background: item.background, name: item.name, color: item.color }}
               display="inline"
@@ -242,44 +242,36 @@ export const UsedInsideText: Story = {
     return (
       <VerticalSpacing size={0.25}>
         <Heading element="h1">
-          <Icon name={args.name} display="inline" size={36} />
-          This is level 1 heading with inline{' '}
-          <Icon background="brand-secondary" color="brand" name={args.name} display="inline" size={18} /> icon
+          <Icon name={args.name} display="inline" size="inherit" />
+          This is level 1 heading with inline <Icon color="brand" name={args.name} display="inline" size="inherit" /> icon
         </Heading>
         <Heading element="h2">
-          <Icon name={args.name} display="inline" size={36} />
-          This is level 2 heading with inline{' '}
-          <Icon background="brand-secondary" color="brand" name={args.name} display="inline" size={16} /> icon
+          <Icon name={args.name} display="inline" size="inherit" />
+          This is level 2 heading with inline <Icon color="brand" name={args.name} display="inline" size="inherit" /> icon
         </Heading>
         <Heading element="h3">
-          <Icon name={args.name} display="inline" size={24} />
-          This is level 3 heading with inline{' '}
-          <Icon background="brand-secondary" color="brand" name={args.name} display="inline" size={12} /> icon
+          <Icon name={args.name} display="inline" size="inherit" />
+          This is level 3 heading with inline <Icon color="brand" name={args.name} display="inline" size="inherit" /> icon
         </Heading>
         <Heading element="h4">
-          <Icon name={args.name} display="inline" size={24} />
-          This is level 4 heading with inline{' '}
-          <Icon background="brand-secondary" color="brand" name={args.name} display="inline" size={12} /> icon
+          <Icon name={args.name} display="inline" size="inherit" />
+          This is level 4 heading with inline <Icon color="brand" name={args.name} display="inline" size="inherit" /> icon
         </Heading>
         <Heading element="h5">
-          <Icon name={args.name} display="inline" size={18} />
-          This is level 5 heading with inline{' '}
-          <Icon background="brand-secondary" color="brand" name={args.name} display="inline" size={12} /> icon
+          <Icon name={args.name} display="inline" size="inherit" />
+          This is level 5 heading with inline <Icon color="brand" name={args.name} display="inline" size="inherit" /> icon
         </Heading>
         <Heading element="h6">
-          <Icon name={args.name} display="inline" size={16} />
-          This is level 6 heading with inline{' '}
-          <Icon background="brand-secondary" color="brand" name={args.name} display="inline" size={8} /> icon
+          <Icon name={args.name} display="inline" size="inherit" />
+          This is level 6 heading with inline <Icon color="brand" name={args.name} display="inline" size="inherit" /> icon
         </Heading>
         <p>
-          <Icon name={args.name} display="inline" size={16} />
-          This is paragraph text with inline{' '}
-          <Icon background="brand-secondary" color="brand" name={args.name} display="inline" size={8} /> icon
+          <Icon name={args.name} display="inline" size="inherit" />
+          This is paragraph text with inline <Icon color="brand" name={args.name} display="inline" size="inherit" /> icon
         </p>
         <small>
-          <Icon name={args.name} display="inline" size={16} />
-          This is small text with inline{' '}
-          <Icon background="brand-secondary" color="brand" name={args.name} display="inline" size={8} /> icon
+          <Icon name={args.name} display="inline" size="inherit" />
+          This is small text with inline <Icon color="brand" name={args.name} display="inline" size="inherit" /> icon
         </small>
       </VerticalSpacing>
     );
