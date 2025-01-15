@@ -1,7 +1,7 @@
 const jestConfig = {
   displayName: 'components',
+  preset: 'ts-jest',
   testEnvironment: 'jsdom',
-  preset: '../../jest.preset.js',
   transform: {
     '^.+\\.[tj]sx?$': [
       'babel-jest',
