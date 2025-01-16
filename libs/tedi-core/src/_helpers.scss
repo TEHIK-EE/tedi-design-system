@@ -1,3 +1,22 @@
+// https://github.com/h5bp/main.css/blob/main/src/_helpers.css
+
+.hidden,
+[hidden] {
+  display: none !important;
+}
+
+.block {
+  display: block !important;
+}
+
+.inline-block {
+  display: inline-block !important;
+}
+
+.flex {
+  display: flex !important;
+}
+
 .screen-reader-only,
 .visually-hidden,
 .sr-only {
