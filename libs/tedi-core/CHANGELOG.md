@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-core-v1.5.0-rc.3](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.5.0-rc.2...core-1.5.0-rc.3) (2025-01-16)
+
+
+### Bug Fixes
+
+* **tedi-core:** add missing mixi import to typography-utilities [#419](https://github.com/TEHIK-EE/tedi-design-system/issues/419) ([#420](https://github.com/TEHIK-EE/tedi-design-system/issues/420)) ([add8966](https://github.com/TEHIK-EE/tedi-design-system/commit/add8966af7e6388320bbfcfca56d325c04fab885))
+
 # [@tehik-ee/tedi-core-v1.5.0-rc.2](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.5.0-rc.1...core-1.5.0-rc.2) (2025-01-16)
 
 
