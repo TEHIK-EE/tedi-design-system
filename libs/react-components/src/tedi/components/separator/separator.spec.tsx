@@ -85,7 +85,7 @@ describe('Separator Component', () => {
 
   it('should set height CSS variable for vertical separator', () => {
     const { getByTestId } = renderComponent({ axis: 'vertical', height: 2 });
-    expect(getByTestId('separator')).toHaveStyle(`--vertical-separator-height: 2rem`);
+    expect(getByTestId('separator')).toHaveStyle('--vertical-separator-height: 2rem');
   });
 
   it('should apply dot-only variant class', () => {
