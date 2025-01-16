@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-react-v11.0.0-rc.10](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.0.0-rc.9...react-11.0.0-rc.10) (2025-01-16)
+
+
+### Bug Fixes
+
+* **select:** fix font size [#393](https://github.com/TEHIK-EE/tedi-design-system/issues/393) ([#416](https://github.com/TEHIK-EE/tedi-design-system/issues/416)) ([b7c4291](https://github.com/TEHIK-EE/tedi-design-system/commit/b7c4291527e2a16602f47707f35e984589e7d50d))
+
 # [@tehik-ee/tedi-react-v11.0.0-rc.9](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.0.0-rc.8...react-11.0.0-rc.9) (2025-01-16)
 
 
