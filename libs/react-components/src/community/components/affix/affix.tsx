@@ -2,7 +2,7 @@ import cn from 'classnames';
 import React from 'react';
 import StickyBox from 'react-sticky-box';
 
-import { useElementSize } from '../../helpers';
+import { useElementSize } from '../../../tedi/helpers/hooks/use-element-size';
 import { LayoutContext } from '../layout';
 import styles from './affix.module.scss';
 

@@ -1,9 +1,9 @@
 import cn from 'classnames';
-import { useContext } from 'react';
+import { ReactNode, useContext } from 'react';
 import StickyBox from 'react-sticky-box';
 
 import { LayoutContext } from '../../../community/components/layout';
-import { useElementSize } from '../../../community/helpers/hooks/use-element-size';
+import { useElementSize } from '../../helpers';
 import styles from './affix.module.scss';
 
 export type AffixPosition = 0 | 0.5 | 1 | 1.5 | 2 | 'unset';
@@ -12,14 +12,14 @@ export interface AffixProps {
   /**
    * Affix children
    */
-  children?: React.ReactNode;
+  children?: ReactNode;
   /**
    * Additional class.
    */
   className?: string;
   /**
    * Position of Affix.
-   * @default 'sticky'
+   * @default sticky
    */
   position?: 'sticky' | 'fixed';
   /**
@@ -29,17 +29,17 @@ export interface AffixProps {
   top?: AffixPosition;
   /**
    *  Spacing from the bottom of the Container.
-   * @default 'unset'
+   * @default unset
    */
   bottom?: AffixPosition;
   /**
    *  Spacing from the left of the Container.
-   * @default 'unset'
+   * @default unset
    */
   left?: AffixPosition;
   /**
    *  Spacing from the right of the Container.
-   * @default 'unset'
+   * @default unset
    */
   right?: AffixPosition;
   /**

@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 
-import { useElementSize } from '../../../community/helpers/hooks/use-element-size';
+import { useElementSize } from '../../helpers/hooks/use-element-size';
 import Affix, { AffixProps } from './affix';
 
 jest.mock('../../../community/helpers/hooks/use-element-size');

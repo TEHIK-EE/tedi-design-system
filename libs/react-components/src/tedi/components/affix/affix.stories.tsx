@@ -4,9 +4,6 @@ import Affix from './affix';
 
 /**
  * <a href="https://tedi.tehik.ee/1ee8444b7/p/38ad96-affix" target="_BLANK">Zeroheight ↗</a><br />
- * Affix is helper component to use `position: "sticky" | "fixed"` on children. By default, Affix gives Sticky behavior with top spacing of 1.5rem.<br/>
- * By default Affix also takes into account the height of the HeaderBottom and adjusts its top value relative to it.<br />
- * To see an example of a more complex use case for Affix, check [TableOfContent](/docs/components-table-of-contents--docs) component.
  */
 
 const meta: Meta<typeof Affix> = {
