@@ -9,9 +9,6 @@ import HashTrigger, { HashTriggerProps } from './hash-trigger';
 
 /**
  * <a href="https://tedi.tehik.ee/1ee8444b7/p/84a3d9-hashtrigger" target="_BLANK">Zeroheight ↗</a><br />
- * This component provides opportunity to navigate to a specific element that is defined in the hash of the URL. Try to change hash to test-1 to see it in action. <br/>
- * HashTrigger is also included inside Accordion and Tabs component, to trigger state change on match. <br />
- * When page is first loaded, the scroll will be instant. When hash is changed, the scroll will be smooth.
  */
 const meta: Meta<typeof HashTrigger> = {
   component: HashTrigger,
