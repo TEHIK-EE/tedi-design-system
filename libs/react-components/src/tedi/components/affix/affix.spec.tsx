@@ -1,9 +1,9 @@
 import { render, screen } from '@testing-library/react';
 
-import { useElementSize } from '../../helpers/hooks/use-element-size';
+import { useElementSize } from '../../helpers';
 import Affix, { AffixProps } from './affix';
 
-jest.mock('../../../community/helpers/hooks/use-element-size');
+jest.mock('../../helpers');
 jest.mock('react-sticky-box', () => {
   return function MockStickyBox({ children, className }: { children: React.ReactNode; className: string }) {
     return (
