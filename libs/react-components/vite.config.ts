@@ -23,10 +23,13 @@ const config: UserConfig = {
         root: join(__dirname),
         tsconfigPath: 'tsconfig.lib.json',
       },
+      eslint: {
+        lintCommand: 'eslint "src/**/*.{ts,tsx}"',
+      },
     }),
     visualizer({
       filename: './dist/bundle-stats.html',
-      title: '@tehik-ee/tedi-design-system bundle stats',
+      title: '@tehik-ee/tedi-react bundle stats',
     }) as PluginOption,
     viteStaticCopy({
       targets: [
@@ -46,6 +49,11 @@ const config: UserConfig = {
       generateScopedName: '[local]-[hash:8]',
       localsConvention: undefined,
     },
+    preprocessorOptions: {
+      scss: {
+        api: 'modern',
+      },
+    },
   },
   build: {
     reportCompressedSize: true,
@@ -56,7 +64,7 @@ const config: UserConfig = {
         community: path.resolve(__dirname, 'src/community/index.ts'),
         tedi: path.resolve(__dirname, 'src/tedi/index.ts'),
       },
-      name: '@tehik-ee/tedi-design-system',
+      name: '@tehik-ee/tedi-react',
       fileName: (format, entryName) => `${entryName}.${format}.js`,
       formats: ['es', 'cjs'],
     },

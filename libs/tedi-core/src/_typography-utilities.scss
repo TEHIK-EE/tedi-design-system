@@ -72,3 +72,47 @@ i,
 .text-line-condensed {
   line-height: 1;
 }
+
+.text-default {
+  color: var(--general-text-primary);
+}
+
+.text-primary {
+  color: var(--general-text-brand);
+
+  @include mixins.print-grayscale;
+}
+
+.text-muted {
+  color: var(--general-text-secondary);
+}
+
+.text-subtle {
+  color: var(--general-text-tertiary);
+}
+
+.text-disabled {
+  color: var(--general-text-disabled);
+}
+
+.text-inverted {
+  color: var(--general-text-white);
+}
+
+.text-positive {
+  color: var(--general-status-success-text);
+
+  @include mixins.print-grayscale;
+}
+
+.text-important {
+  color: var(--general-status-danger-text);
+
+  @include mixins.print-grayscale;
+}
+
+.text-warning {
+  color: var(--general-status-warning-text);
+
+  @include mixins.print-grayscale;
+}

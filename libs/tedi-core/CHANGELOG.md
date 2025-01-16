@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-core-v1.5.0-rc.2](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.5.0-rc.1...core-1.5.0-rc.2) (2025-01-16)
+
+
+### Bug Fixes
+
+* **tedi-core:** add missing styles to tedi-core [#417](https://github.com/TEHIK-EE/tedi-design-system/issues/417) ([#418](https://github.com/TEHIK-EE/tedi-design-system/issues/418)) ([6c1efca](https://github.com/TEHIK-EE/tedi-design-system/commit/6c1efcac448cfe66e6b635d26558728c5588034f))
+
 # [@tehik-ee/tedi-core-v1.5.0-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.4.0...core-1.5.0-rc.1) (2025-01-14)
 
 
