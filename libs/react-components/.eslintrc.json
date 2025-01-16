@@ -1,19 +1,52 @@
 {
-  "extends": ["plugin:@nx/react-typescript", "../../.eslintrc.json"],
-  "ignorePatterns": ["!**/*"],
-  "overrides": [
-    { "files": ["*.ts", "*.tsx", "*.js", "*.jsx"], "rules": {} },
-    { "files": ["*.ts", "*.tsx"], "rules": {} },
-    { "files": ["*.js", "*.jsx"], "rules": {} },
-    {
-      "files": ["*.stories.tsx"],
-      "rules": {
-        "react-hooks/rules-of-hooks": "off"
-      }
+  "root": true,
+  "settings": {
+    "react": {
+      "version": "detect"
     }
+  },
+  "ignorePatterns": ["node_modules", "dist", "coverage"],
+  "env": {
+    "node": true
+  },
+  "plugins": ["react", "react-hooks", "simple-import-sort", "@typescript-eslint"],
+  "parser": "@typescript-eslint/parser",
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:storybook/recommended"
   ],
   "rules": {
     "@next/next/no-html-link-for-pages": 0,
-    "@next/next/no-img-element": 0
+    "@next/next/no-img-element": 0,
+    "react/react-in-jsx-scope": "off",
+    "react/prop-types": "off",
+    "@typescript-eslint/no-unused-vars": "off",
+    "@typescript-eslint/explicit-function-return-type": ["off"],
+    "simple-import-sort/imports": [
+      "error",
+      {
+        "groups": [
+          // Packages.
+          // Things that start with a letter (or digit or underscore), or `@` followed by a letter.
+          ["^@?\\w"],
+          // All imports from @ria scope.
+          ["^@ria."],
+          // Relative imports.
+          // Anything that starts with a dot.
+          ["^\\."],
+          // Absolute imports and other imports such as Vue-style `@/foo`.
+          // Anything that does not start with a dot.
+          ["^[^.]"],
+          // Side effect imports.
+          ["^\\u0000"]
+        ]
+      }
+    ],
+    "object-curly-spacing": ["error", "always"],
+    "jsx-quotes": ["error", "prefer-double"],
+    "semi": ["error", "always"]
   }
 }

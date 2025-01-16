@@ -94,7 +94,7 @@ export const StatusBadge = (props: StatusBadgeProps): JSX.Element => {
     styles['tedi-status-badge'],
     styles[`tedi-status-badge--variant-${variant}`],
     styles[`tedi-status-badge--color-${color}`],
-    status && styles[`tedi-status-badge--status`],
+    status && styles['tedi-status-badge--status'],
     status && styles[`tedi-status-badge--status-${status}`],
     size === 'large' && styles['tedi-status-badge--large'],
     icon && !children && styles['tedi-status-badge__icon-only'],

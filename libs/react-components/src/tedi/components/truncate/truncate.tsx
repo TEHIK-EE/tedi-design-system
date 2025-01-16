@@ -60,8 +60,8 @@ export const Truncate = (props: TruncateProps): JSX.Element => {
 
   return (
     <Text element="span" color="secondary" className={className}>
-      {isTruncated ? truncatedText : children}
-      {expandable && (
+      {children.length >= maxLength && isTruncated ? truncatedText : children}
+      {children.length >= maxLength && expandable && (
         <Button
           style={{ display: isTruncated ? undefined : 'block' }}
           visualType="link"

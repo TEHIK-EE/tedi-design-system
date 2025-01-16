@@ -112,7 +112,6 @@ export const HintTextAndCharacterCount: Story = {
   args: {
     id: 'example-1',
     label: 'Label',
-    showCounter: true,
     characterLimit: 400,
     helper: [{ text: 'Hint text' }],
   },
@@ -122,7 +121,6 @@ export const OnlyCharacterCount: Story = {
   args: {
     id: 'example-1',
     label: 'Label',
-    showCounter: true,
     characterLimit: 400,
   },
 };
