@@ -23,6 +23,9 @@ const config: UserConfig = {
         root: join(__dirname),
         tsconfigPath: 'tsconfig.lib.json',
       },
+      eslint: {
+        lintCommand: 'eslint "src/**/*.{ts,tsx}"',
+      },
     }),
     visualizer({
       filename: './dist/bundle-stats.html',

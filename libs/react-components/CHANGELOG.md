@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-react-v11.0.0-rc.9](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.0.0-rc.8...react-11.0.0-rc.9) (2025-01-16)
+
+
+### Bug Fixes
+
+* **general:** eslint cleanup [#409](https://github.com/TEHIK-EE/tedi-design-system/issues/409) ([#410](https://github.com/TEHIK-EE/tedi-design-system/issues/410)) ([7b175c7](https://github.com/TEHIK-EE/tedi-design-system/commit/7b175c73567b67b7ed76a460e2abbb0d268bac52))
+
 # [@tehik-ee/tedi-react-v11.0.0-rc.8](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.0.0-rc.7...react-11.0.0-rc.8) (2025-01-14)
 
 
