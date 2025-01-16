@@ -15,6 +15,7 @@ const jestConfig = {
   moduleNameMapper: {
     '\\.(css|scss|sass)$': 'identity-obj-proxy',
   },
+  testPathIgnorePatterns: ['/node_modules/', '/dist/'],
 };
 
 export default jestConfig;

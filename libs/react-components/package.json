@@ -110,7 +110,7 @@
     "showdown": "^2.1.0",
     "storybook": "8.2.10",
     "storybook-addon-pseudo-states": "^4.0.2",
-    "stylelint": "^16.11.0",
+    "stylelint": "^16.13.2",
     "stylelint-config-recess-order": "^4.2.0",
     "stylelint-config-standard-scss": "^14.0.0",
     "stylelint-declaration-strict-value": "^1.9.2",
@@ -134,8 +134,8 @@
     "dayjs": "$dayjs"
   },
   "lint-staged": {
-    "*.{css,scss}": "stylelint --fix",
-    "*.{js,jsx,ts,tsx}": "eslint --fix",
+    "*.{css,scss}": "stylelint \"**/*.{css,scss}\" --fix",
+    "*.{js,jsx,ts,tsx}": "eslint \"src/**/*.{ts,tsx}\" --fix",
     "*.{js,jsx,ts,tsx,css,scss,json,md}": "prettier --write"
   }
 }
