@@ -66,6 +66,8 @@ jobs:
           npm run build
           ls -la dist
           git pull
+          echo "Testing who is user"
+          npm whoami
           npm run release
           echo "Testing who is user"
           npm whoami
