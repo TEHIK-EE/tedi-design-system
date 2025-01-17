@@ -2,7 +2,7 @@
 
 package_json="$1/package.json"
 
-ignorable_version="0.0.0"
+ignorable_version="0.0.0-semantic-version"
 current_version=$(grep version $package_json | awk -F \" '{print $4}')
 
 echo "$ignorable_version = $current_version"
