@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-core-v1.5.0-rc.4](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.5.0-rc.3...core-1.5.0-rc.4) (2025-01-17)
+
+
+### Bug Fixes
+
+* **general:** @tehik-ee/tedi-react package styles are not complete [#406](https://github.com/TEHIK-EE/tedi-design-system/issues/406) ([#408](https://github.com/TEHIK-EE/tedi-design-system/issues/408)) ([4423d90](https://github.com/TEHIK-EE/tedi-design-system/commit/4423d906db8fbc569681cbcd352413b3e81a3680))
+
 # [@tehik-ee/tedi-core-v1.5.0-rc.3](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.5.0-rc.2...core-1.5.0-rc.3) (2025-01-16)
 
 
