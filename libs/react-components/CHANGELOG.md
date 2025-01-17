@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-react-v11.0.0-rc.12](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.0.0-rc.11...react-11.0.0-rc.12) (2025-01-17)
+
+
+### Bug Fixes
+
+* **tag,status-badge:** Tag and StatusBadge color during printing [#412](https://github.com/TEHIK-EE/tedi-design-system/issues/412) ([#421](https://github.com/TEHIK-EE/tedi-design-system/issues/421)) ([6412299](https://github.com/TEHIK-EE/tedi-design-system/commit/6412299d97314b865cb130022bca801cbb40a2c2))
+
 # [@tehik-ee/tedi-react-v11.0.0-rc.11](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.0.0-rc.10...react-11.0.0-rc.11) (2025-01-17)
 
 
