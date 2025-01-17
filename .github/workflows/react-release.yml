@@ -67,7 +67,7 @@ jobs:
           ls -la dist
           git pull
           npm run release
-          ../../.github/workflows/publish_mirror.sh ./dist @tehik-ee/tedi-react @tehik-ee/tedi-design-system
+          ../../.github/workflows/publish_mirror.sh ./dist @tehik-ee\/tedi-react @tehik-ee\/tedi-design-system
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPMJS_TEDI_AUTH_TOKEN }}
