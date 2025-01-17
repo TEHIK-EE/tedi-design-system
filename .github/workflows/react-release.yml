@@ -67,6 +67,8 @@ jobs:
           ls -la dist
           git pull
           npm run release
+          echo "Testing who is user"
+          npm whoami
           ../../.github/workflows/publish_mirror.sh ./dist tedi-react tedi-design-system
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
