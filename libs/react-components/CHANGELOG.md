@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-react-v11.0.0-rc.14](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.0.0-rc.13...react-11.0.0-rc.14) (2025-01-17)
+
+
+### Bug Fixes
+
+* A basic fix to trigger a version release [#330](https://github.com/TEHIK-EE/tedi-design-system/issues/330) ([7d00f73](https://github.com/TEHIK-EE/tedi-design-system/commit/7d00f73fa1b50fabd3e357f735a08603b9462931))
+
 # [@tehik-ee/tedi-react-v11.0.0-rc.13](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.0.0-rc.12...react-11.0.0-rc.13) (2025-01-17)
 
 
