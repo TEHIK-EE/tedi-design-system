@@ -49,4 +49,6 @@ $tag-colors: (
       @include mixins.responsive-styles(border-bottom-right-radius, button-radius-sm);
     }
   }
+
+  @include mixins.print-grayscale;
 }
