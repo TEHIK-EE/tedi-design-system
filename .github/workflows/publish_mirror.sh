@@ -1,6 +1,6 @@
 #!/bin/bash
 
-package_json="$1/package.json"
+package_json="dist/package.json"
 
 ignorable_version="0.0.0-semantic-version"
 current_version=$(grep version $package_json | awk -F \" '{print $4}')
@@ -13,7 +13,9 @@ if [ "$ignorable_version" != "$current_version" ] ; then
 
   cd $1
   cat package.json
+  npm whoami
   echo "Running npm publish"
+
   npm publish
 else
   echo "versions $ignorable_version and $current_version match, aborting!"
