@@ -78,5 +78,6 @@
     "label-provider",
     "use-labels",
     "style-provider"
-  ]
+  ],
+  "angular.enable-strict-mode-prompt": false
 }

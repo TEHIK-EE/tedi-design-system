@@ -1,0 +1,69 @@
+$spinner-colors: (
+  'primary': 'loader-spinner-color-primary',
+  'secondary': 'loader-spinner-color-secondary',
+);
+$spinner-sizes: (10 16 48);
+
+.tedi-spinner {
+  display: flex;
+  animation: 1.4s linear 0s infinite normal none running tedi-spinner-outer;
+
+  &--absolute {
+    position: absolute;
+  }
+
+  &--inner {
+    stroke-dasharray: 80px, 200px;
+    stroke-dashoffset: 0;
+    stroke-width: 4px;
+    animation: 1.4s ease-in-out 0s infinite normal none running tedi-spinner-inner;
+
+    @media (prefers-reduced-motion: reduce) {
+      animation: none;
+    }
+  }
+
+  @each $color, $var in $spinner-colors {
+    &--color-#{$color} {
+      stroke: var(--#{$var});
+    }
+  }
+
+  @each $size in $spinner-sizes {
+    &--size-#{$size} {
+      width: #{$size}px;
+      height: #{$size}px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}
+
+@keyframes tedi-spinner-outer {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes tedi-spinner-inner {
+  0% {
+    stroke-dasharray: 1px, 200px;
+    stroke-dashoffset: 0;
+  }
+
+  50% {
+    stroke-dasharray: 100px, 200px;
+    stroke-dashoffset: -15px;
+  }
+
+  100% {
+    stroke-dasharray: 100px, 200px;
+    stroke-dashoffset: -125px;
+  }
+}

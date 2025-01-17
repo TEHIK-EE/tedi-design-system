@@ -1,6 +1,6 @@
 import React from 'react';
 
-import HideOnScroll from '../../../tedi/components/hide-on-scroll/hide-on-scroll';
+import ScrollVisibility from '../../../tedi/components/scroll-visibility/scroll-visibility';
 import { StretchContent } from '../../../tedi/components/stretch-content/stretch-content';
 import { useLabels } from '../../../tedi/providers/label-provider';
 import { Layouts, useLayout } from '../../helpers';
@@ -103,9 +103,9 @@ export const TableOfContents = (props: TableOfContentsProps) => {
       >
         <StretchContent>
           {isMobileLayout ? (
-            <HideOnScroll animationDirection="down" enabled={hideOnScroll}>
+            <ScrollVisibility animationDirection="down" enabled={hideOnScroll}>
               <TableOfContentsModal {...rest} heading={heading} />
-            </HideOnScroll>
+            </ScrollVisibility>
           ) : (
             <Card>
               <CardContent>

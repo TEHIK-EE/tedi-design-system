@@ -1,5 +1,5 @@
-@use '../../../../shared/styles/bootstrap-utility/breakpoints';
-@use '../../../styles/mixins';
+@use '@tehik-ee/tedi-core/bootstrap-utility/breakpoints';
+@use '@tehik-ee/tedi-core/mixins';
 
 $input-height: 2.5rem;
 $input-height-small: 2rem;

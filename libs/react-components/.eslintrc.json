@@ -1,10 +1,53 @@
 {
-  "extends": ["plugin:@nx/react-typescript", "../../.eslintrc.json"],
-  "ignorePatterns": ["!**/*"],
+  "root": true,
+  "ignorePatterns": ["node_modules", "dist", "coverage"],
+  "env": {
+    "node": true
+  },
+  "plugins": ["simple-import-sort", "@typescript-eslint", "react", "react-hooks"],
+  "parser": "@typescript-eslint/parser",
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "next",
+    "plugin:storybook/recommended",
+    "prettier",
+    "plugin:prettier/recommended"
+  ],
+  "rules": {
+    "simple-import-sort/imports": [
+      "error",
+      {
+        "groups": [
+          ["^@?\\w"], // Packages
+          ["^@ria."], // Imports from @ria scope
+          ["^\\."], // Relative imports
+          ["^[^.]"], // Absolute imports
+          ["^\\u0000"] // Side-effect imports
+        ]
+      }
+    ],
+    "eqeqeq": ["error", "always"],
+    "object-property-newline": ["error", { "allowAllPropertiesOnSameLine": true }],
+    "object-curly-spacing": ["error", "always"],
+    "quotes": ["error", "single"],
+    "jsx-quotes": ["error", "prefer-double"],
+    "react/jsx-curly-brace-presence": ["error"],
+    "@typescript-eslint/no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }],
+    "react/prop-types": "off",
+    "@next/next/no-html-link-for-pages": 0,
+    "@next/next/no-img-element": 0,
+    "semi": ["error", "always"]
+  },
   "overrides": [
-    { "files": ["*.ts", "*.tsx", "*.js", "*.jsx"], "rules": {} },
-    { "files": ["*.ts", "*.tsx"], "rules": {} },
-    { "files": ["*.js", "*.jsx"], "rules": {} },
+    {
+      "files": ["*.ts", "*.tsx"],
+      "rules": {
+        "@typescript-eslint/explicit-module-boundary-types": "off"
+      }
+    },
     {
       "files": ["*.stories.tsx"],
       "rules": {
@@ -12,8 +55,9 @@
       }
     }
   ],
-  "rules": {
-    "@next/next/no-html-link-for-pages": 0,
-    "@next/next/no-img-element": 0
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
   }
 }

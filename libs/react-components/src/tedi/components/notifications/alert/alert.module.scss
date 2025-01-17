@@ -1,0 +1,57 @@
+@use '@tehik-ee/tedi-core/mixins';
+
+@mixin alert-variant($background, $border) {
+  color: var(--general-text-primary);
+  background-color: $background;
+  border-color: $border;
+}
+
+.tedi-alert {
+  border: 1px solid;
+
+  @include alert-variant(var(--alert-default-background-info), var(--alert-default-border-info));
+  @include mixins.responsive-styles(font-size, body-regular-size);
+  @include mixins.responsive-styles(border-radius, alert-radius);
+  @include mixins.responsive-styles(padding, alert-default-padding-y alert-default-padding-x);
+
+  &__content {
+    display: flex;
+    align-items: center;
+
+    @include mixins.responsive-styles(gap, alert-default-inner-spacing-x);
+  }
+
+  &--info {
+    @include alert-variant(var(--alert-default-background-info), var(--alert-default-border-info));
+  }
+
+  &--success {
+    @include alert-variant(var(--alert-default-background-success), var(--alert-default-border-success));
+  }
+
+  &--warning {
+    @include alert-variant(var(--alert-default-background-warning), var(--alert-default-border-warning));
+  }
+
+  &--danger {
+    @include alert-variant(var(--alert-default-background-danger), var(--alert-default-border-danger));
+  }
+
+  &--global {
+    width: 100%;
+    border: 0;
+    border-radius: 0;
+  }
+
+  &--no-side-borders {
+    border-right: none;
+    border-left: none;
+    border-radius: 0;
+  }
+}
+
+@media print {
+  .tedi-alert {
+    @include alert-variant(var(--neutral-100), var(--neutral-350));
+  }
+}

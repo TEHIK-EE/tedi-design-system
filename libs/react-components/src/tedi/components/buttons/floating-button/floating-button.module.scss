@@ -1,6 +1,6 @@
-@import '../../../styles/mixins';
-@import '../../../../shared/styles/bootstrap-utility/breakpoints';
-@import '../button-content/button-content.module';
+@use '@tehik-ee/tedi-core/mixins';
+@use '@tehik-ee/tedi-core/bootstrap-utility/breakpoints';
+@use '../button-content/button-content.module';
 
 $btn-height: 2.75rem;
 $btn-height-small: 2.5rem;
@@ -10,17 +10,17 @@ $btn-height-large: 3rem;
   box-shadow: 0 4px 10px 0 rgb(0 0 0 / 14%);
 
   &--horizontal {
-    @include responsive-styles(border-radius, button-radius-default);
+    @include mixins.responsive-styles(border-radius, button-radius-default);
   }
 
   &--vertical {
     transform: rotate(-90deg);
 
-    @include responsive-styles(border-radius, button-radius-sm);
+    @include mixins.responsive-styles(border-radius, button-radius-sm);
   }
 
   &.tedi-floating-button--primary {
-    @include button-variant(
+    @include button-content.button-variant(
       var(--button-floating-primary-background-default),
       var(--button-floating-primary-border-default),
       var(--button-floating-primary-text-default),
@@ -36,7 +36,7 @@ $btn-height-large: 3rem;
   }
 
   &.tedi-floating-button--secondary {
-    @include button-variant(
+    @include button-content.button-variant(
       var(--button-floating-secondary-background-default),
       var(--button-floating-secondary-border-default),
       var(--button-floating-secondary-text-default),
@@ -54,33 +54,33 @@ $btn-height-large: 3rem;
   &--medium {
     height: $btn-height;
 
-    @include media-breakpoint-up(md) {
+    @include breakpoints.media-breakpoint-up(md) {
       height: $btn-height-small;
     }
 
-    @include responsive-styles(padding, button-md-padding-y button-md-padding-x);
+    @include mixins.responsive-styles(padding, button-md-padding-y button-md-padding-x);
 
     &.tedi-floating-button--icon-only {
-      @include responsive-styles(width, button-md-icon-size);
-      @include responsive-styles(height, button-md-icon-size);
-      @include responsive-styles(padding, button-md-icon-padding);
+      @include mixins.responsive-styles(width, button-md-icon-size);
+      @include mixins.responsive-styles(height, button-md-icon-size);
+      @include mixins.responsive-styles(padding, button-md-icon-padding);
     }
   }
 
   &--large {
     height: $btn-height-large;
 
-    @include responsive-styles(padding, button-xl-padding-y button-xl-padding-x);
+    @include mixins.responsive-styles(padding, button-xl-padding-y button-xl-padding-x);
 
     &.tedi-floating-button--icon-only {
-      @include responsive-styles(width, button-xl-icon-size);
-      @include responsive-styles(height, button-xl-icon-size);
-      @include responsive-styles(padding, button-xl-icon-padding);
+      @include mixins.responsive-styles(width, button-xl-icon-size);
+      @include mixins.responsive-styles(height, button-xl-icon-size);
+      @include mixins.responsive-styles(padding, button-xl-icon-padding);
     }
   }
 
   &:not(&--icon-only) {
-    @include responsive-styles(min-width, button-width-min);
-    @include responsive-styles(max-width, button-width-max);
+    @include mixins.responsive-styles(min-width, button-width-min);
+    @include mixins.responsive-styles(max-width, button-width-max);
   }
 }

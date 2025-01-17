@@ -1,0 +1,43 @@
+name: Test and lint Angular
+
+on:
+  pull_request:
+    branches:
+      - main
+      - rc
+    paths-ignore:
+      - 'libs/react-components/**'
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 'lts/*'
+      - name: Lint
+        run: |
+          npm ci --cache .npm --prefer-offline
+          cd libs/angular-components
+          npm ci --cache .npm --prefer-offline
+          npm run lint
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 'lts/*'
+      - name: Test
+        run: |
+          npm ci --cache .npm --prefer-offline
+          cd libs/angular-components
+          npm ci --cache .npm --prefer-offline
+          npm run test

@@ -68,7 +68,7 @@ export const Icon = forwardRef<HTMLDivElement, IconProps>((props, ref): JSX.Elem
     'material-symbols',
     styles['icon'],
     styles[`icon--${display}`],
-    { [`material-symbols-${type}`]: type, [`text-${color}`]: color },
+    { [`material-symbols--${type}`]: type, [`text-${color}`]: color },
     className
   );
 
