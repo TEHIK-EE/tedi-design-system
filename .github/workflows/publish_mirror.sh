@@ -5,9 +5,6 @@ package_json="dist/package.json"
 ignorable_version="0.0.0-semantic-version"
 current_version=$(grep version $package_json | awk -F \" '{print $4}')
 
-echo "Testing who is user"
-npm whoami
-
 echo "$ignorable_version != $current_version"
 if [ "$ignorable_version" != "$current_version" ] ; then
   echo "Overriding package json with new name"
