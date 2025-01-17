@@ -67,11 +67,7 @@ jobs:
           ls -la dist
           git pull
           echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc
-          echo "Testing who is user"
-          npm whoami
           npm run release
-          echo "Testing who is user"
-          npm whoami
           ../../.github/workflows/publish_mirror.sh tedi-react tedi-design-system
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
