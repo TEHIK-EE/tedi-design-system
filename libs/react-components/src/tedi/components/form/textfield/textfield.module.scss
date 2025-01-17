@@ -57,6 +57,7 @@ $input-height-mobile: 2.75rem;
 
   &:disabled {
     color: var(--form-input-text-disabled);
+    pointer-events: none;
     background-color: var(--form-input-background-disabled);
     border-color: var(--form-input-border-disabled);
   }
