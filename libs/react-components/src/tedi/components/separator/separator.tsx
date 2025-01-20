@@ -40,7 +40,9 @@ export interface SeparatorSharedProps {
    */
   thickness?: 1 | 2;
   /**
-   * Spacing on top and bottom of separator.
+   * Spacing applied based on the axis:
+   * - For horizontal axis, spacing is applied to top and bottom of the separator.
+   * - For vertical axis, spacing is applied to left and right of the separator.
    */
   spacing?: SeparatorSpacing;
 }
