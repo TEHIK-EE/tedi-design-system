@@ -4,6 +4,7 @@ import { Card } from '../../../community/components/card/card';
 import { CardContent } from '../../../community/components/card/card-content/card-content';
 import { Col, Row } from '../../../tedi/components/grid';
 import { Text } from '../typography/text/text';
+import { VerticalSpacing } from '../vertical-spacing';
 import Separator, { SeparatorProps } from './separator';
 
 /**
@@ -150,4 +151,34 @@ export const VerticalDottedSmall: Story = {
 export const DotOnly: Story = {
   render: DotOnlyTemplate,
   args: { spacing: 0.5 },
+};
+
+const InlineSeparatorTemplate: StoryFn<SeparatorProps> = (args) => (
+  <VerticalSpacing>
+    <Text>
+      Lorem ipsum dolor sit, amet
+      <Separator color="primary" spacing={0.5} {...args} />
+      consectetur adipisicing elit.
+    </Text>
+    <Text>
+      Lorem ipsum dolor sit, amet
+      <Separator color="secondary" spacing={1} {...args} />
+      consectetur adipisicing elit.
+    </Text>
+    <Text>
+      Lorem ipsum dolor sit, amet
+      <Separator color="accent" spacing={1.5} {...args} />
+      consectetur adipisicing elit.
+    </Text>
+    <Text>
+      Lorem ipsum dolor sit, amet
+      <Separator color="secondary" spacing={0.5} variant="dot-only" dotSize="small" {...args} />
+      consectetur adipisicing elit.
+    </Text>
+  </VerticalSpacing>
+);
+
+export const InlineSeparatorUsedInText: Story = {
+  render: InlineSeparatorTemplate,
+  args: { axis: 'vertical', display: 'inline' },
 };
