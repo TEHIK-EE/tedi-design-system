@@ -1,5 +1,5 @@
-@use "mixins";
-@use "bootstrap-utility/breakpoints";
+@use 'mixins';
+@use 'bootstrap-utility/breakpoints';
 
 html,
 body {
@@ -16,21 +16,9 @@ body {
   box-sizing: border-box;
   color: var(--general-text-primary);
 
-  @include mixins.responsive-styles(
-    font-family,
-    family-primary,
-    $exclude: tablet
-  );
-  @include mixins.responsive-styles(
-    line-height,
-    body-regular-line-height,
-    $exclude: tablet
-  );
-  @include mixins.responsive-styles(
-    font-size,
-    body-regular-size,
-    $exclude: tablet
-  );
+  @include mixins.responsive-styles(font-family, family-primary, $exclude: tablet);
+  @include mixins.responsive-styles(line-height, body-regular-line-height, $exclude: tablet);
+  @include mixins.responsive-styles(font-size, body-regular-size, $exclude: tablet);
 }
 
 *,
