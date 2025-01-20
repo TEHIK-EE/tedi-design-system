@@ -1,7 +1,7 @@
 const jestConfig = {
   displayName: 'components',
+  preset: 'ts-jest',
   testEnvironment: 'jsdom',
-  preset: '../../jest.preset.js',
   transform: {
     '^.+\\.[tj]sx?$': [
       'babel-jest',
@@ -15,6 +15,7 @@ const jestConfig = {
   moduleNameMapper: {
     '\\.(css|scss|sass)$': 'identity-obj-proxy',
   },
+  testPathIgnorePatterns: ['/node_modules/', '/dist/'],
 };
 
 export default jestConfig;

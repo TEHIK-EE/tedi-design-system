@@ -1,3 +1,24 @@
+# [@tehik-ee/tedi-core-v1.5.0-rc.4](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.5.0-rc.3...core-1.5.0-rc.4) (2025-01-17)
+
+
+### Bug Fixes
+
+* **general:** @tehik-ee/tedi-react package styles are not complete [#406](https://github.com/TEHIK-EE/tedi-design-system/issues/406) ([#408](https://github.com/TEHIK-EE/tedi-design-system/issues/408)) ([4423d90](https://github.com/TEHIK-EE/tedi-design-system/commit/4423d906db8fbc569681cbcd352413b3e81a3680))
+
+# [@tehik-ee/tedi-core-v1.5.0-rc.3](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.5.0-rc.2...core-1.5.0-rc.3) (2025-01-16)
+
+
+### Bug Fixes
+
+* **tedi-core:** add missing mixi import to typography-utilities [#419](https://github.com/TEHIK-EE/tedi-design-system/issues/419) ([#420](https://github.com/TEHIK-EE/tedi-design-system/issues/420)) ([add8966](https://github.com/TEHIK-EE/tedi-design-system/commit/add8966af7e6388320bbfcfca56d325c04fab885))
+
+# [@tehik-ee/tedi-core-v1.5.0-rc.2](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.5.0-rc.1...core-1.5.0-rc.2) (2025-01-16)
+
+
+### Bug Fixes
+
+* **tedi-core:** add missing styles to tedi-core [#417](https://github.com/TEHIK-EE/tedi-design-system/issues/417) ([#418](https://github.com/TEHIK-EE/tedi-design-system/issues/418)) ([6c1efca](https://github.com/TEHIK-EE/tedi-design-system/commit/6c1efcac448cfe66e6b635d26558728c5588034f))
+
 # [@tehik-ee/tedi-core-v1.5.0-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.4.0...core-1.5.0-rc.1) (2025-01-14)
 
 

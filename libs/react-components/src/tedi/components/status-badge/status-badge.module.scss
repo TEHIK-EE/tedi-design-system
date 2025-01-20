@@ -97,4 +97,6 @@ $badge-status-colors: ('inactive', 'success', 'danger', 'warning');
   &__icon-accent {
     color: var(--status-badge-icon-secondary);
   }
+
+  @include mixins.print-grayscale;
 }
