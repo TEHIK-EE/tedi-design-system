@@ -142,7 +142,7 @@ const InternalButtonContent = forwardRef(
       const isLink = visualType === 'link';
 
       const defaultIconProps: Partial<IconProps> = {
-        size: 18,
+        size: size === 'large' ? 24 : 18,
         className: iconBEM,
         ...(isLink ? { display: 'inline' } : {}),
       };
