@@ -38,6 +38,14 @@ $sizes: (
   &--accent {
     border-color: var(--general-border-accent);
   }
+
+  &--block {
+    display: block;
+  }
+
+  &--inline {
+    display: inline;
+  }
 }
 
 .tedi-separator--dotted,
@@ -45,7 +53,6 @@ $sizes: (
   &::before {
     position: absolute;
     top: 1.25rem;
-    display: block;
     content: '';
     background-color: var(--general-border-primary);
     border-radius: 100%;
@@ -97,7 +104,8 @@ $sizes: (
     margin-bottom: #{$value};
   }
 
-  .tedi-separator--horizontal.tedi-separator--dot-only.tedi-separator--spacing-#{$size} {
+  .tedi-separator--horizontal.tedi-separator--dot-only.tedi-separator--spacing-#{$size},
+  .tedi-separator--vertical.tedi-separator--spacing-#{$size} {
     margin-right: #{$value};
     margin-left: #{$value};
   }

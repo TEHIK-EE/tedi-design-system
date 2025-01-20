@@ -39,6 +39,10 @@ export interface SeparatorSharedProps {
    * @default 1
    */
   thickness?: 1 | 2;
+  /**
+   * Spacing on top and bottom of separator. Only for horizontal axis.
+   */
+  spacing?: SeparatorSpacing;
 }
 
 export interface SeparatorVerticalProps extends SeparatorSharedProps {
@@ -51,16 +55,12 @@ export interface SeparatorVerticalProps extends SeparatorSharedProps {
    * Axis of separator, vertical and horizontal separators support different props
    */
   axis: 'vertical';
-  spacing?: undefined;
   topSpacing?: undefined;
   bottomSpacing?: undefined;
+  display?: 'block' | 'inline';
 }
 
 export interface SeparatorHorizontalProps extends SeparatorSharedProps {
-  /**
-   * Spacing on top and bottom of separator. Only for horizontal axis.
-   */
-  spacing?: SeparatorSpacing;
   /**
    * Spacing on top of separator. Ignored when spacing is also used. Only for horizontal axis.
    */
@@ -74,6 +74,7 @@ export interface SeparatorHorizontalProps extends SeparatorSharedProps {
    */
   axis?: 'horizontal';
   height?: undefined;
+  display?: 'block';
 }
 
 export type SeparatorBreakpointProps = {
@@ -105,6 +106,7 @@ export const Separator = (props: SeparatorProps): JSX.Element => {
     thickness = 1,
     height,
     dotSize,
+    display = 'block',
     ...rest
   } = getCurrentBreakpointProps<SeparatorProps>(props);
 
@@ -114,6 +116,7 @@ export const Separator = (props: SeparatorProps): JSX.Element => {
     { [styles[`tedi-separator--${color}`]]: color },
     { [styles[`tedi-separator--${axis}`]]: axis },
     { [styles[`tedi-separator--${variant}`]]: variant },
+    { [styles[`tedi-separator--${display}`]]: display },
     { [styles[`tedi-separator--${variant}-${dotSize}`]]: variant && dotSize },
     { [styles[`tedi-separator--thickness-${thickness}`]]: thickness && !variant },
     { [styles['tedi-separator--is-stretched']]: isStretched },
