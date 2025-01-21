@@ -96,20 +96,27 @@ jobs:
           mv .github/workflows/index.html ./public/index.html
           cd public
           branches=$(echo '${{ needs.build_matrix.outputs.json_branches }}' | jq -r '.[]')
-          i=-1
-          for branch in ${branches}
-          do
-            i=$((i+1))
-            if [[ ! -d ../branches/$i ]]; then
-              continue
+
+          for branch in "${branches[@]}"; do
+            # Check if the path is a valid directory
+            if [[ -d ../branches/$i ]]; then
+              valid_branches+=("$branch")
             fi
             mkdir -p -- $branch
             mv ../branches/$i/* ./$branch
-            ls .
-            echo '<li class="py-2 text-white">'${branch}' - <a href="./'${branch}'/angular">Angular</a> | <a href="./'${branch}'/react">React</a></li>' >> index.html
           done
+
+          js_array="["
+          for branch in "${valid_branches[@]}"; do
+            js_array+="\"$branch\","
+          done
+
+          # Remove the trailing comma and close the JavaScript array
+          js_array="${js_array%,}]"
+
+          echo "$js_array" >> index.html
           cat ../.github/workflows/index_suffix.html >> index.html
-          ls -lR
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:

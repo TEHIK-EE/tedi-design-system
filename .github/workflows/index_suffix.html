@@ -1,6 +1,30 @@
-        </ul>
-      </div>
-    </div>
+;
+let branches = ["main", "rc", "feat-1", "feat-2"];
+let mainBranchRoot = document.getElementById("main-branches");
+let featureBranchRoot = document.getElementById("feature-branches");
+
+branches.forEach(branch => {
+let li = document.createElement("li");
+
+li.className = "py-2 text-white";
+li.innerHTML = `${branch} - <a href="./${branch}/angular">Angular</a> | <a href="./${branch}/react">React</a>`;
+
+if (mainBranches.indexOf(branch) !== -1) {
+mainBranchRoot.appendChild(li);
+} else {
+featureBranchRoot.appendChild(li);
+}
+});
+});
+</script>
+<div class="row">
+  <div class="col-12">
+    <ul id="main-branches" class="list ps-0">
+    </ul>
+    <ul id="feature-branches" class="list ps-0">
+    </ul>
   </div>
+</div>
+</div>
 </body>
 </html>
