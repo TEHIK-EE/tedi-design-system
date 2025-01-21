@@ -107,12 +107,10 @@ jobs:
           done
 
           js_array="["
-          for branch in "${valid_branches[@]}"; do
-            js_array+="\"$branch\","
-          done
+          for branch in "${valid_branches[@]}"; do js_array+="\"$branch\"," done
 
           # Remove the trailing comma and close the JavaScript array
-          js_array="${js_array%,}]"
+          js_array="[${js_array%,}]"
 
           echo "$js_array" >> index.html
           cat ../.github/workflows/index_suffix.html >> index.html
