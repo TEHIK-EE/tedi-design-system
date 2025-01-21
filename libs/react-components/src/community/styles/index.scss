@@ -1,9 +1,7 @@
 @forward '../../../design-tokens/variables';
-@use 'typography';
 @use 'components/datepicker';
 @use 'components/calendar';
 @use 'components/text-editor';
 @use 'components/toast';
-@use '@tehik-ee/tedi-core/typography-utilities';
 @use '@tehik-ee/tedi-core/helpers';
 @use '@tehik-ee/tedi-core/print';
