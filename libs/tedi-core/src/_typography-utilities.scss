@@ -1,5 +1,20 @@
 @use 'mixins';
 
+.text-normal {
+  color: var(--general-text-primary);
+  @include mixins.responsive-styles(font-family, family-primary, $exclude: tablet);
+  @include mixins.responsive-styles(font-size, body-regular-size, $exclude: tablet);
+  @include mixins.responsive-styles(font-weight, body-regular-weight, $exclude: tablet);
+  @include mixins.responsive-styles(line-height, body-regular-line-height, $exclude: tablet);
+}
+
+small,
+.text-small {
+  @include mixins.responsive-styles(font-size, body-small-regular-size, $exclude: tablet);
+  @include mixins.responsive-styles(font-weight, body-small-regular-weight, $exclude: tablet);
+  @include mixins.responsive-styles(line-height, body-small-regular-line-height, $exclude: tablet);
+}
+
 .text-nowrap {
   white-space: nowrap;
 }
