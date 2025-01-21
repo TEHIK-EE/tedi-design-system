@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-core-v1.5.0-rc.8](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.5.0-rc.7...core-1.5.0-rc.8) (2025-01-21)
+
+
+### Bug Fixes
+
+* **tedi-core:** Typography utilities, classes order, gather them into one file [#433](https://github.com/TEHIK-EE/tedi-design-system/issues/433) ([90a4082](https://github.com/TEHIK-EE/tedi-design-system/commit/90a4082af8f5c5b4f6d7d862a9b1d55b5ccdab69))
+
 # [@tehik-ee/tedi-core-v1.5.0-rc.7](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.5.0-rc.6...core-1.5.0-rc.7) (2025-01-21)
 
 
