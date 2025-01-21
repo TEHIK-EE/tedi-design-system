@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-core-v1.5.0-rc.9](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.5.0-rc.8...core-1.5.0-rc.9) (2025-01-21)
+
+
+### Bug Fixes
+
+* **tedi-core:** Change text color order [#433](https://github.com/TEHIK-EE/tedi-design-system/issues/433) ([d0a60a0](https://github.com/TEHIK-EE/tedi-design-system/commit/d0a60a0372b6791ee0222eec1b329903d49ec088))
+
 # [@tehik-ee/tedi-core-v1.5.0-rc.8](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.5.0-rc.7...core-1.5.0-rc.8) (2025-01-21)
 
 
