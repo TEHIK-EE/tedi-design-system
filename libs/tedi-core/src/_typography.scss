@@ -26,8 +26,7 @@ $headings: (h1, h2, h3, h4, h5, h6);
     }
   }
 
-  &--default,
-  &--normal {
+  &--default {
     color: var(--general-text-primary);
     @include mixins.responsive-styles(font-family, family-primary, $exclude: tablet);
     @include mixins.responsive-styles(font-size, body-regular-size, $exclude: tablet);
@@ -35,9 +34,7 @@ $headings: (h1, h2, h3, h4, h5, h6);
     @include mixins.responsive-styles(line-height, body-regular-line-height, $exclude: tablet);
   }
 
-  &--small,
-  small,
-  .text-small {
+  &--small {
     @include mixins.responsive-styles(font-size, body-small-regular-size, $exclude: tablet);
     @include mixins.responsive-styles(font-weight, body-small-regular-weight, $exclude: tablet);
     @include mixins.responsive-styles(line-height, body-small-regular-line-height, $exclude: tablet);
