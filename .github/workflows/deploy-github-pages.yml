@@ -104,9 +104,10 @@ jobs:
             i=$((i+1))
             if [[ -d ../branches/$i ]]; then
               valid_branches+=("$branch")
+              mkdir -p -- $branch
+              mv ../branches/$i/* ./$branch
             fi
-            mkdir -p -- $branch
-            mv ../branches/$i/* ./$branch
+
           done
 
           js_array=""
