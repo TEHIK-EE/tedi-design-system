@@ -12,6 +12,7 @@ $headings: (h1, h2, h3, h4, h5, h6);
 @each $level in $headings {
   #{$level},
   .#{$level},
+  .tedi-#{$level},
   .text-#{$level},
   .tedi-text--#{$level} {
     @include heading-styles($level);
