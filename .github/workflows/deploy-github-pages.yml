@@ -97,7 +97,7 @@ jobs:
           cd public
           branches=$(echo '${{ needs.build_matrix.outputs.json_branches }}' | jq -r '.[]')
 
-          for branch in "${branches[@]}"; do
+          for branch in ${branches}; do
             if [[ -d ../branches/$i ]]; then
               valid_branches+=("$branch")
             fi
@@ -106,7 +106,7 @@ jobs:
           done
 
           js_array=""
-          for branch in "${valid_branches[@]}"; do
+          for branch in ${valid_branches}; do
             js_array+="\"$branch\","
           done
           echo "Branches"
