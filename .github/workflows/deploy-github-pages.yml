@@ -103,9 +103,12 @@ jobs:
             echo "Processing branch: $branch"
             i=$((i+1))
             if [[ -d ../branches/$i ]]; then
+              echo "Branch $branch deemed legit, adding to valid branches"
               valid_branches+=("$branch")
               mkdir -p -- $branch
               mv ../branches/$i/* ./$branch
+            else
+              echo "Excluding $branch because folder does not exist"
             fi
 
           done
