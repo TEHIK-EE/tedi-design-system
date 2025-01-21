@@ -97,7 +97,7 @@ jobs:
           mv .github/workflows/index.html ./public/index.html
           cd public
           branches=$(echo '${{ needs.build_matrix.outputs.json_branches }}' | jq -r '.[]')
-
+          valid_branches=""
           i=-1
           for branch in ${branches};
           do
@@ -105,27 +105,15 @@ jobs:
             i=$((i+1))
             if [[ -d ../branches/$i ]]; then
               echo "Branch $branch deemed legit, adding to valid branches"
-              valid_branches+=("$branch")
+              valid_branches+="\"$branch\","
               mkdir -p -- $branch
               mv ../branches/$i/* ./$branch
             else
               echo "Excluding $branch because folder does not exist"
             fi
-
           done
-
-          js_array=""
-          for branch in ${valid_branches}; do
-            js_array+="\"$branch\","
-          done
-          echo "Branches"
-          echo "$branches"
-          echo "Valid branches"
-          echo "$valid_branches"
-          echo "Compiled js array (almost)"
-          echo "[$js_array]"
-          js_array="[${js_array::-1}]"
-          echo "$js_array" >> index.html
+          valid_branches="[${valid_branches::-1}]"
+          echo "$valid_branches" >> index.html
           cat ../.github/workflows/index_suffix.html >> index.html
 
       - name: Upload artifact
