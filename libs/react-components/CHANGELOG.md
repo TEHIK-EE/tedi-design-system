@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-react-v11.0.0-rc.16](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.0.0-rc.15...react-11.0.0-rc.16) (2025-01-20)
+
+
+### Bug Fixes
+
+* **separator:** Inline vertical Separator in text [#389](https://github.com/TEHIK-EE/tedi-design-system/issues/389) ([#427](https://github.com/TEHIK-EE/tedi-design-system/issues/427)) ([369258f](https://github.com/TEHIK-EE/tedi-design-system/commit/369258f30e4615c694e909afa6d2760873914158))
+
 # [@tehik-ee/tedi-react-v11.0.0-rc.15](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.0.0-rc.14...react-11.0.0-rc.15) (2025-01-17)
 
 

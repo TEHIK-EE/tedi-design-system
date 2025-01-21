@@ -1,3 +1,17 @@
+# [@tehik-ee/tedi-core-v1.5.0-rc.6](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.5.0-rc.5...core-1.5.0-rc.6) (2025-01-21)
+
+
+### Bug Fixes
+
+* **tedi-core:** Update typography styles [#433](https://github.com/TEHIK-EE/tedi-design-system/issues/433) ([#435](https://github.com/TEHIK-EE/tedi-design-system/issues/435)) ([9474cdc](https://github.com/TEHIK-EE/tedi-design-system/commit/9474cdc336b0bc6d1cfcad0ce37461f063010071))
+
+# [@tehik-ee/tedi-core-v1.5.0-rc.5](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.5.0-rc.4...core-1.5.0-rc.5) (2025-01-21)
+
+
+### Bug Fixes
+
+* **tedi-core:** Update typography styles [#433](https://github.com/TEHIK-EE/tedi-design-system/issues/433) ([#434](https://github.com/TEHIK-EE/tedi-design-system/issues/434)) ([73f5a1c](https://github.com/TEHIK-EE/tedi-design-system/commit/73f5a1c9ff77496dfb23112b21a3e9dcb96fa0ca))
+
 # [@tehik-ee/tedi-core-v1.5.0-rc.4](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.5.0-rc.3...core-1.5.0-rc.4) (2025-01-17)
 
 
