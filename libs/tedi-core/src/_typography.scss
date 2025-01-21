@@ -26,7 +26,7 @@ $headings: (h1, h2, h3, h4, h5, h6);
   }
 
   &--default,
-  .text-normal {
+  &--normal {
     color: var(--general-text-primary);
     @include mixins.responsive-styles(font-family, family-primary, $exclude: tablet);
     @include mixins.responsive-styles(font-size, body-regular-size, $exclude: tablet);
