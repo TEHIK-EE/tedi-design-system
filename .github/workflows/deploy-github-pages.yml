@@ -109,7 +109,11 @@ jobs:
           for branch in "${valid_branches[@]}"; do
             js_array+="\"$branch\","
           done
+          echo "Branches"
+          echo "$branches"
+          echo "Valid branches"
           echo "$valid_branches"
+          echo "Compiled js array (almost)"
           echo "[$js_array]"
           js_array="[${js_array::-1}]"
           echo "$js_array" >> index.html
