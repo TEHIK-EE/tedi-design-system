@@ -97,7 +97,11 @@ jobs:
           cd public
           branches=$(echo '${{ needs.build_matrix.outputs.json_branches }}' | jq -r '.[]')
 
-          for branch in ${branches}; do
+          i=-1
+          for branch in ${branches};
+          do
+            echo "Processing branch: $branch"
+            i=$((i+1))
             if [[ -d ../branches/$i ]]; then
               valid_branches+=("$branch")
             fi
