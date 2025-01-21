@@ -105,11 +105,11 @@ jobs:
             mv ../branches/$i/* ./$branch
           done
 
-          js_array="["
+          js_array=""
           for branch in "${valid_branches[@]}"; do
             js_array+="\"$branch\","
           done
-          js_array="[${js_array%,}]"
+          js_array="[${js_array::-1}]"
           echo "$js_array" >> index.html
           cat ../.github/workflows/index_suffix.html >> index.html
 
