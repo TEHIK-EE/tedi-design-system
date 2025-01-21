@@ -90,6 +90,7 @@ jobs:
         with:
           path: branches/
       - name: Create public folder
+        shell: bash
         run: |
           ls -la branches
           mkdir public
