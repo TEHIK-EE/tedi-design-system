@@ -5,7 +5,7 @@ let featureBranchRoot = document.getElementById("feature-branches");
 branches.forEach(branch => {
 let li = document.createElement("li");
 
-li.className = "py-2 text-white";
+li.className = "py-2";
 li.innerHTML = `${branch} - <a href="./${branch}/angular">Angular</a> | <a href="./${branch}/react">React</a>`;
 
 if (mainBranches.indexOf(branch) !== -1) {
@@ -18,10 +18,18 @@ featureBranchRoot.appendChild(li);
 </script>
 <div class="row">
   <div class="col-12">
-    <ul id="main-branches" class="list ps-0">
-    </ul>
-    <ul id="feature-branches" class="list ps-0">
-    </ul>
+    <div class="card bg-dark p-3 mb-3">
+      <h4 class="text-white d-block border-bottom border-secondary pb-2">rc, main branches:</h4>
+      <ul id="main-branches" class="list ps-0 mb-0">
+      </ul>
+    </div>
+  </div>
+  <div class="col-12">
+    <div class="card bg-dark p-3">
+      <h4 class="text-white d-block border-bottom border-secondary pb-2">fix, feature branches:</h4>
+      <ul id="feature-branches" class="list ps-0 mb-0">
+      </ul>
+    </div>
   </div>
 </div>
 </div>
