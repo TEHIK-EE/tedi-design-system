@@ -68,7 +68,13 @@ export const Radio = (props: RadioProps): JSX.Element => {
             {tooltip && (
               <TooltipProvider>
                 <TooltipTrigger>
-                  <Icon name="info" color="brand" size={16} display="inline" className={styles['radio__tooltip-icon']} />
+                  <Icon
+                    name="info"
+                    color="brand"
+                    size={16}
+                    display="inline"
+                    className={styles['radio__tooltip-icon']}
+                  />
                 </TooltipTrigger>
                 <Tooltip>{tooltip}</Tooltip>
               </TooltipProvider>

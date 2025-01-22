@@ -35,9 +35,9 @@ const colorArray: IconProps['color'][] = [
   'white',
 ];
 
-interface TemplateMultipleProps<
-  Type = IconProps['size'] | IconProps['color'] | IconProps['type'] | IconProps['background']
-> extends IconProps {
+type IconPropsType = IconProps['size'] | IconProps['color'] | IconProps['type'] | IconProps['background'];
+
+interface MultipleProps<Type = IconPropsType> {
   array: Type[];
   property: keyof IconProps;
   items: {
@@ -48,6 +48,8 @@ interface TemplateMultipleProps<
     size: IconProps['size'];
   }[];
 }
+
+type TemplateMultipleProps = MultipleProps & IconProps;
 
 const TemplateRow: StoryFn<TemplateMultipleProps> = (args) => {
   const { array, property, ...iconProps } = args;
@@ -119,9 +121,7 @@ const TemplateColumnWithMultipleVariants: StoryFn<TemplateMultipleProps> = (args
             {item.size === 24 && <small className="example-text--secondary">default</small>}
           </Col>
           <Col className="display-flex">
-            <Icon
-              {...{ size: item.size, background: item.background, name: item.name, color: item.color }}
-            />
+            <Icon {...{ size: item.size, background: item.background, name: item.name, color: item.color }} />
             &nbsp;
             <Icon
               {...{ size: item.size, background: item.background, name: item.name, color: item.color }}
@@ -134,7 +134,7 @@ const TemplateColumnWithMultipleVariants: StoryFn<TemplateMultipleProps> = (args
   );
 };
 
-const TemplateColumnWithBackgroundCircleVarians: StoryFn<TemplateMultipleProps> = (args) => {
+const TemplateColumnWithBackgroundCircleVarians: StoryFn<TemplateMultipleProps> = () => {
   return (
     <Row alignItems="center">
       <Col width="auto">
@@ -236,7 +236,7 @@ export const Backgrounds: Story = {
 };
 
 export const UsedInsideText: Story = {
-  render: (args) => {
+  render: (args: { name: IconProps['name'] }) => {
     return (
       <VerticalSpacing size={0.25}>
         <Heading element="h1">
@@ -274,8 +274,7 @@ export const UsedInsideText: Story = {
       </VerticalSpacing>
     );
   },
-
   args: {
-    name: 'cancel',
+    name: 'account_circle',
   },
 };

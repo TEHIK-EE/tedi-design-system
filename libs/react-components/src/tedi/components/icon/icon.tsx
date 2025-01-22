@@ -18,7 +18,7 @@ export type IconColor =
   | 'white';
 export type IconBackgroundColor = 'primary' | 'secondary' | 'brand-primary' | 'brand-secondary';
 
-export interface IconProps {
+export interface IconSharedProps {
   /**
    * Name of material icon
    * https://fonts.google.com/icons
@@ -53,20 +53,30 @@ export interface IconProps {
    */
   color?: IconColor;
   /**
-   * Type of display
-   * @default block
-   */
-  display?: 'block' | 'inline';
-  /**
-   * Add round background
-   */
-  background?: IconBackgroundColor;
-  /**
    * Icons label for screen-readers.
    * If omitted then the icon is hidden for screen-readers.
    */
   label?: string;
 }
+
+export interface IconWithBackgroundProps extends IconSharedProps {
+  /**
+   * Add round background
+   */
+  background: IconBackgroundColor;
+  display?: 'block';
+}
+
+export interface IconWithoutBackgroundProps extends IconSharedProps {
+  background?: undefined;
+  /**
+   * Type of display
+   * @default block
+   */
+  display?: 'block' | 'inline';
+}
+
+export type IconProps = IconSharedProps & (IconWithBackgroundProps | IconWithoutBackgroundProps);
 
 export const Icon = forwardRef<HTMLDivElement, IconProps>((props: IconProps, ref): JSX.Element => {
   const {
@@ -106,7 +116,15 @@ export const Icon = forwardRef<HTMLDivElement, IconProps>((props: IconProps, ref
   );
 
   const iconElement = (
-    <span ref={!background ? ref : null} className={iconBEM} data-name="icon" role="img" aria-hidden={true} {...rest}>
+    <span
+      ref={!background ? ref : null}
+      className={iconBEM}
+      data-name="icon"
+      role="img"
+      aria-label={label}
+      aria-hidden={!label}
+      {...rest}
+    >
       {name}
     </span>
   );

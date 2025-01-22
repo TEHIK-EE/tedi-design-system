@@ -82,7 +82,13 @@ export const Check = (props: CheckProps): JSX.Element => {
             {tooltip && (
               <TooltipProvider>
                 <TooltipTrigger>
-                  <Icon name="info" color="brand" size={16} display="inline" className={styles['check__tooltip-icon']} />
+                  <Icon
+                    name="info"
+                    color="brand"
+                    size={16}
+                    display="inline"
+                    className={styles['check__tooltip-icon']}
+                  />
                 </TooltipTrigger>
                 <Tooltip>{tooltip}</Tooltip>
               </TooltipProvider>
