@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-react-v11.0.0-rc.17](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.0.0-rc.16...react-11.0.0-rc.17) (2025-01-23)
+
+
+### Bug Fixes
+
+* **typography:** text-normal css class specificity is higher than other modifiers [#429](https://github.com/TEHIK-EE/tedi-design-system/issues/429) ([#431](https://github.com/TEHIK-EE/tedi-design-system/issues/431)) ([119e831](https://github.com/TEHIK-EE/tedi-design-system/commit/119e8310afb7aa96c82d15498ef9ecf28f8f2ec4))
+
 # [@tehik-ee/tedi-react-v11.0.0-rc.16](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.0.0-rc.15...react-11.0.0-rc.16) (2025-01-20)
 
 
