@@ -71,3 +71,42 @@ export const CustomModifier: Story = {
     </>
   ),
 };
+
+export const SemanticHeadings: Story = {
+  render: () => (
+    <>
+      <Row>
+        <Col>
+          <h1>Heading 1</h1>
+        </Col>
+        <Col>
+          <Heading element="h1">Heading 1</Heading>
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <h3>Heading 3</h3>
+        </Col>
+        <Col>
+          <Heading element="h3">Heading 3</Heading>
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <h4>Heading 4</h4>
+        </Col>
+        <Col>
+          <Heading element="h4">Heading 4</Heading>
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <h6>Heading 6</h6>
+        </Col>
+        <Col>
+          <Heading element="h6">Heading 6</Heading>
+        </Col>
+      </Row>
+    </>
+  ),
+};
