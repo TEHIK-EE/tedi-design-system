@@ -1,3 +1,24 @@
+# [@tehik-ee/tedi-core-v1.5.0-rc.9](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.5.0-rc.8...core-1.5.0-rc.9) (2025-01-21)
+
+
+### Bug Fixes
+
+* **tedi-core:** Change text color order [#433](https://github.com/TEHIK-EE/tedi-design-system/issues/433) ([d0a60a0](https://github.com/TEHIK-EE/tedi-design-system/commit/d0a60a0372b6791ee0222eec1b329903d49ec088))
+
+# [@tehik-ee/tedi-core-v1.5.0-rc.8](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.5.0-rc.7...core-1.5.0-rc.8) (2025-01-21)
+
+
+### Bug Fixes
+
+* **tedi-core:** Typography utilities, classes order, gather them into one file [#433](https://github.com/TEHIK-EE/tedi-design-system/issues/433) ([90a4082](https://github.com/TEHIK-EE/tedi-design-system/commit/90a4082af8f5c5b4f6d7d862a9b1d55b5ccdab69))
+
+# [@tehik-ee/tedi-core-v1.5.0-rc.7](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.5.0-rc.6...core-1.5.0-rc.7) (2025-01-21)
+
+
+### Bug Fixes
+
+* **tedi-core:** Update typography styles [#433](https://github.com/TEHIK-EE/tedi-design-system/issues/433) ([#436](https://github.com/TEHIK-EE/tedi-design-system/issues/436)) ([d09e896](https://github.com/TEHIK-EE/tedi-design-system/commit/d09e896f7ff8ec1d46facd5df9bfb6169edae056))
+
 # [@tehik-ee/tedi-core-v1.5.0-rc.6](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.5.0-rc.5...core-1.5.0-rc.6) (2025-01-21)
 
 
