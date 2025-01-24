@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-react-v11.0.0-rc.18](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.0.0-rc.17...react-11.0.0-rc.18) (2025-01-24)
+
+
+### Bug Fixes
+
+* **separator:** Dotted small variant size fix [#443](https://github.com/TEHIK-EE/tedi-design-system/issues/443) ([#444](https://github.com/TEHIK-EE/tedi-design-system/issues/444)) ([b2f17ea](https://github.com/TEHIK-EE/tedi-design-system/commit/b2f17ea54e76ae3f45c0898d0f35aa4553cacbb2))
+
 # [@tehik-ee/tedi-react-v11.0.0-rc.17](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.0.0-rc.16...react-11.0.0-rc.17) (2025-01-23)
 
 
