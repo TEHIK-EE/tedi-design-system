@@ -19,7 +19,7 @@ export const decorators: Preview['decorators'] = [
         <Story />
       </StorybookDecorator>
     );
-  }
+  },
 ];
 
 const preview: Preview = {
