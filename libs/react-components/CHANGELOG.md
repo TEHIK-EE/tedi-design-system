@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-react-v11.0.0-rc.19](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.0.0-rc.18...react-11.0.0-rc.19) (2025-01-27)
+
+
+### Features
+
+* **search:** TEDI-Ready Search component development [#373](https://github.com/TEHIK-EE/tedi-design-system/issues/373) ([#428](https://github.com/TEHIK-EE/tedi-design-system/issues/428)) ([1b7e44b](https://github.com/TEHIK-EE/tedi-design-system/commit/1b7e44b1644857626642bd0e59c1229487e02ba7))
+
 # [@tehik-ee/tedi-react-v11.0.0-rc.18](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.0.0-rc.17...react-11.0.0-rc.18) (2025-01-24)
 
 
