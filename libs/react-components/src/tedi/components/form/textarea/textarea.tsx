@@ -13,17 +13,18 @@ export interface TextAreaProps extends TextFieldProps {
 }
 
 export const TextArea = forwardRef<TextFieldForwardRef, TextAreaProps>((props, ref): JSX.Element => {
-  const { className, helper = [], characterLimit, onChange, ...rest } = props;
-  const [value, setValue] = React.useState<string>(props.value ?? '');
+  const { className, helper = [], characterLimit, onChange, value: externalValue, defaultValue, ...rest } = props;
+  const [innerValue, setInnerValue] = React.useState(externalValue ?? defaultValue ?? '');
 
-  const handleInputChange = (inputValue: string) => {
-    setValue(inputValue);
+  const handleInputChange = React.useCallback(
+    (inputValue: string) => {
+      setInnerValue(inputValue);
+      onChange?.(inputValue);
+    },
+    [onChange]
+  );
 
-    if (onChange) {
-      onChange(inputValue);
-    }
-  };
-
+  const value = React.useMemo(() => externalValue ?? innerValue, [externalValue, innerValue]);
   const charCount = value.length;
   const charCountHelper = characterLimit ? `${charCount}/${characterLimit}` : '';
   const combinedHelpers = [
