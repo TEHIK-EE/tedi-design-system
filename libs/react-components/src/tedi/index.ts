@@ -19,6 +19,7 @@ export * from './components/form/number-field/number-field';
 export * from './components/form/feedback-text/feedback-text';
 export * from './components/buttons/button/button';
 export * from './components/buttons/info-button/info-button';
+export * from './components/buttons/button-group/button-group';
 export * from './components/notifications/alert/alert';
 export * from './components/notifications/toast/toast';
 export * from './components/stretch-content/stretch-content';
