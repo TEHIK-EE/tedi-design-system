@@ -14,14 +14,17 @@ export interface TextAreaProps extends TextFieldProps {
 
 export const TextArea = forwardRef<TextFieldForwardRef, TextAreaProps>((props, ref): JSX.Element => {
   const { className, helper = [], characterLimit, onChange, value: externalValue, defaultValue, ...rest } = props;
-  const [innerValue, setInnerValue] = React.useState(externalValue ?? defaultValue ?? '');
+  const [innerValue, setInnerValue] = React.useState(defaultValue ?? '');
 
   const handleInputChange = React.useCallback(
     (inputValue: string) => {
-      setInnerValue(inputValue);
-      onChange?.(inputValue);
+      if (externalValue) {
+        onChange?.(inputValue);
+      } else {
+        setInnerValue(inputValue);
+      }
     },
-    [onChange]
+    [externalValue, onChange]
   );
 
   const value = React.useMemo(() => externalValue ?? innerValue, [externalValue, innerValue]);
