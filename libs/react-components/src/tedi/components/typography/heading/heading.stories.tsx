@@ -72,6 +72,10 @@ export const CustomModifier: Story = {
   ),
 };
 
+export const HeadingWithoutModifiers: Story = {
+  render: () => <Heading>Heading</Heading>,
+};
+
 export const SemanticHeadings: Story = {
   render: () => (
     <>
@@ -81,6 +85,14 @@ export const SemanticHeadings: Story = {
         </Col>
         <Col>
           <Heading element="h1">Heading 1</Heading>
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <h2>Heading 2</h2>
+        </Col>
+        <Col>
+          <Heading element="h2">Heading 2</Heading>
         </Col>
       </Row>
       <Row>
@@ -97,6 +109,14 @@ export const SemanticHeadings: Story = {
         </Col>
         <Col>
           <Heading element="h4">Heading 4</Heading>
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <h5>Heading 5</h5>
+        </Col>
+        <Col>
+          <Heading element="h5">Heading 5</Heading>
         </Col>
       </Row>
       <Row>
