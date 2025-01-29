@@ -3,7 +3,12 @@
   "version": "0.0.0",
   "main": "dist/index.js",
   "scripts": {
-    "prepare": "husky"
+    "prepare": "husky",
+    "install:all": "npm install && cd libs/react-components && npm install && cd ../angular-components && npm install && cd ../tedi-core && npm install",
+    "install:react": "npm install && cd libs/react-components && npm install && cd ../tedi-core && npm install",
+    "install:angular": "npm install && cd ../angular-components && npm install && cd ../tedi-core && npm install",
+    "start:react": "cd libs/react-components && npm run start",
+    "start:angular": "cd libs/angular-components && npm run start"
   },
   "repository": {
     "type": "git",
