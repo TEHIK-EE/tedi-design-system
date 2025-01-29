@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-react-v11.0.0-rc.21](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.0.0-rc.20...react-11.0.0-rc.21) (2025-01-29)
+
+
+### Features
+
+* **separator:** Horizontal dotted separator [#423](https://github.com/TEHIK-EE/tedi-design-system/issues/423) ([#455](https://github.com/TEHIK-EE/tedi-design-system/issues/455)) ([9e42fa9](https://github.com/TEHIK-EE/tedi-design-system/commit/9e42fa93f3d891fb473b17576d0f3e75d42cba99))
+
 # [@tehik-ee/tedi-react-v11.0.0-rc.20](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.0.0-rc.19...react-11.0.0-rc.20) (2025-01-29)
 
 
