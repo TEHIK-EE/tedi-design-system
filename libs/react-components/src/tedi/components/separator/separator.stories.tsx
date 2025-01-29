@@ -148,6 +148,19 @@ export const VerticalDottedSmall: Story = {
   args: { axis: 'vertical', variant: 'dotted-small', color: 'accent', isStretched: true },
 };
 
+export const HorizontalDottedSeparator: Story = {
+  render: () => (
+    <Row>
+      <Col lg={3} md={6} sm={12}>
+        <VerticalSpacing size={2}>
+          <Separator axis="horizontal" variant="dotted" color="accent" />
+          <Separator axis="horizontal" variant="dotted-small" color="accent" />
+        </VerticalSpacing>
+      </Col>
+    </Row>
+  ),
+};
+
 export const DotOnly: Story = {
   render: DotOnlyTemplate,
   args: { spacing: 0.5 },
