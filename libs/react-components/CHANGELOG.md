@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-react-v11.0.0-rc.22](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.0.0-rc.21...react-11.0.0-rc.22) (2025-01-29)
+
+
+### Bug Fixes
+
+* **typography:** Headings without modifiers don't get correct styles [#445](https://github.com/TEHIK-EE/tedi-design-system/issues/445) ([#449](https://github.com/TEHIK-EE/tedi-design-system/issues/449)) ([89c4795](https://github.com/TEHIK-EE/tedi-design-system/commit/89c4795436a491a06863a3c0b26399d0498d01c5))
+
 # [@tehik-ee/tedi-react-v11.0.0-rc.21](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.0.0-rc.20...react-11.0.0-rc.21) (2025-01-29)
 
 
