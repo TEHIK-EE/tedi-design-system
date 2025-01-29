@@ -21,7 +21,6 @@ describe('TextArea component', () => {
     label: 'Test Label',
     placeholder: 'Enter text...',
     name: 'testTextarea',
-    onChange: jest.fn(),
   };
 
   it('renders the TextArea with default properties', () => {
@@ -50,10 +49,9 @@ describe('TextArea component', () => {
   });
 
   it('displays error when char count is over character limit', () => {
-    const handleChange = jest.fn();
     const charLimit = 10;
     const newText = 'This text is too long';
-    render(<TextArea {...defaultProps} characterLimit={charLimit} onChange={handleChange} />);
+    render(<TextArea {...defaultProps} characterLimit={charLimit} />);
     const textarea = screen.getByPlaceholderText(/enter text/i);
     fireEvent.change(textarea, { target: { value: newText } });
     const error = screen.getByText(`${newText.length}/${charLimit}`);

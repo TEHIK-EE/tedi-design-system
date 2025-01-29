@@ -13,18 +13,27 @@ export interface TextAreaProps extends TextFieldProps {
 }
 
 export const TextArea = forwardRef<TextFieldForwardRef, TextAreaProps>((props, ref): JSX.Element => {
-  const { className, helper = [], characterLimit, onChange, value: externalValue, defaultValue, ...rest } = props;
+  const {
+    className,
+    helper = [],
+    characterLimit,
+    onChange,
+    onChangeEvent,
+    value: externalValue,
+    defaultValue,
+    ...rest
+  } = props;
   const [innerValue, setInnerValue] = React.useState(defaultValue ?? '');
 
   const handleInputChange = React.useCallback(
     (inputValue: string) => {
-      if (externalValue) {
-        onChange?.(inputValue);
-      } else {
+      if (!externalValue && !(onChange || onChangeEvent)) {
         setInnerValue(inputValue);
       }
+
+      onChange?.(inputValue);
     },
-    [externalValue, onChange]
+    [externalValue, onChange, onChangeEvent]
   );
 
   const value = React.useMemo(() => externalValue ?? innerValue, [externalValue, innerValue]);
@@ -54,6 +63,7 @@ export const TextArea = forwardRef<TextFieldForwardRef, TextAreaProps>((props, r
       className={cn(styles['tedi-textarea'], className)}
       value={value}
       onChange={handleInputChange}
+      onChangeEvent={onChangeEvent}
       helper={combinedHelpers as FeedbackTextProps[]}
     />
   );
