@@ -10,6 +10,11 @@ import Heading, { HeadingProps } from './heading';
 const meta: Meta<typeof Heading> = {
   component: Heading,
   title: 'Community/Typography/Heading',
+  parameters: {
+    status: {
+      type: ['deprecated', 'ExistsInTediReady'],
+    },
+  },
 };
 
 export default meta;

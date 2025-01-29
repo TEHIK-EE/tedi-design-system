@@ -15,6 +15,11 @@ import Text, { TextProps } from './text';
 const meta: Meta<typeof Text> = {
   component: Text,
   title: 'Community/Typography/Text',
+  parameters: {
+    status: {
+      type: ['deprecated', 'ExistsInTediReady'],
+    },
+  },
 };
 
 export default meta;
