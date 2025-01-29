@@ -90,7 +90,22 @@ export type SeparatorBreakpointProps = {
   height?: Omit<SeparatorVerticalProps['height'], 'axis'>;
 };
 
-export type SeparatorProps = BreakpointSupport<SeparatorHorizontalProps | SeparatorVerticalProps> &
+export type SeparatorProps = BreakpointSupport<
+  | (
+      | SeparatorHorizontalProps
+      | (SeparatorVerticalProps & {
+          variant?: 'dotted' | 'dotted-small';
+          dotSize?: undefined;
+        })
+    )
+  | (
+      | SeparatorHorizontalProps
+      | (SeparatorVerticalProps & {
+          variant: 'dot-only';
+          dotSize: 'large' | 'medium' | 'small' | 'extra-small';
+        })
+    )
+> &
   SeparatorBreakpointProps;
 
 export const Separator = (props: SeparatorProps): JSX.Element => {

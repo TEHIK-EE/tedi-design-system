@@ -172,7 +172,7 @@ const InlineSeparatorTemplate: StoryFn<SeparatorProps> = (args) => (
     </Text>
     <Text>
       Lorem ipsum dolor sit, amet
-      <Separator color="secondary" spacing={0.5} variant="dot-only" dotSize="small" {...args} />
+      <Separator {...args} color="secondary" spacing={0.5} variant="dot-only" dotSize="small" />
       consectetur adipisicing elit.
     </Text>
   </VerticalSpacing>
