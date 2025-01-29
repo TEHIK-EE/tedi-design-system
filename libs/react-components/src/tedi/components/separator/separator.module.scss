@@ -71,7 +71,7 @@ $sizes: (
   }
 }
 
-.separator--dotted-small::before {
+.tedi-separator--dotted-small::before {
   top: 1.5rem;
   transform: translateX(-5px);
 
@@ -174,5 +174,23 @@ $thicknesses: (
 
   &.tedi-separator--accent::before {
     background-color: var(--general-border-accent);
+  }
+}
+
+.tedi-separator--horizontal {
+  &.tedi-separator--dotted::before,
+  &.tedi-separator--dotted-small::before {
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+    transform: initial;
+  }
+
+  &.tedi-separator--dotted::before {
+    @include mixins.responsive-styles(top, separator-dotted-dot-lg, null, '/ 2 * -1');
+  }
+
+  &.tedi-separator--dotted-small::before {
+    @include mixins.responsive-styles(top, separator-dotted-dot-md, null, '/ 2 * -1');
   }
 }
