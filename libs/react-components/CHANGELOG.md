@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-react-v11.0.0-rc.20](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.0.0-rc.19...react-11.0.0-rc.20) (2025-01-29)
+
+
+### Bug Fixes
+
+* **separator:** Type safety for dot-only variant [#447](https://github.com/TEHIK-EE/tedi-design-system/issues/447) ([#453](https://github.com/TEHIK-EE/tedi-design-system/issues/453)) ([121ed06](https://github.com/TEHIK-EE/tedi-design-system/commit/121ed06a3b378a69ef727312e69302e3cd0b4182))
+
 # [@tehik-ee/tedi-react-v11.0.0-rc.19](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.0.0-rc.18...react-11.0.0-rc.19) (2025-01-27)
 
 
