@@ -81,8 +81,8 @@ export interface TextProps extends BreakpointSupport<TextBreakpointProps> {
   tabIndex?: number;
 }
 
-const isHeading = (value: TextElement | TextModifiers): value is HeadingModifiers => {
-  return /^h[1-6]$/.test(value);
+const isHeadingModifier = (modifier: TextModifiers): modifier is HeadingModifiers => {
+  return /^h[1-6]$/.test(modifier);
 };
 
 export const Text = (props: TextProps): JSX.Element => {
@@ -98,13 +98,10 @@ export const Text = (props: TextProps): JSX.Element => {
   } = getCurrentBreakpointProps<TextProps>(props);
 
   const modifiersArray = typeof modifiers === 'string' ? [modifiers] : modifiers;
-  const hasHeadingModifier = modifiersArray?.some(isHeading);
-  const headingClass = isHeading(Element) && !hasHeadingModifier ? `tedi-text--${Element}` : null;
 
   const BEM = cn(
     className,
-    headingClass,
-    modifiersArray?.map((modifier) => (isHeading(modifier) ? `tedi-text--${modifier}` : `text-${modifier}`)),
+    modifiersArray?.map((modifier) => (isHeadingModifier(modifier) ? `tedi-text--${modifier}` : `text-${modifier}`)),
     { [`tedi-text--${color}`]: color }
   );
 
