@@ -40,9 +40,9 @@ describe('TextArea component', () => {
     expect(textarea).toHaveClass('tedi-textarea__input');
   });
 
-  it('calls onChange when the textarea value changes', () => {
+  it('calls onChange when using external value and when the textarea value changes', () => {
     const handleChange = jest.fn();
-    render(<TextArea {...defaultProps} onChange={handleChange} />);
+    render(<TextArea {...defaultProps} value="Value" onChange={handleChange} />);
     const textarea = screen.getByPlaceholderText(/enter text/i);
     fireEvent.change(textarea, { target: { value: 'New Value' } });
     expect(handleChange).toHaveBeenCalledTimes(1);
