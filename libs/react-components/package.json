@@ -21,7 +21,7 @@
     "start": "storybook dev -p 4400 -c .storybook",
     "build": "vite build --config vite.config.ts && npm run copy:community && npm run copy:tedi && rm -rf dist/libs && replace-in-file //fonts//g \"./fonts/\" dist/index.css --isRegex",
     "build:sb": "storybook build -c .storybook -o dist/storybook/react-components",
-    "lint": "npx stylelint \"src/**/*.scss\" --fix && eslint \"src/**/*.{ts,tsx}\" --no-ignore --fix --quiet",
+    "lint": "npx stylelint \"src/**/*.scss\" --fix && eslint \"src/**/*.{ts,tsx}\" --no-ignore --fix",
     "lint:ci": "npx stylelint \"src/**/*.scss\" && eslint --quiet",
     "test": "jest --config ./jest.config.ts --passWithNoTests",
     "test:coverage": "jest --config ./jest.config.ts --coverage",
