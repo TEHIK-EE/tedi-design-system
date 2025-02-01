@@ -103,7 +103,9 @@ export const Default: Story = {
 };
 
 /**
- * Layout with a public header. Public header is simpler, it does not support custom content to header, instead it renders navigation to Header on larger screens from Sidenav props.<br/>
+ * Layout with a public header. Public header is simpler, it supports custom content when `Header.enablePublicCustomContent` is true (default false).
+ * It would render navigation to `Header` on larger screens based on breakpoints in `SideNav.breakToHeader` prop. When `SideNav.breakToHeader` breakpoint is met, custom content is not rendered.
+ * <br/>
  * It can be used for public pages.
  */
 export const Public: Story = {
