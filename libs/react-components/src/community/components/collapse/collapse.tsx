@@ -96,7 +96,11 @@ export const Collapse = (props: CollapseProps): JSX.Element => {
     }
   };
 
-  const renderContent = <div className={styles['collapse__content']}>{children}</div>;
+  const renderContent = (
+    <div className={styles['collapse__content']} data-name="collapse-content">
+      {children}
+    </div>
+  );
 
   return (
     <div data-name="collapse" {...rest} className={BEM}>
@@ -111,7 +115,7 @@ export const Collapse = (props: CollapseProps): JSX.Element => {
       >
         <Row justifyContent="between" alignItems="center" wrap="nowrap" {...titleRowProps} element="span">
           {title && <Col>{title}</Col>}
-          <Col width="auto">
+          <Col width="auto" className="collapse__col--icon">
             <Row element="span" alignItems="center" gutter={1}>
               <Print visibility="hide">
                 <Col
