@@ -94,7 +94,7 @@ const MultipleTextGroupsTemplate: StoryFn<TextGroupProps> = (args) => {
   ];
 
   return (
-    <>
+    <VerticalSpacing size={1}>
       {groups.map((group, groupIndex) => (
         <Row key={groupIndex}>
           <Col>
@@ -104,7 +104,7 @@ const MultipleTextGroupsTemplate: StoryFn<TextGroupProps> = (args) => {
           </Col>
         </Row>
       ))}
-    </>
+    </VerticalSpacing>
   );
 };
 
