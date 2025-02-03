@@ -7,8 +7,7 @@ export interface HashTriggerProps {
   children: ReactNode;
   /**
    * Id, which is passed to first child element.<br />
-   * It's used to detect element on page where to scroll. <br />
-   * Child component/element must have id property for this to work.
+   * It's used to detect element on page where to scroll.
    */
   id: string;
   /**
