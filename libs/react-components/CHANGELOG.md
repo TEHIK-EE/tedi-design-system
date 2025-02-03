@@ -1,3 +1,15 @@
+# [@tehik-ee/tedi-react-v11.0.0-rc.23](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.0.0-rc.22...react-11.0.0-rc.23) (2025-02-03)
+
+
+### Features
+
+* **affix:** TEDI-Ready component development [#377](https://github.com/TEHIK-EE/tedi-design-system/issues/377) ([#411](https://github.com/TEHIK-EE/tedi-design-system/issues/411)) ([8cb4f90](https://github.com/TEHIK-EE/tedi-design-system/commit/8cb4f90ca8590a031819709168b7b88dc99a372b))
+
+
+### BREAKING CHANGES
+
+* **affix:** remove community component and useElementSize hook
+
 # [@tehik-ee/tedi-react-v11.0.0-rc.22](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.0.0-rc.21...react-11.0.0-rc.22) (2025-01-29)
 
 
