@@ -1,3 +1,46 @@
+# [@tehik-ee/tedi-react-v11.0.0](https://github.com/TEHIK-EE/tedi-design-system/compare/react-10.0.0...react-11.0.0) (2025-02-03)
+
+
+### Bug Fixes
+
+* A basic fix to trigger a version release [#330](https://github.com/TEHIK-EE/tedi-design-system/issues/330) ([7d00f73](https://github.com/TEHIK-EE/tedi-design-system/commit/7d00f73fa1b50fabd3e357f735a08603b9462931))
+* A basic fix to trigger a version release [#330](https://github.com/TEHIK-EE/tedi-design-system/issues/330) ([9568112](https://github.com/TEHIK-EE/tedi-design-system/commit/95681128b8dcf318300e86a7777baae4f19dd2aa))
+* **general:** @tehik-ee/tedi-react package styles are not complete [#406](https://github.com/TEHIK-EE/tedi-design-system/issues/406) ([#408](https://github.com/TEHIK-EE/tedi-design-system/issues/408)) ([4423d90](https://github.com/TEHIK-EE/tedi-design-system/commit/4423d906db8fbc569681cbcd352413b3e81a3680))
+* **general:** eslint cleanup [#409](https://github.com/TEHIK-EE/tedi-design-system/issues/409) ([#410](https://github.com/TEHIK-EE/tedi-design-system/issues/410)) ([7b175c7](https://github.com/TEHIK-EE/tedi-design-system/commit/7b175c73567b67b7ed76a460e2abbb0d268bac52))
+* **general:** Remove --dry-run flag from release script [#330](https://github.com/TEHIK-EE/tedi-design-system/issues/330) ([9c52042](https://github.com/TEHIK-EE/tedi-design-system/commit/9c52042334540edf43817a2e32a2747bb00395fd))
+* **scroll-fade:** add export of ScrollFade [#398](https://github.com/TEHIK-EE/tedi-design-system/issues/398) ([#399](https://github.com/TEHIK-EE/tedi-design-system/issues/399)) ([aa777dd](https://github.com/TEHIK-EE/tedi-design-system/commit/aa777dd68943d4716cd7a558009da8e003e61913))
+* **scroll-fade:** fix fade without scrollbar [#400](https://github.com/TEHIK-EE/tedi-design-system/issues/400) ([#402](https://github.com/TEHIK-EE/tedi-design-system/issues/402)) ([fe6ecb5](https://github.com/TEHIK-EE/tedi-design-system/commit/fe6ecb5c843a070ca3978ae0ddc08c7250d6acd9))
+* **select:** add cacheOptions as a prop for Select ([#384](https://github.com/TEHIK-EE/tedi-design-system/issues/384)) ([3b1ecc2](https://github.com/TEHIK-EE/tedi-design-system/commit/3b1ecc2cac18700b1f621ccc5afbe28e9a13b139))
+* **select:** cache options prop [#383](https://github.com/TEHIK-EE/tedi-design-system/issues/383) ([#385](https://github.com/TEHIK-EE/tedi-design-system/issues/385)) ([799a989](https://github.com/TEHIK-EE/tedi-design-system/commit/799a989af8e440810d865db7f5bb728fa27ff14d))
+* **select:** fix font size [#393](https://github.com/TEHIK-EE/tedi-design-system/issues/393) ([#416](https://github.com/TEHIK-EE/tedi-design-system/issues/416)) ([b7c4291](https://github.com/TEHIK-EE/tedi-design-system/commit/b7c4291527e2a16602f47707f35e984589e7d50d))
+* **separator:** Dotted small variant size fix [#443](https://github.com/TEHIK-EE/tedi-design-system/issues/443) ([#444](https://github.com/TEHIK-EE/tedi-design-system/issues/444)) ([b2f17ea](https://github.com/TEHIK-EE/tedi-design-system/commit/b2f17ea54e76ae3f45c0898d0f35aa4553cacbb2))
+* **separator:** Inline vertical Separator in text [#389](https://github.com/TEHIK-EE/tedi-design-system/issues/389) ([#427](https://github.com/TEHIK-EE/tedi-design-system/issues/427)) ([369258f](https://github.com/TEHIK-EE/tedi-design-system/commit/369258f30e4615c694e909afa6d2760873914158))
+* **separator:** Type safety for dot-only variant [#447](https://github.com/TEHIK-EE/tedi-design-system/issues/447) ([#453](https://github.com/TEHIK-EE/tedi-design-system/issues/453)) ([121ed06](https://github.com/TEHIK-EE/tedi-design-system/commit/121ed06a3b378a69ef727312e69302e3cd0b4182))
+* **tag,status-badge:** Tag and StatusBadge color during printing [#412](https://github.com/TEHIK-EE/tedi-design-system/issues/412) ([#421](https://github.com/TEHIK-EE/tedi-design-system/issues/421)) ([6412299](https://github.com/TEHIK-EE/tedi-design-system/commit/6412299d97314b865cb130022bca801cbb40a2c2))
+* **textarea:** default value and forwardref bugs [#391](https://github.com/TEHIK-EE/tedi-design-system/issues/391) ([#392](https://github.com/TEHIK-EE/tedi-design-system/issues/392)) ([827b893](https://github.com/TEHIK-EE/tedi-design-system/commit/827b893488ed540b626a9c9bd4db50f8274af7b7))
+* **textarea:** fix char limit and counter [#397](https://github.com/TEHIK-EE/tedi-design-system/issues/397) ([#401](https://github.com/TEHIK-EE/tedi-design-system/issues/401)) ([3e574d1](https://github.com/TEHIK-EE/tedi-design-system/commit/3e574d1b6e28c8fb27f890f89b39449fd84f1351))
+* **textarea:** fix inner value [#446](https://github.com/TEHIK-EE/tedi-design-system/issues/446) ([#452](https://github.com/TEHIK-EE/tedi-design-system/issues/452)) ([a954e6b](https://github.com/TEHIK-EE/tedi-design-system/commit/a954e6be3c04c813b968fa554d50839f39278499))
+* Triggering new fix [#330](https://github.com/TEHIK-EE/tedi-design-system/issues/330) ([7e1650b](https://github.com/TEHIK-EE/tedi-design-system/commit/7e1650b3136741dd9fe53dcb75ba3cc775ba5747))
+* **truncate:** fix truncate button [#394](https://github.com/TEHIK-EE/tedi-design-system/issues/394) ([#395](https://github.com/TEHIK-EE/tedi-design-system/issues/395)) ([3cac352](https://github.com/TEHIK-EE/tedi-design-system/commit/3cac352a27fb038b254dd34ed8265ef59c0b196c))
+* **typography:** Headings without modifiers don't get correct styles [#445](https://github.com/TEHIK-EE/tedi-design-system/issues/445) ([#449](https://github.com/TEHIK-EE/tedi-design-system/issues/449)) ([89c4795](https://github.com/TEHIK-EE/tedi-design-system/commit/89c4795436a491a06863a3c0b26399d0498d01c5))
+* **typography:** text-normal css class specificity is higher than other modifiers [#429](https://github.com/TEHIK-EE/tedi-design-system/issues/429) ([#431](https://github.com/TEHIK-EE/tedi-design-system/issues/431)) ([119e831](https://github.com/TEHIK-EE/tedi-design-system/commit/119e8310afb7aa96c82d15498ef9ecf28f8f2ec4))
+
+
+### Features
+
+* **affix:** TEDI-Ready component development [#377](https://github.com/TEHIK-EE/tedi-design-system/issues/377) ([#411](https://github.com/TEHIK-EE/tedi-design-system/issues/411)) ([8cb4f90](https://github.com/TEHIK-EE/tedi-design-system/commit/8cb4f90ca8590a031819709168b7b88dc99a372b))
+* **general:** tedi-core, tedi-angular and tedi-react monorepo [#330](https://github.com/TEHIK-EE/tedi-design-system/issues/330) ([#403](https://github.com/TEHIK-EE/tedi-design-system/issues/403)) ([95654aa](https://github.com/TEHIK-EE/tedi-design-system/commit/95654aa5bb4d26b925ac51e1968f248707acdc07)), closes [#339](https://github.com/TEHIK-EE/tedi-design-system/issues/339) [#339](https://github.com/TEHIK-EE/tedi-design-system/issues/339) [#398](https://github.com/TEHIK-EE/tedi-design-system/issues/398) [#399](https://github.com/TEHIK-EE/tedi-design-system/issues/399)
+* **scroll-fade:** add TEDI-Ready component [#378](https://github.com/TEHIK-EE/tedi-design-system/issues/378) ([#390](https://github.com/TEHIK-EE/tedi-design-system/issues/390)) ([936eeb1](https://github.com/TEHIK-EE/tedi-design-system/commit/936eeb1288af8aa2b5307ae08401e8b775c4921b))
+* **scroll-visibility:** component rename [#387](https://github.com/TEHIK-EE/tedi-design-system/issues/387) ([#388](https://github.com/TEHIK-EE/tedi-design-system/issues/388)) ([24428f6](https://github.com/TEHIK-EE/tedi-design-system/commit/24428f6d885cc825adac9d7f0e303d24d594328a))
+* **search:** TEDI-Ready Search component development [#373](https://github.com/TEHIK-EE/tedi-design-system/issues/373) ([#428](https://github.com/TEHIK-EE/tedi-design-system/issues/428)) ([1b7e44b](https://github.com/TEHIK-EE/tedi-design-system/commit/1b7e44b1644857626642bd0e59c1229487e02ba7))
+* **separator:** Horizontal dotted separator [#423](https://github.com/TEHIK-EE/tedi-design-system/issues/423) ([#455](https://github.com/TEHIK-EE/tedi-design-system/issues/455)) ([9e42fa9](https://github.com/TEHIK-EE/tedi-design-system/commit/9e42fa93f3d891fb473b17576d0f3e75d42cba99))
+
+
+### BREAKING CHANGES
+
+* **affix:** remove community component and useElementSize hook
+* **scroll-visibility:** rename HideOnScroll to ScrollVisibility
+
 # [@tehik-ee/tedi-react-v11.0.0-rc.24](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.0.0-rc.23...react-11.0.0-rc.24) (2025-02-03)
 
 
