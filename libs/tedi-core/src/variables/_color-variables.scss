@@ -81,6 +81,9 @@
   --button-group-secondary-selected-background: var(--form-checkbox-radio-card-secondary-active-background);
   --button-group-secondary-selected-border: var(--form-checkbox-radio-card-secondary-active-border);
   --button-group-secondary-selected-text: var(--form-checkbox-radio-card-secondary-active-text);
+  --button-group-secondary-disabled-background: var(--alpha-01);
+  --button-group-secondary-disabled-border: var(--button-main-disabled-general-border);
+  --button-group-secondary-disabled-text: var(--general-text-disabled);
   --button-main-danger-neutral-background-active: var(--alpha-01);
   --button-main-danger-neutral-background-default: var(--alpha-01);
   --button-main-danger-neutral-background-focus: var(--alpha-01);
@@ -574,6 +577,9 @@
   --button-group-secondary-selected-background: var(--form-checkbox-radio-card-secondary-active-background);
   --button-group-secondary-selected-border: var(--form-checkbox-radio-card-secondary-active-border);
   --button-group-secondary-selected-text: var(--form-checkbox-radio-card-secondary-active-text);
+  --button-group-secondary-disabled-background: var(--alpha-01);
+  --button-group-secondary-disabled-border: var(--button-main-disabled-general-background);
+  --button-group-secondary-disabled-text: var(--general-text-disabled);
   --button-main-danger-neutral-background-active: var(--alpha-01);
   --button-main-danger-neutral-background-default: var(--alpha-01);
   --button-main-danger-neutral-background-focus: var(--alpha-01);
