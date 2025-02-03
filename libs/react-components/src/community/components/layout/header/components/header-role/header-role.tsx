@@ -1,9 +1,9 @@
 import React from 'react';
 
+import ScrollFade from '../../../../../../tedi/components/scroll-fade/scroll-fade';
 import { useLabels } from '../../../../../../tedi/providers/label-provider';
 import { Card, CardContent } from '../../../../card';
 import Collapse from '../../../../collapse/collapse';
-import ScrollFade from '../../../../scroll-fade/scroll-fade';
 import Tag from '../../../../tag/tag';
 import { Text } from '../../../../typography/text/text';
 import { HeaderDropdown } from '../header-dropdown/header-dropdown';
@@ -105,7 +105,7 @@ const HeaderRoleDropdown = (props: HeaderRoleComponentProps) => {
       }}
     >
       <div className={styles['header-role-wrapper']}>
-        <ScrollFade fadeSize="0">
+        <ScrollFade fadeSize={0}>
           <div className={styles['header-role-children']}>{getChildren}</div>
         </ScrollFade>
       </div>
@@ -150,7 +150,7 @@ const HeaderRoleModal = (props: HeaderRoleComponentProps) => {
             title={title}
           >
             <div className={styles['header-role-wrapper']}>
-              <ScrollFade fadeSize="0">
+              <ScrollFade fadeSize={0}>
                 <div className={styles['header-role-children']}>{getChildren}</div>
               </ScrollFade>
             </div>

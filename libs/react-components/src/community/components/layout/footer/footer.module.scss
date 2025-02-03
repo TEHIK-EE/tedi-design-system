@@ -1,5 +1,5 @@
-@use '../../../styles/mixins';
-@use '../../../../shared/styles/bootstrap-utility/breakpoints';
+@use '@tehik-ee/tedi-core/mixins';
+@use '@tehik-ee/tedi-core/bootstrap-utility/breakpoints';
 
 .footer__bottom {
   padding: 0.5rem 2.5rem;

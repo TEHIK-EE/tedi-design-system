@@ -1,0 +1,90 @@
+{
+  "name": "@tehik-ee/tedi-angular",
+  "version": "0.0.0-semantic-version",
+  "type": "module",
+  "main": "community.mjs",
+  "module": "community.mjs",
+  "exports": {
+    "./tedi": {
+      "types": "./tedi/index.d.ts",
+      "import": "./tedi.mjs"
+    },
+    "./community": {
+      "types": "./community/index.d.ts",
+      "import": "./community.mjs"
+    },
+    "./index.css": "./index.css"
+  },
+  "scripts": {
+    "start": "ng run angular-components:storybook",
+    "build": "ng-packagr -p ng-package.json",
+    "build:sb": "ng run angular-components:build-storybook",
+    "lint": "ng lint angular-components --fix",
+    "test": "jest --passWithNoTests",
+    "test:watch": "ng test angular-components --watch",
+    "release": "npx semantic-release -e semantic-release-monorepo --debug"
+  },
+  "peerDependencies": {
+    "@angular/animations": "^18.2.0",
+    "@angular/cdk": "^18.2.0",
+    "@angular/common": "^18.2.0",
+    "@angular/compiler": "~18.2.0",
+    "@angular/core": "^18.2.0",
+    "@angular/forms": "^18.2.0",
+    "@angular/material": "^18.2.0",
+    "@angular/platform-browser": "~18.2.0",
+    "@angular/platform-browser-dynamic": "~18.2.0",
+    "@angular/router": "~18.2.0",
+    "@tehik-ee/tedi-core": "^1.5.0",
+    "dayjs": "*",
+    "lodash-es": "*",
+    "rxjs": "^7.0.0"
+  },
+  "dependencies": {
+    "tslib": "^2.5.0"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "~18.2.0",
+    "@angular-devkit/core": "~18.2.0",
+    "@angular-devkit/schematics": "~18.2.0",
+    "@angular-eslint/builder": "^19.0.2",
+    "@angular-eslint/eslint-plugin": "^19.0.2",
+    "@angular-eslint/eslint-plugin-template": "^19.0.2",
+    "@angular-eslint/schematics": "^19.0.2",
+    "@angular-eslint/template-parser": "^19.0.2",
+    "@angular/cli": "~18.2.0",
+    "@angular/compiler-cli": "~18.2.0",
+    "@angular/language-service": "~18.2.0",
+    "@compodoc/compodoc": "^1.1.26",
+    "@schematics/angular": "~18.2.0",
+    "@storybook/addon-a11y": "^8.4.7",
+    "@storybook/addon-docs": "^8.4.7",
+    "@storybook/addon-essentials": "^8.4.7",
+    "@storybook/addon-interactions": "^8.4.7",
+    "@storybook/addon-onboarding": "^8.4.7",
+    "@storybook/angular": "^8.4.7",
+    "@storybook/blocks": "^8.4.7",
+    "@storybook/manager-api": "^8.4.7",
+    "@storybook/test": "^8.4.7",
+    "@storybook/theming": "^8.4.7",
+    "@types/jest": "^29.5.14",
+    "@types/node": "^22.10.5",
+    "angular-eslint": "^18.4.2",
+    "chokidar": "3.6.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^29.7.0",
+    "jest-preset-angular": "^14.4.2",
+    "ng-packagr": "^18.2.0",
+    "prettier": "^3.4.2",
+    "readdirp": "3.6.0",
+    "storybook": "^8.4.7",
+    "ts-node": "^10.9.2"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "overrides": {
+    "dayjs": "$dayjs"
+  }
+}

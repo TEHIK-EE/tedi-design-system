@@ -3,8 +3,8 @@ import cn from 'classnames';
 import React from 'react';
 
 import { Section } from '../../../../tedi/components/section/section';
+import { useElementSize } from '../../../../tedi/helpers/hooks/use-element-size';
 import { AccessibilityProvider } from '../../../../tedi/providers/accessibility-provider/accessibility-provider';
-import { useElementSize } from '../../../helpers';
 import Breadcrumbs, { BreadcrumbsProps } from '../breadcrumbs/breadcrumbs';
 import { Footer, FooterProps } from '../footer/footer';
 import { Header, HeaderProps } from '../header';

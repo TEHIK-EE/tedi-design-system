@@ -1,0 +1,51 @@
+@font-face {
+  font-family: 'Material Symbols Outlined';
+  font-style: normal;
+  font-weight: 100 700;
+  src: url('/fonts/material-symbols-outlined.woff2') format('woff2');
+  font-display: block;
+}
+
+@font-face {
+  font-family: 'Material Symbols Rounded';
+  font-style: normal;
+  font-weight: 100 700;
+  src: url('/fonts/material-symbols-rounded.woff2') format('woff2');
+  font-display: block;
+}
+
+@font-face {
+  font-family: 'Material Symbols Sharp';
+  font-style: normal;
+  font-weight: 100 700;
+  src: url('/fonts/material-symbols-sharp.woff2') format('woff2');
+  font-display: block;
+}
+
+.material-symbols {
+  display: inline-block;
+  font-style: normal;
+  font-weight: normal;
+  font-feature-settings: 'liga';
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizelegibility;
+
+  &--outlined {
+    font-family: 'Material Symbols Outlined', sans-serif;
+  }
+
+  &--rounded {
+    font-family: 'Material Symbols Rounded', sans-serif;
+  }
+
+  &--sharp {
+    font-family: 'Material Symbols Sharp', sans-serif;
+  }
+}

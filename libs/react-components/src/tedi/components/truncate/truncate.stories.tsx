@@ -10,7 +10,7 @@ import { Truncate } from './truncate';
 
 const meta: Meta<typeof Truncate> = {
   component: Truncate,
-  title: 'Tedi-ready/Components/Helpers/Truncate',
+  title: 'Tedi-ready/Content/Truncate',
   parameters: {
     status: {
       type: [{ name: 'breakpointSupport', url: '?path=/docs/helpers-usebreakpointprops--usebreakpointprops' }],
@@ -43,5 +43,13 @@ export const Default: Story = {
     Minima quidem cumque eaque eveniet unde esse impedit necessitatibus aut non autem, 
     maxime sed odit repellat distinctio, molestias laudantium saepe dignissimos eius!`,
     expandable: true,
+  },
+};
+
+export const NoTruncate: Story = {
+  render: TemplateColumn,
+  args: {
+    children: 'This text does not get truncated, because the length is smaller than maxLength property.',
+    maxLength: 100,
   },
 };

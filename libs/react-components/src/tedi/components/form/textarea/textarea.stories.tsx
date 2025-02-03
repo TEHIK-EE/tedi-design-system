@@ -1,4 +1,5 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
+import { useState } from 'react';
 
 import { Col, Row } from '../../grid';
 import { Text } from '../../typography/text/text';
@@ -70,6 +71,12 @@ const TemplateSizes: StoryFn<TextAreaProps> = (args) => {
   );
 };
 
+const TemplateTextValue: StoryFn<TextAreaProps> = (args) => {
+  const { value, ...props } = args;
+  const [text, setText] = useState(value ?? '');
+  return <TextArea value={text} onChange={(t) => setText(t)} {...props} />;
+};
+
 export const Default: Story = {
   args: {
     id: 'example-1',
@@ -112,7 +119,6 @@ export const HintTextAndCharacterCount: Story = {
   args: {
     id: 'example-1',
     label: 'Label',
-    showCounter: true,
     characterLimit: 400,
     helper: [{ text: 'Hint text' }],
   },
@@ -122,7 +128,6 @@ export const OnlyCharacterCount: Story = {
   args: {
     id: 'example-1',
     label: 'Label',
-    showCounter: true,
     characterLimit: 400,
   },
 };
@@ -144,6 +149,7 @@ export const Error: Story = {
 };
 
 export const TextValue: Story = {
+  render: TemplateTextValue,
   args: {
     id: 'example-1',
     label: 'Label',
@@ -156,5 +162,13 @@ export const Placeholder: Story = {
     id: 'example-1',
     label: 'Label',
     placeholder: 'Text value',
+  },
+};
+
+export const DefaultValue: Story = {
+  args: {
+    id: 'example-1',
+    label: 'Label',
+    defaultValue: 'Text value',
   },
 };

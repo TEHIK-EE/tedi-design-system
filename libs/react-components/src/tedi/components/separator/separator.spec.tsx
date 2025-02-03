@@ -85,7 +85,7 @@ describe('Separator Component', () => {
 
   it('should set height CSS variable for vertical separator', () => {
     const { getByTestId } = renderComponent({ axis: 'vertical', height: 2 });
-    expect(getByTestId('separator')).toHaveStyle(`--vertical-separator-height: 2rem`);
+    expect(getByTestId('separator')).toHaveStyle('--vertical-separator-height: 2rem');
   });
 
   it('should apply dot-only variant class', () => {
@@ -116,5 +116,33 @@ describe('Separator Component', () => {
   it('should not apply dot size class when variant is not dot-only', () => {
     const { getByTestId } = renderComponent({ variant: 'dotted', dotSize: 'large' });
     expect(getByTestId('separator')).not.toHaveClass(styles['tedi-separator--dot-only-large']);
+  });
+
+  it('should default vertical separator display to block', () => {
+    const { getByTestId } = renderComponent({ axis: 'vertical' });
+    expect(getByTestId('separator')).toHaveClass(styles['tedi-separator--block']);
+  });
+
+  it('should apply inline display class to vertical separator when specified', () => {
+    const { getByTestId } = renderComponent({ axis: 'vertical', display: 'inline' });
+    expect(getByTestId('separator')).toHaveClass(styles['tedi-separator--inline']);
+  });
+
+  it('should not apply inline display class to horizontal separator', () => {
+    const { getByTestId } = renderComponent({ axis: 'horizontal', display: 'block' });
+    expect(getByTestId('separator')).not.toHaveClass(styles['tedi-separator--inline']);
+  });
+  it('should apply dotSize class when variant is dot-only', () => {
+    const { getByTestId } = renderComponent({ variant: 'dot-only', dotSize: 'medium' });
+    const separator = getByTestId('separator');
+    expect(separator).toHaveClass(styles['tedi-separator--dot-only']);
+    expect(separator).toHaveClass(styles['tedi-separator--dot-only-medium']);
+  });
+
+  it('should ignore dotSize when variant is not dot-only', () => {
+    const { getByTestId } = renderComponent({ variant: 'dotted', dotSize: 'medium' });
+    const separator = getByTestId('separator');
+    expect(separator).toHaveClass(styles['tedi-separator--dotted']);
+    expect(separator).not.toHaveClass(styles['tedi-separator--dot-only-medium']);
   });
 });

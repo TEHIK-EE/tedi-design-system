@@ -16,7 +16,7 @@ export const TabsNavItem = <C extends React.ElementType = 'a'>(props: TabsNavIte
         {/*
           // // TODO: Remove ts-ignore
           // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-          // @ts-ignore */}
+          // @ts-expect-error: 'rest' props do not fully match Anchor's expected props, but they are validated elsewhere */}
         <Anchor {...rest} className={cn(styles['tabs__nav-link'])}>
           {children}
         </Anchor>

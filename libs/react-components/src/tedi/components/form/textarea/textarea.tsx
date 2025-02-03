@@ -1,47 +1,50 @@
 import cn from 'classnames';
-import React from 'react';
+import React, { forwardRef } from 'react';
 
 import { FeedbackTextProps } from '../feedback-text/feedback-text';
-import { TextField, TextFieldProps } from '../textfield/textfield';
+import { TextField, TextFieldForwardRef, TextFieldProps } from '../textfield/textfield';
 import styles from './textarea.module.scss';
 
 export interface TextAreaProps extends TextFieldProps {
-  /**
-   * Whether to show a character counter below the textarea.
-   */
-  showCounter?: boolean;
   /**
    * Maximum number of characters allowed in the textarea.
    */
   characterLimit?: number;
 }
 
-export const TextArea = (props: TextAreaProps): JSX.Element => {
-  const { className, showCounter = false, helper = [], characterLimit, onChange, ...rest } = props;
-  const [value, setValue] = React.useState<string>('');
+export const TextArea = forwardRef<TextFieldForwardRef, TextAreaProps>((props, ref): JSX.Element => {
+  const {
+    className,
+    helper = [],
+    characterLimit,
+    onChange,
+    onChangeEvent,
+    value: externalValue,
+    defaultValue,
+    ...rest
+  } = props;
+  const [innerValue, setInnerValue] = React.useState(defaultValue ?? '');
 
-  const handleInputChange = (inputValue: string) => {
-    let truncatedValue = inputValue;
+  const handleInputChange = React.useCallback(
+    (inputValue: string) => {
+      if (!externalValue && !(onChange || onChangeEvent)) {
+        setInnerValue(inputValue);
+      }
 
-    if (characterLimit !== undefined) {
-      truncatedValue = inputValue.slice(0, characterLimit);
-    }
+      onChange?.(inputValue);
+    },
+    [externalValue, onChange, onChangeEvent]
+  );
 
-    setValue(truncatedValue);
-
-    if (onChange) {
-      onChange(truncatedValue);
-    }
-  };
-
+  const value = React.useMemo(() => externalValue ?? innerValue, [externalValue, innerValue]);
   const charCount = value.length;
-  const charCountHelper = showCounter && characterLimit ? `${charCount}/${characterLimit}` : '';
+  const charCountHelper = characterLimit ? `${charCount}/${characterLimit}` : '';
   const combinedHelpers = [
     ...(Array.isArray(helper) ? helper : [helper]),
-    ...(showCounter && characterLimit
+    ...(characterLimit
       ? [
           {
-            type: 'hint',
+            type: charCount > characterLimit ? 'error' : 'hint',
             text: charCountHelper,
             position: 'right',
             className: cn(styles['tedi-textarea__character-count']),
@@ -53,15 +56,19 @@ export const TextArea = (props: TextAreaProps): JSX.Element => {
   return (
     <TextField
       {...rest}
+      ref={ref}
       data-name="textarea"
       inputClassName={styles['tedi-textarea__input']}
       isTextArea={true}
       className={cn(styles['tedi-textarea'], className)}
       value={value}
       onChange={handleInputChange}
+      onChangeEvent={onChangeEvent}
       helper={combinedHelpers as FeedbackTextProps[]}
     />
   );
-};
+});
+
+TextArea.displayName = 'TextArea';
 
 export default TextArea;

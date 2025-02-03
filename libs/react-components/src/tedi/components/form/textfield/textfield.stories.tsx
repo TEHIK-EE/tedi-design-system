@@ -45,7 +45,9 @@ const TemplateColumn: StoryFn<TemplateMultipleProps> = (args) => {
     <div className="example-list">
       {array.map((value, key) => (
         <Row className={`${key === array.length - 1 ? '' : 'border-bottom'} padding-14-16`} key={key}>
-          <Col width={2}>{value?.toString()}</Col>
+          <Col width={2}>
+            <Text modifiers="bold">{value ? value.charAt(0).toUpperCase() + value.slice(1) : ''}</Text>
+          </Col>
           <Col className="d-flex">
             <TextField {...textFieldProps} {...{ [property]: value }} />
           </Col>
