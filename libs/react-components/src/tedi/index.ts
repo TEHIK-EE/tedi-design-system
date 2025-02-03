@@ -28,6 +28,7 @@ export * from './components/section/section';
 export * from './components/scroll-visibility/scroll-visibility';
 export * from './components/truncate/truncate';
 export * from './components/scroll-fade/scroll-fade';
+export * from './components/affix/affix';
 
 export * from './helpers';
 
