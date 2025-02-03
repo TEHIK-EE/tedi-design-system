@@ -24,7 +24,7 @@ const config: UserConfig = {
         tsconfigPath: 'tsconfig.lib.json',
       },
       eslint: {
-        lintCommand: 'eslint "src/**/*.{ts,tsx}" --quiet',
+        lintCommand: 'eslint "src/**/*.{ts,tsx}"',
       },
     }),
     visualizer({
