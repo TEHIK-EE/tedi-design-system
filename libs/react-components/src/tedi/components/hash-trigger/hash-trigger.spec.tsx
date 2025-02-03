@@ -1,6 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 
-import HashTrigger from './hash-trigger';
+import { HashTrigger } from './hash-trigger';
 
 import '@testing-library/jest-dom';
 

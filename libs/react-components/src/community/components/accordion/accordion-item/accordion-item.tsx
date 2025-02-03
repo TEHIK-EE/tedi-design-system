@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import React from 'react';
 
-import HashTrigger from '../../../../tedi/components/hash-trigger/hash-trigger';
+import { HashTrigger } from '../../../../tedi/components/hash-trigger/hash-trigger';
 import { CardBorderType, CardProps } from '../../card';
 import Card from '../../card/card';
 import { AccordionContext } from '../accordion';

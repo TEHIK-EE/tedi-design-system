@@ -5,7 +5,7 @@ import { Col, Row } from '../grid';
 import Link from '../navigation/link/link';
 import { Heading } from '../typography/heading/heading';
 import { VerticalSpacing } from '../vertical-spacing';
-import HashTrigger, { HashTriggerProps } from './hash-trigger';
+import { HashTrigger, HashTriggerProps } from './hash-trigger';
 
 /**
  * <a href="https://tedi.tehik.ee/1ee8444b7/p/84a3d9-hashtrigger" target="_BLANK">Zeroheight ↗</a><br />

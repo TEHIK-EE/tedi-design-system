@@ -39,7 +39,14 @@ export const TabsItem = (props: TabsItemProps) => {
   }
 
   return (
-    <div className={className} id={`${id}-panel`} tabIndex={0} role="tabpanel" aria-labelledby={id}>
+    <div
+      data-name="tabs-item"
+      className={className}
+      id={`${id}-panel`}
+      tabIndex={0}
+      role="tabpanel"
+      aria-labelledby={id}
+    >
       <Card padding={padding} background={background} borderRadius={{ top: false, right: false }} borderless>
         <CardContent>{children}</CardContent>
       </Card>

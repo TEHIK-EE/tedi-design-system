@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import React from 'react';
 
-import HashTrigger from '../../../../tedi/components/hash-trigger/hash-trigger';
+import { HashTrigger } from '../../../../tedi/components/hash-trigger/hash-trigger';
 import Print from '../../../../tedi/components/print/print';
 import Anchor, { AnchorProps } from '../../anchor/anchor';
 import { TabsContext } from '../tabs-context';

@@ -6,7 +6,9 @@ export interface HashTriggerProps {
    */
   children: ReactNode;
   /**
-   * Id, which is passed to first child element. It's used to detect element on page where to scroll.
+   * Id, which is passed to first child element.<br />
+   * It's used to detect element on page where to scroll. <br />
+   * Child component/element must have id property for this to work.
    */
   id: string;
   /**
@@ -39,7 +41,7 @@ function getHashArray(): string[] {
     .map((i) => (i.charAt(0) === '#' ? i.substring(1) : i));
 }
 
-export default function HashTrigger(props: HashTriggerProps) {
+export const HashTrigger = (props: HashTriggerProps) => {
   const { scrollOnMatch = true, onMatch, id, children } = props;
   const isInitial = useRef(true);
 
@@ -73,4 +75,4 @@ export default function HashTrigger(props: HashTriggerProps) {
   }, [id, onMatch, scrollOnMatch]);
 
   return isValidElement(children) ? cloneElement(children, { id } as { id?: string }) : <div id={id}>{children}</div>;
-}
+};
