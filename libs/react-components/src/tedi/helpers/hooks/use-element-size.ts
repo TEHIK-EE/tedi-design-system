@@ -1,19 +1,19 @@
 import debounce from 'lodash-es/debounce';
-import React from 'react';
+import { RefObject, useEffect, useState } from 'react';
 
-export const useElementSize = (ref: React.RefObject<HTMLElement> | null) => {
-  const [elementSize, setElementSize] = React.useState<DOMRect | undefined>(undefined);
+export const useElementSize = (ref: RefObject<HTMLElement> | null) => {
+  const [elementSize, setElementSize] = useState<DOMRect | undefined>(undefined);
 
-  React.useEffect(() => {
-    const resizeEvent = debounce((): void => {
+  useEffect(() => {
+    const resizeEvent = debounce(() => {
       if (ref?.current) {
         setElementSize(ref?.current.getBoundingClientRect());
       }
     }, 20);
 
     resizeEvent();
-
     window.addEventListener('resize', resizeEvent);
+
     return () => {
       resizeEvent.cancel();
       window.removeEventListener('resize', resizeEvent);

@@ -1,14 +1,18 @@
 /** @type { import('@storybook/angular').StorybookConfig } */
 const config = {
-  stories: ['../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
-  addons: ['@storybook/addon-onboarding', '@storybook/addon-essentials', '@storybook/addon-interactions'],
+  stories: ["../src/*/*.mdx", "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
+  addons: [
+    "@storybook/addon-onboarding",
+    "@storybook/addon-essentials",
+    "@storybook/addon-interactions",
+  ],
   framework: {
-    name: '@storybook/angular',
+    name: "@storybook/angular",
     options: {
-      builder: 'angular',
+      builder: "angular",
     },
   },
-  staticDirs: ['../../tedi-core/public'],
+  staticDirs: ["../../tedi-core/public"],
   docs: {
     autodocs: true,
   },

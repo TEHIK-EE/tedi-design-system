@@ -1,4 +1,5 @@
-import { fireEvent, render, screen } from '@testing-library/react';
+import { act, fireEvent, render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
 import { useBreakpointProps } from '../../../helpers';
 import TextArea, { TextAreaProps } from './textarea';
@@ -21,7 +22,6 @@ describe('TextArea component', () => {
     label: 'Test Label',
     placeholder: 'Enter text...',
     name: 'testTextarea',
-    onChange: jest.fn(),
   };
 
   it('renders the TextArea with default properties', () => {
@@ -40,20 +40,10 @@ describe('TextArea component', () => {
     expect(textarea).toHaveClass('tedi-textarea__input');
   });
 
-  it('calls onChange when the textarea value changes', () => {
-    const handleChange = jest.fn();
-    render(<TextArea {...defaultProps} onChange={handleChange} />);
-    const textarea = screen.getByPlaceholderText(/enter text/i);
-    fireEvent.change(textarea, { target: { value: 'New Value' } });
-    expect(handleChange).toHaveBeenCalledTimes(1);
-    expect(handleChange).toHaveBeenCalledWith('New Value');
-  });
-
   it('displays error when char count is over character limit', () => {
-    const handleChange = jest.fn();
     const charLimit = 10;
     const newText = 'This text is too long';
-    render(<TextArea {...defaultProps} characterLimit={charLimit} onChange={handleChange} />);
+    render(<TextArea {...defaultProps} characterLimit={charLimit} />);
     const textarea = screen.getByPlaceholderText(/enter text/i);
     fireEvent.change(textarea, { target: { value: newText } });
     const error = screen.getByText(`${newText.length}/${charLimit}`);
@@ -92,5 +82,63 @@ describe('TextArea component', () => {
     fireEvent.change(textarea, { target: { value: 'Some text' } });
     const counter = screen.queryByText(/\d+\/\d+/i);
     expect(counter).not.toBeInTheDocument();
+  });
+
+  it('applies defaultValue correctly when component is uncontrolled', async () => {
+    const user = userEvent.setup();
+    const defaultValue = 'Initial text';
+    render(<TextArea {...defaultProps} defaultValue={defaultValue} />);
+
+    const textarea = screen.getByRole('textbox');
+    expect(textarea).toHaveValue(defaultValue);
+
+    await act(async () => {
+      await user.type(textarea, ' additional text');
+    });
+    expect(textarea).toHaveValue('Initial text additional text');
+  });
+
+  it('handles controlled behavior correctly with value and onChange', async () => {
+    const handleChange = jest.fn();
+    const initialValue = 'Initial Value';
+    const newValue = 'New Value';
+
+    render(<TextArea {...defaultProps} value={initialValue} onChange={handleChange} placeholder="Enter text" />);
+    const textarea = screen.getByRole('textbox');
+    expect(textarea).toHaveValue(initialValue);
+
+    await act(async () => {
+      fireEvent.change(textarea, { target: { value: newValue } });
+    });
+
+    expect(handleChange).toHaveBeenCalledTimes(1);
+    expect(handleChange).toHaveBeenCalledWith(newValue);
+    expect(textarea).toHaveValue(initialValue);
+
+    render(<TextArea {...defaultProps} value={newValue} onChange={handleChange} placeholder="Enter text" />);
+    const allAreas = screen.getAllByRole('textbox');
+    const newTextarea = allAreas[allAreas.length - 1];
+    expect(newTextarea).toHaveValue(newValue);
+  });
+
+  it('handles onChangeEvent correctly with controlled value', () => {
+    const initialValue = 'Initial value';
+    let currentValue = initialValue;
+
+    const handleChangeEvent = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+      currentValue = event.target.value;
+    };
+
+    const { rerender } = render(<TextArea {...defaultProps} value={currentValue} onChangeEvent={handleChangeEvent} />);
+
+    const textarea = screen.getByRole('textbox');
+    expect(textarea).toHaveValue(initialValue);
+
+    const newValue = 'Changed value';
+    fireEvent.change(textarea, { target: { value: newValue } });
+
+    rerender(<TextArea {...defaultProps} value={currentValue} onChangeEvent={handleChangeEvent} />);
+    expect(textarea).toHaveValue(newValue);
+    expect(currentValue).toBe(newValue);
   });
 });

@@ -348,7 +348,7 @@ export const TimelineCard: StoryObj<CardProps> = {
   args: {},
 };
 
-const TwoToned: StoryFn<CardProps> = (args) => (
+const TwoToned: StoryFn<CardProps> = () => (
   <Row gutter={0}>
     <Col width="auto">
       <StretchContent>

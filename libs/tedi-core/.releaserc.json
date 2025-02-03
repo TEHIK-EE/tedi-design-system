@@ -1,12 +1,6 @@
 {
   "tagFormat": "core-${version}",
-  "branches": [
-    "main",
-    {
-      "name": "rc",
-      "prerelease": true
-    }
-  ],
+  "branches": ["rc"],
   "plugins": [
     "@semantic-release/commit-analyzer",
     "@semantic-release/release-notes-generator",

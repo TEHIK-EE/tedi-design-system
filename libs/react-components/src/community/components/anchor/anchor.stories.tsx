@@ -10,6 +10,11 @@ import { Anchor, AnchorProps } from './anchor';
 const meta: Meta<AnchorProps> = {
   component: Anchor,
   title: 'Community/Anchor',
+  parameters: {
+    status: {
+      type: ['deprecated', 'ExistsInTediReady'],
+    },
+  },
 };
 
 export default meta;

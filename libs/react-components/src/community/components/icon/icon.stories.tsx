@@ -10,6 +10,11 @@ import { Icon, IconProps } from './icon';
 const meta: Meta<typeof Icon> = {
   component: Icon,
   title: 'Community/Icon',
+  parameters: {
+    status: {
+      type: ['deprecated', 'ExistsInTediReady'],
+    },
+  },
 };
 
 export default meta;

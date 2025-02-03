@@ -16,7 +16,7 @@
     "esModuleInterop": true,
     "baseUrl": ".",
     "paths": {
-      "@tehik-ee/angular-components": ["angular-components/src/index.ts"],
+      "@tehik-ee/angular-components": ["libs/angular-components/src/index.ts"],
       "@tehik-ee/design-tokens": [
         "libs/react-components/design-tokens/tokens.js"
       ],

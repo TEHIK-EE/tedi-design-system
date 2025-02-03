@@ -1,5 +1,6 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 
+import { Col, Row } from '../../../../tedi/components/grid';
 import Heading, { HeadingProps } from './heading';
 
 /**
@@ -10,6 +11,11 @@ import Heading, { HeadingProps } from './heading';
 const meta: Meta<typeof Heading> = {
   component: Heading,
   title: 'Community/Typography/Heading',
+  parameters: {
+    status: {
+      type: ['deprecated', 'ExistsInTediReady'],
+    },
+  },
 };
 
 export default meta;
@@ -49,4 +55,59 @@ export const CustomModifier: Story = {
     children: 'This is heading element h1, with looks of h4',
     modifiers: 'h4',
   },
+};
+
+export const SemanticHeadings: Story = {
+  render: () => (
+    <>
+      <Row>
+        <Col>
+          <h1>Heading 1</h1>
+        </Col>
+        <Col>
+          <Heading element="h1">Heading 1</Heading>
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <h2>Heading 2</h2>
+        </Col>
+        <Col>
+          <Heading element="h2">Heading 2</Heading>
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <h3>Heading 3</h3>
+        </Col>
+        <Col>
+          <Heading element="h3">Heading 3</Heading>
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <h4>Heading 4</h4>
+        </Col>
+        <Col>
+          <Heading element="h4">Heading 4</Heading>
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <h5>Heading 5</h5>
+        </Col>
+        <Col>
+          <Heading element="h5">Heading 5</Heading>
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <h6>Heading 6</h6>
+        </Col>
+        <Col>
+          <Heading element="h6">Heading 6</Heading>
+        </Col>
+      </Row>
+    </>
+  ),
 };

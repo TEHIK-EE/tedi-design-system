@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { useElementSize } from '../../helpers';
+import { useElementSize } from '../../../tedi/helpers/hooks/use-element-size';
 import { Card, CardContent } from '../card';
 import { Tooltip, TooltipProvider, TooltipTrigger } from '../tooltip';
 import styles from './ellipsis.module.scss';

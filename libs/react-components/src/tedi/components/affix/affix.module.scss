@@ -1,0 +1,36 @@
+$top-spacings: (
+  '0': '0rem',
+  '0-5': '0.5rem',
+  '1': '1rem',
+  '1-5': '1.5rem',
+  '2': '2rem',
+  'unset': 'unset',
+);
+
+.tedi-affix {
+  z-index: var(--z-index-sticky);
+
+  &--fixed {
+    position: fixed;
+    z-index: var(--z-index-fixed);
+    max-height: 100vh;
+  }
+
+  @each $spacing, $value in $top-spacings {
+    &--top-#{$spacing} {
+      top: #{$value};
+    }
+
+    &--bottom-#{$spacing} {
+      bottom: #{$value};
+    }
+
+    &--left-#{$spacing} {
+      left: #{$value};
+    }
+
+    &--right-#{$spacing} {
+      right: #{$value};
+    }
+  }
+}

@@ -187,7 +187,7 @@ export const SelectWithGroupedOptions: Story = {
  */
 export const SelectWithStyledGroupedOptions: Story = {
   args: {
-    id: 'grouped-options-example',
+    id: 'grouped-options-example-styled',
     label: 'Grouped options label',
     optionGroupHeadingText: {
       modifiers: ['italic'],

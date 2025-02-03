@@ -13,17 +13,30 @@ export interface TextAreaProps extends TextFieldProps {
 }
 
 export const TextArea = forwardRef<TextFieldForwardRef, TextAreaProps>((props, ref): JSX.Element => {
-  const { className, helper = [], characterLimit, onChange, ...rest } = props;
-  const [value, setValue] = React.useState<string>(props.value ?? '');
+  const {
+    className,
+    helper = [],
+    characterLimit,
+    onChange,
+    onChangeEvent,
+    value: externalValue,
+    defaultValue,
+    ...rest
+  } = props;
+  const [innerValue, setInnerValue] = React.useState(defaultValue ?? '');
 
-  const handleInputChange = (inputValue: string) => {
-    setValue(inputValue);
+  const handleInputChange = React.useCallback(
+    (inputValue: string) => {
+      if (!externalValue && !(onChange || onChangeEvent)) {
+        setInnerValue(inputValue);
+      }
 
-    if (onChange) {
-      onChange(inputValue);
-    }
-  };
+      onChange?.(inputValue);
+    },
+    [externalValue, onChange, onChangeEvent]
+  );
 
+  const value = React.useMemo(() => externalValue ?? innerValue, [externalValue, innerValue]);
   const charCount = value.length;
   const charCountHelper = characterLimit ? `${charCount}/${characterLimit}` : '';
   const combinedHelpers = [
@@ -50,6 +63,7 @@ export const TextArea = forwardRef<TextFieldForwardRef, TextAreaProps>((props, r
       className={cn(styles['tedi-textarea'], className)}
       value={value}
       onChange={handleInputChange}
+      onChangeEvent={onChangeEvent}
       helper={combinedHelpers as FeedbackTextProps[]}
     />
   );

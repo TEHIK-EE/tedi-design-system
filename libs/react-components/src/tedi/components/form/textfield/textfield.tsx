@@ -342,7 +342,7 @@ export const TextField = forwardRef<TextFieldForwardRef, TextFieldProps>((props,
       <div className={styles['tedi-textfield__right-area']}>
         {showClearButton && renderClearButton}
         {showClearButton && icon ? (
-          <Separator color="secondary" axis="vertical" className={styles['tedi-textfield__separator']} />
+          <Separator color="primary" axis="vertical" className={styles['tedi-textfield__separator']} />
         ) : null}
         {icon && getIcon(icon)}
       </div>
