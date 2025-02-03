@@ -4,8 +4,11 @@
   "main": "dist/index.js",
   "scripts": {
     "prepare": "husky",
-    "lint": "npx stylelint \"**/*.scss\" --fix && eslint . --fix",
-    "lint:ci": "npx stylelint \"**/*.scss\" && eslint ."
+    "install:all": "npm install && cd libs/react-components && npm install && cd ../angular-components && npm install && cd ../tedi-core && npm install",
+    "install:react": "npm install && cd libs/react-components && npm install && cd ../tedi-core && npm install",
+    "install:angular": "npm install && cd libs/angular-components && npm install && cd ../tedi-core && npm install",
+    "start:react": "cd libs/react-components && npm run start",
+    "start:angular": "cd libs/angular-components && npm run start"
   },
   "repository": {
     "type": "git",
@@ -22,23 +25,10 @@
     "@semantic-release/commit-analyzer": "^13.0.0",
     "@semantic-release/git": "^10.0.1",
     "@semantic-release/npm": "^11.0.3",
-    "@typescript-eslint/eslint-plugin": "^8.19.1",
-    "eslint": "8.57.1",
-    "eslint-config-prettier": "9.1.0",
-    "eslint-plugin-import": "2.31.0",
-    "eslint-plugin-prettier": "^5.2.1",
-    "eslint-plugin-simple-import-sort": "^10.0.0",
     "husky": "^9.0.11",
-    "lint-staged": "^13.2.2",
-    "prettier": "^3.0.0",
-    "sass": "^1.81.0",
+    "lint-staged": "^15.3.0",
     "semantic-release": "^23.0.3",
     "semantic-release-monorepo": "^8.0.2",
-    "stylelint": "^16.0.2",
-    "stylelint-config-recess-order": "^4.2.0",
-    "stylelint-config-standard-scss": "^14.0.0",
-    "stylelint-declaration-strict-value": "^1.10.7",
-    "stylelint-scss": "^6.10.0",
     "typescript": "5.5.4"
   },
   "commitlint": {
@@ -61,11 +51,13 @@
     }
   },
   "lint-staged": {
-    "*.{css,scss}": "stylelint --fix",
-    "*.{js,jsx,ts,tsx}": "eslint --fix",
-    "*.{js,jsx,ts,tsx,css,scss,json,md}": "prettier --write"
-  },
-  "dependencies": {
-    "@typescript-eslint/parser": "^8.19.1"
+    "libs/react-components/**/*.{css,scss}": [
+      "stylelint --fix",
+      "prettier --write"
+    ],
+    "libs/react-components/**/*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ]
   }
 }

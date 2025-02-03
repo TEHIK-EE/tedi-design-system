@@ -6,11 +6,10 @@
 @use 'variables/dimensional-variables';
 @use 'variables/font-variables';
 @use 'mixins';
+@use 'base';
 @use 'icons';
 @use 'fonts';
 @use 'typography';
-@use 'typography-utilities';
-@use 'base';
 
 // Helpers should overwrite all other styles
 @use 'helpers';

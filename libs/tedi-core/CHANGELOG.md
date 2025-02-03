@@ -1,3 +1,66 @@
+# [@tehik-ee/tedi-core-v1.5.0-rc.10](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.5.0-rc.9...core-1.5.0-rc.10) (2025-01-24)
+
+
+### Bug Fixes
+
+* **tedi-core:** Update base and typography import order [#433](https://github.com/TEHIK-EE/tedi-design-system/issues/433) ([#448](https://github.com/TEHIK-EE/tedi-design-system/issues/448)) ([b864f20](https://github.com/TEHIK-EE/tedi-design-system/commit/b864f208758af481bb926619ab7f754fcb1024dd))
+
+# [@tehik-ee/tedi-core-v1.5.0-rc.9](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.5.0-rc.8...core-1.5.0-rc.9) (2025-01-21)
+
+
+### Bug Fixes
+
+* **tedi-core:** Change text color order [#433](https://github.com/TEHIK-EE/tedi-design-system/issues/433) ([d0a60a0](https://github.com/TEHIK-EE/tedi-design-system/commit/d0a60a0372b6791ee0222eec1b329903d49ec088))
+
+# [@tehik-ee/tedi-core-v1.5.0-rc.8](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.5.0-rc.7...core-1.5.0-rc.8) (2025-01-21)
+
+
+### Bug Fixes
+
+* **tedi-core:** Typography utilities, classes order, gather them into one file [#433](https://github.com/TEHIK-EE/tedi-design-system/issues/433) ([90a4082](https://github.com/TEHIK-EE/tedi-design-system/commit/90a4082af8f5c5b4f6d7d862a9b1d55b5ccdab69))
+
+# [@tehik-ee/tedi-core-v1.5.0-rc.7](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.5.0-rc.6...core-1.5.0-rc.7) (2025-01-21)
+
+
+### Bug Fixes
+
+* **tedi-core:** Update typography styles [#433](https://github.com/TEHIK-EE/tedi-design-system/issues/433) ([#436](https://github.com/TEHIK-EE/tedi-design-system/issues/436)) ([d09e896](https://github.com/TEHIK-EE/tedi-design-system/commit/d09e896f7ff8ec1d46facd5df9bfb6169edae056))
+
+# [@tehik-ee/tedi-core-v1.5.0-rc.6](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.5.0-rc.5...core-1.5.0-rc.6) (2025-01-21)
+
+
+### Bug Fixes
+
+* **tedi-core:** Update typography styles [#433](https://github.com/TEHIK-EE/tedi-design-system/issues/433) ([#435](https://github.com/TEHIK-EE/tedi-design-system/issues/435)) ([9474cdc](https://github.com/TEHIK-EE/tedi-design-system/commit/9474cdc336b0bc6d1cfcad0ce37461f063010071))
+
+# [@tehik-ee/tedi-core-v1.5.0-rc.5](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.5.0-rc.4...core-1.5.0-rc.5) (2025-01-21)
+
+
+### Bug Fixes
+
+* **tedi-core:** Update typography styles [#433](https://github.com/TEHIK-EE/tedi-design-system/issues/433) ([#434](https://github.com/TEHIK-EE/tedi-design-system/issues/434)) ([73f5a1c](https://github.com/TEHIK-EE/tedi-design-system/commit/73f5a1c9ff77496dfb23112b21a3e9dcb96fa0ca))
+
+# [@tehik-ee/tedi-core-v1.5.0-rc.4](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.5.0-rc.3...core-1.5.0-rc.4) (2025-01-17)
+
+
+### Bug Fixes
+
+* **general:** @tehik-ee/tedi-react package styles are not complete [#406](https://github.com/TEHIK-EE/tedi-design-system/issues/406) ([#408](https://github.com/TEHIK-EE/tedi-design-system/issues/408)) ([4423d90](https://github.com/TEHIK-EE/tedi-design-system/commit/4423d906db8fbc569681cbcd352413b3e81a3680))
+
+# [@tehik-ee/tedi-core-v1.5.0-rc.3](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.5.0-rc.2...core-1.5.0-rc.3) (2025-01-16)
+
+
+### Bug Fixes
+
+* **tedi-core:** add missing mixi import to typography-utilities [#419](https://github.com/TEHIK-EE/tedi-design-system/issues/419) ([#420](https://github.com/TEHIK-EE/tedi-design-system/issues/420)) ([add8966](https://github.com/TEHIK-EE/tedi-design-system/commit/add8966af7e6388320bbfcfca56d325c04fab885))
+
+# [@tehik-ee/tedi-core-v1.5.0-rc.2](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.5.0-rc.1...core-1.5.0-rc.2) (2025-01-16)
+
+
+### Bug Fixes
+
+* **tedi-core:** add missing styles to tedi-core [#417](https://github.com/TEHIK-EE/tedi-design-system/issues/417) ([#418](https://github.com/TEHIK-EE/tedi-design-system/issues/418)) ([6c1efca](https://github.com/TEHIK-EE/tedi-design-system/commit/6c1efcac448cfe66e6b635d26558728c5588034f))
+
 # [@tehik-ee/tedi-core-v1.5.0-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.4.0...core-1.5.0-rc.1) (2025-01-14)
 
 

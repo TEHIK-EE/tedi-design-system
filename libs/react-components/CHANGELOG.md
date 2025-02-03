@@ -1,3 +1,113 @@
+# [@tehik-ee/tedi-react-v11.0.0-rc.23](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.0.0-rc.22...react-11.0.0-rc.23) (2025-02-03)
+
+
+### Features
+
+* **affix:** TEDI-Ready component development [#377](https://github.com/TEHIK-EE/tedi-design-system/issues/377) ([#411](https://github.com/TEHIK-EE/tedi-design-system/issues/411)) ([8cb4f90](https://github.com/TEHIK-EE/tedi-design-system/commit/8cb4f90ca8590a031819709168b7b88dc99a372b))
+
+
+### BREAKING CHANGES
+
+* **affix:** remove community component and useElementSize hook
+
+# [@tehik-ee/tedi-react-v11.0.0-rc.22](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.0.0-rc.21...react-11.0.0-rc.22) (2025-01-29)
+
+
+### Bug Fixes
+
+* **typography:** Headings without modifiers don't get correct styles [#445](https://github.com/TEHIK-EE/tedi-design-system/issues/445) ([#449](https://github.com/TEHIK-EE/tedi-design-system/issues/449)) ([89c4795](https://github.com/TEHIK-EE/tedi-design-system/commit/89c4795436a491a06863a3c0b26399d0498d01c5))
+
+# [@tehik-ee/tedi-react-v11.0.0-rc.21](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.0.0-rc.20...react-11.0.0-rc.21) (2025-01-29)
+
+
+### Features
+
+* **separator:** Horizontal dotted separator [#423](https://github.com/TEHIK-EE/tedi-design-system/issues/423) ([#455](https://github.com/TEHIK-EE/tedi-design-system/issues/455)) ([9e42fa9](https://github.com/TEHIK-EE/tedi-design-system/commit/9e42fa93f3d891fb473b17576d0f3e75d42cba99))
+
+# [@tehik-ee/tedi-react-v11.0.0-rc.20](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.0.0-rc.19...react-11.0.0-rc.20) (2025-01-29)
+
+
+### Bug Fixes
+
+* **separator:** Type safety for dot-only variant [#447](https://github.com/TEHIK-EE/tedi-design-system/issues/447) ([#453](https://github.com/TEHIK-EE/tedi-design-system/issues/453)) ([121ed06](https://github.com/TEHIK-EE/tedi-design-system/commit/121ed06a3b378a69ef727312e69302e3cd0b4182))
+
+# [@tehik-ee/tedi-react-v11.0.0-rc.19](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.0.0-rc.18...react-11.0.0-rc.19) (2025-01-27)
+
+
+### Features
+
+* **search:** TEDI-Ready Search component development [#373](https://github.com/TEHIK-EE/tedi-design-system/issues/373) ([#428](https://github.com/TEHIK-EE/tedi-design-system/issues/428)) ([1b7e44b](https://github.com/TEHIK-EE/tedi-design-system/commit/1b7e44b1644857626642bd0e59c1229487e02ba7))
+
+# [@tehik-ee/tedi-react-v11.0.0-rc.18](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.0.0-rc.17...react-11.0.0-rc.18) (2025-01-24)
+
+
+### Bug Fixes
+
+* **separator:** Dotted small variant size fix [#443](https://github.com/TEHIK-EE/tedi-design-system/issues/443) ([#444](https://github.com/TEHIK-EE/tedi-design-system/issues/444)) ([b2f17ea](https://github.com/TEHIK-EE/tedi-design-system/commit/b2f17ea54e76ae3f45c0898d0f35aa4553cacbb2))
+
+# [@tehik-ee/tedi-react-v11.0.0-rc.17](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.0.0-rc.16...react-11.0.0-rc.17) (2025-01-23)
+
+
+### Bug Fixes
+
+* **typography:** text-normal css class specificity is higher than other modifiers [#429](https://github.com/TEHIK-EE/tedi-design-system/issues/429) ([#431](https://github.com/TEHIK-EE/tedi-design-system/issues/431)) ([119e831](https://github.com/TEHIK-EE/tedi-design-system/commit/119e8310afb7aa96c82d15498ef9ecf28f8f2ec4))
+
+# [@tehik-ee/tedi-react-v11.0.0-rc.16](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.0.0-rc.15...react-11.0.0-rc.16) (2025-01-20)
+
+
+### Bug Fixes
+
+* **separator:** Inline vertical Separator in text [#389](https://github.com/TEHIK-EE/tedi-design-system/issues/389) ([#427](https://github.com/TEHIK-EE/tedi-design-system/issues/427)) ([369258f](https://github.com/TEHIK-EE/tedi-design-system/commit/369258f30e4615c694e909afa6d2760873914158))
+
+# [@tehik-ee/tedi-react-v11.0.0-rc.15](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.0.0-rc.14...react-11.0.0-rc.15) (2025-01-17)
+
+
+### Bug Fixes
+
+* Triggering new fix [#330](https://github.com/TEHIK-EE/tedi-design-system/issues/330) ([7e1650b](https://github.com/TEHIK-EE/tedi-design-system/commit/7e1650b3136741dd9fe53dcb75ba3cc775ba5747))
+
+# [@tehik-ee/tedi-react-v11.0.0-rc.14](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.0.0-rc.13...react-11.0.0-rc.14) (2025-01-17)
+
+
+### Bug Fixes
+
+* A basic fix to trigger a version release [#330](https://github.com/TEHIK-EE/tedi-design-system/issues/330) ([7d00f73](https://github.com/TEHIK-EE/tedi-design-system/commit/7d00f73fa1b50fabd3e357f735a08603b9462931))
+
+# [@tehik-ee/tedi-react-v11.0.0-rc.13](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.0.0-rc.12...react-11.0.0-rc.13) (2025-01-17)
+
+
+### Bug Fixes
+
+* A basic fix to trigger a version release [#330](https://github.com/TEHIK-EE/tedi-design-system/issues/330) ([9568112](https://github.com/TEHIK-EE/tedi-design-system/commit/95681128b8dcf318300e86a7777baae4f19dd2aa))
+
+# [@tehik-ee/tedi-react-v11.0.0-rc.12](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.0.0-rc.11...react-11.0.0-rc.12) (2025-01-17)
+
+
+### Bug Fixes
+
+* **tag,status-badge:** Tag and StatusBadge color during printing [#412](https://github.com/TEHIK-EE/tedi-design-system/issues/412) ([#421](https://github.com/TEHIK-EE/tedi-design-system/issues/421)) ([6412299](https://github.com/TEHIK-EE/tedi-design-system/commit/6412299d97314b865cb130022bca801cbb40a2c2))
+
+# [@tehik-ee/tedi-react-v11.0.0-rc.11](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.0.0-rc.10...react-11.0.0-rc.11) (2025-01-17)
+
+
+### Bug Fixes
+
+* **general:** @tehik-ee/tedi-react package styles are not complete [#406](https://github.com/TEHIK-EE/tedi-design-system/issues/406) ([#408](https://github.com/TEHIK-EE/tedi-design-system/issues/408)) ([4423d90](https://github.com/TEHIK-EE/tedi-design-system/commit/4423d906db8fbc569681cbcd352413b3e81a3680))
+
+# [@tehik-ee/tedi-react-v11.0.0-rc.10](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.0.0-rc.9...react-11.0.0-rc.10) (2025-01-16)
+
+
+### Bug Fixes
+
+* **select:** fix font size [#393](https://github.com/TEHIK-EE/tedi-design-system/issues/393) ([#416](https://github.com/TEHIK-EE/tedi-design-system/issues/416)) ([b7c4291](https://github.com/TEHIK-EE/tedi-design-system/commit/b7c4291527e2a16602f47707f35e984589e7d50d))
+
+# [@tehik-ee/tedi-react-v11.0.0-rc.9](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.0.0-rc.8...react-11.0.0-rc.9) (2025-01-16)
+
+
+### Bug Fixes
+
+* **general:** eslint cleanup [#409](https://github.com/TEHIK-EE/tedi-design-system/issues/409) ([#410](https://github.com/TEHIK-EE/tedi-design-system/issues/410)) ([7b175c7](https://github.com/TEHIK-EE/tedi-design-system/commit/7b175c73567b67b7ed76a460e2abbb0d268bac52))
+
 # [@tehik-ee/tedi-react-v11.0.0-rc.8](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.0.0-rc.7...react-11.0.0-rc.8) (2025-01-14)
 
 

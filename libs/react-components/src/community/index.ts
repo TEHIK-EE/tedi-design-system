@@ -10,7 +10,6 @@ export * from './components/layout';
 export * from './components/ellipsis/ellipsis';
 export * from './components/dropdown/dropdown';
 export * from './components/stepper';
-export * from './components/affix/affix';
 export * from './components/card';
 export * from './components/icon/icon';
 export * from './components/feedback/feedback';

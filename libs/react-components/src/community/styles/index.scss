@@ -1,6 +1,7 @@
-@use '@tehik-ee/tedi-core/index';
+@forward '../../../design-tokens/variables';
 @use 'components/datepicker';
 @use 'components/calendar';
 @use 'components/text-editor';
 @use 'components/toast';
-@forward '../../../design-tokens/index';
+@use '@tehik-ee/tedi-core/helpers';
+@use '@tehik-ee/tedi-core/print';

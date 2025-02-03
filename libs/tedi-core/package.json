@@ -4,9 +4,21 @@
   "main": "src/index.scss",
   "scripts": {
     "build": "rm -rf dist && mkdir dist && cp -a src/* dist/ && cp README.md dist/ && cp package.json dist/",
-    "release": "npx semantic-release -e semantic-release-monorepo --debug"
+    "release": "npx semantic-release -e semantic-release-monorepo --debug",
+    "lint": "npx stylelint \"src/**/*.scss\" --fix"
   },
   "publishConfig": {
     "access": "public"
+  },
+  "devDependencies": {
+    "lint-staged": "^15.3.0",
+    "stylelint": "^16.13.2",
+    "stylelint-config-recess-order": "^4.2.0",
+    "stylelint-config-standard-scss": "^14.0.0",
+    "stylelint-declaration-strict-value": "^1.9.2",
+    "prettier": "^2.8.8"
+  },
+  "lint-staged": {
+    "*.{css,scss}": "stylelint \"**/*.{css,scss}\" --fix"
   }
 }

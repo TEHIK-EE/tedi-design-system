@@ -19,7 +19,7 @@ export const decorators: Preview['decorators'] = [
         <Story />
       </StorybookDecorator>
     );
-  }
+  },
 ];
 
 const preview: Preview = {
@@ -67,6 +67,11 @@ const preview: Preview = {
           background: '#fff',
           color: '#000',
           description: 'This component is only used to build other components and not being exported from library',
+        },
+        ExistsInTediReady: {
+          background: '#005aa3',
+          color: '#fff',
+          description: 'This component has been migrated to TEDI-Ready',
         },
       },
     },
