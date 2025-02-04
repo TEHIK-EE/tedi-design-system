@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-react-v11.1.0-rc.2](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.1.0-rc.1...react-11.1.0-rc.2) (2025-02-04)
+
+
+### Features
+
+* **header:** add public header custom content support [#441](https://github.com/TEHIK-EE/tedi-design-system/issues/441) ([#461](https://github.com/TEHIK-EE/tedi-design-system/issues/461)) ([d175a33](https://github.com/TEHIK-EE/tedi-design-system/commit/d175a33bd7a0b19481b62d70a3664f5e26e83540))
+
 # [@tehik-ee/tedi-react-v11.1.0-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.0.0...react-11.1.0-rc.1) (2025-02-03)
 
 
