@@ -16,6 +16,7 @@ import {
   BottomContent as HeaderBottomContent,
   Default as HeaderDefault,
   Public as HeaderPublic,
+  PublicWithCustomContent as HeaderPublicWithCustomContent,
 } from '../header/header.stories';
 import SideNav, { SideNavProps } from '../sidenav/sidenav';
 import { Default as SidenavDefault, Public as SidenavPublic } from '../sidenav/sidenav.stories';
@@ -103,7 +104,9 @@ export const Default: Story = {
 };
 
 /**
- * Layout with a public header. Public header is simpler, it does not support custom content to header, instead it renders navigation to Header on larger screens from Sidenav props.<br/>
+ * Layout with a public header. Public header is simpler, it supports custom content when `Header.enablePublicCustomContent` is true (default false).
+ * It would render navigation to `Header` on larger screens based on breakpoints in `SideNav.breakToHeader` prop. When `SideNav.breakToHeader` breakpoint is met, custom content is not rendered.
+ * <br/>
  * It can be used for public pages.
  */
 export const Public: Story = {
@@ -115,6 +118,20 @@ export const Public: Story = {
     sideNav: SidenavPublic.args as SideNavProps,
     headerType: 'public',
     breadcrumbsProps: undefined,
+  },
+};
+
+/**
+ * Layout with a public header and custom content enabled: `Header.enablePublicCustomContent` set to true (default false).
+ * It would render navigation to `Header` on larger screens based on breakpoints in `SideNav.breakToHeader` prop.
+ * <br/>
+ * When `SideNav.breakToHeader` breakpoint is met, custom content is not rendered.
+ */
+export const PublicWithCustomContent: Story = {
+  render: Template,
+  args: {
+    ...Public.args,
+    header: HeaderPublicWithCustomContent.args as HeaderProps<'a'>,
   },
 };
 

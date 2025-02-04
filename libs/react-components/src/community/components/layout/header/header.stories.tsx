@@ -77,6 +77,34 @@ export const Public: Story = {
   },
 };
 
+/**
+ * Public header with custom content. Public header depends on LayoutContext to determine if the header is `public`. To see how public header works, please check the `Layout` component examples.
+ */
+export const PublicWithCustomContent: Story = {
+  render: Template,
+  args: {
+    ...Public.args,
+    enablePublicCustomContent: true,
+    children: (
+      <>
+        <HeaderSettings {...(HeaderSettingsDefault.args as HeaderSettingsProps)} />
+        <HeaderLanguage {...(HeaderLanguageDefault.args as HeaderLanguageProps)} />
+        <HeaderContent>
+          <StretchContent>
+            <Row justifyContent="center" alignItems="center">
+              <Col width="auto">Custom content</Col>
+            </Row>
+          </StretchContent>
+        </HeaderContent>
+      </>
+    ),
+  },
+
+  parameters: {
+    layout: 'fullscreen',
+  },
+};
+
 export const HeaderWithNotification: Story = {
   render: Template,
   args: {
