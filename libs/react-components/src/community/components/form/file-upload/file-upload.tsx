@@ -181,6 +181,10 @@ export const FileUpload = (props: FileUploadProps): JSX.Element => {
       }
 
       onChange?.(newFiles);
+
+      // reset input to allow re-uploading of the same file after deletion
+      (e.target as HTMLInputElement).value = '';
+
       if (rejectedFiles.length) {
         setUploadErrorHelper({ type: 'error', text: getUploadErrorHelperText(rejectedFiles, getLabel) });
       } else {
