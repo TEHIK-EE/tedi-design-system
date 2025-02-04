@@ -1,0 +1,50 @@
+$tooltip-max-width: (
+  'none': none,
+  'small': 10rem,
+  'medium': 15rem,
+  'large': 30rem,
+);
+
+.tooltip {
+  z-index: var(--z-index-tooltip);
+  word-break: break-word;
+  background-color: var(--color-bg-default);
+  filter: drop-shadow(0 4px 10px rgb(0 0 0 / 14%));
+  border-radius: var(--border-radius-default);
+  transform: translateZ(0);
+}
+
+@each $name, $width in $tooltip-max-width {
+  .tooltip--#{$name} {
+    max-width: $width;
+  }
+}
+
+.tooltip__arrow {
+  z-index: 1;
+
+  .tooltip[data-placement='top'] &.tooltip__arrow--stroke {
+    top: calc(100% - 4px) !important;
+  }
+
+  .tooltip[data-placement='bottom'] &.tooltip__arrow--stroke {
+    bottom: calc(100% - 4px) !important;
+  }
+
+  .tooltip[data-placement='right'] &.tooltip__arrow--stroke {
+    right: calc(100% - 8px) !important;
+  }
+
+  .tooltip[data-placement='left'] &.tooltip__arrow--stroke {
+    left: calc(100% - 8px) !important;
+  }
+}
+
+.tooltip__trigger:not(button, a) {
+  cursor: default;
+  user-select: text;
+}
+
+.tooltip__trigger--click {
+  cursor: pointer;
+}
