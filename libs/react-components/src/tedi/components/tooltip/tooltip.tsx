@@ -22,8 +22,8 @@ import {
 } from '@floating-ui/react';
 import { ComponentProps, createContext, ReactNode, useCallback, useContext, useMemo, useRef, useState } from 'react';
 
-import { useIsMounted } from '../../../tedi/helpers';
-import { useLabels } from '../../../tedi/providers/label-provider';
+import { useIsMounted } from '../../helpers';
+import { useLabels } from '../../providers/label-provider';
 import { TooltipContent } from './tooltip-content';
 import { TooltipProvider, TooltipProviderContext } from './tooltip-provider';
 import { TooltipTrigger } from './tooltip-trigger';

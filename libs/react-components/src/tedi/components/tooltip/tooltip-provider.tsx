@@ -1,7 +1,7 @@
 import { OffsetOptions, Placement } from '@floating-ui/react';
 import { createContext } from 'react';
 
-import { useIsTouchDevice } from '../../../community/helpers/hooks/use-is-touch-device';
+import { useIsTouchDevice } from '../../helpers';
 
 export type TooltipOpenWith = 'click' | 'hover';
 export const ARROW_HEIGHT = 7;

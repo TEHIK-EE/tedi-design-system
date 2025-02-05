@@ -3,9 +3,9 @@ import { ComponentProps, useState } from 'react';
 
 import { Card, CardContent } from '../../../community/components/card';
 import Toggle from '../../../community/components/form/toggle/toggle';
-import { Col, Row } from '../../../tedi/components/grid';
-import { Icon } from '../../../tedi/components/icon/icon';
 import Button from '../buttons/button/button';
+import { Col, Row } from '../grid';
+import { Icon } from '../icon/icon';
 import Link from '../navigation/link/link';
 import { Heading } from '../typography/heading/heading';
 import Tooltip, { TooltipProps } from './tooltip';
@@ -19,7 +19,6 @@ const meta: Meta<TemplateProps> = {
     'Tooltip.Content': Tooltip.Content,
   } as never,
   parameters: {
-    layout: 'padded',
     docs: {
       source: {
         transform: (code: string) => {
@@ -44,12 +43,10 @@ interface TemplateProps extends TooltipProps {
 const Template: StoryFn<TemplateProps> = (args) => {
   const { trigger, contentProps, ...rest } = args;
   return (
-    <Tooltip.Provider>
-      <Tooltip {...rest}>
-        <Tooltip.Trigger>{trigger || 'Tooltip Trigger Can Be Text'}</Tooltip.Trigger>
-        <Tooltip.Content {...contentProps}>{contentProps?.children || 'Tooltip Content'}</Tooltip.Content>
-      </Tooltip>
-    </Tooltip.Provider>
+    <Tooltip {...rest}>
+      <Tooltip.Trigger>{trigger || 'Tooltip Trigger Can Be Text'}</Tooltip.Trigger>
+      <Tooltip.Content {...contentProps}>{contentProps?.children || 'Tooltip Content'}</Tooltip.Content>
+    </Tooltip>
   );
 };
 
@@ -58,12 +55,10 @@ const ControlledTemplate: StoryFn<TemplateProps> = (args) => {
   const [innerOpen, setInnerOpen] = useState(open);
 
   return (
-    <Tooltip.Provider>
-      <Tooltip {...rest} open={innerOpen} onToggle={setInnerOpen}>
-        <Tooltip.Trigger>{trigger || 'Tooltip Trigger Can Be Text'}</Tooltip.Trigger>
-        <Tooltip.Content {...contentProps}>{contentProps?.children || 'Tooltip Content'}</Tooltip.Content>
-      </Tooltip>
-    </Tooltip.Provider>
+    <Tooltip {...rest} open={innerOpen} onToggle={setInnerOpen}>
+      <Tooltip.Trigger>{trigger || 'Tooltip Trigger Can Be Text'}</Tooltip.Trigger>
+      <Tooltip.Content {...contentProps}>{contentProps?.children || 'Tooltip Content'}</Tooltip.Content>
+    </Tooltip>
   );
 };
 
@@ -71,47 +66,39 @@ const WidthTemplate: StoryFn<TemplateProps> = (args) => {
   return (
     <Row justifyContent="center" gap={5}>
       <Col width="auto">
-        <Tooltip.Provider>
-          <Tooltip>
-            <Tooltip.Trigger>
-              <p>Tooltip with no width limit</p>
-            </Tooltip.Trigger>
-            <Tooltip.Content maxWidth="none">{args.contentProps?.children}</Tooltip.Content>
-          </Tooltip>
-        </Tooltip.Provider>
+        <Tooltip>
+          <Tooltip.Trigger>
+            <p>Tooltip with no width limit</p>
+          </Tooltip.Trigger>
+          <Tooltip.Content maxWidth="none">{args.contentProps?.children || 'Tooltip Content'}</Tooltip.Content>
+        </Tooltip>
       </Col>
 
       <Col width="auto">
-        <Tooltip.Provider>
-          <Tooltip>
-            <Tooltip.Trigger>
-              <p>Small tooltip width</p>
-            </Tooltip.Trigger>
-            <Tooltip.Content maxWidth="small">{args.contentProps?.children}</Tooltip.Content>
-          </Tooltip>
-        </Tooltip.Provider>
+        <Tooltip>
+          <Tooltip.Trigger>
+            <p>Small tooltip width</p>
+          </Tooltip.Trigger>
+          <Tooltip.Content maxWidth="small">{args.contentProps?.children || 'Tooltip Content'}</Tooltip.Content>
+        </Tooltip>
       </Col>
 
       <Col width="auto">
-        <Tooltip.Provider>
-          <Tooltip>
-            <Tooltip.Trigger>
-              <p>Medium tooltip width</p>
-            </Tooltip.Trigger>
-            <Tooltip.Content>{args.contentProps?.children}</Tooltip.Content>
-          </Tooltip>
-        </Tooltip.Provider>
+        <Tooltip>
+          <Tooltip.Trigger>
+            <p>Medium tooltip width</p>
+          </Tooltip.Trigger>
+          <Tooltip.Content>{args.contentProps?.children || 'Tooltip Content'}</Tooltip.Content>
+        </Tooltip>
       </Col>
 
       <Col width="auto">
-        <Tooltip.Provider>
-          <Tooltip>
-            <Tooltip.Trigger>
-              <p>Large tooltip width</p>
-            </Tooltip.Trigger>
-            <Tooltip.Content maxWidth="large">{args.contentProps?.children}</Tooltip.Content>
-          </Tooltip>
-        </Tooltip.Provider>
+        <Tooltip>
+          <Tooltip.Trigger>
+            <p>Large tooltip width</p>
+          </Tooltip.Trigger>
+          <Tooltip.Content maxWidth="large">{args.contentProps?.children || 'Tooltip Content'}</Tooltip.Content>
+        </Tooltip>
       </Col>
     </Row>
   );
@@ -121,39 +108,31 @@ const PositionTemplate: StoryFn<TemplateProps> = (args) => {
   return (
     <Row justifyContent="center" gap={5}>
       <Col width="auto">
-        <Tooltip.Provider>
-          <Tooltip placement="top">
-            <Tooltip.Trigger>Tooltip top</Tooltip.Trigger>
-            <Tooltip.Content>{args.contentProps?.children}</Tooltip.Content>
-          </Tooltip>
-        </Tooltip.Provider>
+        <Tooltip placement="top">
+          <Tooltip.Trigger>Tooltip top</Tooltip.Trigger>
+          <Tooltip.Content>{args.contentProps?.children || 'Tooltip Content'}</Tooltip.Content>
+        </Tooltip>
       </Col>
 
       <Col width="auto">
-        <Tooltip.Provider>
-          <Tooltip>
-            <Tooltip.Trigger>Tooltip bottom</Tooltip.Trigger>
-            <Tooltip.Content>{args.contentProps?.children}</Tooltip.Content>
-          </Tooltip>
-        </Tooltip.Provider>
+        <Tooltip>
+          <Tooltip.Trigger>Tooltip bottom</Tooltip.Trigger>
+          <Tooltip.Content>{args.contentProps?.children || 'Tooltip Content'}</Tooltip.Content>
+        </Tooltip>
       </Col>
 
       <Col width="auto">
-        <Tooltip.Provider>
-          <Tooltip placement="left">
-            <Tooltip.Trigger>Tooltip left</Tooltip.Trigger>
-            <Tooltip.Content>{args.contentProps?.children}</Tooltip.Content>
-          </Tooltip>
-        </Tooltip.Provider>
+        <Tooltip placement="left">
+          <Tooltip.Trigger>Tooltip left</Tooltip.Trigger>
+          <Tooltip.Content>{args.contentProps?.children || 'Tooltip Content'}</Tooltip.Content>
+        </Tooltip>
       </Col>
 
       <Col width="auto">
-        <Tooltip.Provider>
-          <Tooltip placement="right">
-            <Tooltip.Trigger>Tooltip right</Tooltip.Trigger>
-            <Tooltip.Content>{args.contentProps?.children}</Tooltip.Content>
-          </Tooltip>
-        </Tooltip.Provider>
+        <Tooltip placement="right">
+          <Tooltip.Trigger>Tooltip right</Tooltip.Trigger>
+          <Tooltip.Content>{args.contentProps?.children || 'Tooltip Content'}</Tooltip.Content>
+        </Tooltip>
       </Col>
     </Row>
   );

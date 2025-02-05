@@ -1,11 +1,11 @@
-import React from 'react';
+import { useEffect, useState } from 'react';
 import whatInput from 'what-input';
 
 export const useIsTouchDevice = () => {
   let result = false;
-  const [currentInput, setCurrentInput] = React.useState('');
+  const [currentInput, setCurrentInput] = useState('');
 
-  React.useEffect(() => {
+  useEffect(() => {
     whatInput.registerOnChange(setCurrentInput, 'intent');
 
     return () => {

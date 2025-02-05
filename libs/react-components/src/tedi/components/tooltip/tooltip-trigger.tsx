@@ -2,7 +2,7 @@ import { useMergeRefs } from '@floating-ui/react';
 import cn from 'classnames';
 import { cloneElement, isValidElement, ReactNode, useContext } from 'react';
 
-import { useLabels } from '../../../tedi/providers/label-provider';
+import { useLabels } from '../../providers/label-provider';
 import { Icon } from '../icon/icon';
 import { TooltipContext } from './tooltip';
 import styles from './tooltip.module.scss';
