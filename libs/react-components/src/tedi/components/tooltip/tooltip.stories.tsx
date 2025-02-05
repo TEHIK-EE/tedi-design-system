@@ -10,6 +10,11 @@ import Link from '../navigation/link/link';
 import { Heading } from '../typography/heading/heading';
 import Tooltip, { TooltipProps } from './tooltip';
 
+/**
+ * <a href="https://www.figma.com/design/jWiRIXhHRxwVdMSimKX2FF/TEDI-READY-(work-in-progress)?node-id=5797-117363&m=dev" target="_BLANK">Figma ↗</a><br/>
+ * <a href="https://tedi.tehik.ee/1ee8444b7/p/035e20-tooltip" target="_BLANK">Zeroheight ↗</a>
+ */
+
 const meta: Meta<TemplateProps> = {
   component: Tooltip,
   title: 'TEDI-Ready/Components/Helpers/Tooltip',

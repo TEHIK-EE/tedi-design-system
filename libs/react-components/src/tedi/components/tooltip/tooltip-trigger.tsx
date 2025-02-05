@@ -9,7 +9,7 @@ import styles from './tooltip.module.scss';
 
 export interface TooltipTriggerProps {
   /**
-   * The element that opens tooltip.
+   * Content inside tooltip trigger, which opens the tooltip.
    */
   children: ReactNode;
 }

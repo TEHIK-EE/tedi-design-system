@@ -16,7 +16,7 @@ export interface TooltipContentProps {
    */
   className?: string;
   /**
-   * Tooltips max width
+   * Tooltip max width.
    * @default medium
    */
   maxWidth?: 'none' | 'small' | 'medium' | 'large';
