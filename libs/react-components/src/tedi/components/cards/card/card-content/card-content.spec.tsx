@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react';
+import { UnknownType } from 'libs/react-components/src/tedi/types/commonTypes';
 
 import { useBreakpointProps } from '../../../../helpers';
 import { CardContext } from '../card-context';
@@ -17,7 +18,7 @@ describe('CardContent', () => {
     });
   });
 
-  const renderComponent = (props?: CardContentProps, contextValue?: any) => {
+  const renderComponent = (props?: CardContentProps, contextValue?: UnknownType) => {
     const context = contextValue || {};
     return render(
       <CardContext.Provider value={context}>

@@ -28,6 +28,7 @@ export const CardContent = (props: CardContentProps): JSX.Element => {
     backgroundRepeat,
     hasSeparator,
     role,
+    style,
     ...rest
   } = getCurrentBreakpointProps<CardContentProps>(props, {
     padding: rootPadding,
@@ -50,7 +51,7 @@ export const CardContent = (props: CardContentProps): JSX.Element => {
       className={cn(styles['tedi-card__content'], backgroundClass, className, {
         [styles['tedi-card__content--separator']]: hasSeparator,
       })}
-      style={{ ...getPaddingCssVariables(padding), ...backgroundStyle }}
+      style={{ ...getPaddingCssVariables(padding), ...backgroundStyle, ...style }}
       {...rest}
     >
       {children}

@@ -1,11 +1,11 @@
 import { render, screen } from '@testing-library/react';
 import cn from 'classnames';
 
-import { Alert } from '../../../alert/alert';
+import { Alert } from '../../../notifications/alert/alert';
 import CardNotification, { CardNotificationProps } from './card-notification';
 import style from './card-notification.module.scss';
 
-jest.mock('../../../alert/alert', () => ({
+jest.mock('../../../notifications/alert/alert', () => ({
   Alert: jest.fn(({ children, className }) => <div className={className}>{children}</div>),
 }));
 

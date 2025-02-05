@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react';
+import { UnknownType } from 'libs/react-components/src/tedi/types/commonTypes';
 
 import { useBreakpointProps } from '../../../../helpers';
 import styles from '../../card.module.scss';
@@ -16,7 +17,7 @@ describe('CardHeader', () => {
     });
   });
 
-  const renderComponent = (props?: CardHeaderProps, contextValue?: any) => {
+  const renderComponent = (props?: CardHeaderProps, contextValue?: UnknownType) => {
     const context = contextValue || {};
     return render(
       <CardContext.Provider value={context}>
