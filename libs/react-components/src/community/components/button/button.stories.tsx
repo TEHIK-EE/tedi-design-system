@@ -8,6 +8,11 @@ import { Button, ButtonProps } from './button';
 const meta: Meta<ButtonProps> = {
   title: 'Community/Button',
   component: Button,
+  parameters: {
+    status: {
+      type: ['deprecated', 'ExistsInTediReady'],
+    },
+  },
 };
 
 export default meta;

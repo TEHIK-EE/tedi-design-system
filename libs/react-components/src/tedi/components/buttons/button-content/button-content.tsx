@@ -41,7 +41,7 @@ export type ButtonContentProps<
     /**
      * Button size
      */
-    size?: 'small';
+    size?: 'default' | 'small' | 'large';
     /**
      * Name of the icon when button only has an icon in it.
      */
@@ -142,7 +142,7 @@ const InternalButtonContent = forwardRef(
       const isLink = visualType === 'link';
 
       const defaultIconProps: Partial<IconWithoutBackgroundProps> = {
-        size: 18,
+        size: size === 'large' ? 24 : 18,
         className: iconBEM,
         ...(isLink ? { display: 'inline' } : {}),
       };

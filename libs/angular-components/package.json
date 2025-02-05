@@ -35,7 +35,7 @@
     "@angular/platform-browser": "~18.2.0",
     "@angular/platform-browser-dynamic": "~18.2.0",
     "@angular/router": "~18.2.0",
-    "@tehik-ee/tedi-core": "^1.4.0",
+    "@tehik-ee/tedi-core": "^1.5.0",
     "dayjs": "*",
     "lodash-es": "*",
     "rxjs": "^7.0.0"

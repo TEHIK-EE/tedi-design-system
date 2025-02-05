@@ -11,7 +11,10 @@ $headings: (h1, h2, h3, h4, h5, h6);
 
 @each $level in $headings {
   #{$level},
-  .tedi-#{$level} {
+  .#{$level},
+  .tedi-#{$level},
+  .text-#{$level},
+  .tedi-text--#{$level} {
     @include heading-styles($level);
   }
 }
@@ -24,6 +27,8 @@ $headings: (h1, h2, h3, h4, h5, h6);
   }
 
   &--default {
+    color: var(--general-text-primary);
+
     @include mixins.responsive-styles(font-family, family-primary, $exclude: tablet);
     @include mixins.responsive-styles(font-size, body-regular-size, $exclude: tablet);
     @include mixins.responsive-styles(font-weight, body-regular-weight, $exclude: tablet);
@@ -34,28 +39,6 @@ $headings: (h1, h2, h3, h4, h5, h6);
     @include mixins.responsive-styles(font-size, body-small-regular-size, $exclude: tablet);
     @include mixins.responsive-styles(font-weight, body-small-regular-weight, $exclude: tablet);
     @include mixins.responsive-styles(line-height, body-small-regular-line-height, $exclude: tablet);
-  }
-
-  @each $color,
-    $var
-      in (
-        'default': var(--general-text-primary),
-        'primary': var(--general-text-primary),
-        'secondary': var(--general-text-secondary),
-        'tertiary': var(--general-text-tertiary),
-        'white': var(--general-text-white),
-        'disabled': var(--general-text-disabled),
-        'brand': var(--general-text-brand),
-        'success': var(--general-status-success-text),
-        'warning': var(--general-status-warning-text),
-        'danger': var(--general-status-danger-text),
-        'info': var(--general-status-info-text),
-        'neutral': var(--general-status-neutral-text)
-      )
-  {
-    &--#{$color} {
-      color: $var;
-    }
   }
 }
 
@@ -77,4 +60,161 @@ label {
   color: var(--general-text-secondary);
 
   @include mixins.responsive-styles(line-height, body-regular-line-height);
+}
+
+.text-normal {
+  color: var(--general-text-primary);
+
+  @include mixins.responsive-styles(font-family, family-primary, $exclude: tablet);
+  @include mixins.responsive-styles(font-size, body-regular-size, $exclude: tablet);
+  @include mixins.responsive-styles(font-weight, body-regular-weight, $exclude: tablet);
+  @include mixins.responsive-styles(line-height, body-regular-line-height, $exclude: tablet);
+}
+
+small,
+.text-small {
+  @include mixins.responsive-styles(font-size, body-small-regular-size, $exclude: tablet);
+  @include mixins.responsive-styles(font-weight, body-small-regular-weight, $exclude: tablet);
+  @include mixins.responsive-styles(line-height, body-small-regular-line-height, $exclude: tablet);
+}
+
+@each $color,
+  $var
+    in (
+      'default': var(--general-text-primary),
+      'primary': var(--general-text-primary),
+      'secondary': var(--general-text-secondary),
+      'tertiary': var(--general-text-tertiary),
+      'white': var(--general-text-white),
+      'disabled': var(--general-text-disabled),
+      'brand': var(--general-text-brand),
+      'success': var(--general-status-success-text),
+      'warning': var(--general-status-warning-text),
+      'danger': var(--general-status-danger-text),
+      'info': var(--general-status-info-text),
+      'neutral': var(--general-status-neutral-text)
+    )
+{
+  .tedi-text--#{$color} {
+    color: $var;
+  }
+}
+
+.text-nowrap {
+  white-space: nowrap;
+}
+
+.text-break-all {
+  word-break: break-all;
+}
+
+.text-break-word {
+  word-break: break-word;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.text-lowercase {
+  text-transform: lowercase;
+}
+
+.text-capitalize {
+  text-transform: capitalize;
+}
+
+.text-capitalize-first::first-letter {
+  text-transform: capitalize;
+}
+
+.text-break-spaces {
+  white-space: break-spaces;
+}
+
+.text-inline-block {
+  display: inline-block;
+}
+
+.text-inline {
+  display: inline;
+}
+
+b,
+strong,
+.text-bold {
+  font-weight: 700;
+}
+
+.text-thin {
+  font-weight: 300;
+}
+
+i,
+.text-italic {
+  font-style: italic;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-line-normal {
+  line-height: normal;
+}
+
+.text-line-condensed {
+  line-height: 1;
+}
+
+.text-default {
+  color: var(--general-text-primary);
+}
+
+.text-primary {
+  color: var(--general-text-brand);
+
+  @include mixins.print-grayscale;
+}
+
+.text-muted {
+  color: var(--general-text-secondary);
+}
+
+.text-subtle {
+  color: var(--general-text-tertiary);
+}
+
+.text-disabled {
+  color: var(--general-text-disabled);
+}
+
+.text-inverted {
+  color: var(--general-text-white);
+}
+
+.text-positive {
+  color: var(--general-status-success-text);
+
+  @include mixins.print-grayscale;
+}
+
+.text-important {
+  color: var(--general-status-danger-text);
+
+  @include mixins.print-grayscale;
+}
+
+.text-warning {
+  color: var(--general-status-warning-text);
+
+  @include mixins.print-grayscale;
 }

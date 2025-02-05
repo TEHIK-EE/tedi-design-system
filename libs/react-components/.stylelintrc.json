@@ -1,7 +1,7 @@
 {
   "plugins": ["stylelint-declaration-strict-value"],
   "extends": ["stylelint-config-standard-scss", "stylelint-config-recess-order"],
-  "ignoreFiles": ["public/**/*"],
+  "ignoreFiles": ["dist", "node_modules"],
   "rules": {
     "selector-class-pattern": "^[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*(?:__[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*)?(?:--[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*)?(?:\\[.+\\])?$",
     "scale-unlimited/declaration-strict-value": ["/color$/", { "ignoreValues": ["inherit"], "disableFix": true }],
