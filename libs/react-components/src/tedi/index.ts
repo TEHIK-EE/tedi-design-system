@@ -24,6 +24,7 @@ export * from './components/notifications/alert/alert';
 export * from './components/notifications/toast/toast';
 export * from './components/stretch-content/stretch-content';
 export * from './components/navigation/link/link';
+export * from './components/cards/card';
 export * from './components/section/section';
 export * from './components/scroll-visibility/scroll-visibility';
 export * from './components/truncate/truncate';
