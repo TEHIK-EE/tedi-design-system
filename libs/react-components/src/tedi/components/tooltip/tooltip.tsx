@@ -20,13 +20,13 @@ import {
   useRole,
   UseRoleProps,
 } from '@floating-ui/react';
-import React, { useCallback, useMemo } from 'react';
+import { ComponentProps, createContext, ReactNode, useCallback, useContext, useMemo, useRef, useState } from 'react';
 
 import { useIsMounted } from '../../../tedi/helpers';
 import { useLabels } from '../../../tedi/providers/label-provider';
-import TooltipContent from './tooltip-content';
+import { TooltipContent } from './tooltip-content';
 import { TooltipProvider, TooltipProviderContext } from './tooltip-provider';
-import TooltipTrigger from './tooltip-trigger';
+import { TooltipTrigger } from './tooltip-trigger';
 
 export type TooltipOpenWith = 'click' | 'hover';
 
@@ -34,34 +34,37 @@ export interface TooltipProps {
   /**
    * TooltipTrigger and Tooltip components
    */
-  children: React.ReactNode | React.ReactNode[];
+  children: ReactNode | ReactNode[];
   /**
-   * Placement of tooltip
+   * Placement of tooltip.<br />
+   * By default uses Tooltip.Provider values.
    * @default bottom
    */
   placement?: Placement;
   /**
-   * Adds correct event listeners that change the open state
+   * Adds correct event listeners that change the open state.<br />
+   * By default uses Tooltip.Provider values.
    * @default hover
    */
   openWith?: TooltipOpenWith;
   /**
    * Props passed to FloatingFocusManager
    */
-  focusManager?: Omit<React.ComponentProps<typeof FloatingFocusManager>, 'context' | 'children'>;
+  focusManager?: Omit<ComponentProps<typeof FloatingFocusManager>, 'context' | 'children'>;
   /**
-   * Should Tooltip be initially shown. Won't work with open and onToggle.
+   * Is tooltip open by default?<br />
+   * Does not work with open and onToggle props.
    * @default false
    */
   defaultOpen?: boolean;
   /**
-   * Should the Tooltip be open or closed.
-   * Use to handle state outside of component, should use with onToggle prop.
+   * Is tooltip open?<br />
+   * Use this with onToggle prop for controlled component.
    */
   open?: boolean;
   /**
-   * Callback when Tooltip is toggled.
-   * Use to handle state outside of component, should use with open prop.
+   * Callback when Tooltip is toggled.<br />
+   * Use this with open prop for state outside of component.
    */
   onToggle?: (open: boolean) => void;
   /**
@@ -70,8 +73,9 @@ export interface TooltipProps {
    */
   role?: UseRoleProps['role'];
   /**
-   * Allows to overwrite offSet options.
-   * Used to align HeaderDropdown with bottom of the Header.
+   * Offset of tooltip.<br />
+   * Used to align HeaderDropdown with bottom of the Header.<br />
+   * By default uses Tooltip.Provider values.
    * @default GAP + ARROW_HEIGHT (3px + 7px)
    */
   offset?: OffsetOptions;
@@ -99,7 +103,7 @@ export interface TooltipContextType {
   context: FloatingContext<ReferenceType>;
 }
 
-export const TooltipContext = React.createContext<TooltipContextType>({
+export const TooltipContext = createContext<TooltipContextType>({
   open: false,
   isMounted: false,
   openWith: 'hover',
@@ -128,7 +132,7 @@ function Tooltip(props: TooltipProps) {
     openWith: providerOpenWith,
     placement: providerPlacement,
     offset: providerOffset,
-  } = React.useContext(TooltipProviderContext);
+  } = useContext(TooltipProviderContext);
 
   const {
     children,
@@ -149,8 +153,9 @@ function Tooltip(props: TooltipProps) {
   } = props.focusManager ?? {};
 
   const { visuallyHiddenDismiss = modal ? getLabel('close') : false } = restFocusManager ?? {};
-  const [open, setOpen] = React.useState(defaultOpen);
-  const arrowRef = React.useRef<SVGSVGElement | null>(null);
+  const [open, setOpen] = useState(defaultOpen);
+  const arrowRef = useRef<SVGSVGElement | null>(null);
+  const isMounted = useIsMounted();
 
   const isOpen = useMemo(() => {
     if (onToggle && typeof externalOpen !== 'undefined') return externalOpen;
@@ -168,7 +173,6 @@ function Tooltip(props: TooltipProps) {
     [externalOpen, setOpen, onToggle]
   );
 
-  const isMounted = useIsMounted();
   const { x, y, refs, strategy, context, middlewareData, placement } = useFloating({
     placement: placementDefault,
     open: isOpen,

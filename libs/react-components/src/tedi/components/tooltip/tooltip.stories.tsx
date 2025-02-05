@@ -23,7 +23,10 @@ const meta: Meta<TemplateProps> = {
     docs: {
       source: {
         transform: (code: string) => {
-          return code.replaceAll('TooltipContent', 'Tooltip.Content').replaceAll('TooltipTrigger', 'Tooltip.Trigger');
+          return code
+            .replaceAll('TooltipProvider', 'Tooltip.Provider')
+            .replaceAll('TooltipContent', 'Tooltip.Content')
+            .replaceAll('TooltipTrigger', 'Tooltip.Trigger');
         },
       },
     },
@@ -41,10 +44,12 @@ interface TemplateProps extends TooltipProps {
 const Template: StoryFn<TemplateProps> = (args) => {
   const { trigger, tooltipProps, ...rest } = args;
   return (
-    <Tooltip {...rest}>
-      <Tooltip.Trigger>{trigger || <span>Very long Tooltip Trigger</span>}</Tooltip.Trigger>
-      <Tooltip.Content {...tooltipProps}>{tooltipProps?.children || 'Tooltip Content'}</Tooltip.Content>
-    </Tooltip>
+    <Tooltip.Provider>
+      <Tooltip {...rest}>
+        <Tooltip.Trigger>{trigger || <span>Very long Tooltip Trigger</span>}</Tooltip.Trigger>
+        <Tooltip.Content {...tooltipProps}>{tooltipProps?.children || 'Tooltip Content'}</Tooltip.Content>
+      </Tooltip>
+    </Tooltip.Provider>
   );
 };
 
@@ -147,9 +152,9 @@ export const WithCardBorder: Story = {
     openWith: 'click',
     trigger: <Button visualType="primary">Click me</Button>,
     tooltipProps: {
-      cardProps: {
-        border: 'top-primary-main',
-      },
+      // cardProps: {
+      //   border: 'top-primary-main',
+      // },
     },
   },
 };
@@ -162,39 +167,47 @@ export const TooltipWidth: StoryFn = () => {
   return (
     <Row justifyContent="center" gap={5}>
       <Col width="auto">
-        <Tooltip>
-          <Tooltip.Trigger>
-            <p>Tooltip with no width limit</p>
-          </Tooltip.Trigger>
-          <Tooltip.Content maxWidth="none">{tooltiptext}</Tooltip.Content>
-        </Tooltip>
+        <Tooltip.Provider>
+          <Tooltip>
+            <Tooltip.Trigger>
+              <p>Tooltip with no width limit</p>
+            </Tooltip.Trigger>
+            <Tooltip.Content maxWidth="none">{tooltiptext}</Tooltip.Content>
+          </Tooltip>
+        </Tooltip.Provider>
       </Col>
 
       <Col width="auto">
-        <Tooltip>
-          <Tooltip.Trigger>
-            <p>Small tooltip width</p>
-          </Tooltip.Trigger>
-          <Tooltip.Content maxWidth="small">{tooltiptext}</Tooltip.Content>
-        </Tooltip>
+        <Tooltip.Provider>
+          <Tooltip>
+            <Tooltip.Trigger>
+              <p>Small tooltip width</p>
+            </Tooltip.Trigger>
+            <Tooltip.Content maxWidth="small">{tooltiptext}</Tooltip.Content>
+          </Tooltip>
+        </Tooltip.Provider>
       </Col>
 
       <Col width="auto">
-        <Tooltip>
-          <Tooltip.Trigger>
-            <p>Medium tooltip width</p>
-          </Tooltip.Trigger>
-          <Tooltip.Content>{tooltiptext}</Tooltip.Content>
-        </Tooltip>
+        <Tooltip.Provider>
+          <Tooltip>
+            <Tooltip.Trigger>
+              <p>Medium tooltip width</p>
+            </Tooltip.Trigger>
+            <Tooltip.Content>{tooltiptext}</Tooltip.Content>
+          </Tooltip>
+        </Tooltip.Provider>
       </Col>
 
       <Col width="auto">
-        <Tooltip>
-          <Tooltip.Trigger>
-            <p>Large tooltip width</p>
-          </Tooltip.Trigger>
-          <Tooltip.Content maxWidth="large">{tooltiptext}</Tooltip.Content>
-        </Tooltip>
+        <Tooltip.Provider>
+          <Tooltip>
+            <Tooltip.Trigger>
+              <p>Large tooltip width</p>
+            </Tooltip.Trigger>
+            <Tooltip.Content maxWidth="large">{tooltiptext}</Tooltip.Content>
+          </Tooltip>
+        </Tooltip.Provider>
       </Col>
     </Row>
   );
@@ -206,39 +219,47 @@ export const TooltipPosition: StoryFn = () => {
   return (
     <Row justifyContent="center" gap={5}>
       <Col width="auto">
-        <Tooltip>
-          <Tooltip.Trigger>
-            <p>Tooltip top</p>
-          </Tooltip.Trigger>
-          <Tooltip.Content>{tooltiptext}</Tooltip.Content>
-        </Tooltip>
+        <Tooltip.Provider>
+          <Tooltip>
+            <Tooltip.Trigger>
+              <p>Tooltip top</p>
+            </Tooltip.Trigger>
+            <Tooltip.Content>{tooltiptext}</Tooltip.Content>
+          </Tooltip>
+        </Tooltip.Provider>
       </Col>
 
       <Col width="auto">
-        <Tooltip>
-          <Tooltip.Trigger>
-            <p>Tooltip bottom</p>
-          </Tooltip.Trigger>
-          <Tooltip.Content>{tooltiptext}</Tooltip.Content>
-        </Tooltip>
+        <Tooltip.Provider>
+          <Tooltip>
+            <Tooltip.Trigger>
+              <p>Tooltip bottom</p>
+            </Tooltip.Trigger>
+            <Tooltip.Content>{tooltiptext}</Tooltip.Content>
+          </Tooltip>
+        </Tooltip.Provider>
       </Col>
 
       <Col width="auto">
-        <Tooltip>
-          <Tooltip.Trigger>
-            <p>Tooltip right</p>
-          </Tooltip.Trigger>
-          <Tooltip.Content>{tooltiptext}</Tooltip.Content>
-        </Tooltip>
+        <Tooltip.Provider>
+          <Tooltip>
+            <Tooltip.Trigger>
+              <p>Tooltip right</p>
+            </Tooltip.Trigger>
+            <Tooltip.Content>{tooltiptext}</Tooltip.Content>
+          </Tooltip>
+        </Tooltip.Provider>
       </Col>
 
       <Col width="auto">
-        <Tooltip>
-          <Tooltip.Trigger>
-            <p>Tooltip left</p>
-          </Tooltip.Trigger>
-          <Tooltip.Content>{tooltiptext}</Tooltip.Content>
-        </Tooltip>
+        <Tooltip.Provider>
+          <Tooltip>
+            <Tooltip.Trigger>
+              <p>Tooltip left</p>
+            </Tooltip.Trigger>
+            <Tooltip.Content>{tooltiptext}</Tooltip.Content>
+          </Tooltip>
+        </Tooltip.Provider>
       </Col>
     </Row>
   );

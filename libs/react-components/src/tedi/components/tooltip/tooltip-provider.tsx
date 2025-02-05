@@ -1,5 +1,5 @@
 import { OffsetOptions, Placement } from '@floating-ui/react';
-import React from 'react';
+import { createContext } from 'react';
 
 import { useIsTouchDevice } from '../../../community/helpers/hooks/use-is-touch-device';
 
@@ -42,13 +42,13 @@ export interface TooltipProviderType {
   offset: OffsetOptions;
 }
 
-export const TooltipProviderContext = React.createContext<TooltipProviderType>({
+export const TooltipProviderContext = createContext<TooltipProviderType>({
   openWith: 'hover',
   placement: 'top',
   offset: DEFAULT_TOOLTIP_OFFSET,
 });
 
-export const TooltipProvider = (props: TooltipProviderProps): JSX.Element => {
+export const TooltipProvider = (props: TooltipProviderProps) => {
   const isTouchDevice = useIsTouchDevice();
 
   const {

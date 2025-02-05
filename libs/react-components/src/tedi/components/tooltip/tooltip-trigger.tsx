@@ -1,6 +1,6 @@
 import { useMergeRefs } from '@floating-ui/react';
 import cn from 'classnames';
-import React from 'react';
+import { cloneElement, ReactElement, useContext } from 'react';
 
 import { useLabels } from '../../../tedi/providers/label-provider';
 import { Icon } from '../icon/icon';
@@ -11,17 +11,17 @@ export interface TooltipTriggerProps {
   /**
    * The element that opens tooltip.
    */
-  children: JSX.Element;
+  children: ReactElement;
 }
 
-export const TooltipTrigger = (props: TooltipTriggerProps): JSX.Element => {
+export const TooltipTrigger = (props: TooltipTriggerProps) => {
   const { children } = props;
   const { getLabel } = useLabels();
-  const { getReferenceProps, reference, openWith } = React.useContext(TooltipContext);
+  const { getReferenceProps, reference, openWith } = useContext(TooltipContext);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const refs = useMergeRefs([reference, (children as React.ComponentPropsWithRef<any>).ref]);
 
-  return React.cloneElement(
+  return cloneElement(
     children,
     getReferenceProps({
       ref: refs,
@@ -29,12 +29,10 @@ export const TooltipTrigger = (props: TooltipTriggerProps): JSX.Element => {
       label: children.type === Icon ? getLabel('tooltip.icon-trigger') : undefined,
       ...children.props,
       className: cn(
-        styles['tooltip__trigger'],
-        { [styles['tooltip__trigger--click']]: openWith === 'click' },
+        styles['tedi-tooltip__trigger'],
+        { [styles['tedi-tooltip__trigger--click']]: openWith === 'click' },
         children.props.className
       ),
     })
   );
 };
-
-export default TooltipTrigger;

@@ -1,29 +1,20 @@
 import { FloatingArrow, FloatingFocusManager, FloatingPortal } from '@floating-ui/react';
 import cn from 'classnames';
-import React from 'react';
+import { ReactNode, useContext } from 'react';
 
-import { Card, CardContent, CardProps } from '../../../community/components/card';
-import { getCardBorderPlacementColor } from '../../../community/components/card/utility';
-import { TColorsBackground, TColorsBorder } from '../../../community/components/commonTypes';
 import { TooltipContext } from './tooltip';
 import styles from './tooltip.module.scss';
 import { ARROW_HEIGHT, ARROW_WIDTH } from './tooltip-provider';
 
 export interface TooltipContentProps {
   /**
-   * Content.
+   * Tooltip content.
    */
-  children: React.ReactNode;
+  children: ReactNode;
   /**
    * Additional class name.
    */
   className?: string;
-  /**
-   * card props to pass down to card component.
-   * By default padding=0.5 & borderless=true.
-   * Its highly recommended to use same cardProps all over the application.
-   */
-  cardProps?: CardProps;
   /**
    * Tooltips max width
    * @default medium
@@ -31,33 +22,15 @@ export interface TooltipContentProps {
   maxWidth?: 'none' | 'small' | 'medium' | 'large';
 }
 
-export const TooltipContent = (props: TooltipContentProps): JSX.Element | null => {
-  const { children, maxWidth = 'medium', cardProps, className } = props;
+export const TooltipContent = (props: TooltipContentProps) => {
+  const { children, maxWidth = 'medium', className } = props;
   const { open, x, y, strategy, focusManager, floating, arrowRef, getFloatingProps, placement, context } =
-    React.useContext(TooltipContext);
+    useContext(TooltipContext);
 
-  const [cardBorderPlacement, cardBorderColor] = getCardBorderPlacementColor(cardProps?.border);
+  if (!open) return null;
 
-  const getArrowStrokeColor = (): 'none' | `var(--color-${TColorsBorder})` => {
-    if (cardBorderPlacement && cardBorderColor) {
-      return `var(--color-${cardBorderColor})`;
-    }
-
-    return 'none';
-  };
-
-  const hasArrowStroke = getArrowStrokeColor() !== 'none';
-
-  const getArrowFill = (): `var(--color-${TColorsBackground})` => {
-    if (cardProps?.background) {
-      return `var(--color-${cardProps?.background})`;
-    }
-
-    return 'var(--color-bg-default)';
-  };
-
-  const renderTooltip = (): JSX.Element | null => {
-    const content = (
+  return (
+    <FloatingPortal data-name="tooltip">
       <FloatingFocusManager {...focusManager} context={context}>
         <div
           {...getFloatingProps({
@@ -67,31 +40,20 @@ export const TooltipContent = (props: TooltipContentProps): JSX.Element | null =
               left: x ?? 0,
               top: y ?? 0,
             },
-            className: cn(styles['tooltip'], className, { [styles[`tooltip--${maxWidth}`]]: maxWidth }),
+            className: cn(styles['tedi-tooltip'], { [styles[`tedi-tooltip--${maxWidth}`]]: maxWidth }, className),
           })}
           data-placement={placement}
         >
           <FloatingArrow
             ref={(el) => (arrowRef.current = el)}
             context={context}
-            fill={getArrowFill()}
-            stroke={getArrowStrokeColor()}
-            strokeWidth={hasArrowStroke ? 4 : 0}
-            className={cn(styles['tooltip__arrow'], { [styles['tooltip__arrow--stroke']]: hasArrowStroke })}
+            className={styles['tedi-tooltip__arrow']}
             height={ARROW_HEIGHT}
             width={ARROW_WIDTH}
           />
-          <Card padding={0.5} borderless={true} {...cardProps}>
-            <CardContent>{children}</CardContent>
-          </Card>
+          {children}
         </div>
       </FloatingFocusManager>
-    );
-
-    return open ? content : null;
-  };
-
-  return <FloatingPortal data-name="tooltip">{renderTooltip()}</FloatingPortal>;
+    </FloatingPortal>
+  );
 };
-
-export default TooltipContent;
