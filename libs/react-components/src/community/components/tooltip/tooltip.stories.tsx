@@ -17,6 +17,9 @@ const meta: Meta<TemplateProps> = {
   subcomponents: { Tooltip, TooltipTrigger } as never,
   parameters: {
     layout: 'padded',
+    status: {
+      type: ['deprecated', 'ExistsInTediReady'],
+    },
   },
 };
 

@@ -20,50 +20,51 @@ import {
   useRole,
   UseRoleProps,
 } from '@floating-ui/react';
-import React from 'react';
+import { ComponentProps, createContext, ReactNode, useCallback, useContext, useMemo, useRef, useState } from 'react';
 
-import { useIsMounted } from '../../../tedi/helpers';
-import { useIsTouchDevice } from '../../../tedi/helpers';
-import { useLabels } from '../../../tedi/providers/label-provider';
+import { useIsMounted } from '../../helpers';
+import { useLabels } from '../../providers/label-provider';
+import { TooltipContent } from './tooltip-content';
+import { TooltipProvider, TooltipProviderContext } from './tooltip-provider';
+import { TooltipTrigger } from './tooltip-trigger';
 
 export type TooltipOpenWith = 'click' | 'hover';
-export const ARROW_HEIGHT = 7;
-export const ARROW_WIDTH = 14;
-export const GAP = 3;
-export const DEFAULT_TOOLTIP_OFFSET = GAP + ARROW_HEIGHT;
 
-export interface TooltipProviderProps {
+export interface TooltipProps {
   /**
    * TooltipTrigger and Tooltip components
    */
-  children: React.ReactNode | React.ReactNode[];
+  children: ReactNode | ReactNode[];
   /**
-   * Placement of tooltip
+   * Placement of tooltip.<br />
+   * By default uses Tooltip.Provider values.
    * @default bottom
    */
   placement?: Placement;
   /**
-   * Adds correct event listeners that change the open state
+   * Adds correct event listeners that change the open state.<br />
+   * By default uses Tooltip.Provider values.
    * @default hover
    */
   openWith?: TooltipOpenWith;
   /**
    * Props passed to FloatingFocusManager
    */
-  focusManager?: Omit<React.ComponentProps<typeof FloatingFocusManager>, 'context' | 'children'>;
+  focusManager?: Omit<ComponentProps<typeof FloatingFocusManager>, 'context' | 'children'>;
   /**
-   * Should Tooltip be initially shown. Won't work with open and onToggle.
+   * Is tooltip open by default?<br />
+   * Does not work with open and onToggle props.
    * @default false
    */
   defaultOpen?: boolean;
   /**
-   * Should the Tooltip be open or closed.
-   * Use to handle state outside of component, should use with onToggle prop.
+   * Is tooltip open?<br />
+   * Use this with onToggle prop for controlled component.
    */
   open?: boolean;
   /**
-   * Callback when Tooltip is toggled.
-   * Use to handle state outside of component, should use with open prop.
+   * Callback when Tooltip is toggled.<br />
+   * Use this with open prop for state outside of component.
    */
   onToggle?: (open: boolean) => void;
   /**
@@ -72,18 +73,19 @@ export interface TooltipProviderProps {
    */
   role?: UseRoleProps['role'];
   /**
-   * Allows to overwrite offSet options.
-   * Used to align HeaderDropdown with bottom of the Header.
+   * Offset of tooltip.<br />
+   * Used to align HeaderDropdown with bottom of the Header.<br />
+   * By default uses Tooltip.Provider values.
    * @default GAP + ARROW_HEIGHT (3px + 7px)
    */
   offset?: OffsetOptions;
 }
 
-export interface ITooltipContext {
+export interface TooltipContextType {
   open: boolean;
   isMounted: boolean;
   openWith: TooltipOpenWith;
-  focusManager?: TooltipProviderProps['focusManager'];
+  focusManager?: TooltipProps['focusManager'];
   reference: (node: ReferenceType | null) => void;
   floating: (node: HTMLElement | null) => void;
   arrowRef: React.MutableRefObject<SVGSVGElement | null>;
@@ -101,7 +103,7 @@ export interface ITooltipContext {
   context: FloatingContext<ReferenceType>;
 }
 
-export const TooltipContext = React.createContext<ITooltipContext>({
+export const TooltipContext = createContext<TooltipContextType>({
   open: false,
   isMounted: false,
   openWith: 'hover',
@@ -123,40 +125,54 @@ export const TooltipContext = React.createContext<ITooltipContext>({
   context: {} as FloatingContext,
 });
 
-export const TooltipProvider = (props: TooltipProviderProps): JSX.Element => {
+function Tooltip(props: TooltipProps) {
   const { getLabel } = useLabels();
-  const isTouchDevice = useIsTouchDevice();
+
+  const {
+    openWith: providerOpenWith,
+    placement: providerPlacement,
+    offset: providerOffset,
+  } = useContext(TooltipProviderContext);
+
   const {
     children,
-    placement: placementDefault = 'bottom',
-    openWith = isTouchDevice ? 'click' : 'hover',
+    placement: placementDefault = providerPlacement,
+    openWith = providerOpenWith,
     defaultOpen = false,
-    open: openOuter,
+    open: externalOpen,
     onToggle,
     role = 'tooltip',
-    offset: offsetOptions = DEFAULT_TOOLTIP_OFFSET,
+    offset: offsetOptions = providerOffset,
   } = props;
+
   const {
     order = ['reference', 'content'],
     modal = false,
     initialFocus = -1,
     ...restFocusManager
   } = props.focusManager ?? {};
+
   const { visuallyHiddenDismiss = modal ? getLabel('close') : false } = restFocusManager ?? {};
-  const [open, setOpen] = React.useState(defaultOpen);
-  const arrowRef = React.useRef<SVGSVGElement | null>(null);
-
-  const isOpen = onToggle && typeof openOuter !== 'undefined' ? openOuter : open;
-
-  const onOpenChange = (open: boolean): void => {
-    if (typeof openOuter === 'undefined') {
-      setOpen(open);
-    }
-
-    onToggle?.(open);
-  };
-
+  const [open, setOpen] = useState(defaultOpen);
+  const arrowRef = useRef<SVGSVGElement | null>(null);
   const isMounted = useIsMounted();
+
+  const isOpen = useMemo(() => {
+    if (onToggle && typeof externalOpen !== 'undefined') return externalOpen;
+    return open;
+  }, [onToggle, externalOpen, open]);
+
+  const onOpenChange = useCallback(
+    (open: boolean): void => {
+      if (typeof externalOpen === 'undefined') {
+        setOpen(open);
+      }
+
+      onToggle?.(open);
+    },
+    [externalOpen, setOpen, onToggle]
+  );
+
   const { x, y, refs, strategy, context, middlewareData, placement } = useFloating({
     placement: placementDefault,
     open: isOpen,
@@ -219,6 +235,9 @@ export const TooltipProvider = (props: TooltipProviderProps): JSX.Element => {
       {children}
     </TooltipContext.Provider>
   );
-};
+}
 
-export default TooltipProvider;
+Tooltip.Provider = TooltipProvider;
+Tooltip.Trigger = TooltipTrigger;
+Tooltip.Content = TooltipContent;
+export default Tooltip;
