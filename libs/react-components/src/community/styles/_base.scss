@@ -1,5 +1,6 @@
 /* stylelint-disable selector-id-pattern, selector-max-id, selector-no-qualifying-type */
-@use './mixins';
+@use '@tehik-ee/tedi-core/mixins';
+@use '@tehik-ee/tedi-core/bootstrap-utility/breakpoints';
 
 html {
   box-sizing: border-box;
@@ -27,7 +28,7 @@ body {
  * Set '--global-outline-color' and '--global-outline-offset' inside component scope
  */
 *:where(:focus) {
-  @include focus-element;
+  @include mixins.focus-element;
 }
 
 body,
@@ -68,7 +69,7 @@ img {
 }
 
 .scroll-disabled {
-  @include media-breakpoint-down(lg) {
+  @include breakpoints.media-breakpoint-down(lg) {
     height: 100%;
     overflow-y: hidden;
   }

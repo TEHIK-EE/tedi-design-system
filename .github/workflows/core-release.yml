@@ -4,10 +4,9 @@ on:
   push:
     branches:
       - rc
-      - main
     paths-ignore:
-      - 'libs/react-components/**'
-      - 'libs/angular-components/**'
+      - "libs/react-components/**"
+      - "libs/angular-components/**"
 
 jobs:
   build-and-deploy:
@@ -22,7 +21,7 @@ jobs:
       - name: Use Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 'lts/*'
+          node-version: "lts/*"
       - name: Build and publish npm package
         run: |
           HUSKY=0
