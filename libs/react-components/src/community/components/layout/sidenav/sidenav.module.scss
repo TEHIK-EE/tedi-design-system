@@ -95,23 +95,23 @@
       padding-left: 0;
     }
   }
+}
 
-  .sidenav__item {
-    [data-name='collapse-trigger'] {
+.sidenav__item .sidenav__item {
+  [data-name='collapse-trigger'] {
+    span.sidenav__link,
+    [data-name='icon'] {
+      color: var(--color-primary-active);
+    }
+
+    &[aria-expanded='true'],
+    &:hover,
+    &.sidenav__item--current {
+      background-color: var(--color-primary-active);
+
       span.sidenav__link,
       [data-name='icon'] {
-        color: var(--color-primary-active);
-      }
-
-      &[aria-expanded='true'],
-      &:hover,
-      &.sidenav__item--current {
-        background-color: var(--color-primary-active);
-
-        span.sidenav__link,
-        [data-name='icon'] {
-          color: var(--color-text-inverted);
-        }
+        color: var(--color-text-inverted);
       }
     }
   }
