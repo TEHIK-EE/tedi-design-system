@@ -200,10 +200,15 @@ export const TextField = forwardRef<TextFieldForwardRef, TextFieldProps>((props,
   }, [invalid, helper]);
 
   const isValid = React.useMemo((): boolean => {
+    if (!helper || (Array.isArray(helper) && helper.length === 0)) {
+      return false;
+    }
+
     if (Array.isArray(helper)) {
       return !invalid && helper.every((h) => h.type === 'valid');
     }
-    return !invalid && helper?.type === 'valid';
+
+    return !invalid && helper.type === 'valid';
   }, [invalid, helper]);
 
   const labelSize = size === 'large' ? 'default' : size;
@@ -337,7 +342,7 @@ export const TextField = forwardRef<TextFieldForwardRef, TextFieldProps>((props,
       <div className={styles['tedi-textfield__right-area']}>
         {showClearButton && renderClearButton}
         {showClearButton && icon ? (
-          <Separator color="secondary" axis="vertical" className={styles['tedi-textfield__separator']} />
+          <Separator color="primary" axis="vertical" className={styles['tedi-textfield__separator']} />
         ) : null}
         {icon && getIcon(icon)}
       </div>
@@ -354,6 +359,22 @@ export const TextField = forwardRef<TextFieldForwardRef, TextFieldProps>((props,
     className
   );
 
+  const renderFeedbackWrapper = () => {
+    if (!helper || (Array.isArray(helper) && helper.length === 0)) {
+      return null;
+    }
+
+    return (
+      <div className={styles['tedi-textfield__feedback-wrapper']}>
+        {Array.isArray(helper) ? (
+          helper.map((item, index) => <FeedbackText key={index} {...item} id={`${helperId}-${index}`} />)
+        ) : (
+          <FeedbackText {...helper} id={helperId} />
+        )}
+      </div>
+    );
+  };
+
   return (
     <div data-name="textfield" {...rest} className={TextFieldBEM}>
       <FormLabel id={id} label={label} required={required} hideLabel={hideLabel} size={labelSize} />
@@ -368,16 +389,7 @@ export const TextField = forwardRef<TextFieldForwardRef, TextFieldProps>((props,
         {renderInputElement}
         {isClearable || icon ? renderRightArea : null}
       </div>
-      {helper &&
-        (Array.isArray(helper) ? (
-          <div className={styles['tedi-textfield__feedback-wrapper']}>
-            {helper.map((item, index) => (
-              <FeedbackText key={index} {...item} id={`${helperId}-${index}`} />
-            ))}
-          </div>
-        ) : (
-          <FeedbackText {...helper} id={helperId} />
-        ))}
+      {renderFeedbackWrapper()}
     </div>
   );
 });

@@ -31,9 +31,8 @@ jobs:
       - name: Generate Matrix
         id: generate-matrix
         run: |
-          branches=($(git branch -r | cut -c 3- | sed 's/origin\///g'))
-          json_branches=$(printf '%s\n' "${branches[@]}" | jq -R . | jq -s -c .)
-          echo "json_branches=${json_branches}" >> $GITHUB_OUTPUT
+          echo "$(.github/workflows/list-storybook-branches.sh)"
+          echo "json_branches=$(.github/workflows/list-storybook-branches.sh)" >> $GITHUB_OUTPUT
 
   build:
     runs-on: ubuntu-latest
@@ -56,11 +55,20 @@ jobs:
       - name: Build
         run: |
           npm ci
+          cd libs/angular-components
+          npm ci
           npm run build:sb
-      - uses: actions/upload-artifact@v3
+          cd ../react-components
+          npm ci
+          npm run build:sb
+          cd ../..
+          mkdir compiled-storybook
+          mv libs/angular-components/dist/storybook-static compiled-storybook/angular
+          mv libs/react-components/dist/storybook/react-components compiled-storybook/react
+      - uses: actions/upload-artifact@v4
         with:
           name: ${{ strategy.job-index }}
-          path: dist/storybook/components/
+          path: compiled-storybook/
 
   deploy:
     runs-on: ubuntu-latest
@@ -76,36 +84,42 @@ jobs:
         with:
           fetch-depth: 0
       - name: Setup Pages
-        uses: actions/configure-pages@v3
-      - uses: actions/download-artifact@v3
+        uses: actions/configure-pages@v4
+      - uses: actions/download-artifact@v4
         name: "Download artifacts"
         with:
           path: branches/
       - name: Create public folder
+        shell: bash
         run: |
           ls -la branches
           mkdir public
           mv .github/workflows/index.html ./public/index.html
           cd public
           branches=$(echo '${{ needs.build_matrix.outputs.json_branches }}' | jq -r '.[]')
+          valid_branches=""
           i=-1
-          for branch in ${branches}
+          for branch in ${branches};
           do
+            echo "Processing branch: $branch"
             i=$((i+1))
-            if [[ ! -d ../branches/$i ]]; then
-              continue
+            if [[ -d ../branches/$i ]]; then
+              echo "Branch $branch deemed legit, adding to valid branches"
+              valid_branches+="\"$branch\","
+              mkdir -p -- $branch
+              mv ../branches/$i/* ./$branch
+            else
+              echo "Excluding $branch because folder does not exist"
             fi
-            mkdir -p -- $branch
-            mv ../branches/$i/* ./$branch
-            ls .
-            echo "<li class="py-2"><a href=\"./${branch}\">${branch}</a></li>" >> index.html
           done
+          valid_branches="[${valid_branches::-1}]"
+          echo "$valid_branches" >> index.html
           cat ../.github/workflows/index_suffix.html >> index.html
-          ls -lR
+
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
+        uses: actions/upload-pages-artifact@v3
         with:
           path: ./public/
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v2
+        uses: actions/deploy-pages@v4

@@ -5,8 +5,8 @@ import { Meta } from '@storybook/blocks';
 # Header overview
 
 Currently we support two main header types: `public` and `system`.
-Public header is used for public (landing)pages and system header is used for pages that require authentication.
-Both headers are using the same markup and styling, but system header has additional functionality like user menu, notifications, custom content etc. <br/>
+Public header is used for public (landing) pages and system header is used for pages that require authentication.
+Both headers are using the same markup and styling, but system header has additional functionality like user menu, notifications etc. <br/>
 
 ## Header areas
 
@@ -81,7 +81,8 @@ It can be used to provide users with a way to navigate to different pages, searc
 HeaderContent can take all the remaining space of other Header areas (Settings & Logo), so it can be aligned every way Grid supports it. <br />
 **Note:** Use HeaderContent by passing it as direct children of Header. <br />
 **Note-2:** Order of Header children does not count, Header orders and filters children in itself. <br />
-**Note-3:** Bear in mind that HeaderContent is not rendered in every breakpoint. By deafult it's not rendered in mobile breakpoints. Those breakpoints can be customized by passing other valeue to `showSystemCustomContent`property in Header.
+**Note-3:** Bear in mind that HeaderContent is not rendered in every breakpoint. By default it's not rendered in mobile breakpoints. Those breakpoints can be customized by passing other value to `showCustomContent` property in Header (previously known as `showSystemCustomContent`).
+**Note-4:** Public HeaderContent is not rendered when `Header.enablePublicCustomContent` is false (default).
 And application should handle passing same functionality to HeaderSettings in mobile breakpoints. Look Layout examples to inspiration. <br />
 
 ### HeaderLanguage

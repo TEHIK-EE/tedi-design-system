@@ -1,0 +1,14 @@
+.tedi-textarea {
+  &__input {
+    display: block;
+    height: auto;
+    min-height: 7.5rem;
+    font-family: inherit;
+    font-weight: 400;
+    resize: vertical;
+  }
+
+  &__character-count {
+    flex-grow: 1;
+  }
+}

@@ -82,7 +82,6 @@ export const AccordionItemHeader = (props: AccordionItemHeaderProps): JSX.Elemen
     <CardHeader
       data-name="accordion-item-header"
       role="button"
-      id={id}
       tabIndex={disabled ? -1 : 0}
       aria-disabled={disabled}
       className={BEM}

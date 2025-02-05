@@ -1,11 +1,11 @@
-@use '../../../styles/mixins';
+@use '@tehik-ee/tedi-core/mixins';
 
 $input-height-small: 2rem;
 
 div.select__control {
-  @include mixins.print-grayscale;
-
   border: 1px solid var(--color-border-contrast);
+
+  @include mixins.print-grayscale;
 }
 
 .select--invalid .select__control {
@@ -81,7 +81,7 @@ div .select__menu {
   & .select__control {
     height: $input-height-small;
     min-height: $input-height-small;
-    font-size: 0.85rem;
+    font-size: 0.875rem;
   }
 
   & .select__input {
@@ -97,7 +97,7 @@ div .select__menu {
 div.select__multi-value-item {
   display: flex;
   flex-shrink: 0;
-  align-items: center;
+  align-items: baseline;
 }
 
 .select__checkbox {

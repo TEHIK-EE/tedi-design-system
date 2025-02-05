@@ -14,15 +14,23 @@ export * from './components/separator/separator';
 export * from './components/buttons/closing-button/closing-button';
 export * from './components/print/print';
 export * from './components/form/textfield/textfield';
+export * from './components/form/textarea/textarea';
+export * from './components/form/number-field/number-field';
+export * from './components/form/feedback-text/feedback-text';
+export * from './components/form/search/search';
 export * from './components/buttons/button/button';
 export * from './components/buttons/info-button/info-button';
-export * from './components/alert/alert';
+export * from './components/notifications/alert/alert';
+export * from './components/notifications/toast/toast';
 export * from './components/stretch-content/stretch-content';
 export * from './components/navigation/link/link';
 export * from './components/cards/card';
-export * from './components/form/feedback-text/feedback-text';
-export * from './components/form/number-field/number-field';
 export * from './components/section/section';
+export * from './components/scroll-visibility/scroll-visibility';
+export * from './components/truncate/truncate';
+export * from './components/hash-trigger/hash-trigger';
+export * from './components/scroll-fade/scroll-fade';
+export * from './components/affix/affix';
 
 export * from './helpers';
 

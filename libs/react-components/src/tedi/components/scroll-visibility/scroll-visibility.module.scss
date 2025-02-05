@@ -1,0 +1,33 @@
+$animation-time: 0.2s;
+$animation-ease: ease-in-out;
+
+.tedi-scroll-visibility {
+  opacity: 1;
+  transition: opacity $animation-time $animation-ease, translate $animation-time $animation-ease;
+  translate: none;
+
+  &--hidden {
+    pointer-events: none;
+    opacity: 0;
+
+    &.tedi-scroll-visibility--down {
+      translate: 0 100%;
+    }
+
+    &.tedi-scroll-visibility--up {
+      translate: 0 -100%;
+    }
+
+    &.tedi-scroll-visibility--left {
+      translate: -100% 0;
+    }
+
+    &.tedi-scroll-visibility--right {
+      translate: 100% 0;
+    }
+
+    &.tedi-scroll-visibility--center {
+      translate: none;
+    }
+  }
+}
