@@ -4,7 +4,7 @@ import React from 'react';
 import { BreakpointSupport, useBreakpointProps, useIsMounted } from '../../../helpers';
 import { ClosingButton } from '../../buttons/closing-button/closing-button';
 import { Col, Row } from '../../grid';
-import { Icon, IconProps } from '../../icon/icon';
+import { Icon, IconWithoutBackgroundProps } from '../../icon/icon';
 import { Heading } from '../../typography/heading/heading';
 import { VerticalSpacing } from '../../vertical-spacing';
 import styles from './alert.module.scss';
@@ -52,7 +52,7 @@ export interface AlertProps extends BreakpointSupport<AlertBreakpointProps> {
    * Specifies an optional icon to display in the alert, providing quick visual context.
    * Can be a string (icon name) or an object with additional `IconProps` to further customize the icon.
    */
-  icon?: string | IconProps;
+  icon?: string | IconWithoutBackgroundProps;
   /**
    * Callback function triggered when the close button is clicked.
    * Adding this handler renders a close button in the alert.
@@ -97,9 +97,9 @@ export const Alert = (props: AlertProps): JSX.Element | null => {
 
   const isMounted = useIsMounted();
 
-  const getIcon = (icon: string | IconProps) => {
-    const defaultIconProps: Partial<IconProps> = { size: 18 };
-    const iconProps: IconProps =
+  const getIcon = (icon: string | IconWithoutBackgroundProps) => {
+    const defaultIconProps: Partial<IconWithoutBackgroundProps> = { size: 18 };
+    const iconProps: IconWithoutBackgroundProps =
       typeof icon === 'string' ? { ...defaultIconProps, name: icon } : { ...defaultIconProps, ...icon };
 
     return <Icon {...iconProps} />;

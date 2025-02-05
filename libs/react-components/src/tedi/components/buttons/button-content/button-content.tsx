@@ -3,7 +3,7 @@ import React, { forwardRef } from 'react';
 
 import { AllowedHTMLTags, PolymorphicComponentPropWithRef, PolymorphicRef } from '../../../helpers/polymorphic/types';
 import { UnknownType } from '../../../types/commonTypes';
-import { Icon, IconProps } from '../../icon/icon';
+import { Icon, IconWithoutBackgroundProps } from '../../icon/icon';
 import { Print } from '../../print/print';
 import { Spinner } from '../../spinner/spinner';
 import { ButtonColor, ButtonType } from '../button/button';
@@ -45,15 +45,15 @@ export type ButtonContentProps<
     /**
      * Name of the icon when button only has an icon in it.
      */
-    icon?: string | IconProps;
+    icon?: string | IconWithoutBackgroundProps;
     /**
      * Name of the icon we want to show on the left.
      */
-    iconLeft?: string | IconProps;
+    iconLeft?: string | IconWithoutBackgroundProps;
     /**
      * Name of the icon we want to show on the right.
      */
-    iconRight?: string | IconProps;
+    iconRight?: string | IconWithoutBackgroundProps;
     /**
      * Underline the button text
      */
@@ -134,20 +134,20 @@ const InternalButtonContent = forwardRef(
         )
       : cn(styles['tedi-btn--no-style'], { [styles['tedi-btn--full-width']]: fullWidth }, className);
 
-    const getIcon = (location: string, icon: string | IconProps): JSX.Element => {
+    const getIcon = (location: string, icon: string | IconWithoutBackgroundProps): JSX.Element => {
       const iconBEM = cn(styles['tedi-btn__icon'], styles[`tedi-btn__icon--${location}`], {
         [styles['tedi-btn__spinner']]: isLoading,
       });
 
       const isLink = visualType === 'link';
 
-      const defaultIconProps: Partial<IconProps> = {
+      const defaultIconProps: Partial<IconWithoutBackgroundProps> = {
         size: size === 'large' ? 24 : 18,
         className: iconBEM,
         ...(isLink ? { display: 'inline' } : {}),
       };
 
-      const iconProps: IconProps =
+      const iconProps: IconWithoutBackgroundProps =
         typeof icon === 'string'
           ? { ...defaultIconProps, name: icon }
           : { ...defaultIconProps, ...icon, className: cn(defaultIconProps.className, icon?.className) };

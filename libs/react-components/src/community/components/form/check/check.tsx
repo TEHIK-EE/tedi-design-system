@@ -2,7 +2,7 @@ import cn from 'classnames';
 import React from 'react';
 
 import { Col, Row } from '../../../../tedi/components/grid';
-import Icon from '../../icon/icon';
+import { Icon } from '../../../../tedi/components/icon/icon';
 import { Tooltip, TooltipProvider, TooltipTrigger } from '../../tooltip';
 import { ChoiceInputProps } from '../choice-input.types';
 import styles from './check.module.scss';
@@ -79,21 +79,21 @@ export const Check = (props: CheckProps): JSX.Element => {
         <Col>
           <label ref={labelRef} className={LabelBEM} htmlFor={id}>
             <span className={cn({ 'visually-hidden': hideLabel })}>{label}</span>
+            {tooltip && (
+              <TooltipProvider>
+                <TooltipTrigger>
+                  <Icon
+                    name="info"
+                    color="brand"
+                    size={16}
+                    display="inline"
+                    className={styles['check__tooltip-icon']}
+                  />
+                </TooltipTrigger>
+                <Tooltip>{tooltip}</Tooltip>
+              </TooltipProvider>
+            )}
           </label>
-          {tooltip && (
-            <TooltipProvider>
-              <TooltipTrigger>
-                <Icon
-                  name="info"
-                  color="primary"
-                  size={16}
-                  display="inline"
-                  className={styles['check__tooltip-icon']}
-                />
-              </TooltipTrigger>
-              <Tooltip>{tooltip}</Tooltip>
-            </TooltipProvider>
-          )}
         </Col>
       </Row>
       {extraContent && <div className={styles['check__extra-content']}>{extraContent}</div>}
