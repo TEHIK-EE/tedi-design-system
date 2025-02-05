@@ -26,12 +26,16 @@ $tooltip-max-width: (
     fill: var(--tooltip-background);
   }
 
-  &__trigger:not(button, a) {
-    cursor: default;
-    user-select: text;
-  }
+  &__trigger {
+    width: fit-content;
 
-  &__trigger--click {
-    cursor: pointer;
+    &:not(button, a) {
+      cursor: default;
+      user-select: text;
+    }
+
+    &--click {
+      cursor: pointer !important;
+    }
   }
 }
