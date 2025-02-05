@@ -102,19 +102,17 @@
       [data-name='icon'] {
         color: var(--color-primary-active);
       }
-    }
-  }
-}
 
-.sidenav__item .sidenav__item [data-name='collapse-trigger'] {
-  &[aria-expanded='true'],
-  &:hover,
-  &.sidenav__item--current {
-    background-color: var(--color-primary-active);
+      &[aria-expanded='true'],
+      &:hover,
+      &.sidenav__item--current {
+        background-color: var(--color-primary-active);
 
-    span.sidenav__link,
-    [data-name='icon'] {
-      color: var(--color-text-inverted);
+        span.sidenav__link,
+        [data-name='icon'] {
+          color: var(--color-text-inverted);
+        }
+      }
     }
   }
 }
