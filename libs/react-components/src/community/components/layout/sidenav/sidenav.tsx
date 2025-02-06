@@ -154,9 +154,7 @@ function SideNavItem<C extends React.ElementType = 'a'>(props: SideNavItem<C>) {
     <li data-name="sidenav-item" className={SideNavItemBEM} role="presentation">
       {subItems ? (
         <Collapse
-          closeText="Näita vähem"
           id="collapse-1"
-          openText="Näita rohkem"
           hideCollapseText
           open={isActive}
           title={
