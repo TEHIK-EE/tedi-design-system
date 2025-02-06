@@ -31,7 +31,7 @@ const exampleNavItemsPublic: SideNavItem[] = [
   { href: '#', children: 'Contact and FAQ', icon: 'quiz' },
 ];
 
-const exampleNavCollapsableItems: SideNavItem[] = [
+const exampleNavCollapsibleItems: SideNavItem[] = [
   { href: '#', children: 'Dashboard', icon: 'dashboard' },
   { href: '#', children: 'Patient Records', icon: 'people' },
   {
@@ -114,9 +114,9 @@ export const Public: Story = {
   },
 };
 
-export const Collapsable: Story = {
+export const Collapsible: Story = {
   args: {
-    navItems: exampleNavCollapsableItems,
+    navItems: exampleNavCollapsibleItems,
     ariaLabel: 'Menu title',
     showDividers: false,
   },
