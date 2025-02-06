@@ -114,7 +114,7 @@ export const Public: Story = {
   },
 };
 
-export const Colapsable: Story = {
+export const Collapsable: Story = {
   args: {
     navItems: exampleNavCollapsableItems,
     ariaLabel: 'Menu title',
