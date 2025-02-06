@@ -161,7 +161,7 @@ function SideNavItem<C extends React.ElementType = 'a'>(props: SideNavItem<C>) {
           open={isActive}
           title={
             <span
-              {...rest}
+              {...(({ _href, ...spanRest }) => spanRest)(rest)}
               className={styles['sidenav__link']}
               noStyle={true}
               role="menuitem"
