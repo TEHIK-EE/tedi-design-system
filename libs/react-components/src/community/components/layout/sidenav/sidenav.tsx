@@ -133,6 +133,7 @@ function SideNavItem<C extends React.ElementType = 'a'>(props: SideNavItem<C>) {
   const { icon, children, isActive, onClick, subItems, as, ...rest } = props;
   const { toggleMenu } = React.useContext(LayoutContext);
   const SideNavItemBEM = cn(styles['sidenav__item'], { [styles['sidenav__item--current']]: isActive });
+  const collapseId = React.useRef(`sidenav-${Math.random().toString(36).slice(2, 11)}`).current;
 
   const getIcon = (icon: string | IconProps) => {
     const iconBEM = cn(styles['sidenav__icon']);
@@ -154,7 +155,7 @@ function SideNavItem<C extends React.ElementType = 'a'>(props: SideNavItem<C>) {
     <li data-name="sidenav-item" className={SideNavItemBEM} role="presentation">
       {subItems ? (
         <Collapse
-          id="collapse-1"
+          id={collapseId}
           hideCollapseText
           open={isActive}
           title={
