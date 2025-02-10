@@ -390,12 +390,12 @@
   --popover-padding-xs-desktop: var(--card-padding-xs-desktop);
   --popover-padding-xs-tablet: var(--card-padding-xs-tablet);
   --popover-padding-xs-mobile: var(--card-padding-xs-mobile);
-  --popover-padding-sm-desktop: var(--card-padding-md-default);
-  --popover-padding-sm-tablet: var(--card-padding-md-default);
-  --popover-padding-sm-mobile: var(--card-padding-md-default);
-  --popover-padding-md-desktop: var(--card-padding-lg);
-  --popover-padding-md-tablet: var(--card-padding-lg);
-  --popover-padding-md-mobile: var(--card-padding-lg);
+  --popover-padding-sm-desktop: var(--card-padding-md-default-desktop);
+  --popover-padding-sm-tablet: var(--card-padding-md-default-tablet);
+  --popover-padding-sm-mobile: var(--card-padding-md-default-mobile);
+  --popover-padding-md-desktop: var(--card-padding-lg-desktop);
+  --popover-padding-md-tablet: var(--card-padding-lg-tablet);
+  --popover-padding-md-mobile: var(--card-padding-lg-mobile);
   --popover-radius-rounded-desktop: var(--card-radius-rounded-desktop);
   --popover-radius-rounded-tablet: var(--card-radius-rounded-tablet);
   --popover-radius-rounded-mobile: var(--card-radius-rounded-mobile);
