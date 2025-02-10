@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-react-v11.1.0-rc.3](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.1.0-rc.2...react-11.1.0-rc.3) (2025-02-10)
+
+
+### Bug Fixes
+
+* **collapse:** prevent icon rotation in nested collapses [#422](https://github.com/TEHIK-EE/tedi-design-system/issues/422) ([#459](https://github.com/TEHIK-EE/tedi-design-system/issues/459)) ([fa3ef9e](https://github.com/TEHIK-EE/tedi-design-system/commit/fa3ef9e5ead83bf1f906309e5b837a31095d99a9))
+
 # [@tehik-ee/tedi-react-v11.1.0-rc.2](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.1.0-rc.1...react-11.1.0-rc.2) (2025-02-04)
 
 
