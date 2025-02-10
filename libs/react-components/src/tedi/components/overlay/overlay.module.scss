@@ -1,0 +1,14 @@
+.tedi-overlay {
+  &__trigger {
+    width: fit-content;
+
+    &:not(button, a) {
+      cursor: default;
+      user-select: text;
+    }
+
+    &--click {
+      cursor: pointer !important;
+    }
+  }
+}

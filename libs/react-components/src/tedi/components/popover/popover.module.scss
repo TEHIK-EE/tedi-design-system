@@ -1,0 +1,43 @@
+@use '@tehik-ee/tedi-core/mixins';
+
+$popover-max-width: (
+  'none': none,
+  'small': 10rem,
+  'medium': 15rem,
+  'large': 30rem,
+);
+
+.tedi-popover {
+  z-index: var(--z-index-tooltip);
+  color: var(--popover-text);
+  background: var(--popover-background);
+  border: 1px solid var(--popover-border);
+  box-shadow: 0 1px 5px 0 rgb(0 0 0 / 20%);
+
+  @include mixins.responsive-styles(padding, popover-padding-sm);
+  @include mixins.responsive-styles(border-radius, popover-radius-rounded);
+
+  @each $name, $width in $popover-max-width {
+    &--#{$name} {
+      max-width: $width;
+    }
+  }
+
+  &__arrow {
+    z-index: 1;
+    fill: var(--popover-background);
+  }
+
+  &__trigger {
+    width: fit-content;
+
+    &:not(button, a) {
+      cursor: default;
+      user-select: text;
+    }
+
+    &--click {
+      cursor: pointer !important;
+    }
+  }
+}
