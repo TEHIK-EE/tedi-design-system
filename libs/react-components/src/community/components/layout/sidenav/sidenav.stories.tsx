@@ -67,18 +67,16 @@ const exampleNavCollapsibleItems: SideNavItem[] = [
     href: '#',
     children: 'Administration',
     icon: 'admin_panel_settings',
-    isActive: true,
     subItems: [
       { href: '#', children: 'Staff Management' },
       { href: '#', children: 'Scheduling' },
       {
         href: '#',
         children: 'System Settings',
-        isActive: true,
         subItems: [
           { href: '#', children: 'General Settings' },
           { href: '#', children: 'User Management' },
-          { href: '#', children: 'Permissions', isActive: true },
+          { href: '#', children: 'Permissions' },
           { href: '#', children: 'Integrations' },
         ],
       },

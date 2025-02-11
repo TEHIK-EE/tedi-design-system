@@ -13,6 +13,9 @@
   font-size: 0.875rem;
   background: var(--color-primary-main);
 
+  --global-outline-color: var(--color-primary-highlight);
+  --global-outline-offset: -2px;
+
   @include mixins.print-grayscale;
 
   @include breakpoints.media-breakpoint-up(md) {
@@ -63,9 +66,15 @@
   }
 
   & [data-name='collapse-trigger'] {
+    transition: 200ms ease;
+    transition-property: background-color, color;
+    border-radius: 0;
+
     &[aria-expanded='true'],
     &:hover,
     &.sidenav__item--current {
+      --global-outline-color: var(--color-primary-highlight);
+
       background-color: var(--color-primary-active);
     }
 
@@ -74,6 +83,9 @@
     }
 
     [data-name='icon'] {
+      transition: 200ms ease;
+      transition-property: color;
+
       color: var(--color-text-inverted);
     }
   }
@@ -98,6 +110,8 @@
 }
 
 .sidenav__item .sidenav__item {
+  --global-outline-color: var(--color-primary-active);
+
   [data-name='collapse-trigger'] {
     span.sidenav__link,
     [data-name='icon'] {
@@ -133,9 +147,6 @@ a.sidenav__link {
   transition: 200ms ease;
   transition-property: background-color, color;
 
-  --global-outline-color: var(--color-primary-highlight);
-  --global-outline-offset: -2px;
-
   @include breakpoints.media-breakpoint-up(md) {
     min-height: 4.5rem;
   }
@@ -167,12 +178,10 @@ a.sidenav__link {
   .sidenav__item .sidenav__item & {
     color: var(--color-primary-active);
 
+    --global-outline-color: var(--color-primary-active);
+
     &:hover {
       color: var(--color-text-inverted);
-    }
-
-    &:focus {
-      outline-color: var(--color-primary-active);
     }
   }
 
