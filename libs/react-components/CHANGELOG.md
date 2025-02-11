@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-react-v11.1.0-rc.5](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.1.0-rc.4...react-11.1.0-rc.5) (2025-02-11)
+
+
+### Features
+
+* **table:** Add autoResetPageIndex prop [#477](https://github.com/TEHIK-EE/tedi-design-system/issues/477) ([#478](https://github.com/TEHIK-EE/tedi-design-system/issues/478)) ([c6b50a1](https://github.com/TEHIK-EE/tedi-design-system/commit/c6b50a1a5194c0177ade73d4d3789fb5f761da45))
+
 # [@tehik-ee/tedi-react-v11.1.0-rc.4](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.1.0-rc.3...react-11.1.0-rc.4) (2025-02-11)
 
 
