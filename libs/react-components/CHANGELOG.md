@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-react-v11.1.0-rc.4](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.1.0-rc.3...react-11.1.0-rc.4) (2025-02-11)
+
+
+### Features
+
+* **sidenav:** Add collapsible navigation with nested items and styling [#422](https://github.com/TEHIK-EE/tedi-design-system/issues/422) ([#460](https://github.com/TEHIK-EE/tedi-design-system/issues/460)) ([10f803f](https://github.com/TEHIK-EE/tedi-design-system/commit/10f803f4ca2171444a77c1d3d404cc7a65a77b1b))
+
 # [@tehik-ee/tedi-react-v11.1.0-rc.3](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.1.0-rc.2...react-11.1.0-rc.3) (2025-02-10)
 
 
