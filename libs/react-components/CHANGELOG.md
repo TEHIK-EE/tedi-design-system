@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-react-v11.1.0-rc.6](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.1.0-rc.5...react-11.1.0-rc.6) (2025-02-12)
+
+
+### Bug Fixes
+
+* **icon:** Add aria-label if label prop is set [#480](https://github.com/TEHIK-EE/tedi-design-system/issues/480) ([#481](https://github.com/TEHIK-EE/tedi-design-system/issues/481)) ([178a1d4](https://github.com/TEHIK-EE/tedi-design-system/commit/178a1d4faf843b1cd44bb0265899d97ef2f5e825))
+
 # [@tehik-ee/tedi-react-v11.1.0-rc.5](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.1.0-rc.4...react-11.1.0-rc.5) (2025-02-11)
 
 
