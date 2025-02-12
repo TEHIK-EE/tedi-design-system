@@ -136,7 +136,7 @@ const TemplateColumnWithMultipleVariants: StoryFn<TemplateMultipleProps> = (args
   );
 };
 
-const TemplateColumnWithBackgroundCircleVarians: StoryFn<TemplateMultipleProps> = (args) => {
+const TemplateColumnWithBackgroundCircleVarians: StoryFn<TemplateMultipleProps> = () => {
   return (
     <Row alignItems="center">
       <Col width="auto">
