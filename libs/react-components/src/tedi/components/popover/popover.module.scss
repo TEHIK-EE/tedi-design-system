@@ -32,19 +32,6 @@ $popover-width: (
     fill: var(--popover-background);
   }
 
-  &__trigger {
-    width: fit-content;
-
-    &:not(button, a) {
-      cursor: default;
-      user-select: text;
-    }
-
-    &--click {
-      cursor: pointer !important;
-    }
-  }
-
   &__header {
     display: flex;
     justify-content: space-between;

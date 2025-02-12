@@ -7,7 +7,7 @@ export interface OverlayContentProps {
   /**
    * Content.
    */
-  children: ReactNode;
+  children: ReactNode | ReactNode[];
   /**
    * Additional class names.
    */

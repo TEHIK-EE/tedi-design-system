@@ -36,19 +36,14 @@ export interface OverlayProps {
    */
   children: ReactNode | ReactNode[];
   /**
-   * Placement of content.
-   * @default bottom
+   * Props passed to FloatingFocusManager
    */
-  placement?: Placement;
+  focusManager?: Omit<ComponentProps<typeof FloatingFocusManager>, 'context' | 'children'>;
   /**
    * Adds correct event listeners that change the open state.
    * @default hover
    */
   openWith?: OverlayOpenWith;
-  /**
-   * Props passed to FloatingFocusManager
-   */
-  focusManager?: Omit<ComponentProps<typeof FloatingFocusManager>, 'context' | 'children'>;
   /**
    * Is open by default?<br />
    * Does not work with open and onToggle props.
@@ -66,6 +61,16 @@ export interface OverlayProps {
    */
   onToggle?: (open: boolean) => void;
   /**
+   * Is dismissible by clicking outside of content or Escape button?
+   * @default true
+   */
+  dismissible?: boolean;
+  /**
+   * Is scrolling locked outside of content?
+   * @default false
+   */
+  scrollLock?: boolean;
+  /**
    * Changes aria attributes on trigger and content based on the components role
    * @default tooltip
    */
@@ -78,21 +83,15 @@ export interface OverlayProps {
     height: number;
   };
   /**
-   * Offset of content.<br />
-   * Used to align HeaderDropdown with bottom of the Header.
-   * @default GAP + ARROW_HEIGHT (3px + 7px)
+   * Placement of content.
+   * @default bottom
+   */
+  placement?: Placement;
+  /**
+   * Offset of content.
+   * @default GAP + arrow height
    */
   offset?: OffsetOptions;
-  /**
-   * Is dismissible by clicking outside or Escape button?
-   * @default true
-   */
-  dismissible?: boolean;
-  /**
-   * Is scrolling locked outside of Popover content?
-   * @default false
-   */
-  scrollLock?: boolean;
 }
 
 export interface OverlayContextType {
@@ -142,7 +141,7 @@ export const OverlayContext = createContext<OverlayContextType>({
     y: 0,
     centerOffset: 0,
   },
-  placement: 'top',
+  placement: 'bottom',
   context: {} as FloatingContext,
   scrollLock: undefined,
 });

@@ -28,8 +28,5 @@ const Template: StoryFn<ComponentProps<typeof Popover>> = (args) => {
 
 export const Default: Story = {
   render: Template,
-  args: {
-    dismissible: false,
-    scrollLock: true,
-  },
+  args: {},
 };

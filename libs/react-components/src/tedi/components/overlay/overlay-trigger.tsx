@@ -9,7 +9,7 @@ import styles from './overlay.module.scss';
 
 export interface OverlayTriggerProps {
   /**
-   * Content inside trigger, which opens the overlay.
+   * Content inside trigger.
    */
   children: ReactNode;
 }
