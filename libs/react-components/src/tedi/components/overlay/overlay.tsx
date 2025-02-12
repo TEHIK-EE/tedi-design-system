@@ -28,10 +28,7 @@ import { OverlayContent } from './overlay-content';
 import { OverlayTrigger } from './overlay-trigger';
 
 export type OverlayOpenWith = 'click' | 'hover';
-export const ARROW_HEIGHT = 7;
-export const ARROW_WIDTH = 14;
-export const GAP = 3;
-export const DEFAULT_OVERLAY_OFFSET = GAP + ARROW_HEIGHT;
+const GAP = 3 as const;
 
 export interface OverlayProps {
   /**
@@ -74,15 +71,33 @@ export interface OverlayProps {
    */
   role?: UseRoleProps['role'];
   /**
+   * Content overlay arrow dimensions.
+   */
+  arrowDimensions?: {
+    width: number;
+    height: number;
+  };
+  /**
    * Offset of content.<br />
    * Used to align HeaderDropdown with bottom of the Header.
    * @default GAP + ARROW_HEIGHT (3px + 7px)
    */
   offset?: OffsetOptions;
+  /**
+   * Is dismissible by clicking outside or Escape button?
+   * @default true
+   */
+  dismissible?: boolean;
+  /**
+   * Is scrolling locked outside of Popover content?
+   * @default false
+   */
+  scrollLock?: boolean;
 }
 
 export interface OverlayContextType {
   open: boolean;
+  onOpenChange: (open: boolean) => void;
   isMounted: boolean;
   openWith: OverlayOpenWith;
   focusManager?: OverlayProps['focusManager'];
@@ -95,16 +110,20 @@ export interface OverlayContextType {
   getReferenceProps: (userProps?: React.HTMLProps<HTMLElement> | undefined) => Record<string, unknown>;
   getFloatingProps: (userProps?: React.HTMLProps<HTMLElement> | undefined) => Record<string, unknown>;
   arrow?: {
-    x?: number | undefined;
-    y?: number | undefined;
-    centerOffset?: number | undefined;
+    width?: number;
+    height?: number;
+    x?: number;
+    y?: number;
+    centerOffset?: number;
   };
   placement: Placement;
   context: FloatingContext<ReferenceType>;
+  scrollLock?: boolean;
 }
 
 export const OverlayContext = createContext<OverlayContextType>({
   open: false,
+  onOpenChange: () => {},
   isMounted: false,
   openWith: 'hover',
   reference: () => null,
@@ -117,12 +136,15 @@ export const OverlayContext = createContext<OverlayContextType>({
   getReferenceProps: () => ({}),
   getFloatingProps: () => ({}),
   arrow: {
+    width: 0,
+    height: 0,
     x: 0,
     y: 0,
     centerOffset: 0,
   },
   placement: 'top',
   context: {} as FloatingContext,
+  scrollLock: undefined,
 });
 
 function Overlay(props: OverlayProps) {
@@ -137,7 +159,11 @@ function Overlay(props: OverlayProps) {
     open: externalOpen,
     onToggle,
     role = 'tooltip',
-    offset: offsetOptions = DEFAULT_OVERLAY_OFFSET,
+    arrowDimensions,
+    offset: offsetOptions = GAP + (arrowDimensions?.height ?? 0),
+    focusManager,
+    dismissible,
+    scrollLock,
   } = props;
 
   const {
@@ -145,7 +171,7 @@ function Overlay(props: OverlayProps) {
     modal = false,
     initialFocus = -1,
     ...restFocusManager
-  } = props.focusManager ?? {};
+  } = focusManager ?? {};
 
   const { visuallyHiddenDismiss = modal ? getLabel('close') : false } = restFocusManager ?? {};
   const [open, setOpen] = useState(defaultOpen);
@@ -186,16 +212,19 @@ function Overlay(props: OverlayProps) {
 
   const { getReferenceProps, getFloatingProps } = useInteractions([
     useHover(context, {
-      handleClose: safePolygon(),
       enabled: openWith === 'hover',
+      handleClose: safePolygon(),
     }),
-    useClick(context),
+    useClick(context, {
+      toggle: dismissible,
+    }),
     useFocus(context, {
       enabled: openWith === 'hover',
     }),
     useRole(context, { role }),
     useDismiss(context, {
-      outsidePressEvent: openWith === 'click' ? 'mousedown' : 'pointerdown', // https://floating-ui.com/docs/dialog#interaction-hooks
+      enabled: dismissible,
+      outsidePressEvent: openWith === 'click' ? 'mousedown' : 'pointerdown',
     }),
   ]);
 
@@ -203,6 +232,7 @@ function Overlay(props: OverlayProps) {
     <OverlayContext.Provider
       value={{
         open: isOpen,
+        onOpenChange,
         isMounted,
         openWith,
         reference: refs.setReference,
@@ -221,10 +251,13 @@ function Overlay(props: OverlayProps) {
         getReferenceProps,
         getFloatingProps,
         arrow: {
+          width: arrowDimensions?.width,
+          height: arrowDimensions?.height,
           ...middlewareData.arrow,
         },
         context,
         placement,
+        scrollLock,
       }}
     >
       {children}

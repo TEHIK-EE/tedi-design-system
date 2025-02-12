@@ -34,7 +34,7 @@
     "@mui/material": "^5.15.13",
     "@mui/x-date-pickers": "^5.0.20",
     "@tanstack/react-table": "^8.13.2",
-    "@tehik-ee/tedi-core": "^1.5.1",
+    "@tehik-ee/tedi-core": "^1.5.2",
     "classnames": "^2.5.1",
     "dayjs": "^1.11.10",
     "draft-js": "^0.11.7",

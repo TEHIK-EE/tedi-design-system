@@ -1,30 +1,34 @@
 @use '@tehik-ee/tedi-core/mixins';
 
-$popover-max-width: (
-  'none': none,
-  'small': 10rem,
-  'medium': 15rem,
-  'large': 30rem,
+$popover-width: (
+  'small': 15rem,
+  'medium': 30rem,
+  'large': 52.5rem,
 );
 
 .tedi-popover {
   z-index: var(--z-index-tooltip);
+  display: flex;
+  flex-direction: column;
   color: var(--popover-text);
   background: var(--popover-background);
   border: 1px solid var(--popover-border);
   box-shadow: 0 1px 5px 0 rgb(0 0 0 / 20%);
 
+  @include mixins.responsive-styles(gap, grid-gutters-08);
   @include mixins.responsive-styles(padding, popover-padding-sm);
   @include mixins.responsive-styles(border-radius, popover-radius-rounded);
 
-  @each $name, $width in $popover-max-width {
+  @each $name, $width in $popover-width {
     &--#{$name} {
-      max-width: $width;
+      width: $width;
     }
   }
 
   &__arrow {
     z-index: 1;
+    clip-path: inset(0 -5px -5px -5px);
+    filter: drop-shadow(0 0 5px rgb(0 0 0 / 20%));
     fill: var(--popover-background);
   }
 
@@ -38,6 +42,17 @@ $popover-max-width: (
 
     &--click {
       cursor: pointer !important;
+    }
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+
+    @include mixins.responsive-styles(gap, grid-gutters-08);
+
+    &--no-title {
+      justify-content: end;
     }
   }
 }

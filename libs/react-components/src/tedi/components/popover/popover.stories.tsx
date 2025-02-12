@@ -19,7 +19,9 @@ const Template: StoryFn<ComponentProps<typeof Popover>> = (args) => {
   return (
     <Popover {...args}>
       <Popover.Trigger>Popover trigger can be text</Popover.Trigger>
-      <Popover.Content>Popover Content</Popover.Content>
+      <Popover.Content title="Heading" showClose>
+        The polar bear (Ursus maritimus) is a large bear native to the Arctic and nearby areas.
+      </Popover.Content>
     </Popover>
   );
 };
@@ -27,6 +29,7 @@ const Template: StoryFn<ComponentProps<typeof Popover>> = (args) => {
 export const Default: Story = {
   render: Template,
   args: {
-    children: 'test',
+    dismissible: false,
+    scrollLock: true,
   },
 };
