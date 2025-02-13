@@ -12,10 +12,14 @@ export interface OverlayTriggerProps {
    * Content inside trigger.
    */
   children: ReactNode;
+  /**
+   * Additional class name when children is text.
+   */
+  className?: string;
 }
 
 export const OverlayTrigger = (props: OverlayTriggerProps) => {
-  const { children } = props;
+  const { children, className } = props;
   const { getLabel } = useLabels();
   const { getReferenceProps, reference, openWith } = useContext(OverlayContext);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -43,9 +47,14 @@ export const OverlayTrigger = (props: OverlayTriggerProps) => {
       {...getReferenceProps({
         ref: refs,
         tabIndex: 0,
-        className: cn(styles['tedi-overlay__trigger'], {
-          [styles['tedi-overlay__trigger--click']]: openWith === 'click',
-        }),
+        className: cn(
+          styles['tedi-overlay__trigger'],
+          styles['tedi-overlay__trigger--text'],
+          {
+            [styles['tedi-overlay__trigger--click']]: openWith === 'click',
+          },
+          className
+        ),
       })}
     >
       {children}

@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import { useContext } from 'react';
 
-import ClosingButton from '../buttons/closing-button/closing-button';
+import ClosingButton, { ClosingButtonProps } from '../buttons/closing-button/closing-button';
 import { OverlayContext } from '../overlay/overlay';
 import { OverlayContent, OverlayContentProps } from '../overlay/overlay-content';
 import { Text, TextProps } from '../typography/text/text';
@@ -20,7 +20,8 @@ export interface PopoverContentProps extends Omit<OverlayContentProps, 'classNam
    * Is close button shown?
    * @default false
    */
-  showClose?: boolean;
+  close?: boolean;
+  closeProps?: ClosingButtonProps;
   /**
    * Additional class name.
    */
@@ -33,7 +34,15 @@ export interface PopoverContentProps extends Omit<OverlayContentProps, 'classNam
 }
 
 export function PopoverContent(props: PopoverContentProps) {
-  const { children, width = 'small', className, title, titleProps = { element: 'h4' }, showClose } = props;
+  const {
+    children,
+    width = 'small',
+    className,
+    title,
+    titleProps = { element: 'h4' },
+    close,
+    closeProps = { size: 'large' },
+  } = props;
   const { onOpenChange } = useContext(OverlayContext);
 
   return (
@@ -43,10 +52,18 @@ export function PopoverContent(props: PopoverContentProps) {
         arrow: styles['tedi-popover__arrow'],
       }}
     >
-      {(title || showClose) && (
+      {(title || close) && (
         <div className={cn(styles['tedi-popover__header'], { [styles['tedi-popover__header--no-title']]: !title })}>
           {title && <Text {...titleProps}>{title}</Text>}
-          {showClose && <ClosingButton size="large" onClick={() => onOpenChange(false)} />}
+          {close && (
+            <ClosingButton
+              {...closeProps}
+              onClick={(e) => {
+                onOpenChange(false);
+                closeProps.onClick?.(e);
+              }}
+            />
+          )}
         </div>
       )}
       {children}

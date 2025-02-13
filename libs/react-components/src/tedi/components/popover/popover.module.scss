@@ -13,7 +13,7 @@ $popover-width: (
   color: var(--popover-text);
   background: var(--popover-background);
   border: 1px solid var(--popover-border);
-  box-shadow: 0 1px 5px 0 rgb(0 0 0 / 20%);
+  box-shadow: 0 1px 5px 0 var(--alpha-20);
 
   @include mixins.responsive-styles(gap, grid-gutters-08);
   @include mixins.responsive-styles(padding, popover-padding-sm);
@@ -28,7 +28,7 @@ $popover-width: (
   &__arrow {
     z-index: 1;
     clip-path: inset(0 -5px -5px -5px);
-    filter: drop-shadow(0 0 5px rgb(0 0 0 / 20%));
+    filter: drop-shadow(0 0 5px var(--alpha-20));
     fill: var(--popover-background);
   }
 
@@ -39,7 +39,7 @@ $popover-width: (
     @include mixins.responsive-styles(gap, grid-gutters-08);
 
     &--no-title {
-      justify-content: end;
+      justify-content: flex-end;
     }
   }
 }
