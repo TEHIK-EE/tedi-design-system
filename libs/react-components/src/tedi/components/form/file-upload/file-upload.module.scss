@@ -1,0 +1,68 @@
+@use '@tehik-ee/tedi-core/mixins';
+@use '@tehik-ee/tedi-core/bootstrap-utility/breakpoints';
+
+.tedi-file-upload {
+  display: flex;
+  align-items: center;
+
+  &-disabled {
+    cursor: initial;
+  }
+
+  & input[type='file'] {
+    display: none;
+  }
+
+  @include breakpoints.media-breakpoint-down(md) {
+    .tedi-file-upload__button {
+      width: 100%;
+      margin: 0 auto;
+    }
+  }
+}
+
+.tedi-file-upload__items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0;
+
+  & li {
+    list-style-type: none;
+  }
+
+  @include breakpoints.media-breakpoint-down(md) {
+    margin-bottom: var(--layout-grid-gutters-08);
+  }
+}
+
+.tedi-file-upload__label {
+  width: fit-content;
+  cursor: pointer;
+}
+
+.tedi-file-upload__label-wrapper {
+  width: fit-content;
+}
+
+.tedi-file-upload__container {
+  padding: 8px;
+  background-color: var(--bg-disabled);
+  border: 1px solid var(--form-input-border-default);
+  border-radius: 4px;
+
+  &.tedi-file-upload--error {
+    border-color: var(--form-general-feedback-error-border);
+  }
+
+  &.tedi-file-upload--valid {
+    border-color: var(--form-general-feedback-success-border);
+  }
+}
+
+.tedi-file-upload__content {
+  display: flex;
+  flex-direction: column;
+
+  @include mixins.responsive-styles(gap, button-sm-inner-spacing-desktop);
+}
