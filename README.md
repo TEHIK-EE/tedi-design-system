@@ -1,6 +1,11 @@
 # TEDI Design System
 
-Steps to use for `tedi-design-system` are described in [wiki](https://github.com/TEHIK-EE/tedi-design-system/wiki).
+[![codecov](https://codecov.io/gh/TEHIK-EE/tedi-design-system/graph/badge.svg?token=NKNNJSG19D)](https://codecov.io/gh/TEHIK-EE/tedi-design-system)
+[![semantic-release](https://img.shields.io/badge/semantic--release-e10079?logo=semantic-release)](https://github.com/semantic-release/semantic-release)
+
+The TEDI Design System provides reusable UI components for multiple frameworks.
+
+Usage instructions can be found in the [wiki](https://github.com/TEHIK-EE/tedi-design-system/wiki).
 
 ---
 
@@ -46,3 +51,10 @@ Run your desired Storybook from root:
 npm run start:react
 npm run start:angular
 ```
+
+---
+
+### **Additional Resources**
+
+Check the [wiki](https://github.com/TEHIK-EE/tedi-design-system/wiki) for detailed documentation.  
+Report issues or contribute via [GitHub Issues](https://github.com/TEHIK-EE/tedi-design-system/issues).
