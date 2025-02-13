@@ -21,6 +21,9 @@ export interface PopoverContentProps extends Omit<OverlayContentProps, 'classNam
    * @default false
    */
   close?: boolean;
+  /**
+   * Popover close button props.
+   */
   closeProps?: ClosingButtonProps;
   /**
    * Additional class name.
