@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-react-v11.1.0-rc.7](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.1.0-rc.6...react-11.1.0-rc.7) (2025-02-13)
+
+
+### Bug Fixes
+
+* **search, footer:** replace 'start'/'end' with 'flex-start'/'flex-end' for Autoprefixer [#467](https://github.com/TEHIK-EE/tedi-design-system/issues/467) ([#482](https://github.com/TEHIK-EE/tedi-design-system/issues/482)) ([68987ca](https://github.com/TEHIK-EE/tedi-design-system/commit/68987cae0bb3096d4bcda9cad9de1ea3968a35e1))
+
 # [@tehik-ee/tedi-react-v11.1.0-rc.6](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.1.0-rc.5...react-11.1.0-rc.6) (2025-02-12)
 
 
