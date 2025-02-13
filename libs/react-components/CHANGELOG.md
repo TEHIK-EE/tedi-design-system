@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-react-v11.1.0-rc.8](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.1.0-rc.7...react-11.1.0-rc.8) (2025-02-13)
+
+
+### Features
+
+* **card:** TEDI-Ready Card component development [#261](https://github.com/TEHIK-EE/tedi-design-system/issues/261) ([#362](https://github.com/TEHIK-EE/tedi-design-system/issues/362)) ([e023f01](https://github.com/TEHIK-EE/tedi-design-system/commit/e023f01cee9f82f157efc1ce92224a0b643abf36))
+
 # [@tehik-ee/tedi-react-v11.1.0-rc.7](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.1.0-rc.6...react-11.1.0-rc.7) (2025-02-13)
 
 
