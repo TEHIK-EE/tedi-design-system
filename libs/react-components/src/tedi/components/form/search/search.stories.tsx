@@ -67,7 +67,7 @@ const TemplateColumn: StoryFn<TemplateMultipleProps> = (args) => {
 };
 
 const TemplateColumnWithStates: StoryFn<TemplateStateProps> = (args) => {
-  const { array, id, ...textFieldProps } = args;
+  const { array, ...textFieldProps } = args;
 
   return (
     <div className="state-example">
@@ -77,7 +77,7 @@ const TemplateColumnWithStates: StoryFn<TemplateStateProps> = (args) => {
             <Text modifiers="bold">{state}</Text>
           </Col>
           <Col lg={10} md={12} className="display-flex align-items-center">
-            <Search disabled={state === 'Disabled'} id={state} {...textFieldProps} />
+            <Search disabled={state === 'Disabled'} {...textFieldProps} id={state} />
           </Col>
         </Row>
       ))}

@@ -59,7 +59,7 @@ export const Default: Story = {
   },
 };
 
-const TabsTemplate: StoryFn<HashTriggerProps> = (args) => (
+const TabsTemplate: StoryFn<HashTriggerProps> = () => (
   <VerticalSpacing size={2}>
     <Heading id="tabs-heading" className="visually-hidden">
       Tabs title
