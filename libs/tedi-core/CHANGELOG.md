@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-core-v1.6.0](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.5.2...core-1.6.0) (2025-02-13)
+
+
+### Features
+
+* **card:** TEDI-Ready Card component development [#261](https://github.com/TEHIK-EE/tedi-design-system/issues/261) ([#362](https://github.com/TEHIK-EE/tedi-design-system/issues/362)) ([e023f01](https://github.com/TEHIK-EE/tedi-design-system/commit/e023f01cee9f82f157efc1ce92224a0b643abf36))
+
 # [@tehik-ee/tedi-core-v1.5.2](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.5.1...core-1.5.2) (2025-02-10)
 
 
