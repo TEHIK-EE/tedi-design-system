@@ -66,9 +66,9 @@
   }
 
   & [data-name='collapse-trigger'] {
+    border-radius: 0;
     transition: 200ms ease;
     transition-property: background-color, color;
-    border-radius: 0;
 
     &[aria-expanded='true'],
     &:hover,
@@ -83,10 +83,9 @@
     }
 
     [data-name='icon'] {
+      color: var(--color-text-inverted);
       transition: 200ms ease;
       transition-property: color;
-
-      color: var(--color-text-inverted);
     }
   }
 

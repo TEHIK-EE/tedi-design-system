@@ -1,8 +1,7 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 
-import { Card } from '../../../community/components/card/card';
-import { CardContent } from '../../../community/components/card/card-content/card-content';
-import { Col, Row } from '../../../tedi/components/grid';
+import { Card, CardContent } from '../cards/card';
+import { Col, Row } from '../grid';
 import { Text } from '../typography/text/text';
 import { VerticalSpacing } from '../vertical-spacing';
 import Separator, { SeparatorProps } from './separator';
