@@ -37,7 +37,7 @@ export interface SharedCardProps {
   /**
    * Background image.
    */
-  backgroundImage?: string;
+  backgroundImage?: CSSProperties['backgroundImage'];
   /**
    * Background position for the image.
    */

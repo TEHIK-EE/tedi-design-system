@@ -19,7 +19,6 @@ import {
   CardContent,
   CardContentProps,
   CardHeader,
-  CardHeaderProps,
   CardNotification,
   CardNotificationProps,
   CardProps,
@@ -47,7 +46,7 @@ export default {
 export interface CardStory {
   card: CardProps;
   cardContent: CardContentProps | boolean;
-  cardHeader: CardHeaderProps | boolean;
+  cardHeader: CardContentProps | boolean;
   cardNotification: CardNotificationProps | boolean;
   cardContent2?: CardContentProps | boolean;
   splitContent?: boolean;
@@ -104,7 +103,7 @@ const GeneralTemplate: StoryFn<CardStory> = (args) => {
 
   const getContent2 = (content: CardContentProps) => <CardContent {...content} />;
 
-  const getCardHeader = (header: CardHeaderProps) => <CardHeader {...header}>{header.children}</CardHeader>;
+  const getCardHeader = (header: CardContentProps) => <CardHeader {...header}>{header.children}</CardHeader>;
 
   return (
     <Card {...args.card}>

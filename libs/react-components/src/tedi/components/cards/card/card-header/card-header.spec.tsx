@@ -3,8 +3,9 @@ import { UnknownType } from 'libs/react-components/src/tedi/types/commonTypes';
 
 import { useBreakpointProps } from '../../../../helpers';
 import styles from '../../card.module.scss';
+import { CardContentProps } from '../card-content/card-content';
 import { CardContext } from '../card-context';
-import CardHeader, { CardHeaderProps } from './card-header';
+import CardHeader from './card-header';
 
 jest.mock('../../../../helpers', () => ({
   useBreakpointProps: jest.fn(),
@@ -17,7 +18,7 @@ describe('CardHeader', () => {
     });
   });
 
-  const renderComponent = (props?: CardHeaderProps, contextValue?: UnknownType) => {
+  const renderComponent = (props?: CardContentProps, contextValue?: UnknownType) => {
     const context = contextValue || {};
     return render(
       <CardContext.Provider value={context}>
