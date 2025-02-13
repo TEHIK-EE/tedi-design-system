@@ -122,12 +122,6 @@ const GeneralTemplate: StoryFn<CardStory> = (args) => {
 
 export const Default: Story = {
   render: Template,
-  args: {
-    cardContent2: {
-      children: <p>Description 2</p>,
-    },
-    cardHeader: false,
-  },
 };
 
 export const HeaderTypes: Story = {
