@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import React from 'react';
 
-import { useBreakpoint } from '../../../helpers';
+import { isBreakpointBelow, useBreakpoint } from '../../../helpers';
 import { ILabelContext, useLabels } from '../../../providers/label-provider';
 import { Button } from '../../buttons/button/button';
 import { ClosingButton } from '../../buttons/closing-button/closing-button';
@@ -9,6 +9,7 @@ import { FormLabel, FormLabelProps } from '../../form/form-label/form-label';
 import { Col, Row } from '../../grid';
 import { Separator } from '../../separator/separator';
 import { Tag } from '../../tag/tag';
+import { Text } from '../../typography/text/text';
 import { FeedbackText, FeedbackTextProps } from '../feedback-text/feedback-text';
 import styles from './file-upload.module.scss';
 
@@ -64,6 +65,7 @@ export interface FileUploadProps extends FormLabelProps {
   onDelete?: (file: FileUploadFile) => void;
   /**
    * Displays clearing button when files are uploaded
+   * @default true
    */
   hasClearButton?: boolean;
   /**
@@ -90,6 +92,11 @@ export interface FileUploadProps extends FormLabelProps {
    * @default false
    */
   validateIndividually?: boolean;
+  /**
+   * FileUpload size
+   * @default 'default'
+   */
+  size?: 'small' | 'default';
 }
 
 const getDefaultHelpers = (
@@ -140,12 +147,13 @@ export const FileUpload = (props: FileUploadProps): JSX.Element => {
     className,
     defaultFiles,
     onDelete,
-    hasClearButton,
+    hasClearButton = true,
     files,
     readOnly,
     disabled = false,
     maxSize,
     validateIndividually = false,
+    size = 'default',
     helper = getDefaultHelpers({ accept, maxSize }, getLabel),
     ...rest
   } = props;
@@ -265,15 +273,16 @@ export const FileUpload = (props: FileUploadProps): JSX.Element => {
   };
 
   const showFiles = () => {
-    if (getFiles.length) {
+    if (getFiles.length > 1) {
       return (
         <ul className={styles['tedi-file-upload__items']}>
           {getFiles.map((file, index) => getFileElement(file, index))}
         </ul>
       );
-    } else {
-      return null;
+    } else if (getFiles.length === 1) {
+      return <Text className={styles['tedi-file-upload__items']}>{getFiles[0].name}</Text>;
     }
+    return null;
   };
 
   return (
@@ -283,21 +292,31 @@ export const FileUpload = (props: FileUploadProps): JSX.Element => {
         onMouseLeave={() => setHovered(false)}
         className={styles['tedi-file-upload__label-wrapper']}
       >
-        <FormLabel id={id} {...rest} renderWithoutLabel={readOnly} className={styles['tedi-file-upload__label']} />
+        <FormLabel
+          id={id}
+          {...rest}
+          renderWithoutLabel={readOnly}
+          className={styles['tedi-file-upload__label']}
+          size={size}
+        />
       </div>
       {readOnly ? (
         showFiles()
       ) : (
         <div
-          className={cn(styles['tedi-file-upload__container'], {
-            [styles['tedi-file-upload--disabled']]: disabled,
-            [styles['tedi-file-upload--error']]: (uploadErrorHelper?.type || helper?.type) === 'error',
-            [styles['tedi-file-upload--valid']]: (uploadErrorHelper?.type || helper?.type) === 'valid',
-          })}
+          className={cn(
+            styles['tedi-file-upload__container'],
+            {
+              [styles['tedi-file-upload--disabled']]: disabled,
+              [styles['tedi-file-upload--error']]: (uploadErrorHelper?.type || helper?.type) === 'error',
+              [styles['tedi-file-upload--valid']]: (uploadErrorHelper?.type || helper?.type) === 'valid',
+            },
+            { [styles[`tedi-file-upload__container--${size}`]]: size }
+          )}
         >
           <div className={styles['tedi-file-upload__content']}>
             <Row>
-              <Col>{showFiles()}</Col>
+              <Col className="display-flex">{showFiles()}</Col>
               <Col xs={12} md="auto">
                 <div className={fileUploadBEM}>
                   <input
@@ -310,11 +329,11 @@ export const FileUpload = (props: FileUploadProps): JSX.Element => {
                     disabled={disabled}
                     aria-invalid={!!uploadErrorHelper}
                   />
-                  {hasClearButton && getFiles.length > 0 && (
+                  {hasClearButton && getFiles.length > 0 && !disabled && (
                     <>
-                      {!!currentBreakpoint && currentBreakpoint > 'md' ? (
+                      {isBreakpointBelow(currentBreakpoint, 'md') ? (
                         <Button
-                          visualType="link"
+                          visualType="neutral"
                           iconLeft="close"
                           aria-describedby={helperId}
                           isActive={hovered}
@@ -331,13 +350,14 @@ export const FileUpload = (props: FileUploadProps): JSX.Element => {
                     </>
                   )}
                   <Button
-                    visualType="link"
+                    visualType="neutral"
                     iconLeft="file_upload"
                     aria-describedby={helperId}
                     isActive={hovered}
                     disabled={disabled}
                     onClick={() => document.getElementById(id)?.click()}
                     className={styles['tedi-file-upload__button']}
+                    size={size}
                   >
                     {getLabel('file-upload.add')}
                   </Button>

@@ -1,38 +1,34 @@
 @use '@tehik-ee/tedi-core/mixins';
 @use '@tehik-ee/tedi-core/bootstrap-utility/breakpoints';
 
+$container-height: 2.5rem;
+$container-height-small: 2rem;
+
 .tedi-file-upload {
   display: flex;
   align-items: center;
 
-  &-disabled {
-    cursor: initial;
-  }
-
   & input[type='file'] {
     display: none;
-  }
-
-  @include breakpoints.media-breakpoint-down(md) {
-    .tedi-file-upload__button {
-      width: 100%;
-      margin: 0 auto;
-    }
   }
 }
 
 .tedi-file-upload__items {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
   margin: 0;
 
+  @include mixins.responsive-styles(gap, form-field-inner-spacing);
+  @include mixins.responsive-styles(padding-top, layout-grid-gutters-04);
+  @include mixins.responsive-styles(padding-bottom, layout-grid-gutters-04);
+
   & li {
+    line-height: 0;
     list-style-type: none;
   }
 
   @include breakpoints.media-breakpoint-down(md) {
-    margin-bottom: var(--layout-grid-gutters-08);
+    @include mixins.responsive-styles(margin-bottom, layout-grid-gutters-08);
   }
 }
 
@@ -46,10 +42,65 @@
 }
 
 .tedi-file-upload__container {
-  padding: 8px;
-  background-color: var(--bg-disabled);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: var(--form-input-background-default);
   border: 1px solid var(--form-input-border-default);
-  border-radius: 4px;
+
+  @include mixins.responsive-styles(border-radius, form-field-radius);
+
+  &--default {
+    min-height: $container-height;
+
+    @include mixins.responsive-styles(padding-left, form-field-padding-x-md-default);
+    @include mixins.responsive-styles(padding-right, form-field-padding-x-md-default);
+    @include mixins.responsive-styles(padding-top, form-field-padding-y-sm);
+    @include mixins.responsive-styles(padding-bottom, form-field-padding-y-sm);
+
+    .tedi-file-upload__button {
+      height: calc(#{$container-height} - var(--form-field-padding-y-sm-desktop) * 2);
+
+      @include breakpoints.media-breakpoint-down(md) {
+        height: calc(#{$container-height} - var(--form-field-padding-y-sm-mobile) * 2);
+      }
+    }
+  }
+
+  &--small {
+    min-height: $container-height-small;
+
+    @include mixins.responsive-styles(padding-left, form-field-padding-x-md-default);
+    @include mixins.responsive-styles(padding-right, form-field-padding-x-md-default);
+    @include mixins.responsive-styles(padding-top, form-field-padding-y-xxs);
+    @include mixins.responsive-styles(padding-bottom, form-field-padding-y-xxs);
+
+    .tedi-file-upload__button {
+      height: calc(#{$container-height-small} - var(--form-field-padding-y-xxs-desktop) * 2);
+
+      @include breakpoints.media-breakpoint-down(md) {
+        height: calc(#{$container-height-small} - var(--form-field-padding-y-xxs-mobile) * 2);
+      }
+    }
+  }
+
+  .tedi-file-upload__button {
+    padding-right: 0;
+    padding-left: 0;
+
+    @include breakpoints.media-breakpoint-down(md) {
+      width: 100%;
+      margin: 0 auto;
+    }
+  }
+
+  &.tedi-file-upload--disabled {
+    color: var(--form-input-text-disabled);
+    pointer-events: none;
+    cursor: initial;
+    background-color: var(--form-input-background-disabled);
+    border-color: var(--form-input-border-disabled);
+  }
 
   &.tedi-file-upload--error {
     border-color: var(--form-general-feedback-error-border);
@@ -64,5 +115,5 @@
   display: flex;
   flex-direction: column;
 
-  @include mixins.responsive-styles(gap, button-sm-inner-spacing-desktop);
+  @include mixins.responsive-styles(gap, form-field-inner-spacing);
 }

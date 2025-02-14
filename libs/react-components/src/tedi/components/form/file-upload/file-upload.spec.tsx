@@ -62,12 +62,9 @@ describe('FileUpload component', () => {
     expect(screen.getByText(/file-upload.size-rejected/i)).toBeInTheDocument();
   });
 
-  it('removes a file when delete button is clicked', () => {
+  it('does not render close button when there is only one file', () => {
     render(<FileUpload {...defaultProps} defaultFiles={[{ name: 'test.jpg', id: '1' }]} />);
-    const deleteButton = screen.getByRole('button', { name: /close/i });
-    fireEvent.click(deleteButton);
-
-    expect(defaultProps.onDelete).toHaveBeenCalledWith(expect.objectContaining({ name: 'test.jpg' }));
+    expect(screen.queryByRole('button', { name: /close/i })).not.toBeInTheDocument();
   });
 
   it('renders file list but no input when readOnly is true', () => {
