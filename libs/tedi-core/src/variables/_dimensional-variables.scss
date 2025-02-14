@@ -544,9 +544,9 @@
   --form-field-padding-y-md-default-desktop: var(--dimensions-05);
   --form-field-padding-y-md-default-tablet: var(--dimensions-05);
   --form-field-padding-y-md-default-mobile: var(--dimensions-06);
-  --form-field-radius-desktop: var(--card-radius-rounded);
-  --form-field-radius-tablet: var(--card-radius-rounded);
-  --form-field-radius-mobile: var(--card-radius-rounded);
+  --form-field-radius-desktop: var(--card-radius-rounded-desktop);
+  --form-field-radius-tablet: var(--card-radius-rounded-tablet);
+  --form-field-radius-mobile: var(--card-radius-rounded-mobile);
   --form-field-inner-spacing-desktop: var(--dimensions-05);
   --form-field-inner-spacing-tablet: var(--dimensions-05);
   --form-field-inner-spacing-mobile: var(--dimensions-05);
@@ -604,9 +604,9 @@
   --modal-body-padding-desktop: var(--dimensions-13);
   --modal-body-padding-tablet: var(--dimensions-13);
   --modal-body-padding-mobile: var(--dimensions-10);
-  --modal-radius-desktop: var(--card-radius-rounded);
-  --modal-radius-tablet: var(--card-radius-rounded);
-  --modal-radius-mobile: var(--card-radius-rounded);
+  --modal-radius-desktop: var(--card-radius-rounded-desktop);
+  --modal-radius-tablet: var(--card-radius-rounded-tablet);
+  --modal-radius-mobile: var(--card-radius-rounded-mobile);
   --modal-max-width-xs-desktop: var(--containers-05);
   --modal-max-width-xs-tablet: var(--containers-05);
   --modal-max-width-xs-mobile: var(--containers-05);
