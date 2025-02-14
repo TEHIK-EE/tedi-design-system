@@ -1,3 +1,38 @@
+# [@tehik-ee/tedi-react-v11.1.0-rc.8](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.1.0-rc.7...react-11.1.0-rc.8) (2025-02-13)
+
+
+### Features
+
+* **card:** TEDI-Ready Card component development [#261](https://github.com/TEHIK-EE/tedi-design-system/issues/261) ([#362](https://github.com/TEHIK-EE/tedi-design-system/issues/362)) ([e023f01](https://github.com/TEHIK-EE/tedi-design-system/commit/e023f01cee9f82f157efc1ce92224a0b643abf36))
+
+# [@tehik-ee/tedi-react-v11.1.0-rc.7](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.1.0-rc.6...react-11.1.0-rc.7) (2025-02-13)
+
+
+### Bug Fixes
+
+* **search, footer:** replace 'start'/'end' with 'flex-start'/'flex-end' for Autoprefixer [#467](https://github.com/TEHIK-EE/tedi-design-system/issues/467) ([#482](https://github.com/TEHIK-EE/tedi-design-system/issues/482)) ([68987ca](https://github.com/TEHIK-EE/tedi-design-system/commit/68987cae0bb3096d4bcda9cad9de1ea3968a35e1))
+
+# [@tehik-ee/tedi-react-v11.1.0-rc.6](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.1.0-rc.5...react-11.1.0-rc.6) (2025-02-12)
+
+
+### Bug Fixes
+
+* **icon:** Add aria-label if label prop is set [#480](https://github.com/TEHIK-EE/tedi-design-system/issues/480) ([#481](https://github.com/TEHIK-EE/tedi-design-system/issues/481)) ([178a1d4](https://github.com/TEHIK-EE/tedi-design-system/commit/178a1d4faf843b1cd44bb0265899d97ef2f5e825))
+
+# [@tehik-ee/tedi-react-v11.1.0-rc.5](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.1.0-rc.4...react-11.1.0-rc.5) (2025-02-11)
+
+
+### Features
+
+* **table:** Add autoResetPageIndex prop [#477](https://github.com/TEHIK-EE/tedi-design-system/issues/477) ([#478](https://github.com/TEHIK-EE/tedi-design-system/issues/478)) ([c6b50a1](https://github.com/TEHIK-EE/tedi-design-system/commit/c6b50a1a5194c0177ade73d4d3789fb5f761da45))
+
+# [@tehik-ee/tedi-react-v11.1.0-rc.4](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.1.0-rc.3...react-11.1.0-rc.4) (2025-02-11)
+
+
+### Features
+
+* **sidenav:** Add collapsible navigation with nested items and styling [#422](https://github.com/TEHIK-EE/tedi-design-system/issues/422) ([#460](https://github.com/TEHIK-EE/tedi-design-system/issues/460)) ([10f803f](https://github.com/TEHIK-EE/tedi-design-system/commit/10f803f4ca2171444a77c1d3d404cc7a65a77b1b))
+
 # [@tehik-ee/tedi-react-v11.1.0-rc.3](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.1.0-rc.2...react-11.1.0-rc.3) (2025-02-10)
 
 

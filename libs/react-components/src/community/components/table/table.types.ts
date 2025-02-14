@@ -142,6 +142,12 @@ export interface TableProps<TData extends DefaultTData<TData>> {
    */
   manualFiltering?: boolean;
   /**
+   * If set to true, pagination will be reset to the first page when page-altering state changes eg. data is updated, filters change, grouping changes, etc.
+   * This option defaults to false if manualPagination is set to true
+   * @default true
+   */
+  autoResetPageIndex?: boolean;
+  /**
    * Initial internal pagination state on render. This only applies when `pagination` prop is not defined.
    */
   defaultPagination?: PaginationState;

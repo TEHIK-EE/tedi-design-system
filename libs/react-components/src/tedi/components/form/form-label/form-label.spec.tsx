@@ -7,10 +7,10 @@ import '@testing-library/jest-dom';
 
 jest.mock('../../label/label', () => ({
   Label: jest.fn(({ children, className, as: Element = 'label', ...rest }) => {
-    const { isSmall, ...filteredRest } = rest;
+    const { ...filteredRest } = rest;
 
     return (
-      <Element className={className} {...filteredRest}>
+      <Element className={className} isSmall {...filteredRest}>
         {children}
       </Element>
     );

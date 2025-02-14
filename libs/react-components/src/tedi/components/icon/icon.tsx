@@ -106,7 +106,15 @@ export const Icon = forwardRef<HTMLDivElement, IconProps>((props: IconProps, ref
   );
 
   const iconElement = (
-    <span ref={!background ? ref : null} className={iconBEM} data-name="icon" role="img" aria-hidden={true} {...rest}>
+    <span
+      ref={!background ? ref : null}
+      className={iconBEM}
+      data-name="icon"
+      role="img"
+      aria-label={label}
+      aria-hidden={!label}
+      {...rest}
+    >
       {name}
     </span>
   );

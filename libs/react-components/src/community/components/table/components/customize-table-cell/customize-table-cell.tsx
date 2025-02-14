@@ -24,7 +24,7 @@ export const CustomizeTableCell = (props: CustomizeTableCellProps): JSX.Element 
   const { children, className, verticalAlign = 'baseline' } = props;
   const nodeRef = React.useRef<HTMLDivElement>(null);
 
-  React.useEffect(() => {
+  React.useLayoutEffect(() => {
     const parentElem = nodeRef?.current?.parentElement;
     if (parentElem) {
       parentElem.className = styles['cell'];

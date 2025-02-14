@@ -18,7 +18,7 @@ const meta: Meta<typeof Text> = {
 export default meta;
 type Story = StoryObj<typeof Text>;
 
-const TemplateSubtitles: StoryFn = (args) => (
+const TemplateSubtitles: StoryFn = () => (
   <div className="example-list w-100">
     <Row className="border-bottom border-bottom--3x">
       <Col>

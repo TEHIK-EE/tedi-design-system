@@ -34,7 +34,7 @@ interface TemplateStateProps extends TextAreaProps {
 }
 
 const TemplateColumnWithStates: StoryFn<TemplateStateProps> = (args) => {
-  const { array, id, ...textFieldProps } = args;
+  const { array, ...textFieldProps } = args;
 
   return (
     <VerticalSpacing>
@@ -44,7 +44,7 @@ const TemplateColumnWithStates: StoryFn<TemplateStateProps> = (args) => {
             <Text modifiers="bold">{state}</Text>
           </Col>
           <Col className="display-flex align-items-center">
-            <TextArea disabled={state === 'Disabled'} id={state} {...textFieldProps} />
+            <TextArea disabled={state === 'Disabled'} {...textFieldProps} id={state} />
           </Col>
         </Row>
       ))}

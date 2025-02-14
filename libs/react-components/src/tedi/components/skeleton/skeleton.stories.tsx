@@ -3,6 +3,7 @@ import React from 'react';
 
 import { Col, Row } from '../../../tedi/components/grid';
 import { VerticalSpacing } from '../../../tedi/components/vertical-spacing';
+import { Button } from '../buttons/button/button';
 import { Skeleton, SkeletonBlock, SkeletonProps } from '.';
 
 /**
@@ -91,7 +92,7 @@ const AccessibilityTemplate: StoryFn<AccessibilityTemplateProps> = ({ style, id,
     return () => {
       clearTimeout(timeout);
     };
-  }, []);
+  }, [delay, id, remove]);
 
   return (
     <Skeleton {...args}>
@@ -120,23 +121,9 @@ export const Accessibility: Story = {
       setSkeletons((prevState) => [...prevState, { ...skeleton, remove: removeSkeleton }]);
     };
 
-    //TODO: Replace button with TEDI-Ready Button component once it's developed
     const renderButton = (label: string, options: Omit<AccessibilityTemplateProps, 'remove'>) => (
       <Col width="auto">
-        <button
-          style={{
-            padding: '10px 20px',
-            backgroundColor: 'var(--color-primary-main)',
-            color: 'var(--color-text-inverted)',
-            border: 'none',
-            borderRadius: '3rem',
-            cursor: 'pointer',
-            fontSize: '1rem',
-          }}
-          onClick={() => addSkeleton(options)}
-        >
-          {label}
-        </button>
+        <Button onClick={() => addSkeleton(options)}>{label}</Button>
       </Col>
     );
 
