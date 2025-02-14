@@ -11,7 +11,7 @@ export interface OverlayContentProps {
   /**
    * Additional class names.
    */
-  classNames: {
+  classNames?: {
     content: string;
     arrow: string;
   };
@@ -37,7 +37,7 @@ export const OverlayContent = (props: OverlayContentProps) => {
   if (!open) return null;
 
   return (
-    <FloatingPortal data-name="tooltip">
+    <FloatingPortal>
       <FloatingOverlay lockScroll={scrollLock}>
         <FloatingFocusManager {...focusManager} context={context}>
           <div
@@ -45,19 +45,21 @@ export const OverlayContent = (props: OverlayContentProps) => {
               ref: floating,
               style: {
                 position: strategy,
-                left: x ?? 0,
-                top: y ?? 0,
+                left: x,
+                top: y,
               },
-              className: classNames.content,
+              className: classNames?.content,
             })}
             data-placement={placement}
+            data-testid="overlay-content"
           >
             <FloatingArrow
               ref={(el) => (arrowRef.current = el)}
               context={context}
-              className={classNames.arrow}
+              className={classNames?.arrow}
               height={arrow?.height}
               width={arrow?.width}
+              data-testid="overlay-arrow"
             />
             {children}
           </div>

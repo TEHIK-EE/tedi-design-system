@@ -23,7 +23,6 @@ import {
 import { ComponentProps, createContext, ReactNode, useCallback, useMemo, useRef, useState } from 'react';
 
 import { useIsMounted, useIsTouchDevice } from '../../helpers';
-import { useLabels } from '../../providers/label-provider';
 import { OverlayContent } from './overlay-content';
 import { OverlayTrigger } from './overlay-trigger';
 
@@ -103,8 +102,8 @@ export interface OverlayContextType {
   reference: (node: ReferenceType | null) => void;
   floating: (node: HTMLElement | null) => void;
   arrowRef: React.MutableRefObject<SVGSVGElement | null>;
-  x: number | null;
-  y: number | null;
+  x: number;
+  y: number;
   strategy: Strategy;
   getReferenceProps: (userProps?: React.HTMLProps<HTMLElement> | undefined) => Record<string, unknown>;
   getFloatingProps: (userProps?: React.HTMLProps<HTMLElement> | undefined) => Record<string, unknown>;
@@ -125,12 +124,12 @@ export const OverlayContext = createContext<OverlayContextType>({
   onOpenChange: () => {},
   isMounted: false,
   openWith: 'hover',
-  reference: () => null,
-  floating: () => null,
+  reference: () => {},
+  floating: () => {},
   focusManager: {},
   arrowRef: { current: null },
-  x: null,
-  y: null,
+  x: 0,
+  y: 0,
   strategy: 'absolute',
   getReferenceProps: () => ({}),
   getFloatingProps: () => ({}),
@@ -147,7 +146,6 @@ export const OverlayContext = createContext<OverlayContextType>({
 });
 
 function Overlay(props: OverlayProps) {
-  const { getLabel } = useLabels();
   const isTouchDevice = useIsTouchDevice();
 
   const {
@@ -165,14 +163,8 @@ function Overlay(props: OverlayProps) {
     scrollLock,
   } = props;
 
-  const {
-    order = ['reference', 'content'],
-    modal = false,
-    initialFocus = -1,
-    ...restFocusManager
-  } = focusManager ?? {};
+  const { order = ['reference', 'content'], initialFocus = -1, ...restFocusManager } = focusManager ?? {};
 
-  const { visuallyHiddenDismiss = modal ? getLabel('close') : false } = restFocusManager ?? {};
   const [open, setOpen] = useState(defaultOpen);
   const arrowRef = useRef<SVGSVGElement | null>(null);
   const isMounted = useIsMounted();
@@ -240,8 +232,6 @@ function Overlay(props: OverlayProps) {
         focusManager: {
           order,
           initialFocus,
-          modal,
-          visuallyHiddenDismiss,
           ...restFocusManager,
         },
         x,

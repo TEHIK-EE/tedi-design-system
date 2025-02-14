@@ -21,7 +21,7 @@ $popover-width: (
 
   @each $name, $width in $popover-width {
     &--#{$name} {
-      width: $width;
+      width: min(#{$width}, calc(100vw - 1rem));
     }
   }
 

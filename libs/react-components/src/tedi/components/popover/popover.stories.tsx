@@ -1,5 +1,5 @@
-import { placements } from '@floating-ui/utils';
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
+import { useState } from 'react';
 
 import Button from '../buttons/button/button';
 import InfoButton from '../buttons/info-button/info-button';
@@ -46,33 +46,54 @@ const DefaultTemplate: StoryFn<PopoverProps> = (args) => {
   );
 };
 
-const BuiltWithVariablesTemplate: StoryFn<PopoverProps> = (args) => {
+const ContentExamplesTemplate: StoryFn<PopoverProps> = (args) => {
+  const [firstOpen, setFirstOpen] = useState(false);
+  const [secondOpen, setSecondOpen] = useState(false);
+
   return (
-    <Row>
+    <Row gap={3}>
       <Col>
-        <Popover {...args}>
+        <Popover {...args} open={firstOpen} onToggle={setFirstOpen}>
           <Popover.Trigger>
-            <Button>Open Popover</Button>
+            <Button>Buttons & heading</Button>
           </Popover.Trigger>
           <Popover.Content title="Heading" close>
             The polar bear (Ursus maritimus) is a large bear native to the Arctic and nearby areas.
             <div className="display-flex gap-2">
-              <Button visualType="secondary">Cancel</Button>
-              <Button>Submit</Button>
+              <Button visualType="secondary" onClick={() => setFirstOpen(false)}>
+                Cancel
+              </Button>
+              <Button
+                onClick={() => {
+                  alert('This is alert message!');
+                  setFirstOpen(false);
+                }}
+              >
+                Submit
+              </Button>
             </div>
           </Popover.Content>
         </Popover>
       </Col>
       <Col>
-        <Popover {...args}>
+        <Popover {...args} open={secondOpen} onToggle={setSecondOpen}>
           <Popover.Trigger>
-            <Button>Open Popover</Button>
+            <Button>Buttons</Button>
           </Popover.Trigger>
           <Popover.Content>
             The polar bear (Ursus maritimus) is a large bear native to the Arctic and nearby areas.
             <div className="display-flex gap-2">
-              <Button visualType="secondary">Cancel</Button>
-              <Button>Submit</Button>
+              <Button visualType="secondary" onClick={() => setSecondOpen(false)}>
+                Cancel
+              </Button>
+              <Button
+                onClick={() => {
+                  alert('This is alert message!');
+                  setSecondOpen(false);
+                }}
+              >
+                Submit
+              </Button>
             </div>
           </Popover.Content>
         </Popover>
@@ -80,7 +101,7 @@ const BuiltWithVariablesTemplate: StoryFn<PopoverProps> = (args) => {
       <Col>
         <Popover {...args}>
           <Popover.Trigger>
-            <Button>Open Popover</Button>
+            <Button>Link</Button>
           </Popover.Trigger>
           <Popover.Content>
             The polar bear (Ursus maritimus) is a large bear native to the Arctic and nearby areas.
@@ -93,7 +114,7 @@ const BuiltWithVariablesTemplate: StoryFn<PopoverProps> = (args) => {
       <Col>
         <Popover {...args}>
           <Popover.Trigger>
-            <Button>Open Popover</Button>
+            <Button>Text</Button>
           </Popover.Trigger>
           <Popover.Content>
             The polar bear (Ursus maritimus) is a large bear native to the Arctic and nearby areas.
@@ -106,11 +127,11 @@ const BuiltWithVariablesTemplate: StoryFn<PopoverProps> = (args) => {
 
 const HeadingTemplate: StoryFn<PopoverProps> = (args) => {
   return (
-    <Row>
+    <Row gap={3}>
       <Col>
         <Popover {...args}>
           <Popover.Trigger>
-            <Button visualType="secondary">Open Popover</Button>
+            <Button visualType="secondary">Heading & close</Button>
           </Popover.Trigger>
           <Popover.Content width="medium" title="Heading" close>
             This popover is with title and close button.
@@ -124,7 +145,7 @@ const HeadingTemplate: StoryFn<PopoverProps> = (args) => {
       <Col>
         <Popover {...args}>
           <Popover.Trigger>
-            <Button visualType="secondary">Open Popover</Button>
+            <Button visualType="secondary">Heading</Button>
           </Popover.Trigger>
           <Popover.Content width="medium" title="Heading">
             This popover is with title.
@@ -138,7 +159,7 @@ const HeadingTemplate: StoryFn<PopoverProps> = (args) => {
       <Col>
         <Popover {...args}>
           <Popover.Trigger>
-            <Button visualType="secondary">Open Popover</Button>
+            <Button visualType="secondary">Custom heading & close</Button>
           </Popover.Trigger>
           <Popover.Content
             width="medium"
@@ -156,7 +177,7 @@ const HeadingTemplate: StoryFn<PopoverProps> = (args) => {
       <Col>
         <Popover {...args}>
           <Popover.Trigger>
-            <Button visualType="secondary">Open Popover</Button>
+            <Button visualType="secondary">Only content</Button>
           </Popover.Trigger>
           <Popover.Content width="medium">
             This popover does not have title and close button.
@@ -173,7 +194,7 @@ const HeadingTemplate: StoryFn<PopoverProps> = (args) => {
 
 const TriggerTemplate: StoryFn<PopoverProps> = (args) => {
   return (
-    <Row className="align-items-center">
+    <Row gap={3} className="align-items-center">
       <Col>
         <Popover {...args}>
           <Popover.Trigger>
@@ -203,16 +224,102 @@ const TriggerTemplate: StoryFn<PopoverProps> = (args) => {
 const ArrowPositionTemplate: StoryFn<PopoverProps> = (args) => {
   return (
     <Row gap={3}>
-      {placements.map((placement) => (
-        <Col xs={3} key={placement}>
-          <Popover {...args} placement={placement}>
-            <Popover.Trigger>{placement}</Popover.Trigger>
-            <Popover.Content>
-              The polar bear (Ursus maritimus) is a large bear native to the Arctic and nearby areas.
-            </Popover.Content>
-          </Popover>
-        </Col>
-      ))}
+      <Col xs={3}>
+        <Popover {...args} placement="top-start">
+          <Popover.Trigger>Top start</Popover.Trigger>
+          <Popover.Content>
+            The polar bear (Ursus maritimus) is a large bear native to the Arctic and nearby areas.
+          </Popover.Content>
+        </Popover>
+      </Col>
+      <Col xs={3}>
+        <Popover {...args} placement="top">
+          <Popover.Trigger>Top center</Popover.Trigger>
+          <Popover.Content>
+            The polar bear (Ursus maritimus) is a large bear native to the Arctic and nearby areas.
+          </Popover.Content>
+        </Popover>
+      </Col>
+      <Col xs={3}>
+        <Popover {...args} placement="top-end">
+          <Popover.Trigger>Top end</Popover.Trigger>
+          <Popover.Content>
+            The polar bear (Ursus maritimus) is a large bear native to the Arctic and nearby areas.
+          </Popover.Content>
+        </Popover>
+      </Col>
+      <Col xs={3}>
+        <Popover {...args} placement="bottom-start">
+          <Popover.Trigger>Bottom start</Popover.Trigger>
+          <Popover.Content>
+            The polar bear (Ursus maritimus) is a large bear native to the Arctic and nearby areas.
+          </Popover.Content>
+        </Popover>
+      </Col>
+      <Col xs={3}>
+        <Popover {...args} placement="bottom">
+          <Popover.Trigger>Bottom center</Popover.Trigger>
+          <Popover.Content>
+            The polar bear (Ursus maritimus) is a large bear native to the Arctic and nearby areas.
+          </Popover.Content>
+        </Popover>
+      </Col>
+      <Col xs={3}>
+        <Popover {...args} placement="bottom-end">
+          <Popover.Trigger>Bottom end</Popover.Trigger>
+          <Popover.Content>
+            The polar bear (Ursus maritimus) is a large bear native to the Arctic and nearby areas.
+          </Popover.Content>
+        </Popover>
+      </Col>
+      <Col xs={3}>
+        <Popover {...args} placement="left-start">
+          <Popover.Trigger>Left start</Popover.Trigger>
+          <Popover.Content>
+            The polar bear (Ursus maritimus) is a large bear native to the Arctic and nearby areas.
+          </Popover.Content>
+        </Popover>
+      </Col>
+      <Col xs={3}>
+        <Popover {...args} placement="left">
+          <Popover.Trigger>Left center</Popover.Trigger>
+          <Popover.Content>
+            The polar bear (Ursus maritimus) is a large bear native to the Arctic and nearby areas.
+          </Popover.Content>
+        </Popover>
+      </Col>
+      <Col xs={3}>
+        <Popover {...args} placement="left-end">
+          <Popover.Trigger>Left end</Popover.Trigger>
+          <Popover.Content>
+            The polar bear (Ursus maritimus) is a large bear native to the Arctic and nearby areas.
+          </Popover.Content>
+        </Popover>
+      </Col>
+      <Col xs={3}>
+        <Popover {...args} placement="right-start">
+          <Popover.Trigger>Right start</Popover.Trigger>
+          <Popover.Content>
+            The polar bear (Ursus maritimus) is a large bear native to the Arctic and nearby areas.
+          </Popover.Content>
+        </Popover>
+      </Col>
+      <Col xs={3}>
+        <Popover {...args} placement="right">
+          <Popover.Trigger>Right center</Popover.Trigger>
+          <Popover.Content>
+            The polar bear (Ursus maritimus) is a large bear native to the Arctic and nearby areas.
+          </Popover.Content>
+        </Popover>
+      </Col>
+      <Col xs={3}>
+        <Popover {...args} placement="right-end">
+          <Popover.Trigger>Right end</Popover.Trigger>
+          <Popover.Content>
+            The polar bear (Ursus maritimus) is a large bear native to the Arctic and nearby areas.
+          </Popover.Content>
+        </Popover>
+      </Col>
     </Row>
   );
 };
@@ -232,6 +339,29 @@ const SizeTemplate: StoryFn<PopoverProps> = (args) => {
           </Popover>
         </Col>
       ))}
+    </Row>
+  );
+};
+
+const ClosingButtonTemplate: StoryFn<PopoverProps> = (args) => {
+  return (
+    <Row gap={3}>
+      <Col>
+        <Popover {...args}>
+          <Popover.Trigger>Default Button</Popover.Trigger>
+          <Popover.Content title="Heading" close>
+            The polar bear (Ursus maritimus) is a large bear native to the Arctic and nearby areas.
+          </Popover.Content>
+        </Popover>
+      </Col>
+      <Col>
+        <Popover {...args}>
+          <Popover.Trigger>Custom Button</Popover.Trigger>
+          <Popover.Content title="Heading" close closeProps={{ size: 'medium' }}>
+            The polar bear (Ursus maritimus) is a large bear native to the Arctic and nearby areas.
+          </Popover.Content>
+        </Popover>
+      </Col>
     </Row>
   );
 };
@@ -264,8 +394,8 @@ export const Default: Story = {
   args: {},
 };
 
-export const BuiltWithVariables: Story = {
-  render: BuiltWithVariablesTemplate,
+export const ContentExamples: Story = {
+  render: ContentExamplesTemplate,
   args: {},
 };
 
@@ -286,6 +416,11 @@ export const ArrowPosition: Story = {
 
 export const Size: Story = {
   render: SizeTemplate,
+  args: {},
+};
+
+export const ClosingButton: Story = {
+  render: ClosingButtonTemplate,
   args: {},
 };
 
