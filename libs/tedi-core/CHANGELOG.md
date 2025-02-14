@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-core-v1.6.1](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.6.0...core-1.6.1) (2025-02-14)
+
+
+### Bug Fixes
+
+* **popover:** css variables [#260](https://github.com/TEHIK-EE/tedi-design-system/issues/260) ([#487](https://github.com/TEHIK-EE/tedi-design-system/issues/487)) ([1d077b3](https://github.com/TEHIK-EE/tedi-design-system/commit/1d077b374f6b5854d98db88992f5db118493c8c3))
+
 # [@tehik-ee/tedi-core-v1.6.0](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.5.2...core-1.6.0) (2025-02-13)
 
 
