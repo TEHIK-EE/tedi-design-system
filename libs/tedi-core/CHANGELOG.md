@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-core-v1.6.6](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.6.5...core-1.6.6) (2025-02-14)
+
+
+### Bug Fixes
+
+* **tedi-core:** Update dimensional variables [#488](https://github.com/TEHIK-EE/tedi-design-system/issues/488) ([9403f34](https://github.com/TEHIK-EE/tedi-design-system/commit/9403f345868937d3f3c5190b43190b3f15fa3167))
+
 # [@tehik-ee/tedi-core-v1.6.5](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.6.4...core-1.6.5) (2025-02-14)
 
 
