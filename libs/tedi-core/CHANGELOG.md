@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-core-v1.6.2](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.6.1...core-1.6.2) (2025-02-14)
+
+
+### Bug Fixes
+
+* **tedi-core:** Update base and color variables [#407](https://github.com/TEHIK-EE/tedi-design-system/issues/407) ([#486](https://github.com/TEHIK-EE/tedi-design-system/issues/486)) ([443df4f](https://github.com/TEHIK-EE/tedi-design-system/commit/443df4f1ff1e9fa3219fe9acdec14a760f7d28b7))
+
 # [@tehik-ee/tedi-core-v1.6.1](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.6.0...core-1.6.1) (2025-02-14)
 
 
