@@ -15,7 +15,7 @@ $tag-colors: (
   justify-content: center;
   color: var(--general-text-primary);
 
-  @include mixins.responsive-styles(gap, tag-default-inner-spacing);
+  @include mixins.responsive-styles(gap, tag-default-padding-x);
   @include mixins.responsive-styles(border-radius, tag-default-radius);
   @include mixins.responsive-styles(padding, tag-default-padding-y tag-default-padding-x);
   @include mixins.responsive-styles(font-size, body-small-regular-size);
