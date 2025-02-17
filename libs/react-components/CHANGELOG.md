@@ -1,3 +1,24 @@
+# [@tehik-ee/tedi-react-v11.1.0-rc.11](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.1.0-rc.10...react-11.1.0-rc.11) (2025-02-17)
+
+
+### Bug Fixes
+
+* **text-field,number-field,tag,status-badge,icon,skeleton:** Update dimensional and color variables [#488](https://github.com/TEHIK-EE/tedi-design-system/issues/488) ([#492](https://github.com/TEHIK-EE/tedi-design-system/issues/492)) ([d83946b](https://github.com/TEHIK-EE/tedi-design-system/commit/d83946bf4e204f177ace23923a7b4c95af219248))
+
+# [@tehik-ee/tedi-react-v11.1.0-rc.10](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.1.0-rc.9...react-11.1.0-rc.10) (2025-02-17)
+
+
+### Bug Fixes
+
+* **check,radio:** Alignment of tooltip is not centered [#376](https://github.com/TEHIK-EE/tedi-design-system/issues/376) ([#386](https://github.com/TEHIK-EE/tedi-design-system/issues/386)) ([943113b](https://github.com/TEHIK-EE/tedi-design-system/commit/943113b9fc4a3931bdbf80d1ec5799b0a6d917b4)), closes [#406](https://github.com/TEHIK-EE/tedi-design-system/issues/406)
+
+# [@tehik-ee/tedi-react-v11.1.0-rc.9](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.1.0-rc.8...react-11.1.0-rc.9) (2025-02-17)
+
+
+### Bug Fixes
+
+* **file-upload:** allow re-uploading deleted files [#468](https://github.com/TEHIK-EE/tedi-design-system/issues/468) ([#469](https://github.com/TEHIK-EE/tedi-design-system/issues/469)) ([bec033f](https://github.com/TEHIK-EE/tedi-design-system/commit/bec033f043138cbd95da4a49fc5e436909c9ce63))
+
 # [@tehik-ee/tedi-react-v11.1.0-rc.8](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.1.0-rc.7...react-11.1.0-rc.8) (2025-02-13)
 
 
