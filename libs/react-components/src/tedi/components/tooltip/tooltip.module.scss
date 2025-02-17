@@ -17,25 +17,12 @@ $tooltip-max-width: (
 
   @each $name, $width in $tooltip-max-width {
     &--#{$name} {
-      max-width: $width;
+      max-width: min(#{$width}, calc(100vw - 1rem));
     }
   }
 
   &__arrow {
     z-index: 1;
     fill: var(--tooltip-background);
-  }
-
-  &__trigger {
-    width: fit-content;
-
-    &:not(button, a) {
-      cursor: default;
-      user-select: text;
-    }
-
-    &--click {
-      cursor: pointer !important;
-    }
   }
 }

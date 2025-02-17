@@ -6,7 +6,6 @@ import { AccessibilityProvider } from '../src/community/providers/accessibility-
 import { LabelProvider, LabelProviderProps } from '../src/tedi/providers/label-provider';
 
 import 'dayjs/locale/et';
-import Tooltip from '../src/tedi/components/tooltip/tooltip';
 
 dayjs.extend(weekday);
 
@@ -17,9 +16,7 @@ interface StorybookDecoratorProps {
 
 const StorybookDecorator = ({ children, locale = 'en', ...rest }: StorybookDecoratorProps) => (
   <LabelProvider locale={locale} {...rest}>
-    <AccessibilityProvider>
-      <Tooltip.Provider>{children}</Tooltip.Provider>
-    </AccessibilityProvider>
+    <AccessibilityProvider>{children}</AccessibilityProvider>
   </LabelProvider>
 );
 

@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from '@testing-library/react';
+import { act, fireEvent, render, screen } from '@testing-library/react';
 import { useContext } from 'react';
 
 import * as helpers from '../../helpers';
@@ -139,5 +139,72 @@ describe('Overlay component', () => {
 
     fireEvent.click(screen.getByText('Trigger'));
     expect(onToggleMock).toHaveBeenCalledWith(true);
+  });
+
+  describe('Overlay scroll locking', () => {
+    afterEach(() => {
+      document.documentElement.style.overflow = '';
+      document.body.style.overflow = '';
+    });
+
+    it('should lock scrolling and set body overflow to scroll when page has a scrollbar', async () => {
+      Object.defineProperty(document.documentElement, 'scrollHeight', {
+        value: window.innerHeight + 100,
+        configurable: true,
+      });
+
+      render(
+        <Overlay scrollLock>
+          <Overlay.Trigger>Trigger</Overlay.Trigger>
+          <Overlay.Content>Content</Overlay.Content>
+        </Overlay>
+      );
+
+      const trigger = screen.getByText('Trigger');
+
+      await act(async () => {
+        fireEvent.mouseEnter(trigger);
+      });
+
+      expect(document.documentElement.style.overflow).toBe('hidden');
+      expect(document.body.style.overflow).toBe('scroll');
+
+      await act(async () => {
+        fireEvent.mouseLeave(trigger);
+      });
+
+      expect(document.documentElement.style.overflow).toBe('');
+      expect(document.body.style.overflow).toBe('');
+    });
+
+    it('should lock scrolling and not modify body overflow when page has no scrollbar', async () => {
+      Object.defineProperty(document.documentElement, 'scrollHeight', {
+        value: window.innerHeight,
+        configurable: true,
+      });
+
+      render(
+        <Overlay scrollLock>
+          <Overlay.Trigger>Trigger</Overlay.Trigger>
+          <Overlay.Content>Content</Overlay.Content>
+        </Overlay>
+      );
+
+      const trigger = screen.getByText('Trigger');
+
+      await act(async () => {
+        fireEvent.mouseEnter(trigger);
+      });
+
+      expect(document.documentElement.style.overflow).toBe('hidden');
+      expect(document.body.style.overflow).toBe('');
+
+      await act(async () => {
+        fireEvent.mouseLeave(trigger);
+      });
+
+      expect(document.documentElement.style.overflow).toBe('');
+      expect(document.body.style.overflow).toBe('');
+    });
   });
 });
