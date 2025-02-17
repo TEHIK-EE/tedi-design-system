@@ -32,6 +32,7 @@ export * from './components/hash-trigger/hash-trigger';
 export * from './components/scroll-fade/scroll-fade';
 export * from './components/affix/affix';
 export * from './components/tooltip/tooltip';
+export * from './components/popover/popover';
 
 export * from './helpers';
 

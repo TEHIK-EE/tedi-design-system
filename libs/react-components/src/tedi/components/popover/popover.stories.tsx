@@ -18,7 +18,7 @@ const meta: Meta<PopoverProps> = {
     'Popover.Trigger': Popover.Trigger,
     'Popover.Content': Popover.Content,
   } as never,
-  title: 'TEDI-Ready/Components/Helpers/Popover',
+  title: 'TEDI-Ready/Components/Overlay/Popover',
   parameters: {
     docs: {
       source: {
