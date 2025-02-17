@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-react-v11.1.0-rc.11](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.1.0-rc.10...react-11.1.0-rc.11) (2025-02-17)
+
+
+### Bug Fixes
+
+* **text-field,number-field,tag,status-badge,icon,skeleton:** Update dimensional and color variables [#488](https://github.com/TEHIK-EE/tedi-design-system/issues/488) ([#492](https://github.com/TEHIK-EE/tedi-design-system/issues/492)) ([d83946b](https://github.com/TEHIK-EE/tedi-design-system/commit/d83946bf4e204f177ace23923a7b4c95af219248))
+
 # [@tehik-ee/tedi-react-v11.1.0-rc.10](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.1.0-rc.9...react-11.1.0-rc.10) (2025-02-17)
 
 
