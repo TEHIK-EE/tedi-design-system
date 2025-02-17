@@ -1,13 +1,10 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
-import { ComponentProps, useState } from 'react';
+import { useState } from 'react';
 
-import { Card, CardContent } from '../../../community/components/card';
 import Toggle from '../../../community/components/form/toggle/toggle';
 import Button from '../buttons/button/button';
 import { Col, Row } from '../grid';
 import { Icon } from '../icon/icon';
-import Link from '../navigation/link/link';
-import { Heading } from '../typography/heading/heading';
 import Tooltip, { TooltipProps } from './tooltip';
 
 /**
@@ -15,11 +12,10 @@ import Tooltip, { TooltipProps } from './tooltip';
  * <a href="https://tedi.tehik.ee/1ee8444b7/p/035e20-tooltip" target="_BLANK">Zeroheight ↗</a>
  */
 
-const meta: Meta<TemplateProps> = {
+const meta: Meta<TooltipProps> = {
   component: Tooltip,
-  title: 'TEDI-Ready/Components/Helpers/Tooltip',
+  title: 'TEDI-Ready/Components/Overlay/Tooltip',
   subcomponents: {
-    'Tooltip.Provider': Tooltip.Provider,
     'Tooltip.Trigger': Tooltip.Trigger,
     'Tooltip.Content': Tooltip.Content,
   } as never,
@@ -27,10 +23,7 @@ const meta: Meta<TemplateProps> = {
     docs: {
       source: {
         transform: (code: string) => {
-          return code
-            .replaceAll('TooltipProvider', 'Tooltip.Provider')
-            .replaceAll('TooltipContent', 'Tooltip.Content')
-            .replaceAll('TooltipTrigger', 'Tooltip.Trigger');
+          return code.replaceAll('TooltipContent', 'Tooltip.Content').replaceAll('TooltipTrigger', 'Tooltip.Trigger');
         },
       },
     },
@@ -38,113 +31,245 @@ const meta: Meta<TemplateProps> = {
 };
 
 export default meta;
-type Story = StoryObj<TemplateProps>;
+type Story = StoryObj<TooltipProps>;
 
-interface TemplateProps extends TooltipProps {
-  trigger?: JSX.Element;
-  contentProps?: Partial<ComponentProps<typeof Tooltip.Content>>;
-}
-
-const Template: StoryFn<TemplateProps> = (args) => {
-  const { trigger, contentProps, ...rest } = args;
+const Template: StoryFn<TooltipProps> = (args) => {
   return (
-    <Tooltip {...rest}>
-      <Tooltip.Trigger>{trigger || 'Tooltip Trigger Can Be Text'}</Tooltip.Trigger>
-      <Tooltip.Content {...contentProps}>{contentProps?.children || 'Tooltip Content'}</Tooltip.Content>
+    <Tooltip {...args}>
+      <Tooltip.Trigger>
+        <Icon name="info" display="inline" />
+      </Tooltip.Trigger>
+      <Tooltip.Content>Tooltip Content</Tooltip.Content>
     </Tooltip>
   );
 };
 
-const ControlledTemplate: StoryFn<TemplateProps> = (args) => {
-  const { trigger, contentProps, open, ...rest } = args;
+const PositionTemplate: StoryFn<TooltipProps> = (args) => {
+  return (
+    <Row gap={3}>
+      <Col xs={3}>
+        <Tooltip {...args} placement="top-start">
+          <Tooltip.Trigger>Top start</Tooltip.Trigger>
+          <Tooltip.Content>
+            The polar bear (Ursus maritimus) is a large bear native to the Arctic and nearby areas.
+          </Tooltip.Content>
+        </Tooltip>
+      </Col>
+      <Col xs={3}>
+        <Tooltip {...args} placement="top">
+          <Tooltip.Trigger>Top center</Tooltip.Trigger>
+          <Tooltip.Content>
+            The polar bear (Ursus maritimus) is a large bear native to the Arctic and nearby areas.
+          </Tooltip.Content>
+        </Tooltip>
+      </Col>
+      <Col xs={3}>
+        <Tooltip {...args} placement="top-end">
+          <Tooltip.Trigger>Top end</Tooltip.Trigger>
+          <Tooltip.Content>
+            The polar bear (Ursus maritimus) is a large bear native to the Arctic and nearby areas.
+          </Tooltip.Content>
+        </Tooltip>
+      </Col>
+      <Col xs={3}>
+        <Tooltip {...args} placement="bottom-start">
+          <Tooltip.Trigger>Bottom start</Tooltip.Trigger>
+          <Tooltip.Content>
+            The polar bear (Ursus maritimus) is a large bear native to the Arctic and nearby areas.
+          </Tooltip.Content>
+        </Tooltip>
+      </Col>
+      <Col xs={3}>
+        <Tooltip {...args} placement="bottom">
+          <Tooltip.Trigger>Bottom center</Tooltip.Trigger>
+          <Tooltip.Content>
+            The polar bear (Ursus maritimus) is a large bear native to the Arctic and nearby areas.
+          </Tooltip.Content>
+        </Tooltip>
+      </Col>
+      <Col xs={3}>
+        <Tooltip {...args} placement="bottom-end">
+          <Tooltip.Trigger>Bottom end</Tooltip.Trigger>
+          <Tooltip.Content>
+            The polar bear (Ursus maritimus) is a large bear native to the Arctic and nearby areas.
+          </Tooltip.Content>
+        </Tooltip>
+      </Col>
+      <Col xs={3}>
+        <Tooltip {...args} placement="left-start">
+          <Tooltip.Trigger>Left start</Tooltip.Trigger>
+          <Tooltip.Content>
+            The polar bear (Ursus maritimus) is a large bear native to the Arctic and nearby areas.
+          </Tooltip.Content>
+        </Tooltip>
+      </Col>
+      <Col xs={3}>
+        <Tooltip {...args} placement="left">
+          <Tooltip.Trigger>Left center</Tooltip.Trigger>
+          <Tooltip.Content>
+            The polar bear (Ursus maritimus) is a large bear native to the Arctic and nearby areas.
+          </Tooltip.Content>
+        </Tooltip>
+      </Col>
+      <Col xs={3}>
+        <Tooltip {...args} placement="left-end">
+          <Tooltip.Trigger>Left end</Tooltip.Trigger>
+          <Tooltip.Content>
+            The polar bear (Ursus maritimus) is a large bear native to the Arctic and nearby areas.
+          </Tooltip.Content>
+        </Tooltip>
+      </Col>
+      <Col xs={3}>
+        <Tooltip {...args} placement="right-start">
+          <Tooltip.Trigger>Right start</Tooltip.Trigger>
+          <Tooltip.Content>
+            The polar bear (Ursus maritimus) is a large bear native to the Arctic and nearby areas.
+          </Tooltip.Content>
+        </Tooltip>
+      </Col>
+      <Col xs={3}>
+        <Tooltip {...args} placement="right">
+          <Tooltip.Trigger>Right center</Tooltip.Trigger>
+          <Tooltip.Content>
+            The polar bear (Ursus maritimus) is a large bear native to the Arctic and nearby areas.
+          </Tooltip.Content>
+        </Tooltip>
+      </Col>
+      <Col xs={3}>
+        <Tooltip {...args} placement="right-end">
+          <Tooltip.Trigger>Right end</Tooltip.Trigger>
+          <Tooltip.Content>
+            The polar bear (Ursus maritimus) is a large bear native to the Arctic and nearby areas.
+          </Tooltip.Content>
+        </Tooltip>
+      </Col>
+    </Row>
+  );
+};
+
+const WidthTemplate: StoryFn<TooltipProps> = (args) => {
+  return (
+    <Row gap={3}>
+      <Col>
+        <Tooltip {...args}>
+          <Tooltip.Trigger>
+            <p>Tooltip with no width limit</p>
+          </Tooltip.Trigger>
+          <Tooltip.Content maxWidth="none">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque commodi consectetur cupiditate dolorum ex
+            facere harum id, impedit in maxime minus provident, ratione rem rerum sint unde veritatis voluptatibus
+            voluptatum!
+          </Tooltip.Content>
+        </Tooltip>
+      </Col>
+      <Col>
+        <Tooltip {...args}>
+          <Tooltip.Trigger>
+            <p>Small tooltip width</p>
+          </Tooltip.Trigger>
+          <Tooltip.Content maxWidth="small">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque commodi consectetur cupiditate dolorum ex
+            facere harum id, impedit in maxime minus provident, ratione rem rerum sint unde veritatis voluptatibus
+            voluptatum!
+          </Tooltip.Content>
+        </Tooltip>
+      </Col>
+      <Col>
+        <Tooltip {...args}>
+          <Tooltip.Trigger>
+            <p>Medium tooltip width</p>
+          </Tooltip.Trigger>
+          <Tooltip.Content>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque commodi consectetur cupiditate dolorum ex
+            facere harum id, impedit in maxime minus provident, ratione rem rerum sint unde veritatis voluptatibus
+            voluptatum!
+          </Tooltip.Content>
+        </Tooltip>
+      </Col>
+      <Col>
+        <Tooltip {...args}>
+          <Tooltip.Trigger>
+            <p>Large tooltip width</p>
+          </Tooltip.Trigger>
+          <Tooltip.Content maxWidth="large">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque commodi consectetur cupiditate dolorum ex
+            facere harum id, impedit in maxime minus provident, ratione rem rerum sint unde veritatis voluptatibus
+            voluptatum!
+          </Tooltip.Content>
+        </Tooltip>
+      </Col>
+    </Row>
+  );
+};
+
+const TriggerTemplate: StoryFn<TooltipProps> = (args) => {
+  return (
+    <Row gap={3}>
+      <Col>
+        <Tooltip {...args}>
+          <Tooltip.Trigger>
+            <Icon name="info" display="inline" />
+          </Tooltip.Trigger>
+          <Tooltip.Content>This tooltip trigger is Info icon.</Tooltip.Content>
+        </Tooltip>
+      </Col>
+      <Col>
+        <Tooltip {...args}>
+          <Tooltip.Trigger>
+            <Button icon="search">Search</Button>
+          </Tooltip.Trigger>
+          <Tooltip.Content>This tooltip trigger is button with icon.</Tooltip.Content>
+        </Tooltip>
+      </Col>
+      <Col>
+        <Tooltip {...args}>
+          <Tooltip.Trigger>
+            <Toggle ariaLabel="Some toggle" label="Some toggle" />
+          </Tooltip.Trigger>
+          <Tooltip.Content>This tooltip trigger is toggle.</Tooltip.Content>
+        </Tooltip>
+      </Col>
+      <Col>
+        <Tooltip {...args}>
+          <Tooltip.Trigger>Tooltip trigger can...</Tooltip.Trigger>
+          <Tooltip.Content>Tooltip trigger can be even text.</Tooltip.Content>
+        </Tooltip>
+      </Col>
+    </Row>
+  );
+};
+
+const ControlledTemplate: StoryFn<TooltipProps> = (args) => {
+  const { open, ...rest } = args;
   const [innerOpen, setInnerOpen] = useState(open);
 
   return (
     <Tooltip {...rest} open={innerOpen} onToggle={setInnerOpen}>
-      <Tooltip.Trigger>{trigger || 'Tooltip Trigger Can Be Text'}</Tooltip.Trigger>
-      <Tooltip.Content {...contentProps}>{contentProps?.children || 'Tooltip Content'}</Tooltip.Content>
+      <Tooltip.Trigger>
+        <Icon name="info" display="inline" />
+      </Tooltip.Trigger>
+      <Tooltip.Content>TooltipContent</Tooltip.Content>
     </Tooltip>
-  );
-};
-
-const WidthTemplate: StoryFn<TemplateProps> = (args) => {
-  return (
-    <Row justifyContent="center" gap={5}>
-      <Col width="auto">
-        <Tooltip>
-          <Tooltip.Trigger>
-            <p>Tooltip with no width limit</p>
-          </Tooltip.Trigger>
-          <Tooltip.Content maxWidth="none">{args.contentProps?.children || 'Tooltip Content'}</Tooltip.Content>
-        </Tooltip>
-      </Col>
-
-      <Col width="auto">
-        <Tooltip>
-          <Tooltip.Trigger>
-            <p>Small tooltip width</p>
-          </Tooltip.Trigger>
-          <Tooltip.Content maxWidth="small">{args.contentProps?.children || 'Tooltip Content'}</Tooltip.Content>
-        </Tooltip>
-      </Col>
-
-      <Col width="auto">
-        <Tooltip>
-          <Tooltip.Trigger>
-            <p>Medium tooltip width</p>
-          </Tooltip.Trigger>
-          <Tooltip.Content>{args.contentProps?.children || 'Tooltip Content'}</Tooltip.Content>
-        </Tooltip>
-      </Col>
-
-      <Col width="auto">
-        <Tooltip>
-          <Tooltip.Trigger>
-            <p>Large tooltip width</p>
-          </Tooltip.Trigger>
-          <Tooltip.Content maxWidth="large">{args.contentProps?.children || 'Tooltip Content'}</Tooltip.Content>
-        </Tooltip>
-      </Col>
-    </Row>
-  );
-};
-
-const PositionTemplate: StoryFn<TemplateProps> = (args) => {
-  return (
-    <Row justifyContent="center" gap={5}>
-      <Col width="auto">
-        <Tooltip placement="top">
-          <Tooltip.Trigger>Tooltip top</Tooltip.Trigger>
-          <Tooltip.Content>{args.contentProps?.children || 'Tooltip Content'}</Tooltip.Content>
-        </Tooltip>
-      </Col>
-
-      <Col width="auto">
-        <Tooltip>
-          <Tooltip.Trigger>Tooltip bottom</Tooltip.Trigger>
-          <Tooltip.Content>{args.contentProps?.children || 'Tooltip Content'}</Tooltip.Content>
-        </Tooltip>
-      </Col>
-
-      <Col width="auto">
-        <Tooltip placement="left">
-          <Tooltip.Trigger>Tooltip left</Tooltip.Trigger>
-          <Tooltip.Content>{args.contentProps?.children || 'Tooltip Content'}</Tooltip.Content>
-        </Tooltip>
-      </Col>
-
-      <Col width="auto">
-        <Tooltip placement="right">
-          <Tooltip.Trigger>Tooltip right</Tooltip.Trigger>
-          <Tooltip.Content>{args.contentProps?.children || 'Tooltip Content'}</Tooltip.Content>
-        </Tooltip>
-      </Col>
-    </Row>
   );
 };
 
 export const Default: Story = {
   render: Template,
+  args: {},
+};
+
+export const ArrowPosition: Story = {
+  render: PositionTemplate,
+  args: {},
+};
+
+export const TooltipWidth: Story = {
+  render: WidthTemplate,
+  args: {},
+};
+
+export const Triggers: Story = {
+  render: TriggerTemplate,
   args: {},
 };
 
@@ -166,75 +291,5 @@ export const ControlledOpen: Story = {
   render: ControlledTemplate,
   args: {
     open: true,
-  },
-};
-
-export const TriggerIcon: Story = {
-  render: Template,
-  args: {
-    trigger: <Icon name="info" display="inline" />,
-  },
-};
-
-export const TriggerButton: Story = {
-  render: Template,
-  args: {
-    trigger: <Button onClick={() => console.log('onClick action triggered')}>Hover me</Button>,
-  },
-};
-
-export const TriggerAnchor: Story = {
-  render: Template,
-  args: {
-    trigger: <Link onClick={() => console.log('onClick action triggered')}>Hover me</Link>,
-  },
-};
-
-export const TriggerToggle: Story = {
-  render: Template,
-  args: {
-    trigger: <Toggle ariaLabel="Some toggle" label="Some toggle" />,
-  },
-};
-
-export const TriggerCardCustomContent: Story = {
-  render: Template,
-  args: {
-    trigger: (
-      <Card>
-        <CardContent>
-          Whole card <br /> can trigger tooltip
-        </CardContent>
-      </Card>
-    ),
-    contentProps: {
-      maxWidth: 'none',
-      children: (
-        <div className="display-flex gap-2">
-          <Icon name="person" size={36} />
-          <Heading element="h4">You can add any content to Tooltip!</Heading>
-        </div>
-      ),
-    },
-  },
-};
-
-export const TooltipWidth: Story = {
-  render: WidthTemplate,
-  args: {
-    contentProps: {
-      children: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque commodi consectetur cupiditate dolorum ex
-          facere harum id, impedit in maxime minus provident, ratione rem rerum sint unde veritatis voluptatibus
-          voluptatum!`,
-    },
-  },
-};
-
-export const TooltipPosition: Story = {
-  render: PositionTemplate,
-  args: {
-    contentProps: {
-      children: 'Tooltip content',
-    },
   },
 };
