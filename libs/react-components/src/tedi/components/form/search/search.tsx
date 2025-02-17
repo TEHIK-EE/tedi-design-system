@@ -2,7 +2,7 @@ import cn from 'classnames';
 import React, { forwardRef } from 'react';
 
 import { Button, ButtonProps } from '../../buttons/button/button';
-import { IconProps } from '../../icon/icon';
+import { IconWithoutBackgroundProps } from '../../icon/icon';
 import { TextField, TextFieldForwardRef, TextFieldProps } from '../textfield/textfield';
 import styles from './search.module.scss';
 
@@ -14,7 +14,7 @@ export interface SearchProps extends Omit<TextFieldProps, 'isTextArea' | 'icon' 
   /**
    * Custom icon for the search input.
    */
-  searchIcon?: string | IconProps;
+  searchIcon?: string | IconWithoutBackgroundProps;
   /**
    * Optional button properties.
    */
