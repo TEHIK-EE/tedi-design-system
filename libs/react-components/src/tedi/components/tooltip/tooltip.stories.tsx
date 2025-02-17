@@ -14,7 +14,7 @@ import Tooltip, { TooltipProps } from './tooltip';
 
 const meta: Meta<TooltipProps> = {
   component: Tooltip,
-  title: 'TEDI-Ready/Components/Helpers/Tooltip',
+  title: 'TEDI-Ready/Components/Overlay/Tooltip',
   subcomponents: {
     'Tooltip.Trigger': Tooltip.Trigger,
     'Tooltip.Content': Tooltip.Content,
