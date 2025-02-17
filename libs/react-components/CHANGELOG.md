@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-react-v11.1.0-rc.9](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.1.0-rc.8...react-11.1.0-rc.9) (2025-02-17)
+
+
+### Bug Fixes
+
+* **file-upload:** allow re-uploading deleted files [#468](https://github.com/TEHIK-EE/tedi-design-system/issues/468) ([#469](https://github.com/TEHIK-EE/tedi-design-system/issues/469)) ([bec033f](https://github.com/TEHIK-EE/tedi-design-system/commit/bec033f043138cbd95da4a49fc5e436909c9ce63))
+
 # [@tehik-ee/tedi-react-v11.1.0-rc.8](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.1.0-rc.7...react-11.1.0-rc.8) (2025-02-13)
 
 
