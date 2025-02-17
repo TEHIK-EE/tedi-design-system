@@ -3,8 +3,8 @@ import { useState } from 'react';
 
 import Toggle from '../../../community/components/form/toggle/toggle';
 import Button from '../buttons/button/button';
+import InfoButton from '../buttons/info-button/info-button';
 import { Col, Row } from '../grid';
-import { Icon } from '../icon/icon';
 import Tooltip, { TooltipProps } from './tooltip';
 
 /**
@@ -37,7 +37,7 @@ const Template: StoryFn<TooltipProps> = (args) => {
   return (
     <Tooltip {...args}>
       <Tooltip.Trigger>
-        <Icon name="info" display="inline" />
+        <InfoButton>Info</InfoButton>
       </Tooltip.Trigger>
       <Tooltip.Content>Tooltip Content</Tooltip.Content>
     </Tooltip>
@@ -208,7 +208,7 @@ const TriggerTemplate: StoryFn<TooltipProps> = (args) => {
       <Col>
         <Tooltip {...args}>
           <Tooltip.Trigger>
-            <Icon name="info" display="inline" />
+            <InfoButton>Info</InfoButton>
           </Tooltip.Trigger>
           <Tooltip.Content>This tooltip trigger is Info icon.</Tooltip.Content>
         </Tooltip>
@@ -246,7 +246,7 @@ const ControlledTemplate: StoryFn<TooltipProps> = (args) => {
   return (
     <Tooltip {...rest} open={innerOpen} onToggle={setInnerOpen}>
       <Tooltip.Trigger>
-        <Icon name="info" display="inline" />
+        <InfoButton>Info</InfoButton>
       </Tooltip.Trigger>
       <Tooltip.Content>TooltipContent</Tooltip.Content>
     </Tooltip>
