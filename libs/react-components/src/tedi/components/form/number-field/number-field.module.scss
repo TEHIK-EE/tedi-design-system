@@ -23,8 +23,8 @@ $border-width: 1px;
 
     &__disabled,
     &:disabled {
-      background-color: var(--form-input-background-default);
-      border: $border-width solid var(--form-input-border-default);
+      background-color: var(--form-input-background-disabled);
+      border: $border-width solid var(--form-input-border-disabled);
       opacity: 0.5;
     }
 
@@ -75,13 +75,17 @@ $border-width: 1px;
     .tedi-number-field__button,
     .tedi-number-field__button:disabled,
     .tedi-number-field__input-wrapper {
-      background-color: var(--form-input-background-default);
-      border-color: var(--form-input-border-default);
+      background-color: var(--form-input-background-disabled);
+      border-color: var(--form-input-border-disabled);
     }
 
     .tedi-number-field__input-wrapper {
-      background-color: var(--form-input-background-default);
+      background-color: var(--form-input-background-disabled);
       opacity: 0.5;
+
+      .tedi-number-field__input {
+        background-color: var(--form-input-background-disabled);
+      }
     }
   }
 
