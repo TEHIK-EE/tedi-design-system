@@ -26,7 +26,7 @@
     "test": "jest --config ./jest.config.ts --passWithNoTests",
     "test:coverage": "jest --config ./jest.config.ts --coverage",
     "release": "npx semantic-release -e semantic-release-monorepo --debug",
-    "chromatic": "npx chromatic --project-token=$CHROMATIC_TOKEN --build-script-name=build:sb"
+    "chromatic": "npx chromatic --project-token=$CHROMATIC_PROJECT_TOKEN --build-script-name=build:sb"
   },
   "dependencies": {
     "@emotion/react": "^11.11.4",
