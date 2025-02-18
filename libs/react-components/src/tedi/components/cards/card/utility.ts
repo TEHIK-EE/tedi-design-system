@@ -1,8 +1,8 @@
 import { CardProps } from './card';
 import { CardContentProps } from './card-content/card-content';
 
-export type CardBorderPlacement = 'top' | 'left' | undefined;
-export type CardBorderType = 'border-default' | `${CardBorderPlacement}-${CardBackground}` | CardBackground;
+export type CardBorderPlacement = 'top' | 'left';
+export type CardBorderType = `${CardBorderPlacement}-${CardBackground}` | CardBackground;
 export type CardContentPaddingNumber = 0 | 0.5 | 0.75 | 1 | 1.5 | 2 | 2.5 | 3;
 export type CardBackground =
   | 'primary'
@@ -32,14 +32,8 @@ export type CardBorderTypeArray = [CardBorderPlacement, CardBackground];
  * @returns A tuple [placement, color] or an empty array if border is undefined.
  */
 export const getCardBorderPlacementColor = (border?: CardProps['border']): CardBorderTypeArray | [] => {
-  if (!border) return [];
-
-  if (!border.includes('-')) {
-    return [undefined, border as CardBackground];
-  }
-
-  const borderColor = border.replace(/(top-)|(left-)/, '') as CardBackground;
-  const borderPlacement = border.replace(new RegExp(`(${borderColor})|-`, 'g'), '') as CardBorderPlacement;
+  const borderColor = border?.replace(/(top-)|(left-)/s, '') as CardBackground;
+  const borderPlacement = border?.replace(new RegExp(`(${borderColor})|-`, 'g'), '') as CardBorderPlacement;
 
   return [borderPlacement, borderColor];
 };
