@@ -81,7 +81,7 @@ const GeneralTemplate: StoryFn<CardStory> = (args) => {
         <Col>
           <StretchContent>
             <Card borderless={true}>
-              <CardContent background="secondary">right</CardContent>
+              <CardContent background="secondary">Right</CardContent>
             </Card>
           </StretchContent>
         </Col>
@@ -266,7 +266,7 @@ export const TimelineCard: StoryObj<CardProps> = {
   args: {},
 };
 
-const TwoToned: StoryFn<CardProps> = (args) => (
+const TwoToned: StoryFn<CardProps> = () => (
   <Row gutter={0}>
     <Col width="auto">
       <StretchContent>
