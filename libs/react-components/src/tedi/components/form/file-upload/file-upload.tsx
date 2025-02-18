@@ -15,20 +15,79 @@ import { FeedbackText, FeedbackTextProps } from '../feedback-text/feedback-text'
 import styles from './file-upload.module.scss';
 
 export interface FileUploadProps extends FormLabelProps {
+  /**
+   * Additional class names for styling the component.
+   */
   className?: string;
+
+  /**
+   * The name of the file input field, used for form submission and accessibility.
+   */
   name: string;
+
+  /**
+   * A helper text or error message to display below the file upload field.
+   */
   helper?: FeedbackTextProps;
+
+  /**
+   * Specifies the allowed file types (e.g., "image/png, image/jpeg").
+   */
   accept?: string;
+
+  /**
+   * Allows multiple file selection if `true`. Defaults to `false`.
+   */
   multiple?: boolean;
+
+  /**
+   * Callback function triggered when files are added or changed.
+   */
   onChange?: (files: FileUploadFile[]) => void;
+
+  /**
+   * An array of preloaded files that appear in the upload field by default.
+   */
   defaultFiles?: FileUploadFile[];
+
+  /**
+   * Callback function triggered when a file is removed.
+   */
   onDelete?: (file: FileUploadFile) => void;
+
+  /**
+   * Determines whether a "Clear" button is shown to remove all files.
+   */
   hasClearButton?: boolean;
+
+  /**
+   * A controlled list of uploaded files. If provided, `onChange` should be used to update them.
+   */
   files?: FileUploadFile[];
+
+  /**
+   * If `true`, prevents file selection and removal, making the field read-only.
+   */
   readOnly?: boolean;
+
+  /**
+   * Disables the file upload field, preventing interactions.
+   */
   disabled?: boolean;
+
+  /**
+   * Maximum allowed file size in bytes.
+   */
   maxSize?: number;
+
+  /**
+   * If `true`, validates each file separately instead of rejecting all at once.
+   */
   validateIndividually?: boolean;
+
+  /**
+   * Determines the visual size of the file upload field. Defaults to `"default"`.
+   */
   size?: 'small' | 'default';
 }
 

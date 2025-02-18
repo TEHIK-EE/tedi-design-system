@@ -3,6 +3,7 @@ import React from 'react';
 import { useDropzone } from 'react-dropzone';
 
 import { FileUploadFile, useFileUpload, UseFileUploadProps } from '../../../helpers/hooks/use-file-upload';
+import { useLabels } from '../../../providers/label-provider';
 import ClosingButton from '../../buttons/closing-button/closing-button';
 import { Card, CardContent } from '../../cards/card';
 import { Col, Row } from '../../grid';
@@ -36,7 +37,8 @@ export interface FileDropzoneProps extends Omit<FormLabelProps, 'size' | 'hideLa
 }
 
 export const FileDropzone = (props: FileDropzoneProps): JSX.Element => {
-  const { label = 'Drop files here, or click to browse', className, disabled = false, helper, id } = props;
+  const { getLabel } = useLabels();
+  const { label = getLabel('file-dropzone.label'), className, disabled = false, helper, id } = props;
   const { innerFiles, uploadErrorHelper, onFileChange, onFileRemove } = useFileUpload(props);
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
