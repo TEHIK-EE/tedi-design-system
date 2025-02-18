@@ -1,0 +1,93 @@
+@use '@tehik-ee/tedi-core/mixins';
+
+:root {
+  --file-dropzone-padding-x-desktop: var(--dimensions-13);
+  --file-dropzone-padding-x-tablet: var(--dimensions-13);
+  --file-dropzone-padding-x-mobile: var(--dimensions-13);
+  --file-dropzone-padding-y-desktop: var(--dimensions-13);
+  --file-dropzone-padding-y-tablet: var(--dimensions-13);
+  --file-dropzone-padding-y-mobile: var(--dimensions-13);
+  --file-dropzone-background-default: var(--form-input-background-default);
+  --file-dropzone-background-disabled: var(--form-general-background-disabled);
+  --file-dropzone-background-drop-over: var(--general-surface-brand-quaternary);
+  --file-dropzone-border-active: var(--general-surface-active);
+  --file-dropzone-border-default: var(--form-input-border-default);
+  --file-dropzone-border-disabled: var(--form-general-border-disabled);
+  --file-dropzone-border-drop-over: var(--form-input-border-active);
+  --file-dropzone-border-focus: var(--form-input-border-focus);
+  --file-dropzone-border-hover: var(--form-input-border-hover);
+  --file-dropzone-text-default: var(--general-text-brand);
+  --file-dropzone-text-drop-over: var(--general-text-tertiary);
+}
+
+.tedi-file-dropzone {
+  text-align: center;
+  cursor: pointer;
+  background-color: var(--file-dropzone-background-default);
+  border: 2px dotted var(--file-dropzone-border-default);
+  transition: border-color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+
+  @include mixins.responsive-styles(border-radius, form-field-radius);
+  @include mixins.responsive-styles(padding-left, file-dropzone-padding-x);
+  @include mixins.responsive-styles(padding-right, file-dropzone-padding-x);
+  @include mixins.responsive-styles(padding-top, file-dropzone-padding-y);
+  @include mixins.responsive-styles(padding-bottom, file-dropzone-padding-y);
+  @include mixins.responsive-styles(margin-bottom, layout-grid-gutters-04);
+
+  &:hover {
+    border-color: var(--file-dropzone-border-hover);
+  }
+
+  &:focus-visible {
+    outline: none;
+    box-shadow: inset 0 0 0 1px var(--file-dropzone-border-hover);
+  }
+
+  &__label {
+    display: flex;
+    justify-content: center;
+    color: var(--file-dropzone-text-default);
+  }
+
+  &--disabled {
+    pointer-events: none;
+    cursor: not-allowed;
+    background-color: var(--file-dropzone-background-disabled);
+    border-color: var(--file-dropzone-border-disabled);
+
+    .tedi-file-dropzone__label {
+      color: var(--general-text-disabled);
+    }
+  }
+
+  &--invalid {
+    border-color: var(--form-general-feedback-error-border);
+  }
+
+  &--valid {
+    border-color: var(--form-general-feedback-success-border);
+  }
+
+  &--drop-over {
+    color: var(--file-dropzone-text-drop-over);
+    background-color: var(--file-dropzone-background-drop-over);
+    border-color: var(--file-dropzone-border-drop-over);
+  }
+}
+
+.tedi-file-dropzone__input {
+  display: none;
+}
+
+.tedi-file-dropzone__file-list {
+  width: 100%;
+  list-style: none;
+
+  @include mixins.responsive-styles(margin-top, layout-grid-gutters-04);
+}
+
+.tedi-file-dropzone__file-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

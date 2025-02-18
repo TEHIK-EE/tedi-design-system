@@ -137,6 +137,7 @@ export const MultipleWithIndividualValidation: Story = {
     ],
     helper: {
       text: 'Only .pdf and .txt files under 1KB are allowed.',
+      type: 'error',
     },
   },
   render: (args) => (
