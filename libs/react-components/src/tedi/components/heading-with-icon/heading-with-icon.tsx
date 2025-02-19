@@ -1,10 +1,11 @@
 import cn from 'classnames';
 
-import { Icon, IconColor, IconProps } from '../icon/icon';
+import { Icon, IconColor, IconWithoutBackgroundProps } from '../icon/icon';
 import { Heading, HeadingProps } from '../typography/heading/heading';
+import { TextColor } from '../typography/text/text';
 import styles from './heading-with-icon.module.scss';
 
-export interface HeadingWithIconProps extends Omit<HeadingProps, 'color'>, Omit<IconProps, 'color'> {
+export interface HeadingWithIconProps extends Omit<HeadingProps, 'color'>, Omit<IconWithoutBackgroundProps, 'color'> {
   /**
    * Heading text
    */
@@ -16,7 +17,7 @@ export interface HeadingWithIconProps extends Omit<HeadingProps, 'color'>, Omit<
   /**
    * Heading text color
    */
-  headingColor?: HeadingProps['color'];
+  headingColor?: TextColor;
   /**
    * Icon color
    */
@@ -43,7 +44,7 @@ export const HeadingWithIcon = (props: HeadingWithIconProps): JSX.Element => {
     ...rest,
   };
 
-  const iconProps: IconProps = { name, color: iconColor, size, ...rest };
+  const iconProps: IconWithoutBackgroundProps = { name, color: iconColor, size, ...rest };
 
   return (
     <Heading {...headingProps}>

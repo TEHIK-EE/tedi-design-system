@@ -45,6 +45,8 @@ const meta: Meta<typeof Table> = {
 export default meta;
 type Story = StoryObj<TableProps<Person>>;
 
+faker.seed(123);
+
 type Person = {
   id: string;
   firstName: string;
