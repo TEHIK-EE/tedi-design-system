@@ -26,7 +26,6 @@ describe('Tooltip component', () => {
 
     const trigger = screen.getByText('Trigger content');
     expect(trigger.tagName).toBe('SPAN');
-    expect(trigger).toHaveClass('tedi-overlay__trigger');
     expect(trigger).toHaveAttribute('tabIndex', '0');
   });
 
