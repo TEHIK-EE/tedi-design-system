@@ -1,4 +1,5 @@
 @use '@tehik-ee/tedi-core/mixins';
+@use '@tehik-ee/tedi-core/bootstrap-utility/breakpoints';
 
 $tag-colors: (
   'primary': 'tag-primary',
@@ -48,6 +49,10 @@ $tag-colors: (
       @include mixins.responsive-styles(border-top-right-radius, button-radius-sm);
       @include mixins.responsive-styles(border-bottom-right-radius, button-radius-sm);
     }
+  }
+
+  @include breakpoints.media-breakpoint-down(md) {
+    @include mixins.responsive-styles(height, button-xs-icon-size);
   }
 
   @include mixins.print-grayscale;
