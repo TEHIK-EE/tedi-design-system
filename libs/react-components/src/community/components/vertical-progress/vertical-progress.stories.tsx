@@ -44,6 +44,7 @@ export interface VerticalProgressStory {
 }
 
 type Story = StoryObj<VerticalProgressStory>;
+faker.seed(123);
 
 const Template: StoryFn<VerticalProgressStory> = ({ items, defaultActiveItem, VerticalProgressProps }) => {
   const [activeItem, setActiveItem] = React.useState<number>(defaultActiveItem ?? 0);
