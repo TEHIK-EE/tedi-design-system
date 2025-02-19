@@ -33,11 +33,6 @@ export const OverlayTrigger = (props: OverlayTriggerProps) => {
         tabIndex: 0,
         label: children.type === Icon ? getLabel('tooltip.icon-trigger') : undefined,
         ...children.props,
-        className: cn(
-          styles['tedi-overlay__trigger'],
-          { [styles['tedi-overlay__trigger--click']]: openWith === 'click' },
-          children.props.className
-        ),
       })
     );
   }

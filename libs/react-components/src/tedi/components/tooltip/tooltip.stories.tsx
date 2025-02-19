@@ -46,8 +46,8 @@ const Template: StoryFn<TooltipProps> = (args) => {
 
 const PositionTemplate: StoryFn<TooltipProps> = (args) => {
   return (
-    <Row gap={3}>
-      <Col xs={3}>
+    <Row gap={3} justifyContent="center">
+      <Col xs={12} lg={3} className="display-flex justify-content-center">
         <Tooltip {...args} placement="top-start">
           <Tooltip.Trigger>Top start</Tooltip.Trigger>
           <Tooltip.Content>
@@ -55,7 +55,7 @@ const PositionTemplate: StoryFn<TooltipProps> = (args) => {
           </Tooltip.Content>
         </Tooltip>
       </Col>
-      <Col xs={3}>
+      <Col xs={12} lg={3} className="display-flex justify-content-center">
         <Tooltip {...args} placement="top">
           <Tooltip.Trigger>Top center</Tooltip.Trigger>
           <Tooltip.Content>
@@ -63,7 +63,7 @@ const PositionTemplate: StoryFn<TooltipProps> = (args) => {
           </Tooltip.Content>
         </Tooltip>
       </Col>
-      <Col xs={3}>
+      <Col xs={12} lg={3} className="display-flex justify-content-center">
         <Tooltip {...args} placement="top-end">
           <Tooltip.Trigger>Top end</Tooltip.Trigger>
           <Tooltip.Content>
@@ -71,7 +71,7 @@ const PositionTemplate: StoryFn<TooltipProps> = (args) => {
           </Tooltip.Content>
         </Tooltip>
       </Col>
-      <Col xs={3}>
+      <Col xs={12} lg={3} className="display-flex justify-content-center">
         <Tooltip {...args} placement="bottom-start">
           <Tooltip.Trigger>Bottom start</Tooltip.Trigger>
           <Tooltip.Content>
@@ -79,7 +79,7 @@ const PositionTemplate: StoryFn<TooltipProps> = (args) => {
           </Tooltip.Content>
         </Tooltip>
       </Col>
-      <Col xs={3}>
+      <Col xs={12} lg={3} className="display-flex justify-content-center">
         <Tooltip {...args} placement="bottom">
           <Tooltip.Trigger>Bottom center</Tooltip.Trigger>
           <Tooltip.Content>
@@ -87,7 +87,7 @@ const PositionTemplate: StoryFn<TooltipProps> = (args) => {
           </Tooltip.Content>
         </Tooltip>
       </Col>
-      <Col xs={3}>
+      <Col xs={12} lg={3} className="display-flex justify-content-center">
         <Tooltip {...args} placement="bottom-end">
           <Tooltip.Trigger>Bottom end</Tooltip.Trigger>
           <Tooltip.Content>
@@ -95,7 +95,7 @@ const PositionTemplate: StoryFn<TooltipProps> = (args) => {
           </Tooltip.Content>
         </Tooltip>
       </Col>
-      <Col xs={3}>
+      <Col xs={12} lg={3} className="display-flex justify-content-center">
         <Tooltip {...args} placement="left-start">
           <Tooltip.Trigger>Left start</Tooltip.Trigger>
           <Tooltip.Content>
@@ -103,7 +103,7 @@ const PositionTemplate: StoryFn<TooltipProps> = (args) => {
           </Tooltip.Content>
         </Tooltip>
       </Col>
-      <Col xs={3}>
+      <Col xs={12} lg={3} className="display-flex justify-content-center">
         <Tooltip {...args} placement="left">
           <Tooltip.Trigger>Left center</Tooltip.Trigger>
           <Tooltip.Content>
@@ -111,7 +111,7 @@ const PositionTemplate: StoryFn<TooltipProps> = (args) => {
           </Tooltip.Content>
         </Tooltip>
       </Col>
-      <Col xs={3}>
+      <Col xs={12} lg={3} className="display-flex justify-content-center">
         <Tooltip {...args} placement="left-end">
           <Tooltip.Trigger>Left end</Tooltip.Trigger>
           <Tooltip.Content>
@@ -119,7 +119,7 @@ const PositionTemplate: StoryFn<TooltipProps> = (args) => {
           </Tooltip.Content>
         </Tooltip>
       </Col>
-      <Col xs={3}>
+      <Col xs={12} lg={3} className="display-flex justify-content-center">
         <Tooltip {...args} placement="right-start">
           <Tooltip.Trigger>Right start</Tooltip.Trigger>
           <Tooltip.Content>
@@ -127,7 +127,7 @@ const PositionTemplate: StoryFn<TooltipProps> = (args) => {
           </Tooltip.Content>
         </Tooltip>
       </Col>
-      <Col xs={3}>
+      <Col xs={12} lg={3} className="display-flex justify-content-center">
         <Tooltip {...args} placement="right">
           <Tooltip.Trigger>Right center</Tooltip.Trigger>
           <Tooltip.Content>
@@ -135,7 +135,7 @@ const PositionTemplate: StoryFn<TooltipProps> = (args) => {
           </Tooltip.Content>
         </Tooltip>
       </Col>
-      <Col xs={3}>
+      <Col xs={12} lg={3} className="display-flex justify-content-center">
         <Tooltip {...args} placement="right-end">
           <Tooltip.Trigger>Right end</Tooltip.Trigger>
           <Tooltip.Content>
@@ -152,9 +152,7 @@ const WidthTemplate: StoryFn<TooltipProps> = (args) => {
     <Row gap={3}>
       <Col>
         <Tooltip {...args}>
-          <Tooltip.Trigger>
-            <p>Tooltip with no width limit</p>
-          </Tooltip.Trigger>
+          <Tooltip.Trigger>Tooltip with no width limit</Tooltip.Trigger>
           <Tooltip.Content maxWidth="none">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque commodi consectetur cupiditate dolorum ex
             facere harum id, impedit in maxime minus provident, ratione rem rerum sint unde veritatis voluptatibus
@@ -164,9 +162,7 @@ const WidthTemplate: StoryFn<TooltipProps> = (args) => {
       </Col>
       <Col>
         <Tooltip {...args}>
-          <Tooltip.Trigger>
-            <p>Small tooltip width</p>
-          </Tooltip.Trigger>
+          <Tooltip.Trigger>Small tooltip width</Tooltip.Trigger>
           <Tooltip.Content maxWidth="small">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque commodi consectetur cupiditate dolorum ex
             facere harum id, impedit in maxime minus provident, ratione rem rerum sint unde veritatis voluptatibus
@@ -176,9 +172,7 @@ const WidthTemplate: StoryFn<TooltipProps> = (args) => {
       </Col>
       <Col>
         <Tooltip {...args}>
-          <Tooltip.Trigger>
-            <p>Medium tooltip width</p>
-          </Tooltip.Trigger>
+          <Tooltip.Trigger>Medium tooltip width</Tooltip.Trigger>
           <Tooltip.Content>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque commodi consectetur cupiditate dolorum ex
             facere harum id, impedit in maxime minus provident, ratione rem rerum sint unde veritatis voluptatibus
@@ -188,9 +182,7 @@ const WidthTemplate: StoryFn<TooltipProps> = (args) => {
       </Col>
       <Col>
         <Tooltip {...args}>
-          <Tooltip.Trigger>
-            <p>Large tooltip width</p>
-          </Tooltip.Trigger>
+          <Tooltip.Trigger>Large tooltip width</Tooltip.Trigger>
           <Tooltip.Content maxWidth="large">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque commodi consectetur cupiditate dolorum ex
             facere harum id, impedit in maxime minus provident, ratione rem rerum sint unde veritatis voluptatibus
