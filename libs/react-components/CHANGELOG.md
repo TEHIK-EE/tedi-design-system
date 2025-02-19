@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-react-v11.1.0-rc.12](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.1.0-rc.11...react-11.1.0-rc.12) (2025-02-19)
+
+
+### Bug Fixes
+
+* **card:** Card backgrounds and border color fixes [#495](https://github.com/TEHIK-EE/tedi-design-system/issues/495) ([#496](https://github.com/TEHIK-EE/tedi-design-system/issues/496)) ([24f7d44](https://github.com/TEHIK-EE/tedi-design-system/commit/24f7d445db0e63c6c330320fbe268921fdb8eb7a))
+
 # [@tehik-ee/tedi-react-v11.1.0-rc.11](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.1.0-rc.10...react-11.1.0-rc.11) (2025-02-17)
 
 
