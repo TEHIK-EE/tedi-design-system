@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import { StoryFn } from '@storybook/react/*';
 
 import { Button } from '../../buttons/button/button';
@@ -14,7 +15,7 @@ import { CardStory } from './card.stories';
 import { Card, CardContent, CardContentPadding, CardHeader } from './index';
 import { CardBackground } from './utility';
 
-export const HeaderTypesTemplate: StoryFn<CardStory> = (args) => (
+export const HeaderTypesTemplate: StoryFn<CardStory> = () => (
   <VerticalSpacing>
     <Card>
       <CardHeader>
@@ -173,7 +174,7 @@ export const HeaderTypesTemplate: StoryFn<CardStory> = (args) => (
   </VerticalSpacing>
 );
 
-export const DefaultCardTemplates: StoryFn<CardStory> = (args) => (
+export const DefaultCardTemplates: StoryFn<CardStory> = () => (
   <VerticalSpacing>
     <Card>
       <CardContent>
@@ -267,7 +268,7 @@ export const DefaultCardTemplates: StoryFn<CardStory> = (args) => (
   </VerticalSpacing>
 );
 
-export const CardInfoTemplate: StoryFn<CardStory> = (args) => (
+export const CardInfoTemplate: StoryFn<CardStory> = () => (
   <VerticalSpacing>
     <Card>
       <CardContent background="brand-tertiary">
@@ -329,7 +330,7 @@ export const CardInfoTemplate: StoryFn<CardStory> = (args) => (
   </VerticalSpacing>
 );
 
-export const AlternativeCardsTemplate: StoryFn<CardStory> = (args) => (
+export const AlternativeCardsTemplate: StoryFn<CardStory> = () => (
   <VerticalSpacing>
     <Row>
       <Col lg={6} sm={12}>
@@ -405,7 +406,7 @@ export const AlternativeCardsTemplate: StoryFn<CardStory> = (args) => (
   </VerticalSpacing>
 );
 
-export const SpacingTemplate: StoryFn<CardStory> = (args) => {
+export const SpacingTemplate: StoryFn<CardStory> = () => {
   const paddings: CardContentPadding[] = [
     { top: 0.5, left: 0.5, right: 0.5, bottom: 0.5 },
     { top: 1, left: 1, right: 1, bottom: 1 },
@@ -430,7 +431,7 @@ export const SpacingTemplate: StoryFn<CardStory> = (args) => {
   );
 };
 
-export const BackgroundColorsTemplate: StoryFn<CardStory> = (args) => {
+export const BackgroundColorsTemplate: StoryFn<CardStory> = () => {
   const backgroundColors: CardBackground[] = [
     'primary',
     'secondary',

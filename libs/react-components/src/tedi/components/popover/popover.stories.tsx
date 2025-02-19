@@ -223,8 +223,8 @@ const TriggerTemplate: StoryFn<PopoverProps> = (args) => {
 
 const ArrowPositionTemplate: StoryFn<PopoverProps> = (args) => {
   return (
-    <Row gap={3}>
-      <Col xs={3}>
+    <Row gap={3} justifyContent="center">
+      <Col xs={12} lg={3} className="display-flex justify-content-center">
         <Popover {...args} placement="top-start">
           <Popover.Trigger>Top start</Popover.Trigger>
           <Popover.Content>
@@ -232,7 +232,7 @@ const ArrowPositionTemplate: StoryFn<PopoverProps> = (args) => {
           </Popover.Content>
         </Popover>
       </Col>
-      <Col xs={3}>
+      <Col xs={12} lg={3} className="display-flex justify-content-center">
         <Popover {...args} placement="top">
           <Popover.Trigger>Top center</Popover.Trigger>
           <Popover.Content>
@@ -240,7 +240,7 @@ const ArrowPositionTemplate: StoryFn<PopoverProps> = (args) => {
           </Popover.Content>
         </Popover>
       </Col>
-      <Col xs={3}>
+      <Col xs={12} lg={3} className="display-flex justify-content-center">
         <Popover {...args} placement="top-end">
           <Popover.Trigger>Top end</Popover.Trigger>
           <Popover.Content>
@@ -248,7 +248,7 @@ const ArrowPositionTemplate: StoryFn<PopoverProps> = (args) => {
           </Popover.Content>
         </Popover>
       </Col>
-      <Col xs={3}>
+      <Col xs={12} lg={3} className="display-flex justify-content-center">
         <Popover {...args} placement="bottom-start">
           <Popover.Trigger>Bottom start</Popover.Trigger>
           <Popover.Content>
@@ -256,7 +256,7 @@ const ArrowPositionTemplate: StoryFn<PopoverProps> = (args) => {
           </Popover.Content>
         </Popover>
       </Col>
-      <Col xs={3}>
+      <Col xs={12} lg={3} className="display-flex justify-content-center">
         <Popover {...args} placement="bottom">
           <Popover.Trigger>Bottom center</Popover.Trigger>
           <Popover.Content>
@@ -264,7 +264,7 @@ const ArrowPositionTemplate: StoryFn<PopoverProps> = (args) => {
           </Popover.Content>
         </Popover>
       </Col>
-      <Col xs={3}>
+      <Col xs={12} lg={3} className="display-flex justify-content-center">
         <Popover {...args} placement="bottom-end">
           <Popover.Trigger>Bottom end</Popover.Trigger>
           <Popover.Content>
@@ -272,7 +272,7 @@ const ArrowPositionTemplate: StoryFn<PopoverProps> = (args) => {
           </Popover.Content>
         </Popover>
       </Col>
-      <Col xs={3}>
+      <Col xs={12} lg={3} className="display-flex justify-content-center">
         <Popover {...args} placement="left-start">
           <Popover.Trigger>Left start</Popover.Trigger>
           <Popover.Content>
@@ -280,7 +280,7 @@ const ArrowPositionTemplate: StoryFn<PopoverProps> = (args) => {
           </Popover.Content>
         </Popover>
       </Col>
-      <Col xs={3}>
+      <Col xs={12} lg={3} className="display-flex justify-content-center">
         <Popover {...args} placement="left">
           <Popover.Trigger>Left center</Popover.Trigger>
           <Popover.Content>
@@ -288,7 +288,7 @@ const ArrowPositionTemplate: StoryFn<PopoverProps> = (args) => {
           </Popover.Content>
         </Popover>
       </Col>
-      <Col xs={3}>
+      <Col xs={12} lg={3} className="display-flex justify-content-center">
         <Popover {...args} placement="left-end">
           <Popover.Trigger>Left end</Popover.Trigger>
           <Popover.Content>
@@ -296,7 +296,7 @@ const ArrowPositionTemplate: StoryFn<PopoverProps> = (args) => {
           </Popover.Content>
         </Popover>
       </Col>
-      <Col xs={3}>
+      <Col xs={12} lg={3} className="display-flex justify-content-center">
         <Popover {...args} placement="right-start">
           <Popover.Trigger>Right start</Popover.Trigger>
           <Popover.Content>
@@ -304,7 +304,7 @@ const ArrowPositionTemplate: StoryFn<PopoverProps> = (args) => {
           </Popover.Content>
         </Popover>
       </Col>
-      <Col xs={3}>
+      <Col xs={12} lg={3} className="display-flex justify-content-center">
         <Popover {...args} placement="right">
           <Popover.Trigger>Right center</Popover.Trigger>
           <Popover.Content>
@@ -312,7 +312,7 @@ const ArrowPositionTemplate: StoryFn<PopoverProps> = (args) => {
           </Popover.Content>
         </Popover>
       </Col>
-      <Col xs={3}>
+      <Col xs={12} lg={3} className="display-flex justify-content-center">
         <Popover {...args} placement="right-end">
           <Popover.Trigger>Right end</Popover.Trigger>
           <Popover.Content>

@@ -69,3 +69,30 @@ jobs:
         uses: codecov/codecov-action@v5
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
+
+  chromatic:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+
+      - name: Install dependencies
+        run: |
+          npm ci --cache .npm --prefer-offline
+          cd libs/react-components
+          npm ci --cache .npm --prefer-offline
+
+      - name: Build Storybook
+        run: |
+          cd libs/react-components
+          npm run build:sb
+
+      - name: Publish to Chromatic
+        run: |
+          cd libs/react-components
+          CHROMATIC_PROJECT_TOKEN=${{ secrets.CHROMATIC_TOKEN }} npm run chromatic

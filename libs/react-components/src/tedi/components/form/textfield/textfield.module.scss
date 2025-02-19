@@ -46,10 +46,10 @@ $input-height-mobile: 2.75rem;
   @include textfield-focus(var(--form-input-border-hover));
   @include mixins.responsive-styles(font-size, body-regular-size);
   @include mixins.responsive-styles(border-radius, form-field-radius);
-  @include mixins.responsive-styles(padding-left, form-field-padding-x-default);
-  @include mixins.responsive-styles(padding-right, form-field-padding-x-default);
-  @include mixins.responsive-styles(padding-top, form-field-padding-y-3-default);
-  @include mixins.responsive-styles(padding-bottom, form-field-padding-y-3-default);
+  @include mixins.responsive-styles(padding-left, form-field-padding-x-md-default);
+  @include mixins.responsive-styles(padding-right, form-field-padding-x-md-default);
+  @include mixins.responsive-styles(padding-top, form-field-padding-y-md-default);
+  @include mixins.responsive-styles(padding-bottom, form-field-padding-y-md-default);
 
   &:hover {
     border-color: var(--form-input-border-hover);
