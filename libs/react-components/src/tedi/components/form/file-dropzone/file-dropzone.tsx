@@ -74,9 +74,11 @@ export const FileDropzone = (props: FileDropzoneProps): JSX.Element => {
           </div>
         </div>
       </div>
-      {(uploadErrorHelper || helper) && (
-        <FeedbackText {...((uploadErrorHelper || helper) as FeedbackTextProps)} id={helperId} />
-      )}
+      {helper ? (
+        <FeedbackText {...helper} id={helperId} />
+      ) : uploadErrorHelper ? (
+        <FeedbackText {...uploadErrorHelper} id={helperId} />
+      ) : null}
       <VerticalSpacing size={0.5} className={styles['tedi-file-dropzone__file-list']}>
         {innerFiles.map((file: FileUploadFile) => (
           <Card
@@ -94,7 +96,9 @@ export const FileDropzone = (props: FileDropzoneProps): JSX.Element => {
               }}
             >
               <Row>
-                <Col>{file.name}</Col>
+                <Col>
+                  {file.name} {file.isValid === false && <Icon name="info" color="danger" display="inline" size={18} />}
+                </Col>
                 <Col width="auto">
                   <ClosingButton onClick={() => onFileRemove(file)} />
                 </Col>

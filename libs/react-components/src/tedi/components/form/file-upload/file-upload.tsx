@@ -242,9 +242,11 @@ export const FileUpload = (props: FileUploadProps): JSX.Element => {
           </div>
         </div>
       )}
-      {(uploadErrorHelper || helper) && (
-        <FeedbackText {...((uploadErrorHelper || helper) as FeedbackTextProps)} id={helperId} />
-      )}
+      {helper ? (
+        <FeedbackText {...helper} id={helperId} />
+      ) : uploadErrorHelper ? (
+        <FeedbackText {...uploadErrorHelper} id={helperId} />
+      ) : null}
     </>
   );
 };

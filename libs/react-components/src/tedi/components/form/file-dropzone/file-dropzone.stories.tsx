@@ -110,15 +110,19 @@ export const MultipleWithIndividualValidation: Story = {
     },
   },
   render: (args) => (
-    <FileDropzone
-      {...args}
-      onChange={(files) => {
-        console.log('Uploaded files:', files);
-      }}
-      helper={{
-        type: 'error',
-        text: 'Invalid file uploaded. Only .pdf and .txt files are allowed, and must be under 1KB.',
-      }}
-    />
+    <Row>
+      <Col md={6}>
+        <FileDropzone
+          {...args}
+          onChange={(files) => {
+            console.log('Uploaded files:', files);
+          }}
+          helper={{
+            type: 'error',
+            text: 'Invalid file uploaded. Only .pdf and .txt files are allowed, and must be under 1KB.',
+          }}
+        />
+      </Col>
+    </Row>
   ),
 };

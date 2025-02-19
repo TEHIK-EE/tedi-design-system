@@ -139,6 +139,12 @@ export const useFileUpload = (props: UseFileUploadProps) => {
         const newFiles = [...innerFiles, ...uploadedFiles];
         setInnerFiles(newFiles);
         onChange?.(newFiles);
+
+        if (rejectedFiles.length) {
+          setUploadErrorHelper({ type: 'error', text: getUploadErrorHelperText(rejectedFiles) });
+        } else {
+          setUploadErrorHelper(getDefaultHelpers({ accept, maxSize }, getLabel));
+        }
       } else {
         const validFiles = uploadedFiles.filter((file) => file.isValid);
         if (validFiles.length > 0) {
