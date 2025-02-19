@@ -83,7 +83,7 @@ export interface OverlayProps {
   };
   /**
    * Placement of content.
-   * @default bottom
+   * @default top
    */
   placement?: Placement;
   /**
@@ -140,7 +140,7 @@ export const OverlayContext = createContext<OverlayContextType>({
     y: 0,
     centerOffset: 0,
   },
-  placement: 'bottom',
+  placement: 'top',
   context: {} as FloatingContext,
   scrollLock: undefined,
 });
@@ -150,7 +150,7 @@ function Overlay(props: OverlayProps) {
 
   const {
     children,
-    placement: placementDefault = 'bottom',
+    placement: placementDefault = 'top',
     openWith = isTouchDevice ? 'click' : 'hover',
     defaultOpen = false,
     open: externalOpen,

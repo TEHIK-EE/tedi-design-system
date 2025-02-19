@@ -15,7 +15,7 @@ $popover-width: (
   border: 1px solid var(--popover-border);
   box-shadow: 0 1px 5px 0 var(--alpha-20);
 
-  @include mixins.responsive-styles(gap, grid-gutters-08);
+  @include mixins.responsive-styles(gap, layout-grid-gutters-08);
   @include mixins.responsive-styles(padding, popover-padding-sm);
   @include mixins.responsive-styles(border-radius, popover-radius-rounded);
 
@@ -36,7 +36,7 @@ $popover-width: (
     display: flex;
     justify-content: space-between;
 
-    @include mixins.responsive-styles(gap, grid-gutters-08);
+    @include mixins.responsive-styles(gap, layout-grid-gutters-08);
 
     &--no-title {
       justify-content: flex-end;

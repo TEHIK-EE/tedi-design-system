@@ -57,7 +57,11 @@ export function PopoverContent(props: PopoverContentProps) {
     >
       {(title || close) && (
         <div className={cn(styles['tedi-popover__header'], { [styles['tedi-popover__header--no-title']]: !title })}>
-          {title && <Text {...titleProps}>{title}</Text>}
+          {title && (
+            <Text {...titleProps} className={cn('align-self-center', titleProps.className)}>
+              {title}
+            </Text>
+          )}
           {close && (
             <ClosingButton
               {...closeProps}

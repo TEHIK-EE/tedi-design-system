@@ -51,8 +51,8 @@ const ContentExamplesTemplate: StoryFn<PopoverProps> = (args) => {
   const [secondOpen, setSecondOpen] = useState(false);
 
   return (
-    <Row gap={3}>
-      <Col>
+    <Row gutterY={3}>
+      <Col xs={12} lg={6} xxl={3}>
         <Popover {...args} open={firstOpen} onToggle={setFirstOpen}>
           <Popover.Trigger>
             <Button>Buttons & heading</Button>
@@ -75,7 +75,7 @@ const ContentExamplesTemplate: StoryFn<PopoverProps> = (args) => {
           </Popover.Content>
         </Popover>
       </Col>
-      <Col>
+      <Col xs={12} lg={6} xxl={3}>
         <Popover {...args} open={secondOpen} onToggle={setSecondOpen}>
           <Popover.Trigger>
             <Button>Buttons</Button>
@@ -98,7 +98,7 @@ const ContentExamplesTemplate: StoryFn<PopoverProps> = (args) => {
           </Popover.Content>
         </Popover>
       </Col>
-      <Col>
+      <Col xs={12} lg={6} xxl={3}>
         <Popover {...args}>
           <Popover.Trigger>
             <Button>Link</Button>
@@ -111,7 +111,7 @@ const ContentExamplesTemplate: StoryFn<PopoverProps> = (args) => {
           </Popover.Content>
         </Popover>
       </Col>
-      <Col>
+      <Col xs={12} lg={6} xxl={3}>
         <Popover {...args}>
           <Popover.Trigger>
             <Button>Text</Button>
@@ -127,8 +127,8 @@ const ContentExamplesTemplate: StoryFn<PopoverProps> = (args) => {
 
 const HeadingTemplate: StoryFn<PopoverProps> = (args) => {
   return (
-    <Row gap={3}>
-      <Col>
+    <Row gutterY={3}>
+      <Col xs={12} lg={6} xxl={3}>
         <Popover {...args}>
           <Popover.Trigger>
             <Button visualType="secondary">Heading & close</Button>
@@ -142,7 +142,7 @@ const HeadingTemplate: StoryFn<PopoverProps> = (args) => {
           </Popover.Content>
         </Popover>
       </Col>
-      <Col>
+      <Col xs={12} lg={6} xxl={3}>
         <Popover {...args}>
           <Popover.Trigger>
             <Button visualType="secondary">Heading</Button>
@@ -156,7 +156,7 @@ const HeadingTemplate: StoryFn<PopoverProps> = (args) => {
           </Popover.Content>
         </Popover>
       </Col>
-      <Col>
+      <Col xs={12} lg={6} xxl={3}>
         <Popover {...args}>
           <Popover.Trigger>
             <Button visualType="secondary">Custom heading & close</Button>
@@ -166,6 +166,7 @@ const HeadingTemplate: StoryFn<PopoverProps> = (args) => {
             title="This popover is with smaller title and close button."
             titleProps={{ element: 'p' }}
             close
+            closeProps={{ size: 'medium' }}
           >
             <div className="display-flex justify-content-end gap-2">
               <Button visualType="secondary">Cancel</Button>
@@ -174,7 +175,7 @@ const HeadingTemplate: StoryFn<PopoverProps> = (args) => {
           </Popover.Content>
         </Popover>
       </Col>
-      <Col>
+      <Col xs={12} lg={6} xxl={3}>
         <Popover {...args}>
           <Popover.Trigger>
             <Button visualType="secondary">Only content</Button>
@@ -194,8 +195,8 @@ const HeadingTemplate: StoryFn<PopoverProps> = (args) => {
 
 const TriggerTemplate: StoryFn<PopoverProps> = (args) => {
   return (
-    <Row gap={3} className="align-items-center">
-      <Col>
+    <Row gutterY={3}>
+      <Col xs={12} lg={4}>
         <Popover {...args}>
           <Popover.Trigger>
             <Button visualType="secondary">Button Trigger</Button>
@@ -203,7 +204,7 @@ const TriggerTemplate: StoryFn<PopoverProps> = (args) => {
           <Popover.Content>This popover is triggered by button.</Popover.Content>
         </Popover>
       </Col>
-      <Col>
+      <Col xs={12} lg={4}>
         <Popover {...args}>
           <Popover.Trigger>
             <InfoButton>Info Button Trigger</InfoButton>
@@ -211,7 +212,7 @@ const TriggerTemplate: StoryFn<PopoverProps> = (args) => {
           <Popover.Content>This popover is triggered by info button.</Popover.Content>
         </Popover>
       </Col>
-      <Col>
+      <Col xs={12} lg={4}>
         <Popover {...args}>
           <Popover.Trigger>Text Trigger</Popover.Trigger>
           <Popover.Content>This popover is triggered by text. By default text has dashed underline.</Popover.Content>
@@ -223,8 +224,8 @@ const TriggerTemplate: StoryFn<PopoverProps> = (args) => {
 
 const ArrowPositionTemplate: StoryFn<PopoverProps> = (args) => {
   return (
-    <Row gap={3} justifyContent="center">
-      <Col xs={12} lg={3} className="display-flex justify-content-center">
+    <Row gutterY={3} justifyContent="center">
+      <Col xs={12} lg={4} className="display-flex justify-content-center">
         <Popover {...args} placement="top-start">
           <Popover.Trigger>Top start</Popover.Trigger>
           <Popover.Content>
@@ -232,7 +233,7 @@ const ArrowPositionTemplate: StoryFn<PopoverProps> = (args) => {
           </Popover.Content>
         </Popover>
       </Col>
-      <Col xs={12} lg={3} className="display-flex justify-content-center">
+      <Col xs={12} lg={4} className="display-flex justify-content-center">
         <Popover {...args} placement="top">
           <Popover.Trigger>Top center</Popover.Trigger>
           <Popover.Content>
@@ -240,7 +241,7 @@ const ArrowPositionTemplate: StoryFn<PopoverProps> = (args) => {
           </Popover.Content>
         </Popover>
       </Col>
-      <Col xs={12} lg={3} className="display-flex justify-content-center">
+      <Col xs={12} lg={4} className="display-flex justify-content-center">
         <Popover {...args} placement="top-end">
           <Popover.Trigger>Top end</Popover.Trigger>
           <Popover.Content>
@@ -248,7 +249,7 @@ const ArrowPositionTemplate: StoryFn<PopoverProps> = (args) => {
           </Popover.Content>
         </Popover>
       </Col>
-      <Col xs={12} lg={3} className="display-flex justify-content-center">
+      <Col xs={12} lg={4} className="display-flex justify-content-center">
         <Popover {...args} placement="bottom-start">
           <Popover.Trigger>Bottom start</Popover.Trigger>
           <Popover.Content>
@@ -256,7 +257,7 @@ const ArrowPositionTemplate: StoryFn<PopoverProps> = (args) => {
           </Popover.Content>
         </Popover>
       </Col>
-      <Col xs={12} lg={3} className="display-flex justify-content-center">
+      <Col xs={12} lg={4} className="display-flex justify-content-center">
         <Popover {...args} placement="bottom">
           <Popover.Trigger>Bottom center</Popover.Trigger>
           <Popover.Content>
@@ -264,7 +265,7 @@ const ArrowPositionTemplate: StoryFn<PopoverProps> = (args) => {
           </Popover.Content>
         </Popover>
       </Col>
-      <Col xs={12} lg={3} className="display-flex justify-content-center">
+      <Col xs={12} lg={4} className="display-flex justify-content-center">
         <Popover {...args} placement="bottom-end">
           <Popover.Trigger>Bottom end</Popover.Trigger>
           <Popover.Content>
@@ -272,7 +273,7 @@ const ArrowPositionTemplate: StoryFn<PopoverProps> = (args) => {
           </Popover.Content>
         </Popover>
       </Col>
-      <Col xs={12} lg={3} className="display-flex justify-content-center">
+      <Col xs={12} lg={4} className="display-flex justify-content-center">
         <Popover {...args} placement="left-start">
           <Popover.Trigger>Left start</Popover.Trigger>
           <Popover.Content>
@@ -280,7 +281,7 @@ const ArrowPositionTemplate: StoryFn<PopoverProps> = (args) => {
           </Popover.Content>
         </Popover>
       </Col>
-      <Col xs={12} lg={3} className="display-flex justify-content-center">
+      <Col xs={12} lg={4} className="display-flex justify-content-center">
         <Popover {...args} placement="left">
           <Popover.Trigger>Left center</Popover.Trigger>
           <Popover.Content>
@@ -288,7 +289,7 @@ const ArrowPositionTemplate: StoryFn<PopoverProps> = (args) => {
           </Popover.Content>
         </Popover>
       </Col>
-      <Col xs={12} lg={3} className="display-flex justify-content-center">
+      <Col xs={12} lg={4} className="display-flex justify-content-center">
         <Popover {...args} placement="left-end">
           <Popover.Trigger>Left end</Popover.Trigger>
           <Popover.Content>
@@ -296,7 +297,7 @@ const ArrowPositionTemplate: StoryFn<PopoverProps> = (args) => {
           </Popover.Content>
         </Popover>
       </Col>
-      <Col xs={12} lg={3} className="display-flex justify-content-center">
+      <Col xs={12} lg={4} className="display-flex justify-content-center">
         <Popover {...args} placement="right-start">
           <Popover.Trigger>Right start</Popover.Trigger>
           <Popover.Content>
@@ -304,7 +305,7 @@ const ArrowPositionTemplate: StoryFn<PopoverProps> = (args) => {
           </Popover.Content>
         </Popover>
       </Col>
-      <Col xs={12} lg={3} className="display-flex justify-content-center">
+      <Col xs={12} lg={4} className="display-flex justify-content-center">
         <Popover {...args} placement="right">
           <Popover.Trigger>Right center</Popover.Trigger>
           <Popover.Content>
@@ -312,7 +313,7 @@ const ArrowPositionTemplate: StoryFn<PopoverProps> = (args) => {
           </Popover.Content>
         </Popover>
       </Col>
-      <Col xs={12} lg={3} className="display-flex justify-content-center">
+      <Col xs={12} lg={4} className="display-flex justify-content-center">
         <Popover {...args} placement="right-end">
           <Popover.Trigger>Right end</Popover.Trigger>
           <Popover.Content>
@@ -328,7 +329,7 @@ const SizeTemplate: StoryFn<PopoverProps> = (args) => {
   const sizes = ['small', 'medium', 'large'] as const;
 
   return (
-    <Row gap={3}>
+    <Row gutterY={3}>
       {sizes.map((size) => (
         <Col xs={3} key={size}>
           <Popover {...args}>
@@ -345,7 +346,7 @@ const SizeTemplate: StoryFn<PopoverProps> = (args) => {
 
 const ClosingButtonTemplate: StoryFn<PopoverProps> = (args) => {
   return (
-    <Row gap={3}>
+    <Row gutterY={3}>
       <Col>
         <Popover {...args}>
           <Popover.Trigger>Default Button</Popover.Trigger>
