@@ -10,7 +10,7 @@ import { Section } from './section';
 
 const meta: Meta<typeof Section> = {
   component: Section,
-  title: 'TEDI-Ready/Components/Helpers/Section',
+  title: 'TEDI-Ready/Content/Section',
 };
 
 export default meta;
