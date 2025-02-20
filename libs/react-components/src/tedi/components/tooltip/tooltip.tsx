@@ -1,4 +1,4 @@
-import { OffsetOptions, Placement } from '@floating-ui/react';
+import { OffsetOptions } from '@floating-ui/react';
 
 import Overlay, { OverlayOpenWith, OverlayProps } from '../overlay/overlay';
 import { TooltipContent } from './tooltip-content';
@@ -15,11 +15,6 @@ export interface TooltipProps
    */
   openWith?: OverlayOpenWith;
   /**
-   * Placement of content.
-   * @default top
-   */
-  placement?: Placement;
-  /**
    * Offset of content.
    * @default GAP + ARROW_HEIGHT (3px + 7px)
    */
@@ -27,7 +22,7 @@ export interface TooltipProps
 }
 
 function Tooltip(props: TooltipProps) {
-  const { openWith = 'hover', placement = 'top', ...rest } = props;
+  const { openWith = 'hover', ...rest } = props;
 
   return (
     <Overlay
@@ -36,7 +31,6 @@ function Tooltip(props: TooltipProps) {
         height: ARROW_HEIGHT,
       }}
       openWith={openWith}
-      placement={placement}
       {...rest}
     />
   );

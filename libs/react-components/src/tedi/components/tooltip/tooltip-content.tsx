@@ -9,13 +9,13 @@ export interface TooltipContentProps extends Omit<OverlayContentProps, 'classNam
    */
   className?: string;
   /**
-   * Popover width.
+   * Tooltip width.
    * @default medium
    */
   maxWidth?: 'none' | 'small' | 'medium' | 'large';
 }
 
-export function TooltipContent(props: TooltipContentProps) {
+export const TooltipContent = (props: TooltipContentProps) => {
   const { children, maxWidth = 'medium', className } = props;
 
   return (
@@ -28,4 +28,4 @@ export function TooltipContent(props: TooltipContentProps) {
       {children}
     </OverlayContent>
   );
-}
+};
