@@ -1,25 +1,5 @@
 @use '@tehik-ee/tedi-core/mixins';
 
-:root {
-  --file-dropzone-padding-x-desktop: var(--dimensions-13);
-  --file-dropzone-padding-x-tablet: var(--dimensions-13);
-  --file-dropzone-padding-x-mobile: var(--dimensions-13);
-  --file-dropzone-padding-y-desktop: var(--dimensions-13);
-  --file-dropzone-padding-y-tablet: var(--dimensions-13);
-  --file-dropzone-padding-y-mobile: var(--dimensions-13);
-  --file-dropzone-background-default: var(--form-input-background-default);
-  --file-dropzone-background-disabled: var(--form-general-background-disabled);
-  --file-dropzone-background-drop-over: var(--general-surface-brand-quaternary);
-  --file-dropzone-border-active: var(--general-surface-active);
-  --file-dropzone-border-default: var(--form-input-border-default);
-  --file-dropzone-border-disabled: var(--form-general-border-disabled);
-  --file-dropzone-border-drop-over: var(--form-input-border-active);
-  --file-dropzone-border-focus: var(--form-input-border-focus);
-  --file-dropzone-border-hover: var(--form-input-border-hover);
-  --file-dropzone-text-default: var(--general-text-brand);
-  --file-dropzone-text-drop-over: var(--general-text-tertiary);
-}
-
 .tedi-file-dropzone {
   text-align: center;
   cursor: pointer;
@@ -35,18 +15,21 @@
   @include mixins.responsive-styles(margin-bottom, layout-grid-gutters-04);
 
   &:hover {
+    background-color: var(--file-dropzone-background-hover);
     border-color: var(--file-dropzone-border-hover);
-  }
-
-  &:focus-visible {
-    outline: none;
-    box-shadow: inset 0 0 0 1px var(--file-dropzone-border-hover);
   }
 
   &__label {
     display: flex;
     justify-content: center;
-    color: var(--file-dropzone-text-default);
+
+    &--brand {
+      color: var(--file-dropzone-text-default);
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
   }
 
   &--disabled {
@@ -72,6 +55,11 @@
     color: var(--file-dropzone-text-drop-over);
     background-color: var(--file-dropzone-background-drop-over);
     border-color: var(--file-dropzone-border-drop-over);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--file-dropzone-border-hover);
+    outline-offset: 1px;
   }
 }
 

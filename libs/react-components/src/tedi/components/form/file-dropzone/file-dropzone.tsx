@@ -65,13 +65,11 @@ export const FileDropzone = (props: FileDropzoneProps): JSX.Element => {
 
   return (
     <>
-      <div className={fileDropzoneBEM}>
-        <div {...getRootProps()} className="tedi-file-dropzone__inner">
-          <input {...getInputProps()} />
-          <div className={styles['tedi-file-dropzone__label']}>
-            <Icon color={disabled ? 'tertiary' : 'secondary'} size={24} name="attach_file" />
-            <FormLabel id={id} label={label} className={styles['tedi-file-dropzone__label']} />
-          </div>
+      <div {...getRootProps()} className={fileDropzoneBEM}>
+        <input {...getInputProps()} />
+        <div className={styles['tedi-file-dropzone__label']}>
+          <Icon color={disabled ? 'tertiary' : 'secondary'} size={24} name="attach_file" />
+          <FormLabel id={id} label={label} className={styles['tedi-file-dropzone__label--brand']} />
         </div>
       </div>
       {helper ? (
@@ -95,8 +93,8 @@ export const FileDropzone = (props: FileDropzoneProps): JSX.Element => {
                 top: 0.5,
               }}
             >
-              <Row>
-                <Col>
+              <Row alignItems="center">
+                <Col className={styles['tedi-file-dropzone__file-name']}>
                   {file.name} {file.isValid === false && <Icon name="info" color="danger" display="inline" size={18} />}
                 </Col>
                 <Col width="auto">
