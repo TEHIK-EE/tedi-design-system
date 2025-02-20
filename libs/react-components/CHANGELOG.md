@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-react-v11.1.0-rc.14](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.1.0-rc.13...react-11.1.0-rc.14) (2025-02-20)
+
+
+### Features
+
+* **popover:** TEDI-Ready component development [#260](https://github.com/TEHIK-EE/tedi-design-system/issues/260) ([#491](https://github.com/TEHIK-EE/tedi-design-system/issues/491)) ([764c234](https://github.com/TEHIK-EE/tedi-design-system/commit/764c234c53db8b2a5c7a8fd8c894b7c2b933cf0b)), closes [#210](https://github.com/TEHIK-EE/tedi-design-system/issues/210) [#210](https://github.com/TEHIK-EE/tedi-design-system/issues/210) [#210](https://github.com/TEHIK-EE/tedi-design-system/issues/210) [#210](https://github.com/TEHIK-EE/tedi-design-system/issues/210) [#210](https://github.com/TEHIK-EE/tedi-design-system/issues/210) [#210](https://github.com/TEHIK-EE/tedi-design-system/issues/210) [#210](https://github.com/TEHIK-EE/tedi-design-system/issues/210) [#210](https://github.com/TEHIK-EE/tedi-design-system/issues/210) [#210](https://github.com/TEHIK-EE/tedi-design-system/issues/210) [#210](https://github.com/TEHIK-EE/tedi-design-system/issues/210) [#210](https://github.com/TEHIK-EE/tedi-design-system/issues/210)
+
 # [@tehik-ee/tedi-react-v11.1.0-rc.13](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.1.0-rc.12...react-11.1.0-rc.13) (2025-02-20)
 
 
