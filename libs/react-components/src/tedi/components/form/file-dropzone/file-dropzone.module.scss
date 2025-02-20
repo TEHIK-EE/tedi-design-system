@@ -19,11 +19,11 @@
     border-color: var(--file-dropzone-border-hover);
   }
 
-  &__label {
+  .tedi-file-dropzone__label-wrapper {
     display: flex;
     justify-content: center;
 
-    &--brand {
+    .tedi-file-dropzone__label {
       color: var(--file-dropzone-text-default);
 
       &:hover {
@@ -38,7 +38,7 @@
     background-color: var(--file-dropzone-background-disabled);
     border-color: var(--file-dropzone-border-disabled);
 
-    .tedi-file-dropzone__label {
+    .tedi-file-dropzone__label-wrapper .tedi-file-dropzone__label {
       color: var(--general-text-disabled);
     }
   }
