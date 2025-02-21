@@ -69,7 +69,7 @@ $icon-sizes: (
   &.tedi-icon--inline {
     display: inline;
     font-size: inherit;
-    vertical-align: -11.5%;
+    vertical-align: -17.5%;
   }
 
   @each $name, $var in $icon-colors {
