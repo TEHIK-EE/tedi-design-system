@@ -1,5 +1,5 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
-import React from 'react';
+import { useState } from 'react';
 
 import { Col, Row } from '../../../../tedi/components/grid';
 import { Text } from '../../typography/text/text';
@@ -49,6 +49,22 @@ export const DisabledState: Story = {
     name: 'disabled-radio',
     disabled: true,
   },
+};
+
+export const DisabledSelected = () => {
+  const [checked, setChecked] = useState<boolean>(true);
+
+  return (
+    <Radio
+      id="controlled-check"
+      label="Text"
+      name="controlled-check"
+      value="controlled"
+      checked={checked}
+      disabled
+      onChange={(value, checked) => setChecked(checked)}
+    />
+  );
 };
 
 export const WithExtraContent: Story = {
@@ -119,7 +135,7 @@ export const WithLongTitleAndTooltipAndExtraContent: Story = {
 };
 
 export const Controlled = () => {
-  const [checked, setChecked] = React.useState<boolean>(false);
+  const [checked, setChecked] = useState<boolean>(false);
 
   return (
     <Radio
