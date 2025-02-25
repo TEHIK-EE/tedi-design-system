@@ -3,10 +3,17 @@ import { ColorStoryComponent } from "./colors.component";
 import baseColorData from "./base-color-variables.json";
 import semanticColorData from "./brand-color-variables.json";
 
-export default {
-  title: "TEDI-Ready Angular/Base/Colors/TEDI Colors",
+const meta: Meta<ColorStoryComponent> = {
+  title: "TEDI-Ready Angular/Base/Colors",
   component: ColorStoryComponent,
-} as Meta<ColorStoryComponent>;
+  parameters: {
+    backgrounds: {
+      default: "black",
+    },
+  },
+};
+
+export default meta;
 
 export const BaseColors: StoryObj<ColorStoryComponent> = {
   render: (args) => ({
