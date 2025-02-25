@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { FeedbackTextProps } from './feedback-text/feedback-text';
+
 export interface ChoiceInputProps {
   /**
    * ID property
@@ -8,7 +10,7 @@ export interface ChoiceInputProps {
   /**
    * Label text
    */
-  label: React.ReactNode;
+  label: string;
   /**
    * Additional classes.
    */
@@ -34,10 +36,9 @@ export interface ChoiceInputProps {
    */
   onChange?: (value: string, checked: boolean) => void;
   /**
-   * Possibility to add extra content after label. ExtraContent is not clickable like label
-   * Can only be used with ChoiceGroupRadio and Checkbox.
+   * Helper text displayed below the input.
    */
-  extraContent?: React.ReactNode;
+  helper?: FeedbackTextProps;
   /**
    * If the check is controlled from outside the components
    */
@@ -54,4 +55,8 @@ export interface ChoiceInputProps {
    * Provide content for tooltip.
    */
   tooltip?: React.ReactNode;
+  /**
+   *  Input size
+   */
+  size?: 'default' | 'large';
 }

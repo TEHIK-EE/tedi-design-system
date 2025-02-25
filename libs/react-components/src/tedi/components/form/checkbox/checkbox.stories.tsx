@@ -2,7 +2,9 @@ import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import React, { useState } from 'react';
 
 import { Col, Row } from '../../grid';
+import Alert from '../../notifications/alert/alert';
 import { Text } from '../../typography/text/text';
+import { VerticalSpacing } from '../../vertical-spacing';
 import Checkbox, { CheckboxProps } from './checkbox';
 
 /**
@@ -20,6 +22,36 @@ export default meta;
 type Story = StoryObj<typeof Checkbox>;
 
 const Template: StoryFn<CheckboxProps> = (args) => <Checkbox {...args} label="Text" value="default" />;
+const sizesArray: Array<'default' | 'large'> = ['default', 'large'];
+
+const TemplateSizes: StoryFn<CheckboxProps> = (args) => {
+  return (
+    <Row>
+      <Col lg={6} md={12} className="example-list">
+        {sizesArray.map((size, key) => (
+          <Row className={`${key === sizesArray.length - 1 ? '' : 'border-bottom'} padding-14-16`} key={key}>
+            <Col lg={10} md={12} className="display-flex align-items-center">
+              <VerticalSpacing>
+                <Text modifiers="bold">{size.charAt(0).toUpperCase() + size.slice(1)}</Text>
+                {size === 'large' && (
+                  <Alert type="warning">
+                    <Text>
+                      Applied automatically in mobile screen size. Use in tables where’s checkbox without text.
+                    </Text>
+                    <Text modifiers="bold">Otherwise prefer using default size.</Text>
+                  </Alert>
+                )}
+              </VerticalSpacing>
+            </Col>
+            <Col lg={2} md={12} className="text-right">
+              <Checkbox {...args} size={size} id={`numberfield-size-${size}`} />
+            </Col>
+          </Row>
+        ))}
+      </Col>
+    </Row>
+  );
+};
 
 export const Default: Story = {
   render: Template,
@@ -28,6 +60,14 @@ export const Default: Story = {
     id: 'default-check',
     name: 'default-check',
     defaultChecked: true,
+  },
+};
+
+export const Sizes: Story = {
+  render: TemplateSizes,
+
+  args: {
+    name: 'default-radio',
   },
 };
 
@@ -93,12 +133,9 @@ export const WithExtraContent: Story = {
   args: {
     id: 'extra-content-check',
     name: 'extra-content-check',
-    extraContent: (
-      <Text color="secondary" element="span">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis scelerisque quis augue sit amet semper. Donec
-        porttitor mauris neque, quis feugiat erat malesuada ac. Cras vel mauris a est pretium egestas.
-      </Text>
-    ),
+    helper: {
+      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis scelerisque quis augue sit amet semper. Donec porttitor mauris neque, quis feugiat erat malesuada ac. Cras vel mauris a est pretium egestas.',
+    },
   },
 };
 
@@ -128,12 +165,9 @@ export const WithTooltipAndExtraContent: Story = {
   args: {
     id: 'tooltip-extra-content-check',
     name: 'tooltip-extra-content-check',
-    extraContent: (
-      <Text color="secondary" element="span">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis scelerisque quis augue sit amet semper. Donec
-        porttitor mauris neque, quis feugiat erat malesuada ac. Cras vel mauris a est pretium egestas.
-      </Text>
-    ),
+    helper: {
+      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis scelerisque quis augue sit amet semper. Donec porttitor mauris neque, quis feugiat erat malesuada ac. Cras vel mauris a est pretium egestas.',
+    },
     tooltip: 'This is a tooltip',
   },
 };
@@ -144,12 +178,9 @@ export const WithTooltipAndLongTitleAndExtraContent: Story = {
     name: 'tooltip-long-title-extra-content-check',
     label:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin varius, sem blandit sodales tincidunt, orci elit ornare ex, eu ultrices diam turpis id nisl. Sed sollicitudin auctor nunc. Aliquam a arcu in sem bibendum laoreet non eu nunc.',
-    extraContent: (
-      <Text color="secondary" element="span">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis scelerisque quis augue sit amet semper. Donec
-        porttitor mauris neque, quis feugiat erat malesuada ac. Cras vel mauris a est pretium egestas.
-      </Text>
-    ),
+    helper: {
+      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis scelerisque quis augue sit amet semper. Donec porttitor mauris neque, quis feugiat erat malesuada ac. Cras vel mauris a est pretium egestas.',
+    },
     tooltip: 'This is a tooltip',
   },
 };

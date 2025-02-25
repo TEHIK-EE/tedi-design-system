@@ -75,7 +75,7 @@ describe('Checkbox component', () => {
         label="Check Label"
         value="check-value"
         name="check-group"
-        extraContent={<div>Extra Content</div>}
+        helper={{ text: 'Extra Content' }}
       />
     );
 

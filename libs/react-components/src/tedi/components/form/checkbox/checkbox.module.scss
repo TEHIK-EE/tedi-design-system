@@ -8,7 +8,7 @@
   @include mixins.print-grayscale;
 
   &:hover:not(.checkbox--disabled) {
-    cursor: not-allowed;
+    cursor: pointer;
   }
 
   &--disabled {
@@ -23,15 +23,25 @@
 
 .tedi-checkbox__indicator {
   position: relative;
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: var(--form-checkbox-radio-default-background-default);
   border: 1px solid var(--form-checkbox-radio-default-border-default);
   transition: border-color 150ms ease;
 
   @include mixins.responsive-styles(margin-right, form-checkbox-radio-inner-spacing);
-  @include mixins.responsive-styles(width, form-checkbox-radio-size-responsive);
-  @include mixins.responsive-styles(height, form-checkbox-radio-size-responsive);
   @include mixins.responsive-styles(border-radius, form-checkbox-radio-indicator-radius-checkbox);
+
+  &--size-default {
+    @include mixins.responsive-styles(width, form-checkbox-radio-size-responsive);
+    @include mixins.responsive-styles(height, form-checkbox-radio-size-responsive);
+  }
+
+  &--size-large {
+    @include mixins.responsive-styles(width, form-checkbox-radio-size-large);
+    @include mixins.responsive-styles(height, form-checkbox-radio-size-large);
+  }
 
   .tedi-checkbox__input:not(:disabled) + &--hover,
   .tedi-checkbox__input:hover:not(:disabled) + &,
@@ -94,8 +104,6 @@
 }
 
 .tedi-checkbox__extra-content {
-  padding-top: 0.125rem;
-
   @include mixins.responsive-styles(padding-left, form-checkbox-radio-size-responsive);
   @include mixins.responsive-styles(margin-left, form-checkbox-radio-inner-spacing);
 }

@@ -5,6 +5,7 @@ import { Col, Row } from '../../grid';
 import { Icon } from '../../icon/icon';
 import Tooltip from '../../tooltip/tooltip';
 import { ChoiceInputProps } from '../choice-input.types';
+import FeedbackText from '../feedback-text/feedback-text';
 import styles from './checkbox.module.scss';
 
 export interface CheckboxProps extends ChoiceInputProps {
@@ -24,13 +25,14 @@ export const Checkbox = (props: CheckboxProps): JSX.Element => {
     disabled = false,
     onChange,
     hideLabel = false,
-    extraContent,
+    helper,
     checked,
     defaultChecked,
     indeterminate,
     hover,
     name,
     tooltip,
+    size = 'default',
     ...rest
   } = props;
   const [innerChecked, setInnerChecked] = React.useState<boolean>(defaultChecked || false);
@@ -47,6 +49,7 @@ export const Checkbox = (props: CheckboxProps): JSX.Element => {
     onChange?.(value, event?.target.checked);
   };
 
+  const helperId = helper ? helper?.id ?? `${id}-helper` : undefined;
   const LabelBEM = cn(styles['tedi-checkbox'], { [styles['tedi-checkbox--disabled']]: disabled });
 
   return (
@@ -64,6 +67,7 @@ export const Checkbox = (props: CheckboxProps): JSX.Element => {
               aria-checked={getChecked}
               onChange={onChangeHandler}
               className={styles['tedi-checkbox__input']}
+              aria-describedby={helperId}
             />
             <div
               aria-hidden="true"
@@ -71,16 +75,17 @@ export const Checkbox = (props: CheckboxProps): JSX.Element => {
               className={cn(styles['tedi-checkbox__indicator'], {
                 [styles['tedi-checkbox__indicator--hover']]: hover,
                 [styles['tedi-checkbox__indicator--indeterminate']]: indeterminate,
+                [styles[`tedi-checkbox__indicator--size-${size}`]]: size,
               })}
               data-testid="checkbox-indicator"
             >
               <Icon
-                size={16}
+                size={size === 'default' ? 16 : 18}
                 name="remove"
                 className={cn(styles['tedi-checkbox__icon'], styles['tedi-checkbox__icon--indeterminate'])}
               />
               <Icon
-                size={16}
+                size={size === 'default' ? 16 : 18}
                 name="check"
                 className={cn(styles['tedi-checkbox__icon'], styles['tedi-checkbox__icon--check'])}
               />
@@ -109,7 +114,7 @@ export const Checkbox = (props: CheckboxProps): JSX.Element => {
           </label>
         </Col>
       </Row>
-      {extraContent && <div className={styles['tedi-checkbox__extra-content']}>{extraContent}</div>}
+      {helper && <FeedbackText {...helper} className={styles['tedi-checkbox__extra-content']} id={helperId} />}
     </div>
   );
 };
