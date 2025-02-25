@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-core-v1.6.8](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.6.7...core-1.6.8) (2025-02-20)
+
+
+### Bug Fixes
+
+* **tedi-core:** Update variables [#490](https://github.com/TEHIK-EE/tedi-design-system/issues/490) ([15a5995](https://github.com/TEHIK-EE/tedi-design-system/commit/15a599509a7cc2e2765b167887f763ffcd60dd24))
+
 # [@tehik-ee/tedi-core-v1.6.7](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.6.6...core-1.6.7) (2025-02-14)
 
 

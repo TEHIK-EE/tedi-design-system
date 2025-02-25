@@ -1,3 +1,31 @@
+# [@tehik-ee/tedi-react-v11.1.0-rc.15](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.1.0-rc.14...react-11.1.0-rc.15) (2025-02-25)
+
+
+### Bug Fixes
+
+* **tag:** Tag height on mobile devices [#497](https://github.com/TEHIK-EE/tedi-design-system/issues/497) ([#498](https://github.com/TEHIK-EE/tedi-design-system/issues/498)) ([5cc93d2](https://github.com/TEHIK-EE/tedi-design-system/commit/5cc93d2f63551c176fe3debebef0f016699ad711))
+
+# [@tehik-ee/tedi-react-v11.1.0-rc.14](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.1.0-rc.13...react-11.1.0-rc.14) (2025-02-20)
+
+
+### Features
+
+* **popover:** TEDI-Ready component development [#260](https://github.com/TEHIK-EE/tedi-design-system/issues/260) ([#491](https://github.com/TEHIK-EE/tedi-design-system/issues/491)) ([764c234](https://github.com/TEHIK-EE/tedi-design-system/commit/764c234c53db8b2a5c7a8fd8c894b7c2b933cf0b)), closes [#210](https://github.com/TEHIK-EE/tedi-design-system/issues/210) [#210](https://github.com/TEHIK-EE/tedi-design-system/issues/210) [#210](https://github.com/TEHIK-EE/tedi-design-system/issues/210) [#210](https://github.com/TEHIK-EE/tedi-design-system/issues/210) [#210](https://github.com/TEHIK-EE/tedi-design-system/issues/210) [#210](https://github.com/TEHIK-EE/tedi-design-system/issues/210) [#210](https://github.com/TEHIK-EE/tedi-design-system/issues/210) [#210](https://github.com/TEHIK-EE/tedi-design-system/issues/210) [#210](https://github.com/TEHIK-EE/tedi-design-system/issues/210) [#210](https://github.com/TEHIK-EE/tedi-design-system/issues/210) [#210](https://github.com/TEHIK-EE/tedi-design-system/issues/210)
+
+# [@tehik-ee/tedi-react-v11.1.0-rc.13](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.1.0-rc.12...react-11.1.0-rc.13) (2025-02-20)
+
+
+### Features
+
+* **tooltip:** TEDI-Ready component [#210](https://github.com/TEHIK-EE/tedi-design-system/issues/210) ([#471](https://github.com/TEHIK-EE/tedi-design-system/issues/471)) ([13abc02](https://github.com/TEHIK-EE/tedi-design-system/commit/13abc02d5703a125209f4b9cfcb257435e9e2aaf)), closes [#260](https://github.com/TEHIK-EE/tedi-design-system/issues/260) [#260](https://github.com/TEHIK-EE/tedi-design-system/issues/260) [#260](https://github.com/TEHIK-EE/tedi-design-system/issues/260) [#260](https://github.com/TEHIK-EE/tedi-design-system/issues/260) [#260](https://github.com/TEHIK-EE/tedi-design-system/issues/260) [#260](https://github.com/TEHIK-EE/tedi-design-system/issues/260) [#260](https://github.com/TEHIK-EE/tedi-design-system/issues/260) [#260](https://github.com/TEHIK-EE/tedi-design-system/issues/260)
+
+# [@tehik-ee/tedi-react-v11.1.0-rc.12](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.1.0-rc.11...react-11.1.0-rc.12) (2025-02-19)
+
+
+### Bug Fixes
+
+* **card:** Card backgrounds and border color fixes [#495](https://github.com/TEHIK-EE/tedi-design-system/issues/495) ([#496](https://github.com/TEHIK-EE/tedi-design-system/issues/496)) ([24f7d44](https://github.com/TEHIK-EE/tedi-design-system/commit/24f7d445db0e63c6c330320fbe268921fdb8eb7a))
+
 # [@tehik-ee/tedi-react-v11.1.0-rc.11](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.1.0-rc.10...react-11.1.0-rc.11) (2025-02-17)
 
 
