@@ -43,6 +43,10 @@
     @include mixins.responsive-styles(height, form-checkbox-radio-size-large);
   }
 
+  &--invalid {
+    border-color: var(--form-general-feedback-error-border);
+  }
+
   .tedi-checkbox__input:not(:disabled) + &--hover,
   .tedi-checkbox__input:hover:not(:disabled) + &,
   .tedi-checkbox__input:not(:disabled) + &:hover,

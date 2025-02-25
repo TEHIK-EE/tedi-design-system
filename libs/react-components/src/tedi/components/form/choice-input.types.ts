@@ -59,4 +59,8 @@ export interface ChoiceInputProps {
    *  Input size
    */
   size?: 'default' | 'large';
+  /**
+   * Whether the input is marked as invalid.
+   */
+  invalid?: boolean;
 }

@@ -32,6 +32,7 @@ export const Checkbox = (props: CheckboxProps): JSX.Element => {
     hover,
     name,
     tooltip,
+    invalid,
     size = 'default',
     ...rest
   } = props;
@@ -76,6 +77,7 @@ export const Checkbox = (props: CheckboxProps): JSX.Element => {
                 [styles['tedi-checkbox__indicator--hover']]: hover,
                 [styles['tedi-checkbox__indicator--indeterminate']]: indeterminate,
                 [styles[`tedi-checkbox__indicator--size-${size}`]]: size,
+                [styles['tedi-checkbox__indicator--invalid']]: invalid,
               })}
               data-testid="checkbox-indicator"
             >

@@ -214,3 +214,14 @@ export const CheckWithLongTitle = () => {
     </Row>
   );
 };
+
+export const Invalid: Story = {
+  render: Template,
+
+  args: {
+    id: 'invalid-check',
+    name: 'invalid-check',
+    helper: { text: 'Feedback text', type: 'error' },
+    invalid: true,
+  },
+};
