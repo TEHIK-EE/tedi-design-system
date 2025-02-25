@@ -71,6 +71,108 @@ export const Sizes: Story = {
   },
 };
 
+export const States = () => {
+  const [checked, setChecked] = useState<boolean>(true);
+  const [indeterminate, setIndeterminate] = useState<boolean>(true);
+
+  return (
+    <Row>
+      <Col lg={6} md={12}>
+        <VerticalSpacing>
+          <Row>
+            <Col md={3}>
+              <Text modifiers="bold">Default</Text>
+            </Col>
+            <Col>
+              <Checkbox id="check-default" label="Text" name="check-default" value="check" />
+            </Col>
+          </Row>
+          <Row>
+            <Col md={3}>
+              <Text modifiers="bold">Hover</Text>
+            </Col>
+            <Col>
+              <Checkbox id="check-hover" label="Text" name="check-hover" value="check" hover />
+            </Col>
+          </Row>
+          <Row>
+            <Col md={3}>
+              <Text modifiers="bold">Selected</Text>
+            </Col>
+            <Col>
+              <Checkbox
+                id="check-checked"
+                label="Text"
+                name="check-checked"
+                value="check"
+                checked={checked}
+                onChange={(value, checked) => setChecked(checked)}
+              />
+            </Col>
+          </Row>
+          <Row>
+            <Col md={3}>
+              <Text modifiers="bold">Disabled</Text>
+            </Col>
+            <Col>
+              <Checkbox id="check-disabled" label="Text" name="check-hover" value="check" disabled />
+            </Col>
+          </Row>
+          <Row>
+            <Col md={3}>
+              <Text modifiers="bold">Disabled selected</Text>
+            </Col>
+            <Col>
+              <Checkbox
+                id="check-disabled-checked"
+                label="Text"
+                name="check-disabled-checked"
+                value="check"
+                disabled
+                checked={checked}
+                onChange={(value, checked) => setChecked(checked)}
+              />
+            </Col>
+          </Row>
+          <Row>
+            <Col md={3}>
+              <Text modifiers="bold">Indeterminate</Text>
+            </Col>
+            <Col>
+              <Checkbox
+                id="check-indeterminate"
+                label="Text"
+                name="check-indeterminate"
+                value="check"
+                indeterminate={indeterminate}
+                onChange={(value, checked) => {
+                  setIndeterminate(false);
+                  setChecked(checked);
+                }}
+              />
+            </Col>
+          </Row>
+          <Row>
+            <Col md={3}>
+              <Text modifiers="bold">Error</Text>
+            </Col>
+            <Col>
+              <Checkbox
+                id="check-invalid"
+                label="Text"
+                name="check-invalid"
+                value="check"
+                invalid
+                helper={{ text: 'Feedback text', type: 'error' }}
+              />
+            </Col>
+          </Row>
+        </VerticalSpacing>
+      </Col>
+    </Row>
+  );
+};
+
 export const HiddenLabel: Story = {
   render: Template,
 
@@ -81,53 +183,7 @@ export const HiddenLabel: Story = {
   },
 };
 
-export const DisabledState: Story = {
-  render: Template,
-
-  args: {
-    id: 'disabled-check',
-    name: 'disabled-check',
-    disabled: true,
-  },
-};
-
-export const DisabledSelected = () => {
-  const [checked, setChecked] = useState<boolean>(true);
-
-  return (
-    <Checkbox
-      id="controlled-check"
-      label="Text"
-      name="controlled-check"
-      value="controlled"
-      checked={checked}
-      disabled
-      onChange={(value, checked) => setChecked(checked)}
-    />
-  );
-};
-
-export const Indeterminate = () => {
-  const [checked, setChecked] = useState<boolean>(false);
-  const [indeterminate, setIndeterminate] = useState<boolean>(true);
-
-  return (
-    <Checkbox
-      id="controlled-check"
-      label="Text"
-      name="controlled-check"
-      value="controlled"
-      checked={checked}
-      indeterminate={indeterminate}
-      onChange={(value, checked) => {
-        setIndeterminate(false);
-        setChecked(checked);
-      }}
-    />
-  );
-};
-
-export const WithExtraContent: Story = {
+export const WithHelper: Story = {
   render: Template,
 
   args: {
@@ -139,48 +195,39 @@ export const WithExtraContent: Story = {
   },
 };
 
-export const HoverState: Story = {
-  render: Template,
-
-  args: {
-    id: 'hover-check',
-    name: 'hover-check',
-    hover: true,
-  },
-};
-
 export const WithTooltip: Story = {
-  render: Template,
+  render: (args) => (
+    <Row>
+      <Col lg={6} md={12}>
+        <VerticalSpacing>
+          <Checkbox {...args} id="check-tooltip-short-title" label="Text" name="check-long-title" value="check" />
+          <Checkbox
+            {...args}
+            id="check-long-title"
+            label="Text"
+            name="check-long-title"
+            value="check"
+            helper={{
+              text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis scelerisque quis augue sit amet semper. Donec porttitor mauris neque, quis feugiat erat malesuada ac. Cras vel mauris a est pretium egestas.',
+            }}
+          />
+          <Checkbox
+            {...args}
+            id="check-long-title"
+            label="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin varius, sem blandit sodales tincidunt, orci elit ornare ex, eu ultrices diam turpis id nisl. Sed sollicitudin auctor nunc. Aliquam a arcu in sem bibendum laoreet non eu nunc."
+            name="check-long-title-helper"
+            value="check"
+            helper={{
+              text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis scelerisque quis augue sit amet semper. Donec porttitor mauris neque, quis feugiat erat malesuada ac. Cras vel mauris a est pretium egestas.',
+            }}
+          />
+        </VerticalSpacing>
+      </Col>
+    </Row>
+  ),
 
   args: {
-    id: 'tooltip-check',
     name: 'tooltip-check',
-    tooltip: 'This is a tooltip',
-  },
-};
-
-export const WithTooltipAndExtraContent: Story = {
-  render: Template,
-
-  args: {
-    id: 'tooltip-extra-content-check',
-    name: 'tooltip-extra-content-check',
-    helper: {
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis scelerisque quis augue sit amet semper. Donec porttitor mauris neque, quis feugiat erat malesuada ac. Cras vel mauris a est pretium egestas.',
-    },
-    tooltip: 'This is a tooltip',
-  },
-};
-
-export const WithTooltipAndLongTitleAndExtraContent: Story = {
-  args: {
-    id: 'tooltip-long-title-extra-content-check',
-    name: 'tooltip-long-title-extra-content-check',
-    label:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin varius, sem blandit sodales tincidunt, orci elit ornare ex, eu ultrices diam turpis id nisl. Sed sollicitudin auctor nunc. Aliquam a arcu in sem bibendum laoreet non eu nunc.',
-    helper: {
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis scelerisque quis augue sit amet semper. Donec porttitor mauris neque, quis feugiat erat malesuada ac. Cras vel mauris a est pretium egestas.',
-    },
     tooltip: 'This is a tooltip',
   },
 };
@@ -203,7 +250,7 @@ export const Controlled = () => {
 export const CheckWithLongTitle = () => {
   return (
     <Row>
-      <Col width={6}>
+      <Col lg={6} md={12}>
         <Checkbox
           id="check-long-title"
           label="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin varius, sem blandit sodales tincidunt, orci elit ornare ex, eu ultrices diam turpis id nisl. Sed sollicitudin auctor nunc. Aliquam a arcu in sem bibendum laoreet non eu nunc."
@@ -213,15 +260,4 @@ export const CheckWithLongTitle = () => {
       </Col>
     </Row>
   );
-};
-
-export const Invalid: Story = {
-  render: Template,
-
-  args: {
-    id: 'invalid-check',
-    name: 'invalid-check',
-    helper: { text: 'Feedback text', type: 'error' },
-    invalid: true,
-  },
 };
