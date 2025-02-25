@@ -42,7 +42,7 @@ $tag-colors: (
     display: flex;
     align-items: center;
 
-    @include mixins.responsive-styles(min-height, button-xs-icon-size, null, '- 2px');
+    @include mixins.responsive-styles(min-height, button-xs-icon-size);
   }
 
   &__loader {
