@@ -29,7 +29,7 @@ const TemplateSizes: StoryFn<FileUploadProps> = (args) => {
             <Text modifiers="bold">{size.charAt(0).toUpperCase() + size.slice(1)}</Text>
           </Col>
           <Col>
-            <FileUpload {...args} size={size} />
+            <FileUpload {...args} size={size} id={`file-upload-${key}`} />
           </Col>
         </Row>
       ))}
@@ -48,7 +48,6 @@ export const Default: Story = {
 export const Sizes: Story = {
   render: TemplateSizes,
   args: {
-    id: 'example-1',
     label: 'Label',
   },
 };

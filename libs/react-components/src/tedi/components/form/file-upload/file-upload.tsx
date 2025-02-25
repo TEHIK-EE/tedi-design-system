@@ -159,7 +159,6 @@ export const FileUpload = (props: FileUploadProps): JSX.Element => {
   } = props;
   const helperId = helper ? helper?.id ?? `${id}-helper` : undefined;
 
-  const [hovered, setHovered] = React.useState(false);
   const [innerFiles, setInnerFiles] = React.useState<FileUploadFile[]>(defaultFiles || []);
   const [uploadErrorHelper, setUploadErrorHelper] = React.useState<FeedbackTextProps | undefined>();
   const currentBreakpoint = useBreakpoint();
@@ -287,11 +286,7 @@ export const FileUpload = (props: FileUploadProps): JSX.Element => {
 
   return (
     <>
-      <div
-        onMouseEnter={() => setHovered(true)}
-        onMouseLeave={() => setHovered(false)}
-        className={styles['tedi-file-upload__label-wrapper']}
-      >
+      <div className={styles['tedi-file-upload__label-wrapper']}>
         <FormLabel
           id={id}
           {...rest}
@@ -336,7 +331,6 @@ export const FileUpload = (props: FileUploadProps): JSX.Element => {
                           visualType="neutral"
                           iconLeft="close"
                           aria-describedby={helperId}
-                          isActive={hovered}
                           disabled={disabled}
                           onClick={handleClear}
                           className={styles['tedi-file-upload__button']}
@@ -353,7 +347,6 @@ export const FileUpload = (props: FileUploadProps): JSX.Element => {
                     visualType="neutral"
                     iconLeft="file_upload"
                     aria-describedby={helperId}
-                    isActive={hovered}
                     disabled={disabled}
                     onClick={() => document.getElementById(id)?.click()}
                     className={styles['tedi-file-upload__button']}

@@ -19,26 +19,14 @@ $container-height-small: 2rem;
   margin: 0;
 
   @include mixins.responsive-styles(gap, form-field-inner-spacing);
-  @include mixins.responsive-styles(padding-top, layout-grid-gutters-04);
-  @include mixins.responsive-styles(padding-bottom, layout-grid-gutters-04);
+  @include mixins.responsive-styles(padding-top, form-field-inner-spacing);
+  @include mixins.responsive-styles(padding-bottom, form-field-inner-spacing);
 
   & li {
-    line-height: 0;
+    word-break: break-word;
+    overflow-wrap: break-word;
     list-style-type: none;
   }
-
-  @include breakpoints.media-breakpoint-down(md) {
-    @include mixins.responsive-styles(margin-bottom, layout-grid-gutters-08);
-  }
-}
-
-.tedi-file-upload__label {
-  width: fit-content;
-  cursor: pointer;
-}
-
-.tedi-file-upload__label-wrapper {
-  width: fit-content;
 }
 
 .tedi-file-upload__container {
@@ -55,15 +43,9 @@ $container-height-small: 2rem;
 
     @include mixins.responsive-styles(padding-left, form-field-padding-x-md-default);
     @include mixins.responsive-styles(padding-right, form-field-padding-x-md-default);
-    @include mixins.responsive-styles(padding-top, form-field-padding-y-sm);
-    @include mixins.responsive-styles(padding-bottom, form-field-padding-y-sm);
 
     .tedi-file-upload__button {
-      height: calc(#{$container-height} - var(--form-field-padding-y-sm-desktop) * 2);
-
-      @include breakpoints.media-breakpoint-down(md) {
-        height: calc(#{$container-height} - var(--form-field-padding-y-sm-mobile) * 2);
-      }
+      height: $container-height;
     }
   }
 
@@ -76,11 +58,9 @@ $container-height-small: 2rem;
     @include mixins.responsive-styles(padding-bottom, form-field-padding-y-xxs);
 
     .tedi-file-upload__button {
-      height: calc(#{$container-height-small} - var(--form-field-padding-y-xxs-desktop) * 2);
+      height: $container-height-small;
 
-      @include breakpoints.media-breakpoint-down(md) {
-        height: calc(#{$container-height-small} - var(--form-field-padding-y-xxs-mobile) * 2);
-      }
+      @include mixins.responsive-styles(padding-left, form-field-padding-x-md-default);
     }
   }
 
