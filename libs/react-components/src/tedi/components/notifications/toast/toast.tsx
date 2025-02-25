@@ -6,7 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const toastDefaultOptions: ToastOptions = {
   position: 'bottom-right',
-  autoClose: 6000,
+  autoClose: 10000,
   hideProgressBar: true,
   closeOnClick: true,
   pauseOnHover: true,
@@ -23,6 +23,9 @@ export const sendNotification = (props: AlertProps, toastOptions?: ToastOptions)
     () => (
       <Alert
         data-name="toast"
+        role="alert"
+        aria-live="assertive"
+        aria-atomic="true"
         {...props}
         onClose={() => {
           props.onClose?.();

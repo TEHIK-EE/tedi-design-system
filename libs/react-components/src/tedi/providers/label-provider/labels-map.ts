@@ -707,6 +707,13 @@ export const labelsMap = {
     en: (count: string | number) => `Updated. New value ${count}`,
     ru: (count: string | number) => `Ууэндатуд. Уус вяэртус ${count}`,
   }),
+  'alert.close': validateLabel({
+    description: 'Close label for alert component',
+    components: ['Alert'],
+    et: 'Sulge',
+    en: 'Close',
+    ru: 'Закрыть',
+  }),
 };
 
 export type LabelsMapType = typeof labelsMap;

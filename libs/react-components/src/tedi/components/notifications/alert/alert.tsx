@@ -2,6 +2,7 @@ import cn from 'classnames';
 import React from 'react';
 
 import { BreakpointSupport, useBreakpointProps, useIsMounted } from '../../../helpers';
+import { useLabels } from '../../../providers/label-provider';
 import { ClosingButton } from '../../buttons/closing-button/closing-button';
 import { Col, Row } from '../../grid';
 import { Icon, IconWithoutBackgroundProps } from '../../icon/icon';
@@ -84,7 +85,7 @@ export const Alert = (props: AlertProps): JSX.Element | null => {
     noSideBorders = false,
     ...rest
   } = getCurrentBreakpointProps<AlertProps>(props);
-
+  const { getLabel } = useLabels();
   const alertBEM = cn(
     styles['tedi-alert'],
     styles[`tedi-alert--${type}`],
@@ -126,7 +127,7 @@ export const Alert = (props: AlertProps): JSX.Element | null => {
           </Col>
           {onClose && (
             <Col width="auto">
-              <ClosingButton onClick={onClose} aria-label="Close alert" />
+              <ClosingButton onClick={onClose} aria-label={getLabel('alert.close')} />
             </Col>
           )}
         </Row>
