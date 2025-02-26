@@ -1,5 +1,6 @@
-/** @type { import('@storybook/angular').StorybookConfig } */
-const config = {
+import { StorybookConfig } from "@storybook/angular";
+
+const config: StorybookConfig = {
   stories: [
     "../src/*/*.mdx",
     "../src/docs/colors/colors.mdx",

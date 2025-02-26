@@ -19,7 +19,7 @@ interface ColorStoryData {
   selector: "app-color-story",
   template: `
     <div *ngFor="let group of groupedColorsArray">
-      <div class="color__example__wrapper">
+      <div style="margin-bottom: 20px;">
         <h3 class="text-capitalize" style="margin-bottom: 10px;">
           {{ group.key }}
         </h3>
@@ -40,19 +40,6 @@ interface ColorStoryData {
       </div>
     </div>
   `,
-  styles: [
-    `
-      .color-card {
-        min-width: 50px;
-        min-height: 50px;
-        border-radius: 4px;
-        margin-bottom: 8px;
-      }
-      .color__example__wrapper {
-        margin-bottom: 20px;
-      }
-    `,
-  ],
 })
 export class ColorStoryComponent {
   @Input() data: ColorStoryData[] = [];

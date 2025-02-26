@@ -1,22 +1,11 @@
-/** @type { import('@storybook/angular').Preview } */
-const preview = {
+import { Preview } from "@storybook/angular";
+
+const preview: Preview = {
   parameters: {
     viewMode: "docs",
     backgrounds: {
       default: "default",
-      values: [
-        { name: "default", value: "var(--color-bg-default)" },
-        { name: "muted", value: "var(--color-bg-muted)" },
-        { name: "subtle", value: "var(--color-bg-subtle)" },
-        { name: "disabled", value: "var(--color-bg-disabled)" },
-        { name: "black", value: "var(--color-black)" },
-        { name: "inverted", value: "var(--color-bg-inverted)" },
-        {
-          name: "inverted-contrast",
-          value: "var(--color-bg-inverted-contrast)",
-        },
-        { name: "brand", value: "var(--primary-600)" },
-      ],
+      values: [{ name: "brand", value: "var(--primary-600)" }],
     },
     docs: {
       toc: true,
