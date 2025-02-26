@@ -53,11 +53,10 @@ describe('Checkbox component', () => {
       <Checkbox id="check-id" label="Check Label" value="check-value" name="check-group" hideLabel />
     );
 
-    // Find the label span correctly
-    const hiddenLabel = container.querySelector('label span');
+    const hiddenLabel = container.querySelector('label');
 
-    expect(hiddenLabel).toBeInTheDocument(); // Ensure span exists
-    expect(hiddenLabel).toHaveClass('visually-hidden');
+    expect(hiddenLabel).toBeInTheDocument();
+    expect(hiddenLabel).toHaveClass('tedi-form-label--hidden');
   });
 
   it('renders with tooltip', () => {

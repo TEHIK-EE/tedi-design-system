@@ -2,9 +2,9 @@ import cn from 'classnames';
 import React from 'react';
 
 import { Col, Row } from '../../../../tedi/components/grid';
-import { Icon } from '../../icon/icon';
-import Tooltip from '../../tooltip/tooltip';
 import { ChoiceInputProps } from '../choice-input.types';
+import FeedbackText from '../feedback-text/feedback-text';
+import FormLabel from '../form-label/form-label';
 import styles from './radio.module.scss';
 
 export type RadioProps = ChoiceInputProps;
@@ -18,12 +18,14 @@ export const Radio = (props: RadioProps): JSX.Element => {
     disabled,
     onChange,
     hideLabel,
-    extraContent,
+    helper,
     checked,
     defaultChecked,
     hover,
     name,
     tooltip,
+    size = 'default',
+    invalid,
     ...rest
   } = props;
   const [innerChecked, setInnerChecked] = React.useState<boolean>(defaultChecked || false);
@@ -40,6 +42,7 @@ export const Radio = (props: RadioProps): JSX.Element => {
     onChange?.(value, event?.target.checked);
   };
 
+  const helperId = helper ? helper?.id ?? `${id}-helper` : undefined;
   const LabelBEM = cn(styles['tedi-radio'], { [styles['tedi-radio--disabled']]: disabled });
 
   return (
@@ -60,35 +63,30 @@ export const Radio = (props: RadioProps): JSX.Element => {
             <div
               aria-hidden="true"
               onClick={() => labelRef.current?.click()}
-              className={cn(styles['tedi-radio__indicator'], { [styles['tedi-radio__indicator--hover']]: hover })}
+              className={cn(
+                styles['tedi-radio__indicator'],
+                { [styles['tedi-radio__indicator--hover']]: hover },
+                { [styles[`tedi-radio__indicator--size-${size}`]]: size },
+                { [styles['tedi-radio__indicator--invalid']]: invalid }
+              )}
               data-testid="radio-indicator"
             />
           </div>
         </Col>
         <Col>
-          <label ref={labelRef} className={LabelBEM} htmlFor={id} data-testid="radio-label">
-            <span className={cn({ 'visually-hidden': hideLabel })}>{label}</span>
-            {tooltip && (
-              <>
-                <Tooltip>
-                  <Tooltip.Trigger>
-                    <Icon
-                      name="info"
-                      color="brand"
-                      size={18}
-                      display="inline"
-                      className={styles['tedi-radio__tooltip-icon']}
-                    />
-                  </Tooltip.Trigger>
-                  <Tooltip.Content>{tooltip}</Tooltip.Content>
-                </Tooltip>
-              </>
-            )}
-          </label>
+          <FormLabel
+            ref={labelRef}
+            className={LabelBEM}
+            id={id}
+            data-testid="radio-label"
+            hideLabel={hideLabel}
+            label={label}
+            tooltip={tooltip}
+          />
         </Col>
       </Row>
 
-      {extraContent && <div className={styles['tedi-radio__extra-content']}>{extraContent}</div>}
+      {helper && <FeedbackText {...helper} className={styles['tedi-radio__extra-content']} id={helperId} />}
     </div>
   );
 };

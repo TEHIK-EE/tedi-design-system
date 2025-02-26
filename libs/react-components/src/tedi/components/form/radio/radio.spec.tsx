@@ -49,11 +49,13 @@ describe('Radio component', () => {
 
   it('renders with hideLabel prop', () => {
     const { container } = render(
-      <Radio id="radio-id" label="Radio Label" value="radio-value" name="radio-group" hideLabel />
+      <Radio id="check-id" label="Check Label" value="check-value" name="check-group" hideLabel />
     );
 
-    const span = container.querySelector('span');
-    expect(span).toHaveClass('visually-hidden');
+    const hiddenLabel = container.querySelector('label');
+
+    expect(hiddenLabel).toBeInTheDocument();
+    expect(hiddenLabel).toHaveClass('tedi-form-label--hidden');
   });
 
   it('renders with tooltip', () => {
@@ -67,11 +69,11 @@ describe('Radio component', () => {
   it('renders with extra content', () => {
     const { getByText } = render(
       <Radio
-        id="radio-id"
-        label="Radio Label"
-        value="radio-value"
-        name="radio-group"
-        extraContent={<div>Extra Content</div>}
+        id="check-id"
+        label="Check Label"
+        value="check-value"
+        name="check-group"
+        helper={{ text: 'Extra Content' }}
       />
     );
 

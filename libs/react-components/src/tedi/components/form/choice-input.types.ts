@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { FeedbackTextProps } from './feedback-text/feedback-text';
 
 export interface ChoiceInputProps {

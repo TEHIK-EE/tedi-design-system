@@ -2,7 +2,6 @@
 
 .tedi-radio {
   position: relative;
-  display: inline;
   color: var(--general-text-primary);
 
   @include mixins.print-grayscale;
@@ -27,8 +26,6 @@
     transition: border-color 150ms ease;
 
     @include mixins.responsive-styles(margin-right, form-checkbox-radio-inner-spacing);
-    @include mixins.responsive-styles(width, form-checkbox-radio-size-responsive);
-    @include mixins.responsive-styles(height, form-checkbox-radio-size-responsive);
     @include mixins.responsive-styles(border-radius, form-checkbox-radio-indicator-radius-radio);
 
     &::after {
@@ -43,14 +40,37 @@
       transform: translate(-50%, -50%);
 
       @include mixins.responsive-styles(border-radius, form-checkbox-radio-indicator-radius-radio);
-      @include mixins.responsive-styles(width, form-checkbox-radio-size-responsive, null, '* 0.65');
-      @include mixins.responsive-styles(height, form-checkbox-radio-size-responsive, null, '* 0.65');
+    }
+
+    &--size-default {
+      @include mixins.responsive-styles(width, form-checkbox-radio-size-responsive);
+      @include mixins.responsive-styles(height, form-checkbox-radio-size-responsive);
+
+      &::after {
+        @include mixins.responsive-styles(width, form-checkbox-radio-size-responsive, null, '* 0.67');
+        @include mixins.responsive-styles(height, form-checkbox-radio-size-responsive, null, '* 0.67');
+      }
+    }
+
+    &--size-large {
+      @include mixins.responsive-styles(width, form-checkbox-radio-size-large);
+      @include mixins.responsive-styles(height, form-checkbox-radio-size-large);
+
+      &::after {
+        @include mixins.responsive-styles(width, form-checkbox-radio-size-large, null, '* 0.67');
+        @include mixins.responsive-styles(height, form-checkbox-radio-size-large, null, '* 0.67');
+      }
+    }
+
+    &--invalid {
+      border-color: var(--form-general-feedback-error-border);
     }
 
     .tedi-radio__input:not(:disabled) + &--hover,
     .tedi-radio__input:hover:not(:disabled) + &,
     .tedi-radio__input:not(:disabled) + &:hover,
     .tedi-radio__input:focus:not(:disabled) + & {
+      cursor: pointer;
       border: 1px solid var(--form-checkbox-radio-default-border-hover);
       outline: 1px solid var(--form-checkbox-radio-default-border-hover);
     }
@@ -83,13 +103,7 @@
     @include mixins.responsive-styles(height, form-checkbox-radio-indicator-container-height);
   }
 
-  &__tooltip-icon {
-    @include mixins.responsive-styles(margin-left, form-checkbox-radio-inner-spacing);
-  }
-
   &__extra-content {
-    padding-top: 0.125rem;
-
     @include mixins.responsive-styles(padding-left, form-checkbox-radio-size-responsive);
     @include mixins.responsive-styles(margin-left, form-checkbox-radio-inner-spacing);
   }
