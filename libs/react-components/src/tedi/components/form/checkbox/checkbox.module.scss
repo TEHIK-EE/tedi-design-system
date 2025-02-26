@@ -2,7 +2,6 @@
 
 .tedi-checkbox {
   position: relative;
-  display: inline;
   color: var(--general-text-primary);
 
   @include mixins.print-grayscale;

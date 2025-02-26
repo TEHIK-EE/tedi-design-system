@@ -54,7 +54,7 @@ export interface ChoiceInputProps {
   /**
    * Provide content for tooltip.
    */
-  tooltip?: React.ReactNode;
+  tooltip?: string;
   /**
    *  Input size
    */

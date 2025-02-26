@@ -35,10 +35,8 @@ const TemplateSizes: StoryFn<CheckboxProps> = (args) => {
                 <Text modifiers="bold">{size.charAt(0).toUpperCase() + size.slice(1)}</Text>
                 {size === 'large' && (
                   <Alert type="warning">
-                    <Text>
-                      Applied automatically in mobile screen size. Use in tables where’s checkbox without text.
-                    </Text>
-                    <Text modifiers="bold">Otherwise prefer using default size.</Text>
+                    <Text>Applied automatically on mobile screen sizes. </Text>
+                    <Text modifiers="bold">Otherwise, prefer using default size.</Text>
                   </Alert>
                 )}
               </VerticalSpacing>
