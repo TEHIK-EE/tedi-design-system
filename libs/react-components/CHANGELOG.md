@@ -1,3 +1,24 @@
+# [@tehik-ee/tedi-react-v11.1.0-rc.17](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.1.0-rc.16...react-11.1.0-rc.17) (2025-02-26)
+
+
+### Bug Fixes
+
+* **label,form-label:** add forwardRef [#504](https://github.com/TEHIK-EE/tedi-design-system/issues/504) ([#509](https://github.com/TEHIK-EE/tedi-design-system/issues/509)) ([6ad2828](https://github.com/TEHIK-EE/tedi-design-system/commit/6ad2828a3bc448638ebd842dac2c1a487b316116))
+
+# [@tehik-ee/tedi-react-v11.1.0-rc.16](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.1.0-rc.15...react-11.1.0-rc.16) (2025-02-26)
+
+
+### Features
+
+* **label,form-label:** Add tooltip functionality [#504](https://github.com/TEHIK-EE/tedi-design-system/issues/504) ([#505](https://github.com/TEHIK-EE/tedi-design-system/issues/505)) ([298bc60](https://github.com/TEHIK-EE/tedi-design-system/commit/298bc605bb582ef0d5e0b57557c91184a279da5a))
+
+# [@tehik-ee/tedi-react-v11.1.0-rc.15](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.1.0-rc.14...react-11.1.0-rc.15) (2025-02-25)
+
+
+### Bug Fixes
+
+* **tag:** Tag height on mobile devices [#497](https://github.com/TEHIK-EE/tedi-design-system/issues/497) ([#498](https://github.com/TEHIK-EE/tedi-design-system/issues/498)) ([5cc93d2](https://github.com/TEHIK-EE/tedi-design-system/commit/5cc93d2f63551c176fe3debebef0f016699ad711))
+
 # [@tehik-ee/tedi-react-v11.1.0-rc.14](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.1.0-rc.13...react-11.1.0-rc.14) (2025-02-20)
 
 

@@ -4,7 +4,7 @@ import React from 'react';
 import { Col, Row } from '../../../tedi/components/grid';
 import { VerticalSpacing } from '../../../tedi/components/vertical-spacing';
 import { Button } from '../buttons/button/button';
-import { Skeleton, SkeletonBlock, SkeletonProps } from '.';
+import { Skeleton, SkeletonProps } from '.';
 
 /**
  * <a href="https://www.figma.com/file/jWiRIXhHRxwVdMSimKX2FF/TEDI-Design-System-(draft)?type=design&node-id=2188-34298&m=dev" target="_BLANK">Figma ↗</a><br/>
@@ -14,13 +14,22 @@ import { Skeleton, SkeletonBlock, SkeletonProps } from '.';
 const meta: Meta<typeof Skeleton> = {
   component: Skeleton,
   title: 'TEDI-Ready/Components/Loader/Skeleton',
-  subcomponents: { SkeletonBlock } as never,
+  subcomponents: {
+    'Skeleton.Block': Skeleton.Block,
+  } as never,
   parameters: {
     status: {
       type: [{ name: 'breakpointSupport', url: '?path=/docs/helpers-usebreakpointprops--usebreakpointprops' }],
     },
     controls: {
       exclude: ['sm', 'md', 'lg', 'xl', 'xxl'],
+    },
+    docs: {
+      source: {
+        transform: (code: string) => {
+          return code.replaceAll('SkeletonBlock', 'Skeleton.Block');
+        },
+      },
     },
   },
 };
@@ -31,11 +40,11 @@ type Story = StoryObj<typeof Skeleton>;
 const Template: StoryFn<SkeletonProps> = (args) => (
   <Skeleton {...args}>
     <VerticalSpacing>
-      <SkeletonBlock height="p" />
-      <SkeletonBlock height="h3" />
-      <SkeletonBlock height="h2" />
-      <SkeletonBlock height="h1" />
-      <SkeletonBlock height={100} />
+      <Skeleton.Block height="p" />
+      <Skeleton.Block height="h3" />
+      <Skeleton.Block height="h2" />
+      <Skeleton.Block height="h1" />
+      <Skeleton.Block height={100} />
     </VerticalSpacing>
   </Skeleton>
 );
@@ -43,10 +52,10 @@ const Template: StoryFn<SkeletonProps> = (args) => (
 const TemplateWidth: StoryFn<SkeletonProps> = (args) => (
   <Skeleton {...args}>
     <VerticalSpacing>
-      <SkeletonBlock width={50} height="p" />
-      <SkeletonBlock width={75} height="h3" />
-      <SkeletonBlock width="36px" height="h2" />
-      <SkeletonBlock width="auto" height="h1" />
+      <Skeleton.Block width={50} height="p" />
+      <Skeleton.Block width={75} height="h3" />
+      <Skeleton.Block width="36px" height="h2" />
+      <Skeleton.Block width="auto" height="h1" />
     </VerticalSpacing>
   </Skeleton>
 );
@@ -97,10 +106,10 @@ const AccessibilityTemplate: StoryFn<AccessibilityTemplateProps> = ({ style, id,
   return (
     <Skeleton {...args}>
       <VerticalSpacing>
-        <SkeletonBlock width={100} height="p" style={style} />
-        <SkeletonBlock width={75} height={29} style={style} />
-        <SkeletonBlock width={40} height={50} style={style} />
-        <SkeletonBlock width={80} style={style} />
+        <Skeleton.Block width={100} height="p" style={style} />
+        <Skeleton.Block width={75} height={29} style={style} />
+        <Skeleton.Block width={40} height={50} style={style} />
+        <Skeleton.Block width={80} style={style} />
       </VerticalSpacing>
     </Skeleton>
   );

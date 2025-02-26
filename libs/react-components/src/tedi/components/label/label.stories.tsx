@@ -70,10 +70,7 @@ export const InfoButtonStory: Story = {
   args: {
     children: 'Active ingredient',
     required: true,
-    infoButton: {
-      onClick: () => alert('More Info'),
-      children: 'More Info',
-    },
+    tooltip: 'More Info',
   },
 };
 
