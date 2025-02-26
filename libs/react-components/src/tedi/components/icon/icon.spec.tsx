@@ -1,6 +1,5 @@
 import { render } from '@testing-library/react';
 
-import { Heading } from '../typography/heading/heading';
 import { Icon } from './icon';
 
 import '@testing-library/jest-dom';

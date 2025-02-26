@@ -1,8 +1,6 @@
 @use '@tehik-ee/tedi-core/mixins';
 
 .tedi-form-label {
-  display: flex;
-
   &--hidden {
     @include mixins.visually-hidden;
   }

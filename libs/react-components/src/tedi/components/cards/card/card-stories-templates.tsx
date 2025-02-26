@@ -12,24 +12,24 @@ import { Heading } from '../../typography/heading/heading';
 import { Text } from '../../typography/text/text';
 import { VerticalSpacing } from '../../vertical-spacing';
 import { CardStory } from './card.stories';
-import { Card, CardContent, CardContentPadding, CardHeader } from './index';
+import { Card, CardContentPadding } from './index';
 import { CardBackground } from './utility';
 
-export const HeaderTypesTemplate: StoryFn<CardStory> = () => (
+export const HeaderTypesTemplate: StoryFn<CardStory> = (_args) => (
   <VerticalSpacing>
     <Card>
-      <CardHeader>
+      <Card.Header>
         <Heading element="h3">Title</Heading>
-      </CardHeader>
+      </Card.Header>
     </Card>
     <Card>
-      <CardHeader>
+      <Card.Header>
         <Heading element="h3">Title</Heading>
         <Text color="secondary">Description</Text>
-      </CardHeader>
+      </Card.Header>
     </Card>
     <Card>
-      <CardHeader>
+      <Card.Header>
         <Row>
           <Col>
             <Heading element="h3">Title</Heading>
@@ -43,10 +43,10 @@ export const HeaderTypesTemplate: StoryFn<CardStory> = () => (
             <Text color="secondary">Description</Text>
           </Col>
         </Row>
-      </CardHeader>
+      </Card.Header>
     </Card>
     <Card>
-      <CardHeader>
+      <Card.Header>
         <Row>
           <Col>
             <Heading element="h3">Title</Heading>
@@ -65,10 +65,10 @@ export const HeaderTypesTemplate: StoryFn<CardStory> = () => (
             <Text color="secondary">Description</Text>
           </Col>
         </Row>
-      </CardHeader>
+      </Card.Header>
     </Card>
     <Card>
-      <CardHeader>
+      <Card.Header>
         <Row>
           <Col>
             <Heading element="h3">Title</Heading>
@@ -84,10 +84,10 @@ export const HeaderTypesTemplate: StoryFn<CardStory> = () => (
             <Text color="secondary">Description</Text>
           </Col>
         </Row>
-      </CardHeader>
+      </Card.Header>
     </Card>
     <Card>
-      <CardHeader>
+      <Card.Header>
         <Row>
           <Col>
             <Heading element="h3">Title</Heading>
@@ -101,10 +101,10 @@ export const HeaderTypesTemplate: StoryFn<CardStory> = () => (
             <Text color="secondary">Description</Text>
           </Col>
         </Row>
-      </CardHeader>
+      </Card.Header>
     </Card>
     <Card>
-      <CardHeader background="secondary">
+      <Card.Header background="secondary">
         <Row>
           <Col>
             <Heading element="h3">Title</Heading>
@@ -118,10 +118,10 @@ export const HeaderTypesTemplate: StoryFn<CardStory> = () => (
             <Text color="secondary">Description</Text>
           </Col>
         </Row>
-      </CardHeader>
+      </Card.Header>
     </Card>
     <Card>
-      <CardHeader background="tertiary">
+      <Card.Header background="tertiary">
         <Row>
           <Col>
             <Heading element="h3">Title</Heading>
@@ -135,10 +135,10 @@ export const HeaderTypesTemplate: StoryFn<CardStory> = () => (
             <Text color="secondary">Description</Text>
           </Col>
         </Row>
-      </CardHeader>
+      </Card.Header>
     </Card>
     <Card>
-      <CardHeader background="brand-primary">
+      <Card.Header background="brand-primary">
         <Row>
           <Col>
             <Heading element="h3">Title</Heading>
@@ -152,10 +152,10 @@ export const HeaderTypesTemplate: StoryFn<CardStory> = () => (
             <Text>Description</Text>
           </Col>
         </Row>
-      </CardHeader>
+      </Card.Header>
     </Card>
     <Card>
-      <CardHeader background="brand-secondary">
+      <Card.Header background="brand-secondary">
         <Row>
           <Col>
             <Heading element="h3">Title</Heading>
@@ -169,32 +169,32 @@ export const HeaderTypesTemplate: StoryFn<CardStory> = () => (
             <Text>Description</Text>
           </Col>
         </Row>
-      </CardHeader>
+      </Card.Header>
     </Card>
   </VerticalSpacing>
 );
 
-export const DefaultCardTemplates: StoryFn<CardStory> = () => (
+export const DefaultCardTemplates: StoryFn<CardStory> = (_args) => (
   <VerticalSpacing>
     <Card>
-      <CardContent>
+      <Card.Content>
         <Text color="secondary">Description</Text>
-      </CardContent>
+      </Card.Content>
     </Card>
     <Card>
-      <CardContent>
+      <Card.Content>
         <Text color="secondary">Description</Text>
         <StatusBadge color="brand">Approved</StatusBadge>
-      </CardContent>
+      </Card.Content>
     </Card>
     <Card>
-      <CardContent>
+      <Card.Content>
         <Text modifiers="bold">Title</Text>
         <Text color="secondary">Description</Text>
-      </CardContent>
+      </Card.Content>
     </Card>
     <Card>
-      <CardContent>
+      <Card.Content>
         <Text modifiers="bold">Title</Text>
         <Row>
           <Col>
@@ -204,20 +204,20 @@ export const DefaultCardTemplates: StoryFn<CardStory> = () => (
             <StatusBadge color="brand">Approved</StatusBadge>
           </Col>
         </Row>
-      </CardContent>
+      </Card.Content>
     </Card>
     <Card>
-      <CardContent>
+      <Card.Content>
         <Row>
           <Col className="display-flex align-items-center gap-3">
             <Icon name="monitor_heart" />
             <Text color="secondary">Description</Text>
           </Col>
         </Row>
-      </CardContent>
+      </Card.Content>
     </Card>
     <Card>
-      <CardContent>
+      <Card.Content>
         <Row>
           <Col className="display-flex align-items-center gap-3">
             <Icon name="monitor_heart" />
@@ -227,10 +227,10 @@ export const DefaultCardTemplates: StoryFn<CardStory> = () => (
             </VerticalSpacing>
           </Col>
         </Row>
-      </CardContent>
+      </Card.Content>
     </Card>
     <Card>
-      <CardContent>
+      <Card.Content>
         <Row>
           <Col className="display-flex align-items-center gap-3">
             <Icon name="monitor_heart" />
@@ -243,12 +243,12 @@ export const DefaultCardTemplates: StoryFn<CardStory> = () => (
             <Button>Create</Button>
           </Col>
         </Row>
-      </CardContent>
+      </Card.Content>
     </Card>
     <Row>
       <Col lg={6} sm={12}>
         <Card>
-          <CardContent>
+          <Card.Content>
             <Row>
               <Col>
                 <Text modifiers="bold">Title</Text>
@@ -261,17 +261,17 @@ export const DefaultCardTemplates: StoryFn<CardStory> = () => (
                 </Row>
               </Col>
             </Row>
-          </CardContent>
+          </Card.Content>
         </Card>
       </Col>
     </Row>
   </VerticalSpacing>
 );
 
-export const CardInfoTemplate: StoryFn<CardStory> = () => (
+export const CardInfoTemplate: StoryFn<CardStory> = (_args) => (
   <VerticalSpacing>
     <Card>
-      <CardContent background="brand-tertiary">
+      <Card.Content background="brand-tertiary">
         <Row>
           <Col width="auto" className="display-flex align-items-center gap-3">
             <Icon background="primary" name="assignment_late" />
@@ -281,10 +281,10 @@ export const CardInfoTemplate: StoryFn<CardStory> = () => (
             </VerticalSpacing>
           </Col>
         </Row>
-      </CardContent>
+      </Card.Content>
     </Card>
     <Card>
-      <CardContent
+      <Card.Content
         background="brand-tertiary"
         backgroundImage="card-background-example.svg"
         backgroundSize="75px"
@@ -300,10 +300,10 @@ export const CardInfoTemplate: StoryFn<CardStory> = () => (
             </VerticalSpacing>
           </Col>
         </Row>
-      </CardContent>
+      </Card.Content>
     </Card>
     <Card border="accent">
-      <CardContent background="accent">
+      <Card.Content background="accent">
         <Row>
           <Col width="auto" className="display-flex align-items-center gap-3">
             <Icon background="primary" name="assignment_late" />
@@ -313,10 +313,10 @@ export const CardInfoTemplate: StoryFn<CardStory> = () => (
             </VerticalSpacing>
           </Col>
         </Row>
-      </CardContent>
+      </Card.Content>
     </Card>
     <Card border="neutral-primary">
-      <CardContent background="neutral-primary">
+      <Card.Content background="neutral-primary">
         <Row>
           <Col width="auto" className="display-flex align-items-center gap-3">
             <Icon background="primary" name="calendar_today" filled />
@@ -325,22 +325,22 @@ export const CardInfoTemplate: StoryFn<CardStory> = () => (
             </Text>
           </Col>
         </Row>
-      </CardContent>
+      </Card.Content>
     </Card>
   </VerticalSpacing>
 );
 
-export const AlternativeCardsTemplate: StoryFn<CardStory> = () => (
+export const AlternativeCardsTemplate: StoryFn<CardStory> = (_args) => (
   <VerticalSpacing>
     <Row>
       <Col lg={6} sm={12}>
         <Card>
-          <CardHeader>
+          <Card.Header>
             <HeadingWithIcon name="assignment_ind" headingColor="brand" iconColor="brand">
               My statement of intention
             </HeadingWithIcon>
-          </CardHeader>
-          <CardContent padding={{ top: 0, right: 1, bottom: 1, left: 1 }}>
+          </Card.Header>
+          <Card.Content padding={{ top: 0, right: 1, bottom: 1, left: 1 }}>
             <Row>
               <Col>
                 <Text color="secondary">For example organ donation and blood transfusion</Text>
@@ -348,12 +348,12 @@ export const AlternativeCardsTemplate: StoryFn<CardStory> = () => (
                 <Button visualType="secondary">View statements of intention</Button>
               </Col>
             </Row>
-          </CardContent>
+          </Card.Content>
         </Card>
       </Col>
       <Col lg={6} sm={12}>
         <Card>
-          <CardContent>
+          <Card.Content>
             <Row>
               <Col>
                 <Text modifiers="bold">Title</Text>
@@ -362,19 +362,19 @@ export const AlternativeCardsTemplate: StoryFn<CardStory> = () => (
                 <Button visualType="secondary">View statements of intention</Button>
               </Col>
             </Row>
-          </CardContent>
+          </Card.Content>
         </Card>
       </Col>
     </Row>
     <Row>
       <Col lg={6} sm={12}>
         <Card>
-          <CardHeader background="brand-primary">
+          <Card.Header background="brand-primary">
             <Heading element="h3" color="white">
               Short title
             </Heading>
-          </CardHeader>
-          <CardContent>
+          </Card.Header>
+          <Card.Content>
             <Row>
               <Col>
                 <VerticalSpacing>
@@ -383,30 +383,30 @@ export const AlternativeCardsTemplate: StoryFn<CardStory> = () => (
                 </VerticalSpacing>
               </Col>
             </Row>
-          </CardContent>
+          </Card.Content>
         </Card>
       </Col>
       <Col lg={6} sm={12}>
         <Card>
-          <CardContent>
+          <Card.Content>
             <Text color="secondary">For example organ donation and blood transfusion</Text>
-          </CardContent>
+          </Card.Content>
         </Card>
       </Col>
     </Row>
     <Row>
       <Col>
         <Card border="left-danger-secondary">
-          <CardContent>
+          <Card.Content>
             <Text>Card important</Text>
-          </CardContent>
+          </Card.Content>
         </Card>
       </Col>
     </Row>
   </VerticalSpacing>
 );
 
-export const SpacingTemplate: StoryFn<CardStory> = () => {
+export const SpacingTemplate: StoryFn<CardStory> = (_args) => {
   const paddings: CardContentPadding[] = [
     { top: 0.5, left: 0.5, right: 0.5, bottom: 0.5 },
     { top: 1, left: 1, right: 1, bottom: 1 },
@@ -418,12 +418,12 @@ export const SpacingTemplate: StoryFn<CardStory> = () => {
       {paddings.map((padding, index) => (
         <Col lg={4} sm={12} key={index}>
           <Card>
-            <CardContent padding={padding}>
+            <Card.Content padding={padding}>
               <Text>
                 Cabbage, comprising several cultivars of Brassica oleracea, is a leafy green, red (purple), or white
                 (pale green) biennial plant grown as an annual vegetable crop for its dense-leaved heads.
               </Text>
-            </CardContent>
+            </Card.Content>
           </Card>
         </Col>
       ))}
@@ -431,7 +431,7 @@ export const SpacingTemplate: StoryFn<CardStory> = () => {
   );
 };
 
-export const BackgroundColorsTemplate: StoryFn<CardStory> = () => {
+export const BackgroundColorsTemplate: StoryFn<CardStory> = (_args) => {
   const backgroundColors: CardBackground[] = [
     'primary',
     'secondary',
@@ -449,12 +449,12 @@ export const BackgroundColorsTemplate: StoryFn<CardStory> = () => {
       {backgroundColors.map((color, index) => (
         <Col lg={4} sm={12} key={index} style={{ marginBottom: '1.5rem' }}>
           <Card background={color} borderless={color !== 'primary' ? true : false}>
-            <CardContent>
+            <Card.Content>
               <Text>
                 Cabbage, comprising several cultivars of Brassica oleracea, is a leafy green, red (purple), or white
                 (pale green) biennial plant grown as an annual vegetable crop for its dense-leaved heads.
               </Text>
-            </CardContent>
+            </Card.Content>
           </Card>
         </Col>
       ))}

@@ -4,6 +4,7 @@ import React from 'react';
 import { useLabels } from '../../../tedi/providers/label-provider';
 import { useDeclareLoader } from '../../providers/accessibility-provider/use-declare-loader';
 import styles from './skeleton.module.scss';
+import SkeletonBlock from './skeleton-block/skeleton-block';
 
 export interface SkeletonProps {
   /**
@@ -59,4 +60,5 @@ export const Skeleton = (props: SkeletonProps): JSX.Element => {
   );
 };
 
+Skeleton.Block = SkeletonBlock;
 export default Skeleton;
