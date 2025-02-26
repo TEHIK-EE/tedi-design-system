@@ -14,7 +14,10 @@
             "compodoc": true,
             "compodocArgs": ["-e", "json", "-d", "."],
             "port": 6006,
-            "styles": ["src/tedi/styles/index"]
+            "styles": [
+              "src/tedi/styles/index",
+              "../tedi-core/src/tedi-storybook-styles.scss"
+            ]
           }
         },
         "build-storybook": {
@@ -24,13 +27,19 @@
             "compodoc": true,
             "compodocArgs": ["-e", "json", "-d", "."],
             "outputDir": "dist/storybook-static",
-            "styles": ["src/tedi/styles/index"]
+            "styles": [
+              "src/tedi/styles/index",
+              "../tedi-core/src/tedi-storybook-styles.scss"
+            ]
           }
         },
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
-            "lintFilePatterns": ["src/**/components/**/*.ts", "src/**/components/**/*.html"]
+            "lintFilePatterns": [
+              "src/**/components/**/*.ts",
+              "src/**/components/**/*.html"
+            ]
           }
         },
         "test": {

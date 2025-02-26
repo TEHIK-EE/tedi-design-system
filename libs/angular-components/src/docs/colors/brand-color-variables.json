@@ -1,0 +1,109 @@
+[
+  {
+    "mode": {
+      "name": "TEHIK brand",
+      "id": "21:1"
+    },
+    "color": [
+      {
+        "name": "primary-100",
+        "value": "#e7f0f6",
+        "var": "blue-100",
+        "rootAlias": "blue-100"
+      },
+      {
+        "name": "primary-200",
+        "value": "#d0e1ee",
+        "var": "blue-200",
+        "rootAlias": "blue-200"
+      },
+      {
+        "name": "primary-300",
+        "value": "#99bdda",
+        "var": "blue-300",
+        "rootAlias": "blue-300"
+      },
+      {
+        "name": "primary-400",
+        "value": "#4587bc",
+        "var": "blue-400",
+        "rootAlias": "blue-400"
+      },
+      {
+        "name": "primary-500",
+        "value": "#337bb5",
+        "var": "blue-500",
+        "rootAlias": "blue-500"
+      },
+      {
+        "name": "primary-600",
+        "value": "#005aa3",
+        "var": "blue-600",
+        "rootAlias": "blue-600",
+        "main": true
+      },
+      {
+        "name": "primary-700",
+        "value": "#004277",
+        "var": "blue-700",
+        "rootAlias": "blue-700"
+      },
+      {
+        "name": "primary-800",
+        "value": "#003662",
+        "var": "blue-800",
+        "rootAlias": "blue-800"
+      },
+      {
+        "name": "accent-100",
+        "value": "#fff2e6",
+        "var": "orange-100",
+        "rootAlias": "orange-100"
+      },
+      {
+        "name": "accent-200",
+        "value": "#ffe6cc",
+        "var": "orange-200",
+        "rootAlias": "orange-200"
+      },
+      {
+        "name": "accent-300",
+        "value": "#ffcc99",
+        "var": "orange-300",
+        "rootAlias": "orange-300"
+      },
+      {
+        "name": "accent-400",
+        "value": "#ffb366",
+        "var": "orange-400",
+        "rootAlias": "orange-400"
+      },
+      {
+        "name": "accent-500",
+        "value": "#ff9933",
+        "var": "orange-500",
+        "rootAlias": "orange-500"
+      },
+      {
+        "name": "accent-600",
+        "value": "#ff8000",
+        "var": "orange-600",
+        "rootAlias": "orange-600",
+        "main": true
+      },
+      {
+        "name": "accent-700",
+        "value": "#994d00",
+        "var": "orange-700",
+        "rootAlias": "orange-700"
+      },
+      {
+        "name": "accent-800",
+        "value": "#663300",
+        "var": "orange-800",
+        "rootAlias": "orange-800"
+      }
+    ],
+    "number": []
+  }
+]
