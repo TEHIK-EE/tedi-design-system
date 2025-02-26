@@ -1,4 +1,4 @@
-import { fireEvent, render } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 
 import { useBreakpointProps } from '../../helpers';
 import { Label } from './label';
@@ -7,6 +7,8 @@ import '@testing-library/jest-dom';
 
 jest.mock('../../helpers', () => ({
   useBreakpointProps: jest.fn(),
+  useIsTouchDevice: jest.fn(),
+  useIsMounted: jest.fn(() => true),
 }));
 
 describe('Label component', () => {
@@ -79,35 +81,20 @@ describe('Label component', () => {
     expect(required).toBeInTheDocument();
   });
 
-  it('renders InfoButton when infoButtonProps are provided', () => {
-    const mockOnClick = jest.fn();
+  it('renders an InfoButton when tooltip is provided', () => {
+    render(<Label tooltip="This is a tooltip">Label</Label>);
 
-    const { container, getByRole } = render(
-      <Label
-        infoButton={{
-          onClick: mockOnClick,
-          children: 'More Info',
-          title: 'Additional Info',
-        }}
-        required
-      >
-        Label
-      </Label>
-    );
-
-    const infoButton = getByRole('button');
+    const infoButton = screen.getByRole('button');
     expect(infoButton).toBeInTheDocument();
-    const required = container.querySelector('.tedi-label__required');
-    expect(required?.nextSibling).toBe(infoButton);
 
-    fireEvent.click(infoButton);
-    expect(mockOnClick).toHaveBeenCalledTimes(1);
+    fireEvent.mouseEnter(infoButton);
+
+    expect(screen.getByRole('tooltip', { name: 'This is a tooltip' })).toBeInTheDocument();
   });
 
-  it('does not render InfoButton if infoButtonProps is not provided', () => {
+  it('does not render InfoButton if tooltip is not provided', () => {
     const { queryByRole } = render(<Label>Label</Label>);
-
-    const infoButton = queryByRole('button', { name: 'More Info' });
+    const infoButton = queryByRole('button');
     expect(infoButton).not.toBeInTheDocument();
   });
 });

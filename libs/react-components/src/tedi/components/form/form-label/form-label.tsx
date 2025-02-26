@@ -39,10 +39,15 @@ export interface FormLabelProps {
    * @default default
    */
   size?: 'small' | 'default';
+  /**
+   * Tooltip content to display when hovering over the info button.
+   * If provided, an info button with a tooltip will be rendered.
+   */
+  tooltip?: string;
 }
 
 export const FormLabel = (props: FormLabelProps): JSX.Element => {
-  const { label, hideLabel, required, id, renderWithoutLabel, size = 'default', className, ...rest } = props;
+  const { label, hideLabel, required, id, renderWithoutLabel, size = 'default', className, tooltip, ...rest } = props;
 
   const FormLabelBEM = cn(
     styles['tedi-form-label'],
@@ -60,6 +65,7 @@ export const FormLabel = (props: FormLabelProps): JSX.Element => {
       htmlFor={id}
       required={required}
       isSmall={size === 'small'}
+      tooltip={tooltip}
       {...rest}
     >
       {label}
