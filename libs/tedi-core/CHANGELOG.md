@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-core-v1.6.9](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.6.8...core-1.6.9) (2025-02-26)
+
+
+### Bug Fixes
+
+* **tedi-core:** button-xs-icon-size variable change [#236](https://github.com/TEHIK-EE/tedi-design-system/issues/236) ([7788378](https://github.com/TEHIK-EE/tedi-design-system/commit/7788378a7cab96ed0e695dc12130fbc71330f614))
+
 # [@tehik-ee/tedi-core-v1.6.8](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.6.7...core-1.6.8) (2025-02-20)
 
 
