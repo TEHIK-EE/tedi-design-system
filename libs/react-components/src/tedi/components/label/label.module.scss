@@ -24,5 +24,7 @@
 
   &__required {
     color: var(--form-general-feedback-error-border);
+
+    @include mixins.responsive-styles(margin-left, content-label-inner-spacing-x);
   }
 }
