@@ -14,15 +14,7 @@ import {
   HeaderTypesTemplate,
   SpacingTemplate,
 } from './card-stories-templates';
-import {
-  Card,
-  CardContent,
-  CardContentProps,
-  CardHeader,
-  CardNotification,
-  CardNotificationProps,
-  CardProps,
-} from './index';
+import { Card, CardContentProps, CardNotificationProps, CardProps } from './index';
 
 /**
  * <a href="https://www.figma.com/design/jWiRIXhHRxwVdMSimKX2FF/TEDI-READY-(work-in-progress)?node-id=163-19532&m=dev" target="_BLANK">Figma ↗</a><br/>
@@ -32,13 +24,27 @@ import {
 export default {
   title: 'TEDI-Ready/Components/Cards/Card',
   component: Card,
-  subcomponents: { CardContent, CardHeader, CardNotification },
+  subcomponents: {
+    'Card.Content': Card.Content,
+    'Card.Header': Card.Header,
+    'Card.Notification': Card.Notification,
+  },
   parameters: {
     status: {
       type: [{ name: 'breakpointSupport', url: '?path=/docs/helpers-usebreakpointprops--usebreakpointprops' }],
     },
     controls: {
       exclude: ['sm', 'md', 'lg', 'xl', 'xxl'],
+    },
+    docs: {
+      source: {
+        transform: (code: string) => {
+          return code
+            .replaceAll('CardContent', 'Card.Content')
+            .replaceAll('CardHeader', 'Card.Header')
+            .replaceAll('CardNotification', 'Card.Notification');
+        },
+      },
     },
   },
 } as Meta;
@@ -56,17 +62,17 @@ type Story = StoryObj<CardStory>;
 
 const Template: StoryFn<CardStory> = (args) => (
   <Card {...args}>
-    <CardContent>Description</CardContent>
+    <Card.Content>Description</Card.Content>
   </Card>
 );
 
 const GeneralTemplate: StoryFn<CardStory> = (args) => {
   const getSplitContent = () => (
-    <CardContent padding={0}>
+    <Card.Content padding={0}>
       <Row gutter={0}>
         <Col>
           <Card borderless={true}>
-            <CardContent>
+            <Card.Content>
               <p>Left</p>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis mollis augue, vitae aliquet elit
@@ -75,35 +81,35 @@ const GeneralTemplate: StoryFn<CardStory> = (args) => {
                 mollis enim ipsum id erat. Pellentesque congue ante metus, ut tempor tortor lobortis non. Proin in
                 ligula sed ante accumsan viverra. Ut et tempor neque.
               </p>
-            </CardContent>
+            </Card.Content>
           </Card>
         </Col>
         <Col>
           <StretchContent>
             <Card borderless={true}>
-              <CardContent background="secondary">Right</CardContent>
+              <Card.Content background="secondary">Right</Card.Content>
             </Card>
           </StretchContent>
         </Col>
       </Row>
-    </CardContent>
+    </Card.Content>
   );
 
   const getDefaultContent = (cardContent: CardContentProps) => (
-    <CardContent {...cardContent}>
+    <Card.Content {...cardContent}>
       <p>Description</p>
-    </CardContent>
+    </Card.Content>
   );
 
   const getNotification = (notification: CardNotificationProps) => (
-    <CardNotification {...notification}>
+    <Card.Notification {...notification}>
       <p>Card notification</p>
-    </CardNotification>
+    </Card.Notification>
   );
 
-  const getContent2 = (content: CardContentProps) => <CardContent {...content} />;
+  const getContent2 = (content: CardContentProps) => <Card.Content {...content} />;
 
-  const getCardHeader = (header: CardContentProps) => <CardHeader {...header}>{header.children}</CardHeader>;
+  const getCardHeader = (header: CardContentProps) => <Card.Header {...header}>{header.children}</Card.Header>;
 
   return (
     <Card {...args.card}>
@@ -245,7 +251,7 @@ export const WithNotification: Story = {
 
 const Timeline: StoryFn<CardProps> = (args) => (
   <Card {...args}>
-    <CardContent>
+    <Card.Content>
       <Row>
         <Col width={3}>
           <p>Card content</p>
@@ -257,7 +263,7 @@ const Timeline: StoryFn<CardProps> = (args) => (
           <p>Card content</p>
         </Col>
       </Row>
-    </CardContent>
+    </Card.Content>
   </Card>
 );
 
@@ -266,23 +272,23 @@ export const TimelineCard: StoryObj<CardProps> = {
   args: {},
 };
 
-const TwoToned: StoryFn<CardProps> = () => (
+const TwoToned: StoryFn<CardProps> = (_args) => (
   <Row gutter={0}>
     <Col width="auto">
       <StretchContent>
         <Card borderRadius={{ right: false, bottom: false }}>
-          <CardContent background="secondary">
+          <Card.Content background="secondary">
             <Icon name="straighten" className="text-disabled"></Icon>
-          </CardContent>
+          </Card.Content>
         </Card>
       </StretchContent>
     </Col>
     <Col width="auto">
       <Card borderRadius={{ left: false, top: false }}>
-        <CardContent>
+        <Card.Content>
           <p className="text-bold">Some statistic: x kg</p>
           <p>Some description</p>
-        </CardContent>
+        </Card.Content>
       </Card>
     </Col>
   </Row>

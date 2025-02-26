@@ -4,7 +4,6 @@ import { Icon } from '../icon/icon';
 import { Heading } from '../typography/heading/heading';
 import { Text } from '../typography/text/text';
 import { VerticalSpacing, VerticalSpacingProps } from './vertical-spacing';
-import { VerticalSpacingItem } from './vertical-spacing-item';
 
 /**
  * <a href="https://zeroheight.com/1ee8444b7/p/759180-verticalspacing" target="_BLANK">Zeroheight ↗</a>
@@ -13,7 +12,9 @@ import { VerticalSpacingItem } from './vertical-spacing-item';
 const meta: Meta<typeof VerticalSpacing> = {
   component: VerticalSpacing,
   title: 'Tedi-Ready/Components/Helpers/VerticalSpacing',
-  subcomponents: { VerticalSpacingItem } as never,
+  subcomponents: {
+    'VerticalSpacing.Item': VerticalSpacing.Item,
+  } as never,
   parameters: {
     status: {
       type: [
@@ -23,6 +24,13 @@ const meta: Meta<typeof VerticalSpacing> = {
     },
     controls: {
       exclude: ['sm', 'md', 'lg', 'xl', 'xxl'],
+    },
+    docs: {
+      source: {
+        transform: (code: string) => {
+          return code.replaceAll('VerticalSpacingItem', 'VerticalSpacing.Item');
+        },
+      },
     },
   },
 };
@@ -39,9 +47,9 @@ const Template: StoryFn<VerticalSpacingProps> = (args) => (
     <p>
       Use <code>size</code> prop to change margin between its children.
     </p>
-    <VerticalSpacingItem size={0}>
+    <VerticalSpacing.Item size={0}>
       <p>Use VerticalSpacingItem to overwrite one element spacing.</p>
-    </VerticalSpacingItem>
+    </VerticalSpacing.Item>
 
     <Text color="primary" modifiers="small">
       Some tiny text. Morbi et velit enim. Nulla facilisi. Curabitur tincidunt viverra nulla, a varius leo pharetra
@@ -64,9 +72,9 @@ const TemplateWithSizes: StoryFn<VerticalSpacingProps> = (args) => {
           <div className={`row ${key === sizeArray.length - 1 ? '' : 'border-bottom'} padding-14-16`} key={key}>
             <VerticalSpacing {...args} size={size}>
               <p>VerticalSpacing component with size {size} between its children.</p>
-              <VerticalSpacingItem size={0}>
+              <VerticalSpacing.Item size={0}>
                 <p>Use VerticalSpacingItem to overwrite one elements spacing.</p>
-              </VerticalSpacingItem>
+              </VerticalSpacing.Item>
             </VerticalSpacing>
           </div>
         ))}
@@ -99,9 +107,9 @@ const MixedContentTemplate: StoryFn<VerticalSpacingProps> = (args) => (
 const OverwriteItemSpacingTemplate: StoryFn<VerticalSpacingProps> = (args) => (
   <VerticalSpacing {...args}>
     <p>Default spacing between items</p>
-    <VerticalSpacingItem size={3}>
+    <VerticalSpacing.Item size={3}>
       <p>Overwritten spacing for this item</p>
-    </VerticalSpacingItem>
+    </VerticalSpacing.Item>
     <p>Default spacing resumed</p>
   </VerticalSpacing>
 );

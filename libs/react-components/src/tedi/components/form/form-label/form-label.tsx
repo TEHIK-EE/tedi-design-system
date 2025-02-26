@@ -1,4 +1,5 @@
 import cn from 'classnames';
+import { forwardRef } from 'react';
 
 import { Label } from '../../label/label';
 import styles from './form-label.module.scss';
@@ -46,31 +47,34 @@ export interface FormLabelProps {
   tooltip?: string;
 }
 
-export const FormLabel = (props: FormLabelProps): JSX.Element => {
-  const { label, hideLabel, required, id, renderWithoutLabel, size = 'default', className, tooltip, ...rest } = props;
+export const FormLabel = forwardRef<HTMLLabelElement, FormLabelProps>(
+  ({ label, hideLabel, required, id, renderWithoutLabel, size = 'default', className, tooltip, ...rest }, ref) => {
+    const FormLabelBEM = cn(
+      styles['tedi-form-label'],
+      styles[`tedi-form-label--${size}`],
+      {
+        [styles[`tedi-form-label--hidden${hideLabel === 'keep-space' ? '-keep-space' : ''}`]]: hideLabel,
+      },
+      className
+    );
 
-  const FormLabelBEM = cn(
-    styles['tedi-form-label'],
-    styles[`tedi-form-label--${size}`],
-    {
-      [styles[`tedi-form-label--hidden${hideLabel === 'keep-space' ? '-keep-space' : ''}`]]: hideLabel,
-    },
-    className
-  );
+    return (
+      <Label
+        as={renderWithoutLabel ? 'span' : 'label'}
+        ref={ref}
+        className={FormLabelBEM}
+        htmlFor={id}
+        required={required}
+        isSmall={size === 'small'}
+        tooltip={tooltip}
+        {...rest}
+      >
+        {label}
+      </Label>
+    );
+  }
+);
 
-  return (
-    <Label
-      as={renderWithoutLabel ? 'span' : 'label'}
-      className={FormLabelBEM}
-      htmlFor={id}
-      required={required}
-      isSmall={size === 'small'}
-      tooltip={tooltip}
-      {...rest}
-    >
-      {label}
-    </Label>
-  );
-};
+FormLabel.displayName = 'FormLabel';
 
 export default FormLabel;

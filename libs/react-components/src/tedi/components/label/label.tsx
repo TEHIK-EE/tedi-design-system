@@ -1,5 +1,5 @@
 import cn from 'classnames';
-import { ElementType, LabelHTMLAttributes } from 'react';
+import { ElementType, forwardRef, LabelHTMLAttributes } from 'react';
 
 import { BreakpointSupport, useBreakpointProps } from '../../helpers';
 import InfoButton from '../buttons/info-button/info-button';
@@ -42,7 +42,7 @@ export interface LabelProps
   tooltip?: string;
 }
 
-export const Label = (props: LabelProps): JSX.Element => {
+export const Label = forwardRef<HTMLLabelElement | HTMLSpanElement, LabelProps>((props, ref) => {
   const { getCurrentBreakpointProps } = useBreakpointProps();
   const {
     as: Element = 'label',
@@ -54,6 +54,7 @@ export const Label = (props: LabelProps): JSX.Element => {
     tooltip,
     ...rest
   } = getCurrentBreakpointProps<LabelProps>(props);
+
   const labelBEM = cn(
     styles['tedi-label'],
     isBold && styles['tedi-label--bold'],
@@ -62,7 +63,7 @@ export const Label = (props: LabelProps): JSX.Element => {
   );
 
   return (
-    <Element className={labelBEM} {...rest}>
+    <Element ref={ref} className={labelBEM} {...rest}>
       {children}
       {required && (
         <span className={styles['tedi-label__required']} aria-hidden="true">
@@ -79,4 +80,6 @@ export const Label = (props: LabelProps): JSX.Element => {
       )}
     </Element>
   );
-};
+});
+
+Label.displayName = 'Label';
