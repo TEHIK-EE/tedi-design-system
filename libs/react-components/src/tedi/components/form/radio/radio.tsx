@@ -86,7 +86,7 @@ export const Radio = (props: RadioProps): JSX.Element => {
         </Col>
       </Row>
 
-      {helper && <FeedbackText {...helper} className={styles['tedi-radio__extra-content']} id={helperId} />}
+      {helper && <FeedbackText {...helper} className={styles['tedi-radio__helper']} id={helperId} />}
     </div>
   );
 };

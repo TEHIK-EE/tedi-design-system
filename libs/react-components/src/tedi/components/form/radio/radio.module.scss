@@ -103,7 +103,7 @@
     @include mixins.responsive-styles(height, form-checkbox-radio-indicator-container-height);
   }
 
-  &__extra-content {
+  &__helper {
     @include mixins.responsive-styles(padding-left, form-checkbox-radio-size-responsive);
     @include mixins.responsive-styles(margin-left, form-checkbox-radio-inner-spacing);
   }
