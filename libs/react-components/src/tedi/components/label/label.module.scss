@@ -6,7 +6,6 @@
   font-style: normal;
   font-feature-settings: 'clig' off, 'liga' off;
   color: var(--general-text-secondary);
-  vertical-align: super;
 
   @include mixins.responsive-styles(font-family, family-primary);
   @include mixins.responsive-styles(font-size, body-regular-size);
