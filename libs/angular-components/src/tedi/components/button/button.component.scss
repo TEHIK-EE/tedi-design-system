@@ -3,6 +3,9 @@
 
 $neutral-variants: "neutral", "danger-neutral";
 
+/*
+create .tedi-button scoped color variables for every variant
+*/
 @mixin button-variant-color-vars($variant) {
   --_btn-bg: var(--button-main-#{$variant}-background-default);
   --_btn-border: var(--button-main-#{$variant}-border-default);
@@ -15,6 +18,9 @@ $neutral-variants: "neutral", "danger-neutral";
   @include button-disabled-color-vars($variant);
 }
 
+/*
+create color variables for every state in a variant
+*/
 @mixin button-state-color-vars($variant, $state) {
   --_btn-#{$state}-bg: var(
     --button-main-#{$variant}-background-#{$state},
@@ -31,7 +37,7 @@ $neutral-variants: "neutral", "danger-neutral";
 }
 
 /*
-tere
+create disabled state color variables
 */
 @mixin button-disabled-color-vars($variant) {
   --_btn-disabled-text: var(--button-main-disabled-general-text);
@@ -45,6 +51,9 @@ tere
   }
 }
 
+/*
+create .tedi-button scoped size variables for every variant
+*/
 @mixin button-size-vars($size) {
   --_btn-padding: var(--_btn-padding-y) var(--_btn-padding-x);
 
@@ -62,6 +71,9 @@ tere
   );
 }
 
+/*
+overrides padding variables for neutal button
+*/
 @mixin neutral-button-padding-overrides {
   &:where(.tedi-btn--sm) {
     @include mixins.responsive-styles(
