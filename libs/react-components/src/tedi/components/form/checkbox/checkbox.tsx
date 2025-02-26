@@ -106,7 +106,7 @@ export const Checkbox = (props: CheckboxProps): JSX.Element => {
           />
         </Col>
       </Row>
-      {helper && <FeedbackText {...helper} className={styles['tedi-checkbox__extra-content']} id={helperId} />}
+      {helper && <FeedbackText {...helper} className={styles['tedi-checkbox__helper']} id={helperId} />}
     </div>
   );
 };
