@@ -63,16 +63,9 @@ export const Default: Story = {
 
 export const Sizes: Story = {
   render: TemplateSizes,
-
-  args: {
-    name: 'default-radio',
-  },
 };
 
 export const States = () => {
-  const [checked, setChecked] = useState<boolean>(true);
-  const [indeterminate, setIndeterminate] = useState<boolean>(true);
-
   return (
     <Row>
       <Col lg={6} md={12}>
@@ -98,14 +91,7 @@ export const States = () => {
               <Text modifiers="bold">Selected</Text>
             </Col>
             <Col>
-              <Radio
-                id="radio-checked"
-                label="Text"
-                name="radio-checked"
-                value="radio"
-                checked={checked}
-                onChange={(value, checked) => setChecked(checked)}
-              />
+              <Radio id="radio-checked" label="Text" name="radio-checked" value="radio" defaultChecked />
             </Col>
           </Row>
           <Row>
@@ -127,8 +113,7 @@ export const States = () => {
                 name="radio-disabled-checked"
                 value="radio"
                 disabled
-                checked={checked}
-                onChange={(value, checked) => setChecked(checked)}
+                defaultChecked
               />
             </Col>
           </Row>
