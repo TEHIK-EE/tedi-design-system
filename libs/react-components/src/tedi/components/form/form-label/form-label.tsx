@@ -1,10 +1,10 @@
 import cn from 'classnames';
-import { forwardRef, LabelHTMLAttributes } from 'react';
+import { forwardRef } from 'react';
 
 import { Label } from '../../label/label';
 import styles from './form-label.module.scss';
 
-export interface FormLabelProps extends LabelHTMLAttributes<HTMLLabelElement | HTMLSpanElement> {
+export interface FormLabelProps {
   /**
    * The unique identifier for the input element that this label is associated with.
    * This ID should match the input element's `id` attribute to ensure accessibility.
