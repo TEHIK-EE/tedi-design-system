@@ -30,7 +30,7 @@ const TemplateSizes: StoryFn<CheckboxProps> = (args) => {
       <Col lg={6} md={12} className="example-list">
         {sizesArray.map((size, key) => (
           <Row className={`${key === sizesArray.length - 1 ? '' : 'border-bottom'} padding-14-16`} key={key}>
-            <Col lg={10} md={12} className="display-flex align-items-center">
+            <Col lg={10} md={6} xs={8} className="display-flex align-items-center">
               <VerticalSpacing>
                 <Text modifiers="bold">{size.charAt(0).toUpperCase() + size.slice(1)}</Text>
                 {size === 'large' && (
@@ -41,8 +41,8 @@ const TemplateSizes: StoryFn<CheckboxProps> = (args) => {
                 )}
               </VerticalSpacing>
             </Col>
-            <Col lg={2} md={12} className="text-right">
-              <Checkbox {...args} size={size} id={`numberfield-size-${size}`} />
+            <Col lg={2} md={6} xs={4}>
+              <Checkbox {...args} size={size} id={`checkbox-size-${size}`} />
             </Col>
           </Row>
         ))}
@@ -63,10 +63,6 @@ export const Default: Story = {
 
 export const Sizes: Story = {
   render: TemplateSizes,
-
-  args: {
-    name: 'default-radio',
-  },
 };
 
 export const States = () => {
@@ -198,12 +194,18 @@ export const WithTooltip: Story = {
     <Row>
       <Col lg={6} md={12}>
         <VerticalSpacing>
-          <Checkbox {...args} id="check-tooltip-short-title" label="Text" name="check-long-title" value="check" />
           <Checkbox
             {...args}
-            id="check-long-title"
+            id="check-short-title-tooltip"
             label="Text"
-            name="check-long-title"
+            name="check-short-title-tooltip"
+            value="check"
+          />
+          <Checkbox
+            {...args}
+            id="check-short-title-helper-tooltip"
+            label="Text"
+            name="check-short-title-helper-tooltip"
             value="check"
             helper={{
               text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis scelerisque quis augue sit amet semper. Donec porttitor mauris neque, quis feugiat erat malesuada ac. Cras vel mauris a est pretium egestas.',
@@ -211,9 +213,9 @@ export const WithTooltip: Story = {
           />
           <Checkbox
             {...args}
-            id="check-long-title"
+            id="check-long-title-tooltip-helper"
             label="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin varius, sem blandit sodales tincidunt, orci elit ornare ex, eu ultrices diam turpis id nisl. Sed sollicitudin auctor nunc. Aliquam a arcu in sem bibendum laoreet non eu nunc."
-            name="check-long-title-helper"
+            name="check-long-title-tooltip-helper"
             value="check"
             helper={{
               text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis scelerisque quis augue sit amet semper. Donec porttitor mauris neque, quis feugiat erat malesuada ac. Cras vel mauris a est pretium egestas.',
