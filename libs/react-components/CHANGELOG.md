@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-react-v11.1.0-rc.17](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.1.0-rc.16...react-11.1.0-rc.17) (2025-02-26)
+
+
+### Bug Fixes
+
+* **label,form-label:** add forwardRef [#504](https://github.com/TEHIK-EE/tedi-design-system/issues/504) ([#509](https://github.com/TEHIK-EE/tedi-design-system/issues/509)) ([6ad2828](https://github.com/TEHIK-EE/tedi-design-system/commit/6ad2828a3bc448638ebd842dac2c1a487b316116))
+
 # [@tehik-ee/tedi-react-v11.1.0-rc.16](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.1.0-rc.15...react-11.1.0-rc.16) (2025-02-26)
 
 
