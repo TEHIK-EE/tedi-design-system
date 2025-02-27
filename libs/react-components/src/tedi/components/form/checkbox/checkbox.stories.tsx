@@ -109,7 +109,7 @@ export const States = () => {
               <Text modifiers="bold">Disabled</Text>
             </Col>
             <Col>
-              <Checkbox id="check-disabled" label="Text" name="check-hover" value="check" disabled />
+              <Checkbox id="check-disabled" label="Text" name="check-disabled" value="check" disabled />
             </Col>
           </Row>
           <Row>

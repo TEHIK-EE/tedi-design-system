@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-react-v11.1.0-rc.18](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.1.0-rc.17...react-11.1.0-rc.18) (2025-02-27)
+
+
+### Features
+
+* **checkbox:** TEDI-Ready Checkbox component development [#236](https://github.com/TEHIK-EE/tedi-design-system/issues/236) ([#515](https://github.com/TEHIK-EE/tedi-design-system/issues/515)) ([55bcfc4](https://github.com/TEHIK-EE/tedi-design-system/commit/55bcfc4ed33387c18a13056dfa768d24afb74513))
+
 # [@tehik-ee/tedi-react-v11.1.0-rc.17](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.1.0-rc.16...react-11.1.0-rc.17) (2025-02-26)
 
 
