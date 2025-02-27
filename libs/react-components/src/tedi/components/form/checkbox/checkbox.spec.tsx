@@ -1,4 +1,5 @@
-import { fireEvent, render } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
+import { act, useState } from 'react';
 
 import Checkbox from './checkbox';
 
@@ -90,26 +91,36 @@ describe('Checkbox component', () => {
     expect(input).toBeChecked();
   });
 
-  it('changes state when clicked if not controlled', () => {
-    const { container, rerender } = render(
-      <Checkbox id="check-id" label="Check Label" value="check-value" name="check-group" defaultChecked={false} />
-    );
+  it('changes state when clicked if not controlled', async () => {
+    const TestComponent = () => {
+      const [isChecked, setIsChecked] = useState(false);
+      return (
+        <Checkbox
+          id="check-id"
+          label="Check Label"
+          value="check-value"
+          name="check-group"
+          defaultChecked={isChecked}
+          onChange={() => setIsChecked(!isChecked)}
+        />
+      );
+    };
 
-    const input = container.querySelector('input[type="checkbox"]');
-    expect(input).not.toBeChecked();
+    render(<TestComponent />);
+    const checkbox = screen.getByRole('checkbox');
 
-    if (input) {
-      fireEvent.click(input);
-    }
+    expect(checkbox).not.toBeChecked();
 
-    rerender(<Checkbox id="check-id" label="Check Label" value="check-value" name="check-group" defaultChecked />);
+    await act(async () => {
+      fireEvent.click(checkbox);
+    });
 
-    expect(input).toBeChecked();
+    expect(checkbox).toBeChecked();
   });
 
-  it('does not change state when clicked if controlled', () => {
+  it('does not change state when clicked if controlled', async () => {
     const handleChange = jest.fn();
-    const { container } = render(
+    const { rerender } = render(
       <Checkbox
         id="check-id"
         label="Check Label"
@@ -120,15 +131,29 @@ describe('Checkbox component', () => {
       />
     );
 
-    const input = container.querySelector('input[type="checkbox"]');
-    expect(input).not.toBeChecked();
+    const checkbox = screen.getByRole('checkbox');
+    expect(checkbox).not.toBeChecked();
 
-    if (input) {
-      fireEvent.click(input);
-    }
+    await act(async () => {
+      fireEvent.click(checkbox);
+    });
 
-    expect(input).not.toBeChecked();
+    expect(checkbox).not.toBeChecked();
+    expect(handleChange).toHaveBeenCalledTimes(1);
     expect(handleChange).toHaveBeenCalledWith('check-value', true);
+
+    rerender(
+      <Checkbox
+        id="check-id"
+        label="Check Label"
+        value="check-value"
+        name="check-group"
+        checked={true}
+        onChange={handleChange}
+      />
+    );
+
+    expect(checkbox).toBeChecked();
   });
 
   it('renders with indeterminate state', () => {
