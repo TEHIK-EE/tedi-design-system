@@ -23,8 +23,8 @@ import {
 import React from 'react';
 
 import { useIsMounted } from '../../../tedi/helpers';
+import { useIsTouchDevice } from '../../../tedi/helpers';
 import { useLabels } from '../../../tedi/providers/label-provider';
-import { useIsTouchDevice } from '../../helpers';
 
 export type TooltipOpenWith = 'click' | 'hover';
 export const ARROW_HEIGHT = 7;

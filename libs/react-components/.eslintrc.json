@@ -54,6 +54,13 @@
       "rules": {
         "react-hooks/rules-of-hooks": "off"
       }
+    },
+    {
+      "files": ["src/community/**"],
+      "rules": {
+        "@typescript-eslint/no-unused-vars": "off",
+        "react-hooks/exhaustive-deps": "off"
+      }
     }
   ],
   "settings": {

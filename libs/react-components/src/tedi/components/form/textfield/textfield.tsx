@@ -6,7 +6,7 @@ import FormLabel, { FormLabelProps } from '../../../../tedi/components/form/form
 import { useLabels } from '../../../../tedi/providers/label-provider';
 import { BreakpointSupport, useBreakpointProps } from '../../../helpers';
 import { ClosingButton } from '../../buttons/closing-button/closing-button';
-import { Icon, IconProps } from '../../icon/icon';
+import { Icon, IconWithoutBackgroundProps } from '../../icon/icon';
 import Separator from '../../separator/separator';
 import styles from './textfield.module.scss';
 
@@ -19,7 +19,7 @@ type TextFieldBreakpointProps = {
   /**
    * Icon name or configuration for the input field.
    */
-  icon?: string | IconProps;
+  icon?: string | IconWithoutBackgroundProps;
   /**
    * Whether to render a textarea instead of an input.
    */
@@ -214,12 +214,12 @@ export const TextField = forwardRef<TextFieldForwardRef, TextFieldProps>((props,
   const labelSize = size === 'large' ? 'default' : size;
 
   const getIcon = React.useCallback(
-    (icon: string | IconProps): JSX.Element => {
-      const defaultIconProps: Partial<IconProps> = {
+    (icon: string | IconWithoutBackgroundProps): JSX.Element => {
+      const defaultIconProps: Partial<IconWithoutBackgroundProps> = {
         size: size === 'large' ? 24 : size === 'small' ? 16 : 18,
         className: cn(styles['tedi-textfield__icon']),
       };
-      const iconProps: IconProps =
+      const iconProps: IconWithoutBackgroundProps =
         typeof icon === 'string'
           ? { ...defaultIconProps, name: icon }
           : { ...defaultIconProps, ...icon, className: cn(defaultIconProps.className, icon?.className) };

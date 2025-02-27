@@ -28,20 +28,30 @@ const ColorTemplate: StoryFn<TagProps> = (args) => {
   return (
     <Row justifyContent="start">
       <Col md="auto">
-        <Tag color={args.color}>Tag</Tag>
+        <Tag color={args.color}>{args.children}</Tag>
       </Col>
       <Col md="auto">
         <Tag color={args.color} onClose={args.onClose}>
-          Tag
+          {args.children}
         </Tag>
       </Col>
       {args.isLoading && (
         <Col md="auto">
           <Tag color={args.color} isLoading={args.isLoading}>
-            taotlus_scan_lk_1.pdf
+            {args.children}
           </Tag>
         </Col>
       )}
+      <Col md={2}>
+        <Tag isLoading color={args.color}>
+          Tag with a very long text but little room
+        </Tag>
+      </Col>
+      <Col md={2}>
+        <Tag color={args.color} onClose={args.onClose}>
+          Tag with a very long text but little room
+        </Tag>
+      </Col>
     </Row>
   );
 };
@@ -60,6 +70,7 @@ export const Primary: Story = {
     onClose: (e) => console.log('Close button clicked', e),
     isLoading: true,
     color: 'primary',
+    children: 'Tag',
   },
 };
 
@@ -69,6 +80,7 @@ export const Secondary: Story = {
     onClose: (e) => console.log('Close button clicked', e),
     isLoading: true,
     color: 'secondary',
+    children: 'Tag',
   },
 };
 
@@ -77,5 +89,6 @@ export const Danger: Story = {
   args: {
     onClose: (e) => console.log('Close button clicked', e),
     color: 'danger',
+    children: 'Tag',
   },
 };

@@ -25,6 +25,7 @@ const meta: Meta<typeof ScrollVisibility> = {
 
 export default meta;
 
+faker.seed(123);
 const lorem = [...Array(5).keys()].map(() => faker.lorem.paragraphs(4));
 const NAVIGATION_HEIGHT = 48;
 type Story = StoryObj<typeof ScrollVisibility>;

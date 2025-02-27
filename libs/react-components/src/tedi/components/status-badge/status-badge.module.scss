@@ -24,8 +24,8 @@ $badge-status-colors: ('inactive', 'success', 'danger', 'warning');
   &__inner-text {
     min-width: fit-content;
 
-    @include mixins.responsive-styles(padding-left, tag-default-inner-spacing);
-    @include mixins.responsive-styles(padding-right, tag-default-inner-spacing);
+    @include mixins.responsive-styles(padding-left, tag-default-padding-x);
+    @include mixins.responsive-styles(padding-right, tag-default-padding-x);
   }
 
   &--large {

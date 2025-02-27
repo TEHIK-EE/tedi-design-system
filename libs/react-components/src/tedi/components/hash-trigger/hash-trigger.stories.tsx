@@ -1,29 +1,35 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 
-import { Col, Row } from '../../../tedi/components/grid';
-import { VerticalSpacing } from '../../../tedi/components/vertical-spacing';
-import { Anchor } from '../anchor/anchor';
-import { Tabs, TabsItem } from '../tabs';
+import { Tabs, TabsItem } from '../../../community/components/tabs';
+import { Col, Row } from '../grid';
+import Link from '../navigation/link/link';
 import { Heading } from '../typography/heading/heading';
-import HashTrigger, { HashTriggerProps } from './hash-trigger';
+import { VerticalSpacing } from '../vertical-spacing';
+import { HashTrigger, HashTriggerProps } from './hash-trigger';
 
 /**
- * This component provides opportunity to navigate to a specific element that is defined in the hash of the URL. Try to change hash to test-1 to see it in action. <br/>
- * HashTrigger is also included inside Accordion and Tabs component, to trigger stateChange on match. <br />
- * When page is first loaded, the scroll will be instant. When hash is changed, the scroll will be smooth.
+ * <a href="https://tedi.tehik.ee/1ee8444b7/p/84a3d9-hashtrigger" target="_BLANK">Zeroheight ↗</a><br />
  */
 const meta: Meta<typeof HashTrigger> = {
   component: HashTrigger,
-  title: 'Community/HashTrigger',
+  title: 'TEDI-Ready/Components/Helpers/HashTrigger',
+  parameters: {
+    status: {
+      type: ['devComponent'],
+    },
+  },
 };
 
 export default meta;
 type Story = StoryObj<typeof HashTrigger>;
 
 const Template: StoryFn<HashTriggerProps> = (args) => (
-  <div>
+  <>
     <Row gutter={5}>
-      {Array.from(Array(10).keys()).map((i) => (
+      <Col width={12}>
+        <Link href={`#${args.id}`}>Click here to add #{args.id} hash</Link>
+      </Col>
+      {Array.from(Array(7).keys()).map((i) => (
         <Col width={12} key={i}>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris at gravida mi, id convallis augue. Donec
@@ -38,26 +44,10 @@ const Template: StoryFn<HashTriggerProps> = (args) => (
         </Col>
       ))}
       <Col width={12}>
-        <HashTrigger id={args.id}>
-          <p id={args.id}>Should scroll here with {args.id}</p>
-        </HashTrigger>
+        <HashTrigger id={args.id}>Should scroll here with #{args.id}</HashTrigger>
       </Col>
-      {Array.from(Array(10).keys()).map((i) => (
-        <Col width={12} key={i}>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris at gravida mi, id convallis augue. Donec
-            hendrerit sit amet quam a vehicula. Vestibulum ligula turpis, tempor non lacus et, vestibulum congue massa.
-            Maecenas a sollicitudin dui. Mauris dictum fringilla nibh, sit amet egestas lectus feugiat id. Cras ac felis
-            porttitor, blandit lorem id, gravida felis. Vivamus in tortor vitae neque viverra sodales. Phasellus
-            suscipit, leo et aliquam aliquet, arcu justo pulvinar neque, sit amet vehicula sapien arcu eget lorem. Sed
-            in sem velit. Nam scelerisque massa vitae ullamcorper congue. Nam accumsan tellus sit amet commodo tempor.
-            Maecenas dapibus sagittis purus quis luctus. Duis sodales imperdiet ex, et congue lectus pulvinar in. Morbi
-            urna ante, mattis eu turpis et, sagittis efficitur felis.
-          </p>
-        </Col>
-      ))}
     </Row>
-  </div>
+  </>
 );
 
 export const Default: Story = {
@@ -70,18 +60,19 @@ export const Default: Story = {
 };
 
 const TabsTemplate: StoryFn<HashTriggerProps> = () => (
-  <>
+  <VerticalSpacing size={2}>
     <Heading id="tabs-heading" className="visually-hidden">
       Tabs title
     </Heading>
-    <Anchor href="#tab-1">Tab 1</Anchor>
-    <br />
-    <Anchor href="#tab-2">Tab 2</Anchor>
-    <br />
-    <Anchor href="#tab-3">Tab 3</Anchor>
-    <br />
-    <VerticalSpacing size={4}>
-      {Array.from(Array(10).keys()).map((i) => (
+    <div>
+      <Link href="#tab-1">Tab 1</Link>
+      <br />
+      <Link href="#tab-2">Tab 2</Link>
+      <br />
+      <Link href="#tab-3">Tab 3</Link>
+    </div>
+    <VerticalSpacing size={1}>
+      {Array.from(Array(7).keys()).map((i) => (
         <p key={i}>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris at gravida mi, id convallis augue. Donec
           hendrerit sit amet quam a vehicula. Vestibulum ligula turpis, tempor non lacus et, vestibulum congue massa.
@@ -127,17 +118,14 @@ const TabsTemplate: StoryFn<HashTriggerProps> = () => (
         </VerticalSpacing>
       </TabsItem>
     </Tabs>
-  </>
+  </VerticalSpacing>
 );
 
-/**
- * HashTrigger component can be used with Tabs component to set currentTab to a specific tab that is defined in the hash of the URL. Try to change hash to tab-2 to see it in action.
- */
 export const TabsWithHashTrigger: Story = {
   render: TabsTemplate,
 
   args: {
-    id: 'tabs-heading',
+    id: 'tab',
     scrollOnMatch: true,
   },
 };

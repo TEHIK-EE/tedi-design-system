@@ -1,3 +1,87 @@
+# [@tehik-ee/tedi-core-v1.6.9](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.6.8...core-1.6.9) (2025-02-26)
+
+
+### Bug Fixes
+
+* **tedi-core:** button-xs-icon-size variable change [#236](https://github.com/TEHIK-EE/tedi-design-system/issues/236) ([7788378](https://github.com/TEHIK-EE/tedi-design-system/commit/7788378a7cab96ed0e695dc12130fbc71330f614))
+
+# [@tehik-ee/tedi-core-v1.6.8](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.6.7...core-1.6.8) (2025-02-20)
+
+
+### Bug Fixes
+
+* **tedi-core:** Update variables [#490](https://github.com/TEHIK-EE/tedi-design-system/issues/490) ([15a5995](https://github.com/TEHIK-EE/tedi-design-system/commit/15a599509a7cc2e2765b167887f763ffcd60dd24))
+
+# [@tehik-ee/tedi-core-v1.6.7](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.6.6...core-1.6.7) (2025-02-14)
+
+
+### Bug Fixes
+
+* **tedi-core:** Update dimensional variables [#488](https://github.com/TEHIK-EE/tedi-design-system/issues/488) ([a95c0f1](https://github.com/TEHIK-EE/tedi-design-system/commit/a95c0f10a77a06e6bfbc6144daec3566daeea51a))
+
+# [@tehik-ee/tedi-core-v1.6.6](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.6.5...core-1.6.6) (2025-02-14)
+
+
+### Bug Fixes
+
+* **tedi-core:** Update dimensional variables [#488](https://github.com/TEHIK-EE/tedi-design-system/issues/488) ([9403f34](https://github.com/TEHIK-EE/tedi-design-system/commit/9403f345868937d3f3c5190b43190b3f15fa3167))
+
+# [@tehik-ee/tedi-core-v1.6.5](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.6.4...core-1.6.5) (2025-02-14)
+
+
+### Bug Fixes
+
+* **tedi-core:** Update dimensional variables [#407](https://github.com/TEHIK-EE/tedi-design-system/issues/407) ([e12adf4](https://github.com/TEHIK-EE/tedi-design-system/commit/e12adf499b09a180eba5ee0407c897235c4661d2))
+
+# [@tehik-ee/tedi-core-v1.6.4](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.6.3...core-1.6.4) (2025-02-14)
+
+
+### Bug Fixes
+
+* **tedi-core:** Update color variables [#407](https://github.com/TEHIK-EE/tedi-design-system/issues/407) ([aec7aa9](https://github.com/TEHIK-EE/tedi-design-system/commit/aec7aa9b41e9d0a35667857f730fcc810ccdafe8))
+
+# [@tehik-ee/tedi-core-v1.6.3](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.6.2...core-1.6.3) (2025-02-14)
+
+
+### Bug Fixes
+
+* **tedi-core:** Update color variables [#407](https://github.com/TEHIK-EE/tedi-design-system/issues/407) ([90fad95](https://github.com/TEHIK-EE/tedi-design-system/commit/90fad953ff09451d1177e01924fe4b273d853a91))
+
+# [@tehik-ee/tedi-core-v1.6.2](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.6.1...core-1.6.2) (2025-02-14)
+
+
+### Bug Fixes
+
+* **tedi-core:** Update base and color variables [#407](https://github.com/TEHIK-EE/tedi-design-system/issues/407) ([#486](https://github.com/TEHIK-EE/tedi-design-system/issues/486)) ([443df4f](https://github.com/TEHIK-EE/tedi-design-system/commit/443df4f1ff1e9fa3219fe9acdec14a760f7d28b7))
+
+# [@tehik-ee/tedi-core-v1.6.1](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.6.0...core-1.6.1) (2025-02-14)
+
+
+### Bug Fixes
+
+* **popover:** css variables [#260](https://github.com/TEHIK-EE/tedi-design-system/issues/260) ([#487](https://github.com/TEHIK-EE/tedi-design-system/issues/487)) ([1d077b3](https://github.com/TEHIK-EE/tedi-design-system/commit/1d077b374f6b5854d98db88992f5db118493c8c3))
+
+# [@tehik-ee/tedi-core-v1.6.0](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.5.2...core-1.6.0) (2025-02-13)
+
+
+### Features
+
+* **card:** TEDI-Ready Card component development [#261](https://github.com/TEHIK-EE/tedi-design-system/issues/261) ([#362](https://github.com/TEHIK-EE/tedi-design-system/issues/362)) ([e023f01](https://github.com/TEHIK-EE/tedi-design-system/commit/e023f01cee9f82f157efc1ce92224a0b643abf36))
+
+# [@tehik-ee/tedi-core-v1.5.2](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.5.1...core-1.5.2) (2025-02-10)
+
+
+### Bug Fixes
+
+* **popover:** tedi core variables [#260](https://github.com/TEHIK-EE/tedi-design-system/issues/260) ([#472](https://github.com/TEHIK-EE/tedi-design-system/issues/472)) ([b4e00e0](https://github.com/TEHIK-EE/tedi-design-system/commit/b4e00e062e59c9d4dca152999f7cda9890a4ba94))
+
+# [@tehik-ee/tedi-core-v1.5.1](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.5.0...core-1.5.1) (2025-02-05)
+
+
+### Bug Fixes
+
+* **tooltip:** fix tedi core variables [#210](https://github.com/TEHIK-EE/tedi-design-system/issues/210) ([#470](https://github.com/TEHIK-EE/tedi-design-system/issues/470)) ([2a2b8d1](https://github.com/TEHIK-EE/tedi-design-system/commit/2a2b8d1df11fb892ec9d53a7e942c16192041c86))
+
 # [@tehik-ee/tedi-core-v1.5.0](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.4.0...core-1.5.0) (2025-02-03)
 
 

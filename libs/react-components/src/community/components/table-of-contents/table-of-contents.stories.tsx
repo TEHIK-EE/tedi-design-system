@@ -32,6 +32,7 @@ const meta: Meta<TableOfContentsProps> = {
 
 export default meta;
 
+faker.seed(123);
 const steps = [...Array(10).keys()].map(() => faker.commerce.productName());
 const longSteps = [...steps, ...steps];
 

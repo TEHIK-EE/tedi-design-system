@@ -6,7 +6,7 @@ on:
       - main
       - rc
     paths-ignore:
-      - 'libs/angular-components/**'
+      - "libs/angular-components/**"
 
 jobs:
   lint:
@@ -19,7 +19,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 'lts/*'
+          node-version: "lts/*"
       - name: Lint
         run: |
           npm ci --cache .npm --prefer-offline
@@ -35,10 +35,64 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 'lts/*'
+          node-version: "lts/*"
       - name: Test
         run: |
           npm ci --cache .npm --prefer-offline
           cd libs/react-components
           npm ci --cache .npm --prefer-offline
           npm run test
+
+  test-coverage:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+
+      - name: Install dependencies
+        run: |
+          npm ci --cache .npm --prefer-offline
+          cd libs/react-components
+          npm ci --cache .npm --prefer-offline
+
+      - name: Run coverage tests
+        run: |
+          cd libs/react-components
+          npm run test:coverage
+
+      - name: Upload results to Codecov
+        uses: codecov/codecov-action@v5
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+
+  chromatic:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+
+      - name: Install dependencies
+        run: |
+          npm ci --cache .npm --prefer-offline
+          cd libs/react-components
+          npm ci --cache .npm --prefer-offline
+
+      - name: Build Storybook
+        run: |
+          cd libs/react-components
+          npm run build:sb
+
+      - name: Publish to Chromatic
+        run: |
+          cd libs/react-components
+          CHROMATIC_PROJECT_TOKEN=${{ secrets.CHROMATIC_TOKEN }} npm run chromatic
