@@ -3,6 +3,6 @@
   "dest": "dist",
   "lib": {
     "entryFile": "src/index.ts",
-    "styleIncludePaths": ["src/tedi/styles", "src/community/styles"]
+    "styleIncludePaths": ["src/styles"]
   }
 }
