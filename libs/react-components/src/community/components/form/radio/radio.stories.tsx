@@ -11,6 +11,11 @@ import Radio, { RadioProps } from './radio';
 const meta: Meta<typeof Radio> = {
   component: Radio,
   title: 'Community/Form/Radio',
+  parameters: {
+    status: {
+      type: ['deprecated', 'ExistsInTediReady'],
+    },
+  },
 };
 
 export default meta;
