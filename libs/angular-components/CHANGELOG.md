@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-angular-v1.4.0](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.3.0...angular-1.4.0) (2025-02-27)
+
+
+### Features
+
+* **colors:** TEDI-Ready Angular development [#499](https://github.com/TEHIK-EE/tedi-design-system/issues/499) ([#506](https://github.com/TEHIK-EE/tedi-design-system/issues/506)) ([beb2c0c](https://github.com/TEHIK-EE/tedi-design-system/commit/beb2c0cf00fd694f3237f3880e734fd8203b6477))
+
 # [@tehik-ee/tedi-angular-v1.4.0-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.3.0...angular-1.4.0-rc.1) (2025-02-26)
 
 
