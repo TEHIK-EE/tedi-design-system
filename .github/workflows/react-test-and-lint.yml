@@ -95,4 +95,4 @@ jobs:
       - name: Publish to Chromatic
         run: |
           cd libs/react-components
-          TURBOSNAP=false CHROMATIC_PROJECT_TOKEN=${{ secrets.CHROMATIC_TOKEN }} npm run chromatic -- --no-turbo-snap
+          CHROMATIC_PROJECT_TOKEN=${{ secrets.CHROMATIC_TOKEN }} npm run chromatic
