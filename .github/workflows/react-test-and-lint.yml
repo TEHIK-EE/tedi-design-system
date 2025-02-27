@@ -90,7 +90,7 @@ jobs:
       - name: Build Storybook
         run: |
           cd libs/react-components
-          npm run build:sb
+          npm run build:sb -- --stats-json
 
       - name: Publish to Chromatic
         run: |
