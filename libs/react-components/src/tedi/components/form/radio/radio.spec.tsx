@@ -1,4 +1,5 @@
-import { fireEvent, render } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
+import { act, useState } from 'react';
 
 import Radio from './radio';
 import styles from './radio.module.css';
@@ -89,21 +90,36 @@ describe('Radio component', () => {
     expect(input).toBeChecked();
   });
 
-  it('changes state when clicked if not controlled', () => {
-    const { container } = render(
-      <Radio id="radio-id" label="Radio Label" value="radio-value" name="radio-group" defaultChecked={false} />
-    );
+  it('changes state when clicked if not controlled', async () => {
+    const TestComponent = () => {
+      const [isChecked, setIsChecked] = useState(false);
+      return (
+        <Radio
+          id="radio-id"
+          label="Radio Label"
+          value="radio-value"
+          name="radio-group"
+          defaultChecked={isChecked}
+          onChange={() => setIsChecked(!isChecked)}
+        />
+      );
+    };
 
-    const input = container.querySelector('input[type="radio"]');
-    if (input) {
-      fireEvent.click(input);
-    }
-    expect(input).toBeChecked();
+    render(<TestComponent />);
+    const radio = screen.getByRole('radio');
+
+    expect(radio).not.toBeChecked();
+
+    await act(async () => {
+      fireEvent.click(radio);
+    });
+
+    expect(radio).toBeChecked();
   });
 
-  it('does not change state when clicked if controlled', () => {
+  it('does not change state when clicked if controlled', async () => {
     const handleChange = jest.fn();
-    const { container } = render(
+    const { rerender } = render(
       <Radio
         id="radio-id"
         label="Radio Label"
@@ -114,12 +130,29 @@ describe('Radio component', () => {
       />
     );
 
-    const input = container.querySelector('input[type="radio"]');
-    if (input) {
-      fireEvent.click(input);
-    }
-    expect(input).not.toBeChecked();
-    expect(handleChange).toHaveBeenCalled();
+    const radio = screen.getByRole('radio');
+    expect(radio).not.toBeChecked();
+
+    await act(async () => {
+      fireEvent.click(radio);
+    });
+
+    expect(radio).not.toBeChecked();
+    expect(handleChange).toHaveBeenCalledTimes(1);
+    expect(handleChange).toHaveBeenCalledWith('radio-value', true);
+
+    rerender(
+      <Radio
+        id="radio-id"
+        label="Radio Label"
+        value="radio-value"
+        name="radio-group"
+        checked={true}
+        onChange={handleChange}
+      />
+    );
+
+    expect(radio).toBeChecked();
   });
 
   it('calls onChange with correct parameters when input is clicked', () => {
