@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-react-v11.1.0-rc.19](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.1.0-rc.18...react-11.1.0-rc.19) (2025-02-27)
+
+
+### Features
+
+* **radio:** TEDI-Ready Radio component development [#235](https://github.com/TEHIK-EE/tedi-design-system/issues/235) ([#520](https://github.com/TEHIK-EE/tedi-design-system/issues/520)) ([d1d2392](https://github.com/TEHIK-EE/tedi-design-system/commit/d1d23923d1ea9049a4e36c66c2348b63ea0b66eb)), closes [#236](https://github.com/TEHIK-EE/tedi-design-system/issues/236) [#236](https://github.com/TEHIK-EE/tedi-design-system/issues/236) [#236](https://github.com/TEHIK-EE/tedi-design-system/issues/236) [#236](https://github.com/TEHIK-EE/tedi-design-system/issues/236) [#236](https://github.com/TEHIK-EE/tedi-design-system/issues/236) [#236](https://github.com/TEHIK-EE/tedi-design-system/issues/236)
+
 # [@tehik-ee/tedi-react-v11.1.0-rc.18](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.1.0-rc.17...react-11.1.0-rc.18) (2025-02-27)
 
 
