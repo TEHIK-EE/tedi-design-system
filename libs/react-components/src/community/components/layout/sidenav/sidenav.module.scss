@@ -120,7 +120,7 @@
     &[aria-expanded='true'],
     &:hover,
     &.sidenav__item--current {
-      background-color: var(--color-primary-active);
+      background-color: var(--color-primary-active-subtle);
 
       span.sidenav__link,
       [data-name='icon'] {
@@ -181,10 +181,14 @@ a.sidenav__link {
 
     &:hover {
       color: var(--color-text-inverted);
+      background-color: var(--color-primary-active-subtle);
     }
   }
 
   .sidenav__item .sidenav__item.sidenav__item--current > & {
     color: var(--color-text-inverted);
+    background-color: var(--color-primary-active-subtle);
+
+    --global-outline-color: var(--color-primary-highlight);
   }
 }
