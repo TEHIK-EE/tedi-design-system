@@ -3,7 +3,7 @@ import cn from 'classnames';
 import { BreakpointSupport, useBreakpointProps } from '../../helpers';
 import { VerticalSpacing, VerticalSpacingProps } from '../vertical-spacing';
 import styles from './list.module.scss';
-import { ListItemProps } from './list-item';
+import ListItem, { ListItemProps } from './list-item';
 
 type ListElement = 'ul' | 'ol';
 
@@ -70,4 +70,5 @@ export const List = (props: ListProps) => {
   );
 };
 
+List.Item = ListItem;
 export default List;

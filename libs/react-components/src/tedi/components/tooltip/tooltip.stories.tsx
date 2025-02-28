@@ -50,97 +50,73 @@ const PositionTemplate: StoryFn<TooltipProps> = (args) => {
       <Col xs={12} lg={3} className="display-flex justify-content-center">
         <Tooltip {...args} placement="top-start">
           <Tooltip.Trigger>Top start</Tooltip.Trigger>
-          <Tooltip.Content>
-            The polar bear (Ursus maritimus) is a large bear native to the Arctic and nearby areas.
-          </Tooltip.Content>
+          <Tooltip.Content>Tooltip Content</Tooltip.Content>
         </Tooltip>
       </Col>
       <Col xs={12} lg={3} className="display-flex justify-content-center">
         <Tooltip {...args} placement="top">
           <Tooltip.Trigger>Top center</Tooltip.Trigger>
-          <Tooltip.Content>
-            The polar bear (Ursus maritimus) is a large bear native to the Arctic and nearby areas.
-          </Tooltip.Content>
+          <Tooltip.Content>Tooltip Content</Tooltip.Content>
         </Tooltip>
       </Col>
       <Col xs={12} lg={3} className="display-flex justify-content-center">
         <Tooltip {...args} placement="top-end">
           <Tooltip.Trigger>Top end</Tooltip.Trigger>
-          <Tooltip.Content>
-            The polar bear (Ursus maritimus) is a large bear native to the Arctic and nearby areas.
-          </Tooltip.Content>
+          <Tooltip.Content>Tooltip Content</Tooltip.Content>
         </Tooltip>
       </Col>
       <Col xs={12} lg={3} className="display-flex justify-content-center">
         <Tooltip {...args} placement="bottom-start">
           <Tooltip.Trigger>Bottom start</Tooltip.Trigger>
-          <Tooltip.Content>
-            The polar bear (Ursus maritimus) is a large bear native to the Arctic and nearby areas.
-          </Tooltip.Content>
+          <Tooltip.Content>Tooltip Content</Tooltip.Content>
         </Tooltip>
       </Col>
       <Col xs={12} lg={3} className="display-flex justify-content-center">
         <Tooltip {...args} placement="bottom">
           <Tooltip.Trigger>Bottom center</Tooltip.Trigger>
-          <Tooltip.Content>
-            The polar bear (Ursus maritimus) is a large bear native to the Arctic and nearby areas.
-          </Tooltip.Content>
+          <Tooltip.Content>Tooltip Content</Tooltip.Content>
         </Tooltip>
       </Col>
       <Col xs={12} lg={3} className="display-flex justify-content-center">
         <Tooltip {...args} placement="bottom-end">
           <Tooltip.Trigger>Bottom end</Tooltip.Trigger>
-          <Tooltip.Content>
-            The polar bear (Ursus maritimus) is a large bear native to the Arctic and nearby areas.
-          </Tooltip.Content>
+          <Tooltip.Content>Tooltip Content</Tooltip.Content>
         </Tooltip>
       </Col>
       <Col xs={12} lg={3} className="display-flex justify-content-center">
         <Tooltip {...args} placement="left-start">
           <Tooltip.Trigger>Left start</Tooltip.Trigger>
-          <Tooltip.Content>
-            The polar bear (Ursus maritimus) is a large bear native to the Arctic and nearby areas.
-          </Tooltip.Content>
+          <Tooltip.Content>Tooltip Content</Tooltip.Content>
         </Tooltip>
       </Col>
       <Col xs={12} lg={3} className="display-flex justify-content-center">
         <Tooltip {...args} placement="left">
           <Tooltip.Trigger>Left center</Tooltip.Trigger>
-          <Tooltip.Content>
-            The polar bear (Ursus maritimus) is a large bear native to the Arctic and nearby areas.
-          </Tooltip.Content>
+          <Tooltip.Content>Tooltip Content</Tooltip.Content>
         </Tooltip>
       </Col>
       <Col xs={12} lg={3} className="display-flex justify-content-center">
         <Tooltip {...args} placement="left-end">
           <Tooltip.Trigger>Left end</Tooltip.Trigger>
-          <Tooltip.Content>
-            The polar bear (Ursus maritimus) is a large bear native to the Arctic and nearby areas.
-          </Tooltip.Content>
+          <Tooltip.Content>Tooltip Content</Tooltip.Content>
         </Tooltip>
       </Col>
       <Col xs={12} lg={3} className="display-flex justify-content-center">
         <Tooltip {...args} placement="right-start">
           <Tooltip.Trigger>Right start</Tooltip.Trigger>
-          <Tooltip.Content>
-            The polar bear (Ursus maritimus) is a large bear native to the Arctic and nearby areas.
-          </Tooltip.Content>
+          <Tooltip.Content>Tooltip Content</Tooltip.Content>
         </Tooltip>
       </Col>
       <Col xs={12} lg={3} className="display-flex justify-content-center">
         <Tooltip {...args} placement="right">
           <Tooltip.Trigger>Right center</Tooltip.Trigger>
-          <Tooltip.Content>
-            The polar bear (Ursus maritimus) is a large bear native to the Arctic and nearby areas.
-          </Tooltip.Content>
+          <Tooltip.Content>Tooltip Content</Tooltip.Content>
         </Tooltip>
       </Col>
       <Col xs={12} lg={3} className="display-flex justify-content-center">
         <Tooltip {...args} placement="right-end">
           <Tooltip.Trigger>Right end</Tooltip.Trigger>
-          <Tooltip.Content>
-            The polar bear (Ursus maritimus) is a large bear native to the Arctic and nearby areas.
-          </Tooltip.Content>
+          <Tooltip.Content>Tooltip Content</Tooltip.Content>
         </Tooltip>
       </Col>
     </Row>
@@ -154,9 +130,7 @@ const WidthTemplate: StoryFn<TooltipProps> = (args) => {
         <Tooltip {...args}>
           <Tooltip.Trigger>Tooltip with no width limit</Tooltip.Trigger>
           <Tooltip.Content maxWidth="none">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque commodi consectetur cupiditate dolorum ex
-            facere harum id, impedit in maxime minus provident, ratione rem rerum sint unde veritatis voluptatibus
-            voluptatum!
+            The polar bear (Ursus maritimus) is a large bear native to the Arctic and nearby areas.
           </Tooltip.Content>
         </Tooltip>
       </Col>
@@ -164,9 +138,7 @@ const WidthTemplate: StoryFn<TooltipProps> = (args) => {
         <Tooltip {...args}>
           <Tooltip.Trigger>Small tooltip width</Tooltip.Trigger>
           <Tooltip.Content maxWidth="small">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque commodi consectetur cupiditate dolorum ex
-            facere harum id, impedit in maxime minus provident, ratione rem rerum sint unde veritatis voluptatibus
-            voluptatum!
+            The polar bear (Ursus maritimus) is a large bear native to the Arctic and nearby areas.
           </Tooltip.Content>
         </Tooltip>
       </Col>
@@ -174,9 +146,7 @@ const WidthTemplate: StoryFn<TooltipProps> = (args) => {
         <Tooltip {...args}>
           <Tooltip.Trigger>Medium tooltip width</Tooltip.Trigger>
           <Tooltip.Content>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque commodi consectetur cupiditate dolorum ex
-            facere harum id, impedit in maxime minus provident, ratione rem rerum sint unde veritatis voluptatibus
-            voluptatum!
+            The polar bear (Ursus maritimus) is a large bear native to the Arctic and nearby areas.
           </Tooltip.Content>
         </Tooltip>
       </Col>
@@ -184,9 +154,7 @@ const WidthTemplate: StoryFn<TooltipProps> = (args) => {
         <Tooltip {...args}>
           <Tooltip.Trigger>Large tooltip width</Tooltip.Trigger>
           <Tooltip.Content maxWidth="large">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque commodi consectetur cupiditate dolorum ex
-            facere harum id, impedit in maxime minus provident, ratione rem rerum sint unde veritatis voluptatibus
-            voluptatum!
+            The polar bear (Ursus maritimus) is a large bear native to the Arctic and nearby areas.
           </Tooltip.Content>
         </Tooltip>
       </Col>

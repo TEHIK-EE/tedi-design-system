@@ -17,6 +17,11 @@ export default {
   title: 'Community/Card',
   component: Card,
   subcomponents: { CardContent, CardHeader, CardNotification },
+  parameters: {
+    status: {
+      type: ['deprecated', 'ExistsInTediReady'],
+    },
+  },
 } as Meta;
 
 export interface CardStory {
