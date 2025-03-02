@@ -112,7 +112,7 @@
   --global-outline-color: var(--color-primary-active);
 
   .sidenav--hide-subitem-icons & {
-    [data-name='icon'] {
+    .sidenav__link [data-name='icon'] {
       display: none;
     }
   }
