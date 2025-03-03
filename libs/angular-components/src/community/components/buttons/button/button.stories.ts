@@ -2,7 +2,7 @@ import { Meta, StoryObj } from "@storybook/angular";
 import { ButtonComponent } from "./button.component";
 
 export default {
-  title: "TEDI-Ready Angular/Buttons/Button",
+  title: "Community Angular/Buttons/Button",
   component: ButtonComponent,
   render: (props) => ({
     props,
