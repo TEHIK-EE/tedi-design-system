@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-angular-v1.5.0-rc.2](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.5.0-rc.1...angular-1.5.0-rc.2) (2025-03-03)
+
+
+### Bug Fixes
+
+* **fonts:** rewrite fonts path to relative for storybook build [#523](https://github.com/TEHIK-EE/tedi-design-system/issues/523) ([#530](https://github.com/TEHIK-EE/tedi-design-system/issues/530)) ([04446b4](https://github.com/TEHIK-EE/tedi-design-system/commit/04446b42889cec61d6e29989dd2cb2e95c67745e))
+
 # [@tehik-ee/tedi-angular-v1.5.0-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.4.0...angular-1.5.0-rc.1) (2025-03-03)
 
 

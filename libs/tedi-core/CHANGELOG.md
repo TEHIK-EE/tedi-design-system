@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-core-v1.6.12](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.6.11...core-1.6.12) (2025-03-03)
+
+
+### Bug Fixes
+
+* **fonts:** rewrite fonts path to relative for storybook build [#523](https://github.com/TEHIK-EE/tedi-design-system/issues/523) ([#530](https://github.com/TEHIK-EE/tedi-design-system/issues/530)) ([04446b4](https://github.com/TEHIK-EE/tedi-design-system/commit/04446b42889cec61d6e29989dd2cb2e95c67745e))
+
 # [@tehik-ee/tedi-core-v1.6.11](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.6.10...core-1.6.11) (2025-03-03)
 
 
