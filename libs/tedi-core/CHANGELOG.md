@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-core-v1.6.11](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.6.10...core-1.6.11) (2025-03-03)
+
+
+### Bug Fixes
+
+* **tedi-core:** revert font path change [#523](https://github.com/TEHIK-EE/tedi-design-system/issues/523) ([1ddb412](https://github.com/TEHIK-EE/tedi-design-system/commit/1ddb4127144728911d07a02ebc7755f5fe263434))
+
 # [@tehik-ee/tedi-core-v1.6.10](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.6.9...core-1.6.10) (2025-03-03)
 
 
