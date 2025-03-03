@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-angular-v1.5.0-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.4.0...angular-1.5.0-rc.1) (2025-03-03)
+
+
+### Features
+
+* **button:** Community button [#516](https://github.com/TEHIK-EE/tedi-design-system/issues/516) ([#527](https://github.com/TEHIK-EE/tedi-design-system/issues/527)) ([a39d4c9](https://github.com/TEHIK-EE/tedi-design-system/commit/a39d4c9375a3785de19f6942d0cfd9e6dcd70af5)), closes [#517](https://github.com/TEHIK-EE/tedi-design-system/issues/517)
+
 # [@tehik-ee/tedi-angular-v1.4.0](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.3.0...angular-1.4.0) (2025-02-27)
 
 
