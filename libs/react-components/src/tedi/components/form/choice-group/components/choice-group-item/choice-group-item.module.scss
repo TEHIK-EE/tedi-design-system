@@ -1,0 +1,155 @@
+@use '@tehik-ee/tedi-core/mixins';
+
+$backgrounds: ('positive-main', 'important-main', 'warning-main');
+
+.filter-item__input {
+  @include mixins.visually-hidden;
+}
+
+.filter-item__label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem 0.5rem;
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  background: var(--color-bg-subtle);
+  border-radius: var(--border-radius-default);
+
+  .filter-item__input:focus + & {
+    @include mixins.focus-element;
+  }
+
+  .filter-item--disabled & {
+    color: var(--color-text-disabled);
+    cursor: unset;
+    background-color: var(--color-bg-disabled);
+  }
+
+  .filter-item--checked & {
+    color: var(--color-text-inverted);
+    background-color: var(--color-primary-main);
+  }
+
+  @each $background in $backgrounds {
+    .filter-item--#{$background}.filter-item--checked & {
+      background-color: var(--color-#{$background});
+    }
+  }
+}
+
+.light-item__input {
+  @include mixins.visually-hidden;
+}
+
+.light-item__label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.625rem 0.5rem;
+  margin: 1px;
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  background: var(--color-bg-default);
+  border: 1px solid var(--color-bg-disabled);
+  border-radius: var(--border-radius-default);
+
+  .light-item__input:focus + & {
+    @include mixins.focus-element;
+  }
+
+  .light-item--disabled & {
+    color: var(--color-text-disabled);
+    cursor: unset;
+    background-color: var(--color-bg-disabled);
+  }
+
+  .light-item--checked & {
+    margin: 0;
+    color: var(--color-primary-main);
+    background-color: var(--color-white);
+    border: 2px solid var(--color-primary-main);
+  }
+}
+
+.selector-item {
+  display: flex;
+  height: 2.5rem;
+
+  --global-outline-offset: -2px;
+}
+
+.selector-item__input {
+  @include mixins.visually-hidden;
+}
+
+.selector-item__label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 0.5rem 1.25rem;
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+  cursor: pointer;
+  background-color: var(--color-bg-subtle);
+  border: 1px solid var(--color-border-contrast);
+
+  .selector-item__input:focus + & {
+    @include mixins.focus-element;
+
+    border-radius: 0;
+  }
+
+  .selector-item--disabled & {
+    color: var(--color-text-disabled);
+    cursor: unset;
+    background-color: var(--color-bg-disabled);
+  }
+
+  .selector-item--checked & {
+    color: var(--color-text-inverted);
+    background-color: var(--color-primary-main);
+
+    --global-outline-color: var(--color-primary-highlight);
+  }
+
+  .selector-item--checked:not(.selector-item--column, .selector-item--column-reverse) & {
+    border-top-color: var(--color-primary-main);
+    border-bottom-color: var(--color-primary-main);
+  }
+
+  .selector-item--row:first-of-type &,
+  .selector-item--row-reverse:last-child & {
+    margin-left: 0;
+    border-top-left-radius: var(--border-radius-default);
+    border-bottom-left-radius: var(--border-radius-default);
+  }
+
+  .selector-item--row:last-child &,
+  .selector-item--row-reverse:first-of-type & {
+    border-top-right-radius: var(--border-radius-default);
+    border-bottom-right-radius: var(--border-radius-default);
+  }
+
+  .selector-item--column &,
+  .selector-item--column-reverse & {
+    border-top: 0;
+  }
+
+  .selector-item--column:first-of-type &,
+  .selector-item--column-reverse:last-child & {
+    border-top: 1px solid var(--color-border-contrast);
+    border-top-left-radius: var(--border-radius-default);
+    border-top-right-radius: var(--border-radius-default);
+  }
+
+  .selector-item--column:last-child &,
+  .selector-item--column-reverse:first-of-type & {
+    border-bottom-right-radius: var(--border-radius-default);
+    border-bottom-left-radius: var(--border-radius-default);
+  }
+}
