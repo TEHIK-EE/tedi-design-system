@@ -44,4 +44,9 @@ const getBreakpoint = (): Breakpoint | null => {
   return breakpoint;
 };
 
+export const isBreakpointBelow = (current: Breakpoint | null, target: Breakpoint): boolean => {
+  if (!current) return false;
+  return breakpoints.indexOf(current) < breakpoints.indexOf(target);
+};
+
 export default useBreakpoint;
