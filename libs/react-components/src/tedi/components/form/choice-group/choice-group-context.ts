@@ -1,11 +1,11 @@
 import React from 'react';
 
-import { TChoiceGroupType, TChoiceGroupValue } from './choice-group';
+import { ChoiceGroupItemType, ChoiceGroupValue } from './choice-group.types';
 
 export interface IChoiceGroupContext {
   name: string;
-  inputType: TChoiceGroupType;
-  currentValue: TChoiceGroupValue;
+  inputType: ChoiceGroupItemType;
+  currentValue: ChoiceGroupValue;
   onChange: (value: string, checked: boolean) => void;
 }
 

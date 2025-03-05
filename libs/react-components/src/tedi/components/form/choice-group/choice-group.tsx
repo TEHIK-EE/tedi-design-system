@@ -7,16 +7,17 @@ import { Direction, Gutter, Row, RowProps } from '../../../../tedi/components/gr
 import { useLabels } from '../../../../tedi/providers/label-provider';
 import Checkbox, { CheckboxProps } from '../checkbox/checkbox';
 import styles from './choice-group.module.scss';
-import { ChoiceGroupItemProps } from './choice-group.types';
+import {
+  ChoiceGroupIndeterminateState,
+  ChoiceGroupItemColor,
+  ChoiceGroupItemLayout,
+  ChoiceGroupItemProps,
+  ChoiceGroupItemType,
+  ChoiceGroupItemVariant,
+  ChoiceGroupValue,
+} from './choice-group.types';
 import { ChoiceGroupContext, IChoiceGroupContext } from './choice-group-context';
 import ChoiceGroupItem from './components/choice-group-item/choice-group-item';
-import ChoiceGroupOption from './components/choice-group-option/choice-group-option';
-
-export type TChoiceGroupValue = string | string[] | null;
-export type TChoiceGroupType = 'radio' | 'checkbox';
-export type TChoiceGroupIndeterminateState = 'none' | 'some' | 'all';
-export type ChoiceGroupItemVariant = 'default' | 'filter' | 'light' | 'selector';
-export type ChoiceGroupItemType = 'radio' | 'checkbox' | 'option';
 
 export interface ChoiceGroupProps extends FormLabelProps {
   id: string;
@@ -24,17 +25,20 @@ export interface ChoiceGroupProps extends FormLabelProps {
   direction?: Direction;
   rowProps?: RowProps;
   name: string;
-  inputType?: TChoiceGroupType;
+  inputType?: ChoiceGroupItemType;
   helper?: FeedbackTextProps;
   className?: string;
-  defaultValue?: TChoiceGroupValue;
-  value?: TChoiceGroupValue;
-  onChange?: (value: TChoiceGroupValue) => void;
-  type?: ChoiceGroupItemVariant;
-  indeterminateCheck?: boolean | string | ((state: TChoiceGroupIndeterminateState) => string);
+  defaultValue?: ChoiceGroupValue;
+  value?: ChoiceGroupValue;
+  onChange?: (value: ChoiceGroupValue) => void;
+  variant?: ChoiceGroupItemVariant;
+  color?: ChoiceGroupItemColor;
+  layout?: ChoiceGroupItemLayout;
+  indeterminateCheck?: boolean | string | ((state: ChoiceGroupIndeterminateState) => string);
   indeterminateCheckProps?: { indented?: boolean } & Partial<
     Omit<CheckboxProps, 'indeterminate' | 'checked' | 'onChange' | 'defaultChecked' | 'label'>
   >;
+  showIndicator?: boolean;
 }
 
 export const ChoiceGroup = (props: ChoiceGroupProps): React.ReactElement => {
@@ -46,8 +50,8 @@ export const ChoiceGroup = (props: ChoiceGroupProps): React.ReactElement => {
     required,
     helper,
     items,
-    type = 'default',
-    direction = type === 'filter' ? 'column' : 'row',
+    variant = 'default',
+    direction = variant === 'default' ? 'column' : 'row',
     rowProps,
     name,
     inputType = 'radio',
@@ -57,6 +61,9 @@ export const ChoiceGroup = (props: ChoiceGroupProps): React.ReactElement => {
     hideLabel,
     indeterminateCheck,
     indeterminateCheckProps = {},
+    color,
+    layout = 'separated',
+    showIndicator,
     ...rest
   } = props;
 
@@ -65,15 +72,15 @@ export const ChoiceGroup = (props: ChoiceGroupProps): React.ReactElement => {
   const helperId = helper ? helper?.id ?? `${id}-helper` : undefined;
   const showIndeterminate = indeterminateCheck && inputType === 'checkbox';
 
-  const [innerValue, setInnerValue] = React.useState<TChoiceGroupValue>(() => {
+  const [innerValue, setInnerValue] = React.useState<ChoiceGroupValue>(() => {
     if (defaultValue) return defaultValue;
     return inputType === 'checkbox' ? [] : null;
   });
 
-  const isValueControlled = (value = props.value): value is TChoiceGroupValue =>
+  const isValueControlled = (value = props.value): value is ChoiceGroupValue =>
     !!onChange && typeof value !== 'undefined';
 
-  const currentValue: TChoiceGroupValue = isValueControlled(value) ? value : innerValue;
+  const currentValue: ChoiceGroupValue = isValueControlled(value) ? value : innerValue;
 
   const isNoneSelected = React.useMemo(() => currentValue?.length === 0, [currentValue?.length]);
   const isAllSelected = React.useMemo(
@@ -125,23 +132,6 @@ export const ChoiceGroup = (props: ChoiceGroupProps): React.ReactElement => {
     currentValue: currentValue,
   };
 
-  const getGutter = (type: string) => {
-    switch (type) {
-      case 'default':
-        return { gutterX: 2 as Gutter, gutterY: 1 as Gutter };
-      case 'selector':
-        return { gutterX: 0 as Gutter, gutterY: 0 as Gutter };
-      case 'filter':
-        return { gutterX: 2 as Gutter, gutterY: 2 as Gutter };
-      case 'light':
-        return { gutterX: 1 as Gutter, gutterY: 1 as Gutter };
-      default:
-        return { gutterX: 1 as Gutter, gutterY: 1 as Gutter };
-    }
-  };
-
-  const { gutterX, gutterY } = getGutter(type);
-
   const FieldSetBEM = cn(styles['tedi-choice-group'], className);
   const CheckGroupBEM = cn(styles['tedi-choice-group__inner'], rowProps?.className, {
     [styles['tedi-choice-group__inner--indented']]: showIndeterminate && isIndented,
@@ -177,16 +167,25 @@ export const ChoiceGroup = (props: ChoiceGroupProps): React.ReactElement => {
                 onChange={onIndeterminateChangeHandler}
               />
             )}
-            <Row direction={direction} gutterX={gutterX} gutterY={gutterY} {...rowProps} className={CheckGroupBEM}>
-              {items.map((item) => {
-                const isOption = ['selector', 'filter', 'light'].includes(type);
-
-                return isOption ? (
-                  <ChoiceGroupOption key={item.id} {...item} variant={type as 'filter' | 'light' | 'selector'} />
-                ) : (
-                  <ChoiceGroupItem key={item.id} {...item} variant={type as 'default'} type={inputType} />
-                );
-              })}
+            <Row
+              direction={direction}
+              gutterX={2}
+              gutterY={1}
+              gap={layout === 'separated' && variant !== 'default' ? 2 : 0}
+              {...rowProps}
+              className={CheckGroupBEM}
+            >
+              {items.map((item) => (
+                <ChoiceGroupItem
+                  key={item.id}
+                  {...item}
+                  color={color}
+                  variant={variant}
+                  type={inputType}
+                  isSegmented={layout === 'segmented'}
+                  showIndicator={showIndicator}
+                />
+              ))}
             </Row>
           </>
         ) : (

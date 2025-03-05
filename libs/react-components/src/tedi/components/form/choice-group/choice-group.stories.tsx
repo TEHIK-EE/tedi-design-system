@@ -7,7 +7,7 @@ import { ChoiceGroupItemProps } from './choice-group.types';
 /**
  * `ChoiceGroup` manages the state of input elements with the `radio` or `checkbox` role.<br/>
  * It also allows the `fieldset`'s `FormLabel` to be shown or hidden, and enables the display of a `FormHelper` for the entire `fieldset`.<br/>
- * Visual variations include: Check, Radio, Filter, Light, and Selector.
+ * Visual variations include: Default, Card, and Pills.
  */
 const meta: Meta<typeof ChoiceGroup> = {
   component: ChoiceGroup,
@@ -21,20 +21,21 @@ interface GenerateItemsArgs {
   extraContent?: boolean;
   colProps?: ColProps;
   extraLongTitle?: boolean;
-  colored?: true;
   tooltip?: boolean;
+  colored?: true;
+  showIndicator?: boolean;
 }
 
 const generateItems = (
   index: number,
-  { colProps, extraLongTitle, colored, tooltip }: GenerateItemsArgs = {}
+  { colProps, extraLongTitle, tooltip }: GenerateItemsArgs = {}
 ): ChoiceGroupItemProps[] => [
   {
     id: `value-${index * 3}`,
     label: 'Option 1',
     value: `value-${index * 3}`,
     colProps,
-    background: colored && 'success-primary',
+    background: 'success-primary',
     tooltip: tooltip ? 'Tooltip' : undefined,
   },
   {
@@ -46,16 +47,16 @@ const generateItems = (
     }`,
     value: `value-${index * 3 + 1}`,
     colProps,
-    background: colored && 'warning-primary',
+    background: 'warning-primary',
     tooltip: tooltip ? 'Tooltip' : undefined,
   },
   {
     id: `value-${index * 3 + 2}`,
     label: 'Option 3',
     value: `value-${index * 3 + 2}`,
-    disabled: !colored,
+    disabled: true,
     colProps,
-    background: colored && 'important-primary',
+    background: 'danger-primary',
     tooltip: tooltip ? 'Tooltip' : undefined,
   },
 ];
@@ -108,97 +109,101 @@ export const CheckboxRow: Story = {
   },
 };
 
-export const FilterItem: Story = {
+export const FilterPrimary: Story = {
   args: {
-    label: 'Choose your filter:',
+    label: 'Filter',
     id: 'example-3',
     defaultValue: [],
     inputType: 'radio',
     name: 'radio-3',
-    type: 'filter',
+    variant: 'card',
+    color: 'primary',
     items: generateItems(4),
   },
 };
 
-export const FilterItemColumn: Story = {
+export const FilterSecondary: Story = {
   args: {
-    label: 'Choose your filter:',
-    id: 'example-3.5',
+    label: 'Filter',
+    id: 'example-3.1',
     defaultValue: [],
+    inputType: 'radio',
+    name: 'radio-3.1',
+    variant: 'card',
+    color: 'secondary',
+    items: generateItems(5),
+  },
+};
+export const FilterRow: Story = {
+  args: {
+    label: 'Filter',
+    id: 'example-3.2',
+    defaultValue: [],
+    inputType: 'radio',
+    name: 'radio-3.2',
+    variant: 'card',
+    color: 'secondary',
+    items: generateItems(6),
+    direction: 'column',
+  },
+};
+
+export const FilterAutoWidth: Story = {
+  args: {
+    label: 'Filter',
+    id: 'example-3.3',
+    defaultValue: [],
+    inputType: 'radio',
+    name: 'radio-3.3',
+    variant: 'card',
+    color: 'primary',
+    items: generateItems(7, { colProps: { width: 'auto' } }),
+  },
+};
+
+export const FilterSegmented: Story = {
+  args: {
+    label: 'Filter',
+    id: 'example-3.4',
+    defaultValue: [],
+    inputType: 'radio',
+    name: 'radio-3.4',
+    variant: 'card',
+    color: 'primary',
+    items: generateItems(8, { colProps: { width: 'auto' } }),
+    layout: 'segmented',
+  },
+};
+
+export const FilterWithColors: Story = {
+  args: {
+    label: 'Filter',
+    id: 'example-3.5',
     inputType: 'radio',
     name: 'radio-3.5',
-    type: 'filter',
-    items: generateItems(5),
-    direction: 'column',
+    variant: 'card',
+    color: 'primary',
+    items: generateItems(9, { colored: true }),
   },
 };
 
-export const SelectorItem: Story = {
+export const ShowIndicator: Story = {
   args: {
-    label: 'Select your item:',
-    id: 'example-4',
-    defaultValue: [],
-    inputType: 'checkbox',
-    name: 'check-4',
-    type: 'selector',
-    items: generateItems(6),
-  },
-};
-
-export const SelectorItemColumn: Story = {
-  args: {
-    label: 'Select your item:',
-    id: 'example-4.5',
-    defaultValue: [],
-    inputType: 'checkbox',
-    name: 'check-4.5',
-    type: 'selector',
-    items: generateItems(7),
-    direction: 'column',
-  },
-};
-
-export const LightItem: Story = {
-  args: {
-    label: 'Choose your item:',
-    id: 'example-5',
-    defaultValue: [],
+    label: 'Filter',
+    id: 'example-3.6',
     inputType: 'radio',
-    name: 'radio-5',
-    type: 'light',
-    items: generateItems(8),
-  },
-};
-
-export const LightItemAutoWidth: Story = {
-  args: {
-    label: 'Choose your item:',
-    id: 'example-5.1',
-    defaultValue: [],
-    inputType: 'radio',
-    name: 'radio-5.1',
-    type: 'light',
-    items: generateItems(9, { colProps: { width: 'auto' } }),
-  },
-};
-
-export const LightItemColumn: Story = {
-  args: {
-    label: 'Choose your item:',
-    id: 'example-5.2',
-    defaultValue: [],
-    inputType: 'radio',
-    name: 'radio-5.2',
-    type: 'light',
-    items: generateItems(10),
-    direction: 'column',
+    name: 'example-3.6',
+    variant: 'card',
+    color: 'primary',
+    items: generateItems(10, { colored: true }),
+    showIndicator: true,
   },
 };
 
 export const WithHiddenLabel: Story = {
   args: {
     ...Checkbox.args,
-    label: 'Im hidden:',
+    label: 'I am hidden:',
     hideLabel: true,
     items: generateItems(11),
   },
@@ -207,10 +212,10 @@ export const WithHiddenLabel: Story = {
 export const WithError: Story = {
   args: {
     ...Checkbox.args,
-    label: 'I have error:',
+    label: 'I have an error:',
     items: generateItems(12),
     helper: {
-      text: 'Oh no an error!',
+      text: 'Oh no, an error!',
       type: 'error',
       id: 'test',
     },
@@ -220,7 +225,7 @@ export const WithError: Story = {
 export const WithDefaultValue: Story = {
   args: {
     ...Checkbox.args,
-    label: 'I have second item selected by default:',
+    label: 'I have the second item selected by default:',
     items: generateItems(13),
     defaultValue: ['value-40'],
   },
@@ -235,14 +240,11 @@ export const WithIndeterminate: Story = {
   },
 };
 
-/**
- * ExtraContent prop can only be used with check and radio inputType.
- */
 export const WithExtraContent: Story = {
   args: {
     ...Checkbox.args,
     inputType: 'radio',
-    label: 'I have extra content after label:',
+    label: 'I have extra content after the label:',
     items: generateItems(15, { extraContent: true }),
     helper: { text: 'Extra Content' },
   },
@@ -261,7 +263,7 @@ export const CheckboxWithTooltip: Story = {
   args: {
     ...Checkbox.args,
     inputType: 'checkbox',
-    label: 'I have extra long titles:',
+    label: 'I have tooltips:',
     items: generateItems(17, { tooltip: true }),
   },
 };
@@ -275,17 +277,6 @@ export const RadioWithLongTitle: Story = {
   },
 };
 
-export const FilterItemWithColors: Story = {
-  args: {
-    label: 'Choose your filter:',
-    id: 'filter-colored',
-    inputType: 'radio',
-    name: 'filter-colored',
-    type: 'filter',
-    items: generateItems(19, { colored: true }),
-  },
-};
-
 export const RadioWithTooltip: Story = {
   args: {
     label: 'ChoiceGroup with radio buttons that have tooltips:',
@@ -293,6 +284,6 @@ export const RadioWithTooltip: Story = {
     defaultValue: [],
     inputType: 'radio',
     name: 'radio-tooltip',
-    items: generateItems(20, { tooltip: true }),
+    items: generateItems(19, { tooltip: true }),
   },
 };
