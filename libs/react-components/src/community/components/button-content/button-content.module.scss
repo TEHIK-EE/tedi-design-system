@@ -1,4 +1,5 @@
 @use '@tehik-ee/tedi-core/mixins';
+@use '@tehik-ee/tedi-core/bootstrap-utility/breakpoints';
 
 $btn-height: 2.5rem;
 $btn-height-small: 2.25rem;
@@ -313,14 +314,19 @@ $btn-height-small: 2.25rem;
     color: var(--color-transparent);
   }
 
-  &:not(.btn--link .btn__text) {
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    word-break: break-word;
+  &:not(.tedi-btn--link .tedi-btn__text) {
+    text-wrap: nowrap;
+
+    @include breakpoints.media-breakpoint-up(md) {
+      display: -webkit-box;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      text-wrap: wrap;
+      word-break: break-word;
+      -webkit-line-clamp: 2;
+      line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
   }
 }
 
