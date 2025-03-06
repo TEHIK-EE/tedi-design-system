@@ -28,9 +28,9 @@ const TemplateColumn: StoryFn<TemplateMultipleProps> = (args) => {
   const { array, ...buttonProps } = args;
 
   return (
-    <Row style={{ gap: buttonProps.axis === 'vertical' ? 100 : 30 }}>
+    <Row style={{ gap: buttonProps.axis === 'vertical' ? 100 : 0 }}>
       {buttonSizeArray.map((size) => (
-        <Col key={size}>
+        <Col key={size} md={6}>
           <Col style={{ paddingBottom: 16 }}>
             <Text modifiers="bold">{size}</Text>
           </Col>

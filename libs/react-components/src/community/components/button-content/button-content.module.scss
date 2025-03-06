@@ -315,7 +315,7 @@ $btn-height-small: 2.25rem;
     color: var(--color-transparent);
   }
 
-  &:not(.tedi-btn--link .tedi-btn__text) {
+  &:not(.btn--link .btn__text) {
     text-wrap: nowrap;
 
     @include breakpoints.media-breakpoint-up(md) {
