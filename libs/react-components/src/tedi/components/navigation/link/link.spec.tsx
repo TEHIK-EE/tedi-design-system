@@ -64,4 +64,16 @@ describe('Link component', () => {
     fireEvent.click(link);
     expect(handleClick).toHaveBeenCalledTimes(1);
   });
+
+  it('applies correct class when iconStandalone is true', () => {
+    render(<Link {...defaultProps} iconStandalone />);
+    const link = screen.getByRole('link');
+    expect(link).toHaveClass('tedi-btn__icon-standalone--link');
+  });
+
+  it('does not apply iconStandalone class when iconStandalone is false', () => {
+    render(<Link {...defaultProps} iconStandalone={false} />);
+    const link = screen.getByRole('link');
+    expect(link).not.toHaveClass('tedi-btn--link--icon-standalone');
+  });
 });

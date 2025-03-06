@@ -119,7 +119,7 @@ $btn-width-large: 3.72rem;
   align-items: center;
   justify-content: center;
   max-width: 100%;
-  height: $btn-height;
+  min-height: $btn-height;
   margin: 0;
   text-align: center;
   text-decoration: none;
@@ -146,7 +146,7 @@ $btn-width-large: 3.72rem;
 }
 
 .tedi-btn--small {
-  height: $btn-height-small;
+  min-height: $btn-height-small;
 
   @include mixins.responsive-styles(font-size, button-text-size-sm);
   @include mixins.responsive-styles(padding-top, button-sm-padding-y);
@@ -160,7 +160,7 @@ $btn-width-large: 3.72rem;
 }
 
 .tedi-btn--large {
-  height: $btn-height-large;
+  min-height: $btn-height-large;
 
   @include mixins.responsive-styles(padding-top, button-md-padding-y);
   @include mixins.responsive-styles(padding-bottom, button-md-padding-y);
@@ -421,8 +421,6 @@ $btn-width-large: 3.72rem;
 }
 
 .tedi-btn__text {
-  text-align: start;
-
   @include mixins.responsive-styles(padding-left, button-md-inner-spacing);
   @include mixins.responsive-styles(padding-right, button-md-inner-spacing);
 
@@ -447,7 +445,13 @@ $btn-width-large: 3.72rem;
   }
 
   &:not(.tedi-btn--link .tedi-btn__text) {
-    text-wrap: nowrap;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-word;
   }
 }
 
@@ -471,9 +475,17 @@ $btn-width-large: 3.72rem;
 .tedi-btn__inner {
   display: flex;
   align-items: center;
-  justify-content: center;
   min-width: 1.5rem;
   min-height: 1.5rem;
+
+  .tedi-btn--link.tedi-btn__icon-standalone--link:not(.tedi-btn--is-loading) & {
+    display: inline-flex;
+    align-items: start;
+
+    .tedi-btn__icon {
+      @include mixins.responsive-styles(line-height, body-regular-line-height);
+    }
+  }
 
   .tedi-btn--link:not(.tedi-btn--is-loading) & {
     display: inline;
