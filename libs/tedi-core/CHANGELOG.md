@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-core-v1.6.14](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.6.13...core-1.6.14) (2025-03-06)
+
+
+### Bug Fixes
+
+* **font:** fix font src paths to absolute urls [#523](https://github.com/TEHIK-EE/tedi-design-system/issues/523) ([2559ec2](https://github.com/TEHIK-EE/tedi-design-system/commit/2559ec2a3cd39cef78f6edaebeb6e83e26fcef1e))
+
 # [@tehik-ee/tedi-core-v1.6.13](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.6.12...core-1.6.13) (2025-03-06)
 
 
