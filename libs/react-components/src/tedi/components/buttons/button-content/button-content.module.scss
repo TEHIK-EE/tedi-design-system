@@ -1,4 +1,5 @@
 @use '@tehik-ee/tedi-core/mixins';
+@use '@tehik-ee/tedi-core/bootstrap-utility/breakpoints';
 
 $btn-height: 2.5rem;
 $btn-height-small: 2rem;
@@ -154,8 +155,16 @@ $btn-width-large: 3.72rem;
   @include mixins.responsive-styles(padding-left, button-sm-padding-x);
   @include mixins.responsive-styles(padding-right, button-sm-padding-x);
 
+  @include breakpoints.media-breakpoint-down(md) {
+    height: $btn-height;
+  }
+
   &.tedi-btn--icon-only {
     width: $btn-height-small;
+
+    @include breakpoints.media-breakpoint-down(md) {
+      width: $btn-height;
+    }
   }
 }
 
