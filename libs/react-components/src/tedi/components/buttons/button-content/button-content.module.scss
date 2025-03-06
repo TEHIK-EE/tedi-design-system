@@ -163,7 +163,7 @@ $btn-width-large: 3.72rem;
 }
 
 .tedi-btn--large {
-  min-height: $btn-height-large;
+  height: $btn-height-large;
 
   @include mixins.responsive-styles(padding-top, button-md-padding-y, null, '- 1px');
   @include mixins.responsive-styles(padding-bottom, button-md-padding-y, null, '- 1px');
