@@ -358,7 +358,9 @@ export const LongTextButtonThatWrapsIntoMultipleLines: Story = {
     <VerticalSpacing>
       <Row>
         <Col md={6}>
-          <Alert type="warning">Please avoid long text. This is fallback for emergencies—use only with caution.</Alert>
+          <Alert type="warning">
+            Please avoid long text. This is fallback for emergencies — use only with caution.
+          </Alert>
         </Col>
       </Row>
       <Row>
