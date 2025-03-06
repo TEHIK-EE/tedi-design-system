@@ -3,8 +3,32 @@
   padding: 0;
   margin: 0;
   border: none;
-}
 
-.tedi-choice-group__inner--indented {
-  padding-left: 1rem;
+  &.tedi-choice-group--row {
+    .tedi-choice-group-item:first-of-type {
+      border-top-left-radius: var(--border-radius-default);
+      border-top-right-radius: var(--border-radius-default);
+    }
+
+    .tedi-choice-group-item:last-of-type {
+      border-bottom-right-radius: var(--border-radius-default);
+      border-bottom-left-radius: var(--border-radius-default);
+    }
+  }
+
+  &.tedi-choice-group--column {
+    .tedi-choice-group-item:first-of-type {
+      border-top-left-radius: var(--border-radius-default);
+      border-bottom-left-radius: var(--border-radius-default);
+    }
+
+    .tedi-choice-group-item:last-of-type {
+      border-top-right-radius: var(--border-radius-default);
+      border-bottom-right-radius: var(--border-radius-default);
+    }
+  }
+
+  &--indented {
+    padding-left: 1rem;
+  }
 }

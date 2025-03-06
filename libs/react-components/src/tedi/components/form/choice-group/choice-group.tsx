@@ -3,7 +3,7 @@ import React from 'react';
 
 import { FeedbackText, FeedbackTextProps } from '../../../../tedi/components/form/feedback-text/feedback-text';
 import FormLabel, { FormLabelProps } from '../../../../tedi/components/form/form-label/form-label';
-import { Direction, Gutter, Row, RowProps } from '../../../../tedi/components/grid';
+import { Direction, Row, RowProps } from '../../../../tedi/components/grid';
 import { useLabels } from '../../../../tedi/providers/label-provider';
 import Checkbox, { CheckboxProps } from '../checkbox/checkbox';
 import styles from './choice-group.module.scss';
@@ -62,7 +62,7 @@ export const ChoiceGroup = (props: ChoiceGroupProps): React.ReactElement => {
     indeterminateCheck,
     indeterminateCheckProps = {},
     color,
-    layout = 'separated',
+    layout = inputType === 'radio' ? 'segmented' : 'separated',
     showIndicator,
     ...rest
   } = props;
@@ -169,8 +169,8 @@ export const ChoiceGroup = (props: ChoiceGroupProps): React.ReactElement => {
             )}
             <Row
               direction={direction}
-              gutterX={2}
-              gutterY={1}
+              gutterX={direction === 'row' && layout === 'segmented' ? 0 : 2}
+              gutterY={direction === 'row' && layout === 'segmented' ? 0 : 1}
               gap={layout === 'separated' && variant !== 'default' ? 2 : 0}
               {...rowProps}
               className={CheckGroupBEM}
@@ -184,6 +184,7 @@ export const ChoiceGroup = (props: ChoiceGroupProps): React.ReactElement => {
                   type={inputType}
                   isSegmented={layout === 'segmented'}
                   showIndicator={showIndicator}
+                  direction={direction}
                 />
               ))}
             </Row>

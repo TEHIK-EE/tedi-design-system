@@ -1,6 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react';
 
-import { ColProps } from '../../../../tedi/components/grid/col';
+import Col, { ColProps } from '../../../../tedi/components/grid/col';
+import { Row } from '../../grid';
 import ChoiceGroup from './choice-group';
 import { ChoiceGroupItemProps } from './choice-group.types';
 
@@ -145,10 +146,26 @@ export const FilterRow: Story = {
     color: 'secondary',
     items: generateItems(6),
     direction: 'column',
+    layout: 'separated',
   },
 };
 
-export const FilterAutoWidth: Story = {
+export const FilterRowSegmented: Story = {
+  args: {
+    label: 'Filter',
+    id: 'example-3.2.1',
+    defaultValue: [],
+    inputType: 'radio',
+    name: 'radio-3.2.1',
+    variant: 'card',
+    color: 'secondary',
+    items: generateItems(6),
+    direction: 'column',
+    layout: 'segmented',
+  },
+};
+
+export const RadioCard: Story = {
   args: {
     label: 'Filter',
     id: 'example-3.3',
@@ -161,17 +178,16 @@ export const FilterAutoWidth: Story = {
   },
 };
 
-export const FilterSegmented: Story = {
+export const CheckboxCard: Story = {
   args: {
     label: 'Filter',
     id: 'example-3.4',
     defaultValue: [],
-    inputType: 'radio',
+    inputType: 'checkbox',
     name: 'radio-3.4',
     variant: 'card',
     color: 'primary',
     items: generateItems(8, { colProps: { width: 'auto' } }),
-    layout: 'segmented',
   },
 };
 
@@ -195,7 +211,7 @@ export const ShowIndicator: Story = {
     name: 'example-3.6',
     variant: 'card',
     color: 'primary',
-    items: generateItems(10, { colored: true }),
+    items: generateItems(10, { colProps: { width: 'auto' } }),
     showIndicator: true,
   },
 };
@@ -286,4 +302,49 @@ export const RadioWithTooltip: Story = {
     name: 'radio-tooltip',
     items: generateItems(19, { tooltip: true }),
   },
+};
+
+export const RadioCardWithHelperText = () => {
+  return (
+    <Row>
+      <Col lg={6} md={12}>
+        <ChoiceGroup
+          color="primary"
+          id="example-9"
+          inputType="radio"
+          items={[
+            {
+              colProps: {
+                width: 'auto',
+              },
+              id: 'value-90',
+              label: 'Option 1',
+              tooltip: undefined,
+              value: 'value-90',
+              helper: { text: 'Text' },
+            },
+            {
+              id: 'value-91',
+              label: 'Option 2, that is longer than the others',
+              tooltip: undefined,
+              value: 'value-91',
+              helper: { text: 'Text' },
+            },
+            {
+              disabled: true,
+              id: 'value-92',
+              label: 'Option 3',
+              tooltip: undefined,
+              value: 'value-92',
+              helper: { text: 'Text' },
+            },
+          ]}
+          label="Filter"
+          name="example-9.0"
+          showIndicator
+          variant="card"
+        />
+      </Col>
+    </Row>
+  );
 };

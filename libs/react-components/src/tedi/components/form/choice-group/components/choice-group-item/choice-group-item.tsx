@@ -63,10 +63,11 @@ export const ChoiceGroupItem = (props: ExtendedChoiceGroupItemProps): React.Reac
     styles[`tedi-choice-group-item--${variant}-${color}`],
     showIndicator && styles['tedi-choice-group-item--indicator'],
     isSegmented && styles['tedi-choice-group-item--segmented'],
-    colProps?.className,
+    direction && styles[`tedi-choice-group-item--${direction}`],
     { [styles['tedi-choice-group-item--disabled']]: disabled },
     { [styles['tedi-choice-group-item--checked']]: isChecked },
-    background && variant === 'card' ? styles[`tedi-choice-group-item--${background}`] : ''
+    background && variant === 'card' ? styles[`tedi-choice-group-item--${background}`] : '',
+    colProps?.className
   );
 
   if (variant === 'default' || showIndicator) {
@@ -84,7 +85,11 @@ export const ChoiceGroupItem = (props: ExtendedChoiceGroupItemProps): React.Reac
           checked={isChecked}
           onChange={onChangeHandler}
           hideLabel={hideLabel}
-          helper={helper}
+          helper={
+            helper
+              ? { ...helper, className: cn(styles['tedi-choice-group-item__feedback-text'], helper.className) }
+              : undefined
+          }
           tooltip={tooltip}
         />
       </Col>
@@ -106,8 +111,8 @@ export const ChoiceGroupItem = (props: ExtendedChoiceGroupItemProps): React.Reac
         />
         <label htmlFor={id} className={styles['tedi-choice-group-item__label']}>
           {label}
+          {helper && <FeedbackText {...helper} id={id} className={styles['tedi-choice-group-item__feedback-text']} />}
         </label>
-        {helper && <FeedbackText {...helper} id={id} />}
       </Col>
     );
   }

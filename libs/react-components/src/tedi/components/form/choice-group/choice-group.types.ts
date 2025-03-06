@@ -21,7 +21,6 @@ export interface ChoiceGroupItemProps extends Omit<ChoiceInputProps, 'name'> {
   direction?: Direction;
   /**
    * Possibility to change choice group item background when selected. Will be primary if not provided.
-   * Can only be used with FilterItem.
    */
   background?: ChoiceGroupItemBackground;
 }
