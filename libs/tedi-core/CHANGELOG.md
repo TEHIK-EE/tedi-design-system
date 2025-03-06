@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-core-v1.6.13](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.6.12...core-1.6.13) (2025-03-06)
+
+
+### Bug Fixes
+
+* **button:** update button-sm-inner-spacing-mobile to be the same value as desktop [#533](https://github.com/TEHIK-EE/tedi-design-system/issues/533) ([5c260b3](https://github.com/TEHIK-EE/tedi-design-system/commit/5c260b30664700adfffb0cb1f9cd2fc9dae20e5d))
+
 # [@tehik-ee/tedi-core-v1.6.12](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.6.11...core-1.6.12) (2025-03-03)
 
 
