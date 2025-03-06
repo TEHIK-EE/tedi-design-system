@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-core-v1.6.15](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.6.14...core-1.6.15) (2025-03-06)
+
+
+### Bug Fixes
+
+* **button:** revert button-sm-inner-spacing-mobile value change [#533](https://github.com/TEHIK-EE/tedi-design-system/issues/533) ([48cc960](https://github.com/TEHIK-EE/tedi-design-system/commit/48cc960cb8d049fccb4c10fa7df77f36c9aac940))
+
 # [@tehik-ee/tedi-core-v1.6.14](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.6.13...core-1.6.14) (2025-03-06)
 
 
