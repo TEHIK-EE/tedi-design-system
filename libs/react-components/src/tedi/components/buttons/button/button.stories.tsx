@@ -2,6 +2,7 @@ import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import { ElementType } from 'react';
 
 import { Col, Row } from '../../grid';
+import Alert from '../../notifications/alert/alert';
 import { Text, TextProps } from '../../typography/text/text';
 import { VerticalSpacing } from '../../vertical-spacing';
 import { Button, ButtonProps } from './button';
@@ -354,16 +355,23 @@ export const LongTextButtonThatWrapsIntoMultipleLines: Story = {
   },
 
   render: (args) => (
-    <Row>
-      <Col md={4}>
-        <Button>{args.children}</Button>
-      </Col>
-      <Col md={4}>
-        <Button iconLeft="edit">{args.children}</Button>
-      </Col>
-      <Col md={3}>
-        <Button>{args.children}</Button>
-      </Col>
-    </Row>
+    <VerticalSpacing>
+      <Row>
+        <Col md={6}>
+          <Alert type="warning">Please avoid long text. This is fallback for emergencies—use only with caution.</Alert>
+        </Col>
+      </Row>
+      <Row>
+        <Col md={4} width={12}>
+          <Button>{args.children}</Button>
+        </Col>
+        <Col md={4} width={12}>
+          <Button iconLeft="edit">{args.children}</Button>
+        </Col>
+        <Col md={3} width={12}>
+          <Button>{args.children}</Button>
+        </Col>
+      </Row>
+    </VerticalSpacing>
   ),
 };

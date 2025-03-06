@@ -1,4 +1,5 @@
 @use '@tehik-ee/tedi-core/mixins';
+@use '@tehik-ee/tedi-core/bootstrap-utility/breakpoints';
 
 $btn-height: 2.5rem;
 $btn-height-small: 2rem;
@@ -133,8 +134,10 @@ $btn-width-large: 3.72rem;
   @include mixins.print-grayscale;
   @include mixins.responsive-styles(font-family, family-primary, $exclude: tablet);
   @include mixins.responsive-styles(font-size, button-text-size-default);
-  @include mixins.responsive-styles(padding-top, button-md-padding-y);
-  @include mixins.responsive-styles(padding-bottom, button-md-padding-y);
+
+  // subtract border height
+  @include mixins.responsive-styles(padding-top, button-md-padding-y, null, '- 1px');
+  @include mixins.responsive-styles(padding-bottom, button-md-padding-y, null, '- 1px');
   @include mixins.responsive-styles(padding-left, button-md-padding-x);
   @include mixins.responsive-styles(padding-right, button-md-padding-x);
   @include mixins.responsive-styles(border-radius, button-radius-default);
@@ -149,8 +152,8 @@ $btn-width-large: 3.72rem;
   min-height: $btn-height-small;
 
   @include mixins.responsive-styles(font-size, button-text-size-sm);
-  @include mixins.responsive-styles(padding-top, button-sm-padding-y);
-  @include mixins.responsive-styles(padding-bottom, button-sm-padding-y);
+  @include mixins.responsive-styles(padding-top, button-sm-padding-y, null, '- 1px');
+  @include mixins.responsive-styles(padding-bottom, button-sm-padding-y, null, '- 1px');
   @include mixins.responsive-styles(padding-left, button-sm-padding-x);
   @include mixins.responsive-styles(padding-right, button-sm-padding-x);
 
@@ -162,8 +165,8 @@ $btn-width-large: 3.72rem;
 .tedi-btn--large {
   min-height: $btn-height-large;
 
-  @include mixins.responsive-styles(padding-top, button-md-padding-y);
-  @include mixins.responsive-styles(padding-bottom, button-md-padding-y);
+  @include mixins.responsive-styles(padding-top, button-md-padding-y, null, '- 1px');
+  @include mixins.responsive-styles(padding-bottom, button-md-padding-y, null, '- 1px');
   @include mixins.responsive-styles(padding-left, button-md-padding-x);
   @include mixins.responsive-styles(padding-right, button-md-padding-x);
 
@@ -176,8 +179,8 @@ $btn-width-large: 3.72rem;
   padding: 0;
   background-clip: padding-box;
 
-  @include mixins.responsive-styles(padding-top, button-md-neutral-padding-y);
-  @include mixins.responsive-styles(padding-bottom, button-md-neutral-padding-y);
+  @include mixins.responsive-styles(padding-top, button-md-neutral-padding-y, null, '- 1px');
+  @include mixins.responsive-styles(padding-bottom, button-md-neutral-padding-y, null, '- 1px');
 
   &.tedi-btn--default.tedi-btn--icon-only {
     &:hover:not(:disabled) {
@@ -445,13 +448,18 @@ $btn-width-large: 3.72rem;
   }
 
   &:not(.tedi-btn--link .tedi-btn__text) {
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    word-break: break-word;
+    text-wrap: nowrap;
+
+    @include breakpoints.media-breakpoint-up(md) {
+      display: -webkit-box;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      text-wrap: wrap;
+      word-break: break-word;
+      -webkit-line-clamp: 2;
+      line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
   }
 }
 
@@ -475,6 +483,7 @@ $btn-width-large: 3.72rem;
 .tedi-btn__inner {
   display: flex;
   align-items: center;
+  justify-content: center;
   min-width: 1.5rem;
   min-height: 1.5rem;
 
