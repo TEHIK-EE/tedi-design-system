@@ -1,6 +1,9 @@
 @use '@tehik-ee/tedi-core/mixins';
+@use '@tehik-ee/tedi-core/bootstrap-utility/breakpoints';
 
 .tedi-info-button {
+  vertical-align: bottom;
+
   @include mixins.responsive-styles(width, button-xs-icon-size);
   @include mixins.responsive-styles(height, button-xs-icon-size);
 }

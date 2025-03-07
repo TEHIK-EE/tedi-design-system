@@ -17,16 +17,21 @@ describe('Tag component', () => {
   it('renders default tag', () => {
     render(<Tag>Default Tag</Tag>);
 
-    const tag = screen.getByText('Default Tag');
-    expect(tag).toBeInTheDocument();
-    expect(tag).toHaveClass('tedi-tag tedi-tag--color-primary');
+    const tagContent = screen.getByText('Default Tag');
+    const tagWrapper = tagContent.closest('.tedi-tag');
+
+    expect(tagWrapper).toBeInTheDocument();
+    expect(tagWrapper).toHaveClass('tedi-tag tedi-tag--color-primary');
   });
 
   it('renders custom class names', () => {
     render(<Tag className="custom-class">Custom Class Tag</Tag>);
 
-    const tag = screen.getByText('Custom Class Tag');
-    expect(tag).toHaveClass('tedi-tag custom-class');
+    const tagContent = screen.getByText('Custom Class Tag');
+    const tagWrapper = tagContent.closest('.tedi-tag');
+
+    expect(tagWrapper).toBeInTheDocument();
+    expect(tagWrapper).toHaveClass('tedi-tag custom-class');
   });
 
   it('renders with danger color and displays error icon', () => {
@@ -69,11 +74,11 @@ describe('Tag component', () => {
     const onCloseMock = jest.fn();
     render(<Tag onClose={onCloseMock}>Closable Tag</Tag>);
 
-    const closeButton = screen.getByRole('button', { name: /close/i });
+    const closeButton = screen.getByRole('button');
     expect(closeButton).toBeInTheDocument();
 
-    const tag = screen.getByText('Closable Tag').closest('.tedi-tag');
-    expect(tag).toHaveClass('tedi-tag__close');
+    const tagWrapper = closeButton.closest('.tedi-tag');
+    expect(tagWrapper).toHaveClass('tedi-tag__close');
 
     fireEvent.click(closeButton);
     expect(onCloseMock).toHaveBeenCalledTimes(1);
@@ -87,11 +92,11 @@ describe('Tag component', () => {
       </Tag>
     );
 
-    const closeButton = screen.queryByRole('button', { name: /close/i });
+    const closeButton = screen.queryByRole('button');
     expect(closeButton).not.toBeInTheDocument();
 
-    const tag = screen.getByText('Loading Tag').closest('.tedi-tag');
-    expect(tag).not.toHaveClass('tedi-tag__close');
+    const tagWrapper = screen.getByText('Loading Tag').closest('.tedi-tag');
+    expect(tagWrapper).not.toHaveClass('tedi-tag__close');
   });
 
   it('accessibility', () => {

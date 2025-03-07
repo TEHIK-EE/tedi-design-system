@@ -1,11 +1,16 @@
 {
-  "extends": "../tsconfig.lib.json",
+  "extends": "../tsconfig.json",
   "compilerOptions": {
-    "types": ["node"],
-    "allowSyntheticDefaultImports": true,
-    "resolveJsonModule": true
+    "emitDecoratorMetadata": true,
+    "outDir": ""
   },
-  "exclude": ["../src/test.ts", "../src/**/*.spec.ts"],
-  "include": ["../src/**/*.stories.*", "./preview.ts"],
-  "files": ["./typings.d.ts"]
+  "exclude": [
+    "../**/*.spec.ts",
+    "../**/*.spec.js",
+    "../**/*.spec.tsx",
+    "../**/*.spec.jsx",
+    "jest.config.ts",
+    "../node_modules"
+  ],
+  "include": ["../src/**/*", "./**/*.ts", "./**/*.tsx"]
 }

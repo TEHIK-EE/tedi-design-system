@@ -60,9 +60,17 @@ export const Tag = (props: TagProps): JSX.Element => {
 
   return (
     <div className={tagBEM} role="status" aria-live={isLoading ? 'polite' : undefined} {...rest}>
-      {color === 'danger' && <Icon name="info" color="danger" size={16} />}
-      {children}
-      {isLoading && !onClose && <Spinner className={styles['tedi-tag__loader']} />}
+      {color === 'danger' && (
+        <div className={styles['tedi-tag__icon-wrapper']}>
+          <Icon name="info" color="danger" size={16} className={styles['tedi-tag__icon--error']} />
+        </div>
+      )}
+      <div className={styles['tedi-tag__content']}>{children}</div>
+      {isLoading && !onClose && (
+        <div className={styles['tedi-tag__icon-wrapper']}>
+          <Spinner className={styles['tedi-tag__loader']} />
+        </div>
+      )}
       {!isLoading && onClose && <ClosingButton onClick={onClose} />}
     </div>
   );

@@ -1,0 +1,20 @@
+.tedi-overlay {
+  &__trigger {
+    width: fit-content;
+    height: fit-content;
+
+    &:not(button, a) {
+      cursor: default;
+      user-select: text;
+    }
+
+    &--text {
+      text-decoration: underline dashed var(--general-border-secondary);
+      text-underline-offset: 0.5em;
+    }
+
+    &--click {
+      cursor: pointer !important;
+    }
+  }
+}

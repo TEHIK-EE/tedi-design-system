@@ -523,6 +523,18 @@
   --tag-secondary-border: var(--neutral-300);
   --tooltip-background: var(--general-surface-inverted-primary);
   --tooltip-text: var(--general-text-white);
+  --file-dropzone-background-default: var(--form-input-background-default);
+  --file-dropzone-background-disabled: var(--form-general-background-disabled);
+  --file-dropzone-background-drop-over: var(--general-surface-brand-quaternary);
+  --file-dropzone-background-hover: var(--general-surface-hover);
+  --file-dropzone-border-active: var(--general-surface-active);
+  --file-dropzone-border-default: var(--form-input-border-default);
+  --file-dropzone-border-disabled: var(--form-general-border-disabled);
+  --file-dropzone-border-drop-over: var(--form-input-border-active);
+  --file-dropzone-border-focus: var(--form-input-border-focus);
+  --file-dropzone-border-hover: var(--form-input-border-hover);
+  --file-dropzone-text-default: var(--general-text-brand);
+  --file-dropzone-text-drop-over: var(--general-text-tertiary);
 }
 
 :root.dark-mode {
@@ -1048,4 +1060,16 @@
   --tag-secondary-border: var(--neutral-800);
   --tooltip-background: var(--general-surface-inverted-primary);
   --tooltip-text: var(--general-text-dark);
+  --file-dropzone-background-default: var(--form-input-background-default);
+  --file-dropzone-background-disabled: var(--form-general-background-disabled);
+  --file-dropzone-background-drop-over: var(--general-surface-brand-quaternary);
+  --file-dropzone-background-hover: var(--general-surface-hover);
+  --file-dropzone-border-active: var(--general-surface-active);
+  --file-dropzone-border-default: var(--form-input-border-default);
+  --file-dropzone-border-disabled: var(--form-general-border-disabled);
+  --file-dropzone-border-drop-over: var(--form-input-border-active);
+  --file-dropzone-border-focus: var(--form-input-border-focus);
+  --file-dropzone-border-hover: var(--form-input-border-hover);
+  --file-dropzone-text-default: var(--general-text-brand);
+  --file-dropzone-text-drop-over: var(--general-text-tertiary);
 }

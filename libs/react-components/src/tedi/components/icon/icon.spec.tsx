@@ -1,6 +1,5 @@
 import { render } from '@testing-library/react';
 
-import { Heading } from '../typography/heading/heading';
 import { Icon } from './icon';
 
 import '@testing-library/jest-dom';
@@ -87,5 +86,14 @@ describe('Icon component', () => {
     const { container } = render(<Icon name="Add" size={48} background="secondary" />);
     const wrapperElement = container.querySelector('div.tedi-icon__wrapper');
     expect(wrapperElement).toHaveClass('tedi-icon__wrapper--size-48');
+  });
+
+  it('renders with background and assigns ref to wrapper', () => {
+    const ref = { current: null };
+    const { container } = render(<Icon name="Add" background="primary" ref={ref} />);
+
+    const wrapperElement = container.querySelector('div.tedi-icon__wrapper');
+    expect(wrapperElement).toBeInTheDocument();
+    expect(ref.current).toBe(wrapperElement);
   });
 });
