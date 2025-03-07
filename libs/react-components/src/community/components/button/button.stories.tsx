@@ -223,3 +223,23 @@ export const FullWidth: Story = {
     children: 'Button that stretches',
   },
 };
+
+export const LongTextButtonThatWrapsIntoMultipleLines: Story = {
+  args: {
+    children: 'This is a very long link text that should wrap into multiple lines',
+  },
+
+  render: (args) => (
+    <Row>
+      <Col md={4}>
+        <Button>{args.children}</Button>
+      </Col>
+      <Col md={4}>
+        <Button iconLeft="edit">{args.children}</Button>
+      </Col>
+      <Col md={3}>
+        <Button>{args.children}</Button>
+      </Col>
+    </Row>
+  ),
+};
