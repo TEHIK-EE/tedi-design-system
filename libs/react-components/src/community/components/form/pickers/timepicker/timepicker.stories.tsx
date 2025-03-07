@@ -22,6 +22,7 @@ export const Default: Story = {
 
   args: {
     id: 'timepicker-default',
+    defaultValue: dayjs().set('hour', 10).set('minute', 30),
   },
 };
 
@@ -40,7 +41,7 @@ export const ReadOnly: Story = {
   args: {
     id: 'timepicker-read-only',
     readOnly: true,
-    defaultValue: dayjs(),
+    defaultValue: dayjs().set('hour', 10).set('minute', 30),
   },
 };
 
@@ -101,14 +102,14 @@ export const WithErrorHelper: Story = {
 
   args: {
     id: 'timepicker-error-helper',
-    defaultValue: dayjs().add(numberOne, 'minute'),
+    defaultValue: dayjs().set('hour', 10).add(numberOne, 'minute'),
     helper: { text: 'Time can not be in the future!', type: 'error' },
     maxTime: dayjs(),
   },
 };
 
 export const Controlled = () => {
-  const [time, setTime] = React.useState<Dayjs | null>(dayjs());
+  const [time, setTime] = React.useState<Dayjs | null>(dayjs().set('hour', 10));
 
   return (
     <>
@@ -119,22 +120,22 @@ export const Controlled = () => {
           </Button>
         </Col>
         <Col width="auto">
-          <Button visualType="link" onClick={() => setTime(dayjs())}>
+          <Button visualType="link" onClick={() => setTime(dayjs().set('hour', 10))}>
             current
           </Button>
         </Col>
         <Col width="auto">
-          <Button visualType="link" onClick={() => setTime(dayjs().add(numberOne, 'hour'))}>
+          <Button visualType="link" onClick={() => setTime(dayjs().set('hour', 10).add(numberOne, 'hour'))}>
             next hour
           </Button>
         </Col>
         <Col width="auto">
-          <Button visualType="link" onClick={() => setTime(dayjs().add(numberOne, 'minute'))}>
+          <Button visualType="link" onClick={() => setTime(dayjs().set('hour', 10).add(numberOne, 'minute'))}>
             next minute
           </Button>
         </Col>
         <Col width="auto">
-          <Button visualType="link" onClick={() => setTime(dayjs().set('hours', 0).set('minute', 0))}>
+          <Button visualType="link" onClick={() => setTime(dayjs().set('hour', 10).set('hours', 0).set('minute', 0))}>
             00:00
           </Button>
         </Col>
