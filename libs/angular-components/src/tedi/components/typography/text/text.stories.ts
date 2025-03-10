@@ -35,7 +35,7 @@ export default {
       description: "Base element",
       table: {
         type: { summary: "TextElement" },
-        defaultValue: { summary: "p" },
+        defaultValue: { summary: '"p"' },
       },
     },
     modifiers: {
@@ -46,7 +46,7 @@ export default {
       description: "Color of the text",
       table: {
         type: { summary: "TextColor" },
-        defaultValue: { summary: "primary" },
+        defaultValue: { summary: '"primary"' },
       },
     },
   },

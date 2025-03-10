@@ -19,6 +19,10 @@ export type HeadingProps = Omit<TextProps, "element"> & {
   element?: InputSignal<HeadingModifiers | undefined>;
 };
 
+export function isHeadingModifier(modifier: string): boolean {
+  return /^h[1-6]$/.test(modifier);
+}
+
 @Component({
   selector: "tedi-heading",
   templateUrl: "./heading.component.html",
@@ -42,7 +46,11 @@ export class HeadingComponent implements HeadingProps {
 
     return [
       this.class(),
-      ...modifierClasses.map((modifier) => `text-${modifier}`),
+      ...modifierClasses.map((modifier) =>
+        isHeadingModifier(modifier)
+          ? `tedi-text--${modifier}`
+          : `text-${modifier}`,
+      ),
       this.color() ? `tedi-text--${this.color()}` : "",
     ]
       .filter(Boolean)

@@ -35,7 +35,7 @@ export default {
       description: "Base element",
       table: {
         type: { summary: "HeadingModifiers" },
-        defaultValue: { summary: "h1" },
+        defaultValue: { summary: '"h1"' },
       },
     },
     modifiers: {
@@ -46,7 +46,7 @@ export default {
       description: "Color of the text",
       table: {
         type: { summary: "TextColor" },
-        defaultValue: { summary: "primary" },
+        defaultValue: { summary: '"primary"' },
       },
     },
   },
@@ -61,50 +61,50 @@ export const Default: StoryObj<HeadingComponent> = {
           style="display: grid; grid-template-columns: repeat(2, 1fr);"
           class="border-bottom border-bottom--3x padding-14-16"
         >
-          <tedi-text>Desktop</tedi-text>
-          <tedi-text>Mobile</tedi-text>
+          <span>Desktop</span>
+          <span>Mobile</span>
         </div>
         <div
           style="display: grid; grid-template-columns: repeat(2, 1fr);"
           class="padding-14-16 border-bottom"
         >
           <tedi-heading>Heading H1</tedi-heading>
-          <tedi-heading class="mobile">Heading H1</tedi-heading>
+          <tedi-heading class="mobile" modifiers="h1">Heading H1</tedi-heading>
         </div>
         <div
           style="display: grid; grid-template-columns: repeat(2, 1fr);"
           class="padding-14-16 border-bottom"
         >
           <tedi-heading element="h2">Heading H2</tedi-heading>
-          <tedi-heading element="h2" class="mobile">Heading H2</tedi-heading>
+          <tedi-heading element="h2" class="mobile" modifiers="h2">Heading H2</tedi-heading>
         </div>
         <div
           style="display: grid; grid-template-columns: repeat(2, 1fr);"
           class="padding-14-16 border-bottom"
         >
           <tedi-heading element="h3">Heading H3</tedi-heading>
-          <tedi-heading element="h3" class="mobile">Heading H3</tedi-heading>
+          <tedi-heading element="h3" class="mobile" modifiers="h3">Heading H3</tedi-heading>
         </div>
         <div
           style="display: grid; grid-template-columns: repeat(2, 1fr);"
           class="padding-14-16 border-bottom"
         >
           <tedi-heading element="h4">Heading H4</tedi-heading>
-          <tedi-heading element="h4" class="mobile">Heading H4</tedi-heading>
+          <tedi-heading element="h4" class="mobile" modifiers="h4">Heading H4</tedi-heading>
         </div>
         <div
           style="display: grid; grid-template-columns: repeat(2, 1fr);"
           class="padding-14-16 border-bottom"
         >
           <tedi-heading element="h5">Heading H5</tedi-heading>
-          <tedi-heading element="h5" class="mobile">Heading H5</tedi-heading>
+          <tedi-heading element="h5" class="mobile" modifiers="h5">Heading H5</tedi-heading>
         </div>
         <div
           style="display: grid; grid-template-columns: repeat(2, 1fr);"
           class="padding-14-16"
         >
           <tedi-heading element="h6">Heading H6</tedi-heading>
-          <tedi-heading element="h6" class="mobile">Heading H6</tedi-heading>
+          <tedi-heading element="h6" class="mobile" modifiers="h6">Heading H6</tedi-heading>
         </div>
       </div>
     `,

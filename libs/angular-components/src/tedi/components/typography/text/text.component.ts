@@ -5,7 +5,10 @@ import {
   input,
   InputSignal,
 } from "@angular/core";
-import { HeadingModifiers } from "../heading/heading.component";
+import {
+  HeadingModifiers,
+  isHeadingModifier,
+} from "../heading/heading.component";
 
 export type TextModifiers =
   | HeadingModifiers
@@ -95,10 +98,6 @@ export class TextComponent implements TextProps {
   modifiers = input<TextModifiers[] | TextModifiers | undefined>(undefined);
   color = input<TextColor | undefined>("primary");
 
-  private isHeadingModifier(modifier: string): boolean {
-    return /^h[1-6]$/.test(modifier);
-  }
-
   classes = computed(() => {
     const modifiersValue = this.modifiers();
     const modifierClasses = Array.isArray(modifiersValue)
@@ -110,7 +109,7 @@ export class TextComponent implements TextProps {
     return [
       this.class(),
       ...modifierClasses.map((modifier) =>
-        this.isHeadingModifier(modifier)
+        isHeadingModifier(modifier)
           ? `tedi-text--${modifier}`
           : `text-${modifier}`,
       ),
