@@ -39,6 +39,15 @@ $container-height-small: 2rem;
 
 .tedi-file-upload__label-wrapper {
   width: fit-content;
+
+  @include mixins.responsive-styles(padding-top, form-field-inner-spacing);
+  @include mixins.responsive-styles(padding-bottom, form-field-inner-spacing);
+
+  & li {
+    word-break: break-word;
+    overflow-wrap: break-word;
+    list-style-type: none;
+  }
 }
 
 .tedi-file-upload__container {
@@ -60,54 +69,52 @@ $container-height-small: 2rem;
 
     .tedi-file-upload__button {
       height: calc(#{$container-height} - var(--form-field-padding-y-sm-desktop) * 2);
+      padding-right: 0;
+      padding-left: 0;
 
       @include breakpoints.media-breakpoint-down(md) {
+        width: 100%;
         height: calc(#{$container-height} - var(--form-field-padding-y-sm-mobile) * 2);
+        margin: 0 auto;
       }
     }
-  }
 
-  &--small {
-    min-height: $container-height-small;
+    &--small {
+      min-height: $container-height-small;
 
-    @include mixins.responsive-styles(padding-left, form-field-padding-x-md-default);
-    @include mixins.responsive-styles(padding-right, form-field-padding-x-md-default);
-    @include mixins.responsive-styles(padding-top, form-field-padding-y-xxs);
-    @include mixins.responsive-styles(padding-bottom, form-field-padding-y-xxs);
+      @include mixins.responsive-styles(padding-left, form-field-padding-x-md-default);
+      @include mixins.responsive-styles(padding-right, form-field-padding-x-md-default);
+      @include mixins.responsive-styles(padding-top, form-field-padding-y-xxs);
+      @include mixins.responsive-styles(padding-bottom, form-field-padding-y-xxs);
 
-    .tedi-file-upload__button {
-      height: calc(#{$container-height-small} - var(--form-field-padding-y-xxs-desktop) * 2);
+      .tedi-file-upload__button {
+        height: calc(#{$container-height-small} - var(--form-field-padding-y-xxs-desktop) * 2);
 
-      @include breakpoints.media-breakpoint-down(md) {
-        height: calc(#{$container-height-small} - var(--form-field-padding-y-xxs-mobile) * 2);
+        @include breakpoints.media-breakpoint-down(md) {
+          height: calc(#{$container-height-small} - var(--form-field-padding-y-xxs-mobile) * 2);
+        }
+
+        height: $container-height-small;
+
+        @include mixins.responsive-styles(padding-left, form-field-padding-x-md-default);
       }
     }
-  }
 
-  .tedi-file-upload__button {
-    padding-right: 0;
-    padding-left: 0;
-
-    @include breakpoints.media-breakpoint-down(md) {
-      width: 100%;
-      margin: 0 auto;
+    &.tedi-file-upload--disabled {
+      color: var(--form-input-text-disabled);
+      pointer-events: none;
+      cursor: initial;
+      background-color: var(--form-input-background-disabled);
+      border-color: var(--form-input-border-disabled);
     }
-  }
 
-  &.tedi-file-upload--disabled {
-    color: var(--form-input-text-disabled);
-    pointer-events: none;
-    cursor: initial;
-    background-color: var(--form-input-background-disabled);
-    border-color: var(--form-input-border-disabled);
-  }
+    &.tedi-file-upload--error {
+      border-color: var(--form-general-feedback-error-border);
+    }
 
-  &.tedi-file-upload--error {
-    border-color: var(--form-general-feedback-error-border);
-  }
-
-  &.tedi-file-upload--valid {
-    border-color: var(--form-general-feedback-success-border);
+    &.tedi-file-upload--valid {
+      border-color: var(--form-general-feedback-success-border);
+    }
   }
 }
 

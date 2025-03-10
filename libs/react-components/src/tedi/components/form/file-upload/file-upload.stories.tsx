@@ -29,7 +29,7 @@ const TemplateSizes: StoryFn<FileUploadProps> = (args) => {
             <Text modifiers="bold">{size.charAt(0).toUpperCase() + size.slice(1)}</Text>
           </Col>
           <Col>
-            <FileUpload {...args} size={size} />
+            <FileUpload {...args} size={size} id={`file-upload-${key}`} />
           </Col>
         </Row>
       ))}
@@ -48,7 +48,6 @@ export const Default: Story = {
 export const Sizes: Story = {
   render: TemplateSizes,
   args: {
-    id: 'example-1',
     label: 'Label',
   },
 };
@@ -129,15 +128,14 @@ export const MultipleWithIndividualValidation: Story = {
     validateIndividually: true,
     hasClearButton: true,
     defaultFiles: [
-      { name: 'taotlus_scan_lk_1.pdf.pdf' },
-      { name: 'taotlus_scan_lk_2.pdf.pdf' },
-      { name: 'taotlus_scan_lk_3.pdf.pdf' },
-      { name: 'taotlus_scan_lk_4.pdf.pdf' },
-      { name: 'taotlus_scan_lk_5.pdf.pdf', isValid: false },
+      { name: 'taotlus_scan_lk_1.pdf' },
+      { name: 'taotlus_scan_lk_2.pdf' },
+      { name: 'taotlus_scan_lk_3.pdf' },
+      { name: 'taotlus_scan_lk_4.pdf' },
+      { name: 'taotlus_scan_lk_5.pdf', isValid: false },
     ],
     helper: {
       text: 'Only .pdf and .txt files under 1KB are allowed.',
-      type: 'error',
     },
   },
   render: (args) => (

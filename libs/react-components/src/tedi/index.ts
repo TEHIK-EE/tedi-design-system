@@ -18,6 +18,8 @@ export * from './components/form/textarea/textarea';
 export * from './components/form/number-field/number-field';
 export * from './components/form/feedback-text/feedback-text';
 export * from './components/form/search/search';
+export * from './components/form/radio/radio';
+export * from './components/form/checkbox/checkbox';
 export * from './components/buttons/button/button';
 export * from './components/buttons/info-button/info-button';
 export * from './components/notifications/alert/alert';
@@ -31,6 +33,8 @@ export * from './components/truncate/truncate';
 export * from './components/hash-trigger/hash-trigger';
 export * from './components/scroll-fade/scroll-fade';
 export * from './components/affix/affix';
+export * from './components/tooltip/tooltip';
+export * from './components/popover/popover';
 
 export * from './helpers';
 

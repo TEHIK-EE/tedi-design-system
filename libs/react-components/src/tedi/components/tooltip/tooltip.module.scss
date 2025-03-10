@@ -1,0 +1,28 @@
+@use '@tehik-ee/tedi-core/mixins';
+
+$tooltip-max-width: (
+  'none': none,
+  'small': 10rem,
+  'medium': 15rem,
+  'large': 30rem,
+);
+
+.tedi-tooltip {
+  z-index: var(--z-index-tooltip);
+  color: var(--tooltip-text);
+  background: var(--tooltip-background);
+
+  @include mixins.responsive-styles(padding, tooltip-padding-y tooltip-padding-x);
+  @include mixins.responsive-styles(border-radius, tooltip-radius);
+
+  @each $name, $width in $tooltip-max-width {
+    &--#{$name} {
+      max-width: min(#{$width}, calc(100vw - 1rem));
+    }
+  }
+
+  &__arrow {
+    z-index: 1;
+    fill: var(--tooltip-background);
+  }
+}

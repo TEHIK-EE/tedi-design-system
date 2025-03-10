@@ -25,7 +25,8 @@
     "lint:ci": "npx stylelint \"src/**/*.scss\" && eslint --quiet",
     "test": "jest --config ./jest.config.ts --passWithNoTests",
     "test:coverage": "jest --config ./jest.config.ts --coverage",
-    "release": "npx semantic-release -e semantic-release-monorepo --debug"
+    "release": "npx semantic-release -e semantic-release-monorepo --debug",
+    "chromatic": "npx chromatic --project-token=$CHROMATIC_PROJECT_TOKEN --build-script-name=build:sb --baseline-branch=rc"
   },
   "dependencies": {
     "@emotion/react": "^11.11.4",
@@ -34,7 +35,7 @@
     "@mui/material": "^5.15.13",
     "@mui/x-date-pickers": "^5.0.20",
     "@tanstack/react-table": "^8.13.2",
-    "@tehik-ee/tedi-core": "^1.6.8",
+    "@tehik-ee/tedi-core": "^1.6.9",
     "classnames": "^2.5.1",
     "dayjs": "^1.11.10",
     "draft-js": "^0.11.7",
@@ -87,6 +88,7 @@
     "@typescript-eslint/eslint-plugin": "^6.21.0",
     "@typescript-eslint/parser": "^6.21.0",
     "@vitejs/plugin-react": "^4.3.4",
+    "chromatic": "^11.25.2",
     "cross-env": "^7.0.3",
     "dompurify": "^3.0.9",
     "eslint": "8.48.0",

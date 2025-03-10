@@ -3,8 +3,10 @@ import React, { CSSProperties, forwardRef } from 'react';
 
 import { BreakpointSupport, useBreakpointProps } from '../../../helpers';
 import styles from './card.module.scss';
-import { CardContentProps } from './card-content/card-content';
+import { CardContent, CardContentProps } from './card-content/card-content';
 import { CardContext } from './card-context';
+import CardHeader from './card-header/card-header';
+import CardNotification from './card-notification/card-notification';
 import { CardBackground, CardBorderType, CardContentPaddingNumber, getCardBorderPlacementColor } from './utility';
 
 export type CardContentPadding =
@@ -80,7 +82,7 @@ export interface CardProps extends BreakpointSupport<CardBreakpointProps> {
   children?: React.ReactNode;
 }
 
-export const Card = forwardRef<HTMLDivElement, CardProps>((props, ref): JSX.Element => {
+const CardComponent = forwardRef<HTMLDivElement, CardProps>((props, ref): JSX.Element => {
   const { getCurrentBreakpointProps } = useBreakpointProps();
   const { children, className, padding, background, borderRadius, borderless, border, ...rest } =
     getCurrentBreakpointProps<CardProps>(props, { padding: 1 });
@@ -110,6 +112,12 @@ export const Card = forwardRef<HTMLDivElement, CardProps>((props, ref): JSX.Elem
   );
 });
 
-Card.displayName = 'Card';
+CardComponent.displayName = 'Card';
+
+export const Card = Object.assign(CardComponent, {
+  Content: CardContent,
+  Header: CardHeader,
+  Notification: CardNotification,
+});
 
 export default Card;

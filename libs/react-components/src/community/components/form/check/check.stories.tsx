@@ -11,6 +11,11 @@ import Check, { CheckProps } from './check';
 const meta: Meta<typeof Check> = {
   component: Check,
   title: 'Community/Form/Check',
+  parameters: {
+    status: {
+      type: ['deprecated', 'ExistsInTediReady'],
+    },
+  },
 };
 
 export default meta;

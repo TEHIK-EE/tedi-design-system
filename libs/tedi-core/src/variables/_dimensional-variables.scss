@@ -412,7 +412,7 @@
   --empty-state-padding-sm-mobile: var(--dimensions-10);
   --button-xs-icon-size-desktop: var(--dimensions-13);
   --button-xs-icon-size-tablet: var(--dimensions-13);
-  --button-xs-icon-size-mobile: var(--dimensions-14);
+  --button-xs-icon-size-mobile: var(--dimensions-13);
   --form-checkbox-radio-gutter-y-desktop: var(--dimensions-03);
   --form-checkbox-radio-gutter-y-tablet: var(--dimensions-03);
   --form-checkbox-radio-gutter-y-mobile: var(--dimensions-05);
@@ -1139,4 +1139,10 @@
   --side-navigation-item-icon-md-desktop: var(--icon-04-desktop);
   --side-navigation-item-icon-md-tablet: var(--icon-05-tablet);
   --side-navigation-item-icon-md-mobile: var(--icon-05-mobile);
+  --file-dropzone-padding-x-desktop: var(--dimensions-13);
+  --file-dropzone-padding-x-tablet: var(--dimensions-13);
+  --file-dropzone-padding-x-mobile: var(--dimensions-13);
+  --file-dropzone-padding-y-desktop: var(--dimensions-13);
+  --file-dropzone-padding-y-tablet: var(--dimensions-13);
+  --file-dropzone-padding-y-mobile: var(--dimensions-13);
 }

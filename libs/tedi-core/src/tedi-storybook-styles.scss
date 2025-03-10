@@ -23,8 +23,10 @@
     &--h6 {
       font-size: var(--heading-h6-size-mobile);
     }
+  }
 
-    &--subtitle {
+  .text {
+    &-subtitle {
       font-size: var(--heading-subtitle-small-size-mobile);
     }
   }

@@ -1,9 +1,9 @@
 import cn from 'classnames';
-import { ElementType, LabelHTMLAttributes } from 'react';
+import { ElementType, forwardRef, LabelHTMLAttributes } from 'react';
 
 import { BreakpointSupport, useBreakpointProps } from '../../helpers';
-import { ButtonProps } from '../buttons/button/button';
 import InfoButton from '../buttons/info-button/info-button';
+import Tooltip from '../tooltip/tooltip';
 import styles from './label.module.scss';
 
 type LabelBreakpointProps = {
@@ -36,14 +36,13 @@ export interface LabelProps
    */
   required?: boolean;
   /**
-   * Configuration for the InfoButton displayed alongside the label.
-   * Pass an object with properties accepted by the InfoButton component.
-   * If not provided, the InfoButton will not be rendered.
+   * Tooltip content to display when hovering over the info button.
+   * If provided, an info button with a tooltip will be rendered.
    */
-  infoButton?: ButtonProps;
+  tooltip?: string;
 }
 
-export const Label = (props: LabelProps): JSX.Element => {
+export const Label = forwardRef<HTMLLabelElement | HTMLSpanElement, LabelProps>((props, ref) => {
   const { getCurrentBreakpointProps } = useBreakpointProps();
   const {
     as: Element = 'label',
@@ -52,9 +51,10 @@ export const Label = (props: LabelProps): JSX.Element => {
     isBold,
     isSmall,
     required,
-    infoButton,
+    tooltip,
     ...rest
   } = getCurrentBreakpointProps<LabelProps>(props);
+
   const labelBEM = cn(
     styles['tedi-label'],
     isBold && styles['tedi-label--bold'],
@@ -63,14 +63,23 @@ export const Label = (props: LabelProps): JSX.Element => {
   );
 
   return (
-    <Element className={labelBEM} {...rest}>
+    <Element ref={ref} className={labelBEM} {...rest}>
       {children}
       {required && (
         <span className={styles['tedi-label__required']} aria-hidden="true">
           *
         </span>
       )}
-      {infoButton && <InfoButton isSmall={isSmall} {...infoButton} />}
+      {tooltip && (
+        <Tooltip>
+          <Tooltip.Trigger>
+            <InfoButton isSmall={isSmall}>{tooltip}</InfoButton>
+          </Tooltip.Trigger>
+          <Tooltip.Content>{tooltip}</Tooltip.Content>
+        </Tooltip>
+      )}
     </Element>
   );
-};
+});
+
+Label.displayName = 'Label';

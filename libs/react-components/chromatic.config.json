@@ -1,0 +1,7 @@
+{
+  "$schema": "https://www.chromatic.com/config-file.schema.json",
+  "buildScriptName": "build:sb",
+  "autoAcceptChanges": "main",
+  "exitOnceUploaded": true,
+  "skip": "dependabot/**"
+}
