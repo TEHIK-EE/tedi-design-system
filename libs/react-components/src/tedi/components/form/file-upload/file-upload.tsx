@@ -204,26 +204,35 @@ export const FileUpload = (props: FileUploadProps): JSX.Element => {
         };
       });
 
-      if (validateIndividually) {
-        const newFiles = [...getFiles, ...uploadedFiles];
+      if (!multiple && uploadedFiles.length > 0) {
+        const newFiles = [uploadedFiles[0]];
         if (typeof files === 'undefined') {
           setInnerFiles(newFiles);
         }
         onChange?.(newFiles);
       } else {
-        const validFiles = uploadedFiles.filter((file) => file.isValid);
-        if (validFiles.length > 0) {
-          const newFiles = [...getFiles, ...validFiles];
+        if (validateIndividually) {
+          const newFiles = [...getFiles, ...uploadedFiles];
           if (typeof files === 'undefined') {
             setInnerFiles(newFiles);
           }
           onChange?.(newFiles);
-        }
-        if (rejectedFiles.length) {
-          setUploadErrorHelper({ type: 'error', text: getUploadErrorHelperText(rejectedFiles, getLabel) });
         } else {
-          setUploadErrorHelper(undefined);
+          const validFiles = uploadedFiles.filter((file) => file.isValid);
+          if (validFiles.length > 0) {
+            const newFiles = [...getFiles, ...validFiles];
+            if (typeof files === 'undefined') {
+              setInnerFiles(newFiles);
+            }
+            onChange?.(newFiles);
+          }
         }
+      }
+
+      if (rejectedFiles.length) {
+        setUploadErrorHelper({ type: 'error', text: getUploadErrorHelperText(rejectedFiles, getLabel) });
+      } else {
+        setUploadErrorHelper(undefined);
       }
 
       (e.target as HTMLInputElement).value = '';
