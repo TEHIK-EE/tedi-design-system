@@ -65,10 +65,16 @@ jobs:
           cd libs/react-components
           npm run test:coverage
 
-      - name: Upload results to Codecov
-        uses: codecov/codecov-action@v5
+          - name: Upload results to Codecov
+          uses: codecov/codecov-action@v5
+          with:
+            token: ${{ secrets.CODECOV_TOKEN }}
+            flags: coverage-optional
+      - name: Check coverage threshold
+        uses: tluijken/code-coverage-threshold@v1
         with:
-          token: ${{ secrets.CODECOV_TOKEN }}
+          coverage-file: coverage/lcov.info
+          minimum-coverage: 80
 
   chromatic:
     runs-on: ubuntu-latest

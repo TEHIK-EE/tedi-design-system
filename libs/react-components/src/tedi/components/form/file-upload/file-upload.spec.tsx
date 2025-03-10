@@ -1,5 +1,4 @@
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
 
 import FileUpload, { FileUploadProps } from './file-upload';
 
@@ -220,6 +219,45 @@ describe('FileUpload component', () => {
 
   it('should render Tag component for each file', () => {
     render(<FileUpload {...defaultProps} defaultFiles={[{ name: 'test.jpg', id: '1' }]} />);
+    expect(screen.getByText('test.jpg')).toBeInTheDocument();
+  });
+
+  it('should handle file size validation correctly', () => {
+    render(<FileUpload {...defaultProps} maxSize={5} />);
+
+    const input = screen.getByLabelText(/Upload files/i);
+    const largeFile = new File(['a'.repeat(6 * 1024 * 1024)], 'large.jpg', {
+      type: 'image/jpeg',
+    });
+
+    fireEvent.change(input, { target: { files: [largeFile] } });
+
+    expect(defaultProps.onChange).not.toHaveBeenCalled();
+    expect(screen.getByText(/file-upload.size-rejected/i)).toBeInTheDocument();
+  });
+
+  it('should update innerFiles when files prop is not provided', () => {
+    render(<FileUpload {...defaultProps} defaultFiles={[{ name: 'test.jpg', id: '1' }]} />);
+
+    const removeButton = screen.getByRole('button', { name: /clear/i });
+    fireEvent.click(removeButton);
+
+    expect(screen.queryByText('test.jpg')).not.toBeInTheDocument();
+  });
+
+  it('should call onChange with the updated list of files', () => {
+    const onChange = jest.fn();
+    render(<FileUpload {...defaultProps} onChange={onChange} defaultFiles={[{ name: 'test.jpg', id: '1' }]} />);
+
+    const removeButton = screen.getByRole('button', { name: /clear/i });
+    fireEvent.click(removeButton);
+
+    expect(onChange).toHaveBeenCalledWith([]);
+  });
+
+  it('should use files prop when files and onChange are provided', () => {
+    const files = [{ name: 'test.jpg', id: '1' }];
+    render(<FileUpload {...defaultProps} files={files} onChange={jest.fn()} />);
     expect(screen.getByText('test.jpg')).toBeInTheDocument();
   });
 });
