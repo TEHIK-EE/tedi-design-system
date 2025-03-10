@@ -1,2 +1,6 @@
-@use '@tehik-ee/tedi-core/index';
-@use '@tehik-ee/tedi-core/tedi-storybook-styles';
+@use "@tehik-ee/tedi-core/index";
+@use "@tehik-ee/tedi-core/tedi-storybook-styles";
+
+:root {
+  --global-outline-color: var(--blue-500);
+}

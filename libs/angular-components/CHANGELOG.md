@@ -1,3 +1,24 @@
+# [@tehik-ee/tedi-angular-v1.5.0-rc.2](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.5.0-rc.1...angular-1.5.0-rc.2) (2025-03-03)
+
+
+### Bug Fixes
+
+* **fonts:** rewrite fonts path to relative for storybook build [#523](https://github.com/TEHIK-EE/tedi-design-system/issues/523) ([#530](https://github.com/TEHIK-EE/tedi-design-system/issues/530)) ([04446b4](https://github.com/TEHIK-EE/tedi-design-system/commit/04446b42889cec61d6e29989dd2cb2e95c67745e))
+
+# [@tehik-ee/tedi-angular-v1.5.0-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.4.0...angular-1.5.0-rc.1) (2025-03-03)
+
+
+### Features
+
+* **button:** Community button [#516](https://github.com/TEHIK-EE/tedi-design-system/issues/516) ([#527](https://github.com/TEHIK-EE/tedi-design-system/issues/527)) ([a39d4c9](https://github.com/TEHIK-EE/tedi-design-system/commit/a39d4c9375a3785de19f6942d0cfd9e6dcd70af5)), closes [#517](https://github.com/TEHIK-EE/tedi-design-system/issues/517)
+
+# [@tehik-ee/tedi-angular-v1.4.0](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.3.0...angular-1.4.0) (2025-02-27)
+
+
+### Features
+
+* **colors:** TEDI-Ready Angular development [#499](https://github.com/TEHIK-EE/tedi-design-system/issues/499) ([#506](https://github.com/TEHIK-EE/tedi-design-system/issues/506)) ([beb2c0c](https://github.com/TEHIK-EE/tedi-design-system/commit/beb2c0cf00fd694f3237f3880e734fd8203b6477))
+
 # [@tehik-ee/tedi-angular-v1.4.0-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.3.0...angular-1.4.0-rc.1) (2025-02-26)
 
 
