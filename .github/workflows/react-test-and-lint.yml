@@ -69,6 +69,7 @@ jobs:
         uses: codecov/codecov-action@v5
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
+          working-directory: ./libs/react-components
 
   chromatic:
     runs-on: ubuntu-latest
