@@ -30,11 +30,13 @@ const TemplateColumn: StoryFn<TemplateMultipleProps> = (args) => {
   return (
     <Row style={{ gap: buttonProps.axis === 'vertical' ? 100 : 0 }}>
       {buttonSizeArray.map((size) => (
-        <Col key={size} md={6}>
-          <Col style={{ paddingBottom: 16 }}>
-            <Text modifiers="bold">{size}</Text>
-          </Col>
-          <Row style={{ gap: buttonProps.axis === 'vertical' ? 100 : 16 }}>
+        <Col key={size} md={12}>
+          <Row style={{ paddingBottom: 16 }}>
+            <Col md={12} lg={6}>
+              <Text modifiers="bold">{size}</Text>
+            </Col>
+          </Row>
+          <Row style={{ gap: buttonProps.axis === 'vertical' ? 100 : 16, paddingBottom: 16 }}>
             {array.map((value, key) => (
               <Col xs={12} key={key} style={{ display: buttonProps.axis === 'vertical' ? 'flex' : undefined }}>
                 <Col xs={2}>
