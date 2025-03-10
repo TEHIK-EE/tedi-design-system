@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-react-v11.1.1-rc.2](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.1.1-rc.1...react-11.1.1-rc.2) (2025-03-10)
+
+
+### Bug Fixes
+
+* **status-badge:** ensure aria role can be set dynamically [#532](https://github.com/TEHIK-EE/tedi-design-system/issues/532) ([#543](https://github.com/TEHIK-EE/tedi-design-system/issues/543)) ([68252ca](https://github.com/TEHIK-EE/tedi-design-system/commit/68252ca4b50f78bdb76f72e7cc4fb71d79b21836))
+
 # [@tehik-ee/tedi-react-v11.1.1-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.1.0...react-11.1.1-rc.1) (2025-03-04)
 
 
