@@ -98,11 +98,11 @@ export const MultipleWithIndividualValidation: Story = {
     accept: '.pdf,.txt',
     validateIndividually: true,
     defaultFiles: [
-      { name: 'taotlus_scan_lk_1.pdf.pdf' },
-      { name: 'taotlus_scan_lk_2.pdf.pdf' },
-      { name: 'taotlus_scan_lk_3.pdf.pdf' },
-      { name: 'taotlus_scan_lk_4.pdf.pdf' },
-      { name: 'taotlus_scan_lk_5.pdf.pdf', isValid: false },
+      { name: 'taotlus_scan_lk_1.pdf' },
+      { name: 'taotlus_scan_lk_2.pdf' },
+      { name: 'taotlus_scan_lk_3.pdf' },
+      { name: 'taotlus_scan_lk_4.pdf' },
+      { name: 'taotlus_scan_lk_5.pdf', isValid: false },
     ],
     helper: {
       text: 'Only .pdf and .txt files under 1KB are allowed.',

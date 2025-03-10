@@ -81,12 +81,22 @@ const getDefaultHelpers = (
 
 export const useFileUpload = (props: UseFileUploadProps) => {
   const { getLabel } = useLabels();
-  const { accept, maxSize, validateIndividually = false, defaultFiles = [], onChange, onDelete } = props;
+  const {
+    accept,
+    maxSize,
+    multiple = false,
+    validateIndividually = false,
+    defaultFiles = [],
+    onChange,
+    onDelete,
+  } = props;
 
   const [innerFiles, setInnerFiles] = React.useState<FileUploadFile[]>(defaultFiles);
   const [uploadErrorHelper, setUploadErrorHelper] = React.useState<FeedbackTextProps | undefined>(
     getDefaultHelpers({ accept, maxSize }, getLabel)
   );
+
+  const fileInputRef = React.useRef<HTMLInputElement>(null);
 
   const validFileType = (file: File) => {
     if (!accept) return true;
@@ -117,10 +127,11 @@ export const useFileUpload = (props: UseFileUploadProps) => {
       .join('. ');
   };
 
-  const onFileChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    if (e.target.files) {
+  const onFileChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
+    if (event.target.files) {
+      const files = Array.from(event.target.files);
       const rejectedFiles: RejectedFile[] = [];
-      const uploadedFiles = [...Array.from(e.target.files)].map((file) => {
+      const uploadedFiles = files.map((file) => {
         const isValidExtension = validFileType(file);
         const isValidSize = !maxSize || file.size <= maxSize * 1024 ** 2;
 
@@ -135,8 +146,8 @@ export const useFileUpload = (props: UseFileUploadProps) => {
         };
       });
 
-      if (validateIndividually) {
-        const newFiles = [...innerFiles, ...uploadedFiles];
+      if (!multiple && uploadedFiles.length > 0) {
+        const newFiles = [uploadedFiles[0]];
         setInnerFiles(newFiles);
         onChange?.(newFiles);
 
@@ -146,21 +157,35 @@ export const useFileUpload = (props: UseFileUploadProps) => {
           setUploadErrorHelper(getDefaultHelpers({ accept, maxSize }, getLabel));
         }
       } else {
-        const validFiles = uploadedFiles.filter((file) => file.isValid);
-        if (validFiles.length > 0) {
-          const newFiles = [...innerFiles, ...validFiles];
+        if (validateIndividually) {
+          const newFiles = [...innerFiles, ...uploadedFiles];
           setInnerFiles(newFiles);
           onChange?.(newFiles);
-        }
 
-        if (rejectedFiles.length) {
-          setUploadErrorHelper({ type: 'error', text: getUploadErrorHelperText(rejectedFiles) });
+          if (rejectedFiles.length) {
+            setUploadErrorHelper({ type: 'error', text: getUploadErrorHelperText(rejectedFiles) });
+          } else {
+            setUploadErrorHelper(getDefaultHelpers({ accept, maxSize }, getLabel));
+          }
         } else {
-          setUploadErrorHelper(getDefaultHelpers({ accept, maxSize }, getLabel));
+          const validFiles = uploadedFiles.filter((file) => file.isValid);
+          if (validFiles.length > 0) {
+            const newFiles = [...innerFiles, ...validFiles];
+            setInnerFiles(newFiles);
+            onChange?.(newFiles);
+          }
+
+          if (rejectedFiles.length) {
+            setUploadErrorHelper({ type: 'error', text: getUploadErrorHelperText(rejectedFiles) });
+          } else {
+            setUploadErrorHelper(getDefaultHelpers({ accept, maxSize }, getLabel));
+          }
         }
       }
 
-      (e.target as HTMLInputElement).value = '';
+      if (fileInputRef.current) {
+        fileInputRef.current.value = '';
+      }
     }
   };
 
@@ -169,12 +194,20 @@ export const useFileUpload = (props: UseFileUploadProps) => {
     setInnerFiles(newFiles);
     onDelete?.(file);
     onChange?.(newFiles);
+
+    if (fileInputRef.current) {
+      fileInputRef.current.value = '';
+    }
   };
 
   const handleClear = (): void => {
     setInnerFiles([]);
     onChange?.([]);
     setUploadErrorHelper(getDefaultHelpers({ accept, maxSize }, getLabel));
+
+    if (fileInputRef.current) {
+      fileInputRef.current.value = '';
+    }
   };
 
   return {
@@ -183,5 +216,6 @@ export const useFileUpload = (props: UseFileUploadProps) => {
     onFileChange,
     onFileRemove,
     handleClear,
+    fileInputRef,
   };
 };
