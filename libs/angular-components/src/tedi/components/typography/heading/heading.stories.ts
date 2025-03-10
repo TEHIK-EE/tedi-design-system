@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from "@storybook/angular";
+import { argsToTemplate, Meta, StoryObj } from "@storybook/angular";
 import { HeadingComponent } from "./heading.component";
 
 /**
@@ -13,26 +13,21 @@ export default {
     class: {
       type: "string",
       description: "Additional class",
-      table: {
-        readonly: true,
-      },
     },
     id: {
       type: "string",
       description: "ID attribute",
-      table: {
-        readonly: true,
-      },
     },
     tabIndex: {
       type: "number",
       description: "Allows to focus the element",
-      table: {
-        readonly: true,
-      },
     },
     element: {
       description: "Base element",
+      control: {
+        type: "select",
+      },
+      options: ["h1", "h2", "h3", "h4", "h5", "h6"],
       table: {
         type: { summary: "HeadingModifiers" },
         defaultValue: { summary: '"h1"' },
@@ -40,10 +35,58 @@ export default {
     },
     modifiers: {
       description: "Single or multiple modifiers to change the text behavior",
+      control: {
+        type: "multi-select",
+      },
+      options: [
+        "h1",
+        "h2",
+        "h3",
+        "h4",
+        "h5",
+        "h6",
+        "normal",
+        "small",
+        "bold",
+        "thin",
+        "italic",
+        "center",
+        "left",
+        "right",
+        "nowrap",
+        "break-all",
+        "break-word",
+        "break-spaces",
+        "uppercase",
+        "lowercase",
+        "capitalize",
+        "capitalize-first",
+        "inline-block",
+        "inline",
+        "line-normal",
+        "line-condensed",
+        "subtitle",
+      ],
       table: { type: { summary: "TextModifiers[] | TextModifiers" } },
     },
     color: {
       description: "Color of the text",
+      control: {
+        type: "select",
+      },
+      options: [
+        "primary",
+        "secondary",
+        "tertiary",
+        "white",
+        "disabled",
+        "brand",
+        "success",
+        "warning",
+        "danger",
+        "info",
+        "neutral",
+      ],
       table: {
         type: { summary: "TextColor" },
         defaultValue: { summary: '"primary"' },
@@ -53,6 +96,13 @@ export default {
 } as Meta<HeadingComponent>;
 
 export const Default: StoryObj<HeadingComponent> = {
+  render: (args) => ({
+    props: args,
+    template: `<tedi-heading ${argsToTemplate(args)}>Heading</tedi-heading>`,
+  }),
+};
+
+export const Headings: StoryObj<HeadingComponent> = {
   render: (args) => ({
     props: args,
     template: `
@@ -107,6 +157,31 @@ export const Default: StoryObj<HeadingComponent> = {
           <tedi-heading element="h6" class="mobile" modifiers="h6">Heading H6</tedi-heading>
         </div>
       </div>
+    `,
+  }),
+};
+
+export const CustomModifier: StoryObj<HeadingComponent> = {
+  render: (args) => ({
+    props: args,
+    template: `
+        <div class="example-list">
+            <div class="padding-14-16 border-bottom">
+                <tedi-heading element="h4" [modifiers]="['h1', 'bold']" color="warning">
+                  H4 heading with H1 styles and warning color
+                </tedi-heading>
+            </div>
+            <div class="padding-14-16 border-bottom">
+                <tedi-heading element="h2" [modifiers]="['normal', 'bold']" color="brand">
+                  H2 heading with normal bold text and brand color
+                </tedi-heading>
+            </div>
+            <div class="padding-14-16 border-bottom">
+                <tedi-heading element="h1" modifiers="normal">
+                  H1 heading with normal text styles
+                </tedi-heading>
+            </div>
+        </div>
     `,
   }),
 };

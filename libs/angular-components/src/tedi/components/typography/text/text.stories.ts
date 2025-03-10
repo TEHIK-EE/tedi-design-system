@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from "@storybook/angular";
+import { argsToTemplate, Meta, StoryObj } from "@storybook/angular";
 import { TextComponent } from "./text.component";
 
 /**
@@ -13,26 +13,33 @@ export default {
     class: {
       type: "string",
       description: "Additional class",
-      table: {
-        readonly: true,
-      },
     },
     id: {
       type: "string",
       description: "ID attribute",
-      table: {
-        readonly: true,
-      },
     },
     tabIndex: {
       type: "number",
       description: "Allows to focus the element",
-      table: {
-        readonly: true,
-      },
     },
     element: {
       description: "Base element",
+      control: {
+        type: "select",
+      },
+      options: [
+        "div",
+        "p",
+        "span",
+        "li",
+        "label",
+        "h1",
+        "h2",
+        "h3",
+        "h4",
+        "h5",
+        "h6",
+      ],
       table: {
         type: { summary: "TextElement" },
         defaultValue: { summary: '"p"' },
@@ -40,10 +47,58 @@ export default {
     },
     modifiers: {
       description: "Single or multiple modifiers to change the text behavior",
+      control: {
+        type: "multi-select",
+      },
+      options: [
+        "h1",
+        "h2",
+        "h3",
+        "h4",
+        "h5",
+        "h6",
+        "normal",
+        "small",
+        "bold",
+        "thin",
+        "italic",
+        "center",
+        "left",
+        "right",
+        "nowrap",
+        "break-all",
+        "break-word",
+        "break-spaces",
+        "uppercase",
+        "lowercase",
+        "capitalize",
+        "capitalize-first",
+        "inline-block",
+        "inline",
+        "line-normal",
+        "line-condensed",
+        "subtitle",
+      ],
       table: { type: { summary: "TextModifiers[] | TextModifiers" } },
     },
     color: {
       description: "Color of the text",
+      control: {
+        type: "select",
+      },
+      options: [
+        "primary",
+        "secondary",
+        "tertiary",
+        "white",
+        "disabled",
+        "brand",
+        "success",
+        "warning",
+        "danger",
+        "info",
+        "neutral",
+      ],
       table: {
         type: { summary: "TextColor" },
         defaultValue: { summary: '"primary"' },
@@ -53,6 +108,13 @@ export default {
 } as Meta<TextComponent>;
 
 export const Default: StoryObj<TextComponent> = {
+  render: (args) => ({
+    props: args,
+    template: `<tedi-text ${argsToTemplate(args)}>Text</tedi-text>`,
+  }),
+};
+
+export const Texts: StoryObj<TextComponent> = {
   render: (args) => ({
     props: args,
     template: `
