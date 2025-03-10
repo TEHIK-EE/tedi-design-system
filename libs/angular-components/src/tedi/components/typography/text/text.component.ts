@@ -1,4 +1,10 @@
-import { Component, Input } from "@angular/core";
+import {
+  ChangeDetectionStrategy,
+  Component,
+  computed,
+  input,
+  InputSignal,
+} from "@angular/core";
 import { HeadingModifiers } from "../heading/heading.component";
 
 export type TextModifiers =
@@ -50,65 +56,67 @@ export type TextProps = {
   /**
    * Additional class
    */
-  class?: string;
+  class: InputSignal<string | undefined>;
   /**
    * ID attribute
    */
-  id?: string;
+  id: InputSignal<string | undefined>;
   /**
    * Allows to focus the element
    */
-  tabIndex?: number;
+  tabIndex: InputSignal<number | undefined>;
   /**
    * Base element
    * @default p
    */
-  element?: TextElement;
+  element: InputSignal<TextElement | undefined>;
   /**
    * Single or multiple modifiers to change the text behavior
    */
-  modifiers?: TextModifiers[] | TextModifiers;
+  modifiers: InputSignal<TextModifiers[] | TextModifiers | undefined>;
   /**
    * Color of the text
    * Use 'success', 'important' or 'warning' with caution, usually they should not be in application UI
    * @default primary
    */
-  color?: TextColor;
+  color: InputSignal<TextColor | undefined>;
 };
 
 @Component({
   selector: "tedi-text",
   templateUrl: "./text.component.html",
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TextComponent implements TextProps {
-  @Input() class?: string;
-  @Input() id?: string;
-  @Input() tabIndex?: number;
-  @Input() element?: TextElement = "p";
-  @Input() modifiers?: TextModifiers[] | TextModifiers;
-  @Input() color?: TextColor = "primary";
+  class = input<string | undefined>(undefined);
+  id = input<string | undefined>(undefined);
+  tabIndex = input<number | undefined>(undefined);
+  element = input<TextElement | undefined>("p");
+  modifiers = input<TextModifiers[] | TextModifiers | undefined>(undefined);
+  color = input<TextColor | undefined>("primary");
 
   private isHeadingModifier(modifier: string): boolean {
     return /^h[1-6]$/.test(modifier);
   }
 
-  get classes(): string {
-    const modifierClasses = Array.isArray(this.modifiers)
-      ? this.modifiers
-      : this.modifiers
-        ? [this.modifiers]
+  classes = computed(() => {
+    const modifiersValue = this.modifiers();
+    const modifierClasses = Array.isArray(modifiersValue)
+      ? modifiersValue
+      : modifiersValue
+        ? [modifiersValue]
         : [];
 
     return [
-      this.class,
+      this.class(),
       ...modifierClasses.map((modifier) =>
         this.isHeadingModifier(modifier)
           ? `tedi-text--${modifier}`
           : `text-${modifier}`,
       ),
-      this.color ? `tedi-text--${this.color}` : "",
+      this.color() ? `tedi-text--${this.color()}` : "",
     ]
       .filter(Boolean)
       .join(" ");
-  }
+  });
 }

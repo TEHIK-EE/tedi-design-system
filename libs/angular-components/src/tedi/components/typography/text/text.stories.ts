@@ -68,35 +68,35 @@ export const Default: StoryObj<TextComponent> = {
           style="display: grid; grid-template-columns: repeat(2, 1fr);"
           class="padding-14-16 border-bottom"
         >
-          <tedi-text> Body regular </tedi-text>
-          <tedi-text class="mobile"> Body regular </tedi-text>
+          <tedi-text>Body regular</tedi-text>
+          <tedi-text class="mobile">Body regular</tedi-text>
         </div>
         <div
           style="display: grid; grid-template-columns: repeat(2, 1fr);"
           class="padding-14-16 border-bottom"
         >
-          <tedi-text modifiers="bold"> Body bold </tedi-text>
-          <tedi-text modifiers="bold" class="mobile"> Body bold </tedi-text>
+          <tedi-text modifiers="bold">Body bold</tedi-text>
+          <tedi-text modifiers="bold" class="mobile">Body bold</tedi-text>
         </div>
         <div
           style="display: grid; grid-template-columns: repeat(2, 1fr);"
           class="padding-14-16 border-bottom"
         >
-          <tedi-text modifiers="italic"> Body italic </tedi-text>
-          <tedi-text modifiers="italic" class="mobile"> Body italic </tedi-text>
+          <tedi-text modifiers="italic">Body italic</tedi-text>
+          <tedi-text modifiers="italic" class="mobile">Body italic</tedi-text>
         </div>
         <div
           style="display: grid; grid-template-columns: repeat(2, 1fr);"
           class="padding-14-16 border-bottom"
         >
-          <tedi-text modifiers="small"> Small </tedi-text>
-          <tedi-text modifiers="small" class="mobile"> Small </tedi-text>
+          <tedi-text modifiers="small">Small</tedi-text>
+          <tedi-text modifiers="small" class="mobile">Small</tedi-text>
         </div>
         <div
           style="display: grid; grid-template-columns: repeat(2, 1fr);"
           class="padding-14-16 border-bottom"
         >
-          <tedi-text [modifiers]="['small', 'bold']"> Small bold </tedi-text>
+          <tedi-text [modifiers]="['small', 'bold']">Small bold</tedi-text>
           <tedi-text [modifiers]="['small', 'bold']" class="mobile">
             Small bold
           </tedi-text>
@@ -105,7 +105,7 @@ export const Default: StoryObj<TextComponent> = {
           style="display: grid; grid-template-columns: repeat(2, 1fr);"
           class="padding-14-16"
         >
-          <tedi-text [modifiers]="['small', 'italic']"> Small italic </tedi-text>
+          <tedi-text [modifiers]="['small', 'italic']">Small italic</tedi-text>
           <tedi-text [modifiers]="['small', 'italic']" class="mobile">
             Small italic
           </tedi-text>

@@ -1,44 +1,4 @@
 <ng-container [ngSwitch]="element()">
-  <div
-    *ngSwitchCase="'div'"
-    [class]="classes()"
-    [attr.id]="id()"
-    [attr.tabindex]="tabIndex()"
-  >
-    <ng-container [ngTemplateOutlet]="content"></ng-container>
-  </div>
-  <p
-    *ngSwitchCase="'p'"
-    [class]="classes()"
-    [attr.id]="id()"
-    [attr.tabindex]="tabIndex()"
-  >
-    <ng-container [ngTemplateOutlet]="content"></ng-container>
-  </p>
-  <span
-    *ngSwitchCase="'span'"
-    [class]="classes()"
-    [attr.id]="id()"
-    [attr.tabindex]="tabIndex()"
-  >
-    <ng-container [ngTemplateOutlet]="content"></ng-container>
-  </span>
-  <li
-    *ngSwitchCase="'li'"
-    [class]="classes()"
-    [attr.id]="id()"
-    [attr.tabindex]="tabIndex()"
-  >
-    <ng-container [ngTemplateOutlet]="content"></ng-container>
-  </li>
-  <label
-    *ngSwitchCase="'label'"
-    [class]="classes()"
-    [attr.id]="id()"
-    [attr.tabindex]="tabIndex()"
-  >
-    <ng-container [ngTemplateOutlet]="content"></ng-container>
-  </label>
   <h1
     *ngSwitchCase="'h1'"
     [class]="classes()"

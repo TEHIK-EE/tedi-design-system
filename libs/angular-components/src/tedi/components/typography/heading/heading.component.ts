@@ -1,4 +1,10 @@
-import { Component, Input } from "@angular/core";
+import {
+  ChangeDetectionStrategy,
+  Component,
+  computed,
+  input,
+  InputSignal,
+} from "@angular/core";
 import { TextColor, TextModifiers, TextProps } from "../text/text.component";
 
 export type HeadingLevel = 1 | 2 | 3 | 4 | 5 | 6;
@@ -10,29 +16,36 @@ export type HeadingProps = Omit<TextProps, "element"> & {
    * h1-h6 are allowed values
    * @default h1
    */
-  element?: HeadingModifiers;
+  element?: InputSignal<HeadingModifiers | undefined>;
 };
 
 @Component({
   selector: "tedi-heading",
   templateUrl: "./heading.component.html",
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeadingComponent implements HeadingProps {
-  @Input() class?: string;
-  @Input() id?: string;
-  @Input() tabIndex?: number;
-  @Input() element?: HeadingModifiers = "h1";
-  @Input() modifiers?: TextModifiers[] | TextModifiers;
-  @Input() color?: TextColor = "primary";
+  class = input<string | undefined>(undefined);
+  id = input<string | undefined>(undefined);
+  tabIndex = input<number | undefined>(undefined);
+  element = input<HeadingModifiers | undefined>("h1");
+  modifiers = input<TextModifiers[] | TextModifiers | undefined>(undefined);
+  color = input<TextColor | undefined>("primary");
 
-  get classes(): string {
-    const modifierClasses = Array.isArray(this.modifiers)
-      ? this.modifiers
-      : this.modifiers
-        ? [this.modifiers]
+  classes = computed(() => {
+    const modifiersValue = this.modifiers();
+    const modifierClasses = Array.isArray(modifiersValue)
+      ? modifiersValue
+      : modifiersValue
+        ? [modifiersValue]
         : [];
-    return [this.class, ...modifierClasses, this.color]
+
+    return [
+      this.class(),
+      ...modifierClasses.map((modifier) => `text-${modifier}`),
+      this.color() ? `tedi-text--${this.color()}` : "",
+    ]
       .filter(Boolean)
       .join(" ");
-  }
+  });
 }
