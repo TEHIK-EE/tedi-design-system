@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-react-v11.2.0-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.1.1-rc.2...react-11.2.0-rc.1) (2025-03-10)
+
+
+### Features
+
+* **file-upload:** TEDI-Ready FileUpload component development [#407](https://github.com/TEHIK-EE/tedi-design-system/issues/407) ([#522](https://github.com/TEHIK-EE/tedi-design-system/issues/522)) ([94fee9d](https://github.com/TEHIK-EE/tedi-design-system/commit/94fee9d39f527168af1ecd03cce98d0e0dbfe1ee)), closes [#80](https://github.com/TEHIK-EE/tedi-design-system/issues/80)
+
 # [@tehik-ee/tedi-react-v11.1.1-rc.2](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.1.1-rc.1...react-11.1.1-rc.2) (2025-03-10)
 
 
