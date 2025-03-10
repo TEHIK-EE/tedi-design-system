@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-core-v1.6.16](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.6.15...core-1.6.16) (2025-03-10)
+
+
+### Bug Fixes
+
+* **styles:** fix TEDI core storybook styles [#507](https://github.com/TEHIK-EE/tedi-design-system/issues/507) ([#542](https://github.com/TEHIK-EE/tedi-design-system/issues/542)) ([16e9a0e](https://github.com/TEHIK-EE/tedi-design-system/commit/16e9a0e42074bda93c60c03e2c8dcdb9edd3b9f9))
+
 # [@tehik-ee/tedi-core-v1.6.15](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.6.14...core-1.6.15) (2025-03-06)
 
 
