@@ -6,7 +6,6 @@ import Checkbox from '../../../checkbox/checkbox';
 import FeedbackText from '../../../feedback-text/feedback-text';
 import Radio from '../../../radio/radio';
 import {
-  ChoiceGroupItemBackground,
   ChoiceGroupItemColor,
   ChoiceGroupItemProps,
   ChoiceGroupItemType,
@@ -24,7 +23,6 @@ export interface ExtendedChoiceGroupItemProps extends ChoiceGroupItemProps {
   type?: ChoiceGroupItemType;
   variant?: ChoiceGroupItemVariant;
   color?: ChoiceGroupItemColor;
-  background?: ChoiceGroupItemBackground;
   showIndicator?: boolean;
   isSegmented?: boolean;
 }
@@ -37,7 +35,7 @@ export const ChoiceGroupItem = (props: ExtendedChoiceGroupItemProps): React.Reac
     className,
     direction,
     disabled,
-    colProps = direction === 'column' ? { width: 12 } : { width: 'auto', grow: 1 },
+    colProps = direction === 'column' ? { width: 12 } : { width: 'auto' },
     onChange: onChangeItem,
     hideLabel,
     helper,
@@ -45,13 +43,13 @@ export const ChoiceGroupItem = (props: ExtendedChoiceGroupItemProps): React.Reac
     type = 'radio',
     variant = 'default',
     color = 'primary',
-    background,
     showIndicator,
     isSegmented = true,
   } = props;
 
   const { currentValue, name, onChange, inputType } = React.useContext(ChoiceGroupContext);
   const isChecked = Array.isArray(currentValue) ? currentValue.includes(value) : value === currentValue;
+  const defaultChecked = isChecked || (currentValue === undefined && props.defaultChecked);
 
   const onChangeHandler = (value: string, checked: boolean): void => {
     onChange?.(value, checked);
@@ -64,9 +62,9 @@ export const ChoiceGroupItem = (props: ExtendedChoiceGroupItemProps): React.Reac
     showIndicator && styles['tedi-choice-group-item--indicator'],
     isSegmented && styles['tedi-choice-group-item--segmented'],
     direction && styles[`tedi-choice-group-item--${direction}`],
+    type && styles[`tedi-choice-group-item--${type}`],
     { [styles['tedi-choice-group-item--disabled']]: disabled },
     { [styles['tedi-choice-group-item--checked']]: isChecked },
-    background && variant === 'card' ? styles[`tedi-choice-group-item--${background}`] : '',
     colProps?.className
   );
 
@@ -80,9 +78,10 @@ export const ChoiceGroupItem = (props: ExtendedChoiceGroupItemProps): React.Reac
           label={label}
           value={value}
           name={name}
-          className={className}
+          className={cn(styles['tedi-choice-group-item__indicator'], className)}
           disabled={disabled}
           checked={isChecked}
+          defaultChecked={defaultChecked}
           onChange={onChangeHandler}
           hideLabel={hideLabel}
           helper={
@@ -106,6 +105,7 @@ export const ChoiceGroupItem = (props: ExtendedChoiceGroupItemProps): React.Reac
           type={inputType}
           disabled={disabled}
           checked={isChecked}
+          defaultChecked={currentValue === undefined ? props.defaultChecked : undefined}
           onChange={(e) => onChangeHandler(value, e.target.checked)}
           className={styles['tedi-choice-group-item__input']}
         />

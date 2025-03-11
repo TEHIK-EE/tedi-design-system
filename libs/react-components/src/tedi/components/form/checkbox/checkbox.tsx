@@ -54,7 +54,7 @@ export const Checkbox = (props: CheckboxProps): JSX.Element => {
   const LabelBEM = cn(styles['tedi-checkbox'], { [styles['tedi-checkbox--disabled']]: disabled });
 
   return (
-    <div data-name="check" className={className} {...rest}>
+    <div data-name="check" {...rest}>
       <Row gutter={0}>
         <Col width="auto">
           <div className={styles['tedi-checkbox__outer-indicator-wrapper']}>
@@ -73,12 +73,16 @@ export const Checkbox = (props: CheckboxProps): JSX.Element => {
             <div
               aria-hidden="true"
               onClick={() => labelRef.current?.click()}
-              className={cn(styles['tedi-checkbox__indicator'], {
-                [styles['tedi-checkbox__indicator--hover']]: hover,
-                [styles['tedi-checkbox__indicator--indeterminate']]: indeterminate,
-                [styles[`tedi-checkbox__indicator--size-${size}`]]: size,
-                [styles['tedi-checkbox__indicator--invalid']]: invalid,
-              })}
+              className={cn(
+                styles['tedi-checkbox__indicator'],
+                {
+                  [styles['tedi-checkbox__indicator--hover']]: hover,
+                  [styles['tedi-checkbox__indicator--indeterminate']]: indeterminate,
+                  [styles[`tedi-checkbox__indicator--size-${size}`]]: size,
+                  [styles['tedi-checkbox__indicator--invalid']]: invalid,
+                },
+                className
+              )}
               data-testid="checkbox-indicator"
             >
               <Icon

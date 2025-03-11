@@ -1,8 +1,6 @@
 import { ColProps, Direction } from '../../../../tedi/components/grid';
-import { CardBackground } from '../../cards/card/utility';
 import { ChoiceInputProps } from '../choice-input.types';
 
-export type ChoiceGroupItemBackground = 'success-primary' | 'danger-primary' | 'warning-primary' | CardBackground;
 export type ChoiceGroupItemType = 'radio' | 'checkbox';
 export type ChoiceGroupItemVariant = 'default' | 'card';
 export type ChoiceGroupItemLayout = 'segmented' | 'separated';
@@ -19,8 +17,4 @@ export interface ChoiceGroupItemProps extends Omit<ChoiceInputProps, 'name'> {
    * Direction
    */
   direction?: Direction;
-  /**
-   * Possibility to change choice group item background when selected. Will be primary if not provided.
-   */
-  background?: ChoiceGroupItemBackground;
 }

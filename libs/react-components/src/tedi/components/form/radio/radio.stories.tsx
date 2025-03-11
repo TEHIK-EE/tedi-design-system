@@ -8,11 +8,10 @@ import { VerticalSpacing } from '../../vertical-spacing';
 import Radio, { RadioProps } from './radio';
 
 /**
- * [Figma ↗](https://www.figma.com/design/jWiRIXhHRxwVdMSimKX2FF/TEDI-READY-(work-in-progress)?node-id=4598-78103&m=dev)<br/>
- * [Zeroheight ↗](https://zeroheight.com/1ee8444b7/p/93e423-radio)<br/><hr/>
+ * <a href="https://www.figma.com/design/jWiRIXhHRxwVdMSimKX2FF/TEDI-READY-(work-in-progress)?node-id=4598-78103&m=dev" target="_BLANK">Figma ↗</a><br />
+ * <a href="https://zeroheight.com/1ee8444b7/p/93e423-radio" target="_BLANK">Zeroheight ↗</a><br/><hr/>
  * In most cases, you should use the `ChoiceGroup` component. However, we also provide a standalone `Radio` component for custom use cases.
  */
-
 const meta: Meta<typeof Radio> = {
   component: Radio,
   title: 'TEDI-Ready/Components/Form/Radio',

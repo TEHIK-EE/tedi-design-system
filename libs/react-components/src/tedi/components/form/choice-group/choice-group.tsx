@@ -150,9 +150,11 @@ export const ChoiceGroup = (props: ChoiceGroupProps): React.ReactElement => {
   return (
     <ChoiceGroupContext.Provider value={ContextValue}>
       <fieldset {...rest} className={FieldSetBEM} id={id} name={name} aria-describedby={helperId}>
-        <legend>
-          <FormLabel id={id} label={label} required={required} hideLabel={hideLabel} renderWithoutLabel={true} />
-        </legend>
+        {label && (
+          <legend>
+            <FormLabel id={id} label={label} required={required} hideLabel={hideLabel} renderWithoutLabel={true} />
+          </legend>
+        )}
         {items?.length ? (
           <>
             {showIndeterminate && (
@@ -169,7 +171,7 @@ export const ChoiceGroup = (props: ChoiceGroupProps): React.ReactElement => {
             )}
             <Row
               direction={direction}
-              gutterX={direction === 'row' && layout === 'segmented' ? 0 : 2}
+              gutterX={direction === 'row' && layout === 'segmented' ? 2 : 2}
               gutterY={direction === 'row' && layout === 'segmented' ? 0 : 1}
               gap={layout === 'separated' && variant !== 'default' ? 2 : 0}
               {...rowProps}
