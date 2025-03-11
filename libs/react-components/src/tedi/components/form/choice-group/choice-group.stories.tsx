@@ -23,65 +23,45 @@ export default meta;
 type Story = StoryObj<typeof ChoiceGroup>;
 
 interface GenerateItemsArgs {
-  extraContent?: boolean;
-  colProps?: ColProps;
+  index: number;
+  inputType?: 'radio' | 'checkbox';
+  variant?: 'primary' | 'secondary';
+  withHelper?: boolean;
+  withIndicator?: boolean;
   extraLongTitle?: boolean;
   tooltip?: boolean;
-  showIndicator?: boolean;
+  colProps?: ColProps;
 }
 
-const generateItems = (
-  index: number,
-  { colProps, extraLongTitle, tooltip }: GenerateItemsArgs = {}
-): ChoiceGroupItemProps[] => [
-  {
-    id: `value-${index * 3}`,
-    label: 'Option 1',
-    value: `value-${index * 3}`,
-    colProps,
-    tooltip: tooltip ? 'Tooltip' : undefined,
-  },
-  {
-    id: `value-${index * 3 + 1}`,
-    label: `Option 2, that is longer than the others${
-      extraLongTitle
-        ? ' - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin varius, sem blandit sodales tincidunt, orci elit ornare ex, eu ultrices diam turpis id nisl. Sed sollicitudin auctor nunc. Aliquam a arcu in sem bibendum laoreet non eu nunc.'
-        : ''
-    }`,
-    value: `value-${index * 3 + 1}`,
-    colProps,
-    tooltip: tooltip ? 'Tooltip' : undefined,
-  },
-  {
-    id: `value-${index * 3 + 2}`,
-    label: 'Option 3',
-    value: `value-${index * 3 + 2}`,
-    disabled: true,
-    colProps,
-    tooltip: tooltip ? 'Tooltip' : undefined,
-  },
-];
-
-const choiceItems = (
-  inputType: 'radio' | 'checkbox',
-  variant: 'primary' | 'secondary',
-  withHelper: boolean,
-  withIndicator: boolean,
-  index: number
-) => [
+const generateItems = ({
+  index,
+  inputType = 'radio',
+  variant = 'primary',
+  withHelper = false,
+  withIndicator = false,
+  extraLongTitle = false,
+  tooltip = false,
+  colProps,
+}: GenerateItemsArgs): ChoiceGroupItemProps[] => [
   {
     id: `${inputType}-${variant}-value-${index * 10 + 1}-${withHelper}-${withIndicator}`,
     label: 'Text',
     value: `${inputType}-${variant}-value-${index * 10 + 1}-${withHelper}-${withIndicator}`,
     ...(withHelper && { helper: { text: 'Description' } }),
-    showIndicator: withIndicator,
+    colProps,
+    tooltip: tooltip ? 'Tooltip' : undefined,
   },
   {
     id: `${inputType}-${variant}-value-${index * 10 + 2}-${withHelper}-${withIndicator}`,
-    label: 'Text',
+    label: `Option 2, that is longer than the others${
+      extraLongTitle
+        ? ' - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin varius, sem blandit sodales tincidunt, orci elit ornare ex, eu ultrices diam turpis id nisl. Sed sollicitudin auctor nunc. Aliquam a arcu in sem bibendum laoreet non eu nunc.'
+        : ''
+    }`,
     value: `${inputType}-${variant}-value-${index * 10 + 2}-${withHelper}-${withIndicator}`,
     ...(withHelper && { helper: { text: 'Description' } }),
-    showIndicator: withIndicator,
+    colProps,
+    tooltip: tooltip ? 'Tooltip' : undefined,
   },
   {
     id: `${inputType}-${variant}-value-${index * 10 + 3}-${withHelper}-${withIndicator}`,
@@ -89,127 +69,68 @@ const choiceItems = (
     value: `${inputType}-${variant}-value-${index * 10 + 3}-${withHelper}-${withIndicator}`,
     disabled: true,
     ...(withHelper && { helper: { text: 'Description' } }),
-    showIndicator: withIndicator,
+    colProps,
+    tooltip: tooltip ? 'Tooltip' : undefined,
   },
 ];
 
+const renderGroup = (
+  inputType: 'radio' | 'checkbox',
+  variant: 'primary' | 'secondary',
+  withHelper: boolean,
+  withIndicator: boolean,
+  index: number
+) => (
+  <Row key={`${inputType}-${variant}-${index}`}>
+    <Col lg={6} md={12}>
+      <ChoiceGroup
+        color={variant}
+        id={`${inputType}-${variant}-no-helper-${index}`}
+        inputType={inputType}
+        items={generateItems({
+          index,
+          inputType,
+          variant,
+          withHelper,
+          withIndicator,
+        })}
+        label="Filter"
+        hideLabel
+        name={`${inputType}-${variant}-no-helper-${index}`}
+        showIndicator={withIndicator}
+        variant="card"
+        defaultValue={generateItems({ index, inputType, variant, withHelper, withIndicator })[0].value}
+      />
+    </Col>
+    <Col lg={6} md={12}>
+      <ChoiceGroup
+        color={variant === 'primary' ? 'secondary' : 'primary'}
+        id={`${inputType}-${variant}-with-helper-${index}`}
+        inputType={inputType}
+        items={generateItems({
+          index: index + 1,
+          inputType,
+          variant: variant === 'primary' ? 'secondary' : 'primary',
+          withHelper,
+          withIndicator,
+        })}
+        label="Filter"
+        hideLabel
+        name={`${inputType}-${variant}-with-helper-${index}`}
+        showIndicator={withIndicator}
+        variant="card"
+      />
+    </Col>
+  </Row>
+);
+
 const renderChoiceGroups = (inputType: 'radio' | 'checkbox') => (
-  <>
-    <Row>
-      <Col lg={6} md={12}>
-        <ChoiceGroup
-          color="primary"
-          id={`${inputType}-primary-no-helper-1`}
-          inputType={inputType}
-          items={choiceItems(inputType, 'primary', false, true, 1)}
-          label="Filter"
-          hideLabel
-          name={`${inputType}-primary-no-helper-1`}
-          showIndicator
-          variant="card"
-          defaultValue={choiceItems(inputType, 'primary', false, true, 1)[0].value}
-        />
-      </Col>
-      <Col lg={6} md={12}>
-        <ChoiceGroup
-          color="secondary"
-          id={`${inputType}-secondary-no-helper-1`}
-          inputType={inputType}
-          items={choiceItems(inputType, 'secondary', false, true, 1)}
-          label="Filter"
-          hideLabel
-          name={`${inputType}-secondary-no-helper-1`}
-          showIndicator
-          variant="card"
-          defaultValue={choiceItems(inputType, 'secondary', false, true, 1)[0].value}
-        />
-      </Col>
-    </Row>
-    <Row>
-      <Col lg={6} md={12}>
-        <ChoiceGroup
-          color="primary"
-          id={`${inputType}-primary-with-helper-2`}
-          inputType={inputType}
-          items={choiceItems(inputType, 'primary', true, true, 2)}
-          label="Filter"
-          hideLabel
-          name={`${inputType}-primary-with-helper-2`}
-          showIndicator
-          variant="card"
-        />
-      </Col>
-      <Col lg={6} md={12}>
-        <ChoiceGroup
-          color="secondary"
-          id={`${inputType}-secondary-with-helper-2`}
-          inputType={inputType}
-          items={choiceItems(inputType, 'secondary', true, true, 2)}
-          label="Filter"
-          hideLabel
-          name={`${inputType}-secondary-with-helper-2`}
-          showIndicator
-          variant="card"
-        />
-      </Col>
-    </Row>
-    <Row>
-      <Col lg={6} md={12}>
-        <ChoiceGroup
-          color="primary"
-          id={`${inputType}-primary-no-helper-3`}
-          inputType={inputType}
-          items={choiceItems(inputType, 'primary', false, false, 3)}
-          label="Filter"
-          hideLabel
-          name={`${inputType}-primary-no-helper-3`}
-          showIndicator={false}
-          variant="card"
-        />
-      </Col>
-      <Col lg={6} md={12}>
-        <ChoiceGroup
-          color="secondary"
-          id={`${inputType}-secondary-no-helper-3`}
-          inputType={inputType}
-          items={choiceItems(inputType, 'secondary', false, false, 3)}
-          label="Filter"
-          hideLabel
-          name={`${inputType}-secondary-no-helper-3`}
-          showIndicator={false}
-          variant="card"
-        />
-      </Col>
-    </Row>
-    <Row>
-      <Col lg={6} md={12}>
-        <ChoiceGroup
-          color="primary"
-          id={`${inputType}-primary-with-helper-4`}
-          inputType={inputType}
-          items={choiceItems(inputType, 'primary', true, false, 4)}
-          label="Filter"
-          hideLabel
-          name={`${inputType}-primary-with-helper-4`}
-          showIndicator={false}
-          variant="card"
-        />
-      </Col>
-      <Col lg={6} md={12}>
-        <ChoiceGroup
-          color="secondary"
-          id={`${inputType}-secondary-with-helper-4`}
-          inputType={inputType}
-          items={choiceItems(inputType, 'secondary', true, false, 4)}
-          label="Filter"
-          hideLabel
-          name={`${inputType}-secondary-with-helper-4`}
-          showIndicator={false}
-          variant="card"
-        />
-      </Col>
-    </Row>
-  </>
+  <VerticalSpacing>
+    {renderGroup(inputType, 'primary', false, true, 1)}
+    {renderGroup(inputType, 'primary', true, true, 2)}
+    {renderGroup(inputType, 'primary', false, false, 3)}
+    {renderGroup(inputType, 'primary', true, false, 4)}
+  </VerticalSpacing>
 );
 
 export const Radio: Story = {
@@ -219,21 +140,17 @@ export const Radio: Story = {
     defaultValue: [],
     inputType: 'radio',
     name: 'radio-1',
-    items: generateItems(0),
+    items: generateItems({ index: 0 }),
     onChange: (value) => console.log({ value }),
   },
 };
 
 export const RadioRow: Story = {
   args: {
-    label: 'ChoiceGroup with radios:',
+    ...Radio.args,
     id: 'example-1.1',
-    defaultValue: [],
-    inputType: 'radio',
     name: 'radio-1.1',
-    items: generateItems(1),
     direction: 'row',
-    onChange: (value) => console.log({ value }),
   },
 };
 
@@ -244,18 +161,15 @@ export const Checkbox: Story = {
     defaultValue: [],
     inputType: 'checkbox',
     name: 'check-2',
-    items: generateItems(2),
+    items: generateItems({ index: 2 }),
   },
 };
 
 export const CheckboxRow: Story = {
   args: {
-    label: 'ChoiceGroup with direction row:',
+    ...Checkbox.args,
     id: 'example-2.1',
-    defaultValue: [],
-    inputType: 'checkbox',
     name: 'check-2.1',
-    items: generateItems(3),
     direction: 'row',
   },
 };
@@ -268,7 +182,7 @@ export const WithError: Story = {
   args: {
     ...Checkbox.args,
     label: 'I have an error:',
-    items: generateItems(12),
+    items: generateItems({ index: 12 }),
     helper: {
       text: 'Oh no, an error!',
       type: 'error',
@@ -281,7 +195,7 @@ export const WithDefaultValue: Story = {
   args: {
     ...Checkbox.args,
     label: 'I have the second item selected by default:',
-    items: generateItems(13),
+    items: generateItems({ index: 13 }),
     defaultValue: ['value-40'],
   },
 };
@@ -290,7 +204,7 @@ export const WithIndeterminate: Story = {
   args: {
     ...Checkbox.args,
     label: 'I have an indeterminate checkbox:',
-    items: generateItems(14),
+    items: generateItems({ index: 14 }),
     indeterminateCheck: (state) => (state === 'all' ? 'Unselect all' : 'Select all'),
   },
 };
@@ -300,7 +214,7 @@ export const WithExtraContent: Story = {
     ...Checkbox.args,
     inputType: 'radio',
     label: 'I have extra content after the label:',
-    items: generateItems(15, { extraContent: true }),
+    items: generateItems({ index: 15, extraLongTitle: true }),
     helper: { text: 'Extra Content' },
   },
 };

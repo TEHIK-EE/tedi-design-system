@@ -69,7 +69,7 @@ export const ChoiceGroup = (props: ChoiceGroupProps): React.ReactElement => {
 
   const { ...restIndeterminate } = indeterminateCheckProps;
   const isIndented = indeterminateCheckProps?.indented ?? true;
-  const helperId = helper ? helper?.id ?? `${id}-helper` : undefined;
+  const helperId = helper?.id ?? `${id}-helper`;
   const showIndeterminate = indeterminateCheck && inputType === 'checkbox';
 
   const [innerValue, setInnerValue] = React.useState<ChoiceGroupValue>(() => {

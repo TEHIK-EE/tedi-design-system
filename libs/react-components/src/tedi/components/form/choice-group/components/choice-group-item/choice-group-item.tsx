@@ -90,6 +90,7 @@ export const ChoiceGroupItem = (props: ExtendedChoiceGroupItemProps): React.Reac
               : undefined
           }
           tooltip={tooltip}
+          data-testid="choice-group-item-indicator"
         />
       </Col>
     );
@@ -107,7 +108,6 @@ export const ChoiceGroupItem = (props: ExtendedChoiceGroupItemProps): React.Reac
           checked={isChecked}
           defaultChecked={currentValue === undefined ? props.defaultChecked : undefined}
           onChange={(e) => onChangeHandler(value, e.target.checked)}
-          className={styles['tedi-choice-group-item__input']}
         />
         <label htmlFor={id} className={styles['tedi-choice-group-item__label']}>
           {label}
