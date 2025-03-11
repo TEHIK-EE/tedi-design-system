@@ -54,6 +54,10 @@ export interface StatusBadgeProps extends BreakpointSupport<StatusBadgePropsBrea
    * ID attribute
    */
   id?: string;
+  /**
+   * ARIA role attribute for accessibility.
+   */
+  role?: React.AriaRole;
 }
 
 export const StatusBadge = (props: StatusBadgeProps): JSX.Element => {
@@ -68,6 +72,7 @@ export const StatusBadge = (props: StatusBadgeProps): JSX.Element => {
     status,
     icon,
     id,
+    role,
     ...rest
   } = getCurrentBreakpointProps<StatusBadgeProps>(props);
 
@@ -101,8 +106,17 @@ export const StatusBadge = (props: StatusBadgeProps): JSX.Element => {
     className
   );
 
+  const ariaLive = role === 'alert' ? 'assertive' : role === 'status' ? 'polite' : undefined;
+
   return (
-    <BadgeElement className={badgeClass} id={id} title={title} {...rest}>
+    <BadgeElement
+      className={badgeClass}
+      id={id}
+      title={title}
+      role={role}
+      aria-live={role ? ariaLive : undefined}
+      {...rest}
+    >
       {icon && (
         <Icon
           name={icon}

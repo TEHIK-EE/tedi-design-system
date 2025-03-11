@@ -9,49 +9,49 @@
         "name": "blue-100",
         "value": "#e7f0f6",
         "var": "--blue-100",
-        "rootAlias": "--primary-100"
+        "rootAlias": ""
       },
       {
         "name": "blue-200",
         "value": "#d0e1ee",
         "var": "--blue-200",
-        "rootAlias": "--primary-200"
+        "rootAlias": ""
       },
       {
         "name": "blue-300",
         "value": "#99bdda",
         "var": "--blue-300",
-        "rootAlias": "--primary-300"
+        "rootAlias": ""
       },
       {
         "name": "blue-400",
         "value": "#4587bc",
         "var": "--blue-400",
-        "rootAlias": "--primary-400"
+        "rootAlias": ""
       },
       {
         "name": "blue-500",
         "value": "#337bb5",
         "var": "--blue-500",
-        "rootAlias": "--primary-500"
+        "rootAlias": ""
       },
       {
         "name": "blue-600",
         "value": "#005aa3",
         "var": "--blue-600",
-        "rootAlias": "--primary-600"
+        "rootAlias": ""
       },
       {
         "name": "blue-700",
         "value": "#004277",
         "var": "--blue-700",
-        "rootAlias": "--primary-700"
+        "rootAlias": ""
       },
       {
         "name": "blue-800",
         "value": "#003662",
         "var": "--blue-800",
-        "rootAlias": "--primary-800"
+        "rootAlias": ""
       },
       {
         "name": "green-100",
@@ -144,15 +144,15 @@
         "rootAlias": ""
       },
       {
-        "name": "neutral-600",
-        "value": "#5d6071",
-        "var": "--neutral-600",
+        "name": "neutral-550",
+        "value": "#737482",
+        "var": "--neutral-550",
         "rootAlias": ""
       },
       {
-        "name": "neutral-650",
-        "value": "#737482",
-        "var": "--neutral-650",
+        "name": "neutral-600",
+        "value": "#5d6071",
+        "var": "--neutral-600",
         "rootAlias": ""
       },
       {
@@ -189,49 +189,49 @@
         "name": "orange-100",
         "value": "#fff2e6",
         "var": "--orange-100",
-        "rootAlias": "--accent-100"
+        "rootAlias": ""
       },
       {
         "name": "orange-200",
         "value": "#ffe6cc",
         "var": "--orange-200",
-        "rootAlias": "--accent-200"
+        "rootAlias": ""
       },
       {
         "name": "orange-300",
         "value": "#ffcc99",
         "var": "--orange-300",
-        "rootAlias": "--accent-300"
+        "rootAlias": ""
       },
       {
         "name": "orange-400",
         "value": "#ffb366",
         "var": "--orange-400",
-        "rootAlias": "--accent-400"
+        "rootAlias": ""
       },
       {
         "name": "orange-500",
         "value": "#ff9933",
         "var": "--orange-500",
-        "rootAlias": "--accent-500"
+        "rootAlias": ""
       },
       {
         "name": "orange-600",
         "value": "#ff8000",
         "var": "--orange-600",
-        "rootAlias": "--accent-600"
+        "rootAlias": ""
       },
       {
         "name": "orange-700",
         "value": "#994d00",
         "var": "--orange-700",
-        "rootAlias": "--accent-700"
+        "rootAlias": ""
       },
       {
         "name": "orange-800",
         "value": "#663300",
         "var": "--orange-800",
-        "rootAlias": "--accent-800"
+        "rootAlias": ""
       },
       {
         "name": "red-100",
@@ -348,6 +348,18 @@
         "rootAlias": ""
       },
       {
+        "name": "alpha-white-20",
+        "value": "#ffffff33",
+        "var": "--alpha-white-20",
+        "rootAlias": ""
+      },
+      {
+        "name": "alpha-white-14",
+        "value": "#ffffff24",
+        "var": "--alpha-white-14",
+        "rootAlias": ""
+      },
+      {
         "name": "alpha-white-10",
         "value": "#ffffff1a",
         "var": "--alpha-white-10",
@@ -357,6 +369,18 @@
         "name": "alpha-01",
         "value": "#00000000",
         "var": "--alpha-01",
+        "rootAlias": ""
+      },
+      {
+        "name": "alpha-10",
+        "value": "#0000001a",
+        "var": "--alpha-10",
+        "rootAlias": ""
+      },
+      {
+        "name": "alpha-14",
+        "value": "#00000024",
+        "var": "--alpha-14",
         "rootAlias": ""
       },
       {
@@ -378,15 +402,15 @@
         "rootAlias": ""
       },
       {
-        "name": "alpha-primary-20",
-        "value": "#005aa333",
-        "var": "--alpha-primary-20",
-        "rootAlias": ""
-      },
-      {
         "name": "alpha-primary-08",
         "value": "#005aa314",
         "var": "--alpha-primary-08",
+        "rootAlias": ""
+      },
+      {
+        "name": "alpha-primary-20",
+        "value": "#005aa333",
+        "var": "--alpha-primary-20",
         "rootAlias": ""
       }
     ],

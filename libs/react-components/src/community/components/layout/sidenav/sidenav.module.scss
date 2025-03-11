@@ -111,6 +111,12 @@
 .sidenav__item .sidenav__item {
   --global-outline-color: var(--color-primary-active);
 
+  .sidenav--hide-subitem-icons & {
+    .sidenav__link [data-name='icon'] {
+      display: none;
+    }
+  }
+
   [data-name='collapse-trigger'] {
     span.sidenav__link,
     [data-name='icon'] {
@@ -120,7 +126,7 @@
     &[aria-expanded='true'],
     &:hover,
     &.sidenav__item--current {
-      background-color: var(--color-primary-active);
+      background-color: var(--color-primary-active-subtle);
 
       span.sidenav__link,
       [data-name='icon'] {
@@ -154,11 +160,19 @@ a.sidenav__link {
     & .sidenav__title:first-child {
       margin-left: calc(24px + 1rem);
     }
+
+    .sidenav--hide-subitem-icons & .sidenav__title {
+      margin-left: calc(14px + 1rem);
+    }
   }
 
   .sidenav__item .sidenav__item .sidenav__item & {
     & .sidenav__title:first-child {
       margin-left: calc(44px + 1rem);
+    }
+
+    .sidenav--hide-subitem-icons & .sidenav__title {
+      margin-left: calc(34px + 1rem);
     }
 
     & [data-name='icon']:first-child {
@@ -181,10 +195,14 @@ a.sidenav__link {
 
     &:hover {
       color: var(--color-text-inverted);
+      background-color: var(--color-primary-active-subtle);
     }
   }
 
   .sidenav__item .sidenav__item.sidenav__item--current > & {
     color: var(--color-text-inverted);
+    background-color: var(--color-primary-active-subtle);
+
+    --global-outline-color: var(--color-primary-highlight);
   }
 }

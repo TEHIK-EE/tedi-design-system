@@ -1,3 +1,24 @@
+# [@tehik-ee/tedi-react-v11.2.0-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.1.1-rc.2...react-11.2.0-rc.1) (2025-03-10)
+
+
+### Features
+
+* **file-upload:** TEDI-Ready FileUpload component development [#407](https://github.com/TEHIK-EE/tedi-design-system/issues/407) ([#522](https://github.com/TEHIK-EE/tedi-design-system/issues/522)) ([94fee9d](https://github.com/TEHIK-EE/tedi-design-system/commit/94fee9d39f527168af1ecd03cce98d0e0dbfe1ee)), closes [#80](https://github.com/TEHIK-EE/tedi-design-system/issues/80)
+
+# [@tehik-ee/tedi-react-v11.1.1-rc.2](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.1.1-rc.1...react-11.1.1-rc.2) (2025-03-10)
+
+
+### Bug Fixes
+
+* **status-badge:** ensure aria role can be set dynamically [#532](https://github.com/TEHIK-EE/tedi-design-system/issues/532) ([#543](https://github.com/TEHIK-EE/tedi-design-system/issues/543)) ([68252ca](https://github.com/TEHIK-EE/tedi-design-system/commit/68252ca4b50f78bdb76f72e7cc4fb71d79b21836))
+
+# [@tehik-ee/tedi-react-v11.1.1-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.1.0...react-11.1.1-rc.1) (2025-03-04)
+
+
+### Bug Fixes
+
+* **sidenav:** design tweaks [#526](https://github.com/TEHIK-EE/tedi-design-system/issues/526) ([#528](https://github.com/TEHIK-EE/tedi-design-system/issues/528)) ([bb3016b](https://github.com/TEHIK-EE/tedi-design-system/commit/bb3016b4b11ea949fb1e47871bde7eedc5a5d61f))
+
 # [@tehik-ee/tedi-react-v11.1.0](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.0.0...react-11.1.0) (2025-02-27)
 
 

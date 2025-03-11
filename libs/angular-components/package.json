@@ -18,7 +18,7 @@
   "scripts": {
     "start": "ng run angular-components:storybook",
     "build": "ng-packagr -p ng-package.json",
-    "build:sb": "ng run angular-components:build-storybook",
+    "build:sb": "ng run angular-components:build-storybook && replace-in-file //fonts//g \"./fonts/\" dist/storybook-static/main.css --isRegex",
     "lint": "ng lint angular-components --fix",
     "test": "jest --passWithNoTests",
     "test:watch": "ng test angular-components --watch",
@@ -35,9 +35,7 @@
     "@angular/platform-browser": "~18.2.0",
     "@angular/platform-browser-dynamic": "~18.2.0",
     "@angular/router": "~18.2.0",
-    "@tehik-ee/tedi-core": "^1.5.0",
-    "dayjs": "*",
-    "lodash-es": "*",
+    "@tehik-ee/tedi-core": "^1.6.10",
     "rxjs": "^7.0.0"
   },
   "dependencies": {
@@ -78,6 +76,7 @@
     "ng-packagr": "^18.2.0",
     "prettier": "^3.4.2",
     "readdirp": "3.6.0",
+    "replace-in-file": "^8.3.0",
     "storybook": "^8.4.7",
     "ts-node": "^10.9.2"
   },

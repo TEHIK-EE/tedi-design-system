@@ -83,7 +83,7 @@ const createRandomPerson = (isSubRow: boolean): Person => {
     age: calculateAge(faker.date.birthdate()),
     visits: Number(faker.number.int(99)),
     status: faker.helpers.arrayElement(['Single', 'Complicated', 'In Relationship']),
-    progress: Math.floor(Math.random() * 101),
+    progress: faker.number.int({ min: 0, max: 100 }),
     subRows: isSubRow
       ? undefined
       : faker.helpers.maybe(
