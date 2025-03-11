@@ -92,7 +92,6 @@ export const MultipleWithIndividualValidation: Story = {
   args: {
     id: 'file-dropzone-multiple-individual-validation',
     name: 'file-multiple-individual-validation',
-    label: 'Upload files',
     multiple: true,
     maxSize: 0.01,
     accept: '.pdf,.txt',
