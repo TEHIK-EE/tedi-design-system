@@ -1,0 +1,180 @@
+@use '@tehik-ee/tedi-core/mixins';
+
+$input-height-small: 2rem;
+
+div.tedi-select__control {
+  border: 1px solid var(--form-input-border-default);
+
+  @include mixins.print-grayscale;
+  @include mixins.responsive-styles(padding-left, form-field-padding-x-md-default);
+  @include mixins.responsive-styles(padding-right, form-field-padding-x-md-default);
+  @include mixins.responsive-styles(padding-top, form-field-padding-y-md-default, null, '- 1px');
+  @include mixins.responsive-styles(padding-bottom, form-field-padding-y-md-default, null, '- 1px');
+
+  .tedi-select__value-container {
+    padding: 0;
+
+    @include mixins.responsive-styles(gap, form-field-inner-spacing);
+  }
+
+  .tedi-select__indicators-container {
+    @include mixins.responsive-styles(gap, layout-grid-gutters-04);
+  }
+
+  .tedi-select__input {
+    padding: 0;
+    margin: 0;
+
+    @include mixins.visually-hidden;
+  }
+}
+
+.tedi-select--invalid .tedi-select__control {
+  border-color: var(--form-general-feedback-error-border);
+
+  &.tedi-select__control--focused {
+    box-shadow: 0 0 0 1px var(--form-general-feedback-error-border);
+  }
+}
+
+.tedi-select__arrow {
+  .tedi-select--invalid .tedi-select__control--focused & {
+    color: var(--form-general-feedback-error-text);
+  }
+}
+
+div.tedi-select__menu-portal {
+  z-index: var(--z-index-dropdown);
+}
+
+div .tedi-select__menu {
+  margin: 1px 0 0;
+  overflow: hidden;
+
+  @include mixins.responsive-styles(border-radius, form-field-radius);
+  @include mixins.print-grayscale;
+}
+
+.tedi-select__menu .tedi-select__menu-list {
+  padding: 0;
+}
+
+.tedi-select__menu .tedi-select__menu-list-inner {
+  padding: 0;
+}
+
+.tedi-select__menu-list-footer {
+  padding: 1rem;
+  border-top: 1px solid var(--form-input-border-default);
+}
+
+.tedi-select__menu .tedi-select__option {
+  font-size: 0.875rem;
+  color: var(--form-input-text-filled);
+  cursor: pointer;
+  background-color: var(--form-input-background-default);
+
+  &--focused {
+    background-color: var(--form-input-background-default);
+  }
+
+  &:active,
+  &--selected {
+    color: var(--dropdown-item-active-text);
+    background-color: var(--dropdown-item-active-background);
+  }
+
+  &--disabled {
+    color: var(--general-text-disabled);
+    cursor: not-allowed;
+    background-color: var(--dropdown-item-disabled-background);
+  }
+}
+
+.tedi-select--small {
+  & .select__control {
+    height: $input-height-small;
+    min-height: $input-height-small;
+    font-size: 0.875rem;
+  }
+
+  & .tedi-select__input {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  & .tedi-select__arrow {
+    padding: 0;
+  }
+}
+
+div.tedi-select__multi-value-item {
+  display: flex;
+  flex-shrink: 0;
+  align-items: baseline;
+}
+
+.tedi-select__checkbox {
+  pointer-events: none;
+}
+
+.tedi-select .tedi-select__group {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+
+  &:first-child {
+    padding-top: 0;
+  }
+
+  &:last-child {
+    padding-bottom: 0;
+  }
+}
+
+.tedi-select .tedi-select__group-heading {
+  padding: 0.5rem 0.75rem;
+  margin-bottom: 0;
+}
+
+.tedi-select__multi-value-clear {
+  margin: -0.125rem -0.25rem -0.125rem 0;
+}
+
+:global {
+  .tedi-select__value-container--is-multi {
+    gap: 0.25rem;
+  }
+
+  .tedi-select__value-container .tedi-select__placeholder {
+    color: var(--color-text-subtle);
+  }
+}
+
+.tedi-select--tags-row {
+  :global .select__control > .select__value-container--is-multi {
+    display: flex;
+
+    &::after {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      content: '';
+      box-shadow: inset 0.5rem 0 0.25rem -0.25rem var(--alpha-100);
+    }
+  }
+
+  &.tedi-select--searchable :global .tedi-select__control > .tedi-select__value-container--is-multi {
+    justify-content: flex-end;
+  }
+
+  :global .tedi-select__control--is-focused .tedi-select__input {
+    min-width: 5rem !important; // no other way to override style
+  }
+}
+
+.tedi-select--tags-stack {
+  :global .select__input-container {
+    grid-template-columns: 0 min-content;
+    margin: 0;
+  }
+}
