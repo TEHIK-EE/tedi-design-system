@@ -53,11 +53,7 @@ const generateItems = ({
   },
   {
     id: `${inputType}-${variant}-value-${index * 10 + 2}-${withHelper}-${withIndicator}`,
-    label: `Option 2, that is longer than the others${
-      extraLongTitle
-        ? ' - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin varius, sem blandit sodales tincidunt, orci elit ornare ex, eu ultrices diam turpis id nisl. Sed sollicitudin auctor nunc. Aliquam a arcu in sem bibendum laoreet non eu nunc.'
-        : ''
-    }`,
+    label: 'Text',
     value: `${inputType}-${variant}-value-${index * 10 + 2}-${withHelper}-${withIndicator}`,
     ...(withHelper && { helper: { text: 'Description' } }),
     colProps,
