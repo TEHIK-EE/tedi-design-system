@@ -1,0 +1,54 @@
+<ng-container [ngSwitch]="element()">
+  <h1
+    *ngSwitchCase="'h1'"
+    [class]="classes()"
+    [attr.id]="id()"
+    [attr.tabindex]="tabIndex()"
+  >
+    <ng-container [ngTemplateOutlet]="content"></ng-container>
+  </h1>
+  <h2
+    *ngSwitchCase="'h2'"
+    [class]="classes()"
+    [attr.id]="id()"
+    [attr.tabindex]="tabIndex()"
+  >
+    <ng-container [ngTemplateOutlet]="content"></ng-container>
+  </h2>
+  <h3
+    *ngSwitchCase="'h3'"
+    [class]="classes()"
+    [attr.id]="id()"
+    [attr.tabindex]="tabIndex()"
+  >
+    <ng-container [ngTemplateOutlet]="content"></ng-container>
+  </h3>
+  <h4
+    *ngSwitchCase="'h4'"
+    [class]="classes()"
+    [attr.id]="id()"
+    [attr.tabindex]="tabIndex()"
+  >
+    <ng-container [ngTemplateOutlet]="content"></ng-container>
+  </h4>
+  <h5
+    *ngSwitchCase="'h5'"
+    [class]="classes()"
+    [attr.id]="id()"
+    [attr.tabindex]="tabIndex()"
+  >
+    <ng-container [ngTemplateOutlet]="content"></ng-container>
+  </h5>
+  <h6
+    *ngSwitchCase="'h6'"
+    [class]="classes()"
+    [attr.id]="id()"
+    [attr.tabindex]="tabIndex()"
+  >
+    <ng-container [ngTemplateOutlet]="content"></ng-container>
+  </h6>
+</ng-container>
+
+<ng-template #content>
+  <ng-content></ng-content>
+</ng-template>

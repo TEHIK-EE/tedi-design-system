@@ -1,18 +1,16 @@
-const jestConfig = {
-  preset: 'jest-preset-angular',
-  setupFilesAfterEnv: ['<rootDir>/setup-jest.ts'],
-  testPathIgnorePatterns: ['/node_modules/', '/dist/'],
-  moduleFileExtensions: ['ts', 'html', 'js', 'json'],
-  transform: {
-    '^.+\\.(ts|js|html)$': 'jest-preset-angular',
-  },
-  transformIgnorePatterns: ['node_modules/(?!.*\\.mjs$)'],
-  moduleNameMapper: {
-    "^.+\\.html$": "identity-obj-proxy",
-    "^.+\\.(css|scss|sass|less)$": "identity-obj-proxy"
-  },
-  resolver: "jest-preset-angular/build/resolvers/ng-jest-resolver.js",
-  testEnvironment: 'jsdom',
-};
+import presets from "jest-preset-angular/presets";
+import { type JestConfigWithTsJest, pathsToModuleNameMapper } from "ts-jest";
 
-export default jestConfig;
+import { compilerOptions } from "./tsconfig.json";
+
+export default {
+  ...presets.createCjsPreset(),
+  moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths, {
+    prefix: "<rootDir>",
+  }),
+  setupFilesAfterEnv: ["<rootDir>/setup-jest.ts"],
+  testPathIgnorePatterns: ["/node_modules/", "/dist/"],
+  moduleFileExtensions: ["ts", "html", "js", "json"],
+  resolver: "jest-preset-angular/build/resolvers/ng-jest-resolver.js",
+  testEnvironment: "jsdom",
+} satisfies JestConfigWithTsJest;

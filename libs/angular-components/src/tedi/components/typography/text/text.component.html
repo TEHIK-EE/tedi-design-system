@@ -1,0 +1,94 @@
+<ng-container [ngSwitch]="element()">
+  <div
+    *ngSwitchCase="'div'"
+    [class]="classes()"
+    [attr.id]="id()"
+    [attr.tabindex]="tabIndex()"
+  >
+    <ng-container [ngTemplateOutlet]="content"></ng-container>
+  </div>
+  <p
+    *ngSwitchCase="'p'"
+    [class]="classes()"
+    [attr.id]="id()"
+    [attr.tabindex]="tabIndex()"
+  >
+    <ng-container [ngTemplateOutlet]="content"></ng-container>
+  </p>
+  <span
+    *ngSwitchCase="'span'"
+    [class]="classes()"
+    [attr.id]="id()"
+    [attr.tabindex]="tabIndex()"
+  >
+    <ng-container [ngTemplateOutlet]="content"></ng-container>
+  </span>
+  <li
+    *ngSwitchCase="'li'"
+    [class]="classes()"
+    [attr.id]="id()"
+    [attr.tabindex]="tabIndex()"
+  >
+    <ng-container [ngTemplateOutlet]="content"></ng-container>
+  </li>
+  <label
+    *ngSwitchCase="'label'"
+    [class]="classes()"
+    [attr.id]="id()"
+    [attr.tabindex]="tabIndex()"
+  >
+    <ng-container [ngTemplateOutlet]="content"></ng-container>
+  </label>
+  <h1
+    *ngSwitchCase="'h1'"
+    [class]="classes()"
+    [attr.id]="id()"
+    [attr.tabindex]="tabIndex()"
+  >
+    <ng-container [ngTemplateOutlet]="content"></ng-container>
+  </h1>
+  <h2
+    *ngSwitchCase="'h2'"
+    [class]="classes()"
+    [attr.id]="id()"
+    [attr.tabindex]="tabIndex()"
+  >
+    <ng-container [ngTemplateOutlet]="content"></ng-container>
+  </h2>
+  <h3
+    *ngSwitchCase="'h3'"
+    [class]="classes()"
+    [attr.id]="id()"
+    [attr.tabindex]="tabIndex()"
+  >
+    <ng-container [ngTemplateOutlet]="content"></ng-container>
+  </h3>
+  <h4
+    *ngSwitchCase="'h4'"
+    [class]="classes()"
+    [attr.id]="id()"
+    [attr.tabindex]="tabIndex()"
+  >
+    <ng-container [ngTemplateOutlet]="content"></ng-container>
+  </h4>
+  <h5
+    *ngSwitchCase="'h5'"
+    [class]="classes()"
+    [attr.id]="id()"
+    [attr.tabindex]="tabIndex()"
+  >
+    <ng-container [ngTemplateOutlet]="content"></ng-container>
+  </h5>
+  <h6
+    *ngSwitchCase="'h6'"
+    [class]="classes()"
+    [attr.id]="id()"
+    [attr.tabindex]="tabIndex()"
+  >
+    <ng-container [ngTemplateOutlet]="content"></ng-container>
+  </h6>
+</ng-container>
+
+<ng-template #content>
+  <ng-content></ng-content>
+</ng-template>
