@@ -77,10 +77,10 @@ const config: UserConfig = {
           return assetInfo.name || '';
         },
         manualChunks: (id) => {
-          if (id.includes('community')) {
+          if (id.includes('src/community')) {
             return 'community';
           }
-          if (id.includes('tedi')) {
+          if (id.includes('src/tedi')) {
             return 'tedi';
           }
           return undefined;
