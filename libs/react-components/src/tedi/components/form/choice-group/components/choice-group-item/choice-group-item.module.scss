@@ -32,7 +32,8 @@
     background-color: var(--form-general-background-disabled);
     border-color: var(--form-general-background-disabled);
 
-    label {
+    label,
+    .tedi-choice-group-item__feedback-text {
       color: var(--general-text-disabled);
       cursor: unset;
     }
@@ -53,11 +54,11 @@
       [type='radio']:checked + .tedi-choice-group-item__indicator {
         background-color: var(--form-checkbox-radio-card-primary-active-background);
         border-color: var(--form-checkbox-radio-default-border-inverted);
+      }
 
-        &::after {
-          background-color: var(--form-checkbox-radio-default-background-selected-inverted);
-          border-color: var(--form-checkbox-radio-default-background-inverted);
-        }
+      [type='radio']:checked + .tedi-choice-group-item__indicator::after {
+        background-color: var(--form-checkbox-radio-default-background-selected-inverted);
+        border-color: var(--form-checkbox-radio-default-background-inverted);
       }
 
       label,
