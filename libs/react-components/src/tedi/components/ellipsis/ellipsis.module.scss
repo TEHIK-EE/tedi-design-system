@@ -1,0 +1,11 @@
+.tedi-ellipsis {
+  display: -webkit-box;
+
+  // Fallback for unsupported browsers
+  overflow: hidden;
+  hyphens: auto;
+  text-overflow: ellipsis;
+  word-break: break-word;
+  -webkit-box-orient: vertical;
+  line-clamp: 2;
+}
