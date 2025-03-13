@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-react-v11.2.0-rc.3](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.2.0-rc.2...react-11.2.0-rc.3) (2025-03-13)
+
+
+### Features
+
+* **table:** update table filter active state [[#556](https://github.com/TEHIK-EE/tedi-design-system/issues/556)] ([#558](https://github.com/TEHIK-EE/tedi-design-system/issues/558)) ([0dbbfa1](https://github.com/TEHIK-EE/tedi-design-system/commit/0dbbfa18cf88d2d253da78941b8df4c129b67ffe))
+
 # [@tehik-ee/tedi-react-v11.2.0-rc.2](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.2.0-rc.1...react-11.2.0-rc.2) (2025-03-12)
 
 
