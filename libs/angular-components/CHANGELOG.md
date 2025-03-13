@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-angular-v1.5.0-rc.3](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.5.0-rc.2...angular-1.5.0-rc.3) (2025-03-13)
+
+
+### Features
+
+* **button:** Add button styles on anchor [#546](https://github.com/TEHIK-EE/tedi-design-system/issues/546) ([#551](https://github.com/TEHIK-EE/tedi-design-system/issues/551)) ([34183ac](https://github.com/TEHIK-EE/tedi-design-system/commit/34183ac401afef170e70bb9b3c21f9a549349487))
+
 # [@tehik-ee/tedi-angular-v1.5.0-rc.2](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.5.0-rc.1...angular-1.5.0-rc.2) (2025-03-03)
 
 
