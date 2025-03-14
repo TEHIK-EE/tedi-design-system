@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-core-v1.7.0](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.6.16...core-1.7.0) (2025-03-14)
+
+
+### Features
+
+* **variables:** tedi-core z-index variables [#559](https://github.com/TEHIK-EE/tedi-design-system/issues/559) ([#560](https://github.com/TEHIK-EE/tedi-design-system/issues/560)) ([b04a198](https://github.com/TEHIK-EE/tedi-design-system/commit/b04a198468c072f3d81110ce3b77caed57211c34))
+
 # [@tehik-ee/tedi-core-v1.6.16](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.6.15...core-1.6.16) (2025-03-10)
 
 
