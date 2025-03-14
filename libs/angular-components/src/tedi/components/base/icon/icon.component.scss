@@ -28,6 +28,12 @@ $icon-sizes: (
   48: icon-07,
 );
 
+:host {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .tedi-icon {
   @each $name, $var in $icon-colors {
     &--color-#{$name} {

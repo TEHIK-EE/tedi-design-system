@@ -45,7 +45,7 @@ type IconProps = {
    * Color of the icon.
    * @default primary
    */
-  color?: InputSignal<IconColor | undefined>;
+  color?: InputSignal<IconColor>;
   /**
    * Background color for the icon (adds a circular background).
    */
@@ -54,13 +54,13 @@ type IconProps = {
    * Whether the icon should be filled or outlined.
    * @default outlined
    */
-  variant?: InputSignal<IconVariant | undefined>;
+  variant?: InputSignal<IconVariant>;
   /**
    * Type of Material Symbols icon style.
    * It is recommended to only use one type throughout your app.
    * @default outlined
    */
-  type?: InputSignal<IconType | undefined>;
+  type?: InputSignal<IconType>;
   /**
    * Accessible label for screen readers.
    * If omitted then the icon is hidden for screen-readers.
@@ -78,10 +78,10 @@ export class IconComponent implements IconProps {
   name = input.required<string>();
   class = input<string | undefined>(undefined);
   size = input<IconSize>(24);
-  color = input<IconColor | undefined>("primary");
+  color = input<IconColor>("primary");
   background = input<IconBackgroundColor | undefined>(undefined);
-  variant = input<IconVariant | undefined>("outlined");
-  type = input<IconType | undefined>("outlined");
+  variant = input<IconVariant>("outlined");
+  type = input<IconType>("outlined");
   label = input<string | undefined>(undefined);
 
   iconClasses = computed(() => {
