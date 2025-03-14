@@ -62,7 +62,6 @@ const generateItems = ({
     id: `${inputType}-${variant}-value-${index * 10 + 3}-${withHelper}-${withIndicator}`,
     label: 'Text',
     value: `${inputType}-${variant}-value-${index * 10 + 3}-${withHelper}-${withIndicator}`,
-    disabled: true,
     ...(withHelper && { helper: { text: 'Description' } }),
     colProps,
     tooltip: tooltip ? 'Tooltip' : undefined,
