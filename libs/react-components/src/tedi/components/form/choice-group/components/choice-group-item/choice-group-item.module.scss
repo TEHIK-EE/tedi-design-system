@@ -78,7 +78,8 @@
     border: 1px solid var(--form-checkbox-radio-card-secondary-inactive-border);
 
     &.tedi-choice-group-item--checked {
-      border-color: var(--form-checkbox-radio-card-secondary-active-border);
+      outline: 2px solid var(--form-checkbox-radio-card-secondary-active-border);
+      outline-offset: -2px;
 
       [type='radio']:checked + .tedi-choice-group-item__indicator {
         border-color: var(--form-checkbox-radio-default-border-selected);
@@ -92,44 +93,47 @@
     }
   }
 
-  &.tedi-choice-group-item--segmented {
-    border-width: 1px;
-    border-radius: 0;
-
-    &.tedi-choice-group-item--column {
-      &:not(:first-of-type) {
-        border-top: none;
-      }
-
-      &:first-of-type {
-        border-top-left-radius: var(--border-radius-default);
-        border-top-right-radius: var(--border-radius-default);
-      }
-
-      &:last-of-type {
-        border-bottom-right-radius: var(--border-radius-default);
-        border-bottom-left-radius: var(--border-radius-default);
-      }
-    }
-
-    &.tedi-choice-group-item--row {
-      &:not(:first-of-type) {
-        border-left: none;
-      }
-
-      &:first-of-type {
-        border-top-left-radius: var(--border-radius-default);
-        border-bottom-left-radius: var(--border-radius-default);
-      }
-
-      &:last-of-type {
-        border-top-right-radius: var(--border-radius-default);
-        border-bottom-right-radius: var(--border-radius-default);
-      }
-    }
-  }
-
   &.tedi-choice-group-item--indicator {
     justify-content: start;
+  }
+}
+
+.tedi-choice-group-item--segmented .tedi-choice-group-item {
+  border-radius: 0;
+}
+
+.tedi-choice-group-item--segmented.tedi-choice-group-item--column {
+  &:not(:first-of-type) {
+    margin-top: 0;
+  }
+
+  &:not(:first-of-type) .tedi-choice-group-item {
+    border-top: 0;
+  }
+
+  &:first-of-type .tedi-choice-group-item {
+    border-top-left-radius: var(--border-radius-default);
+    border-top-right-radius: var(--border-radius-default);
+  }
+
+  &:last-of-type .tedi-choice-group-item {
+    border-bottom-right-radius: var(--border-radius-default);
+    border-bottom-left-radius: var(--border-radius-default);
+  }
+}
+
+.tedi-choice-group-item--segmented.tedi-choice-group-item--row {
+  &:not(:first-of-type) .tedi-choice-group-item {
+    border-left: none;
+  }
+
+  &:first-of-type .tedi-choice-group-item {
+    border-top-left-radius: var(--border-radius-default);
+    border-bottom-left-radius: var(--border-radius-default);
+  }
+
+  &:last-of-type .tedi-choice-group-item {
+    border-top-right-radius: var(--border-radius-default);
+    border-bottom-right-radius: var(--border-radius-default);
   }
 }

@@ -57,15 +57,18 @@ export const ChoiceGroupItem = (props: ExtendedChoiceGroupItemProps): React.Reac
   };
 
   const ColumnBEM = cn(
+    isSegmented && styles['tedi-choice-group-item--segmented'],
+    direction && styles[`tedi-choice-group-item--${direction}`]
+  );
+
+  const ChoiceGroupItemBEM = cn(
+    styles['tedi-choice-group-item'],
     styles[`tedi-choice-group-item--${variant}`],
     styles[`tedi-choice-group-item--${variant}-${color}`],
     showIndicator && styles['tedi-choice-group-item--indicator'],
-    isSegmented && styles['tedi-choice-group-item--segmented'],
-    direction && styles[`tedi-choice-group-item--${direction}`],
     type && styles[`tedi-choice-group-item--${type}`],
     { [styles['tedi-choice-group-item--disabled']]: disabled },
-    { [styles['tedi-choice-group-item--checked']]: isChecked },
-    colProps?.className
+    { [styles['tedi-choice-group-item--checked']]: isChecked }
   );
 
   if (variant === 'default' || showIndicator) {
@@ -73,25 +76,27 @@ export const ChoiceGroupItem = (props: ExtendedChoiceGroupItemProps): React.Reac
 
     return (
       <Col {...colProps} className={ColumnBEM}>
-        <InputComponent
-          id={id}
-          label={label}
-          value={value}
-          name={name}
-          className={cn(styles['tedi-choice-group-item__indicator'], className)}
-          disabled={disabled}
-          checked={isChecked}
-          defaultChecked={defaultChecked}
-          onChange={onChangeHandler}
-          hideLabel={hideLabel}
-          helper={
-            helper
-              ? { ...helper, className: cn(styles['tedi-choice-group-item__feedback-text'], helper.className) }
-              : undefined
-          }
-          tooltip={tooltip}
-          data-testid="choice-group-item-indicator"
-        />
+        <div className={ChoiceGroupItemBEM}>
+          <InputComponent
+            id={id}
+            label={label}
+            value={value}
+            name={name}
+            className={cn(styles['tedi-choice-group-item__indicator'], className)}
+            disabled={disabled}
+            checked={isChecked}
+            defaultChecked={defaultChecked}
+            onChange={onChangeHandler}
+            hideLabel={hideLabel}
+            helper={
+              helper
+                ? { ...helper, className: cn(styles['tedi-choice-group-item__feedback-text'], helper.className) }
+                : undefined
+            }
+            tooltip={tooltip}
+            data-testid="choice-group-item-indicator"
+          />
+        </div>
       </Col>
     );
   }
@@ -99,21 +104,23 @@ export const ChoiceGroupItem = (props: ExtendedChoiceGroupItemProps): React.Reac
   if (variant === 'card') {
     return (
       <Col {...colProps} className={ColumnBEM}>
-        <input
-          id={id}
-          value={value}
-          name={name}
-          type={inputType}
-          disabled={disabled}
-          checked={isChecked}
-          defaultChecked={currentValue === undefined ? props.defaultChecked : undefined}
-          onChange={(e) => onChangeHandler(value, e.target.checked)}
-          className={styles['tedi-choice-group-item__input']}
-        />
-        <label htmlFor={id} className={styles['tedi-choice-group-item__label']}>
-          {label}
-          {helper && <FeedbackText {...helper} id={id} className={styles['tedi-choice-group-item__feedback-text']} />}
-        </label>
+        <div className={ChoiceGroupItemBEM}>
+          <input
+            id={id}
+            value={value}
+            name={name}
+            type={inputType}
+            disabled={disabled}
+            checked={isChecked}
+            defaultChecked={currentValue === undefined ? props.defaultChecked : undefined}
+            onChange={(e) => onChangeHandler(value, e.target.checked)}
+            className={styles['tedi-choice-group-item__input']}
+          />
+          <label htmlFor={id} className={styles['tedi-choice-group-item__label']}>
+            {label}
+            {helper && <FeedbackText {...helper} id={id} className={styles['tedi-choice-group-item__feedback-text']} />}
+          </label>
+        </div>
       </Col>
     );
   }

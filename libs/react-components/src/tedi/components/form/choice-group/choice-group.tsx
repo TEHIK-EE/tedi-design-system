@@ -3,7 +3,7 @@ import React from 'react';
 
 import { FeedbackText, FeedbackTextProps } from '../../../../tedi/components/form/feedback-text/feedback-text';
 import FormLabel, { FormLabelProps } from '../../../../tedi/components/form/form-label/form-label';
-import { Direction, Row, RowProps } from '../../../../tedi/components/grid';
+import { Col, Direction, Row, RowProps } from '../../../../tedi/components/grid';
 import { useLabels } from '../../../../tedi/providers/label-provider';
 import Checkbox, { CheckboxProps } from '../checkbox/checkbox';
 import styles from './choice-group.module.scss';
@@ -19,27 +19,48 @@ import {
 import { ChoiceGroupContext, IChoiceGroupContext } from './choice-group-context';
 import ChoiceGroupItem from './components/choice-group-item/choice-group-item';
 
-export interface ChoiceGroupProps extends FormLabelProps {
-  id: string;
-  items: ChoiceGroupItemProps[];
+type InvalidSegmentedDirection = {
+  layout: 'segmented';
+  direction?: Exclude<Direction, 'column'>;
+};
+
+type ValidDirection = {
+  layout?: Exclude<ChoiceGroupItemLayout, 'segmented'>;
   direction?: Direction;
-  rowProps?: RowProps;
-  name: string;
-  inputType?: ChoiceGroupItemType;
-  helper?: FeedbackTextProps;
-  className?: string;
-  defaultValue?: ChoiceGroupValue;
-  value?: ChoiceGroupValue;
-  onChange?: (value: ChoiceGroupValue) => void;
-  variant?: ChoiceGroupItemVariant;
-  color?: ChoiceGroupItemColor;
-  layout?: ChoiceGroupItemLayout;
-  indeterminateCheck?: boolean | string | ((state: ChoiceGroupIndeterminateState) => string);
-  indeterminateCheckProps?: { indented?: boolean } & Partial<
-    Omit<CheckboxProps, 'indeterminate' | 'checked' | 'onChange' | 'defaultChecked' | 'label'>
-  >;
-  showIndicator?: boolean;
-}
+};
+
+type ValidDirectionByColor = {
+  primary: {
+    direction?: Exclude<Direction, 'column'>;
+    color: 'primary';
+  };
+  secondary: {
+    direction?: Direction;
+    color: 'secondary';
+  };
+};
+
+export type ChoiceGroupProps = FormLabelProps &
+  (InvalidSegmentedDirection | ValidDirection) &
+  (ValidDirectionByColor['primary'] | ValidDirectionByColor['secondary']) & {
+    id: string;
+    items: ChoiceGroupItemProps[];
+    rowProps?: RowProps;
+    name: string;
+    inputType?: ChoiceGroupItemType;
+    helper?: FeedbackTextProps;
+    className?: string;
+    defaultValue?: ChoiceGroupValue;
+    value?: ChoiceGroupValue;
+    onChange?: (value: ChoiceGroupValue) => void;
+    variant?: ChoiceGroupItemVariant;
+    color?: ChoiceGroupItemColor;
+    indeterminateCheck?: boolean | string | ((state: ChoiceGroupIndeterminateState) => string);
+    indeterminateCheckProps?: { indented?: boolean } & Partial<
+      Omit<CheckboxProps, 'indeterminate' | 'checked' | 'onChange' | 'defaultChecked' | 'label'>
+    >;
+    showIndicator?: boolean;
+  };
 
 export const ChoiceGroup = (props: ChoiceGroupProps): React.ReactElement => {
   const { getLabel } = useLabels();
@@ -62,7 +83,7 @@ export const ChoiceGroup = (props: ChoiceGroupProps): React.ReactElement => {
     indeterminateCheck,
     indeterminateCheckProps = {},
     color,
-    layout = inputType === 'radio' ? 'segmented' : 'separated',
+    layout = inputType === 'radio' && variant === 'card' ? 'segmented' : 'separated',
     showIndicator,
     ...rest
   } = props;
@@ -155,45 +176,48 @@ export const ChoiceGroup = (props: ChoiceGroupProps): React.ReactElement => {
             <FormLabel id={id} label={label} required={required} hideLabel={hideLabel} renderWithoutLabel={true} />
           </legend>
         )}
-        {items?.length ? (
-          <>
-            {showIndeterminate && (
-              <Checkbox
-                id={`${id}-indeterminate`}
-                value="indeterminate"
-                name="indeterminate"
-                {...restIndeterminate}
-                label={getIndeterminateLabel}
-                indeterminate={isSomeSelected}
-                checked={isAllSelected}
-                onChange={onIndeterminateChangeHandler}
-              />
-            )}
-            <Row
-              direction={direction}
-              gutterX={direction === 'row' && layout === 'segmented' ? 2 : 2}
-              gutterY={direction === 'row' && layout === 'segmented' ? 0 : 1}
-              gap={layout === 'separated' && variant !== 'default' ? 2 : 0}
-              {...rowProps}
-              className={CheckGroupBEM}
-            >
-              {items.map((item) => (
-                <ChoiceGroupItem
-                  key={item.id}
-                  {...item}
-                  color={color}
-                  variant={variant}
-                  type={inputType}
-                  isSegmented={layout === 'segmented'}
-                  showIndicator={showIndicator}
+        <Row>
+          <Col>
+            {items?.length ? (
+              <>
+                {showIndeterminate && (
+                  <Checkbox
+                    id={`${id}-indeterminate`}
+                    value="indeterminate"
+                    name="indeterminate"
+                    {...restIndeterminate}
+                    label={getIndeterminateLabel}
+                    indeterminate={isSomeSelected}
+                    checked={isAllSelected}
+                    onChange={onIndeterminateChangeHandler}
+                  />
+                )}
+                <Row
                   direction={direction}
-                />
-              ))}
-            </Row>
-          </>
-        ) : (
-          <p>{getLabel('table.filter.no-options')}</p>
-        )}
+                  gutterX={direction === 'row' && layout === 'segmented' ? 0 : 2}
+                  gutterY={direction === 'row' && layout === 'segmented' ? 0 : 1}
+                  {...rowProps}
+                  className={CheckGroupBEM}
+                >
+                  {items.map((item) => (
+                    <ChoiceGroupItem
+                      key={item.id}
+                      {...item}
+                      color={color}
+                      variant={variant}
+                      type={inputType}
+                      isSegmented={layout === 'segmented'}
+                      showIndicator={showIndicator}
+                      direction={direction}
+                    />
+                  ))}
+                </Row>
+              </>
+            ) : (
+              <p>{getLabel('table.filter.no-options')}</p>
+            )}
+          </Col>
+        </Row>
         {helper && <FeedbackText {...helper} id={helperId} />}
       </fieldset>
     </ChoiceGroupContext.Provider>

@@ -39,7 +39,6 @@ const generateItems = ({
   variant = 'primary',
   withHelper = false,
   withIndicator = false,
-  extraLongTitle = false,
   tooltip = false,
   colProps,
 }: GenerateItemsArgs): ChoiceGroupItemProps[] => [
@@ -80,13 +79,13 @@ const renderGroup = (
   <Row key={`${inputType}-${variant}-${index}`}>
     <Col lg={6} md={12}>
       <ChoiceGroup
-        color={variant}
+        color="primary"
         id={`${inputType}-${variant}-no-helper-${index}`}
         inputType={inputType}
         items={generateItems({
           index,
           inputType,
-          variant,
+          variant: 'primary',
           withHelper,
           withIndicator,
         })}
@@ -100,13 +99,13 @@ const renderGroup = (
     </Col>
     <Col lg={6} md={12}>
       <ChoiceGroup
-        color={variant === 'primary' ? 'secondary' : 'primary'}
+        color="secondary"
         id={`${inputType}-${variant}-with-helper-${index}`}
         inputType={inputType}
         items={generateItems({
           index: index + 1,
           inputType,
-          variant: variant === 'primary' ? 'secondary' : 'primary',
+          variant: 'secondary',
           withHelper,
           withIndicator,
         })}
@@ -212,5 +211,16 @@ export const WithExtraContent: Story = {
     label: 'I have extra content after the label:',
     items: generateItems({ index: 15, extraLongTitle: true }),
     helper: { text: 'Extra Content' },
+  },
+};
+
+export const FullWidth: Story = {
+  args: {
+    ...Checkbox.args,
+    inputType: 'radio',
+    label: 'My options will fill the space:',
+    variant: 'card',
+    showIndicator: true,
+    items: generateItems({ index: 16, colProps: { width: 'auto', grow: 1 } }),
   },
 };
