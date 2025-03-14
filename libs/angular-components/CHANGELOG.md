@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-angular-v1.5.0-rc.4](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.5.0-rc.3...angular-1.5.0-rc.4) (2025-03-14)
+
+
+### Features
+
+* **typography:** TEDI-Ready Angular Typography components [#507](https://github.com/TEHIK-EE/tedi-design-system/issues/507) ([#547](https://github.com/TEHIK-EE/tedi-design-system/issues/547)) ([9fa0afe](https://github.com/TEHIK-EE/tedi-design-system/commit/9fa0afec8da00713f45df58242cc9f4716c11564))
+
 # [@tehik-ee/tedi-angular-v1.5.0-rc.3](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.5.0-rc.2...angular-1.5.0-rc.3) (2025-03-13)
 
 
