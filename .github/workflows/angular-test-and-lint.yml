@@ -57,15 +57,15 @@ jobs:
       - name: Install dependencies
         run: |
           npm ci --cache .npm --prefer-offline
-          cd libs/react-components
+          cd libs/angular-components
           npm ci --cache .npm --prefer-offline
 
       - name: Build Storybook
         run: |
-          cd libs/react-components
+          cd libs/angular-components
           npm run build:sb
 
       - name: Publish to Chromatic
         run: |
-          cd libs/react-components
+          cd libs/angular-components
           CHROMATIC_PROJECT_TOKEN=${{ secrets.CHROMATIC_TOKEN }} npm run chromatic
