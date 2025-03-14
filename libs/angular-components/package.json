@@ -22,7 +22,8 @@
     "lint": "ng lint angular-components --fix",
     "test": "jest --passWithNoTests",
     "test:watch": "ng test angular-components --watch",
-    "release": "npx semantic-release -e semantic-release-monorepo --debug"
+    "release": "npx semantic-release -e semantic-release-monorepo --debug",
+    "chromatic": "npx chromatic --project-token=$CHROMATIC_PROJECT_TOKEN --build-script-name=build:sb --baseline-branch=rc"
   },
   "peerDependencies": {
     "@angular/animations": "^18.2.0",
