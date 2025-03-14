@@ -10,6 +10,11 @@ import Ellipsis, { EllipsisProps } from './ellipsis';
 const meta: Meta<typeof Ellipsis> = {
   component: Ellipsis,
   title: 'TEDI-Ready/Components/Helpers/Ellipsis',
+  parameters: {
+    status: {
+      type: ['devComponent'],
+    },
+  },
 };
 
 export default meta;
@@ -53,7 +58,7 @@ export const ResponsiveExample: Story = {
  * Example when popover is shown even when text doesn't ellipse.
  * Use this when you want to show popover always or with custom content
  */
-export const ResponsiveWithCustomTooltip: Story = {
+export const ResponsiveWithCustomPopover: Story = {
   args: {
     lineClamp: 1,
     popover: false,
@@ -65,7 +70,7 @@ export const ResponsiveWithCustomTooltip: Story = {
             <span className="text-small"> and dont fit in x number of rows</span>
           </span>
         </Popover.Trigger>
-        <Popover.Content>Custom tooltip content, shown also when text doesn&apos;t Ellipse</Popover.Content>
+        <Popover.Content>Custom popover content, shown also when text doesn&apos;t Ellipse</Popover.Content>
       </Popover>
     ),
   },
