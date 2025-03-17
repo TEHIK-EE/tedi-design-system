@@ -12,6 +12,12 @@ import FloatingButton, { FloatingButtonProps } from './floating-button';
 const meta: Meta<typeof FloatingButton> = {
   component: FloatingButton,
   title: 'Tedi-ready/Components/Buttons/FloatingButton',
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/design/jWiRIXhHRxwVdMSimKX2FF/TEDI-READY-(work-in-progress)?node-id=4514-73451&m=dev',
+    },
+  },
 };
 
 export default meta;
