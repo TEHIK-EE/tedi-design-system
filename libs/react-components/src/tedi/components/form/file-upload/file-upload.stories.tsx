@@ -13,6 +13,12 @@ import FileUpload, { FileUploadProps } from './file-upload';
 const meta: Meta<typeof FileUpload> = {
   component: FileUpload,
   title: 'TEDI-Ready/Components/Form/FileUpload',
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/design/jWiRIXhHRxwVdMSimKX2FF/TEDI-READY-(work-in-progress)?node-id=4536-78765&m=dev',
+    },
+  },
 };
 
 export default meta;

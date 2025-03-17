@@ -21,6 +21,10 @@ const meta: Meta<typeof Separator> = {
     controls: {
       exclude: ['sm', 'md', 'lg', 'xl', 'xxl'],
     },
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/jWiRIXhHRxwVdMSimKX2FF/TEDI-Design-System-(draft)?type=design&node-id=3518-32729&m=dev',
+    },
   },
 };
 

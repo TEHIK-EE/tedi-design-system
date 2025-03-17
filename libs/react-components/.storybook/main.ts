@@ -19,6 +19,8 @@ const config: StorybookConfig = {
   addons: [
     '@storybook/addon-essentials',
     '@storybook/addon-a11y',
+    '@storybook/addon-designs',
+    '@chromatic-com/storybook',
     '@avalane/storybook-addon-status',
     'storybook-addon-pseudo-states',
   ],

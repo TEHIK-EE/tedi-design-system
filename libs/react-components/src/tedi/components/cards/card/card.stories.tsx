@@ -46,6 +46,10 @@ export default {
         },
       },
     },
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/design/jWiRIXhHRxwVdMSimKX2FF/TEDI-READY-(work-in-progress)?node-id=163-19532&m=dev',
+    },
   },
 } as Meta;
 

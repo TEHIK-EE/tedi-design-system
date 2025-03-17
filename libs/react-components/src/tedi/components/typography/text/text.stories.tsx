@@ -13,6 +13,12 @@ import { Text } from './text';
 const meta: Meta<typeof Text> = {
   component: Text,
   title: 'Tedi-Ready/Base/Typography/Text',
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/design/jWiRIXhHRxwVdMSimKX2FF/TEDI-Design-System-(draft)?node-id=115-11630&m=dev',
+    },
+  },
 };
 
 export default meta;
