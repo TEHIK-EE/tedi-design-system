@@ -4,8 +4,6 @@
   "buildScriptName": "build:sb",
   "exitOnceUploaded": true,
   "onlyChanged": true,
-  "projectId": "Project:67af5228bf8bb8a62689698f",
   "skip": "dependabot/**",
-  "storybookBaseDir": "libs/react-components",
-  "zip": true
+  "storybookBaseDir": "libs/react-components"
 }
