@@ -11,24 +11,23 @@ import { FileDropzone, FileDropzoneProps } from './file-dropzone';
 const meta: Meta<typeof FileDropzone> = {
   component: FileDropzone,
   title: 'TEDI-Ready/Components/Form/FileDropzone',
+  args: {
+    name: 'file-dropzone',
+  },
 };
 
 export default meta;
 type Story = StoryObj<typeof FileDropzone>;
 
-const Template: StoryFn<FileDropzoneProps> = (args) => {
-  return (
-    <Row>
-      <Col md={6}>
-        <FileDropzone {...args} />
-      </Col>
-    </Row>
-  );
-};
+export const Default: Story = {};
 
-export const Default: Story = {
-  render: Template,
-};
+const Template: StoryFn<FileDropzoneProps> = (args) => (
+  <Row>
+    <Col md={6}>
+      <FileDropzone {...args} />
+    </Col>
+  </Row>
+);
 
 export const WithHint: Story = {
   render: Template,
