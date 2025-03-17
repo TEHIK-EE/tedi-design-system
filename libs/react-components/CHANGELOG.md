@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-react-v11.1.1](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.1.0...react-11.1.1) (2025-03-17)
+
+
+### Bug Fixes
+
+* **button:** update small button height to match default button height in mobile [#533](https://github.com/TEHIK-EE/tedi-design-system/issues/533) ([#536](https://github.com/TEHIK-EE/tedi-design-system/issues/536)) ([cd5fb24](https://github.com/TEHIK-EE/tedi-design-system/commit/cd5fb2491a233a45eb31cca7b573010b0f193cc4))
+
 # [@tehik-ee/tedi-react-v11.1.0](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.0.0...react-11.1.0) (2025-02-27)
 
 
