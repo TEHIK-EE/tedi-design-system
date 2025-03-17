@@ -1,5 +1,11 @@
-import { argsToTemplate, Meta, StoryObj } from "@storybook/angular";
+import {
+  argsToTemplate,
+  Meta,
+  moduleMetadata,
+  StoryObj,
+} from "@storybook/angular";
 import { ListItemComponent } from "./list-item.component";
+import { ListComponent } from "./list.component";
 
 /**
  * <a href="https://www.figma.com/file/jWiRIXhHRxwVdMSimKX2FF/TEDI-Design-System-(draft)?type=design&node-id=2137-19322&m=dev" target="_BLANK">Figma ↗</a><br/>
@@ -9,6 +15,11 @@ import { ListItemComponent } from "./list-item.component";
 export default {
   title: "TEDI-Ready Angular/Content/List/ListItem",
   component: ListItemComponent,
+  decorators: [
+    moduleMetadata({
+      declarations: [ListComponent, ListItemComponent],
+    }),
+  ],
   argTypes: {
     class: {
       type: "string",
@@ -21,9 +32,11 @@ export const Default: StoryObj<ListItemComponent> = {
   render: (args) => ({
     props: args,
     template: `
+        <tedi-list>
           <tedi-list-item ${argsToTemplate(args)}>
               List item
           </tedi-list-item>
+        </tedi-list>
       `,
   }),
 };
