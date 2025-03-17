@@ -152,7 +152,7 @@ export const IconSizesWithoutBackground: StoryObj<IconComponent> = {
             <div 
               *ngFor="let size of sizes; let last = last" 
               class="padding-14-16"
-              [ngClass]="{ 'border-bottom border-bottom--3x': !last }"
+              [ngClass]="{ 'border-bottom': !last }"
               style="display: grid; grid-template-columns: repeat(2, 1fr); align-items: center;"
             >
               <div>{{ size }}</div>
@@ -184,7 +184,7 @@ export const IconSizesWithBackground: StoryObj<IconComponent> = {
           <div 
             *ngFor="let size of sizes; let last = last" 
             class="padding-14-16"
-            [ngClass]="{ 'border-bottom border-bottom--3x': !last }"
+            [ngClass]="{ 'border-bottom': !last }"
             style="display: grid; grid-template-columns: repeat(2, 1fr); align-items: center;"
           >
             <div>{{ size }}</div>
@@ -217,7 +217,7 @@ export const IconColors: StoryObj<IconComponent> = {
     },
     template: `
           <div class="example-list">
-            <div class="flex flex-column padding-14-16 border-bottom border-bottom--3x">
+            <div class="flex flex-column padding-14-16 border-bottom">
                 Outlined
                 <div class="flex align-items-center gap-3">
                     <div 
