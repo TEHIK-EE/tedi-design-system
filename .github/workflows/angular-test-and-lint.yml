@@ -42,6 +42,34 @@ jobs:
           npm ci --cache .npm --prefer-offline
           npm run test
 
+  test-coverage:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+
+      - name: Install dependencies
+        run: |
+          npm ci --cache .npm --prefer-offline
+          cd libs/angular-components
+          npm ci --cache .npm --prefer-offline
+
+      - name: Run coverage tests
+        run: |
+          cd libs/angular-components
+          npm run test:coverage
+
+      - name: Upload results to Codecov
+        uses: codecov/codecov-action@v5
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          working-directory: ./libs/angular-components
+
   chromatic:
     runs-on: ubuntu-latest
     if: github.event.pull_request.head.repo.full_name == github.repository || github.event_name == 'push'

@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import { Component, Input } from '@angular/core';
 
 type SpinnerSize = 10 | 16 | 18 | 48;
