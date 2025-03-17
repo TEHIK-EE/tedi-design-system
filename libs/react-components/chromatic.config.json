@@ -1,9 +1,7 @@
 {
   "$schema": "https://www.chromatic.com/config-file.schema.json",
-  "autoAcceptChanges": "main",
   "buildScriptName": "build:sb",
+  "autoAcceptChanges": "main",
   "exitOnceUploaded": true,
-  "onlyChanged": true,
-  "skip": "dependabot/**",
-  "storybookBaseDir": "libs/react-components"
+  "skip": "dependabot/**"
 }
