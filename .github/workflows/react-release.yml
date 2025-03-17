@@ -68,7 +68,7 @@ jobs:
       - name: Publish to Chromatic
         run: |
           cd libs/react-components
-          CHROMATIC_PROJECT_TOKEN=${{ secrets.CHROMATIC_TOKEN }} npm run chromatic
+          CHROMATIC_PROJECT_TOKEN=${{ secrets.CHROMATIC_TOKEN_REACT }} npm run chromatic
 
   build-and-deploy:
     needs: [lint, test]

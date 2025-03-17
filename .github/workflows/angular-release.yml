@@ -68,7 +68,7 @@ jobs:
       - name: Publish to Chromatic
         run: |
           cd libs/angular-components
-          CHROMATIC_PROJECT_TOKEN=${{ secrets.CHROMATIC_TOKEN }} npm run chromatic
+          CHROMATIC_PROJECT_TOKEN=${{ secrets.CHROMATIC_TOKEN_ANGULAR }} npm run chromatic
 
   build-and-deploy:
     needs: [lint, test]
