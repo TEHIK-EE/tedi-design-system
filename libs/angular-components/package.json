@@ -22,7 +22,8 @@
     "lint": "ng lint angular-components --fix",
     "test": "jest --passWithNoTests",
     "test:watch": "ng test angular-components --watch",
-    "release": "npx semantic-release -e semantic-release-monorepo --debug"
+    "release": "npx semantic-release -e semantic-release-monorepo --debug",
+    "chromatic": "npx chromatic --project-token=$CHROMATIC_PROJECT_TOKEN --build-script-name=build:sb --baseline-branch=rc"
   },
   "peerDependencies": {
     "@angular/animations": "^18.2.0",
@@ -69,6 +70,7 @@
     "@types/node": "^22.10.5",
     "angular-eslint": "^18.4.2",
     "chokidar": "3.6.0",
+    "chromatic": "^11.27.0",
     "eslint-plugin-prettier": "^5.2.1",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^29.7.0",
