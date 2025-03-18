@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-react-v11.1.2](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.1.1...react-11.1.2) (2025-03-18)
+
+
+### Bug Fixes
+
+* **SkeletonBlock:** remove unnecessary 0% from background css [#577](https://github.com/TEHIK-EE/tedi-design-system/issues/577) ([#578](https://github.com/TEHIK-EE/tedi-design-system/issues/578)) ([6a73d3e](https://github.com/TEHIK-EE/tedi-design-system/commit/6a73d3e6278f709ccaac0754c336b3d4c26b109f))
+
 # [@tehik-ee/tedi-react-v11.1.1](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.1.0...react-11.1.1) (2025-03-17)
 
 
