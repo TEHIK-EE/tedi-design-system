@@ -3,7 +3,7 @@ import React from 'react';
 
 import { FeedbackText, FeedbackTextProps } from '../../../../tedi/components/form/feedback-text/feedback-text';
 import FormLabel, { FormLabelProps } from '../../../../tedi/components/form/form-label/form-label';
-import { Direction, Gutter, Row, RowProps } from '../../../../tedi/components/grid';
+import { Direction, Gutter, Row, RowProps } from '../../../../tedi/components/layout/grid';
 import { useLabels } from '../../../../tedi/providers/label-provider';
 import Check, { CheckProps } from '../check/check';
 import styles from './choice-group.module.scss';

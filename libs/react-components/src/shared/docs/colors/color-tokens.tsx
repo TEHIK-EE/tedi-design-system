@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Col, Row } from '../../../tedi/components/grid';
+import { Col, Row } from '../../../tedi/components/layout/grid';
 
 interface Color {
   name: string;

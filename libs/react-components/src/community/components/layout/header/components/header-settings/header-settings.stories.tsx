@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react';
 
-import Separator from '../../../../../../tedi/components/separator/separator';
-import { VerticalSpacing } from '../../../../../../tedi/components/vertical-spacing';
+import { VerticalSpacing } from '../../../../../../tedi/components/layout/vertical-spacing';
+import Separator from '../../../../../../tedi/components/misc/separator/separator';
 import { useLayout } from '../../../../../helpers/hooks/use-layout';
 import Anchor from '../../../../anchor/anchor';
 import { Card, CardContent } from '../../../../card';

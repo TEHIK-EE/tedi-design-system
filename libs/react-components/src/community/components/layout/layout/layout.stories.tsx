@@ -1,8 +1,8 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 
-import { Section } from '../../../../tedi/components/section/section';
-import { StretchContent } from '../../../../tedi/components/stretch-content/stretch-content';
-import { VerticalSpacing } from '../../../../tedi/components/vertical-spacing';
+import { Section } from '../../../../tedi/components/content/section/section';
+import { VerticalSpacing } from '../../../../tedi/components/layout/vertical-spacing';
+import { StretchContent } from '../../../../tedi/components/misc/stretch-content/stretch-content';
 import useLayout from '../../../helpers/hooks/use-layout';
 import Button from '../../button/button';
 import Heading from '../../typography/heading/heading';

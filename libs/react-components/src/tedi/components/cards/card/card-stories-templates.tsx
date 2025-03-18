@@ -1,16 +1,16 @@
 /* istanbul ignore file */
 import { StoryFn } from '@storybook/react/*';
 
+import { Icon } from '../../base/icon/icon';
+import { Heading } from '../../base/typography/heading/heading';
+import { Text } from '../../base/typography/text/text';
 import { Button } from '../../buttons/button/button';
-import { Col, Row } from '../../grid';
-import { HeadingWithIcon } from '../../heading-with-icon/heading-with-icon';
-import { Icon } from '../../icon/icon';
+import { HeadingWithIcon } from '../../content/heading-with-icon/heading-with-icon';
+import { Col, Row } from '../../layout/grid';
+import { VerticalSpacing } from '../../layout/vertical-spacing';
+import { Separator } from '../../misc/separator/separator';
 import { Link } from '../../navigation/link/link';
-import { Separator } from '../../separator/separator';
-import { StatusBadge } from '../../status-badge/status-badge';
-import { Heading } from '../../typography/heading/heading';
-import { Text } from '../../typography/text/text';
-import { VerticalSpacing } from '../../vertical-spacing';
+import { StatusBadge } from '../../tags/status-badge/status-badge';
 import { CardStory } from './card.stories';
 import { Card, CardContentPadding } from './index';
 import { CardBackground } from './utility';

@@ -1,11 +1,11 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 
-import { Col, Row } from '../../../../tedi/components/grid';
-import { Icon } from '../../icon/icon';
-import { Separator } from '../../separator/separator';
-import { StretchContent } from '../../stretch-content/stretch-content';
-import { CardsExample } from '../../stretch-content/stretch-content.stories';
-import { Heading } from '../../typography/heading/heading';
+import { Icon } from '../../base/icon/icon';
+import { Heading } from '../../base/typography/heading/heading';
+import { Col, Row } from '../../layout/grid';
+import { Separator } from '../../misc/separator/separator';
+import { StretchContent } from '../../misc/stretch-content/stretch-content';
+import { CardsExample } from '../../misc/stretch-content/stretch-content.stories';
 import {
   AlternativeCardsTemplate,
   BackgroundColorsTemplate,

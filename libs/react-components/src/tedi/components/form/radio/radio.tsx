@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import React from 'react';
 
-import { Col, Row } from '../../../../tedi/components/grid';
+import { Col, Row } from '../../layout/grid';
 import { ChoiceInputProps } from '../choice-input.types';
 import FeedbackText from '../feedback-text/feedback-text';
 import FormLabel from '../form-label/form-label';

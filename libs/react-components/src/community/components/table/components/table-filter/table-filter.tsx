@@ -3,7 +3,7 @@ import { FilterFns } from '@tanstack/table-core';
 import cn from 'classnames';
 import React from 'react';
 
-import { Col } from '../../../../../tedi/components/grid';
+import { Col } from '../../../../../tedi/components/layout/grid';
 import { useLabels } from '../../../../../tedi/providers/label-provider';
 import Button from '../../../button/button';
 import { Tooltip, TooltipProvider, TooltipTrigger } from '../../../tooltip';

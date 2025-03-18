@@ -1,13 +1,13 @@
 import cn from 'classnames';
 import React, { forwardRef } from 'react';
 
-import { FeedbackText, FeedbackTextProps } from '../../../../tedi/components/form/feedback-text/feedback-text';
-import FormLabel, { FormLabelProps } from '../../../../tedi/components/form/form-label/form-label';
-import { useLabels } from '../../../../tedi/providers/label-provider';
 import { BreakpointSupport, useBreakpointProps } from '../../../helpers';
+import { useLabels } from '../../../providers/label-provider';
+import { Icon, IconWithoutBackgroundProps } from '../../base/icon/icon';
 import { ClosingButton } from '../../buttons/closing-button/closing-button';
-import { Icon, IconWithoutBackgroundProps } from '../../icon/icon';
-import Separator from '../../separator/separator';
+import Separator from '../../misc/separator/separator';
+import { FeedbackText, FeedbackTextProps } from '../feedback-text/feedback-text';
+import FormLabel, { FormLabelProps } from '../form-label/form-label';
 import styles from './textfield.module.scss';
 
 type TextFieldBreakpointProps = {

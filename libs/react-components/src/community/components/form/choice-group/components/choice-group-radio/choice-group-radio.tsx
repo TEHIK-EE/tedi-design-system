@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Col } from '../../../../../../tedi/components/grid';
+import { Col } from '../../../../../../tedi/components/layout/grid';
 import Radio from '../../../radio/radio';
 import { ChoiceGroupItemProps } from '../../choice-group.types';
 import { ChoiceGroupContext } from '../../choice-group-context';

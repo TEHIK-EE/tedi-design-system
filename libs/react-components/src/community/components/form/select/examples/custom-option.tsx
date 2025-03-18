@@ -1,8 +1,8 @@
 import { StoryFn } from '@storybook/react';
 import { MenuListProps, OptionProps } from 'react-select';
 
-import { Col, Row } from '../../../../../tedi/components/grid';
-import { VerticalSpacing } from '../../../../../tedi/components/vertical-spacing';
+import { Col, Row } from '../../../../../tedi/components/layout/grid';
+import { VerticalSpacing } from '../../../../../tedi/components/layout/vertical-spacing';
 import Button from '../../../button/button';
 import Tag from '../../../tag/tag';
 import Text from '../../../typography/text/text';

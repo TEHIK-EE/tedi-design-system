@@ -3,8 +3,8 @@ import { useFormik } from 'formik';
 import React from 'react';
 import * as Yup from 'yup';
 
-import { Col, Row } from '../../../../../../tedi/components/grid';
-import { VerticalSpacing } from '../../../../../../tedi/components/vertical-spacing';
+import { Col, Row } from '../../../../../../tedi/components/layout/grid';
+import { VerticalSpacing } from '../../../../../../tedi/components/layout/vertical-spacing';
 import { useLabels } from '../../../../../../tedi/providers/label-provider';
 import { IntentionalAny } from '../../../../../types';
 import Button from '../../../../button/button';

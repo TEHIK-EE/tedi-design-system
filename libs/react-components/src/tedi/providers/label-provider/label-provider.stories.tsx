@@ -1,7 +1,7 @@
 import { Meta, StoryFn } from '@storybook/react';
 
 import StorybookDecorator from '../../../../.storybook/storybook-decorator';
-import { Text } from '../../components/typography/text/text';
+import { Text } from '../../components/base/typography/text/text';
 import { UnknownType } from '../../types/commonTypes';
 import LabelProvider, { LabelProviderProps } from './label-provider';
 import { useLabels } from './use-labels';
