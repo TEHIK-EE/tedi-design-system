@@ -1,4 +1,11 @@
+# [@tehik-ee/tedi-react-v11.1.3](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.1.2...react-11.1.3) (2025-03-18)
+
+### Bug Fixes
+
+* **FloatingButton:** add FloatingButton exports [#581](https://github.com/TEHIK-EE/tedi-design-system/issues/581) ([#582](https://github.com/TEHIK-EE/tedi-design-system/issues/582)) ([cc262a9](https://github.com/TEHIK-EE/tedi-design-system/commit/cc262a9130015c6fb2ea67ec38b5f4d9a61e9563))
+
 # [@tehik-ee/tedi-react-v11.2.0-rc.6](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.2.0-rc.5...react-11.2.0-rc.6) (2025-03-18)
+# [@tehik-ee/tedi-react-v11.1.2](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.1.1...react-11.1.2) (2025-03-18)
 
 
 ### Bug Fixes
