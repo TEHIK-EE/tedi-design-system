@@ -1,145 +1,128 @@
-import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
-import { Meta, moduleMetadata, StoryObj } from '@storybook/angular';
-
-import { SpinnerComponent } from './spinner.component';
-
-@Component({
-  selector: 'spinner-list',
-  template: `
-    <div class="example-list" style="width: 50%;">
-      <div
-        *ngFor="let value of array; let i = index"
-        class="border-bottom padding-14-16"
-        style="display: flex; gap: 1rem;"
-      >
-        <div style="width: auto;">{{ value }}</div>
-        <div style="width: auto; display: flex;">
-          <tedi-spinner [size]="value" [color]="color" [label]="label"></tedi-spinner>
-        </div>
-      </div>
-    </div>
-  `,
-})
-export class SpinnerListComponent {
-  @Input() array: number[] = [];
-  @Input() color: string = 'primary';
-  @Input() label: string = 'Loading...';
-}
-
-@Component({
-  selector: 'spinner-colors',
-  template: `
-    <div style="display: flex; align-items: center; gap: 1rem;">
-      <div style="width: auto;">
-        <tedi-spinner [size]="size" color="primary" [label]="primaryLabel"></tedi-spinner>
-      </div>
-      <div class="col col-auto">
-        <div class="bg bg-primary">
-          <tedi-spinner [size]="size" color="secondary" [label]="secondaryLabel"></tedi-spinner>
-        </div>
-      </div>
-      <div class="col col-auto">
-        <div class="bg bg-danger">
-          <tedi-spinner [size]="size" color="secondary" [label]="secondaryLabel"></tedi-spinner>
-        </div>
-      </div>
-      <div class="col col-auto">
-        <div class="bg bg-success">
-          <tedi-spinner [size]="size" color="secondary" [label]="secondaryLabel"></tedi-spinner>
-        </div>
-      </div>
-    </div>
-  `,
-})
-export class SpinnerColorsComponent {
-  @Input() size: number = 48;
-  @Input() primaryLabel: string = 'Loading...';
-  @Input() secondaryLabel: string = 'Loading...';
-}
+import { argsToTemplate, Meta, StoryObj } from "@storybook/angular";
+import { SpinnerComponent } from "./spinner.component";
 
 /**
  * <a href="https://www.figma.com/file/jWiRIXhHRxwVdMSimKX2FF/TEDI-Design-System-(draft)?type=design&node-id=2768-42334&mode=dev" target="_BLANK">Figma ↗</a><br/>
  * <a href="https://tedi.tehik.ee/1ee8444b7/p/13d6ac-spinner" target="_BLANK">Zeroheight ↗</a>
  */
 
+const SIZES = [10, 16, 48];
+const COLORS = ["primary", "secondary"];
+
 export default {
-  title: 'TEDI-Ready Angular/Loader/Spinner',
+  title: "TEDI-Ready Angular/Loader/Spinner",
   component: SpinnerComponent,
-  decorators: [
-    moduleMetadata({
-      declarations: [SpinnerComponent, SpinnerListComponent, SpinnerColorsComponent],
-      imports: [CommonModule],
-    }),
-  ],
   argTypes: {
     size: {
-      control: 'radio',
-      options: [10, 16, 48],
-      description: 'Defines the size of the spinner. Accepted values: 10 (small), 16 (default), 48 (large).',
-      defaultValue: 16,
+      control: "radio",
+      options: SIZES,
+      description: "Size of the spinner in px.",
+      table: {
+        defaultValue: {
+          summary: "16",
+        },
+        type: { summary: "SpinnerSize", detail: "10 \n16 \n48" },
+      },
     },
     color: {
-      control: 'radio',
-      options: ['primary', 'secondary'],
+      control: "radio",
+      options: COLORS,
       description:
-        'Specifies the color theme of the spinner. The color should meet accessibility standards for color contrast.',
-      defaultValue: 'primary',
+        "Specifies the color theme of the spinner. The color should meet accessibility standards for color contrast.",
+      table: {
+        defaultValue: { summary: "primary" },
+        type: { summary: "SpinnerColor", detail: "primary \nsecondary" },
+      },
+    },
+    class: {
+      control: "text",
+      description:
+        "Adds a custom CSS class to the spinner element for additional styling or theming purposes.",
     },
     label: {
-      control: 'text',
-      description: 'Provides a text label for screen readers to announce the spinners purpose or status.',
-      defaultValue: 'Loading...',
-    },
-    className: {
-      control: 'text',
-      description: 'Adds a custom CSS class to the spinner element for additional styling or theming purposes.',
-    },
-    position: {
-      control: 'object',
+      control: "text",
       description:
-        'Sets the spinners positioning behavior. This is useful when you want to position the spinner over other elements.',
+        "Provides a text label for screen readers to announce the spinners purpose or status.",
     },
   },
 } as Meta<SpinnerComponent>;
 
 export const Default: StoryObj<SpinnerComponent> = {
-  render: (args) => ({
-    props: args,
-  }),
   args: {
     size: 16,
-    color: 'primary',
-    label: 'Loading...',
+    color: "primary",
+    label: "Loading...",
   },
+  render: (args) => ({
+    props: args,
+    template: `<tedi-spinner ${argsToTemplate(args)} />`,
+  }),
 };
 
-export const Size: StoryObj<SpinnerListComponent> = {
-  render: (args) => ({
-    template: `
-      <spinner-list [array]="array" [color]="color" [label]="label"></spinner-list>
-    `,
-    props: args,
-  }),
+export const Size: StoryObj<SpinnerComponent> = {
   args: {
-    array: [10, 16, 48],
-    color: 'primary',
-    label: 'Loading...',
+    color: "primary",
+    label: "Loading...",
   },
-  name: 'Spinner size',
+  render: (args) => ({
+    props: {
+      ...args,
+      sizes: SIZES,
+    },
+    template: `
+      <div class="example-list">
+        <div 
+          *ngFor="let size of sizes; let last = last" 
+          class="padding-14-16"
+          [ngClass]="{ 'border-bottom': !last }"
+          style="display: grid; grid-template-columns: repeat(2, 1fr); align-items: center;"
+        >
+          <div>{{ size }}</div>
+          <tedi-spinner ${argsToTemplate(args)} [size]="size" />
+        </div>
+      </div>
+    `,
+  }),
 };
 
-export const Color: StoryObj<SpinnerColorsComponent> = {
-  render: (args) => ({
-    template: `
-      <spinner-colors [size]="size" [primaryLabel]="primaryLabel" [secondaryLabel]="secondaryLabel"></spinner-colors>
-    `,
-    props: args,
-  }),
+export const Color: StoryObj<SpinnerComponent> = {
   args: {
     size: 48,
-    primaryLabel: 'Loading...',
-    secondaryLabel: 'Loading...',
+    label: "Loading...",
   },
-  name: 'Spinner colors',
+  render: (args) => ({
+    props: args,
+    template: `
+      <div class="flex align-items-center gap-4">
+        <tedi-spinner ${argsToTemplate(args)} color="primary" />
+        <div 
+          [ngStyle]="{ 
+            'background': 'var(--general-surface-brand-primary)', 
+            'borderRadius': '4px', 
+            'padding': '24px' 
+          }"
+        >
+          <tedi-spinner ${argsToTemplate(args)} color="secondary" />
+        </div>
+        <div 
+          [ngStyle]="{ 
+            'background': 'var(--general-status-danger-background-secondary)', 
+            'borderRadius': '4px', 
+            'padding': '24px' 
+          }"
+        >
+          <tedi-spinner ${argsToTemplate(args)} color="secondary" />
+        </div>
+        <div 
+          [ngStyle]="{ 
+            'background': 'var(--general-status-success-background-secondary)', 
+            'borderRadius': '4px', 
+            'padding': '24px' 
+          }"
+        >
+          <tedi-spinner ${argsToTemplate(args)} color="secondary" />
+        </div>
+      </div>
+    `,
+  }),
 };

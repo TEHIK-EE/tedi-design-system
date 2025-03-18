@@ -1,56 +1,60 @@
-/* istanbul ignore file */
-import { Component, Input } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  computed,
+  input,
+  InputSignal,
+} from "@angular/core";
 
-type SpinnerSize = 10 | 16 | 18 | 48;
-type SpinnerColor = 'primary' | 'secondary';
-type SpinnerPosition = 'absolute';
+export type SpinnerSize = 10 | 16 | 48;
+export type SpinnerColor = "primary" | "secondary";
 
 export interface SpinnerProps {
   /**
-   * Defines the size of the spinner. Accepted values: 10 (small), 16 (default), 48 (large).
+   * Size of the spinner in px.
    * @default 16
    */
-  size?: SpinnerSize;
+  size?: InputSignal<SpinnerSize>;
   /**
    * Specifies the color theme of the spinner.
    * The color should meet accessibility standards for color contrast.
    *
-   * @default 'primary'
+   * @default primary
    */
-  color?: SpinnerColor;
-  /**
-   * Sets the spinner's positioning behavior.
-   * This is useful when you want to position the spinner over other elements.
-   */
-  position?: SpinnerPosition;
+  color?: InputSignal<SpinnerColor>;
   /**
    * Adds a custom CSS class to the spinner element for additional styling or theming purposes.
    */
-  className?: string;
+  class?: InputSignal<string>;
   /**
    * Provides a text label for screen readers to announce the spinner's purpose or status.
    */
-  label?: string;
+  label?: InputSignal<string>;
 }
 
 @Component({
-  selector: 'tedi-spinner',
-  templateUrl: './spinner.component.html',
-  styleUrls: ['./spinner.component.scss'],
+  selector: "tedi-spinner",
+  templateUrl: "./spinner.component.html",
+  styleUrl: "./spinner.component.scss",
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SpinnerComponent implements SpinnerProps {
-  @Input() size: SpinnerSize = 16;
-  @Input() color: SpinnerColor = 'primary';
-  @Input() position?: SpinnerPosition;
-  @Input() className?: string;
-  @Input() label: string = 'Loading...';
+  size = input<SpinnerSize>(16);
+  color = input<SpinnerColor>("primary");
+  class = input<string>("");
+  label = input<string>("");
 
-  get spinnerClasses(): string {
-    const classes = ['tedi-spinner'];
-    if (this.className) classes.push(this.className);
-    if (this.position) classes.push(`tedi-spinner--${this.position}`);
-    classes.push(`tedi-spinner--size-${this.size}`);
-    classes.push(`tedi-spinner--color-${this.color}`);
-    return classes.join(' ');
-  }
+  classes = computed(() => {
+    const classList = [
+      "tedi-spinner",
+      `tedi-spinner--size-${this.size()}`,
+      `tedi-spinner--color-${this.color()}`,
+    ];
+
+    if (this.class()) {
+      classList.push(this.class());
+    }
+
+    return classList.join(" ");
+  });
 }
