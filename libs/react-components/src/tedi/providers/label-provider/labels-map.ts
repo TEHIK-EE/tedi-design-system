@@ -189,6 +189,13 @@ export const labelsMap = {
     en: (files: string) => `File(s) ${files} have the wrong extension`,
     ru: (files: string) => `Файл(ы) ${files} имеют неправильное расширение`,
   }),
+  'file-dropzone.label': validateLabel({
+    description: 'Default label for dropzone',
+    components: ['FileDropzone'],
+    et: 'Lohista failid siia või klõpsa, et sirvida',
+    en: 'Drop files here, or click to browse',
+    ru: 'Перетащите файлы сюда или нажмите, чтобы выбрать',
+  }),
   'modal.close': validateLabel({
     description: 'Label for modals close button',
     components: ['Modal'],
