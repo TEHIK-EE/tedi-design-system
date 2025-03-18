@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-react-v11.2.0-rc.5](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.2.0-rc.4...react-11.2.0-rc.5) (2025-03-18)
+
+
+### Features
+
+* **file-dropzone:** TEDI-Ready FileDropzone development [#490](https://github.com/TEHIK-EE/tedi-design-system/issues/490) ([#545](https://github.com/TEHIK-EE/tedi-design-system/issues/545)) ([5d7c542](https://github.com/TEHIK-EE/tedi-design-system/commit/5d7c542a4c8c520b4c9e35bfb8cebff9a2abb1c3)), closes [#407](https://github.com/TEHIK-EE/tedi-design-system/issues/407) [#407](https://github.com/TEHIK-EE/tedi-design-system/issues/407) [#495](https://github.com/TEHIK-EE/tedi-design-system/issues/495)
+
 # [@tehik-ee/tedi-react-v11.2.0-rc.4](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.2.0-rc.3...react-11.2.0-rc.4) (2025-03-17)
 
 
