@@ -31,12 +31,12 @@ export interface EllipsisProps {
 export const Ellipsis = (props: EllipsisProps): JSX.Element => {
   const { children, lineClamp = 2, popover = true, className, ...rest } = props;
   const elementRef = React.useRef<HTMLDivElement>(null);
-  const [renderPopover, setRenderPopover] = React.useState(false);
+  const [isEllipsed, setIsEllipsed] = React.useState(false);
   const elementSize = useElementSize(elementRef);
 
   React.useEffect(() => {
     if (elementRef.current) {
-      setRenderPopover(elementRef.current.scrollHeight > elementRef.current.clientHeight);
+      setIsEllipsed(elementRef.current.scrollHeight > elementRef.current.clientHeight);
     }
   }, [elementRef, elementSize]);
 
@@ -52,7 +52,7 @@ export const Ellipsis = (props: EllipsisProps): JSX.Element => {
     </div>
   );
 
-  return renderPopover && popover ? (
+  return isEllipsed && popover ? (
     <Popover openWith="hover">
       <Popover.Trigger>{ellipsis}</Popover.Trigger>
       <Popover.Content>{children}</Popover.Content>
