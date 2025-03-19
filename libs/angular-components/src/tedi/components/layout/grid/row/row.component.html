@@ -1,0 +1,29 @@
+@switch (element()) {
+  @case ("div") {
+    <div [class]="classes()">
+      <ng-container *ngTemplateOutlet="content"></ng-container>
+    </div>
+  }
+
+  @case ("ul") {
+    <ul [class]="classes()">
+      <ng-container *ngTemplateOutlet="content"></ng-container>
+    </ul>
+  }
+
+  @case ("ol") {
+    <ol [class]="classes()">
+      <ng-container *ngTemplateOutlet="content"></ng-container>
+    </ol>
+  }
+
+  @case ("span") {
+    <span [class]="classes()">
+      <ng-container *ngTemplateOutlet="content"></ng-container>
+    </span>
+  }
+}
+
+<ng-template #content>
+  <ng-content></ng-content>
+</ng-template>

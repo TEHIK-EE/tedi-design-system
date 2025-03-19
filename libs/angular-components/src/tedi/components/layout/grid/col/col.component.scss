@@ -1,0 +1,7 @@
+@use "@tehik-ee/tedi-core/bootstrap-utility/grid";
+
+.col {
+  @include grid.make-col-ready;
+}
+
+@include grid.make-grid-columns;

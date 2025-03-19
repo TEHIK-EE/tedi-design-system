@@ -1,0 +1,23 @@
+@switch (colElement()) {
+  @case ("div") {
+    <div [class]="classes()">
+      <ng-container *ngTemplateOutlet="content"></ng-container>
+    </div>
+  }
+
+  @case ("li") {
+    <li [class]="classes()">
+      <ng-container *ngTemplateOutlet="content"></ng-container>
+    </li>
+  }
+
+  @case ("span") {
+    <span [class]="classes()">
+      <ng-container *ngTemplateOutlet="content"></ng-container>
+    </span>
+  }
+}
+
+<ng-template #content>
+  <ng-content></ng-content>
+</ng-template>

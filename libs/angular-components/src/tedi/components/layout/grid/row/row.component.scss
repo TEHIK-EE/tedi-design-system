@@ -1,0 +1,6 @@
+@use "@tehik-ee/tedi-core/bootstrap-utility/grid";
+
+.row {
+  list-style: none;
+  @include grid.make-row;
+}
