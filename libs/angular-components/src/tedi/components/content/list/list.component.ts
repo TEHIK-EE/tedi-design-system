@@ -28,7 +28,6 @@ type ListProps = {
 
 @Component({
   selector: "tedi-list",
-  standalone: true,
   templateUrl: "./list.component.html",
   styleUrl: "./list.component.scss",
   changeDetection: ChangeDetectionStrategy.OnPush,

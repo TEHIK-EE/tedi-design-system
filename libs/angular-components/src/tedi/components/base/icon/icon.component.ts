@@ -70,7 +70,6 @@ type IconProps = {
 
 @Component({
   selector: "tedi-icon",
-  standalone: true,
   templateUrl: "./icon.component.html",
   styleUrl: "./icon.component.scss",
   changeDetection: ChangeDetectionStrategy.OnPush,
