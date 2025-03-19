@@ -30,7 +30,8 @@ describe("SpinnerComponent", () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [SpinnerComponent, HostSpinnerComponent],
+      imports: [SpinnerComponent],
+      declarations: [HostSpinnerComponent],
     }).compileComponents();
 
     hostFixture = TestBed.createComponent(HostSpinnerComponent);

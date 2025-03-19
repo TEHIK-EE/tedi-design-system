@@ -16,6 +16,7 @@ type ListItemProps = {
 
 @Component({
   selector: "tedi-list-item",
+  standalone: true,
   templateUrl: "./list-item.component.html",
   styleUrl: "./list.component.scss",
   changeDetection: ChangeDetectionStrategy.OnPush,

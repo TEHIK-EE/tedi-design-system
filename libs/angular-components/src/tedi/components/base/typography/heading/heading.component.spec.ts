@@ -37,7 +37,8 @@ describe("HeadingComponent", () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [HeadingComponent, HostHeadingComponent],
+      imports: [HeadingComponent],
+      declarations: [HostHeadingComponent],
     }).compileComponents();
 
     hostFixture = TestBed.createComponent(HostHeadingComponent);
