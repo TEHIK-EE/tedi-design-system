@@ -87,6 +87,7 @@ export type TextProps = {
 
 @Component({
   selector: "tedi-text",
+  standalone: true,
   templateUrl: "./text.component.html",
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

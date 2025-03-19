@@ -25,6 +25,7 @@ export function isHeadingModifier(modifier: string): boolean {
 
 @Component({
   selector: "tedi-heading",
+  standalone: true,
   templateUrl: "./heading.component.html",
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
