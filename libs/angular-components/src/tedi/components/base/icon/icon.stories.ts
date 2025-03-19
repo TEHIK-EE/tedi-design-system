@@ -42,7 +42,7 @@ export default {
   component: IconComponent,
   decorators: [
     moduleMetadata({
-      declarations: [IconComponent, HeadingComponent, TextComponent],
+      imports: [IconComponent, HeadingComponent, TextComponent],
     }),
   ],
   argTypes: {

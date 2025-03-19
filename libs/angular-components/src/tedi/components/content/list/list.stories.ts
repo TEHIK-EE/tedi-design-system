@@ -17,7 +17,7 @@ export default {
   component: ListComponent,
   decorators: [
     moduleMetadata({
-      declarations: [ListComponent, ListItemComponent],
+      imports: [ListComponent, ListItemComponent],
     }),
   ],
   argTypes: {

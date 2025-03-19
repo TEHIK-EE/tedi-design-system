@@ -1,3 +1,4 @@
+import { NgTemplateOutlet } from "@angular/common";
 import {
   ChangeDetectionStrategy,
   Component,
@@ -28,9 +29,11 @@ type ListProps = {
 
 @Component({
   selector: "tedi-list",
+  standalone: true,
   templateUrl: "./list.component.html",
   styleUrl: "./list.component.scss",
   changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [NgTemplateOutlet],
 })
 export class ListComponent implements ListProps {
   class = input<string>("");

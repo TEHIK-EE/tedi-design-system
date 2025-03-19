@@ -41,7 +41,8 @@ describe("IconComponent", () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [IconComponent, HostIconComponent],
+      imports: [IconComponent],
+      declarations: [HostIconComponent],
     }).compileComponents();
 
     hostFixture = TestBed.createComponent(HostIconComponent);

@@ -27,7 +27,8 @@ describe("List Components", () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ListComponent, ListItemComponent, HostListComponent],
+      imports: [ListComponent, ListItemComponent],
+      declarations: [HostListComponent],
     }).compileComponents();
 
     hostFixture = TestBed.createComponent(HostListComponent);

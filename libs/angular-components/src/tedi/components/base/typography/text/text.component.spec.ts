@@ -37,7 +37,8 @@ describe("TextComponent", () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [TextComponent, HostTextComponent],
+      imports: [TextComponent],
+      declarations: [HostTextComponent],
     }).compileComponents();
 
     hostFixture = TestBed.createComponent(HostTextComponent);

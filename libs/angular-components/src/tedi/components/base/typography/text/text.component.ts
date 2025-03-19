@@ -9,6 +9,7 @@ import {
   HeadingModifiers,
   isHeadingModifier,
 } from "../heading/heading.component";
+import { NgTemplateOutlet } from "@angular/common";
 
 export type TextModifiers =
   | HeadingModifiers
@@ -87,8 +88,10 @@ export type TextProps = {
 
 @Component({
   selector: "tedi-text",
+  standalone: true,
   templateUrl: "./text.component.html",
   changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [NgTemplateOutlet],
 })
 export class TextComponent implements TextProps {
   class = input<string | undefined>(undefined);

@@ -34,6 +34,7 @@ export interface SpinnerProps {
 
 @Component({
   selector: "tedi-spinner",
+  standalone: true,
   templateUrl: "./spinner.component.html",
   styleUrl: "./spinner.component.scss",
   changeDetection: ChangeDetectionStrategy.OnPush,

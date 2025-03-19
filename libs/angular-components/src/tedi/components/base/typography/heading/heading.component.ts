@@ -6,6 +6,7 @@ import {
   InputSignal,
 } from "@angular/core";
 import { TextColor, TextModifiers, TextProps } from "../text/text.component";
+import { NgTemplateOutlet } from "@angular/common";
 
 export type HeadingLevel = 1 | 2 | 3 | 4 | 5 | 6;
 export type HeadingModifiers = `h${HeadingLevel}`;
@@ -25,8 +26,10 @@ export function isHeadingModifier(modifier: string): boolean {
 
 @Component({
   selector: "tedi-heading",
+  standalone: true,
   templateUrl: "./heading.component.html",
   changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [NgTemplateOutlet],
 })
 export class HeadingComponent implements HeadingProps {
   class = input<string | undefined>(undefined);
