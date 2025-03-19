@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-core-v1.7.1](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.7.0...core-1.7.1) (2025-03-19)
+
+
+### Bug Fixes
+
+* **select:** add dropdown variables [#333](https://github.com/TEHIK-EE/tedi-design-system/issues/333) ([#584](https://github.com/TEHIK-EE/tedi-design-system/issues/584)) ([c50757b](https://github.com/TEHIK-EE/tedi-design-system/commit/c50757b7156e595ac5c9ad78b9d44d0d6b8c0b07))
+
 # [@tehik-ee/tedi-core-v1.7.0](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.6.16...core-1.7.0) (2025-03-14)
 
 
