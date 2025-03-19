@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-react-v11.2.0-rc.8](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.2.0-rc.7...react-11.2.0-rc.8) (2025-03-19)
+
+
+### Features
+
+* **ellipsis:** TEDI-Ready Ellipsis development [#554](https://github.com/TEHIK-EE/tedi-design-system/issues/554) ([#557](https://github.com/TEHIK-EE/tedi-design-system/issues/557)) ([d5e01cd](https://github.com/TEHIK-EE/tedi-design-system/commit/d5e01cd4c468b3d58561b1f8b6d5272a5b16fccf))
+
 # [@tehik-ee/tedi-react-v11.2.0-rc.7](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.2.0-rc.6...react-11.2.0-rc.7) (2025-03-18)
 
 
