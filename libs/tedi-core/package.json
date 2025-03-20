@@ -3,7 +3,7 @@
   "version": "0.0.0-semantic-version",
   "main": "src/index.scss",
   "scripts": {
-    "build": "rm -rf dist && mkdir dist && cp -a src/* dist/ && cp README.md dist/ && cp package.json dist/",
+    "build": "rm -rf dist && mkdir dist && cp -a src/* dist/ && mkdir dist/fonts && cp -a public/fonts/* dist/fonts/ && cp README.md dist/ && cp package.json dist/",
     "release": "npx semantic-release -e semantic-release-monorepo --debug",
     "lint": "npx stylelint \"src/**/*.scss\" --fix"
   },
