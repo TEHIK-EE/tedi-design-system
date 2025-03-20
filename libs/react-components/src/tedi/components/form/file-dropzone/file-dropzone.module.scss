@@ -1,0 +1,79 @@
+@use '@tehik-ee/tedi-core/mixins';
+
+.tedi-file-dropzone {
+  text-align: center;
+  cursor: pointer;
+  background-color: var(--file-dropzone-background-default);
+  border: 2px dotted var(--file-dropzone-border-default);
+  transition: border-color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+
+  @include mixins.responsive-styles(border-radius, form-field-radius);
+  @include mixins.responsive-styles(padding-left, file-dropzone-padding-x);
+  @include mixins.responsive-styles(padding-right, file-dropzone-padding-x);
+  @include mixins.responsive-styles(padding-top, file-dropzone-padding-y);
+  @include mixins.responsive-styles(padding-bottom, file-dropzone-padding-y);
+  @include mixins.responsive-styles(margin-bottom, layout-grid-gutters-04);
+
+  &:hover {
+    background-color: var(--file-dropzone-background-hover);
+    border-color: var(--file-dropzone-border-hover);
+  }
+
+  .tedi-file-dropzone__label-wrapper {
+    display: flex;
+    justify-content: center;
+
+    .tedi-file-dropzone__label {
+      color: var(--file-dropzone-text-default);
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  &--disabled {
+    pointer-events: none;
+    cursor: not-allowed;
+    background-color: var(--file-dropzone-background-disabled);
+    border-color: var(--file-dropzone-border-disabled);
+
+    .tedi-file-dropzone__label-wrapper .tedi-file-dropzone__label {
+      color: var(--general-text-disabled);
+    }
+  }
+
+  &--invalid {
+    border-color: var(--form-general-feedback-error-border);
+  }
+
+  &--valid {
+    border-color: var(--form-general-feedback-success-border);
+  }
+
+  &--drop-over {
+    color: var(--file-dropzone-text-drop-over);
+    background-color: var(--file-dropzone-background-drop-over);
+    border-color: var(--file-dropzone-border-drop-over);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--file-dropzone-border-hover);
+    outline-offset: 1px;
+  }
+}
+
+.tedi-file-dropzone__input {
+  display: none;
+}
+
+.tedi-file-dropzone__file-list {
+  width: 100%;
+  list-style: none;
+
+  @include mixins.responsive-styles(margin-top, layout-grid-gutters-04);
+}
+
+.tedi-file-dropzone__file-name {
+  overflow-wrap: anywhere;
+}

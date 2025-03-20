@@ -1,3 +1,50 @@
+# [@tehik-ee/tedi-angular-v1.5.0-rc.8](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.5.0-rc.7...angular-1.5.0-rc.8) (2025-03-19)
+
+
+### Bug Fixes
+
+* **angular components:** fix angular component imports, standalone, tests, ng-container [#585](https://github.com/TEHIK-EE/tedi-design-system/issues/585) ([#586](https://github.com/TEHIK-EE/tedi-design-system/issues/586)) ([50263b9](https://github.com/TEHIK-EE/tedi-design-system/commit/50263b9c0212530dbf646d56dd2abba47b45bb72))
+
+# [@tehik-ee/tedi-angular-v1.5.0-rc.7](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.5.0-rc.6...angular-1.5.0-rc.7) (2025-03-19)
+
+
+### Features
+
+* **spinner:** TEDI-Ready Angular spinner component [#555](https://github.com/TEHIK-EE/tedi-design-system/issues/555) ([#574](https://github.com/TEHIK-EE/tedi-design-system/issues/574)) ([e548eb4](https://github.com/TEHIK-EE/tedi-design-system/commit/e548eb4d44aeb3b2a4c5c9539ba2c13af6bf0caa))
+
+# [@tehik-ee/tedi-angular-v1.5.0-rc.6](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.5.0-rc.5...angular-1.5.0-rc.6) (2025-03-18)
+
+
+### Features
+
+* **list:** TEDI-Ready Angular List component [#548](https://github.com/TEHIK-EE/tedi-design-system/issues/548) ([#573](https://github.com/TEHIK-EE/tedi-design-system/issues/573)) ([0651fb3](https://github.com/TEHIK-EE/tedi-design-system/commit/0651fb3607823ecd27cbbcb2b6bbd71b5d477d77))
+
+# [@tehik-ee/tedi-angular-v1.5.0-rc.5](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.5.0-rc.4...angular-1.5.0-rc.5) (2025-03-17)
+
+
+### Bug Fixes
+
+* **typography:** TEDI-Ready Angular fix typo templates [#565](https://github.com/TEHIK-EE/tedi-design-system/issues/565) ([#567](https://github.com/TEHIK-EE/tedi-design-system/issues/567)) ([07ff9a5](https://github.com/TEHIK-EE/tedi-design-system/commit/07ff9a5fdcdecb0004e6363db86dde7d9ce354a6))
+
+
+### Features
+
+* **icon:** TEDI-Ready Angular icon component [#544](https://github.com/TEHIK-EE/tedi-design-system/issues/544) ([#561](https://github.com/TEHIK-EE/tedi-design-system/issues/561)) ([cdb276b](https://github.com/TEHIK-EE/tedi-design-system/commit/cdb276be02484ac1c73128f9aef065cc0fa594ec)), closes [#507](https://github.com/TEHIK-EE/tedi-design-system/issues/507) [#507](https://github.com/TEHIK-EE/tedi-design-system/issues/507) [#507](https://github.com/TEHIK-EE/tedi-design-system/issues/507) [#507](https://github.com/TEHIK-EE/tedi-design-system/issues/507) [#507](https://github.com/TEHIK-EE/tedi-design-system/issues/507) [#507](https://github.com/TEHIK-EE/tedi-design-system/issues/507) [#507](https://github.com/TEHIK-EE/tedi-design-system/issues/507) [#507](https://github.com/TEHIK-EE/tedi-design-system/issues/507) [#507](https://github.com/TEHIK-EE/tedi-design-system/issues/507) [#507](https://github.com/TEHIK-EE/tedi-design-system/issues/507)
+
+# [@tehik-ee/tedi-angular-v1.5.0-rc.4](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.5.0-rc.3...angular-1.5.0-rc.4) (2025-03-14)
+
+
+### Features
+
+* **typography:** TEDI-Ready Angular Typography components [#507](https://github.com/TEHIK-EE/tedi-design-system/issues/507) ([#547](https://github.com/TEHIK-EE/tedi-design-system/issues/547)) ([9fa0afe](https://github.com/TEHIK-EE/tedi-design-system/commit/9fa0afec8da00713f45df58242cc9f4716c11564))
+
+# [@tehik-ee/tedi-angular-v1.5.0-rc.3](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.5.0-rc.2...angular-1.5.0-rc.3) (2025-03-13)
+
+
+### Features
+
+* **button:** Add button styles on anchor [#546](https://github.com/TEHIK-EE/tedi-design-system/issues/546) ([#551](https://github.com/TEHIK-EE/tedi-design-system/issues/551)) ([34183ac](https://github.com/TEHIK-EE/tedi-design-system/commit/34183ac401afef170e70bb9b3c21f9a549349487))
+
 # [@tehik-ee/tedi-angular-v1.5.0-rc.2](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.5.0-rc.1...angular-1.5.0-rc.2) (2025-03-03)
 
 

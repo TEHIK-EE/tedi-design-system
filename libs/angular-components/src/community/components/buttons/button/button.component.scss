@@ -112,6 +112,7 @@ overrides padding variables for neutal button
   border-width: 1px;
   transition: 150ms ease;
   transition-property: background-color, border-color;
+  text-decoration: none;
 
   @include mixins.responsive-styles(
     font-family,
@@ -141,11 +142,11 @@ overrides padding variables for neutal button
     color: var(--_btn-active-text);
   }
 
-  &--sm {
+  &--small {
     @include button-size-vars("sm");
   }
 
-  &--md {
+  &--medium {
     @include button-size-vars("md");
   }
 
@@ -189,6 +190,10 @@ overrides padding variables for neutal button
 
   &--full-width {
     width: 100%;
+  }
+
+  &--underline {
+    text-decoration: underline;
   }
 
   &:disabled {

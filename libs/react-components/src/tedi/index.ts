@@ -11,7 +11,6 @@ export * from './components/tag/tag';
 export * from './components/label/label';
 export * from './components/status-badge/status-badge';
 export * from './components/separator/separator';
-export * from './components/buttons/closing-button/closing-button';
 export * from './components/print/print';
 export * from './components/form/textfield/textfield';
 export * from './components/form/textarea/textarea';
@@ -21,6 +20,8 @@ export * from './components/form/search/search';
 export * from './components/form/radio/radio';
 export * from './components/form/checkbox/checkbox';
 export * from './components/buttons/button/button';
+export * from './components/buttons/closing-button/closing-button';
+export * from './components/buttons/floating-button/floating-button';
 export * from './components/buttons/info-button/info-button';
 export * from './components/notifications/alert/alert';
 export * from './components/notifications/toast/toast';
@@ -35,6 +36,7 @@ export * from './components/scroll-fade/scroll-fade';
 export * from './components/affix/affix';
 export * from './components/tooltip/tooltip';
 export * from './components/popover/popover';
+export * from './components/ellipsis/ellipsis';
 
 export * from './helpers';
 
