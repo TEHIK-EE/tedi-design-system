@@ -164,12 +164,12 @@ export const Checkbox: Story = {
 export const CheckboxRow: Story = {
   args: {
     label: 'ChoiceGroup with checkboxes:',
-    id: 'example-2',
+    id: 'example-2.1',
     defaultValue: [],
     inputType: 'checkbox',
-    name: 'check-2',
+    name: 'check-2.1',
     direction: 'row',
-    items: generateItems({ index: 3 }),
+    items: generateItems({ index: 33 }),
   },
 };
 
