@@ -5,6 +5,7 @@ import { FeedbackText, FeedbackTextProps } from '../../../../tedi/components/for
 import FormLabel, { FormLabelProps } from '../../../../tedi/components/form/form-label/form-label';
 import { Col, Direction, Row, RowProps } from '../../../../tedi/components/grid';
 import { useLabels } from '../../../../tedi/providers/label-provider';
+import { isBreakpointBelow, useBreakpoint } from '../../../helpers';
 import Checkbox, { CheckboxProps } from '../checkbox/checkbox';
 import styles from './choice-group.module.scss';
 import {
@@ -64,6 +65,7 @@ export type ChoiceGroupProps = FormLabelProps &
 
 export const ChoiceGroup = (props: ChoiceGroupProps): React.ReactElement => {
   const { getLabel } = useLabels();
+  const currentBreakpoint = useBreakpoint();
   const {
     id,
     className,
@@ -72,7 +74,7 @@ export const ChoiceGroup = (props: ChoiceGroupProps): React.ReactElement => {
     helper,
     items,
     variant = 'default',
-    direction = variant === 'default' ? 'column' : 'row',
+    direction = variant === 'default' || isBreakpointBelow(currentBreakpoint, 'md') ? 'column' : 'row',
     rowProps,
     name,
     inputType = 'radio',
@@ -196,6 +198,7 @@ export const ChoiceGroup = (props: ChoiceGroupProps): React.ReactElement => {
                   direction={direction}
                   gutterX={direction === 'row' && layout === 'segmented' ? 0 : 2}
                   gutterY={direction === 'row' && layout === 'segmented' ? 0 : 1}
+                  gap={variant === 'default' ? (isBreakpointBelow(currentBreakpoint, 'md') ? 1 : 0) : 0}
                   {...rowProps}
                   className={CheckGroupBEM}
                 >

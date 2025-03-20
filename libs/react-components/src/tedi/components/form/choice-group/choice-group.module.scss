@@ -1,3 +1,5 @@
+@use '@tehik-ee/tedi-core/mixins';
+
 .tedi-choice-group {
   position: relative;
   padding: 0;
@@ -10,5 +12,5 @@
 }
 
 .tedi-choice-group__inner--indented {
-  padding-left: 1rem;
+  @include mixins.responsive-styles(padding-left, form-checkbox-radio-subitem-padding-left);
 }

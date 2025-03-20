@@ -63,6 +63,7 @@ const generateItems = ({
     label: 'Text',
     value: `${inputType}-${variant}-value-${index * 10 + 3}-${withHelper}-${withIndicator}`,
     ...(withHelper && { helper: { text: 'Description' } }),
+    disabled: true,
     colProps,
     tooltip: tooltip ? 'Tooltip' : undefined,
   },
@@ -93,7 +94,6 @@ const renderGroup = (
         name={`${inputType}-${variant}-no-helper-${index}`}
         showIndicator={withIndicator}
         variant="card"
-        defaultValue={generateItems({ index, inputType, variant, withHelper, withIndicator })[0].value}
       />
     </Col>
     <Col lg={6} md={12}>
@@ -135,16 +135,18 @@ export const Radio: Story = {
     inputType: 'radio',
     name: 'radio-1',
     items: generateItems({ index: 0 }),
-    onChange: (value) => console.log({ value }),
   },
 };
 
 export const RadioRow: Story = {
   args: {
-    ...Radio.args,
-    id: 'example-1.1',
-    name: 'radio-1.1',
+    label: 'ChoiceGroup with radios:',
+    id: 'example-1.2',
+    defaultValue: [],
+    inputType: 'radio',
+    name: 'radio-1.2',
     direction: 'row',
+    items: generateItems({ index: 1 }),
   },
 };
 
@@ -161,10 +163,13 @@ export const Checkbox: Story = {
 
 export const CheckboxRow: Story = {
   args: {
-    ...Checkbox.args,
-    id: 'example-2.1',
-    name: 'check-2.1',
+    label: 'ChoiceGroup with checkboxes:',
+    id: 'example-2',
+    defaultValue: [],
+    inputType: 'checkbox',
+    name: 'check-2',
     direction: 'row',
+    items: generateItems({ index: 3 }),
   },
 };
 
@@ -215,7 +220,7 @@ export const WithExtraContent: Story = {
 
 export const FullWidth: Story = {
   args: {
-    ...Checkbox.args,
+    ...Radio.args,
     inputType: 'radio',
     label: 'My options will fill the space:',
     variant: 'card',
