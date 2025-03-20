@@ -37,7 +37,7 @@
     "@angular/platform-browser": "~18.2.0",
     "@angular/platform-browser-dynamic": "~18.2.0",
     "@angular/router": "~18.2.0",
-    "@tehik-ee/tedi-core": "^1.6.10",
+    "@tehik-ee/tedi-core": "^1.7.1",
     "rxjs": "^7.0.0"
   },
   "dependencies": {
