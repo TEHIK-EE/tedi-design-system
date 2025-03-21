@@ -4,17 +4,6 @@
   "type": "module",
   "main": "community.mjs",
   "module": "community.mjs",
-  "exports": {
-    "./tedi": {
-      "types": "./tedi/index.d.ts",
-      "import": "./tedi.mjs"
-    },
-    "./community": {
-      "types": "./community/index.d.ts",
-      "import": "./community.mjs"
-    },
-    "./index.css": "./index.css"
-  },
   "scripts": {
     "start": "ng run angular-components:storybook",
     "build": "ng-packagr -p ng-package.json",
@@ -37,10 +26,10 @@
     "@angular/platform-browser": "~18.2.0",
     "@angular/platform-browser-dynamic": "~18.2.0",
     "@angular/router": "~18.2.0",
-    "@tehik-ee/tedi-core": "^1.8.0",
     "rxjs": "^7.0.0"
   },
   "dependencies": {
+    "@tehik-ee/tedi-core": "^1.8.0",
     "tslib": "^2.5.0"
   },
   "devDependencies": {

@@ -14,7 +14,7 @@
             "compodoc": true,
             "compodocArgs": ["-e", "json", "-d", "."],
             "port": 6006,
-            "styles": ["src/styles/index"]
+            "styles": ["styles/index"]
           }
         },
         "build-storybook": {
@@ -24,7 +24,7 @@
             "compodoc": true,
             "compodocArgs": ["-e", "json", "-d", "."],
             "outputDir": "dist/storybook-static",
-            "styles": ["src/styles/index"]
+            "styles": ["styles/index"]
           }
         },
         "lint": {
