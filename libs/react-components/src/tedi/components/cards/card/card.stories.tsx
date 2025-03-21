@@ -177,13 +177,35 @@ export const MultipleContent: Story = {
   },
 };
 
+const SplitCard: StoryFn = () => (
+  <Card>
+    <Row gutter={0}>
+      <Col>
+        <Card borderless={true} borderRadius={{ right: false }}>
+          <Card.Content>
+            <p>Left</p>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis mollis augue, vitae aliquet elit
+              congue a. Donec vitae sagittis odio, et maximus nulla. Quisque metus augue, euismod non auctor sed,
+              consequat in ligula. Pellentesque consectetur, justo in luctus sagittis, metus justo ultricies leo, et
+              mollis enim ipsum id erat. Pellentesque congue ante metus, ut tempor tortor lobortis non. Proin in ligula
+              sed ante accumsan viverra. Ut et tempor neque.
+            </p>
+          </Card.Content>
+        </Card>
+      </Col>
+      <Col>
+        <StretchContent>
+          <Card borderless={true} borderRadius={{ left: false }}>
+            <Card.Content background="secondary">Right</Card.Content>
+          </Card>
+        </StretchContent>
+      </Col>
+    </Row>
+  </Card>
+);
 export const SplitCardBody: Story = {
-  render: GeneralTemplate,
-
-  args: {
-    ...Default.args,
-    splitContent: true,
-  },
+  render: SplitCard,
 };
 
 export const Borderless: Story = {
@@ -277,25 +299,30 @@ export const TimelineCard: StoryObj<CardProps> = {
 };
 
 const TwoToned: StoryFn<CardProps> = (_args) => (
-  <Row gutter={0}>
-    <Col width="auto">
-      <StretchContent>
-        <Card borderRadius={{ right: false, bottom: false }}>
-          <Card.Content background="secondary">
-            <Icon name="straighten" className="text-disabled"></Icon>
+  <Card>
+    <Row gutter={0}>
+      <Col width="auto">
+        <StretchContent>
+          <Card borderRadius={{ right: false }} borderless>
+            <Card.Content background="secondary">
+              <Icon name="straighten" className="text-disabled"></Icon>
+            </Card.Content>
+          </Card>
+        </StretchContent>
+      </Col>
+      <Col width="auto">
+        <Separator axis="vertical" />
+      </Col>
+      <Col width="auto">
+        <Card borderRadius={{ left: false }} borderless>
+          <Card.Content>
+            <p className="text-bold">Some statistic: x kg</p>
+            <p>Some description</p>
           </Card.Content>
         </Card>
-      </StretchContent>
-    </Col>
-    <Col width="auto">
-      <Card borderRadius={{ left: false, top: false }}>
-        <Card.Content>
-          <p className="text-bold">Some statistic: x kg</p>
-          <p>Some description</p>
-        </Card.Content>
-      </Card>
-    </Col>
-  </Row>
+      </Col>
+    </Row>
+  </Card>
 );
 
 export const TwoTonedCard: StoryObj<CardProps> = {

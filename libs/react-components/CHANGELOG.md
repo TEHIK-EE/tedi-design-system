@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-react-v11.2.0-rc.9](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.2.0-rc.8...react-11.2.0-rc.9) (2025-03-21)
+
+
+### Bug Fixes
+
+* **card:** fix card stories [#580](https://github.com/TEHIK-EE/tedi-design-system/issues/580) ([#591](https://github.com/TEHIK-EE/tedi-design-system/issues/591)) ([3be2544](https://github.com/TEHIK-EE/tedi-design-system/commit/3be254422bcfd4dc226c0ae52b39d6d7bb0cca28)), closes [#556](https://github.com/TEHIK-EE/tedi-design-system/issues/556)
+
 # [@tehik-ee/tedi-react-v11.2.0-rc.8](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.2.0-rc.7...react-11.2.0-rc.8) (2025-03-19)
 
 

@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-core-v1.8.0](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.7.1...core-1.8.0) (2025-03-20)
+
+
+### Features
+
+* **fonts:** add fonts to TEDI-Core package [#592](https://github.com/TEHIK-EE/tedi-design-system/issues/592) ([#593](https://github.com/TEHIK-EE/tedi-design-system/issues/593)) ([c83257c](https://github.com/TEHIK-EE/tedi-design-system/commit/c83257c437a1ea39e27ed3d91e4a9b01782dcbc1))
+
 # [@tehik-ee/tedi-core-v1.7.1](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.7.0...core-1.7.1) (2025-03-19)
 
 
