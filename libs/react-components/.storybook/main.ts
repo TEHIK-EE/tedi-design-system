@@ -5,14 +5,14 @@ import checker from 'vite-plugin-checker';
 
 const config: StorybookConfig = {
   stories: [
-    '../src/shared/docs/_welcome.mdx',
-    '../src/shared/docs/getStarted.mdx',
-    '../src/shared/docs/changelog.mdx',
-    '../src/shared/docs/colors/tedi-colors.mdx',
+    '../src/tedi/docs/_welcome.mdx',
+    '../src/tedi/docs/getStarted.mdx',
+    '../src/tedi/docs/changelog.mdx',
+    '../src/tedi/**/**/*.mdx',
     '../src/community/docs/scale-layout/spacing.mdx',
     '../src/community/docs/scale-layout/grid.mdx',
+    '../src/tedi/docs/colors/tedi-colors.mdx',
     '../src/tedi/**/**/*.stories.tsx',
-    '../src/tedi/**/**/*.mdx',
     '../src/community/**/**/*.stories.tsx',
     '../src/community/**/**/*.mdx',
   ],
