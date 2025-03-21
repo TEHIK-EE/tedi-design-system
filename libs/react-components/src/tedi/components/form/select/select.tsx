@@ -26,14 +26,14 @@ import { MenuPortalProps } from 'react-select/dist/declarations/src/components/M
 import { FeedbackText, FeedbackTextProps } from '../../../../tedi/components/form/feedback-text/feedback-text';
 import { FormLabel, FormLabelProps } from '../../../../tedi/components/form/form-label/form-label';
 import { useLabels } from '../../../../tedi/providers/label-provider';
-import { getBackgroundColorClass } from '../../../helpers/background-colors/background-colors';
-import { TColorsBackground, UnknownType } from '../../../types/commonTypes';
+import { UnknownType } from '../../../types/commonTypes';
 import ClosingButton from '../../buttons/closing-button/closing-button';
 import { Icon } from '../../icon/icon';
 import Separator from '../../separator/separator';
 import { Tag } from '../../tag/tag';
 import { Text, TextProps } from '../../typography/text/text';
 import Checkbox from '../checkbox/checkbox';
+import Radio from '../radio/radio';
 import styles from './select.module.scss';
 
 declare module 'react-select/dist/declarations/src/Select' {
@@ -55,6 +55,7 @@ const CustomInput = (props: InputProps<ISelectOption, boolean>): JSX.Element => 
     {...props}
     className={cn(props.className, styles['tedi-select__input'])}
     isHidden={props.selectProps.inputIsHidden !== undefined ? props.selectProps.inputIsHidden : props.isHidden}
+    aria-required={props.selectProps.required}
   />
 );
 
@@ -111,8 +112,8 @@ export interface SelectProps extends FormLabelProps {
   onBlur?: () => void;
   inputIsHidden?: boolean;
   optionGroupHeadingText?: Pick<TextProps, 'modifiers' | 'color'>;
-  optionGroupBackgroundColor?: TColorsBackground;
   cacheOptions?: boolean;
+  showRadioButtons: boolean;
 }
 
 export interface ISelectOption<CustomData = unknown> {
@@ -124,7 +125,6 @@ export interface ISelectOption<CustomData = unknown> {
 
 export interface IGroupedOptions<CustomOption = unknown> extends GroupBase<CustomOption> {
   text?: Pick<TextProps, 'modifiers' | 'color'>;
-  backgroundColor?: TColorsBackground;
 }
 
 export type TSelectValue<CustomData = unknown> =
@@ -177,9 +177,10 @@ export const Select = forwardRef<SelectInstance<ISelectOption, boolean, IGrouped
       onMenuOpen,
       onBlur,
       inputIsHidden,
+      isTagRemovable = false,
       optionGroupHeadingText = { modifiers: 'small', color: 'tertiary' },
-      optionGroupBackgroundColor,
       cacheOptions = true,
+      showRadioButtons = false,
       ...rest
     } = props;
     const helperId = helper ? helper?.id ?? `${id}-helper` : undefined;
@@ -250,7 +251,7 @@ export const Select = forwardRef<SelectInstance<ISelectOption, boolean, IGrouped
                 value={props.data.value}
                 name={props.data.value}
                 checked={props.isSelected}
-                onChange={() => null}
+                onChange={(value, checked) => null}
                 disabled={props.isDisabled}
                 hover={props.isFocused}
               />
@@ -275,9 +276,24 @@ export const Select = forwardRef<SelectInstance<ISelectOption, boolean, IGrouped
           {...props}
           innerProps={{ ...innerProps, role: 'option', 'aria-selected': props.isSelected }}
           className={OptionBEM}
-          tab-index={tabIndex}
         >
-          {renderOption ? renderOption(props) : props.children}
+          {showRadioButtons ? (
+            <>
+              <span className="sr-only">{props.label}</span>
+              <Radio
+                label={props.label}
+                id={props.data.value}
+                name={props.data.value}
+                className={styles['tedi-select__radio']}
+                value={props.data.value}
+                checked={props.isSelected}
+                onChange={(value, checked) => null}
+                disabled={props.isDisabled}
+              />
+            </>
+          ) : (
+            props.children
+          )}
         </ReactSelectComponents.Option>
       );
     };
@@ -287,14 +303,24 @@ export const Select = forwardRef<SelectInstance<ISelectOption, boolean, IGrouped
     };
 
     const getMultiValue = ({ children, removeProps }: MultiValueProps<ISelectOption>): JSX.Element => {
-      const handleClose: React.MouseEventHandler<HTMLButtonElement> = (event) => {
-        if (removeProps.onClick) {
+      const handleClose: React.MouseEventHandler<HTMLButtonElement> & React.KeyboardEventHandler<HTMLButtonElement> = (
+        event
+      ) => {
+        if (event.type === 'click' && removeProps.onClick) {
           removeProps.onClick(event as unknown as React.MouseEvent<HTMLDivElement>);
+        }
+
+        if (event.type === 'keydown') {
+          const keyboardEvent = event as React.KeyboardEvent<HTMLButtonElement>;
+          if ((keyboardEvent.key === 'Enter' || keyboardEvent.key === ' ') && removeProps.onClick) {
+            keyboardEvent.preventDefault();
+            removeProps.onClick(keyboardEvent as unknown as React.MouseEvent<HTMLDivElement>);
+          }
         }
       };
 
       return (
-        <Tag color="primary" onClose={handleClose}>
+        <Tag color="primary" onClose={isTagRemovable ? handleClose : undefined}>
           {children}
         </Tag>
       );
@@ -307,10 +333,17 @@ export const Select = forwardRef<SelectInstance<ISelectOption, boolean, IGrouped
         }
       };
 
+      const handleKeyDown = (event: React.KeyboardEvent) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          handleClick(event as unknown as React.MouseEvent<HTMLButtonElement>);
+        }
+      };
+
       return (
         <>
           <ClosingButton
             onClick={handleClick}
+            onKeyDown={handleKeyDown}
             className={styles['tedi-select__multi-value-clear']}
             title={`${getLabel('remove')} ${data.label}`}
           />
@@ -322,7 +355,7 @@ export const Select = forwardRef<SelectInstance<ISelectOption, boolean, IGrouped
     const getClearIndicator = ({ innerProps: { ref, ...restInnerProps } }: ClearIndicatorProps<ISelectOption>) => {
       return isClearIndicatorVisible ? (
         <>
-          <ClosingButton tabIndex={-1} ref={ref as UnknownType} {...(restInnerProps as UnknownType)}>
+          <ClosingButton tabIndex={0} ref={ref as UnknownType} {...(restInnerProps as UnknownType)}>
             {getLabel('clear')}
           </ClosingButton>
           <Separator color="primary" axis="vertical" className={styles['tedi-select__separator']} />
@@ -343,10 +376,7 @@ export const Select = forwardRef<SelectInstance<ISelectOption, boolean, IGrouped
     const getGroupHeading = (
       props: GroupHeadingProps<ISelectOption, boolean, IGroupedOptions<ISelectOption>>
     ): ReactElement => {
-      const groupHeadingBEM = cn(
-        styles['tedi-select__group-heading'],
-        getBackgroundColorClass(props.data.backgroundColor || optionGroupBackgroundColor || 'transparent')
-      );
+      const groupHeadingBEM = cn(styles['tedi-select__group-heading']);
       const textSettings = props.data.text || optionGroupHeadingText;
 
       return (
@@ -394,7 +424,6 @@ export const Select = forwardRef<SelectInstance<ISelectOption, boolean, IGrouped
         Placeholder: getPlaceholder,
         Group: getGroup,
         GroupHeading: getGroupHeading,
-        ValueContainer: CustomValueContainer,
         IndicatorsContainer: CustomIndicatorsContainer,
       };
 
@@ -453,9 +482,9 @@ export const Select = forwardRef<SelectInstance<ISelectOption, boolean, IGrouped
             ...theme,
             colors: {
               ...theme.colors,
-              primary: '#005aa3',
-              danger: '#b50000',
-              dangerLight: '#fceeee',
+              primary: 'var(--blue-600)',
+              danger: 'var(--red-600)',
+              dangerLight: 'var(--blue-200)',
             },
           })}
           styles={{

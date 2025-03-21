@@ -106,3 +106,9 @@ li > ol {
   // Storybook has new styles that overwrite this on "un-styled" elements
   font-family: 'Material Symbols Outlined', sans-serif !important;
 }
+
+// temporary fix to display Select menu portal correctly in storybooks docs file
+.innerZoomElementWrapper div.select__menu-portal {
+  top: auto;
+  left: auto;
+}

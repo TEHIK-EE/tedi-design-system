@@ -29,7 +29,7 @@ export const MultipleHandledTemplate: StoryFn<typeof Select> = (args) => {
 
   return (
     <Row>
-      <Col width={4}>
+      <Col lg={4} sm={12}>
         <Select options={colourOptions} onChange={(value) => handleInputChange(value)} value={inputValue} {...args} />
       </Col>
     </Row>

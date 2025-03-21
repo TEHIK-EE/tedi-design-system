@@ -21,54 +21,25 @@ export default meta;
 type Story = StoryObj<typeof Select>;
 
 const options = [
-  { value: 'option-1', label: 'Option 1' },
-  { value: 'option-2', label: 'Option 2', isDisabled: true },
-  { value: 'option-3', label: 'Option 3' },
-  { value: 'option-4', label: 'Option 4' },
+  { value: 'tallinn', label: 'Tallinn' },
+  { value: 'tartu', label: 'Tartu', isDisabled: true },
+  { value: 'elva', label: 'Elva' },
+  { value: 'rakvere', label: 'Rakvere' },
 ];
 
 const groupedOptions: OptionsOrGroups<ISelectOption, IGroupedOptions<ISelectOption>> = [
   {
-    label: 'GROUP 1',
+    label: 'American cities',
     options: [
-      { value: 'option-2', label: 'Option 2' },
-      { value: 'option-3', label: 'Option 3' },
+      { value: 'new-york', label: 'New York' },
+      { value: 'dallas', label: 'Dallas' },
     ],
   },
   {
-    label: 'GROUP 2',
+    label: 'Estonian cities',
     options: [
-      { value: 'option-4', label: 'Option 4' },
-      { value: 'option-5', label: 'Option 5' },
-    ],
-  },
-];
-
-const groupedOptions2: OptionsOrGroups<ISelectOption, IGroupedOptions<ISelectOption>> = [
-  {
-    label: 'Group 1',
-    options: [
-      { value: 'option-1', label: 'Option 1' },
-      { value: 'option-2', label: 'Option 2' },
-    ],
-  },
-  {
-    label: 'Group 2',
-    options: [
-      { value: 'option-3', label: 'Option 3' },
-      { value: 'option-4', label: 'Option 4' },
-    ],
-  },
-  {
-    label: 'Group 3 - Separately set styles have priority',
-    text: {
-      modifiers: ['small'],
-      color: 'white',
-    },
-    backgroundColor: 'primary-main',
-    options: [
-      { value: 'option-5', label: 'Option 5' },
-      { value: 'option-6', label: 'Option 6' },
+      { value: 'tallinn', label: 'Tallinn' },
+      { value: 'tartu', label: 'Tartu' },
     ],
   },
 ];
@@ -136,6 +107,7 @@ export const StackingTags: Story = {
     label: 'Stacking Tags',
     defaultValue: colourOptions.filter((option) => !option.isDisabled),
     multiple: true,
+    isTagRemovable: false,
     tagsDirection: 'stack',
   },
 };
@@ -149,14 +121,16 @@ export const RemovableTags: Story = {
     multiple: true,
     isTagRemovable: true,
     tagsDirection: 'stack',
+    isClearIndicatorVisible: true,
   },
 };
 
-export const CustomOptionSelect: Story = {
+export const WithDescription: Story = {
   render: CustomOptionSelectTemplate,
   args: {
-    label: 'Name or personal code',
-    id: 'appeal-select',
+    label: 'With description',
+    id: 'description-select',
+    helper: { text: 'Hint text' },
   },
 };
 
@@ -195,10 +169,9 @@ export const SelectWithStyledGroupedOptions: Story = {
     id: 'grouped-options-example-styled',
     label: 'Grouped options label',
     optionGroupHeadingText: {
-      modifiers: ['italic'],
-      color: 'danger',
+      modifiers: ['h6'],
+      color: 'brand',
     },
-    optionGroupBackgroundColor: 'important-highlight',
-    options: groupedOptions2,
+    options: groupedOptions,
   },
 };
