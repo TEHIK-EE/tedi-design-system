@@ -5,5 +5,15 @@
     "types": ["jest", "node"]
   },
   "files": [],
-  "include": ["**/*.spec.ts", "**/*.d.ts", "**/*.html"]
+  "include": [
+    "docs/**/*.spec.ts",
+    "docs/**/*.d.ts",
+    "docs/**/*.html",
+    "tedi/**/*.spec.ts",
+    "tedi/**/*.d.ts",
+    "tedi/**/*.html",
+    "community/**/*.spec.ts",
+    "community/**/*.d.ts",
+    "community/**/*.html"
+  ]
 }
