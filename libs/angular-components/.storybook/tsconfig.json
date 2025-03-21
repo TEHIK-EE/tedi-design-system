@@ -12,5 +12,11 @@
     "jest.config.ts",
     "../node_modules"
   ],
-  "include": ["../src/**/*", "./**/*.ts", "./**/*.tsx"]
+  "include": [
+    "../docs/**/*",
+    "../tedi/**/*",
+    "../community/**/*",
+    "./**/*.ts",
+    "./**/*.tsx"
+  ]
 }
