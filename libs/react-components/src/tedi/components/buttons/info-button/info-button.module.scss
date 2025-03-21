@@ -6,4 +6,5 @@
 
   @include mixins.responsive-styles(width, button-xs-icon-size);
   @include mixins.responsive-styles(height, button-xs-icon-size);
+  @include mixins.responsive-styles(min-height, button-xs-icon-size);
 }

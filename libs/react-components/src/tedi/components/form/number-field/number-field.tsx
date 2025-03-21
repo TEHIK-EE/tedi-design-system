@@ -186,6 +186,7 @@ export const NumberField = (props: NumberFieldProps) => {
         visualType="secondary"
         className={ButtonBEM}
         icon={{ name: direction === 'increment' ? 'add' : 'remove' }}
+        size={size === 'small' ? 'small' : undefined}
       >
         {direction === 'increment' ? '+' : '-'}
       </Button>
