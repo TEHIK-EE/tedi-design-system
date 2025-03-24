@@ -14,7 +14,10 @@
             "compodoc": true,
             "compodocArgs": ["-e", "json", "-d", "."],
             "port": 6006,
-            "styles": ["styles/index"]
+            "styles": [
+              "node_modules/@tehik-ee/tedi-core/index",
+              "../tedi-core/src/tedi-storybook-styles"
+            ]
           }
         },
         "build-storybook": {
@@ -24,7 +27,10 @@
             "compodoc": true,
             "compodocArgs": ["-e", "json", "-d", "."],
             "outputDir": "dist/storybook-static",
-            "styles": ["styles/index"]
+            "styles": [
+              "node_modules/@tehik-ee/tedi-core/index",
+              "../tedi-core/src/tedi-storybook-styles"
+            ]
           }
         },
         "lint": {
