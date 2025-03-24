@@ -11,6 +11,7 @@ import { By } from "@angular/platform-browser";
 import { Component } from "@angular/core";
 
 @Component({
+  imports: [IconComponent],
   template: `
     <tedi-icon
       [name]="name"
@@ -41,8 +42,7 @@ describe("IconComponent", () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [IconComponent],
-      declarations: [HostIconComponent],
+      imports: [IconComponent, HostIconComponent],
     }).compileComponents();
 
     hostFixture = TestBed.createComponent(HostIconComponent);

@@ -8,6 +8,7 @@ import {
 } from "./spinner.component";
 
 @Component({
+  imports: [SpinnerComponent],
   template: `
     <tedi-spinner
       [size]="size"
@@ -30,8 +31,7 @@ describe("SpinnerComponent", () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [SpinnerComponent],
-      declarations: [HostSpinnerComponent],
+      imports: [SpinnerComponent, HostSpinnerComponent],
     }).compileComponents();
 
     hostFixture = TestBed.createComponent(HostSpinnerComponent);
