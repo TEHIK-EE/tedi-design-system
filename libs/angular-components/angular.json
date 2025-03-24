@@ -17,7 +17,8 @@
             "styles": [
               "node_modules/@tehik-ee/tedi-core/index",
               "../tedi-core/src/tedi-storybook-styles"
-            ]
+            ],
+            "experimentalZoneless": true
           }
         },
         "build-storybook": {
@@ -30,7 +31,8 @@
             "styles": [
               "node_modules/@tehik-ee/tedi-core/index",
               "../tedi-core/src/tedi-storybook-styles"
-            ]
+            ],
+            "experimentalZoneless": true
           }
         },
         "lint": {
