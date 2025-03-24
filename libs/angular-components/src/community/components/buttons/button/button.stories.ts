@@ -7,22 +7,22 @@ export default {
   render: (props) => ({
     props,
     template: `
-        <button tedi-button [variant]="variant" [size]="size" [inverted]="inverted" [disabled]="disabled" [fullWidth]="fullWidth">Button</button>
+        <button tedi-button [variant]="variant" [size]="size" [inverted]="inverted" [disabled]="disabled" [fullWidth]="fullWidth" [underline]="underline">Button</button>
       `,
   }),
   args: {
-    size: "md",
+    size: "medium",
     variant: "primary",
   },
   argTypes: {
     size: {
       control: "radio",
-      options: ["sm", "md"],
+      options: ["small", "medium"],
       description: "Defines the size of the button.",
       table: {
-        defaultValue: { summary: "md" },
+        defaultValue: { summary: "medium" },
         type: {
-          summary: '"sm"  | "md"',
+          summary: '"small"  | "medium"',
         },
       },
     },
@@ -62,6 +62,16 @@ export default {
     fullWidth: {
       control: "boolean",
       description: "Button takes container width.",
+      table: {
+        defaultValue: { summary: "false" },
+        type: {
+          summary: "boolean",
+        },
+      },
+    },
+    underline: {
+      control: "boolean",
+      description: "If button should be underlined.",
       table: {
         defaultValue: { summary: "false" },
         type: {
@@ -112,7 +122,7 @@ export const DangerNeutral: ButtonStory = {
 
 export const Small: ButtonStory = {
   args: {
-    size: "sm",
+    size: "small",
   },
 };
 
@@ -132,4 +142,13 @@ export const FullWidth: ButtonStory = {
   args: {
     fullWidth: true,
   },
+};
+
+export const LinkAsButton: ButtonStory = {
+  render: (props) => ({
+    props,
+    template: `
+        <a tedi-button [variant]="variant" [size]="size" [inverted]="inverted" [disabled]="disabled" [fullWidth]="fullWidth" [underline]="underline">Button</a>
+      `,
+  }),
 };

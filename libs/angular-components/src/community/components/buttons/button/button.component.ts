@@ -14,10 +14,10 @@ export type ButtonVariant =
   | "danger"
   | "danger-neutral";
 
-export type ButtonSize = "md" | "sm";
+export type ButtonSize = "medium" | "small";
 
 @Component({
-  selector: "button[tedi-button]",
+  selector: "button[tedi-button], a[tedi-button]",
   standalone: true,
   templateUrl: "./button.component.html",
   styleUrl: "./button.component.scss",
@@ -27,14 +27,16 @@ export type ButtonSize = "md" | "sm";
     "[class.tedi-btn]": "true",
     "[class.tedi-btn--inverted]": "inverted()",
     "[class.tedi-btn--full-width]": "fullWidth()",
+    "[class.tedi-btn--underline]": "underline()",
     "[class]": "modifierClasses()",
   },
 })
 export class ButtonComponent {
   variant = input<ButtonVariant>("primary");
-  size = input<ButtonSize>("md");
+  size = input<ButtonSize>("medium");
   inverted = input<boolean>();
   fullWidth = input<boolean>();
+  underline = input<boolean>();
 
   modifierClasses = computed(() => {
     return `tedi-btn--${this.variant()} tedi-btn--${this.size()}`;

@@ -22,6 +22,10 @@ const meta: Meta<typeof Link> = {
     controls: {
       exclude: ['sm', 'md', 'lg', 'xl', 'xxl'],
     },
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/jWiRIXhHRxwVdMSimKX2FF/TEDI-Design-System-(draft)?type=design&node-id=2160-25385&m=dev',
+    },
   },
 };
 

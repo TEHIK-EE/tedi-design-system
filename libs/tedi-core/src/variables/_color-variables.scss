@@ -535,6 +535,14 @@
   --file-dropzone-border-hover: var(--form-input-border-hover);
   --file-dropzone-text-default: var(--general-text-brand);
   --file-dropzone-text-drop-over: var(--general-text-tertiary);
+  --dropdown-item-active-background: var(--general-surface-active);
+  --dropdown-item-active-text: var(--general-text-white);
+  --dropdown-item-default-background: var(--general-surface-primary);
+  --dropdown-item-default-text: var(--general-text-primary);
+  --dropdown-item-disabled-background: var(--general-surface-disabled);
+  --dropdown-item-disabled-text: var(--general-text-disabled);
+  --dropdown-item-hover-background: var(--general-surface-hover);
+  --dropdown-item-hover-text: var(--primary-700);
 }
 
 :root.dark-mode {
@@ -1072,4 +1080,12 @@
   --file-dropzone-border-hover: var(--form-input-border-hover);
   --file-dropzone-text-default: var(--general-text-brand);
   --file-dropzone-text-drop-over: var(--general-text-tertiary);
+  --dropdown-item-active-background: var(--general-surface-active);
+  --dropdown-item-active-text: var(--general-text-white);
+  --dropdown-item-default-background: var(--general-surface-primary);
+  --dropdown-item-default-text: var(--general-text-primary);
+  --dropdown-item-disabled-background: var(--general-surface-disabled);
+  --dropdown-item-disabled-text: var(--general-text-disabled);
+  --dropdown-item-hover-background: var(--general-surface-hover);
+  --dropdown-item-hover-text: var(--general-text-white);
 }

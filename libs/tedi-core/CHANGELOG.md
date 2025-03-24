@@ -1,3 +1,24 @@
+# [@tehik-ee/tedi-core-v1.8.0](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.7.1...core-1.8.0) (2025-03-20)
+
+
+### Features
+
+* **fonts:** add fonts to TEDI-Core package [#592](https://github.com/TEHIK-EE/tedi-design-system/issues/592) ([#593](https://github.com/TEHIK-EE/tedi-design-system/issues/593)) ([c83257c](https://github.com/TEHIK-EE/tedi-design-system/commit/c83257c437a1ea39e27ed3d91e4a9b01782dcbc1))
+
+# [@tehik-ee/tedi-core-v1.7.1](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.7.0...core-1.7.1) (2025-03-19)
+
+
+### Bug Fixes
+
+* **select:** add dropdown variables [#333](https://github.com/TEHIK-EE/tedi-design-system/issues/333) ([#584](https://github.com/TEHIK-EE/tedi-design-system/issues/584)) ([c50757b](https://github.com/TEHIK-EE/tedi-design-system/commit/c50757b7156e595ac5c9ad78b9d44d0d6b8c0b07))
+
+# [@tehik-ee/tedi-core-v1.7.0](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.6.16...core-1.7.0) (2025-03-14)
+
+
+### Features
+
+* **variables:** tedi-core z-index variables [#559](https://github.com/TEHIK-EE/tedi-design-system/issues/559) ([#560](https://github.com/TEHIK-EE/tedi-design-system/issues/560)) ([b04a198](https://github.com/TEHIK-EE/tedi-design-system/commit/b04a198468c072f3d81110ce3b77caed57211c34))
+
 # [@tehik-ee/tedi-core-v1.6.16](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.6.15...core-1.6.16) (2025-03-10)
 
 
