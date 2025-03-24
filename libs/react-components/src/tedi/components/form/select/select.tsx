@@ -473,11 +473,11 @@ export const Select = forwardRef<SelectInstance<ISelectOption, boolean, IGrouped
           hideSelectedOptions={false}
           closeMenuOnSelect={closeMenuOnSelect}
           blurInputOnSelect={blurInputOnSelect}
-          menuPosition="fixed"
           menuPlacement="auto"
           inputIsHidden={inputIsHidden}
           required={required}
           menuPortalTarget={document.body}
+          menuPosition="absolute"
           theme={(theme) => ({
             ...theme,
             colors: {
