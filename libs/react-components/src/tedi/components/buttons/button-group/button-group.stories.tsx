@@ -15,6 +15,11 @@ import ButtonGroup from './button-group';
 const meta: Meta<typeof ButtonGroup> = {
   title: 'TEDI-Ready/Components/Buttons/ButtonGroup',
   component: ButtonGroup,
+  parameters: {
+    status: {
+      type: 'partiallyTediReady',
+    },
+  },
 };
 
 export default meta;
