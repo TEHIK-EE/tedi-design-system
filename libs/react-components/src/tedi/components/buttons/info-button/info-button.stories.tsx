@@ -13,6 +13,12 @@ import InfoButton from './info-button';
 const meta: Meta<typeof InfoButton> = {
   component: InfoButton,
   title: 'Tedi-Ready/Components/Buttons/InfoButton',
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/design/jWiRIXhHRxwVdMSimKX2FF/TEDI-READY-(work-in-progress)?node-id=4514-72997&m=dev',
+    },
+  },
 };
 
 export default meta;

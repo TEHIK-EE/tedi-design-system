@@ -16,6 +16,12 @@ import { Icon, IconProps } from './icon';
 const meta: Meta<typeof Icon> = {
   title: 'Tedi-Ready/Base/Icon',
   component: Icon,
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/jWiRIXhHRxwVdMSimKX2FF/TEDI-Design-System-(draft)?type=design&node-id=45-30752&mode=dev',
+    },
+  },
 };
 
 export default meta;
@@ -35,9 +41,9 @@ const colorArray: IconProps['color'][] = [
   'white',
 ];
 
-interface TemplateMultipleProps<
-  Type = IconProps['size'] | IconProps['color'] | IconProps['type'] | IconProps['background']
-> extends IconProps {
+type IconPropsType = IconProps['size'] | IconProps['color'] | IconProps['type'] | IconProps['background'];
+
+interface MultipleProps<Type = IconPropsType> {
   array: Type[];
   property: keyof IconProps;
   items: {
@@ -48,6 +54,8 @@ interface TemplateMultipleProps<
     size: IconProps['size'];
   }[];
 }
+
+type TemplateMultipleProps = MultipleProps & IconProps;
 
 const TemplateRow: StoryFn<TemplateMultipleProps> = (args) => {
   const { array, property, ...iconProps } = args;
@@ -89,13 +97,13 @@ const TemplateColumn: StoryFn<TemplateMultipleProps> = (args) => {
     <div className="example-list w-50">
       {array.map((value, key) => (
         <Row className={`${key === array.length - 1 ? '' : 'border-bottom'} padding-14-16`} key={key}>
-          <Col className="w-50 d-flex">
+          <Col className="w-50 display-flex">
             {value?.toString()}&nbsp;{value === 24 && <small className="example-text--secondary">default</small>}
           </Col>
-          <Col className="d-flex">
-            <Icon {...iconProps} {...{ [property]: value }} display="inline" />
+          <Col className="display-flex">
+            <Icon {...iconProps} {...{ [property]: value }} />
             &nbsp;
-            <Icon {...iconProps} {...{ [property]: value }} display="inline" filled={true} />
+            <Icon {...iconProps} {...{ [property]: value }} filled={true} />
           </Col>
         </Row>
       ))}
@@ -114,19 +122,15 @@ const TemplateColumnWithMultipleVariants: StoryFn<TemplateMultipleProps> = (args
           className={`${key === items.length - 1 ? '' : 'border-bottom'} padding-14-16`}
           key={key}
         >
-          <Col className="w-50 d-flex">
+          <Col className="w-50 display-flex">
             {item.size?.toString()}&nbsp;
             {item.size === 24 && <small className="example-text--secondary">default</small>}
           </Col>
-          <Col className="d-flex">
-            <Icon
-              {...{ size: item.size, background: item.background, name: item.name, color: item.color }}
-              display="inline"
-            />
+          <Col className="display-flex">
+            <Icon {...{ size: item.size, background: item.background, name: item.name, color: item.color }} />
             &nbsp;
             <Icon
               {...{ size: item.size, background: item.background, name: item.name, color: item.color }}
-              display="inline"
               filled={true}
             />
           </Col>
@@ -136,7 +140,7 @@ const TemplateColumnWithMultipleVariants: StoryFn<TemplateMultipleProps> = (args
   );
 };
 
-const TemplateColumnWithBackgroundCircleVarians: StoryFn<TemplateMultipleProps> = (args) => {
+const TemplateColumnWithBackgroundCircleVarians: StoryFn<TemplateMultipleProps> = () => {
   return (
     <Row alignItems="center">
       <Col width="auto">
@@ -238,54 +242,45 @@ export const Backgrounds: Story = {
 };
 
 export const UsedInsideText: Story = {
-  render: (args) => {
+  render: (args: { name: IconProps['name'] }) => {
     return (
       <VerticalSpacing size={0.25}>
         <Heading element="h1">
-          <Icon name={args.name} display="inline" size={36} />
-          This is level 1 heading with inline{' '}
-          <Icon background="brand-secondary" color="brand" name={args.name} display="inline" size={18} /> icon
+          <Icon name={args.name} display="inline" />
+          This is level 1 heading with inline <Icon color="brand" name={args.name} display="inline" /> icon
         </Heading>
         <Heading element="h2">
-          <Icon name={args.name} display="inline" size={36} />
-          This is level 2 heading with inline{' '}
-          <Icon background="brand-secondary" color="brand" name={args.name} display="inline" size={16} /> icon
+          <Icon name={args.name} display="inline" />
+          This is level 2 heading with inline <Icon color="brand" name={args.name} display="inline" /> icon
         </Heading>
         <Heading element="h3">
-          <Icon name={args.name} display="inline" size={24} />
-          This is level 3 heading with inline{' '}
-          <Icon background="brand-secondary" color="brand" name={args.name} display="inline" size={12} /> icon
+          <Icon name={args.name} display="inline" />
+          This is level 3 heading with inline <Icon color="brand" name={args.name} display="inline" /> icon
         </Heading>
         <Heading element="h4">
-          <Icon name={args.name} display="inline" size={24} />
-          This is level 4 heading with inline{' '}
-          <Icon background="brand-secondary" color="brand" name={args.name} display="inline" size={12} /> icon
+          <Icon name={args.name} display="inline" />
+          This is level 4 heading with inline <Icon color="brand" name={args.name} display="inline" /> icon
         </Heading>
         <Heading element="h5">
-          <Icon name={args.name} display="inline" size={18} />
-          This is level 5 heading with inline{' '}
-          <Icon background="brand-secondary" color="brand" name={args.name} display="inline" size={12} /> icon
+          <Icon name={args.name} display="inline" />
+          This is level 5 heading with inline <Icon color="brand" name={args.name} display="inline" /> icon
         </Heading>
         <Heading element="h6">
-          <Icon name={args.name} display="inline" size={16} />
-          This is level 6 heading with inline{' '}
-          <Icon background="brand-secondary" color="brand" name={args.name} display="inline" size={8} /> icon
+          <Icon name={args.name} display="inline" />
+          This is level 6 heading with inline <Icon color="brand" name={args.name} display="inline" /> icon
         </Heading>
         <p>
-          <Icon name={args.name} display="inline" size={16} />
-          This is paragraph text with inline{' '}
-          <Icon background="brand-secondary" color="brand" name={args.name} display="inline" size={8} /> icon
+          <Icon name={args.name} display="inline" />
+          This is paragraph text with inline <Icon color="brand" name={args.name} display="inline" /> icon
         </p>
         <small>
-          <Icon name={args.name} display="inline" size={16} />
-          This is small text with inline{' '}
-          <Icon background="brand-secondary" color="brand" name={args.name} display="inline" size={8} /> icon
+          <Icon name={args.name} display="inline" />
+          This is small text with inline <Icon color="brand" name={args.name} display="inline" /> icon
         </small>
       </VerticalSpacing>
     );
   },
-
   args: {
-    name: 'cancel',
+    name: 'account_circle',
   },
 };

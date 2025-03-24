@@ -1,8 +1,7 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 
-import { Card } from '../../../community/components/card/card';
-import { CardContent } from '../../../community/components/card/card-content/card-content';
-import { Col, Row } from '../../../tedi/components/grid';
+import { Card, CardContent } from '../cards/card';
+import { Col, Row } from '../grid';
 import { Text } from '../typography/text/text';
 import { VerticalSpacing } from '../vertical-spacing';
 import Separator, { SeparatorProps } from './separator';
@@ -21,6 +20,10 @@ const meta: Meta<typeof Separator> = {
     },
     controls: {
       exclude: ['sm', 'md', 'lg', 'xl', 'xxl'],
+    },
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/jWiRIXhHRxwVdMSimKX2FF/TEDI-Design-System-(draft)?type=design&node-id=3518-32729&m=dev',
     },
   },
 };
@@ -148,6 +151,19 @@ export const VerticalDottedSmall: Story = {
   args: { axis: 'vertical', variant: 'dotted-small', color: 'accent', isStretched: true },
 };
 
+export const HorizontalDottedSeparator: Story = {
+  render: () => (
+    <Row>
+      <Col lg={3} md={6} sm={12}>
+        <VerticalSpacing size={2}>
+          <Separator axis="horizontal" variant="dotted" color="accent" />
+          <Separator axis="horizontal" variant="dotted-small" color="accent" />
+        </VerticalSpacing>
+      </Col>
+    </Row>
+  ),
+};
+
 export const DotOnly: Story = {
   render: DotOnlyTemplate,
   args: { spacing: 0.5 },
@@ -172,7 +188,7 @@ const InlineSeparatorTemplate: StoryFn<SeparatorProps> = (args) => (
     </Text>
     <Text>
       Lorem ipsum dolor sit, amet
-      <Separator color="secondary" spacing={0.5} variant="dot-only" dotSize="small" {...args} />
+      <Separator {...args} color="secondary" spacing={0.5} variant="dot-only" dotSize="small" />
       consectetur adipisicing elit.
     </Text>
   </VerticalSpacing>

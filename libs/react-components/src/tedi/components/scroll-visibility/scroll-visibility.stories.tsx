@@ -9,6 +9,7 @@ import ScrollVisibility from './scroll-visibility';
 const CONTAINER_HEIGHT = 300;
 
 /**
+ * <a href="https://www.figma.com/design/jWiRIXhHRxwVdMSimKX2FF/TEDI-READY-(work-in-progress)?node-id=10758-111106&m=dev" target="_BLANK">Figma ↗</a><br/>
  * <a href="https://tedi.tehik.ee/1ee8444b7/p/00ab5a-scrollvisibility-dev" target="_BLANK">Zeroheight ↗</a>
  **/
 
@@ -19,11 +20,16 @@ const meta: Meta<typeof ScrollVisibility> = {
     status: {
       type: ['devComponent'],
     },
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/design/jWiRIXhHRxwVdMSimKX2FF/TEDI-READY-(work-in-progress)?node-id=10758-111106&m=dev',
+    },
   },
 };
 
 export default meta;
 
+faker.seed(123);
 const lorem = [...Array(5).keys()].map(() => faker.lorem.paragraphs(4));
 const NAVIGATION_HEIGHT = 48;
 type Story = StoryObj<typeof ScrollVisibility>;

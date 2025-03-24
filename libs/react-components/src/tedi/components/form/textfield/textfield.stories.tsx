@@ -5,8 +5,8 @@ import { Text } from '../../typography/text/text';
 import TextField, { TextFieldProps } from './textfield';
 
 /**
- * [Figma ↗](https://www.figma.com/design/jWiRIXhHRxwVdMSimKX2FF/TEDI-READY-(work-in-progress)?node-id=3486-37649&m=dev)<br/>
- * [Zeroheight ↗](https://zeroheight.com/1ee8444b7/p/328d11-text-field)
+ * <a href="https://www.figma.com/design/jWiRIXhHRxwVdMSimKX2FF/TEDI-READY-(work-in-progress)?node-id=3486-37649&m=dev" target="_BLANK">Figma ↗</a><br/>
+ * <a href="https://zeroheight.com/1ee8444b7/p/328d11-text-field" target="_BLANK">Zeroheight ↗</a>
  */
 
 const meta: Meta<typeof TextField> = {
@@ -18,6 +18,10 @@ const meta: Meta<typeof TextField> = {
     },
     controls: {
       exclude: ['sm', 'md', 'lg', 'xl', 'xxl'],
+    },
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/design/jWiRIXhHRxwVdMSimKX2FF/TEDI-READY-(work-in-progress)?node-id=3486-37649&m=dev',
     },
   },
 };
@@ -61,7 +65,7 @@ const TemplateColumn: StoryFn<TemplateMultipleProps> = (args) => {
 };
 
 const TemplateColumnWithStates: StoryFn<TemplateStateProps> = (args) => {
-  const { array, id, ...textFieldProps } = args;
+  const { array, ...textFieldProps } = args;
 
   return (
     <div className="state-example">
@@ -71,7 +75,7 @@ const TemplateColumnWithStates: StoryFn<TemplateStateProps> = (args) => {
             <Text modifiers="bold">{state}</Text>
           </Col>
           <Col className="display-flex align-items-center">
-            <TextField disabled={state === 'Disabled'} id={state} {...textFieldProps} />
+            <TextField disabled={state === 'Disabled'} {...textFieldProps} id={state} />
           </Col>
         </Row>
       ))}

@@ -132,4 +132,17 @@ describe('Separator Component', () => {
     const { getByTestId } = renderComponent({ axis: 'horizontal', display: 'block' });
     expect(getByTestId('separator')).not.toHaveClass(styles['tedi-separator--inline']);
   });
+  it('should apply dotSize class when variant is dot-only', () => {
+    const { getByTestId } = renderComponent({ variant: 'dot-only', dotSize: 'medium' });
+    const separator = getByTestId('separator');
+    expect(separator).toHaveClass(styles['tedi-separator--dot-only']);
+    expect(separator).toHaveClass(styles['tedi-separator--dot-only-medium']);
+  });
+
+  it('should ignore dotSize when variant is not dot-only', () => {
+    const { getByTestId } = renderComponent({ variant: 'dotted', dotSize: 'medium' });
+    const separator = getByTestId('separator');
+    expect(separator).toHaveClass(styles['tedi-separator--dotted']);
+    expect(separator).not.toHaveClass(styles['tedi-separator--dot-only-medium']);
+  });
 });

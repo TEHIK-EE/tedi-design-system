@@ -1,0 +1,53 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta name="Get Started" title="Documentation/Get started" />
+
+# Get started with TEHIK tedi-react
+
+### Installation
+
+```bash
+npm install @tehik-ee/tedi-react
+```
+
+### Labels - LabelProvider
+
+@tehik-ee/tedi-react uses labels that are provided with <b>{'<LabelProvider>'}</b> component. Every
+application should be wrapped with LabelProvider to provide all necessary labels for users (mostly for
+accessibility). See all labels under [Documentation/Labels](/docs/documentation-labels--docs).
+More documentation about LabelProvider can be found under [components](/docs/components-labelprovider--docs).
+
+#### 1. Wrap Application with LabelProvider
+
+```tsx
+<LabelProvider labels={labels} locale={locale}>
+  <YourApp />
+</LabelProvider>
+```
+
+### Styles - StyleProvider
+
+tedi-react depends on some global styles. Follow next steps to import styles to your
+application.
+
+#### 1. Wrap Application with StyleProvider
+
+```tsx
+<StyleProvider>
+  <YourApp />
+</StyleProvider>
+```
+
+#### 2. Add styles import to the root of application
+
+```tsx
+import '@tehik-ee/tedi-react/index.css';
+```
+
+### Dayjs
+
+Some tedi-react components depend on Day.js and MUI X.
+Day.js must be an application dependency, so it's recommended to use it for handling dates.
+
+The <code>'en'</code> locale has a modified rule that sets weekStart to Monday. Currently, overriding this rule is not supported.
+If you need to override it, please reach out on Slack.

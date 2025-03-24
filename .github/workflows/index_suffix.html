@@ -6,7 +6,7 @@ branches.forEach(branch => {
 let li = document.createElement("li");
 
 li.className = "py-2";
-li.innerHTML = `${branch} - <a href="./${branch}/angular">Angular</a> | <a href="./${branch}/react">React</a>`;
+li.innerHTML = `${branch} - <a href="./${branch}/react">React</a> | <a href="./${branch}/angular">Angular</a>`;
 
 if (mainBranches.indexOf(branch) !== -1) {
 mainBranchRoot.appendChild(li);

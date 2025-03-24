@@ -1,7 +1,6 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 
 import List, { ListProps } from './list';
-import ListItem from './list-item';
 
 /**
  * <a href="https://www.figma.com/file/jWiRIXhHRxwVdMSimKX2FF/TEDI-Design-System-(draft)?type=design&node-id=2137-19322&m=dev" target="_BLANK">Figma ↗</a><br/>
@@ -11,13 +10,24 @@ import ListItem from './list-item';
 const meta: Meta<typeof List> = {
   component: List,
   title: 'Tedi-Ready/Content/List',
-  subcomponents: { ListItem } as never,
+  subcomponents: { 'List.Item': List.Item } as never,
   parameters: {
     status: {
       type: [{ name: 'breakpointSupport', url: '?path=/docs/helpers-usebreakpointprops--usebreakpointprops' }],
     },
     controls: {
       exclude: ['sm', 'md', 'lg', 'xl', 'xxl'],
+    },
+    docs: {
+      source: {
+        transform: (code: string) => {
+          return code.replaceAll('ListItem', 'List.Item');
+        },
+      },
+    },
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/jWiRIXhHRxwVdMSimKX2FF/TEDI-Design-System-(draft)?type=design&node-id=2137-19322&m=dev',
     },
   },
 };
@@ -27,51 +37,51 @@ type Story = StoryObj<typeof List>;
 
 const Template: StoryFn<Omit<ListProps, 'children'>> = (args) => (
   <List {...args}>
-    <ListItem>Potato</ListItem>
-    <ListItem>Caesar salad</ListItem>
-    <ListItem>Caesar salad</ListItem>
+    <List.Item>Potato</List.Item>
+    <List.Item>Caesar salad</List.Item>
+    <List.Item>Caesar salad</List.Item>
   </List>
 );
 
 const TemplateUnorderedNested: StoryFn<Omit<ListProps, 'children'>> = (args) => (
   <List {...args}>
-    <ListItem>Caesar salad</ListItem>
-    <ListItem>
+    <List.Item>Caesar salad</List.Item>
+    <List.Item>
       Caesar salad
       <List {...args}>
-        <ListItem>
+        <List.Item>
           Dressing
           <List {...args}>
-            <ListItem>Lemon juice</ListItem>
-            <ListItem>Anchovies</ListItem>
-            <ListItem>Parmesan cheese</ListItem>
-            <ListItem>Worcestershire sauce</ListItem>
-            <ListItem>Mustard</ListItem>
+            <List.Item>Lemon juice</List.Item>
+            <List.Item>Anchovies</List.Item>
+            <List.Item>Parmesan cheese</List.Item>
+            <List.Item>Worcestershire sauce</List.Item>
+            <List.Item>Mustard</List.Item>
           </List>
-        </ListItem>
+        </List.Item>
       </List>
-    </ListItem>
+    </List.Item>
   </List>
 );
 
 const TemplateOrderedNested: StoryFn<Omit<ListProps, 'children'>> = (args) => (
   <List {...args}>
-    <ListItem>School homework</ListItem>
-    <ListItem>
+    <List.Item>School homework</List.Item>
+    <List.Item>
       Chores
       <List {...args}>
-        <ListItem>Wash dishes</ListItem>
-        <ListItem>
+        <List.Item>Wash dishes</List.Item>
+        <List.Item>
           Fold laundry
           <List {...args}>
-            <ListItem>Iron the sheets</ListItem>
-            <ListItem>Hang dresses</ListItem>
+            <List.Item>Iron the sheets</List.Item>
+            <List.Item>Hang dresses</List.Item>
           </List>
-        </ListItem>
+        </List.Item>
       </List>
-    </ListItem>
-    <ListItem>Walk the dog</ListItem>
-    <ListItem>Water the flowers</ListItem>
+    </List.Item>
+    <List.Item>Walk the dog</List.Item>
+    <List.Item>Water the flowers</List.Item>
   </List>
 );
 

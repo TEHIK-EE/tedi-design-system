@@ -35,7 +35,6 @@ describe('Search component', () => {
 
   it('renders with a search icon by default', () => {
     render(<Search {...defaultProps} />);
-    const input = screen.getByPlaceholderText('Search...');
     const icon = screen.getByText('search');
     expect(icon).toBeInTheDocument();
   });

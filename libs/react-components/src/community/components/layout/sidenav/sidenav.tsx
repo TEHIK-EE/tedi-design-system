@@ -7,6 +7,7 @@ import useLayout, { Layouts } from '../../../helpers/hooks/use-layout';
 import { AllowedHTMLTags } from '../../../helpers/polymorphic/types';
 import { IntentionalAny } from '../../../types';
 import Anchor, { AnchorProps } from '../../anchor/anchor';
+import Collapse from '../../collapse/collapse';
 import Icon, { IconProps } from '../../icon/icon';
 import { LayoutContext } from '../layout-context';
 import styles from './sidenav.module.scss';
@@ -48,6 +49,20 @@ export type SideNavProps<C extends React.ElementType = 'a'> = ConditionalTypes<C
    * Only works for public type Header, system type header should have always a sidenav
    */
   breakToHeader?: Layouts;
+  /**
+   * Show dividers between navigation items
+   * @default true
+   */
+  showDividers?: boolean;
+  /**
+   * Hide submenu icons
+   * @default false
+   */
+  hideSubItemIcons?: boolean;
+  /**
+   * Additional class names for the sidenav component
+   */
+  className?: string;
 };
 
 export type SideNavItem<C extends React.ElementType = 'a'> = AnchorProps<C> & {
@@ -55,10 +70,24 @@ export type SideNavItem<C extends React.ElementType = 'a'> = AnchorProps<C> & {
    * Icon of the item
    */
   icon?: string | IconProps;
+  /**
+   * Submenu items
+   */
+  subItems?: SideNavItem<C>[];
 };
 
 export function SideNav<C extends React.ElementType = 'a'>(props: SideNavProps<C>) {
-  const { navItems, ariaLabel, linkAs, breakToBottomContent, breakToHeader, ...rest } = props;
+  const {
+    navItems,
+    ariaLabel,
+    linkAs,
+    breakToBottomContent,
+    breakToHeader,
+    showDividers = true,
+    hideSubItemIcons = false,
+    className,
+    ...rest
+  } = props;
   const isSmallLayout = useLayout(['mobile', 'tablet']);
   const { menuOpen, context, getFloatingProps, floating, headerType, y } = React.useContext(LayoutContext);
   const { hasSidenav } = useSidenavRendered(headerType, props);
@@ -68,9 +97,14 @@ export function SideNav<C extends React.ElementType = 'a'>(props: SideNavProps<C
     return null;
   }
 
+  const BEM = cn(styles['sidenav'], className, {
+    [styles['sidenav--has-dividers']]: showDividers,
+    [styles['sidenav--hide-subitem-icons']]: hideSubItemIcons,
+  });
+
   const renderSidebar = (
     <Print visibility="hide">
-      <nav data-name="sidenav" {...rest} className={cn({ [styles['sidenav']]: !isSmallLayout })} aria-label={ariaLabel}>
+      <nav data-name="sidenav" {...rest} className={BEM} aria-label={ariaLabel}>
         <ul className={styles['sidenav__list']} role="menubar" aria-label={ariaLabel}>
           {navItems.map((item, key) => (
             <SideNavItem as={linkAs} {...item} key={key} />
@@ -103,9 +137,10 @@ export function SideNav<C extends React.ElementType = 'a'>(props: SideNavProps<C
 }
 
 function SideNavItem<C extends React.ElementType = 'a'>(props: SideNavItem<C>) {
-  const { icon, children, isActive, onClick, ...rest } = props;
+  const { icon, children, isActive, onClick, subItems, as, ...rest } = props;
   const { toggleMenu } = React.useContext(LayoutContext);
   const SideNavItemBEM = cn(styles['sidenav__item'], { [styles['sidenav__item--current']]: isActive });
+  const collapseId = React.useId();
 
   const getIcon = (icon: string | IconProps) => {
     const iconBEM = cn(styles['sidenav__icon']);
@@ -125,21 +160,47 @@ function SideNavItem<C extends React.ElementType = 'a'>(props: SideNavItem<C>) {
 
   return (
     <li data-name="sidenav-item" className={SideNavItemBEM} role="presentation">
-      {/*
-          // // TODO: Remove ts-ignore
-          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-          // @ts-expect-error: 'rest' props do not fully match Anchor's expected props, but they are validated elsewhere */}
-      <Anchor
-        {...rest}
-        onClick={handleClick}
-        className={styles['sidenav__link']}
-        noStyle={true}
-        role="menuitem"
-        aria-current={isActive ? 'page' : undefined}
-      >
-        {icon && getIcon(icon)}
-        <span className={styles['sidenav__title']}>{children}</span>
-      </Anchor>
+      {subItems ? (
+        <Collapse
+          id={collapseId}
+          hideCollapseText
+          open={isActive}
+          title={
+            <span
+              {...(({ _href, ...spanRest }) => spanRest)(rest)}
+              className={styles['sidenav__link']}
+              noStyle={true}
+              role="menuitem"
+              aria-current={isActive ? 'page' : undefined}
+            >
+              {icon && getIcon(icon)}
+              <span className={styles['sidenav__title']}>{children}</span>
+            </span>
+          }
+        >
+          <ul className={styles['sidenav__list']} role="menubar">
+            {subItems.map((item, key) => (
+              <SideNavItem as={as} {...item} key={key} />
+            ))}
+          </ul>
+        </Collapse>
+      ) : (
+        // // TODO: Remove ts-ignore
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        <Anchor
+          {...rest}
+          as={as}
+          onClick={handleClick}
+          className={styles['sidenav__link']}
+          noStyle={true}
+          role="menuitem"
+          aria-current={isActive ? 'page' : undefined}
+        >
+          {icon && getIcon(icon)}
+          <span className={styles['sidenav__title']}>{children}</span>
+        </Anchor>
+      )}
     </li>
   );
 }

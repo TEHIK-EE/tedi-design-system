@@ -1,4 +1,5 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
+import { useState } from 'react';
 
 import { Col, Row } from '../../grid';
 import { Text } from '../../typography/text/text';
@@ -6,8 +7,8 @@ import { VerticalSpacing } from '../../vertical-spacing';
 import TextArea, { TextAreaProps } from './textarea';
 
 /**
- * [Figma ↗](https://www.figma.com/design/jWiRIXhHRxwVdMSimKX2FF/TEDI-READY-(work-in-progress)?node-id=3486-37618&m=dev)<br/>
- * [Zeroheight ↗](https://tedi.tehik.ee/1ee8444b7/p/25f281-text-area)
+ * <a href="https://www.figma.com/design/jWiRIXhHRxwVdMSimKX2FF/TEDI-READY-(work-in-progress)?node-id=3486-37618&m=dev" target="_BLANK">Figma ↗</a><br/>
+ * <a href="https://tedi.tehik.ee/1ee8444b7/p/25f281-text-area" target="_BLANK">Zeroheight ↗</a>
  */
 
 const meta: Meta<typeof TextArea> = {
@@ -19,6 +20,10 @@ const meta: Meta<typeof TextArea> = {
     },
     controls: {
       exclude: ['sm', 'md', 'lg', 'xl', 'xxl'],
+    },
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/design/jWiRIXhHRxwVdMSimKX2FF/TEDI-READY-(work-in-progress)?node-id=3486-37618&m=dev',
     },
   },
 };
@@ -33,7 +38,7 @@ interface TemplateStateProps extends TextAreaProps {
 }
 
 const TemplateColumnWithStates: StoryFn<TemplateStateProps> = (args) => {
-  const { array, id, ...textFieldProps } = args;
+  const { array, ...textFieldProps } = args;
 
   return (
     <VerticalSpacing>
@@ -43,7 +48,7 @@ const TemplateColumnWithStates: StoryFn<TemplateStateProps> = (args) => {
             <Text modifiers="bold">{state}</Text>
           </Col>
           <Col className="display-flex align-items-center">
-            <TextArea disabled={state === 'Disabled'} id={state} {...textFieldProps} />
+            <TextArea disabled={state === 'Disabled'} {...textFieldProps} id={state} />
           </Col>
         </Row>
       ))}
@@ -68,6 +73,12 @@ const TemplateSizes: StoryFn<TextAreaProps> = (args) => {
       ))}
     </div>
   );
+};
+
+const TemplateTextValue: StoryFn<TextAreaProps> = (args) => {
+  const { value, ...props } = args;
+  const [text, setText] = useState(value ?? '');
+  return <TextArea value={text} onChange={(t) => setText(t)} {...props} />;
 };
 
 export const Default: Story = {
@@ -142,6 +153,7 @@ export const Error: Story = {
 };
 
 export const TextValue: Story = {
+  render: TemplateTextValue,
   args: {
     id: 'example-1',
     label: 'Label',
@@ -154,5 +166,13 @@ export const Placeholder: Story = {
     id: 'example-1',
     label: 'Label',
     placeholder: 'Text value',
+  },
+};
+
+export const DefaultValue: Story = {
+  args: {
+    id: 'example-1',
+    label: 'Label',
+    defaultValue: 'Text value',
   },
 };

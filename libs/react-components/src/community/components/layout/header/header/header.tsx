@@ -1,11 +1,11 @@
 import cn from 'classnames';
 import React from 'react';
 
+import { Affix } from '../../../../../tedi/components/affix/affix';
 import { Col, Row } from '../../../../../tedi/components/grid';
 import Print from '../../../../../tedi/components/print/print';
 import { Layouts, useLayout } from '../../../../helpers';
 import { IntentionalAny } from '../../../../types';
-import Affix from '../../../affix/affix';
 import Anchor from '../../../anchor/anchor';
 import { LayoutContext } from '../../layout-context';
 import { useSidenavRendered } from '../../sidenav/utility';
@@ -48,11 +48,21 @@ export interface HeaderProps<H extends React.ElementType> {
    */
   minimalSettingsArea?: Layouts;
   /**
+   * @deprecated Use showCustomContent instead
+   */
+  showSystemCustomContent?: Layouts;
+  /**
    * In which breakpoints header should render custom content.
    * That means in those breakpoints only HeaderContent children is rendered.
    * @default ['desktop', 'tablet']
    */
-  showSystemCustomContent?: Layouts;
+  showCustomContent?: Layouts;
+  /**
+   * Whether the header should render public custom content.
+   * Only affects public header type.
+   * @default false
+   */
+  enablePublicCustomContent?: boolean;
   /**
    * Props of notification bar above the header.
    */
@@ -67,10 +77,14 @@ export const Header = <H extends React.ElementType = 'a'>(props: HeaderProps<H>)
     bottomContent,
     notification,
     minimalSettingsArea = ['mobile'],
-    showSystemCustomContent = ['desktop', 'tablet'],
+    showCustomContent,
+    showSystemCustomContent,
+    enablePublicCustomContent = false,
     ...rest
   } = props;
-  const renderSystemCustomContent = useLayout(showSystemCustomContent);
+  // Use showSystemCustomContent as fallback if showCustomContent is not provided
+  const effectiveCustomContent = showCustomContent ?? showSystemCustomContent ?? ['desktop', 'tablet'];
+  const renderCustomContent = useLayout(effectiveCustomContent);
   const renderMinimalSettingsArea = useLayout(minimalSettingsArea);
   const { headerType, sideNavProps, headerElement } = React.useContext(LayoutContext);
   const { shouldBreakToBottomContent, shouldBreakToHeader } = useSidenavRendered(headerType, sideNavProps);
@@ -145,8 +159,8 @@ export const Header = <H extends React.ElementType = 'a'>(props: HeaderProps<H>)
         <Logo {...logo} />
         <div className={styles['header__content']}>
           <div className={styles['header__content-left']}>
-            {headerType === 'system' &&
-              renderSystemCustomContent &&
+            {(headerType === 'system' || (enablePublicCustomContent && !shouldBreakToHeader)) &&
+              renderCustomContent &&
               filterHeaderDirectChildren(children, ContentAreaComponentOrder)}
             {shouldBreakToHeader && <HeaderNavigation />}
           </div>

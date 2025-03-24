@@ -10,13 +10,17 @@ import { Truncate } from './truncate';
 
 const meta: Meta<typeof Truncate> = {
   component: Truncate,
-  title: 'Tedi-ready/Components/Helpers/Truncate',
+  title: 'Tedi-ready/Content/Truncate',
   parameters: {
     status: {
       type: [{ name: 'breakpointSupport', url: '?path=/docs/helpers-usebreakpointprops--usebreakpointprops' }],
     },
     controls: {
       exclude: ['sm', 'md', 'lg', 'xl', 'xxl'],
+    },
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/design/jWiRIXhHRxwVdMSimKX2FF/TEDI-READY-(work-in-progress)?node-id=2427-40830&m=dev',
     },
   },
 };

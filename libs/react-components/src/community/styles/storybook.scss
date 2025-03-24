@@ -34,8 +34,9 @@ pre {
 
 code {
   padding: 4px;
+  color: var(--neutral-100);
   white-space: nowrap;
-  background-color: var(--color-primary-highlight);
+  background-color: var(--red-600);
   border-radius: 4px;
 }
 
@@ -104,4 +105,10 @@ li > ol {
 .material-symbols-outlined {
   // Storybook has new styles that overwrite this on "un-styled" elements
   font-family: 'Material Symbols Outlined', sans-serif !important;
+}
+
+// temporary fix to display Select menu portal correctly in storybooks docs file
+.innerZoomElementWrapper div.select__menu-portal {
+  top: auto;
+  left: auto;
 }

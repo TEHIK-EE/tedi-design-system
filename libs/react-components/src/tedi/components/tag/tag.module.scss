@@ -1,4 +1,5 @@
 @use '@tehik-ee/tedi-core/mixins';
+@use '@tehik-ee/tedi-core/bootstrap-utility/breakpoints';
 
 $tag-colors: (
   'primary': 'tag-primary',
@@ -11,13 +12,14 @@ $tag-colors: (
   --general-icon-primary: var(--button-close-text-default);
 
   display: inline-flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   color: var(--general-text-primary);
 
-  @include mixins.responsive-styles(gap, tag-default-inner-spacing);
+  @include mixins.responsive-styles(gap, tag-default-padding-x);
   @include mixins.responsive-styles(border-radius, tag-default-radius);
-  @include mixins.responsive-styles(padding, tag-default-padding-y tag-default-padding-x);
+  @include mixins.responsive-styles(padding-left, tag-default-padding-x);
+  @include mixins.responsive-styles(padding-right, tag-default-padding-x);
   @include mixins.responsive-styles(font-size, body-small-regular-size);
   @include mixins.responsive-styles(font-weight, body-small-regular-weight);
   @include mixins.responsive-styles(line-height, body-small-regular-line-height);
@@ -27,6 +29,20 @@ $tag-colors: (
       background-color: var(--#{$var}-background);
       box-shadow: inset 0 0 0 1px var(--#{$var}-border);
     }
+  }
+
+  &__content {
+    display: flex;
+    align-items: center;
+
+    @include mixins.responsive-styles(min-height, button-xs-icon-size);
+  }
+
+  &__icon-wrapper {
+    display: flex;
+    align-items: center;
+
+    @include mixins.responsive-styles(min-height, button-xs-icon-size);
   }
 
   &__loader {
@@ -45,9 +61,15 @@ $tag-colors: (
     @include mixins.responsive-styles(padding-left, tag-default-padding-x);
 
     > button {
+      flex-shrink: 0;
+
       @include mixins.responsive-styles(border-top-right-radius, button-radius-sm);
       @include mixins.responsive-styles(border-bottom-right-radius, button-radius-sm);
     }
+  }
+
+  @include breakpoints.media-breakpoint-down(md) {
+    @include mixins.responsive-styles(min-height, button-xs-icon-size);
   }
 
   @include mixins.print-grayscale;

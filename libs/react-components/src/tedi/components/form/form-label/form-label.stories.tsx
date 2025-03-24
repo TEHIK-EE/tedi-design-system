@@ -37,3 +37,11 @@ export const Small: Story = {
     size: 'small',
   },
 };
+
+export const InfoButton: Story = {
+  args: {
+    label: 'Label of input',
+    required: true,
+    tooltip: 'More Info',
+  },
+};

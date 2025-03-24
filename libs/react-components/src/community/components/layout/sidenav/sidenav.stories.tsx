@@ -31,6 +31,71 @@ const exampleNavItemsPublic: SideNavItem[] = [
   { href: '#', children: 'Contact and FAQ', icon: 'quiz' },
 ];
 
+const exampleNavCollapsibleItems: SideNavItem[] = [
+  { href: '#', children: 'Dashboard', icon: 'dashboard' },
+  { href: '#', children: 'Patient Records', icon: 'people' },
+  {
+    href: '#',
+    children: 'Clinical Management',
+    icon: 'medical_services',
+    subItems: [
+      { href: '#', children: 'Vital Signs' },
+      { href: '#', children: 'Assessments' },
+      {
+        href: '#',
+        children: 'Treatments',
+        subItems: [
+          { href: '#', children: 'Active Treatments' },
+          { href: '#', children: 'Treatment History' },
+          { href: '#', children: 'Treatment Plans' },
+          { href: '#', children: 'Clinical Protocols' },
+        ],
+      },
+      {
+        href: '#',
+        children: 'Documentation',
+        subItems: [
+          { href: '#', children: 'Clinical Notes' },
+          { href: '#', children: 'Medical Forms' },
+          { href: '#', children: 'Consent Forms' },
+          { href: '#', children: 'Reports' },
+        ],
+      },
+    ],
+  },
+  {
+    href: '#',
+    children: 'Administration',
+    icon: 'admin_panel_settings',
+    subItems: [
+      { href: '#', children: 'Staff Management' },
+      { href: '#', children: 'Scheduling' },
+      {
+        href: '#',
+        children: 'System Settings',
+        subItems: [
+          { href: '#', children: 'General Settings' },
+          { href: '#', children: 'User Management' },
+          { href: '#', children: 'Permissions' },
+          { href: '#', children: 'Integrations' },
+        ],
+      },
+      {
+        href: '#',
+        children: 'Reports & Analytics',
+        subItems: [
+          { href: '#', children: 'Operational Reports' },
+          { href: '#', children: 'Financial Reports' },
+          { href: '#', children: 'Quality Metrics' },
+          { href: '#', children: 'Custom Reports' },
+        ],
+      },
+    ],
+  },
+  { href: '#', children: 'Inventory Management', icon: 'inventory' },
+  { href: '#', children: 'Billing & Finance', icon: 'payments' },
+];
+
 export const Default: Story = {
   args: {
     navItems: exampleNavItems,
@@ -44,5 +109,13 @@ export const Public: Story = {
     ariaLabel: 'Menu title',
     breakToBottomContent: ['lg', 'xl'],
     breakToHeader: ['xxl'],
+  },
+};
+
+export const Collapsible: Story = {
+  args: {
+    navItems: exampleNavCollapsibleItems,
+    ariaLabel: 'Menu title',
+    showDividers: false,
   },
 };

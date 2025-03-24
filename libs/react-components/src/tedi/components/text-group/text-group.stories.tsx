@@ -21,6 +21,10 @@ const meta: Meta<typeof TextGroup> = {
     controls: {
       exclude: ['sm', 'md', 'lg', 'xl', 'xxl'],
     },
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/jWiRIXhHRxwVdMSimKX2FF/TEDI-Design-System-(draft)?type=design&node-id=45-30752&mode=dev',
+    },
   },
 };
 
@@ -94,7 +98,7 @@ const MultipleTextGroupsTemplate: StoryFn<TextGroupProps> = (args) => {
   ];
 
   return (
-    <>
+    <VerticalSpacing size={1}>
       {groups.map((group, groupIndex) => (
         <Row key={groupIndex}>
           <Col>
@@ -104,7 +108,7 @@ const MultipleTextGroupsTemplate: StoryFn<TextGroupProps> = (args) => {
           </Col>
         </Row>
       ))}
-    </>
+    </VerticalSpacing>
   );
 };
 

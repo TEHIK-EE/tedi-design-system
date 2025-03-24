@@ -10,12 +10,14 @@
   --accent-800: var(--orange-800);
   --alpha-01: rgba(0 0 0 / 0%);
   --alpha-10: rgba(0 0 0 / 10%);
+  --alpha-14: rgba(0 0 0 / 14%);
   --alpha-20: rgba(0 0 0 / 20%);
   --alpha-40: rgba(23 23 23 / 40%);
   --alpha-80: rgba(34 35 43 / 80%);
   --alpha-primary-08: rgba(0 90 163 / 8%);
   --alpha-primary-20: rgba(0 90 163 / 20%);
   --alpha-white-10: rgba(255 255 255 / 10%);
+  --alpha-white-14: rgba(255 255 255 / 14%);
   --alpha-white-20: rgba(255 255 255 / 20%);
   --alpha-white-30: rgba(255 255 255 / 30%);
   --alpha-white-50: rgba(255 255 255 / 50%);
@@ -43,8 +45,8 @@
   --neutral-400: #d2d3d8;
   --neutral-450: #9293a4;
   --neutral-500: #838494;
+  --neutral-550: #737482;
   --neutral-600: #5d6071;
-  --neutral-650: #737482;
   --neutral-700: #4b4e62;
   --neutral-750: #34394c;
   --neutral-800: #262b3b;
@@ -103,12 +105,13 @@
   --dimensions-16: 40px;
   --dimensions-17: 44px;
   --dimensions-18: 48px;
-  --dimensions-19: 64px;
-  --dimensions-20: 72px;
-  --dimensions-21: 80px;
-  --dimensions-22: 96px;
-  --dimensions-23: 160px;
-  --dimensions-24: 384px;
+  --dimensions-19: 56px;
+  --dimensions-20: 64px;
+  --dimensions-21: 72px;
+  --dimensions-22: 80px;
+  --dimensions-23: 96px;
+  --dimensions-24: 160px;
+  --dimensions-25: 384px;
   --radius-00: 0px;
   --radius-01: 2px;
   --radius-02-default: 4px;
@@ -118,6 +121,23 @@
   --radius-06: 40px;
   --radius-07: 100px;
   --radius-08: 360px;
+  --containers-01: 160px;
+  --containers-02: 240px;
+  --containers-03: 312px;
+  --containers-04: 340px;
+  --containers-05: 460px;
+  --containers-06: 480px;
+  --containers-07: 552px;
+  --containers-08: 616px;
+  --containers-09: 820px;
+  --containers-10: 840px;
+  --containers-11: 1024px;
+  --containers-12: 1416px;
+  --containers-13: 1232px;
+  --borders-01: 1px;
+  --borders-02: 2px;
+  --borders-03: 3px;
+  --borders-04: 4px;
 
   /* BASE FONTS */
   --family-roboto: 'Roboto';

@@ -1,0 +1,152 @@
+import { Meta, Title, Subtitle, Unstyled } from '@storybook/blocks';
+import { Col, Row } from '../components/grid';
+import { Text } from '../components/typography/text/text';
+import { Card } from '../components/cards/card';
+
+<Meta name="Welcome" title="Documentation/Badge guide" />
+
+# Component badges
+
+In our Storybook, we use status badges to indicate key attributes of components at a glance. These badges provide information about a component's development status, feature support, and other relevant characteristics.
+
+<Card>
+  <Card.Content>
+    <Row gutterX={0} align="start">
+      <Col lg={3} md={12} align="center">
+        {
+          <span
+            style={{
+              color: '#fff',
+              backgroundColor: '#ff8000',
+              padding: '4px 8px',
+              borderRadius: '4px',
+              fontSize: '14px',
+              fontWeight: 'bold',
+              textTransform: 'uppercase',
+            }}
+          >
+            Dev Component
+          </span>
+        }
+      </Col>
+      <Col>
+        <p>This badge indicates that the component is intended for developers only and is not available in Figma.</p>
+      </Col>
+    </Row>
+    <Row gutterX={0} align="start">
+      <Col lg={3} md={12} align="center">
+        {
+          <span
+            style={{
+              color: '#fff',
+              backgroundColor: '#308653',
+              padding: '4px 8px',
+              borderRadius: '4px',
+              fontSize: '14px',
+              fontWeight: 'bold',
+              textTransform: 'uppercase',
+            }}
+          >
+            Breakpoint support
+          </span>
+        }
+      </Col>
+      <Col>
+        This badge signifies that the component supports breakpoints, allowing props to be overridden at different
+        screen sizes.
+      </Col>
+    </Row>
+    <Row gutterX={0} align="start">
+      <Col lg={3} md={12} align="center">
+        {
+          <span
+            style={{
+              color: '#000',
+              backgroundColor: '#fff',
+              padding: '4px 8px',
+              borderRadius: '4px',
+              fontSize: '14px',
+              fontWeight: 'bold',
+              textTransform: 'uppercase',
+            }}
+          >
+            Internal Component
+          </span>
+        }
+      </Col>
+      <Col>
+        This badge indicates that the component is used internally within TEDI and is not exported for public use.
+      </Col>
+    </Row>
+    <Row gutterX={0} align="start">
+      <Col lg={3} md={12} align="center">
+        {
+          <span
+            title="This component is dev only and not found in Figma"
+            style={{
+              color: '#fff',
+              backgroundColor: '#f02c2c',
+              padding: '4px 8px',
+              borderRadius: '4px',
+              fontSize: '14px',
+              fontWeight: 'bold',
+              textTransform: 'uppercase',
+            }}
+          >
+            Deprecated
+          </span>
+        }
+      </Col>
+      <Col>
+        <p>This badge indicates that the component is being phased out and will be removed in a future release.</p>
+      </Col>
+    </Row>
+    <Row gutterX={0} align="start">
+      <Col lg={3} md={12} align="center">
+        {
+          <span
+            style={{
+              color: '#fff',
+              backgroundColor: '#005aa3',
+              padding: '4px 8px',
+              borderRadius: '4px',
+              fontSize: '14px',
+              fontWeight: 'bold',
+              textTransform: 'uppercase',
+            }}
+          >
+            Exists in TEDI Ready
+          </span>
+        }
+      </Col>
+      <Col>
+        <p>
+          This badge means that an equivalent version of the component is available in the TEDI-Ready component set.
+        </p>
+      </Col>
+    </Row>
+    <Row gutterX={0} align="start">
+      <Col lg={3} md={12} align="center">
+        {
+          <span
+            style={{
+              color: '#fff',
+              backgroundColor: '#9bbb5f',
+              padding: '4px 8px',
+              borderRadius: '4px',
+              fontSize: '14px',
+              fontWeight: 'bold',
+              textTransform: 'uppercase',
+            }}
+          >
+            Partially TEDI-Ready
+          </span>
+        }
+      </Col>
+      <Col>
+        This badge indicates that the component lacks some TEDI-Ready functionality. For example, it may rely on another
+        component that has not yet been developed.
+      </Col>
+    </Row>
+  </Card.Content>
+</Card>

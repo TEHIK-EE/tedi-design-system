@@ -36,6 +36,7 @@
     "jsx-quotes": ["error", "prefer-double"],
     "react/jsx-curly-brace-presence": ["error"],
     "@typescript-eslint/no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }],
+    "react-hooks/exhaustive-deps": ["warn"],
     "react/prop-types": "off",
     "@next/next/no-html-link-for-pages": 0,
     "@next/next/no-img-element": 0,
@@ -52,6 +53,13 @@
       "files": ["*.stories.tsx"],
       "rules": {
         "react-hooks/rules-of-hooks": "off"
+      }
+    },
+    {
+      "files": ["src/community/**"],
+      "rules": {
+        "@typescript-eslint/no-unused-vars": "off",
+        "react-hooks/exhaustive-deps": "off"
       }
     }
   ],

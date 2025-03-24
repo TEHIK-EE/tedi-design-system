@@ -12,29 +12,29 @@ export default meta;
 type Story = StoryObj<typeof Calendar>;
 
 const highlightedDates: Dayjs[] = [
-  dayjs(new Date(2022, 9, 10)),
-  dayjs(new Date(2022, 9, 22)),
-  dayjs(new Date(2022, 9, 23)),
-  dayjs(new Date(2022, 10, 6)),
-  dayjs(new Date(2022, 10, 12)),
+  dayjs('2024-10-10'),
+  dayjs('2024-10-22'),
+  dayjs('2024-10-23'),
+  dayjs('2024-11-06'),
+  dayjs('2024-11-12'),
 ];
 
-const statusOnDates: Dayjs[] = [
-  dayjs(new Date(2022, 9, 10)),
-  dayjs(new Date(2022, 9, 16)),
-  dayjs(new Date(2022, 9, 23)),
-];
+const statusOnDates: Dayjs[] = [dayjs('2024-10-10'), dayjs('2024-10-16'), dayjs('2024-10-23')];
 
 const statuses: { date: Dayjs; status: CalendarStatus }[] = [
-  { date: dayjs(new Date(2022, 9, 10)), status: 'error' },
-  { date: dayjs(new Date(2022, 9, 11)), status: 'error' },
-  { date: dayjs(new Date(2022, 9, 21)), status: 'success' },
-  { date: dayjs(new Date(2022, 9, 22)), status: 'success' },
-  { date: dayjs(new Date(2022, 9, 23)), status: 'inactive' },
-  { date: dayjs(new Date(2022, 9, 24)), status: 'inactive' },
+  { date: dayjs('2024-10-10'), status: 'error' },
+  { date: dayjs('2024-10-11'), status: 'error' },
+  { date: dayjs('2024-10-21'), status: 'success' },
+  { date: dayjs('2024-10-22'), status: 'success' },
+  { date: dayjs('2024-10-23'), status: 'inactive' },
+  { date: dayjs('2024-10-24'), status: 'inactive' },
 ];
 
-export const Default: Story = {};
+export const Default: Story = {
+  args: {
+    defaultValue: dayjs('2024-10-10'),
+  },
+};
 
 export const Disabled: Story = {
   args: {
@@ -50,13 +50,13 @@ export const Highlighted: Story = {
     minDate: highlightedDates[0],
     maxDate: highlightedDates[highlightedDates.length - 1],
     shouldHighlightDate: (day) => {
-      return !!highlightedDates?.find((date) => date?.isSame(day));
+      return !!highlightedDates.find((date) => date.isSame(day, 'day'));
     },
     shouldDisableDate: (day) => {
-      return !highlightedDates?.find((date) => date?.isSame(day));
+      return !highlightedDates.find((date) => date.isSame(day, 'day'));
     },
     shouldShowStatusOnDate: (day) => {
-      return statusOnDates.find((date) => date.isSame(day)) ? 'error' : undefined;
+      return statusOnDates.find((date) => date.isSame(day, 'day')) ? 'error' : undefined;
     },
   },
 };
