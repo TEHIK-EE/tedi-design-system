@@ -1,0 +1,99 @@
+@use "@tehik-ee/tedi-core/mixins";
+@use "./card-mixins";
+
+.tedi-card {
+  @include mixins.responsive-styles(--_card-radius, card-radius-rounded);
+  --_card-border: var(--card-border-primary);
+  --_card-selected-border: var(--card-border-selected);
+  --_card-bg: var(--card-background-primary);
+  --_card-timeline-color: var(--general-border-accent);
+
+  border-radius: var(--_card-radius);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  @include card-mixins.card-color-classes;
+  @include card-mixins.card-spacings;
+  @include card-mixins.accent-borders;
+
+  & > .tedi-card-header {
+    border-top-left-radius: var(--_card-radius);
+    border-top-right-radius: var(--_card-radius);
+  }
+
+  & > .tedi-card-content {
+    &:not(:first-child) {
+      border-top: transparent;
+    }
+
+    &:not(.tedi-card-content--has-separator, :last-child) {
+      border-bottom: transparent;
+    }
+
+    &:first-child {
+      border-top-left-radius: var(--_card-radius);
+      border-top-right-radius: var(--_card-radius);
+    }
+
+    &:last-child {
+      border-bottom-left-radius: var(--_card-radius);
+      border-bottom-right-radius: var(--_card-radius);
+    }
+  }
+
+  & > .tedi-card-row {
+    & > .tedi-card-content {
+      &:not(:first-child) {
+        border-left: transparent;
+      }
+
+      &:not(:last-child, .tedi-card-content--has-separator) {
+        border-right: transparent;
+      }
+    }
+
+    &:first-child {
+      & > .tedi-card-content {
+        &:first-child {
+          border-top-left-radius: var(--_card-radius);
+        }
+        &:last-child {
+          border-top-right-radius: var(--_card-radius);
+        }
+      }
+    }
+
+    &:last-child {
+      & > .tedi-card-content {
+        &:first-child {
+          border-bottom-left-radius: var(--_card-radius);
+        }
+        &:last-child {
+          border-bottom-right-radius: var(--_card-radius);
+        }
+      }
+    }
+
+    &:not(:first-child) > .tedi-card-content {
+      border-top: transparent;
+    }
+
+    &:not(:last-child, .tedi-card-row--has-separator) > .tedi-card-content {
+      border-bottom: transparent;
+    }
+  }
+
+  &--selected {
+    outline: 1px solid var(--_card-selected-border);
+    outline-offset: -1px;
+  }
+
+  &--borderless {
+    --_card-border: transparent;
+  }
+
+  &--spacing-none {
+    --_card-padding: 0;
+  }
+}
