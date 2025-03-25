@@ -39,7 +39,7 @@ export type ButtonGroupProps = {
 };
 
 export const ButtonGroup = (props: ButtonGroupProps): JSX.Element => {
-  const { children, className, type = 'primary', onSelectionChange, stretch = true, ariaLabel } = props;
+  const { children, className, type = 'primary', onSelectionChange, stretch = false, ariaLabel } = props;
 
   return (
     <div
@@ -59,6 +59,7 @@ export const ButtonGroup = (props: ButtonGroupProps): JSX.Element => {
           return cloneElement(child as React.ReactElement<ButtonProps>, {
             className: cn(styles['tedi-button-group__item'], {
               [styles['tedi-button-group__item--active']]: child.props.isActive,
+              [styles['tedi-button-group__item--disabled']]: child.props.disabled,
             }),
             onClick: () => {
               if (!child.props.disabled) {

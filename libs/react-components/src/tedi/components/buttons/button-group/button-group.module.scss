@@ -12,12 +12,14 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      height: auto;
+      min-height: 2.5rem;
       text-align: center;
       cursor: pointer;
       border-radius: 0;
 
-      @include mixins.responsive-styles(padding-top, button-md-padding-y);
-      @include mixins.responsive-styles(padding-bottom, button-md-padding-y);
+      @include mixins.responsive-styles(padding-top, button-md-padding-y, null, '- 1px');
+      @include mixins.responsive-styles(padding-bottom, button-md-padding-y, null, '- 1px');
       @include mixins.responsive-styles(padding-left, button-md-padding-x);
       @include mixins.responsive-styles(padding-right, button-md-padding-x);
 
@@ -47,6 +49,12 @@
       background-color: var(--button-group-primary-inactive-background);
       border: 1px solid var(--button-group-primary-inactive-border);
 
+      &--disabled:disabled {
+        color: var(--button-group-primary-disabled-text);
+        background-color: var(--button-group-primary-disabled-background);
+        border: 1px solid var(--button-group-primary-disabled-border);
+      }
+
       &:hover:not(:disabled) {
         color: var(--button-group-primary-hover-text);
         background-color: var(--button-group-primary-hover-background);
@@ -67,6 +75,12 @@
       color: var(--button-group-secondary-inactive-text);
       background-color: var(--button-group-secondary-inactive-background);
       border: 1px solid var(--button-group-secondary-inactive-border);
+
+      &--disabled:disabled {
+        color: var(--button-group-secondary-disabled-text);
+        background-color: var(--button-group-secondary-disabled-background);
+        border: 1px solid var(--button-group-secondary-disabled-border);
+      }
 
       &:hover:not(:disabled) {
         color: var(--button-group-secondary-hover-text);

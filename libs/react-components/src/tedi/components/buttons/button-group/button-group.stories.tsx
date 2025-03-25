@@ -5,7 +5,7 @@ import { Col, Row } from '../../grid';
 import { Text } from '../../typography/text/text';
 import { VerticalSpacing } from '../../vertical-spacing';
 import { Button } from '../button/button';
-import ButtonGroup from './button-group';
+import ButtonGroup, { ButtonGroupProps } from './button-group';
 
 /**
  * <a href="https://www.figma.com/design/jWiRIXhHRxwVdMSimKX2FF/TEDI-READY-(work-in-progress)?node-id=2215-38193&m=dev" target="_BLANK">Figma ↗</a><br/>
@@ -27,21 +27,15 @@ type Story = StoryObj<typeof ButtonGroup>;
 
 const buttonStates = ['Default', 'Hover', 'Active', 'Disabled'];
 
-const Template: StoryFn<typeof ButtonGroup> = (args) => {
-  return (
-    <Row>
-      <Col md={6}>
-        <ButtonGroup {...args}>
-          <Button id="1">Text</Button>
-          <Button id="2" isActive>
-            Text
-          </Button>
-          <Button id="3">Text</Button>
-        </ButtonGroup>
-      </Col>
-    </Row>
-  );
-};
+const Template: StoryFn<ButtonGroupProps> = (args) => (
+  <ButtonGroup {...args}>
+    <Button id="1">Text</Button>
+    <Button id="2" isActive>
+      Text
+    </Button>
+    <Button id="3">Text</Button>
+  </ButtonGroup>
+);
 
 const TemplateTypes: StoryFn<typeof Button> = (args) => {
   return (
@@ -76,6 +70,7 @@ export const Default: Story = {
   render: Template,
   args: {
     type: 'primary',
+    stretch: false,
   },
 };
 
@@ -93,58 +88,30 @@ export const IconOnly: StoryObj<typeof Button> = {
   args: { icon: 'table' },
 };
 
-const TemplateColumn: StoryFn<{ states: string[] }> = (args) => {
-  const [selectedIdPrimary, setSelectedIdPrimary] = useState<string | null>(null);
-  const [selectedIdSecondary, setSelectedIdSecondary] = useState<string | null>(null);
+const TemplateColumn: StoryFn<{ states: string[]; type: 'primary' | 'secondary' }> = (args) => {
+  const [selectedId, setSelectedId] = useState<string | null>(null);
 
   return (
     <VerticalSpacing size={0.5}>
-      <Row>
-        <Col md={1}></Col>
-        <Col>
-          <Text modifiers="bold">Primary</Text>
-        </Col>
-        <Col>
-          <Text modifiers="bold">Secondary</Text>
-        </Col>
-      </Row>
       {args.states.map((state, index) => (
         <Row key={index}>
-          <Col md={1} sm={12}>
+          <Col lg={1} md={2} sm={2}>
             <strong>{state}</strong>
           </Col>
-          <Col>
-            <ButtonGroup type="primary" onSelectionChange={setSelectedIdPrimary}>
+          <Col lg={6} md={10} sm={10}>
+            <ButtonGroup type={args.type} onSelectionChange={setSelectedId}>
               <Button
-                id={`${state}-primary`}
-                isActive={state === 'Active' || selectedIdPrimary === `${state}-1-primary`}
-                onClick={() => setSelectedIdPrimary(`${state}-1`)}
+                id={`${state}-${args.type}`}
+                isActive={state === 'Active' || selectedId === `${state}-1-${args.type}`}
+                onClick={() => setSelectedId(`${state}-1-${args.type}`)}
                 disabled={state === 'Disabled'}
               >
                 Text
               </Button>
-              <Button id={`${state}-2`} onClick={() => setSelectedIdPrimary(`${state}-2`)}>
+              <Button id={`${state}-2-${args.type}`} onClick={() => setSelectedId(`${state}-2-${args.type}`)}>
                 Text
               </Button>
-              <Button id={`${state}-3`} onClick={() => setSelectedIdPrimary(`${state}-3`)}>
-                Text
-              </Button>
-            </ButtonGroup>
-          </Col>
-          <Col>
-            <ButtonGroup type="secondary" onSelectionChange={setSelectedIdSecondary}>
-              <Button
-                id={`${state}-secondary`}
-                isActive={state === 'Active' || selectedIdSecondary === `${state}-1-secondary`}
-                onClick={() => setSelectedIdSecondary(`${state}-1-secondary`)}
-                disabled={state === 'Disabled'}
-              >
-                Text
-              </Button>
-              <Button id={`${state}-2-secondary`} onClick={() => setSelectedIdSecondary(`${state}-2-secondary`)}>
-                Text
-              </Button>
-              <Button id={`${state}-3-secondary`} onClick={() => setSelectedIdSecondary(`${state}-3-secondary`)}>
+              <Button id={`${state}-3-${args.type}`} onClick={() => setSelectedId(`${state}-3-${args.type}`)}>
                 Text
               </Button>
             </ButtonGroup>
@@ -155,16 +122,30 @@ const TemplateColumn: StoryFn<{ states: string[] }> = (args) => {
   );
 };
 
-export const States: StoryObj<{ states: string[] }> = {
-  render: TemplateColumn,
+export const Primary: StoryObj<{ states: string[] }> = {
+  render: (args) => <TemplateColumn {...args} type="primary" />,
   args: {
     states: buttonStates,
   },
   parameters: {
     pseudo: {
-      hover: ['#Hover-primary', '#Hover-secondary'],
-      active: ['#Active-primary', '#Active-secondary'],
-      focus: ['#Focus-primary', '#Focus-secondary'],
+      hover: ['#Hover-primary'],
+      active: ['#Active-primary'],
+      focus: ['#Focus-primary'],
+    },
+  },
+};
+
+export const Secondary: StoryObj<{ states: string[] }> = {
+  render: (args) => <TemplateColumn {...args} type="secondary" />,
+  args: {
+    states: buttonStates,
+  },
+  parameters: {
+    pseudo: {
+      hover: ['#Hover-secondary'],
+      active: ['#Active-secondary'],
+      focus: ['#Focus-secondary'],
     },
   },
 };
@@ -175,7 +156,7 @@ export const DifferentWidthButtons: Story = {
 
     return (
       <Row>
-        <Col md={6}>
+        <Col md={12}>
           <ButtonGroup {...args} stretch={false} onSelectionChange={setSelectedId}>
             <Button id="1" isActive={selectedId === '1'} onClick={() => setSelectedId('1')}>
               Text
@@ -200,12 +181,5 @@ export const Stretched: Story = {
   render: Template,
   args: {
     stretch: true,
-  },
-};
-
-export const NoStretch: Story = {
-  render: Template,
-  args: {
-    stretch: false,
   },
 };
