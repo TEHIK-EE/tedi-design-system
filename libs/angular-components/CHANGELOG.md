@@ -1,3 +1,17 @@
+# [@tehik-ee/tedi-angular-v1.5.0-rc.8](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.5.0-rc.7...angular-1.5.0-rc.8) (2025-03-19)
+
+
+### Bug Fixes
+
+* **angular components:** fix angular component imports, standalone, tests, ng-container [#585](https://github.com/TEHIK-EE/tedi-design-system/issues/585) ([#586](https://github.com/TEHIK-EE/tedi-design-system/issues/586)) ([50263b9](https://github.com/TEHIK-EE/tedi-design-system/commit/50263b9c0212530dbf646d56dd2abba47b45bb72))
+
+# [@tehik-ee/tedi-angular-v1.5.0-rc.7](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.5.0-rc.6...angular-1.5.0-rc.7) (2025-03-19)
+
+
+### Features
+
+* **spinner:** TEDI-Ready Angular spinner component [#555](https://github.com/TEHIK-EE/tedi-design-system/issues/555) ([#574](https://github.com/TEHIK-EE/tedi-design-system/issues/574)) ([e548eb4](https://github.com/TEHIK-EE/tedi-design-system/commit/e548eb4d44aeb3b2a4c5c9539ba2c13af6bf0caa))
+
 # [@tehik-ee/tedi-angular-v1.5.0-rc.6](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.5.0-rc.5...angular-1.5.0-rc.6) (2025-03-18)
 
 
