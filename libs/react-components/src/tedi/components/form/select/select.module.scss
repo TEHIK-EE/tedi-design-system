@@ -41,10 +41,22 @@ div.tedi-select__control {
   }
 }
 
+.tedi-select--valid .tedi-select__control {
+  border-color: var(--form-general-feedback-success-border);
+
+  &.tedi-select__control--focused {
+    box-shadow: 0 0 0 1px var(--form-general-feedback-success-border);
+  }
+}
+
 .tedi-select__arrow {
   .tedi-select--invalid .tedi-select__control--focused & {
     color: var(--form-general-feedback-error-text);
   }
+}
+
+.tedi-select--disabled .tedi-select__control {
+  border-color: var(--form-input-border-disabled);
 }
 
 div.tedi-select__menu-portal {

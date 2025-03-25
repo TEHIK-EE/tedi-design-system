@@ -87,6 +87,7 @@ export interface SelectProps extends FormLabelProps {
   disabled?: boolean;
   name?: string;
   invalid?: boolean;
+  valid?: boolean;
   helper?: FeedbackTextProps;
   size?: 'small';
   async?: boolean;
@@ -113,7 +114,7 @@ export interface SelectProps extends FormLabelProps {
   inputIsHidden?: boolean;
   optionGroupHeadingText?: Pick<TextProps, 'modifiers' | 'color'>;
   cacheOptions?: boolean;
-  showRadioButtons: boolean;
+  showRadioButtons?: boolean;
 }
 
 export interface ISelectOption<CustomData = unknown> {
@@ -159,6 +160,7 @@ export const Select = forwardRef<SelectInstance<ISelectOption, boolean, IGrouped
       helper,
       placeholder,
       invalid,
+      valid,
       size,
       async = false,
       renderOption,
@@ -291,6 +293,8 @@ export const Select = forwardRef<SelectInstance<ISelectOption, boolean, IGrouped
                 disabled={props.isDisabled}
               />
             </>
+          ) : renderOption ? (
+            renderOption(props)
           ) : (
             props.children
           )}
@@ -501,9 +505,11 @@ export const Select = forwardRef<SelectInstance<ISelectOption, boolean, IGrouped
       styles['tedi-select'],
       className,
       { [styles['tedi-select--invalid']]: invalid || helper?.type === 'error' },
+      { [styles['tedi-select--valid']]: valid || helper?.type === 'valid' },
       { [styles[`tedi-select--${size}`]]: size },
       { [styles[`tedi-select--tags-${tagsDirection}`]]: tagsDirection },
-      { [styles['tedi-select--searchable']]: isSearchable }
+      { [styles['tedi-select--searchable']]: isSearchable },
+      { [styles['tedi-select--disabled']]: disabled }
     );
 
     return (

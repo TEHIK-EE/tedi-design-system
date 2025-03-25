@@ -1,6 +1,9 @@
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import { OptionsOrGroups } from 'react-select';
 
+import { Col, Row } from '../../../../tedi/components/grid';
+import { VerticalSpacing } from '../../../../tedi/components/vertical-spacing';
+import { Text } from '../../typography/text/text';
 import { AsyncSelectTemplate } from './examples/async';
 import { CustomOptionSelectTemplate } from './examples/custom-option';
 import { EditableSelectTemplate } from './examples/editable';
@@ -22,9 +25,11 @@ type Story = StoryObj<typeof Select>;
 
 const options = [
   { value: 'tallinn', label: 'Tallinn' },
+  { value: 'narva', label: 'Narva' },
   { value: 'tartu', label: 'Tartu', isDisabled: true },
   { value: 'elva', label: 'Elva' },
   { value: 'rakvere', label: 'Rakvere' },
+  { value: 'haapsalu', label: 'Haapsalu' },
 ];
 
 const groupedOptions: OptionsOrGroups<ISelectOption, IGroupedOptions<ISelectOption>> = [
@@ -44,6 +49,29 @@ const groupedOptions: OptionsOrGroups<ISelectOption, IGroupedOptions<ISelectOpti
   },
 ];
 
+const TemplateSizes: StoryFn = (args) => (
+  <Row>
+    <Col lg={12} md={12} className="example-list">
+      <Row className="border-bottom padding-14-16">
+        <Col lg={2} md={12} className="display-flex align-items-center">
+          <Text modifiers="bold">Default</Text>
+        </Col>
+        <Col lg={10} md={12}>
+          <Select {...args} label="Default" hideLabel id="select-size-default" />
+        </Col>
+      </Row>
+      <Row className="padding-14-16">
+        <Col lg={2} md={12} className="display-flex align-items-center">
+          <Text modifiers="bold">Small</Text>
+        </Col>
+        <Col lg={10} md={12}>
+          <Select {...args} size="small" label="Small" hideLabel id="select-size-default" />
+        </Col>
+      </Row>
+    </Col>
+  </Row>
+);
+
 export const Default: Story = {
   args: {
     id: 'example-1',
@@ -53,12 +81,65 @@ export const Default: Story = {
   },
 };
 
-export const Small: Story = {
+export const Sizes: StoryObj<typeof TemplateSizes> = {
+  render: TemplateSizes,
   args: {
-    ...Default.args,
-    id: 'example-2',
-    size: 'small',
+    label: 'Label',
+    defaultValue: options[2],
+    options: options,
   },
+};
+
+export const States: Story = {
+  args: {
+    options: options,
+    label: 'Label',
+    defaultValue: options[0],
+  },
+  render: (args) => (
+    <VerticalSpacing>
+      <Row>
+        <Col lg={2} md={12} className="display-flex align-items-center gap-3">
+          <Text modifiers="bold">Default</Text>
+        </Col>
+        <Col>
+          <Select {...args} id="example-default" />
+        </Col>
+      </Row>
+      <Row>
+        <Col lg={2} md={12} className="display-flex align-items-center gap-3">
+          <Text modifiers="bold">Hint</Text>
+        </Col>
+        <Col>
+          <Select {...args} helper={{ text: 'Hint text' }} id="example-hint" />
+        </Col>
+      </Row>
+      <Row>
+        <Col lg={2} md={12} className="display-flex align-items-center gap-3">
+          <Text modifiers="bold">Error</Text>
+        </Col>
+        <Col>
+          <Select {...args} helper={{ text: 'Error text', type: 'error' }} id="example-error" />
+        </Col>
+      </Row>
+      <Row>
+        <Col lg={2} md={12} className="display-flex align-items-center gap-3">
+          <Text modifiers="bold">Success</Text>
+        </Col>
+        <Col>
+          <Select {...args} helper={{ text: 'Valid text', type: 'valid' }} id="example-valid" />
+        </Col>
+      </Row>
+      <Row>
+        <Col lg={2} md={12} className="display-flex align-items-center gap-3">
+          <Text modifiers="bold">Disabled</Text>
+        </Col>
+        <Col>
+          <Select {...args} disabled id="example-disabled" />
+        </Col>
+      </Row>
+    </VerticalSpacing>
+  ),
 };
 
 export const MultipleSmall: Story = {
@@ -130,7 +211,6 @@ export const WithDescription: Story = {
   args: {
     label: 'With description',
     id: 'description-select',
-    helper: { text: 'Hint text' },
   },
 };
 
@@ -155,23 +235,6 @@ export const SelectWithGroupedOptions: Story = {
   args: {
     id: 'grouped-options-example',
     label: 'Grouped options label',
-    options: groupedOptions,
-  },
-};
-
-/**
- * All group headings can be styled at once with `optionGroupHeadingText` and `optionGroupBackgroundColor`.<br/>
- * But they can be styled separately also using `text` and `backgroundColor` inside `options` prop.<br/>
- * If both ways are used at the same time, priority is given to separately set styles.
- */
-export const SelectWithStyledGroupedOptions: Story = {
-  args: {
-    id: 'grouped-options-example-styled',
-    label: 'Grouped options label',
-    optionGroupHeadingText: {
-      modifiers: ['h6'],
-      color: 'brand',
-    },
     options: groupedOptions,
   },
 };
