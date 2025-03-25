@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-core-v1.8.1](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.8.0...core-1.8.1) (2025-03-24)
+
+
+### Bug Fixes
+
+* **fonts:** add minified css to package with correct font paths [#594](https://github.com/TEHIK-EE/tedi-design-system/issues/594) ([#598](https://github.com/TEHIK-EE/tedi-design-system/issues/598)) ([62469d0](https://github.com/TEHIK-EE/tedi-design-system/commit/62469d0ec4a0aefa2bed36c26b457d60e1c52255))
+
 # [@tehik-ee/tedi-core-v1.8.0](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.7.1...core-1.8.0) (2025-03-20)
 
 
