@@ -12,5 +12,5 @@
 }
 
 .tedi-choice-group__inner--indented {
-  @include mixins.responsive-styles(padding-left, form-checkbox-radio-subitem-padding-left);
+  @include mixins.responsive-styles(padding-left, form-checkbox-radio-subitem-padding-left, null, '- 5px');
 }

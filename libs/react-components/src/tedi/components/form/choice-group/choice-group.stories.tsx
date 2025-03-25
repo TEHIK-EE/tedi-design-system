@@ -2,6 +2,7 @@ import { Meta, StoryObj } from '@storybook/react';
 
 import Col, { ColProps } from '../../../../tedi/components/grid/col';
 import { Row } from '../../grid';
+import { Text } from '../../typography/text/text';
 import { VerticalSpacing } from '../../vertical-spacing';
 import ChoiceGroup from './choice-group';
 import { ChoiceGroupItemProps } from './choice-group.types';
@@ -16,7 +17,7 @@ import { ChoiceGroupItemProps } from './choice-group.types';
  */
 const meta: Meta<typeof ChoiceGroup> = {
   component: ChoiceGroup,
-  title: 'TEDI-Ready/Components/Form/ChoiceGroup',
+  title: 'TEDI-Ready/Components/Form/ChoiceGroup/ChoiceGroup',
 };
 
 export default meta;
@@ -31,6 +32,7 @@ interface GenerateItemsArgs {
   extraLongTitle?: boolean;
   tooltip?: boolean;
   colProps?: ColProps;
+  layout?: 'separated' | 'segmented';
 }
 
 const generateItems = ({
@@ -41,28 +43,29 @@ const generateItems = ({
   withIndicator = false,
   tooltip = false,
   colProps,
+  layout,
 }: GenerateItemsArgs): ChoiceGroupItemProps[] => [
   {
-    id: `${inputType}-${variant}-value-${index * 10 + 1}-${withHelper}-${withIndicator}`,
+    id: `${inputType}-${variant}-value-${index * 10 + 1}-${withHelper}-${withIndicator}-${layout}`,
     label: 'Text',
-    value: `${inputType}-${variant}-value-${index * 10 + 1}-${withHelper}-${withIndicator}`,
+    value: `${inputType}-${variant}-value-${index * 10 + 1}-${withHelper}-${withIndicator}-${layout}`,
     ...(withHelper && { helper: { text: 'Description' } }),
     colProps,
     tooltip: tooltip ? 'Tooltip' : undefined,
   },
   {
-    id: `${inputType}-${variant}-value-${index * 10 + 2}-${withHelper}-${withIndicator}`,
+    id: `${inputType}-${variant}-value-${index * 10 + 2}-${withHelper}-${withIndicator}-${layout}`,
     label: 'Text',
-    value: `${inputType}-${variant}-value-${index * 10 + 2}-${withHelper}-${withIndicator}`,
+    value: `${inputType}-${variant}-value-${index * 10 + 2}-${withHelper}-${withIndicator}-${layout}`,
     ...(withHelper && { helper: { text: 'Description' } }),
     colProps,
     tooltip: tooltip ? 'Tooltip' : undefined,
   },
   {
-    id: `${inputType}-${variant}-value-${index * 10 + 3}-${withHelper}-${withIndicator}`,
+    id: `${inputType}-${variant}-value-${index * 10 + 3}-${withHelper}-${withIndicator}-${layout}`,
     label: 'Text',
-    value: `${inputType}-${variant}-value-${index * 10 + 3}-${withHelper}-${withIndicator}`,
-    ...(withHelper && { helper: { text: 'Description' } }),
+    value: `${inputType}-${variant}-value-${index * 10 + 3}-${withHelper}-${withIndicator}-${layout}`,
+    ...(withHelper && { helper: { text: 'Description', type: 'error' } }),
     disabled: true,
     colProps,
     tooltip: tooltip ? 'Tooltip' : undefined,
@@ -74,13 +77,14 @@ const renderGroup = (
   variant: 'primary' | 'secondary',
   withHelper: boolean,
   withIndicator: boolean,
+  layout: 'segmented' | 'separated',
   index: number
 ) => (
-  <Row key={`${inputType}-${variant}-${index}`}>
+  <Row key={`${inputType}-${variant}-${layout}-${index}`}>
     <Col lg={6} md={12}>
       <ChoiceGroup
         color="primary"
-        id={`${inputType}-${variant}-no-helper-${index}`}
+        id={`${inputType}-${variant}-${layout}-no-helper-${index}`}
         inputType={inputType}
         items={generateItems({
           index,
@@ -88,18 +92,20 @@ const renderGroup = (
           variant: 'primary',
           withHelper,
           withIndicator,
+          layout,
         })}
         label="Filter"
         hideLabel
-        name={`${inputType}-${variant}-no-helper-${index}`}
+        name={`${inputType}-${variant}-${layout}-no-helper-${index}`}
         showIndicator={withIndicator}
         variant="card"
+        layout={layout}
       />
     </Col>
     <Col lg={6} md={12}>
       <ChoiceGroup
         color="secondary"
-        id={`${inputType}-${variant}-with-helper-${index}`}
+        id={`${inputType}-${variant}-${layout}-with-helper-${index}`}
         inputType={inputType}
         items={generateItems({
           index: index + 1,
@@ -107,23 +113,33 @@ const renderGroup = (
           variant: 'secondary',
           withHelper,
           withIndicator,
+          layout,
         })}
         label="Filter"
         hideLabel
-        name={`${inputType}-${variant}-with-helper-${index}`}
+        name={`${inputType}-${variant}-${layout}-with-helper-${index}`}
         showIndicator={withIndicator}
         variant="card"
+        layout={layout}
       />
     </Col>
   </Row>
 );
 
-const renderChoiceGroups = (inputType: 'radio' | 'checkbox') => (
+const renderChoiceGroups = (inputType: 'radio' | 'checkbox', layout: 'segmented' | 'separated') => (
   <VerticalSpacing>
-    {renderGroup(inputType, 'primary', false, true, 1)}
-    {renderGroup(inputType, 'primary', true, true, 2)}
-    {renderGroup(inputType, 'primary', false, false, 3)}
-    {renderGroup(inputType, 'primary', true, false, 4)}
+    <Row>
+      <Col lg={6} md={12}>
+        <Text modifiers="bold">Primary</Text>
+      </Col>
+      <Col lg={6} md={12}>
+        <Text modifiers="bold">Secondary</Text>
+      </Col>
+    </Row>
+    {renderGroup(inputType, 'primary', false, true, layout, 1)}
+    {renderGroup(inputType, 'primary', true, true, layout, 2)}
+    {renderGroup(inputType, 'primary', false, false, layout, 3)}
+    {renderGroup(inputType, 'primary', true, false, layout, 4)}
   </VerticalSpacing>
 );
 
@@ -173,9 +189,9 @@ export const CheckboxRow: Story = {
   },
 };
 
-export const RadioCard = () => <VerticalSpacing>{renderChoiceGroups('radio')}</VerticalSpacing>;
-
-export const CheckboxCard = () => <VerticalSpacing>{renderChoiceGroups('checkbox')}</VerticalSpacing>;
+export const RadioCardSegmented = () => <VerticalSpacing>{renderChoiceGroups('radio', 'segmented')}</VerticalSpacing>;
+export const RadioCardSeparated = () => <VerticalSpacing>{renderChoiceGroups('radio', 'separated')}</VerticalSpacing>;
+export const CheckboxCard = () => <VerticalSpacing>{renderChoiceGroups('checkbox', 'separated')}</VerticalSpacing>;
 
 export const WithError: Story = {
   args: {
@@ -212,9 +228,8 @@ export const WithExtraContent: Story = {
   args: {
     ...Checkbox.args,
     inputType: 'radio',
-    label: 'I have extra content after the label:',
-    items: generateItems({ index: 15, extraLongTitle: true }),
-    helper: { text: 'Extra Content' },
+    label: 'I have extra content after each option:',
+    items: generateItems({ index: 15, withHelper: true }),
   },
 };
 
@@ -225,6 +240,6 @@ export const FullWidth: Story = {
     label: 'My options will fill the space:',
     variant: 'card',
     showIndicator: true,
-    items: generateItems({ index: 16, colProps: { width: 'auto', grow: 1 } }),
+    items: generateItems({ index: 16, colProps: { width: 'auto', grow: 1, align: 'center' } }),
   },
 };

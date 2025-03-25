@@ -57,7 +57,7 @@ export const ChoiceGroupItem = (props: ExtendedChoiceGroupItemProps): React.Reac
   };
 
   const ColumnBEM = cn(
-    isSegmented && styles['tedi-choice-group-item--segmented'],
+    styles[`tedi-choice-group-item--${isSegmented ? 'segmented' : 'separated'}`],
     direction && styles[`tedi-choice-group-item--${direction}`]
   );
 
@@ -76,7 +76,15 @@ export const ChoiceGroupItem = (props: ExtendedChoiceGroupItemProps): React.Reac
 
     return (
       <Col {...colProps} className={ColumnBEM}>
-        <div className={ChoiceGroupItemBEM}>
+        <div
+          className={ChoiceGroupItemBEM}
+          onClick={(e) => {
+            if ((e.target as HTMLElement).tagName === 'LABEL') return;
+            if (!disabled && variant === 'card') {
+              document.getElementById(id)?.click();
+            }
+          }}
+        >
           <InputComponent
             id={id}
             label={label}

@@ -16,6 +16,7 @@ const defaultProps: ChoiceGroupProps = {
   ],
   inputType: 'checkbox',
   onChange: jest.fn(),
+  color: 'secondary',
 };
 
 describe('ChoiceGroup Component', () => {
@@ -48,6 +49,7 @@ describe('ChoiceGroup Component', () => {
         name="test"
         label="Choicegroup title"
         inputType="checkbox"
+        color="primary"
         items={[
           { id: 'option-1', value: 'option-1', label: 'Option 1' },
           { id: 'option-2', value: 'option-2', label: 'Option 2' },

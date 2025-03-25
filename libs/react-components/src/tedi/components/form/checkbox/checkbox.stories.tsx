@@ -15,7 +15,7 @@ import Checkbox, { CheckboxProps } from './checkbox';
 
 const meta: Meta<typeof Checkbox> = {
   component: Checkbox,
-  title: 'TEDI-Ready/Components/Form/Checkbox',
+  title: 'TEDI-Ready/Components/Form/ChoiceGroup/Checkbox',
 };
 
 export default meta;

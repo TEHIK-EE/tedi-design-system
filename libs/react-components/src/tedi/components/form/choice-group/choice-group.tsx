@@ -198,7 +198,15 @@ export const ChoiceGroup = (props: ChoiceGroupProps): React.ReactElement => {
                   direction={direction}
                   gutterX={direction === 'row' && layout === 'segmented' ? 0 : 2}
                   gutterY={direction === 'row' && layout === 'segmented' ? 0 : 1}
-                  gap={variant === 'default' ? (isBreakpointBelow(currentBreakpoint, 'md') ? 1 : 0) : 0}
+                  gap={
+                    variant === 'default'
+                      ? isBreakpointBelow(currentBreakpoint, 'md')
+                        ? 1
+                        : direction === 'row'
+                        ? 1
+                        : 0
+                      : 0
+                  }
                   {...rowProps}
                   className={CheckGroupBEM}
                 >

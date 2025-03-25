@@ -1,5 +1,9 @@
 @use '@tehik-ee/tedi-core/mixins';
 
+.tedi-choice-group-item {
+  position: relative;
+}
+
 .tedi-choice-group-item--card {
   display: flex;
   align-items: center;
@@ -12,6 +16,10 @@
   @include mixins.responsive-styles(padding-right, form-checkbox-radio-card-checkbox-padding-x);
   @include mixins.responsive-styles(padding-top, form-checkbox-radio-card-checkbox-padding-y);
   @include mixins.responsive-styles(padding-bottom, form-checkbox-radio-card-checkbox-padding-y);
+
+  &:hover {
+    cursor: pointer;
+  }
 
   .tedi-choice-group-item__input {
     @include mixins.visually-hidden;
@@ -31,6 +39,10 @@
   &.tedi-choice-group-item--disabled {
     background-color: var(--form-general-background-disabled);
     border-color: var(--form-general-border-disabled);
+
+    &:hover {
+      cursor: unset;
+    }
 
     label,
     .tedi-choice-group-item__feedback-text {
@@ -97,10 +109,6 @@
       }
     }
   }
-
-  &.tedi-choice-group-item--indicator {
-    justify-content: start;
-  }
 }
 
 .tedi-choice-group-item--segmented .tedi-choice-group-item {
@@ -135,7 +143,14 @@
 
   &:not(:first-of-type) .tedi-choice-group-item--disabled {
     margin-left: 0;
-    border-left-color: var(--form-checkbox-radio-card-secondary-inactive-background);
+
+    &.tedi-choice-group-item--card-primary {
+      border-left-color: var(--form-checkbox-radio-card-primary-inactive-background);
+    }
+
+    &.tedi-choice-group-item--card-secondary {
+      border-left-color: var(--form-checkbox-radio-card-secondary-inactive-background);
+    }
   }
 
   &:first-of-type .tedi-choice-group-item {
@@ -151,5 +166,11 @@
   .tedi-choice-group-item--disabled.tedi-choice-group-item--card-secondary {
     background-color: var(--form-checkbox-radio-card-secondary-inactive-background);
     border-color: var(--form-general-border-disabled);
+  }
+}
+
+.tedi-choice-group-item--separated {
+  .tedi-choice-group-item--card-primary.tedi-choice-group-item--radio {
+    border-color: var(--filter-primary-inactive-background);
   }
 }

@@ -14,7 +14,7 @@ import Radio, { RadioProps } from './radio';
  */
 const meta: Meta<typeof Radio> = {
   component: Radio,
-  title: 'TEDI-Ready/Components/Form/Radio',
+  title: 'TEDI-Ready/Components/Form/ChoiceGroup/Radio',
 };
 
 export default meta;
