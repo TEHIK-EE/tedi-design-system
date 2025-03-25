@@ -59,6 +59,9 @@
   --button-floating-secondary-text-active: var(--button-main-primary-inverted-text-active);
   --button-floating-secondary-text-default: var(--button-main-primary-inverted-text-default);
   --button-floating-secondary-text-hover: var(--button-main-primary-inverted-text-hover);
+  --button-group-primary-disabled-background: var(--button-main-disabled-general-background);
+  --button-group-primary-disabled-border: var(--button-group-primary-inactive-border);
+  --button-group-primary-disabled-text: var(--button-main-disabled-general-text);
   --button-group-primary-hover-background: var(--form-checkbox-radio-card-primary-hover-background);
   --button-group-primary-hover-border: var(--form-checkbox-radio-card-primary-hover-border);
   --button-group-primary-hover-text: var(--form-checkbox-radio-card-primary-hover-text);
@@ -70,7 +73,7 @@
   --button-group-primary-selected-text: var(--form-checkbox-radio-card-primary-active-text);
   --button-group-secondary-disabled-background: var(--alpha-01);
   --button-group-secondary-disabled-border: var(--button-main-disabled-general-border);
-  --button-group-secondary-disabled-text: var(--general-text-disabled);
+  --button-group-secondary-disabled-text: var(--button-main-disabled-general-text);
   --button-group-secondary-hover-background: var(--form-checkbox-radio-card-secondary-hover-background);
   --button-group-secondary-hover-border: var(--form-checkbox-radio-card-secondary-hover-border);
   --button-group-secondary-hover-text: var(--form-checkbox-radio-card-secondary-hover-text);
@@ -606,6 +609,9 @@
   --button-floating-secondary-text-active: var(--button-main-primary-inverted-text-active);
   --button-floating-secondary-text-default: var(--button-main-primary-inverted-text-default);
   --button-floating-secondary-text-hover: var(--button-main-primary-inverted-text-hover);
+  --button-group-primary-disabled-background: var(--button-main-disabled-general-background);
+  --button-group-primary-disabled-border: var(--button-group-primary-inactive-border);
+  --button-group-primary-disabled-text: var(--button-main-disabled-general-text);
   --button-group-primary-hover-background: var(--form-checkbox-radio-card-primary-hover-background);
   --button-group-primary-hover-border: var(--form-checkbox-radio-card-primary-hover-border);
   --button-group-primary-hover-text: var(--form-checkbox-radio-card-primary-hover-text);
@@ -616,8 +622,8 @@
   --button-group-primary-selected-border: var(--form-checkbox-radio-card-primary-active-border-group);
   --button-group-primary-selected-text: var(--form-checkbox-radio-card-primary-hover-text);
   --button-group-secondary-disabled-background: var(--alpha-01);
-  --button-group-secondary-disabled-border: var(--button-main-disabled-general-background);
-  --button-group-secondary-disabled-text: var(--general-text-disabled);
+  --button-group-secondary-disabled-border: var(--button-group-secondary-inactive-border);
+  --button-group-secondary-disabled-text: var(--button-main-disabled-general-text);
   --button-group-secondary-hover-background: var(--form-checkbox-radio-card-secondary-hover-background);
   --button-group-secondary-hover-border: var(--form-checkbox-radio-card-secondary-hover-border);
   --button-group-secondary-hover-text: var(--form-checkbox-radio-card-secondary-hover-text);
