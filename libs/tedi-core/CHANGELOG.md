@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-core-v1.8.2](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.8.1...core-1.8.2) (2025-03-25)
+
+
+### Bug Fixes
+
+* **button-group:** add variables [#451](https://github.com/TEHIK-EE/tedi-design-system/issues/451) ([9873e34](https://github.com/TEHIK-EE/tedi-design-system/commit/9873e345506b4befe05f4e39f012073f78a61f76))
+
 # [@tehik-ee/tedi-core-v1.8.1](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.8.0...core-1.8.1) (2025-03-24)
 
 
