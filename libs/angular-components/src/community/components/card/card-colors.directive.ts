@@ -27,6 +27,9 @@ export type CardColors =
   },
 })
 export class CardColorsDirective {
+  /**
+   * Modifies background of the block it's attached to.
+   */
   background = input<CardColors>();
   border = input<CardColors>();
 

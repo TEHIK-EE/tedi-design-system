@@ -28,7 +28,21 @@ import { CardColorsDirective } from "../card-colors.directive";
   ],
 })
 export class CardContentComponent {
+  /**
+   * Whether content block should have separator.
+   * Inside card the separator is created under the content, inside card row the separator is created to the right of content.
+   * @default false
+   */
   hasSeparator = input<boolean>();
+  /**
+   * Whether content block should take minimal space inside of row.
+   * Sets flex-grow to 0.
+   * @default false
+   */
   autoWidth = input<boolean>();
+  /**
+   * Creates a timeline line next to the content block.
+   * @default false
+   */
   timeline = input<boolean>();
 }

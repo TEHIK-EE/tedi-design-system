@@ -19,5 +19,9 @@ import {
   },
 })
 export class CardRowComponent {
+  /**
+   * Whether row should have separator under it.
+   * @default false
+   */
   hasSeparator = input<boolean>();
 }

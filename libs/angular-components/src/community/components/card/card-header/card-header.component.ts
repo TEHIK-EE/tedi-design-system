@@ -27,6 +27,10 @@ export type CardHeaderVariant =
   },
 })
 export class CardHeaderComponent {
+  /**
+   * Variant of the card header.
+   * @default primary
+   */
   variant = input<CardHeaderVariant>("primary");
 
   modifierClasses = computed(() => {

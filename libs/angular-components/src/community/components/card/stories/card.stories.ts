@@ -12,10 +12,66 @@ import {
   SplitCardStoryComponent,
   TimelineCardStoryComponent,
 } from "./card-story-templates";
+import { CardRowComponent } from "../card-row/card-row.component";
+import { CardHeaderComponent } from "../card-header/card-header.component";
+import { CardContentComponent } from "../card-content/card-content.component";
 
 export default {
   title: "Community Angular/Card",
   component: CardStoryComponent,
+  subcomponents: {
+    CardRowComponent,
+    CardHeaderComponent,
+    CardContentComponent,
+  },
+  argTypes: {
+    borderless: {
+      description: "Removes border from card.",
+      control: "boolean",
+      table: {
+        defaultValue: { summary: "false" },
+        type: {
+          summary: "boolean",
+        },
+      },
+    },
+    spacing: {
+      control: "radio",
+      options: ["xs", "sm", "md", "lg", "none"],
+      description: " Adds padding to header and content.",
+      table: {
+        defaultValue: { summary: "md" },
+        type: {
+          summary: '"xs" | "sm" | "md" | "lg" | "none"',
+          detail: "xs - 8px \nsm - 10px \nmd - 16px \nlg - 24px",
+        },
+      },
+    },
+    accentBorder: {
+      control: "radio",
+      options: ["info", "success", "warning", "danger"],
+      description: "Adds thicker, colored left border.",
+      table: {
+        defaultValue: { summary: "-" },
+        type: {
+          summary: '"info" | "success" | "warning" | "danger"',
+        },
+      },
+    },
+    selected: {
+      description: "Adds selected border to card.",
+      control: "boolean",
+      table: {
+        defaultValue: { summary: "false" },
+        type: {
+          summary: "boolean",
+        },
+      },
+    },
+    background: {
+      description: "Changes background for card.",
+    },
+  },
   decorators: [
     moduleMetadata({
       declarations: [],

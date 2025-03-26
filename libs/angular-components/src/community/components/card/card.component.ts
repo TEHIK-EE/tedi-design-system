@@ -32,9 +32,24 @@ export type CardAccentBorder = "info" | "success" | "warning" | "danger";
   ],
 })
 export class CardComponent {
+  /**
+   * Whether card should not have border.
+   * @default false
+   */
   borderless = input<boolean>();
+  /**
+   * Sets padding for header and content block.
+   * @default md
+   */
   spacing = input<CardSpacing>("md");
+  /**
+   * Creates colored accent left border.
+   */
   accentBorder = input<CardAccentBorder>();
+  /**
+   * Whether card should have selected border.
+   * @default false
+   */
   selected = input<boolean>();
 
   modifierClasses = computed(() => {
