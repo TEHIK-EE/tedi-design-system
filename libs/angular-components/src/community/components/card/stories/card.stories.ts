@@ -5,6 +5,7 @@ import {
   CardAccentBordersStoryComponent,
   CardColorsStoryComponent,
   CardHeadersStoryComponent,
+  CardMultipleContentsStoryComponent,
   CardRowsStoryComponent,
   CardSpacingsStoryComponent,
   CardStoryComponent,
@@ -85,6 +86,7 @@ export default {
         CardAccentBordersStoryComponent,
         TimelineCardStoryComponent,
         IconCardStoryComponent,
+        CardMultipleContentsStoryComponent,
       ],
     }),
   ],
@@ -98,6 +100,14 @@ export const CardHeaders: CardStory = {
   render: () => {
     return {
       template: "<card-headers-story />",
+    };
+  },
+};
+
+export const MultipleContents: CardStory = {
+  render: () => {
+    return {
+      template: "<card-multiple-contents-story />",
     };
   },
 };

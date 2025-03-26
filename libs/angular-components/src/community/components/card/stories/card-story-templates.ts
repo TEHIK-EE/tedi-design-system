@@ -3,7 +3,7 @@ import {
   HeadingComponent,
   TextComponent,
 } from "libs/angular-components/src/tedi";
-import { CardColors } from "../card-colors.directive";
+import { CardColors, CardColorsDirective } from "../card-colors.directive";
 import { CardContentComponent } from "../card-content/card-content.component";
 import {
   CardHeaderComponent,
@@ -26,20 +26,25 @@ import { IconComponent } from "../../../../tedi/components/base/icon/icon.compon
     CardContentComponent,
     HeadingComponent,
   ],
-  template: `<tedi-card>
-    <tedi-card-header variant="brand-dark"
-      ><tedi-heading color="white" element="h3"
+  template: `<tedi-card
+    [borderless]="borderless()"
+    [spacing]="spacing()"
+    [accentBorder]="accentBorder()"
+    [selected]="selected()"
+  >
+    <tedi-card-header variant="secondary"
+      ><tedi-heading color="secondary" element="h3"
         >Header</tedi-heading
       ></tedi-card-header
     >
-    <tedi-card-content [hasSeparator]="true">Content</tedi-card-content>
-    <tedi-card-content [hasSeparator]="true" background="secondary"
-      >Content 2</tedi-card-content
+    <tedi-card-content
+      >Cabbage, comprising several cultivars of Brassica oleracea, is a leafy
+      green, red (purple), or white (pale green) biennial plant grown as an
+      annual vegetable crop for its dense-leaved heads.</tedi-card-content
     >
-    <tedi-card-content [hasSeparator]="true">Content 3</tedi-card-content>
   </tedi-card>`,
 })
-export class CardStoryComponent {}
+export class CardStoryComponent extends CardComponent {}
 
 @Component({
   selector: "card-headers-story",
@@ -71,6 +76,30 @@ export class CardHeadersStoryComponent {
     "brand-dark",
   ];
 }
+
+@Component({
+  selector: "card-multiple-contents-story",
+  standalone: true,
+  imports: [
+    CardComponent,
+    CardHeaderComponent,
+    CardContentComponent,
+    HeadingComponent,
+  ],
+  template: `<tedi-card>
+    <tedi-card-header variant="brand"
+      ><tedi-heading color="white" element="h3"
+        >Header</tedi-heading
+      ></tedi-card-header
+    >
+    <tedi-card-content [hasSeparator]="true">Content</tedi-card-content>
+    <tedi-card-content [hasSeparator]="true" background="secondary"
+      >Content 2</tedi-card-content
+    >
+    <tedi-card-content [hasSeparator]="true">Content 3</tedi-card-content>
+  </tedi-card>`,
+})
+export class CardMultipleContentsStoryComponent {}
 
 @Component({
   selector: "card-rows-story",
