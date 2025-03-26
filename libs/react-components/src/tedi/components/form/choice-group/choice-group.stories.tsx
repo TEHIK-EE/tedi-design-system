@@ -18,6 +18,22 @@ import { ExtendedChoiceGroupItemProps } from './components/choice-group-item/cho
 const meta: Meta<typeof ChoiceGroup> = {
   component: ChoiceGroup,
   title: 'TEDI-Ready/Components/Form/ChoiceGroup/ChoiceGroup',
+  subcomponents: { 'ChoiceGroup.Item': ChoiceGroup.Item } as never,
+  parameters: {
+    docs: {
+      source: {
+        transform: (code: string) => {
+          return code.replaceAll('ChoiceGroupItem', 'ChoiceGroup.Item');
+        },
+      },
+    },
+    status: {
+      type: [{ name: 'breakpointSupport', url: '?path=/docs/helpers-usebreakpointprops--usebreakpointprops' }],
+    },
+    controls: {
+      exclude: ['sm', 'md', 'lg', 'xl', 'xxl'],
+    },
+  },
 };
 
 export default meta;
@@ -243,38 +259,38 @@ export const WithExtraContent: Story = {
   },
 };
 
-export const FullWidth: Story = {
+export const Responsive: Story = {
   args: {
     inputType: 'radio',
     label: 'My options will fill the space:',
     variant: 'card',
     showIndicator: true,
-    layout: 'segmented',
-    color: 'secondary',
+    layout: 'separated',
+    color: 'primary',
+    direction: 'row',
+    lg: { layout: 'segmented', direction: 'row', color: 'secondary' },
     items: [
       {
         id: 'radio-card-1',
         label: 'Option 1',
         value: 'value-1',
-        colProps: { width: 'auto', grow: 1 },
         sm: { justifyContent: 'start' },
-        lg: { justifyContent: 'center' },
+        lg: { justifyContent: 'center', colProps: { width: 'auto', grow: 1 } },
       },
       {
         id: 'radio-card-2',
         label: 'Option 2',
         value: 'value-2',
-        colProps: { width: 'auto', grow: 1 },
+        defaultChecked: true,
         sm: { justifyContent: 'start' },
-        lg: { justifyContent: 'center' },
+        lg: { justifyContent: 'center', colProps: { width: 'auto', grow: 1 } },
       },
       {
         id: 'radio-card-3',
         label: 'Option 3',
         value: 'value-3',
-        colProps: { width: 'auto', grow: 1 },
         sm: { justifyContent: 'start' },
-        lg: { justifyContent: 'center' },
+        lg: { justifyContent: 'center', colProps: { width: 'auto', grow: 1 } },
       },
     ],
   },

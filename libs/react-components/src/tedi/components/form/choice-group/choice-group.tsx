@@ -1,11 +1,11 @@
 import cn from 'classnames';
-import React from 'react';
+import React, { useState } from 'react';
 
 import { FeedbackText, FeedbackTextProps } from '../../../../tedi/components/form/feedback-text/feedback-text';
 import FormLabel, { FormLabelProps } from '../../../../tedi/components/form/form-label/form-label';
 import { Col, Direction, Row, RowProps } from '../../../../tedi/components/grid';
 import { useLabels } from '../../../../tedi/providers/label-provider';
-import { isBreakpointBelow, useBreakpoint } from '../../../helpers';
+import { BreakpointSupport, isBreakpointBelow, useBreakpoint, useBreakpointProps } from '../../../helpers';
 import Checkbox, { CheckboxProps } from '../checkbox/checkbox';
 import styles from './choice-group.module.scss';
 import {
@@ -19,52 +19,34 @@ import {
 import { ChoiceGroupContext, IChoiceGroupContext } from './choice-group-context';
 import ChoiceGroupItem, { ExtendedChoiceGroupItemProps } from './components/choice-group-item/choice-group-item';
 
-type InvalidSegmentedDirection = {
-  layout: 'segmented';
-  direction?: Exclude<Direction, 'column'>;
-};
-
-type ValidDirection = {
-  layout?: Exclude<ChoiceGroupItemLayout, 'segmented'>;
+interface ChoiceGroupAllProps extends Omit<FormLabelProps, 'id'> {
+  id: string;
+  items: ExtendedChoiceGroupItemProps[];
+  name: string;
+  inputType?: ChoiceGroupItemType;
+  helper?: FeedbackTextProps;
+  className?: string;
+  defaultValue?: ChoiceGroupValue;
+  value?: ChoiceGroupValue;
+  onChange?: (value: ChoiceGroupValue) => void;
+  variant?: ChoiceGroupItemVariant;
+  color?: ChoiceGroupItemColor;
   direction?: Direction;
-};
+  layout?: ChoiceGroupItemLayout;
+  rowProps?: RowProps;
+  showIndicator?: boolean;
+  indeterminateCheck?: boolean | string | ((state: ChoiceGroupIndeterminateState) => string);
+  indeterminateCheckProps?: { indented?: boolean } & Partial<
+    Omit<CheckboxProps, 'indeterminate' | 'checked' | 'onChange' | 'defaultChecked' | 'label'>
+  >;
+}
 
-type ValidDirectionByColor = {
-  primary: {
-    direction?: Exclude<Direction, 'column'>;
-    color: 'primary';
-  };
-  secondary: {
-    direction?: Direction;
-    color: 'secondary';
-  };
-};
-
-export type ChoiceGroupProps = FormLabelProps &
-  (InvalidSegmentedDirection | ValidDirection) &
-  (ValidDirectionByColor['primary'] | ValidDirectionByColor['secondary']) & {
-    id: string;
-    items: ExtendedChoiceGroupItemProps[];
-    rowProps?: RowProps;
-    name: string;
-    inputType?: ChoiceGroupItemType;
-    helper?: FeedbackTextProps;
-    className?: string;
-    defaultValue?: ChoiceGroupValue;
-    value?: ChoiceGroupValue;
-    onChange?: (value: ChoiceGroupValue) => void;
-    variant?: ChoiceGroupItemVariant;
-    color?: ChoiceGroupItemColor;
-    indeterminateCheck?: boolean | string | ((state: ChoiceGroupIndeterminateState) => string);
-    indeterminateCheckProps?: { indented?: boolean } & Partial<
-      Omit<CheckboxProps, 'indeterminate' | 'checked' | 'onChange' | 'defaultChecked' | 'label'>
-    >;
-    showIndicator?: boolean;
-  };
+export interface ChoiceGroupProps extends BreakpointSupport<ChoiceGroupAllProps> {}
 
 export const ChoiceGroup = (props: ChoiceGroupProps): React.ReactElement => {
   const { getLabel } = useLabels();
   const currentBreakpoint = useBreakpoint();
+  const { getCurrentBreakpointProps } = useBreakpointProps();
   const {
     id,
     className,
@@ -87,15 +69,21 @@ export const ChoiceGroup = (props: ChoiceGroupProps): React.ReactElement => {
     layout,
     showIndicator,
     ...rest
-  } = props;
+  } = getCurrentBreakpointProps(props);
 
   const { ...restIndeterminate } = indeterminateCheckProps;
   const isIndented = indeterminateCheckProps?.indented ?? true;
   const helperId = helper?.id ?? `${id}-helper`;
   const showIndeterminate = indeterminateCheck && inputType === 'checkbox';
 
-  const [innerValue, setInnerValue] = React.useState<ChoiceGroupValue>(() => {
+  const [innerValue, setInnerValue] = useState<ChoiceGroupValue>(() => {
     if (defaultValue) return defaultValue;
+
+    if (inputType === 'radio') {
+      const defaultItem = items.find((item) => item.defaultChecked);
+      if (defaultItem) return defaultItem.value;
+    }
+
     return inputType === 'checkbox' ? [] : null;
   });
 

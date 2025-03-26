@@ -2,7 +2,7 @@ import cn from 'classnames';
 import React from 'react';
 
 import { Col, ColProps, Direction } from '../../../../../../tedi/components/grid';
-import { BreakpointSupport, isBreakpointBelow, useBreakpoint, useBreakpointProps } from '../../../../../helpers';
+import { BreakpointSupport, useBreakpointProps } from '../../../../../helpers';
 import Checkbox from '../../../checkbox/checkbox';
 import { ChoiceInputProps } from '../../../choice-input.types';
 import FeedbackText from '../../../feedback-text/feedback-text';
@@ -36,8 +36,6 @@ export interface ExtendedChoiceGroupItemProps extends BreakpointSupport<ChoiceGr
 
 export const ChoiceGroupItem = (props: ExtendedChoiceGroupItemProps): React.ReactElement => {
   const { getCurrentBreakpointProps } = useBreakpointProps();
-  const currentBreakpoint = useBreakpoint();
-  const isMobile = isBreakpointBelow(currentBreakpoint, 'md');
   const {
     id,
     label,
@@ -60,7 +58,7 @@ export const ChoiceGroupItem = (props: ExtendedChoiceGroupItemProps): React.Reac
 
   const { currentValue, name, onChange, inputType } = React.useContext(ChoiceGroupContext);
   const isChecked = Array.isArray(currentValue) ? currentValue.includes(value) : value === currentValue;
-  const defaultChecked = isChecked || (currentValue === undefined && props.defaultChecked);
+  const defaultChecked = currentValue === undefined ? props.defaultChecked : isChecked;
 
   const onChangeHandler = (value: string, checked: boolean): void => {
     onChange?.(value, checked);
@@ -68,11 +66,7 @@ export const ChoiceGroupItem = (props: ExtendedChoiceGroupItemProps): React.Reac
   };
 
   const ColumnBEM = cn(
-    styles[
-      `tedi-choice-group-item--${
-        (type === 'radio' && variant === 'card' && isMobile) || layout === 'separated' ? 'separated' : 'segmented'
-      }`
-    ],
+    styles[`tedi-choice-group-item--${layout === 'separated' ? 'separated' : 'segmented'}`],
     direction && styles[`tedi-choice-group-item--${direction}`]
   );
 
@@ -99,7 +93,7 @@ export const ChoiceGroupItem = (props: ExtendedChoiceGroupItemProps): React.Reac
   return (
     <Col {...colProps} className={ColumnBEM}>
       <div className={ChoiceGroupItemBEM} onClick={handleClick}>
-        {variant === 'default' || showIndicator || (type === 'radio' && variant === 'card' && isMobile) ? (
+        {variant === 'default' || showIndicator ? (
           <InputComponent
             id={id}
             label={label}
