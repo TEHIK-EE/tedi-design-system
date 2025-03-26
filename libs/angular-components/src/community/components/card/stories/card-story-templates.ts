@@ -3,7 +3,8 @@ import {
   HeadingComponent,
   TextComponent,
 } from "libs/angular-components/src/tedi";
-import { CardColors, CardColorsDirective } from "../card-colors.directive";
+import { IconComponent } from "../../../../tedi/components/base/icon/icon.component";
+import { CardColors } from "../card-colors.directive";
 import { CardContentComponent } from "../card-content/card-content.component";
 import {
   CardHeaderComponent,
@@ -15,7 +16,6 @@ import {
   CardComponent,
   CardSpacing,
 } from "../card.component";
-import { IconComponent } from "../../../../tedi/components/base/icon/icon.component";
 
 @Component({
   selector: "card-story",
