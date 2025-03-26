@@ -1,7 +1,8 @@
 .tedi-card-content {
   background-color: var(--_card-bg);
   border: 1px solid var(--_card-border);
-  padding: var(--_card-padding);
+  padding: var(--_card-padding-top) var(--_card-padding-right)
+    var(--_card-padding-bottom) var(--_card-padding-left);
   flex: 1 1 0;
 
   &--auto-width {

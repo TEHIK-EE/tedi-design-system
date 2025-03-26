@@ -5,6 +5,7 @@ import {
   input,
   ViewEncapsulation,
 } from "@angular/core";
+import { CardPaddingDirective } from "../card-padding.directive";
 
 export type CardHeaderVariant =
   | "primary"
@@ -25,6 +26,12 @@ export type CardHeaderVariant =
     "[class.tedi-card-header]": "true",
     "[class]": "modifierClasses()",
   },
+  hostDirectives: [
+    {
+      directive: CardPaddingDirective,
+      inputs: ["padding"],
+    },
+  ],
 })
 export class CardHeaderComponent {
   /**

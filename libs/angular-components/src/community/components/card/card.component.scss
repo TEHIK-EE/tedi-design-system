@@ -15,6 +15,7 @@
 
   @include card-mixins.card-color-classes;
   @include card-mixins.card-spacings;
+  @include card-mixins.card-padding-overrides;
   @include card-mixins.accent-borders;
 
   & > .tedi-card-header {
@@ -91,9 +92,5 @@
 
   &--borderless {
     --_card-border: transparent;
-  }
-
-  &--spacing-none {
-    --_card-padding: 0;
   }
 }

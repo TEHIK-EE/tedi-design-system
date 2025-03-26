@@ -6,6 +6,7 @@ import {
   ViewEncapsulation,
 } from "@angular/core";
 import { CardColorsDirective } from "./card-colors.directive";
+import { CardPaddingDirective } from "./card-padding.directive";
 
 export type CardSpacing = "xs" | "sm" | "md" | "lg" | "none";
 export type CardAccentBorder = "info" | "success" | "warning" | "danger";
@@ -28,6 +29,10 @@ export type CardAccentBorder = "info" | "success" | "warning" | "danger";
     {
       directive: CardColorsDirective,
       inputs: ["background", "border"],
+    },
+    {
+      directive: CardPaddingDirective,
+      inputs: ["padding"],
     },
   ],
 })

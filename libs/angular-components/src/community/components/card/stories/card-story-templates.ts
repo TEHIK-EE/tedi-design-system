@@ -286,3 +286,93 @@ export class TimelineCardStoryComponent {}
   </tedi-card>`,
 })
 export class IconCardStoryComponent {}
+
+@Component({
+  selector: "nested-cards-story",
+  standalone: true,
+  styleUrls: ["./card-stories.styles.scss"],
+  imports: [
+    CardComponent,
+    CardContentComponent,
+    TextComponent,
+    CardHeaderComponent,
+    HeadingComponent,
+  ],
+  template: `<tedi-card>
+    <tedi-card-header variant="brand"
+      ><tedi-heading element="h3" color="white"
+        >Title</tedi-heading
+      ></tedi-card-header
+    >
+    <tedi-card-content [hasSeparator]="true">
+      <div class="variants-container">
+        <tedi-text modifiers="h2" color="brand">Permanent treatment</tedi-text>
+        <tedi-text
+          >Your permanent medications and medical devices dispensed in the last
+          6 months.</tedi-text
+        >
+        <tedi-text modifiers="h3">Medications</tedi-text>
+
+        <tedi-card background="brand-tertiary"
+          ><tedi-card-content
+            >Cabbage, comprising several cultivars of Brassica oleracea, is a
+            leafy green, red (purple), or white (pale green) biennial plant
+            grown as an annual vegetable crop for its dense-leaved
+            heads.</tedi-card-content
+          ></tedi-card
+        >
+
+        <tedi-card background="brand-tertiary"
+          ><tedi-card-content
+            >Cabbage, comprising several cultivars of Brassica oleracea, is a
+            leafy green, red (purple), or white (pale green) biennial plant
+            grown as an annual vegetable crop for its dense-leaved
+            heads.</tedi-card-content
+          ></tedi-card
+        >
+      </div>
+    </tedi-card-content>
+
+    <tedi-card-content>
+      <div class="variants-container">
+        <tedi-text modifiers="h2" color="brand">Temporary treatment</tedi-text>
+        <tedi-text
+          >Your medications and medical devices used if needed or during a
+          certain period of time.</tedi-text
+        >
+        <tedi-text modifiers="h3">Medications</tedi-text>
+
+        <tedi-card background="brand-tertiary"
+          ><tedi-card-content
+            >Cabbage, comprising several cultivars of Brassica oleracea, is a
+            leafy green, red (purple), or white (pale green) biennial plant
+            grown as an annual vegetable crop for its dense-leaved
+            heads.</tedi-card-content
+          ></tedi-card
+        >
+
+        <tedi-card background="brand-tertiary"
+          ><tedi-card-content
+            >Cabbage, comprising several cultivars of Brassica oleracea, is a
+            leafy green, red (purple), or white (pale green) biennial plant
+            grown as an annual vegetable crop for its dense-leaved
+            heads.</tedi-card-content
+          ></tedi-card
+        >
+      </div>
+    </tedi-card-content>
+  </tedi-card>`,
+})
+export class NestedCardsStoryComponent {}
+
+@Component({
+  selector: "card-paddings-story",
+  standalone: true,
+  imports: [CardComponent, CardContentComponent],
+  template: `<tedi-card padding="lg"
+    ><tedi-card-content background="secondary" [padding]="{ left: 'xs' }"
+      >Card has lg padding. Card content has xs left padding.</tedi-card-content
+    ></tedi-card
+  >`,
+})
+export class CardPaddingsStoryComponent {}

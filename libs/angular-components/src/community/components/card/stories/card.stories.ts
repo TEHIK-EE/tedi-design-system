@@ -6,10 +6,12 @@ import {
   CardColorsStoryComponent,
   CardHeadersStoryComponent,
   CardMultipleContentsStoryComponent,
+  CardPaddingsStoryComponent,
   CardRowsStoryComponent,
   CardSpacingsStoryComponent,
   CardStoryComponent,
   IconCardStoryComponent,
+  NestedCardsStoryComponent,
   SplitCardStoryComponent,
   TimelineCardStoryComponent,
 } from "./card-story-templates";
@@ -87,6 +89,8 @@ export default {
         TimelineCardStoryComponent,
         IconCardStoryComponent,
         CardMultipleContentsStoryComponent,
+        NestedCardsStoryComponent,
+        CardPaddingsStoryComponent,
       ],
     }),
   ],
@@ -164,6 +168,22 @@ export const IconCard: CardStory = {
   render: () => {
     return {
       template: "<icon-card-story />",
+    };
+  },
+};
+
+export const NestedCards: CardStory = {
+  render: () => {
+    return {
+      template: "<nested-cards-story />",
+    };
+  },
+};
+
+export const CardPaddings: CardStory = {
+  render: () => {
+    return {
+      template: "<card-paddings-story />",
     };
   },
 };

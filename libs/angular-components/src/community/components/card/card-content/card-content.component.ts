@@ -5,6 +5,7 @@ import {
   ViewEncapsulation,
 } from "@angular/core";
 import { CardColorsDirective } from "../card-colors.directive";
+import { CardPaddingDirective } from "../card-padding.directive";
 
 @Component({
   selector: "tedi-card-content",
@@ -24,6 +25,10 @@ import { CardColorsDirective } from "../card-colors.directive";
     {
       directive: CardColorsDirective,
       inputs: ["background", "border"],
+    },
+    {
+      directive: CardPaddingDirective,
+      inputs: ["padding"],
     },
   ],
 })

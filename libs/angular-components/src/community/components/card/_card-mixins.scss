@@ -22,7 +22,15 @@ $card-colors: (
   "warning-secondary": "--general-status-warning-background-dark",
 );
 
-$card-spacings: ("xs", "sm", "md", "lg");
+$card-spacings: ("xs", "sm", "md", "lg", "none");
+$spacing-directions: (
+  "vertical",
+  "horizontal",
+  "top",
+  "bottom",
+  "left",
+  "right"
+);
 
 $accent-border-colors: (
   "info": "--general-status-info-background-dark",
@@ -63,14 +71,50 @@ $accent-border-colors: (
   }
 }
 
+@mixin card-spacing-value($spacing, $direction: null) {
+  // css private variable name
+  $private-var-name: if(
+    $direction,
+    --_card-padding-#{$direction},
+    --_card-padding
+  );
+
+  // assigns TEDI variable to private variable, 0 if none
+  @if ($spacing == "none") {
+    #{$private-var-name}: 0;
+  } @else {
+    $tedi-var-name: if($spacing== "md", "md-default", $spacing);
+    @include mixins.responsive-styles(
+      #{$private-var-name},
+      card-padding-#{$tedi-var-name}
+    );
+  }
+}
+
 @mixin card-spacings {
   @each $spacing in $card-spacings {
     &--spacing-#{$spacing} {
-      $var-name: if($spacing== "md", "md-default", $spacing);
-      @include mixins.responsive-styles(
-        --_card-padding,
-        card-padding-#{$var-name}
-      );
+      @include card-spacing-value($spacing);
+    }
+  }
+}
+
+@mixin card-padding-overrides {
+  --_card-padding-vertical: var(--_card-padding);
+  --_card-padding-horizontal: var(--_card-padding);
+  --_card-padding-top: var(--_card-padding-vertical);
+  --_card-padding-bottom: var(--_card-padding-vertical);
+  --_card-padding-left: var(--_card-padding-horizontal);
+  --_card-padding-right: var(--_card-padding-horizontal);
+
+  @each $spacing in $card-spacings {
+    &--padding-#{$spacing} {
+      @include card-spacing-value($spacing);
+    }
+    @each $direction in $spacing-directions {
+      &--padding-#{$direction}-#{$spacing} {
+        @include card-spacing-value($spacing, $direction);
+      }
     }
   }
 }
