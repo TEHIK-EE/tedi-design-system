@@ -1,33 +1,43 @@
 import cn from 'classnames';
 import React from 'react';
 
-import { Col, Direction } from '../../../../../../tedi/components/grid';
+import { Col, ColProps, Direction } from '../../../../../../tedi/components/grid';
+import { BreakpointSupport, isBreakpointBelow, useBreakpoint, useBreakpointProps } from '../../../../../helpers';
 import Checkbox from '../../../checkbox/checkbox';
+import { ChoiceInputProps } from '../../../choice-input.types';
 import FeedbackText from '../../../feedback-text/feedback-text';
 import Radio from '../../../radio/radio';
 import {
   ChoiceGroupItemColor,
-  ChoiceGroupItemProps,
+  ChoiceGroupItemLayout,
   ChoiceGroupItemType,
   ChoiceGroupItemVariant,
 } from '../../choice-group.types';
 import { ChoiceGroupContext } from '../../choice-group-context';
 import styles from './choice-group-item.module.scss';
 
-export interface ExtendedChoiceGroupItemProps extends ChoiceGroupItemProps {
-  id: string;
-  label: string;
-  value: string;
-  className?: string;
+interface ChoiceGroupItemBreakpointProps extends Omit<ChoiceInputProps, 'name'> {
   direction?: Direction;
+  showIndicator?: boolean;
+  justifyContent?: 'start' | 'center' | 'end' | 'between' | 'around' | 'evenly';
+  className?: string;
   type?: ChoiceGroupItemType;
   variant?: ChoiceGroupItemVariant;
   color?: ChoiceGroupItemColor;
-  showIndicator?: boolean;
-  isSegmented?: boolean;
+  colProps?: ColProps;
+  layout?: ChoiceGroupItemLayout;
+}
+
+export interface ExtendedChoiceGroupItemProps extends BreakpointSupport<ChoiceGroupItemBreakpointProps> {
+  id: string;
+  label: string;
+  value: string;
 }
 
 export const ChoiceGroupItem = (props: ExtendedChoiceGroupItemProps): React.ReactElement => {
+  const { getCurrentBreakpointProps } = useBreakpointProps();
+  const currentBreakpoint = useBreakpoint();
+  const isMobile = isBreakpointBelow(currentBreakpoint, 'md');
   const {
     id,
     label,
@@ -43,9 +53,10 @@ export const ChoiceGroupItem = (props: ExtendedChoiceGroupItemProps): React.Reac
     type = 'radio',
     variant = 'default',
     color = 'primary',
+    layout,
     showIndicator,
-    isSegmented = true,
-  } = props;
+    justifyContent = 'start',
+  } = getCurrentBreakpointProps(props);
 
   const { currentValue, name, onChange, inputType } = React.useContext(ChoiceGroupContext);
   const isChecked = Array.isArray(currentValue) ? currentValue.includes(value) : value === currentValue;
@@ -57,7 +68,11 @@ export const ChoiceGroupItem = (props: ExtendedChoiceGroupItemProps): React.Reac
   };
 
   const ColumnBEM = cn(
-    styles[`tedi-choice-group-item--${isSegmented ? 'segmented' : 'separated'}`],
+    styles[
+      `tedi-choice-group-item--${
+        (type === 'radio' && variant === 'card' && isMobile) || layout === 'separated' ? 'separated' : 'segmented'
+      }`
+    ],
     direction && styles[`tedi-choice-group-item--${direction}`]
   );
 
@@ -68,23 +83,23 @@ export const ChoiceGroupItem = (props: ExtendedChoiceGroupItemProps): React.Reac
     showIndicator && styles['tedi-choice-group-item--indicator'],
     type && styles[`tedi-choice-group-item--${type}`],
     { [styles['tedi-choice-group-item--disabled']]: disabled },
-    { [styles['tedi-choice-group-item--checked']]: isChecked }
+    { [styles['tedi-choice-group-item--checked']]: isChecked },
+    { [`justify-content-${justifyContent}`]: justifyContent }
   );
 
-  if (variant === 'default' || showIndicator) {
-    const InputComponent = type === 'radio' ? Radio : Checkbox;
+  const InputComponent = type === 'radio' ? Radio : Checkbox;
 
-    return (
-      <Col {...colProps} className={ColumnBEM}>
-        <div
-          className={ChoiceGroupItemBEM}
-          onClick={(e) => {
-            if ((e.target as HTMLElement).tagName === 'LABEL') return;
-            if (!disabled && variant === 'card') {
-              document.getElementById(id)?.click();
-            }
-          }}
-        >
+  const handleClick = (e: React.MouseEvent) => {
+    if ((e.target as HTMLElement).tagName === 'LABEL') return;
+    if (!disabled && variant === 'card') {
+      document.getElementById(id)?.click();
+    }
+  };
+
+  return (
+    <Col {...colProps} className={ColumnBEM}>
+      <div className={ChoiceGroupItemBEM} onClick={handleClick}>
+        {variant === 'default' || showIndicator || (type === 'radio' && variant === 'card' && isMobile) ? (
           <InputComponent
             id={id}
             label={label}
@@ -104,36 +119,30 @@ export const ChoiceGroupItem = (props: ExtendedChoiceGroupItemProps): React.Reac
             tooltip={tooltip}
             data-testid="choice-group-item-indicator"
           />
-        </div>
-      </Col>
-    );
-  }
-
-  if (variant === 'card') {
-    return (
-      <Col {...colProps} className={ColumnBEM}>
-        <div className={ChoiceGroupItemBEM}>
-          <input
-            id={id}
-            value={value}
-            name={name}
-            type={inputType}
-            disabled={disabled}
-            checked={isChecked}
-            defaultChecked={currentValue === undefined ? props.defaultChecked : undefined}
-            onChange={(e) => onChangeHandler(value, e.target.checked)}
-            className={styles['tedi-choice-group-item__input']}
-          />
-          <label htmlFor={id} className={styles['tedi-choice-group-item__label']}>
-            {label}
-            {helper && <FeedbackText {...helper} id={id} className={styles['tedi-choice-group-item__feedback-text']} />}
-          </label>
-        </div>
-      </Col>
-    );
-  }
-
-  return <></>;
+        ) : (
+          <>
+            <input
+              id={id}
+              value={value}
+              name={name}
+              type={inputType}
+              disabled={disabled}
+              checked={isChecked}
+              defaultChecked={currentValue === undefined ? props.defaultChecked : undefined}
+              onChange={(e) => onChangeHandler(value, e.target.checked)}
+              className={styles['tedi-choice-group-item__input']}
+            />
+            <label htmlFor={id} className={styles['tedi-choice-group-item__label']}>
+              {label}
+              {helper && (
+                <FeedbackText {...helper} id={id} className={styles['tedi-choice-group-item__feedback-text']} />
+              )}
+            </label>
+          </>
+        )}
+      </div>
+    </Col>
+  );
 };
 
 export default ChoiceGroupItem;

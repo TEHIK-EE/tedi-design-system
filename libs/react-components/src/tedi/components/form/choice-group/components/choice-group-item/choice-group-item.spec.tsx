@@ -13,7 +13,6 @@ describe('ChoiceGroupItem', () => {
     variant: 'default',
     color: 'primary',
     showIndicator: false,
-    isSegmented: true,
   };
 
   const renderWithContext = (

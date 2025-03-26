@@ -5,7 +5,7 @@ import { Row } from '../../grid';
 import { Text } from '../../typography/text/text';
 import { VerticalSpacing } from '../../vertical-spacing';
 import ChoiceGroup from './choice-group';
-import { ChoiceGroupItemProps } from './choice-group.types';
+import { ExtendedChoiceGroupItemProps } from './components/choice-group-item/choice-group-item';
 
 /**
  * <a href="https://www.figma.com/design/jWiRIXhHRxwVdMSimKX2FF/TEDI-READY-(work-in-progress)?node-id=4598-78103&m=dev" target="_BLANK">Radio Figma ↗</a><br />
@@ -33,6 +33,7 @@ interface GenerateItemsArgs {
   tooltip?: boolean;
   colProps?: ColProps;
   layout?: 'separated' | 'segmented';
+  justifyContent?: 'start' | 'center' | 'end' | 'between' | 'around' | 'evenly';
 }
 
 const generateItems = ({
@@ -44,7 +45,8 @@ const generateItems = ({
   tooltip = false,
   colProps,
   layout,
-}: GenerateItemsArgs): ChoiceGroupItemProps[] => [
+  justifyContent,
+}: GenerateItemsArgs): ExtendedChoiceGroupItemProps[] => [
   {
     id: `${inputType}-${variant}-value-${index * 10 + 1}-${withHelper}-${withIndicator}-${layout}`,
     label: 'Text',
@@ -52,6 +54,7 @@ const generateItems = ({
     ...(withHelper && { helper: { text: 'Description' } }),
     colProps,
     tooltip: tooltip ? 'Tooltip' : undefined,
+    justifyContent,
   },
   {
     id: `${inputType}-${variant}-value-${index * 10 + 2}-${withHelper}-${withIndicator}-${layout}`,
@@ -60,6 +63,7 @@ const generateItems = ({
     ...(withHelper && { helper: { text: 'Description' } }),
     colProps,
     tooltip: tooltip ? 'Tooltip' : undefined,
+    justifyContent,
   },
   {
     id: `${inputType}-${variant}-value-${index * 10 + 3}-${withHelper}-${withIndicator}-${layout}`,
@@ -69,6 +73,7 @@ const generateItems = ({
     disabled: true,
     colProps,
     tooltip: tooltip ? 'Tooltip' : undefined,
+    justifyContent,
   },
 ];
 
@@ -78,7 +83,8 @@ const renderGroup = (
   withHelper: boolean,
   withIndicator: boolean,
   layout: 'segmented' | 'separated',
-  index: number
+  index: number,
+  justifyContent: 'start' | 'center' | 'end' | 'between' | 'around' | 'evenly'
 ) => (
   <Row key={`${inputType}-${variant}-${layout}-${index}`}>
     <Col lg={6} md={12}>
@@ -93,6 +99,7 @@ const renderGroup = (
           withHelper,
           withIndicator,
           layout,
+          justifyContent,
         })}
         label="Filter"
         hideLabel
@@ -114,6 +121,7 @@ const renderGroup = (
           withHelper,
           withIndicator,
           layout,
+          justifyContent,
         })}
         label="Filter"
         hideLabel
@@ -136,10 +144,12 @@ const renderChoiceGroups = (inputType: 'radio' | 'checkbox', layout: 'segmented'
         <Text modifiers="bold">Secondary</Text>
       </Col>
     </Row>
-    {renderGroup(inputType, 'primary', false, true, layout, 1)}
-    {renderGroup(inputType, 'primary', true, true, layout, 2)}
-    {renderGroup(inputType, 'primary', false, false, layout, 3)}
-    {renderGroup(inputType, 'primary', true, false, layout, 4)}
+    {renderGroup(inputType, 'primary', false, true, layout, 1, 'start')}
+    {renderGroup(inputType, 'primary', true, true, layout, 2, 'start')}
+    {inputType !== 'radio' ||
+      (layout !== 'separated' && renderGroup(inputType, 'primary', false, false, layout, 3, 'start'))}
+    {inputType !== 'radio' ||
+      (layout !== 'separated' && renderGroup(inputType, 'primary', true, false, layout, 4, 'start'))}
   </VerticalSpacing>
 );
 
@@ -235,11 +245,37 @@ export const WithExtraContent: Story = {
 
 export const FullWidth: Story = {
   args: {
-    ...Radio.args,
     inputType: 'radio',
     label: 'My options will fill the space:',
     variant: 'card',
     showIndicator: true,
-    items: generateItems({ index: 16, colProps: { width: 'auto', grow: 1, align: 'center' } }),
+    layout: 'segmented',
+    color: 'secondary',
+    items: [
+      {
+        id: 'radio-card-1',
+        label: 'Option 1',
+        value: 'value-1',
+        colProps: { width: 'auto', grow: 1 },
+        sm: { justifyContent: 'start' },
+        lg: { justifyContent: 'center' },
+      },
+      {
+        id: 'radio-card-2',
+        label: 'Option 2',
+        value: 'value-2',
+        colProps: { width: 'auto', grow: 1 },
+        sm: { justifyContent: 'start' },
+        lg: { justifyContent: 'center' },
+      },
+      {
+        id: 'radio-card-3',
+        label: 'Option 3',
+        value: 'value-3',
+        colProps: { width: 'auto', grow: 1 },
+        sm: { justifyContent: 'start' },
+        lg: { justifyContent: 'center' },
+      },
+    ],
   },
 };

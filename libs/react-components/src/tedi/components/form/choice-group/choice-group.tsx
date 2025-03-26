@@ -12,13 +12,12 @@ import {
   ChoiceGroupIndeterminateState,
   ChoiceGroupItemColor,
   ChoiceGroupItemLayout,
-  ChoiceGroupItemProps,
   ChoiceGroupItemType,
   ChoiceGroupItemVariant,
   ChoiceGroupValue,
 } from './choice-group.types';
 import { ChoiceGroupContext, IChoiceGroupContext } from './choice-group-context';
-import ChoiceGroupItem from './components/choice-group-item/choice-group-item';
+import ChoiceGroupItem, { ExtendedChoiceGroupItemProps } from './components/choice-group-item/choice-group-item';
 
 type InvalidSegmentedDirection = {
   layout: 'segmented';
@@ -45,7 +44,7 @@ export type ChoiceGroupProps = FormLabelProps &
   (InvalidSegmentedDirection | ValidDirection) &
   (ValidDirectionByColor['primary'] | ValidDirectionByColor['secondary']) & {
     id: string;
-    items: ChoiceGroupItemProps[];
+    items: ExtendedChoiceGroupItemProps[];
     rowProps?: RowProps;
     name: string;
     inputType?: ChoiceGroupItemType;
@@ -85,7 +84,7 @@ export const ChoiceGroup = (props: ChoiceGroupProps): React.ReactElement => {
     indeterminateCheck,
     indeterminateCheckProps = {},
     color,
-    layout = inputType === 'radio' && variant === 'card' ? 'segmented' : 'separated',
+    layout,
     showIndicator,
     ...rest
   } = props;
@@ -217,7 +216,7 @@ export const ChoiceGroup = (props: ChoiceGroupProps): React.ReactElement => {
                       color={color}
                       variant={variant}
                       type={inputType}
-                      isSegmented={layout === 'segmented'}
+                      layout={layout}
                       showIndicator={showIndicator}
                       direction={direction}
                     />
