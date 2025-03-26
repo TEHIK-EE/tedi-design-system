@@ -260,4 +260,57 @@ describe('FileUpload component', () => {
     render(<FileUpload {...defaultProps} files={files} onChange={jest.fn()} />);
     expect(screen.getByText('test.jpg')).toBeInTheDocument();
   });
+
+  it('renders Tag component with onClose prop when file is valid and not read-only', () => {
+    const file = { name: 'test.jpg', id: '1', isValid: true, isLoading: false };
+    render(<FileUpload {...defaultProps} defaultFiles={[file]} />);
+
+    const closeButton = screen.getByRole('button', { name: /clear/i });
+    expect(closeButton).toBeInTheDocument();
+  });
+
+  it('does not render onClose prop for Tag when file is disabled and read-only', () => {
+    const file = { name: 'test.jpg', id: '1', isValid: true, isLoading: true };
+    render(<FileUpload {...defaultProps} defaultFiles={[file]} disabled readOnly />);
+
+    const closeButton = screen.queryByRole('button', { name: /clear/i });
+    expect(closeButton).not.toBeInTheDocument();
+  });
+
+  it('does not render onClose prop for Tag when file is disabled', () => {
+    const file = { name: 'test.jpg', id: '1', isValid: true, isLoading: false };
+    render(<FileUpload {...defaultProps} defaultFiles={[file]} disabled />);
+
+    const closeButton = screen.queryByRole('button', { name: /clear/i });
+    expect(closeButton).not.toBeInTheDocument();
+  });
+
+  it('does not render onClose prop for Tag when file is read-only', () => {
+    const file = { name: 'test.jpg', id: '1', isValid: true, isLoading: false };
+    render(<FileUpload {...defaultProps} defaultFiles={[file]} readOnly />);
+
+    const closeButton = screen.queryByRole('button', { name: /clear/i });
+    expect(closeButton).not.toBeInTheDocument();
+  });
+
+  it('renders single file name using Text component', () => {
+    const file = { name: 'test.jpg', id: '1' };
+    render(<FileUpload {...defaultProps} defaultFiles={[file]} />);
+
+    const fileName = screen.getByText('test.jpg');
+    expect(fileName).toBeInTheDocument();
+    expect(fileName.tagName.toLowerCase()).toBe('p');
+  });
+
+  it('triggers file input click when the "Add" button is clicked', () => {
+    render(<FileUpload {...defaultProps} />);
+
+    const fileInput = screen.getByLabelText(/Upload files/i) as HTMLInputElement;
+    const clickSpy = jest.spyOn(fileInput, 'click');
+
+    const addButton = screen.getByRole('button', { name: /file-upload.add/i });
+    fireEvent.click(addButton);
+
+    expect(clickSpy).toHaveBeenCalled();
+  });
 });

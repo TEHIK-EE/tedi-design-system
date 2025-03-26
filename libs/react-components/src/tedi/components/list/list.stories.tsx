@@ -25,6 +25,10 @@ const meta: Meta<typeof List> = {
         },
       },
     },
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/jWiRIXhHRxwVdMSimKX2FF/TEDI-Design-System-(draft)?type=design&node-id=2137-19322&m=dev',
+    },
   },
 };
 

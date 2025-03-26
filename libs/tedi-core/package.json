@@ -3,7 +3,7 @@
   "version": "0.0.0-semantic-version",
   "main": "src/index.scss",
   "scripts": {
-    "build": "rm -rf dist && mkdir dist && cp -a src/* dist/ && cp README.md dist/ && cp package.json dist/",
+    "build": "rm -rf dist && mkdir dist && cp -a src/* dist/ && sass src/index.scss dist/index.css --style=compressed --no-source-map && replace-in-file //fonts//g \"./fonts/\" dist/index.css --isRegex && mkdir dist/fonts && cp -a public/fonts/* dist/fonts/ && cp README.md dist/ && cp package.json dist/",
     "release": "npx semantic-release -e semantic-release-monorepo --debug",
     "lint": "npx stylelint \"src/**/*.scss\" --fix"
   },
@@ -12,11 +12,13 @@
   },
   "devDependencies": {
     "lint-staged": "^15.3.0",
+    "prettier": "^2.8.8",
+    "replace-in-file": "^8.3.0",
+    "sass": "^1.86.0",
     "stylelint": "^16.13.2",
     "stylelint-config-recess-order": "^4.2.0",
     "stylelint-config-standard-scss": "^14.0.0",
-    "stylelint-declaration-strict-value": "^1.9.2",
-    "prettier": "^2.8.8"
+    "stylelint-declaration-strict-value": "^1.9.2"
   },
   "lint-staged": {
     "*.{css,scss}": "stylelint \"**/*.{css,scss}\" --fix"

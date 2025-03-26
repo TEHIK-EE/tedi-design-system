@@ -55,3 +55,7 @@ migrations.json
 documentation.json
 
 *storybook.log
+
+# Coverage
+/libs/react-components/coverage
+/libs/angular-components/coverage

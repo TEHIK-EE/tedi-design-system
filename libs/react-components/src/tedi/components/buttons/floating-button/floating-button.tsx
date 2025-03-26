@@ -4,14 +4,14 @@ import { CSSProperties } from 'react';
 import Button, { ButtonProps } from '../button/button';
 import styles from './floating-button.module.scss';
 
-type FloatingButtonAxis = 'horizontal' | 'vertical';
-type FloatingButtonColor = 'primary' | 'secondary';
-type FloatingButtonSize = 'medium' | 'large';
-type FloatingButtonPlacement = {
+export type FloatingButtonAxis = 'horizontal' | 'vertical';
+export type FloatingButtonColor = 'primary' | 'secondary';
+export type FloatingButtonSize = 'medium' | 'large';
+export type FloatingButtonPlacement = {
   vertical: 'top' | 'bottom' | 'center';
   horizontal: 'left' | 'right' | 'center';
 };
-type FloatingButtonOffset = {
+export type FloatingButtonOffset = {
   top?: number | string;
   bottom?: number | string;
   left?: number | string;
