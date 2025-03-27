@@ -356,6 +356,11 @@ export const CustomItemLabels: Story = {
         ),
         value: 'radio-custom-item-labels-3',
       },
+      {
+        id: 'radio-custom-item-labels-4',
+        label: 'Lorem ipsum',
+        value: 'radio-custom-item-labels-4',
+      },
     ],
   },
 };

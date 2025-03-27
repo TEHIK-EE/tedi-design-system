@@ -62,7 +62,13 @@ export const Radio = (props: RadioProps): JSX.Element => {
             />
             <div
               aria-hidden="true"
-              onClick={() => labelRef.current?.click()}
+              onClick={(e) => {
+                e.preventDefault();
+                const input = document.getElementById(id) as HTMLInputElement;
+                if (input && !disabled) {
+                  input.click();
+                }
+              }}
               className={cn(
                 styles['tedi-radio__indicator'],
                 { [styles['tedi-radio__indicator--hover']]: hover },
