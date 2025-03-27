@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-react-v11.2.0-rc.13](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.2.0-rc.12...react-11.2.0-rc.13) (2025-03-27)
+
+
+### Bug Fixes
+
+* **choice-group:** allow React.ReactNode type for label [#617](https://github.com/TEHIK-EE/tedi-design-system/issues/617) ([#618](https://github.com/TEHIK-EE/tedi-design-system/issues/618)) ([cfe035c](https://github.com/TEHIK-EE/tedi-design-system/commit/cfe035cfbbcdcefeaed773f352d27460ee234d61))
+
 # [@tehik-ee/tedi-react-v11.2.0-rc.12](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.2.0-rc.11...react-11.2.0-rc.12) (2025-03-27)
 
 
