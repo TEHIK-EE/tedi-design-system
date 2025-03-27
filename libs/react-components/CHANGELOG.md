@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-react-v11.2.0-rc.11](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.2.0-rc.10...react-11.2.0-rc.11) (2025-03-27)
+
+
+### Features
+
+* **choice-group:** TEDI-Ready ChoiceGroup component development [#518](https://github.com/TEHIK-EE/tedi-design-system/issues/518) ([#612](https://github.com/TEHIK-EE/tedi-design-system/issues/612)) ([f12fb7c](https://github.com/TEHIK-EE/tedi-design-system/commit/f12fb7c844d71ed5fdf7a083bde3f43eb1ccac3d))
+
 # [@tehik-ee/tedi-react-v11.2.0-rc.10](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.2.0-rc.9...react-11.2.0-rc.10) (2025-03-27)
 
 
