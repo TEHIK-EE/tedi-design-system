@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-react-v11.2.0-rc.15](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.2.0-rc.14...react-11.2.0-rc.15) (2025-03-27)
+
+
+### Bug Fixes
+
+* **radio,checkbox:** add missing labelRef [#617](https://github.com/TEHIK-EE/tedi-design-system/issues/617) ([#622](https://github.com/TEHIK-EE/tedi-design-system/issues/622)) ([55abfb0](https://github.com/TEHIK-EE/tedi-design-system/commit/55abfb071bbea8b89cf030851b22b5c7afeb7103))
+
 # [@tehik-ee/tedi-react-v11.2.0-rc.14](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.2.0-rc.13...react-11.2.0-rc.14) (2025-03-27)
 
 
