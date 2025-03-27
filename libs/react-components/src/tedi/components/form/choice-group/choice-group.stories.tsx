@@ -253,7 +253,7 @@ export const WithIndeterminate: Story = {
 export const WithExtraContent: Story = {
   args: {
     ...Checkbox.args,
-    inputType: 'radio',
+    inputType: 'checkbox',
     label: 'I have extra content after each option:',
     items: generateItems({ index: 15, withHelper: true }),
   },
@@ -293,5 +293,19 @@ export const Responsive: Story = {
         lg: { justifyContent: 'center', colProps: { width: 'auto', grow: 1 } },
       },
     ],
+  },
+};
+
+export const CustomLabel: Story = {
+  args: {
+    ...Checkbox.args,
+    inputType: 'checkbox',
+    direction: 'row',
+    label: (
+      <Text modifiers={['bold', 'italic']} color="brand">
+        Custom label
+      </Text>
+    ),
+    items: generateItems({ index: 16 }),
   },
 };

@@ -19,10 +19,11 @@ import {
 import { ChoiceGroupContext, IChoiceGroupContext } from './choice-group-context';
 import ChoiceGroupItem, { ExtendedChoiceGroupItemProps } from './components/choice-group-item/choice-group-item';
 
-interface ChoiceGroupAllProps extends Omit<FormLabelProps, 'id'> {
+interface ChoiceGroupAllProps extends Omit<FormLabelProps, 'id' | 'label'> {
   id: string;
   items: ExtendedChoiceGroupItemProps[];
   name: string;
+  label: React.ReactNode | string;
   inputType?: ChoiceGroupItemType;
   helper?: FeedbackTextProps;
   className?: string;
@@ -160,10 +161,10 @@ export const ChoiceGroup = (props: ChoiceGroupProps): React.ReactElement => {
   return (
     <ChoiceGroupContext.Provider value={ContextValue}>
       <fieldset {...rest} className={FieldSetBEM} id={id} name={name} aria-describedby={helperId}>
-        {label && (
-          <legend>
-            <FormLabel id={id} label={label} required={required} hideLabel={hideLabel} renderWithoutLabel={true} />
-          </legend>
+        {label && typeof label === 'string' ? (
+          <FormLabel id={id} label={label} required={required} hideLabel={hideLabel} renderWithoutLabel={true} />
+        ) : (
+          label
         )}
         <Row>
           <Col>
