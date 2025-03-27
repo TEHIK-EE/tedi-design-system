@@ -1,3 +1,4 @@
+import { NgFor, NgIf, NgStyle } from "@angular/common";
 import { Component, Input } from "@angular/core";
 
 interface Color {
@@ -16,6 +17,7 @@ interface ColorStoryData {
 }
 
 @Component({
+  imports: [NgFor, NgStyle, NgIf],
   selector: "app-color-story",
   template: `
     <div *ngFor="let group of groupedColorsArray">

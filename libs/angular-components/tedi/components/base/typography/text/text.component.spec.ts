@@ -9,6 +9,7 @@ import { By } from "@angular/platform-browser";
 import { Component } from "@angular/core";
 
 @Component({
+  imports: [TextComponent],
   template: `
     <tedi-text
       [element]="element"
@@ -37,8 +38,7 @@ describe("TextComponent", () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [TextComponent],
-      declarations: [HostTextComponent],
+      imports: [TextComponent, HostTextComponent],
     }).compileComponents();
 
     hostFixture = TestBed.createComponent(HostTextComponent);

@@ -5,6 +5,7 @@ import { ListComponent } from "./list.component";
 import { ListItemComponent } from "./list-item.component";
 
 @Component({
+  imports: [ListComponent, ListItemComponent],
   template: `
     <tedi-list [class]="listClass" [element]="element" [style]="style">
       <tedi-list-item [class]="itemClass1">Item 1</tedi-list-item>
@@ -27,8 +28,7 @@ describe("List Components", () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [ListComponent, ListItemComponent],
-      declarations: [HostListComponent],
+      imports: [ListComponent, ListItemComponent, HostListComponent],
     }).compileComponents();
 
     hostFixture = TestBed.createComponent(HostListComponent);

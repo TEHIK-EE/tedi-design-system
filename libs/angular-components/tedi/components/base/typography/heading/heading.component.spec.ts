@@ -9,6 +9,7 @@ import { Component } from "@angular/core";
 import { TextColor, TextModifiers } from "../text/text.component";
 
 @Component({
+  imports: [HeadingComponent],
   template: `
     <tedi-heading
       [element]="element"
@@ -37,8 +38,7 @@ describe("HeadingComponent", () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [HeadingComponent],
-      declarations: [HostHeadingComponent],
+      imports: [HeadingComponent, HostHeadingComponent],
     }).compileComponents();
 
     hostFixture = TestBed.createComponent(HostHeadingComponent);
