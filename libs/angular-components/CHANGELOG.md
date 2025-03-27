@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-angular-v1.5.0-rc.9](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.5.0-rc.8...angular-1.5.0-rc.9) (2025-03-27)
+
+
+### Bug Fixes
+
+* **angular-package:** package fixes [#587](https://github.com/TEHIK-EE/tedi-design-system/issues/587) ([#600](https://github.com/TEHIK-EE/tedi-design-system/issues/600)) ([5c147d4](https://github.com/TEHIK-EE/tedi-design-system/commit/5c147d4239c84b1ac9fcd3fabf58a840dd67035d))
+
 # [@tehik-ee/tedi-angular-v1.5.0-rc.8](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.5.0-rc.7...angular-1.5.0-rc.8) (2025-03-19)
 
 
