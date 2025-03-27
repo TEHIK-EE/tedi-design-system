@@ -72,7 +72,7 @@ jobs:
 
   chromatic:
     runs-on: ubuntu-latest
-    if: github.event.pull_request.head.repo.full_name == github.repository || github.event_name == 'push'
+    if: github.event.pull_request.head.repo.full_name == github.repository || github.event_name == 'push' && github.actor != 'dependabot[bot]'
     steps:
       - name: Checkout
         uses: actions/checkout@v4
