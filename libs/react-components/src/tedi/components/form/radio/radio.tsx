@@ -46,7 +46,7 @@ export const Radio = (props: RadioProps): JSX.Element => {
   const LabelBEM = cn(styles['tedi-radio'], { [styles['tedi-radio--disabled']]: disabled });
 
   return (
-    <div data-name="radio" className={className} {...rest}>
+    <div data-name="radio" {...rest}>
       <Row gutter={0}>
         <Col width="auto">
           <div className={styles['tedi-radio__outer-indicator-wrapper']}>
@@ -67,7 +67,8 @@ export const Radio = (props: RadioProps): JSX.Element => {
                 styles['tedi-radio__indicator'],
                 { [styles['tedi-radio__indicator--hover']]: hover },
                 { [styles[`tedi-radio__indicator--size-${size}`]]: size },
-                { [styles['tedi-radio__indicator--invalid']]: invalid }
+                { [styles['tedi-radio__indicator--invalid']]: invalid },
+                className
               )}
               data-testid="radio-indicator"
             />
@@ -86,7 +87,9 @@ export const Radio = (props: RadioProps): JSX.Element => {
         </Col>
       </Row>
 
-      {helper && <FeedbackText {...helper} className={styles['tedi-radio__helper']} id={helperId} />}
+      {helper && (
+        <FeedbackText id={helperId} {...helper} className={cn(styles['tedi-radio__helper'], helper.className)} />
+      )}
     </div>
   );
 };

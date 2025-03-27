@@ -1,3 +1,24 @@
+# [@tehik-ee/tedi-react-v11.2.0-rc.12](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.2.0-rc.11...react-11.2.0-rc.12) (2025-03-27)
+
+
+### Bug Fixes
+
+* **button-group:** secondary buttons height [#613](https://github.com/TEHIK-EE/tedi-design-system/issues/613) ([#614](https://github.com/TEHIK-EE/tedi-design-system/issues/614)) ([f81bfd7](https://github.com/TEHIK-EE/tedi-design-system/commit/f81bfd76f8499150e8c9f844d8fee2fc3272d24b))
+
+# [@tehik-ee/tedi-react-v11.2.0-rc.11](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.2.0-rc.10...react-11.2.0-rc.11) (2025-03-27)
+
+
+### Features
+
+* **choice-group:** TEDI-Ready ChoiceGroup component development [#518](https://github.com/TEHIK-EE/tedi-design-system/issues/518) ([#612](https://github.com/TEHIK-EE/tedi-design-system/issues/612)) ([f12fb7c](https://github.com/TEHIK-EE/tedi-design-system/commit/f12fb7c844d71ed5fdf7a083bde3f43eb1ccac3d))
+
+# [@tehik-ee/tedi-react-v11.2.0-rc.10](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.2.0-rc.9...react-11.2.0-rc.10) (2025-03-27)
+
+
+### Features
+
+* **button-group:** TEDI-Ready ButtonGroup development [#451](https://github.com/TEHIK-EE/tedi-design-system/issues/451) ([#611](https://github.com/TEHIK-EE/tedi-design-system/issues/611)) ([7281fce](https://github.com/TEHIK-EE/tedi-design-system/commit/7281fce25fb0f487441f55cfa40934a70033eaab))
+
 # [@tehik-ee/tedi-react-v11.2.0-rc.9](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.2.0-rc.8...react-11.2.0-rc.9) (2025-03-21)
 
 
