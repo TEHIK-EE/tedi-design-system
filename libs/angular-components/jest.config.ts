@@ -14,8 +14,8 @@ export default {
   resolver: "jest-preset-angular/build/resolvers/ng-jest-resolver.js",
   testEnvironment: "jsdom",
   collectCoverage: true,
-  collectCoverageFrom: ['src/tedi/components/**/*.{js,ts,tsx}'],
-  coveragePathIgnorePatterns: ['\\.stories\\.ts$'],
+  collectCoverageFrom: ["tedi/components/**/*.{js,ts,tsx}"],
+  coveragePathIgnorePatterns: ["\\.stories\\.ts$"],
   coverageThreshold: {
     global: {
       branches: 80,

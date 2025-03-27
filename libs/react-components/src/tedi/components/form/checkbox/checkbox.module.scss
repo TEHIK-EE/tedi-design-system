@@ -74,6 +74,11 @@
     border-color: var(--form-general-feedback-error-border);
   }
 
+  .tedi-checkbox__input:not(:disabled) + &:active {
+    background: var(--form-checkbox-radio-default-background-active);
+    border-color: var(--form-checkbox-radio-default-border-active);
+  }
+
   .tedi-checkbox__input:not(:disabled) + &--hover,
   .tedi-checkbox__input:hover:not(:disabled) + &,
   .tedi-checkbox__input:not(:disabled) + &:hover,
