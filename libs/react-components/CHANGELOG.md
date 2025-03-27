@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-react-v11.2.0-rc.10](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.2.0-rc.9...react-11.2.0-rc.10) (2025-03-27)
+
+
+### Features
+
+* **button-group:** TEDI-Ready ButtonGroup development [#451](https://github.com/TEHIK-EE/tedi-design-system/issues/451) ([#611](https://github.com/TEHIK-EE/tedi-design-system/issues/611)) ([7281fce](https://github.com/TEHIK-EE/tedi-design-system/commit/7281fce25fb0f487441f55cfa40934a70033eaab))
+
 # [@tehik-ee/tedi-react-v11.2.0-rc.9](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.2.0-rc.8...react-11.2.0-rc.9) (2025-03-21)
 
 
