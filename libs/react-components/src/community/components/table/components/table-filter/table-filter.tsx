@@ -77,6 +77,7 @@ const TableFilter = <TData extends DefaultTData<TData>>(props: TableFilterProps<
             <Button
               visualType="link"
               icon={{
+                filled: !!column.getFilterValue() || open,
                 name: 'filter_alt',
                 className: cn(styles['filter__icon'], {
                   [styles['filter__icon--active']]: !!column.getFilterValue() || open,

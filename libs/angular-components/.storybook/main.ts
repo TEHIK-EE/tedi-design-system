@@ -2,9 +2,12 @@ import { StorybookConfig } from "@storybook/angular";
 
 const config: StorybookConfig = {
   stories: [
-    "../src/*/*.mdx",
-    "../src/docs/colors/colors.mdx",
-    "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)",
+    "../docs/**/*.mdx",
+    "../docs/**/*.stories.@(js|jsx|mjs|ts|tsx)",
+    "../tedi/**/*.mdx",
+    "../tedi/**/*.stories.@(js|jsx|mjs|ts|tsx)",
+    "../community/**/*.mdx",
+    "../community/**/*.stories.@(js|jsx|mjs|ts|tsx)",
   ],
   addons: [
     "@storybook/addon-onboarding",

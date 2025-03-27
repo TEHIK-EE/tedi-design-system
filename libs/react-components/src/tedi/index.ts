@@ -19,10 +19,12 @@ export * from './components/form/feedback-text/feedback-text';
 export * from './components/form/search/search';
 export * from './components/form/radio/radio';
 export * from './components/form/checkbox/checkbox';
+export * from './components/form/choice-group/choice-group';
 export * from './components/buttons/button/button';
 export * from './components/buttons/closing-button/closing-button';
 export * from './components/buttons/floating-button/floating-button';
 export * from './components/buttons/info-button/info-button';
+export * from './components/buttons/button-group/button-group';
 export * from './components/notifications/alert/alert';
 export * from './components/notifications/toast/toast';
 export * from './components/stretch-content/stretch-content';
@@ -36,6 +38,7 @@ export * from './components/scroll-fade/scroll-fade';
 export * from './components/affix/affix';
 export * from './components/tooltip/tooltip';
 export * from './components/popover/popover';
+export * from './components/ellipsis/ellipsis';
 
 export * from './helpers';
 

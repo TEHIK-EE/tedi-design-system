@@ -1,3 +1,94 @@
+# [@tehik-ee/tedi-core-v1.9.0](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.8.2...core-1.9.0) (2025-03-27)
+
+
+### Features
+
+* **storybook-styles:** add new styles [#615](https://github.com/TEHIK-EE/tedi-design-system/issues/615) ([#616](https://github.com/TEHIK-EE/tedi-design-system/issues/616)) ([db036d5](https://github.com/TEHIK-EE/tedi-design-system/commit/db036d5b2e73bb1c78cb5b9e90deb2f5da6652ad))
+
+# [@tehik-ee/tedi-core-v1.8.2](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.8.1...core-1.8.2) (2025-03-25)
+
+
+### Bug Fixes
+
+* **button-group:** add variables [#451](https://github.com/TEHIK-EE/tedi-design-system/issues/451) ([9873e34](https://github.com/TEHIK-EE/tedi-design-system/commit/9873e345506b4befe05f4e39f012073f78a61f76))
+
+# [@tehik-ee/tedi-core-v1.8.1](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.8.0...core-1.8.1) (2025-03-24)
+
+
+### Bug Fixes
+
+* **fonts:** add minified css to package with correct font paths [#594](https://github.com/TEHIK-EE/tedi-design-system/issues/594) ([#598](https://github.com/TEHIK-EE/tedi-design-system/issues/598)) ([62469d0](https://github.com/TEHIK-EE/tedi-design-system/commit/62469d0ec4a0aefa2bed36c26b457d60e1c52255))
+
+# [@tehik-ee/tedi-core-v1.8.0](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.7.1...core-1.8.0) (2025-03-20)
+
+
+### Features
+
+* **fonts:** add fonts to TEDI-Core package [#592](https://github.com/TEHIK-EE/tedi-design-system/issues/592) ([#593](https://github.com/TEHIK-EE/tedi-design-system/issues/593)) ([c83257c](https://github.com/TEHIK-EE/tedi-design-system/commit/c83257c437a1ea39e27ed3d91e4a9b01782dcbc1))
+
+# [@tehik-ee/tedi-core-v1.7.1](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.7.0...core-1.7.1) (2025-03-19)
+
+
+### Bug Fixes
+
+* **select:** add dropdown variables [#333](https://github.com/TEHIK-EE/tedi-design-system/issues/333) ([#584](https://github.com/TEHIK-EE/tedi-design-system/issues/584)) ([c50757b](https://github.com/TEHIK-EE/tedi-design-system/commit/c50757b7156e595ac5c9ad78b9d44d0d6b8c0b07))
+
+# [@tehik-ee/tedi-core-v1.7.0](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.6.16...core-1.7.0) (2025-03-14)
+
+
+### Features
+
+* **variables:** tedi-core z-index variables [#559](https://github.com/TEHIK-EE/tedi-design-system/issues/559) ([#560](https://github.com/TEHIK-EE/tedi-design-system/issues/560)) ([b04a198](https://github.com/TEHIK-EE/tedi-design-system/commit/b04a198468c072f3d81110ce3b77caed57211c34))
+
+# [@tehik-ee/tedi-core-v1.6.16](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.6.15...core-1.6.16) (2025-03-10)
+
+
+### Bug Fixes
+
+* **styles:** fix TEDI core storybook styles [#507](https://github.com/TEHIK-EE/tedi-design-system/issues/507) ([#542](https://github.com/TEHIK-EE/tedi-design-system/issues/542)) ([16e9a0e](https://github.com/TEHIK-EE/tedi-design-system/commit/16e9a0e42074bda93c60c03e2c8dcdb9edd3b9f9))
+
+# [@tehik-ee/tedi-core-v1.6.15](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.6.14...core-1.6.15) (2025-03-06)
+
+
+### Bug Fixes
+
+* **button:** revert button-sm-inner-spacing-mobile value change [#533](https://github.com/TEHIK-EE/tedi-design-system/issues/533) ([48cc960](https://github.com/TEHIK-EE/tedi-design-system/commit/48cc960cb8d049fccb4c10fa7df77f36c9aac940))
+
+# [@tehik-ee/tedi-core-v1.6.14](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.6.13...core-1.6.14) (2025-03-06)
+
+
+### Bug Fixes
+
+* **font:** fix font src paths to absolute urls [#523](https://github.com/TEHIK-EE/tedi-design-system/issues/523) ([2559ec2](https://github.com/TEHIK-EE/tedi-design-system/commit/2559ec2a3cd39cef78f6edaebeb6e83e26fcef1e))
+
+# [@tehik-ee/tedi-core-v1.6.13](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.6.12...core-1.6.13) (2025-03-06)
+
+
+### Bug Fixes
+
+* **button:** update button-sm-inner-spacing-mobile to be the same value as desktop [#533](https://github.com/TEHIK-EE/tedi-design-system/issues/533) ([5c260b3](https://github.com/TEHIK-EE/tedi-design-system/commit/5c260b30664700adfffb0cb1f9cd2fc9dae20e5d))
+
+# [@tehik-ee/tedi-core-v1.6.12](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.6.11...core-1.6.12) (2025-03-03)
+
+
+### Bug Fixes
+
+* **fonts:** rewrite fonts path to relative for storybook build [#523](https://github.com/TEHIK-EE/tedi-design-system/issues/523) ([#530](https://github.com/TEHIK-EE/tedi-design-system/issues/530)) ([04446b4](https://github.com/TEHIK-EE/tedi-design-system/commit/04446b42889cec61d6e29989dd2cb2e95c67745e))
+
+# [@tehik-ee/tedi-core-v1.6.11](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.6.10...core-1.6.11) (2025-03-03)
+
+
+### Bug Fixes
+
+* **tedi-core:** revert font path change [#523](https://github.com/TEHIK-EE/tedi-design-system/issues/523) ([1ddb412](https://github.com/TEHIK-EE/tedi-design-system/commit/1ddb4127144728911d07a02ebc7755f5fe263434))
+
+# [@tehik-ee/tedi-core-v1.6.10](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.6.9...core-1.6.10) (2025-03-03)
+
+
+### Bug Fixes
+
+* **fonts:** fix font paths for angular [#523](https://github.com/TEHIK-EE/tedi-design-system/issues/523) ([#529](https://github.com/TEHIK-EE/tedi-design-system/issues/529)) ([7226a5b](https://github.com/TEHIK-EE/tedi-design-system/commit/7226a5be33cb1b29c352b14fb9bf58e264d80d62))
+
 # [@tehik-ee/tedi-core-v1.6.9](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.6.8...core-1.6.9) (2025-02-26)
 
 

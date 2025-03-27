@@ -1,0 +1,245 @@
+@use '@tehik-ee/tedi-core/mixins';
+
+.tedi-choice-group-item {
+  position: relative;
+
+  &--card {
+    display: flex;
+    align-items: center;
+    min-height: 2.5rem;
+    margin-top: 0;
+
+    @include mixins.responsive-styles(border-radius, form-checkbox-radio-card-radius);
+    @include mixins.responsive-styles(padding-left, form-checkbox-radio-card-checkbox-padding-x);
+    @include mixins.responsive-styles(padding-right, form-checkbox-radio-card-checkbox-padding-x);
+    @include mixins.responsive-styles(padding-top, form-checkbox-radio-card-checkbox-padding-y);
+    @include mixins.responsive-styles(padding-bottom, form-checkbox-radio-card-checkbox-padding-y);
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    label,
+    &__feedback-text {
+      color: var(--general-text-secondary);
+      cursor: unset;
+    }
+
+    .tedi-choice-group-item__input {
+      @include mixins.visually-hidden;
+    }
+
+    &__label {
+      box-sizing: border-box;
+      display: block;
+      width: 100%;
+      cursor: pointer;
+
+      .tedi-choice-group-item__input:focus + & {
+        @include mixins.focus-element;
+      }
+    }
+
+    &.tedi-choice-group-item--disabled {
+      background-color: var(--form-general-background-disabled);
+      border-color: var(--form-general-border-disabled);
+
+      &:hover {
+        cursor: unset;
+      }
+
+      label,
+      .tedi-choice-group-item__feedback-text {
+        color: var(--general-text-disabled);
+        cursor: unset;
+      }
+    }
+  }
+}
+
+.tedi-choice-group-item--card-primary {
+  background-color: var(--form-checkbox-radio-card-primary-inactive-background);
+  border: 1px solid var(--form-checkbox-radio-card-primary-inactive-border-group);
+
+  &.tedi-choice-group-item--checkbox {
+    border-color: var(--filter-primary-inactive-background);
+  }
+
+  &.tedi-choice-group-item--checked {
+    background-color: var(--form-checkbox-radio-card-primary-active-background);
+    border-color: var(--form-checkbox-radio-card-primary-hover-border);
+
+    [type='checkbox']:checked + .tedi-choice-group-item__indicator {
+      border-color: var(--form-checkbox-radio-default-border-inverted);
+    }
+
+    [type='radio']:checked + .tedi-choice-group-item__indicator {
+      background-color: var(--form-checkbox-radio-card-primary-active-background);
+      border-color: var(--form-checkbox-radio-default-border-inverted);
+    }
+
+    [type='radio']:checked + .tedi-choice-group-item__indicator::after {
+      background-color: var(--form-checkbox-radio-default-background-selected-inverted);
+      border-color: var(--form-checkbox-radio-default-background-inverted);
+    }
+
+    label,
+    .tedi-choice-group-item__label,
+    .tedi-choice-group-item__feedback-text {
+      color: var(--form-checkbox-radio-card-primary-active-text);
+    }
+  }
+}
+
+.tedi-choice-group-item--card-secondary {
+  background-color: var(--form-checkbox-radio-card-secondary-inactive-background);
+  border: 1px solid var(--form-checkbox-radio-card-secondary-inactive-border);
+
+  &.tedi-choice-group-item--checked {
+    outline: 2px solid var(--form-checkbox-radio-card-secondary-active-border);
+    outline-offset: -2px;
+
+    &:not(:last-child) {
+      border-right: 2px solid var(--form-checkbox-radio-card-secondary-active-border);
+    }
+
+    [type='radio']:checked + .tedi-choice-group-item__indicator {
+      border-color: var(--form-checkbox-radio-default-border-selected);
+    }
+
+    label,
+    .tedi-choice-group-item__label,
+    .tedi-choice-group-item__feedback-text {
+      color: var(--form-checkbox-radio-card-secondary-active-text);
+    }
+  }
+}
+
+.tedi-choice-group-item--segmented {
+  .tedi-choice-group-item {
+    border-radius: 0;
+  }
+
+  &.tedi-choice-group-item--column {
+    &:not(:first-of-type) {
+      margin-top: -1px;
+    }
+
+    &:not(:first-of-type) .tedi-choice-group-item--disabled {
+      margin-top: 1px;
+      border-top-color: var(--form-general-background-disabled);
+    }
+
+    &:first-of-type .tedi-choice-group-item {
+      border-top-left-radius: var(--border-radius-default);
+      border-top-right-radius: var(--border-radius-default);
+    }
+
+    &:last-of-type .tedi-choice-group-item {
+      border-bottom-right-radius: var(--border-radius-default);
+      border-bottom-left-radius: var(--border-radius-default);
+    }
+  }
+
+  &.tedi-choice-group-item--row {
+    &:not(:first-of-type) .tedi-choice-group-item {
+      margin-left: -1px;
+    }
+
+    &:not(:first-of-type) .tedi-choice-group-item--disabled {
+      margin-left: 0;
+
+      &.tedi-choice-group-item--card-primary {
+        border-left-color: var(--form-checkbox-radio-card-primary-inactive-background);
+      }
+
+      &.tedi-choice-group-item--card-secondary {
+        border-left-color: var(--form-checkbox-radio-card-secondary-inactive-background);
+      }
+    }
+
+    &:first-of-type .tedi-choice-group-item {
+      border-top-left-radius: var(--border-radius-default);
+      border-bottom-left-radius: var(--border-radius-default);
+    }
+
+    &:last-of-type .tedi-choice-group-item {
+      border-top-right-radius: var(--border-radius-default);
+      border-bottom-right-radius: var(--border-radius-default);
+    }
+
+    .tedi-choice-group-item--disabled.tedi-choice-group-item--card-secondary {
+      background-color: var(--form-checkbox-radio-card-secondary-inactive-background);
+      border-color: var(--form-general-border-disabled);
+    }
+  }
+
+  .tedi-choice-group-item--card-primary:not(.tedi-choice-group-item--disabled):hover {
+    background-color: var(--form-checkbox-radio-card-primary-hover-background);
+    border-color: var(--form-checkbox-radio-card-primary-hover-border);
+
+    label,
+    .tedi-choice-group-item__label,
+    .tedi-choice-group-item__feedback-text {
+      color: var(--form-checkbox-radio-card-primary-hover-text);
+    }
+  }
+
+  .tedi-choice-group-item--card-primary .tedi-choice-group-item--checked {
+    outline: 1px solid var(--form-checkbox-radio-card-primary-selected-background);
+  }
+
+  .tedi-choice-group-item--card-secondary:not(.tedi-choice-group-item--disabled):hover {
+    background-color: var(--form-checkbox-radio-card-secondary-hover-background);
+    border-color: var(--form-checkbox-radio-card-secondary-hover-border);
+
+    label,
+    .tedi-choice-group-item__label,
+    .tedi-choice-group-item__feedback-text {
+      color: var(--form-checkbox-radio-card-secondary-hover-text);
+    }
+  }
+}
+
+.tedi-choice-group-item--separated {
+  .tedi-choice-group-item--card-primary {
+    border: 1px solid var(--form-checkbox-radio-card-primary-default-background);
+
+    .tedi-choice-group-item--checked {
+      border: 1px solid var(--form-checkbox-radio-card-primary-selected-background);
+    }
+
+    &:not(.tedi-choice-group-item--disabled):hover {
+      background-color: var(--form-checkbox-radio-card-primary-hover-background);
+      border-color: var(--form-checkbox-radio-card-primary-hover-border);
+
+      label,
+      .tedi-choice-group-item__label,
+      .tedi-choice-group-item__feedback-text {
+        color: var(--form-checkbox-radio-card-primary-hover-text);
+      }
+    }
+
+    &.tedi-choice-group-item--radio {
+      border-color: var(--filter-primary-inactive-background);
+    }
+  }
+
+  .tedi-choice-group-item--card-secondary {
+    &:not(.tedi-choice-group-item--disabled):hover {
+      background-color: var(--form-checkbox-radio-card-secondary-hover-background);
+      outline: 2px solid var(--form-checkbox-radio-card-secondary-hover-border);
+      outline-offset: -2px;
+
+      label,
+      .tedi-choice-group-item__label,
+      .tedi-choice-group-item__feedback-text {
+        color: var(--form-checkbox-radio-card-secondary-hover-text);
+      }
+    }
+
+    &.tedi-choice-group-item--disabled {
+      background-color: var(--form-checkbox-radio-card-secondary-inactive-background);
+    }
+  }
+}

@@ -69,9 +69,11 @@ jobs:
         uses: codecov/codecov-action@v5
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
+          working-directory: ./libs/react-components
 
   chromatic:
     runs-on: ubuntu-latest
+    if: (github.event.pull_request.head.repo.full_name == github.repository || github.event_name == 'push') && github.actor != 'dependabot[bot]'
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -95,4 +97,4 @@ jobs:
       - name: Publish to Chromatic
         run: |
           cd libs/react-components
-          CHROMATIC_PROJECT_TOKEN=${{ secrets.CHROMATIC_TOKEN }} npm run chromatic
+          CHROMATIC_PROJECT_TOKEN=${{ secrets.CHROMATIC_TOKEN_REACT }} npm run chromatic

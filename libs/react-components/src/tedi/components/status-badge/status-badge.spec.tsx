@@ -9,7 +9,7 @@ jest.mock('../../helpers', () => ({
   useBreakpointProps: jest.fn(),
 }));
 
-describe('Badge component', () => {
+describe('StatusBadge component', () => {
   beforeEach(() => {
     (useBreakpointProps as jest.Mock).mockReturnValue({
       getCurrentBreakpointProps: jest.fn((props) => props),
@@ -23,6 +23,7 @@ describe('Badge component', () => {
     expect(badge).toHaveClass('tedi-status-badge');
     expect(badge).toHaveClass('tedi-status-badge--variant-filled');
     expect(badge).toHaveClass('tedi-status-badge--color-neutral');
+    expect(badge).not.toHaveAttribute('role');
   });
 
   it('renders with specified color and variant', () => {
@@ -83,6 +84,21 @@ describe('Badge component', () => {
     expect(badge).toHaveClass('custom-class');
   });
 
+  it('renders with role and correct aria attributes', () => {
+    const { container } = render(<StatusBadge role="status">Live Badge</StatusBadge>);
+    const badge = container.querySelector('.tedi-status-badge');
+
+    expect(badge).toHaveAttribute('role', 'status');
+    expect(badge).toHaveAttribute('aria-live', 'polite');
+  });
+
+  it('sets aria-live based on role', () => {
+    const { container } = render(<StatusBadge role="alert">Alert Badge</StatusBadge>);
+    const badge = container.querySelector('.tedi-status-badge');
+    expect(badge).toHaveAttribute('role', 'alert');
+    expect(badge).toHaveAttribute('aria-live', 'assertive');
+  });
+
   it('renders correctly with all props', () => {
     const props: StatusBadgeProps = {
       color: 'accent',
@@ -92,6 +108,7 @@ describe('Badge component', () => {
       icon: 'star',
       className: 'custom-class',
       title: 'Success Badge',
+      role: 'status',
     };
 
     const { container } = render(<StatusBadge {...props}>All Props Badge</StatusBadge>);
@@ -103,5 +120,6 @@ describe('Badge component', () => {
     expect(badge).toHaveClass('custom-class');
     expect(badge).toHaveTextContent('All Props Badge');
     expect(badge).toHaveAttribute('title', 'Success Badge');
+    expect(badge).toHaveAttribute('role', 'status');
   });
 });

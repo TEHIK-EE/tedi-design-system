@@ -15,9 +15,10 @@
             "compodocArgs": ["-e", "json", "-d", "."],
             "port": 6006,
             "styles": [
-              "src/tedi/styles/index",
-              "../tedi-core/src/tedi-storybook-styles.scss"
-            ]
+              "../tedi-core/src/index",
+              "../tedi-core/src/tedi-storybook-styles"
+            ],
+            "experimentalZoneless": true
           }
         },
         "build-storybook": {
@@ -28,25 +29,23 @@
             "compodocArgs": ["-e", "json", "-d", "."],
             "outputDir": "dist/storybook-static",
             "styles": [
-              "src/tedi/styles/index",
-              "../tedi-core/src/tedi-storybook-styles.scss"
-            ]
+              "../tedi-core/src/index",
+              "../tedi-core/src/tedi-storybook-styles"
+            ],
+            "experimentalZoneless": true
           }
         },
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
             "lintFilePatterns": [
-              "src/**/components/**/*.ts",
-              "src/**/components/**/*.html"
+              "docs/**/*.ts",
+              "docs/**/*.html",
+              "tedi/**/*.ts",
+              "tedi/**/*.html",
+              "community/**/*.ts",
+              "community/**/*.html"
             ]
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "tsConfig": "tsconfig.spec.json",
-            "codeCoverage": true
           }
         }
       }

@@ -7,6 +7,19 @@
     "inlineSources": true,
     "types": []
   },
-  "exclude": ["src/**/*.spec.ts", "src/test-setup.ts", "jest.config.ts", "src/**/*.test.ts"],
-  "include": ["src/**/*.ts"]
+  "exclude": [
+    "docs/**/*.spec.ts",
+    "docs/**/*.test.ts",
+    "tedi/**/*.spec.ts",
+    "tedi/**/*.test.ts",
+    "community/**/*.spec.ts",
+    "community/**/*.test.ts",
+    "jest.config.ts"
+  ],
+  "include": [
+    "docs/**/*.ts",
+    "tedi/**/*.ts",
+    "community/**/*.ts",
+    "public-api.ts"
+  ]
 }
