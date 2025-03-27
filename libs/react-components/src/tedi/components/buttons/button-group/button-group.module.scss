@@ -92,8 +92,8 @@
         z-index: 1;
         color: var(--button-group-secondary-selected-text);
         background-color: var(--button-group-secondary-selected-background);
-        border-color: var(--button-group-secondary-selected-border);
-        border-width: 2px;
+        outline: 2px solid var(--button-group-secondary-selected-border);
+        outline-offset: -2px;
       }
     }
   }

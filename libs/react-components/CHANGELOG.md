@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-react-v11.2.0-rc.12](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.2.0-rc.11...react-11.2.0-rc.12) (2025-03-27)
+
+
+### Bug Fixes
+
+* **button-group:** secondary buttons height [#613](https://github.com/TEHIK-EE/tedi-design-system/issues/613) ([#614](https://github.com/TEHIK-EE/tedi-design-system/issues/614)) ([f81bfd7](https://github.com/TEHIK-EE/tedi-design-system/commit/f81bfd76f8499150e8c9f844d8fee2fc3272d24b))
+
 # [@tehik-ee/tedi-react-v11.2.0-rc.11](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.2.0-rc.10...react-11.2.0-rc.11) (2025-03-27)
 
 
