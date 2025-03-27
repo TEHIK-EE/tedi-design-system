@@ -19,6 +19,7 @@ export * from './components/form/feedback-text/feedback-text';
 export * from './components/form/search/search';
 export * from './components/form/radio/radio';
 export * from './components/form/checkbox/checkbox';
+export * from './components/form/choice-group/choice-group';
 export * from './components/buttons/button/button';
 export * from './components/buttons/closing-button/closing-button';
 export * from './components/buttons/floating-button/floating-button';
