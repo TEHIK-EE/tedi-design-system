@@ -62,13 +62,7 @@ export const Radio = (props: RadioProps): JSX.Element => {
             />
             <div
               aria-hidden="true"
-              onClick={(e) => {
-                e.preventDefault();
-                const input = document.getElementById(id) as HTMLInputElement;
-                if (input && !disabled) {
-                  input.click();
-                }
-              }}
+              onClick={() => labelRef.current?.click()}
               className={cn(
                 styles['tedi-radio__indicator'],
                 { [styles['tedi-radio__indicator--hover']]: hover },
@@ -92,7 +86,7 @@ export const Radio = (props: RadioProps): JSX.Element => {
               tooltip={tooltip}
             />
           ) : (
-            <label htmlFor={id} className={LabelBEM} data-testid="radio-label">
+            <label ref={labelRef} htmlFor={id} className={LabelBEM} data-testid="radio-label">
               {label}
             </label>
           )}
