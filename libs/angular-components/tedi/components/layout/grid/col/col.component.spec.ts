@@ -1,6 +1,5 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
 import { By } from "@angular/platform-browser";
-import { Component } from "@angular/core";
 import {
   ColComponent,
   ColWidth,
@@ -8,51 +7,29 @@ import {
   AlignSelf,
 } from "./col.component";
 
-@Component({
-  imports: [ColComponent],
-  template: `
-    <tedi-col
-      [class]="class"
-      [width]="width"
-      [justifySelf]="justifySelf"
-      [alignSelf]="alignSelf"
-    >
-      Test Content
-    </tedi-col>
-  `,
-})
-class HostColComponent {
-  class: string | undefined = undefined;
-  width: ColWidth = 1;
-  justifySelf: JustifySelf | undefined = undefined;
-  alignSelf: AlignSelf | undefined = undefined;
-}
-
 describe("ColComponent", () => {
-  let hostComponent: HostColComponent;
-  let hostFixture: ComponentFixture<HostColComponent>;
+  let fixture: ComponentFixture<ColComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [ColComponent, HostColComponent],
+      imports: [ColComponent],
     }).compileComponents();
 
-    hostFixture = TestBed.createComponent(HostColComponent);
-    hostComponent = hostFixture.componentInstance;
-    hostFixture.detectChanges();
+    fixture = TestBed.createComponent(ColComponent);
+    fixture.detectChanges();
   });
 
   it("should create component", () => {
-    expect(hostComponent).toBeTruthy();
+    expect(fixture.componentInstance).toBeTruthy();
   });
 
   it("should render the col with default props", () => {
-    const colElement = hostFixture.debugElement.query(By.css(".col"));
+    const colElement = fixture.debugElement.query(By.css(".col"));
     expect(colElement).toBeTruthy();
   });
 
   it("should apply default width class", () => {
-    const colElement = hostFixture.debugElement.query(By.css(".col"));
+    const colElement = fixture.debugElement.query(By.css(".col"));
     expect(
       colElement.nativeElement.classList.contains("col--width-1"),
     ).toBeTruthy();
@@ -62,10 +39,10 @@ describe("ColComponent", () => {
     const widths: ColWidth[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
     for (const width of widths) {
-      hostComponent.width = width;
-      hostFixture.detectChanges();
+      fixture.componentRef.setInput("width", width);
+      fixture.detectChanges();
 
-      const colElement = hostFixture.debugElement.query(By.css(".col"));
+      const colElement = fixture.debugElement.query(By.css(".col"));
       expect(
         colElement.nativeElement.classList.contains(`col--width-${width}`),
       ).toBeTruthy();
@@ -76,10 +53,10 @@ describe("ColComponent", () => {
     const justifyOptions: JustifySelf[] = ["start", "end", "center", "stretch"];
 
     for (const justifySelf of justifyOptions) {
-      hostComponent.justifySelf = justifySelf;
-      hostFixture.detectChanges();
+      fixture.componentRef.setInput("justifySelf", justifySelf);
+      fixture.detectChanges();
 
-      const colElement = hostFixture.debugElement.query(By.css(".col"));
+      const colElement = fixture.debugElement.query(By.css(".col"));
       expect(
         colElement.nativeElement.classList.contains(
           `col--justify-self-${justifySelf}`,
@@ -92,10 +69,10 @@ describe("ColComponent", () => {
     const alignOptions: AlignSelf[] = ["start", "end", "center", "stretch"];
 
     for (const alignSelf of alignOptions) {
-      hostComponent.alignSelf = alignSelf;
-      hostFixture.detectChanges();
+      fixture.componentRef.setInput("alignSelf", alignSelf);
+      fixture.detectChanges();
 
-      const colElement = hostFixture.debugElement.query(By.css(".col"));
+      const colElement = fixture.debugElement.query(By.css(".col"));
       expect(
         colElement.nativeElement.classList.contains(
           `col--align-self-${alignSelf}`,
@@ -105,19 +82,19 @@ describe("ColComponent", () => {
   });
 
   it("should apply custom class", () => {
-    hostComponent.class = "custom-class";
-    hostFixture.detectChanges();
+    fixture.componentRef.setInput("class", "custom-class");
+    fixture.detectChanges();
 
-    const colElement = hostFixture.debugElement.query(By.css(".col"));
+    const colElement = fixture.debugElement.query(By.css(".col"));
     expect(
       colElement.nativeElement.classList.contains("custom-class"),
     ).toBeTruthy();
   });
 
   it("should handle undefined values", () => {
-    hostFixture.detectChanges();
+    fixture.detectChanges();
 
-    const colElement = hostFixture.debugElement.query(By.css(".col"));
+    const colElement = fixture.debugElement.query(By.css(".col"));
     expect(colElement).toBeTruthy();
     expect(colElement.nativeElement.classList.toString()).not.toContain(
       "undefined",
