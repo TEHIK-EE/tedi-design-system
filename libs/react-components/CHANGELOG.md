@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-react-v11.2.0-rc.14](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.2.0-rc.13...react-11.2.0-rc.14) (2025-03-27)
+
+
+### Bug Fixes
+
+* **radio,checkbox,choice-group:** allow custom labels [#617](https://github.com/TEHIK-EE/tedi-design-system/issues/617) ([#620](https://github.com/TEHIK-EE/tedi-design-system/issues/620)) ([19be632](https://github.com/TEHIK-EE/tedi-design-system/commit/19be632ccabe59ec9c146e637dd69e08e36c5104))
+
 # [@tehik-ee/tedi-react-v11.2.0-rc.13](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.2.0-rc.12...react-11.2.0-rc.13) (2025-03-27)
 
 
