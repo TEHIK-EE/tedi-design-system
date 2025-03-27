@@ -75,15 +75,21 @@ export const Radio = (props: RadioProps): JSX.Element => {
           </div>
         </Col>
         <Col>
-          <FormLabel
-            ref={labelRef}
-            className={LabelBEM}
-            id={id}
-            data-testid="radio-label"
-            hideLabel={hideLabel}
-            label={label}
-            tooltip={tooltip}
-          />
+          {label && typeof label === 'string' ? (
+            <FormLabel
+              ref={labelRef}
+              className={LabelBEM}
+              id={id}
+              data-testid="radio-label"
+              hideLabel={hideLabel}
+              label={label}
+              tooltip={tooltip}
+            />
+          ) : (
+            <label htmlFor={id} className={LabelBEM} data-testid="radio-label">
+              {label}
+            </label>
+          )}
         </Col>
       </Row>
 

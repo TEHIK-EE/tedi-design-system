@@ -2,6 +2,8 @@ import { Meta, StoryObj } from '@storybook/react';
 
 import Col, { ColProps } from '../../../../tedi/components/grid/col';
 import { Row } from '../../grid';
+import { Icon } from '../../icon/icon';
+import Separator from '../../separator/separator';
 import { Text } from '../../typography/text/text';
 import { VerticalSpacing } from '../../vertical-spacing';
 import ChoiceGroup from './choice-group';
@@ -262,7 +264,7 @@ export const WithExtraContent: Story = {
 export const Responsive: Story = {
   args: {
     inputType: 'radio',
-    label: 'My options will fill the space:',
+    label: 'Custom label:',
     variant: 'card',
     showIndicator: true,
     layout: 'separated',
@@ -307,5 +309,53 @@ export const CustomLabel: Story = {
       </Text>
     ),
     items: generateItems({ index: 16 }),
+  },
+};
+
+export const CustomItemLabels: Story = {
+  args: {
+    inputType: 'radio',
+    label: 'Custom item labels:',
+    items: [
+      {
+        id: 'radio-custom-item-labels-1',
+        label: (
+          <Text>
+            Lorem ipsum dolor sit, amet
+            <Separator
+              axis="vertical"
+              color="secondary"
+              display="inline"
+              dotSize="small"
+              spacing={0.5}
+              variant="dot-only"
+            />
+            consectetur adipisicing elit.
+          </Text>
+        ),
+        value: 'radio-custom-item-labels-1',
+      },
+      {
+        id: 'radio-custom-item-labels-2',
+        label: (
+          <Text>
+            <Icon display="inline" name="error" color="danger" /> Lorem ipsum dolor sit amet, consectetur adipisicing
+            elit.
+          </Text>
+        ),
+        value: 'radio-custom-item-labels-2',
+        defaultChecked: true,
+      },
+      {
+        id: 'radio-custom-item-labels-3',
+        label: (
+          <Text>
+            <Icon display="inline" name="check" color="success" /> Lorem ipsum dolor sit amet, consectetur adipisicing
+            elit.
+          </Text>
+        ),
+        value: 'radio-custom-item-labels-3',
+      },
+    ],
   },
 };

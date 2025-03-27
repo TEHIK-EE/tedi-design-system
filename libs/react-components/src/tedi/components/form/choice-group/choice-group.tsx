@@ -164,7 +164,7 @@ export const ChoiceGroup = (props: ChoiceGroupProps): React.ReactElement => {
         {label && typeof label === 'string' ? (
           <FormLabel id={id} label={label} required={required} hideLabel={hideLabel} renderWithoutLabel={true} />
         ) : (
-          label
+          <label htmlFor={id}>{label}</label>
         )}
         <Row>
           <Col>

@@ -30,7 +30,7 @@ interface ChoiceGroupItemBreakpointProps extends Omit<ChoiceInputProps, 'name'> 
 
 export interface ExtendedChoiceGroupItemProps extends BreakpointSupport<ChoiceGroupItemBreakpointProps> {
   id: string;
-  label: string;
+  label: string | React.ReactNode;
   value: string;
 }
 
