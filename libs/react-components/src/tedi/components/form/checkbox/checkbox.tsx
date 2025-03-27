@@ -110,7 +110,7 @@ export const Checkbox = (props: CheckboxProps): JSX.Element => {
               tooltip={tooltip}
             />
           ) : (
-            <label htmlFor={id} className={LabelBEM} data-testid="radio-label">
+            <label ref={labelRef} htmlFor={id} className={LabelBEM} data-testid="checkbox-label">
               {label}
             </label>
           )}

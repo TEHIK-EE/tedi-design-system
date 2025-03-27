@@ -86,7 +86,7 @@ export const Radio = (props: RadioProps): JSX.Element => {
               tooltip={tooltip}
             />
           ) : (
-            <label htmlFor={id} className={LabelBEM} data-testid="radio-label">
+            <label ref={labelRef} htmlFor={id} className={LabelBEM} data-testid="radio-label">
               {label}
             </label>
           )}
