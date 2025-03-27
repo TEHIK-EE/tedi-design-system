@@ -5,7 +5,11 @@
       "parserOptions": {
         "project": ["tsconfig.eslint.json"]
       },
-      "extends": ["plugin:@angular-eslint/recommended", "eslint:recommended"],
+      "extends": [
+        "eslint:recommended",
+        "plugin:@angular-eslint/recommended",
+        "plugin:@typescript-eslint/recommended"
+      ],
       "env": {
         "jest": true
       },

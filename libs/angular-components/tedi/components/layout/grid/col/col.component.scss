@@ -1,7 +1,27 @@
-@use "@tehik-ee/tedi-core/bootstrap-utility/grid";
+$column-width: 12;
+$justify-self: ("start", "end", "center", "stretch");
+$align-self: ("start", "end", "center", "stretch");
 
-.col {
-  @include grid.make-col-ready;
+:host {
+  display: contents;
 }
 
-@include grid.make-grid-columns;
+.col {
+  @for $i from 1 through $column-width {
+    &--width-#{$i} {
+      grid-column: span #{$i};
+    }
+  }
+
+  @each $key in $justify-self {
+    &--justify-self-#{$key} {
+      justify-self: #{$key};
+    }
+  }
+
+  @each $key in $align-self {
+    &--align-self-#{$key} {
+      align-self: #{$key};
+    }
+  }
+}

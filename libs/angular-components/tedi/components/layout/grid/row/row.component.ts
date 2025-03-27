@@ -2,165 +2,116 @@ import {
   ChangeDetectionStrategy,
   Component,
   computed,
-  effect,
-  Injectable,
   input,
-  InputSignal,
-  signal,
 } from "@angular/core";
+import {
+  BreakpointProps,
+  BreakpointService,
+} from "../../../../services/breakpoint/breakpoint.service";
 
-type RowElement = "div" | "ul" | "ol" | "span";
-type Cols = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | "auto";
-type Spacer = 0 | 1 | 2 | 3 | 4 | 5 | undefined;
-type Gutter = 0 | 1 | 2 | 3 | 4 | 5 | undefined;
-type JustifyContent =
-  | "start"
-  | "center"
-  | "end"
-  | "between"
-  | "around"
-  | "evenly"
-  | undefined;
-type AlignItems =
-  | "start"
-  | "center"
-  | "end"
-  | "baseline"
-  | "stretch"
-  | undefined;
-type Direction =
-  | "row"
-  | "row-reverse"
-  | "column"
-  | "column-reverse"
-  | undefined;
-type Wrap = "wrap" | "nowrap" | "wrap-reverse" | undefined;
+export type Cols = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
+export type Gap = 0 | 1 | 2 | 3 | 4 | 5;
+export type JustifyItems = "start" | "end" | "center" | "stretch";
+export type AlignItems = "start" | "end" | "center" | "stretch";
 
 type RowProps = {
   /**
-   * Base element.
-   * @default div
-   */
-  element?: InputSignal<RowElement>;
-  /**
    * Additional class.
    */
-  class?: InputSignal<string>;
+  class: string;
   /**
    * The number of columns that will fit next to each other.
-   * Use `auto` to give columns their natural widths.
-   * @default auto
+   * @default 12
    */
-  cols?: InputSignal<Cols>;
+  cols: Cols;
   /**
-   * Use justify-content utilities to change the alignment of items on the main axis.
-   * https://getbootstrap.com/docs/5.1/utilities/flex/#justify-content
+   * Aligns items horizontally inside their grid cell.
    */
-  justifyContent?: InputSignal<JustifyContent>;
+  justifyItems?: JustifyItems;
   /**
-   * Use align-items utilities to change the alignment of items on the cross axis.
-   * https://getbootstrap.com/docs/5.1/utilities/flex/#align-items
+   * Aligns items vertically inside their grid cell.
    */
-  alignItems?: InputSignal<AlignItems>;
+  alignItems?: AlignItems;
   /**
    * Add gap between items.
-   * https://getbootstrap.com/docs/5.1/utilities/spacing/#gap
    */
-  gap?: InputSignal<Spacer>;
+  gap?: Gap;
   /**
-   * Change gutter between items.
-   * https://getbootstrap.com/docs/5.0/layout/gutters/
+   * Add horizontal gap between items.
    */
-  gutter?: InputSignal<Gutter>;
-  gutterX?: InputSignal<Gutter>;
-  gutterY?: InputSignal<Gutter>;
+  gapX?: Gap;
   /**
-   * Set the direction of flex items in a flex container with direction utilities.
-   * https://getbootstrap.com/docs/5.1/utilities/flex/#direction
+   * Add vertical gap between items.
    */
-  direction?: InputSignal<Direction>;
-  /**
-   * Change how flex items wrap in a flex container.
-   * https://getbootstrap.com/docs/5.1/utilities/flex/#wrap
-   */
-  wrap?: InputSignal<Wrap>;
+  gapY?: Gap;
 };
-
-@Injectable()
-export class RowContextService {
-  element = signal<RowElement>("div");
-
-  setElement(element: RowElement) {
-    this.element.set(element);
-  }
-}
 
 @Component({
   selector: "tedi-row",
+  standalone: true,
   templateUrl: "./row.component.html",
   styleUrl: "./row.component.scss",
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [RowContextService],
 })
-export class RowComponent implements RowProps {
-  element = input<RowElement>("div");
+export class RowComponent implements BreakpointProps<RowProps> {
   class = input<string>("");
-  cols = input<Cols>("auto");
-  justifyContent = input<JustifyContent>();
+  cols = input<Cols>(12);
+  justifyItems = input<JustifyItems>();
   alignItems = input<AlignItems>();
-  gap = input<Spacer>();
-  gutter = input<Gutter>();
-  gutterX = input<Gutter>();
-  gutterY = input<Gutter>();
-  direction = input<Direction>();
-  wrap = input<Wrap>();
+  gap = input<Gap>();
+  gapX = input<Gap>();
+  gapY = input<Gap>();
 
-  constructor(private rowContext: RowContextService) {
-    effect(
-      () => {
-        this.rowContext.setElement(this.element());
-      },
-      { allowSignalWrites: true },
-    );
-  }
+  xs = input<RowProps>();
+  sm = input<RowProps>();
+  md = input<RowProps>();
+  lg = input<RowProps>();
+  xl = input<RowProps>();
+  xxl = input<RowProps>();
+
+  constructor(private breakpointService: BreakpointService) {}
 
   classes = computed(() => {
-    const classList = ["row", `row-cols-${this.cols()}`];
+    const resolvedProps = this.breakpointService.getBreakpointProps<RowProps>({
+      class: this.class(),
+      cols: this.cols(),
+      justifyItems: this.justifyItems(),
+      alignItems: this.alignItems(),
+      gap: this.gap(),
+      gapX: this.gapX(),
+      gapY: this.gapY(),
+      xs: this.xs(),
+      sm: this.sm(),
+      md: this.md(),
+      lg: this.lg(),
+      xl: this.xl(),
+      xxl: this.xxl(),
+    });
 
-    if (this.justifyContent()) {
-      classList.push(`justify-content-${this.justifyContent()}`);
+    const classList = ["row", `row--cols-${resolvedProps.cols}`];
+
+    if (resolvedProps.justifyItems) {
+      classList.push(`row--justify-items-${resolvedProps.justifyItems}`);
     }
 
-    if (this.alignItems()) {
-      classList.push(`align-items-${this.alignItems()}`);
+    if (resolvedProps.alignItems) {
+      classList.push(`row--align-items-${resolvedProps.alignItems}`);
     }
 
-    if (this.gap()) {
-      classList.push(`gap-${this.gap()}`);
+    if (resolvedProps.gap) {
+      classList.push(`g-${resolvedProps.gap}`);
     }
 
-    if (this.gutter()) {
-      classList.push(`g-${this.gutter()}`);
+    if (resolvedProps.gapX) {
+      classList.push(`gx-${resolvedProps.gapX}`);
     }
 
-    if (this.gutterX()) {
-      classList.push(`gx-${this.gutterX()}`);
+    if (resolvedProps.gapY) {
+      classList.push(`gy-${resolvedProps.gapY}`);
     }
 
-    if (this.gutterY()) {
-      classList.push(`gy-${this.gutterY()}`);
-    }
-
-    if (this.direction()) {
-      classList.push(`flex-${this.direction()}`);
-    }
-
-    if (this.wrap()) {
-      classList.push(`flex-${this.wrap()}`);
-    }
-
-    if (this.class()) {
-      classList.push(this.class());
+    if (resolvedProps.class) {
+      classList.push(resolvedProps.class);
     }
 
     return classList.join(" ");

@@ -3,121 +3,84 @@ import {
   Component,
   computed,
   input,
-  InputSignal,
 } from "@angular/core";
-import { RowContextService } from "../row/row.component";
+import {
+  BreakpointProps,
+  BreakpointService,
+} from "../../../../services/breakpoint/breakpoint.service";
 
-type ColElement = "div" | "li" | "span" | undefined;
-type NumberAttr = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
-type ColOrder = 1 | 2 | 3 | 4 | 5 | "first" | "last" | undefined;
-type ColSize = "auto" | NumberAttr | undefined;
-type ColAlign = "start" | "center" | "end" | undefined;
+export type ColWidth = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
+export type JustifySelf = "start" | "end" | "center" | "stretch";
+export type AlignSelf = "start" | "end" | "center" | "stretch";
 
 type ColProps = {
   /**
-   * Base element.
-   * @default div
-   */
-  element?: InputSignal<ColElement>;
-  /**
    * Additional class.
    */
-  class?: InputSignal<string>;
+  class: string;
   /**
    * Number of column width.
-   * Use `auto` to give columns their natural widths.
+   * @default 1
    */
-  width?: InputSignal<ColSize>;
+  width: ColWidth;
   /**
-   * Move columns to the right 1-11 columns.
-   * https://getbootstrap.com/docs/5.1/layout/columns/#offsetting-columns
+   * Aligns an item horizontally inside its own grid cell.
    */
-  offset?: InputSignal<NumberAttr | undefined>;
+  justifySelf?: JustifySelf;
   /**
-   * Use for controlling the visual order of your Cols.
-   * https://getbootstrap.com/docs/5.1/layout/columns/#order-classes
+   * Aligns an item vertically inside its own grid cell.
    */
-  order?: InputSignal<ColOrder>;
-  /**
-   * Use to vertically align columns individually.
-   * https://getbootstrap.com/docs/5.1/layout/columns/#alignment
-   */
-  align?: InputSignal<ColAlign>;
-  /**
-   * Use to toggle a flex item’s ability to grow to fill available space.
-   * https://getbootstrap.com/docs/5.1/utilities/flex/#grow-and-shrink
-   */
-  grow?: InputSignal<0 | 1 | undefined>;
-  /**
-   * Use to toggle a flex item’s ability to shrink if necessary.
-   * https://getbootstrap.com/docs/5.1/utilities/flex/#grow-and-shrink
-   */
-  shrink?: InputSignal<0 | 1 | undefined>;
+  alignSelf?: AlignSelf;
 };
 
 @Component({
   selector: "tedi-col",
+  standalone: true,
   templateUrl: "./col.component.html",
   styleUrl: "./col.component.scss",
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ColComponent implements ColProps {
-  element = input<ColElement>();
+export class ColComponent implements BreakpointProps<ColProps> {
   class = input<string>("");
-  width = input<ColSize>();
-  offset = input<NumberAttr | undefined>();
-  order = input<ColOrder>();
-  align = input<ColAlign>();
-  grow = input<0 | 1 | undefined>();
-  shrink = input<0 | 1 | undefined>();
+  width = input<ColWidth>(1);
+  justifySelf = input<JustifySelf>();
+  alignSelf = input<AlignSelf>();
 
-  constructor(private rowContext: RowContextService) {}
+  xs = input<ColProps>();
+  sm = input<ColProps>();
+  md = input<ColProps>();
+  lg = input<ColProps>();
+  xl = input<ColProps>();
+  xxl = input<ColProps>();
 
-  colElement = computed(() => {
-    if (this.element() !== undefined) {
-      return this.element();
-    }
-
-    const rowElement = this.rowContext.element();
-
-    if (rowElement === "ul" || rowElement === "ol") {
-      return "li";
-    } else if (rowElement === "span") {
-      return "span";
-    } else {
-      return "div";
-    }
-  });
+  constructor(private breakpointService: BreakpointService) {}
 
   classes = computed(() => {
-    const classList = ["col"];
+    const resolvedProps = this.breakpointService.getBreakpointProps<ColProps>({
+      class: this.class(),
+      width: this.width(),
+      justifySelf: this.justifySelf(),
+      alignSelf: this.alignSelf(),
+      xs: this.xs(),
+      sm: this.sm(),
+      md: this.md(),
+      lg: this.lg(),
+      xl: this.xl(),
+      xxl: this.xxl(),
+    });
 
-    if (this.align()) {
-      classList.push(`align-self-${this.align()}`);
+    const classList = ["col", `col--width-${resolvedProps.width}`];
+
+    if (resolvedProps.justifySelf) {
+      classList.push(`col--justify-self-${resolvedProps.justifySelf}`);
     }
 
-    if (this.offset()) {
-      classList.push(`offset-${this.offset()}`);
+    if (resolvedProps.alignSelf) {
+      classList.push(`col--align-self-${resolvedProps.alignSelf}`);
     }
 
-    if (this.order()) {
-      classList.push(`offset-${this.offset()}`);
-    }
-
-    if (this.width()) {
-      classList.push(`col-${this.width()}`);
-    }
-
-    if (this.grow() !== undefined) {
-      classList.push(`flex-grow-${this.grow()}`);
-    }
-
-    if (this.shrink() !== undefined) {
-      classList.push(`flex-shrink-${this.shrink()}`);
-    }
-
-    if (this.class()) {
-      classList.push(this.class());
+    if (resolvedProps.class) {
+      classList.push(resolvedProps.class);
     }
 
     return classList.join(" ");

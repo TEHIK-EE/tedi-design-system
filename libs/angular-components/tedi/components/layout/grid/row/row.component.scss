@@ -1,6 +1,53 @@
-@use "@tehik-ee/tedi-core/bootstrap-utility/grid";
+$grid-columns: 12;
+$spacer: 1rem;
+$gaps: (
+  0: 0,
+  1: $spacer * 0.25,
+  2: $spacer * 0.5,
+  3: $spacer,
+  4: $spacer * 1.5,
+  5: $spacer * 3,
+);
+
+$justify-items: ("start", "end", "center", "stretch");
+$align-items: ("start", "end", "center", "stretch");
+
+:host {
+  display: contents;
+}
 
 .row {
-  list-style: none;
-  @include grid.make-row;
+  display: grid;
+
+  @for $i from 1 through $grid-columns {
+    &--cols-#{$i} {
+      grid-template-columns: repeat(#{$i}, 1fr);
+    }
+  }
+
+  @each $key in $justify-items {
+    &--justify-items-#{$key} {
+      justify-items: #{$key};
+    }
+  }
+
+  @each $key in $align-items {
+    &--align-items-#{$key} {
+      align-items: #{$key};
+    }
+  }
+}
+
+@each $key, $value in $gaps {
+  .g-#{$key} {
+    gap: #{$value};
+  }
+
+  .gx-#{$key} {
+    column-gap: #{$value};
+  }
+
+  .gy-#{$key} {
+    row-gap: #{$value};
+  }
 }
