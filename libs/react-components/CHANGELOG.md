@@ -1,3 +1,69 @@
+# [@tehik-ee/tedi-react-v11.2.0](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.1.3...react-11.2.0) (2025-03-27)
+
+
+### Bug Fixes
+
+* **button-group:** secondary buttons height [#613](https://github.com/TEHIK-EE/tedi-design-system/issues/613) ([#614](https://github.com/TEHIK-EE/tedi-design-system/issues/614)) ([f81bfd7](https://github.com/TEHIK-EE/tedi-design-system/commit/f81bfd76f8499150e8c9f844d8fee2fc3272d24b))
+* **card:** fix card stories [#580](https://github.com/TEHIK-EE/tedi-design-system/issues/580) ([#591](https://github.com/TEHIK-EE/tedi-design-system/issues/591)) ([3be2544](https://github.com/TEHIK-EE/tedi-design-system/commit/3be254422bcfd4dc226c0ae52b39d6d7bb0cca28)), closes [#556](https://github.com/TEHIK-EE/tedi-design-system/issues/556)
+* **choice-group:** allow React.ReactNode type for label [#617](https://github.com/TEHIK-EE/tedi-design-system/issues/617) ([#618](https://github.com/TEHIK-EE/tedi-design-system/issues/618)) ([cfe035c](https://github.com/TEHIK-EE/tedi-design-system/commit/cfe035cfbbcdcefeaed773f352d27460ee234d61))
+* **chore:** fix vite.config manual-chunks [#549](https://github.com/TEHIK-EE/tedi-design-system/issues/549) ([#550](https://github.com/TEHIK-EE/tedi-design-system/issues/550)) ([cdf78b0](https://github.com/TEHIK-EE/tedi-design-system/commit/cdf78b03747b655ac2086bc99f615c5242e0ac10))
+* **radio,checkbox,choice-group:** allow custom labels [#617](https://github.com/TEHIK-EE/tedi-design-system/issues/617) ([#620](https://github.com/TEHIK-EE/tedi-design-system/issues/620)) ([19be632](https://github.com/TEHIK-EE/tedi-design-system/commit/19be632ccabe59ec9c146e637dd69e08e36c5104))
+* **radio,checkbox:** add missing labelRef [#617](https://github.com/TEHIK-EE/tedi-design-system/issues/617) ([#622](https://github.com/TEHIK-EE/tedi-design-system/issues/622)) ([55abfb0](https://github.com/TEHIK-EE/tedi-design-system/commit/55abfb071bbea8b89cf030851b22b5c7afeb7103))
+* **sidenav:** design tweaks [#526](https://github.com/TEHIK-EE/tedi-design-system/issues/526) ([#528](https://github.com/TEHIK-EE/tedi-design-system/issues/528)) ([bb3016b](https://github.com/TEHIK-EE/tedi-design-system/commit/bb3016b4b11ea949fb1e47871bde7eedc5a5d61f))
+* **status-badge:** ensure aria role can be set dynamically [#532](https://github.com/TEHIK-EE/tedi-design-system/issues/532) ([#543](https://github.com/TEHIK-EE/tedi-design-system/issues/543)) ([68252ca](https://github.com/TEHIK-EE/tedi-design-system/commit/68252ca4b50f78bdb76f72e7cc4fb71d79b21836))
+
+
+### Features
+
+* **button-group:** TEDI-Ready ButtonGroup development [#451](https://github.com/TEHIK-EE/tedi-design-system/issues/451) ([#611](https://github.com/TEHIK-EE/tedi-design-system/issues/611)) ([7281fce](https://github.com/TEHIK-EE/tedi-design-system/commit/7281fce25fb0f487441f55cfa40934a70033eaab))
+* **choice-group:** TEDI-Ready ChoiceGroup component development [#518](https://github.com/TEHIK-EE/tedi-design-system/issues/518) ([#612](https://github.com/TEHIK-EE/tedi-design-system/issues/612)) ([f12fb7c](https://github.com/TEHIK-EE/tedi-design-system/commit/f12fb7c844d71ed5fdf7a083bde3f43eb1ccac3d))
+* **ellipsis:** TEDI-Ready Ellipsis development [#554](https://github.com/TEHIK-EE/tedi-design-system/issues/554) ([#557](https://github.com/TEHIK-EE/tedi-design-system/issues/557)) ([d5e01cd](https://github.com/TEHIK-EE/tedi-design-system/commit/d5e01cd4c468b3d58561b1f8b6d5272a5b16fccf))
+* **file-dropzone:** TEDI-Ready FileDropzone development [#490](https://github.com/TEHIK-EE/tedi-design-system/issues/490) ([#545](https://github.com/TEHIK-EE/tedi-design-system/issues/545)) ([5d7c542](https://github.com/TEHIK-EE/tedi-design-system/commit/5d7c542a4c8c520b4c9e35bfb8cebff9a2abb1c3)), closes [#407](https://github.com/TEHIK-EE/tedi-design-system/issues/407) [#407](https://github.com/TEHIK-EE/tedi-design-system/issues/407) [#495](https://github.com/TEHIK-EE/tedi-design-system/issues/495)
+* **file-upload:** TEDI-Ready FileUpload component development [#407](https://github.com/TEHIK-EE/tedi-design-system/issues/407) ([#522](https://github.com/TEHIK-EE/tedi-design-system/issues/522)) ([94fee9d](https://github.com/TEHIK-EE/tedi-design-system/commit/94fee9d39f527168af1ecd03cce98d0e0dbfe1ee)), closes [#80](https://github.com/TEHIK-EE/tedi-design-system/issues/80)
+* **table:** update table filter active state [[#556](https://github.com/TEHIK-EE/tedi-design-system/issues/556)] ([#558](https://github.com/TEHIK-EE/tedi-design-system/issues/558)) ([0dbbfa1](https://github.com/TEHIK-EE/tedi-design-system/commit/0dbbfa18cf88d2d253da78941b8df4c129b67ffe))
+
+# [@tehik-ee/tedi-react-v11.2.0-rc.15](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.2.0-rc.14...react-11.2.0-rc.15) (2025-03-27)
+
+
+### Bug Fixes
+
+* **radio,checkbox:** add missing labelRef [#617](https://github.com/TEHIK-EE/tedi-design-system/issues/617) ([#622](https://github.com/TEHIK-EE/tedi-design-system/issues/622)) ([55abfb0](https://github.com/TEHIK-EE/tedi-design-system/commit/55abfb071bbea8b89cf030851b22b5c7afeb7103))
+
+# [@tehik-ee/tedi-react-v11.2.0-rc.14](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.2.0-rc.13...react-11.2.0-rc.14) (2025-03-27)
+
+
+### Bug Fixes
+
+* **radio,checkbox,choice-group:** allow custom labels [#617](https://github.com/TEHIK-EE/tedi-design-system/issues/617) ([#620](https://github.com/TEHIK-EE/tedi-design-system/issues/620)) ([19be632](https://github.com/TEHIK-EE/tedi-design-system/commit/19be632ccabe59ec9c146e637dd69e08e36c5104))
+
+# [@tehik-ee/tedi-react-v11.2.0-rc.13](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.2.0-rc.12...react-11.2.0-rc.13) (2025-03-27)
+
+
+### Bug Fixes
+
+* **choice-group:** allow React.ReactNode type for label [#617](https://github.com/TEHIK-EE/tedi-design-system/issues/617) ([#618](https://github.com/TEHIK-EE/tedi-design-system/issues/618)) ([cfe035c](https://github.com/TEHIK-EE/tedi-design-system/commit/cfe035cfbbcdcefeaed773f352d27460ee234d61))
+
+# [@tehik-ee/tedi-react-v11.2.0-rc.12](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.2.0-rc.11...react-11.2.0-rc.12) (2025-03-27)
+
+
+### Bug Fixes
+
+* **button-group:** secondary buttons height [#613](https://github.com/TEHIK-EE/tedi-design-system/issues/613) ([#614](https://github.com/TEHIK-EE/tedi-design-system/issues/614)) ([f81bfd7](https://github.com/TEHIK-EE/tedi-design-system/commit/f81bfd76f8499150e8c9f844d8fee2fc3272d24b))
+
+# [@tehik-ee/tedi-react-v11.2.0-rc.11](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.2.0-rc.10...react-11.2.0-rc.11) (2025-03-27)
+
+
+### Features
+
+* **choice-group:** TEDI-Ready ChoiceGroup component development [#518](https://github.com/TEHIK-EE/tedi-design-system/issues/518) ([#612](https://github.com/TEHIK-EE/tedi-design-system/issues/612)) ([f12fb7c](https://github.com/TEHIK-EE/tedi-design-system/commit/f12fb7c844d71ed5fdf7a083bde3f43eb1ccac3d))
+
+# [@tehik-ee/tedi-react-v11.2.0-rc.10](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.2.0-rc.9...react-11.2.0-rc.10) (2025-03-27)
+
+
+### Features
+
+* **button-group:** TEDI-Ready ButtonGroup development [#451](https://github.com/TEHIK-EE/tedi-design-system/issues/451) ([#611](https://github.com/TEHIK-EE/tedi-design-system/issues/611)) ([7281fce](https://github.com/TEHIK-EE/tedi-design-system/commit/7281fce25fb0f487441f55cfa40934a70033eaab))
+
 # [@tehik-ee/tedi-react-v11.2.0-rc.9](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.2.0-rc.8...react-11.2.0-rc.9) (2025-03-21)
 
 

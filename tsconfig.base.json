@@ -16,11 +16,9 @@
     "esModuleInterop": true,
     "baseUrl": ".",
     "paths": {
-      "@tehik-ee/tedi-angular/tedi": [
-        "libs/angular-components/src/tedi/index.ts"
-      ],
+      "@tehik-ee/tedi-angular/tedi": ["libs/angular-components/tedi/index.ts"],
       "@tehik-ee/tedi-angular/community": [
-        "libs/angular-components/src/community/index.ts"
+        "libs/angular-components/community/index.ts"
       ],
       "@tehik-ee/design-tokens": [
         "libs/react-components/design-tokens/tokens.js"

@@ -1,0 +1,21 @@
+@use '@tehik-ee/tedi-core/mixins';
+@use '@tehik-ee/tedi-core/bootstrap-utility/breakpoints';
+
+.tedi-choice-group {
+  position: relative;
+  padding: 0;
+  margin: 0;
+  border: none;
+
+  legend {
+    padding: 0;
+  }
+}
+
+.tedi-choice-group__inner--indented {
+  @include mixins.responsive-styles(padding-left, form-checkbox-radio-subitem-padding-left, null, '- 5px');
+
+  @include breakpoints.media-breakpoint-down(md) {
+    @include mixins.responsive-styles(padding-left, form-checkbox-radio-subitem-padding-left);
+  }
+}

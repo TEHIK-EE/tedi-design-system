@@ -8,20 +8,14 @@ import { VerticalSpacing } from '../../vertical-spacing';
 import Checkbox, { CheckboxProps } from './checkbox';
 
 /**
- * <a href="https://www.figma.com/design/jWiRIXhHRxwVdMSimKX2FF/TEDI-READY-(work-in-progress)?node-id=4228-72934&m=dev" target="_BLANK">Figma ↗</a><br/>
- * <a href="https://zeroheight.com/1ee8444b7/p/796203-checkbox" target="_BLANK">Zeroheight ↗</a><hr/>
+ * <a href="https://www.figma.com/design/jWiRIXhHRxwVdMSimKX2FF/TEDI-READY-(work-in-progress)?node-id=4228-72934&m=dev" target="_BLANK">Figma ↗</a><br />
+ * <a href="https://zeroheight.com/1ee8444b7/p/796203-checkbox" target="_BLANK">Zeroheight ↗</a><br/><hr/>
  * In most cases, you should use the `ChoiceGroup` component. However, we also provide a standalone `Check` component for custom use cases.
  */
 
 const meta: Meta<typeof Checkbox> = {
   component: Checkbox,
-  title: 'TEDI-Ready/Components/Form/Checkbox',
-  parameters: {
-    design: {
-      type: 'figma',
-      url: 'https://www.figma.com/design/jWiRIXhHRxwVdMSimKX2FF/TEDI-READY-(work-in-progress)?node-id=4228-72934&m=dev',
-    },
-  },
+  title: 'TEDI-Ready/Components/Form/ChoiceGroup/Checkbox',
 };
 
 export default meta;
