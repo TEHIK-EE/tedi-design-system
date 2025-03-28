@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-angular-v1.6.0-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.5.0...angular-1.6.0-rc.1) (2025-03-28)
+
+
+### Features
+
+* **grid:** TEDI-Ready Angular Grid components [#564](https://github.com/TEHIK-EE/tedi-design-system/issues/564) ([#619](https://github.com/TEHIK-EE/tedi-design-system/issues/619)) ([9ee386d](https://github.com/TEHIK-EE/tedi-design-system/commit/9ee386dac06570935472661a7ac10d1883d66614)), closes [#587](https://github.com/TEHIK-EE/tedi-design-system/issues/587) [#587](https://github.com/TEHIK-EE/tedi-design-system/issues/587) [#587](https://github.com/TEHIK-EE/tedi-design-system/issues/587) [#587](https://github.com/TEHIK-EE/tedi-design-system/issues/587) [#587](https://github.com/TEHIK-EE/tedi-design-system/issues/587) [#587](https://github.com/TEHIK-EE/tedi-design-system/issues/587) [#587](https://github.com/TEHIK-EE/tedi-design-system/issues/587) [#587](https://github.com/TEHIK-EE/tedi-design-system/issues/587) [#587](https://github.com/TEHIK-EE/tedi-design-system/issues/587) [#587](https://github.com/TEHIK-EE/tedi-design-system/issues/587) [#587](https://github.com/TEHIK-EE/tedi-design-system/issues/587)
+
 # [@tehik-ee/tedi-angular-v1.5.0](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.4.0...angular-1.5.0) (2025-03-27)
 
 
