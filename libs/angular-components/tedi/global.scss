@@ -13,3 +13,7 @@
     margin-top: 0;
   }
 }
+
+.tedi-vertical-spacing__item[data-name="vertical-spacing-item"] {
+  margin-bottom: var(--vertical-spacing-internal, 0);
+}

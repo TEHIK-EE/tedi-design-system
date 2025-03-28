@@ -3,7 +3,7 @@ import {
   VerticalSpacingDirective,
   VerticalSpacingSize,
 } from "./vertical-spacing.directive";
-import { Component } from "@angular/core";
+import { Component, NO_ERRORS_SCHEMA } from "@angular/core";
 import { By } from "@angular/platform-browser";
 
 @Component({
@@ -17,6 +17,7 @@ import { By } from "@angular/platform-browser";
   `,
   imports: [VerticalSpacingDirective],
   standalone: true,
+  schemas: [NO_ERRORS_SCHEMA],
 })
 class HostComponent {
   spacing: VerticalSpacingSize = 2;
@@ -38,7 +39,6 @@ describe("VerticalSpacingDirective", () => {
 
   it("should create host component with directive", () => {
     let hostEl = fixture.debugElement.query(By.css("#container"));
-    console.log(hostEl.nativeElement.outerHTML);
     expect(hostEl).toBeTruthy();
   });
 });
