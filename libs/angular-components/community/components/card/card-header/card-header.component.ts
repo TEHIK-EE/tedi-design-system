@@ -15,7 +15,7 @@ export type CardHeaderVariant =
   | "brand-dark";
 
 @Component({
-  selector: "tedi-card-header",
+  selector: "tedi-card-header, [tediCardHeader]",
   standalone: true,
   imports: [],
   templateUrl: "./card-header.component.html",
