@@ -1,12 +1,17 @@
+import cn from 'classnames';
 import React, { forwardRef } from 'react';
 
 import { useLabels } from '../../../tedi/providers/label-provider';
 import { PolymorphicRef } from '../../helpers/polymorphic/types';
 import { IntentionalAny } from '../../types';
 import ButtonContent, { ButtonContentProps } from '../button-content/button-content';
+import styles from '../button-content/button-content.module.scss';
 
 export type InternalAnchorProps = {
-  // custom Anchor specific props
+  /**
+   * If true, the icon will be placed in a separate column
+   */
+  iconStandalone?: boolean;
 };
 
 type AllowedTags = 'a' | React.ComponentType<IntentionalAny>;
@@ -17,7 +22,7 @@ export type AnchorComponent = <C extends React.ElementType = 'a'>(props: AnchorP
 const InternalAnchor = forwardRef(
   <C extends React.ElementType = 'a'>(props: AnchorProps<C>, ref?: PolymorphicRef<C>) => {
     const { getLabel } = useLabels();
-    const { visualType = 'link', as, children, ...rest } = props;
+    const { visualType = 'link', as, iconStandalone = false, children, ...rest } = props;
 
     const ComponentAs = as || 'a';
 
@@ -28,6 +33,7 @@ const InternalAnchor = forwardRef(
         ref={ref}
         as={ComponentAs}
         visualType={visualType}
+        className={cn(rest.className, { [styles['btn__icon-standalone--link']]: iconStandalone })}
       >
         {children}
         {rest.target === '_blank' && <span className="sr-only">({getLabel('anchor.new-tab')})</span>}

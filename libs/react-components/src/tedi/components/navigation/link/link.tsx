@@ -1,3 +1,4 @@
+import cn from 'classnames';
 import React, { forwardRef } from 'react';
 
 import { BreakpointSupport, useBreakpointProps } from '../../../helpers';
@@ -5,9 +6,13 @@ import { PolymorphicRef } from '../../../helpers/polymorphic/types';
 import { useLabels } from '../../../providers/label-provider';
 import { UnknownType } from '../../../types/commonTypes';
 import ButtonContent, { ButtonContentProps } from '../../buttons/button-content/button-content';
+import styles from '../../buttons/button-content/button-content.module.scss';
 
 export type InternalLinkProps = {
-  // custom Link specific props
+  /**
+   * If true, the icon will be placed in a separate column
+   */
+  iconStandalone?: boolean;
 };
 
 type AllowedTags = 'a' | React.ComponentType<UnknownType>;
@@ -28,6 +33,7 @@ const LinkComponent = forwardRef(<C extends React.ElementType = 'a'>(props: Link
 
   const {
     visualType = 'link',
+    iconStandalone = false,
     underline = true,
     as,
     children,
@@ -44,6 +50,7 @@ const LinkComponent = forwardRef(<C extends React.ElementType = 'a'>(props: Link
       as={ComponentAs}
       visualType={visualType}
       underline={underline}
+      className={cn(rest.className, { [styles['tedi-btn__icon-standalone--link']]: iconStandalone })}
     >
       {children}
       {rest.target === '_blank' && <span className="sr-only">({getLabel('anchor.new-tab')})</span>}

@@ -1,4 +1,5 @@
 @use '@tehik-ee/tedi-core/mixins';
+@use '@tehik-ee/tedi-core/bootstrap-utility/breakpoints';
 
 $btn-height: 2.5rem;
 $btn-height-small: 2.25rem;
@@ -77,7 +78,7 @@ $btn-height-small: 2.25rem;
   align-items: center;
   justify-content: center;
   max-width: 100%;
-  height: $btn-height;
+  min-height: $btn-height;
   padding: 0 1.625rem; // 0 26px
   margin: 0;
   font-family: Roboto, Arial, Helvetica, sans-serif;
@@ -101,7 +102,7 @@ $btn-height-small: 2.25rem;
 }
 
 .btn--small {
-  height: $btn-height-small;
+  min-height: $btn-height-small;
   padding: 0 1.125rem; // 0 18px
   font-size: 0.875rem; // 14px
   line-height: 1.5rem; // 20px
@@ -288,6 +289,7 @@ $btn-height-small: 2.25rem;
   display: inline-block;
   width: auto;
   height: auto;
+  min-height: auto;
   padding: 0;
   color: var(--color-primary-main);
   text-align: left;
@@ -300,7 +302,7 @@ $btn-height-small: 2.25rem;
 }
 
 .btn__text {
-  text-align: start;
+  text-align: center;
 
   .btn--link.btn--is-hovered:not(:disabled) &,
   .btn--link.btn--is-active:not(:disabled) &,
@@ -311,6 +313,21 @@ $btn-height-small: 2.25rem;
 
   .btn--is-loading:not(.btn--icon) & {
     color: var(--color-transparent);
+  }
+
+  &:not(.btn--link .btn__text) {
+    text-wrap: nowrap;
+
+    @include breakpoints.media-breakpoint-up(md) {
+      display: -webkit-box;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      text-wrap: wrap;
+      word-break: break-word;
+      -webkit-line-clamp: 2;
+      line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
   }
 }
 
@@ -323,6 +340,19 @@ $btn-height-small: 2.25rem;
 
   .btn--link:not(.btn--is-loading) & {
     display: inline;
+  }
+
+  .btn--link.btn__icon-standalone--link:not(.btn--is-loading) & {
+    display: inline-flex;
+    align-items: start;
+
+    .btn__icon {
+      @include mixins.responsive-styles(line-height, body-regular-line-height);
+    }
+
+    .btn__text {
+      text-align: left;
+    }
   }
 }
 
