@@ -16,7 +16,6 @@ class HostComponent {
 
 describe("VerticalSpacingDirective", () => {
   let fixture: ComponentFixture<HostComponent>;
-  let hostComponent: HostComponent;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -24,7 +23,6 @@ describe("VerticalSpacingDirective", () => {
     }).compileComponents();
 
     fixture = TestBed.createComponent(HostComponent);
-    hostComponent = fixture.componentInstance;
     fixture.detectChanges();
   });
 

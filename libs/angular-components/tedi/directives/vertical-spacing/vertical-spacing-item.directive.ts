@@ -15,8 +15,8 @@ export class VerticalSpacingItemDirective implements AfterViewInit {
   tediVerticalSpacingItem = input<VerticalSpacingSize>(0);
 
   constructor(
-    private el: ElementRef,
-    private renderer: Renderer2,
+    private readonly el: ElementRef, // eslint-disable-line no-unused-vars
+    private readonly renderer: Renderer2, // eslint-disable-line no-unused-vars
   ) {}
 
   ngAfterViewInit(): void {

@@ -25,15 +25,12 @@ class HostComponent {
 
 describe("VerticalSpacingDirective", () => {
   let fixture: ComponentFixture<HostComponent>;
-  let hostComponent: HostComponent;
-
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [VerticalSpacingDirective, HostComponent],
     }).compileComponents();
 
     fixture = TestBed.createComponent(HostComponent);
-    hostComponent = fixture.componentInstance;
     fixture.detectChanges();
   });
 
