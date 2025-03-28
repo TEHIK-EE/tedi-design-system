@@ -1,0 +1,9 @@
+:host {
+  display: contents;
+
+  .tedi-accordion-item-header {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+}

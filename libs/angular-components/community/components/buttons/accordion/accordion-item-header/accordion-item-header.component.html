@@ -1,0 +1,6 @@
+<button tediCardHeader class="tedi-accordion-item-header" (click)="toggle()">
+  <ng-content></ng-content>
+  @if (indicator()) {
+    {{ opened() ? ">" : "<" }}
+  }
+</button>
