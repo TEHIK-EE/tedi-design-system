@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-core-v1.9.0](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.8.2...core-1.9.0) (2025-03-27)
+
+
+### Features
+
+* **storybook-styles:** add new styles [#615](https://github.com/TEHIK-EE/tedi-design-system/issues/615) ([#616](https://github.com/TEHIK-EE/tedi-design-system/issues/616)) ([db036d5](https://github.com/TEHIK-EE/tedi-design-system/commit/db036d5b2e73bb1c78cb5b9e90deb2f5da6652ad))
+
 # [@tehik-ee/tedi-core-v1.8.2](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.8.1...core-1.8.2) (2025-03-25)
 
 
