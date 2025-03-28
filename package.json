@@ -29,7 +29,7 @@
     "lint-staged": "^15.3.0",
     "semantic-release": "^23.0.3",
     "semantic-release-monorepo": "^8.0.2",
-    "typescript": "5.5.4"
+    "typescript": "5.8.2"
   },
   "commitlint": {
     "extends": "@commitlint/config-conventional",
