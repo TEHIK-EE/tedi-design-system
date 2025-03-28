@@ -1,0 +1,120 @@
+@use "@tehik-ee/tedi-core/mixins";
+@use "sass:map";
+
+$card-colors: (
+  "accent": "--card-background-accent",
+  "brand-primary": "--card-background-brand-primary",
+  "brand-secondary": "--card-background-brand-secondary",
+  "brand-tertiary": "--card-background-brand-tertiary",
+  "brand-quaternary": "--card-background-brand-quaternary",
+  "primary": "--card-background-primary",
+  "secondary": "--card-background-secondary",
+  "tertiary": "--card-background-tertiary",
+  "info-primary": "--general-status-info-background-light",
+  "info-secondary": "--general-status-info-background-dark",
+  "neutral-primary": "--general-status-neutral-background-light",
+  "neutral-secondary": "--general-status-neutral-background-dark",
+  "success-primary": "--card-background-success",
+  "success-secondary": "--general-status-success-background-secondary",
+  "danger-primary": "--general-status-danger-background-primary",
+  "danger-secondary": "--general-status-danger-background-secondary",
+  "warning-primary": "--general-status-warning-background-light",
+  "warning-secondary": "--general-status-warning-background-dark",
+);
+
+$card-spacings: ("xs", "sm", "md", "lg", "none");
+$spacing-directions: (
+  "vertical",
+  "horizontal",
+  "top",
+  "bottom",
+  "left",
+  "right"
+);
+
+$accent-border-colors: (
+  "info": "--general-status-info-background-dark",
+  "success": "--general-status-success-background-secondary",
+  "warning": "--general-status-warning-background-dark",
+  "danger": "--general-status-danger-background-secondary",
+);
+
+@mixin accent-borders {
+  &--accent-border {
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      border-top-left-radius: var(--_card-radius);
+      border-bottom-left-radius: var(--_card-radius);
+      border-left: 4px solid var(--_card-border-accent);
+    }
+  }
+  @each $name, $color-var in $accent-border-colors {
+    &--accent-border--#{$name} {
+      --_card-border-accent: var(#{$color-var});
+    }
+  }
+}
+
+@mixin card-color-classes {
+  @each $name, $color-var in $card-colors {
+    &--background--#{$name} {
+      --_card-bg: var(#{$color-var});
+    }
+    &--border--#{$name} {
+      --_card-border: var(#{$color-var});
+    }
+  }
+}
+
+@mixin card-spacing-value($spacing, $direction: null) {
+  // css private variable name
+  $private-var-name: if(
+    $direction,
+    --_card-padding-#{$direction},
+    --_card-padding
+  );
+
+  // assigns TEDI variable to private variable, 0 if none
+  @if ($spacing == "none") {
+    #{$private-var-name}: 0;
+  } @else {
+    $tedi-var-name: if($spacing== "md", "md-default", $spacing);
+    @include mixins.responsive-styles(
+      #{$private-var-name},
+      card-padding-#{$tedi-var-name}
+    );
+  }
+}
+
+@mixin card-spacings {
+  @each $spacing in $card-spacings {
+    &--spacing-#{$spacing} {
+      @include card-spacing-value($spacing);
+    }
+  }
+}
+
+@mixin card-padding-overrides {
+  --_card-padding-vertical: var(--_card-padding);
+  --_card-padding-horizontal: var(--_card-padding);
+  --_card-padding-top: var(--_card-padding-vertical);
+  --_card-padding-bottom: var(--_card-padding-vertical);
+  --_card-padding-left: var(--_card-padding-horizontal);
+  --_card-padding-right: var(--_card-padding-horizontal);
+
+  @each $spacing in $card-spacings {
+    &--padding-#{$spacing} {
+      @include card-spacing-value($spacing);
+    }
+    @each $direction in $spacing-directions {
+      &--padding-#{$direction}-#{$spacing} {
+        @include card-spacing-value($spacing, $direction);
+      }
+    }
+  }
+}
