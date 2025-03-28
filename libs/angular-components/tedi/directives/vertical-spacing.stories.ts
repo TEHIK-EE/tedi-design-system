@@ -5,11 +5,11 @@ export default {
   title: "Tedi-Ready Angular/Helpers/VerticalSpacing",
   component: VerticalSpacingDirective,
   argTypes: {
-    appVerticalSpacing: {
+    tediVerticalSpacing: {
       description:
         "The size of the vertical spacing, applied as margin-bottom The value corresponds to em units",
       control: {
-        type: "select",
+        type: "number",
         options: [0, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.5, 3, 4, 5],
       },
     },
@@ -18,15 +18,20 @@ export default {
 
 export const Default: StoryObj<VerticalSpacingDirective> = {
   args: {
-    appVerticalSpacing: 0.5,
+    tediVerticalSpacing: 0.5,
   },
   render: (args) => ({
     props: args,
     template: `
-      <div [appVerticalSpacing]="appVerticalSpacing">
-        <div style="background-color: #ddd; padding: 10px;">One</div>
-        <div style="background-color: #bbb; padding: 10px;">Two</div>
-        <div style="background-color: #999; padding: 10px;">Three</div>
+      <div [tediVerticalSpacing]="tediVerticalSpacing">
+        <h1>This is VerticalSpacing example</h1>
+        <p>
+          VerticalSpacing directive is used to give space vertically between its
+          children.
+        </p>
+        <p>
+          Use custom directive <code>tediVerticalSpacing</code> to apply margin bottom to all its children elements except the final element.
+        </p>
       </div>
     `,
   }),

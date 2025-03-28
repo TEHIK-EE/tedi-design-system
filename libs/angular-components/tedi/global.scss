@@ -1,0 +1,15 @@
+/* Used only in Vertical spacing components */
+
+.tedi-vertical-spacing[data-name="vertical-spacing"] {
+  > * {
+    margin-bottom: var(--vertical-spacing-internal, 0);
+  }
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+
+  > :first-of-type {
+    margin-top: 0;
+  }
+}

@@ -16,7 +16,8 @@
             "port": 6006,
             "styles": [
               "../tedi-core/src/index",
-              "../tedi-core/src/tedi-storybook-styles"
+              "../tedi-core/src/tedi-storybook-styles",
+              "tedi/global.scss"
             ],
             "experimentalZoneless": true
           }
@@ -30,7 +31,8 @@
             "outputDir": "dist/storybook-static",
             "styles": [
               "../tedi-core/src/index",
-              "../tedi-core/src/tedi-storybook-styles"
+              "../tedi-core/src/tedi-storybook-styles",
+              "tedi/global.scss"
             ],
             "experimentalZoneless": true
           }
