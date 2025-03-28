@@ -13,6 +13,7 @@ const config: StorybookConfig = {
     "@storybook/addon-onboarding",
     "@storybook/addon-essentials",
     "@storybook/addon-interactions",
+    "@etchteam/storybook-addon-status",
   ],
   framework: {
     name: "@storybook/angular",

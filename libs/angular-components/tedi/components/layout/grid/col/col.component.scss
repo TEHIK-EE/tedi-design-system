@@ -1,0 +1,27 @@
+$column-width: 12;
+$justify-self: ("start", "end", "center", "stretch");
+$align-self: ("start", "end", "center", "stretch");
+
+:host {
+  display: contents;
+}
+
+.col {
+  @for $i from 1 through $column-width {
+    &--width-#{$i} {
+      grid-column: span #{$i};
+    }
+  }
+
+  @each $key in $justify-self {
+    &--justify-self-#{$key} {
+      justify-self: #{$key};
+    }
+  }
+
+  @each $key in $align-self {
+    &--align-self-#{$key} {
+      align-self: #{$key};
+    }
+  }
+}
