@@ -1,0 +1,13 @@
+:host {
+  .variants-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .backgrounds-grid {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    align-items: start;
+  }
+}
