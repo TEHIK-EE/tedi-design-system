@@ -206,7 +206,7 @@ export const OutsideControlledState: Story = {
   args: {
     accordion: {
       openItem: accordionItems.map(({ id }) => id),
-      onToggleItem: (id: string) => {
+      onToggleItem: (_id: string) => {
         // Handle state in your component
       },
     },
