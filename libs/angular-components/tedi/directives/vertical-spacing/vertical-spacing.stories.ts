@@ -6,7 +6,7 @@ export class Weekdays extends VerticalSpacingDirective {
 }
 
 export default {
-  title: "Tedi-Ready Angular/Helpers/VerticalSpacing",
+  title: "Tedi-Ready Angular/Helpers/VerticalSpacing/VerticalSpacing",
   component: VerticalSpacingDirective,
   argTypes: {
     tediVerticalSpacing: {

@@ -2,7 +2,7 @@ import { Meta, StoryObj } from "@storybook/angular";
 import { VerticalSpacingItemDirective } from "./vertical-spacing-item.directive";
 
 export default {
-  title: "Tedi-Ready Angular/Helpers/VerticalSpacingItem",
+  title: "Tedi-Ready Angular/Helpers/VerticalSpacing/VerticalSpacingItem",
   component: VerticalSpacingItemDirective,
   argTypes: {
     tediVerticalSpacingItem: {
