@@ -1,6 +1,5 @@
 import { Component } from "@angular/core";
 
-import { IconComponent } from "../../../../tedi/components/base/icon/icon.component";
 import { CardColors } from "../card-colors.directive";
 import { CardContentComponent } from "../card-content/card-content.component";
 import {
@@ -15,6 +14,7 @@ import {
 } from "../card.component";
 import {
   HeadingComponent,
+  IconComponent,
   TextComponent,
 } from "libs/angular-components/tedi/public-api";
 
