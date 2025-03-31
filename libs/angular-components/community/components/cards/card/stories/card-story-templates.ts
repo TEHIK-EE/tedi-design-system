@@ -1,37 +1,17 @@
-import { Component } from "@angular/core";
-
-import { IconComponent } from "../../../../tedi/components/base/icon/icon.component";
+import { argsToTemplate, StoryFn } from "@storybook/angular";
 import { CardColors } from "../card-colors.directive";
-import { CardContentComponent } from "../card-content/card-content.component";
-import {
-  CardHeaderComponent,
-  CardHeaderVariant,
-} from "../card-header/card-header.component";
-import { CardRowComponent } from "../card-row/card-row.component";
+import { CardHeaderVariant } from "../card-header/card-header.component";
 import {
   CardAccentBorder,
   CardComponent,
   CardSpacing,
 } from "../card.component";
-import {
-  HeadingComponent,
-  TextComponent,
-} from "libs/angular-components/tedi/public-api";
 
-@Component({
-  selector: "card-story",
-  standalone: true,
-  imports: [
-    CardComponent,
-    CardHeaderComponent,
-    CardContentComponent,
-    HeadingComponent,
-  ],
-  template: `<tedi-card
-    [borderless]="borderless()"
-    [spacing]="spacing()"
-    [accentBorder]="accentBorder()"
-    [selected]="selected()"
+export const renderCardStory: StoryFn<CardComponent> = (args) => ({
+  props: args,
+  template: `
+    <tedi-card
+    ${argsToTemplate(args)}
   >
     <tedi-card-header variant="secondary"
       ><tedi-heading color="secondary" element="h3"
@@ -43,51 +23,44 @@ import {
       green, red (purple), or white (pale green) biennial plant grown as an
       annual vegetable crop for its dense-leaved heads.</tedi-card-content
     >
-  </tedi-card>`,
-})
-export class CardStoryComponent extends CardComponent {}
+  </tedi-card>
+`,
+});
 
-@Component({
-  selector: "card-headers-story",
-  standalone: true,
-  styleUrls: ["./card-stories.styles.scss"],
-  imports: [CardComponent, CardHeaderComponent, HeadingComponent],
-  template: `<div class="variants-container">
-    @for (variant of variants; track variant) {
-      @let color = variant.startsWith("brand") ? "white" : "secondary";
-      <tedi-card>
-        <tedi-card-header [variant]="variant"
-          ><tedi-heading
-            element="h3"
-            [color]="color"
-            modifiers="capitalize-first"
-            >{{ variant }} header</tedi-heading
-          >
-        </tedi-card-header>
-      </tedi-card>
-    }
-  </div> `,
-})
-export class CardHeadersStoryComponent {
-  variants: CardHeaderVariant[] = [
+export const renderCardHeaders = () => {
+  const variants: CardHeaderVariant[] = [
     "primary",
     "secondary",
     "tertiary",
     "brand",
     "brand-dark",
   ];
-}
+  const getColor = (variant: CardHeaderVariant) => {
+    return variant.startsWith("brand") ? "white" : "secondary";
+  };
+  return {
+    template: `<div [style]="{ display: 'flex', 'flex-direction': 'column', gap: '10px' }">
+    ${variants
+      .map((variant) => {
+        return `<tedi-card>
+        <tedi-card-header variant="${variant}"
+          ><tedi-heading
+            element="h3"
+            color="${getColor(variant)}"
+            modifiers="capitalize-first"
+            >${variant} header</tedi-heading
+          >
+        </tedi-card-header>
+      </tedi-card>`;
+      })
+      .join("")}
+  </div> `,
+  };
+};
 
-@Component({
-  selector: "card-multiple-contents-story",
-  standalone: true,
-  imports: [
-    CardComponent,
-    CardHeaderComponent,
-    CardContentComponent,
-    HeadingComponent,
-  ],
-  template: `<tedi-card>
+export const renderMultipleContentsStory = () => {
+  return {
+    template: `<tedi-card>
     <tedi-card-header variant="brand"
       ><tedi-heading color="white" element="h3"
         >Header</tedi-heading
@@ -99,14 +72,12 @@ export class CardHeadersStoryComponent {
     >
     <tedi-card-content [hasSeparator]="true">Content 3</tedi-card-content>
   </tedi-card>`,
-})
-export class CardMultipleContentsStoryComponent {}
+  };
+};
 
-@Component({
-  selector: "card-rows-story",
-  standalone: true,
-  imports: [CardComponent, CardRowComponent, CardContentComponent],
-  template: `<tedi-card>
+export const renderCardRowsStory = () => {
+  return {
+    template: `<tedi-card>
     <tedi-card-row [hasSeparator]="true"
       ><tedi-card-content [hasSeparator]="true">Content 1.1</tedi-card-content>
       <tedi-card-content [hasSeparator]="true"
@@ -126,14 +97,12 @@ export class CardMultipleContentsStoryComponent {}
       ></tedi-card-row
     >
   </tedi-card>`,
-})
-export class CardRowsStoryComponent {}
+  };
+};
 
-@Component({
-  selector: "split-card-story",
-  standalone: true,
-  imports: [CardComponent, CardRowComponent, CardContentComponent],
-  template: `<tedi-card>
+export const renderSplitCardStory = () => {
+  return {
+    template: `<tedi-card>
     <tedi-card-row
       ><tedi-card-content
         >Cabbage, comprising several cultivars of Brassica oleracea, is a leafy
@@ -147,38 +116,11 @@ export class CardRowsStoryComponent {}
       ></tedi-card-row
     >
   </tedi-card>`,
-})
-export class SplitCardStoryComponent {}
+  };
+};
 
-@Component({
-  selector: "card-colors-story",
-  standalone: true,
-  styleUrls: ["./card-stories.styles.scss"],
-  imports: [CardComponent, CardContentComponent, TextComponent],
-  template: `<div class="backgrounds-grid">
-    @for (bg of colors; track bg) {
-      @let color =
-        ["brand-primary", "brand-secondary"].includes(bg)
-          ? "white"
-          : "secondary";
-      <div>
-        <tedi-text modifiers="bold">{{ bg }}</tedi-text>
-        <tedi-card [background]="bg">
-          <tedi-card-content
-            ><tedi-text [color]="color"
-              >Cabbage, comprising several cultivars of Brassica oleracea, is a
-              leafy green, red (purple), or white (pale green) biennial plant
-              grown as an annual vegetable crop for its dense-leaved
-              heads.</tedi-text
-            ></tedi-card-content
-          >
-        </tedi-card>
-      </div>
-    }
-  </div>`,
-})
-export class CardColorsStoryComponent {
-  colors: CardColors[] = [
+export const renderCardBackgroundsStory = () => {
+  const colors: CardColors[] = [
     "primary",
     "secondary",
     "tertiary",
@@ -189,18 +131,43 @@ export class CardColorsStoryComponent {
     "success-primary",
     "accent",
   ];
-}
+  const getColor = (bg: CardColors) => {
+    return ["brand-primary", "brand-secondary"].includes(bg)
+      ? "white"
+      : "secondary";
+  };
+  return {
+    template: `<div class="story-grid">
+    ${colors
+      .map((bg) => {
+        return `<div>
+        <tedi-text modifiers="bold">${bg}</tedi-text>
+        <tedi-card background="${bg}">
+          <tedi-card-content
+            ><tedi-text color="${getColor(bg)}"
+              >Cabbage, comprising several cultivars of Brassica oleracea, is a
+              leafy green, red (purple), or white (pale green) biennial plant
+              grown as an annual vegetable crop for its dense-leaved
+              heads.</tedi-text
+            ></tedi-card-content
+          >
+        </tedi-card>
+      </div>`;
+      })
+      .join("")}
+  </div>`,
+  };
+};
 
-@Component({
-  selector: "card-spacings-story",
-  standalone: true,
-  styleUrls: ["./card-stories.styles.scss"],
-  imports: [CardComponent, CardContentComponent, TextComponent],
-  template: `<div class="backgrounds-grid">
-    @for (spacing of spacings; track spacing) {
-      <div>
-        <tedi-text modifiers="bold">{{ spacing }}</tedi-text>
-        <tedi-card [spacing]="spacing">
+export const renderCardSpacingsStory = () => {
+  const spacings: CardSpacing[] = ["xs", "sm", "md", "lg", "none"];
+  return {
+    template: `<div class="story-grid">
+    ${spacings
+      .map((spacing) => {
+        return `<div>
+        <tedi-text modifiers="bold">${spacing}</tedi-text>
+        <tedi-card spacing="${spacing}">
           <tedi-card-content
             ><tedi-text color="secondary"
               >Cabbage, comprising several cultivars of Brassica oleracea, is a
@@ -210,24 +177,27 @@ export class CardColorsStoryComponent {
             ></tedi-card-content
           >
         </tedi-card>
-      </div>
-    }
+      </div>`;
+      })
+      .join("")}
   </div>`,
-})
-export class CardSpacingsStoryComponent {
-  spacings: CardSpacing[] = ["xs", "sm", "md", "lg", "none"];
-}
+  };
+};
 
-@Component({
-  selector: "card-accent-borders-story",
-  standalone: true,
-  styleUrls: ["./card-stories.styles.scss"],
-  imports: [CardComponent, CardContentComponent, TextComponent],
-  template: `<div class="variants-container">
-    @for (accentBorder of accentBorders; track accentBorder) {
-      <div>
-        <tedi-text modifiers="bold">{{ accentBorder }}</tedi-text>
-        <tedi-card [accentBorder]="accentBorder">
+export const renderCardAccentBordersStory = () => {
+  const accentBorders: CardAccentBorder[] = [
+    "info",
+    "success",
+    "warning",
+    "danger",
+  ];
+  return {
+    template: `<div [style]="{ display: 'flex', 'flex-direction': 'column', gap: '10px' }">
+    ${accentBorders
+      .map((accentBorder) => {
+        return `<div>
+        <tedi-text modifiers="bold">${accentBorder}</tedi-text>
+        <tedi-card accentBorder="${accentBorder}">
           <tedi-card-content
             ><tedi-text color="secondary"
               >Cabbage, comprising several cultivars of Brassica oleracea, is a
@@ -237,19 +207,16 @@ export class CardSpacingsStoryComponent {
             ></tedi-card-content
           >
         </tedi-card>
-      </div>
-    }
+      </div>`;
+      })
+      .join("")}
   </div>`,
-})
-export class CardAccentBordersStoryComponent {
-  accentBorders: CardAccentBorder[] = ["info", "success", "warning", "danger"];
-}
+  };
+};
 
-@Component({
-  selector: "timeline-card-story",
-  standalone: true,
-  imports: [CardComponent, CardRowComponent, CardContentComponent],
-  template: `<tedi-card>
+export const renderTimelineCardStory = () => {
+  return {
+    template: `<tedi-card>
     <tedi-card-row
       ><tedi-card-content [timeline]="true" [autoWidth]="true"
         >08.12.2024</tedi-card-content
@@ -257,20 +224,12 @@ export class CardAccentBordersStoryComponent {
       <tedi-card-content>Covid-19</tedi-card-content></tedi-card-row
     >
   </tedi-card>`,
-})
-export class TimelineCardStoryComponent {}
+  };
+};
 
-@Component({
-  selector: "icon-card-story",
-  standalone: true,
-  imports: [
-    CardComponent,
-    CardRowComponent,
-    CardContentComponent,
-    IconComponent,
-    TextComponent,
-  ],
-  template: `<tedi-card>
+export const renderIconCardStory = () => {
+  return {
+    template: `<tedi-card>
     <tedi-card-row
       ><tedi-card-content
         [hasSeparator]="true"
@@ -285,28 +244,19 @@ export class TimelineCardStoryComponent {}
       ></tedi-card-row
     >
   </tedi-card>`,
-})
-export class IconCardStoryComponent {}
+  };
+};
 
-@Component({
-  selector: "nested-cards-story",
-  standalone: true,
-  styleUrls: ["./card-stories.styles.scss"],
-  imports: [
-    CardComponent,
-    CardContentComponent,
-    TextComponent,
-    CardHeaderComponent,
-    HeadingComponent,
-  ],
-  template: `<tedi-card>
+export const renderNestedCardsStory = () => {
+  return {
+    template: `<tedi-card>
     <tedi-card-header variant="brand"
       ><tedi-heading element="h3" color="white"
         >Title</tedi-heading
       ></tedi-card-header
     >
     <tedi-card-content [hasSeparator]="true">
-      <div class="variants-container">
+      <div [style]="{ display: 'flex', 'flex-direction': 'column', gap: '10px' }">
         <tedi-text modifiers="h2" color="brand">Permanent treatment</tedi-text>
         <tedi-text
           >Your permanent medications and medical devices dispensed in the last
@@ -335,7 +285,7 @@ export class IconCardStoryComponent {}
     </tedi-card-content>
 
     <tedi-card-content>
-      <div class="variants-container">
+      <div [style]="{ display: 'flex', 'flex-direction': 'column', gap: '10px' }">
         <tedi-text modifiers="h2" color="brand">Temporary treatment</tedi-text>
         <tedi-text
           >Your medications and medical devices used if needed or during a
@@ -363,17 +313,15 @@ export class IconCardStoryComponent {}
       </div>
     </tedi-card-content>
   </tedi-card>`,
-})
-export class NestedCardsStoryComponent {}
+  };
+};
 
-@Component({
-  selector: "card-paddings-story",
-  standalone: true,
-  imports: [CardComponent, CardContentComponent],
-  template: `<tedi-card padding="lg"
+export const renderCardPaddingsStory = () => {
+  return {
+    template: `<tedi-card padding="lg"
     ><tedi-card-content background="secondary" [padding]="{ left: 'xs' }"
       >Card has lg padding. Card content has xs left padding.</tedi-card-content
     ></tedi-card
   >`,
-})
-export class CardPaddingsStoryComponent {}
+  };
+};

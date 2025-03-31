@@ -2,30 +2,39 @@ import { Meta, moduleMetadata, StoryObj } from "@storybook/angular";
 
 import { CommonModule } from "@angular/common";
 import {
-  CardAccentBordersStoryComponent,
-  CardColorsStoryComponent,
-  CardHeadersStoryComponent,
-  CardMultipleContentsStoryComponent,
-  CardPaddingsStoryComponent,
-  CardRowsStoryComponent,
-  CardSpacingsStoryComponent,
-  CardStoryComponent,
-  IconCardStoryComponent,
-  NestedCardsStoryComponent,
-  SplitCardStoryComponent,
-  TimelineCardStoryComponent,
+  renderCardAccentBordersStory,
+  renderCardBackgroundsStory,
+  renderCardHeaders,
+  renderCardPaddingsStory,
+  renderCardRowsStory,
+  renderCardSpacingsStory,
+  renderCardStory,
+  renderIconCardStory,
+  renderMultipleContentsStory,
+  renderNestedCardsStory,
+  renderSplitCardStory,
+  renderTimelineCardStory,
 } from "./card-story-templates";
 import { CardRowComponent } from "../card-row/card-row.component";
 import { CardHeaderComponent } from "../card-header/card-header.component";
 import { CardContentComponent } from "../card-content/card-content.component";
+import { CardComponent } from "../card.component";
+import {
+  HeadingComponent,
+  IconComponent,
+  TextComponent,
+} from "libs/angular-components/tedi/public-api";
 
 export default {
   title: "Community Angular/Card",
-  component: CardStoryComponent,
+  component: CardComponent,
   subcomponents: {
     CardRowComponent,
     CardHeaderComponent,
     CardContentComponent,
+  },
+  args: {
+    spacing: "md",
   },
   argTypes: {
     borderless: {
@@ -80,110 +89,64 @@ export default {
       declarations: [],
       imports: [
         CommonModule,
-        CardHeadersStoryComponent,
-        CardRowsStoryComponent,
-        SplitCardStoryComponent,
-        CardColorsStoryComponent,
-        CardSpacingsStoryComponent,
-        CardAccentBordersStoryComponent,
-        TimelineCardStoryComponent,
-        IconCardStoryComponent,
-        CardMultipleContentsStoryComponent,
-        NestedCardsStoryComponent,
-        CardPaddingsStoryComponent,
+        CardComponent,
+        CardRowComponent,
+        CardHeaderComponent,
+        CardContentComponent,
+        HeadingComponent,
+        TextComponent,
+        IconComponent,
       ],
     }),
   ],
-} as Meta<CardStoryComponent>;
+} as Meta<CardComponent>;
 
-type CardStory = StoryObj<CardStoryComponent>;
+type CardStory = StoryObj<CardComponent>;
 
-export const Default: CardStory = {};
+export const Default: CardStory = {
+  render: renderCardStory,
+};
 
 export const CardHeaders: CardStory = {
-  render: () => {
-    return {
-      template: "<card-headers-story />",
-    };
-  },
+  render: renderCardHeaders,
 };
 
 export const MultipleContents: CardStory = {
-  render: () => {
-    return {
-      template: "<card-multiple-contents-story />",
-    };
-  },
+  render: renderMultipleContentsStory,
 };
 
 export const CardRows: CardStory = {
-  render: () => {
-    return {
-      template: "<card-rows-story />",
-    };
-  },
+  render: renderCardRowsStory,
 };
 
 export const SplitCard: CardStory = {
-  render: () => {
-    return {
-      template: "<split-card-story />",
-    };
-  },
+  render: renderSplitCardStory,
 };
 
 export const CardBackgrounds: CardStory = {
-  render: () => {
-    return {
-      template: "<card-colors-story />",
-    };
-  },
+  render: renderCardBackgroundsStory,
 };
 
 export const CardSpacings: CardStory = {
-  render: () => {
-    return {
-      template: "<card-spacings-story />",
-    };
-  },
+  render: renderCardSpacingsStory,
 };
 
 export const CardAccentBorders: CardStory = {
-  render: () => {
-    return {
-      template: "<card-accent-borders-story />",
-    };
-  },
+  render: renderCardAccentBordersStory,
 };
 
 export const TimelineCard: CardStory = {
-  render: () => {
-    return {
-      template: "<timeline-card-story />",
-    };
-  },
+  render: renderTimelineCardStory,
 };
 
 export const IconCard: CardStory = {
-  render: () => {
-    return {
-      template: "<icon-card-story />",
-    };
-  },
+  render: renderIconCardStory,
 };
 
 export const NestedCards: CardStory = {
-  render: () => {
-    return {
-      template: "<nested-cards-story />",
-    };
-  },
+  render: renderNestedCardsStory,
 };
 
 export const CardPaddings: CardStory = {
-  render: () => {
-    return {
-      template: "<card-paddings-story />",
-    };
-  },
+  render: renderCardPaddingsStory,
 };

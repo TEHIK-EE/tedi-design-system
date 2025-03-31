@@ -273,7 +273,7 @@ export const WithSubComponent: Story = {
   args: {
     data: data(),
     columns: [getExpandColumn(), ...columns],
-    renderSubComponent: (row) => {
+    renderSubComponent: (_row) => {
       return (
         <tr>
           <td></td>
@@ -473,7 +473,7 @@ export const GroupedRows: Story = {
  */
 export const GroupedRowsFromData: Story = {
   args: {
-    data: data(50).map((entity, index) => ({
+    data: data(50).map((entity, _index) => ({
       ...entity,
       rowGroupKey:
         entity.age < 10
