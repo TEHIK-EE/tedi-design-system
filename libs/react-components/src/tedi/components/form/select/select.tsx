@@ -9,6 +9,7 @@ import ReactSelect, {
   GroupProps,
   InputActionMeta,
   InputProps,
+  LoadingIndicatorProps,
   MenuListProps,
   MenuProps,
   MultiValueProps,
@@ -30,6 +31,7 @@ import { UnknownType } from '../../../types/commonTypes';
 import ClosingButton from '../../buttons/closing-button/closing-button';
 import { Icon } from '../../icon/icon';
 import Separator from '../../separator/separator';
+import { Spinner } from '../../spinner/spinner';
 import { Tag } from '../../tag/tag';
 import { Text, TextProps } from '../../typography/text/text';
 import Checkbox from '../checkbox/checkbox';
@@ -254,7 +256,7 @@ export const Select = forwardRef<SelectInstance<ISelectOption, boolean, IGrouped
                 value={props.data.value}
                 name={props.data.value}
                 checked={props.isSelected}
-                onChange={(value, checked) => null}
+                onChange={() => null}
                 disabled={props.isDisabled}
                 hover={props.isFocused}
               />
@@ -418,6 +420,15 @@ export const Select = forwardRef<SelectInstance<ISelectOption, boolean, IGrouped
       );
     };
 
+    const CustomLoadingIndicator = (props: LoadingIndicatorProps<UnknownType, boolean>) => {
+      return (
+        <div className={styles['tedi-select__loading-indicator']} {...props.innerProps}>
+          <Spinner />
+          <Separator color="primary" axis="vertical" className={styles['tedi-select__separator']} />
+        </div>
+      );
+    };
+
     const renderReactSelect = (): JSX.Element => {
       const customComponents: SelectComponentsConfig<ISelectOption, boolean, IGroupedOptions<ISelectOption>> = {
         ClearIndicator: getClearIndicator,
@@ -435,6 +446,8 @@ export const Select = forwardRef<SelectInstance<ISelectOption, boolean, IGrouped
         Group: getGroup,
         GroupHeading: getGroupHeading,
         IndicatorsContainer: CustomIndicatorsContainer,
+        ValueContainer: CustomValueContainer,
+        LoadingIndicator: CustomLoadingIndicator,
       };
 
       const ReactSelectElement = async ? AsyncSelect : ReactSelect;
@@ -494,7 +507,7 @@ export const Select = forwardRef<SelectInstance<ISelectOption, boolean, IGrouped
               ...theme.colors,
               primary: 'var(--blue-600)',
               danger: 'var(--red-600)',
-              dangerLight: 'var(--blue-200)',
+              dangerLight: 'var(--red-200)',
             },
           })}
           styles={{

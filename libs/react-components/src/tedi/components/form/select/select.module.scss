@@ -55,6 +55,13 @@ div.tedi-select__control {
   }
 }
 
+.tedi-select__loading-indicator {
+  display: flex;
+  align-items: center;
+
+  @include mixins.responsive-styles(gap, layout-grid-gutters-12);
+}
+
 .tedi-select--disabled .tedi-select__control {
   border-color: var(--form-input-border-disabled);
 }

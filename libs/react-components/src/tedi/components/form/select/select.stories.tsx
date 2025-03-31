@@ -172,6 +172,13 @@ export const ClearIndicatorVisible: Story = {
   },
 };
 
+export const Loading: Story = {
+  args: {
+    ...Default.args,
+    isLoading: true,
+  },
+};
+
 export const Required: Story = {
   args: {
     ...Default.args,
