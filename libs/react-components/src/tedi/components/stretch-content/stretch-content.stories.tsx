@@ -45,7 +45,7 @@ export const Default: Story = {
 };
 
 export const CardsExample: StoryObj<Partial<StretchContentProps>> = {
-  render: (args) => {
+  render: (_args) => {
     const lorem = (
       <p>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab ad expedita iste itaque laborum magnam non nulla
