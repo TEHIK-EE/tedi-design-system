@@ -5,7 +5,7 @@ import { By } from "@angular/platform-browser";
 import type { VerticalSpacingSize } from "./vertical-spacing.directive";
 
 @Component({
-  template: `<div [appVerticalSpacingItem]="spacing"></div> `,
+  template: `<div [tediVerticalSpacingItem]="spacing"></div> `,
   imports: [VerticalSpacingItemDirective],
   standalone: true,
   schemas: [NO_ERRORS_SCHEMA],
@@ -16,18 +16,23 @@ class HostComponent {
 
 describe("VerticalSpacingDirective", () => {
   let fixture: ComponentFixture<HostComponent>;
-
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [VerticalSpacingItemDirective, HostComponent],
     }).compileComponents();
-
     fixture = TestBed.createComponent(HostComponent);
     fixture.detectChanges();
   });
 
   it("should create host component with directive", () => {
-    let hostEl = fixture.debugElement.query(By.css("div"));
+    const hostEl = fixture.debugElement.query(By.css("div"));
     expect(hostEl).toBeTruthy();
+  });
+
+  it("should have class tedi-vertical-spacing__item", () => {
+    const hostEl = fixture.debugElement.query(By.css("div"));
+    expect(hostEl.nativeElement.classList).toContain(
+      "tedi-vertical-spacing__item",
+    );
   });
 });

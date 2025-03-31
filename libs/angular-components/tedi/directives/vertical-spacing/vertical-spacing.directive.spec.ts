@@ -8,7 +8,7 @@ import { By } from "@angular/platform-browser";
 
 @Component({
   template: `
-    <div id="container" [appVerticalSpacing]="spacing">
+    <div id="container" [tediVerticalSpacing]="spacing">
       <p>Item 2</p>
       <p>Item 2</p>
       <p>Item 3</p>
@@ -29,13 +29,17 @@ describe("VerticalSpacingDirective", () => {
     await TestBed.configureTestingModule({
       imports: [VerticalSpacingDirective, HostComponent],
     }).compileComponents();
-
     fixture = TestBed.createComponent(HostComponent);
     fixture.detectChanges();
   });
 
   it("should create host component with directive", () => {
-    let hostEl = fixture.debugElement.query(By.css("#container"));
+    const hostEl = fixture.debugElement.query(By.css("#container"));
     expect(hostEl).toBeTruthy();
+  });
+
+  it("should have class tedi-vertical-spacing", () => {
+    const hostEl = fixture.debugElement.query(By.css("#container"));
+    expect(hostEl.nativeElement.classList).toContain("tedi-vertical-spacing");
   });
 });

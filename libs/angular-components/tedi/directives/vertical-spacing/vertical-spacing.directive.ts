@@ -29,20 +29,13 @@ export class VerticalSpacingDirective implements AfterViewInit {
   tediVerticalSpacing = input<VerticalSpacingSize>(0);
 
   constructor(
-    private el: ElementRef, // eslint-disable-line no-unused-vars
-    private renderer: Renderer2, // eslint-disable-line no-unused-vars
+    private el: ElementRef,
+    private renderer: Renderer2,
   ) {}
 
   ngAfterViewInit(): void {
     this.renderer.addClass(this.el.nativeElement, "tedi-vertical-spacing");
-    this.renderer.setAttribute(
-      this.el.nativeElement,
-      "data-name",
-      "vertical-spacing",
-    );
-
     const spacingValue = `${this.tediVerticalSpacing()}em`;
-
     this.renderer.setAttribute(
       this.el.nativeElement,
       "style",

@@ -15,19 +15,14 @@ export class VerticalSpacingItemDirective implements AfterViewInit {
   tediVerticalSpacingItem = input<VerticalSpacingSize>(0);
 
   constructor(
-    private readonly el: ElementRef, // eslint-disable-line no-unused-vars
-    private readonly renderer: Renderer2, // eslint-disable-line no-unused-vars
+    private readonly el: ElementRef,
+    private readonly renderer: Renderer2,
   ) {}
 
   ngAfterViewInit(): void {
     this.renderer.addClass(
       this.el.nativeElement,
       "tedi-vertical-spacing__item",
-    );
-    this.renderer.setAttribute(
-      this.el.nativeElement,
-      "data-name",
-      "vertical-spacing-item",
     );
 
     const spacingValue = `${this.tediVerticalSpacingItem()}em`;
