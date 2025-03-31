@@ -172,6 +172,13 @@ export const ClearIndicatorVisible: Story = {
   },
 };
 
+export const Required: Story = {
+  args: {
+    ...Default.args,
+    required: true,
+  },
+};
+
 export const MultipleHandled: Story = {
   render: MultipleHandledTemplate,
   args: {
