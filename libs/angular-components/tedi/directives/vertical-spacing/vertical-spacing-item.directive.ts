@@ -30,7 +30,7 @@ export class VerticalSpacingItemDirective implements AfterViewInit {
       "vertical-spacing-item",
     );
 
-    const spacingValue = `${this.tediVerticalSpacingItem()}rem`;
+    const spacingValue = `${this.tediVerticalSpacingItem()}em`;
 
     this.renderer.setAttribute(
       this.el.nativeElement,

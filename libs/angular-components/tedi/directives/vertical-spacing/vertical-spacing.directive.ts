@@ -41,7 +41,7 @@ export class VerticalSpacingDirective implements AfterViewInit {
       "vertical-spacing",
     );
 
-    const spacingValue = `${this.tediVerticalSpacing()}rem`;
+    const spacingValue = `${this.tediVerticalSpacing()}em`;
 
     this.renderer.setAttribute(
       this.el.nativeElement,
