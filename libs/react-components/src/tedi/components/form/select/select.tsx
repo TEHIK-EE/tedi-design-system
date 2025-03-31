@@ -198,7 +198,7 @@ export const Select = forwardRef<SelectInstance<ISelectOption, boolean, IGrouped
       onChange?.(option);
 
       if (!blurInputOnSelect && element.current) {
-        element.current.inputRef?.focus();
+        setTimeout(() => element.current?.inputRef?.focus(), 0);
       }
     };
 
@@ -271,12 +271,15 @@ export const Select = forwardRef<SelectInstance<ISelectOption, boolean, IGrouped
         { [styles['tedi-select__option--focused']]: props.isFocused }
       );
 
-      const { tabIndex, ...innerProps } = props.innerProps;
-
       return (
         <ReactSelectComponents.Option
           {...props}
-          innerProps={{ ...innerProps, role: 'option', 'aria-selected': props.isSelected }}
+          innerProps={{
+            role: 'option',
+            'aria-selected': props.isSelected,
+            'aria-disabled': props.isDisabled,
+            ...props.innerProps,
+          }}
           className={OptionBEM}
         >
           {showRadioButtons ? (
@@ -303,7 +306,9 @@ export const Select = forwardRef<SelectInstance<ISelectOption, boolean, IGrouped
     };
 
     const getOption = (props: OptionProps<ISelectOption, boolean>): JSX.Element => {
-      return multiple ? getMultiOption(props) : getSingleOption(props);
+      return multiple
+        ? getMultiOption(props)
+        : getSingleOption({ ...props, innerProps: { ...props.innerProps, tabIndex: 0 } });
     };
 
     const getMultiValue = ({ children, removeProps }: MultiValueProps<ISelectOption>): JSX.Element => {
