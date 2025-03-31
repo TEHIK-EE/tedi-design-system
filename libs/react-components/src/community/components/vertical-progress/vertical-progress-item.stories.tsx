@@ -16,7 +16,7 @@ type Story = StoryObj<typeof VerticalProgressItem>;
 
 const Template: StoryFn<typeof VerticalProgressItem> = (args) => {
   return (
-    <VerticalProgress onItemOpen={(id) => console.log('opened')}>
+    <VerticalProgress onItemOpen={(_id) => console.log('opened')}>
       <VerticalProgressItem {...args} />
     </VerticalProgress>
   );

@@ -4,7 +4,7 @@
   "env": {
     "node": true
   },
-  "plugins": ["simple-import-sort", "@typescript-eslint", "react", "react-hooks"],
+  "plugins": ["simple-import-sort", "@typescript-eslint", "react", "react-hooks", "unused-imports", "prettier"],
   "parser": "@typescript-eslint/parser",
   "extends": [
     "eslint:recommended",
@@ -40,7 +40,12 @@
     "react/prop-types": "off",
     "@next/next/no-html-link-for-pages": 0,
     "@next/next/no-img-element": 0,
-    "semi": ["error", "always"]
+    "semi": ["error", "always"],
+    "unused-imports/no-unused-imports": "error",
+    "unused-imports/no-unused-vars": [
+      "warn",
+      { "vars": "all", "varsIgnorePattern": "^_", "args": "after-used", "argsIgnorePattern": "^_" }
+    ]
   },
   "overrides": [
     {
