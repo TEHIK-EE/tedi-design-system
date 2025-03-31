@@ -100,12 +100,14 @@ $accent-border-colors: (
 }
 
 @mixin card-padding-overrides {
-  --_card-padding-vertical: var(--_card-padding);
-  --_card-padding-horizontal: var(--_card-padding);
-  --_card-padding-top: var(--_card-padding-vertical);
-  --_card-padding-bottom: var(--_card-padding-vertical);
-  --_card-padding-left: var(--_card-padding-horizontal);
-  --_card-padding-right: var(--_card-padding-horizontal);
+  & {
+    --_card-padding-vertical: var(--_card-padding);
+    --_card-padding-horizontal: var(--_card-padding);
+    --_card-padding-top: var(--_card-padding-vertical);
+    --_card-padding-bottom: var(--_card-padding-vertical);
+    --_card-padding-left: var(--_card-padding-horizontal);
+    --_card-padding-right: var(--_card-padding-horizontal);
+  }
 
   @each $spacing in $card-spacings {
     &--padding-#{$spacing} {
