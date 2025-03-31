@@ -17,7 +17,7 @@
             "styles": [
               "../tedi-core/src/index",
               "../tedi-core/src/tedi-storybook-styles",
-              "tedi/global.scss"
+              "tedi/styles/index"
             ],
             "experimentalZoneless": true
           }
@@ -32,7 +32,7 @@
             "styles": [
               "../tedi-core/src/index",
               "../tedi-core/src/tedi-storybook-styles",
-              "tedi/global.scss"
+              "tedi/styles/index"
             ],
             "experimentalZoneless": true
           }
