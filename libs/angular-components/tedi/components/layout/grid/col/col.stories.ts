@@ -71,50 +71,50 @@ export default {
       },
     },
     xs: {
-      description: "Overrides ColProps on xs breakpoint (<576px).",
+      description: "Overrides ColInputs on xs breakpoint (<576px).",
       table: {
         type: {
-          summary: "ColProps",
+          summary: "ColInputs",
         },
       },
     },
     sm: {
-      description: "Overrides ColProps on sm breakpoint (≥576px).",
+      description: "Overrides ColInputs on sm breakpoint (≥576px).",
       table: {
         type: {
-          summary: "ColProps",
+          summary: "ColInputs",
         },
       },
     },
     md: {
-      description: "Overrides ColProps on md breakpoint (≥768px).",
+      description: "Overrides ColInputs on md breakpoint (≥768px).",
       table: {
         type: {
-          summary: "ColProps",
+          summary: "ColInputs",
         },
       },
     },
     lg: {
-      description: "Overrides ColProps on lg breakpoint (≥992px).",
+      description: "Overrides ColInputs on lg breakpoint (≥992px).",
       table: {
         type: {
-          summary: "ColProps",
+          summary: "ColInputs",
         },
       },
     },
     xl: {
-      description: "Overrides ColProps on xl breakpoint (≥1200px).",
+      description: "Overrides ColInputs on xl breakpoint (≥1200px).",
       table: {
         type: {
-          summary: "ColProps",
+          summary: "ColInputs",
         },
       },
     },
     xxl: {
-      description: "Overrides ColProps on xxl breakpoint (≥1400px).",
+      description: "Overrides ColInputs on xxl breakpoint (≥1400px).",
       table: {
         type: {
-          summary: "ColProps",
+          summary: "ColInputs",
         },
       },
     },

@@ -5,7 +5,7 @@ import {
   input,
 } from "@angular/core";
 import {
-  BreakpointProps,
+  BreakpointInputs,
   BreakpointService,
 } from "../../../services/breakpoint/breakpoint.service";
 import { IconComponent } from "../../base/icon/icon.component";
@@ -56,7 +56,7 @@ type LinkInputs = {
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [NgIf, IconComponent],
 })
-export class LinkComponent implements BreakpointProps<LinkInputs> {
+export class LinkComponent implements BreakpointInputs<LinkInputs> {
   variant = input<LinkVariant>("default");
   size = input<LinkSize>("default");
   underline = input<boolean>(true);
@@ -75,7 +75,7 @@ export class LinkComponent implements BreakpointProps<LinkInputs> {
   constructor(private breakpointService: BreakpointService) {}
 
   breakpointInputs = computed(() => {
-    const inputs = this.breakpointService.getBreakpointProps<LinkInputs>({
+    return this.breakpointService.getBreakpointInputs<LinkInputs>({
       variant: this.variant(),
       size: this.size(),
       underline: this.underline(),
@@ -90,8 +90,6 @@ export class LinkComponent implements BreakpointProps<LinkInputs> {
       xl: this.xl(),
       xxl: this.xxl(),
     });
-
-    return inputs;
   });
 
   classes = computed(() => {
