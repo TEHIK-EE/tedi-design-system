@@ -28,6 +28,11 @@ export default {
       imports: [LinkComponent, RowComponent, ColComponent, TextComponent],
     }),
   ],
+  parameters: {
+    status: {
+      type: ["breakpointSupport"],
+    },
+  },
 } as Meta<LinkComponent>;
 
 export const Default: StoryObj<LinkComponent> = {
@@ -142,7 +147,7 @@ export const DefaultUnderlined: StoryObj<TemplateType> = {
     pseudo: {
       hover: "#Hover",
       active: "#Active",
-      focus: "#Focus",
+      focusVisible: "#Focus",
     },
   },
   render: LinkTemplate,
@@ -153,7 +158,7 @@ export const DefaultNoUnderline: StoryObj<TemplateType> = {
     pseudo: {
       hover: "#Hover",
       active: "#Active",
-      focus: "#Focus",
+      focusVisible: "#Focus",
     },
   },
   args: {
@@ -167,7 +172,7 @@ export const InvertedUnderlined: StoryObj<TemplateType> = {
     pseudo: {
       hover: "#Hover",
       active: "#Active",
-      focus: "#Focus",
+      focusVisible: "#Focus",
     },
     backgrounds: { default: "brand" },
   },
@@ -183,7 +188,7 @@ export const InvertedNoUnderline: StoryObj<TemplateType> = {
     pseudo: {
       hover: "#Hover",
       active: "#Active",
-      focus: "#Focus",
+      focusVisible: "#Focus",
     },
     backgrounds: { default: "brand" },
   },
