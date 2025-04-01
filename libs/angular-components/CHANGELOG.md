@@ -1,3 +1,26 @@
+# [@tehik-ee/tedi-angular-v1.6.0-rc.2](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.6.0-rc.1...angular-1.6.0-rc.2) (2025-04-01)
+
+
+### Bug Fixes
+
+* **vertical-spacing:** Adding vertical spacing to public-api.ts [#599](https://github.com/TEHIK-EE/tedi-design-system/issues/599) ([c449ae6](https://github.com/TEHIK-EE/tedi-design-system/commit/c449ae6aa0b1129690d4422c9345737240adb0de))
+* **vertical-spacing:** fixing lint errors [#599](https://github.com/TEHIK-EE/tedi-design-system/issues/599) ([c0d3b2d](https://github.com/TEHIK-EE/tedi-design-system/commit/c0d3b2db648911a9cda566eb473053418722e6ed))
+* **vertical-spacing:** updating rem to em [#599](https://github.com/TEHIK-EE/tedi-design-system/issues/599) ([125e12d](https://github.com/TEHIK-EE/tedi-design-system/commit/125e12de1c8f563e3351e042f9f528a5113db729))
+* **vertical-spacing:** updating storybook path  [#599](https://github.com/TEHIK-EE/tedi-design-system/issues/599) ([a34b2c4](https://github.com/TEHIK-EE/tedi-design-system/commit/a34b2c41ae7d03830c5ba43f48f8a2c134c880ce))
+* **vertical-spacing:** updating unit tests [#599](https://github.com/TEHIK-EE/tedi-design-system/issues/599) ([1d57525](https://github.com/TEHIK-EE/tedi-design-system/commit/1d57525cebef64e3eb14cfb40573ce998357b0fd))
+
+
+### Features
+
+* **vertical-spacing-item:** directive for adding vertical space to a single container [#599](https://github.com/TEHIK-EE/tedi-design-system/issues/599) ([4113438](https://github.com/TEHIK-EE/tedi-design-system/commit/4113438aae18139612393ecd84ac392cdc2f7644))
+* **vertical-spacing:** add status to stories [#599](https://github.com/TEHIK-EE/tedi-design-system/issues/599) ([9042e51](https://github.com/TEHIK-EE/tedi-design-system/commit/9042e512dd93b4b9c78e824504bd58f54b98273a))
+* **vertical-spacing:** add status to stories [#599](https://github.com/TEHIK-EE/tedi-design-system/issues/599) ([142a365](https://github.com/TEHIK-EE/tedi-design-system/commit/142a365d4214626d199e02997061e4029adeece3))
+* **vertical-spacing:** Directive base and first story [#599](https://github.com/TEHIK-EE/tedi-design-system/issues/599) ([3e39231](https://github.com/TEHIK-EE/tedi-design-system/commit/3e392319326899554878f32a13f3d1014327ab6e))
+* **vertical-spacing:** Directive base and first story [#599](https://github.com/TEHIK-EE/tedi-design-system/issues/599) ([bee3d48](https://github.com/TEHIK-EE/tedi-design-system/commit/bee3d486460d37754e9a98457e0212784727acf4))
+* **vertical-spacing:** fix styles [#599](https://github.com/TEHIK-EE/tedi-design-system/issues/599) ([02015f2](https://github.com/TEHIK-EE/tedi-design-system/commit/02015f2a389b0ba76ffbafac103eca5ece17ac6f))
+* **vertical-spacing:** refactor styles and add vertical-spacing directive styles [#599](https://github.com/TEHIK-EE/tedi-design-system/issues/599) ([185d928](https://github.com/TEHIK-EE/tedi-design-system/commit/185d928c8a93ae51169d44aa30e9046df763e8af))
+* **verticalSpacing:** Updated directive to use CSS to add margin [#599](https://github.com/TEHIK-EE/tedi-design-system/issues/599) ([968c910](https://github.com/TEHIK-EE/tedi-design-system/commit/968c910c04b7a5e73465be10898d8515d862a7df))
+
 # [@tehik-ee/tedi-angular-v1.6.0-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.5.0...angular-1.6.0-rc.1) (2025-03-28)
 
 
