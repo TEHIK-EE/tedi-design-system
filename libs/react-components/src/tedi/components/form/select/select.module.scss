@@ -219,7 +219,7 @@ div.tedi-select__multi-value-item {
 
 .tedi-select--tags-row {
   :global .select__control > .select__value-container--is-multi {
-    display: flex;
+    flex-wrap: nowrap;
 
     &::after {
       position: absolute;

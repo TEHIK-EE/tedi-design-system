@@ -17,7 +17,6 @@ import ReactSelect, {
   OnChangeValue,
   OptionProps,
   OptionsOrGroups,
-  PlaceholderProps,
   SelectComponentsConfig,
   SelectInstance,
 } from 'react-select';
@@ -231,10 +230,6 @@ export const Select = forwardRef<SelectInstance<ISelectOption, boolean, IGrouped
 
     const getDropDownIndicator = (): JSX.Element => (
       <Icon name={iconName} size={24} color="secondary" className={styles['tedi-select__arrow']} />
-    );
-
-    const getPlaceholder = (props: PlaceholderProps<ISelectOption>): JSX.Element => (
-      <ReactSelectComponents.Placeholder {...props} className={cn(props.className, 'inline-block')} />
     );
 
     const MenuList = React.useCallback(
@@ -467,7 +462,6 @@ export const Select = forwardRef<SelectInstance<ISelectOption, boolean, IGrouped
         Input: CustomInput,
         MultiValue: getMultiValue,
         MultiValueRemove: getMultiValueRemove,
-        Placeholder: getPlaceholder,
         Group: getGroup,
         GroupHeading: getGroupHeading,
         IndicatorsContainer: CustomIndicatorsContainer,
