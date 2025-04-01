@@ -14,7 +14,7 @@ export default {
       },
       table: {
         type: {
-          summary: "Sizes",
+          summary: "VerticalSpacingSize",
           detail:
             "0 \n0.25 \n0.5 \n0.75 \n1 \n1.25 \n1.5 \n1.75 \n2 \n2.5 \n3 \n4 \n5 ",
         },
