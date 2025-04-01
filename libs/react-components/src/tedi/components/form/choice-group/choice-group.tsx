@@ -3,9 +3,9 @@ import React, { useState } from 'react';
 
 import { FeedbackText, FeedbackTextProps } from '../../../../tedi/components/form/feedback-text/feedback-text';
 import FormLabel, { FormLabelProps } from '../../../../tedi/components/form/form-label/form-label';
-import { Col, Direction, Row, RowProps } from '../../../../tedi/components/grid';
 import { useLabels } from '../../../../tedi/providers/label-provider';
 import { BreakpointSupport, isBreakpointBelow, useBreakpoint, useBreakpointProps } from '../../../helpers';
+import { Col, Direction, Row, RowProps } from '../../layout/grid';
 import Checkbox, { CheckboxProps } from '../checkbox/checkbox';
 import styles from './choice-group.module.scss';
 import {

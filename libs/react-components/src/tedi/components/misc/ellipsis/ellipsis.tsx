@@ -1,8 +1,8 @@
 import classNames from 'classnames';
 import React from 'react';
 
-import { useElementSize } from '../../../tedi/helpers/hooks/use-element-size';
-import Popover from '../popover/popover';
+import { useElementSize } from '../../../helpers';
+import Popover from '../../overlays/popover/popover';
 import styles from './ellipsis.module.scss';
 
 export interface EllipsisProps {

@@ -1,6 +1,6 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 
-import { Col, Row } from '../../grid';
+import { Col, Row } from '../../layout/grid';
 import { FileDropzone, FileDropzoneProps } from './file-dropzone';
 
 /**

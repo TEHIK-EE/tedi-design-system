@@ -1,6 +1,6 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 
-import Popover from '../popover/popover';
+import Popover from '../../overlays/popover/popover';
 import Ellipsis, { EllipsisProps } from './ellipsis';
 
 /**
