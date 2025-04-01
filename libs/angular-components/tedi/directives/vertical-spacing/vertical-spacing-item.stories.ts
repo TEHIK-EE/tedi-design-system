@@ -4,6 +4,11 @@ import { VerticalSpacingItemDirective } from "./vertical-spacing-item.directive"
 export default {
   title: "Tedi-Ready Angular/Helpers/VerticalSpacing/VerticalSpacingItem",
   component: VerticalSpacingItemDirective,
+  parameters: {
+    status: {
+      type: ["devComponent"],
+    },
+  },
   argTypes: {
     tediVerticalSpacingItem: {
       description:
