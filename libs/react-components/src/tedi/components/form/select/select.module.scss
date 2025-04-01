@@ -28,8 +28,16 @@ div.tedi-select__control {
   .tedi-select__input {
     padding: 0;
     margin: 0;
+  }
 
-    @include mixins.visually-hidden;
+  &:hover {
+    border-color: var(--form-input-border-hover);
+  }
+
+  &:active,
+  &:focus {
+    border-color: var(--form-input-border-hover);
+    box-shadow: 0 0 0 1px var(--form-input-border-hover);
   }
 }
 
@@ -110,7 +118,7 @@ div .tedi-select__menu {
     color: var(--dropdown-item-active-text);
     background-color: var(--dropdown-item-active-background);
 
-    &:hover {
+    &:hover:not(:disabled) {
       color: var(--dropdown-item-hover-text);
     }
   }
@@ -121,7 +129,7 @@ div .tedi-select__menu {
       color: var(--dropdown-item-active-text);
     }
 
-    &:hover {
+    &:hover:not(:disabled) {
       p,
       span {
         color: var(--dropdown-item-hover-text);
@@ -240,4 +248,10 @@ div.tedi-select__multi-value-item {
 
 .tedi-select__separator {
   height: var(--dimensions-13);
+}
+
+.tedi-select--searchable {
+  .tedi-select__control--focused {
+    cursor: text;
+  }
 }

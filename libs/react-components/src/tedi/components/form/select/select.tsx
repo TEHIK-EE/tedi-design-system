@@ -118,6 +118,30 @@ export interface SelectProps extends FormLabelProps {
   optionGroupHeadingText?: Pick<TextProps, 'modifiers' | 'color'>;
   cacheOptions?: boolean;
   showRadioButtons?: boolean;
+  classNames?: {
+    clearIndicator?: string;
+    container?: string;
+    control?: string;
+    dropdownIndicator?: string;
+    group?: string;
+    groupHeading?: string;
+    indicatorsContainer?: string;
+    indicatorSeparator?: string;
+    input?: string;
+    loadingIndicator?: string;
+    loadingMessage?: string;
+    menu?: string;
+    menuList?: string;
+    menuPortal?: string;
+    multiValue?: string;
+    multiValueLabel?: string;
+    multiValueRemove?: string;
+    noOptionsMessage?: string;
+    option?: string;
+    placeholder?: string;
+    singleValue?: string;
+    valueContainer?: string;
+  };
 }
 
 export interface ISelectOption<CustomData = unknown> {
@@ -182,7 +206,7 @@ export const Select = forwardRef<SelectInstance<ISelectOption, boolean, IGrouped
       onMenuOpen,
       onBlur,
       inputIsHidden,
-      isTagRemovable = false,
+      isTagRemovable = true,
       optionGroupHeadingText = { modifiers: 'small', color: 'tertiary' },
       cacheOptions = true,
       showRadioButtons = false,
@@ -326,15 +350,18 @@ export const Select = forwardRef<SelectInstance<ISelectOption, boolean, IGrouped
           const keyboardEvent = event as React.KeyboardEvent<HTMLButtonElement>;
           if ((keyboardEvent.key === 'Enter' || keyboardEvent.key === ' ') && removeProps.onClick) {
             keyboardEvent.preventDefault();
+            keyboardEvent.stopPropagation();
             removeProps.onClick(keyboardEvent as unknown as React.MouseEvent<HTMLDivElement>);
           }
         }
       };
 
       return (
-        <Tag color="primary" onClose={isTagRemovable ? handleClose : undefined}>
-          {children}
-        </Tag>
+        <div onMouseDown={(event) => event.stopPropagation()}>
+          <Tag color="primary" onClose={isTagRemovable ? handleClose : undefined}>
+            {children}
+          </Tag>
+        </div>
       );
     };
 
@@ -354,6 +381,7 @@ export const Select = forwardRef<SelectInstance<ISelectOption, boolean, IGrouped
       return (
         <>
           <ClosingButton
+            onMouseDown={(event) => event.stopPropagation()}
             onClick={handleClick}
             onKeyDown={handleKeyDown}
             className={styles['tedi-select__multi-value-clear']}
@@ -376,10 +404,8 @@ export const Select = forwardRef<SelectInstance<ISelectOption, boolean, IGrouped
     };
 
     const getGroup = (props: GroupProps<ISelectOption, boolean, IGroupedOptions<ISelectOption>>): JSX.Element => {
-      const GroupBEM = cn(styles['tedi-select__group']);
-
       return (
-        <ReactSelectComponents.Group {...props} className={GroupBEM}>
+        <ReactSelectComponents.Group {...props} className={cn(styles['tedi-select__group'])}>
           {props.children}
         </ReactSelectComponents.Group>
       );
@@ -388,11 +414,10 @@ export const Select = forwardRef<SelectInstance<ISelectOption, boolean, IGrouped
     const getGroupHeading = (
       props: GroupHeadingProps<ISelectOption, boolean, IGroupedOptions<ISelectOption>>
     ): ReactElement => {
-      const groupHeadingBEM = cn(styles['tedi-select__group-heading']);
       const textSettings = props.data.text || optionGroupHeadingText;
 
       return (
-        <ReactSelectComponents.GroupHeading {...props} className={groupHeadingBEM}>
+        <ReactSelectComponents.GroupHeading {...props} className={cn(styles['tedi-select__group-heading'])}>
           <Text {...textSettings}>{props.data.label}</Text>
         </ReactSelectComponents.GroupHeading>
       );
@@ -501,6 +526,16 @@ export const Select = forwardRef<SelectInstance<ISelectOption, boolean, IGrouped
           required={required}
           menuPortalTarget={document.body}
           menuPosition="absolute"
+          classNames={
+            props.classNames
+              ? Object.fromEntries(
+                  Object.entries(props.classNames).map(([key, value]) => [
+                    key,
+                    typeof value === 'string' ? () => value : value,
+                  ])
+                )
+              : undefined
+          }
           theme={(theme) => ({
             ...theme,
             colors: {

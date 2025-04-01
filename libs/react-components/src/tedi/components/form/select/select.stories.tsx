@@ -57,7 +57,7 @@ const TemplateSizes: StoryFn = (args) => (
           <Text modifiers="bold">Default</Text>
         </Col>
         <Col lg={10} md={12}>
-          <Select {...args} label="Default" hideLabel id="select-size-default" />
+          <Select label={args.label} id="select-size-default" {...args} />
         </Col>
       </Row>
       <Row className="padding-14-16">
@@ -65,7 +65,7 @@ const TemplateSizes: StoryFn = (args) => (
           <Text modifiers="bold">Small</Text>
         </Col>
         <Col lg={10} md={12}>
-          <Select {...args} size="small" label="Small" hideLabel id="select-size-default" />
+          <Select label={args.label} size="small" id="select-size-default" {...args} />
         </Col>
       </Row>
     </Col>
@@ -76,7 +76,7 @@ export const Default: Story = {
   args: {
     id: 'example-1',
     label: 'Label',
-    defaultValue: options[2],
+    defaultValue: options[1],
     options: options,
   },
 };
@@ -85,7 +85,6 @@ export const Sizes: StoryObj<typeof TemplateSizes> = {
   render: TemplateSizes,
   args: {
     label: 'Label',
-    defaultValue: options[2],
     options: options,
   },
 };
@@ -94,7 +93,6 @@ export const States: Story = {
   args: {
     options: options,
     label: 'Label',
-    defaultValue: options[0],
   },
   render: (args) => (
     <VerticalSpacing>
@@ -108,10 +106,44 @@ export const States: Story = {
       </Row>
       <Row>
         <Col lg={2} md={12} className="display-flex align-items-center gap-3">
-          <Text modifiers="bold">Hint</Text>
+          <Text modifiers="bold">Hover</Text>
         </Col>
         <Col>
-          <Select {...args} helper={{ text: 'Hint text' }} id="example-hint" />
+          <Select
+            {...args}
+            id="example-hover"
+            classNames={{
+              control: 'pseudo-hover',
+            }}
+          />
+        </Col>
+      </Row>
+      <Row>
+        <Col lg={2} md={12} className="display-flex align-items-center gap-3">
+          <Text modifiers="bold">Focus</Text>
+        </Col>
+        <Col>
+          <Select
+            {...args}
+            id="example-focus"
+            classNames={{
+              control: 'pseudo-focus',
+            }}
+          />
+        </Col>
+      </Row>
+      <Row>
+        <Col lg={2} md={12} className="display-flex align-items-center gap-3">
+          <Text modifiers="bold">Active</Text>
+        </Col>
+        <Col>
+          <Select
+            {...args}
+            id="example-active"
+            classNames={{
+              control: 'pseudo-active',
+            }}
+          />
         </Col>
       </Row>
       <Row>
@@ -150,6 +182,19 @@ export const MultipleSmall: Story = {
     multiple: true,
     defaultValue: undefined,
     placeholder: 'Placeholder',
+  },
+};
+
+export const WithHint: Story = {
+  args: {
+    ...Default.args,
+    id: 'with-hint-example',
+    defaultValue: undefined,
+    placeholder: 'Placeholder',
+    helper: {
+      text: 'Text hint',
+      type: 'hint',
+    },
   },
 };
 
@@ -202,21 +247,19 @@ export const StackingTags: Story = {
     label: 'Stacking Tags',
     defaultValue: colourOptions.filter((option) => !option.isDisabled),
     multiple: true,
-    isTagRemovable: false,
     tagsDirection: 'stack',
   },
 };
 
-export const RemovableTags: Story = {
+export const NonRemovableTags: Story = {
   render: MultipleHandledTemplate,
   args: {
     id: 'removable-tags-example',
     label: 'Removable Tags',
     defaultValue: colourOptions.filter((option) => !option.isDisabled),
     multiple: true,
-    isTagRemovable: true,
     tagsDirection: 'stack',
-    isClearIndicatorVisible: true,
+    isTagRemovable: false,
   },
 };
 
