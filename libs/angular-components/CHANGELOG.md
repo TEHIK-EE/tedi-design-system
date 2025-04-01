@@ -1,3 +1,107 @@
+# [@tehik-ee/tedi-angular-v1.6.0-rc.2](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.6.0-rc.1...angular-1.6.0-rc.2) (2025-04-01)
+
+
+### Bug Fixes
+
+* **vertical-spacing:** Adding vertical spacing to public-api.ts [#599](https://github.com/TEHIK-EE/tedi-design-system/issues/599) ([c449ae6](https://github.com/TEHIK-EE/tedi-design-system/commit/c449ae6aa0b1129690d4422c9345737240adb0de))
+* **vertical-spacing:** fixing lint errors [#599](https://github.com/TEHIK-EE/tedi-design-system/issues/599) ([c0d3b2d](https://github.com/TEHIK-EE/tedi-design-system/commit/c0d3b2db648911a9cda566eb473053418722e6ed))
+* **vertical-spacing:** updating rem to em [#599](https://github.com/TEHIK-EE/tedi-design-system/issues/599) ([125e12d](https://github.com/TEHIK-EE/tedi-design-system/commit/125e12de1c8f563e3351e042f9f528a5113db729))
+* **vertical-spacing:** updating storybook path  [#599](https://github.com/TEHIK-EE/tedi-design-system/issues/599) ([a34b2c4](https://github.com/TEHIK-EE/tedi-design-system/commit/a34b2c41ae7d03830c5ba43f48f8a2c134c880ce))
+* **vertical-spacing:** updating unit tests [#599](https://github.com/TEHIK-EE/tedi-design-system/issues/599) ([1d57525](https://github.com/TEHIK-EE/tedi-design-system/commit/1d57525cebef64e3eb14cfb40573ce998357b0fd))
+
+
+### Features
+
+* **vertical-spacing-item:** directive for adding vertical space to a single container [#599](https://github.com/TEHIK-EE/tedi-design-system/issues/599) ([4113438](https://github.com/TEHIK-EE/tedi-design-system/commit/4113438aae18139612393ecd84ac392cdc2f7644))
+* **vertical-spacing:** add status to stories [#599](https://github.com/TEHIK-EE/tedi-design-system/issues/599) ([9042e51](https://github.com/TEHIK-EE/tedi-design-system/commit/9042e512dd93b4b9c78e824504bd58f54b98273a))
+* **vertical-spacing:** add status to stories [#599](https://github.com/TEHIK-EE/tedi-design-system/issues/599) ([142a365](https://github.com/TEHIK-EE/tedi-design-system/commit/142a365d4214626d199e02997061e4029adeece3))
+* **vertical-spacing:** Directive base and first story [#599](https://github.com/TEHIK-EE/tedi-design-system/issues/599) ([3e39231](https://github.com/TEHIK-EE/tedi-design-system/commit/3e392319326899554878f32a13f3d1014327ab6e))
+* **vertical-spacing:** Directive base and first story [#599](https://github.com/TEHIK-EE/tedi-design-system/issues/599) ([bee3d48](https://github.com/TEHIK-EE/tedi-design-system/commit/bee3d486460d37754e9a98457e0212784727acf4))
+* **vertical-spacing:** fix styles [#599](https://github.com/TEHIK-EE/tedi-design-system/issues/599) ([02015f2](https://github.com/TEHIK-EE/tedi-design-system/commit/02015f2a389b0ba76ffbafac103eca5ece17ac6f))
+* **vertical-spacing:** refactor styles and add vertical-spacing directive styles [#599](https://github.com/TEHIK-EE/tedi-design-system/issues/599) ([185d928](https://github.com/TEHIK-EE/tedi-design-system/commit/185d928c8a93ae51169d44aa30e9046df763e8af))
+* **verticalSpacing:** Updated directive to use CSS to add margin [#599](https://github.com/TEHIK-EE/tedi-design-system/issues/599) ([968c910](https://github.com/TEHIK-EE/tedi-design-system/commit/968c910c04b7a5e73465be10898d8515d862a7df))
+
+# [@tehik-ee/tedi-angular-v1.6.0-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.5.0...angular-1.6.0-rc.1) (2025-03-28)
+
+
+### Features
+
+* **grid:** TEDI-Ready Angular Grid components [#564](https://github.com/TEHIK-EE/tedi-design-system/issues/564) ([#619](https://github.com/TEHIK-EE/tedi-design-system/issues/619)) ([9ee386d](https://github.com/TEHIK-EE/tedi-design-system/commit/9ee386dac06570935472661a7ac10d1883d66614)), closes [#587](https://github.com/TEHIK-EE/tedi-design-system/issues/587) [#587](https://github.com/TEHIK-EE/tedi-design-system/issues/587) [#587](https://github.com/TEHIK-EE/tedi-design-system/issues/587) [#587](https://github.com/TEHIK-EE/tedi-design-system/issues/587) [#587](https://github.com/TEHIK-EE/tedi-design-system/issues/587) [#587](https://github.com/TEHIK-EE/tedi-design-system/issues/587) [#587](https://github.com/TEHIK-EE/tedi-design-system/issues/587) [#587](https://github.com/TEHIK-EE/tedi-design-system/issues/587) [#587](https://github.com/TEHIK-EE/tedi-design-system/issues/587) [#587](https://github.com/TEHIK-EE/tedi-design-system/issues/587) [#587](https://github.com/TEHIK-EE/tedi-design-system/issues/587)
+
+# [@tehik-ee/tedi-angular-v1.5.0](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.4.0...angular-1.5.0) (2025-03-27)
+
+
+### Bug Fixes
+
+* **angular components:** fix angular component imports, standalone, tests, ng-container [#585](https://github.com/TEHIK-EE/tedi-design-system/issues/585) ([#586](https://github.com/TEHIK-EE/tedi-design-system/issues/586)) ([50263b9](https://github.com/TEHIK-EE/tedi-design-system/commit/50263b9c0212530dbf646d56dd2abba47b45bb72))
+* **angular-package:** package fixes [#587](https://github.com/TEHIK-EE/tedi-design-system/issues/587) ([#600](https://github.com/TEHIK-EE/tedi-design-system/issues/600)) ([5c147d4](https://github.com/TEHIK-EE/tedi-design-system/commit/5c147d4239c84b1ac9fcd3fabf58a840dd67035d))
+* **fonts:** rewrite fonts path to relative for storybook build [#523](https://github.com/TEHIK-EE/tedi-design-system/issues/523) ([#530](https://github.com/TEHIK-EE/tedi-design-system/issues/530)) ([04446b4](https://github.com/TEHIK-EE/tedi-design-system/commit/04446b42889cec61d6e29989dd2cb2e95c67745e))
+* **typography:** TEDI-Ready Angular fix typo templates [#565](https://github.com/TEHIK-EE/tedi-design-system/issues/565) ([#567](https://github.com/TEHIK-EE/tedi-design-system/issues/567)) ([07ff9a5](https://github.com/TEHIK-EE/tedi-design-system/commit/07ff9a5fdcdecb0004e6363db86dde7d9ce354a6))
+
+
+### Features
+
+* **button:** Add button styles on anchor [#546](https://github.com/TEHIK-EE/tedi-design-system/issues/546) ([#551](https://github.com/TEHIK-EE/tedi-design-system/issues/551)) ([34183ac](https://github.com/TEHIK-EE/tedi-design-system/commit/34183ac401afef170e70bb9b3c21f9a549349487))
+* **button:** Community button [#516](https://github.com/TEHIK-EE/tedi-design-system/issues/516) ([#527](https://github.com/TEHIK-EE/tedi-design-system/issues/527)) ([a39d4c9](https://github.com/TEHIK-EE/tedi-design-system/commit/a39d4c9375a3785de19f6942d0cfd9e6dcd70af5)), closes [#517](https://github.com/TEHIK-EE/tedi-design-system/issues/517)
+* **icon:** TEDI-Ready Angular icon component [#544](https://github.com/TEHIK-EE/tedi-design-system/issues/544) ([#561](https://github.com/TEHIK-EE/tedi-design-system/issues/561)) ([cdb276b](https://github.com/TEHIK-EE/tedi-design-system/commit/cdb276be02484ac1c73128f9aef065cc0fa594ec)), closes [#507](https://github.com/TEHIK-EE/tedi-design-system/issues/507) [#507](https://github.com/TEHIK-EE/tedi-design-system/issues/507) [#507](https://github.com/TEHIK-EE/tedi-design-system/issues/507) [#507](https://github.com/TEHIK-EE/tedi-design-system/issues/507) [#507](https://github.com/TEHIK-EE/tedi-design-system/issues/507) [#507](https://github.com/TEHIK-EE/tedi-design-system/issues/507) [#507](https://github.com/TEHIK-EE/tedi-design-system/issues/507) [#507](https://github.com/TEHIK-EE/tedi-design-system/issues/507) [#507](https://github.com/TEHIK-EE/tedi-design-system/issues/507) [#507](https://github.com/TEHIK-EE/tedi-design-system/issues/507)
+* **list:** TEDI-Ready Angular List component [#548](https://github.com/TEHIK-EE/tedi-design-system/issues/548) ([#573](https://github.com/TEHIK-EE/tedi-design-system/issues/573)) ([0651fb3](https://github.com/TEHIK-EE/tedi-design-system/commit/0651fb3607823ecd27cbbcb2b6bbd71b5d477d77))
+* **spinner:** TEDI-Ready Angular spinner component [#555](https://github.com/TEHIK-EE/tedi-design-system/issues/555) ([#574](https://github.com/TEHIK-EE/tedi-design-system/issues/574)) ([e548eb4](https://github.com/TEHIK-EE/tedi-design-system/commit/e548eb4d44aeb3b2a4c5c9539ba2c13af6bf0caa))
+* **typography:** TEDI-Ready Angular Typography components [#507](https://github.com/TEHIK-EE/tedi-design-system/issues/507) ([#547](https://github.com/TEHIK-EE/tedi-design-system/issues/547)) ([9fa0afe](https://github.com/TEHIK-EE/tedi-design-system/commit/9fa0afec8da00713f45df58242cc9f4716c11564))
+
+# [@tehik-ee/tedi-angular-v1.5.0-rc.9](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.5.0-rc.8...angular-1.5.0-rc.9) (2025-03-27)
+
+
+### Bug Fixes
+
+* **angular-package:** package fixes [#587](https://github.com/TEHIK-EE/tedi-design-system/issues/587) ([#600](https://github.com/TEHIK-EE/tedi-design-system/issues/600)) ([5c147d4](https://github.com/TEHIK-EE/tedi-design-system/commit/5c147d4239c84b1ac9fcd3fabf58a840dd67035d))
+
+# [@tehik-ee/tedi-angular-v1.5.0-rc.8](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.5.0-rc.7...angular-1.5.0-rc.8) (2025-03-19)
+
+
+### Bug Fixes
+
+* **angular components:** fix angular component imports, standalone, tests, ng-container [#585](https://github.com/TEHIK-EE/tedi-design-system/issues/585) ([#586](https://github.com/TEHIK-EE/tedi-design-system/issues/586)) ([50263b9](https://github.com/TEHIK-EE/tedi-design-system/commit/50263b9c0212530dbf646d56dd2abba47b45bb72))
+
+# [@tehik-ee/tedi-angular-v1.5.0-rc.7](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.5.0-rc.6...angular-1.5.0-rc.7) (2025-03-19)
+
+
+### Features
+
+* **spinner:** TEDI-Ready Angular spinner component [#555](https://github.com/TEHIK-EE/tedi-design-system/issues/555) ([#574](https://github.com/TEHIK-EE/tedi-design-system/issues/574)) ([e548eb4](https://github.com/TEHIK-EE/tedi-design-system/commit/e548eb4d44aeb3b2a4c5c9539ba2c13af6bf0caa))
+
+# [@tehik-ee/tedi-angular-v1.5.0-rc.6](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.5.0-rc.5...angular-1.5.0-rc.6) (2025-03-18)
+
+
+### Features
+
+* **list:** TEDI-Ready Angular List component [#548](https://github.com/TEHIK-EE/tedi-design-system/issues/548) ([#573](https://github.com/TEHIK-EE/tedi-design-system/issues/573)) ([0651fb3](https://github.com/TEHIK-EE/tedi-design-system/commit/0651fb3607823ecd27cbbcb2b6bbd71b5d477d77))
+
+# [@tehik-ee/tedi-angular-v1.5.0-rc.5](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.5.0-rc.4...angular-1.5.0-rc.5) (2025-03-17)
+
+
+### Bug Fixes
+
+* **typography:** TEDI-Ready Angular fix typo templates [#565](https://github.com/TEHIK-EE/tedi-design-system/issues/565) ([#567](https://github.com/TEHIK-EE/tedi-design-system/issues/567)) ([07ff9a5](https://github.com/TEHIK-EE/tedi-design-system/commit/07ff9a5fdcdecb0004e6363db86dde7d9ce354a6))
+
+
+### Features
+
+* **icon:** TEDI-Ready Angular icon component [#544](https://github.com/TEHIK-EE/tedi-design-system/issues/544) ([#561](https://github.com/TEHIK-EE/tedi-design-system/issues/561)) ([cdb276b](https://github.com/TEHIK-EE/tedi-design-system/commit/cdb276be02484ac1c73128f9aef065cc0fa594ec)), closes [#507](https://github.com/TEHIK-EE/tedi-design-system/issues/507) [#507](https://github.com/TEHIK-EE/tedi-design-system/issues/507) [#507](https://github.com/TEHIK-EE/tedi-design-system/issues/507) [#507](https://github.com/TEHIK-EE/tedi-design-system/issues/507) [#507](https://github.com/TEHIK-EE/tedi-design-system/issues/507) [#507](https://github.com/TEHIK-EE/tedi-design-system/issues/507) [#507](https://github.com/TEHIK-EE/tedi-design-system/issues/507) [#507](https://github.com/TEHIK-EE/tedi-design-system/issues/507) [#507](https://github.com/TEHIK-EE/tedi-design-system/issues/507) [#507](https://github.com/TEHIK-EE/tedi-design-system/issues/507)
+
+# [@tehik-ee/tedi-angular-v1.5.0-rc.4](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.5.0-rc.3...angular-1.5.0-rc.4) (2025-03-14)
+
+
+### Features
+
+* **typography:** TEDI-Ready Angular Typography components [#507](https://github.com/TEHIK-EE/tedi-design-system/issues/507) ([#547](https://github.com/TEHIK-EE/tedi-design-system/issues/547)) ([9fa0afe](https://github.com/TEHIK-EE/tedi-design-system/commit/9fa0afec8da00713f45df58242cc9f4716c11564))
+
+# [@tehik-ee/tedi-angular-v1.5.0-rc.3](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.5.0-rc.2...angular-1.5.0-rc.3) (2025-03-13)
+
+
+### Features
+
+* **button:** Add button styles on anchor [#546](https://github.com/TEHIK-EE/tedi-design-system/issues/546) ([#551](https://github.com/TEHIK-EE/tedi-design-system/issues/551)) ([34183ac](https://github.com/TEHIK-EE/tedi-design-system/commit/34183ac401afef170e70bb9b3c21f9a549349487))
+
 # [@tehik-ee/tedi-angular-v1.5.0-rc.2](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.5.0-rc.1...angular-1.5.0-rc.2) (2025-03-03)
 
 

@@ -11,6 +11,12 @@ import ClosingButton, { ClosingButtonProps } from './closing-button';
 const meta: Meta<typeof ClosingButton> = {
   component: ClosingButton,
   title: 'Tedi-Ready/Components/Buttons/ClosingButton',
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/design/jWiRIXhHRxwVdMSimKX2FF/TEDI-READY-(work-in-progress)?node-id=4514-63815&m=dev',
+    },
+  },
 };
 
 const sizeArray: ClosingButtonProps['size'][] = ['medium', 'large'];

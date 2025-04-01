@@ -83,7 +83,7 @@ const createRandomPerson = (isSubRow: boolean): Person => {
     age: calculateAge(faker.date.birthdate()),
     visits: Number(faker.number.int(99)),
     status: faker.helpers.arrayElement(['Single', 'Complicated', 'In Relationship']),
-    progress: Math.floor(Math.random() * 101),
+    progress: faker.number.int({ min: 0, max: 100 }),
     subRows: isSubRow
       ? undefined
       : faker.helpers.maybe(
@@ -273,7 +273,7 @@ export const WithSubComponent: Story = {
   args: {
     data: data(),
     columns: [getExpandColumn(), ...columns],
-    renderSubComponent: (row) => {
+    renderSubComponent: (_row) => {
       return (
         <tr>
           <td></td>
@@ -473,7 +473,7 @@ export const GroupedRows: Story = {
  */
 export const GroupedRowsFromData: Story = {
   args: {
-    data: data(50).map((entity, index) => ({
+    data: data(50).map((entity, _index) => ({
       ...entity,
       rowGroupKey:
         entity.age < 10

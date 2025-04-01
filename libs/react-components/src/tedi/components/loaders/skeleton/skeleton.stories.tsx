@@ -31,6 +31,10 @@ const meta: Meta<typeof Skeleton> = {
         },
       },
     },
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/jWiRIXhHRxwVdMSimKX2FF/TEDI-Design-System-(draft)?type=design&node-id=2188-34298&m=dev',
+    },
   },
 };
 

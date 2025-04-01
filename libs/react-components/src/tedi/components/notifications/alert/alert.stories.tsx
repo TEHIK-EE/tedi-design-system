@@ -19,6 +19,10 @@ const meta: Meta<typeof Alert> = {
     controls: {
       exclude: ['sm', 'md', 'lg', 'xl', 'xxl'],
     },
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/design/jWiRIXhHRxwVdMSimKX2FF/TEDI-READY-(work-in-progress)?node-id=4263-61880&m=dev',
+    },
   },
 };
 

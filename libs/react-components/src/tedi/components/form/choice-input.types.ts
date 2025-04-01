@@ -8,7 +8,7 @@ export interface ChoiceInputProps {
   /**
    * Label text
    */
-  label: string;
+  label: string | React.ReactNode;
   /**
    * Additional classes.
    */

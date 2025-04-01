@@ -3,9 +3,16 @@
     {
       "files": ["*.ts"],
       "parserOptions": {
-        "project": ["tsconfig.lib.json"]
+        "project": ["tsconfig.eslint.json"]
       },
-      "extends": ["plugin:@angular-eslint/recommended", "eslint:recommended"],
+      "extends": [
+        "eslint:recommended",
+        "plugin:@angular-eslint/recommended",
+        "plugin:@typescript-eslint/recommended"
+      ],
+      "env": {
+        "jest": true
+      },
       "rules": {
         "eslint-plugin/require-meta-fixable": "off",
         "prefer-arrow/prefer-arrow-functions": "off",

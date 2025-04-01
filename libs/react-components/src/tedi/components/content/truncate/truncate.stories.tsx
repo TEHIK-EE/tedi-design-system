@@ -18,6 +18,10 @@ const meta: Meta<typeof Truncate> = {
     controls: {
       exclude: ['sm', 'md', 'lg', 'xl', 'xxl'],
     },
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/design/jWiRIXhHRxwVdMSimKX2FF/TEDI-READY-(work-in-progress)?node-id=2427-40830&m=dev',
+    },
   },
 };
 

@@ -1,0 +1,106 @@
+@use '@tehik-ee/tedi-core/mixins';
+@use '@tehik-ee/tedi-core/bootstrap-utility/breakpoints';
+
+.tedi-button-group {
+  display: flex;
+  gap: 0;
+  overflow: hidden;
+
+  &--primary,
+  &--secondary {
+    .tedi-button-group__item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: auto;
+      min-height: 2.5rem;
+      text-align: center;
+      cursor: pointer;
+      border-radius: 0;
+
+      @include mixins.responsive-styles(padding-top, button-md-padding-y, null, '- 1px');
+      @include mixins.responsive-styles(padding-bottom, button-md-padding-y, null, '- 1px');
+      @include mixins.responsive-styles(padding-left, button-md-padding-x);
+      @include mixins.responsive-styles(padding-right, button-md-padding-x);
+
+      &:first-child {
+        @include mixins.responsive-styles(border-top-left-radius, button-radius-sm);
+        @include mixins.responsive-styles(border-bottom-left-radius, button-radius-sm);
+      }
+
+      &:not(:first-child) {
+        margin-left: -1px;
+      }
+
+      &:last-child {
+        @include mixins.responsive-styles(border-top-right-radius, button-radius-sm);
+        @include mixins.responsive-styles(border-bottom-right-radius, button-radius-sm);
+      }
+
+      @include breakpoints.media-breakpoint-down(md) {
+        flex: 1;
+      }
+    }
+  }
+
+  &--primary {
+    .tedi-button-group__item {
+      color: var(--button-group-primary-inactive-text);
+      background-color: var(--button-group-primary-inactive-background);
+      border: 1px solid var(--button-group-primary-inactive-border);
+
+      &--disabled:disabled {
+        color: var(--button-group-primary-disabled-text);
+        background-color: var(--button-group-primary-disabled-background);
+        border: 1px solid var(--button-group-primary-disabled-border);
+      }
+
+      &:hover:not(:disabled) {
+        color: var(--button-group-primary-hover-text);
+        background-color: var(--button-group-primary-hover-background);
+        border-color: var(--button-group-primary-hover-border);
+      }
+
+      &.tedi-button-group__item--active:not(:disabled) {
+        z-index: 1;
+        color: var(--button-group-primary-selected-text);
+        background-color: var(--button-group-primary-selected-background);
+        border-color: var(--button-group-primary-selected-border);
+      }
+    }
+  }
+
+  &--secondary {
+    .tedi-button-group__item {
+      color: var(--button-group-secondary-inactive-text);
+      background-color: var(--button-group-secondary-inactive-background);
+      border: 1px solid var(--button-group-secondary-inactive-border);
+
+      &--disabled:disabled {
+        color: var(--button-group-secondary-disabled-text);
+        background-color: var(--button-group-secondary-disabled-background);
+        border: 1px solid var(--button-group-secondary-disabled-border);
+      }
+
+      &:hover:not(:disabled) {
+        color: var(--button-group-secondary-hover-text);
+        background-color: var(--button-group-secondary-hover-background);
+        border-color: var(--button-group-secondary-hover-border);
+      }
+
+      &.tedi-button-group__item--active:not(:disabled) {
+        z-index: 1;
+        color: var(--button-group-secondary-selected-text);
+        background-color: var(--button-group-secondary-selected-background);
+        outline: 2px solid var(--button-group-secondary-selected-border);
+        outline-offset: -2px;
+      }
+    }
+  }
+
+  &--stretch {
+    .tedi-button-group__item {
+      flex: 1;
+    }
+  }
+}

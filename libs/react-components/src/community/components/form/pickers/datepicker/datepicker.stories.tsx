@@ -22,6 +22,7 @@ export const Default: Story = {
 
   args: {
     id: 'datepicker-default',
+    defaultValue: dayjs('2024-10-10'),
   },
 };
 
@@ -40,7 +41,7 @@ export const ReadOnly: Story = {
   args: {
     id: 'datepicker-read-only',
     readOnly: true,
-    defaultValue: dayjs(),
+    defaultValue: dayjs('2024-10-10'),
   },
 };
 
@@ -79,7 +80,7 @@ export const CustomDisabledDays: Story = {
 
   args: {
     id: 'datepicker-custom-disabled-days',
-    defaultValue: dayjs().weekday(5),
+    defaultValue: dayjs('2024-10-10').weekday(5),
     shouldDisableDate: (date) => date?.weekday() !== 4,
     disableHighlightToday: true,
   },
@@ -126,13 +127,13 @@ export const WithErrorHelper: Story = {
 
   args: {
     id: 'datepicker-error-helper',
-    defaultValue: dayjs().add(numberOne, 'day'),
+    defaultValue: dayjs('2024-10-10').add(numberOne, 'day'),
     helper: { text: 'Date can not be in the future!', type: 'error' },
   },
 };
 
 export const Controlled = () => {
-  const [date, setDate] = React.useState<Dayjs | null>(dayjs());
+  const [date, setDate] = React.useState<Dayjs | null>(dayjs('2024-10-10'));
 
   return (
     <>
@@ -143,22 +144,22 @@ export const Controlled = () => {
           </Button>
         </Col>
         <Col width="auto">
-          <Button visualType="link" onClick={() => setDate(dayjs())}>
+          <Button visualType="link" onClick={() => setDate(dayjs('2024-10-10'))}>
             today
           </Button>
         </Col>
         <Col width="auto">
-          <Button visualType="link" onClick={() => setDate(dayjs().add(numberOne, 'day'))}>
+          <Button visualType="link" onClick={() => setDate(dayjs('2024-10-10').add(numberOne, 'day'))}>
             tomorrow
           </Button>
         </Col>
         <Col width="auto">
-          <Button visualType="link" onClick={() => setDate(dayjs().add(numberOne, 'month'))}>
+          <Button visualType="link" onClick={() => setDate(dayjs('2024-10-10').add(numberOne, 'month'))}>
             next month
           </Button>
         </Col>
         <Col width="auto">
-          <Button visualType="link" onClick={() => setDate(dayjs().subtract(numberOne, 'year'))}>
+          <Button visualType="link" onClick={() => setDate(dayjs('2024-10-10').subtract(numberOne, 'year'))}>
             minus year
           </Button>
         </Col>

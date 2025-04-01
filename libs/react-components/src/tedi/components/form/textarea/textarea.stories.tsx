@@ -7,8 +7,8 @@ import { VerticalSpacing } from '../../layout/vertical-spacing';
 import TextArea, { TextAreaProps } from './textarea';
 
 /**
- * [Figma ↗](https://www.figma.com/design/jWiRIXhHRxwVdMSimKX2FF/TEDI-READY-(work-in-progress)?node-id=3486-37618&m=dev)<br/>
- * [Zeroheight ↗](https://tedi.tehik.ee/1ee8444b7/p/25f281-text-area)
+ * <a href="https://www.figma.com/design/jWiRIXhHRxwVdMSimKX2FF/TEDI-READY-(work-in-progress)?node-id=3486-37618&m=dev" target="_BLANK">Figma ↗</a><br/>
+ * <a href="https://tedi.tehik.ee/1ee8444b7/p/25f281-text-area" target="_BLANK">Zeroheight ↗</a>
  */
 
 const meta: Meta<typeof TextArea> = {
@@ -20,6 +20,10 @@ const meta: Meta<typeof TextArea> = {
     },
     controls: {
       exclude: ['sm', 'md', 'lg', 'xl', 'xxl'],
+    },
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/design/jWiRIXhHRxwVdMSimKX2FF/TEDI-READY-(work-in-progress)?node-id=3486-37618&m=dev',
     },
   },
 };

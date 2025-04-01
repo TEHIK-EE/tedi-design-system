@@ -6,8 +6,8 @@ import { VerticalSpacing } from '../../layout/vertical-spacing';
 import { Search, SearchProps } from './search';
 
 /**
- * [Figma ↗](https://www.figma.com/design/jWiRIXhHRxwVdMSimKX2FF/TEDI-READY-(work-in-progress)?node-id=4620-82860&m=dev)<br/>
- * [Zeroheight ↗](https://tedi.tehik.ee/1ee8444b7/p/4013b4-search)
+ * <a href="https://www.figma.com/design/jWiRIXhHRxwVdMSimKX2FF/TEDI-READY-(work-in-progress)?node-id=4620-82860&m=dev" target="_BLANK">Figma ↗</a><br/>
+ * <a href="https://tedi.tehik.ee/1ee8444b7/p/4013b4-search" target="_BLANK">Zeroheight ↗</a>
  */
 
 const meta: Meta<SearchProps> = {
@@ -19,6 +19,10 @@ const meta: Meta<SearchProps> = {
     },
     controls: {
       exclude: ['sm', 'md', 'lg', 'xl', 'xxl'],
+    },
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/design/jWiRIXhHRxwVdMSimKX2FF/TEDI-READY-(work-in-progress)?node-id=4620-82860&m=dev',
     },
   },
 };

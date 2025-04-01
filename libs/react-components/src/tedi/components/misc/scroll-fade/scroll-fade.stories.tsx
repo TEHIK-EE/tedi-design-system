@@ -16,6 +16,10 @@ const meta: Meta<typeof ScrollFade> = {
     status: {
       type: ['devComponent'],
     },
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/design/jWiRIXhHRxwVdMSimKX2FF/TEDI-READY-(work-in-progress)?node-id=10758-111142&m=dev',
+    },
   },
 };
 

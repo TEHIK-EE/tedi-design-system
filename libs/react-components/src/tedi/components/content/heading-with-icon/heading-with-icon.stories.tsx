@@ -11,6 +11,12 @@ import HeadingWithIcon, { HeadingWithIconProps } from './heading-with-icon';
 export default {
   title: 'Tedi-Ready/Content/HeadingWithIcon',
   component: HeadingWithIcon,
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/jWiRIXhHRxwVdMSimKX2FF/TEDI-Design-System-(draft)?type=design&node-id=2137-19827&mode=dev',
+    },
+  },
 } as Meta;
 type Story = StoryObj<HeadingWithIconProps>;
 

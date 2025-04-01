@@ -27,6 +27,10 @@ const meta: Meta<PopoverProps> = {
         },
       },
     },
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/design/jWiRIXhHRxwVdMSimKX2FF/TEDI-READY-(work-in-progress)?node-id=5797-117364&m=dev',
+    },
   },
 };
 

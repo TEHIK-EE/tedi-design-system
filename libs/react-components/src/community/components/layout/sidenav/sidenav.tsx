@@ -55,6 +55,11 @@ export type SideNavProps<C extends React.ElementType = 'a'> = ConditionalTypes<C
    */
   showDividers?: boolean;
   /**
+   * Hide submenu icons
+   * @default false
+   */
+  hideSubItemIcons?: boolean;
+  /**
    * Additional class names for the sidenav component
    */
   className?: string;
@@ -79,6 +84,7 @@ export function SideNav<C extends React.ElementType = 'a'>(props: SideNavProps<C
     breakToBottomContent,
     breakToHeader,
     showDividers = true,
+    hideSubItemIcons = false,
     className,
     ...rest
   } = props;
@@ -93,6 +99,7 @@ export function SideNav<C extends React.ElementType = 'a'>(props: SideNavProps<C
 
   const BEM = cn(styles['sidenav'], className, {
     [styles['sidenav--has-dividers']]: showDividers,
+    [styles['sidenav--hide-subitem-icons']]: hideSubItemIcons,
   });
 
   const renderSidebar = (

@@ -16,6 +16,12 @@ import { Icon, IconProps } from './icon';
 const meta: Meta<typeof Icon> = {
   title: 'Tedi-Ready/Base/Icon',
   component: Icon,
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/jWiRIXhHRxwVdMSimKX2FF/TEDI-Design-System-(draft)?type=design&node-id=45-30752&mode=dev',
+    },
+  },
 };
 
 export default meta;
