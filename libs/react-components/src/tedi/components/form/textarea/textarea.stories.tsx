@@ -52,6 +52,36 @@ const TemplateColumnWithStates: StoryFn<TemplateStateProps> = (args) => {
           </Col>
         </Row>
       ))}
+      <Row className="padding-14-16">
+        <Col width={2} className="display-flex align-items-center">
+          <Text modifiers="bold">Success</Text>
+        </Col>
+        <Col className="display-flex align-items-center">
+          <TextArea
+            {...textFieldProps}
+            id="success-textarea"
+            helper={{
+              text: 'Feedback text',
+              type: 'valid',
+            }}
+          />
+        </Col>
+      </Row>
+      <Row className="padding-14-16">
+        <Col width={2} className="display-flex align-items-center">
+          <Text modifiers="bold">Error</Text>
+        </Col>
+        <Col className="display-flex align-items-center">
+          <TextArea
+            {...textFieldProps}
+            id="error-textarea"
+            helper={{
+              text: 'Feedback text',
+              type: 'error',
+            }}
+          />
+        </Col>
+      </Row>
     </VerticalSpacing>
   );
 };
@@ -111,7 +141,7 @@ export const States: StoryObj<TemplateStateProps> = {
   },
 };
 
-export const WithHintText: Story = {
+export const WithHint: Story = {
   args: {
     id: 'example-1',
     label: 'Label',
@@ -133,22 +163,6 @@ export const OnlyCharacterCount: Story = {
     id: 'example-1',
     label: 'Label',
     characterLimit: 400,
-  },
-};
-
-export const Valid: Story = {
-  args: {
-    id: 'example-1',
-    label: 'Label',
-    helper: { type: 'valid', text: 'Hint text' },
-  },
-};
-
-export const Error: Story = {
-  args: {
-    id: 'example-1',
-    label: 'Label',
-    helper: { type: 'error', text: 'Hint text' },
   },
 };
 

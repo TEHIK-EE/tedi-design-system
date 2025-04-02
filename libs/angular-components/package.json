@@ -4,9 +4,14 @@
   "type": "module",
   "main": "community.mjs",
   "module": "community.mjs",
+  "exports": {
+    "./index.css": {
+      "default": "./index.css"
+    }
+  },
   "scripts": {
     "start": "ng run angular-components:storybook",
-    "build": "ng-packagr -p ng-package.json",
+    "build": "ng-packagr -p ng-package.json && sass --load-path=node_modules styles/index.scss dist/index.css --style=compressed --no-source-map && replace-in-file //fonts//g \"./fonts/\" dist/index.css --isRegex && mkdir dist/fonts && cp -a ../tedi-core/public/fonts/* dist/fonts/",
     "build:sb": "ng run angular-components:build-storybook && replace-in-file //fonts//g \"./fonts/\" dist/storybook-static/main.css --isRegex",
     "lint": "ng lint angular-components --fix",
     "test": "jest --passWithNoTests",
@@ -63,6 +68,7 @@
     "prettier": "^3.4.2",
     "readdirp": "3.6.0",
     "replace-in-file": "^8.3.0",
+    "sass": "^1.86.1",
     "storybook": "^8.4.7",
     "ts-node": "^10.9.2",
     "tslib": "^2.5.0"
