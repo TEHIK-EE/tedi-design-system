@@ -10,8 +10,8 @@ import {
   ColComponent,
   RowComponent,
   TextColor,
-} from "libs/angular-components/tedi/public-api";
-import { TextComponent } from "libs/angular-components/tedi/public-api";
+} from "@tehik-ee/tedi-angular/tedi";
+import { TextComponent } from "@tehik-ee/tedi-angular/tedi";
 
 const PSEUDO_STATE = ["Default", "Hover", "Active", "Focus"];
 

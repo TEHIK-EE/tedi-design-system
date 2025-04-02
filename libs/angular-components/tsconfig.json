@@ -7,9 +7,6 @@
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
-    "paths": {
-      "@tehik-ee/tedi-core/*": ["../tedi-core/*"]
-    },
     "resolveJsonModule": true,
     "esModuleInterop": true
   },

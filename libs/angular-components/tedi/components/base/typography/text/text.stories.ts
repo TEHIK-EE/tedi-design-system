@@ -5,11 +5,9 @@ import {
   moduleMetadata,
 } from "@storybook/angular";
 import { TextComponent } from "./text.component";
-import { VerticalSpacingDirective } from "libs/angular-components/tedi/public-api";
-import {
-  RowComponent,
-  ColComponent,
-} from "libs/angular-components/tedi/public-api";
+import { VerticalSpacingDirective } from "libs/angular-components/tedi/directives/vertical-spacing/vertical-spacing.directive";
+import { RowComponent } from "../../../layout/grid/row/row.component";
+import { ColComponent } from "../../../layout/grid/col/col.component";
 
 /**
  * <a href="https://www.figma.com/design/jWiRIXhHRxwVdMSimKX2FF/TEDI-Design-System-(draft)?node-id=115-11630&m=dev" target="_BLANK">Figma ↗</a><br/>
