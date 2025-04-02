@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-react-v11.2.1](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.2.0...react-11.2.1) (2025-04-02)
+
+
+### Bug Fixes
+
+* **text-group,file-upload,file-dropzone:** add missing exports [#642](https://github.com/TEHIK-EE/tedi-design-system/issues/642) ([#644](https://github.com/TEHIK-EE/tedi-design-system/issues/644)) ([5d7bbec](https://github.com/TEHIK-EE/tedi-design-system/commit/5d7bbec3a79323fadb4e664021f3cddb33911ba6))
+
 # [@tehik-ee/tedi-react-v11.2.0](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.1.3...react-11.2.0) (2025-03-27)
 
 
