@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-react-v11.2.2-rc.2](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.2.2-rc.1...react-11.2.2-rc.2) (2025-04-02)
+
+
+### Bug Fixes
+
+* **scroll-visibility:** add focus-within selector back to css [#588](https://github.com/TEHIK-EE/tedi-design-system/issues/588) ([#597](https://github.com/TEHIK-EE/tedi-design-system/issues/597)) ([e99808d](https://github.com/TEHIK-EE/tedi-design-system/commit/e99808d50d97e4f6a5ae4da03ab1155f6a26b44b))
+
 # [@tehik-ee/tedi-react-v11.2.2-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.2.1...react-11.2.2-rc.1) (2025-04-02)
 
 
