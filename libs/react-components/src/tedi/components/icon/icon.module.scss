@@ -80,6 +80,9 @@ $icon-sizes: (
 
   @each $size, $vars in $icon-sizes {
     &--size-#{$size} {
+      max-width: 1em;
+      overflow: hidden;
+
       @include mixins.responsive-styles(font-size, $vars);
     }
   }
