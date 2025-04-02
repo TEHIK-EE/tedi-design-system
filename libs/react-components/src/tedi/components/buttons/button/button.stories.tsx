@@ -4,6 +4,7 @@ import { ElementType } from 'react';
 import { Text, TextProps } from '../../base/typography/text/text';
 import { Col, Row } from '../../layout/grid';
 import { VerticalSpacing } from '../../layout/vertical-spacing';
+import Alert from '../../notifications/alert/alert';
 import { Button, ButtonProps } from './button';
 
 /**
@@ -350,4 +351,33 @@ export const ResponsiveButton: Story = {
       defaultViewport: 'responsive',
     },
   },
+};
+
+export const LongTextButtonThatWrapsIntoMultipleLines: Story = {
+  args: {
+    children: 'This is a very long button text that should wrap into multiple lines',
+  },
+
+  render: (args) => (
+    <VerticalSpacing>
+      <Row>
+        <Col md={6}>
+          <Alert type="warning">
+            Please avoid long text. This is fallback for emergencies — use only with caution.
+          </Alert>
+        </Col>
+      </Row>
+      <Row>
+        <Col md={4} width={12}>
+          <Button>{args.children}</Button>
+        </Col>
+        <Col md={4} width={12}>
+          <Button iconLeft="edit">{args.children}</Button>
+        </Col>
+        <Col md={3} width={12}>
+          <Button>{args.children}</Button>
+        </Col>
+      </Row>
+    </VerticalSpacing>
+  ),
 };

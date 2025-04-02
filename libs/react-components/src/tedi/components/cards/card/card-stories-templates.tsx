@@ -18,18 +18,18 @@ import { CardBackground } from './utility';
 export const HeaderTypesTemplate: StoryFn<CardStory> = (_args) => (
   <VerticalSpacing>
     <Card>
-      <Card.Header>
+      <Card.Header background="primary">
         <Heading element="h3">Title</Heading>
       </Card.Header>
     </Card>
     <Card>
-      <Card.Header>
+      <Card.Header background="primary">
         <Heading element="h3">Title</Heading>
         <Text color="secondary">Description</Text>
       </Card.Header>
     </Card>
     <Card>
-      <Card.Header>
+      <Card.Header background="primary">
         <Row>
           <Col>
             <Heading element="h3">Title</Heading>
@@ -46,7 +46,7 @@ export const HeaderTypesTemplate: StoryFn<CardStory> = (_args) => (
       </Card.Header>
     </Card>
     <Card>
-      <Card.Header>
+      <Card.Header background="primary">
         <Row>
           <Col>
             <Heading element="h3">Title</Heading>
@@ -68,7 +68,7 @@ export const HeaderTypesTemplate: StoryFn<CardStory> = (_args) => (
       </Card.Header>
     </Card>
     <Card>
-      <Card.Header>
+      <Card.Header background="primary">
         <Row>
           <Col>
             <Heading element="h3">Title</Heading>
@@ -87,7 +87,7 @@ export const HeaderTypesTemplate: StoryFn<CardStory> = (_args) => (
       </Card.Header>
     </Card>
     <Card>
-      <Card.Header>
+      <Card.Header background="primary">
         <Row>
           <Col>
             <Heading element="h3">Title</Heading>
@@ -335,7 +335,7 @@ export const AlternativeCardsTemplate: StoryFn<CardStory> = (_args) => (
     <Row>
       <Col lg={6} sm={12}>
         <Card>
-          <Card.Header>
+          <Card.Header background="primary">
             <HeadingWithIcon name="assignment_ind" headingColor="brand" iconColor="brand">
               My statement of intention
             </HeadingWithIcon>

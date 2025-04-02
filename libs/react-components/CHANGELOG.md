@@ -1,3 +1,31 @@
+# [@tehik-ee/tedi-react-v11.3.0-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.2.2-rc.2...react-11.3.0-rc.1) (2025-04-02)
+
+
+### Features
+
+* **button,link:** Add ability to display flexed Icons for Link, fix long text in Button [#463](https://github.com/TEHIK-EE/tedi-design-system/issues/463) ([#537](https://github.com/TEHIK-EE/tedi-design-system/issues/537)) ([62030e6](https://github.com/TEHIK-EE/tedi-design-system/commit/62030e660ab0eb66afe267ee60501b67f16c9f0a))
+
+# [@tehik-ee/tedi-react-v11.2.2-rc.2](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.2.2-rc.1...react-11.2.2-rc.2) (2025-04-02)
+
+
+### Bug Fixes
+
+* **scroll-visibility:** add focus-within selector back to css [#588](https://github.com/TEHIK-EE/tedi-design-system/issues/588) ([#597](https://github.com/TEHIK-EE/tedi-design-system/issues/597)) ([e99808d](https://github.com/TEHIK-EE/tedi-design-system/commit/e99808d50d97e4f6a5ae4da03ab1155f6a26b44b))
+
+# [@tehik-ee/tedi-react-v11.2.2-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.2.1...react-11.2.2-rc.1) (2025-04-02)
+
+
+### Bug Fixes
+
+* **card:** add default background values for CardHeader and CardContent [#632](https://github.com/TEHIK-EE/tedi-design-system/issues/632) ([#635](https://github.com/TEHIK-EE/tedi-design-system/issues/635)) ([ab33238](https://github.com/TEHIK-EE/tedi-design-system/commit/ab332383022eb317ddb9e0441f03817919aeda84))
+
+# [@tehik-ee/tedi-react-v11.2.1](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.2.0...react-11.2.1) (2025-04-02)
+
+
+### Bug Fixes
+
+* **text-group,file-upload,file-dropzone:** add missing exports [#642](https://github.com/TEHIK-EE/tedi-design-system/issues/642) ([#644](https://github.com/TEHIK-EE/tedi-design-system/issues/644)) ([5d7bbec](https://github.com/TEHIK-EE/tedi-design-system/commit/5d7bbec3a79323fadb4e664021f3cddb33911ba6))
+
 # [@tehik-ee/tedi-react-v11.2.0](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.1.3...react-11.2.0) (2025-03-27)
 
 

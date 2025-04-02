@@ -79,6 +79,36 @@ const TemplateColumnWithStates: StoryFn<TemplateStateProps> = (args) => {
           </Col>
         </Row>
       ))}
+      <Row className="padding-14-16">
+        <Col width={2} className="display-flex align-items-center">
+          <Text modifiers="bold">Success</Text>
+        </Col>
+        <Col className="display-flex align-items-center">
+          <TextField
+            {...textFieldProps}
+            id="success-textfield"
+            helper={{
+              text: 'Feedback text',
+              type: 'valid',
+            }}
+          />
+        </Col>
+      </Row>
+      <Row className="padding-14-16">
+        <Col width={2} className="display-flex align-items-center">
+          <Text modifiers="bold">Error</Text>
+        </Col>
+        <Col className="display-flex align-items-center">
+          <TextField
+            {...textFieldProps}
+            id="error-textfield"
+            helper={{
+              text: 'Feedback text',
+              type: 'error',
+            }}
+          />
+        </Col>
+      </Row>
     </div>
   );
 };
@@ -123,28 +153,6 @@ export const WithHint: Story = {
       id: 'example-3',
       text: 'Hint text',
       type: 'hint',
-    },
-  },
-};
-
-export const Error: Story = {
-  args: {
-    ...Default.args,
-    helper: {
-      id: 'example-3',
-      text: 'Feedback text',
-      type: 'error',
-    },
-  },
-};
-
-export const Success: Story = {
-  args: {
-    ...Default.args,
-    helper: {
-      id: 'example-4',
-      text: 'Feedback text',
-      type: 'valid',
     },
   },
 };
