@@ -6,7 +6,7 @@ $animation-ease: ease-in-out;
   transition: opacity $animation-time $animation-ease, translate $animation-time $animation-ease;
   translate: none;
 
-  &--hidden {
+  &--hidden:not(:focus-within) {
     pointer-events: none;
     opacity: 0;
 
