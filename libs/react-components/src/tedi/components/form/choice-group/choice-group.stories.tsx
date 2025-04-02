@@ -364,3 +364,48 @@ export const CustomItemLabels: Story = {
     ],
   },
 };
+
+export const CustomItemHTMLLabels: Story = {
+  args: {
+    inputType: 'checkbox',
+    label: 'Custom item HTML labels:',
+    items: [
+      {
+        id: 'checkbox-custom-item-labels-1',
+        label: (
+          <div
+            style={{
+              backgroundColor: 'var(--primary-600)',
+              color: 'var(--neutral-100)',
+              padding: '0 8px',
+              borderRadius: '5px',
+            }}
+          >
+            Lorem ipsum 1
+          </div>
+        ),
+        value: 'checkbox-custom-item-labels-1',
+      },
+      {
+        id: 'checkbox-custom-item-labels-2',
+        label: (
+          <div className="display-flex">
+            <Icon name="check" color="success" /> Lorem ipsum 2
+          </div>
+        ),
+        value: 'checkbox-custom-item-labels-2',
+        defaultChecked: true,
+      },
+      {
+        id: 'checkbox-custom-item-labels-3',
+        label: <div>Lorem ipsum 3</div>,
+        value: 'checkbox-custom-item-labels-3',
+      },
+      {
+        id: 'checkbox-custom-item-labels-4',
+        label: <div>Lorem ipsum 4</div>,
+        value: 'checkbox-custom-item-labels-4',
+      },
+    ],
+  },
+};
