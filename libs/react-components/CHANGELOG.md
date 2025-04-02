@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-react-v11.2.2-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.2.1...react-11.2.2-rc.1) (2025-04-02)
+
+
+### Bug Fixes
+
+* **card:** add default background values for CardHeader and CardContent [#632](https://github.com/TEHIK-EE/tedi-design-system/issues/632) ([#635](https://github.com/TEHIK-EE/tedi-design-system/issues/635)) ([ab33238](https://github.com/TEHIK-EE/tedi-design-system/commit/ab332383022eb317ddb9e0441f03817919aeda84))
+
 # [@tehik-ee/tedi-react-v11.2.1](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.2.0...react-11.2.1) (2025-04-02)
 
 
