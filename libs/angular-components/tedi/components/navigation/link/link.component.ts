@@ -10,6 +10,7 @@ import {
 } from "../../../services/breakpoint/breakpoint.service";
 import { IconComponent } from "../../base/icon/icon.component";
 import { NgIf } from "@angular/common";
+import { RouterLink, UrlTree } from "@angular/router";
 
 export type LinkVariant = "default" | "inverted";
 export type LinkSize = "default" | "small";
@@ -22,7 +23,7 @@ type LinkInputs = {
   /**
    * Router link path.
    */
-  routerLink?: string;
+  routerLink?: string | any[] | UrlTree;
   /**
    * Color variant of the link.
    * @default default
@@ -62,9 +63,11 @@ type LinkInputs = {
   templateUrl: "./link.component.html",
   styleUrl: "./link.component.scss",
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [NgIf, IconComponent],
+  imports: [NgIf, IconComponent, RouterLink],
 })
 export class LinkComponent implements BreakpointInputs<LinkInputs> {
+  href = input<string>();
+  routerLink = input<string | any[] | UrlTree>();
   variant = input<LinkVariant>("default");
   size = input<LinkSize>("default");
   underline = input<boolean>(true);
@@ -84,6 +87,8 @@ export class LinkComponent implements BreakpointInputs<LinkInputs> {
 
   breakpointInputs = computed(() => {
     return this.breakpointService.getBreakpointInputs<LinkInputs>({
+      href: this.href(),
+      routerLink: this.routerLink(),
       variant: this.variant(),
       size: this.size(),
       underline: this.underline(),
