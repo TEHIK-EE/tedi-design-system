@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-react-v11.2.2](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.2.1...react-11.2.2) (2025-04-02)
+
+
+### Bug Fixes
+
+* **choice-group:** allow defaultChecked for checkboxes [#648](https://github.com/TEHIK-EE/tedi-design-system/issues/648) ([#649](https://github.com/TEHIK-EE/tedi-design-system/issues/649)) ([90bff42](https://github.com/TEHIK-EE/tedi-design-system/commit/90bff4200a9205bf2a50c2656115414d7c0af830))
+
 # [@tehik-ee/tedi-react-v11.2.1](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.2.0...react-11.2.1) (2025-04-02)
 
 
