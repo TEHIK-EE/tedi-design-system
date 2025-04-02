@@ -22,7 +22,7 @@ const PSEUDO_STATE = ["Default", "Hover", "Active", "Focus"];
  */
 
 export default {
-  title: "TEDI-Ready Angular/Navigation/Link",
+  title: "Community Angular/Navigation/Link",
   component: LinkComponent,
   decorators: [
     moduleMetadata({

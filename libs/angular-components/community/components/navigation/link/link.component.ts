@@ -7,8 +7,8 @@ import {
 import {
   BreakpointInputs,
   BreakpointService,
-} from "../../../services/breakpoint/breakpoint.service";
-import { IconComponent } from "../../base/icon/icon.component";
+} from "../../../../tedi/services/breakpoint/breakpoint.service";
+import { IconComponent } from "../../../../tedi/components/base/icon/icon.component";
 import { NgIf, NgTemplateOutlet } from "@angular/common";
 import {
   ActivatedRoute,
