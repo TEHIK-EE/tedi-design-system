@@ -7,15 +7,17 @@ $neutral-variants: "neutral", "danger-neutral";
 create .tedi-button scoped color variables for every variant
 */
 @mixin button-variant-color-vars($variant) {
-  --_btn-bg: var(--button-main-#{$variant}-background-default);
-  --_btn-border: var(--button-main-#{$variant}-border-default);
-  --_btn-text: var(--button-main-#{$variant}-text-default);
+  & {
+    --_btn-bg: var(--button-main-#{$variant}-background-default);
+    --_btn-border: var(--button-main-#{$variant}-border-default);
+    --_btn-text: var(--button-main-#{$variant}-text-default);
 
-  @include button-state-color-vars($variant, "hover");
-  @include button-state-color-vars($variant, "focus");
-  @include button-state-color-vars($variant, "active");
+    @include button-state-color-vars($variant, "hover");
+    @include button-state-color-vars($variant, "focus");
+    @include button-state-color-vars($variant, "active");
 
-  @include button-disabled-color-vars($variant);
+    @include button-disabled-color-vars($variant);
+  }
 }
 
 /*

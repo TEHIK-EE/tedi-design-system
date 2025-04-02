@@ -13,12 +13,13 @@ import {
 } from "libs/angular-components/tedi/public-api";
 import { TextComponent } from "libs/angular-components/tedi/public-api";
 
+const PSEUDO_STATE = ["Default", "Hover", "Active", "Focus"];
+
 /**
  * <a href="https://www.figma.com/file/jWiRIXhHRxwVdMSimKX2FF/TEDI-Design-System-(draft)?type=design&node-id=2160-25385&m=dev" target="_BLANK">Figma ↗</a><br/>
  * <a href="https://tedi.tehik.ee/1ee8444b7/p/76e0c0-link" target="_BLANK">Zeroheight ↗</a>
+ * Link component inputs extend on Angular RouterLink inputs: https://angular.dev/api/router/RouterLink
  */
-
-const PSEUDO_STATE = ["Default", "Hover", "Active", "Focus"];
 
 export default {
   title: "TEDI-Ready Angular/Navigation/Link",
@@ -36,9 +37,6 @@ export default {
 } as Meta<LinkComponent>;
 
 export const Default: StoryObj<LinkComponent> = {
-  args: {
-    variant: "default",
-  },
   render: (args) => ({
     props: args,
     template: `<tedi-link ${argsToTemplate(args)}>Link</tedi-link>`,
