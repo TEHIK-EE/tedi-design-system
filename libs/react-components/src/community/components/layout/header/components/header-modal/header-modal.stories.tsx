@@ -1,8 +1,8 @@
 import { Meta, StoryObj } from '@storybook/react';
 
-import { List, ListItem } from '../../../../../../tedi/components/list';
-import Separator from '../../../../../../tedi/components/separator/separator';
-import { VerticalSpacing } from '../../../../../../tedi/components/vertical-spacing';
+import { List, ListItem } from '../../../../../../tedi/components/content/list';
+import { VerticalSpacing } from '../../../../../../tedi/components/layout/vertical-spacing';
+import Separator from '../../../../../../tedi/components/misc/separator/separator';
 import Anchor from '../../../../anchor/anchor';
 import Button from '../../../../button/button';
 import { Card, CardContent } from '../../../../card';

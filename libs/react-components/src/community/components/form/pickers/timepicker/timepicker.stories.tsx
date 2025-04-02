@@ -2,7 +2,7 @@ import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import dayjs, { Dayjs } from 'dayjs';
 import React from 'react';
 
-import { Col, Row } from '../../../../../tedi/components/grid';
+import { Col, Row } from '../../../../../tedi/components/layout/grid';
 import Button from '../../../button/button';
 import TimePicker, { TimePickerProps } from './timepicker';
 

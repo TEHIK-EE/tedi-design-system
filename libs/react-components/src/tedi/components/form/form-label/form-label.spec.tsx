@@ -1,11 +1,11 @@
 import { render } from '@testing-library/react';
 
-import { Label } from '../../label/label';
+import { Label } from '../../content/label/label';
 import { FormLabel } from './form-label';
 
 import '@testing-library/jest-dom';
 
-jest.mock('../../label/label', () => ({
+jest.mock('../../content/label/label', () => ({
   Label: jest.fn(({ children, className, as: Element = 'label', ...rest }) => {
     const { ...filteredRest } = rest;
 

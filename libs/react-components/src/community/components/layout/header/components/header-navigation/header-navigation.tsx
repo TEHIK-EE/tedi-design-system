@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { Col, Row } from '../../../../../../tedi/components/grid';
-import { StretchContent } from '../../../../../../tedi/components/stretch-content/stretch-content';
+import { Col, Row } from '../../../../../../tedi/components/layout/grid';
+import { StretchContent } from '../../../../../../tedi/components/misc/stretch-content/stretch-content';
 import { Anchor } from '../../../../anchor/anchor';
 import { LayoutContext } from '../../../layout-context';
 

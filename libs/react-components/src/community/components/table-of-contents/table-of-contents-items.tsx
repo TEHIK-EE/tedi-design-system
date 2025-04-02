@@ -1,8 +1,8 @@
 import React from 'react';
 import { flushSync } from 'react-dom';
 
-import { Row } from '../../../tedi/components/grid';
-import { VerticalSpacing } from '../../../tedi/components/vertical-spacing';
+import { Row } from '../../../tedi/components/layout/grid';
+import { VerticalSpacing } from '../../../tedi/components/layout/vertical-spacing';
 import { useLayout } from '../../helpers';
 import { ModalContext } from '../modal';
 import Heading from '../typography/heading/heading';

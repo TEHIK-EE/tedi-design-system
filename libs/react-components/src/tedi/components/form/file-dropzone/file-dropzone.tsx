@@ -4,11 +4,11 @@ import { useDropzone } from 'react-dropzone';
 
 import { FileUploadFile, useFileUpload, UseFileUploadProps } from '../../../helpers/hooks/use-file-upload';
 import { useLabels } from '../../../providers/label-provider';
+import { Icon } from '../../base/icon/icon';
 import ClosingButton from '../../buttons/closing-button/closing-button';
 import { Card, CardContent } from '../../cards/card';
-import { Col, Row } from '../../grid';
-import { Icon } from '../../icon/icon';
-import { VerticalSpacing } from '../../vertical-spacing';
+import { Col, Row } from '../../layout/grid';
+import { VerticalSpacing } from '../../layout/vertical-spacing';
 import FeedbackText, { FeedbackTextProps } from '../feedback-text/feedback-text';
 import FormLabel, { FormLabelProps } from '../form-label/form-label';
 import styles from './file-dropzone.module.scss';

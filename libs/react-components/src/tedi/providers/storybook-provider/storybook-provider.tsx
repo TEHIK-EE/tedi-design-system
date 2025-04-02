@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { Col, Row } from '../../components/grid';
-import { Text } from '../../components/typography/text/text';
+import { Text } from '../../components/base/typography/text/text';
+import { Col, Row } from '../../components/layout/grid';
 
 interface TextRowProps {
   desktopText: React.ReactNode;

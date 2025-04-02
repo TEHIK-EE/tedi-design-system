@@ -1,10 +1,10 @@
 import { Meta, StoryFn } from '@storybook/react';
 
+import { Section } from '../../../tedi/components/content/section/section';
 import { TextArea } from '../../../tedi/components/form/textarea/textarea';
 import TextField from '../../../tedi/components/form/textfield/textfield';
-import { Col, Row } from '../../../tedi/components/grid';
-import { Section } from '../../../tedi/components/section/section';
-import { VerticalSpacing } from '../../../tedi/components/vertical-spacing';
+import { Col, Row } from '../../../tedi/components/layout/grid';
+import { VerticalSpacing } from '../../../tedi/components/layout/vertical-spacing';
 import Button from '../button/button';
 import { CardContent, CardHeader } from '../card';
 import { Default as LayoutDefault } from '../layout/layout/layout.stories';

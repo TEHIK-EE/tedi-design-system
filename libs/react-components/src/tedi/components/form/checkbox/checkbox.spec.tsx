@@ -5,7 +5,7 @@ import Checkbox from './checkbox';
 
 import '@testing-library/jest-dom';
 
-jest.mock('../../icon/icon', () => ({
+jest.mock('../../base/icon/icon', () => ({
   Icon: jest.fn(({ name }) => <span data-testid={`icon-${name}`}>{name}</span>),
 }));
 

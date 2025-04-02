@@ -1,8 +1,8 @@
 import cn from 'classnames';
 import React from 'react';
 
-import { Col, ColProps, Direction } from '../../../../../../tedi/components/grid';
 import { BreakpointSupport, useBreakpointProps } from '../../../../../helpers';
+import { Col, ColProps, Direction } from '../../../../layout/grid';
 import Checkbox from '../../../checkbox/checkbox';
 import { ChoiceInputProps } from '../../../choice-input.types';
 import FeedbackText from '../../../feedback-text/feedback-text';

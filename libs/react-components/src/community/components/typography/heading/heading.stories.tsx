@@ -1,6 +1,6 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 
-import { Col, Row } from '../../../../tedi/components/grid';
+import { Col, Row } from '../../../../tedi/components/layout/grid';
 import Heading, { HeadingProps } from './heading';
 
 /**

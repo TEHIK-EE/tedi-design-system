@@ -1,4 +1,4 @@
-import { ColProps, Direction } from '../../../../tedi/components/grid';
+import { ColProps, Direction } from '../../../../tedi/components/layout/grid';
 import { ColorsFunctional } from '../../commonTypes';
 import { ChoiceInputProps } from '../choice-input.types';
 

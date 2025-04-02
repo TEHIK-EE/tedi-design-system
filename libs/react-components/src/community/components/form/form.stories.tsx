@@ -2,8 +2,8 @@ import { Description, Stories, Title } from '@storybook/addon-docs';
 import { Meta, StoryObj } from '@storybook/react';
 
 import { TextField } from '../../../tedi/components/form/textfield/textfield';
-import { Col, Row } from '../../../tedi/components/grid';
-import { VerticalSpacing } from '../../../tedi/components/vertical-spacing';
+import { Col, Row } from '../../../tedi/components/layout/grid';
+import { VerticalSpacing } from '../../../tedi/components/layout/vertical-spacing';
 import { Button } from '../../index';
 
 const EmptyComponent = () => <p>Empty component</p>;

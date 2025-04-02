@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import React from 'react';
 
-import Print from '../../../../tedi/components/print/print';
+import Print from '../../../../tedi/components/misc/print/print';
 import { useLabels } from '../../../../tedi/providers/label-provider';
 import useLayout, { Layouts } from '../../../helpers/hooks/use-layout';
 import { AllowedHTMLTags } from '../../../helpers/polymorphic/types';

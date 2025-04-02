@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import { forwardRef } from 'react';
 
-import { Label } from '../../label/label';
+import { Label } from '../../content/label/label';
 import styles from './form-label.module.scss';
 
 export interface FormLabelProps {

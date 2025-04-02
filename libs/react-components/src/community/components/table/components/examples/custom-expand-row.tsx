@@ -2,8 +2,8 @@ import { faker } from '@faker-js/faker';
 import { StoryFn, StoryObj } from '@storybook/react';
 import { ColumnDef, createColumnHelper, Row as TSRow } from '@tanstack/react-table';
 
-import { Col, Row } from '../../../../../tedi/components/grid';
-import Print from '../../../../../tedi/components/print/print';
+import { Col, Row } from '../../../../../tedi/components/layout/grid';
+import Print from '../../../../../tedi/components/misc/print/print';
 import { getBackgroundColorClass } from '../../../../helpers/background-colors/background-colors';
 import { IntentionalAny } from '../../../../types';
 import Tag from '../../../tag/tag';

@@ -2,8 +2,8 @@ import cn from 'classnames';
 import React from 'react';
 import AnimateHeight from 'react-animate-height';
 
-import { Col, Row, RowProps } from '../../../tedi/components/grid';
-import Print from '../../../tedi/components/print/print';
+import { Col, Row, RowProps } from '../../../tedi/components/layout/grid';
+import Print from '../../../tedi/components/misc/print/print';
 import { usePrint } from '../../../tedi/helpers';
 import { useLabels } from '../../../tedi/providers/label-provider';
 import Icon from '../icon/icon';
