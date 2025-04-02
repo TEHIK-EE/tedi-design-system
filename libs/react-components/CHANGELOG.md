@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-react-v11.3.0-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.2.2-rc.2...react-11.3.0-rc.1) (2025-04-02)
+
+
+### Features
+
+* **button,link:** Add ability to display flexed Icons for Link, fix long text in Button [#463](https://github.com/TEHIK-EE/tedi-design-system/issues/463) ([#537](https://github.com/TEHIK-EE/tedi-design-system/issues/537)) ([62030e6](https://github.com/TEHIK-EE/tedi-design-system/commit/62030e660ab0eb66afe267ee60501b67f16c9f0a))
+
 # [@tehik-ee/tedi-react-v11.2.2-rc.2](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.2.2-rc.1...react-11.2.2-rc.2) (2025-04-02)
 
 
