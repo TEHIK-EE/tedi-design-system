@@ -16,6 +16,14 @@ export type LinkSize = "default" | "small";
 
 type LinkInputs = {
   /**
+   * External link path.
+   */
+  href?: string;
+  /**
+   * Router link path.
+   */
+  routerLink?: string;
+  /**
    * Color variant of the link.
    * @default default
    */
