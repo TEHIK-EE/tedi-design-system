@@ -13,22 +13,14 @@ export default {
   impots: [],
   argTypes: {
     isSmall: {
-      description:
-        "If true, applies a small size to the InfoButton. \n @default false",
+      description: "If true, applies a small size to the InfoButton.",
       control: {
         type: "boolean",
-      },
-      table: {
-        type: {
-          summary: "boolean",
-          detail: "true \nfalse",
-        },
-        defaultValue: { summary: "false" },
       },
     },
     title: {
       description:
-        "Title for the info button. Will be displayed as default HTML tooltip",
+        "Title for the info button. Will be displayed as default HTML tooltip.",
       control: {
         type: "text",
       },
@@ -37,11 +29,6 @@ export default {
       description: "Aria label for the info button.",
       control: {
         type: "text",
-      },
-      table: {
-        type: {
-          detail: "Aria label for info button",
-        },
       },
     },
   },
