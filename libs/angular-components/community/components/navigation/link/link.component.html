@@ -1,71 +1,19 @@
-<a
-  *ngIf="breakpointInputs().href; else routerLink"
-  [class]="classes()"
-  [attr.href]="breakpointInputs().href"
-  [attr.target]="breakpointInputs().target"
-  [attr.rel]="breakpointInputs().rel"
-  [attr.id]="breakpointInputs().id"
-  [attr.tabIndex]="0"
+<tedi-icon
+  *ngIf="breakpointInputs().iconLeft"
+  [name]="breakpointInputs().iconLeft"
+  [class]="'tedi-link__icon tedi-link__icon--left'"
+/>
+<span
+  [class]="{
+    'tedi-link__text': true,
+    'tedi-link__text--no-underline': !breakpointInputs().underline,
+    'tedi-link__text--small': breakpointInputs().size === 'small',
+  }"
 >
-  <tedi-icon
-    *ngIf="breakpointInputs().iconLeft"
-    [name]="breakpointInputs().iconLeft"
-    [class]="'tedi-link__icon tedi-link__icon--left'"
-  />
-  <span
-    [class]="{
-      'tedi-link__text': true,
-      'tedi-link__text--no-underline': !breakpointInputs().underline,
-      'tedi-link__text--small': breakpointInputs().size === 'small',
-    }"
-  >
-    <ng-container *ngTemplateOutlet="content"></ng-container>
-  </span>
-  <tedi-icon
-    *ngIf="breakpointInputs().iconRight"
-    [name]="breakpointInputs().iconRight"
-    [class]="'tedi-link__icon tedi-link__icon--right'"
-  />
-</a>
-
-<ng-template #routerLink>
-  <a
-    [class]="classes()"
-    [routerLink]="breakpointInputs().routerLink"
-    [queryParams]="breakpointInputs().queryParams"
-    [fragment]="breakpointInputs().fragment"
-    [queryParamsHandling]="breakpointInputs().queryParamsHandling"
-    [preserveFragment]="breakpointInputs().preserveFragment"
-    [skipLocationChange]="breakpointInputs().skipLocationChange"
-    [replaceUrl]="breakpointInputs().replaceUrl"
-    [state]="breakpointInputs().state"
-    [relativeTo]="breakpointInputs().relativeTo"
-    [target]="breakpointInputs().target"
-    [attr.id]="breakpointInputs().id"
-    [attr.tabIndex]="0"
-  >
-    <tedi-icon
-      *ngIf="breakpointInputs().iconLeft"
-      [name]="breakpointInputs().iconLeft"
-      [class]="'tedi-link__icon tedi-link__icon--left'"
-    />
-    <span
-      [class]="{
-        'tedi-link__text': true,
-        'tedi-link__text--no-underline': !breakpointInputs().underline,
-        'tedi-link__text--small': breakpointInputs().size === 'small',
-      }"
-    >
-      <ng-container *ngTemplateOutlet="content"></ng-container>
-    </span>
-    <tedi-icon
-      *ngIf="breakpointInputs().iconRight"
-      [name]="breakpointInputs().iconRight"
-      [class]="'tedi-link__icon tedi-link__icon--right'"
-    />
-  </a>
-</ng-template>
-
-<ng-template #content>
   <ng-content></ng-content>
-</ng-template>
+</span>
+<tedi-icon
+  *ngIf="breakpointInputs().iconRight"
+  [name]="breakpointInputs().iconRight"
+  [class]="'tedi-link__icon tedi-link__icon--right'"
+/>

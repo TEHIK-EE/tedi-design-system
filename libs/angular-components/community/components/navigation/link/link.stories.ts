@@ -18,7 +18,6 @@ const PSEUDO_STATE = ["Default", "Hover", "Active", "Focus"];
 /**
  * <a href="https://www.figma.com/file/jWiRIXhHRxwVdMSimKX2FF/TEDI-Design-System-(draft)?type=design&node-id=2160-25385&m=dev" target="_BLANK">Figma ↗</a><br/>
  * <a href="https://tedi.tehik.ee/1ee8444b7/p/76e0c0-link" target="_BLANK">Zeroheight ↗</a>
- * Link component inputs extend on Angular RouterLink inputs: https://angular.dev/api/router/RouterLink
  */
 
 export default {
@@ -39,7 +38,7 @@ export default {
 export const Default: StoryObj<LinkComponent> = {
   render: (args) => ({
     props: args,
-    template: `<tedi-link ${argsToTemplate(args)}>Link</tedi-link>`,
+    template: `<a tedi-link ${argsToTemplate(args)}>Link</a>`,
   }),
 };
 
@@ -51,13 +50,13 @@ export const Sizes: StoryObj<LinkComponent> = {
         <tedi-row [cols]="2" [class]="'padding-14-16 border-bottom'">
           <tedi-col>Default</tedi-col>
           <tedi-col>
-            <tedi-link ${argsToTemplate(args)}>View result</tedi-link>
+            <a tedi-link ${argsToTemplate(args)}>View result</a>
           </tedi-col>
         </tedi-row>
         <tedi-row [cols]="2" [class]="'padding-14-16'">
           <tedi-col>Small</tedi-col>
           <tedi-col>
-            <tedi-link ${argsToTemplate(args)} [size]="'small'">View result</tedi-link>
+            <a tedi-link ${argsToTemplate(args)} [size]="'small'">View result</a>
           </tedi-col>
         </tedi-row>
       </div>
@@ -70,19 +69,19 @@ export const Colors: StoryObj<LinkComponent> = {
     props: args,
     template: `
       <div style="display: flex; flex-direction: column; gap: 1rem;">
-        <tedi-link ${argsToTemplate(args)}>
+        <a tedi-link ${argsToTemplate(args)}>
           Rebane on väikese koera suurune ja pika koheva sabaga. Joostes hoiab ta saba horisontaalselt. Tema selja karvad on oranžid. Eestis eelistab ta elupaigana metsatukkasid.
-        </tedi-link>
-        <tedi-link ${argsToTemplate(args)} [underline]="false">
+        </a>
+        <a tedi-link ${argsToTemplate(args)} [underline]="false">
           Rebane on väikese koera suurune ja pika koheva sabaga. Joostes hoiab ta saba horisontaalselt. Tema selja karvad on oranžid. Eestis eelistab ta elupaigana metsatukkasid.
-        </tedi-link>
+        </a>
         <div style="display: flex; flex-direction: column; gap: 1rem; background: var(--general-icon-background-brand-primary); border-radius: 4px; padding: 1rem;">
-          <tedi-link ${argsToTemplate(args)} [variant]="'inverted'">
+          <a tedi-link ${argsToTemplate(args)} [variant]="'inverted'">
             Rebane on väikese koera suurune ja pika koheva sabaga. Joostes hoiab ta saba horisontaalselt. Tema selja karvad on oranžid. Eestis eelistab ta elupaigana metsatukkasid.
-          </tedi-link>
-          <tedi-link ${argsToTemplate(args)} [variant]="'inverted'" [underline]="false">
+          </a>
+          <a tedi-link ${argsToTemplate(args)} [variant]="'inverted'" [underline]="false">
             Rebane on väikese koera suurune ja pika koheva sabaga. Joostes hoiab ta saba horisontaalselt. Tema selja karvad on oranžid. Eestis eelistab ta elupaigana metsatukkasid.
-          </tedi-link>
+          </a>
         </div>
       </div>
     `,
@@ -105,13 +104,13 @@ const LinkTemplate: StoryFn<TemplateType> = ({
             <tedi-text [color]="titleColor">{{ state }}</tedi-text>
           </tedi-col>
           <tedi-col>
-            <tedi-link [id]="state" ${argsToTemplate(args)}>View result</tedi-link>
+            <a tedi-link [id]="state" ${argsToTemplate(args)}>View result</a>
           </tedi-col>
           <tedi-col>
-            <tedi-link [id]="state" [iconRight]="'arrow_forward'" ${argsToTemplate(args)}>Continue</tedi-link>
+            <a tedi-link [id]="state" [iconRight]="'arrow_forward'" ${argsToTemplate(args)}>Continue</a>
           </tedi-col>
           <tedi-col>
-            <tedi-link [id]="state" [iconLeft]="'arrow_back'" ${argsToTemplate(args)}>Back</tedi-link>
+            <a tedi-link [id]="state" [iconLeft]="'arrow_back'" ${argsToTemplate(args)}>Back</a>
           </tedi-col>
         </tedi-row>
       </tedi-col>
@@ -122,17 +121,17 @@ const LinkTemplate: StoryFn<TemplateType> = ({
             <tedi-text [color]="titleColor">{{ state }}</tedi-text>
           </tedi-col>
           <tedi-col>
-            <tedi-link [id]="state" [size]="'small'" ${argsToTemplate(args)}>View result</tedi-link>
+            <a tedi-link [id]="state" [size]="'small'" ${argsToTemplate(args)}>View result</a>
           </tedi-col>
           <tedi-col>
-            <tedi-link [id]="state" [iconRight]="'arrow_forward'" [size]="'small'" ${argsToTemplate(args)}>
+            <a tedi-link [id]="state" [iconRight]="'arrow_forward'" [size]="'small'" ${argsToTemplate(args)}>
               Continue
-            </tedi-link>
+            </a>
           </tedi-col>
           <tedi-col>
-            <tedi-link [id]="state" [iconLeft]="'arrow_back'" [size]="'small'" ${argsToTemplate(args)}>
+            <a tedi-link [id]="state" [iconLeft]="'arrow_back'" [size]="'small'" ${argsToTemplate(args)}>
               Back
-            </tedi-link>
+            </a>
           </tedi-col>
         </tedi-row>
       </tedi-col>

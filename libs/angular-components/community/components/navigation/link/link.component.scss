@@ -67,19 +67,17 @@
       );
     }
   }
-}
 
-// TODO: remove ::ng-deep
-// [Link]: CSS fixes #629
-:host ::ng-deep .tedi-link__icon {
-  font-size: inherit !important;
-  color: inherit !important;
+  &__icon {
+    font-size: inherit !important;
+    color: inherit !important;
 
-  &--left {
-    @include mixins.responsive-styles(margin-right, button-sm-inner-spacing);
-  }
+    &--left {
+      @include mixins.responsive-styles(margin-right, button-sm-inner-spacing);
+    }
 
-  &--right {
-    @include mixins.responsive-styles(margin-left, button-sm-inner-spacing);
+    &--right {
+      @include mixins.responsive-styles(margin-left, button-sm-inner-spacing);
+    }
   }
 }
