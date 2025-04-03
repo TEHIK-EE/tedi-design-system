@@ -6,6 +6,7 @@ import {
   ViewEncapsulation,
 } from "@angular/core";
 import { CardPaddingDirective } from "../card-padding.directive";
+import { CardColorsDirective } from "../card-colors.directive";
 
 export type CardHeaderVariant =
   | "primary"
@@ -15,7 +16,7 @@ export type CardHeaderVariant =
   | "brand-dark";
 
 @Component({
-  selector: "tedi-card-header, [tediCardHeader]",
+  selector: "tedi-card-header, [tedi-card-header]",
   standalone: true,
   imports: [],
   templateUrl: "./card-header.component.html",
@@ -28,6 +29,10 @@ export type CardHeaderVariant =
   },
   hostDirectives: [
     {
+      directive: CardColorsDirective,
+      inputs: ["background"],
+    },
+    {
       directive: CardPaddingDirective,
       inputs: ["padding"],
     },
@@ -36,9 +41,8 @@ export type CardHeaderVariant =
 export class CardHeaderComponent {
   /**
    * Variant of the card header.
-   * @default primary
    */
-  variant = input<CardHeaderVariant>("primary");
+  variant = input<CardHeaderVariant>();
 
   modifierClasses = computed(() => {
     return `tedi-card-header--${this.variant()}`;

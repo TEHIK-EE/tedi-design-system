@@ -1,6 +1,38 @@
-<button tediCardHeader class="tedi-accordion-item-header" (click)="toggle()">
+<button
+  [id]="headerId()"
+  tedi-card-header
+  [variant]="variant()"
+  [background]="background()"
+  class="tedi-accordion-item-header"
+  [class.tedi-accordion-item-header--opened]="opened()"
+  [attr.aria-expanded]="opened()"
+  [attr.aria-controls]="contentId()"
+  (click)="toggle()"
+>
   <ng-content></ng-content>
   @if (indicator()) {
-    {{ opened() ? ">" : "<" }}
+    <tedi-icon
+      name="keyboard_arrow_down"
+      class="tedi-accordion-item-header-indicator"
+      [size]="18"
+      [color]="indicatorIconColor()"
+    />
   }
+  @if (toggleButtonText()) {
+    <button
+      tedi-button
+      variant="neutral"
+      class="tedi-accordion-item-header-toggle-btn"
+    >
+      {{ toggleButtonText() }}
+      <tedi-icon
+        name="keyboard_arrow_down"
+        class="tedi-accordion-item-header-indicator"
+        [size]="16"
+        color="brand"
+        [tabIndex]="-1"
+      />
+    </button>
+  }
+  <ng-content select="[tedi-accordion-header-end]"></ng-content>
 </button>

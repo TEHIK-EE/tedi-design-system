@@ -1,3 +1,8 @@
-@if (opened()) {
+<tedi-card-content
+  [background]="background()"
+  [id]="contentId()"
+  role="region"
+  [attr.aria-labelledby]="headerId()"
+>
   <ng-content></ng-content>
-}
+</tedi-card-content>

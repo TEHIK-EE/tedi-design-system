@@ -1,4 +1,5 @@
 import {
+  ChangeDetectionStrategy,
   Component,
   contentChildren,
   inject,
@@ -16,10 +17,19 @@ import { AccordionItemComponent } from "../accordion-item/accordion-item.compone
   styleUrl: "./accordion.component.scss",
 })
 export class AccordionComponent {
+  /**
+   * id-s of items that should be opened by default.
+   */
   defaultOpenItems = input<string[]>();
+  /**
+   * Whether only one accordion item can be opened at once.
+   * @default false
+   */
   singleOpen = input<boolean>(false);
 
-  accordionItems = contentChildren(AccordionItemComponent);
+  accordionItems = contentChildren(AccordionItemComponent, {
+    descendants: true,
+  });
   private injector = inject(Injector);
 
   private openDefaultOpenItems() {

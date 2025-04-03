@@ -1,17 +1,54 @@
-:host {
-  display: contents;
+.tedi-accordion-item {
+  --_accordion-columns: minmax(auto, 200px) auto;
+  --_accordion-header-spacing: 8px;
+  $accordion-card: #{&}__card;
+  & > #{$accordion-card} {
+    $accordion-header: "& > .tedi-accordion-item-header-host > .tedi-accordion-item-header";
+    $accordion-content: "& > .tedi-accordion-item-content > .tedi-card-content";
 
-  // .tedi-accordion-item {
-  //   --_accordion-item-radius: var(--card-radius-rounded-desktop);
-  //   --_accordion-item-border: var(--card-border-primary);
-  //   --_accordion-item-selected-border: var(--card-border-selected);
+    display: grid;
+    grid-template-rows: max-content 0fr;
+    transition: grid-template-rows 0.3s;
 
-  //   border-width: 1px;
-  //   border-radius: var(--_accordion-item-radius);
-  //   border-color: var(--_accordion-item-border);
+    #{$accordion-header} {
+      border-top-left-radius: var(--_card-radius);
+      border-top-right-radius: var(--_card-radius);
+      border-bottom-right-radius: var(--_card-radius);
+      border-bottom-left-radius: var(--_card-radius);
+    }
 
-  //   &--selected {
-  //     border-color: var(--_accordion-item-selected-border);
-  //   }
-  // }
+    #{$accordion-content} {
+      border-top: transparent;
+      border-bottom-left-radius: var(--_card-radius);
+      border-bottom-right-radius: var(--_card-radius);
+    }
+
+    &--expanded {
+      grid-template-rows: max-content 1fr;
+      #{$accordion-header} {
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+    }
+
+    &:has(.tedi-accordion-icon) {
+      grid-template-areas: "accordion-icon-content accordion-header" "accordion-icon-fill accordion-content";
+      grid-template-columns: var(--_accordion-columns);
+
+      #{$accordion-header} {
+        grid-area: accordion-header;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        border-left: transparent;
+      }
+
+      #{$accordion-content} {
+        border-bottom-left-radius: 0;
+        border-left: transparent;
+      }
+      & > .tedi-accordion-item-content {
+        grid-area: accordion-content;
+      }
+    }
+  }
 }
