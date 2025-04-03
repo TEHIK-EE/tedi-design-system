@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-react-v11.3.0-rc.3](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.3.0-rc.2...react-11.3.0-rc.3) (2025-04-03)
+
+
+### Bug Fixes
+
+* **tabs-nav-item:** fix printing [#569](https://github.com/TEHIK-EE/tedi-design-system/issues/569) ([#646](https://github.com/TEHIK-EE/tedi-design-system/issues/646)) ([5a59b7c](https://github.com/TEHIK-EE/tedi-design-system/commit/5a59b7cdc6fcbe6b1946771da6ae32f214f3573a))
+
 # [@tehik-ee/tedi-react-v11.3.0-rc.2](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.3.0-rc.1...react-11.3.0-rc.2) (2025-04-02)
 
 
