@@ -8,7 +8,12 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "resolveJsonModule": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "baseUrl": ".",
+    "paths": {
+      "@tehik-ee/tedi-angular/tedi": ["tedi/index.ts"],
+      "@tehik-ee/tedi-angular/community": ["community/index.ts"]
+    }
   },
   "files": [],
   "include": [],
