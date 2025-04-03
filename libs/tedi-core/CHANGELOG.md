@@ -1,3 +1,17 @@
+# [@tehik-ee/tedi-core-v1.10.1](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.10.0...core-1.10.1) (2025-04-02)
+
+
+### Bug Fixes
+
+* **base-variables:** convert base dimension values from px to rems [#647](https://github.com/TEHIK-EE/tedi-design-system/issues/647) ([d06ffd1](https://github.com/TEHIK-EE/tedi-design-system/commit/d06ffd15b99f476a3ec51e48e02258714c5ddd83))
+
+# [@tehik-ee/tedi-core-v1.10.0](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.9.0...core-1.10.0) (2025-04-02)
+
+
+### Features
+
+* **cards:** Update card story render functions to display HTML [#579](https://github.com/TEHIK-EE/tedi-design-system/issues/579) ([4a7b8a2](https://github.com/TEHIK-EE/tedi-design-system/commit/4a7b8a26f3f0f4e9e0acb1cf83db0a1cf54619da))
+
 # [@tehik-ee/tedi-core-v1.9.0](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.8.2...core-1.9.0) (2025-03-27)
 
 
