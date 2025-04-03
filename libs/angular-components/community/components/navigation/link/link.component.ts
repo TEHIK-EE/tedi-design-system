@@ -15,8 +15,11 @@ import { NgIf } from "@angular/common";
 
 export type LinkVariant = "default" | "inverted";
 export type LinkSize = "default" | "small";
-
-type LinkInputs = {
+export type LinkInputs = {
+  /**
+   * Variant of the link.
+   * @default default
+   */
   variant: LinkVariant;
   /**
    * Size of the link.

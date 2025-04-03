@@ -33,12 +33,123 @@ export default {
       type: ["breakpointSupport"],
     },
   },
+  argTypes: {
+    ngContent: {
+      name: "ng-content",
+      description: "Link text.",
+      control: "text",
+    },
+    variant: {
+      description: "Variant of the link.",
+      control: "select",
+      options: ["default", "inverted"],
+      table: {
+        category: "inputs",
+        type: { summary: "LinkVariant", detail: "default \ninverted" },
+        defaultValue: { summary: "default" },
+      },
+    },
+    size: {
+      description: "Size of the link.",
+      control: "select",
+      options: ["default", "small"],
+      table: {
+        category: "inputs",
+        type: { summary: "LinkSize", detail: "default \nsmall" },
+        defaultValue: { summary: "default" },
+      },
+    },
+    underline: {
+      description: "Does link have underline?",
+      control: "boolean",
+      table: {
+        category: "inputs",
+        type: { summary: "boolean" },
+        defaultValue: { summary: "true" },
+      },
+    },
+    iconLeft: {
+      description: "Name of the icon we want to show on the left.",
+      control: "text",
+      table: {
+        category: "inputs",
+        type: { summary: "string" },
+      },
+    },
+    iconRight: {
+      description: "Name of the icon we want to show on the right.",
+      control: "text",
+      table: {
+        category: "inputs",
+        type: { summary: "string" },
+      },
+    },
+    xs: {
+      description: "Overrides LinkInputs on xs breakpoint (<576px).",
+      table: {
+        category: "breakpoints",
+        type: {
+          summary: "LinkInputs",
+        },
+      },
+    },
+    sm: {
+      description: "Overrides LinkInputs on sm breakpoint (≥576px).",
+      table: {
+        category: "breakpoints",
+        type: {
+          summary: "LinkInputs",
+        },
+      },
+    },
+    md: {
+      description: "Overrides LinkInputs on md breakpoint (≥768px).",
+      table: {
+        category: "breakpoints",
+        type: {
+          summary: "LinkInputs",
+        },
+      },
+    },
+    lg: {
+      description: "Overrides LinkInputs on lg breakpoint (≥992px).",
+      table: {
+        category: "breakpoints",
+        type: {
+          summary: "LinkInputs",
+        },
+      },
+    },
+    xl: {
+      description: "Overrides LinkInputs on xl breakpoint (≥1200px).",
+      table: {
+        category: "breakpoints",
+        type: {
+          summary: "LinkInputs",
+        },
+      },
+    },
+    xxl: {
+      description: "Overrides LinkInputs on xxl breakpoint (≥1400px).",
+      table: {
+        category: "breakpoints",
+        type: {
+          summary: "LinkInputs",
+        },
+      },
+    },
+  },
 } as Meta<LinkComponent>;
 
-export const Default: StoryObj<LinkComponent> = {
-  render: (args) => ({
-    props: args,
-    template: `<a tedi-link ${argsToTemplate(args)}>Link</a>`,
+type LinkType = LinkComponent & { ngContent: string };
+
+export const Default: StoryObj<LinkType> = {
+  args: {
+    ngContent: "Link",
+  },
+  render: ({ ngContent, ...args }) => ({
+    props: { ngContent, ...args },
+    template: `<a tedi-link ${argsToTemplate(args)}>${ngContent}</a>`,
   }),
 };
 

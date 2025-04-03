@@ -5,7 +5,7 @@ import {
   moduleMetadata,
 } from "@storybook/angular";
 import { TextComponent } from "./text.component";
-import { VerticalSpacingDirective } from "libs/angular-components/tedi/directives/vertical-spacing/vertical-spacing.directive";
+import { VerticalSpacingDirective } from "../../../../directives/vertical-spacing/vertical-spacing.directive";
 import { RowComponent } from "../../../layout/grid/row/row.component";
 import { ColComponent } from "../../../layout/grid/col/col.component";
 
