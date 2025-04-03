@@ -21,7 +21,7 @@ export const CardContent = (props: CardContentProps): JSX.Element => {
     children,
     className,
     padding,
-    background,
+    background = 'primary',
     backgroundImage,
     backgroundPosition,
     backgroundSize,
