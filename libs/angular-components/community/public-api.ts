@@ -1,3 +1,3 @@
 export * from "./components/buttons/button/button.component";
 export * from "./components/cards/card";
-export * from "./components/form/feedback-text/feedback-text.component";
+export * from "./components/form";
