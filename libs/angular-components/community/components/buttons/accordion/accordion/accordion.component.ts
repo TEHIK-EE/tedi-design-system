@@ -15,6 +15,7 @@ import { AccordionItemComponent } from "../accordion-item/accordion-item.compone
   imports: [],
   templateUrl: "./accordion.component.html",
   styleUrl: "./accordion.component.scss",
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AccordionComponent {
   /**
