@@ -29,6 +29,11 @@
         border-bottom-right-radius: 0;
         border-bottom-left-radius: 0;
       }
+      & > .tedi-accordion-item-content {
+        animation: accordion-content-overflow-transition;
+        animation-delay: 0.3s;
+        animation-fill-mode: forwards;
+      }
     }
 
     &:has(.tedi-accordion-icon) {
@@ -49,6 +54,12 @@
       & > .tedi-accordion-item-content {
         grid-area: accordion-content;
       }
+    }
+  }
+
+  @keyframes accordion-content-overflow-transition {
+    100% {
+      overflow: visible;
     }
   }
 }
