@@ -7,7 +7,6 @@ export * from "./components/content/list/list-item.component";
 export * from "./components/loader/spinner/spinner.component";
 export * from "./components/layout/grid/col/col.component";
 export * from "./components/layout/grid/row/row.component";
-export * from "./components/buttons/info-button/info-button.component";
 
 // Directives
 export * from "./directives/vertical-spacing/vertical-spacing.directive";

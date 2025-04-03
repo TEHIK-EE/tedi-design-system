@@ -1,5 +1,5 @@
 import { Component, input, InputSignal } from "@angular/core";
-import { IconComponent } from "../../base/icon/icon.component";
+import { IconComponent } from "../../../../tedi/components/base/icon/icon.component";
 
 type InfoButtonInputs = {
   /**
@@ -20,5 +20,5 @@ type InfoButtonInputs = {
 export class InfoButtonComponent implements InfoButtonInputs {
   isSmall = input<boolean>(false);
   title = input<string | undefined>();
-  label = input<string | undefined>(undefined);
+  label = input<string | undefined>();
 }

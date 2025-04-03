@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
 
 import { InfoButtonComponent } from "./info-button.component";
-import { IconComponent } from "../../base/icon/icon.component";
+import { IconComponent } from "../../../../tedi/components/base/icon/icon.component";
 
 describe("InfoButtonComponent", () => {
   let component: InfoButtonComponent;
