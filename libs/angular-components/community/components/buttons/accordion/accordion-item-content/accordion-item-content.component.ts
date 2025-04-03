@@ -1,16 +1,15 @@
 import {
   ChangeDetectionStrategy,
   Component,
-  computed,
   inject,
   input,
   ViewEncapsulation,
 } from "@angular/core";
-import { AccordionItemComponent } from "../accordion-item/accordion-item.component";
 import {
   CardColors,
   CardContentComponent,
 } from "libs/angular-components/community/public-api";
+import { AccordionItemComponent } from "../accordion-item/accordion-item.component";
 
 @Component({
   selector: "tedi-accordion-item-content",
@@ -28,10 +27,6 @@ export class AccordionItemContentComponent {
   background = input<CardColors>();
 
   accordionItem = inject(AccordionItemComponent);
-  headerId = computed(() => {
-    return `tedi-accordion-header-${this.accordionItem.id()}`;
-  });
-  contentId = computed(() => {
-    return `tedi-accordion-content-${this.accordionItem.id()}`;
-  });
+  headerId = this.accordionItem.headerId;
+  contentId = this.accordionItem.contentId;
 }

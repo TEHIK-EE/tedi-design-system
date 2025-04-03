@@ -59,12 +59,8 @@ export class AccordionItemHeaderComponent {
 
   accordionItem = inject(AccordionItemComponent);
   opened = this.accordionItem.opened;
-  headerId = computed(() => {
-    return `tedi-accordion-header-${this.accordionItem.id()}`;
-  });
-  contentId = computed(() => {
-    return `tedi-accordion-content-${this.accordionItem.id()}`;
-  });
+  headerId = this.accordionItem.headerId;
+  contentId = this.accordionItem.contentId;
 
   toggleButtonText = computed(() => {
     if (this.openText() && this.closeText()) {

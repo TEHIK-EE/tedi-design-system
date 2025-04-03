@@ -1,6 +1,7 @@
 import {
   ChangeDetectionStrategy,
   Component,
+  computed,
   input,
   signal,
   ViewEncapsulation,
@@ -30,6 +31,13 @@ export class AccordionItemComponent {
   selected = input<boolean>(false);
 
   opened = signal<boolean>(false);
+
+  headerId = computed(() => {
+    return `tedi-accordion-header-${this.id()}`;
+  });
+  contentId = computed(() => {
+    return `tedi-accordion-content-${this.id()}`;
+  });
 
   open() {
     this.opened.set(true);
