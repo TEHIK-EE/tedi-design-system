@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-react-v11.2.3](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.2.2...react-11.2.3) (2025-04-04)
+
+
+### Bug Fixes
+
+* **icon:** icon sizes to rems, icon loading layout shift fix [#645](https://github.com/TEHIK-EE/tedi-design-system/issues/645) [#647](https://github.com/TEHIK-EE/tedi-design-system/issues/647) ([#652](https://github.com/TEHIK-EE/tedi-design-system/issues/652)) ([1dddc8c](https://github.com/TEHIK-EE/tedi-design-system/commit/1dddc8ce0465391f76e2dc61299b1f634ba164a7))
+
 # [@tehik-ee/tedi-react-v11.2.2](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.2.1...react-11.2.2) (2025-04-02)
 
 
