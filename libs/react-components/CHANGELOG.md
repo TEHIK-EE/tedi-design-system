@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-react-v11.3.0-rc.5](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.3.0-rc.4...react-11.3.0-rc.5) (2025-04-04)
+
+
+### Bug Fixes
+
+* **AccessibilityProvider:** remove community provider, export tedi one [#657](https://github.com/TEHIK-EE/tedi-design-system/issues/657) ([#659](https://github.com/TEHIK-EE/tedi-design-system/issues/659)) ([d97fd9e](https://github.com/TEHIK-EE/tedi-design-system/commit/d97fd9e1f4b9e7180c0754a0d3769540da0444b0))
+
 # [@tehik-ee/tedi-react-v11.3.0-rc.4](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.3.0-rc.3...react-11.3.0-rc.4) (2025-04-04)
 
 
