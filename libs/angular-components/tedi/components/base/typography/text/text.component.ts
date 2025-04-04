@@ -92,6 +92,9 @@ export type TextProps = {
   templateUrl: "./text.component.html",
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [NgTemplateOutlet],
+  host: {
+    "[style.display]": "hostDisplay()",
+  },
 })
 export class TextComponent implements TextProps {
   class = input<string | undefined>(undefined);
@@ -100,6 +103,12 @@ export class TextComponent implements TextProps {
   element = input<TextElement | undefined>("p");
   modifiers = input<TextModifiers[] | TextModifiers | undefined>(undefined);
   color = input<TextColor | undefined>("primary");
+
+  hostDisplay = computed(() => {
+    return this.element() === "span" || this.element() === "label"
+      ? "inline"
+      : "block";
+  });
 
   classes = computed(() => {
     const modifiersValue = this.modifiers();

@@ -70,6 +70,7 @@
     "replace-in-file": "^8.3.0",
     "sass": "^1.86.1",
     "storybook": "^8.4.7",
+    "storybook-addon-pseudo-states": "^4.0.3",
     "ts-node": "^10.9.2",
     "tslib": "^2.5.0"
   },

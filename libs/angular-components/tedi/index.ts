@@ -11,3 +11,6 @@ export * from "./components/layout/grid/row/row.component";
 // Directives
 export * from "./directives/vertical-spacing/vertical-spacing.directive";
 export * from "./directives/vertical-spacing/vertical-spacing-item.directive";
+
+// Services
+export * from "./services/breakpoint/breakpoint.service";

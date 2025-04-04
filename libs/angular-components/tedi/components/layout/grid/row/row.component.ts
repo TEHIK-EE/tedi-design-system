@@ -5,8 +5,8 @@ import {
   input,
 } from "@angular/core";
 import {
-  BreakpointProps,
   BreakpointService,
+  BreakpointInputs,
 } from "../../../../services/breakpoint/breakpoint.service";
 
 export type Cols = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
@@ -14,7 +14,7 @@ export type Gap = 0 | 1 | 2 | 3 | 4 | 5;
 export type JustifyItems = "start" | "end" | "center" | "stretch";
 export type AlignItems = "start" | "end" | "center" | "stretch";
 
-type RowProps = {
+type RowInputs = {
   /**
    * Additional class.
    */
@@ -53,7 +53,7 @@ type RowProps = {
   styleUrl: "./row.component.scss",
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class RowComponent implements BreakpointProps<RowProps> {
+export class RowComponent implements BreakpointInputs<RowInputs> {
   class = input<string>("");
   cols = input<Cols>(12);
   justifyItems = input<JustifyItems>();
@@ -62,17 +62,17 @@ export class RowComponent implements BreakpointProps<RowProps> {
   gapX = input<Gap>();
   gapY = input<Gap>();
 
-  xs = input<RowProps>();
-  sm = input<RowProps>();
-  md = input<RowProps>();
-  lg = input<RowProps>();
-  xl = input<RowProps>();
-  xxl = input<RowProps>();
+  xs = input<RowInputs>();
+  sm = input<RowInputs>();
+  md = input<RowInputs>();
+  lg = input<RowInputs>();
+  xl = input<RowInputs>();
+  xxl = input<RowInputs>();
 
   constructor(private breakpointService: BreakpointService) {}
 
-  classes = computed(() => {
-    const resolvedProps = this.breakpointService.getBreakpointProps<RowProps>({
+  breakpointInputs = computed(() => {
+    return this.breakpointService.getBreakpointInputs<RowInputs>({
       class: this.class(),
       cols: this.cols(),
       justifyItems: this.justifyItems(),
@@ -87,31 +87,35 @@ export class RowComponent implements BreakpointProps<RowProps> {
       xl: this.xl(),
       xxl: this.xxl(),
     });
+  });
 
-    const classList = ["row", `row--cols-${resolvedProps.cols}`];
+  classes = computed(() => {
+    const classList = ["row", `row--cols-${this.breakpointInputs().cols}`];
 
-    if (resolvedProps.justifyItems) {
-      classList.push(`row--justify-items-${resolvedProps.justifyItems}`);
+    if (this.breakpointInputs().justifyItems) {
+      classList.push(
+        `row--justify-items-${this.breakpointInputs().justifyItems}`,
+      );
     }
 
-    if (resolvedProps.alignItems) {
-      classList.push(`row--align-items-${resolvedProps.alignItems}`);
+    if (this.breakpointInputs().alignItems) {
+      classList.push(`row--align-items-${this.breakpointInputs().alignItems}`);
     }
 
-    if (resolvedProps.gap) {
-      classList.push(`g-${resolvedProps.gap}`);
+    if (this.breakpointInputs().gap) {
+      classList.push(`g-${this.breakpointInputs().gap}`);
     }
 
-    if (resolvedProps.gapX) {
-      classList.push(`gx-${resolvedProps.gapX}`);
+    if (this.breakpointInputs().gapX) {
+      classList.push(`gx-${this.breakpointInputs().gapX}`);
     }
 
-    if (resolvedProps.gapY) {
-      classList.push(`gy-${resolvedProps.gapY}`);
+    if (this.breakpointInputs().gapY) {
+      classList.push(`gy-${this.breakpointInputs().gapY}`);
     }
 
-    if (resolvedProps.class) {
-      classList.push(resolvedProps.class);
+    if (this.breakpointInputs().class) {
+      classList.push(this.breakpointInputs().class);
     }
 
     return classList.join(" ");

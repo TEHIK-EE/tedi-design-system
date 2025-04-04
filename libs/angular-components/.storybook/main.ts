@@ -14,6 +14,7 @@ const config: StorybookConfig = {
     "@storybook/addon-essentials",
     "@storybook/addon-interactions",
     "@etchteam/storybook-addon-status",
+    "storybook-addon-pseudo-states",
   ],
   framework: {
     name: "@storybook/angular",

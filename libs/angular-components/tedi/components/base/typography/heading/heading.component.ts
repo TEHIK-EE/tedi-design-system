@@ -30,6 +30,9 @@ export function isHeadingModifier(modifier: string): boolean {
   templateUrl: "./heading.component.html",
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [NgTemplateOutlet],
+  host: {
+    style: "display: block;",
+  },
 })
 export class HeadingComponent implements HeadingProps {
   class = input<string | undefined>(undefined);
