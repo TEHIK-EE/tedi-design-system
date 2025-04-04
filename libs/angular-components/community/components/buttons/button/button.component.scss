@@ -81,7 +81,7 @@ create .tedi-button scoped size variables for every variant
 overrides padding variables for neutal button
 */
 @mixin neutral-button-padding-overrides {
-  &:where(.tedi-btn--sm) {
+  &:where(.tedi-btn--small) {
     @include mixins.responsive-styles(
       --_btn-padding-y,
       button-sm-neutral-padding-y
@@ -91,7 +91,7 @@ overrides padding variables for neutal button
       button-sm-neutral-padding-x
     );
   }
-  &:where(.tedi-btn--md) {
+  &:where(.tedi-btn--medium) {
     @include mixins.responsive-styles(
       --_btn-padding-y,
       button-md-neutral-padding-y
