@@ -1,4 +1,9 @@
-import { Component, input, InputSignal } from "@angular/core";
+import {
+  ChangeDetectionStrategy,
+  Component,
+  input,
+  InputSignal,
+} from "@angular/core";
 import { IconComponent } from "../../../../tedi/components/base/icon/icon.component";
 
 type InfoButtonInputs = {
@@ -12,10 +17,12 @@ type InfoButtonInputs = {
 };
 
 @Component({
+  standalone: true,
   selector: "info-button",
   imports: [IconComponent],
   templateUrl: "./info-button.component.html",
   styleUrl: "./info-button.component.scss",
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class InfoButtonComponent implements InfoButtonInputs {
   isSmall = input<boolean>(false);
