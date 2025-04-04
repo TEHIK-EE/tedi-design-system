@@ -18,7 +18,7 @@ type InfoButtonInputs = {
 
 @Component({
   standalone: true,
-  selector: "info-button",
+  selector: "tedi-info-button",
   imports: [IconComponent],
   templateUrl: "./info-button.component.html",
   styleUrl: "./info-button.component.scss",
