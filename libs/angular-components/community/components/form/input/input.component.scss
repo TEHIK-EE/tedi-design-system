@@ -1,0 +1,71 @@
+@use "@tehik-ee/tedi-core/mixins";
+
+.tedi-input {
+  // @include mixins.responsive-styles(--_inner-spacing, form-field-inner-spacing);
+  @include mixins.responsive-styles(--_border-radius, form-field-radius);
+  @include mixins.responsive-styles(
+    --_font-size,
+    body-regular-size,
+    $exclude: tablet
+  );
+  @include mixins.responsive-styles(
+    --_line-height,
+    body-regular-line-height,
+    $exclude: tablet
+  );
+  @include mixins.responsive-styles(
+    font-family,
+    family-primary,
+    $exclude: tablet
+  );
+  @include mixins.responsive-styles(
+    --_padding-y,
+    form-field-padding-y-md-default
+  );
+  @include mixins.responsive-styles(
+    --_padding-x,
+    form-field-padding-x-md-default
+  );
+  @include mixins.responsive-styles(--_padding-y-sm, form-field-padding-y-sm);
+
+  padding: var(--_padding-y) var(--_padding-x);
+  border-radius: var(--_border-radius);
+  font-size: var(--_font-size);
+  line-height: var(--_line-height);
+  border: 1px solid var(--form-input-border-default);
+  color: var(--form-input-text-filled);
+  &:hover {
+    border-color: var(--form-input-border-hover);
+  }
+  &:active {
+    border-color: var(--form-input-border-active);
+  }
+  &:focus {
+    border-color: var(--form-input-border-focus);
+  }
+  &:disabled {
+    color: var(--form-input-text-disabled);
+    pointer-events: none;
+    background-color: var(--form-input-background-disabled);
+    border-color: var(--form-input-border-disabled);
+  }
+
+  &::placeholder {
+    color: var(--form-input-text-placeholder);
+  }
+
+  &--state {
+    &--error {
+      border-color: var(--form-general-feedback-error-border);
+    }
+    &--success {
+      border-color: var(--form-general-feedback-success-border);
+    }
+  }
+
+  &--size {
+    &--small {
+      padding: var(--_padding-y-sm) var(--_padding-x);
+    }
+  }
+}
