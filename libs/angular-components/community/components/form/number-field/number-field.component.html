@@ -1,0 +1,55 @@
+<label>{{ label() }}</label>
+<div
+  [class]="{
+    'tedi-number-field': true,
+    'tedi-number-field--invalid': isInvalid(),
+    'tedi-number-field--disabled': disabled(),
+    'tedi-number-field--small': size() === 'small',
+  }"
+>
+  <button
+    tedi-button
+    variant="secondary"
+    class="tedi-number-field__button tedi-number-field__button--decrement"
+    [disabled]="decrementDisabled()"
+    (click)="updateValue('decrement')"
+  >
+    <tedi-icon name="remove" size="18" [label]="'Decrement by ' + step()" />
+  </button>
+  <div
+    [class]="{
+      'tedi-number-field__input-wrapper': true,
+      'tedi-number-field__input-wrapper--with-suffix': suffix(),
+      'tedi-number-field__input-wrapper--full-width': fullWidth(),
+    }"
+  >
+    <input
+      type="number"
+      inputmode="numeric"
+      class="tedi-number-field__input"
+      [value]="currentValue()"
+      [min]="min()"
+      [max]="max()"
+      [step]="step()"
+      (input)="handleInputChange($event.target.value)"
+    />
+    <tedi-text
+      *ngIf="suffix()"
+      element="span"
+      modifiers="small"
+      color="tertiary"
+      class="tedi-number-field__suffix"
+    >
+      {{ suffix() }}
+    </tedi-text>
+  </div>
+  <button
+    tedi-button
+    variant="secondary"
+    class="tedi-number-field__button tedi-number-field__button--increment"
+    [disabled]="incrementDisabled()"
+    (click)="updateValue('increment')"
+  >
+    <tedi-icon name="add" size="18" [label]="'Increment by ' + step()" />
+  </button>
+</div>
