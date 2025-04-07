@@ -20,10 +20,12 @@ export default {
     }),
   ],
   argTypes: {
-    ngContent: {
-      name: "ng-content",
+    text: {
       description: "Helper text",
       control: "text",
+      table: {
+        category: "inputs",
+      },
     },
     type: {
       description: "Type of form-helper.",
@@ -52,50 +54,45 @@ export default {
   },
 } as Meta<FeedbackTextComponent>;
 
-type TemplateType = FeedbackTextComponent & { ngContent: string };
-const Template: StoryFn<TemplateType> = ({ ngContent, ...args }) => ({
-  props: { ...args, ngContent },
-  template: `
-        <div tedi-feedback-text ${argsToTemplate(args)}>
-            ${ngContent}
-        </div>
-    `,
+const Template: StoryFn<FeedbackTextComponent> = (args) => ({
+  props: args,
+  template: `<tedi-feedback-text ${argsToTemplate(args)} />`,
 });
 
-export const Default: StoryObj<TemplateType> = {
+export const Default: StoryObj<FeedbackTextComponent> = {
   args: {
-    ngContent: "I am a hint text",
+    text: "I am a hint text",
   },
   render: Template,
 };
 
-export const Error: StoryObj<TemplateType> = {
+export const Error: StoryObj<FeedbackTextComponent> = {
   args: {
-    ngContent: "I am an error text",
+    text: "I am an error text",
     type: "error",
   },
   render: Template,
 };
 
-export const Valid: StoryObj<TemplateType> = {
+export const Valid: StoryObj<FeedbackTextComponent> = {
   args: {
-    ngContent: "I am a valid text",
+    text: "I am a valid text",
     type: "valid",
   },
   render: Template,
 };
 
-export const PositionLeft: StoryObj<TemplateType> = {
+export const PositionLeft: StoryObj<FeedbackTextComponent> = {
   args: {
-    ngContent: "I am a hint text",
+    text: "I am a hint text",
     position: "left",
   },
   render: Template,
 };
 
-export const PositionRight: StoryObj<TemplateType> = {
+export const PositionRight: StoryObj<FeedbackTextComponent> = {
   args: {
-    ngContent: "I am a hint text",
+    text: "I am a hint text",
     position: "right",
   },
   render: Template,

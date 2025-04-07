@@ -1,6 +1,7 @@
 @use "@tehik-ee/tedi-core/mixins";
 
 .tedi-feedback-text {
+  display: block;
   color: var(--general-text-tertiary);
 
   @include mixins.responsive-styles(
