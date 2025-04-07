@@ -62,14 +62,6 @@ export interface NumberFieldInputs {
    * Whether the number field occupies the full width of its container.
    */
   fullWidth: InputSignal<boolean | undefined>;
-  /**
-   * Helper text displayed below the input.
-   */
-  helper: InputSignal<string | undefined>;
-  /**
-   * Indicates whether the input field is required. If set to true, the required indicator (if provided) will be displayed next to the label.
-   */
-  required: InputSignal<boolean | undefined>;
 }
 
 @Component({
@@ -81,7 +73,7 @@ export interface NumberFieldInputs {
   encapsulation: ViewEncapsulation.None,
   imports: [NgIf, ButtonComponent, IconComponent, TextComponent],
 })
-export class NumberFieldComponent implements NumberFieldInputs {
+export class NumberFieldComponent {
   id = input.required<string>();
   label = input.required<string>();
   disabled = input<boolean>();
@@ -92,8 +84,6 @@ export class NumberFieldComponent implements NumberFieldInputs {
   invalid = input<boolean>();
   suffix = input<string>();
   fullWidth = input<boolean>();
-  helper = input<string>();
-  required = input<boolean>();
 
   defaultValue = input<number>(0);
   value = model<number>();
@@ -127,8 +117,9 @@ export class NumberFieldComponent implements NumberFieldInputs {
     this.setValueWithinBounds(nextValue);
   }
 
-  handleInputChange(value: string) {
-    const parsed = parseFloat(value);
+  handleInputChange(event: Event) {
+    const input = event.target as HTMLInputElement;
+    const parsed = parseFloat(input.value);
 
     if (!isNaN(parsed)) {
       this.setValueWithinBounds(parsed);

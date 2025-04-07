@@ -18,6 +18,7 @@ $border-width: 1px;
   }
 
   .tedi-number-field__button {
+    --general-icon-primary: currentcolor;
     width: $input-height;
     height: $input-height;
     border: $border-width solid var(--form-input-border-default);

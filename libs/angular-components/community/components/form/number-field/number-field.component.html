@@ -14,7 +14,7 @@
     [disabled]="decrementDisabled()"
     (click)="updateValue('decrement')"
   >
-    <tedi-icon name="remove" size="18" [label]="'Decrement by ' + step()" />
+    <tedi-icon name="remove" [size]="18" [label]="'Decrement by ' + step()" />
   </button>
   <div
     [class]="{
@@ -31,7 +31,7 @@
       [min]="min()"
       [max]="max()"
       [step]="step()"
-      (input)="handleInputChange($event.target.value)"
+      (input)="handleInputChange($event)"
     />
     <tedi-text
       *ngIf="suffix()"
@@ -50,6 +50,6 @@
     [disabled]="incrementDisabled()"
     (click)="updateValue('increment')"
   >
-    <tedi-icon name="add" size="18" [label]="'Increment by ' + step()" />
+    <tedi-icon name="add" [size]="18" [label]="'Increment by ' + step()" />
   </button>
 </div>
