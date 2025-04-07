@@ -21,7 +21,8 @@ export interface AccessibilityProviderProps {
 }
 
 /**
- * We don't export this separately from the library. It is baked into the <Layout> component.
+ * By default it is baked into the <Layout> component. When u are not using the layout component
+ * you can use this provider to add the accessibility context to your app.
  */
 export const AccessibilityProvider = (props: AccessibilityProviderProps): JSX.Element => {
   const { children } = props;
