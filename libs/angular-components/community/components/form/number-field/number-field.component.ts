@@ -17,6 +17,7 @@ import {
   FeedbackTextComponent,
   FeedbackTextInputs,
 } from "../feedback-text/feedback-text.component";
+import { LabelComponent } from "../label/label.component";
 
 export type NumberFieldSize = "default" | "small";
 export interface NumberFieldInputs {
@@ -90,6 +91,7 @@ export interface NumberFieldInputs {
   encapsulation: ViewEncapsulation.None,
   imports: [
     NgIf,
+    LabelComponent,
     ButtonComponent,
     IconComponent,
     TextComponent,
