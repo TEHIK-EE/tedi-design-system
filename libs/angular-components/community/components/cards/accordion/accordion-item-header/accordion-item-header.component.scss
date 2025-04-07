@@ -14,16 +14,16 @@
     margin-left: auto;
   }
 
-  &-indicator {
+  &__indicator {
     transition: transform 0.3s;
   }
 
-  & &-toggle-btn {
+  & &__toggle {
     --_btn-padding-y: 0;
   }
 
-  &--opened > &-indicator,
-  &--opened > &-toggle-btn > &-indicator {
+  &--opened > &__indicator,
+  &--opened > &__toggle > &__indicator {
     transform: rotateX(180deg);
   }
 }

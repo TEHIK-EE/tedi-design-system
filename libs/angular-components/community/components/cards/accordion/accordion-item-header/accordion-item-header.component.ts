@@ -18,6 +18,8 @@ import {
   IconComponent,
 } from "libs/angular-components/tedi/public-api";
 
+const WHITE_ICON_VARIANTS = ["brand", "brand-dark"];
+
 @Component({
   selector: "tedi-accordion-item-header",
   standalone: true,
@@ -73,7 +75,7 @@ export class AccordionItemHeaderComponent {
     if (this.indicatorColor()) {
       return this.indicatorColor()!;
     }
-    return ["brand", "brand-dark"].includes(this.variant() as CardHeaderVariant)
+    return WHITE_ICON_VARIANTS.includes(this.variant() as CardHeaderVariant)
       ? "white"
       : "brand";
   });

@@ -13,26 +13,25 @@
   @if (indicator()) {
     <tedi-icon
       name="keyboard_arrow_down"
-      class="tedi-accordion-item-header-indicator"
+      class="tedi-accordion-item-header__indicator"
       [size]="18"
       [color]="indicatorIconColor()"
     />
   }
   @if (toggleButtonText()) {
-    <button
+    <span
       tedi-button
       variant="neutral"
-      class="tedi-accordion-item-header-toggle-btn"
+      class="tedi-accordion-item-header__toggle"
     >
       {{ toggleButtonText() }}
       <tedi-icon
         name="keyboard_arrow_down"
-        class="tedi-accordion-item-header-indicator"
+        class="tedi-accordion-item-header__indicator"
         [size]="16"
         color="brand"
-        [tabIndex]="-1"
       />
-    </button>
+    </span>
   }
   <ng-content select="[tedi-accordion-header-end]"></ng-content>
 </button>
