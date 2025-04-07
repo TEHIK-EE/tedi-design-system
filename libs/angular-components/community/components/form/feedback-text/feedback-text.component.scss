@@ -1,3 +1,17 @@
+@use "@tehik-ee/tedi-core/mixins";
+
 .tedi-feedback-text {
+  @include mixins.responsive-styles(--_padding-top, form-field-outer-spacing);
+
   color: var(--general-text-tertiary);
+  padding-top: var(--_padding-top);
+
+  &--type {
+    &--error {
+      color: var(--form-general-feedback-error-text);
+    }
+    &--valid {
+      color: var(--form-general-feedback-success-text);
+    }
+  }
 }

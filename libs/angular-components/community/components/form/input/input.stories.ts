@@ -6,7 +6,7 @@ export default {
   component: InputComponent,
   render: (props) => ({
     props,
-    template: `<input tedi-input [placeholder]="placeholder" [disabled]="disabled" [size]="size" />`,
+    template: `<input tedi-input [placeholder]="placeholder" [disabled]="disabled" [size]="size" [state]="state" />`,
   }),
   args: {
     placeholder: "Enter text",
@@ -23,13 +23,23 @@ export default {
         type: { summary: '"small" | "default"' },
       },
     },
+    state: {
+      control: "radio",
+      options: ["error", "valid", "default"],
+      description: "State of the input.",
+      table: {
+        defaultValue: { summary: "default" },
+        type: { summary: '"error" | "valid" | "default"' },
+      },
+    },
   },
 } as Meta<InputComponent>;
 
 type InputStory = StoryObj<InputComponent>;
 
-export const Small: InputStory = {
+export const Default: InputStory = {
   args: {
     size: "default",
+    state: "default",
   },
 };

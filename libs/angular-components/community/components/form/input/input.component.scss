@@ -1,5 +1,22 @@
 @use "@tehik-ee/tedi-core/mixins";
 
+@mixin textfield-focus($border-color: null) {
+  @if $border-color {
+    &:focus,
+    &:active {
+      border-color: $border-color;
+      // outline: none;
+      box-shadow: inset 0 0 0 1px $border-color;
+    }
+  } @else {
+    &:focus,
+    &:active {
+      // outline: none;
+      box-shadow: none;
+    }
+  }
+}
+
 .tedi-input {
   // @include mixins.responsive-styles(--_inner-spacing, form-field-inner-spacing);
   @include mixins.responsive-styles(--_border-radius, form-field-radius);
@@ -37,12 +54,7 @@
   &:hover {
     border-color: var(--form-input-border-hover);
   }
-  &:active {
-    border-color: var(--form-input-border-active);
-  }
-  &:focus {
-    border-color: var(--form-input-border-focus);
-  }
+  @include textfield-focus(var(--form-input-border-hover));
   &:disabled {
     color: var(--form-input-text-disabled);
     pointer-events: none;
@@ -57,9 +69,11 @@
   &--state {
     &--error {
       border-color: var(--form-general-feedback-error-border);
+      @include textfield-focus(var(--form-general-feedback-error-border));
     }
-    &--success {
+    &--valid {
       border-color: var(--form-general-feedback-success-border);
+      @include textfield-focus(var(--form-general-feedback-success-border));
     }
   }
 

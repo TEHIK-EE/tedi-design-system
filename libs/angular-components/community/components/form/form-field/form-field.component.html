@@ -1,3 +1,11 @@
-<label tedi-label>Something</label>
-<input tedi-input type="text" placeholder="placeholder" />
-<tedi-feedback-text text="hint" type="hint" />
+<label for="test-input" tedi-label [required]="true">Name</label>
+<input
+  teis-button
+  variant="secondary"
+  id="test-input"
+  tedi-input
+  placeholder="Placeholder"
+/>
+<tedi-feedback-text feedbackText="Feedback valid text" type="valid" />
+<tedi-feedback-text feedbackText="Feedback error text" type="error" />
+<tedi-feedback-text feedbackText="Feedback hint text" type="hint" />

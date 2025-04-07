@@ -6,8 +6,8 @@ import {
   ViewEncapsulation,
 } from "@angular/core";
 
-export type inputSize = "small" | "default";
-export type inputState = "valid" | "error" | "default";
+export type InputSize = "small" | "default";
+export type InputState = "valid" | "error" | "default";
 
 @Component({
   selector: "[tedi-input]",
@@ -26,13 +26,18 @@ export class InputComponent {
    * Size of the input.
    * @default default
    */
-  size = input<inputSize>("default");
+  size = input<InputSize>("default");
+
+  /**
+   * State of the input.
+   * @default default
+   */
+  state = input<InputState>("default");
 
   modifierClasses = computed(() => {
     const modifiers = [];
-    if (this.size()) {
-      modifiers.push(`tedi-input--size--${this.size()}`);
-    }
+    if (this.size()) modifiers.push(`tedi-input--size--${this.size()}`);
+    if (this.state()) modifiers.push(`tedi-input--state--${this.state()}`);
     return modifiers.join(" ");
   });
 }
