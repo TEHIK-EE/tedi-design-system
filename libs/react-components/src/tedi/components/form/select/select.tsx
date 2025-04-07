@@ -380,7 +380,7 @@ export const Select = forwardRef<SelectInstance<ISelectOption, boolean, IGrouped
             onClick={handleClick}
             onKeyDown={handleKeyDown}
             className={styles['tedi-select__multi-value-clear']}
-            title={`${getLabel('remove')} ${data.label}`}
+            title={getLabel('clear')}
           />
           <Separator color="primary" axis="vertical" className={styles['tedi-select__separator']} />
         </>

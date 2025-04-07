@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import { StoryFn } from '@storybook/react';
 import { OptionProps } from 'react-select';
 

@@ -86,10 +86,7 @@ div .tedi-select__menu {
   @include mixins.print-grayscale;
 }
 
-.tedi-select__menu .tedi-select__menu-list {
-  padding: 0;
-}
-
+.tedi-select__menu .tedi-select__menu-list,
 .tedi-select__menu .tedi-select__menu-list-inner {
   padding: 0;
 }
@@ -145,7 +142,7 @@ div .tedi-select__menu {
 }
 
 .tedi-select--small {
-  & .tedi-select__control {
+  .tedi-select__control {
     min-height: $input-height-small;
 
     @include mixins.responsive-styles(font-size, body-small-regular-size);
@@ -163,12 +160,8 @@ div .tedi-select__menu {
     }
   }
 
-  & .tedi-select__input {
-    padding-top: 0;
-    padding-bottom: 0;
-  }
-
-  & .tedi-select__arrow {
+  .tedi-select__input,
+  .tedi-select__arrow {
     padding: 0;
   }
 }
