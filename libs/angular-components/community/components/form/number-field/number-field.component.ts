@@ -3,65 +3,82 @@ import {
   Component,
   computed,
   input,
-  InputSignal,
   model,
   ViewEncapsulation,
 } from "@angular/core";
 import { ButtonComponent } from "../../buttons/button/button.component";
-import { IconComponent, TextComponent } from "@tehik-ee/tedi-angular/tedi";
+import {
+  IconComponent,
+  InputsWithSignals,
+  TextComponent,
+} from "@tehik-ee/tedi-angular/tedi";
 import { NgIf } from "@angular/common";
+import {
+  FeedbackTextComponent,
+  FeedbackTextInputs,
+} from "../feedback-text/feedback-text.component";
 
 export type NumberFieldSize = "default" | "small";
 export interface NumberFieldInputs {
   /**
    * The unique identifier for the input element that this label is associated with. This ID should match the input element's id attribute to ensure accessibility.
    */
-  id: InputSignal<string>;
+  id: string;
   /**
    * The text content of the label that describes the input field.
    */
-  label: InputSignal<string>;
+  label: string;
   /**
-   * Is input disabled?
+   * Initial value of the input field.
+   * @default 0
    */
-  disabled: InputSignal<boolean | undefined>;
+  defaultValue: number;
   /**
    * Controlled value of the input field.
    */
-  value: InputSignal<number | undefined>;
+  value?: number;
   /**
-   * Initial value of the input field.
+   * Is input disabled?
    */
-  defaultValue: InputSignal<number>;
+  disabled?: boolean;
+  /**
+   * Indicates whether the input field is required. If set to true, the required indicator will be displayed next to the label.
+   */
+  required?: boolean;
   /**
    * Minimum allowed value. Disables decrementing below this value and restricts manual input.
    */
-  min: InputSignal<number | undefined>;
+  min?: number;
   /**
    * Maximum allowed value. Disables incrementing above this value and restricts manual input.
    */
-  max: InputSignal<number | undefined>;
+  max?: number;
   /**
    * Step size for incrementing or decrementing the value.
    * @default 1
    */
-  step: InputSignal<number>;
+  step: number;
   /**
    * Size of the number field.
+   * @default default
    */
-  size: InputSignal<NumberFieldSize>;
+  size: NumberFieldSize;
   /**
    * Marks the field as invalid for validation purposes.
    */
-  invalid: InputSignal<boolean | undefined>;
+  invalid?: boolean;
   /**
    * Text displayed after the input value, typically a unit.
    */
-  suffix: InputSignal<string | undefined>;
+  suffix?: string;
   /**
    * Whether the number field occupies the full width of its container.
    */
-  fullWidth: InputSignal<boolean | undefined>;
+  fullWidth?: boolean;
+  /**
+   * FeedbackText component inputs.
+   */
+  feedbackText?: FeedbackTextInputs;
 }
 
 @Component({
@@ -71,12 +88,23 @@ export interface NumberFieldInputs {
   styleUrl: "./number-field.component.scss",
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
-  imports: [NgIf, ButtonComponent, IconComponent, TextComponent],
+  imports: [
+    NgIf,
+    ButtonComponent,
+    IconComponent,
+    TextComponent,
+    FeedbackTextComponent,
+  ],
 })
-export class NumberFieldComponent {
+export class NumberFieldComponent
+  implements InputsWithSignals<NumberFieldInputs>
+{
   id = input.required<string>();
   label = input.required<string>();
+  defaultValue = input<number>(0);
+  value = model<number>();
   disabled = input<boolean>();
+  required = input<boolean>();
   min = input<number>();
   max = input<number>();
   step = input<number>(1);
@@ -84,9 +112,7 @@ export class NumberFieldComponent {
   invalid = input<boolean>();
   suffix = input<string>();
   fullWidth = input<boolean>();
-
-  defaultValue = input<number>(0);
-  value = model<number>();
+  feedbackText = input<FeedbackTextInputs>();
 
   readonly currentValue = computed(() => this.value() ?? this.defaultValue());
 

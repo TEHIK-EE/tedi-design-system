@@ -53,3 +53,9 @@
     <tedi-icon name="add" [size]="18" [label]="'Increment by ' + step()" />
   </button>
 </div>
+<tedi-feedback-text
+  *ngIf="feedbackText()"
+  [text]="feedbackText().text"
+  [type]="feedbackText().type"
+  [position]="feedbackText().position"
+/>
