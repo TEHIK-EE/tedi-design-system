@@ -15,7 +15,7 @@
             "compodocArgs": ["-e", "json", "-d", "."],
             "port": 6006,
             "styles": [
-              "../tedi-core/src/index",
+              "styles/index",
               "../tedi-core/src/tedi-storybook-styles"
             ],
             "experimentalZoneless": true
@@ -29,7 +29,7 @@
             "compodocArgs": ["-e", "json", "-d", "."],
             "outputDir": "dist/storybook-static",
             "styles": [
-              "../tedi-core/src/index",
+              "styles/index",
               "../tedi-core/src/tedi-storybook-styles"
             ],
             "experimentalZoneless": true

@@ -103,22 +103,6 @@ export const States: Story = {
         </Row>
         <Row>
           <Col lg={2} md={12} className="display-flex align-items-center gap-3">
-            <Text modifiers="bold">Hint</Text>
-          </Col>
-          <Col>
-            <NumberField {...args} helper={{ id: 'example-3', text: 'Feedback text' }}></NumberField>
-          </Col>
-        </Row>
-        <Row>
-          <Col lg={2} md={12} className="display-flex align-items-center gap-3">
-            <Text modifiers="bold">Error</Text>
-          </Col>
-          <Col>
-            <NumberField {...args} helper={{ id: 'example-3', text: 'Feedback text', type: 'error' }}></NumberField>
-          </Col>
-        </Row>
-        <Row>
-          <Col lg={2} md={12} className="display-flex align-items-center gap-3">
             <Text modifiers="bold">Min value</Text>
           </Col>
           <Col>
@@ -141,11 +125,30 @@ export const States: Story = {
             <NumberField {...args} defaultValue={1} disabled></NumberField>
           </Col>
         </Row>
+        <Row>
+          <Col lg={2} md={12} className="display-flex align-items-center gap-3">
+            <Text modifiers="bold">Error</Text>
+          </Col>
+          <Col>
+            <NumberField {...args} helper={{ id: 'example-3', text: 'Feedback text', type: 'error' }}></NumberField>
+          </Col>
+        </Row>
       </VerticalSpacing>
     );
   },
 };
 
+export const WithHint: Story = {
+  args: {
+    id: 'example-1',
+    label: 'Label',
+    helper: {
+      id: 'example-3',
+      text: 'Hint text',
+      type: 'hint',
+    },
+  },
+};
 export const Decimal: Story = {
   args: {
     id: 'example-1',
