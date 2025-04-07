@@ -44,6 +44,14 @@ application.
 import '@tehik-ee/tedi-react/index.css';
 ```
 
+#### 3. If u are not using Layout component u should wrap your application with AccessibilityProvider
+
+```tsx
+<AccessibilityProvider>
+  <YourApp />
+</AccessibilityProvider>
+```
+
 ### Dayjs
 
 Some tedi-react components depend on Day.js and MUI X.

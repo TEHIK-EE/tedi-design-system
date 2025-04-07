@@ -1,3 +1,17 @@
+# [@tehik-ee/tedi-react-v11.3.0-rc.5](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.3.0-rc.4...react-11.3.0-rc.5) (2025-04-04)
+
+
+### Bug Fixes
+
+* **AccessibilityProvider:** remove community provider, export tedi one [#657](https://github.com/TEHIK-EE/tedi-design-system/issues/657) ([#659](https://github.com/TEHIK-EE/tedi-design-system/issues/659)) ([d97fd9e](https://github.com/TEHIK-EE/tedi-design-system/commit/d97fd9e1f4b9e7180c0754a0d3769540da0444b0))
+
+# [@tehik-ee/tedi-react-v11.3.0-rc.4](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.3.0-rc.3...react-11.3.0-rc.4) (2025-04-04)
+
+
+### Bug Fixes
+
+* **icon:** icon sizes to rems, icon loading layout shift fix [#645](https://github.com/TEHIK-EE/tedi-design-system/issues/645) [#647](https://github.com/TEHIK-EE/tedi-design-system/issues/647) ([#652](https://github.com/TEHIK-EE/tedi-design-system/issues/652)) ([1dddc8c](https://github.com/TEHIK-EE/tedi-design-system/commit/1dddc8ce0465391f76e2dc61299b1f634ba164a7))
+
 ### Bug Fixes
 
 - **icon:** icon sizes to rems, icon loading layout shift fix [#645](https://github.com/TEHIK-EE/tedi-design-system/issues/645) [#647](https://github.com/TEHIK-EE/tedi-design-system/issues/647) ([#652](https://github.com/TEHIK-EE/tedi-design-system/issues/652)) ([1dddc8c](https://github.com/TEHIK-EE/tedi-design-system/commit/1dddc8ce0465391f76e2dc61299b1f634ba164a7))
