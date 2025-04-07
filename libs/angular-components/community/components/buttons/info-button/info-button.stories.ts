@@ -10,7 +10,13 @@ import { InfoButtonComponent } from "./info-button.component";
 
 export default {
   title: "Community Angular/Buttons/InfoButton",
-  impots: [],
+  component: InfoButtonComponent,
+  render: (props) => ({
+    props,
+    template: `
+        <button tedi-info-button [title]="title" [ariaLabel]="label"></button>
+      `,
+  }),
   argTypes: {
     isSmall: {
       description: "If true, applies a small size to the InfoButton.",
@@ -25,14 +31,13 @@ export default {
         type: "text",
       },
     },
-    label: {
+    ariaLabel: {
       description: "Aria label for the info button.",
       control: {
         type: "text",
       },
     },
   },
-  component: InfoButtonComponent,
 } as Meta<InfoButtonComponent>;
 
 export const Default: StoryObj<InfoButtonComponent> = {
@@ -42,6 +47,6 @@ export const Default: StoryObj<InfoButtonComponent> = {
   args: {
     isSmall: false,
     title: "Info Button title",
-    label: "Aria label for info button",
+    ariaLabel: "Aria label for info button",
   },
 };

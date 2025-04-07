@@ -11,21 +11,26 @@ type InfoButtonInputs = {
    * If true, applies a small size to the InfoButton.
    * @default false
    */
-  isSmall?: InputSignal<boolean>;
-  title?: InputSignal<string | undefined>;
-  ariaLabel?: InputSignal<string | undefined>;
+  isSmall: InputSignal<boolean | undefined>;
+  title: InputSignal<string | undefined>;
+  ariaLabel: InputSignal<string | undefined>;
 };
 
 @Component({
   standalone: true,
-  selector: "tedi-info-button",
+  selector: "button[tedi-info-button]",
   imports: [IconComponent],
   templateUrl: "./info-button.component.html",
   styleUrl: "./info-button.component.scss",
   changeDetection: ChangeDetectionStrategy.OnPush,
+  host: {
+    "[attr.role]": "button",
+    "[attr.aria-label]": "ariaLabel()",
+    "[attr.title]": "title()",
+  },
 })
 export class InfoButtonComponent implements InfoButtonInputs {
-  isSmall = input<boolean>(false);
-  title = input<string | undefined>();
-  label = input<string | undefined>();
+  isSmall = input<boolean>();
+  title = input<string>();
+  ariaLabel = input<string>();
 }
