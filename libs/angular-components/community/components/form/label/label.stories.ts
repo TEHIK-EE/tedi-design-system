@@ -21,9 +21,7 @@ export default {
       description: "Defines the size of the label.",
       table: {
         defaultValue: { summary: "default" },
-        type: {
-          summary: '"small" | "default"',
-        },
+        type: { summary: "LabelSize", detail: "default \nsmall" },
       },
     },
     required: {
