@@ -47,3 +47,5 @@ export * from './helpers';
 
 export * from './providers/label-provider';
 export * from './providers/style-provider/style-provider';
+export * from './providers/accessibility-provider/accessibility-provider';
+export * from './providers/accessibility-provider/use-declare-loader';
