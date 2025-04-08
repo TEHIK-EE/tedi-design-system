@@ -1,0 +1,45 @@
+$colors: (
+  // Primary
+  'primary-main',
+  'primary-active',
+  'primary-active-subtle',
+  'primary-highlight',
+  'primary-highlight-subtle',
+  // Accent
+  'accent-main',
+  'accent-highlight',
+  // Foreground
+  'bg-default',
+  'bg-muted',
+  'bg-subtle',
+  'bg-disabled',
+  'bg-inverted',
+  'bg-inverted-contrast',
+  // Shades
+  'black',
+  'white',
+  // Functional colors
+  'positive-main',
+  'positive-active',
+  'positive-highlight',
+  'important-main',
+  'important-active',
+  'important-highlight',
+  'info-main',
+  'info-active',
+  'info-highlight',
+  'warning-main',
+  'warning-highlight',
+  // Transparent
+  'transparent'
+);
+
+@each $color in $colors {
+  .#{$color} {
+    background-color: var(--color-#{$color});
+
+    @media print {
+      background-color: var(--color-bg-default);
+    }
+  }
+}
