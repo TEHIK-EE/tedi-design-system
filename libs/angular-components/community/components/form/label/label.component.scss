@@ -3,19 +3,29 @@
 .tedi-label {
   --_color-error: var(--form-general-feedback-error-border);
   --_label-color: var(--general-text-secondary);
-  @include mixins.responsive-styles(--_label-size, body-regular-size);
+
+  font-size: var(--_label-size);
+  color: var(--_label-color);
+
+  @include mixins.responsive-styles(
+    --_label-size,
+    body-regular-size,
+    $exclude: tablet
+  );
+
   @include mixins.responsive-styles(
     font-family,
     family-primary,
     $exclude: tablet
   );
 
-  font-size: var(--_label-size);
-  color: var(--_label-color);
-
   &--size {
     &--small {
-      @include mixins.responsive-styles(--_label-size, body-small-regular-size);
+      @include mixins.responsive-styles(
+        --_label-size,
+        body-small-regular-size,
+        $exclude: tablet
+      );
     }
   }
 

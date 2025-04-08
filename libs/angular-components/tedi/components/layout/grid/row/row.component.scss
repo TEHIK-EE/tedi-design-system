@@ -13,7 +13,7 @@ $justify-items: ("start", "end", "center", "stretch");
 $align-items: ("start", "end", "center", "stretch");
 
 :host {
-  display: contents;
+  display: block;
 }
 
 .row {

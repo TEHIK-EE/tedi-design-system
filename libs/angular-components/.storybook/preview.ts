@@ -4,7 +4,6 @@ const preview: Preview = {
   parameters: {
     viewMode: "docs",
     backgrounds: {
-      default: "default",
       values: [{ name: "brand", value: "var(--primary-600)" }],
     },
     docs: {
