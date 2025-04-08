@@ -2,8 +2,6 @@
 
 :host {
   --general-icon-primary: rgb(0, 90, 163);
-  @include mixins.responsive-styles(width, button-xs-icon-size);
-  @include mixins.responsive-styles(height, button-xs-icon-size);
   cursor: pointer;
   background-color: transparent;
   vertical-align: bottom;
@@ -12,6 +10,9 @@
   justify-content: center;
   align-items: center;
   border-radius: var(--button-radius-default, 360px);
+
+  @include mixins.responsive-styles(width, button-xs-icon-size);
+  @include mixins.responsive-styles(height, button-xs-icon-size);
 
   &:hover {
     background: var(--button-main-neutral-icon-only-background-hover, #e7f0f6);
