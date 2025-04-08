@@ -1,0 +1,26 @@
+.tedi-accordion-icon {
+  display: contents;
+  --_card-bg: var(--card-background-secondary);
+
+  &__content {
+    display: block;
+    padding: var(--_card-padding-top) var(--_card-padding-right)
+      var(--_card-padding-bottom) var(--_card-padding-left);
+    grid-area: accordion-icon-content;
+    background-color: var(--_card-bg);
+    border: 1px solid var(--_card-border);
+    border-bottom: transparent;
+    border-top-left-radius: var(--_card-radius);
+    border-bottom-left-radius: var(--_card-radius);
+  }
+
+  &__fill {
+    display: block;
+    grid-area: accordion-icon-fill;
+    background-color: var(--_card-bg);
+    border: 1px solid var(--_card-border);
+    border-top: transparent;
+    border-bottom-left-radius: var(--_card-radius);
+    margin-top: -4px;
+  }
+}
