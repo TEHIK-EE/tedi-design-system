@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-react-v11.3.0-rc.6](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.3.0-rc.5...react-11.3.0-rc.6) (2025-04-08)
+
+
+### Features
+
+* **select:** TEDI Select development [#333](https://github.com/TEHIK-EE/tedi-design-system/issues/333) ([#670](https://github.com/TEHIK-EE/tedi-design-system/issues/670)) ([7d1c768](https://github.com/TEHIK-EE/tedi-design-system/commit/7d1c7684e10b91baa2ca969d696e063f273da51f))
+
 # [@tehik-ee/tedi-react-v11.3.0-rc.5](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.3.0-rc.4...react-11.3.0-rc.5) (2025-04-04)
 
 
