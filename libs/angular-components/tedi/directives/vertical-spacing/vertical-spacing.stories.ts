@@ -5,6 +5,10 @@ export class Weekdays extends VerticalSpacingDirective {
   weekdays: { name: string; dayNumber: number }[] = [];
 }
 
+/**
+ * <a href="https://zeroheight.com/1ee8444b7/p/759180-verticalspacing" target="_BLANK">Zeroheight ↗</a>
+ **/
+
 export default {
   title: "Tedi-Ready Angular/Helpers/VerticalSpacing/VerticalSpacing",
   component: VerticalSpacingDirective,
@@ -54,7 +58,7 @@ export const Default: StoryObj<VerticalSpacingDirective> = {
 };
 
 export const NgFor: StoryObj<VerticalSpacingDirective & Weekdays> = {
-  storyName: "Example: Using with *ngFor",
+  name: "Example: Using with *ngFor",
   args: {
     tediVerticalSpacing: 1.5,
     weekdays: [

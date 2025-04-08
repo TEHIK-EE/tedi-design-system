@@ -12,12 +12,12 @@ export const BREAKPOINTS = {
 
 export type Breakpoint = keyof typeof BREAKPOINTS;
 
-export type BreakpointProps<TProps> = {
-  [K in keyof TProps]: InputSignal<TProps[K]>;
-} & Partial<Record<Breakpoint, InputSignal<TProps | undefined>>>;
+export type BreakpointInputs<TInputs> = {
+  [K in keyof TInputs]: InputSignal<TInputs[K]>;
+} & Partial<Record<Breakpoint, InputSignal<TInputs | undefined>>>;
 
-export type BreakpointPropsWithoutSignals<TProps> = TProps &
-  Partial<Record<Breakpoint, TProps>>;
+export type BreakpointInputsWithoutSignals<TInputs> = TInputs &
+  Partial<Record<Breakpoint, TInputs>>;
 
 @Injectable({
   providedIn: "root",
@@ -48,13 +48,9 @@ export class BreakpointService {
       });
   }
 
-  getBreakpoint() {
-    return this.currentBreakpoint();
-  }
-
-  getBreakpointProps<TProps>(
-    props: BreakpointPropsWithoutSignals<TProps>,
-  ): TProps {
+  getBreakpointInputs<TInputs>(
+    inputs: BreakpointInputsWithoutSignals<TInputs>,
+  ): TInputs {
     const breakpointsOrder: Breakpoint[] = [
       "xs",
       "sm",
@@ -64,30 +60,30 @@ export class BreakpointService {
       "xxl",
     ];
 
-    let resolvedProps: Partial<TProps> = {};
+    let resolvedInputs: Partial<TInputs> = {};
 
-    Object.keys(props).forEach((key) => {
+    Object.keys(inputs).forEach((key) => {
       if (!breakpointsOrder.includes(key as Breakpoint)) {
-        const baseProp = props[key as keyof TProps];
-        resolvedProps[key as keyof TProps] = baseProp;
+        const baseInput = inputs[key as keyof TInputs];
+        resolvedInputs[key as keyof TInputs] = baseInput;
       }
     });
 
     const currentBreakpoint = this.currentBreakpoint();
 
     if (!currentBreakpoint) {
-      return resolvedProps as TProps;
+      return resolvedInputs as TInputs;
     }
 
     for (let i = 0; i <= breakpointsOrder.indexOf(currentBreakpoint); i++) {
       const breakpoint = breakpointsOrder[i];
-      const breakpointProps = props[breakpoint];
+      const breakpointInputs = inputs[breakpoint];
 
-      if (breakpointProps) {
-        resolvedProps = { ...resolvedProps, ...breakpointProps };
+      if (breakpointInputs) {
+        resolvedInputs = { ...resolvedInputs, ...breakpointInputs };
       }
     }
 
-    return resolvedProps as TProps;
+    return resolvedInputs as TInputs;
   }
 }
