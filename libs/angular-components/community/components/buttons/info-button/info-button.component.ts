@@ -4,7 +4,7 @@ import {
   input,
   InputSignal,
 } from "@angular/core";
-import { IconComponent } from "../../../../tedi/components/base/icon/icon.component";
+import { IconComponent } from "@tehik-ee/tedi-angular/tedi";
 
 type InfoButtonInputs = {
   /**
