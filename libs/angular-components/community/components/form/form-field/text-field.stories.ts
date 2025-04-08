@@ -1,11 +1,10 @@
 import { moduleMetadata, StoryObj, Meta } from "@storybook/angular";
-import { TextFieldComponent } from "./text-field.component";
-import { FormFieldComponent } from "../form-field/form-field.component";
+import { FormFieldComponent } from "./form-field.component";
 import { InputComponent } from "../input/input.component";
 import { FeedbackTextComponent } from "../feedback-text/feedback-text.component";
 
 export default {
-  title: "Community Angular/Form/TextField",
+  title: "Community Angular/Form/FormField",
   component: FormFieldComponent,
   decorators: [
     moduleMetadata({
@@ -22,9 +21,9 @@ export default {
     disabled: { control: "boolean" },
     state: { control: "radio", options: ["error", "valid", "default"] },
   },
-} as Meta<TextFieldComponent>;
+} as Meta<FormFieldComponent>;
 
-type Story = StoryObj<TextFieldComponent>;
+type Story = StoryObj<FormFieldComponent>;
 
 export const Default: Story = {
   render: (args) => ({
@@ -40,7 +39,6 @@ export const Default: Story = {
         } @else if (hintText) {
           <tedi-feedback-text type="hint" [text]="hintText" />
         }
-
       </tedi-form-field>
     `,
   }),

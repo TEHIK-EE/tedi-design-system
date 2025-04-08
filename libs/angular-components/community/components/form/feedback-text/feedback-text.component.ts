@@ -18,7 +18,6 @@ export type FeedbackTextType = "valid" | "error" | "hint";
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
     "[class.tedi-feedback-text]": "true",
-    "[class.text-small]": "true",
     "[class]": "modifierClasses()",
   },
 })

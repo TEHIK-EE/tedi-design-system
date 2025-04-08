@@ -1,28 +1,28 @@
 @use "@tehik-ee/tedi-core/mixins";
 
 .tedi-label {
-  --_color-error: var(--form-general-feedback-error-border);
   --_label-color: var(--general-text-secondary);
-  @include mixins.responsive-styles(--_label-size, body-regular-size);
+  --_required_asterisk_color: var(--form-general-feedback-error-border);
+  @include mixins.responsive-styles(--_font-size, body-regular-size);
   @include mixins.responsive-styles(
     font-family,
     family-primary,
     $exclude: tablet
   );
 
-  font-size: var(--_label-size);
+  font-size: var(--_font-size);
   color: var(--_label-color);
 
   &--size {
     &--small {
-      @include mixins.responsive-styles(--_label-size, body-small-regular-size);
+      @include mixins.responsive-styles(--_font-size, body-small-regular-size);
     }
   }
 
   &--required {
     &::after {
       content: " *";
-      color: var(--_color-error);
+      color: var(--_required_asterisk_color);
     }
   }
 }

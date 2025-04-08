@@ -1,17 +1,33 @@
 @use "@tehik-ee/tedi-core/mixins";
 
 .tedi-feedback-text {
+  --_font-weight: var(--font-weight-regular);
+  --_color: var(--general-text-secondary);
+
+  @include mixins.responsive-styles(
+    --_line-height,
+    body-small-regular-line-height
+  );
+  @include mixins.responsive-styles(--_font-size, body-small-regular-size);
+  @include mixins.responsive-styles(
+    --_font-family,
+    family-primary,
+    $exclude: tablet
+  );
   @include mixins.responsive-styles(--_padding-top, form-field-outer-spacing);
 
-  color: var(--general-text-tertiary);
+  font-family: var(--_font-family);
+  font-weight: var(--_font-weight);
+  font-size: var(--_font-size);
+  color: var(--_color);
   padding-top: var(--_padding-top);
 
   &--type {
     &--error {
-      color: var(--form-general-feedback-error-text);
+      --_color: var(--form-general-feedback-error-text);
     }
     &--valid {
-      color: var(--form-general-feedback-success-text);
+      --_color: var(--form-general-feedback-success-text);
     }
   }
 }

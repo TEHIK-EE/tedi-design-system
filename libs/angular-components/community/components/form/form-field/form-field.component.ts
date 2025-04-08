@@ -7,7 +7,6 @@ import {
 @Component({
   selector: "tedi-form-field",
   standalone: true,
-  imports: [],
   template: "<ng-content />",
   styleUrl: "./form-field.component.scss",
   encapsulation: ViewEncapsulation.None,

@@ -18,7 +18,6 @@
 }
 
 .tedi-input {
-  // @include mixins.responsive-styles(--_inner-spacing, form-field-inner-spacing);
   @include mixins.responsive-styles(--_border-radius, form-field-radius);
   @include mixins.responsive-styles(
     --_font-size,
@@ -43,43 +42,47 @@
     --_padding-x,
     form-field-padding-x-md-default
   );
-  @include mixins.responsive-styles(--_padding-y-sm, form-field-padding-y-sm);
+  --_border-color: var(--form-input-border-default);
+  --_color: var(--form-input-text-filled);
 
   padding: var(--_padding-y) var(--_padding-x);
   border-radius: var(--_border-radius);
   font-size: var(--_font-size);
   line-height: var(--_line-height);
-  border: 1px solid var(--form-input-border-default);
-  color: var(--form-input-text-filled);
+  border: 1px solid;
+  border-color: var(--_border-color);
+  color: var(--_color);
   &:hover {
-    border-color: var(--form-input-border-hover);
+    --_border-color: var(--form-input-border-hover);
   }
   @include textfield-focus(var(--form-input-border-hover));
   &:disabled {
-    color: var(--form-input-text-disabled);
+    --_background-color: var(--form-input-background-disabled);
+    --_color: var(--form-input-text-disabled);
+    --_border-color: var(--form-input-border-disabled);
+
     pointer-events: none;
-    background-color: var(--form-input-background-disabled);
-    border-color: var(--form-input-border-disabled);
+    background-color: var(--_background-color);
   }
 
   &::placeholder {
-    color: var(--form-input-text-placeholder);
+    --_color: var(--form-input-text-placeholder);
   }
 
   &--state {
     &--error {
-      border-color: var(--form-general-feedback-error-border);
-      @include textfield-focus(var(--form-general-feedback-error-border));
+      --_border-color: var(--form-general-feedback-error-border);
+      @include textfield-focus(var(--_border-color));
     }
     &--valid {
-      border-color: var(--form-general-feedback-success-border);
-      @include textfield-focus(var(--form-general-feedback-success-border));
+      --_border-color: var(--form-general-feedback-success-border);
+      @include textfield-focus(var(--_border-color));
     }
   }
 
   &--size {
     &--small {
-      padding: var(--_padding-y-sm) var(--_padding-x);
+      @include mixins.responsive-styles(--_padding-y, form-field-padding-y-sm);
     }
   }
 }
