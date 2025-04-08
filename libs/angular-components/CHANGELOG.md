@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-angular-v1.6.0-rc.4](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.6.0-rc.3...angular-1.6.0-rc.4) (2025-04-08)
+
+
+### Features
+
+* **feedback-text:** Community Angular feedback-text component [#654](https://github.com/TEHIK-EE/tedi-design-system/issues/654) ([#661](https://github.com/TEHIK-EE/tedi-design-system/issues/661)) ([e3dfd59](https://github.com/TEHIK-EE/tedi-design-system/commit/e3dfd5945ef337bbc1596565323d8fffb5663f24))
+
 # [@tehik-ee/tedi-angular-v1.6.0-rc.3](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.6.0-rc.2...angular-1.6.0-rc.3) (2025-04-08)
 
 
