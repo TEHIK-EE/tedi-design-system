@@ -7,11 +7,12 @@
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
-    "paths": {
-      "@tehik-ee/tedi-core/*": ["../tedi-core/*"]
-    },
     "resolveJsonModule": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "baseUrl": ".",
+    "paths": {
+      "@tehik-ee/tedi-angular/tedi": ["tedi/index.ts"]
+    }
   },
   "files": [],
   "include": [],
@@ -21,6 +22,9 @@
     },
     {
       "path": "./tsconfig.spec.json"
+    },
+    {
+      "path": ".storybook/tsconfig.json"
     }
   ],
   "extends": "../../tsconfig.base.json",

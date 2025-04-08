@@ -3,7 +3,7 @@ import {
   Component,
   ViewEncapsulation,
 } from "@angular/core";
-import { CardColorsDirective } from "libs/angular-components/community/public-api";
+import { CardColorsDirective } from "../../card/card-colors.directive";
 
 @Component({
   standalone: true,

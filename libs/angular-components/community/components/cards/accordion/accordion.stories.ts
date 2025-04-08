@@ -5,7 +5,7 @@ import {
   HeadingComponent,
   IconComponent,
   TextComponent,
-} from "libs/angular-components/tedi/public-api";
+} from "@tehik-ee/tedi-angular/tedi";
 import { ButtonComponent } from "../../buttons/button/button.component";
 import { AccordionIconComponent } from "./accordion-icon/accordion-icon.component";
 import { AccordionItemContentComponent } from "./accordion-item-content/accordion-item-content.component";
@@ -14,7 +14,7 @@ import { AccordionItemComponent } from "./accordion-item/accordion-item.componen
 import { AccordionComponent } from "./accordion/accordion.component";
 
 export default {
-  title: "Community Angular/Buttons/Accordion",
+  title: "Community Angular/Cards/Accordion",
   component: AccordionComponent,
   subcomponents: {
     AccordionIconComponent,

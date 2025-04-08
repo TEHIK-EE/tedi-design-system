@@ -5,10 +5,8 @@ import {
   input,
   ViewEncapsulation,
 } from "@angular/core";
-import {
-  CardColors,
-  CardContentComponent,
-} from "libs/angular-components/community/public-api";
+import { CardColors } from "../../card/card-colors.directive";
+import { CardContentComponent } from "../../card/card-content/card-content.component";
 import { AccordionItemComponent } from "../accordion-item/accordion-item.component";
 
 @Component({

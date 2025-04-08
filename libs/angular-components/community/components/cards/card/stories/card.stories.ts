@@ -23,10 +23,10 @@ import {
   HeadingComponent,
   IconComponent,
   TextComponent,
-} from "libs/angular-components/tedi/public-api";
+} from "@tehik-ee/tedi-angular/tedi";
 
 export default {
-  title: "Community Angular/Card",
+  title: "Community Angular/Cards/Card",
   component: CardComponent,
   subcomponents: {
     CardRowComponent,

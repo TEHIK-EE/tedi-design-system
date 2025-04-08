@@ -1,5 +1,6 @@
 import cn from 'classnames';
 import { MouseEventHandler } from 'react';
+import { ButtonHTMLAttributes } from 'react';
 
 import { useLabels } from '../../../providers/label-provider';
 import { Icon } from '../../icon/icon';
@@ -7,7 +8,7 @@ import styles from './closing-button.module.scss';
 
 type ClosingButtonSize = 'medium' | 'large';
 
-export interface ClosingButtonProps {
+export interface ClosingButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   /**
    * Additional classes to apply custom styles to the ClosingButton.
    */

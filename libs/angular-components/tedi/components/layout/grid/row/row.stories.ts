@@ -110,50 +110,50 @@ export default {
       },
     },
     xs: {
-      description: "Overrides RowProps on xs breakpoint (<576px).",
+      description: "Overrides RowInputs on xs breakpoint (<576px).",
       table: {
         type: {
-          summary: "RowProps",
+          summary: "RowInputs",
         },
       },
     },
     sm: {
-      description: "Overrides RowProps on sm breakpoint (≥576px).",
+      description: "Overrides RowInputs on sm breakpoint (≥576px).",
       table: {
         type: {
-          summary: "RowProps",
+          summary: "RowInputs",
         },
       },
     },
     md: {
-      description: "Overrides RowProps on md breakpoint (≥768px).",
+      description: "Overrides RowInputs on md breakpoint (≥768px).",
       table: {
         type: {
-          summary: "RowProps",
+          summary: "RowInputs",
         },
       },
     },
     lg: {
-      description: "Overrides RowProps on lg breakpoint (≥992px).",
+      description: "Overrides RowInputs on lg breakpoint (≥992px).",
       table: {
         type: {
-          summary: "RowProps",
+          summary: "RowInputs",
         },
       },
     },
     xl: {
-      description: "Overrides RowProps on xl breakpoint (≥1200px).",
+      description: "Overrides RowInputs on xl breakpoint (≥1200px).",
       table: {
         type: {
-          summary: "RowProps",
+          summary: "RowInputs",
         },
       },
     },
     xxl: {
-      description: "Overrides RowProps on xxl breakpoint (≥1400px).",
+      description: "Overrides RowInputs on xxl breakpoint (≥1400px).",
       table: {
         type: {
-          summary: "RowProps",
+          summary: "RowInputs",
         },
       },
     },

@@ -6,7 +6,7 @@ import {
   signal,
   ViewEncapsulation,
 } from "@angular/core";
-import { CardComponent } from "libs/angular-components/community/public-api";
+import { CardComponent } from "../../card/card.component";
 
 @Component({
   selector: "tedi-accordion-item",

@@ -4,7 +4,7 @@ import {
   contentChildren,
   inject,
   Injector,
-  input,
+  input, OnInit,
 } from "@angular/core";
 import { toObservable } from "@angular/core/rxjs-interop";
 import { AccordionItemComponent } from "../accordion-item/accordion-item.component";
@@ -17,7 +17,7 @@ import { AccordionItemComponent } from "../accordion-item/accordion-item.compone
   styleUrl: "./accordion.component.scss",
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AccordionComponent {
+export class AccordionComponent implements OnInit {
   /**
    * id-s of items that should be opened by default.
    */

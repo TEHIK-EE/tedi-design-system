@@ -7,16 +7,13 @@ import {
   ViewEncapsulation,
 } from "@angular/core";
 import { AccordionItemComponent } from "../accordion-item/accordion-item.component";
+import { ButtonComponent } from "../../../buttons/button/button.component";
+import { CardColors } from "../../card/card-colors.directive";
 import {
-  ButtonComponent,
-  CardColors,
   CardHeaderComponent,
   CardHeaderVariant,
-} from "libs/angular-components/community/public-api";
-import {
-  IconColor,
-  IconComponent,
-} from "libs/angular-components/tedi/public-api";
+} from "../../card/card-header/card-header.component";
+import { IconColor, IconComponent } from "@tehik-ee/tedi-angular/tedi";
 
 const WHITE_ICON_VARIANTS = ["brand", "brand-dark"];
 
