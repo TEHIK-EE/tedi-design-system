@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-angular-v1.6.0-rc.6](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.6.0-rc.5...angular-1.6.0-rc.6) (2025-04-08)
+
+
+### Features
+
+* **info-button:** info button communtiy component [#630](https://github.com/TEHIK-EE/tedi-design-system/issues/630) ([#663](https://github.com/TEHIK-EE/tedi-design-system/issues/663)) ([1fafab5](https://github.com/TEHIK-EE/tedi-design-system/commit/1fafab5b3ce7bbe6a896b168569174ecc803982d)), closes [#637](https://github.com/TEHIK-EE/tedi-design-system/issues/637) [#672](https://github.com/TEHIK-EE/tedi-design-system/issues/672) [#650](https://github.com/TEHIK-EE/tedi-design-system/issues/650) [#637](https://github.com/TEHIK-EE/tedi-design-system/issues/637) [#637](https://github.com/TEHIK-EE/tedi-design-system/issues/637)
+
 # [@tehik-ee/tedi-angular-v1.6.0-rc.3](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.6.0-rc.2...angular-1.6.0-rc.3) (2025-04-08)
 
 ### Features
