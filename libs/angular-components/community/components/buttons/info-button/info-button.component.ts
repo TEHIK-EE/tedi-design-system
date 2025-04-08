@@ -4,16 +4,23 @@ import {
   input,
   InputSignal,
 } from "@angular/core";
-import { IconComponent } from "@tehik-ee/tedi-angular/tedi";
+import { IconComponent, InputsWithSignals } from "@tehik-ee/tedi-angular/tedi";
 
-type InfoButtonInputs = {
+export type InfoButtonInputs = {
   /**
    * If true, applies a small size to the InfoButton.
    * @default false
    */
-  isSmall: InputSignal<boolean | undefined>;
-  title: InputSignal<string | undefined>;
-  ariaLabel: InputSignal<string | undefined>;
+  isSmall?: boolean;
+  /**
+   * The title attribute for the InfoButton.
+   * Will be used as a default browser tooltip.
+   */
+  title?: string;
+  /**
+   * The aria-label attribute for the InfoButton.
+   */
+  ariaLabel?: string;
 };
 
 @Component({
@@ -29,7 +36,9 @@ type InfoButtonInputs = {
     "[attr.title]": "title()",
   },
 })
-export class InfoButtonComponent implements InfoButtonInputs {
+export class InfoButtonComponent
+  implements InputsWithSignals<InfoButtonInputs>
+{
   isSmall = input<boolean>();
   title = input<string>();
   ariaLabel = input<string>();
