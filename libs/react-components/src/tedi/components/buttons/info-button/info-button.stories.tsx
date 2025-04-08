@@ -41,15 +41,9 @@ const TemplateColumn: StoryFn<TemplateMultipleProps> = (args) => {
             <Text modifiers="bold">{state}</Text>
           </Col>
           <Col width={1} className="text-center">
-            <button
-              tedi-info-button
-              title={`Info button ${state}`}
-              {...buttonProps}
-              aria-label={`Info button ${state}`}
-              id={state}
-            >
+            <InfoButton title={`Info button ${state}`} {...buttonProps} aria-label={`Info button ${state}`} id={state}>
               Info button
-            </button>
+            </InfoButton>
           </Col>
         </Row>
       ))}
