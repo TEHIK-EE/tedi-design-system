@@ -1,0 +1,65 @@
+.tedi-accordion-item {
+  --_accordion-columns: minmax(auto, 200px) auto;
+  --_accordion-header-spacing: 8px;
+  $accordion-card: #{&}__card;
+  & > #{$accordion-card} {
+    $accordion-header: "& > .tedi-accordion-item-header-host > .tedi-accordion-item-header";
+    $accordion-content: "& > .tedi-accordion-item-content > .tedi-card-content";
+
+    display: grid;
+    grid-template-rows: max-content 0fr;
+    transition: grid-template-rows 0.3s;
+
+    #{$accordion-header} {
+      border-top-left-radius: var(--_card-radius);
+      border-top-right-radius: var(--_card-radius);
+      border-bottom-right-radius: var(--_card-radius);
+      border-bottom-left-radius: var(--_card-radius);
+    }
+
+    #{$accordion-content} {
+      border-top: transparent;
+      border-bottom-left-radius: var(--_card-radius);
+      border-bottom-right-radius: var(--_card-radius);
+    }
+
+    &--expanded {
+      grid-template-rows: max-content 1fr;
+      #{$accordion-header} {
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+      & > .tedi-accordion-item-content {
+        animation: accordion-content-overflow-transition;
+        animation-delay: 0.3s;
+        animation-fill-mode: forwards;
+      }
+    }
+
+    &:has(.tedi-accordion-icon) {
+      grid-template-areas: "accordion-icon-content accordion-header" "accordion-icon-fill accordion-content";
+      grid-template-columns: var(--_accordion-columns);
+
+      #{$accordion-header} {
+        grid-area: accordion-header;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        border-left: transparent;
+      }
+
+      #{$accordion-content} {
+        border-bottom-left-radius: 0;
+        border-left: transparent;
+      }
+      & > .tedi-accordion-item-content {
+        grid-area: accordion-content;
+      }
+    }
+  }
+
+  @keyframes accordion-content-overflow-transition {
+    100% {
+      overflow: visible;
+    }
+  }
+}

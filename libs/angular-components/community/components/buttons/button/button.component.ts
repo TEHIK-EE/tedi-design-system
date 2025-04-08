@@ -17,7 +17,7 @@ export type ButtonVariant =
 export type ButtonSize = "medium" | "small";
 
 @Component({
-  selector: "button[tedi-button], a[tedi-button]",
+  selector: "[tedi-button]",
   standalone: true,
   templateUrl: "./button.component.html",
   styleUrl: "./button.component.scss",

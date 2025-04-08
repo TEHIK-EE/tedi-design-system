@@ -1,0 +1,29 @@
+.tedi-accordion-item-header-host {
+  display: contents;
+}
+
+.tedi-accordion-item-header {
+  cursor: pointer;
+  font-size: inherit;
+  display: flex;
+  gap: var(--_accordion-header-spacing);
+  align-items: center;
+  justify-content: space-between;
+
+  [tedi-accordion-header-end] {
+    margin-left: auto;
+  }
+
+  &__indicator {
+    transition: transform 0.3s;
+  }
+
+  & &__toggle {
+    --_btn-padding-y: 0;
+  }
+
+  &--opened > &__indicator,
+  &--opened > &__toggle > &__indicator {
+    transform: rotateX(180deg);
+  }
+}
