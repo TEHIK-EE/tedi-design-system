@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-angular-v1.6.0-rc.5](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.6.0-rc.4...angular-1.6.0-rc.5) (2025-04-08)
+
+
+### Features
+
+* **accordion:** create community accordion component [#552](https://github.com/TEHIK-EE/tedi-design-system/issues/552) ([#662](https://github.com/TEHIK-EE/tedi-design-system/issues/662)) ([2e1d47c](https://github.com/TEHIK-EE/tedi-design-system/commit/2e1d47cc17fba9252ed3df282d9d20fad28e0242))
+
 # [@tehik-ee/tedi-angular-v1.6.0-rc.4](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.6.0-rc.3...angular-1.6.0-rc.4) (2025-04-08)
 
 
