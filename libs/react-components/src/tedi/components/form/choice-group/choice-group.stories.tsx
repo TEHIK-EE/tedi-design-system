@@ -239,7 +239,7 @@ export const WithDefaultValue: Story = {
     ...Checkbox.args,
     label: 'I have the second item selected by default:',
     items: generateItems({ index: 13 }),
-    defaultValue: ['value-40'],
+    defaultValue: ['radio-primary-value-132-false-false-undefined'],
   },
 };
 

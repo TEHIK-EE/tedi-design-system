@@ -23,6 +23,7 @@ export * from './components/form/checkbox/checkbox';
 export * from './components/form/choice-group/choice-group';
 export * from './components/form/file-upload/file-upload';
 export * from './components/form/file-dropzone/file-dropzone';
+export * from './components/form/select/select';
 export * from './components/buttons/button/button';
 export * from './components/buttons/closing-button/closing-button';
 export * from './components/buttons/floating-button/floating-button';
@@ -47,3 +48,5 @@ export * from './helpers';
 
 export * from './providers/label-provider';
 export * from './providers/style-provider/style-provider';
+export * from './providers/accessibility-provider/accessibility-provider';
+export * from './providers/accessibility-provider/use-declare-loader';
