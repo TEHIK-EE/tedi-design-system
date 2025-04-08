@@ -1,30 +1,18 @@
 import { Meta, StoryObj } from "@storybook/angular";
-import {
-  FeedbackTextComponent,
-  FeedbackTextType,
-} from "./feedback-text.component";
+import { FeedbackTextComponent } from "./feedback-text.component";
 
 export default {
   title: "Community Angular/Form/FeedbackText",
   component: FeedbackTextComponent,
   render: (props) => ({
     props,
-    template: `<tedi-feedback-text [type]="type">{{ feedbackText }}</tedi-feedback-text>`,
+    template: `<tedi-feedback-text [text]="text" [type]="type">`,
   }),
   args: {
-    feedbackText: "This is a feedback text message",
+    text: "This is a feedback text message",
     type: "hint",
   },
   argTypes: {
-    feedbackText: {
-      control: "text",
-      description: "The text content of the feedback",
-      table: {
-        type: {
-          summary: "string",
-        },
-      },
-    },
     type: {
       control: "radio",
       options: ["hint", "error", "valid"],
@@ -43,21 +31,21 @@ type FeedbackTextStory = StoryObj<FeedbackTextComponent>;
 
 export const Hint: FeedbackTextStory = {
   args: {
-    feedbackText: "This is a hint message that provides additional information",
+    text: "This is a hint message that provides additional information",
     type: "hint",
   },
 };
 
 export const Error: FeedbackTextStory = {
   args: {
-    feedbackText: "This is an error message indicating something went wrong",
+    text: "This is an error message indicating something went wrong",
     type: "error",
   },
 };
 
 export const Valid: FeedbackTextStory = {
   args: {
-    feedbackText: "This is a validation success message",
+    text: "This is a validation success message",
     type: "valid",
   },
 };
@@ -67,13 +55,13 @@ export const AllTypes: FeedbackTextStory = {
     template: `
       <div>
         <div style="margin-bottom: 16px;">
-          <tedi-feedback-text type="hint">This is a hint message that provides additional information</tedi-feedback-text>
+          <tedi-feedback-text type="hint" text="This is a hint message that provides additional information" />
         </div>
         <div style="margin-bottom: 16px;">
-          <tedi-feedback-text type="error">This is an error message indicating something went wrong</tedi-feedback-text>
+          <tedi-feedback-text type="error" text="This is an error message indicating something went wrong" />
         </div>
         <div style="margin-bottom: 16px;">
-          <tedi-feedback-text type="valid">This is a validation success message</tedi-feedback-text>
+          <tedi-feedback-text type="valid" text="This is a validation success message" />
         </div>
       </div>
     `,

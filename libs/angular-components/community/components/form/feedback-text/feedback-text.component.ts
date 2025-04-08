@@ -12,7 +12,7 @@ export type FeedbackTextType = "valid" | "error" | "hint";
 @Component({
   selector: "tedi-feedback-text",
   standalone: true,
-  template: `<ng-content />`,
+  template: `{{ text() }}`,
   styleUrl: "./feedback-text.component.scss",
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -26,7 +26,7 @@ export class FeedbackTextComponent {
   /**
    * Helper text
    */
-  feedbackText = input.required<string>();
+  text = input.required<string>();
 
   /**
    * Type of form-helper.
