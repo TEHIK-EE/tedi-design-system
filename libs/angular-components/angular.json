@@ -4,8 +4,15 @@
   "projects": {
     "angular-components": {
       "projectType": "library",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss",
+          "standalone": true
+        }
+      },
       "root": ".",
       "sourceRoot": ".",
+      "prefix": "tedi",
       "architect": {
         "storybook": {
           "builder": "@storybook/angular:start-storybook",
