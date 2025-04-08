@@ -1,9 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  input,
-  InputSignal,
-} from "@angular/core";
+import { ChangeDetectionStrategy, Component, input } from "@angular/core";
 import { IconComponent, InputsWithSignals } from "@tehik-ee/tedi-angular/tedi";
 
 export type InfoButtonInputs = {
@@ -37,8 +32,7 @@ export type InfoButtonInputs = {
   },
 })
 export class InfoButtonComponent
-  implements InputsWithSignals<InfoButtonInputs>
-{
+  implements InputsWithSignals<InfoButtonInputs> {
   isSmall = input<boolean>();
   title = input<string>();
   ariaLabel = input<string>();
