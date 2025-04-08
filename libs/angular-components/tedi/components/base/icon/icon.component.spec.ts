@@ -2,107 +2,50 @@ import { ComponentFixture, TestBed } from "@angular/core/testing";
 import {
   IconComponent,
   IconSize,
-  IconVariant,
   IconType,
   IconColor,
   IconBackgroundColor,
 } from "./icon.component";
-import { By } from "@angular/platform-browser";
-import { Component } from "@angular/core";
-
-@Component({
-  imports: [IconComponent],
-  template: `
-    <tedi-icon
-      [name]="name"
-      [class]="class"
-      [size]="size"
-      [color]="color"
-      [background]="background"
-      [variant]="variant"
-      [type]="type"
-      [label]="label"
-    />
-  `,
-})
-class HostIconComponent {
-  name: string = "home";
-  class: string | undefined = undefined;
-  size: IconSize = 24;
-  color: IconColor | undefined = "primary";
-  background: IconBackgroundColor | undefined = undefined;
-  variant: IconVariant | undefined = "outlined";
-  type: IconType | undefined = "outlined";
-  label: string | undefined = undefined;
-}
 
 describe("IconComponent", () => {
-  let hostComponent: HostIconComponent;
-  let hostFixture: ComponentFixture<HostIconComponent>;
+  let fixture: ComponentFixture<IconComponent>;
+  let iconElement: HTMLElement;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [IconComponent, HostIconComponent],
-    }).compileComponents();
+      imports: [IconComponent],
+    });
 
-    hostFixture = TestBed.createComponent(HostIconComponent);
-    hostComponent = hostFixture.componentInstance;
-    hostFixture.detectChanges();
+    fixture = TestBed.createComponent(IconComponent);
+    fixture.componentRef.setInput("name", "search");
+    iconElement = fixture.nativeElement;
+    fixture.detectChanges();
   });
 
   it("should create component", () => {
-    expect(hostComponent).toBeTruthy();
+    expect(fixture.componentInstance).toBeTruthy();
   });
 
   it("should render the icon with default props", () => {
-    const iconElement = hostFixture.debugElement.query(
-      By.css(".material-symbols"),
-    );
-    expect(iconElement).toBeTruthy();
-    expect(iconElement.nativeElement.textContent.trim()).toBe("home");
-  });
-
-  it("should apply the correct classes with default settings", () => {
-    const iconElement = hostFixture.debugElement.query(
-      By.css(".material-symbols"),
-    );
-    const classString = iconElement.nativeElement.className;
-
-    expect(classString).toContain("notranslate");
-    expect(classString).toContain("material-symbols");
-    expect(classString).toContain("material-symbols--outlined");
-    expect(classString).toContain("tedi-icon");
-    expect(classString).toContain("tedi-icon--color-primary");
-    expect(classString).toContain("tedi-icon--size-24");
-    expect(classString).not.toContain("tedi-icon--filled");
-    expect(classString).not.toContain("tedi-icon--bg");
-  });
-
-  it("should apply custom class", () => {
-    hostComponent.class = "test-class";
-    hostFixture.detectChanges();
-
-    const iconElement = hostFixture.debugElement.query(
-      By.css(".material-symbols"),
-    );
-    expect(
-      iconElement.nativeElement.classList.contains("test-class"),
-    ).toBeTruthy();
+    expect(iconElement.classList).toContain("material-symbols");
+    expect(iconElement.classList).toContain("material-symbols--outlined");
+    expect(iconElement.classList).toContain("notranslate");
+    expect(iconElement.classList).toContain("tedi-icon");
+    expect(iconElement.classList).toContain("tedi-icon--size-24");
+    expect(iconElement.classList).toContain("tedi-icon--color-primary");
+    expect(iconElement.textContent?.trim()).toBe("search");
+    expect(iconElement.getAttribute("role")).toBe("img");
+    expect(iconElement.getAttribute("aria-hidden")).toBe("true");
   });
 
   it("should apply different icon sizes", () => {
     const sizes: IconSize[] = [8, 12, 16, 18, 24, 36, 48];
 
     for (const size of sizes) {
-      hostComponent.size = size;
-      hostFixture.detectChanges();
+      fixture.componentRef.setInput("size", size);
+      fixture.detectChanges();
 
-      const iconElement = hostFixture.debugElement.query(
-        By.css(".material-symbols"),
-      );
-      expect(
-        iconElement.nativeElement.classList.contains(`tedi-icon--size-${size}`),
-      ).toBeTruthy();
+      expect(iconElement.classList).toContain(`tedi-icon--size-${size}`);
     }
   });
 
@@ -121,17 +64,10 @@ describe("IconComponent", () => {
     ];
 
     for (const color of colors) {
-      hostComponent.color = color;
-      hostFixture.detectChanges();
+      fixture.componentRef.setInput("color", color);
+      fixture.detectChanges();
 
-      const iconElement = hostFixture.debugElement.query(
-        By.css(".material-symbols"),
-      );
-      expect(
-        iconElement.nativeElement.classList.contains(
-          `tedi-icon--color-${color}`,
-        ),
-      ).toBeTruthy();
+      expect(iconElement.classList).toContain(`tedi-icon--color-${color}`);
     }
   });
 
@@ -144,115 +80,74 @@ describe("IconComponent", () => {
     ];
 
     for (const bg of backgrounds) {
-      hostComponent.background = bg;
-      hostFixture.detectChanges();
+      fixture.componentRef.setInput("background", bg);
+      fixture.detectChanges();
 
-      const iconElement = hostFixture.debugElement.query(
-        By.css(".material-symbols"),
-      );
-      expect(
-        iconElement.nativeElement.classList.contains("tedi-icon--bg"),
-      ).toBeTruthy();
-      expect(
-        iconElement.nativeElement.classList.contains(`tedi-icon--bg-${bg}`),
-      ).toBeTruthy();
+      expect(iconElement.classList).toContain("tedi-icon--bg");
+      expect(iconElement.classList).toContain(`tedi-icon--bg-${bg}`);
     }
   });
 
   it("should enforce size constraint with background", () => {
-    hostComponent.size = 8;
-    hostComponent.background = "primary";
-    hostFixture.detectChanges();
+    fixture.componentRef.setInput("size", 8);
+    fixture.componentRef.setInput("background", "primary");
+    fixture.detectChanges();
 
-    const iconElement = hostFixture.debugElement.query(
-      By.css(".material-symbols"),
-    );
-    expect(
-      iconElement.nativeElement.classList.contains("tedi-icon--size-24"),
-    ).toBeTruthy();
-    expect(
-      iconElement.nativeElement.classList.contains("tedi-icon--size-8"),
-    ).toBeFalsy();
+    expect(iconElement.classList).toContain("tedi-icon--size-24");
+    expect(iconElement.classList).not.toContain("tedi-icon--size-8");
 
-    hostComponent.size = 16;
-    hostFixture.detectChanges();
+    fixture.componentRef.setInput("size", "inherit");
+    fixture.detectChanges();
 
-    expect(
-      iconElement.nativeElement.classList.contains("tedi-icon--size-16"),
-    ).toBeTruthy();
+    expect(iconElement.classList).toContain("tedi-icon--size-24");
+    expect(iconElement.classList).not.toContain("tedi-icon--size-inherit");
+
+    fixture.componentRef.setInput("size", 16);
+    fixture.detectChanges();
+
+    expect(iconElement.classList).toContain("tedi-icon--size-16");
   });
 
   it("should apply filled variant", () => {
-    hostComponent.variant = "filled";
-    hostFixture.detectChanges();
+    fixture.componentRef.setInput("variant", "filled");
+    fixture.detectChanges();
 
-    const iconElement = hostFixture.debugElement.query(
-      By.css(".material-symbols"),
-    );
-    expect(
-      iconElement.nativeElement.classList.contains("tedi-icon--filled"),
-    ).toBeTruthy();
+    expect(iconElement.classList).toContain("tedi-icon--filled");
   });
 
   it("should apply different icon types", () => {
     const types: IconType[] = ["outlined", "sharp", "rounded"];
 
     for (const type of types) {
-      hostComponent.type = type;
-      hostFixture.detectChanges();
+      fixture.componentRef.setInput("type", type);
+      fixture.detectChanges();
 
-      const iconElement = hostFixture.debugElement.query(
-        By.css(".material-symbols"),
-      );
-      expect(
-        iconElement.nativeElement.classList.contains(
-          `material-symbols--${type}`,
-        ),
-      ).toBeTruthy();
+      expect(iconElement.classList).toContain(`material-symbols--${type}`);
     }
   });
 
   it("should set aria-label when label is provided", () => {
-    hostComponent.label = "Home icon";
-    hostFixture.detectChanges();
+    fixture.componentRef.setInput("label", "Home icon");
+    fixture.detectChanges();
 
-    const iconElement = hostFixture.debugElement.query(
-      By.css(".material-symbols"),
-    );
-    expect(iconElement.nativeElement.getAttribute("aria-label")).toBe(
-      "Home icon",
-    );
+    expect(iconElement.getAttribute("aria-label")).toBe("Home icon");
   });
 
   it("should hide from screen readers when no label is provided", () => {
-    hostComponent.label = undefined;
-    hostFixture.detectChanges();
+    fixture.componentRef.setInput("label", undefined);
+    fixture.detectChanges();
 
-    const iconElement = hostFixture.debugElement.query(
-      By.css(".material-symbols"),
-    );
-    expect(iconElement.nativeElement.getAttribute("aria-hidden")).toBe("true");
+    expect(iconElement.getAttribute("aria-label")).toBeNull();
   });
 
   it("should handle changing icon name", () => {
-    hostComponent.name = "settings";
-    hostFixture.detectChanges();
+    fixture.componentRef.setInput("name", "arrow_back");
+    fixture.detectChanges();
 
-    const iconElement = hostFixture.debugElement.query(
-      By.css(".material-symbols"),
-    );
-    expect(iconElement.nativeElement.textContent.trim()).toBe("settings");
+    expect(iconElement.textContent?.trim()).toBe("arrow_back");
   });
 
   it("should handle undefined values", () => {
-    hostFixture.detectChanges();
-
-    const iconElement = hostFixture.debugElement.query(
-      By.css(".material-symbols"),
-    );
-    expect(iconElement).toBeTruthy();
-    expect(iconElement.nativeElement.classList.toString()).not.toContain(
-      "undefined",
-    );
+    expect(iconElement.classList.toString()).not.toContain("undefined");
   });
 });

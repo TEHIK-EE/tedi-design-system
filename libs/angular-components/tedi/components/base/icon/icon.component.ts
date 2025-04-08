@@ -3,10 +3,13 @@ import {
   Component,
   computed,
   input,
-  InputSignal,
+  ViewEncapsulation,
 } from "@angular/core";
+import { InputsWithSignals } from "../../../types/inputs.type";
 
-export type IconSize = 8 | 12 | 16 | 18 | 24 | 36 | 48;
+const ICON_WITH_BACKGROUND = [16, 24];
+
+export type IconSize = 8 | 12 | 16 | 18 | 24 | 36 | 48 | "inherit";
 export type IconVariant = "filled" | "outlined";
 export type IconType = "outlined" | "sharp" | "rounded";
 export type IconColor =
@@ -26,46 +29,42 @@ export type IconBackgroundColor =
   | "brand-primary"
   | "brand-secondary";
 
-type IconProps = {
+export type IconInputs = {
   /**
    * Name of the Material Icon
    * https://fonts.google.com/icons
    */
-  name: InputSignal<string>;
-  /**
-   * Additional CSS classes to apply to the icon.
-   */
-  class?: InputSignal<string | undefined>;
+  name: string;
   /**
    * Size of the icon in pixels.
    * @default 24
    */
-  size: InputSignal<IconSize>;
+  size: IconSize;
   /**
    * Color of the icon.
    * @default primary
    */
-  color?: InputSignal<IconColor>;
+  color: IconColor;
   /**
    * Background color for the icon (adds a circular background).
    */
-  background?: InputSignal<IconBackgroundColor | undefined>;
+  background?: IconBackgroundColor;
   /**
    * Whether the icon should be filled or outlined.
    * @default outlined
    */
-  variant?: InputSignal<IconVariant>;
+  variant: IconVariant;
   /**
    * Type of Material Symbols icon style.
    * It is recommended to only use one type throughout your app.
    * @default outlined
    */
-  type?: InputSignal<IconType>;
+  type: IconType;
   /**
    * Accessible label for screen readers.
    * If omitted then the icon is hidden for screen-readers.
    */
-  label?: InputSignal<string | undefined>;
+  label?: string;
 };
 
 @Component({
@@ -74,48 +73,49 @@ type IconProps = {
   templateUrl: "./icon.component.html",
   styleUrl: "./icon.component.scss",
   changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.None,
+  host: {
+    "[class]": "classes()",
+    "role": "img",
+    "[attr.aria-label]": "label()",
+    "[attr.aria-hidden]": "!label()"
+  }
 })
-export class IconComponent implements IconProps {
+export class IconComponent implements InputsWithSignals<IconInputs> {
   name = input.required<string>();
-  class = input<string | undefined>(undefined);
   size = input<IconSize>(24);
   color = input<IconColor>("primary");
-  background = input<IconBackgroundColor | undefined>(undefined);
+  background = input<IconBackgroundColor>();
   variant = input<IconVariant>("outlined");
   type = input<IconType>("outlined");
-  label = input<string | undefined>(undefined);
+  label = input<string>();
 
-  iconClasses = computed(() => {
-    const type = this.type();
-    const variant = this.variant();
-    const color = this.color();
-    const background = this.background();
-    const className = this.class();
+  classes = computed(() => {
     let size = this.size();
 
-    if (background) {
-      size = [16, 24].includes(size) ? size : 24;
+    if (this.background()) {
+      if (size === "inherit") {
+        size = 24;
+      } else {
+        size = ICON_WITH_BACKGROUND.includes(size) ? size : 24;
+      }
     }
 
     const classes: string[] = [
       "notranslate",
       "material-symbols",
-      `material-symbols--${type}`,
+      `material-symbols--${this.type()}`,
       "tedi-icon",
-      `tedi-icon--color-${color}`,
+      `tedi-icon--color-${this.color()}`,
       `tedi-icon--size-${size}`,
     ];
 
-    if (background) {
-      classes.push("tedi-icon--bg", `tedi-icon--bg-${background}`);
+    if (this.background()) {
+      classes.push("tedi-icon--bg", `tedi-icon--bg-${this.background()}`);
     }
 
-    if (variant === "filled") {
+    if (this.variant() === "filled") {
       classes.push("tedi-icon--filled");
-    }
-
-    if (className) {
-      classes.push(className);
     }
 
     return classes.join(" ");
