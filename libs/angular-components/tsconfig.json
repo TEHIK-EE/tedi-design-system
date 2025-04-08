@@ -7,12 +7,12 @@
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
     "baseUrl": ".",
     "paths": {
-      "@tehik-ee/tedi-angular/tedi": ["tedi/public-api.ts"]
-    },
-    "resolveJsonModule": true,
-    "esModuleInterop": true
+      "@tehik-ee/tedi-angular/tedi": ["tedi/index.ts"]
+    }
   },
   "files": [],
   "include": [],
