@@ -1,3 +1,24 @@
+# [@tehik-ee/tedi-angular-v1.6.0-rc.3](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.6.0-rc.2...angular-1.6.0-rc.3) (2025-04-08)
+
+
+### Features
+
+* **card:** Add communtity card docs [#579](https://github.com/TEHIK-EE/tedi-design-system/issues/579) ([12a66f9](https://github.com/TEHIK-EE/tedi-design-system/commit/12a66f92f0fc8a5a53f97246c5106d1cc1ed499a))
+* **card:** Change card folder structure [#579](https://github.com/TEHIK-EE/tedi-design-system/issues/579) ([d6100bd](https://github.com/TEHIK-EE/tedi-design-system/commit/d6100bd416fe944fa88ee9a69acc1e9bb37f0efe))
+* **card:** communtity card [#579](https://github.com/TEHIK-EE/tedi-design-system/issues/579) ([b512a7c](https://github.com/TEHIK-EE/tedi-design-system/commit/b512a7ca209fff5b0d872f8ae44f1d4a2a5e3104))
+* **card:** Enable card padding overrides, update stories [#579](https://github.com/TEHIK-EE/tedi-design-system/issues/579) ([b621bb9](https://github.com/TEHIK-EE/tedi-design-system/commit/b621bb9953b1e569a7dcff1f59016ca127d79cff))
+* **card:** Fix sass deprecation warnings [#579](https://github.com/TEHIK-EE/tedi-design-system/issues/579) ([3f74637](https://github.com/TEHIK-EE/tedi-design-system/commit/3f7463716b83c76bdf0af83b4b3ed209b499595f))
+* **card:** Fix story imports [#579](https://github.com/TEHIK-EE/tedi-design-system/issues/579) ([5c66b93](https://github.com/TEHIK-EE/tedi-design-system/commit/5c66b939a456e2cd9567ff7efe99c3bd48d122a1))
+* **card:** fix variables [#579](https://github.com/TEHIK-EE/tedi-design-system/issues/579) ([955cef7](https://github.com/TEHIK-EE/tedi-design-system/commit/955cef7712d0fce55b46eb2b6dd86e27f372e618))
+* **card:** Move card component to new folder [#579](https://github.com/TEHIK-EE/tedi-design-system/issues/579) ([ed9d022](https://github.com/TEHIK-EE/tedi-design-system/commit/ed9d02231b958d39c1b85a87a5606cbbd442c687))
+* **card:** Remove unecessary file [#579](https://github.com/TEHIK-EE/tedi-design-system/issues/579) ([3d7ac85](https://github.com/TEHIK-EE/tedi-design-system/commit/3d7ac8507e96c490f4c7286245f94f54b2dbccf8))
+* **card:** Remove unused import [#579](https://github.com/TEHIK-EE/tedi-design-system/issues/579) ([7350421](https://github.com/TEHIK-EE/tedi-design-system/commit/73504219abb6205d3b8da38b6de920f4035dac71))
+* **cards:** Update card story render functions to display HTML [#579](https://github.com/TEHIK-EE/tedi-design-system/issues/579) ([4a7b8a2](https://github.com/TEHIK-EE/tedi-design-system/commit/4a7b8a26f3f0f4e9e0acb1cf83db0a1cf54619da))
+* **card:** Update card stories [#579](https://github.com/TEHIK-EE/tedi-design-system/issues/579) ([89e1568](https://github.com/TEHIK-EE/tedi-design-system/commit/89e1568d3f9f307f649b60ee920d882e6b9725b5))
+* **form-label:** Community Angular form label component [#637](https://github.com/TEHIK-EE/tedi-design-system/issues/637) ([#672](https://github.com/TEHIK-EE/tedi-design-system/issues/672)) ([18edd87](https://github.com/TEHIK-EE/tedi-design-system/commit/18edd875300af75ed1812b2f1a21e1483880a21f)), closes [#650](https://github.com/TEHIK-EE/tedi-design-system/issues/650)
+* **link:** TEDI-Angular Community Link [#621](https://github.com/TEHIK-EE/tedi-design-system/issues/621) ([#653](https://github.com/TEHIK-EE/tedi-design-system/issues/653)) ([a62d394](https://github.com/TEHIK-EE/tedi-design-system/commit/a62d39491ca3f324bc512a49fa03c8f5ab444458))
+* **select:** TEDI Select development [#333](https://github.com/TEHIK-EE/tedi-design-system/issues/333) ([#670](https://github.com/TEHIK-EE/tedi-design-system/issues/670)) ([7d1c768](https://github.com/TEHIK-EE/tedi-design-system/commit/7d1c7684e10b91baa2ca969d696e063f273da51f))
+
 # [@tehik-ee/tedi-angular-v1.6.0-rc.2](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.6.0-rc.1...angular-1.6.0-rc.2) (2025-04-01)
 
 ### Bug Fixes
