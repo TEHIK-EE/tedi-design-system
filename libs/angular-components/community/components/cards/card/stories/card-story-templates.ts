@@ -10,21 +10,17 @@ import {
 export const renderCardStory: StoryFn<CardComponent> = (args) => ({
   props: args,
   template: `
-    <tedi-card
-    ${argsToTemplate(args)}
-  >
-    <tedi-card-header variant="secondary"
-      ><tedi-heading color="secondary" element="h3"
-        >Header</tedi-heading
-      ></tedi-card-header
-    >
-    <tedi-card-content
-      >Cabbage, comprising several cultivars of Brassica oleracea, is a leafy
-      green, red (purple), or white (pale green) biennial plant grown as an
-      annual vegetable crop for its dense-leaved heads.</tedi-card-content
-    >
-  </tedi-card>
-`,
+    <tedi-card ${argsToTemplate(args)}>
+      <tedi-card-header variant="secondary">
+        <h3 tedi-text color="secondary">Header</h3>
+      </tedi-card-header>
+      <tedi-card-content>
+        Cabbage, comprising several cultivars of Brassica oleracea, is a leafy
+        green, red (purple), or white (pale green) biennial plant grown as an
+        annual vegetable crop for its dense-leaved heads.
+      </tedi-card-content>
+    </tedi-card>
+  `,
 });
 
 export const renderCardHeaders = () => {
@@ -43,13 +39,13 @@ export const renderCardHeaders = () => {
     ${variants
       .map((variant) => {
         return `<tedi-card>
-        <tedi-card-header variant="${variant}"
-          ><tedi-heading
-            element="h3"
+        <tedi-card-header variant="${variant}">
+          <h3 tedi-text
             color="${getColor(variant)}"
             modifiers="capitalize-first"
-            >${variant} header</tedi-heading
           >
+            ${variant} header
+          </h3>
         </tedi-card-header>
       </tedi-card>`;
       })
@@ -60,18 +56,16 @@ export const renderCardHeaders = () => {
 
 export const renderMultipleContentsStory = () => {
   return {
-    template: `<tedi-card>
-    <tedi-card-header variant="brand"
-      ><tedi-heading color="white" element="h3"
-        >Header</tedi-heading
-      ></tedi-card-header
-    >
-    <tedi-card-content [hasSeparator]="true">Content</tedi-card-content>
-    <tedi-card-content [hasSeparator]="true" background="secondary"
-      >Content 2</tedi-card-content
-    >
-    <tedi-card-content [hasSeparator]="true">Content 3</tedi-card-content>
-  </tedi-card>`,
+    template: `
+      <tedi-card>
+        <tedi-card-header variant="brand">
+          <h3 tedi-text color="white">Header</h3>
+        </tedi-card-header>
+        <tedi-card-content [hasSeparator]="true">Content</tedi-card-content>
+        <tedi-card-content [hasSeparator]="true" background="secondary">Content 2</tedi-card-content>
+        <tedi-card-content [hasSeparator]="true">Content 3</tedi-card-content>
+      </tedi-card>
+    `,
   };
 };
 
@@ -141,16 +135,16 @@ export const renderCardBackgroundsStory = () => {
     ${colors
       .map((bg) => {
         return `<div>
-        <tedi-text modifiers="bold">${bg}</tedi-text>
+        <p tedi-text modifiers="bold">${bg}</p>
         <tedi-card background="${bg}">
-          <tedi-card-content
-            ><tedi-text color="${getColor(bg)}"
-              >Cabbage, comprising several cultivars of Brassica oleracea, is a
+          <tedi-card-content>
+            <p tedi-text color="${getColor(bg)}">
+              Cabbage, comprising several cultivars of Brassica oleracea, is a
               leafy green, red (purple), or white (pale green) biennial plant
               grown as an annual vegetable crop for its dense-leaved
-              heads.</tedi-text
-            ></tedi-card-content
-          >
+              heads.
+            </p>
+          </tedi-card-content>
         </tedi-card>
       </div>`;
       })
@@ -166,16 +160,16 @@ export const renderCardSpacingsStory = () => {
     ${spacings
       .map((spacing) => {
         return `<div>
-        <tedi-text modifiers="bold">${spacing}</tedi-text>
+        <p tedi-text modifiers="bold">${spacing}</p>
         <tedi-card spacing="${spacing}">
-          <tedi-card-content
-            ><tedi-text color="secondary"
-              >Cabbage, comprising several cultivars of Brassica oleracea, is a
+          <tedi-card-content>
+            <p tedi-text color="secondary">
+              Cabbage, comprising several cultivars of Brassica oleracea, is a
               leafy green, red (purple), or white (pale green) biennial plant
               grown as an annual vegetable crop for its dense-leaved
-              heads.</tedi-text
-            ></tedi-card-content
-          >
+              heads.
+            </p>
+          </tedi-card-content>
         </tedi-card>
       </div>`;
       })
@@ -196,16 +190,16 @@ export const renderCardAccentBordersStory = () => {
     ${accentBorders
       .map((accentBorder) => {
         return `<div>
-        <tedi-text modifiers="bold">${accentBorder}</tedi-text>
+        <p tedi-text modifiers="bold">${accentBorder}</p>
         <tedi-card accentBorder="${accentBorder}">
-          <tedi-card-content
-            ><tedi-text color="secondary"
-              >Cabbage, comprising several cultivars of Brassica oleracea, is a
+          <tedi-card-content>
+            <p tedi-text color="secondary">
+              Cabbage, comprising several cultivars of Brassica oleracea, is a
               leafy green, red (purple), or white (pale green) biennial plant
               grown as an annual vegetable crop for its dense-leaved
-              heads.</tedi-text
-            ></tedi-card-content
-          >
+              heads.
+            </p>
+          </tedi-card-content>
         </tedi-card>
       </div>`;
       })
@@ -230,89 +224,90 @@ export const renderTimelineCardStory = () => {
 export const renderIconCardStory = () => {
   return {
     template: `<tedi-card>
-    <tedi-card-row
-      ><tedi-card-content
+    <tedi-card-row>
+      <tedi-card-content
         [hasSeparator]="true"
         [autoWidth]="true"
         background="secondary"
-        ><tedi-icon name="monitor_heart" color="secondary"
-      /></tedi-card-content>
-      <tedi-card-content
-        ><tedi-text color="secondary"
-          >Kodeiin + Paratsemool, 30mg + 500mg</tedi-text
-        ></tedi-card-content
-      ></tedi-card-row
-    >
+      >
+        <tedi-icon name="monitor_heart" color="secondary" />
+      </tedi-card-content>
+      <tedi-card-content>
+        <p tedi-text color="secondary">
+          Kodeiin + Paratsemool, 30mg + 500mg
+        </p>
+      </tedi-card-content>
+    </tedi-card-row>
   </tedi-card>`,
   };
 };
 
 export const renderNestedCardsStory = () => {
   return {
-    template: `<tedi-card>
-    <tedi-card-header variant="brand"
-      ><tedi-heading element="h3" color="white"
-        >Title</tedi-heading
-      ></tedi-card-header
-    >
-    <tedi-card-content [hasSeparator]="true">
-      <div [style]="{ display: 'flex', 'flex-direction': 'column', gap: '10px' }">
-        <tedi-text modifiers="h2" color="brand">Permanent treatment</tedi-text>
-        <tedi-text
-          >Your permanent medications and medical devices dispensed in the last
-          6 months.</tedi-text
-        >
-        <tedi-text modifiers="h3">Medications</tedi-text>
+    template: `
+      <tedi-card>
+        <tedi-card-header variant="brand">
+          <h3 tedi-text color="white">Title</h3>
+        </tedi-card-header>
+        <tedi-card-content [hasSeparator]="true">
+          <div [style]="{ display: 'flex', 'flex-direction': 'column', gap: '10px' }">
+            <p tedi-text modifiers="h2" color="brand">Permanent treatment</p>
+            <p tedi-text>
+              Your permanent medications and medical devices dispensed in the last
+              6 months.
+            </p>
+            <p tedi-text modifiers="h3">Medications</p>
 
-        <tedi-card background="brand-tertiary"
-          ><tedi-card-content
-            >Cabbage, comprising several cultivars of Brassica oleracea, is a
-            leafy green, red (purple), or white (pale green) biennial plant
-            grown as an annual vegetable crop for its dense-leaved
-            heads.</tedi-card-content
-          ></tedi-card
-        >
+            <tedi-card background="brand-tertiary">
+              <tedi-card-content>
+                Cabbage, comprising several cultivars of Brassica oleracea, is a
+                leafy green, red (purple), or white (pale green) biennial plant
+                grown as an annual vegetable crop for its dense-leaved
+                heads.
+              </tedi-card-content>
+            </tedi-card>
 
-        <tedi-card background="brand-tertiary"
-          ><tedi-card-content
-            >Cabbage, comprising several cultivars of Brassica oleracea, is a
-            leafy green, red (purple), or white (pale green) biennial plant
-            grown as an annual vegetable crop for its dense-leaved
-            heads.</tedi-card-content
-          ></tedi-card
-        >
-      </div>
-    </tedi-card-content>
+            <tedi-card background="brand-tertiary">
+              <tedi-card-content>
+                Cabbage, comprising several cultivars of Brassica oleracea, is a
+                leafy green, red (purple), or white (pale green) biennial plant
+                grown as an annual vegetable crop for its dense-leaved
+                heads.
+              </tedi-card-content>
+            </tedi-card>
+          </div>
+        </tedi-card-content>
 
-    <tedi-card-content>
-      <div [style]="{ display: 'flex', 'flex-direction': 'column', gap: '10px' }">
-        <tedi-text modifiers="h2" color="brand">Temporary treatment</tedi-text>
-        <tedi-text
-          >Your medications and medical devices used if needed or during a
-          certain period of time.</tedi-text
-        >
-        <tedi-text modifiers="h3">Medications</tedi-text>
+        <tedi-card-content>
+          <div [style]="{ display: 'flex', 'flex-direction': 'column', gap: '10px' }">
+            <p tedi-text modifiers="h2" color="brand">Temporary treatment</p>
+            <p tedi-text>
+              Your medications and medical devices used if needed or during a
+              certain period of time.
+            </p>
+            <p tedi-text modifiers="h3">Medications</p>
 
-        <tedi-card background="brand-tertiary"
-          ><tedi-card-content
-            >Cabbage, comprising several cultivars of Brassica oleracea, is a
-            leafy green, red (purple), or white (pale green) biennial plant
-            grown as an annual vegetable crop for its dense-leaved
-            heads.</tedi-card-content
-          ></tedi-card
-        >
+            <tedi-card background="brand-tertiary">
+              <tedi-card-content>
+                Cabbage, comprising several cultivars of Brassica oleracea, is a
+                leafy green, red (purple), or white (pale green) biennial plant
+                grown as an annual vegetable crop for its dense-leaved
+                heads.
+              </tedi-card-content>
+            </tedi-card>
 
-        <tedi-card background="brand-tertiary"
-          ><tedi-card-content
-            >Cabbage, comprising several cultivars of Brassica oleracea, is a
-            leafy green, red (purple), or white (pale green) biennial plant
-            grown as an annual vegetable crop for its dense-leaved
-            heads.</tedi-card-content
-          ></tedi-card
-        >
-      </div>
-    </tedi-card-content>
-  </tedi-card>`,
+            <tedi-card background="brand-tertiary">
+              <tedi-card-content>
+                Cabbage, comprising several cultivars of Brassica oleracea, is a
+                leafy green, red (purple), or white (pale green) biennial plant
+                grown as an annual vegetable crop for its dense-leaved
+                heads.
+              </tedi-card-content>
+            </tedi-card>
+          </div>
+        </tedi-card-content>
+      </tedi-card>
+    `,
   };
 };
 
