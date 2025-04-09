@@ -5,7 +5,6 @@ import {
   StoryObj,
 } from "@storybook/angular";
 import { ListComponent } from "./list.component";
-import { ListItemComponent } from "./list-item.component";
 
 /**
  * <a href="https://www.figma.com/file/jWiRIXhHRxwVdMSimKX2FF/TEDI-Design-System-(draft)?type=design&node-id=2137-19322&m=dev" target="_BLANK">Figma ↗</a><br/>
@@ -13,158 +12,131 @@ import { ListItemComponent } from "./list-item.component";
  */
 
 export default {
-  title: "TEDI-Ready Angular/Content/List/List",
+  title: "TEDI-Ready Angular/Content/List",
   component: ListComponent,
   decorators: [
     moduleMetadata({
-      imports: [ListComponent, ListItemComponent],
+      imports: [ListComponent],
     }),
   ],
   argTypes: {
-    class: {
-      type: "string",
-      description: "Additional class",
-    },
-    element: {
-      description: "Base element",
+    styled: {
+      description: "Is list styled?",
       control: {
-        type: "radio",
+        type: "boolean",
       },
-      options: ["ul", "ol"],
       table: {
-        type: { summary: "ListElement", detail: "ul \nol" },
-        defaultValue: { summary: '"ul"' },
-      },
-    },
-    style: {
-      description: "List style",
-      control: {
-        type: "radio",
-      },
-      options: ["styled", "none"],
-      table: {
-        type: { summary: "ListStyle", detail: "styled \nnone" },
-        defaultValue: { summary: '"styled"' },
+        category: "inputs",
+        type: { summary: "boolean" },
+        defaultValue: { summary: "true" },
       },
     },
   },
 } as Meta<ListComponent>;
 
 export const Default: StoryObj<ListComponent> = {
-  args: {
-    element: "ul",
-    style: "styled",
-  },
   render: (args) => ({
     props: args,
     template: `
-        <tedi-list ${argsToTemplate(args)}>
-            <tedi-list-item>Caesar salad</tedi-list-item>
-            <tedi-list-item>
-                Caesar salad
-                <tedi-list ${argsToTemplate(args)}>
-                    <tedi-list-item>Dressing</tedi-list-item>
-                </tedi-list>
-            </tedi-list-item>
-            <tedi-list-item>
-                Caesar salad
-                <tedi-list ${argsToTemplate(args)}>
-                    <tedi-list-item>
-                        Dressing
-                        <tedi-list ${argsToTemplate(args)}>
-                            <tedi-list-item>Lemon juice</tedi-list-item>
-                            <tedi-list-item>Anchovies</tedi-list-item>
-                        </tedi-list>
-                    </tedi-list-item>
-                </tedi-list>
-            </tedi-list-item>
-        </tedi-list>
+      <ul tedi-list ${argsToTemplate(args)}>
+        <li>Caesar salad</li>
+        <li>
+          Caesar salad
+          <ul tedi-list ${argsToTemplate(args)}>
+            <li>Dressing</li>
+          </ul>
+        </li>
+        <li>
+          Caesar salad
+          <ul tedi-list ${argsToTemplate(args)}>
+            <li>
+              Dressing
+              <ul tedi-list ${argsToTemplate(args)}>
+                <li>Lemon juice</li>
+                <li>Anchovies</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
     `,
   }),
 };
 
 export const UnorderedList: StoryObj<ListComponent> = {
-  args: {
-    element: "ul",
-    style: "styled",
-  },
   render: (args) => ({
     props: args,
     template: `
-          <tedi-list ${argsToTemplate(args)}>
-              <tedi-list-item>Potato</tedi-list-item>
-              <tedi-list-item>Caesar salad</tedi-list-item>
-              <tedi-list-item>
-                  Caesar salad
-                  <tedi-list ${argsToTemplate(args)}>
-                      <tedi-list-item>
-                          Dressing
-                          <tedi-list ${argsToTemplate(args)}>
-                              <tedi-list-item>Lemon juice</tedi-list-item>
-                              <tedi-list-item>Anchovies</tedi-list-item>
-                              <tedi-list-item>Parmesan cheese</tedi-list-item>
-                              <tedi-list-item>Worcestershire sauce</tedi-list-item>
-                              <tedi-list-item>Mustard</tedi-list-item>
-                          </tedi-list>
-                      </tedi-list-item>
-                  </tedi-list>
-              </tedi-list-item>
-          </tedi-list>
-      `,
+      <ul tedi-list ${argsToTemplate(args)}>
+        <li>Potato</li>
+        <li>Caesar salad</li>
+        <li>
+          Caesar salad
+          <ul tedi-list ${argsToTemplate(args)}>
+            <li>
+              Dressing
+              <ul tedi-list ${argsToTemplate(args)}>
+                <li>Lemon juice</li>
+                <li>Anchovies</li>
+                <li>Parmesan cheese</li>
+                <li>Worcestershire sauce</li>
+                <li>Mustard</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    `,
   }),
 };
 
 export const OrderedList: StoryObj<ListComponent> = {
-  args: {
-    element: "ol",
-    style: "styled",
-  },
   render: (args) => ({
     props: args,
     template: `
-            <tedi-list ${argsToTemplate(args)}>
-                <tedi-list-item>School homework</tedi-list-item>
-                <tedi-list-item>
-                    Chores
-                    <tedi-list ${argsToTemplate(args)}>
-                        <tedi-list-item>Wash dishes</tedi-list-item>
-                        <tedi-list-item>
-                            Fold laundry
-                            <tedi-list ${argsToTemplate(args)}>
-                                <tedi-list-item>Iron the sheets</tedi-list-item>
-                                <tedi-list-item>Hang dresses</tedi-list-item>
-                            </tedi-list>
-                        </tedi-list-item>
-                    </tedi-list>
-                </tedi-list-item>
-                <tedi-list-item>Walk the dog</tedi-list-item>
-                <tedi-list-item>Water the flowers</tedi-list-item>
-            </tedi-list>
-        `,
+      <ol tedi-list ${argsToTemplate(args)}>
+        <li>School homework</li>
+        <li>
+          Chores
+          <ol tedi-list ${argsToTemplate(args)}>
+            <li>Wash dishes</li>
+            <li>
+              Fold laundry
+              <ol tedi-list ${argsToTemplate(args)}>
+                <li>Iron the sheets</li>
+                <li>Hang dresses</li>
+              </ol>
+            </li>
+          </ol>
+        </li>
+        <li>Walk the dog</li>
+        <li>Water the flowers</li>
+      </ol>
+    `,
   }),
 };
 
 export const NoStyleList: StoryObj<ListComponent> = {
   args: {
-    style: "none",
+    styled: false,
   },
   render: (args) => ({
     props: args,
     template: `
-        <tedi-list ${argsToTemplate(args)}>
-            <tedi-list-item>
-                Caesar salad
-                <tedi-list ${argsToTemplate(args)}>
-                    <tedi-list-item>
-                        Dressing
-                        <tedi-list ${argsToTemplate(args)}>
-                            <tedi-list-item>Lemon juice</tedi-list-item>
-                            <tedi-list-item>Anchovies</tedi-list-item>
-                        </tedi-list>
-                    </tedi-list-item>
-                </tedi-list>
-            </tedi-list-item>
-        </tedi-list>
+      <ul tedi-list ${argsToTemplate(args)}>
+        <li>
+          Caesar salad
+          <ul tedi-list ${argsToTemplate(args)}>
+            <li>
+              Dressing
+              <ul tedi-list ${argsToTemplate(args)}>
+                <li>Lemon juice</li>
+                <li>Anchovies</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
     `,
   }),
 };

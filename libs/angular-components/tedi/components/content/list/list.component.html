@@ -1,17 +1,1 @@
-@switch (element()) {
-  @case ("ul") {
-    <ul [class]="classes()" role="list">
-      <ng-container *ngTemplateOutlet="content"></ng-container>
-    </ul>
-  }
-
-  @case ("ol") {
-    <ol [class]="classes()" role="list">
-      <ng-container *ngTemplateOutlet="content"></ng-container>
-    </ol>
-  }
-}
-
-<ng-template #content>
-  <ng-content></ng-content>
-</ng-template>
+<ng-content></ng-content>
