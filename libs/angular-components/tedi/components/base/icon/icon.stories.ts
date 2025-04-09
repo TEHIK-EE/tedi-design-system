@@ -5,8 +5,7 @@ import {
   moduleMetadata,
 } from "@storybook/angular";
 import { IconComponent } from "./icon.component";
-import { HeadingComponent } from "../typography/heading/heading.component";
-import { TextComponent } from "../typography/text/text.component";
+import { TextComponent } from "../text/text.component";
 
 const SIZES = ["inherit", 8, 12, 16, 18, 24, 36, 48];
 const SIZES_WITH_BG = [16, 24];
@@ -42,7 +41,7 @@ export default {
   component: IconComponent,
   decorators: [
     moduleMetadata({
-      imports: [IconComponent, HeadingComponent, TextComponent],
+      imports: [IconComponent, TextComponent],
     }),
   ],
   argTypes: {
@@ -285,48 +284,48 @@ export const UsedInsideText: StoryObj<IconComponent> = {
     props: args,
     template: `
       <div class="example-list padding-14-16">
-        <tedi-heading class="display-flex gap-1">
+        <h1 tedi-text class="display-flex gap-1">
           <tedi-icon ${argsToTemplate(args)} />
           This is level 1 heading with inline
           <tedi-icon ${argsToTemplate(args)} />
           icon
-        </tedi-heading>
-        <tedi-heading element="h2" class="display-flex gap-1">
+        </h1>
+        <h2 tedi-text class="display-flex gap-1">
           <tedi-icon ${argsToTemplate(args)} />
           This is level 2 heading with inline
           <tedi-icon ${argsToTemplate(args)} />
           icon
-        </tedi-heading>
-        <tedi-heading element="h3" class="display-flex gap-1">
+        </h2>
+        <h3 tedi-text class="display-flex gap-1">
           <tedi-icon ${argsToTemplate(args)} />
           This is level 3 heading with inline
           <tedi-icon ${argsToTemplate(args)} />
           icon
-        </tedi-heading>
-        <tedi-heading element="h4" class="display-flex gap-1">
+        </h3>
+        <h4 tedi-text class="display-flex gap-1">
           <tedi-icon ${argsToTemplate(args)} />
           This is level 4 heading with inline
           <tedi-icon ${argsToTemplate(args)} />
           icon
-        </tedi-heading>
-        <tedi-heading element="h5" class="display-flex gap-1">
+        </h4>
+        <h5 tedi-text class="display-flex gap-1">
           <tedi-icon ${argsToTemplate(args)} />
           This is level 5 heading with inline
           <tedi-icon ${argsToTemplate(args)} />
           icon
-        </tedi-heading>
-        <tedi-heading element="h6" class="display-flex gap-1">
+        </h5>
+        <h6 tedi-text class="display-flex gap-1">
           <tedi-icon ${argsToTemplate(args)} />
           This is level 6 heading with inline
           <tedi-icon ${argsToTemplate(args)} />
           icon
-        </tedi-heading>
-        <tedi-text class="display-flex gap-1">
+        </h6>
+        <p tedi-text class="display-flex gap-1">
           <tedi-icon ${argsToTemplate(args)} />
           This is paragraph text with inline
           <tedi-icon ${argsToTemplate(args)} />
           icon
-        </tedi-text>
+        </p>
         <small class="display-flex gap-1">
           <tedi-icon ${argsToTemplate(args)} />
           This is small text with inline

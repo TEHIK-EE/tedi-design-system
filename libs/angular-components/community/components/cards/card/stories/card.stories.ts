@@ -20,7 +20,6 @@ import { CardHeaderComponent } from "../card-header/card-header.component";
 import { CardContentComponent } from "../card-content/card-content.component";
 import { CardComponent } from "../card.component";
 import {
-  HeadingComponent,
   IconComponent,
   TextComponent,
 } from "@tehik-ee/tedi-angular/tedi";
@@ -93,7 +92,6 @@ export default {
         CardRowComponent,
         CardHeaderComponent,
         CardContentComponent,
-        HeadingComponent,
         TextComponent,
         IconComponent,
       ],
