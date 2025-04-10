@@ -1,9 +1,9 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import { useState } from 'react';
 
-import { Col, Row } from '../../grid';
-import { Text } from '../../typography/text/text';
-import { VerticalSpacing } from '../../vertical-spacing';
+import { Text } from '../../base/typography/text/text';
+import { Col, Row } from '../../layout/grid';
+import { VerticalSpacing } from '../../layout/vertical-spacing';
 import TextArea, { TextAreaProps } from './textarea';
 
 /**

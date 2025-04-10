@@ -1,6 +1,6 @@
 import React from 'react';
 
-import ScrollFade from '../../../../../../tedi/components/scroll-fade/scroll-fade';
+import ScrollFade from '../../../../../../tedi/components/misc/scroll-fade/scroll-fade';
 import { useLabels } from '../../../../../../tedi/providers/label-provider';
 import { Card, CardContent } from '../../../../card';
 import Collapse from '../../../../collapse/collapse';

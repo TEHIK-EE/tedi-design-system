@@ -4,7 +4,7 @@ import { act, useState } from 'react';
 import Radio from './radio';
 import styles from './radio.module.css';
 
-jest.mock('../../icon/icon', () => ({
+jest.mock('../../base/icon/icon', () => ({
   Icon: jest.fn(() => <span data-testid="icon">Icon</span>),
 }));
 

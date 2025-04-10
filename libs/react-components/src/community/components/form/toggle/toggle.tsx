@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import React, { forwardRef } from 'react';
 
-import { Spinner } from '../../../../tedi/components/spinner/spinner';
+import { Spinner } from '../../../../tedi/components/loaders/spinner/spinner';
 import Button, { ButtonProps } from '../../button/button';
 import Icon from '../../icon/icon';
 import styles from './toggle.module.scss';

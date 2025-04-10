@@ -27,12 +27,12 @@ import { FeedbackText, FeedbackTextProps } from '../../../../tedi/components/for
 import { FormLabel, FormLabelProps } from '../../../../tedi/components/form/form-label/form-label';
 import { useLabels } from '../../../../tedi/providers/label-provider';
 import { UnknownType } from '../../../types/commonTypes';
+import { Icon } from '../../base/icon/icon';
+import { Text, TextProps } from '../../base/typography/text/text';
 import ClosingButton from '../../buttons/closing-button/closing-button';
-import { Icon } from '../../icon/icon';
-import Separator from '../../separator/separator';
-import { Spinner } from '../../spinner/spinner';
-import { Tag } from '../../tag/tag';
-import { Text, TextProps } from '../../typography/text/text';
+import { Spinner } from '../../loaders/spinner/spinner';
+import Separator from '../../misc/separator/separator';
+import { Tag } from '../../tags/tag/tag';
 import Checkbox from '../checkbox/checkbox';
 import Radio from '../radio/radio';
 import styles from './select.module.scss';
@@ -209,7 +209,9 @@ export const Select = forwardRef<SelectInstance<ISelectOption, boolean, IGrouped
       optionGroupHeadingText = { modifiers: 'small', color: 'tertiary' },
       cacheOptions = true,
       showRadioButtons = false,
-      ...rest
+      renderWithoutLabel,
+      tooltip,
+      classNames,
     } = props;
     const helperId = helper ? helper?.id ?? `${id}-helper` : undefined;
     const element = React.useRef<SelectInstance<ISelectOption, boolean, IGroupedOptions<ISelectOption>> | null>(null);
@@ -521,9 +523,9 @@ export const Select = forwardRef<SelectInstance<ISelectOption, boolean, IGrouped
           menuPortalTarget={document.body}
           menuPosition="absolute"
           classNames={
-            props.classNames
+            classNames
               ? Object.fromEntries(
-                  Object.entries(props.classNames).map(([key, value]) => [
+                  Object.entries(classNames).map(([key, value]) => [
                     key,
                     typeof value === 'string' ? () => value : value,
                   ])
@@ -561,9 +563,17 @@ export const Select = forwardRef<SelectInstance<ISelectOption, boolean, IGrouped
     );
 
     return (
-      <div data-name="select" {...rest} className={SelectBEM}>
+      <div data-name="select" className={SelectBEM}>
         <div className={styles['tedi-select__inner']}>
-          <FormLabel id={`${id}-input`} label={label} required={required} hideLabel={hideLabel} size={size} />
+          <FormLabel
+            id={`${id}-input`}
+            label={label}
+            required={required}
+            hideLabel={hideLabel}
+            size={size}
+            renderWithoutLabel={renderWithoutLabel}
+            tooltip={tooltip}
+          />
           {renderReactSelect()}
         </div>
         {helper && <FeedbackText {...helper} id={helperId} />}

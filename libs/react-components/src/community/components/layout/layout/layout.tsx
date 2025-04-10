@@ -2,7 +2,7 @@ import { autoUpdate, useClick, useDismiss, useFloating, useInteractions, useRole
 import cn from 'classnames';
 import React from 'react';
 
-import { Section } from '../../../../tedi/components/section/section';
+import { Section } from '../../../../tedi/components/content/section/section';
 import { useElementSize } from '../../../../tedi/helpers/hooks/use-element-size';
 import { AccessibilityProvider } from '../../../../tedi/providers/accessibility-provider/accessibility-provider';
 import Breadcrumbs, { BreadcrumbsProps } from '../breadcrumbs/breadcrumbs';

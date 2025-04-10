@@ -2,9 +2,9 @@ import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import NextLink from 'next/link';
 import { ElementType, forwardRef } from 'react';
 
-import { Col, Row } from '../../grid';
-import { Text, TextProps } from '../../typography/text/text';
-import { VerticalSpacing } from '../../vertical-spacing';
+import { Text, TextProps } from '../../base/typography/text/text';
+import { Col, Row } from '../../layout/grid';
+import { VerticalSpacing } from '../../layout/vertical-spacing';
 import { Link, LinkProps } from './link';
 
 /**

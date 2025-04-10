@@ -2,7 +2,7 @@ import { FloatingFocusManager, FloatingOverlay } from '@floating-ui/react';
 import cn from 'classnames';
 import React from 'react';
 
-import Print from '../../../../tedi/components/print/print';
+import Print from '../../../../tedi/components/misc/print/print';
 import useLayout, { Layouts } from '../../../helpers/hooks/use-layout';
 import { AllowedHTMLTags } from '../../../helpers/polymorphic/types';
 import { IntentionalAny } from '../../../types';

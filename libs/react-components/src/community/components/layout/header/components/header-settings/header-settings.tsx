@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Separator from '../../../../../../tedi/components/separator/separator';
-import { VerticalSpacing } from '../../../../../../tedi/components/vertical-spacing';
+import { VerticalSpacing } from '../../../../../../tedi/components/layout/vertical-spacing';
+import Separator from '../../../../../../tedi/components/misc/separator/separator';
 import { useLabels } from '../../../../../../tedi/providers/label-provider';
 import { useLayout } from '../../../../../helpers/hooks/use-layout';
 import Button, { ButtonProps } from '../../../../button/button';

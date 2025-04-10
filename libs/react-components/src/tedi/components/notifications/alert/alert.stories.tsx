@@ -1,7 +1,7 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 
+import { VerticalSpacing } from '../../layout/vertical-spacing';
 import Link from '../../navigation/link/link';
-import { VerticalSpacing } from '../../vertical-spacing';
 import Alert, { AlertProps } from '../alert/alert';
 
 /**

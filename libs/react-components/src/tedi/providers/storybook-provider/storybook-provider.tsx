@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { Col, Row } from '../../components/grid';
-import { Text } from '../../components/typography/text/text';
+import { Text } from '../../components/base/typography/text/text';
+import { Col, Row } from '../../components/layout/grid';
 
 interface TextRowProps {
   desktopText: React.ReactNode;
@@ -25,7 +25,9 @@ export const TextRow: React.FC<TextRowProps> = ({
           {desktopText}
         </a>
       ) : (
-        <Text className="desktop padding-14-16">{desktopText}</Text>
+        <Text element="div" className="desktop padding-14-16">
+          {desktopText}
+        </Text>
       )}
     </Col>
     <Col>
@@ -34,7 +36,9 @@ export const TextRow: React.FC<TextRowProps> = ({
           {mobileText}
         </a>
       ) : (
-        <Text className="mobile padding-14-16">{mobileText}</Text>
+        <Text element="div" className="mobile padding-14-16">
+          {mobileText}
+        </Text>
       )}
     </Col>
   </Row>

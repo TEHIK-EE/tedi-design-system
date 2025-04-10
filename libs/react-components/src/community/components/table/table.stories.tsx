@@ -12,7 +12,7 @@ import {
 import dayjs from 'dayjs';
 import React from 'react';
 
-import { VerticalSpacing } from '../../../tedi/components/vertical-spacing';
+import { VerticalSpacing } from '../../../tedi/components/layout/vertical-spacing';
 import { getBackgroundColorClass } from '../../helpers/background-colors/background-colors';
 import { IntentionalAny } from '../../types';
 import Anchor from '../anchor/anchor';

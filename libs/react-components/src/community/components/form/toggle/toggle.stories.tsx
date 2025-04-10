@@ -1,8 +1,8 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import React from 'react';
 
-import { Col, Row } from '../../../../tedi/components/grid';
-import { VerticalSpacing } from '../../../../tedi/components/vertical-spacing';
+import { Col, Row } from '../../../../tedi/components/layout/grid';
+import { VerticalSpacing } from '../../../../tedi/components/layout/vertical-spacing';
 import Text from '../../typography/text/text';
 import Toggle, { ToggleProps } from './toggle';
 

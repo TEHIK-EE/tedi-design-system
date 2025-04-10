@@ -1,9 +1,9 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import { OptionsOrGroups } from 'react-select';
 
-import { Col, Row } from '../../../../tedi/components/grid';
-import { VerticalSpacing } from '../../../../tedi/components/vertical-spacing';
-import { Text } from '../../typography/text/text';
+import { Text } from '../../base/typography/text/text';
+import { Col, Row } from '../../layout/grid';
+import { VerticalSpacing } from '../../layout/vertical-spacing';
 import { AsyncSelectTemplate } from './examples/async';
 import { CustomOptionSelectTemplate } from './examples/custom-option';
 import { EditableSelectTemplate } from './examples/editable';
