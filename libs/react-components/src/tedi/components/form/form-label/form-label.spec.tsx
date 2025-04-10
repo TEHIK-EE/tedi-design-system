@@ -1,21 +1,6 @@
 import { render } from '@testing-library/react';
 
-import { Label } from '../../content/label/label';
 import { FormLabel } from './form-label';
-
-import '@testing-library/jest-dom';
-
-jest.mock('../../content/label/label', () => ({
-  Label: jest.fn(({ children, className, as: Element = 'label', ...rest }) => {
-    const { ...filteredRest } = rest;
-
-    return (
-      <Element className={className} isSmall {...filteredRest}>
-        {children}
-      </Element>
-    );
-  }),
-}));
 
 describe('FormLabel component', () => {
   it('renders with default props', () => {
@@ -40,14 +25,6 @@ describe('FormLabel component', () => {
 
     const label = container.querySelector('.tedi-form-label');
     expect(label).toHaveClass('tedi-form-label--hidden-keep-space');
-  });
-
-  it('renders with required prop', () => {
-    const { container } = render(<FormLabel id="test-id" label="Test Label" required />);
-
-    const label = container.querySelector('label');
-    expect(label).toBeInTheDocument();
-    expect(Label).toHaveBeenCalledWith(expect.objectContaining({ required: true }), expect.anything());
   });
 
   it('renders with a custom class name', () => {

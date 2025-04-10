@@ -1,0 +1,37 @@
+<button
+  [id]="headerId()"
+  tedi-card-header
+  [variant]="variant()"
+  [background]="background()"
+  class="tedi-accordion-item-header"
+  [class.tedi-accordion-item-header--opened]="opened()"
+  [attr.aria-expanded]="opened()"
+  [attr.aria-controls]="contentId()"
+  (click)="toggle()"
+>
+  <ng-content></ng-content>
+  @if (indicator()) {
+    <tedi-icon
+      name="keyboard_arrow_down"
+      class="tedi-accordion-item-header__indicator"
+      [size]="18"
+      [color]="indicatorIconColor()"
+    />
+  }
+  @if (toggleButtonText()) {
+    <span
+      tedi-button
+      variant="neutral"
+      class="tedi-accordion-item-header__toggle"
+    >
+      {{ toggleButtonText() }}
+      <tedi-icon
+        name="keyboard_arrow_down"
+        class="tedi-accordion-item-header__indicator"
+        [size]="16"
+        color="brand"
+      />
+    </span>
+  }
+  <ng-content select="[tedi-accordion-header-end]"></ng-content>
+</button>

@@ -1,4 +1,5 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
+import { Fragment } from 'react/jsx-runtime';
 
 import { Col, Row } from '../../layout/grid';
 import { VerticalSpacing } from '../../layout/vertical-spacing';
@@ -70,21 +71,21 @@ const TemplateAllCombos: StoryFn<StatusBadgeProps> = (args) => {
               <strong>{color.charAt(0).toUpperCase() + color.slice(1)}</strong>
             </Col>
             {variants.map((variant) => (
-              <>
-                <Col width="auto" key={`${color}-${variant}`}>
+              <Fragment key={variant}>
+                <Col width="auto">
                   <StatusBadge {...args} color={color} variant={variant}>
                     Text
                   </StatusBadge>
                 </Col>
-                <Col width="auto" key={`${color}-${variant}-icon`}>
+                <Col width="auto">
                   <StatusBadge {...args} color={color} variant={variant} icon={colorToIconMap[color]}>
                     Text
                   </StatusBadge>
                 </Col>
-                <Col width="auto" key={`${color}-${variant}-icon`}>
+                <Col width="auto">
                   <StatusBadge {...args} color={color} variant={variant} icon={colorToIconMap[color]} />
                 </Col>
-              </>
+              </Fragment>
             ))}
           </Row>
         ))}
@@ -103,13 +104,13 @@ const TemplateStatusGrid: StoryFn<StatusBadgeProps> = (args) => {
               <strong>{status?.charAt(0).toUpperCase() + (status as string).slice(1)}</strong>
             </Col>
             {variants.map((variant) => (
-              <>
-                <Col width="auto" key={`${status}-${variant}`}>
+              <Fragment key={variant}>
+                <Col width="auto">
                   <StatusBadge {...args} color="neutral" variant={variant} status={status}>
                     Text
                   </StatusBadge>
                 </Col>
-                <Col width="auto" key={`${status}-${variant}`}>
+                <Col width="auto">
                   <StatusBadge
                     {...args}
                     color="neutral"
@@ -120,7 +121,7 @@ const TemplateStatusGrid: StoryFn<StatusBadgeProps> = (args) => {
                     Text
                   </StatusBadge>
                 </Col>
-                <Col width="auto" key={`${status}-${variant}`}>
+                <Col width="auto">
                   <StatusBadge
                     {...args}
                     color="neutral"
@@ -129,7 +130,7 @@ const TemplateStatusGrid: StoryFn<StatusBadgeProps> = (args) => {
                     status={status}
                   />
                 </Col>
-              </>
+              </Fragment>
             ))}
           </Row>
         ))}

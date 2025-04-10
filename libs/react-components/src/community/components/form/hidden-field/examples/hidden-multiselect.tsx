@@ -14,7 +14,7 @@ const keywords = [
   { label: 'Variant F', value: 'F' },
 ];
 
-export const HiddenMultiselect: StoryFn<typeof HiddenField> = (args) => {
+export const HiddenMultiselect: StoryFn<typeof HiddenField> = (_args) => {
   const [state, setState] = React.useState([keywords[0], keywords[1], keywords[2]]);
 
   return (

@@ -1,4 +1,5 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
+import { Fragment } from 'react/jsx-runtime';
 
 import { Text } from '../../base/typography/text/text';
 import { Card, CardContent } from '../../cards/card';
@@ -43,19 +44,19 @@ const Template: StoryFn<SeparatorProps> = (args) => (
 
 const ColorsAndThickness: StoryFn<SeparatorProps> = (args) => (
   <>
-    {colorArray.map((color, index) => (
-      <>
-        <Row key={index}>
+    {colorArray.map((color) => (
+      <Fragment key={color}>
+        <Row>
           <Col>
             <Separator color={color} thickness={1} {...args} />
           </Col>
         </Row>
-        <Row key={index}>
+        <Row>
           <Col>
             <Separator color={color} thickness={2} {...args} />
           </Col>
         </Row>
-      </>
+      </Fragment>
     ))}
   </>
 );
@@ -173,22 +174,22 @@ const InlineSeparatorTemplate: StoryFn<SeparatorProps> = (args) => (
   <VerticalSpacing>
     <Text>
       Lorem ipsum dolor sit, amet
-      <Separator color="primary" spacing={0.5} {...args} />
+      <Separator {...args} element="span" color="primary" spacing={0.5} />
       consectetur adipisicing elit.
     </Text>
     <Text>
       Lorem ipsum dolor sit, amet
-      <Separator color="secondary" spacing={1} {...args} />
+      <Separator {...args} element="span" color="secondary" spacing={1} />
       consectetur adipisicing elit.
     </Text>
     <Text>
       Lorem ipsum dolor sit, amet
-      <Separator color="accent" spacing={1.5} {...args} />
+      <Separator {...args} element="span" color="accent" spacing={1.5} />
       consectetur adipisicing elit.
     </Text>
     <Text>
       Lorem ipsum dolor sit, amet
-      <Separator {...args} color="secondary" spacing={0.5} variant="dot-only" dotSize="small" />
+      <Separator {...args} element="span" color="secondary" spacing={0.5} variant="dot-only" dotSize="small" />
       consectetur adipisicing elit.
     </Text>
   </VerticalSpacing>

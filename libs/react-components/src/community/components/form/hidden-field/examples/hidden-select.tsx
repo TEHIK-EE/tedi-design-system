@@ -13,7 +13,7 @@ const selectOptions: ISelectOption[] = [
   { label: 'Hädaohus olev laps', value: 'C' },
 ];
 
-export const HiddenSelect: StoryFn<typeof HiddenField> = (args) => {
+export const HiddenSelect: StoryFn<typeof HiddenField> = (_args) => {
   const [state, setState] = React.useState(selectOptions[0]);
 
   return (

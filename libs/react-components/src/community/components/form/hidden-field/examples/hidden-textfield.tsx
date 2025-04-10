@@ -3,7 +3,7 @@ import React from 'react';
 
 import { HiddenField } from '../hidden-field';
 
-export const HiddenTextField: StoryFn<typeof HiddenField> = (args) => {
+export const HiddenTextField: StoryFn<typeof HiddenField> = (_args) => {
   const [state, setState] = React.useState('Vaba tekst');
 
   return (

@@ -1,0 +1,19 @@
+<tedi-icon
+  *ngIf="breakpointInputs().iconLeft"
+  [name]="breakpointInputs().iconLeft"
+  [class]="'tedi-link__icon tedi-link__icon--left'"
+/>
+<span
+  [class]="{
+    'tedi-link__text': true,
+    'tedi-link__text--no-underline': !breakpointInputs().underline,
+    'tedi-link__text--small': breakpointInputs().size === 'small',
+  }"
+>
+  <ng-content></ng-content>
+</span>
+<tedi-icon
+  *ngIf="breakpointInputs().iconRight"
+  [name]="breakpointInputs().iconRight"
+  [class]="'tedi-link__icon tedi-link__icon--right'"
+/>

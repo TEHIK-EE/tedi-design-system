@@ -82,10 +82,14 @@ export const ChoiceGroup = (props: ChoiceGroupProps): React.ReactElement => {
 
     if (inputType === 'radio') {
       const defaultItem = items.find((item) => item.defaultChecked);
-      if (defaultItem) return defaultItem.value;
+      return defaultItem ? defaultItem.value : null;
     }
 
-    return inputType === 'checkbox' ? [] : null;
+    if (inputType === 'checkbox') {
+      return items.filter((item) => item.defaultChecked).map((item) => item.value);
+    }
+
+    return null;
   });
 
   const isValueControlled = (value = props.value): value is ChoiceGroupValue =>
