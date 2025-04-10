@@ -18,6 +18,7 @@ export default {
       options: SIZES,
       description: "Size of the spinner in px.",
       table: {
+        category: "inputs",
         defaultValue: {
           summary: "16",
         },
@@ -30,19 +31,18 @@ export default {
       description:
         "Specifies the color theme of the spinner. The color should meet accessibility standards for color contrast.",
       table: {
+        category: "inputs",
         defaultValue: { summary: "primary" },
         type: { summary: "SpinnerColor", detail: "primary \nsecondary" },
       },
-    },
-    class: {
-      control: "text",
-      description:
-        "Adds a custom CSS class to the spinner element for additional styling or theming purposes.",
     },
     label: {
       control: "text",
       description:
         "Provides a text label for screen readers to announce the spinners purpose or status.",
+      table: {
+        category: "inputs",
+      }
     },
   },
 } as Meta<SpinnerComponent>;

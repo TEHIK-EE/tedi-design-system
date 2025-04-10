@@ -8,10 +8,6 @@ $spinner-sizes: (10 16 48);
   display: flex;
   animation: 1.4s linear 0s infinite normal none running tedi-spinner-outer;
 
-  &--absolute {
-    position: absolute;
-  }
-
   &--inner {
     stroke-dasharray: 80px, 200px;
     stroke-dashoffset: 0;
