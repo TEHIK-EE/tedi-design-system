@@ -184,18 +184,18 @@ export const Default: StoryObj<RowComponent> = {
     props: args,
     template: `
       <tedi-row ${argsToTemplate(args)}>
-        <tedi-col [class]="'example-col'">Col 1</tedi-col>
-        <tedi-col [class]="'example-col'">Col 2</tedi-col>
-        <tedi-col [class]="'example-col'">Col 3</tedi-col>
-        <tedi-col [class]="'example-col'">Col 4</tedi-col>
-        <tedi-col [class]="'example-col'">Col 5</tedi-col>
-        <tedi-col [class]="'example-col'">Col 6</tedi-col>
-        <tedi-col [class]="'example-col'">Col 7</tedi-col>
-        <tedi-col [class]="'example-col'">Col 8</tedi-col>
-        <tedi-col [class]="'example-col'">Col 9</tedi-col>
-        <tedi-col [class]="'example-col'">Col 10</tedi-col>
-        <tedi-col [class]="'example-col'">Col 11</tedi-col>
-        <tedi-col [class]="'example-col'">Col 12</tedi-col>
+        <tedi-col class="example-col">Col 1</tedi-col>
+        <tedi-col class="example-col">Col 2</tedi-col>
+        <tedi-col class="example-col">Col 3</tedi-col>
+        <tedi-col class="example-col">Col 4</tedi-col>
+        <tedi-col class="example-col">Col 5</tedi-col>
+        <tedi-col class="example-col">Col 6</tedi-col>
+        <tedi-col class="example-col">Col 7</tedi-col>
+        <tedi-col class="example-col">Col 8</tedi-col>
+        <tedi-col class="example-col">Col 9</tedi-col>
+        <tedi-col class="example-col">Col 10</tedi-col>
+        <tedi-col class="example-col">Col 11</tedi-col>
+        <tedi-col class="example-col">Col 12</tedi-col>
       </tedi-row>
     `,
   }),

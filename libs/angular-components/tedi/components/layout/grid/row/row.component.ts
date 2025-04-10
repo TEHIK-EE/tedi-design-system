@@ -2,6 +2,7 @@ import {
   ChangeDetectionStrategy,
   Component,
   computed,
+  inject,
   input,
   ViewEncapsulation,
 } from "@angular/core";
@@ -86,8 +87,7 @@ export class RowComponent implements BreakpointInputs<RowInputs> {
   xl = input<RowInputs>();
   xxl = input<RowInputs>();
 
-  constructor(private breakpointService: BreakpointService) {}
-
+  breakpointService = inject(BreakpointService);
   breakpointInputs = computed(() => {
     return this.breakpointService.getBreakpointInputs<RowInputs>({
       cols: this.cols(),
