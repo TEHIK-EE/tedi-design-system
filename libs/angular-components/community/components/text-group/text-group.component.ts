@@ -1,5 +1,5 @@
 import { Component, computed, input } from "@angular/core";
-import { InputsWithSignals } from "tedi/types/inputs.type";
+import type { InputsWithSignals } from "@tehik-ee/tedi-angular/tedi";
 
 type TextGroupType = "vertical" | "horizontal";
 

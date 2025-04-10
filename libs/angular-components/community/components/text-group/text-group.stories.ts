@@ -6,10 +6,10 @@ import {
 } from "@storybook/angular";
 
 import { TextGroupComponent } from "./text-group.component";
-import { VerticalSpacingDirective } from "tedi/directives/vertical-spacing/vertical-spacing.directive";
+import { VerticalSpacingDirective } from "@tehik-ee/tedi-angular/tedi";
 
 export default {
-  title: "Tedi-Ready Angular/Content/TextGroup",
+  title: "Community Angular/Content/TextGroup",
   component: TextGroupComponent,
 } as Meta<TextGroupComponent>;
 
@@ -77,25 +77,21 @@ export const Horizontal: Story = {
           ${argsToTemplate(args)}
           label="Patient"
           value="Mari Maasikas"
-          [labelWidth]="labelWidth"
         ></tedi-text-group>
         <tedi-text-group
           ${argsToTemplate(args)}
           label="Address"
           value="Tulbi tn 4, Tallinn, 23562, Estonia"
-          [labelWidth]="labelWidth"
         ></tedi-text-group>
         <tedi-text-group
           ${argsToTemplate(args)}
           label="Healthcare provider"
           value="SA Põhja-Eesti Regionaalhaigla"
-          [labelWidth]="labelWidth"
         ></tedi-text-group>
         <tedi-text-group
           ${argsToTemplate(args)}
           label="Document created"
           value="16.08.2023 14:51:48"
-          [labelWidth]="labelWidth"
         ></tedi-text-group>
       </div>`,
   }),
@@ -115,28 +111,21 @@ export const Vertical: Story = {
           ${argsToTemplate(args)}
           label="Patient"
           value="Mari Maasikas"
-          [labelWidth]="labelWidth"
         ></tedi-text-group>
         <tedi-text-group
           ${argsToTemplate(args)}
           label="Address"
           value="Tulbi tn 4, Tallinn, 23562, Estonia"
-          [type]="'type'"
-          [labelWidth]="labelWidth"
         ></tedi-text-group>
         <tedi-text-group
           ${argsToTemplate(args)}
           label="Healthcare provider"
           value="SA Põhja-Eesti Regionaalhaigla"
-          [type]="'type'"
-          [labelWidth]="labelWidth"
         ></tedi-text-group>
         <tedi-text-group
           ${argsToTemplate(args)}
           label="Document created"
           value="16.08.2023 14:51:48"
-          [type]="'type'"
-          [labelWidth]="labelWidth"
         ></tedi-text-group>
       </div>`,
   }),

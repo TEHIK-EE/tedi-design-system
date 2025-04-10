@@ -58,7 +58,7 @@ export const Default: StoryObj<VerticalSpacingDirective> = {
 };
 
 export const NgFor: StoryObj<VerticalSpacingDirective & Weekdays> = {
-  name: "@for",
+  name: "Vertical Spacing with @for",
   args: {
     tediVerticalSpacing: 1.5,
     weekdays: [
