@@ -1,6 +1,12 @@
-import type { Meta, StoryObj } from "@storybook/angular";
+import {
+  argsToTemplate,
+  moduleMetadata,
+  type Meta,
+  type StoryObj,
+} from "@storybook/angular";
 
 import { TextGroupComponent } from "./text-group.component";
+import { VerticalSpacingDirective } from "tedi/directives/vertical-spacing/vertical-spacing.directive";
 
 export default {
   title: "Tedi-Ready Angular/Content/TextGroup",
@@ -13,9 +19,14 @@ export const Default: Story = {
   args: {
     label: "Label",
     value: "Value",
-    type: "vertical",
+    type: "horizontal",
     labelWidth: "auto",
   },
+  decorators: [
+    moduleMetadata({
+      imports: [VerticalSpacingDirective, TextGroupComponent],
+    }),
+  ],
   render: (props) => ({
     props,
     template: `
@@ -31,12 +42,12 @@ export const Default: Story = {
     label: {
       control: "text",
       description: "Label for the text group",
-      defaultValue: "Label22222",
+      defaultValue: "Label",
     },
     value: {
       control: "text",
       description: "Value displayed alongside the label",
-      defaultValue: "Value2222",
+      defaultValue: "Value",
     },
     type: {
       control: "radio",
@@ -51,28 +62,82 @@ export const Default: Story = {
     },
   },
 };
-// export const Horizontal: Story = {
-//   ...Default,
-//   args: {
-//     ...Default.args,
-//     type: "horizontal",
-//   },
-// };
-// export const Vertical: Story = {
-//   ...Default,
-//   args: {
-//     ...Default.args,
-//     type: "vertical",
-//   },
-// };
 
-// export const CustomLabelWidth: Story = {
-//   ...Default,
-//   args: {
-//     ...Default.args,
-//     labelWidth: "200px",
-//   },
-//   render: (props) => ({
-//     props,
-//   }),
-// };
+export const Horizontal: Story = {
+  ...Default,
+  args: {
+    type: "horizontal",
+    labelWidth: "200px",
+  },
+  render: (args) => ({
+    props: args,
+    template: `
+    <div [tediVerticalSpacing]="0.5">
+      <tedi-text-group
+          ${argsToTemplate(args)}
+          label="Patient"
+          value="Mari Maasikas"
+          [labelWidth]="labelWidth"
+        ></tedi-text-group>
+        <tedi-text-group
+          ${argsToTemplate(args)}
+          label="Address"
+          value="Tulbi tn 4, Tallinn, 23562, Estonia"
+          [labelWidth]="labelWidth"
+        ></tedi-text-group>
+        <tedi-text-group
+          ${argsToTemplate(args)}
+          label="Healthcare provider"
+          value="SA Põhja-Eesti Regionaalhaigla"
+          [labelWidth]="labelWidth"
+        ></tedi-text-group>
+        <tedi-text-group
+          ${argsToTemplate(args)}
+          label="Document created"
+          value="16.08.2023 14:51:48"
+          [labelWidth]="labelWidth"
+        ></tedi-text-group>
+      </div>`,
+  }),
+};
+
+export const Vertical: Story = {
+  ...Default,
+  args: {
+    labelWidth: "150px",
+    type: "vertical",
+  },
+  render: (args) => ({
+    props: args,
+    template: `
+    <div [tediVerticalSpacing]="0.5">
+      <tedi-text-group
+          ${argsToTemplate(args)}
+          label="Patient"
+          value="Mari Maasikas"
+          [labelWidth]="labelWidth"
+        ></tedi-text-group>
+        <tedi-text-group
+          ${argsToTemplate(args)}
+          label="Address"
+          value="Tulbi tn 4, Tallinn, 23562, Estonia"
+          [type]="'type'"
+          [labelWidth]="labelWidth"
+        ></tedi-text-group>
+        <tedi-text-group
+          ${argsToTemplate(args)}
+          label="Healthcare provider"
+          value="SA Põhja-Eesti Regionaalhaigla"
+          [type]="'type'"
+          [labelWidth]="labelWidth"
+        ></tedi-text-group>
+        <tedi-text-group
+          ${argsToTemplate(args)}
+          label="Document created"
+          value="16.08.2023 14:51:48"
+          [type]="'type'"
+          [labelWidth]="labelWidth"
+        ></tedi-text-group>
+      </div>`,
+  }),
+};

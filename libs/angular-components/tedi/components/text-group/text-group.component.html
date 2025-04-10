@@ -1,6 +1,6 @@
-<dl>
-  <dt>
+<dl [class]="classes()">
+  <dt class="tedi-text-group__label" [style]="labelWidthStyle()">
     <label>{{ label() }}</label>
   </dt>
-  <dd>{{ value() }}</dd>
+  <dd class="tedi-text-group__value">{{ value() }}</dd>
 </dl>
