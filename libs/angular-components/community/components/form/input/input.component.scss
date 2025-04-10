@@ -42,6 +42,8 @@
   );
   --_border-color: var(--form-input-border-default);
   --_color: var(--form-input-text-filled);
+  --_background-color: var(--form-input-background-default);
+  --_placeholder-color: var(--form-input-text-placeholder);
 
   padding: var(--_padding-y) var(--_padding-x);
   border-radius: var(--_border-radius);
@@ -50,21 +52,19 @@
   border: 1px solid;
   border-color: var(--_border-color);
   color: var(--_color);
+  background-color: var(--_background-color);
   &:hover {
     --_border-color: var(--form-input-border-hover);
   }
   @include textfield-focus(var(--form-input-border-hover));
   &:disabled {
-    --_background-color: var(--form-input-background-disabled);
     --_color: var(--form-input-text-disabled);
     --_border-color: var(--form-input-border-disabled);
-
-    pointer-events: none;
-    background-color: var(--_background-color);
+    --_background-color: var(--form-input-background-disabled);
   }
 
   &::placeholder {
-    --_color: var(--form-input-text-placeholder);
+    color: var(--_placeholder-color);
   }
 
   &--error {
