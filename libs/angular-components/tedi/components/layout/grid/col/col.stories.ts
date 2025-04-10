@@ -26,10 +26,6 @@ export default {
     },
   },
   argTypes: {
-    class: {
-      type: "string",
-      description: "Additional class",
-    },
     width: {
       description: "Number of column width.",
       control: {
@@ -37,6 +33,7 @@ export default {
       },
       options: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
       table: {
+        category: "inputs",
         type: {
           summary: "ColWidth",
           detail: "1 \n2 \n3 \n4 \n5 \n6 \n7 \n8 \n9 \n10 \n11 \n12",
@@ -51,6 +48,7 @@ export default {
       },
       options: ["start", "end", "center", "stretch"],
       table: {
+        category: "inputs",
         type: {
           summary: "JustifySelf",
           detail: "start \nend \ncenter \nstretch",
@@ -64,6 +62,7 @@ export default {
       },
       options: ["start", "end", "center", "stretch"],
       table: {
+        category: "inputs",
         type: {
           summary: "AlignSelf",
           detail: "start \nend \ncenter \nstretch",
@@ -73,6 +72,7 @@ export default {
     xs: {
       description: "Overrides ColInputs on xs breakpoint (<576px).",
       table: {
+        category: "breakpoints",
         type: {
           summary: "ColInputs",
         },
@@ -81,6 +81,7 @@ export default {
     sm: {
       description: "Overrides ColInputs on sm breakpoint (≥576px).",
       table: {
+        category: "breakpoints",
         type: {
           summary: "ColInputs",
         },
@@ -89,6 +90,7 @@ export default {
     md: {
       description: "Overrides ColInputs on md breakpoint (≥768px).",
       table: {
+        category: "breakpoints",
         type: {
           summary: "ColInputs",
         },
@@ -97,6 +99,7 @@ export default {
     lg: {
       description: "Overrides ColInputs on lg breakpoint (≥992px).",
       table: {
+        category: "breakpoints",
         type: {
           summary: "ColInputs",
         },
@@ -105,6 +108,7 @@ export default {
     xl: {
       description: "Overrides ColInputs on xl breakpoint (≥1200px).",
       table: {
+        category: "breakpoints",
         type: {
           summary: "ColInputs",
         },
@@ -113,6 +117,7 @@ export default {
     xxl: {
       description: "Overrides ColInputs on xxl breakpoint (≥1400px).",
       table: {
+        category: "breakpoints",
         type: {
           summary: "ColInputs",
         },
@@ -122,25 +127,22 @@ export default {
 } as Meta<ColComponent>;
 
 export const Default: StoryObj<ColComponent> = {
-  args: {
-    width: 1,
-  },
   render: (args) => ({
     props: args,
     template: `
-      <tedi-row [class]="'example-row'" [cols]="12" [gap]="3">
-        <tedi-col ${argsToTemplate(args)} [class]="'example-col'">Col 1</tedi-col>
-        <tedi-col ${argsToTemplate(args)} [class]="'example-col'">Col 2</tedi-col>
-        <tedi-col ${argsToTemplate(args)} [class]="'example-col'">Col 3</tedi-col>
-        <tedi-col ${argsToTemplate(args)} [class]="'example-col'">Col 4</tedi-col>
-        <tedi-col ${argsToTemplate(args)} [class]="'example-col'">Col 5</tedi-col>
-        <tedi-col ${argsToTemplate(args)} [class]="'example-col'">Col 6</tedi-col>
-        <tedi-col ${argsToTemplate(args)} [class]="'example-col'">Col 7</tedi-col>
-        <tedi-col ${argsToTemplate(args)} [class]="'example-col'">Col 8</tedi-col>
-        <tedi-col ${argsToTemplate(args)} [class]="'example-col'">Col 9</tedi-col>
-        <tedi-col ${argsToTemplate(args)} [class]="'example-col'">Col 10</tedi-col>
-        <tedi-col ${argsToTemplate(args)} [class]="'example-col'">Col 11</tedi-col>
-        <tedi-col ${argsToTemplate(args)} [class]="'example-col'">Col 12</tedi-col>
+      <tedi-row [cols]="12" gap="1">
+        <tedi-col ${argsToTemplate(args)} class="example-col">Col 1</tedi-col>
+        <tedi-col ${argsToTemplate(args)} class="example-col">Col 2</tedi-col>
+        <tedi-col ${argsToTemplate(args)} class="example-col">Col 3</tedi-col>
+        <tedi-col ${argsToTemplate(args)} class="example-col">Col 4</tedi-col>
+        <tedi-col ${argsToTemplate(args)} class="example-col">Col 5</tedi-col>
+        <tedi-col ${argsToTemplate(args)} class="example-col">Col 6</tedi-col>
+        <tedi-col ${argsToTemplate(args)} class="example-col">Col 7</tedi-col>
+        <tedi-col ${argsToTemplate(args)} class="example-col">Col 8</tedi-col>
+        <tedi-col ${argsToTemplate(args)} class="example-col">Col 9</tedi-col>
+        <tedi-col ${argsToTemplate(args)} class="example-col">Col 10</tedi-col>
+        <tedi-col ${argsToTemplate(args)} class="example-col">Col 11</tedi-col>
+        <tedi-col ${argsToTemplate(args)} class="example-col">Col 12</tedi-col>
       </tedi-row>
     `,
   }),

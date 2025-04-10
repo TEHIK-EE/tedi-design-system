@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
-import { By } from "@angular/platform-browser";
 import {
   ColComponent,
   ColWidth,
@@ -9,13 +8,15 @@ import {
 
 describe("ColComponent", () => {
   let fixture: ComponentFixture<ColComponent>;
+  let colElement: HTMLElement;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [ColComponent],
-    }).compileComponents();
+    })
 
     fixture = TestBed.createComponent(ColComponent);
+    colElement = fixture.nativeElement;
     fixture.detectChanges();
   });
 
@@ -24,15 +25,8 @@ describe("ColComponent", () => {
   });
 
   it("should render the col with default props", () => {
-    const colElement = fixture.debugElement.query(By.css(".col"));
-    expect(colElement).toBeTruthy();
-  });
-
-  it("should apply default width class", () => {
-    const colElement = fixture.debugElement.query(By.css(".col"));
-    expect(
-      colElement.nativeElement.classList.contains("col--width-1"),
-    ).toBeTruthy();
+    expect(colElement.classList).toContain("col");
+    expect(colElement.classList).toContain("col--width-1");
   });
 
   it("should apply different column widths", () => {
@@ -42,10 +36,7 @@ describe("ColComponent", () => {
       fixture.componentRef.setInput("width", width);
       fixture.detectChanges();
 
-      const colElement = fixture.debugElement.query(By.css(".col"));
-      expect(
-        colElement.nativeElement.classList.contains(`col--width-${width}`),
-      ).toBeTruthy();
+      expect(colElement.classList).toContain(`col--width-${width}`);
     }
   });
 
@@ -56,12 +47,7 @@ describe("ColComponent", () => {
       fixture.componentRef.setInput("justifySelf", justifySelf);
       fixture.detectChanges();
 
-      const colElement = fixture.debugElement.query(By.css(".col"));
-      expect(
-        colElement.nativeElement.classList.contains(
-          `col--justify-self-${justifySelf}`,
-        ),
-      ).toBeTruthy();
+      expect(colElement.classList).toContain(`col--justify-self-${justifySelf}`);
     }
   });
 
@@ -72,32 +58,11 @@ describe("ColComponent", () => {
       fixture.componentRef.setInput("alignSelf", alignSelf);
       fixture.detectChanges();
 
-      const colElement = fixture.debugElement.query(By.css(".col"));
-      expect(
-        colElement.nativeElement.classList.contains(
-          `col--align-self-${alignSelf}`,
-        ),
-      ).toBeTruthy();
+      expect(colElement.classList).toContain(`col--align-self-${alignSelf}`);
     }
   });
 
-  it("should apply custom class", () => {
-    fixture.componentRef.setInput("class", "custom-class");
-    fixture.detectChanges();
-
-    const colElement = fixture.debugElement.query(By.css(".col"));
-    expect(
-      colElement.nativeElement.classList.contains("custom-class"),
-    ).toBeTruthy();
-  });
-
   it("should handle undefined values", () => {
-    fixture.detectChanges();
-
-    const colElement = fixture.debugElement.query(By.css(".col"));
-    expect(colElement).toBeTruthy();
-    expect(colElement.nativeElement.classList.toString()).not.toContain(
-      "undefined",
-    );
+    expect(colElement.classList.toString()).not.toContain("undefined");
   });
 });

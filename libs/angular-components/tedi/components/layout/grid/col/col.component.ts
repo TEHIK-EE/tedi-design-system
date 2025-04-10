@@ -2,7 +2,9 @@ import {
   ChangeDetectionStrategy,
   Component,
   computed,
+  inject,
   input,
+  ViewEncapsulation,
 } from "@angular/core";
 import {
   BreakpointService,
@@ -12,12 +14,7 @@ import {
 export type ColWidth = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
 export type JustifySelf = "start" | "end" | "center" | "stretch";
 export type AlignSelf = "start" | "end" | "center" | "stretch";
-
-type ColInputs = {
-  /**
-   * Additional class.
-   */
-  class: string;
+export type ColInputs = {
   /**
    * Number of column width.
    * @default 1
@@ -39,9 +36,13 @@ type ColInputs = {
   templateUrl: "./col.component.html",
   styleUrl: "./col.component.scss",
   changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.None,
+  host: {
+    "[class]": "classes()",
+    "role": "presentation",
+  }
 })
 export class ColComponent implements BreakpointInputs<ColInputs> {
-  class = input<string>("");
   width = input<ColWidth>(1);
   justifySelf = input<JustifySelf>();
   alignSelf = input<AlignSelf>();
@@ -53,11 +54,9 @@ export class ColComponent implements BreakpointInputs<ColInputs> {
   xl = input<ColInputs>();
   xxl = input<ColInputs>();
 
-  constructor(private breakpointService: BreakpointService) {}
-
+  breakpointService = inject(BreakpointService);
   breakpointInputs = computed(() => {
     return this.breakpointService.getBreakpointInputs<ColInputs>({
-      class: this.class(),
       width: this.width(),
       justifySelf: this.justifySelf(),
       alignSelf: this.alignSelf(),
@@ -81,10 +80,6 @@ export class ColComponent implements BreakpointInputs<ColInputs> {
 
     if (this.breakpointInputs().alignSelf) {
       classList.push(`col--align-self-${this.breakpointInputs().alignSelf}`);
-    }
-
-    if (this.breakpointInputs().class) {
-      classList.push(this.breakpointInputs().class);
     }
 
     return classList.join(" ");

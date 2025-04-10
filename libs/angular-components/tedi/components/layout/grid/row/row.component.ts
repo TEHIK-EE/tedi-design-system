@@ -2,28 +2,39 @@ import {
   ChangeDetectionStrategy,
   Component,
   computed,
+  inject,
   input,
+  ViewEncapsulation,
 } from "@angular/core";
 import {
   BreakpointService,
   BreakpointInputs,
 } from "../../../../services/breakpoint/breakpoint.service";
 
-export type Cols = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
+const GAP_MAP: Record<number, string> = {
+  0: "0rem",
+  1: "0.25rem",
+  2: "0.5rem",
+  3: "1rem",
+  4: "1.5rem",
+  5: "3rem",
+};
+
+export type Cols = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | "auto";
 export type Gap = 0 | 1 | 2 | 3 | 4 | 5;
 export type JustifyItems = "start" | "end" | "center" | "stretch";
 export type AlignItems = "start" | "end" | "center" | "stretch";
-
-type RowInputs = {
-  /**
-   * Additional class.
-   */
-  class: string;
+export type RowInputs = {
   /**
    * The number of columns that will fit next to each other.
-   * @default 12
+   * @default auto
    */
   cols: Cols;
+  /**
+   * Applies minimum width (px) to the column when using auto layout.
+   * @default 200px
+   */
+  minColWidth: number;
   /**
    * Aligns items horizontally inside their grid cell.
    */
@@ -52,10 +63,17 @@ type RowInputs = {
   templateUrl: "./row.component.html",
   styleUrl: "./row.component.scss",
   changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.None,
+  host: {
+    "[class]": "classes()",
+    "[style.--_grid-gap]": "breakpointInputs().cols === 'auto' ? gridGap() : null",
+    "[style.--_grid-col-width]": "breakpointInputs().cols === 'auto' ? breakpointInputs().minColWidth + 'px' : null",
+    "role": "presentation"
+  }
 })
 export class RowComponent implements BreakpointInputs<RowInputs> {
-  class = input<string>("");
-  cols = input<Cols>(12);
+  cols = input<Cols>("auto");
+  minColWidth = input<number>(200);
   justifyItems = input<JustifyItems>();
   alignItems = input<AlignItems>();
   gap = input<Gap>();
@@ -69,12 +87,11 @@ export class RowComponent implements BreakpointInputs<RowInputs> {
   xl = input<RowInputs>();
   xxl = input<RowInputs>();
 
-  constructor(private breakpointService: BreakpointService) {}
-
+  breakpointService = inject(BreakpointService);
   breakpointInputs = computed(() => {
     return this.breakpointService.getBreakpointInputs<RowInputs>({
-      class: this.class(),
       cols: this.cols(),
+      minColWidth: this.minColWidth(),
       justifyItems: this.justifyItems(),
       alignItems: this.alignItems(),
       gap: this.gap(),
@@ -87,6 +104,13 @@ export class RowComponent implements BreakpointInputs<RowInputs> {
       xl: this.xl(),
       xxl: this.xxl(),
     });
+  });
+
+  gridGap = computed(() => {
+    const gap = this.breakpointInputs().gap;
+    const gapX = this.breakpointInputs().gapX;
+    const gapValue = gap ?? gapX;
+    return GAP_MAP[gapValue ?? 0];
   });
 
   classes = computed(() => {
@@ -102,20 +126,16 @@ export class RowComponent implements BreakpointInputs<RowInputs> {
       classList.push(`row--align-items-${this.breakpointInputs().alignItems}`);
     }
 
-    if (this.breakpointInputs().gap) {
+    if (this.breakpointInputs().gap !== undefined) {
       classList.push(`g-${this.breakpointInputs().gap}`);
     }
 
-    if (this.breakpointInputs().gapX) {
+    if (this.breakpointInputs().gapX !== undefined) {
       classList.push(`gx-${this.breakpointInputs().gapX}`);
     }
 
-    if (this.breakpointInputs().gapY) {
+    if (this.breakpointInputs().gapY !== undefined) {
       classList.push(`gy-${this.breakpointInputs().gapY}`);
-    }
-
-    if (this.breakpointInputs().class) {
-      classList.push(this.breakpointInputs().class);
     }
 
     return classList.join(" ");
