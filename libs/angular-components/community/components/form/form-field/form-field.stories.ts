@@ -2,13 +2,14 @@ import { moduleMetadata, StoryObj, Meta } from "@storybook/angular";
 import { FormFieldComponent } from "./form-field.component";
 import { InputComponent } from "../input/input.component";
 import { FeedbackTextComponent } from "../feedback-text/feedback-text.component";
+import { LabelComponent } from "../label/label.component";
 
 export default {
   title: "Community Angular/Form/FormField",
   component: FormFieldComponent,
   decorators: [
     moduleMetadata({
-      imports: [InputComponent, FeedbackTextComponent],
+      imports: [InputComponent, FeedbackTextComponent, LabelComponent],
     }),
   ],
   argTypes: {

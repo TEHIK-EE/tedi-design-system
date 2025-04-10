@@ -40,6 +40,10 @@
     --_padding-x,
     form-field-padding-x-md-default
   );
+  @include mixins.responsive-styles(
+    --_form-field-outer-gap,
+    form-field-outer-spacing
+  );
   --_border-color: var(--form-input-border-default);
   --_color: var(--form-input-text-filled);
   --_background-color: var(--form-input-background-default);
@@ -53,6 +57,7 @@
   border-color: var(--_border-color);
   color: var(--_color);
   background-color: var(--_background-color);
+  margin-bottom: var(--_form-field-outer-gap);
   &:hover {
     --_border-color: var(--form-input-border-hover);
   }
