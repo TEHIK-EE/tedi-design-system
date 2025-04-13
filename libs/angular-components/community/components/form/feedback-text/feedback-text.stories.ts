@@ -19,6 +19,11 @@ export default {
       imports: [FeedbackTextComponent],
     }),
   ],
+  parameters: {
+    status: {
+      type: ["devComponent"],
+    },
+  },
   argTypes: {
     text: {
       description: "Helper text",

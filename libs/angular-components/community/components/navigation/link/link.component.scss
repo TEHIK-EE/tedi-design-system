@@ -1,0 +1,83 @@
+@use "@tehik-ee/tedi-core/mixins";
+
+@mixin link-variant($color, $color-hover, $color-active, $color-focus) {
+  color: $color;
+
+  &:hover:not(:disabled, [aria-disabled="true"]) {
+    color: $color-hover;
+
+    .tedi-link__text {
+      text-decoration: underline;
+    }
+  }
+
+  &:active:not(:disabled, [aria-disabled="true"]) {
+    color: $color-active;
+
+    .tedi-link__text {
+      text-decoration: underline;
+    }
+  }
+
+  &:focus-visible:not(:disabled) {
+    color: $color-focus;
+    border-radius: 0;
+    outline: 2px solid $color-focus;
+    outline-offset: 1px;
+
+    .tedi-link__text {
+      text-decoration: underline;
+    }
+  }
+}
+
+.tedi-link {
+  display: inline-flex;
+  cursor: pointer;
+  text-decoration: none;
+
+  @include link-variant(
+    var(--link-primary-default),
+    var(--link-primary-hover),
+    var(--link-primary-active),
+    var(--link-primary-focus)
+  );
+
+  &--inverted {
+    @include link-variant(
+      var(--link-inverted-default),
+      var(--link-inverted-hover),
+      var(--link-inverted-active),
+      var(--link-inverted-focus)
+    );
+  }
+
+  &__text {
+    text-decoration: underline;
+
+    &--no-underline {
+      text-decoration: none;
+    }
+
+    &--small {
+      @include mixins.responsive-styles(
+        font-size,
+        body-small-regular-size,
+        $exclude: tablet
+      );
+    }
+  }
+
+  &__icon {
+    font-size: inherit !important;
+    color: inherit !important;
+
+    &--left {
+      @include mixins.responsive-styles(margin-right, button-sm-inner-spacing);
+    }
+
+    &--right {
+      @include mixins.responsive-styles(margin-left, button-sm-inner-spacing);
+    }
+  }
+}
