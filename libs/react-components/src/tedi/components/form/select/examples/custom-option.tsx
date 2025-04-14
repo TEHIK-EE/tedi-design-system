@@ -2,8 +2,8 @@
 import { StoryFn } from '@storybook/react';
 import { OptionProps } from 'react-select';
 
-import { Col, Row } from '../../../../../tedi/components/grid';
-import { Text } from '../../../typography/text/text';
+import { Text } from '../../../base/typography/text/text';
+import { Col, Row } from '../../../layout/grid';
 import Select, { ISelectOption } from '../select';
 
 interface DescriptionData {

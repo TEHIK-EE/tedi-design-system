@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import React from 'react';
 
-import { VerticalSpacing, VerticalSpacingSize } from '../../../tedi/components/vertical-spacing';
+import { VerticalSpacing, VerticalSpacingSize } from '../../../tedi/components/layout/vertical-spacing';
 import styles from './accordion.module.scss';
 
 export interface AccordionProps {

@@ -1,9 +1,9 @@
 import cn from 'classnames';
 import React from 'react';
 
-import { Affix } from '../../../../../tedi/components/affix/affix';
-import { Col, Row } from '../../../../../tedi/components/grid';
-import Print from '../../../../../tedi/components/print/print';
+import { Col, Row } from '../../../../../tedi/components/layout/grid';
+import { Affix } from '../../../../../tedi/components/misc/affix/affix';
+import Print from '../../../../../tedi/components/misc/print/print';
 import { Layouts, useLayout } from '../../../../helpers';
 import { IntentionalAny } from '../../../../types';
 import Anchor from '../../../anchor/anchor';

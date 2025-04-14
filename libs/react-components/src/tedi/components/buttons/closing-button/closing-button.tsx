@@ -3,7 +3,7 @@ import { MouseEventHandler } from 'react';
 import { ButtonHTMLAttributes } from 'react';
 
 import { useLabels } from '../../../providers/label-provider';
-import { Icon } from '../../icon/icon';
+import { Icon } from '../../base/icon/icon';
 import styles from './closing-button.module.scss';
 
 type ClosingButtonSize = 'medium' | 'large';

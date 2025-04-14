@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import React from 'react';
 
-import { Col } from '../../../../../../tedi/components/grid';
+import { Col } from '../../../../../../tedi/components/layout/grid';
 import { ChoiceGroupItemProps } from '../../choice-group.types';
 import { ChoiceGroupContext } from '../../choice-group-context';
 import styles from './light-item.module.scss';

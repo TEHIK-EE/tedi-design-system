@@ -1,8 +1,8 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import { ColumnDef, createColumnHelper } from '@tanstack/react-table';
 
-import { Col, Row } from '../../../../tedi/components/grid';
-import { VerticalSpacing } from '../../../../tedi/components/vertical-spacing';
+import { Col, Row } from '../../../../tedi/components/layout/grid';
+import { VerticalSpacing } from '../../../../tedi/components/layout/vertical-spacing';
 import { Table } from '../../table';
 import Text, { TextProps } from './text';
 

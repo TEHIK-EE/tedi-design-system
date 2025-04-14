@@ -1,10 +1,10 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import { ElementType } from 'react';
 
-import { Col, Row } from '../../grid';
+import { Text, TextProps } from '../../base/typography/text/text';
+import { Col, Row } from '../../layout/grid';
+import { VerticalSpacing } from '../../layout/vertical-spacing';
 import Alert from '../../notifications/alert/alert';
-import { Text, TextProps } from '../../typography/text/text';
-import { VerticalSpacing } from '../../vertical-spacing';
 import { Button, ButtonProps } from './button';
 
 /**

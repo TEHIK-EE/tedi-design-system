@@ -1,9 +1,9 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import React from 'react';
 
-import { Col, Row } from '../../../tedi/components/grid';
-import Separator from '../../../tedi/components/separator/separator';
-import { VerticalSpacing } from '../../../tedi/components/vertical-spacing/vertical-spacing';
+import { Col, Row } from '../../../tedi/components/layout/grid';
+import { VerticalSpacing } from '../../../tedi/components/layout/vertical-spacing/vertical-spacing';
+import Separator from '../../../tedi/components/misc/separator/separator';
 import Button from '../button/button';
 import Heading from '../typography/heading/heading';
 import Accordion, { AccordionProps } from './accordion';

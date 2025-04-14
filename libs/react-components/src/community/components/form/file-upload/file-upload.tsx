@@ -3,8 +3,8 @@ import React from 'react';
 
 import { FeedbackText, FeedbackTextProps } from '../../../../tedi/components/form/feedback-text/feedback-text';
 import { FormLabel, FormLabelProps } from '../../../../tedi/components/form/form-label/form-label';
-import { Col, Row } from '../../../../tedi/components/grid';
-import { Tag } from '../../../../tedi/components/tag/tag';
+import { Col, Row } from '../../../../tedi/components/layout/grid';
+import { Tag } from '../../../../tedi/components/tags/tag/tag';
 import { ILabelContext, useLabels } from '../../../../tedi/providers/label-provider';
 import Button from '../../button/button';
 import { Card, CardContent } from '../../card';

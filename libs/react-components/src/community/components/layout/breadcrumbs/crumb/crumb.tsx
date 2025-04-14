@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import React from 'react';
 
-import Print from '../../../../../tedi/components/print/print';
+import Print from '../../../../../tedi/components/misc/print/print';
 import { Anchor, AnchorProps } from '../../../anchor/anchor';
 import Icon from '../../../icon/icon';
 import Text from '../../../typography/text/text';

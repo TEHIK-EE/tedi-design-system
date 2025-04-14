@@ -1,6 +1,6 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 
-import { Col, Row } from '../../../../tedi/components/grid';
+import { Col, Row } from '../../../../tedi/components/layout/grid';
 import useLayout from '../../../helpers/hooks/use-layout';
 import Anchor from '../../anchor/anchor';
 import Icon from '../../icon/icon';

@@ -2,11 +2,11 @@ import cn from 'classnames';
 import React from 'react';
 
 import { BreakpointSupport, useBreakpointProps, useIsMounted } from '../../../helpers';
+import { Icon, IconWithoutBackgroundProps } from '../../base/icon/icon';
+import { Heading } from '../../base/typography/heading/heading';
 import { ClosingButton } from '../../buttons/closing-button/closing-button';
-import { Col, Row } from '../../grid';
-import { Icon, IconWithoutBackgroundProps } from '../../icon/icon';
-import { Heading } from '../../typography/heading/heading';
-import { VerticalSpacing } from '../../vertical-spacing';
+import { Col, Row } from '../../layout/grid';
+import { VerticalSpacing } from '../../layout/vertical-spacing';
 import styles from './alert.module.scss';
 
 export type AlertType = 'info' | 'success' | 'warning' | 'danger';

@@ -2,8 +2,8 @@ import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import { ToastContainer } from 'react-toastify';
 
 import Button from '../../buttons/button/button';
-import { Col, Row } from '../../grid';
-import { VerticalSpacing } from '../../vertical-spacing';
+import { Col, Row } from '../../layout/grid';
+import { VerticalSpacing } from '../../layout/vertical-spacing';
 import { Alert, AlertProps } from '../alert/alert';
 import { sendNotification } from './toast';
 
