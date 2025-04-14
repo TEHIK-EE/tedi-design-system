@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-react-v11.3.0-rc.7](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.3.0-rc.6...react-11.3.0-rc.7) (2025-04-14)
+
+
+### Features
+
+* **text-group:** add text group component with horizontal and vertic… ([#687](https://github.com/TEHIK-EE/tedi-design-system/issues/687)) ([7860191](https://github.com/TEHIK-EE/tedi-design-system/commit/78601910e65b400e5447fd2c2742170438fafa99)), closes [#664](https://github.com/TEHIK-EE/tedi-design-system/issues/664) [#664](https://github.com/TEHIK-EE/tedi-design-system/issues/664) [#664](https://github.com/TEHIK-EE/tedi-design-system/issues/664) [#664](https://github.com/TEHIK-EE/tedi-design-system/issues/664) [#664](https://github.com/TEHIK-EE/tedi-design-system/issues/664) [#664](https://github.com/TEHIK-EE/tedi-design-system/issues/664)
+
 # [@tehik-ee/tedi-react-v11.3.0-rc.6](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.3.0-rc.5...react-11.3.0-rc.6) (2025-04-08)
 
 
