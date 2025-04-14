@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-angular-v1.6.0-rc.9](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.6.0-rc.8...angular-1.6.0-rc.9) (2025-04-14)
+
+
+### Bug Fixes
+
+* **list:** list component selector [#678](https://github.com/TEHIK-EE/tedi-design-system/issues/678) ([#679](https://github.com/TEHIK-EE/tedi-design-system/issues/679)) ([240377c](https://github.com/TEHIK-EE/tedi-design-system/commit/240377cfe7edc363a0f24f1d16c5b1a4e941315d)), closes [#673](https://github.com/TEHIK-EE/tedi-design-system/issues/673) [#675](https://github.com/TEHIK-EE/tedi-design-system/issues/675)
+
 # [@tehik-ee/tedi-angular-v1.6.0-rc.8](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.6.0-rc.7...angular-1.6.0-rc.8) (2025-04-14)
 
 
