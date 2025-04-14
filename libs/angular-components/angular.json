@@ -7,6 +7,22 @@
       "root": ".",
       "sourceRoot": ".",
       "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "ng-package.json",
+            "tsConfig": "tsconfig.json"
+          },
+          "configurations": {
+            "development": {
+              "tsConfig": "tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
         "storybook": {
           "builder": "@storybook/angular:start-storybook",
           "options": {

@@ -5,82 +5,22 @@ import {
   input,
   model,
   ViewEncapsulation,
+  forwardRef,
+  ElementRef,
+  signal,
+  ViewChild,
 } from "@angular/core";
 import { ButtonComponent } from "../../buttons/button/button.component";
 import {
+  ComponentInputs,
   IconComponent,
-  InputsWithSignals,
   TextComponent,
 } from "@tehik-ee/tedi-angular/tedi";
-import { NgIf } from "@angular/common";
-import {
-  FeedbackTextComponent,
-  FeedbackTextInputs,
-} from "../feedback-text/feedback-text.component";
+import { FeedbackTextComponent } from "../feedback-text/feedback-text.component";
 import { LabelComponent } from "../label/label.component";
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from "@angular/forms";
 
 export type NumberFieldSize = "default" | "small";
-export interface NumberFieldInputs {
-  /**
-   * The unique identifier for the input element that this label is associated with. This ID should match the input element's id attribute to ensure accessibility.
-   */
-  id: string;
-  /**
-   * The text content of the label that describes the input field.
-   */
-  label: string;
-  /**
-   * Initial value of the input field.
-   * @default 0
-   */
-  defaultValue: number;
-  /**
-   * Controlled value of the input field.
-   */
-  value?: number;
-  /**
-   * Is input disabled?
-   */
-  disabled?: boolean;
-  /**
-   * Indicates whether the input field is required. If set to true, the required indicator will be displayed next to the label.
-   */
-  required?: boolean;
-  /**
-   * Minimum allowed value. Disables decrementing below this value and restricts manual input.
-   */
-  min?: number;
-  /**
-   * Maximum allowed value. Disables incrementing above this value and restricts manual input.
-   */
-  max?: number;
-  /**
-   * Step size for incrementing or decrementing the value.
-   * @default 1
-   */
-  step: number;
-  /**
-   * Size of the number field.
-   * @default default
-   */
-  size: NumberFieldSize;
-  /**
-   * Marks the field as invalid for validation purposes.
-   */
-  invalid?: boolean;
-  /**
-   * Text displayed after the input value, typically a unit.
-   */
-  suffix?: string;
-  /**
-   * Whether the number field occupies the full width of its container.
-   */
-  fullWidth?: boolean;
-  /**
-   * FeedbackText component inputs.
-   */
-  feedbackText?: FeedbackTextInputs;
-}
 
 @Component({
   selector: "tedi-number-field",
@@ -90,76 +30,155 @@ export interface NumberFieldInputs {
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
   imports: [
-    NgIf,
     LabelComponent,
     ButtonComponent,
     IconComponent,
     TextComponent,
     FeedbackTextComponent,
   ],
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => NumberFieldComponent),
+      multi: true
+    }
+  ]
 })
-export class NumberFieldComponent
-  implements InputsWithSignals<NumberFieldInputs>
-{
+export class NumberFieldComponent implements ControlValueAccessor {
+  /**
+   * The unique identifier for the input element that this label is associated with. This ID should match the input element's id attribute to ensure accessibility.
+   */
   id = input.required<string>();
+  /**
+   * The text content of the label that describes the input field.
+   */
   label = input.required<string>();
-  defaultValue = input<number>(0);
+  /**
+   * Value of the input field. Supports two-way binding, use with form controls.
+   */
   value = model<number>();
-  disabled = input<boolean>();
-  required = input<boolean>();
+  /**
+   * Is input disabled?
+   * @default false
+   */
+  disabled = input<boolean>(false);
+  /**
+   * Indicates whether the input field is required. If set to true, the required indicator will be displayed next to the label.
+   * @default false
+   */
+  required = input<boolean>(false);
+  /**
+   * Minimum allowed value. Disables decrementing below this value and restricts manual input.
+   */
   min = input<number>();
+  /**
+   * Maximum allowed value. Disables incrementing above this value and restricts manual input.
+   */
   max = input<number>();
+  /**
+   * Step size for incrementing or decrementing the value.
+   * @default 1
+   */
   step = input<number>(1);
+  /**
+   * Size of the number field.
+   * @default default
+   */
   size = input<NumberFieldSize>("default");
-  invalid = input<boolean>();
+  /**
+   * Marks the field as invalid for validation purposes.
+   * @default false
+   */
+  invalid = input<boolean>(false);
+  /**
+   * Text displayed after the input value, typically a unit.
+   */
   suffix = input<string>();
-  fullWidth = input<boolean>();
-  feedbackText = input<FeedbackTextInputs>();
+  /**
+   * FeedbackText component inputs.
+   */
+  feedbackText = input<ComponentInputs<FeedbackTextComponent>>();
 
-  readonly currentValue = computed(() => this.value() ?? this.defaultValue());
+  @ViewChild('inputElement') inputRef!: ElementRef<HTMLInputElement>;
+  
+  private formDisabled = signal(false);
+  private onChange: (value: number) => void = () => {};
+  private onTouched: () => void = () => {};
+
+  readonly displayValue = computed(() => {
+    const value = this.value();
+    return value !== undefined ? value : 0;
+  });
 
   readonly isInvalid = computed(() => {
+    const value = this.value();
     const min = this.min();
     const max = this.max();
+
+    if (value === undefined) return false;
 
     return (
       this.invalid() ||
-      Boolean(min !== undefined && this.currentValue() < min) ||
-      Boolean(max !== undefined && this.currentValue() > max)
+      Boolean(min !== undefined && value < min) ||
+      Boolean(max !== undefined && value > max)
     );
   });
 
+  readonly isDisabled = computed(() => this.disabled() || this.formDisabled());
+
   readonly decrementDisabled = computed(() => {
+    const value = this.value();
     const min = this.min();
-    return this.disabled() || (min !== undefined && this.currentValue() <= min);
+
+    if (value === undefined) return false;
+    return this.isDisabled() || (min !== undefined && value <= min);
   });
 
   readonly incrementDisabled = computed(() => {
+    const value = this.value();
     const max = this.max();
-    return this.disabled() || (max !== undefined && this.currentValue() >= max);
+
+    if (value === undefined) return false;
+    return this.isDisabled() || (max !== undefined && value >= max);
   });
 
-  updateValue(action: "decrement" | "increment") {
+  writeValue(value: number): void {
+    this.value.set(value ?? 0);
+  }
+
+  registerOnChange(fn: (value: number) => void): void {
+    this.onChange = fn;
+  }
+
+  registerOnTouched(fn: () => void): void {
+    this.onTouched = fn;
+  }
+
+  setDisabledState(disabled: boolean): void {
+    this.formDisabled.set(disabled);
+  }
+
+  focus(): void {
+    this.inputRef.nativeElement.focus();
+  }
+
+  blur(): void {
+    this.inputRef.nativeElement.blur();
+    this.onTouched();
+  }
+
+  handleButtonClick(action: "decrement" | "increment") {
     const delta = action === "decrement" ? -1 : 1;
-    const nextValue = this.currentValue() + this.step() * delta;
-    this.setValueWithinBounds(nextValue);
+    const nextValue = (this.value() ?? 0) + this.step() * delta;
+    this.value.set(nextValue);
+    this.onChange(nextValue);
+    this.onTouched();
   }
 
   handleInputChange(event: Event) {
     const input = event.target as HTMLInputElement;
-    const parsed = parseFloat(input.value);
-
-    if (!isNaN(parsed)) {
-      this.setValueWithinBounds(parsed);
-    }
-  }
-
-  private setValueWithinBounds(newValue: number) {
-    const value = Math.min(
-      this.max() ?? Infinity,
-      Math.max(this.min() ?? -Infinity, newValue),
-    );
-
+    const value = isNaN(input.valueAsNumber) ? 0 : input.valueAsNumber;
     this.value.set(value);
+    this.onChange(value);
   }
 }

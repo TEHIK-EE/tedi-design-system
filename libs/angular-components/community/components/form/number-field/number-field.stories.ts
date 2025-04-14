@@ -2,8 +2,9 @@ import { argsToTemplate, Meta, StoryObj } from "@storybook/angular";
 import { NumberFieldComponent } from "./number-field.component";
 
 /**
- * <a href="https://www.figma.com/design/jWiRIXhHRxwVdMSimKX2FF/TEDI-READY-(work-in-progress)?node-id=4536-78765&m=dev" target="_BLANK">Figma ↗</a><br />
- * <a href="https://tedi.tehik.ee/1ee8444b7/p/90c693-number-field" target="_BLANK">Zeroheight ↗</a>
+ * <a href="https://www.figma.com/design/jWiRIXhHRxwVdMSimKX2FF/TEDI-READY-(work-in-progress)?node-id=4536-78765&m=dev" target="_blank">Figma ↗</a><br />
+ * <a href="https://tedi.tehik.ee/1ee8444b7/p/90c693-number-field" target="_blank">Zeroheight ↗</a>
+ * Can be used with <a href="https://angular.dev/guide/forms/reactive-forms" target="_blank">Reactive forms</a> and with <a href="https://angular.dev/guide/forms/template-driven-forms" target="_blank">Template-driven forms</a>
  */
 
 export default {
@@ -32,19 +33,8 @@ export default {
         type: { summary: "string" },
       },
     },
-    defaultValue: {
-      description: "Initial value of the input field.",
-      control: {
-        type: "number",
-      },
-      table: {
-        category: "inputs",
-        type: { summary: "number" },
-        defaultValue: { summary: "0" },
-      },
-    },
     value: {
-      description: "Controlled value of the input field.",
+      description: "Value of the input field. Supports two-way binding, use with form controls.",
       control: {
         type: "number",
       },
@@ -61,6 +51,7 @@ export default {
       table: {
         category: "inputs",
         type: { summary: "boolean" },
+        defaultValue: { summary: "false" }
       },
     },
     required: {
@@ -72,6 +63,7 @@ export default {
       table: {
         category: "inputs",
         type: { summary: "boolean" },
+        defaultValue: { summary: "false" }
       },
     },
     min: {
@@ -127,6 +119,7 @@ export default {
       table: {
         category: "inputs",
         type: { summary: "boolean" },
+        defaultValue: { summary: "false" }
       },
     },
     suffix: {
@@ -139,17 +132,6 @@ export default {
         type: { summary: "string" },
       },
     },
-    fullWidth: {
-      description:
-        "Whether the number field occupies the full width of its container.",
-      control: {
-        type: "boolean",
-      },
-      table: {
-        category: "inputs",
-        type: { summary: "boolean" },
-      },
-    },
     feedbackText: {
       description:
         "[FeedbackText](/?path=/docs/community-angular-form-feedbacktext--docs) component inputs.",
@@ -158,7 +140,7 @@ export default {
       },
       table: {
         category: "inputs",
-        type: { summary: "FeedbackTextInputs" },
+        type: { summary: "ComponentInputs<FeedbackTextComponent>" },
       },
     },
   },
