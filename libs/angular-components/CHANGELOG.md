@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-angular-v1.6.0-rc.12](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.6.0-rc.11...angular-1.6.0-rc.12) (2025-04-14)
+
+
+### Features
+
+* **text-group:** add text group component with horizontal and vertic… ([#687](https://github.com/TEHIK-EE/tedi-design-system/issues/687)) ([7860191](https://github.com/TEHIK-EE/tedi-design-system/commit/78601910e65b400e5447fd2c2742170438fafa99)), closes [#664](https://github.com/TEHIK-EE/tedi-design-system/issues/664) [#664](https://github.com/TEHIK-EE/tedi-design-system/issues/664) [#664](https://github.com/TEHIK-EE/tedi-design-system/issues/664) [#664](https://github.com/TEHIK-EE/tedi-design-system/issues/664) [#664](https://github.com/TEHIK-EE/tedi-design-system/issues/664) [#664](https://github.com/TEHIK-EE/tedi-design-system/issues/664)
+
 # [@tehik-ee/tedi-angular-v1.6.0-rc.11](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.6.0-rc.10...angular-1.6.0-rc.11) (2025-04-14)
 
 
