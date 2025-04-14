@@ -1,3 +1,43 @@
+# [@tehik-ee/tedi-angular-v1.6.0-rc.11](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.6.0-rc.10...angular-1.6.0-rc.11) (2025-04-14)
+
+
+### Bug Fixes
+
+* **spinner:** fix component selector [#684](https://github.com/TEHIK-EE/tedi-design-system/issues/684) ([#685](https://github.com/TEHIK-EE/tedi-design-system/issues/685)) ([3c54b61](https://github.com/TEHIK-EE/tedi-design-system/commit/3c54b614196c683687fbc9ba258fe00056500197)), closes [#673](https://github.com/TEHIK-EE/tedi-design-system/issues/673) [#675](https://github.com/TEHIK-EE/tedi-design-system/issues/675) [#678](https://github.com/TEHIK-EE/tedi-design-system/issues/678) [#678](https://github.com/TEHIK-EE/tedi-design-system/issues/678) [#680](https://github.com/TEHIK-EE/tedi-design-system/issues/680) [#680](https://github.com/TEHIK-EE/tedi-design-system/issues/680) [#680](https://github.com/TEHIK-EE/tedi-design-system/issues/680)
+
+# [@tehik-ee/tedi-angular-v1.6.0-rc.10](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.6.0-rc.9...angular-1.6.0-rc.10) (2025-04-14)
+
+
+### Bug Fixes
+
+* **col, row:** fix component selectors and html [#680](https://github.com/TEHIK-EE/tedi-design-system/issues/680) ([#683](https://github.com/TEHIK-EE/tedi-design-system/issues/683)) ([a6fb4b7](https://github.com/TEHIK-EE/tedi-design-system/commit/a6fb4b7949a8b5319a7f859f521ca9452defe90e)), closes [#673](https://github.com/TEHIK-EE/tedi-design-system/issues/673) [#675](https://github.com/TEHIK-EE/tedi-design-system/issues/675) [#678](https://github.com/TEHIK-EE/tedi-design-system/issues/678) [#678](https://github.com/TEHIK-EE/tedi-design-system/issues/678)
+
+# [@tehik-ee/tedi-angular-v1.6.0-rc.9](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.6.0-rc.8...angular-1.6.0-rc.9) (2025-04-14)
+
+
+### Bug Fixes
+
+* **list:** list component selector [#678](https://github.com/TEHIK-EE/tedi-design-system/issues/678) ([#679](https://github.com/TEHIK-EE/tedi-design-system/issues/679)) ([240377c](https://github.com/TEHIK-EE/tedi-design-system/commit/240377cfe7edc363a0f24f1d16c5b1a4e941315d)), closes [#673](https://github.com/TEHIK-EE/tedi-design-system/issues/673) [#675](https://github.com/TEHIK-EE/tedi-design-system/issues/675)
+
+# [@tehik-ee/tedi-angular-v1.6.0-rc.8](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.6.0-rc.7...angular-1.6.0-rc.8) (2025-04-14)
+
+
+### Bug Fixes
+
+* **typography:** fix component selector ([#677](https://github.com/TEHIK-EE/tedi-design-system/issues/677)) ([f885832](https://github.com/TEHIK-EE/tedi-design-system/commit/f885832230b2ca316a0fb50cf254adac07a67dad)), closes [#673](https://github.com/TEHIK-EE/tedi-design-system/issues/673) [#675](https://github.com/TEHIK-EE/tedi-design-system/issues/675)
+
+# [@tehik-ee/tedi-angular-v1.6.0-rc.7](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.6.0-rc.6...angular-1.6.0-rc.7) (2025-04-14)
+
+
+### Bug Fixes
+
+* **icon:** fix component element [#673](https://github.com/TEHIK-EE/tedi-design-system/issues/673) ([#674](https://github.com/TEHIK-EE/tedi-design-system/issues/674)) ([98b5974](https://github.com/TEHIK-EE/tedi-design-system/commit/98b59743c59cd49fc3eb4de824b2e522f06bd9c0))
+
+
+### Features
+
+* **form-text-field:** Community form-field & tedi-input directive ([#688](https://github.com/TEHIK-EE/tedi-design-system/issues/688)) ([5cc9add](https://github.com/TEHIK-EE/tedi-design-system/commit/5cc9adde08d5ec9ef756369788fe0e6e04b51bf6)), closes [#638](https://github.com/TEHIK-EE/tedi-design-system/issues/638) [#638](https://github.com/TEHIK-EE/tedi-design-system/issues/638) [#638](https://github.com/TEHIK-EE/tedi-design-system/issues/638)
+
 # [@tehik-ee/tedi-angular-v1.6.0-rc.6](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.6.0-rc.5...angular-1.6.0-rc.6) (2025-04-08)
 
 

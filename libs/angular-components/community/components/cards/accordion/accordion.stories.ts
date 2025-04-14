@@ -1,11 +1,7 @@
 import { Meta, moduleMetadata, StoryObj } from "@storybook/angular";
 
 import { CommonModule } from "@angular/common";
-import {
-  HeadingComponent,
-  IconComponent,
-  TextComponent,
-} from "@tehik-ee/tedi-angular/tedi";
+import { IconComponent, TextComponent } from "@tehik-ee/tedi-angular/tedi";
 import { ButtonComponent } from "../../buttons/button/button.component";
 import { AccordionIconComponent } from "./accordion-icon/accordion-icon.component";
 import { AccordionItemContentComponent } from "./accordion-item-content/accordion-item-content.component";
@@ -32,7 +28,6 @@ export default {
         AccordionItemComponent,
         AccordionItemHeaderComponent,
         AccordionItemContentComponent,
-        HeadingComponent,
         TextComponent,
         IconComponent,
         ButtonComponent,
@@ -53,23 +48,23 @@ export const Default: AccordionStory = {
     <div [style]="{ display: 'flex', 'flex-direction': 'column', gap: '10px' }">
       <tedi-accordion-item id="accordion-1">
         <tedi-accordion-item-header [indicator]="true">
-          <tedi-text color="secondary">Title</tedi-text>
+          <p tedi-text color="secondary">Title</p>
         </tedi-accordion-item-header>
         <tedi-accordion-item-content>
-          <tedi-text color="secondary">
+          <p tedi-text color="secondary">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          </tedi-text>
+          </p>
         </tedi-accordion-item-content>
       </tedi-accordion-item>
 
       <tedi-accordion-item id="accordion-2">
         <tedi-accordion-item-header openText="Open" closeText="Close">
-          <tedi-text color="secondary">Title</tedi-text>
+          <p tedi-text color="secondary">Title</p>
         </tedi-accordion-item-header>
         <tedi-accordion-item-content>
-          <tedi-text color="secondary">
+          <p tedi-text color="secondary">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          </tedi-text>
+          </p>
         </tedi-accordion-item-content>
       </tedi-accordion-item>
     </div>
@@ -90,18 +85,18 @@ export const IconAccordion: AccordionStory = {
               color="secondary"
               size="18"
             />
-            <tedi-text modifiers="bold" color="secondary">
+            <p tedi-text modifiers="bold" color="secondary">
               Töövõime
-            </tedi-text>
+            </p>
           </div>
         </tedi-accordion-icon>
         <tedi-accordion-item-header [indicator]="true">
-          <tedi-text color="secondary">Title</tedi-text>
+          <p tedi-text color="secondary">Title</p>
         </tedi-accordion-item-header>
         <tedi-accordion-item-content>
-          <tedi-text color="secondary">
+          <p tedi-text color="secondary">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          </tedi-text>
+          </p>
         </tedi-accordion-item-content>
       </tedi-accordion-item>`,
     };
@@ -116,34 +111,34 @@ export const ColoredHeaders: AccordionStory = {
     <div [style]="{ display: 'flex', 'flex-direction': 'column', gap: '10px' }">
       <tedi-accordion-item id="accordion-1">
         <tedi-accordion-item-header [indicator]="true">
-          <tedi-text color="secondary">Title</tedi-text>
+          <p tedi-text color="secondary">Title</p>
         </tedi-accordion-item-header>
         <tedi-accordion-item-content>
-          <tedi-text color="secondary">
+          <p tedi-text color="secondary">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          </tedi-text>
+          </p>
         </tedi-accordion-item-content>
       </tedi-accordion-item>
 
       <tedi-accordion-item id="accordion-2">
         <tedi-accordion-item-header [indicator]="true" variant="brand">
-          <tedi-text color="white">Brand header variant</tedi-text>
+          <p tedi-text color="white">Brand header variant</p>
         </tedi-accordion-item-header>
         <tedi-accordion-item-content>
-          <tedi-text color="secondary">
+          <p tedi-text color="secondary">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          </tedi-text>
+          </p>
         </tedi-accordion-item-content>
       </tedi-accordion-item>
 
       <tedi-accordion-item id="accordion-3">
         <tedi-accordion-item-header [indicator]="true" background="brand-quaternary">
-          <tedi-text color="brand">Brand quaternary header background</tedi-text>
+          <p tedi-text color="brand">Brand quaternary header background</p>
         </tedi-accordion-item-header>
         <tedi-accordion-item-content>
-          <tedi-text color="secondary">
+          <p tedi-text color="secondary">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          </tedi-text>
+          </p>
         </tedi-accordion-item-content>
       </tedi-accordion-item>
     </div>

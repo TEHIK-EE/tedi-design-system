@@ -1,0 +1,87 @@
+@use "@tehik-ee/tedi-core/mixins";
+
+@mixin textfield-focus($border-color: null) {
+  @if $border-color {
+    &:focus,
+    &:active {
+      border-color: $border-color;
+      box-shadow: inset 0 0 0 1px $border-color;
+    }
+  } @else {
+    &:focus,
+    &:active {
+      box-shadow: none;
+    }
+  }
+}
+
+.tedi-input {
+  @include mixins.responsive-styles(
+    font-family,
+    family-primary,
+    $exclude: tablet
+  );
+  @include mixins.responsive-styles(--_border-radius, form-field-radius);
+  @include mixins.responsive-styles(
+    --_font-size,
+    body-regular-size,
+    $exclude: tablet
+  );
+  @include mixins.responsive-styles(
+    --_line-height,
+    body-regular-line-height,
+    $exclude: tablet
+  );
+  @include mixins.responsive-styles(
+    --_padding-y,
+    form-field-padding-y-md-default
+  );
+  @include mixins.responsive-styles(
+    --_padding-x,
+    form-field-padding-x-md-default
+  );
+  @include mixins.responsive-styles(
+    --_form-field-outer-gap,
+    form-field-outer-spacing
+  );
+  --_border-color: var(--form-input-border-default);
+  --_color: var(--form-input-text-filled);
+  --_background-color: var(--form-input-background-default);
+  --_placeholder-color: var(--form-input-text-placeholder);
+
+  padding: var(--_padding-y) var(--_padding-x);
+  border-radius: var(--_border-radius);
+  font-size: var(--_font-size);
+  line-height: var(--_line-height);
+  border: 1px solid;
+  border-color: var(--_border-color);
+  color: var(--_color);
+  background-color: var(--_background-color);
+  margin-bottom: var(--_form-field-outer-gap);
+  &:hover {
+    --_border-color: var(--form-input-border-hover);
+  }
+  @include textfield-focus(var(--form-input-border-hover));
+  &:disabled {
+    --_color: var(--form-input-text-disabled);
+    --_border-color: var(--form-input-border-disabled);
+    --_background-color: var(--form-input-background-disabled);
+  }
+
+  &::placeholder {
+    color: var(--_placeholder-color);
+  }
+
+  &--error {
+    --_border-color: var(--form-general-feedback-error-border);
+    @include textfield-focus(var(--_border-color));
+  }
+  &--valid {
+    --_border-color: var(--form-general-feedback-success-border);
+    @include textfield-focus(var(--_border-color));
+  }
+  &--small {
+    @include mixins.responsive-styles(--_padding-y, form-field-padding-y-sm);
+    // small padding X is same as default
+  }
+}

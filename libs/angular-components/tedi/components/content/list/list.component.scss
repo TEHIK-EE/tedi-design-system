@@ -1,91 +1,86 @@
 @use "@tehik-ee/tedi-core/mixins";
 
 .tedi-list {
-  &--unordered {
-    list-style: none;
-    @include mixins.responsive-styles(padding-left, list-padding-left-level-1);
+  li {
+    @include mixins.responsive-styles(margin-top, list-list-item-margin-y);
+    @include mixins.responsive-styles(margin-bottom, list-list-item-margin-y);
+  }
+}
 
-    .tedi-list__item {
-      position: relative;
-      @include mixins.responsive-styles(
-        padding-left,
-        list-padding-left-level-1
-      );
+ul.tedi-list {
+  list-style: none;
+  @include mixins.responsive-styles(padding-left, list-padding-left-level-1);
 
-      &::before {
-        position: absolute;
-        top: 0.5em;
-        left: 0;
-        content: "";
-        border: 2px solid var(--list-icon);
-        border-radius: 50%;
+  li {
+    position: relative;
+    @include mixins.responsive-styles(
+      padding-left,
+      list-padding-left-level-1
+    );
 
-        @include mixins.responsive-styles(width, list-icon-size);
-        @include mixins.responsive-styles(height, list-icon-size);
-      }
+    &::before {
+      position: absolute;
+      top: 0.5em;
+      left: 0;
+      content: "";
+      border: 2px solid var(--list-icon);
+      border-radius: 50%;
 
-      ul.tedi-list .tedi-list__item::before {
-        border-width: 1px;
-      }
-
-      ul.tedi-list .tedi-list__item ul.tedi-list .tedi-list__item::before {
-        @include mixins.responsive-styles(width, list-icon-size, null, "* 0.9");
-        @include mixins.responsive-styles(
-          height,
-          list-icon-size,
-          null,
-          "* 0.9"
-        );
-      }
+      @include mixins.responsive-styles(width, list-icon-size);
+      @include mixins.responsive-styles(height, list-icon-size);
     }
 
-    ul.tedi-list {
-      padding-left: 0;
+    ul.tedi-list li::before {
+      border-width: 1px;
+    }
+
+    ul.tedi-list li ul.tedi-list li::before {
+      @include mixins.responsive-styles(width, list-icon-size, null, "* 0.9");
+      @include mixins.responsive-styles(
+        height,
+        list-icon-size,
+        null,
+        "* 0.9"
+      );
     }
   }
 
-  &--ordered {
-    list-style: none;
-    counter-reset: item;
-
-    .tedi-list__item {
-      counter-increment: item;
-      @include mixins.responsive-styles(
-        padding-left,
-        list-padding-left-level-1
-      );
-
-      &::before {
-        content: counters(item, ".") ". ";
-      }
-
-      ol.tedi-list--ordered {
-        counter-reset: subitem;
-      }
-
-      ol.tedi-list--ordered .tedi-list__item {
-        counter-increment: subitem;
-
-        &::before {
-          content: counters(item, ".") "." counters(subitem, ".") ". ";
-        }
-      }
-    }
+  ul.tedi-list {
+    padding-left: 0;
   }
 
-  &--style-none {
+  &--unstyled {
     padding-left: 0;
     list-style: none;
 
-    .tedi-list__item {
-      &::before {
-        display: none;
-      }
+    li::before {
+      display: none;
+    }
+  }
+}
+
+ol.tedi-list {
+  list-style: none;
+  counter-reset: item;
+
+  li {
+    counter-increment: item;
+    @include mixins.responsive-styles(
+      padding-left,
+      list-padding-left-level-1
+    );
+
+    &::before {
+      content: counters(item, ".") ". ";
     }
   }
 
-  &__item {
-    @include mixins.responsive-styles(margin-top, list-list-item-margin-y);
-    @include mixins.responsive-styles(margin-bottom, list-list-item-margin-y);
+  &--unstyled {
+    padding-left: 0;
+    list-style: none;
+
+    li::before {
+      display: none;
+    }
   }
 }
