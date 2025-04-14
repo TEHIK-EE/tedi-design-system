@@ -20,7 +20,7 @@ div.tedi-select__control {
   }
 
   .tedi-select__indicators-container {
-    align-items: start;
+    align-items: flex-start;
 
     @include mixins.responsive-styles(gap, layout-grid-gutters-04);
   }
