@@ -12,12 +12,14 @@ $gaps: (
 $justify-items: ("start", "end", "center", "stretch");
 $align-items: ("start", "end", "center", "stretch");
 
-:host {
-  display: block;
-}
-
 .row {
   display: grid;
+
+  &--cols-auto {
+    --_grid-col-size-calc: calc((100% - var(--_grid-gap) * (#{$grid-columns} - 1)) / #{$grid-columns});
+    --_grid-col-min-size-calc: min(100%, max(var(--_grid-col-width), var(--_grid-col-size-calc)));
+    grid-template-columns: repeat(auto-fit, minmax(var(--_grid-col-min-size-calc), 1fr));
+  }
 
   @for $i from 1 through $grid-columns {
     &--cols-#{$i} {

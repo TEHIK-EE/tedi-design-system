@@ -210,7 +210,7 @@ const LinkTemplate: StoryFn<TemplateType> = ({
     <tedi-row [cols]="1" [xl]="{ cols: 2 }" [gapY]="5">
       <tedi-col [class]="'tedi-vertical-spacing'" style="--vertical-spacing-internal: 1em;">
         <p tedi-text [modifiers]="'bold'" [color]="titleColor">Default size</p>
-        <tedi-row *ngFor="let state of pseudoState;" [cols]="4" [alignItems]="'center'">
+        <tedi-row *ngFor="let state of pseudoState;" [cols]="4">
           <tedi-col>
             <p tedi-text [color]="titleColor">{{ state }}</p>
           </tedi-col>
@@ -227,7 +227,7 @@ const LinkTemplate: StoryFn<TemplateType> = ({
       </tedi-col>
       <tedi-col [class]="'tedi-vertical-spacing'" style="--vertical-spacing-internal: 1em;">
         <p tedi-text [modifiers]="'bold'" [color]="titleColor">Small size</p>
-        <tedi-row *ngFor="let state of pseudoState;" [cols]="4" [alignItems]="'center'">
+        <tedi-row *ngFor="let state of pseudoState;" [cols]="4">
           <tedi-col>
             <p tedi-text [color]="titleColor">{{ state }}</p>
           </tedi-col>

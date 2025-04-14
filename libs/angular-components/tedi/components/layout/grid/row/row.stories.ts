@@ -26,24 +26,32 @@ export default {
     },
   },
   argTypes: {
-    class: {
-      type: "string",
-      description: "Additional class",
-    },
     cols: {
       description: "The number of columns that will fit next to each other.",
       control: {
         type: "select",
       },
-      options: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+      options: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, "auto"],
       table: {
+        category: "inputs",
         type: {
           summary: "Cols",
-          detail: "1 \n2 \n3 \n4 \n5 \n6 \n7 \n8 \n9 \n10 \n11 \n12",
+          detail: "1 \n2 \n3 \n4 \n5 \n6 \n7 \n8 \n9 \n10 \n11 \n12 \nauto",
         },
-        defaultValue: { summary: "12" },
+        defaultValue: { summary: "auto" },
       },
     },
+    minColWidth: {
+      description: "Applies minimum width (px) to the column when using auto layout.",
+      control: {
+        type: "number",
+      },
+      table: {
+        category: "inputs",
+        type: { summary: "number" },
+        defaultValue: { summary: "200px" },
+      },
+    },    
     justifyItems: {
       description: "Aligns items horizontally inside their grid cell.",
       control: {
@@ -51,6 +59,7 @@ export default {
       },
       options: ["start", "end", "center", "stretch"],
       table: {
+        category: "inputs",
         type: {
           summary: "JustifyItems",
           detail: "start \nend \ncenter \nstretch",
@@ -64,6 +73,7 @@ export default {
       },
       options: ["start", "end", "center", "stretch"],
       table: {
+        category: "inputs",
         type: {
           summary: "AlignItems",
           detail: "start \nend \ncenter \nstretch",
@@ -77,6 +87,7 @@ export default {
       },
       options: [0, 1, 2, 3, 4, 5],
       table: {
+        category: "inputs",
         type: {
           summary: "Gap",
           detail: "0 \n1 \n2 \n3 \n4 \n5",
@@ -90,6 +101,7 @@ export default {
       },
       options: [0, 1, 2, 3, 4, 5],
       table: {
+        category: "inputs",
         type: {
           summary: "Gap",
           detail: "0 \n1 \n2 \n3 \n4 \n5",
@@ -103,6 +115,7 @@ export default {
       },
       options: [0, 1, 2, 3, 4, 5],
       table: {
+        category: "inputs",
         type: {
           summary: "Gap",
           detail: "0 \n1 \n2 \n3 \n4 \n5",
@@ -112,6 +125,7 @@ export default {
     xs: {
       description: "Overrides RowInputs on xs breakpoint (<576px).",
       table: {
+        category: "breakpoints",
         type: {
           summary: "RowInputs",
         },
@@ -120,6 +134,7 @@ export default {
     sm: {
       description: "Overrides RowInputs on sm breakpoint (≥576px).",
       table: {
+        category: "breakpoints",
         type: {
           summary: "RowInputs",
         },
@@ -128,6 +143,7 @@ export default {
     md: {
       description: "Overrides RowInputs on md breakpoint (≥768px).",
       table: {
+        category: "breakpoints",
         type: {
           summary: "RowInputs",
         },
@@ -136,6 +152,7 @@ export default {
     lg: {
       description: "Overrides RowInputs on lg breakpoint (≥992px).",
       table: {
+        category: "breakpoints",
         type: {
           summary: "RowInputs",
         },
@@ -144,6 +161,7 @@ export default {
     xl: {
       description: "Overrides RowInputs on xl breakpoint (≥1200px).",
       table: {
+        category: "breakpoints",
         type: {
           summary: "RowInputs",
         },
@@ -152,6 +170,7 @@ export default {
     xxl: {
       description: "Overrides RowInputs on xxl breakpoint (≥1400px).",
       table: {
+        category: "breakpoints",
         type: {
           summary: "RowInputs",
         },
@@ -161,25 +180,22 @@ export default {
 } as Meta<RowComponent>;
 
 export const Default: StoryObj<RowComponent> = {
-  args: {
-    cols: 3,
-  },
   render: (args) => ({
     props: args,
     template: `
       <tedi-row ${argsToTemplate(args)}>
-        <tedi-col [class]="'example-col'">Col 1</tedi-col>
-        <tedi-col [class]="'example-col'">Col 2</tedi-col>
-        <tedi-col [class]="'example-col'">Col 3</tedi-col>
-        <tedi-col [class]="'example-col'">Col 4</tedi-col>
-        <tedi-col [class]="'example-col'">Col 5</tedi-col>
-        <tedi-col [class]="'example-col'">Col 6</tedi-col>
-        <tedi-col [class]="'example-col'">Col 7</tedi-col>
-        <tedi-col [class]="'example-col'">Col 8</tedi-col>
-        <tedi-col [class]="'example-col'">Col 9</tedi-col>
-        <tedi-col [class]="'example-col'">Col 10</tedi-col>
-        <tedi-col [class]="'example-col'">Col 11</tedi-col>
-        <tedi-col [class]="'example-col'">Col 12</tedi-col>
+        <tedi-col class="example-col">Col 1</tedi-col>
+        <tedi-col class="example-col">Col 2</tedi-col>
+        <tedi-col class="example-col">Col 3</tedi-col>
+        <tedi-col class="example-col">Col 4</tedi-col>
+        <tedi-col class="example-col">Col 5</tedi-col>
+        <tedi-col class="example-col">Col 6</tedi-col>
+        <tedi-col class="example-col">Col 7</tedi-col>
+        <tedi-col class="example-col">Col 8</tedi-col>
+        <tedi-col class="example-col">Col 9</tedi-col>
+        <tedi-col class="example-col">Col 10</tedi-col>
+        <tedi-col class="example-col">Col 11</tedi-col>
+        <tedi-col class="example-col">Col 12</tedi-col>
       </tedi-row>
     `,
   }),
