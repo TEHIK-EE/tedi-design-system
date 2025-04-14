@@ -45,11 +45,11 @@ export const Default: StoryObj<VerticalSpacingDirective> = {
     template: `
       <div [tediVerticalSpacing]="tediVerticalSpacing">
         <h1>Vertical spacing </h1>
-        <p>The <b>VerticalSpacingDirective</b> is a custom Angular directive designed to add vertical 
+        <p>The <i>VerticalSpacingDirective</i> is a custom Angular directive designed to add vertical 
         spacing (margin-bottom) between child elements of a container. It is particularly useful for 
         maintaining consistent spacing in layouts without manually applying styles to each child element.</p>
         <p>Apply the directive to a container element using the  <b>[tediVerticalSpacing]</b> attribute.</p>
-        <p>Set the value of  <b>tediVerticalSpacing</b> to define the spacing size in  <b>em</b> units.</p>
+        <p>Set the value of  <i>tediVerticalSpacing</i> to define the spacing size in  <b>em</b> units.</p>
         <p>The directive applies the margin-bottom to all direct child elements except the last one.</p>
         <p>Note: The directive does not affect nested (grandchild) elements.</p>
       </div>
@@ -58,9 +58,9 @@ export const Default: StoryObj<VerticalSpacingDirective> = {
 };
 
 export const NgFor: StoryObj<VerticalSpacingDirective & Weekdays> = {
-  name: "Example: Using with *ngFor",
+  name: "Vertical Spacing with @for",
   args: {
-    tediVerticalSpacing: 1.5,
+    tediVerticalSpacing: 0.5,
     weekdays: [
       { name: "Monday", dayNumber: 1 },
       { name: "Tuesday", dayNumber: 2 },
@@ -75,9 +75,11 @@ export const NgFor: StoryObj<VerticalSpacingDirective & Weekdays> = {
     props: args,
     template: `
       <div [tediVerticalSpacing]="0.5">
-        <div *ngFor="let day of weekdays">
-          Day {{ day.dayNumber }} — {{ day.name }}
-        </div>
+        @for (day of weekdays; track day) {
+          <div>
+            Day {{ day.dayNumber }} — {{ day.name }}
+          </div>
+        }
       </div>
     `,
   }),
