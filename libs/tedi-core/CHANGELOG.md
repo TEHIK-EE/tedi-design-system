@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-core-v1.11.0](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.10.1...core-1.11.0) (2025-04-14)
+
+
+### Features
+
+* **select:** TEDI Select development [#333](https://github.com/TEHIK-EE/tedi-design-system/issues/333) ([#670](https://github.com/TEHIK-EE/tedi-design-system/issues/670)) ([7d1c768](https://github.com/TEHIK-EE/tedi-design-system/commit/7d1c7684e10b91baa2ca969d696e063f273da51f))
+
 # [@tehik-ee/tedi-core-v1.10.1](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.10.0...core-1.10.1) (2025-04-02)
 
 ### Bug Fixes

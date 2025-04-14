@@ -42,10 +42,10 @@ export const Default: StoryObj<VerticalSpacingItemDirective> = {
     <div>
       <h1 [tediVerticalSpacingItem]="tediVerticalSpacingItem">Vertical spacing item</h1>
       <p>
-        The <b>VerticalSpacingItemDirective</b> is a custom Angular directive
+        The <i>VerticalSpacingItemDirective</i> is a custom Angular directive
         designed to add vertical spacing to a single item. Apply the directive to a 
         container element using the <b>[tediVerticalSpacingItem]</b> attribute. Set the value of 
-        <b>tediVerticalSpacingItem</b> to define the spacing size in<b>em</b> units.
+        <i>tediVerticalSpacingItem</i> to define the spacing size in <b>em</b> units.
       </p>
     </div>
     `,

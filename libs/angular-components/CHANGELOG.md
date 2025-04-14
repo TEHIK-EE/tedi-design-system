@@ -1,3 +1,17 @@
+# [@tehik-ee/tedi-angular-v1.6.0-rc.12](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.6.0-rc.11...angular-1.6.0-rc.12) (2025-04-14)
+
+
+### Features
+
+* **text-group:** add text group component with horizontal and vertic… ([#687](https://github.com/TEHIK-EE/tedi-design-system/issues/687)) ([7860191](https://github.com/TEHIK-EE/tedi-design-system/commit/78601910e65b400e5447fd2c2742170438fafa99)), closes [#664](https://github.com/TEHIK-EE/tedi-design-system/issues/664) [#664](https://github.com/TEHIK-EE/tedi-design-system/issues/664) [#664](https://github.com/TEHIK-EE/tedi-design-system/issues/664) [#664](https://github.com/TEHIK-EE/tedi-design-system/issues/664) [#664](https://github.com/TEHIK-EE/tedi-design-system/issues/664) [#664](https://github.com/TEHIK-EE/tedi-design-system/issues/664)
+
+# [@tehik-ee/tedi-angular-v1.6.0-rc.11](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.6.0-rc.10...angular-1.6.0-rc.11) (2025-04-14)
+
+
+### Bug Fixes
+
+* **spinner:** fix component selector [#684](https://github.com/TEHIK-EE/tedi-design-system/issues/684) ([#685](https://github.com/TEHIK-EE/tedi-design-system/issues/685)) ([3c54b61](https://github.com/TEHIK-EE/tedi-design-system/commit/3c54b614196c683687fbc9ba258fe00056500197)), closes [#673](https://github.com/TEHIK-EE/tedi-design-system/issues/673) [#675](https://github.com/TEHIK-EE/tedi-design-system/issues/675) [#678](https://github.com/TEHIK-EE/tedi-design-system/issues/678) [#678](https://github.com/TEHIK-EE/tedi-design-system/issues/678) [#680](https://github.com/TEHIK-EE/tedi-design-system/issues/680) [#680](https://github.com/TEHIK-EE/tedi-design-system/issues/680) [#680](https://github.com/TEHIK-EE/tedi-design-system/issues/680)
+
 # [@tehik-ee/tedi-angular-v1.6.0-rc.10](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.6.0-rc.9...angular-1.6.0-rc.10) (2025-04-14)
 
 
