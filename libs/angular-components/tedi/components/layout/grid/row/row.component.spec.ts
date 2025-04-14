@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
-import { By } from "@angular/platform-browser";
 import {
   RowComponent,
   Cols,
@@ -10,13 +9,15 @@ import {
 
 describe("RowComponent", () => {
   let fixture: ComponentFixture<RowComponent>;
+  let rowElement: HTMLElement;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [RowComponent],
-    }).compileComponents();
+    })
 
     fixture = TestBed.createComponent(RowComponent);
+    rowElement = fixture.nativeElement;
     fixture.detectChanges();
   });
 
@@ -24,50 +25,30 @@ describe("RowComponent", () => {
     expect(fixture.componentInstance).toBeTruthy();
   });
 
-  it("should render the row with default props", () => {
-    const rowElement = fixture.debugElement.query(By.css(".row"));
-    expect(rowElement).toBeTruthy();
-  });
-
   it("should apply default cols class", () => {
-    const rowElement = fixture.debugElement.query(By.css(".row"));
-    expect(
-      rowElement.nativeElement.classList.contains("row--cols-12"),
-    ).toBeTruthy();
+    expect(rowElement.classList).toContain("row");
+    expect(rowElement.classList).toContain("row--cols-auto");
   });
 
-  it("should apply different column counts", () => {
-    const colCounts: Cols[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+  it("should apply different column values", () => {
+    const cols: Cols[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, "auto"];
 
-    for (const cols of colCounts) {
-      fixture.componentRef.setInput("cols", cols);
+    for (const col of cols) {
+      fixture.componentRef.setInput("cols", col);
       fixture.detectChanges();
 
-      const rowElement = fixture.debugElement.query(By.css(".row"));
-      expect(
-        rowElement.nativeElement.classList.contains(`row--cols-${cols}`),
-      ).toBeTruthy();
+      expect(rowElement.classList).toContain(`row--cols-${col}`);
     }
   });
 
   it("should apply justifyItems class when provided", () => {
-    const justifyOptions: JustifyItems[] = [
-      "start",
-      "end",
-      "center",
-      "stretch",
-    ];
+    const justifyOptions: JustifyItems[] = ["start", "end", "center", "stretch"];
 
     for (const justifyItems of justifyOptions) {
       fixture.componentRef.setInput("justifyItems", justifyItems);
       fixture.detectChanges();
 
-      const rowElement = fixture.debugElement.query(By.css(".row"));
-      expect(
-        rowElement.nativeElement.classList.contains(
-          `row--justify-items-${justifyItems}`,
-        ),
-      ).toBeTruthy();
+      expect(rowElement.classList).toContain(`row--justify-items-${justifyItems}`);
     }
   });
 
@@ -78,12 +59,7 @@ describe("RowComponent", () => {
       fixture.componentRef.setInput("alignItems", alignItems);
       fixture.detectChanges();
 
-      const rowElement = fixture.debugElement.query(By.css(".row"));
-      expect(
-        rowElement.nativeElement.classList.contains(
-          `row--align-items-${alignItems}`,
-        ),
-      ).toBeTruthy();
+      expect(rowElement.classList).toContain(`row--align-items-${alignItems}`);
     }
   });
 
@@ -93,12 +69,8 @@ describe("RowComponent", () => {
     for (const gap of gapOptions) {
       fixture.componentRef.setInput("gap", gap);
       fixture.detectChanges();
-      fixture.whenStable().then(() => {
-        const rowElement = fixture.debugElement.query(By.css(".row"));
-        expect(
-          rowElement.nativeElement.classList.contains(`g-${gap}`),
-        ).toBeTruthy();
-      });
+
+      expect(rowElement.classList).toContain(`g-${gap}`);
     }
   });
 
@@ -108,12 +80,8 @@ describe("RowComponent", () => {
     for (const gapX of gapOptions) {
       fixture.componentRef.setInput("gapX", gapX);
       fixture.detectChanges();
-      fixture.whenStable().then(() => {
-        const rowElement = fixture.debugElement.query(By.css(".row"));
-        expect(
-          rowElement.nativeElement.classList.contains(`gx-${gapX}`),
-        ).toBeTruthy();
-      });
+
+      expect(rowElement.classList).toContain(`gx-${gapX}`);
     }
   });
 
@@ -123,32 +91,12 @@ describe("RowComponent", () => {
     for (const gapY of gapOptions) {
       fixture.componentRef.setInput("gapY", gapY);
       fixture.detectChanges();
-      fixture.whenStable().then(() => {
-        const rowElement = fixture.debugElement.query(By.css(".row"));
-        expect(
-          rowElement.nativeElement.classList.contains(`gy-${gapY}`),
-        ).toBeTruthy();
-      });
+
+      expect(rowElement.classList).toContain(`gy-${gapY}`);
     }
   });
 
-  it("should apply custom class", () => {
-    fixture.componentRef.setInput("class", "custom-class");
-    fixture.detectChanges();
-
-    const rowElement = fixture.debugElement.query(By.css(".row"));
-    expect(
-      rowElement.nativeElement.classList.contains("custom-class"),
-    ).toBeTruthy();
-  });
-
   it("should handle undefined values", () => {
-    fixture.detectChanges();
-
-    const rowElement = fixture.debugElement.query(By.css(".row"));
-    expect(rowElement).toBeTruthy();
-    expect(rowElement.nativeElement.classList.toString()).not.toContain(
-      "undefined",
-    );
+    expect(rowElement.classList.toString()).not.toContain("undefined");
   });
 });

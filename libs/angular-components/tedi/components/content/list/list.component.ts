@@ -1,58 +1,39 @@
-import { NgTemplateOutlet } from "@angular/common";
 import {
   ChangeDetectionStrategy,
   Component,
   computed,
   input,
-  InputSignal,
+  ViewEncapsulation,
 } from "@angular/core";
+import { InputsWithSignals } from "../../../types/inputs.type";
 
-type ListElement = "ul" | "ol";
-type ListStyle = "styled" | "none";
-
-type ListProps = {
+export type ListInputs = {
   /**
-   * Additional class
+   * Is list styled?
+   * @default true
    */
-  class?: InputSignal<string>;
-  /**
-   * Base element
-   * @default ul
-   */
-  element?: InputSignal<ListElement>;
-  /**
-   * List style
-   * @default styled
-   */
-  style?: InputSignal<ListStyle>;
+  styled: boolean;
 };
 
 @Component({
-  selector: "tedi-list",
+  selector: "ul[tedi-list], ol[tedi-list]",
   standalone: true,
   templateUrl: "./list.component.html",
   styleUrl: "./list.component.scss",
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [NgTemplateOutlet],
+  encapsulation: ViewEncapsulation.None,
+  host: {
+    "[class]": "classes()",
+  }
 })
-export class ListComponent implements ListProps {
-  class = input<string>("");
-  element = input<ListElement>("ul");
-  style = input<ListStyle>("styled");
+export class ListComponent implements InputsWithSignals<ListInputs> {
+  styled = input<boolean>(true);
 
   classes = computed(() => {
-    const element = this.element();
-    const style = this.style();
-    const className = this.class();
+    const classList = ["tedi-list"];
 
-    const classList = [
-      "tedi-list",
-      `tedi-list--${element === "ul" ? "unordered" : "ordered"}`,
-      `tedi-list--style-${style}`,
-    ];
-
-    if (className) {
-      classList.push(className);
+    if (!this.styled()) {
+      classList.push("tedi-list--unstyled");
     }
 
     return classList.join(" ");
