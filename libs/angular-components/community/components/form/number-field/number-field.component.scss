@@ -129,7 +129,7 @@ $border-width: 1px;
     outline-offset: -$border-width;
   }
 
-  &:active {
+  &:active:not(.tedi-number-field__input-wrapper--disabled) {
     z-index: 2;
     border-color: var(--form-input-border-active);
     border-radius: 0;

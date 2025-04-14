@@ -135,6 +135,9 @@ overrides padding variables for neutal button
     background: var(--_btn-focus-bg);
     border-color: var(--_btn-focus-border);
     color: var(--_btn-focus-text);
+  }
+
+  &:focus-visible {
     outline: 2px solid var(--_btn-outline);
     outline-offset: 1px;
   }

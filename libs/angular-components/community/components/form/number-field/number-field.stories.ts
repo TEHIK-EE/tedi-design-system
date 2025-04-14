@@ -1,5 +1,6 @@
-import { argsToTemplate, Meta, StoryObj } from "@storybook/angular";
+import { argsToTemplate, Meta, StoryObj, moduleMetadata } from "@storybook/angular";
 import { NumberFieldComponent } from "./number-field.component";
+import { RowComponent } from "@tehik-ee/tedi-angular/tedi";
 
 /**
  * <a href="https://www.figma.com/design/jWiRIXhHRxwVdMSimKX2FF/TEDI-READY-(work-in-progress)?node-id=4536-78765&m=dev" target="_blank">Figma ↗</a><br />
@@ -10,6 +11,11 @@ import { NumberFieldComponent } from "./number-field.component";
 export default {
   title: "Community Angular/Form/NumberField",
   component: NumberFieldComponent,
+  decorators: [
+    moduleMetadata({
+      imports: [RowComponent],
+    }),
+  ],
   argTypes: {
     id: {
       description:
@@ -148,8 +154,84 @@ export default {
 
 export const Default: StoryObj<NumberFieldComponent> = {
   args: {
-    id: "test",
+    id: "example-id",
     label: "Label",
+  },
+  render: (args) => ({
+    props: args,
+    template: `<tedi-number-field ${argsToTemplate(args)} />`,
+  }),
+};
+
+export const Sizes: StoryObj<NumberFieldComponent> = {
+  render: (args) => ({
+    props: args,
+    template: `
+      <tedi-row class="example-list" cols="1" gapY="3">
+        <tedi-row cols="2" alignItems="center" class="padding-14-16 border-bottom">
+          <b>Default</b>
+          <tedi-number-field label="Label" id="size-default" />
+        </tedi-row>
+        <tedi-row cols="2" alignItems="center" class="padding-14-16">
+          <b>Small</b>
+          <tedi-number-field label="Label" id="size-small" size="small" />
+        </tedi-row>
+      </tedi-row>
+    `,
+  }),
+};
+
+export const States: StoryObj<NumberFieldComponent> = {
+  render: (args) => ({
+    props: args,
+    template: `
+      <tedi-row class="example-list" cols="1" gapY="3">
+        <tedi-row cols="2" alignItems="center" class="padding-14-16 border-bottom">
+          <b>Default</b>
+          <tedi-number-field label="Label" id="default" />
+        </tedi-row>
+        <tedi-row cols="2" alignItems="center" class="padding-14-16 border-bottom">
+          <b>Min value</b>
+          <tedi-number-field label="Label" id="min-value" [min]="01" [value]="1" />
+        </tedi-row>
+        <tedi-row cols="2" alignItems="center" class="padding-14-16 border-bottom">
+          <b>Max value</b>
+          <tedi-number-field label="Label" id="max-value" [max]="1" [value]="1" />
+        </tedi-row>
+        <tedi-row cols="2" alignItems="center" class="padding-14-16 border-bottom">
+          <b>Disabled</b>
+          <tedi-number-field label="Label" id="disabled" [value]="1" [disabled]="true" />
+        </tedi-row>
+        <tedi-row cols="2" alignItems="center" class="padding-14-16">
+          <b>Error</b>
+          <tedi-number-field label="Label" id="error" [value]="1" [invalid]="true" [feedbackText]="{ text: 'Feedback text', type: 'error', position: 'left' }" />
+        </tedi-row>
+      </tedi-row>
+    `,
+  }),
+};
+
+export const WithHint: StoryObj<NumberFieldComponent> = {
+  args: {
+    id: "example-hint",
+    label: "Label",
+    feedbackText: {
+      text: "Hint text",
+      type: "hint",
+      position: "left"
+    }
+  },
+  render: (args) => ({
+    props: args,
+    template: `<tedi-number-field ${argsToTemplate(args)} />`,
+  }),
+};
+
+export const WithUnit: StoryObj<NumberFieldComponent> = {
+  args: {
+    id: "example-unit",
+    label: "Label",
+    suffix: "unit"
   },
   render: (args) => ({
     props: args,

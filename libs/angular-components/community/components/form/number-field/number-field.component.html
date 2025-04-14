@@ -27,6 +27,7 @@
   <div
     [class]="{
       'tedi-number-field__input-wrapper': true,
+      'tedi-number-field__input-wrapper--disabled': isDisabled(),
       'tedi-number-field__input-wrapper--with-suffix': suffix(),
     }"
   >
@@ -46,14 +47,12 @@
       (input)="handleInputChange($event)"
     />
     @if (suffix()) {
-      <tedi-text
-        element="span"
-        modifiers="small"
+      <small tedi-text
         color="tertiary"
         class="tedi-number-field__suffix"
       >
         {{ suffix() }}
-      </tedi-text>
+      </small>
     }
   </div>
   <button
