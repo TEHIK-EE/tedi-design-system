@@ -1,41 +1,32 @@
 import { Component, computed, input } from "@angular/core";
-import type { InputsWithSignals } from "@tehik-ee/tedi-angular/tedi";
 
-type TextGroupType = "vertical" | "horizontal";
-
-export type TextGroup = {
-  /**
-   * Type of text group layout
-   * @default 'horizontal'
-   */
-  type: TextGroupType;
-  /**
-   * Width for the label (e.g., '200px', '30%', etc.)
-   * @default 'auto'
-   */
-  labelWidth: string;
-  /**
-   * Label for the text group
-   */
-  label?: string;
-  /**
-   * Value displayed alongside the label
-   */
-  value?: string;
-};
+export type TextGroupType = "vertical" | "horizontal";
 
 @Component({
   standalone: true,
   selector: "tedi-text-group",
-  imports: [],
   templateUrl: "./text-group.component.html",
   styleUrl: "./text-group.component.scss",
 })
-export class TextGroupComponent implements InputsWithSignals<TextGroup> {
-  label = input<string>();
-  value = input<string>();
+export class TextGroupComponent {
+   /**
+   * Label for the text group
+   */
+  label = input.required<string>();
+  /**
+   * Value displayed alongside the label
+   */
+  value = input.required<string>();
+  /**
+   * Type of text group layout
+   * @default horizontal
+   */
   type = input<TextGroupType>("horizontal");
-  labelWidth = input<string>("auto");
+  /**
+   * Width for the label (e.g., '200px', '30%', etc.)
+   * @default auto
+   */
+  labelWidth = input<string>();
 
   classes = computed(() => {
     const classList = ["tedi-text-group"];
@@ -43,13 +34,5 @@ export class TextGroupComponent implements InputsWithSignals<TextGroup> {
       classList.push(`tedi-text-group--${this.type()}`);
     }
     return classList.join(" ");
-  });
-
-  labelWidthStyle = computed(() => {
-    if (this.labelWidth()) {
-      return {
-        "--label-width": this.labelWidth() ? this.labelWidth() : "auto",
-      };
-    } else return {};
   });
 }
