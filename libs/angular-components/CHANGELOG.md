@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-angular-v1.6.0-rc.8](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.6.0-rc.7...angular-1.6.0-rc.8) (2025-04-14)
+
+
+### Bug Fixes
+
+* **typography:** fix component selector ([#677](https://github.com/TEHIK-EE/tedi-design-system/issues/677)) ([f885832](https://github.com/TEHIK-EE/tedi-design-system/commit/f885832230b2ca316a0fb50cf254adac07a67dad)), closes [#673](https://github.com/TEHIK-EE/tedi-design-system/issues/673) [#675](https://github.com/TEHIK-EE/tedi-design-system/issues/675)
+
 # [@tehik-ee/tedi-angular-v1.6.0-rc.7](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.6.0-rc.6...angular-1.6.0-rc.7) (2025-04-14)
 
 
