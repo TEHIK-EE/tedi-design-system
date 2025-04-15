@@ -498,7 +498,7 @@ $btn-width-large: 3.72rem;
 
   .tedi-btn--link.tedi-btn__icon-standalone--link:not(.tedi-btn--is-loading) & {
     display: inline-flex;
-    align-items: start;
+    align-items: flex-start;
 
     .tedi-btn__icon {
       @include mixins.responsive-styles(line-height, body-regular-line-height);
