@@ -1,0 +1,40 @@
+@use '@tehik-ee/tedi-core/mixins';
+
+$btn-height: 2rem;
+
+.tedi-collapse {
+  &__title {
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+
+    @include mixins.button-reset;
+  }
+
+  &__text {
+    text-decoration: underline;
+  }
+
+  &__icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: $btn-height;
+    height: $btn-height;
+    border: var(--borders-01) solid var(--button-main-secondary-border-default);
+    border-radius: 100%;
+  }
+
+  &__icon {
+    color: var(--button-main-neutral-text-default);
+    transition: transform 300ms ease;
+
+    .tedi-collapse--is-open & {
+      transform: rotate(180deg);
+    }
+  }
+
+  &__content {
+    margin-top: var(--dimensions-05);
+  }
+}
