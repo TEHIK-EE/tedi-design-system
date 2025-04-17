@@ -1,0 +1,18 @@
+// @import "~@angular/cdk/overlay-prebuilt.css";
+
+.tooltip {
+  display: flex;
+  max-width: var(--tooltip-max-width, 240px);
+  padding: var(--tooltip-padding-y, 8px) var(--tooltip-padding-x, 8px);
+  align-items: flex-start;
+  gap: 10px;
+  border-radius: var(--tooltip-radius, 4px);
+  background: var(--tooltip-background, #5d6071);
+  box-shadow: 0px 1px 5px 0px var(--alpha-20, rgba(0, 0, 0, 0.2));
+  color: var(--tooltip-text, #fff);
+  font-family: var(--family-primary, Roboto);
+  font-size: var(--body-regular-size, 16px);
+  font-style: normal;
+  font-weight: var(--body-regular-weight, 400);
+  line-height: var(--body-regular-line-height, 24px); /* 150% */
+}
