@@ -199,14 +199,14 @@ div.tedi-select__multi-value-item {
 }
 
 :global {
-  .select__value-container {
+  .tedi-select__value-container {
     padding: 0 !important;
 
     @include mixins.responsive-styles(gap, form-field-inner-spacing);
-  }
 
-  .tedi-select__value-container .tedi-select__placeholder {
-    color: var(--form-input-text-placeholder);
+    .tedi-select__placeholder {
+      color: var(--form-input-text-placeholder);
+    }
   }
 }
 
