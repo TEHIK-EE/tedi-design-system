@@ -2,11 +2,12 @@ import { StorybookConfig } from "@storybook/angular";
 
 const config: StorybookConfig = {
   stories: [
-    "../docs/**/*.mdx",
+    "../docs/welcome.mdx",
+    "../docs/get-started.mdx",
+    "../docs/changelog.mdx",
+    "../docs/badges.mdx",
     "../docs/**/*.stories.@(js|jsx|mjs|ts|tsx)",
-    "../tedi/**/*.mdx",
     "../tedi/**/*.stories.@(js|jsx|mjs|ts|tsx)",
-    "../community/**/*.mdx",
     "../community/**/*.stories.@(js|jsx|mjs|ts|tsx)",
   ],
   addons: [
