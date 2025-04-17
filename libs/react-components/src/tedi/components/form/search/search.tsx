@@ -1,8 +1,8 @@
 import cn from 'classnames';
 import React, { forwardRef } from 'react';
 
+import { IconWithoutBackgroundProps } from '../../base/icon/icon';
 import { Button, ButtonProps } from '../../buttons/button/button';
-import { IconWithoutBackgroundProps } from '../../icon/icon';
 import { TextField, TextFieldForwardRef, TextFieldProps } from '../textfield/textfield';
 import styles from './search.module.scss';
 

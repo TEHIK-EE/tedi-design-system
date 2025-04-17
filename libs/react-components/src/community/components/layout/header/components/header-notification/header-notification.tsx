@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { Col, Row } from '../../../../../../tedi/components/grid';
-import Print from '../../../../../../tedi/components/print/print';
+import { Col, Row } from '../../../../../../tedi/components/layout/grid';
+import Print from '../../../../../../tedi/components/misc/print/print';
 import { Card, CardContent, CardProps } from '../../../../card';
 import Icon from '../../../../icon/icon';
 import styles from './header-notification.module.scss';

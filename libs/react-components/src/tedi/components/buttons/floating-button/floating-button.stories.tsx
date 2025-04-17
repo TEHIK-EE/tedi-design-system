@@ -1,7 +1,7 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 
-import { Col, Row } from '../../grid';
-import { Text } from '../../typography/text/text';
+import { Text } from '../../base/typography/text/text';
+import { Col, Row } from '../../layout/grid';
 import FloatingButton, { FloatingButtonProps } from './floating-button';
 
 /**

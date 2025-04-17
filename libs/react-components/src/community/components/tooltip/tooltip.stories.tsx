@@ -1,7 +1,7 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 
-import { Col, Row } from '../../../tedi/components/grid';
-import { Icon } from '../../../tedi/components/icon/icon';
+import { Icon } from '../../../tedi/components/base/icon/icon';
+import { Col, Row } from '../../../tedi/components/layout/grid';
 import Anchor from '../anchor/anchor';
 import Button from '../button/button';
 import { Card, CardContent } from '../card';

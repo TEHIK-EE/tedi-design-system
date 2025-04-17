@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { Affix } from '../../../tedi/components/affix/affix';
-import ScrollVisibility from '../../../tedi/components/scroll-visibility/scroll-visibility';
-import { StretchContent } from '../../../tedi/components/stretch-content/stretch-content';
+import { Affix } from '../../../tedi/components/misc/affix/affix';
+import ScrollVisibility from '../../../tedi/components/misc/scroll-visibility/scroll-visibility';
+import { StretchContent } from '../../../tedi/components/misc/stretch-content/stretch-content';
 import { useLabels } from '../../../tedi/providers/label-provider';
 import { Layouts, useLayout } from '../../helpers';
 import { Card, CardContent } from '../card';

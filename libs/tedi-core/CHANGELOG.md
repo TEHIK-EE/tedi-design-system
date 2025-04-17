@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-core-v1.12.0](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.11.0...core-1.12.0) (2025-04-17)
+
+
+### Features
+
+* **tedi-core:** add new form field variables [#702](https://github.com/TEHIK-EE/tedi-design-system/issues/702) ([#703](https://github.com/TEHIK-EE/tedi-design-system/issues/703)) ([8ff24b8](https://github.com/TEHIK-EE/tedi-design-system/commit/8ff24b860e1901f1e8e80f29e4a1786126f3f69a))
+
 # [@tehik-ee/tedi-core-v1.11.0](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.10.1...core-1.11.0) (2025-04-14)
 
 

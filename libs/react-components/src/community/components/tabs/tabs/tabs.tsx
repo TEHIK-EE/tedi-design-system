@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import React from 'react';
 
-import Print, { PrintProps } from '../../../../tedi/components/print/print';
+import Print, { PrintProps } from '../../../../tedi/components/misc/print/print';
 import { usePrint } from '../../../../tedi/helpers';
 import { TabsContext } from '../tabs-context';
 import TabsItem, { TabsItemProps } from '../tabs-item/tabs-item';

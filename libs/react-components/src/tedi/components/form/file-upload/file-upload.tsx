@@ -4,13 +4,13 @@ import React from 'react';
 import { isBreakpointBelow, useBreakpoint } from '../../../helpers';
 import { FileUploadFile, useFileUpload } from '../../../helpers/hooks/use-file-upload';
 import { useLabels } from '../../../providers/label-provider';
+import { Text } from '../../base/typography/text/text';
 import { Button } from '../../buttons/button/button';
 import { ClosingButton } from '../../buttons/closing-button/closing-button';
 import { FormLabel, FormLabelProps } from '../../form/form-label/form-label';
-import { Col, Row } from '../../grid';
-import { Separator } from '../../separator/separator';
-import { Tag } from '../../tag/tag';
-import { Text } from '../../typography/text/text';
+import { Col, Row } from '../../layout/grid';
+import Separator from '../../misc/separator/separator';
+import { Tag } from '../../tags/tag/tag';
 import { FeedbackText, FeedbackTextProps } from '../feedback-text/feedback-text';
 import styles from './file-upload.module.scss';
 
