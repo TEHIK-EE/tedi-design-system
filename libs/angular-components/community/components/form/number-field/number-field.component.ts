@@ -52,11 +52,11 @@ export class NumberFieldComponent implements ControlValueAccessor {
   /**
    * The text content of the label that describes the input field.
    */
-  label = input.required<string>();
+  label = input<string>();
   /**
    * Value of the input field. Supports two-way binding, use with form controls.
    */
-  value = model<number>();
+  value = model<number>(0);
   /**
    * Is input disabled?
    * @default false
@@ -105,41 +105,29 @@ export class NumberFieldComponent implements ControlValueAccessor {
   private onChange: (value: number) => void = () => {};
   private onTouched: () => void = () => {};
 
-  readonly displayValue = computed(() => {
-    const value = this.value();
-    return value !== undefined ? value : 0;
-  });
-
   readonly isInvalid = computed(() => {
-    const value = this.value();
     const min = this.min();
     const max = this.max();
 
-    if (value === undefined) return false;
-
     return (
       this.invalid() ||
-      Boolean(min !== undefined && value < min) ||
-      Boolean(max !== undefined && value > max)
+      Boolean(min !== undefined && this.value() < min) ||
+      Boolean(max !== undefined && this.value() > max)
     );
   });
 
   readonly isDisabled = computed(() => this.disabled() || this.formDisabled());
 
   readonly decrementDisabled = computed(() => {
-    const value = this.value();
     const min = this.min();
 
-    if (value === undefined) return false;
-    return this.isDisabled() || (min !== undefined && value <= min);
+    return this.isDisabled() || (min !== undefined && this.value() <= min);
   });
 
   readonly incrementDisabled = computed(() => {
-    const value = this.value();
     const max = this.max();
 
-    if (value === undefined) return false;
-    return this.isDisabled() || (max !== undefined && value >= max);
+    return this.isDisabled() || (max !== undefined && this.value() >= max);
   });
 
   writeValue(value: number): void {
@@ -169,7 +157,7 @@ export class NumberFieldComponent implements ControlValueAccessor {
 
   handleButtonClick(action: "decrement" | "increment") {
     const delta = action === "decrement" ? -1 : 1;
-    const nextValue = (this.value() ?? 0) + this.step() * delta;
+    const nextValue = this.value() + this.step() * delta;
     this.value.set(nextValue);
     this.onChange(nextValue);
     this.onTouched();

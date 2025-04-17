@@ -1,11 +1,13 @@
-<label 
-  tedi-label 
-  [for]="id()"
-  [required]="required()" 
-  [size]="size()"
->
-  {{ label() }}
-</label>
+@if (label()) {
+  <label 
+    tedi-label 
+    [for]="id()"
+    [required]="required()" 
+    [size]="size()"
+  >
+    {{ label() }}
+  </label>
+}
 <div
   [class]="{
     'tedi-number-field': true,
@@ -37,7 +39,7 @@
       type="number"
       inputmode="numeric"
       class="tedi-number-field__input"
-      [value]="displayValue()"
+      [value]="value()"
       [disabled]="isDisabled()"
       [required]="required()"
       [attr.min]="min()"
