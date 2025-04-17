@@ -29,7 +29,14 @@
           }
         ],
         "complexity": ["error", 14],
-        "@typescript-eslint/array-type": "off"
+        "@typescript-eslint/array-type": "off",
+        "@typescript-eslint/no-unused-vars": [
+          "error", 
+          { 
+            "argsIgnorePattern": "^_",
+            "varsIgnorePattern": "^_"
+          }
+        ]
       }
     },
     {

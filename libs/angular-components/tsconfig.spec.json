@@ -4,16 +4,5 @@
     "outDir": "./out-tsc/spec",
     "types": ["jest", "node"]
   },
-  "files": [],
-  "include": [
-    "docs/**/*.spec.ts",
-    "docs/**/*.d.ts",
-    "docs/**/*.html",
-    "tedi/**/*.spec.ts",
-    "tedi/**/*.d.ts",
-    "tedi/**/*.html",
-    "community/**/*.spec.ts",
-    "community/**/*.d.ts",
-    "community/**/*.html"
-  ]
+  "include": ["**/*.spec.ts"]
 }

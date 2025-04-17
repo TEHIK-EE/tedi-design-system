@@ -5,7 +5,6 @@ import {
   input,
   ViewEncapsulation,
 } from "@angular/core";
-import { InputsWithSignals } from "../../../types/inputs.type";
 
 const ICON_WITH_BACKGROUND = [16, 24];
 
@@ -29,44 +28,6 @@ export type IconBackgroundColor =
   | "brand-primary"
   | "brand-secondary";
 
-export type IconInputs = {
-  /**
-   * Name of the Material Icon
-   * https://fonts.google.com/icons
-   */
-  name: string;
-  /**
-   * Size of the icon in pixels.
-   * @default 24
-   */
-  size: IconSize;
-  /**
-   * Color of the icon.
-   * @default primary
-   */
-  color: IconColor;
-  /**
-   * Background color for the icon (adds a circular background).
-   */
-  background?: IconBackgroundColor;
-  /**
-   * Whether the icon should be filled or outlined.
-   * @default outlined
-   */
-  variant: IconVariant;
-  /**
-   * Type of Material Symbols icon style.
-   * It is recommended to only use one type throughout your app.
-   * @default outlined
-   */
-  type: IconType;
-  /**
-   * Accessible label for screen readers.
-   * If omitted then the icon is hidden for screen-readers.
-   */
-  label?: string;
-};
-
 @Component({
   selector: "tedi-icon",
   standalone: true,
@@ -81,13 +42,41 @@ export type IconInputs = {
     "[attr.aria-hidden]": "!label()"
   }
 })
-export class IconComponent implements InputsWithSignals<IconInputs> {
+export class IconComponent {
+  /**
+   * Name of the Material Icon
+   * https://fonts.google.com/icons
+   */
   name = input.required<string>();
+  /**
+   * Size of the icon in pixels.
+   * @default 24
+   */
   size = input<IconSize>(24);
+  /**
+   * Color of the icon.
+   * @default primary
+   */
   color = input<IconColor>("primary");
+  /**
+   * Background color for the icon (adds a circular background).
+   */
   background = input<IconBackgroundColor>();
+  /**
+   * Whether the icon should be filled or outlined.
+   * @default outlined
+   */
   variant = input<IconVariant>("outlined");
+  /**
+   * Type of Material Symbols icon style.
+   * It is recommended to only use one type throughout your app.
+   * @default outlined
+   */
   type = input<IconType>("outlined");
+  /**
+   * Accessible label for screen readers.
+   * If omitted then the icon is hidden for screen-readers.
+   */
   label = input<string>();
 
   classes = computed(() => {

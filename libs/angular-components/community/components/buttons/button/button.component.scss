@@ -11,6 +11,7 @@ create .tedi-button scoped color variables for every variant
     --_btn-bg: var(--button-main-#{$variant}-background-default);
     --_btn-border: var(--button-main-#{$variant}-border-default);
     --_btn-text: var(--button-main-#{$variant}-text-default);
+    --_btn-outline: var(--button-main-#{$variant}-border-focus);
 
     @include button-state-color-vars($variant, "hover");
     @include button-state-color-vars($variant, "focus");
@@ -134,6 +135,11 @@ overrides padding variables for neutal button
     background: var(--_btn-focus-bg);
     border-color: var(--_btn-focus-border);
     color: var(--_btn-focus-text);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--_btn-outline);
+    outline-offset: 1px;
   }
 
   &:hover {

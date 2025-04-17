@@ -4,7 +4,6 @@ import {
   computed,
   input,
 } from "@angular/core";
-import { InputsWithSignals } from "../../../types/inputs.type";
 
 export type TextModifiers =
   | "h1"
@@ -48,19 +47,6 @@ export type TextColor =
   | "info"
   | "neutral";
 
-export type TextInputs = {
-  /**
-   * Single or multiple modifiers to change the text behavior
-   */
-  modifiers?: TextModifiers[] | TextModifiers;
-  /**
-   * Color of the text
-   * Use 'success', 'important' or 'warning' with caution, usually they should not be in application UI
-   * @default primary
-   */
-  color: TextColor;
-};
-
 @Component({
   selector: "[tedi-text]",
   standalone: true,
@@ -70,8 +56,16 @@ export type TextInputs = {
     "[class]": "classes()"
   },
 })
-export class TextComponent implements InputsWithSignals<TextInputs> {
+export class TextComponent {
+  /**
+   * Single or multiple modifiers to change the text behavior
+   */
   modifiers = input<TextModifiers[] | TextModifiers>();
+  /**
+   * Color of the text
+   * Use 'success', 'important' or 'warning' with caution, usually they should not be in application UI
+   * @default primary
+   */
   color = input<TextColor>("primary");
 
   private isHeadingModifier(modifier: string) {

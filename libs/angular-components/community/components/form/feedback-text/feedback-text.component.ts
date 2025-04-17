@@ -5,26 +5,9 @@ import {
   input,
   ViewEncapsulation,
 } from "@angular/core";
-import { InputsWithSignals } from "@tehik-ee/tedi-angular/tedi";
 
 export type FeedbackTextType = "hint" | "valid" | "error";
 export type FeedbackTextPosition = "left" | "right";
-export type FeedbackTextInputs = {
-  /**
-   * Helper text
-   */
-  text: string;
-  /**
-   * Type of form-helper.
-   * @default help
-   */
-  type: FeedbackTextType;
-  /**
-   * Position of the helper.
-   * @default left
-   */
-  position: FeedbackTextPosition;
-};
 
 @Component({
   selector: "tedi-feedback-text",
@@ -39,10 +22,20 @@ export type FeedbackTextInputs = {
     "[attr.aria-live]": "ariaLive()",
   },
 })
-export class FeedbackTextComponent
-  implements InputsWithSignals<FeedbackTextInputs> {
+export class FeedbackTextComponent {
+  /**
+   * Helper text
+   */
   text = input.required<string>();
+  /**
+   * Type of form-helper.
+   * @default hint
+   */
   type = input<FeedbackTextType>("hint");
+  /**
+   * Position of the helper.
+   * @default left
+   */
   position = input<FeedbackTextPosition>("left");
 
   role = computed(() => {

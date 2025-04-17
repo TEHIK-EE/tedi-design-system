@@ -1,22 +1,5 @@
 import { ChangeDetectionStrategy, Component, input } from "@angular/core";
-import { IconComponent, InputsWithSignals } from "@tehik-ee/tedi-angular/tedi";
-
-export type InfoButtonInputs = {
-  /**
-   * If true, applies a small size to the InfoButton.
-   * @default false
-   */
-  isSmall?: boolean;
-  /**
-   * The title attribute for the InfoButton.
-   * Will be used as a default browser tooltip.
-   */
-  title?: string;
-  /**
-   * The aria-label attribute for the InfoButton.
-   */
-  ariaLabel?: string;
-};
+import { IconComponent } from "@tehik-ee/tedi-angular/tedi";
 
 @Component({
   standalone: true,
@@ -31,9 +14,19 @@ export type InfoButtonInputs = {
     "[attr.title]": "title()",
   },
 })
-export class InfoButtonComponent
-  implements InputsWithSignals<InfoButtonInputs> {
-  isSmall = input<boolean>();
+export class InfoButtonComponent {
+  /**
+   * If true, applies a small size to the InfoButton.
+   * @default false
+   */
+  isSmall = input<boolean>(false);
+  /**
+   * The title attribute for the InfoButton.
+   * Will be used as a default browser tooltip.
+   */
   title = input<string>();
+  /**
+   * The aria-label attribute for the InfoButton.
+   */
   ariaLabel = input<string>();
 }

@@ -1,8 +1,9 @@
-<tedi-icon
-  *ngIf="breakpointInputs().iconLeft"
-  [name]="breakpointInputs().iconLeft"
-  [class]="'tedi-link__icon tedi-link__icon--left'"
-/>
+@if (breakpointInputs().iconLeft; as iconLeft) {
+  <tedi-icon
+    [name]="iconLeft"
+    [class]="'tedi-link__icon tedi-link__icon--left'"
+  />
+}
 <span
   [class]="{
     'tedi-link__text': true,
@@ -12,8 +13,9 @@
 >
   <ng-content></ng-content>
 </span>
-<tedi-icon
-  *ngIf="breakpointInputs().iconRight"
-  [name]="breakpointInputs().iconRight"
-  [class]="'tedi-link__icon tedi-link__icon--right'"
-/>
+@if (breakpointInputs().iconRight; as iconRight) {
+  <tedi-icon
+    [name]="iconRight"
+    [class]="'tedi-link__icon tedi-link__icon--right'"
+  />
+}

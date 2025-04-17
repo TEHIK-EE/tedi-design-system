@@ -1,5 +1,6 @@
 import { InputSignal } from "@angular/core";
 
-export type InputsWithSignals<TInputs> = {
-  [K in keyof TInputs]: InputSignal<TInputs[K]>;
-};
+export type ComponentInputs<TComponent> = {
+  [K in keyof TComponent as TComponent[K] extends InputSignal<infer _> ? K : never]: 
+    TComponent[K] extends InputSignal<infer U> ? U : never;
+}
