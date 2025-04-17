@@ -13,25 +13,30 @@
     'tedi-number-field': true,
     'tedi-number-field--invalid': isInvalid(),
     'tedi-number-field--disabled': isDisabled(),
-    'tedi-number-field--small': size() === 'small',
   }"
 >
   <button
     tedi-button
     type="button"
     variant="secondary"
-    class="tedi-number-field__button tedi-number-field__button--decrement"
+    [class]="{
+      'tedi-number-field__button': true, 
+      'tedi-number-field__button--decrement': true,
+      'tedi-number-field__button--small': size() === 'small'
+    }"
     [disabled]="decrementDisabled()"
     (click)="handleButtonClick('decrement')"
   >
-    <tedi-icon name="remove" [size]="18" [label]="'Decrement by ' + step()" />
+    <tedi-icon name="remove" [size]="18" [label]="'Vähenda ' + step() + ' võrra'" />
   </button>
   <div
     [class]="{
       'tedi-number-field__input-wrapper': true,
+      'tedi-number-field__input-wrapper--small': size() === 'small',
       'tedi-number-field__input-wrapper--disabled': isDisabled(),
       'tedi-number-field__input-wrapper--with-suffix': suffix(),
     }"
+    (click)="focus()"
   >
     <input
       #inputElement
@@ -61,11 +66,15 @@
     tedi-button
     type="button"
     variant="secondary"
-    class="tedi-number-field__button tedi-number-field__button--increment"
+    [class]="{
+      'tedi-number-field__button': true, 
+      'tedi-number-field__button--increment': true,
+      'tedi-number-field__button--small': size() === 'small'
+    }"
     [disabled]="incrementDisabled()"
     (click)="handleButtonClick('increment')"
   >
-    <tedi-icon name="add" [size]="18" [label]="'Increment by ' + step()" />
+    <tedi-icon name="add" [size]="18" [label]="'Suurenda ' + step() + ' võrra'" />
   </button>
 </div>
 @if (feedbackText(); as feedback) {

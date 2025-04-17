@@ -159,9 +159,13 @@ export default {
 } as Meta<NumberFieldComponent>;
 
 export const Default: StoryObj<NumberFieldComponent> = {
+  args: {
+    id: "example-id",
+    label: "Label"
+  },
   render: (args) => ({
     props: args,
-    template: `<tedi-number-field id="example-id" label="Label" />`,
+    template: `<tedi-number-field ${argsToTemplate(args)} />`,
   }),
 };
 
@@ -242,12 +246,15 @@ export const States: StoryObj<NumberFieldComponent> = {
 };
 
 export const CustomLabelAndFeedbackText: StoryObj<NumberFieldComponent> = {
+  args: {
+    id: 'example-custom'
+  },
   render: (args) => ({
     props: args,
     template: `
       <div>
-        <label tedi-label>Label</label>
-        <tedi-number-field id="example-custom" />
+        <label tedi-label for="example-custom">Label</label>
+        <tedi-number-field ${argsToTemplate(args)} />
         <tedi-feedback-text text="Error message" type="error" />
       </div>
     `,
