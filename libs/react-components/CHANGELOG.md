@@ -1,3 +1,17 @@
+# [@tehik-ee/tedi-react-v11.3.0-rc.9](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.3.0-rc.8...react-11.3.0-rc.9) (2025-04-17)
+
+
+### Bug Fixes
+
+* **tooltip,popover:** fix exports [#705](https://github.com/TEHIK-EE/tedi-design-system/issues/705) ([#706](https://github.com/TEHIK-EE/tedi-design-system/issues/706)) ([c5d425f](https://github.com/TEHIK-EE/tedi-design-system/commit/c5d425f7fdfd1b64ce649ae0e6dac9c79dac70ac))
+
+# [@tehik-ee/tedi-react-v11.3.0-rc.8](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.3.0-rc.7...react-11.3.0-rc.8) (2025-04-17)
+
+
+### Features
+
+* **select:** Community select input bug fix [[#695](https://github.com/TEHIK-EE/tedi-design-system/issues/695)] ([#698](https://github.com/TEHIK-EE/tedi-design-system/issues/698)) ([2b4a2c9](https://github.com/TEHIK-EE/tedi-design-system/commit/2b4a2c9630cc90275b0853061bf54a3f40faa275))
+
 # [@tehik-ee/tedi-react-v11.3.0-rc.7](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.3.0-rc.6...react-11.3.0-rc.7) (2025-04-14)
 
 
