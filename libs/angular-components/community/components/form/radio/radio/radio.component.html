@@ -1,0 +1,24 @@
+<div class="tedi-radio__button">
+  <input
+    class="tedi-radio__input"
+    type="radio"
+    #input
+    [id]="inputId()"
+    [checked]="inputChecked()"
+    [disabled]="inputDisabled()"
+    [attr.name]="inputName()"
+    [attr.value]="value()"
+    (change)="onInputChange($event)"
+  />
+  <div class="tedi-radio__indicator"></div>
+</div>
+<label [for]="inputId()" class="tedi-radio__label">
+  <ng-content></ng-content>
+</label>
+@if (feedbackText(); as feedback) {
+  <tedi-feedback-text
+    [text]="feedback.text"
+    [type]="feedback.type"
+    [position]="feedback.position"
+  />
+}
