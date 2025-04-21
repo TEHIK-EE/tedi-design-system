@@ -77,6 +77,7 @@ export class RadioGroupComponent implements ControlValueAccessor {
   /*
    * Emits selected radio value on change.
    */
+  // eslint-disable-next-line @angular-eslint/no-output-native
   change = output<RadioValue>();
 
   private _value = signal<string | null>(null);
@@ -87,16 +88,16 @@ export class RadioGroupComponent implements ControlValueAccessor {
   });
   groupValue = this._value.asReadonly();
 
-  private _onChange: (val: any) => void = () => {};
-  private _onTouched: (val: any) => void = () => {};
+  private _onChange: (val: string) => void = () => {};
+  private _onTouched: (val: boolean) => void = () => {};
 
-  writeValue(value: any): void {
+  writeValue(value: string | null): void {
     this._value.set(value);
   }
-  registerOnChange(fn: (val: any) => void): void {
+  registerOnChange(fn: (val: string) => void): void {
     this._onChange = fn;
   }
-  registerOnTouched(fn: any): void {
+  registerOnTouched(fn: (val: boolean) => void): void {
     this._onTouched = fn;
   }
   setDisabledState(isDisabled: boolean): void {
