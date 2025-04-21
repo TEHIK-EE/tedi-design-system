@@ -4,33 +4,51 @@ import {
   WritableSignal,
   forwardRef,
   input,
+  ContentChildren,
+  QueryList,
+  AfterContentInit,
 } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { CdkMenuModule } from "@angular/cdk/menu";
+import { CdkMenuModule, MenuStack, MENU_STACK } from "@angular/cdk/menu";
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from "@angular/forms";
+import { CustomOptionComponent } from "./select-option.component";
+import { InputComponent } from "../input/input.component";
+import {
+  CardComponent,
+  CardContentComponent,
+} from "community/components/cards/card";
+import { IconComponent } from "@tehik-ee/tedi-angular/tedi";
 
 @Component({
-  selector: "app-custom-select",
+  selector: "tedi-select",
   standalone: true,
-  imports: [CommonModule, CdkMenuModule],
+  imports: [
+    CommonModule,
+    CdkMenuModule,
+    InputComponent,
+    CardComponent,
+    CardContentComponent,
+    IconComponent,
+  ],
   template: `
     <button
+      tedi-input
       type="button"
-      cdkMenuTriggerFor="menu"
+      [cdkMenuTriggerFor]="menu"
       [disabled]="disabled()"
       (click)="onTouched()"
     >
-      @if (selectedLabel()) {
-        {{ selectedLabel() }}
-      } @else {
-        {{ placeholder() }}
-      }
+      {{ selectedLabel() || placeholder() }}
+
+      <tedi-icon name="arrow_drop_down" />
     </button>
 
     <ng-template #menu>
-      <div cdkMenu class="custom-select-menu">
-        <ng-content />
-      </div>
+      <tedi-card cdkMenu>
+        <tedi-card-content>
+          <ng-content />
+        </tedi-card-content>
+      </tedi-card>
     </ng-template>
   `,
   providers: [
@@ -39,27 +57,18 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from "@angular/forms";
       useExisting: forwardRef(() => SelectComponent),
       multi: true,
     },
-  ],
-  styles: [
-    `
-      button {
-        padding: 0.5rem 1rem;
-        border-radius: 0.375rem;
-        background-color: #f0f0f0;
-        border: 1px solid #ccc;
-      }
-      .custom-select-menu {
-        padding: 0.5rem;
-        background: white;
-        border: 1px solid #ccc;
-        border-radius: 0.375rem;
-        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-      }
-    `,
+    { provide: MENU_STACK, useClass: MenuStack },
   ],
 })
-export class SelectComponent implements ControlValueAccessor {
+export class SelectComponent implements ControlValueAccessor, AfterContentInit {
+  /**
+   * The placeholder text to display when no option is selected.
+   * @default "Select..."
+   */
   placeholder = input<string>("Select...");
+
+  @ContentChildren(CustomOptionComponent)
+  options!: QueryList<CustomOptionComponent>;
 
   selectedValue: WritableSignal<any> = signal(null);
   selectedLabel: WritableSignal<string | null> = signal(null);
@@ -68,8 +77,21 @@ export class SelectComponent implements ControlValueAccessor {
   onChange = (value: any) => {};
   onTouched = () => {};
 
+  ngAfterContentInit() {
+    // For debugging
+    console.log("Content initialized:", this.options?.length);
+  }
+
   writeValue(value: any): void {
     this.selectedValue.set(value);
+
+    // Update the label if we have options and the value matches one of them
+    if (this.options) {
+      const option = this.options.find((opt) => opt.value === value);
+      if (option) {
+        this.selectedLabel.set(option.label);
+      }
+    }
   }
 
   registerOnChange(fn: any): void {
