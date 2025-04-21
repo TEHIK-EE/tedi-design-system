@@ -42,6 +42,7 @@ export const WithPreselected: Story = {
         <tedi-select-option [value]="'option2'">Option 2</tedi-select-option>
         <tedi-select-option [value]="'option3'">Option 3</tedi-select-option>
       </tedi-select>
+      {{ this.selectedValue }}
     `,
     props: {
       selectedValue: "option2",

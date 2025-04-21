@@ -13,6 +13,7 @@ import {
   inject,
   ViewEncapsulation,
   ChangeDetectionStrategy,
+  contentChildren,
 } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { CdkMenuModule, MenuStack, MENU_STACK } from "@angular/cdk/menu";
@@ -67,14 +68,12 @@ export class SelectComponent
    */
   isDisabled = input<boolean>(false);
 
-  @ContentChildren(SelectOptionComponent)
-  options!: QueryList<SelectOptionComponent>;
-
   // Internal state
-  selectedValue: WritableSignal<any> = signal(null);
-  selectedLabel: WritableSignal<string | null> = signal(null);
-  disabled: WritableSignal<boolean> = signal(false);
-  width: WritableSignal<number> = signal(0);
+  _selectedValue = signal<any>(null);
+  _selectedLabel = signal<string | null>(null);
+  _disabled = signal<boolean>(false);
+  _width = signal<number>(0);
+  _options = contentChildren(SelectOptionComponent);
 
   private elementRef = inject(ElementRef);
   private resizeObserver: ResizeObserver | null = null;
@@ -84,18 +83,18 @@ export class SelectComponent
   onTouched = () => {};
 
   writeValue(value: any): void {
-    this.selectedValue.set(value);
+    this._selectedValue.set(value);
 
     // Update the label if we have options and the value matches one of them
-    if (this.options) {
-      const option = this.options.find((opt) => opt.value === value);
+    if (this._options) {
+      const option = this._options().find((opt) => opt.value === value);
       if (option) {
         // Access the extracted content text from the option component
         const optionElement = option["elementRef"].nativeElement;
         const optionText = optionElement.textContent.trim();
-        this.selectedLabel.set(optionText);
+        this._selectedLabel.set(optionText);
       } else {
-        this.selectedLabel.set(null);
+        this._selectedLabel.set(null);
       }
     }
   }
@@ -108,12 +107,12 @@ export class SelectComponent
     this.onTouched = fn;
   }
   setDisabledState(isDisabled: boolean): void {
-    this.disabled.set(isDisabled);
+    this._disabled.set(isDisabled);
   }
 
   select(value: any, label: string) {
-    this.selectedValue.set(value);
-    this.selectedLabel.set(label);
+    this._selectedValue.set(value);
+    this._selectedLabel.set(label);
     this.onChange(value);
     this.onTouched();
   }
@@ -137,11 +136,9 @@ export class SelectComponent
   }
 
   private calculateWidth() {
-    if (this.elementRef && this.elementRef.nativeElement) {
-      const element = this.elementRef.nativeElement;
-      const computedWidth = element.getBoundingClientRect().width;
-      this.width.set(computedWidth);
-    }
+    const computedWidth =
+      this.elementRef?.nativeElement?.getBoundingClientRect()?.width ?? 0;
+    this._width.set(computedWidth);
   }
 
   ngOnDestroy() {

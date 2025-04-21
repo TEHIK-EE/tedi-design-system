@@ -44,7 +44,7 @@ export class SelectOptionComponent implements AfterContentInit {
   private contentText: string = "";
 
   isSelected = computed(() => {
-    return this.parent.selectedValue() === this.value();
+    return this.parent._selectedValue() === this.value();
   });
 
   ngAfterContentInit() {

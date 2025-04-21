@@ -2,19 +2,19 @@
   tedi-input
   type="button"
   [cdkMenuTriggerFor]="menu"
-  [disabled]="disabled()"
+  [disabled]="_disabled()"
   (click)="onTouched()"
   class="tedi-select__trigger"
 >
   <span class="tedi-select__label">
-    {{ selectedLabel() || placeholder() }}
+    {{ _selectedLabel() || placeholder() }}
   </span>
 
   <tedi-icon name="arrow_drop_down" />
 </button>
 
 <ng-template #menu>
-  <tedi-card spacing="none" [style.width.px]="width()">
+  <tedi-card spacing="none" [style.width.px]="_width()">
     <tedi-card-content>
       <ng-content />
     </tedi-card-content>
