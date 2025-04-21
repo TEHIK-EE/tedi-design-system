@@ -1,4 +1,4 @@
-import { Component, Input, computed, inject } from "@angular/core";
+import { Component, Input, computed, inject, input } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { CdkMenuModule, MenuStack, MENU_STACK } from "@angular/cdk/menu";
 import { SelectComponent } from "./select.component";
@@ -18,29 +18,13 @@ import { SelectComponent } from "./select.component";
       <ng-content />
     </div>
   `,
-  styles: [
-    `
-      :host {
-        display: block;
-      }
-
-      div[cdkMenuItem] {
-        padding: 0.5rem;
-        cursor: pointer;
-      }
-
-      div[cdkMenuItem][aria-selected="true"] {
-        background-color: #e0e0e0;
-      }
-
-      div[cdkMenuItem]:hover {
-        background-color: #f0f0f0;
-      }
-    `,
-  ],
 })
-export class CustomOptionComponent {
-  @Input() value: any;
+export class SelectOptionComponent {
+  /*
+   * The value of the option. This is the value that will be passed to the
+   * select component when the option is selected.
+   */
+  value = input.required<any>();
   @Input() label!: string;
 
   private parent = inject(SelectComponent);

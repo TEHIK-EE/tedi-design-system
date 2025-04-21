@@ -11,7 +11,7 @@ import {
 import { CommonModule } from "@angular/common";
 import { CdkMenuModule, MenuStack, MENU_STACK } from "@angular/cdk/menu";
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from "@angular/forms";
-import { CustomOptionComponent } from "./select-option.component";
+import { SelectOptionComponent } from "./select-option.component";
 import { InputComponent } from "../input/input.component";
 import {
   CardComponent,
@@ -30,27 +30,7 @@ import { IconComponent } from "@tehik-ee/tedi-angular/tedi";
     CardContentComponent,
     IconComponent,
   ],
-  template: `
-    <button
-      tedi-input
-      type="button"
-      [cdkMenuTriggerFor]="menu"
-      [disabled]="disabled()"
-      (click)="onTouched()"
-    >
-      {{ selectedLabel() || placeholder() }}
-
-      <tedi-icon name="arrow_drop_down" />
-    </button>
-
-    <ng-template #menu>
-      <tedi-card cdkMenu>
-        <tedi-card-content>
-          <ng-content />
-        </tedi-card-content>
-      </tedi-card>
-    </ng-template>
-  `,
+  templateUrl: "./select.component.html",
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
@@ -67,8 +47,8 @@ export class SelectComponent implements ControlValueAccessor, AfterContentInit {
    */
   placeholder = input<string>("Select...");
 
-  @ContentChildren(CustomOptionComponent)
-  options!: QueryList<CustomOptionComponent>;
+  @ContentChildren(SelectOptionComponent)
+  options!: QueryList<SelectOptionComponent>;
 
   selectedValue: WritableSignal<any> = signal(null);
   selectedLabel: WritableSignal<string | null> = signal(null);

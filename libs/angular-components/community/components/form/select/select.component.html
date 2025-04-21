@@ -1,0 +1,19 @@
+<button
+  tedi-input
+  type="button"
+  [cdkMenuTriggerFor]="menu"
+  [disabled]="disabled()"
+  (click)="onTouched()"
+>
+  {{ selectedLabel() || placeholder() }}
+
+  <tedi-icon name="arrow_drop_down" />
+</button>
+
+<ng-template #menu>
+  <tedi-card cdkMenu spacing="none">
+    <tedi-card-content>
+      <ng-content />
+    </tedi-card-content>
+  </tedi-card>
+</ng-template>

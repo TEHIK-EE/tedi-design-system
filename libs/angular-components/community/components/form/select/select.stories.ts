@@ -1,7 +1,7 @@
 import { Meta, StoryObj, moduleMetadata } from "@storybook/angular";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { SelectComponent } from "./select.component";
-import { CustomOptionComponent } from "./select-option.component";
+import { SelectOptionComponent } from "./select-option.component";
 
 const meta: Meta<SelectComponent> = {
   title: "Community/Form/Select",
@@ -10,7 +10,7 @@ const meta: Meta<SelectComponent> = {
     moduleMetadata({
       imports: [
         SelectComponent,
-        CustomOptionComponent,
+        SelectOptionComponent,
         FormsModule,
         ReactiveFormsModule,
       ],
