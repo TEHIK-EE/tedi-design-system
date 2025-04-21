@@ -6,7 +6,13 @@ import {
   input,
   ContentChildren,
   QueryList,
-  AfterContentInit,
+  ElementRef,
+  AfterViewInit,
+  OnDestroy,
+  HostListener,
+  inject,
+  ViewEncapsulation,
+  ChangeDetectionStrategy,
 } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { CdkMenuModule, MenuStack, MENU_STACK } from "@angular/cdk/menu";
@@ -30,7 +36,10 @@ import { IconComponent } from "@tehik-ee/tedi-angular/tedi";
     CardContentComponent,
     IconComponent,
   ],
+  encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: "./select.component.html",
+  styleUrl: "./select.component.scss",
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
@@ -39,28 +48,40 @@ import { IconComponent } from "@tehik-ee/tedi-angular/tedi";
     },
     { provide: MENU_STACK, useClass: MenuStack },
   ],
+  host: {
+    "[class.tedi-select]": "true",
+  },
 })
-export class SelectComponent implements ControlValueAccessor, AfterContentInit {
+export class SelectComponent
+  implements ControlValueAccessor, AfterViewInit, OnDestroy
+{
   /**
    * The placeholder text to display when no option is selected.
-   * @default "Select..."
+   * @default ""
    */
-  placeholder = input<string>("Select...");
+  placeholder = input<string>("");
+
+  /**
+   * Is the select disabled?
+   * @default false
+   */
+  isDisabled = input<boolean>(false);
 
   @ContentChildren(SelectOptionComponent)
   options!: QueryList<SelectOptionComponent>;
 
+  // Internal state
   selectedValue: WritableSignal<any> = signal(null);
   selectedLabel: WritableSignal<string | null> = signal(null);
-  disabled = signal(false);
+  disabled: WritableSignal<boolean> = signal(false);
+  width: WritableSignal<number> = signal(0);
 
+  private elementRef = inject(ElementRef);
+  private resizeObserver: ResizeObserver | null = null;
+
+  // ControlValueAccessor methods
   onChange = (value: any) => {};
   onTouched = () => {};
-
-  ngAfterContentInit() {
-    // For debugging
-    console.log("Content initialized:", this.options?.length);
-  }
 
   writeValue(value: any): void {
     this.selectedValue.set(value);
@@ -69,7 +90,12 @@ export class SelectComponent implements ControlValueAccessor, AfterContentInit {
     if (this.options) {
       const option = this.options.find((opt) => opt.value === value);
       if (option) {
-        this.selectedLabel.set(option.label);
+        // Access the extracted content text from the option component
+        const optionElement = option["elementRef"].nativeElement;
+        const optionText = optionElement.textContent.trim();
+        this.selectedLabel.set(optionText);
+      } else {
+        this.selectedLabel.set(null);
       }
     }
   }
@@ -81,7 +107,6 @@ export class SelectComponent implements ControlValueAccessor, AfterContentInit {
   registerOnTouched(fn: any): void {
     this.onTouched = fn;
   }
-
   setDisabledState(isDisabled: boolean): void {
     this.disabled.set(isDisabled);
   }
@@ -91,5 +116,39 @@ export class SelectComponent implements ControlValueAccessor, AfterContentInit {
     this.selectedLabel.set(label);
     this.onChange(value);
     this.onTouched();
+  }
+
+  ngAfterViewInit() {
+    // Calculate initial width
+    this.calculateWidth();
+
+    // Set up ResizeObserver for more accurate element resizing
+    if (typeof ResizeObserver !== "undefined") {
+      this.resizeObserver = new ResizeObserver(() => {
+        this.calculateWidth();
+      });
+      this.resizeObserver.observe(this.elementRef.nativeElement);
+    }
+  }
+
+  @HostListener("window:resize")
+  onWindowResize() {
+    this.calculateWidth();
+  }
+
+  private calculateWidth() {
+    if (this.elementRef && this.elementRef.nativeElement) {
+      const element = this.elementRef.nativeElement;
+      const computedWidth = element.getBoundingClientRect().width;
+      this.width.set(computedWidth);
+    }
+  }
+
+  ngOnDestroy() {
+    // Cleanup ResizeObserver if it exists
+    if (this.resizeObserver) {
+      this.resizeObserver.disconnect();
+      this.resizeObserver = null;
+    }
   }
 }

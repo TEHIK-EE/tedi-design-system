@@ -26,9 +26,9 @@ export const Basic: Story = {
   render: () => ({
     template: `
       <tedi-select [placeholder]="'Select an option...'">
-        <tedi-select-option [value]="'option1'" [label]="'Option 1'">Option 1</tedi-select-option>
-        <tedi-select-option [value]="'option2'" [label]="'Option 2'">Option 2</tedi-select-option>
-        <tedi-select-option [value]="'option3'" [label]="'Option 3'">Option 3</tedi-select-option>
+        <tedi-select-option [value]="'option1'">Option 1</tedi-select-option>
+        <tedi-select-option [value]="'option2'">Option 2</tedi-select-option>
+        <tedi-select-option [value]="'option3'">Option 3</tedi-select-option>
       </tedi-select>
     `,
   }),
@@ -38,9 +38,9 @@ export const WithPreselected: Story = {
   render: () => ({
     template: `
       <tedi-select [(ngModel)]="selectedValue" [placeholder]="'Select an option...'">
-        <tedi-select-option [value]="'option1'" [label]="'Option 1'">Option 1</tedi-select-option>
-        <tedi-select-option [value]="'option2'" [label]="'Option 2'">Option 2</tedi-select-option>
-        <tedi-select-option [value]="'option3'" [label]="'Option 3'">Option 3</tedi-select-option>
+        <tedi-select-option [value]="'option1'">Option 1</tedi-select-option>
+        <tedi-select-option [value]="'option2'">Option 2</tedi-select-option>
+        <tedi-select-option [value]="'option3'">Option 3</tedi-select-option>
       </tedi-select>
     `,
     props: {
@@ -52,10 +52,10 @@ export const WithPreselected: Story = {
 export const Disabled: Story = {
   render: () => ({
     template: `
-      <tedi-select [disabled]="true" [placeholder]="'Disabled select'">
-        <tedi-select-option [value]="'option1'" [label]="'Option 1'">Option 1</tedi-select-option>
-        <tedi-select-option [value]="'option2'" [label]="'Option 2'">Option 2</tedi-select-option>
-        <tedi-select-option [value]="'option3'" [label]="'Option 3'">Option 3</tedi-select-option>
+      <tedi-select [isDisabled]="true" [placeholder]="'Disabled select'">
+        <tedi-select-option [value]="'option1'">Option 1</tedi-select-option>
+        <tedi-select-option [value]="'option2'">Option 2</tedi-select-option>
+        <tedi-select-option [value]="'option3'">Option 3</tedi-select-option>
       </tedi-select>
     `,
   }),

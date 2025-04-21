@@ -1,39 +1,58 @@
-import { Component, Input, computed, inject, input } from "@angular/core";
-import { CommonModule } from "@angular/common";
+import {
+  Component,
+  ElementRef,
+  computed,
+  inject,
+  input,
+  AfterContentInit,
+} from "@angular/core";
 import { CdkMenuModule, MenuStack, MENU_STACK } from "@angular/cdk/menu";
 import { SelectComponent } from "./select.component";
+import { DropdownItemComponent } from "./dropdown-item.component";
 
 @Component({
   selector: "tedi-select-option",
   standalone: true,
-  imports: [CommonModule, CdkMenuModule],
+  imports: [CdkMenuModule, DropdownItemComponent],
   providers: [{ provide: MENU_STACK, useClass: MenuStack }],
   template: `
     <div
       cdkMenuItem
+      tedi-dropdown-item
       role="option"
       (click)="select()"
       [attr.aria-selected]="isSelected()"
+      [attr.aria-disabled]="isDisabled()"
     >
       <ng-content />
     </div>
   `,
 })
-export class SelectOptionComponent {
+export class SelectOptionComponent implements AfterContentInit {
   /*
-   * The value of the option. This is the value that will be passed to the
-   * select component when the option is selected.
+   * The value of the option.
    */
   value = input.required<any>();
-  @Input() label!: string;
+
+  /*
+   * Should the option be disabled?
+   */
+  isDisabled = input<boolean>(false);
 
   private parent = inject(SelectComponent);
+  private elementRef = inject(ElementRef);
+  private contentText: string = "";
 
   isSelected = computed(() => {
-    this.parent.selectedValue() === this.value;
+    return this.parent.selectedValue() === this.value();
   });
 
+  ngAfterContentInit() {
+    // Extract text content from the component to use as label
+    this.contentText = this.elementRef.nativeElement.textContent.trim();
+  }
+
   select() {
-    this.parent.select(this.value, this.label);
+    this.parent.select(this.value(), this.contentText);
   }
 }
