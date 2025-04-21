@@ -42,7 +42,7 @@ export const WithPreselected: Story = {
         <tedi-select-option [value]="'option2'">Option 2</tedi-select-option>
         <tedi-select-option [value]="'option3'">Option 3</tedi-select-option>
       </tedi-select>
-      {{ this.selectedValue }}
+      (ngModel): {{ selectedValue }}
     `,
     props: {
       selectedValue: "option2",
@@ -54,6 +54,18 @@ export const Disabled: Story = {
   render: () => ({
     template: `
       <tedi-select [isDisabled]="true" [placeholder]="'Disabled select'">
+        <tedi-select-option [value]="'option1'">Option 1</tedi-select-option>
+        <tedi-select-option [value]="'option2'">Option 2</tedi-select-option>
+        <tedi-select-option [value]="'option3'">Option 3</tedi-select-option>
+      </tedi-select>
+    `,
+  }),
+};
+
+export const Valid: Story = {
+  render: () => ({
+    template: `
+      <tedi-select [isDisabled]="true" [status]="error" [placeholder]="'Disabled select'">
         <tedi-select-option [value]="'option1'">Option 1</tedi-select-option>
         <tedi-select-option [value]="'option2'">Option 2</tedi-select-option>
         <tedi-select-option [value]="'option3'">Option 3</tedi-select-option>

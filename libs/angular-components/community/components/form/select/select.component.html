@@ -1,7 +1,7 @@
 <button
   tedi-input
   type="button"
-  [cdkMenuTriggerFor]="menu"
+  [cdkMenuTriggerFor]="selectDropdown"
   [disabled]="_disabled()"
   (click)="onTouched()"
   class="tedi-select__trigger"
@@ -13,8 +13,13 @@
   <tedi-icon name="arrow_drop_down" />
 </button>
 
-<ng-template #menu>
-  <tedi-card spacing="none" [style.width.px]="_width()">
+<ng-template #selectDropdown>
+  <tedi-card
+    class="tedi-select__dropdown"
+    cdkMenu
+    spacing="none"
+    [style.width.px]="_width()"
+  >
     <tedi-card-content>
       <ng-content />
     </tedi-card-content>

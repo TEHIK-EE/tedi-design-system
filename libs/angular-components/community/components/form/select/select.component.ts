@@ -14,6 +14,7 @@ import {
   ViewEncapsulation,
   ChangeDetectionStrategy,
   contentChildren,
+  computed,
 } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { CdkMenuModule, MenuStack, MENU_STACK } from "@angular/cdk/menu";
@@ -53,9 +54,7 @@ import { IconComponent } from "@tehik-ee/tedi-angular/tedi";
     "[class.tedi-select]": "true",
   },
 })
-export class SelectComponent
-  implements ControlValueAccessor, AfterViewInit, OnDestroy
-{
+export class SelectComponent implements ControlValueAccessor, AfterViewInit {
   /**
    * The placeholder text to display when no option is selected.
    * @default ""
@@ -75,27 +74,19 @@ export class SelectComponent
   _width = signal<number>(0);
   _options = contentChildren(SelectOptionComponent);
 
-  private elementRef = inject(ElementRef);
-  private resizeObserver: ResizeObserver | null = null;
+  #elementRef = inject(ElementRef);
 
   // ControlValueAccessor methods
   onChange = (value: any) => {};
   onTouched = () => {};
 
   writeValue(value: any): void {
-    this._selectedValue.set(value);
+    if (!value) return;
 
-    // Update the label if we have options and the value matches one of them
-    if (this._options) {
-      const option = this._options().find((opt) => opt.value === value);
-      if (option) {
-        // Access the extracted content text from the option component
-        const optionElement = option["elementRef"].nativeElement;
-        const optionText = optionElement.textContent.trim();
-        this._selectedLabel.set(optionText);
-      } else {
-        this._selectedLabel.set(null);
-      }
+    this._selectedValue.set(value);
+    const option = this._options().find((option) => option.value() === value);
+    if (option) {
+      this._selectedLabel.set(option?.contentText ?? null);
     }
   }
 
@@ -106,6 +97,7 @@ export class SelectComponent
   registerOnTouched(fn: any): void {
     this.onTouched = fn;
   }
+
   setDisabledState(isDisabled: boolean): void {
     this._disabled.set(isDisabled);
   }
@@ -118,34 +110,17 @@ export class SelectComponent
   }
 
   ngAfterViewInit() {
-    // Calculate initial width
-    this.calculateWidth();
-
-    // Set up ResizeObserver for more accurate element resizing
-    if (typeof ResizeObserver !== "undefined") {
-      this.resizeObserver = new ResizeObserver(() => {
-        this.calculateWidth();
-      });
-      this.resizeObserver.observe(this.elementRef.nativeElement);
-    }
+    this.setDropdownWidth();
   }
 
   @HostListener("window:resize")
   onWindowResize() {
-    this.calculateWidth();
+    this.setDropdownWidth();
   }
 
-  private calculateWidth() {
+  private setDropdownWidth() {
     const computedWidth =
-      this.elementRef?.nativeElement?.getBoundingClientRect()?.width ?? 0;
+      this.#elementRef?.nativeElement?.getBoundingClientRect()?.width ?? 0;
     this._width.set(computedWidth);
-  }
-
-  ngOnDestroy() {
-    // Cleanup ResizeObserver if it exists
-    if (this.resizeObserver) {
-      this.resizeObserver.disconnect();
-      this.resizeObserver = null;
-    }
   }
 }

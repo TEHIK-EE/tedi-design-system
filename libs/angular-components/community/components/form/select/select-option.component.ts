@@ -20,7 +20,10 @@ import { DropdownItemComponent } from "./dropdown-item.component";
       cdkMenuItem
       tedi-dropdown-item
       role="option"
-      (click)="select()"
+      (cdkMenuItemTriggered)="select()"
+      [selected]="isSelected()"
+      [disabled]="isDisabled()"
+      [attr.tabindex]="isDisabled() ? -1 : 0"
       [attr.aria-selected]="isSelected()"
       [attr.aria-disabled]="isDisabled()"
     >
@@ -41,7 +44,8 @@ export class SelectOptionComponent implements AfterContentInit {
 
   private parent = inject(SelectComponent);
   private elementRef = inject(ElementRef);
-  private contentText: string = "";
+  // Make contentText public so it can be accessed by the parent component
+  contentText: string = "";
 
   isSelected = computed(() => {
     return this.parent._selectedValue() === this.value();

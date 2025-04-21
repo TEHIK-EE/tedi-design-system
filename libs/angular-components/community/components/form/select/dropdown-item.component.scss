@@ -17,12 +17,18 @@
   }
 
   &--active {
-    --_background-color: var(--dropdown-item-active-background);
-    --_color: var(--dropdown-item-active-text);
+    &,
+    &:hover {
+      --_background-color: var(--dropdown-item-active-background);
+      --_color: var(--dropdown-item-active-text);
+    }
   }
 
   &--disabled {
-    --_background-color: var(--dropdown-item-disabled-background);
-    --_color: var(--general-text-disabled);
+    &,
+    &:hover {
+      --_background-color: var(--dropdown-item-disabled-background);
+      --_color: var(--dropdown-item-disabled-text);
+    }
   }
 }

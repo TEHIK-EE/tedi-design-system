@@ -1,3 +1,5 @@
+@use "@tehik-ee/tedi-core/mixins";
+
 .tedi-select {
   display: block;
   width: 100%;
@@ -6,5 +8,11 @@
     display: flex;
     width: 100%;
     justify-content: space-between;
+  }
+
+  &__dropdown {
+    @include mixins.responsive-styles(margin-top, form-field-outer-spacing);
+    @include mixins.responsive-styles(margin-bottom, form-field-outer-spacing);
+    box-shadow: 0px 1px 5px 0px var(--alpha-20);
   }
 }
