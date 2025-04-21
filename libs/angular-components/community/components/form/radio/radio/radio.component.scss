@@ -8,7 +8,6 @@
   --_radio-border: var(--form-checkbox-radio-default-border-default);
   --_label-color: var(--general-text-primary);
   --_radio-dot-bg: var(--_radio-border);
-  --_radio-dot-inset: 2.5px;
 
   display: grid;
   grid-template-areas: "button label" ". feedback";
@@ -51,14 +50,17 @@
     border: 1px solid var(--_radio-border);
     background: var(--_radio-bg);
     margin-right: var(--_radio-inner-spacing);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     &::after {
       content: "";
-      position: absolute;
-      inset: var(--_radio-dot-inset);
       border-radius: 50%;
       display: none;
       background: var(--_radio-dot-bg);
+      height: 70%;
+      width: 70%;
     }
   }
 
