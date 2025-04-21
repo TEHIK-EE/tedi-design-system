@@ -1,4 +1,6 @@
 <ng-content></ng-content>
 <ng-template cdkPortal>
-  <p class="tooltip">{{ text() }}</p>
+  <div class="tooltip" role="tooltip" [class]="'tooltip--' + maxWidth()">
+    <p>{{ text() }}</p>
+  </div>
 </ng-template>

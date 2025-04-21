@@ -1,7 +1,17 @@
-// @import "~@angular/cdk/overlay-prebuilt.css";
+$tooltip-max-width: (
+  "none": none,
+  "small": 10rem,
+  "medium": 15rem,
+  "large": 30rem,
+);
+
+:host {
+  display: block;
+}
 
 .tooltip {
-  display: flex;
+  position: relative;
+  display: inline-flex;
   max-width: var(--tooltip-max-width, 240px);
   padding: var(--tooltip-padding-y, 8px) var(--tooltip-padding-x, 8px);
   align-items: flex-start;
@@ -9,10 +19,61 @@
   border-radius: var(--tooltip-radius, 4px);
   background: var(--tooltip-background, #5d6071);
   box-shadow: 0px 1px 5px 0px var(--alpha-20, rgba(0, 0, 0, 0.2));
-  color: var(--tooltip-text, #fff);
-  font-family: var(--family-primary, Roboto);
-  font-size: var(--body-regular-size, 16px);
-  font-style: normal;
-  font-weight: var(--body-regular-weight, 400);
-  line-height: var(--body-regular-line-height, 24px); /* 150% */
+
+  &:after {
+    content: "";
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    background: var(--tooltip-background, #5d6071);
+    transform: rotate(45deg);
+  }
+
+  @each $name, $width in $tooltip-max-width {
+    &.tooltip--#{$name} {
+      max-width: $width;
+    }
+  }
+
+  p {
+    color: var(--tooltip-text, #fff);
+    font-feature-settings:
+      "liga" off,
+      "clig" off;
+    font-family: var(--family-primary, Roboto);
+    font-size: var(--body-regular-size, 16px);
+    font-style: normal;
+    font-weight: var(--body-regular-weight, 400);
+    line-height: var(--body-regular-line-height, 24px);
+  }
+}
+
+.cdk-overlay-pane {
+  &.tooltip__arrow--top {
+    .tooltip::after {
+      top: calc(100% - 7px);
+      left: calc(50% - 7px);
+    }
+  }
+
+  &.tooltip__arrow--bottom {
+    .tooltip::after {
+      bottom: calc(100% - 7px);
+      left: calc(50% - 7px);
+    }
+  }
+
+  &.tooltip__arrow--left {
+    .tooltip::after {
+      top: calc(50% - 7px);
+      right: calc(100% - 7px);
+    }
+  }
+
+  &.tooltip__arrow--right {
+    .tooltip::after {
+      top: calc(50% - 7px);
+      left: calc(100% - 7px);
+    }
+  }
 }

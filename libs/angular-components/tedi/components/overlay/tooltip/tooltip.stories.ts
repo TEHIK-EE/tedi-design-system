@@ -8,8 +8,8 @@ export default {
   render: (args) => ({
     props: args,
     template: `
-      <tedi-tooltip text="Tooltip here">
-        <button #trigger>Tooltip trigger</button>
+      <tedi-tooltip text="Tooltip text goes here!">
+        <button #tooltipTrigger>Auto</button>
       </tedi-tooltip>
     `,
   }),
