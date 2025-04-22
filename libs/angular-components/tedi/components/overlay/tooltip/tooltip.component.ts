@@ -6,7 +6,7 @@ import {
   input,
   Renderer2,
   ViewChild,
-  ViewEncapsulation,
+  ViewEncapsulation, AfterViewInit, OnDestroy,
 } from "@angular/core";
 import {
   ConnectedPosition,
@@ -75,7 +75,7 @@ export type TooltipTrigger = "click" | "hover";
   styleUrl: "./tooltip.component.scss",
   encapsulation: ViewEncapsulation.None,
 })
-export class TooltipComponent {
+export class TooltipComponent implements AfterViewInit, OnDestroy {
   /**
    * The text to be displayed in the tooltip.
    */
