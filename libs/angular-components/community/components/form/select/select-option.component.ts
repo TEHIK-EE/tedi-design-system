@@ -44,7 +44,6 @@ export class SelectOptionComponent implements AfterContentInit {
 
   private parent = inject(SelectComponent);
   private elementRef = inject(ElementRef);
-  // Make contentText public so it can be accessed by the parent component
   contentText: string = "";
 
   isSelected = computed(() => {

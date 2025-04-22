@@ -10,6 +10,7 @@
   padding: var(--_padding-y) var(--_padding-x);
   background-color: var(--_background-color);
   color: var(--_color);
+  cursor: pointer;
 
   &:hover {
     --_background-color: var(--dropdown-item-hover-background);

@@ -10,6 +10,28 @@
     justify-content: space-between;
   }
 
+  &__label {
+    text-align: left;
+    flex-grow: 1;
+  }
+
+  &__clear {
+    padding: 0;
+    margin: 0;
+    border: none;
+    background: none;
+    flex-grow: 0;
+    color: var(--button-close-text-default);
+    border-right: 1px solid var(--general-border-primary);
+    cursor: pointer;
+    @include mixins.responsive-styles(padding-right, form-field-inner-spacing);
+    @include mixins.responsive-styles(margin-right, form-field-inner-spacing);
+  }
+
+  &__arrow {
+    flex-grow: 0;
+  }
+
   &__dropdown {
     @include mixins.responsive-styles(margin-top, form-field-outer-spacing);
     @include mixins.responsive-styles(margin-bottom, form-field-outer-spacing);

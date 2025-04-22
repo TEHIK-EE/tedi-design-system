@@ -10,7 +10,18 @@
     {{ _selectedLabel() || placeholder() }}
   </span>
 
-  <tedi-icon name="arrow_drop_down" />
+  @if (_selectedValue()) {
+    <button
+      type="reset"
+      [attr.aria-label]="'Clear'"
+      title="Clear"
+      class="tedi-select__clear"
+      (click)="$event.stopPropagation(); clear()"
+    >
+      <tedi-icon name="clear" />
+    </button>
+  }
+  <tedi-icon class="tedi-select__arrow" name="arrow_drop_down" />
 </button>
 
 <ng-template #selectDropdown>

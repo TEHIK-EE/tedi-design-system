@@ -109,6 +109,13 @@ export class SelectComponent implements ControlValueAccessor, AfterViewInit {
     this.onTouched();
   }
 
+  clear() {
+    this._selectedValue.set(null);
+    this._selectedLabel.set(null);
+    this.onChange(null);
+    this.onTouched();
+  }
+
   ngAfterViewInit() {
     this.setDropdownWidth();
   }
