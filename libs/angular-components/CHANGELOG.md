@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-angular-v1.6.0-rc.13](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.6.0-rc.12...angular-1.6.0-rc.13) (2025-04-22)
+
+
+### Features
+
+* **number-field:** TEDI Angular Community component [#665](https://github.com/TEHIK-EE/tedi-design-system/issues/665) ([#690](https://github.com/TEHIK-EE/tedi-design-system/issues/690)) ([29c0a5a](https://github.com/TEHIK-EE/tedi-design-system/commit/29c0a5ab69e0c81037e48f35dc74052bb597fde7)), closes [#654](https://github.com/TEHIK-EE/tedi-design-system/issues/654) [#654](https://github.com/TEHIK-EE/tedi-design-system/issues/654) [#654](https://github.com/TEHIK-EE/tedi-design-system/issues/654) [#654](https://github.com/TEHIK-EE/tedi-design-system/issues/654) [#654](https://github.com/TEHIK-EE/tedi-design-system/issues/654) [#673](https://github.com/TEHIK-EE/tedi-design-system/issues/673) [#675](https://github.com/TEHIK-EE/tedi-design-system/issues/675) [#678](https://github.com/TEHIK-EE/tedi-design-system/issues/678) [#678](https://github.com/TEHIK-EE/tedi-design-system/issues/678) [#680](https://github.com/TEHIK-EE/tedi-design-system/issues/680) [#680](https://github.com/TEHIK-EE/tedi-design-system/issues/680) [#680](https://github.com/TEHIK-EE/tedi-design-system/issues/680) [#684](https://github.com/TEHIK-EE/tedi-design-system/issues/684)
+
 # [@tehik-ee/tedi-angular-v1.6.0-rc.12](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.6.0-rc.11...angular-1.6.0-rc.12) (2025-04-14)
 
 
