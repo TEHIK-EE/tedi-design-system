@@ -62,10 +62,34 @@ export const Disabled: Story = {
   }),
 };
 
-export const Valid: Story = {
+export const ValidState: Story = {
   render: () => ({
     template: `
-      <tedi-select [status]="valid" [placeholder]="'Valid select'">
+      <tedi-select [state]="'valid'" [placeholder]="'Valid select'">
+        <tedi-select-option [value]="'option1'">Option 1</tedi-select-option>
+        <tedi-select-option [value]="'option2'">Option 2</tedi-select-option>
+        <tedi-select-option [value]="'option3'">Option 3</tedi-select-option>
+      </tedi-select>
+    `,
+  }),
+};
+
+export const ErrorState: Story = {
+  render: () => ({
+    template: `
+      <tedi-select [state]="'error'" [placeholder]="'Error select'">
+        <tedi-select-option [value]="'option1'">Option 1</tedi-select-option>
+        <tedi-select-option [value]="'option2'">Option 2</tedi-select-option>
+        <tedi-select-option [value]="'option3'">Option 3</tedi-select-option>
+      </tedi-select>
+    `,
+  }),
+};
+
+export const SmallSize: Story = {
+  render: () => ({
+    template: `
+      <tedi-select [size]="'small'" [placeholder]="'Small select'">
         <tedi-select-option [value]="'option1'">Option 1</tedi-select-option>
         <tedi-select-option [value]="'option2'">Option 2</tedi-select-option>
         <tedi-select-option [value]="'option3'">Option 3</tedi-select-option>

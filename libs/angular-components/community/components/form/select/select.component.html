@@ -1,12 +1,17 @@
 <button
   tedi-input
   type="button"
+  [state]="state()"
+  [size]="size()"
   [cdkMenuTriggerFor]="selectDropdown"
   [disabled]="_disabled()"
   (click)="onTouched()"
   class="tedi-select__trigger"
 >
-  <span class="tedi-select__label">
+  <span
+    class="tedi-select__label"
+    [class.tedi-select__label--placeholder]="!_selectedValue()"
+  >
     {{ _selectedLabel() || placeholder() }}
   </span>
 
@@ -21,7 +26,11 @@
       <tedi-icon name="clear" />
     </button>
   }
-  <tedi-icon class="tedi-select__arrow" name="arrow_drop_down" />
+  <tedi-icon
+    class="tedi-select__arrow"
+    color="tertiary"
+    name="arrow_drop_down"
+  />
 </button>
 
 <ng-template #selectDropdown>

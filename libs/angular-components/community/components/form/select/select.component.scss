@@ -8,11 +8,17 @@
     display: flex;
     width: 100%;
     justify-content: space-between;
+    // input styles are in "tedi-input" component/directive
+    // contains paddings, borders, typography, etc.
   }
 
   &__label {
     text-align: left;
     flex-grow: 1;
+
+    &--placeholder {
+      color: var(--_placeholder-color);
+    }
   }
 
   &__clear {

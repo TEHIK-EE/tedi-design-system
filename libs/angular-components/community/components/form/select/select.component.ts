@@ -15,7 +15,11 @@ import { CommonModule } from "@angular/common";
 import { CdkMenuModule, MenuStack, MENU_STACK } from "@angular/cdk/menu";
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from "@angular/forms";
 import { SelectOptionComponent } from "./select-option.component";
-import { InputComponent } from "../input/input.component";
+import {
+  InputComponent,
+  InputSize,
+  InputState,
+} from "../input/input.component";
 import {
   CardComponent,
   CardContentComponent,
@@ -61,6 +65,18 @@ export class SelectComponent implements ControlValueAccessor, AfterViewInit {
    * @default false
    */
   disabled = input<boolean>(false);
+
+  /**
+   * The state of the input.
+   * @default "default"
+   */
+  state = input<InputState>("default");
+
+  /**
+   * The size of the input.
+   * @default "default"
+   */
+  size = input<InputSize>("default");
 
   // Internal state
   _selectedValue = signal<any>(null);

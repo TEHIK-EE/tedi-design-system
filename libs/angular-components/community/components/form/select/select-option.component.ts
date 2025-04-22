@@ -43,7 +43,7 @@ export class SelectOptionComponent {
   });
 
   select() {
-    const labelText = this.optionRef.nativeElement.textContent.trim();
+    const labelText = this.optionRef.nativeElement?.textContent?.trim();
     this.#parent.select(this.value(), labelText);
   }
 }
