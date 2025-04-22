@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-angular-v1.6.0-rc.14](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.6.0-rc.13...angular-1.6.0-rc.14) (2025-04-22)
+
+
+### Features
+
+* **documentation:** add get started and badges docs [#699](https://github.com/TEHIK-EE/tedi-design-system/issues/699) ([#701](https://github.com/TEHIK-EE/tedi-design-system/issues/701)) ([d7b9e97](https://github.com/TEHIK-EE/tedi-design-system/commit/d7b9e9726d93f35e8b1dd68e5a869e94d37048dc))
+
 # [@tehik-ee/tedi-angular-v1.6.0-rc.13](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.6.0-rc.12...angular-1.6.0-rc.13) (2025-04-22)
 
 
