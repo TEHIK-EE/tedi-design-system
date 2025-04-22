@@ -74,11 +74,11 @@
 
   &--error {
     --_border-color: var(--form-general-feedback-error-border);
-    @include textfield-focus(var(--_border-color));
+    @include textfield-focus(var(--form-general-feedback-error-border));
   }
   &--valid {
     --_border-color: var(--form-general-feedback-success-border);
-    @include textfield-focus(var(--_border-color));
+    @include textfield-focus(var(--form-general-feedback-success-border));
   }
   &--small {
     @include mixins.responsive-styles(--_padding-y, form-field-padding-y-sm);

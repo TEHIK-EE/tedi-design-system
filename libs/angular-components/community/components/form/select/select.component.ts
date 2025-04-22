@@ -10,6 +10,8 @@ import {
   ViewEncapsulation,
   ChangeDetectionStrategy,
   contentChildren,
+  AfterContentInit,
+  OnInit,
 } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { CdkMenuModule, MenuStack, MENU_STACK } from "@angular/cdk/menu";
@@ -53,7 +55,9 @@ import { IconComponent } from "@tehik-ee/tedi-angular/tedi";
     "[class.tedi-select]": "true",
   },
 })
-export class SelectComponent implements ControlValueAccessor, AfterViewInit {
+export class SelectComponent
+  implements ControlValueAccessor, OnInit, AfterContentInit
+{
   /**
    * The placeholder text to display when no option is selected.
    * @default ""
@@ -94,12 +98,8 @@ export class SelectComponent implements ControlValueAccessor, AfterViewInit {
   writeValue(value: any): void {
     if (!value) return;
 
-    const labelText =
-      this._options()
-        .find((option) => option.value() === value)
-        ?.optionRef?.nativeElement?.textContent?.trim() ?? null;
-
-    this.select(value, labelText);
+    const labelText = this.extractLabelText(value);
+    this.prefill(value, labelText);
   }
 
   registerOnChange(fn: any): void {
@@ -114,6 +114,23 @@ export class SelectComponent implements ControlValueAccessor, AfterViewInit {
     this._disabled.set(isDisabled);
   }
 
+  // Lifecycle hooks
+  ngOnInit() {
+    if (this.disabled()) {
+      this._disabled.set(this.disabled());
+    }
+  }
+
+  ngAfterContentInit() {
+    this.setDropdownWidth();
+  }
+
+  @HostListener("window:resize")
+  onWindowResize() {
+    this.setDropdownWidth();
+  }
+
+  // Event handlers
   select(value: any, label: string) {
     this.prefill(value, label);
     this.onChange(value);
@@ -126,15 +143,6 @@ export class SelectComponent implements ControlValueAccessor, AfterViewInit {
     this.onTouched();
   }
 
-  ngAfterViewInit() {
-    this.setDropdownWidth();
-  }
-
-  @HostListener("window:resize")
-  onWindowResize() {
-    this.setDropdownWidth();
-  }
-
   private setDropdownWidth() {
     const computedWidth =
       this.#selectRef?.nativeElement?.getBoundingClientRect()?.width ?? 0;
@@ -144,5 +152,13 @@ export class SelectComponent implements ControlValueAccessor, AfterViewInit {
   private prefill(value: any, label: string | null) {
     this._selectedValue.set(value);
     this._selectedLabel.set(label);
+  }
+
+  private extractLabelText(controlValueAccessorValue: any) {
+    return (
+      this._options()
+        .find((option) => option.value() === controlValueAccessorValue)
+        ?.optionRef?.nativeElement?.textContent?.trim() ?? null
+    );
   }
 }

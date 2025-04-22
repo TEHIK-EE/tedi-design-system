@@ -23,14 +23,10 @@
       class="tedi-select__clear"
       (click)="$event.stopPropagation(); clear()"
     >
-      <tedi-icon name="clear" />
+      <tedi-icon name="clear" color="tertiary" />
     </button>
   }
-  <tedi-icon
-    class="tedi-select__arrow"
-    color="tertiary"
-    name="arrow_drop_down"
-  />
+  <tedi-icon class="tedi-select__arrow" name="arrow_drop_down" />
 </button>
 
 <ng-template #selectDropdown>
