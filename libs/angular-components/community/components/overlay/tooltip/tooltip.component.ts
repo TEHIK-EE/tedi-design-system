@@ -6,7 +6,9 @@ import {
   input,
   Renderer2,
   ViewChild,
-  ViewEncapsulation, AfterViewInit, OnDestroy,
+  ViewEncapsulation,
+  AfterViewInit,
+  OnDestroy,
 } from "@angular/core";
 import {
   ConnectedPosition,
@@ -34,7 +36,7 @@ export const POSITION_MAP: Record<string, ConnectedPosition> = {
     panelClass: "tooltip__arrow--bottom",
     offsetY: 15,
   },
-  left: {
+  right: {
     originX: "end",
     originY: "center",
     overlayX: "start",
@@ -42,7 +44,7 @@ export const POSITION_MAP: Record<string, ConnectedPosition> = {
     panelClass: "tooltip__arrow--left",
     offsetX: 15,
   },
-  right: {
+  left: {
     originX: "start",
     originY: "center",
     overlayX: "end",
@@ -98,7 +100,8 @@ export class TooltipComponent implements AfterViewInit, OnDestroy {
    */
   maxWidth = input<TooltipWidth>("medium");
 
-  @ContentChild("tooltipTrigger", { static: true }) triggerButton!: ElementRef;
+  @ContentChild("tooltipTrigger", { read: ElementRef })
+  triggerButton!: ElementRef;
   @ViewChild(CdkPortal, { static: true }) portal!: CdkPortal;
   private eventListeners: (() => void)[] = [];
   overlayRef!: OverlayRef;
@@ -106,6 +109,10 @@ export class TooltipComponent implements AfterViewInit, OnDestroy {
   renderer = inject(Renderer2);
 
   ngAfterViewInit(): void {
+    if (!this.triggerButton?.nativeElement) {
+      console.warn("tooltipTrigger not found, tooltip will not work");
+      return;
+    }
     this.focusEvents();
     if (this.openWith() === "click") {
       this.clickEvents();
@@ -183,7 +190,7 @@ export class TooltipComponent implements AfterViewInit, OnDestroy {
     const positions = this.buildPositions();
     return {
       hasBackdrop: false,
-      scrollStrategy: this.overlay.scrollStrategies.reposition(),
+      scrollStrategy: this.overlay.scrollStrategies.close(),
       positionStrategy: this.overlay
         .position()
         .flexibleConnectedTo(this.triggerButton)
