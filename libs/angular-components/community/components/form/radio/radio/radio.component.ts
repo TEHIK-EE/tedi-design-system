@@ -10,8 +10,8 @@ import {
   viewChild,
   ViewEncapsulation,
 } from "@angular/core";
-import { RadioGroupComponent } from "../radio-group/radio-group.component";
 import { FeedbackTextComponent } from "../../feedback-text/feedback-text.component";
+import { RadioGroupComponent } from "../radio-group/radio-group.component";
 
 export type RadioValue = string;
 

@@ -57,7 +57,7 @@ export class RadioGroupComponent implements ControlValueAccessor {
    */
   hasError = input<boolean>();
   /*
-   * Whether radios are large in group.
+   * Size of the radios radios in group.
    */
   size = input<RadioGroupSize>("default");
   /*
@@ -88,13 +88,13 @@ export class RadioGroupComponent implements ControlValueAccessor {
   });
   groupValue = this._value.asReadonly();
 
-  private _onChange: (val: string) => void = () => {};
+  private _onChange: (val: RadioValue) => void = () => {};
   private _onTouched: (val: boolean) => void = () => {};
 
-  writeValue(value: string | null): void {
+  writeValue(value: RadioValue | null): void {
     this._value.set(value);
   }
-  registerOnChange(fn: (val: string) => void): void {
+  registerOnChange(fn: (val: RadioValue) => void): void {
     this._onChange = fn;
   }
   registerOnTouched(fn: (val: boolean) => void): void {

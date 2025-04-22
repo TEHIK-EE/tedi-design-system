@@ -6,7 +6,7 @@
 .tedi-radio {
   --_radio-bg: var(--form-checkbox-radio-default-background-default);
   --_radio-border: var(--form-checkbox-radio-default-border-default);
-  --_label-color: var(--general-text-primary);
+  --_radio-label-color: var(--general-text-primary);
   --_radio-dot-bg: var(--_radio-border);
 
   display: grid;
@@ -65,7 +65,7 @@
   }
 
   &__label {
-    color: var(--_label-color);
+    color: var(--_radio-label-color);
     font-size: var(--_label-size);
     grid-area: label;
 
@@ -96,7 +96,7 @@
 
   &:has(#{&}__input:disabled) {
     pointer-events: none;
-    --_label-color: var(--general-text-disabled);
+    --_radio-label-color: var(--general-text-disabled);
     --_radio-bg: var(--form-input-background-disabled);
     --_radio-border: var(--form-input-border-disabled);
   }

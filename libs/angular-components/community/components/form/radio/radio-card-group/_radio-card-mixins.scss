@@ -1,0 +1,88 @@
+@use "@tehik-ee/tedi-core/mixins";
+
+@mixin padding-variables {
+  --_radio-card-padding-top: var(--_radio-card-padding-vertical);
+  --_radio-card-padding-bottom: var(--_radio-card-padding-vertical);
+  --_radio-card-padding-left: var(--_radio-card-padding-horizontal);
+  --_radio-card-padding-right: var(--_radio-card-padding-horizontal);
+  --_radio-card-padding: var(--_radio-card-padding-top)
+    var(--_radio-card-padding-right) var(--_radio-card-padding-bottom)
+    var(--_radio-card-padding-left);
+
+  @include mixins.responsive-styles(
+    --_radio-card-radius,
+    form-checkbox-radio-card-radius
+  );
+  @include mixins.responsive-styles(
+    --_radio-card-padding-horizontal,
+    form-checkbox-radio-card-checkbox-padding-x
+  );
+  @include mixins.responsive-styles(
+    --_radio-card-padding-vertical,
+    form-checkbox-radio-card-checkbox-padding-y
+  );
+}
+
+@mixin color-variables($variant) {
+  .tedi-radio {
+    --_radio-card-bg: var(
+      --form-checkbox-radio-card-#{$variant}-inactive-background
+    );
+    --_radio-label-color: var(
+      --form-checkbox-radio-card-#{$variant}-inactive-text
+    );
+
+    &:has(.tedi-radio__input:checked) {
+      --_radio-card-bg: var(
+        --form-checkbox-radio-card-#{$variant}-active-background
+      );
+      --_radio-label-color: var(
+        --form-checkbox-radio-card-#{$variant}-active-text
+      );
+    }
+
+    &:has(.tedi-radio__input:hover) {
+      --_radio-card-bg: var(
+        --form-checkbox-radio-card-#{$variant}-hover-background
+      );
+      --_radio-label-color: var(
+        --form-checkbox-radio-card-#{$variant}-hover-text
+      );
+    }
+
+    &:has(.tedi-radio__input:disabled) {
+      --_radio-card-bg: var(
+        --form-checkbox-radio-card-#{$variant}-disabled-background
+      );
+      --_radio-label-color: var(
+        --form-checkbox-radio-card-#{$variant}-disabled-text
+      );
+    }
+  }
+}
+
+@mixin border-colors($variant, $border-type) {
+  .tedi-radio {
+    --_radio-card-border: var(
+      --form-checkbox-radio-card-#{$variant}-inactive-#{$border-type}
+    );
+
+    &:has(.tedi-radio__input:checked) {
+      --_radio-card-border: var(
+        --form-checkbox-radio-card-#{$variant}-active-#{$border-type}
+      );
+    }
+
+    &:has(.tedi-radio__input:hover) {
+      --_radio-card-border: var(
+        --form-checkbox-radio-card-#{$variant}-hover-#{$border-type}
+      );
+    }
+
+    &:has(.tedi-radio__input:disabled) {
+      --_radio-card-border: var(
+        --form-checkbox-radio-card-#{$variant}-disabled-#{$border-type}
+      );
+    }
+  }
+}
