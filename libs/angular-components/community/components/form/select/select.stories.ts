@@ -4,7 +4,7 @@ import { SelectComponent } from "./select.component";
 import { SelectOptionComponent } from "./select-option.component";
 
 const meta: Meta<SelectComponent> = {
-  title: "Community/Form/Select",
+  title: "Community Angular/Form/Select",
   component: SelectComponent,
   decorators: [
     moduleMetadata({
@@ -53,7 +53,7 @@ export const WithPreselected: Story = {
 export const Disabled: Story = {
   render: () => ({
     template: `
-      <tedi-select [isDisabled]="true" [placeholder]="'Disabled select'">
+      <tedi-select [disabled]="true" [placeholder]="'Disabled select'">
         <tedi-select-option [value]="'option1'">Option 1</tedi-select-option>
         <tedi-select-option [value]="'option2'">Option 2</tedi-select-option>
         <tedi-select-option [value]="'option3'">Option 3</tedi-select-option>
@@ -65,7 +65,7 @@ export const Disabled: Story = {
 export const Valid: Story = {
   render: () => ({
     template: `
-      <tedi-select [isDisabled]="true" [status]="error" [placeholder]="'Disabled select'">
+      <tedi-select [status]="valid" [placeholder]="'Valid select'">
         <tedi-select-option [value]="'option1'">Option 1</tedi-select-option>
         <tedi-select-option [value]="'option2'">Option 2</tedi-select-option>
         <tedi-select-option [value]="'option3'">Option 3</tedi-select-option>

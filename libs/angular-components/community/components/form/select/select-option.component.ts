@@ -1,14 +1,7 @@
-import {
-  Component,
-  ElementRef,
-  computed,
-  inject,
-  input,
-  AfterContentInit,
-} from "@angular/core";
+import { Component, ElementRef, computed, inject, input } from "@angular/core";
 import { CdkMenuModule, MenuStack, MENU_STACK } from "@angular/cdk/menu";
 import { SelectComponent } from "./select.component";
-import { DropdownItemComponent } from "./dropdown-item.component";
+import { DropdownItemComponent } from "../../overlay/dropdown-item/dropdown-item.component";
 
 @Component({
   selector: "tedi-select-option",
@@ -31,7 +24,7 @@ import { DropdownItemComponent } from "./dropdown-item.component";
     </div>
   `,
 })
-export class SelectOptionComponent implements AfterContentInit {
+export class SelectOptionComponent {
   /*
    * The value of the option.
    */
@@ -42,20 +35,15 @@ export class SelectOptionComponent implements AfterContentInit {
    */
   isDisabled = input<boolean>(false);
 
-  private parent = inject(SelectComponent);
-  private elementRef = inject(ElementRef);
-  contentText: string = "";
+  #parent = inject(SelectComponent);
+  optionRef = inject(ElementRef);
 
   isSelected = computed(() => {
-    return this.parent._selectedValue() === this.value();
+    return this.#parent._selectedValue() === this.value();
   });
 
-  ngAfterContentInit() {
-    // Extract text content from the component to use as label
-    this.contentText = this.elementRef.nativeElement.textContent.trim();
-  }
-
   select() {
-    this.parent.select(this.value(), this.contentText);
+    const labelText = this.optionRef.nativeElement.textContent.trim();
+    this.#parent.select(this.value(), labelText);
   }
 }

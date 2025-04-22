@@ -14,7 +14,8 @@ import {
   styleUrl: "./dropdown-item.component.scss",
   host: {
     "[class.tedi-dropdown-item]": "true",
-    "[class]": "modifierClasses()",
+    "[class.tedi-dropdown-item--active]": "this.selected()",
+    "[class.tedi-dropdown-item--disabled]": "this.disabled()",
   },
 })
 export class DropdownItemComponent {
@@ -27,11 +28,4 @@ export class DropdownItemComponent {
    * Applies the disabled style to the dropdown item.
    */
   disabled = input<boolean>(false);
-
-  modifierClasses = computed(() => {
-    const modifiers = [];
-    if (this.selected()) modifiers.push(`tedi-dropdown-item--active`);
-    if (this.disabled()) modifiers.push(`tedi-dropdown-item--disabled`);
-    return modifiers.join(" ");
-  });
 }

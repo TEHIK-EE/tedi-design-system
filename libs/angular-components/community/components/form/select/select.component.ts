@@ -60,7 +60,7 @@ export class SelectComponent implements ControlValueAccessor, AfterViewInit {
    * Is the select disabled?
    * @default false
    */
-  isDisabled = input<boolean>(false);
+  disabled = input<boolean>(false);
 
   // Internal state
   _selectedValue = signal<any>(null);
@@ -69,7 +69,7 @@ export class SelectComponent implements ControlValueAccessor, AfterViewInit {
   _width = signal<number>(0);
   _options = contentChildren(SelectOptionComponent);
 
-  #elementRef = inject(ElementRef);
+  #selectRef = inject(ElementRef);
 
   // ControlValueAccessor methods
   onChange = (value: any) => {};
@@ -78,11 +78,12 @@ export class SelectComponent implements ControlValueAccessor, AfterViewInit {
   writeValue(value: any): void {
     if (!value) return;
 
-    this._selectedValue.set(value);
-    const option = this._options().find((option) => option.value() === value);
-    if (option) {
-      this._selectedLabel.set(option?.contentText ?? null);
-    }
+    const labelText =
+      this._options()
+        .find((option) => option.value() === value)
+        ?.optionRef?.nativeElement?.textContent?.trim() ?? null;
+
+    this.select(value, labelText);
   }
 
   registerOnChange(fn: any): void {
@@ -98,15 +99,13 @@ export class SelectComponent implements ControlValueAccessor, AfterViewInit {
   }
 
   select(value: any, label: string) {
-    this._selectedValue.set(value);
-    this._selectedLabel.set(label);
+    this.prefill(value, label);
     this.onChange(value);
     this.onTouched();
   }
 
   clear() {
-    this._selectedValue.set(null);
-    this._selectedLabel.set(null);
+    this.prefill(null, null);
     this.onChange(null);
     this.onTouched();
   }
@@ -122,7 +121,12 @@ export class SelectComponent implements ControlValueAccessor, AfterViewInit {
 
   private setDropdownWidth() {
     const computedWidth =
-      this.#elementRef?.nativeElement?.getBoundingClientRect()?.width ?? 0;
+      this.#selectRef?.nativeElement?.getBoundingClientRect()?.width ?? 0;
     this._width.set(computedWidth);
+  }
+
+  private prefill(value: any, label: string | null) {
+    this._selectedValue.set(value);
+    this._selectedLabel.set(label);
   }
 }
