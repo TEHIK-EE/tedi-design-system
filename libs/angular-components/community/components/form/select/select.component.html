@@ -31,13 +31,27 @@
 
 <ng-template #selectDropdown>
   <tedi-card
-    class="tedi-select__dropdown"
     cdkMenu
+    class="tedi-select__dropdown"
     spacing="none"
     [style.width.px]="_width()"
   >
     <tedi-card-content>
-      <ng-content />
+      <!-- <ng-content /> -->
+      @for (option of _options(); track option.value) {
+        @let value = option.value();
+        @let label = option.optionRef.nativeElement?.textContent?.trim();
+
+        <button
+          cdkMenuItem
+          tedi-dropdown-item
+          (cdkMenuItemTriggered)="select(value, label)"
+          [selected]="value === _selectedValue()"
+          [disabled]="option.isDisabled()"
+        >
+          <ng-template [ngTemplateOutlet]="option.template"></ng-template>
+        </button>
+      }
     </tedi-card-content>
   </tedi-card>
 </ng-template>

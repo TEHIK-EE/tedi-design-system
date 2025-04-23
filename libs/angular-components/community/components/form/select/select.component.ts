@@ -4,7 +4,6 @@ import {
   forwardRef,
   input,
   ElementRef,
-  AfterViewInit,
   HostListener,
   inject,
   ViewEncapsulation,
@@ -14,7 +13,7 @@ import {
   OnInit,
 } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { CdkMenuModule, MenuStack, MENU_STACK } from "@angular/cdk/menu";
+import { CdkMenuModule } from "@angular/cdk/menu";
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from "@angular/forms";
 import { SelectOptionComponent } from "./select-option.component";
 import {
@@ -27,6 +26,7 @@ import {
   CardContentComponent,
 } from "community/components/cards/card";
 import { IconComponent } from "@tehik-ee/tedi-angular/tedi";
+import { DropdownItemComponent } from "community/components/overlay/dropdown-item/dropdown-item.component";
 
 @Component({
   selector: "tedi-select",
@@ -38,6 +38,8 @@ import { IconComponent } from "@tehik-ee/tedi-angular/tedi";
     CardComponent,
     CardContentComponent,
     IconComponent,
+    SelectOptionComponent,
+    DropdownItemComponent,
   ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -49,7 +51,6 @@ import { IconComponent } from "@tehik-ee/tedi-angular/tedi";
       useExisting: forwardRef(() => SelectComponent),
       multi: true,
     },
-    { provide: MENU_STACK, useClass: MenuStack },
   ],
   host: {
     "[class.tedi-select]": "true",
@@ -116,14 +117,16 @@ export class SelectComponent
 
   // Lifecycle hooks
   ngOnInit() {
-    if (this.disabled()) {
-      this._disabled.set(this.disabled());
-    }
+    if (this.disabled()) this.setDisabledState(this.disabled());
   }
 
   ngAfterContentInit() {
     this.setDropdownWidth();
   }
+
+  // ngAfterViewInit() {
+  //   debugger;
+  // }
 
   @HostListener("window:resize")
   onWindowResize() {

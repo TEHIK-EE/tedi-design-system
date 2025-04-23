@@ -7,14 +7,22 @@
   @include mixins.responsive-styles(--_padding-y, form-select-item-padding-y);
 
   display: block;
+  width: 100%;
   padding: var(--_padding-y) var(--_padding-x);
   background-color: var(--_background-color);
   color: var(--_color);
   cursor: pointer;
+  text-align: left;
+  border: none;
+  border-radius: 0;
 
   &:hover {
     --_background-color: var(--dropdown-item-hover-background);
     --_color: var(--dropdown-item-hover-text);
+  }
+
+  &:focus {
+    border-radius: 0;
   }
 
   &--active {
