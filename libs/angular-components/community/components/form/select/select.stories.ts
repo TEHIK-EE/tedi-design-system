@@ -26,7 +26,11 @@ export const Basic: Story = {
   render: () => ({
     template: `
       <tedi-select [placeholder]="'Select an option...'">
-        <tedi-select-option [value]="'option1'">Option 1</tedi-select-option>
+        <tedi-select-option [value]="'option1'">
+          <div> Something </div>
+          <small> Something else </small>
+        </tedi-select-option>
+        <tedi-select-option [value]="'option12'">Option 12</tedi-select-option>
         <tedi-select-option [value]="'option2'">Option 2</tedi-select-option>
         <tedi-select-option [value]="'option3'">Option 3</tedi-select-option>
       </tedi-select>

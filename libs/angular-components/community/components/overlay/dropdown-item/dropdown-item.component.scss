@@ -15,11 +15,10 @@
   text-align: left;
   border: none;
   border-radius: 0;
-
-  &:hover {
-    --_background-color: var(--dropdown-item-hover-background);
-    --_color: var(--dropdown-item-hover-text);
-  }
+  font-family: var(--family-primary);
+  @include mixins.responsive-styles(font-weight, body-regular-weight);
+  @include mixins.responsive-styles(font-size, body-regular-size);
+  @include mixins.responsive-styles(line-height, body-regular-line-height);
 
   &--active {
     &,
@@ -35,6 +34,12 @@
       --_background-color: var(--dropdown-item-disabled-background);
       --_color: var(--dropdown-item-disabled-text);
     }
+  }
+
+  &:hover,
+  &:focus {
+    --_background-color: var(--dropdown-item-hover-background);
+    --_color: var(--dropdown-item-hover-text);
   }
 
   &:first-child {

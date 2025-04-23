@@ -13,7 +13,7 @@
     [class.tedi-select__label--placeholder]="!_selectedValue()"
   >
     @if (selectedLabel(); as label) {
-      <ng-container [ngTemplateOutlet]="label" />
+      {{ label }}
     } @else {
       {{ placeholder() }}
     }
@@ -32,11 +32,6 @@
   }
   <tedi-icon class="tedi-select__arrow" name="arrow_drop_down" />
 </button>
-@for (option of _options(); track option.value) {
-  @if (option.value() === _selectedValue()) {
-    <ng-container [ngTemplateOutlet]="option.templateRef() ?? null" />
-  }
-}
 
 <ng-template #selectDropdown>
   <tedi-card
@@ -46,16 +41,18 @@
     [style.width.px]="_width()"
   >
     <tedi-card-content class="tedi-select__dropdown-content">
-      @for (option of _options(); track option.value) {
+      @for (option of _options(); track option.value()) {
         <button
+          type="button"
           cdkMenuItem
           tedi-dropdown-item
           (cdkMenuItemTriggered)="select(option.value())"
           [selected]="option.value() === _selectedValue()"
           [disabled]="option.isDisabled()"
-        >
-          <ng-template [ngTemplateOutlet]="option.templateRef() ?? null" />
-        </button>
+          [innerHtml]="option.innerHtml"
+          [attr.aria-label]="option.textContent"
+          [title]="option.textContent"
+        ></button>
       }
     </tedi-card-content>
   </tedi-card>

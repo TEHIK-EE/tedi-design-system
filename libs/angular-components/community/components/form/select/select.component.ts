@@ -39,7 +39,6 @@ import { DropdownItemComponent } from "community/components/overlay/dropdown-ite
     CardComponent,
     CardContentComponent,
     IconComponent,
-    SelectOptionComponent,
     DropdownItemComponent,
   ],
   encapsulation: ViewEncapsulation.None,
@@ -141,10 +140,10 @@ export class SelectComponent
     this.onTouched();
   }
 
-  selectedLabel = computed(() =>
-    this._options()
-      .find((option) => option.value() === this._selectedValue())
-      ?.templateRef(),
+  selectedLabel = computed(
+    () =>
+      this._options().find((option) => option.value() === this._selectedValue())
+        ?.textContent,
   );
 
   private setDropdownWidth() {
