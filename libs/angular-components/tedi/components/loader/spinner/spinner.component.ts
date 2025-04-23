@@ -5,27 +5,9 @@ import {
   input,
   ViewEncapsulation,
 } from "@angular/core";
-import { InputsWithSignals } from "../../../types/inputs.type";
 
 export type SpinnerSize = 10 | 16 | 48;
 export type SpinnerColor = "primary" | "secondary";
-export interface SpinnerInputs {
-  /**
-   * Size of the spinner in px.
-   * @default 16
-   */
-  size: SpinnerSize;
-  /**
-   * Specifies the color theme of the spinner.
-   * The color should meet accessibility standards for color contrast.
-   * @default primary
-   */
-  color: SpinnerColor;
-  /**
-   * Provides a text label for screen readers to announce the spinner's purpose or status.
-   */
-  label?: string;
-}
 
 @Component({
   selector: "tedi-spinner",
@@ -42,9 +24,21 @@ export interface SpinnerInputs {
     "[attr.aria-hidden]": "!label()"
   }
 })
-export class SpinnerComponent implements InputsWithSignals<SpinnerInputs> {
+export class SpinnerComponent {
+  /**
+   * Size of the spinner in px.
+   * @default 16
+   */
   size = input<SpinnerSize>(16);
+  /**
+   * Specifies the color theme of the spinner.
+   * The color should meet accessibility standards for color contrast.
+   * @default primary
+   */
   color = input<SpinnerColor>("primary");
+  /**
+   * Provides a text label for screen readers to announce the spinner's purpose or status.
+   */
   label = input<string>();
 
   classes = computed(() => {

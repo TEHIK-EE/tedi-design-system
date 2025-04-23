@@ -21,7 +21,7 @@ export interface TooltipProps
   offset?: OffsetOptions;
 }
 
-function Tooltip(props: TooltipProps) {
+export const Tooltip = (props: TooltipProps) => {
   const { openWith = 'hover', ...rest } = props;
 
   return (
@@ -34,7 +34,7 @@ function Tooltip(props: TooltipProps) {
       {...rest}
     />
   );
-}
+};
 
 Tooltip.Trigger = TooltipTrigger;
 Tooltip.Content = TooltipContent;

@@ -1,5 +1,5 @@
 import { OverlayTrigger, OverlayTriggerProps } from '../overlay/overlay-trigger';
 
-export function PopoverTrigger(props: OverlayTriggerProps) {
+export const PopoverTrigger = (props: OverlayTriggerProps) => {
   return <OverlayTrigger {...props} />;
-}
+};

@@ -145,7 +145,7 @@ export const OverlayContext = createContext<OverlayContextType>({
   scrollLock: undefined,
 });
 
-function Overlay(props: OverlayProps) {
+export const Overlay = (props: OverlayProps) => {
   const isTouchDevice = useIsTouchDevice();
 
   const {
@@ -252,7 +252,7 @@ function Overlay(props: OverlayProps) {
       {children}
     </OverlayContext.Provider>
   );
-}
+};
 
 Overlay.Trigger = OverlayTrigger;
 Overlay.Content = OverlayContent;

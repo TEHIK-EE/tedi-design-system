@@ -1,8 +1,6 @@
 {
   "extends": "./tsconfig.lib.json",
   "compilerOptions": {
-    "declaration": true,
-    "declarationMap": true,
     "emitDecoratorMetadata": true
   }
 }
