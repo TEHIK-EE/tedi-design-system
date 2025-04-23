@@ -1,0 +1,157 @@
+@use "@tehik-ee/tedi-core/bootstrap-utility/breakpoints";
+@use "@tehik-ee/tedi-core/mixins";
+
+.tedi-number-field {
+  display: flex;
+
+  &:hover:not(.tedi-number-field--disabled) {
+    .tedi-number-field__button:not(:disabled),
+    .tedi-number-field__input-wrapper:not(:disabled) {
+      border-color: var(--form-input-border-hover);
+    }
+  }
+
+  .tedi-number-field__button {
+    --general-icon-primary: currentcolor;
+    border: var(--borders-01) solid var(--form-input-border-default);
+
+    @include mixins.responsive-styles(height, form-field-height);
+    @include mixins.responsive-styles(width, form-field-height);
+
+    &:disabled {
+      background-color: var(--form-input-background-disabled);
+      border: var(--borders-01) solid var(--form-input-border-disabled);
+      opacity: 0.5;
+    }
+
+    &--decrement {
+      z-index: 2;
+      margin-right: calc(-1 * var(--borders-01));
+      border-radius: 0;
+      @include mixins.responsive-styles(border-top-left-radius, button-radius-sm);
+      @include mixins.responsive-styles(border-bottom-left-radius, button-radius-sm);
+    }
+
+    &--increment {
+      margin-left: calc(-1 * var(--borders-01));
+      border-radius: 0;
+      @include mixins.responsive-styles(border-top-right-radius, button-radius-sm);
+      @include mixins.responsive-styles(border-bottom-right-radius, button-radius-sm);
+    }
+
+    &--small {
+      @include mixins.responsive-styles(height, form-field-height-sm);
+      @include mixins.responsive-styles(width, form-field-height-sm);
+    }
+  }
+
+  &--invalid:not(.tedi-number-field--disabled) {
+    .tedi-number-field__button,
+    .tedi-number-field__button:disabled,
+    .tedi-number-field__button:hover,
+    .tedi-number-field__input-wrapper {
+      border-color: var(--form-general-feedback-error-border);
+    }
+
+    .tedi-number-field__input-wrapper {
+      &:focus-within {
+        outline-color: var(--form-general-feedback-error-border);
+      }
+
+      &:active {
+        z-index: 2;
+        border-color: var(--form-general-feedback-error-border);
+        border-radius: 0;
+        outline: none;
+      }
+    }
+  }
+
+  &--disabled {
+    .tedi-number-field__button,
+    .tedi-number-field__button:disabled,
+    .tedi-number-field__input-wrapper {
+      background-color: var(--form-input-background-disabled);
+      border-color: var(--form-input-border-disabled);
+    }
+
+    .tedi-number-field__input-wrapper {
+      background-color: var(--form-input-background-disabled);
+      opacity: 0.5;
+
+      .tedi-number-field__input {
+        background-color: var(--form-input-background-disabled);
+      }
+    }
+  }
+}
+
+.tedi-number-field__input-wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: stretch;
+  background-color: var(--form-input-background-default);
+  border: var(--borders-01) solid var(--form-input-border-default);
+
+  @include mixins.responsive-styles(width, form-number-input-min-width);
+  @include mixins.responsive-styles(height, form-field-height);
+  @include mixins.responsive-styles(padding-left, form-field-padding-y-3-default);
+  @include mixins.responsive-styles(padding-right, form-field-padding-y-3-default);
+  @include mixins.responsive-styles(gap, form-field-inner-spacing-sm);
+
+  &:focus-within {
+    z-index: 2;
+    border-color: var(--form-input-border-active);
+    outline: calc(2 * var(--borders-01)) solid var(--form-input-border-active);
+    outline-offset: var(--borders-01);
+
+    @include mixins.responsive-styles(border-radius, button-radius-sm);
+  }
+
+  &:active:not(.tedi-number-field__input-wrapper--disabled) {
+    z-index: 2;
+    border-color: var(--form-input-border-active);
+    border-radius: 0;
+    outline: none;
+  }
+
+  &--small {
+    @include mixins.responsive-styles(height, form-field-height-sm);
+  }
+
+  &--with-suffix {
+    .tedi-number-field__input {
+      grid-column: span 1;
+      text-align: right;
+    }
+
+    .tedi-number-field__suffix {
+      align-self: center;
+      text-align: left;
+      user-select: none;
+    }
+  }
+}
+
+.tedi-number-field__input {
+  width: 100%;
+  grid-column: span 2;
+  text-align: center;
+  background-color: var(--form-input-background-default);
+  border: 0;
+  border-radius: 0;
+  outline: none;
+
+  @include mixins.responsive-styles(font-size, heading-h6-size);
+
+  //  /* Chrome, Safari, Edge, Opera */
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    appearance: none;
+  }
+
+  /* Firefox */
+  &[type="number"] {
+    appearance: textfield;
+  }
+}

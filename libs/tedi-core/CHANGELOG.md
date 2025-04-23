@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-core-v1.12.1](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.12.0...core-1.12.1) (2025-04-23)
+
+
+### Bug Fixes
+
+* **select:** Increase dropdown z-index value [#715](https://github.com/TEHIK-EE/tedi-design-system/issues/715) ([29512ac](https://github.com/TEHIK-EE/tedi-design-system/commit/29512acc65ab455bafb41709108fff14e3774c9c))
+
 # [@tehik-ee/tedi-core-v1.12.0](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.11.0...core-1.12.0) (2025-04-17)
 
 
