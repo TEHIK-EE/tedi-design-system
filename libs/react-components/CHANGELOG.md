@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-react-v11.3.0-rc.10](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.3.0-rc.9...react-11.3.0-rc.10) (2025-04-21)
+
+
+### Bug Fixes
+
+* **select:** encapsulate tedi styles [#700](https://github.com/TEHIK-EE/tedi-design-system/issues/700) ([#704](https://github.com/TEHIK-EE/tedi-design-system/issues/704)) ([fcc0c36](https://github.com/TEHIK-EE/tedi-design-system/commit/fcc0c3669eaf60d311d6f9e1a5365edb299f87b9))
+
 # [@tehik-ee/tedi-react-v11.3.0-rc.9](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.3.0-rc.8...react-11.3.0-rc.9) (2025-04-17)
 
 

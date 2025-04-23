@@ -5,15 +5,6 @@ import {
   input,
   ViewEncapsulation,
 } from "@angular/core";
-import { InputsWithSignals } from "../../../types/inputs.type";
-
-export type ListInputs = {
-  /**
-   * Is list styled?
-   * @default true
-   */
-  styled: boolean;
-};
 
 @Component({
   selector: "ul[tedi-list], ol[tedi-list]",
@@ -26,7 +17,11 @@ export type ListInputs = {
     "[class]": "classes()",
   }
 })
-export class ListComponent implements InputsWithSignals<ListInputs> {
+export class ListComponent {
+  /**
+   * Is list styled?
+   * @default true
+   */
   styled = input<boolean>(true);
 
   classes = computed(() => {
