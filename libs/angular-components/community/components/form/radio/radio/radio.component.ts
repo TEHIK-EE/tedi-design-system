@@ -12,6 +12,7 @@ import {
 } from "@angular/core";
 import { FeedbackTextComponent } from "../../feedback-text/feedback-text.component";
 import { RadioGroupComponent } from "../radio-group/radio-group.component";
+import { ComponentInputs } from "@tehik-ee/tedi-angular/tedi";
 
 export type RadioValue = string;
 
@@ -52,7 +53,7 @@ export class RadioComponent implements OnInit {
   /**
    * FeedbackText component inputs.
    */
-  feedbackText = input<any>(); // TODO: change after number input merged
+  feedbackText = input<ComponentInputs<FeedbackTextComponent>>();
 
   private _inputEl = viewChild.required<ElementRef<HTMLInputElement>>("input");
   private radioGroup = inject(RadioGroupComponent, { optional: true });

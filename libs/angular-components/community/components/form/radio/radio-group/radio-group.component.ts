@@ -12,6 +12,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from "@angular/forms";
 import { FeedbackTextComponent } from "../../feedback-text/feedback-text.component";
 import { LabelComponent } from "../../label/label.component";
 import { RadioValue } from "../radio/radio.component";
+import { ComponentInputs } from "@tehik-ee/tedi-angular/tedi";
 
 export type RadioGroupSize = "default" | "large";
 
@@ -72,7 +73,7 @@ export class RadioGroupComponent implements ControlValueAccessor {
   /**
    * FeedbackText component inputs.
    */
-  feedbackText = input<any>(); // TODO: change after number input merged
+  feedbackText = input<ComponentInputs<FeedbackTextComponent>>();
 
   /*
    * Emits selected radio value on change.

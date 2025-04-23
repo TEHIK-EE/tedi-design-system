@@ -120,17 +120,17 @@ export const Disabled: RadioGroupStory = {
       props: { control },
       template: `
       <tedi-radio-group
-        id="radio-group"
-        name="radio-story"
+        id="radio-group-disabled"
+        name="radio-story-disabled"
         [formControl]="control"
       >
-        <tedi-radio name="test" inputId="radio-1" value="radio-1"
+        <tedi-radio name="test" inputId="radio-disabled-1" value="radio-1"
           >Raadio 1</tedi-radio
         >
-        <tedi-radio name="test" inputId="radio-2" value="radio-2"
+        <tedi-radio name="test" inputId="radio-disabled-2" value="radio-2"
           >Raadio 2</tedi-radio
         >
-        <tedi-radio name="test" inputId="radio-3" value="radio-3"
+        <tedi-radio name="test" inputId="radio-disabled-3" value="radio-3"
           >Raadio 3</tedi-radio
         >
       </tedi-radio-group>
@@ -146,19 +146,19 @@ export const Large: RadioGroupStory = {
       props: { control },
       template: `
       <tedi-radio-group
-        id="radio-group"
-        name="radio-story"
+        id="radio-group-large"
+        name="radio-story-large"
         size="large"
         [spacing]="8"
         [formControl]="control"
       >
-        <tedi-radio name="test" inputId="radio-1" value="radio-1"
+        <tedi-radio name="test" inputId="radio-large-1" value="radio-1"
           >Raadio 1</tedi-radio
         >
-        <tedi-radio name="test" inputId="radio-2" value="radio-2"
+        <tedi-radio name="test" inputId="radio-large-2" value="radio-2"
           >Raadio 2</tedi-radio
         >
-        <tedi-radio name="test" inputId="radio-3" value="radio-3"
+        <tedi-radio name="test" inputId="radio-large-3" value="radio-3"
           >Raadio 3</tedi-radio
         >
       </tedi-radio-group>
@@ -174,19 +174,19 @@ export const WithErrorAndFeedback: RadioGroupStory = {
       props: { control },
       template: `
       <tedi-radio-group
-        id="radio-group"
-        name="radio-story"
+        id="radio-group-error-feedback"
+        name="radio-story-error-feedback"
         [hasError]="true"
         [formControl]="control"
         [feedbackText]="{ text: 'Error message', type: 'error' }"
       >
-        <tedi-radio name="test" inputId="radio-1" value="radio-1"
+        <tedi-radio name="test" inputId="radio-error-feedback-1" value="radio-1"
           >Raadio 1</tedi-radio
         >
-        <tedi-radio name="test" inputId="radio-2" value="radio-2"
+        <tedi-radio name="test" inputId="radio-error-feedback-2" value="radio-2"
           >Raadio 2</tedi-radio
         >
-        <tedi-radio name="test" inputId="radio-3" value="radio-3"
+        <tedi-radio name="test" inputId="radio-error-feedback-3" value="radio-3"
           >Raadio 3</tedi-radio
         >
       </tedi-radio-group>
@@ -202,17 +202,17 @@ export const RadioWithDescription: RadioGroupStory = {
       props: { control },
       template: `
       <tedi-radio-group
-        id="radio-group"
-        name="radio-story"
+        id="radio-group-description"
+        name="radio-story-description"
         [formControl]="control"
       >
-        <tedi-radio name="test" inputId="radio-1" value="radio-1"
+        <tedi-radio name="test" inputId="radio-description-1" value="radio-1"
           >Raadio 1</tedi-radio
         >
-        <tedi-radio name="test" inputId="radio-2" value="radio-2" [feedbackText]="{ text: 'Description' }"
+        <tedi-radio name="test" inputId="radio-description-2" value="radio-2" [feedbackText]="{ text: 'Description' }"
           >Raadio 2</tedi-radio
         >
-        <tedi-radio name="test" inputId="radio-3" value="radio-3"
+        <tedi-radio name="test" inputId="radio-description-3" value="radio-3"
           >Raadio 3</tedi-radio
         >
       </tedi-radio-group>
@@ -233,13 +233,13 @@ export const RadioCardGroups: RadioGroupStory = {
             name="radio-card-group-primary-plain"
             [hasIndicator]="false"
           >
-            <tedi-radio name="test" inputId="radio-1" value="radio-1"
+            <tedi-radio name="test" inputId="radio-primary-plain-1" value="radio-1"
               >Raadio 1</tedi-radio
             >
-            <tedi-radio name="test" inputId="radio-2" value="radio-2"
+            <tedi-radio name="test" inputId="radio-primary-plain-2" value="radio-2"
               >Raadio 2</tedi-radio
             >
-            <tedi-radio name="test" inputId="radio-3" value="radio-3"
+            <tedi-radio name="test" inputId="radio-primary-plain-3" value="radio-3"
               >Raadio 3</tedi-radio
             >
           </tedi-radio-card-group>
@@ -253,13 +253,13 @@ export const RadioCardGroups: RadioGroupStory = {
             variant="secondary"
             [hasIndicator]="false"
           >
-            <tedi-radio name="test" inputId="radio-1" value="radio-1"
+            <tedi-radio name="test" inputId="radio-secondary-plain-1" value="radio-1"
               >Raadio 1</tedi-radio
             >
-            <tedi-radio name="test" inputId="radio-2" value="radio-2"
+            <tedi-radio name="test" inputId="radio-secondary-plain-2" value="radio-2"
               >Raadio 2</tedi-radio
             >
-            <tedi-radio name="test" inputId="radio-3" value="radio-3"
+            <tedi-radio name="test" inputId="radio-secondary-plain-3" value="radio-3"
               >Raadio 3</tedi-radio
             >
           </tedi-radio-card-group>
@@ -270,13 +270,13 @@ export const RadioCardGroups: RadioGroupStory = {
             id="radio-card-group-primary-indicator"
             name="radio-card-group-primary-indicator"
           >
-            <tedi-radio name="test" inputId="radio-1" value="radio-1"
+            <tedi-radio name="test" inputId="radio-primary-indicator-1" value="radio-1"
               >Raadio 1</tedi-radio
             >
-            <tedi-radio name="test" inputId="radio-2" value="radio-2"
+            <tedi-radio name="test" inputId="radio-primary-indicator-2" value="radio-2"
               >Raadio 2</tedi-radio
             >
-            <tedi-radio name="test" inputId="radio-3" value="radio-3"
+            <tedi-radio name="test" inputId="radio-primary-indicator-3" value="radio-3"
               >Raadio 3</tedi-radio
             >
           </tedi-radio-card-group>
@@ -288,13 +288,13 @@ export const RadioCardGroups: RadioGroupStory = {
             name="radio-card-group-secondary-indicator"
             variant="secondary"
           >
-            <tedi-radio name="test" inputId="radio-1" value="radio-1"
+            <tedi-radio name="test" inputId="radio-secondary-indicator-1" value="radio-1"
               >Raadio 1</tedi-radio
             >
-            <tedi-radio name="test" inputId="radio-2" value="radio-2"
+            <tedi-radio name="test" inputId="radio-secondary-indicator-2" value="radio-2"
               >Raadio 2</tedi-radio
             >
-            <tedi-radio name="test" inputId="radio-3" value="radio-3"
+            <tedi-radio name="test" inputId="radio-secondary-indicator-3" value="radio-3"
               >Raadio 3</tedi-radio
             >
           </tedi-radio-card-group>
@@ -307,13 +307,13 @@ export const RadioCardGroups: RadioGroupStory = {
             [spacing]="0"
             [hasIndicator]="false"
           >
-            <tedi-radio name="test" inputId="radio-1" value="radio-1"
+            <tedi-radio name="test" inputId="radio-primary-stacked-1" value="radio-1"
               >Raadio 1</tedi-radio
             >
-            <tedi-radio name="test" inputId="radio-2" value="radio-2"
+            <tedi-radio name="test" inputId="radio-primary-stacked-2" value="radio-2"
               >Raadio 2</tedi-radio
             >
-            <tedi-radio name="test" inputId="radio-3" value="radio-3"
+            <tedi-radio name="test" inputId="radio-primary-stacked-3" value="radio-3"
               >Raadio 3</tedi-radio
             >
           </tedi-radio-card-group>
@@ -327,13 +327,13 @@ export const RadioCardGroups: RadioGroupStory = {
             [spacing]="0"
             [hasIndicator]="false"
           >
-            <tedi-radio name="test" inputId="radio-1" value="radio-1"
+            <tedi-radio name="test" inputId="radio-secondary-stacked-1" value="radio-1"
               >Raadio 1</tedi-radio
             >
-            <tedi-radio name="test" inputId="radio-2" value="radio-2"
+            <tedi-radio name="test" inputId="radio-secondary-stacked-2" value="radio-2"
               >Raadio 2</tedi-radio
             >
-            <tedi-radio name="test" inputId="radio-3" value="radio-3"
+            <tedi-radio name="test" inputId="radio-secondary-stacked-3" value="radio-3"
               >Raadio 3</tedi-radio
             >
           </tedi-radio-card-group>

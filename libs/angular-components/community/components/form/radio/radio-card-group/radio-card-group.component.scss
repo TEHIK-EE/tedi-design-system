@@ -41,6 +41,14 @@
     }
   }
 
+  .tedi-radio:has(.tedi-radio__input:focus-visible) {
+    .tedi-radio__indicator {
+      outline: none;
+    }
+    outline: 2px solid var(--form-input-border-active);
+    outline-offset: 1px;
+  }
+
   &--plain {
     .tedi-radio__indicator {
       display: none;

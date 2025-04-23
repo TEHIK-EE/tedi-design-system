@@ -8,6 +8,7 @@
   --_radio-border: var(--form-checkbox-radio-default-border-default);
   --_radio-label-color: var(--general-text-primary);
   --_radio-dot-bg: var(--_radio-border);
+  --_radio-dot-size: 12px;
 
   display: grid;
   grid-template-areas: "button label" ". feedback";
@@ -59,8 +60,8 @@
       border-radius: 50%;
       display: none;
       background: var(--_radio-dot-bg);
-      height: 70%;
-      width: 70%;
+      height: var(--_radio-dot-size);
+      width: var(--_radio-dot-size);
     }
   }
 
@@ -83,9 +84,9 @@
     --_radio-border: var(--form-checkbox-radio-default-border-selected);
   }
 
-  &:has(#{&}__input:hover) {
+  &:has(#{&}__input:hover, #{&}__input:focus-visible) {
     .tedi-radio__indicator {
-      border-width: 2px;
+      outline: 1px solid var(--form-checkbox-radio-default-border-hover);
     }
     --_radio-border: var(--form-checkbox-radio-default-border-hover);
   }
@@ -120,6 +121,7 @@
       --_radio-size,
       form-checkbox-radio-size-large
     );
+    --_radio-dot-size: 16px;
   }
 
   .tedi-feedback-text {
