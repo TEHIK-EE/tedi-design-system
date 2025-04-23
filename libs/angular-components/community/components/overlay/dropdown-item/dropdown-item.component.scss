@@ -21,10 +21,6 @@
     --_color: var(--dropdown-item-hover-text);
   }
 
-  &:focus {
-    border-radius: 0;
-  }
-
   &--active {
     &,
     &:hover {
@@ -39,5 +35,15 @@
       --_background-color: var(--dropdown-item-disabled-background);
       --_color: var(--dropdown-item-disabled-text);
     }
+  }
+
+  &:first-child {
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+  }
+
+  &:last-child {
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
   }
 }

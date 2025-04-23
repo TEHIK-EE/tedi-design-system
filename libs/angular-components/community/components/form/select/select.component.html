@@ -12,7 +12,11 @@
     class="tedi-select__label"
     [class.tedi-select__label--placeholder]="!_selectedValue()"
   >
-    {{ _selectedLabel() || placeholder() }}
+    @if (selectedLabel(); as label) {
+      <ng-container [ngTemplateOutlet]="label" />
+    } @else {
+      {{ placeholder() }}
+    }
   </span>
 
   @if (_selectedValue()) {
@@ -28,6 +32,11 @@
   }
   <tedi-icon class="tedi-select__arrow" name="arrow_drop_down" />
 </button>
+@for (option of _options(); track option.value) {
+  @if (option.value() === _selectedValue()) {
+    <ng-container [ngTemplateOutlet]="option.templateRef() ?? null" />
+  }
+}
 
 <ng-template #selectDropdown>
   <tedi-card
@@ -36,23 +45,16 @@
     spacing="none"
     [style.width.px]="_width()"
   >
-    <tedi-card-content>
-      <!-- <ng-content /> -->
+    <tedi-card-content class="tedi-select__dropdown-content">
       @for (option of _options(); track option.value) {
-        @let value = option.value();
-        @let label = option.optionRef.nativeElement?.textContent?.trim();
-
         <button
           cdkMenuItem
           tedi-dropdown-item
-          (cdkMenuItemTriggered)="select(value, label)"
-          [selected]="value === _selectedValue()"
+          (cdkMenuItemTriggered)="select(option.value())"
+          [selected]="option.value() === _selectedValue()"
           [disabled]="option.isDisabled()"
         >
-          <ng-template
-            [ngTemplateOutlet]="option.template() ?? null"
-            [ngTemplateOutletContext]="{ $implicit: option }"
-          ></ng-template>
+          <ng-template [ngTemplateOutlet]="option.templateRef() ?? null" />
         </button>
       }
     </tedi-card-content>

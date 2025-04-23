@@ -11,6 +11,7 @@ import {
   contentChildren,
   AfterContentInit,
   OnInit,
+  computed,
 } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { CdkMenuModule } from "@angular/cdk/menu";
@@ -85,7 +86,6 @@ export class SelectComponent
 
   // Internal state
   _selectedValue = signal<any>(null);
-  _selectedLabel = signal<string | null>(null);
   _disabled = signal<boolean>(false);
   _width = signal<number>(0);
   _options = contentChildren(SelectOptionComponent);
@@ -99,8 +99,7 @@ export class SelectComponent
   writeValue(value: any): void {
     if (!value) return;
 
-    const labelText = this.extractLabelText(value);
-    this.prefill(value, labelText);
+    this.select(value);
   }
 
   registerOnChange(fn: any): void {
@@ -124,44 +123,33 @@ export class SelectComponent
     this.setDropdownWidth();
   }
 
-  // ngAfterViewInit() {
-  //   debugger;
-  // }
-
   @HostListener("window:resize")
   onWindowResize() {
     this.setDropdownWidth();
   }
 
   // Event handlers
-  select(value: any, label: string) {
-    this.prefill(value, label);
+  select(value: any) {
+    this._selectedValue.set(value);
     this.onChange(value);
     this.onTouched();
   }
 
   clear() {
-    this.prefill(null, null);
+    this._selectedValue.set(null);
     this.onChange(null);
     this.onTouched();
   }
+
+  selectedLabel = computed(() =>
+    this._options()
+      .find((option) => option.value() === this._selectedValue())
+      ?.templateRef(),
+  );
 
   private setDropdownWidth() {
     const computedWidth =
       this.#selectRef?.nativeElement?.getBoundingClientRect()?.width ?? 0;
     this._width.set(computedWidth);
-  }
-
-  private prefill(value: any, label: string | null) {
-    this._selectedValue.set(value);
-    this._selectedLabel.set(label);
-  }
-
-  private extractLabelText(controlValueAccessorValue: any) {
-    return (
-      this._options()
-        .find((option) => option.value() === controlValueAccessorValue)
-        ?.optionRef?.nativeElement?.textContent?.trim() ?? null
-    );
   }
 }

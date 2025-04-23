@@ -2,19 +2,16 @@ import {
   Component,
   ElementRef,
   TemplateRef,
-  computed,
-  contentChild,
   inject,
   input,
   viewChild,
 } from "@angular/core";
-import { SelectComponent } from "./select.component";
 
 @Component({
   selector: "tedi-select-option",
   standalone: true,
   imports: [],
-  template: `<ng-content />`,
+  template: `<ng-template #selectOptionTemplate><ng-content /></ng-template>`,
 })
 export class SelectOptionComponent {
   /*
@@ -27,16 +24,6 @@ export class SelectOptionComponent {
    */
   isDisabled = input<boolean>(false);
 
-  // #parent = inject(SelectComponent);
   optionRef = inject(ElementRef);
-  template = contentChild(TemplateRef);
-
-  // isSelected = computed(() => {
-  //   return this.#parent._selectedValue() === this.value();
-  // });
-
-  // select() {
-  //   const labelText = this.optionRef.nativeElement?.textContent?.trim();
-  //   this.#parent.select(this.value(), labelText);
-  // }
+  templateRef = viewChild("selectOptionTemplate", { read: TemplateRef });
 }
