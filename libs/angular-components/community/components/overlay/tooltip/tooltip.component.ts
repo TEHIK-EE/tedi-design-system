@@ -19,41 +19,45 @@ import {
 import { Overlay } from "@angular/cdk/overlay";
 import { CdkPortal, PortalModule } from "@angular/cdk/portal";
 
-export const POSITION_MAP: Record<string, ConnectedPosition> = {
-  top: {
-    originX: "center",
-    originY: "top",
-    overlayX: "center",
-    overlayY: "bottom",
-    panelClass: "tooltip__arrow--top",
-    offsetY: -15,
-  },
-  bottom: {
-    originX: "center",
-    originY: "bottom",
-    overlayX: "center",
-    overlayY: "top",
-    panelClass: "tooltip__arrow--bottom",
-    offsetY: 15,
-  },
-  right: {
-    originX: "end",
-    originY: "center",
-    overlayX: "start",
-    overlayY: "center",
-    panelClass: "tooltip__arrow--left",
-    offsetX: 15,
-  },
-  left: {
-    originX: "start",
-    originY: "center",
-    overlayX: "end",
-    overlayY: "center",
-    panelClass: "tooltip__arrow--right",
-    offsetX: -15,
-  },
+const arrowOffset = 15;
+
+const positionTop: ConnectedPosition = {
+  originX: "center",
+  originY: "top",
+  overlayX: "center",
+  overlayY: "bottom",
+  panelClass: "tooltip__arrow--top",
+  offsetY: -arrowOffset,
 };
 
+const positionBottom: ConnectedPosition = {
+  originX: "center",
+  originY: "bottom",
+  overlayX: "center",
+  overlayY: "top",
+  panelClass: "tooltip__arrow--bottom",
+  offsetY: arrowOffset,
+};
+
+const positionRight: ConnectedPosition = {
+  originX: "end",
+  originY: "center",
+  overlayX: "start",
+  overlayY: "center",
+  panelClass: "tooltip__arrow--left",
+  offsetX: arrowOffset,
+};
+
+const positionLeft: ConnectedPosition = {
+  originX: "start",
+  originY: "center",
+  overlayX: "end",
+  overlayY: "center",
+  panelClass: "tooltip__arrow--right",
+  offsetX: -arrowOffset,
+};
+
+export type TooltipPosition = "top" | "bottom" | "left" | "right";
 export type TooltipWidth = "none" | "small" | "medium" | "large";
 export type TooltipTrigger = "click" | "hover";
 
@@ -86,9 +90,9 @@ export class TooltipComponent implements AfterViewInit, OnDestroy {
    * The position of the tooltip relative to the trigger element. If tooltip can't
    * be positioned in the specified direction, the CDK will try to position the tooltip
    * in the next direction in positions list.
-   * @default 'top, bottom, left, right'
+   * @default 'top'
    */
-  positions = input<string>("top, bottom, left, right");
+  position = input<TooltipPosition>("top");
   /**
    * The trigger event that opens the tooltip. Can be 'click' or 'hover'.
    * @default 'hover'
@@ -179,11 +183,15 @@ export class TooltipComponent implements AfterViewInit, OnDestroy {
   }
 
   buildPositions(): ConnectedPosition[] {
-    return this.positions()
-      .split(",")
-      .map((pos) => pos.trim())
-      .map((pos) => POSITION_MAP[pos])
-      .filter(Boolean);
+    const positionMap = {
+      top: [positionTop, positionBottom, positionLeft, positionRight],
+      bottom: [positionBottom, positionTop, positionLeft, positionRight],
+      left: [positionLeft, positionRight, positionTop, positionBottom],
+      right: [positionRight, positionLeft, positionTop, positionBottom],
+    };
+
+    const currentPosition = this.position();
+    return positionMap[currentPosition] || [];
   }
 
   overlayConfig(): OverlayConfig {
