@@ -49,7 +49,10 @@
           [selected]="value === _selectedValue()"
           [disabled]="option.isDisabled()"
         >
-          <ng-template [ngTemplateOutlet]="option.template"></ng-template>
+          <ng-template
+            [ngTemplateOutlet]="option.template() ?? null"
+            [ngTemplateOutletContext]="{ $implicit: option }"
+          ></ng-template>
         </button>
       }
     </tedi-card-content>

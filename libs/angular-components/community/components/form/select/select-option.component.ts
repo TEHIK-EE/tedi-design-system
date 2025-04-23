@@ -3,8 +3,10 @@ import {
   ElementRef,
   TemplateRef,
   computed,
+  contentChild,
   inject,
   input,
+  viewChild,
 } from "@angular/core";
 import { SelectComponent } from "./select.component";
 
@@ -27,7 +29,7 @@ export class SelectOptionComponent {
 
   // #parent = inject(SelectComponent);
   optionRef = inject(ElementRef);
-  template = inject(TemplateRef);
+  template = contentChild(TemplateRef);
 
   // isSelected = computed(() => {
   //   return this.#parent._selectedValue() === this.value();
