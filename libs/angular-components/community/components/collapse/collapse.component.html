@@ -1,1 +1,11 @@
-<p>collapse works!</p>
+<div class="collapse" [class.collapse--open]="isOpen() === true">
+  <button class="collapse__button" (click)="toggleCollapse()">
+    <span>{{ isOpen() ? closeText() : openText() }}</span
+    ><tedi-icon class="collapse__icon" name="expand_more" color="brand" />
+  </button>
+  <div class="collapse__content">
+    <div class="collapse__extender">
+      <ng-content></ng-content>
+    </div>
+  </div>
+</div>

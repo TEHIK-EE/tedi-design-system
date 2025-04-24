@@ -1,0 +1,45 @@
+@use "@tehik-ee/tedi-core/mixins";
+
+:host {
+  display: block;
+}
+
+.collapse__button {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  @include mixins.button-reset;
+}
+
+.collapse__icon {
+  color: var(--color-primary-main);
+  transition: transform 0.3s ease-in-out;
+
+  .collapse--open > .collapse__button & {
+    transform: rotate(180deg);
+  }
+}
+
+.collapse__content {
+  display: grid;
+  grid-template-rows: 0fr;
+  overflow: hidden;
+  transition: grid-template-rows 0.3s;
+}
+
+.collapse__extender {
+  min-height: 0;
+  transition: visibility 0.3s;
+  visibility: hidden;
+}
+
+.collapse__content {
+  .collapse--open > & {
+    grid-template-rows: 1fr;
+
+    .collapse__extender {
+      visibility: visible;
+    }
+  }
+}
