@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-react-v11.3.0-rc.13](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.3.0-rc.12...react-11.3.0-rc.13) (2025-04-24)
+
+
+### Bug Fixes
+
+* **ellipsis:** Fix user focus trapping inside popover [#723](https://github.com/TEHIK-EE/tedi-design-system/issues/723) ([#724](https://github.com/TEHIK-EE/tedi-design-system/issues/724)) ([f9bb317](https://github.com/TEHIK-EE/tedi-design-system/commit/f9bb317095f9f0435c3e1405e67367b35b7ab977))
+
 # [@tehik-ee/tedi-react-v11.3.0-rc.12](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.3.0-rc.11...react-11.3.0-rc.12) (2025-04-24)
 
 
