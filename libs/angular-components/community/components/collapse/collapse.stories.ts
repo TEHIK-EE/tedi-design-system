@@ -8,21 +8,20 @@ export default {
   render: (args) => ({
     props: args,
     template: `
-      <div id="collapse">
-        <tedi-collapse
-          title="Juhtumi üldandmed"
-          openText="Näita rohkem"
-          closeText="Näita vähem"
-        >
-          <div>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora rerum
-            perspiciatis consectetur blanditiis maxime, optio minus amet similique!
-            Et, saepe placeat. Omnis obcaecati corrupti repellat enim asperiores sunt
-            quam laudantium voluptate optio deserunt distinctio harum dolores, iure
-            unde nemo reprehenderit!
-          </div>
-        </tedi-collapse>
-      </div>
+      <tedi-collapse
+        title="Juhtumi üldandmed"
+        openText="Näita rohkem"
+        closeText="Näita vähem"
+        [hideOpenCloseText]="false"
+      >
+        <div>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora rerum
+          perspiciatis consectetur blanditiis maxime, optio minus amet similique!
+          Et, saepe placeat. Omnis obcaecati corrupti repellat enim asperiores sunt
+          quam laudantium voluptate optio deserunt distinctio harum dolores, iure
+          unde nemo reprehenderit!
+        </div>
+      </tedi-collapse>
     `,
   }),
 } as Meta<CollapseComponent>;

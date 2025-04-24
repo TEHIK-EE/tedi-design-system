@@ -1,8 +1,12 @@
-import { Component, input, signal } from "@angular/core";
-import { IconComponent } from "@tehik-ee/tedi-angular/tedi";
+import { Component, inject, input, Renderer2, signal } from "@angular/core";
+import { IconComponent, TextComponent } from "@tehik-ee/tedi-angular/tedi";
+
+export type ArrowType = "default" | "secondary";
+
 @Component({
+  standalone: true,
   selector: "tedi-collapse",
-  imports: [IconComponent],
+  imports: [IconComponent, TextComponent],
   templateUrl: "./collapse.component.html",
   styleUrls: ["./collapse.component.scss"],
 })
@@ -23,10 +27,20 @@ export class CollapseComponent {
    */
   defaultOpen = input<boolean>(false);
   /**
-   * Whether the collapse is open or closed.
-   * @default false
+   * To show or hide the openText and closeText
+   * @default "false"
    */
+  hideOpenCloseText = input<boolean>(false);
+  /**
+   * You are able to toggle different arrow styles.
+   * Arrow type "secondary" will add a circle over the icon.
+   * @default "default"
+   */
+  arrowType = input<ArrowType>("secondary");
+
+  collapseContentId: string = `collapse-content-${Math.random().toString(36).substr(2, 9)}`;
   isOpen = signal<boolean>(false);
+  renderer = inject(Renderer2);
 
   toggleCollapse() {
     this.isOpen.update((prev) => !prev);
