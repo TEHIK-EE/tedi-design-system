@@ -6,11 +6,6 @@ import semanticColorData from "./brand-color-variables.json";
 const meta: Meta<ColorStoryComponent> = {
   title: "TEDI-Ready Angular/Base/Colors",
   component: ColorStoryComponent,
-  parameters: {
-    backgrounds: {
-      default: "black",
-    },
-  },
 };
 
 export default meta;

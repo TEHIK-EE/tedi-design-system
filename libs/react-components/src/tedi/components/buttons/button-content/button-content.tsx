@@ -3,9 +3,9 @@ import React, { forwardRef } from 'react';
 
 import { AllowedHTMLTags, PolymorphicComponentPropWithRef, PolymorphicRef } from '../../../helpers/polymorphic/types';
 import { UnknownType } from '../../../types/commonTypes';
-import { Icon, IconWithoutBackgroundProps } from '../../icon/icon';
-import { Print } from '../../print/print';
-import { Spinner } from '../../spinner/spinner';
+import { Icon, IconWithoutBackgroundProps } from '../../base/icon/icon';
+import { Spinner } from '../../loaders/spinner/spinner';
+import { Print } from '../../misc/print/print';
 import { ButtonColor, ButtonType } from '../button/button';
 import styles from './button-content.module.scss';
 

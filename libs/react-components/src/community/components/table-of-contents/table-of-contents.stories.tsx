@@ -2,9 +2,9 @@ import { faker } from '@faker-js/faker';
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import React from 'react';
 
-import { Col, Row } from '../../../tedi/components/grid';
-import { Section } from '../../../tedi/components/section/section';
-import { VerticalSpacing } from '../../../tedi/components/vertical-spacing';
+import { Section } from '../../../tedi/components/content/section/section';
+import { Col, Row } from '../../../tedi/components/layout/grid';
+import { VerticalSpacing } from '../../../tedi/components/layout/vertical-spacing';
 import Anchor from '../anchor/anchor';
 import Button from '../button/button';
 import { Card, CardContent } from '../card';

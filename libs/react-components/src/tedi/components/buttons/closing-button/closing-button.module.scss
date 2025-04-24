@@ -24,6 +24,7 @@
 
   &:focus-visible {
     outline: 2px solid var(--button-main-primary-border-focus);
+    outline-offset: -2px;
   }
 
   &--medium {

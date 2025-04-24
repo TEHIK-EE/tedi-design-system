@@ -1,7 +1,7 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 
-import { Col, Row } from '../../grid';
-import { Text } from '../../typography/text/text';
+import { Text } from '../../base/typography/text/text';
+import { Col, Row } from '../../layout/grid';
 import TextField, { TextFieldProps } from './textfield';
 
 /**
@@ -53,10 +53,15 @@ const TemplateColumn: StoryFn<TemplateMultipleProps> = (args) => {
             <Text modifiers="bold">{value ? value.charAt(0).toUpperCase() + value.slice(1) : ''}</Text>
           </Col>
           <Col className="d-flex">
-            <TextField {...textFieldProps} {...{ [property]: value }} />
+            <TextField {...textFieldProps} id={`${textFieldProps.id}-${key}-1`} {...{ [property]: value }} />
           </Col>
           <Col className="d-flex">
-            <TextField icon={{ name: 'person' }} {...textFieldProps} {...{ [property]: value }} />
+            <TextField
+              icon={{ name: 'person' }}
+              {...textFieldProps}
+              id={`${textFieldProps.id}-${key}-2`}
+              {...{ [property]: value }}
+            />
           </Col>
         </Row>
       ))}
@@ -79,6 +84,36 @@ const TemplateColumnWithStates: StoryFn<TemplateStateProps> = (args) => {
           </Col>
         </Row>
       ))}
+      <Row className="padding-14-16">
+        <Col width={2} className="display-flex align-items-center">
+          <Text modifiers="bold">Success</Text>
+        </Col>
+        <Col className="display-flex align-items-center">
+          <TextField
+            {...textFieldProps}
+            id="success-textfield"
+            helper={{
+              text: 'Feedback text',
+              type: 'valid',
+            }}
+          />
+        </Col>
+      </Row>
+      <Row className="padding-14-16">
+        <Col width={2} className="display-flex align-items-center">
+          <Text modifiers="bold">Error</Text>
+        </Col>
+        <Col className="display-flex align-items-center">
+          <TextField
+            {...textFieldProps}
+            id="error-textfield"
+            helper={{
+              text: 'Feedback text',
+              type: 'error',
+            }}
+          />
+        </Col>
+      </Row>
     </div>
   );
 };
@@ -94,7 +129,7 @@ export const Sizes: StoryObj<TemplateMultipleProps> = {
   render: TemplateColumn,
 
   args: {
-    id: 'example-1',
+    id: 'example-2',
     label: 'Label',
     property: 'size',
     array: sizeArray,
@@ -119,6 +154,7 @@ export const States: StoryObj<TemplateStateProps> = {
 export const WithHint: Story = {
   args: {
     ...Default.args,
+    id: 'example-3',
     helper: {
       id: 'example-3',
       text: 'Hint text',
@@ -127,31 +163,10 @@ export const WithHint: Story = {
   },
 };
 
-export const Error: Story = {
-  args: {
-    ...Default.args,
-    helper: {
-      id: 'example-3',
-      text: 'Feedback text',
-      type: 'error',
-    },
-  },
-};
-
-export const Success: Story = {
-  args: {
-    ...Default.args,
-    helper: {
-      id: 'example-4',
-      text: 'Feedback text',
-      type: 'valid',
-    },
-  },
-};
-
 export const Password: Story = {
   args: {
     ...Default.args,
+    id: 'example-4',
     input: { type: 'password' },
     value: '123456789',
   },
@@ -160,6 +175,7 @@ export const Password: Story = {
 export const Placeholder: Story = {
   args: {
     ...Default.args,
+    id: 'example-5',
     placeholder: 'Text value',
   },
 };

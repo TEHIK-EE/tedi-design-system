@@ -1,13 +1,13 @@
 import { argsToTemplate, Meta, StoryObj } from "@storybook/angular";
 import { SpinnerComponent } from "./spinner.component";
 
+const SIZES = [10, 16, 48];
+const COLORS = ["primary", "secondary"];
+
 /**
  * <a href="https://www.figma.com/file/jWiRIXhHRxwVdMSimKX2FF/TEDI-Design-System-(draft)?type=design&node-id=2768-42334&mode=dev" target="_BLANK">Figma ↗</a><br/>
  * <a href="https://tedi.tehik.ee/1ee8444b7/p/13d6ac-spinner" target="_BLANK">Zeroheight ↗</a>
  */
-
-const SIZES = [10, 16, 48];
-const COLORS = ["primary", "secondary"];
 
 export default {
   title: "TEDI-Ready Angular/Loader/Spinner",
@@ -18,6 +18,7 @@ export default {
       options: SIZES,
       description: "Size of the spinner in px.",
       table: {
+        category: "inputs",
         defaultValue: {
           summary: "16",
         },
@@ -30,19 +31,18 @@ export default {
       description:
         "Specifies the color theme of the spinner. The color should meet accessibility standards for color contrast.",
       table: {
+        category: "inputs",
         defaultValue: { summary: "primary" },
         type: { summary: "SpinnerColor", detail: "primary \nsecondary" },
       },
-    },
-    class: {
-      control: "text",
-      description:
-        "Adds a custom CSS class to the spinner element for additional styling or theming purposes.",
     },
     label: {
       control: "text",
       description:
         "Provides a text label for screen readers to announce the spinners purpose or status.",
+      table: {
+        category: "inputs",
+      }
     },
   },
 } as Meta<SpinnerComponent>;

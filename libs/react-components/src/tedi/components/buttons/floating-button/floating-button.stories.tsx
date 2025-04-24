@@ -1,7 +1,7 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 
-import { Col, Row } from '../../grid';
-import { Text } from '../../typography/text/text';
+import { Text } from '../../base/typography/text/text';
+import { Col, Row } from '../../layout/grid';
 import FloatingButton, { FloatingButtonProps } from './floating-button';
 
 /**
@@ -34,13 +34,15 @@ const TemplateColumn: StoryFn<TemplateMultipleProps> = (args) => {
   const { array, ...buttonProps } = args;
 
   return (
-    <Row style={{ gap: buttonProps.axis === 'vertical' ? 100 : 30 }}>
+    <Row style={{ gap: buttonProps.axis === 'vertical' ? 100 : 0 }}>
       {buttonSizeArray.map((size) => (
-        <Col key={size}>
-          <Col style={{ paddingBottom: 16 }}>
-            <Text modifiers="bold">{size}</Text>
-          </Col>
-          <Row style={{ gap: buttonProps.axis === 'vertical' ? 100 : 16 }}>
+        <Col key={size} md={12}>
+          <Row style={{ paddingBottom: 16 }}>
+            <Col md={12} lg={6}>
+              <Text modifiers="bold">{size}</Text>
+            </Col>
+          </Row>
+          <Row style={{ gap: buttonProps.axis === 'vertical' ? 100 : 16, paddingBottom: 16 }}>
             {array.map((value, key) => (
               <Col xs={12} key={key} style={{ display: buttonProps.axis === 'vertical' ? 'flex' : undefined }}>
                 <Col xs={2}>

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Col, Row } from '../../../tedi/components/grid';
+import { Col, Row } from '../../../tedi/components/layout/grid';
 import { useLabels } from '../../../tedi/providers/label-provider';
 import Button from '../button/button';
 import { Card, CardContent } from '../card';

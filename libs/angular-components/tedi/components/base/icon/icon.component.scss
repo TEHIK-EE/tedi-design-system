@@ -28,13 +28,11 @@ $icon-sizes: (
   48: icon-07,
 );
 
-:host {
+.tedi-icon {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-}
+  vertical-align: middle;
 
-.tedi-icon {
   @each $name, $var in $icon-colors {
     &--color-#{$name} {
       color: var(--#{$var});
@@ -45,6 +43,10 @@ $icon-sizes: (
     &--size-#{$size} {
       @include mixins.responsive-styles(font-size, $vars);
     }
+  }
+
+  &--size-inherit {
+    font-size: inherit;
   }
 
   &--bg {

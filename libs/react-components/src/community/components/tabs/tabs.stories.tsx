@@ -1,6 +1,6 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 
-import { VerticalSpacing } from '../../../tedi/components/vertical-spacing';
+import { VerticalSpacing } from '../../../tedi/components/layout/vertical-spacing';
 import Heading from '../typography/heading/heading';
 import { Tabs, TabsItem, TabsItemProps, TabsProps } from '.';
 

@@ -1,9 +1,8 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import { useState } from 'react';
 
-import { Col, Row } from '../../grid';
-import { Text } from '../../typography/text/text';
-import { VerticalSpacing } from '../../vertical-spacing';
+import { Col, Row } from '../../layout/grid';
+import { VerticalSpacing } from '../../layout/vertical-spacing';
 import { Button } from '../button/button';
 import ButtonGroup, { ButtonGroupProps } from './button-group';
 

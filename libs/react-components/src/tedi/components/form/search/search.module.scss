@@ -23,6 +23,8 @@ $input-height-mobile: 2.75rem;
   }
 
   &__button {
+    flex: 0 auto;
+    min-width: fit-content;
     white-space: nowrap;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;

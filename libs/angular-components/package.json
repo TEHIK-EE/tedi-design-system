@@ -4,9 +4,14 @@
   "type": "module",
   "main": "community.mjs",
   "module": "community.mjs",
+  "exports": {
+    "./index.css": {
+      "default": "./index.css"
+    }
+  },
   "scripts": {
     "start": "ng run angular-components:storybook",
-    "build": "ng-packagr -p ng-package.json",
+    "build": "ng build angular-components && sass --load-path=node_modules styles/index.scss dist/index.css --style=compressed --no-source-map && replace-in-file //fonts//g \"./fonts/\" dist/index.css --isRegex && mkdir dist/fonts && cp -a ../tedi-core/public/fonts/* dist/fonts/",
     "build:sb": "ng run angular-components:build-storybook && replace-in-file //fonts//g \"./fonts/\" dist/storybook-static/main.css --isRegex",
     "lint": "ng lint angular-components --fix",
     "test": "jest --passWithNoTests",
@@ -16,27 +21,31 @@
     "chromatic": "npx chromatic --project-token=$CHROMATIC_PROJECT_TOKEN --build-script-name=build:sb --baseline-branch=rc"
   },
   "peerDependencies": {
+    "@angular/cdk": "^18.0.0 || ^19.0.0",
     "@angular/common": "^18.0.0 || ^19.0.0",
     "@angular/core": "^18.0.0 || ^19.0.0",
+    "@angular/forms": "^18.0.0 || ^19.0.0",
     "@angular/platform-browser": "^18.0.0 || ^19.0.0"
   },
   "dependencies": {
-    "@tehik-ee/tedi-core": "^1.8.1"
+    "@tehik-ee/tedi-core": "^1.12.0"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^18.0.0 || ^19.0.0",
-    "@angular-devkit/core": "^18.0.0 || ^19.0.0",
-    "@angular-devkit/schematics": "^18.0.0 || ^19.0.0",
+    "@angular-devkit/build-angular": "^19.2.6",
+    "@angular-devkit/core": "^19.2.6",
+    "@angular-devkit/schematics": "^19.2.6",
     "@angular-eslint/builder": "^19.0.2",
     "@angular-eslint/eslint-plugin": "^19.0.2",
     "@angular-eslint/eslint-plugin-template": "^19.0.2",
     "@angular-eslint/schematics": "^19.0.2",
     "@angular-eslint/template-parser": "^19.0.2",
-    "@angular/cli": "^18.0.0 || ^19.0.0",
-    "@angular/compiler-cli": "^18.0.0 || ^19.0.0",
-    "@angular/language-service": "^18.0.0 || ^19.0.0",
+    "@angular/cli": "^19.2.6",
+    "@angular/compiler-cli": "^19.2.6",
+    "@angular/forms": "^19.2.6",
+    "@angular/language-service": "^19.2.6",
     "@compodoc/compodoc": "^1.1.26",
-    "@schematics/angular": "^18.0.0 || ^19.0.0",
+    "@etchteam/storybook-addon-status": "^5.0.0",
+    "@schematics/angular": "^19.2.6",
     "@storybook/addon-a11y": "^8.6.8",
     "@storybook/addon-docs": "^8.6.8",
     "@storybook/addon-essentials": "^8.6.8",
@@ -49,6 +58,7 @@
     "@storybook/theming": "^8.6.8",
     "@types/jest": "^29.5.14",
     "@types/node": "^22.10.5",
+    "@typescript-eslint/eslint-plugin": "^8.28.0",
     "angular-eslint": "^18.4.2",
     "chokidar": "4.0.0",
     "chromatic": "^11.27.0",
@@ -60,7 +70,9 @@
     "prettier": "^3.4.2",
     "readdirp": "3.6.0",
     "replace-in-file": "^8.3.0",
+    "sass": "^1.86.1",
     "storybook": "^8.4.7",
+    "storybook-addon-pseudo-states": "^4.0.3",
     "ts-node": "^10.9.2",
     "tslib": "^2.5.0"
   },

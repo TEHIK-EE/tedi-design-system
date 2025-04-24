@@ -3,7 +3,7 @@ import { Controls, Description, Primary, Stories, Title } from '@storybook/addon
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import React from 'react';
 
-import { VerticalSpacing } from '../../../tedi/components/vertical-spacing';
+import { VerticalSpacing } from '../../../tedi/components/layout/vertical-spacing';
 import Button from '../button/button';
 import Heading from '../typography/heading/heading';
 import Text from '../typography/text/text';

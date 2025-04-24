@@ -1,16 +1,16 @@
 /* istanbul ignore file */
 import { StoryFn } from '@storybook/react/*';
 
+import { Icon } from '../../base/icon/icon';
+import { Heading } from '../../base/typography/heading/heading';
+import { Text } from '../../base/typography/text/text';
 import { Button } from '../../buttons/button/button';
-import { Col, Row } from '../../grid';
-import { HeadingWithIcon } from '../../heading-with-icon/heading-with-icon';
-import { Icon } from '../../icon/icon';
+import { HeadingWithIcon } from '../../content/heading-with-icon/heading-with-icon';
+import { Col, Row } from '../../layout/grid';
+import { VerticalSpacing } from '../../layout/vertical-spacing';
+import { Separator } from '../../misc/separator/separator';
 import { Link } from '../../navigation/link/link';
-import { Separator } from '../../separator/separator';
-import { StatusBadge } from '../../status-badge/status-badge';
-import { Heading } from '../../typography/heading/heading';
-import { Text } from '../../typography/text/text';
-import { VerticalSpacing } from '../../vertical-spacing';
+import { StatusBadge } from '../../tags/status-badge/status-badge';
 import { CardStory } from './card.stories';
 import { Card, CardContentPadding } from './index';
 import { CardBackground } from './utility';
@@ -18,18 +18,18 @@ import { CardBackground } from './utility';
 export const HeaderTypesTemplate: StoryFn<CardStory> = (_args) => (
   <VerticalSpacing>
     <Card>
-      <Card.Header>
+      <Card.Header background="primary">
         <Heading element="h3">Title</Heading>
       </Card.Header>
     </Card>
     <Card>
-      <Card.Header>
+      <Card.Header background="primary">
         <Heading element="h3">Title</Heading>
         <Text color="secondary">Description</Text>
       </Card.Header>
     </Card>
     <Card>
-      <Card.Header>
+      <Card.Header background="primary">
         <Row>
           <Col>
             <Heading element="h3">Title</Heading>
@@ -46,7 +46,7 @@ export const HeaderTypesTemplate: StoryFn<CardStory> = (_args) => (
       </Card.Header>
     </Card>
     <Card>
-      <Card.Header>
+      <Card.Header background="primary">
         <Row>
           <Col>
             <Heading element="h3">Title</Heading>
@@ -68,7 +68,7 @@ export const HeaderTypesTemplate: StoryFn<CardStory> = (_args) => (
       </Card.Header>
     </Card>
     <Card>
-      <Card.Header>
+      <Card.Header background="primary">
         <Row>
           <Col>
             <Heading element="h3">Title</Heading>
@@ -87,7 +87,7 @@ export const HeaderTypesTemplate: StoryFn<CardStory> = (_args) => (
       </Card.Header>
     </Card>
     <Card>
-      <Card.Header>
+      <Card.Header background="primary">
         <Row>
           <Col>
             <Heading element="h3">Title</Heading>
@@ -335,7 +335,7 @@ export const AlternativeCardsTemplate: StoryFn<CardStory> = (_args) => (
     <Row>
       <Col lg={6} sm={12}>
         <Card>
-          <Card.Header>
+          <Card.Header background="primary">
             <HeadingWithIcon name="assignment_ind" headingColor="brand" iconColor="brand">
               My statement of intention
             </HeadingWithIcon>

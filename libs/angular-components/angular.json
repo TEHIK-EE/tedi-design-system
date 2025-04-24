@@ -7,6 +7,22 @@
       "root": ".",
       "sourceRoot": ".",
       "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "ng-package.json",
+            "tsConfig": "tsconfig.json"
+          },
+          "configurations": {
+            "development": {
+              "tsConfig": "tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
         "storybook": {
           "builder": "@storybook/angular:start-storybook",
           "options": {
@@ -15,7 +31,7 @@
             "compodocArgs": ["-e", "json", "-d", "."],
             "port": 6006,
             "styles": [
-              "../tedi-core/src/index",
+              "styles/index",
               "../tedi-core/src/tedi-storybook-styles"
             ],
             "experimentalZoneless": true
@@ -29,7 +45,7 @@
             "compodocArgs": ["-e", "json", "-d", "."],
             "outputDir": "dist/storybook-static",
             "styles": [
-              "../tedi-core/src/index",
+              "styles/index",
               "../tedi-core/src/tedi-storybook-styles"
             ],
             "experimentalZoneless": true

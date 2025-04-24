@@ -2,9 +2,9 @@ import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import NextLink from 'next/link';
 import { ElementType, forwardRef } from 'react';
 
-import { Col, Row } from '../../grid';
-import { Text, TextProps } from '../../typography/text/text';
-import { VerticalSpacing } from '../../vertical-spacing';
+import { Text, TextProps } from '../../base/typography/text/text';
+import { Col, Row } from '../../layout/grid';
+import { VerticalSpacing } from '../../layout/vertical-spacing';
 import { Link, LinkProps } from './link';
 
 /**
@@ -30,6 +30,7 @@ const meta: Meta<typeof Link> = {
 };
 
 export default meta;
+type Story = StoryObj<typeof Link>;
 
 const linkStateArray = ['Default', 'Hover', 'Active'];
 const Template: StoryFn<LinkProps<ElementType>> = (args) => <Link href="#" {...args} />;
@@ -251,10 +252,40 @@ export const FullWidth = {
   },
 };
 
-export const LongText = {
+export const LongTextIconInline: Story = {
   args: {
-    href: '#',
-    iconRight: 'north_east',
     children: 'This is a very long link text that should wrap into multiple lines',
   },
+
+  render: (args) => (
+    <Row>
+      <Col md={4}>
+        <Link iconLeft="notifications">{args.children}</Link>
+      </Col>
+      <Col md={4}>
+        <Link iconRight="north_east">{args.children}</Link>
+      </Col>
+    </Row>
+  ),
+};
+
+export const LinkIconFlexed: Story = {
+  args: {
+    children: 'This is a very long link text that should wrap into multiple lines',
+  },
+
+  render: (args) => (
+    <Row>
+      <Col md={4}>
+        <Link iconLeft="notifications" iconStandalone>
+          {args.children}
+        </Link>
+      </Col>
+      <Col md={4}>
+        <Link iconRight="north_east" iconStandalone>
+          {args.children}
+        </Link>
+      </Col>
+    </Row>
+  ),
 };

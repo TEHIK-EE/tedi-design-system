@@ -1,12 +1,12 @@
 import cn from 'classnames';
 import React, { ChangeEvent, useCallback, useMemo, useRef, useState } from 'react';
 
-import { FeedbackText, FeedbackTextProps } from '../../../../tedi/components/form/feedback-text/feedback-text';
-import { FormLabel, FormLabelProps } from '../../../../tedi/components/form/form-label/form-label';
-import { useLabels } from '../../../../tedi/providers/label-provider';
 import { BreakpointSupport, useBreakpointProps } from '../../../helpers';
+import { useLabels } from '../../../providers/label-provider';
+import { Text } from '../../base/typography/text/text';
 import { Button } from '../../buttons/button/button';
-import { Text } from '../../typography/text/text';
+import { FeedbackText, FeedbackTextProps } from '../feedback-text/feedback-text';
+import { FormLabel, FormLabelProps } from '../form-label/form-label';
 import styles from './number-field.module.scss';
 
 type TDirection = 'increment' | 'decrement';
@@ -186,6 +186,7 @@ export const NumberField = (props: NumberFieldProps) => {
         visualType="secondary"
         className={ButtonBEM}
         icon={{ name: direction === 'increment' ? 'add' : 'remove' }}
+        size={size === 'small' ? 'small' : undefined}
       >
         {direction === 'increment' ? '+' : '-'}
       </Button>

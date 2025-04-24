@@ -1,7 +1,7 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 
-import { Col, Row } from '../../../tedi/components/grid';
-import { VerticalSpacing } from '../../../tedi/components/vertical-spacing';
+import { Col, Row } from '../../../tedi/components/layout/grid';
+import { VerticalSpacing } from '../../../tedi/components/layout/vertical-spacing';
 import Text from '../typography/text/text';
 import { Button, ButtonProps } from './button';
 
@@ -222,4 +222,24 @@ export const FullWidth: Story = {
     fullWidth: true,
     children: 'Button that stretches',
   },
+};
+
+export const LongTextButtonThatWrapsIntoMultipleLines: Story = {
+  args: {
+    children: 'This is a very long link text that should wrap into multiple lines',
+  },
+
+  render: (args) => (
+    <Row>
+      <Col md={4}>
+        <Button>{args.children}</Button>
+      </Col>
+      <Col md={4}>
+        <Button iconLeft="edit">{args.children}</Button>
+      </Col>
+      <Col md={3}>
+        <Button>{args.children}</Button>
+      </Col>
+    </Row>
+  ),
 };

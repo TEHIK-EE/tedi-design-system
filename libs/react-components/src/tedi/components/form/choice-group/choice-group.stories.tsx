@@ -1,11 +1,10 @@
 import { Meta, StoryObj } from '@storybook/react';
 
-import Col, { ColProps } from '../../../../tedi/components/grid/col';
-import { Row } from '../../grid';
-import { Icon } from '../../icon/icon';
-import Separator from '../../separator/separator';
-import { Text } from '../../typography/text/text';
-import { VerticalSpacing } from '../../vertical-spacing';
+import { Icon } from '../../base/icon/icon';
+import { Text } from '../../base/typography/text/text';
+import { Col, ColProps, Row } from '../../layout/grid';
+import { VerticalSpacing } from '../../layout/vertical-spacing';
+import Separator from '../../misc/separator/separator';
 import ChoiceGroup from './choice-group';
 import { ExtendedChoiceGroupItemProps } from './components/choice-group-item/choice-group-item';
 
@@ -239,7 +238,7 @@ export const WithDefaultValue: Story = {
     ...Checkbox.args,
     label: 'I have the second item selected by default:',
     items: generateItems({ index: 13 }),
-    defaultValue: ['value-40'],
+    defaultValue: ['radio-primary-value-132-false-false-undefined'],
   },
 };
 
@@ -323,6 +322,7 @@ export const CustomItemLabels: Story = {
           <Text>
             Lorem ipsum dolor sit, amet
             <Separator
+              element="span"
               axis="vertical"
               color="secondary"
               display="inline"

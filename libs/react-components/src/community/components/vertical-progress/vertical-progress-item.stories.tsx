@@ -1,6 +1,6 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 
-import { VerticalSpacing } from '../../../tedi/components/vertical-spacing';
+import { VerticalSpacing } from '../../../tedi/components/layout/vertical-spacing';
 import Button from '../button/button';
 import { Heading } from '../typography/heading/heading';
 import { Text } from '../typography/text/text';
@@ -16,7 +16,7 @@ type Story = StoryObj<typeof VerticalProgressItem>;
 
 const Template: StoryFn<typeof VerticalProgressItem> = (args) => {
   return (
-    <VerticalProgress onItemOpen={(id) => console.log('opened')}>
+    <VerticalProgress onItemOpen={(_id) => console.log('opened')}>
       <VerticalProgressItem {...args} />
     </VerticalProgress>
   );

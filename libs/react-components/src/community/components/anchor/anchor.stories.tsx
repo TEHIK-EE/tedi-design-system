@@ -2,8 +2,8 @@ import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import Link from 'next/link';
 import React, { ComponentProps, forwardRef } from 'react';
 
-import { Col, Row } from '../../../tedi/components/grid';
-import { VerticalSpacing } from '../../../tedi/components/vertical-spacing';
+import { Col, Row } from '../../../tedi/components/layout/grid';
+import { VerticalSpacing } from '../../../tedi/components/layout/vertical-spacing';
 import Text from '../typography/text/text';
 import { Anchor, AnchorProps } from './anchor';
 
@@ -172,7 +172,7 @@ export const NoStyleAnchor: Story = {
   args: {
     noStyle: true,
     href: 'https://www.neti.ee/',
-    children: <img src="https://www.neti.ee/img/neti-logo-2015-1.png" alt="neti.ee" />,
+    children: <img width={200} src="tehik_logo.png" alt="tehik.ee" />,
     target: '_blank',
   },
 };
@@ -189,10 +189,40 @@ export const FullWidth: Story = {
 /**
  * When link text wraps to multiple lines, the icon should be inline with the text.
  */
-export const LongText: Story = {
+export const LongTextIconInline: Story = {
   args: {
-    href: '#',
-    iconRight: 'north_east',
-    children: 'This is a very long link text that should wrap to multiple lines',
+    children: 'This is a very long link text that should wrap into multiple lines',
   },
+
+  render: (args) => (
+    <Row>
+      <Col md={4}>
+        <Anchor iconLeft="notifications">{args.children}</Anchor>
+      </Col>
+      <Col md={4}>
+        <Anchor iconRight="north_east">{args.children}</Anchor>
+      </Col>
+    </Row>
+  ),
+};
+
+export const LinkIconFlexed: Story = {
+  args: {
+    children: 'This is a very long link text that should wrap into multiple lines',
+  },
+
+  render: (args) => (
+    <Row>
+      <Col md={4}>
+        <Anchor iconLeft="notifications" iconStandalone>
+          {args.children}
+        </Anchor>
+      </Col>
+      <Col md={4}>
+        <Anchor iconRight="north_east" iconStandalone>
+          {args.children}
+        </Anchor>
+      </Col>
+    </Row>
+  ),
 };

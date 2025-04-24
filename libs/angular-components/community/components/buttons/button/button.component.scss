@@ -7,47 +7,54 @@ $neutral-variants: "neutral", "danger-neutral";
 create .tedi-button scoped color variables for every variant
 */
 @mixin button-variant-color-vars($variant) {
-  --_btn-bg: var(--button-main-#{$variant}-background-default);
-  --_btn-border: var(--button-main-#{$variant}-border-default);
-  --_btn-text: var(--button-main-#{$variant}-text-default);
+  & {
+    --_btn-bg: var(--button-main-#{$variant}-background-default);
+    --_btn-border: var(--button-main-#{$variant}-border-default);
+    --_btn-text: var(--button-main-#{$variant}-text-default);
+    --_btn-outline: var(--button-main-#{$variant}-border-focus);
 
-  @include button-state-color-vars($variant, "hover");
-  @include button-state-color-vars($variant, "focus");
-  @include button-state-color-vars($variant, "active");
+    @include button-state-color-vars($variant, "hover");
+    @include button-state-color-vars($variant, "focus");
+    @include button-state-color-vars($variant, "active");
 
-  @include button-disabled-color-vars($variant);
+    @include button-disabled-color-vars($variant);
+  }
 }
 
 /*
 create color variables for every state in a variant
 */
 @mixin button-state-color-vars($variant, $state) {
-  --_btn-#{$state}-bg: var(
-    --button-main-#{$variant}-background-#{$state},
-    var(--button-main-#{$variant}-background-default)
-  );
-  --_btn-#{$state}-border: var(
-    --button-main-#{$variant}-border-#{$state},
-    var(--button-main-#{$variant}-border-default)
-  );
-  --_btn-#{$state}-text: var(
-    --button-main-#{$variant}-text-#{$state},
-    var(--button-main-#{$variant}-text-default)
-  );
+  & {
+    --_btn-#{$state}-bg: var(
+      --button-main-#{$variant}-background-#{$state},
+      var(--button-main-#{$variant}-background-default)
+    );
+    --_btn-#{$state}-border: var(
+      --button-main-#{$variant}-border-#{$state},
+      var(--button-main-#{$variant}-border-default)
+    );
+    --_btn-#{$state}-text: var(
+      --button-main-#{$variant}-text-#{$state},
+      var(--button-main-#{$variant}-text-default)
+    );
+  }
 }
 
 /*
 create disabled state color variables
 */
 @mixin button-disabled-color-vars($variant) {
-  --_btn-disabled-text: var(--button-main-disabled-general-text);
+  & {
+    --_btn-disabled-text: var(--button-main-disabled-general-text);
 
-  @if list.index($neutral-variants, $variant) {
-    --_btn-disabled-bg: var(--button-main-disabled-neutral-background);
-    --_btn-disabled-border: var(--button-main-disabled-neutral-border);
-  } @else {
-    --_btn-disabled-bg: var(--button-main-disabled-general-background);
-    --_btn-disabled-border: var(--button-main-disabled-general-border);
+    @if list.index($neutral-variants, $variant) {
+      --_btn-disabled-bg: var(--button-main-disabled-neutral-background);
+      --_btn-disabled-border: var(--button-main-disabled-neutral-border);
+    } @else {
+      --_btn-disabled-bg: var(--button-main-disabled-general-background);
+      --_btn-disabled-border: var(--button-main-disabled-general-border);
+    }
   }
 }
 
@@ -75,7 +82,7 @@ create .tedi-button scoped size variables for every variant
 overrides padding variables for neutal button
 */
 @mixin neutral-button-padding-overrides {
-  &:where(.tedi-btn--sm) {
+  &:where(.tedi-btn--small) {
     @include mixins.responsive-styles(
       --_btn-padding-y,
       button-sm-neutral-padding-y
@@ -85,7 +92,7 @@ overrides padding variables for neutal button
       button-sm-neutral-padding-x
     );
   }
-  &:where(.tedi-btn--md) {
+  &:where(.tedi-btn--medium) {
     @include mixins.responsive-styles(
       --_btn-padding-y,
       button-md-neutral-padding-y
@@ -128,6 +135,11 @@ overrides padding variables for neutal button
     background: var(--_btn-focus-bg);
     border-color: var(--_btn-focus-border);
     color: var(--_btn-focus-text);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--_btn-outline);
+    outline-offset: 1px;
   }
 
   &:hover {

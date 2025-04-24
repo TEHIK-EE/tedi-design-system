@@ -4,19 +4,6 @@
     "emitDecoratorMetadata": true,
     "outDir": ""
   },
-  "exclude": [
-    "../**/*.spec.ts",
-    "../**/*.spec.js",
-    "../**/*.spec.tsx",
-    "../**/*.spec.jsx",
-    "jest.config.ts",
-    "../node_modules"
-  ],
-  "include": [
-    "../docs/**/*",
-    "../tedi/**/*",
-    "../community/**/*",
-    "./**/*.ts",
-    "./**/*.tsx"
-  ]
+  "exclude": ["main.ts"],
+  "include": ["../**/*.stories.ts", "./**/*.ts"]
 }

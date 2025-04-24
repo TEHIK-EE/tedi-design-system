@@ -1,0 +1,103 @@
+@use '@tehik-ee/tedi-core/mixins';
+
+$badge-colors: ('neutral', 'brand', 'accent', 'success', 'danger', 'warning', 'transparent');
+$badge-variants: ('filled', 'filled-bordered', 'bordered');
+$badge-status-colors: ('inactive', 'success', 'danger', 'warning');
+
+:root {
+  --status-badge-icon-primary: var(--blue-700);
+  --status-badge-icon-secondary: var(--orange-700);
+}
+
+.tedi-status-badge {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+
+  @include mixins.responsive-styles(font-size, body-small-regular-size, $exclude: tablet);
+  @include mixins.responsive-styles(font-weight, body-small-regular-weight, $exclude: tablet);
+  @include mixins.responsive-styles(line-height, body-small-regular-line-height, $exclude: tablet);
+  @include mixins.responsive-styles(padding, tag-default-padding-y tag-default-padding-x);
+  @include mixins.responsive-styles(border-radius, tag-default-radius);
+
+  &__inner-text {
+    min-width: fit-content;
+
+    @include mixins.responsive-styles(padding-left, tag-default-padding-x);
+    @include mixins.responsive-styles(padding-right, tag-default-padding-x);
+  }
+
+  &--large {
+    @include mixins.responsive-styles(min-width, tag-status-large-min-width);
+    @include mixins.responsive-styles(padding, tag-status-large-padding-y tag-status-large-padding-x);
+  }
+
+  @each $variant in $badge-variants {
+    &.tedi-status-badge--variant-#{$variant} {
+      @each $color in $badge-colors {
+        &.tedi-status-badge--color-#{$color} {
+          color: var(--status-badge-text-#{$color});
+
+          @if $variant == 'bordered' {
+            background: transparent;
+            box-shadow: inset 0 0 0 1px var(--status-badge-border-#{$color});
+          } @else {
+            background-color: var(--status-badge-background-#{$color});
+            box-shadow: inset 0 0 0 1px var(--status-badge-border-#{$color});
+          }
+
+          @if $variant == 'filled' {
+            box-shadow: none;
+          }
+        }
+      }
+    }
+  }
+
+  &--status {
+    &::before {
+      position: absolute;
+      top: -0.25rem;
+      right: -0.25rem;
+      z-index: 1;
+      width: 0.625rem;
+      height: 0.625rem;
+      content: '';
+      border: 1px solid var(--neutral-100);
+      border-radius: 50%;
+    }
+
+    &.tedi-badge--large::before {
+      top: -0.1875rem;
+      right: -0.1875rem;
+      width: 0.875rem;
+      height: 0.875rem;
+    }
+
+    @each $status in $badge-status-colors {
+      &-#{$status}::before {
+        background-color: var(--status-badge-indicator-#{$status});
+      }
+    }
+  }
+
+  &__icon-only {
+    display: inline-flex;
+    align-items: center;
+    min-height: 24px;
+
+    @include mixins.responsive-styles(line-height, body-small-regular-line-height);
+  }
+
+  &__icon-primary {
+    color: var(--status-badge-icon-primary);
+  }
+
+  &__icon-accent {
+    color: var(--status-badge-icon-secondary);
+  }
+
+  @include mixins.print-grayscale;
+}

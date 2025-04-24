@@ -1,7 +1,7 @@
 import { Meta, StoryFn } from '@storybook/react';
 import React from 'react';
 
-import { VerticalSpacing } from '../../../tedi/components/vertical-spacing';
+import { VerticalSpacing } from '../../../tedi/components/layout/vertical-spacing';
 import Heading from '../typography/heading/heading';
 import Text from '../typography/text/text';
 import Collapse, { CollapseProps } from './collapse';
@@ -27,6 +27,11 @@ export default {
       table: {
         type: { summary: '-' },
       },
+    },
+  },
+  parameters: {
+    status: {
+      type: ['deprecated', 'ExistsInTediReady'],
     },
   },
 } as Meta;

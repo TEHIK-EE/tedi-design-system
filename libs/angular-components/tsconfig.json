@@ -1,33 +1,34 @@
 {
+  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "target": "es2022",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
+    "strictNullChecks": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
-    "paths": {
-      "@tehik-ee/tedi-core/*": ["../tedi-core/*"]
-    },
     "resolveJsonModule": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "baseUrl": ".",
+    "paths": {
+      "@tehik-ee/tedi-angular/tedi": ["tedi/index.ts"]
+    }
   },
   "files": [],
   "include": [],
   "references": [
-    {
-      "path": "./tsconfig.lib.json"
-    },
-    {
-      "path": "./tsconfig.spec.json"
-    }
+    { "path": "./tsconfig.lib.json" },
+    { "path": "./tsconfig.spec.json" },
+    { "path": ".storybook/tsconfig.json" }
   ],
-  "extends": "../../tsconfig.base.json",
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
-    "strictTemplates": true
+    "strictTemplates": true,
+    "strictStandalone": true,
+    "strictNullChecks": true
   }
 }

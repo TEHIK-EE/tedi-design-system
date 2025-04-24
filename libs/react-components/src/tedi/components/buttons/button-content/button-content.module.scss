@@ -120,7 +120,7 @@ $btn-width-large: 3.72rem;
   align-items: center;
   justify-content: center;
   max-width: 100%;
-  height: $btn-height;
+  min-height: $btn-height;
   margin: 0;
   text-align: center;
   text-decoration: none;
@@ -134,8 +134,10 @@ $btn-width-large: 3.72rem;
   @include mixins.print-grayscale;
   @include mixins.responsive-styles(font-family, family-primary, $exclude: tablet);
   @include mixins.responsive-styles(font-size, button-text-size-default);
-  @include mixins.responsive-styles(padding-top, button-md-padding-y);
-  @include mixins.responsive-styles(padding-bottom, button-md-padding-y);
+
+  // subtract border height
+  @include mixins.responsive-styles(padding-top, button-md-padding-y, null, '- 1px');
+  @include mixins.responsive-styles(padding-bottom, button-md-padding-y, null, '- 1px');
   @include mixins.responsive-styles(padding-left, button-md-padding-x);
   @include mixins.responsive-styles(padding-right, button-md-padding-x);
   @include mixins.responsive-styles(border-radius, button-radius-default);
@@ -147,11 +149,11 @@ $btn-width-large: 3.72rem;
 }
 
 .tedi-btn--small {
-  height: $btn-height-small;
+  min-height: $btn-height-small;
 
   @include mixins.responsive-styles(font-size, button-text-size-sm);
-  @include mixins.responsive-styles(padding-top, button-sm-padding-y);
-  @include mixins.responsive-styles(padding-bottom, button-sm-padding-y);
+  @include mixins.responsive-styles(padding-top, button-sm-padding-y, null, '- 1px');
+  @include mixins.responsive-styles(padding-bottom, button-sm-padding-y, null, '- 1px');
   @include mixins.responsive-styles(padding-left, button-sm-padding-x);
   @include mixins.responsive-styles(padding-right, button-sm-padding-x);
 
@@ -171,8 +173,8 @@ $btn-width-large: 3.72rem;
 .tedi-btn--large {
   height: $btn-height-large;
 
-  @include mixins.responsive-styles(padding-top, button-md-padding-y);
-  @include mixins.responsive-styles(padding-bottom, button-md-padding-y);
+  @include mixins.responsive-styles(padding-top, button-md-padding-y, null, '- 1px');
+  @include mixins.responsive-styles(padding-bottom, button-md-padding-y, null, '- 1px');
   @include mixins.responsive-styles(padding-left, button-md-padding-x);
   @include mixins.responsive-styles(padding-right, button-md-padding-x);
 
@@ -185,8 +187,8 @@ $btn-width-large: 3.72rem;
   padding: 0;
   background-clip: padding-box;
 
-  @include mixins.responsive-styles(padding-top, button-md-neutral-padding-y);
-  @include mixins.responsive-styles(padding-bottom, button-md-neutral-padding-y);
+  @include mixins.responsive-styles(padding-top, button-md-neutral-padding-y, null, '- 1px');
+  @include mixins.responsive-styles(padding-bottom, button-md-neutral-padding-y, null, '- 1px');
 
   &.tedi-btn--default.tedi-btn--icon-only {
     &:hover:not(:disabled) {
@@ -407,6 +409,7 @@ $btn-width-large: 3.72rem;
   display: inline-flex;
   width: auto;
   height: auto;
+  min-height: auto;
   padding: 0;
   text-align: left;
   text-decoration: none;
@@ -430,8 +433,6 @@ $btn-width-large: 3.72rem;
 }
 
 .tedi-btn__text {
-  text-align: start;
-
   @include mixins.responsive-styles(padding-left, button-md-inner-spacing);
   @include mixins.responsive-styles(padding-right, button-md-inner-spacing);
 
@@ -457,6 +458,17 @@ $btn-width-large: 3.72rem;
 
   &:not(.tedi-btn--link .tedi-btn__text) {
     text-wrap: nowrap;
+
+    @include breakpoints.media-breakpoint-up(md) {
+      display: -webkit-box;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      text-wrap: wrap;
+      word-break: break-word;
+      -webkit-line-clamp: 2;
+      line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
   }
 }
 
@@ -483,6 +495,15 @@ $btn-width-large: 3.72rem;
   justify-content: center;
   min-width: 1.5rem;
   min-height: 1.5rem;
+
+  .tedi-btn--link.tedi-btn__icon-standalone--link:not(.tedi-btn--is-loading) & {
+    display: inline-flex;
+    align-items: flex-start;
+
+    .tedi-btn__icon {
+      @include mixins.responsive-styles(line-height, body-regular-line-height);
+    }
+  }
 
   .tedi-btn--link:not(.tedi-btn--is-loading) & {
     display: inline;

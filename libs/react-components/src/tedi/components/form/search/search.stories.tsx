@@ -1,8 +1,8 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 
-import { Col, Row } from '../../grid';
-import { Text } from '../../typography/text/text';
-import { VerticalSpacing } from '../../vertical-spacing';
+import { Text } from '../../base/typography/text/text';
+import { Col, Row } from '../../layout/grid';
+import { VerticalSpacing } from '../../layout/vertical-spacing';
 import { Search, SearchProps } from './search';
 
 /**
@@ -85,6 +85,36 @@ const TemplateColumnWithStates: StoryFn<TemplateStateProps> = (args) => {
           </Col>
         </Row>
       ))}
+      <Row className="padding-14-16">
+        <Col width={2} className="display-flex align-items-center">
+          <Text modifiers="bold">Success</Text>
+        </Col>
+        <Col className="display-flex align-items-center">
+          <Search
+            {...textFieldProps}
+            id="success-search"
+            helper={{
+              text: 'Feedback text',
+              type: 'valid',
+            }}
+          />
+        </Col>
+      </Row>
+      <Row className="padding-14-16">
+        <Col width={2} className="display-flex align-items-center">
+          <Text modifiers="bold">Error</Text>
+        </Col>
+        <Col className="display-flex align-items-center">
+          <Search
+            {...textFieldProps}
+            id="error-search"
+            helper={{
+              text: 'Feedback text',
+              type: 'error',
+            }}
+          />
+        </Col>
+      </Row>
     </div>
   );
 };
@@ -149,7 +179,7 @@ export const ClearableButton: Story = {
   },
 };
 
-export const HintText: Story = {
+export const WithHint: Story = {
   args: {
     id: 'example-1',
     label: 'Search',

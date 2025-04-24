@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { Col, Row } from '../../../../../../tedi/components/grid';
-import { List, ListItem } from '../../../../../../tedi/components/list';
+import { List, ListItem } from '../../../../../../tedi/components/content/list';
+import { Col, Row } from '../../../../../../tedi/components/layout/grid';
 import { useLabels } from '../../../../../../tedi/providers/label-provider';
 import { useLayout } from '../../../../../helpers/hooks/use-layout';
 import Button, { ButtonProps } from '../../../../button/button';

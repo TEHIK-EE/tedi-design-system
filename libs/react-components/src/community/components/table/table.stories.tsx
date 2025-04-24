@@ -12,7 +12,7 @@ import {
 import dayjs from 'dayjs';
 import React from 'react';
 
-import { VerticalSpacing } from '../../../tedi/components/vertical-spacing';
+import { VerticalSpacing } from '../../../tedi/components/layout/vertical-spacing';
 import { getBackgroundColorClass } from '../../helpers/background-colors/background-colors';
 import { IntentionalAny } from '../../types';
 import Anchor from '../anchor/anchor';
@@ -273,7 +273,7 @@ export const WithSubComponent: Story = {
   args: {
     data: data(),
     columns: [getExpandColumn(), ...columns],
-    renderSubComponent: (row) => {
+    renderSubComponent: (_row) => {
       return (
         <tr>
           <td></td>
@@ -473,7 +473,7 @@ export const GroupedRows: Story = {
  */
 export const GroupedRowsFromData: Story = {
   args: {
-    data: data(50).map((entity, index) => ({
+    data: data(50).map((entity, _index) => ({
       ...entity,
       rowGroupKey:
         entity.age < 10
