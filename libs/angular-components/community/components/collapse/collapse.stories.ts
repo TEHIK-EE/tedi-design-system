@@ -74,3 +74,56 @@ export default {
 type Story = StoryObj<CollapseComponent>;
 
 export const Default: Story = {};
+
+export const InitiallyOpen: Story = {
+  args: {
+    defaultOpen: true,
+  },
+};
+
+export const HiddenOpenCloseText: Story = {
+  args: {
+    hideOpenCloseText: true,
+  },
+};
+
+export const SecondaryArrowType: Story = {
+  args: {
+    arrowType: "secondary",
+  },
+};
+
+export const CustomOpenCloseText: Story = {
+  args: {
+    openText: "Vajuta siia, et näha veel rohkem informatsiooni",
+    closeText: "Vajuta siia, et peita kogu informatsioon",
+  },
+};
+
+export const NoContent: Story = {
+  render: (args) => ({
+    props: args,
+    template: `
+      <tedi-collapse
+        ${argsToTemplate(args)}
+      >
+        <!-- No content inside -->
+      </tedi-collapse>
+    `,
+  }),
+};
+
+export const LongContent: Story = {
+  render: (args) => ({
+    props: args,
+    template: `
+      <tedi-collapse
+        ${argsToTemplate(args)}
+      >
+        <div>
+          ${"Lorem ipsum dolor sit amet, consectetur adipiscing elit. ".repeat(50)}
+        </div>
+      </tedi-collapse>
+    `,
+  }),
+};
