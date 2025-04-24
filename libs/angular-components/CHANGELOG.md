@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-angular-v1.7.0-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.6.0...angular-1.7.0-rc.1) (2025-04-24)
+
+
+### Features
+
+* **styles:** testing release [#000](https://github.com/TEHIK-EE/tedi-design-system/issues/000) ([20544fa](https://github.com/TEHIK-EE/tedi-design-system/commit/20544fad15a443ef970f299e56e9e9be6eb309ce))
+
 # [@tehik-ee/tedi-angular-v1.6.0](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.5.0...angular-1.6.0) (2025-04-24)
 
 ### Bug Fixes
