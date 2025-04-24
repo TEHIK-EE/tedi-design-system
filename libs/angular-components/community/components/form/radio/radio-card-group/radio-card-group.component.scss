@@ -37,7 +37,8 @@
     @include radio-card-mixins.border-colors("secondary", "border");
 
     .tedi-radio:has(.tedi-radio__input:checked) {
-      border-width: 2px;
+      outline: 1px solid var(--_radio-border);
+      outline-offset: -2px;
     }
   }
 
