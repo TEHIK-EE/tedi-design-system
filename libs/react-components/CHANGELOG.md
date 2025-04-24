@@ -1,3 +1,31 @@
+# [@tehik-ee/tedi-react-v11.3.0-rc.14](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.3.0-rc.13...react-11.3.0-rc.14) (2025-04-24)
+
+
+### Features
+
+* **collapse:** TEDI-Ready Collapse component development [#696](https://github.com/TEHIK-EE/tedi-design-system/issues/696) ([#722](https://github.com/TEHIK-EE/tedi-design-system/issues/722)) ([69afc05](https://github.com/TEHIK-EE/tedi-design-system/commit/69afc052572ec0ef8c3c6719efb0731d99103b3a))
+
+# [@tehik-ee/tedi-react-v11.3.0-rc.13](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.3.0-rc.12...react-11.3.0-rc.13) (2025-04-24)
+
+
+### Bug Fixes
+
+* **ellipsis:** Fix user focus trapping inside popover [#723](https://github.com/TEHIK-EE/tedi-design-system/issues/723) ([#724](https://github.com/TEHIK-EE/tedi-design-system/issues/724)) ([f9bb317](https://github.com/TEHIK-EE/tedi-design-system/commit/f9bb317095f9f0435c3e1405e67367b35b7ab977))
+
+# [@tehik-ee/tedi-react-v11.3.0-rc.12](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.3.0-rc.11...react-11.3.0-rc.12) (2025-04-24)
+
+
+### Bug Fixes
+
+* **select:** Select dropdown z-index inside modal [#715](https://github.com/TEHIK-EE/tedi-design-system/issues/715) ([#720](https://github.com/TEHIK-EE/tedi-design-system/issues/720)) ([347b4d8](https://github.com/TEHIK-EE/tedi-design-system/commit/347b4d817a48b90db2bf07d3ea3cb642711e2206))
+
+# [@tehik-ee/tedi-react-v11.3.0-rc.11](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.3.0-rc.10...react-11.3.0-rc.11) (2025-04-24)
+
+
+### Bug Fixes
+
+* **status-badge:** fix abbreviation styles [#714](https://github.com/TEHIK-EE/tedi-design-system/issues/714) ([#721](https://github.com/TEHIK-EE/tedi-design-system/issues/721)) ([4e2199d](https://github.com/TEHIK-EE/tedi-design-system/commit/4e2199da94b07cb86f16abe625077c54ef46e085))
+
 # [@tehik-ee/tedi-react-v11.3.0-rc.10](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.3.0-rc.9...react-11.3.0-rc.10) (2025-04-21)
 
 

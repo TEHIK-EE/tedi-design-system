@@ -1,0 +1,33 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta name="Get Started" title="Documentation/Get started" />
+
+# Get started with TEHIK tedi-angular
+
+### 1. Installation
+
+```bash
+npm install @tehik-ee/tedi-angular
+```
+
+### 2. Add our styles to your angular.json file.
+
+```json
+"styles": ["node_modules/@tehik-ee/tedi-angular/index.css"]
+```
+
+### 3. Import component from "tedi" or "community" folder.
+
+```ts
+import { SomeComponent } from '@tehik-ee/tedi-angular/tedi';
+
+import { SomeComponent } from '@tehik-ee/tedi-angular/community';
+
+```
+
+Add import to your component and start using it.
+```ts
+@Component({
+    imports: [SomeComponent]
+})
+```
