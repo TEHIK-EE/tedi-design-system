@@ -14,6 +14,7 @@ $badge-status-colors: ('inactive', 'success', 'danger', 'warning');
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  text-decoration: none;
 
   @include mixins.responsive-styles(font-size, body-small-regular-size, $exclude: tablet);
   @include mixins.responsive-styles(font-weight, body-small-regular-weight, $exclude: tablet);
