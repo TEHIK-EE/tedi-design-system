@@ -18,16 +18,34 @@ const meta: Meta<SelectComponent> = {
       ],
     }),
   ],
-  tags: ["autodocs"],
+  argTypes: {
+    placeholder: { control: "text" },
+    disabled: { control: "boolean" },
+    state: { control: "radio", options: ["error", "valid", "default"] },
+    size: { control: "radio", options: ["small", "default"] },
+  },
+  args: {
+    placeholder: "Select an option...",
+    disabled: false,
+    state: "default",
+    size: "default",
+  },
 };
 
 export default meta;
 type Story = StoryObj<SelectComponent>;
 
 export const Basic: Story = {
-  render: () => ({
+  args: {
+    placeholder: "Select an option...",
+    disabled: false,
+    state: "default",
+    size: "default",
+  },
+  render: (args) => ({
+    props: args,
     template: `
-      <tedi-select [placeholder]="'Select an option...'">
+      <tedi-select [placeholder]="placeholder" [disabled]="disabled" [state]="state" [size]="size">
         <tedi-select-option [value]="'option1'" [label]="'Option 1'">
             <tedi-icon name="close" /> Option 1
         </tedi-select-option>
@@ -46,9 +64,12 @@ export const Basic: Story = {
 };
 
 export const WithPreselected: Story = {
-  render: () => ({
+  args: {
+    placeholder: "Select an option...",
+  },
+  render: (args) => ({
     template: `
-      <tedi-select [(ngModel)]="selectedValue" [placeholder]="'Select an option...'">
+      <tedi-select [(ngModel)]="selectedValue" [placeholder]="placeholder">
         <tedi-select-option [value]="'option1'" [label]="'Option 1'">
           <tedi-icon name="login" /> Option 1 <small> Some description here also </small>
         </tedi-select-option>
@@ -59,15 +80,21 @@ export const WithPreselected: Story = {
       (ngModel): {{ selectedValue }}
     `,
     props: {
+      ...args,
       selectedValue: "option2",
     },
   }),
 };
 
 export const Disabled: Story = {
-  render: () => ({
+  args: {
+    disabled: true,
+    placeholder: "Disabled select",
+  },
+  render: (args) => ({
+    props: args,
     template: `
-      <tedi-select [disabled]="true" [placeholder]="'Disabled select'">
+      <tedi-select [disabled]="disabled" [placeholder]="placeholder">
         <tedi-select-option [value]="'option1'">Option 1</tedi-select-option>
         <tedi-select-option [value]="'option2'">Option 2</tedi-select-option>
         <tedi-select-option [value]="'option3'">Option 3</tedi-select-option>
@@ -77,9 +104,14 @@ export const Disabled: Story = {
 };
 
 export const ValidState: Story = {
-  render: () => ({
+  args: {
+    state: "valid",
+    placeholder: "Valid select",
+  },
+  render: (args) => ({
+    props: args,
     template: `
-      <tedi-select [state]="'valid'" [placeholder]="'Valid select'">
+      <tedi-select [state]="state" [placeholder]="placeholder">
         <tedi-select-option [value]="'option1'" [label]="'Option 1'">Option 1</tedi-select-option>
         <tedi-select-option [value]="'option2'" [label]="'Option 2'">Option 2</tedi-select-option>
         <tedi-select-option [value]="'option3'" [label]="'Option 3'">Option 3</tedi-select-option>
@@ -89,9 +121,14 @@ export const ValidState: Story = {
 };
 
 export const ErrorState: Story = {
-  render: () => ({
+  args: {
+    state: "error",
+    placeholder: "Error select",
+  },
+  render: (args) => ({
+    props: args,
     template: `
-      <tedi-select [state]="'error'" [placeholder]="'Error select'">
+      <tedi-select [state]="state" [placeholder]="placeholder">
         <tedi-select-option [value]="'option1'" [label]="'Option 1'">Option 1</tedi-select-option>
         <tedi-select-option [value]="'option2'" [label]="'Option 2'">Option 2</tedi-select-option>
         <tedi-select-option [value]="'option3'" [label]="'Option 3'">Option 3</tedi-select-option>
@@ -101,9 +138,14 @@ export const ErrorState: Story = {
 };
 
 export const SmallSize: Story = {
-  render: () => ({
+  args: {
+    size: "small",
+    placeholder: "Small select",
+  },
+  render: (args) => ({
+    props: args,
     template: `
-      <tedi-select [size]="'small'" [placeholder]="'Small select'">
+      <tedi-select [size]="size" [placeholder]="placeholder">
         <tedi-select-option [value]="'option1'" [label]="'Option 1'">Option 1</tedi-select-option>
         <tedi-select-option [value]="'option2'" [label]="'Option 2'">Option 2</tedi-select-option>
         <tedi-select-option [value]="'option3'" [label]="'Option 3'">Option 3</tedi-select-option>
