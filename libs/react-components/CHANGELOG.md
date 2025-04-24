@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-react-v11.3.0-rc.14](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.3.0-rc.13...react-11.3.0-rc.14) (2025-04-24)
+
+
+### Features
+
+* **collapse:** TEDI-Ready Collapse component development [#696](https://github.com/TEHIK-EE/tedi-design-system/issues/696) ([#722](https://github.com/TEHIK-EE/tedi-design-system/issues/722)) ([69afc05](https://github.com/TEHIK-EE/tedi-design-system/commit/69afc052572ec0ef8c3c6719efb0731d99103b3a))
+
 # [@tehik-ee/tedi-react-v11.3.0-rc.13](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.3.0-rc.12...react-11.3.0-rc.13) (2025-04-24)
 
 
