@@ -1,0 +1,216 @@
+@use "@tehik-ee/tedi-core/mixins";
+
+@mixin toggle-style($variant, $type) {
+  @if $type == "filled" {
+    background-color: var(--form-toggl-#{$variant}-inactive-default);
+
+    &:hover {
+      background-color: var(--form-toggl-#{$variant}-inactive-hover);
+    }
+
+    &:active {
+      background-color: var(--form-toggl-#{$variant}-inactive-active);
+    }
+
+    &:focus-visible {
+      background-color: var(--form-toggl-#{$variant}-inactive-default);
+      outline: calc(2 * var(--borders-01)) solid var(--form-toggl-primary-active-default);
+      outline-offset: var(--borders-01);
+    }
+
+    &:disabled {
+      // opacity: 0.5;
+      background-color: var(--form-toggl-#{$variant}-inactive-default);
+      cursor: not-allowed;
+    }
+
+    + .tedi-toggle__slider {
+      background-color: var(--form-toggl-#{$variant}-inactive-indicator);
+    }
+
+    &:checked {
+      background-color: var(--form-toggl-#{$variant}-active-default);
+
+      &:hover {
+        background-color: var(--form-toggl-#{$variant}-active-hover);
+      }
+
+      &:active {
+        background-color: var(--form-toggl-#{$variant}-active-active);
+      }
+
+      &:focus-visible {
+        background-color: var(--form-toggl-#{$variant}-active-default);
+        outline: calc(2 * var(--borders-01)) solid var(--form-toggl-primary-active-default);
+        outline-offset: var(--borders-01);
+      }
+
+      &:disabled {
+        // opacity: 0.5;
+        background-color: var(--form-toggl-#{$variant}-active-default);
+        cursor: not-allowed;
+      }
+
+      + .tedi-toggle__slider {
+        background-color: var(--form-toggl-#{$variant}-active-indicator);
+      }
+    }
+  }
+
+  @if $type == "outlined" {
+    border: var(--borders-01) solid var(--form-toggl-#{$variant}-inactive-default);
+
+    + .tedi-toggle__slider {
+      background-color: var(--form-toggl-#{$variant}-inactive-default);
+    }
+
+    &:hover {
+      border: var(--borders-01) solid var(--form-toggl-#{$variant}-inactive-hover);
+
+      + .tedi-toggle__slider {
+        background-color: var(--form-toggl-#{$variant}-inactive-hover);
+      }
+    }
+
+    &:active {
+      border: var(--borders-01) solid var(--form-toggl-#{$variant}-inactive-active);
+
+      + .tedi-toggle__slider {
+        background-color: var(--form-toggl-#{$variant}-inactive-active);
+      }
+    }
+
+    &:focus-visible {
+      border: var(--borders-01) solid var(--form-toggl-#{$variant}-inactive-default);
+      outline: calc(2 * var(--borders-01)) solid var(--form-toggl-primary-active-default);
+      outline-offset: var(--borders-01);
+
+      + .tedi-toggle__slider {
+        background-color: var(--form-toggl-#{$variant}-inactive-default);
+      }
+    }
+
+    &:checked {
+      border: var(--borders-01) solid var(--form-toggl-#{$variant}-active-default);
+
+      + .tedi-toggle__slider {
+        background-color: var(--form-toggl-#{$variant}-active-default);
+      }
+
+      &:hover {
+        border: var(--borders-01) solid var(--form-toggl-#{$variant}-active-hover);
+
+        + .tedi-toggle__slider {
+          background-color: var(--form-toggl-#{$variant}-active-hover);
+        }
+      }
+
+      &:active {
+        border: var(--borders-01) solid var(--form-toggl-#{$variant}-active-active);
+
+        + .tedi-toggle__slider {
+          background-color: var(--form-toggl-#{$variant}-active-active);
+        }
+      }
+
+      &:focus-visible {
+        border: var(--borders-01) solid var(--form-toggl-#{$variant}-active-default);
+        outline: calc(2 * var(--borders-01)) solid var(--form-toggl-primary-active-default);
+        outline-offset: var(--borders-01);
+
+        + .tedi-toggle__slider {
+          background-color: var(--form-toggl-#{$variant}-active-default);
+        }
+      }
+    }
+  }
+}
+
+.tedi-toggle {
+  position: relative;
+  display: block;
+
+  @include mixins.responsive-styles(--_toggle-padding, form-toggl-padding);
+
+  &--size {
+    &-default {
+      @include mixins.responsive-styles(width, form-toggl-default-width);
+      @include mixins.responsive-styles(height, form-toggl-default-height);
+      @include mixins.responsive-styles(--_toggle-indicator, form-toggl-default-indicator);
+
+      .tedi-toggle__slider {
+        @include mixins.responsive-styles(width, form-toggl-default-indicator);
+        @include mixins.responsive-styles(height, form-toggl-default-indicator);
+      }
+    }
+
+    &-large {
+      @include mixins.responsive-styles(width, form-toggl-large-width);
+      @include mixins.responsive-styles(height, form-toggl-large-height);
+      @include mixins.responsive-styles(--_toggle-indicator, form-toggl-large-indicator);
+
+      .tedi-toggle__slider {
+        @include mixins.responsive-styles(width, form-toggl-large-indicator);
+        @include mixins.responsive-styles(height, form-toggl-large-indicator);
+      }
+    }
+  }
+
+  &--primary {
+    &-filled {
+      .tedi-toggle__input {
+        @include toggle-style('primary', 'filled');
+      }
+    }
+
+    &-outlined {
+      .tedi-toggle__input {
+        @include toggle-style('primary', 'outlined');
+      }
+    }
+  }
+
+  &--colored {
+    &-filled {
+      .tedi-toggle__input {
+        @include toggle-style('colored', 'filled');
+      }
+    }
+
+    &-outlined {
+      .tedi-toggle__input {
+        @include toggle-style('colored', 'outlined');
+      }
+    }
+  }
+
+  &__input {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    appearance: none;
+    cursor: pointer;
+    margin: 0;
+  
+    @include mixins.responsive-styles(border-radius, form-toggl-radius);
+
+    &:checked + .tedi-toggle__slider {
+      transform: translateY(-50%);
+      left: calc(100% - var(--_toggle-indicator) - var(--_toggle-padding));
+    }
+  }
+
+  &__slider {
+    position: absolute;
+    top: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    transition: left 0.17s ease-out;
+    pointer-events: none;
+  
+    @include mixins.responsive-styles(left, form-toggl-padding);
+  }
+}

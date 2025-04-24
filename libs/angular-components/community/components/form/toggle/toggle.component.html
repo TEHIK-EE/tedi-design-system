@@ -1,0 +1,12 @@
+<input
+  type="checkbox"
+  class="tedi-toggle__input"
+  role="switch"
+  [checked]="value()"
+  (change)="handleChange($event)"
+/>
+<span class="tedi-toggle__slider" aria-hidden="true">
+  @if (icon() && size() === 'large') {
+    <tedi-icon [name]="value() ? 'lock_open_right' : 'lock'" [color]="iconColor()" [size]="16" />
+  }
+</span>
