@@ -1,3 +1,26 @@
+# [@tehik-ee/tedi-react-v11.3.0](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.2.4...react-11.3.0) (2025-04-24)
+
+
+### Bug Fixes
+
+* **card:** add default background values for CardHeader and CardContent [#632](https://github.com/TEHIK-EE/tedi-design-system/issues/632) ([#635](https://github.com/TEHIK-EE/tedi-design-system/issues/635)) ([ab33238](https://github.com/TEHIK-EE/tedi-design-system/commit/ab332383022eb317ddb9e0441f03817919aeda84))
+* **ellipsis:** Fix user focus trapping inside popover [#723](https://github.com/TEHIK-EE/tedi-design-system/issues/723) ([#724](https://github.com/TEHIK-EE/tedi-design-system/issues/724)) ([f9bb317](https://github.com/TEHIK-EE/tedi-design-system/commit/f9bb317095f9f0435c3e1405e67367b35b7ab977))
+* **scroll-visibility:** add focus-within selector back to css [#588](https://github.com/TEHIK-EE/tedi-design-system/issues/588) ([#597](https://github.com/TEHIK-EE/tedi-design-system/issues/597)) ([e99808d](https://github.com/TEHIK-EE/tedi-design-system/commit/e99808d50d97e4f6a5ae4da03ab1155f6a26b44b))
+* **select:** encapsulate tedi styles [#700](https://github.com/TEHIK-EE/tedi-design-system/issues/700) ([#704](https://github.com/TEHIK-EE/tedi-design-system/issues/704)) ([fcc0c36](https://github.com/TEHIK-EE/tedi-design-system/commit/fcc0c3669eaf60d311d6f9e1a5365edb299f87b9))
+* **select:** Select dropdown z-index inside modal [#715](https://github.com/TEHIK-EE/tedi-design-system/issues/715) ([#720](https://github.com/TEHIK-EE/tedi-design-system/issues/720)) ([347b4d8](https://github.com/TEHIK-EE/tedi-design-system/commit/347b4d817a48b90db2bf07d3ea3cb642711e2206))
+* **status-badge:** fix abbreviation styles [#714](https://github.com/TEHIK-EE/tedi-design-system/issues/714) ([#721](https://github.com/TEHIK-EE/tedi-design-system/issues/721)) ([4e2199d](https://github.com/TEHIK-EE/tedi-design-system/commit/4e2199da94b07cb86f16abe625077c54ef46e085))
+* **tabs-nav-item:** fix printing [#569](https://github.com/TEHIK-EE/tedi-design-system/issues/569) ([#646](https://github.com/TEHIK-EE/tedi-design-system/issues/646)) ([5a59b7c](https://github.com/TEHIK-EE/tedi-design-system/commit/5a59b7cdc6fcbe6b1946771da6ae32f214f3573a))
+* **tooltip,popover:** fix exports [#705](https://github.com/TEHIK-EE/tedi-design-system/issues/705) ([#706](https://github.com/TEHIK-EE/tedi-design-system/issues/706)) ([c5d425f](https://github.com/TEHIK-EE/tedi-design-system/commit/c5d425f7fdfd1b64ce649ae0e6dac9c79dac70ac))
+
+
+### Features
+
+* **button,link:** Add ability to display flexed Icons for Link, fix long text in Button [#463](https://github.com/TEHIK-EE/tedi-design-system/issues/463) ([#537](https://github.com/TEHIK-EE/tedi-design-system/issues/537)) ([62030e6](https://github.com/TEHIK-EE/tedi-design-system/commit/62030e660ab0eb66afe267ee60501b67f16c9f0a))
+* **collapse:** TEDI-Ready Collapse component development [#696](https://github.com/TEHIK-EE/tedi-design-system/issues/696) ([#722](https://github.com/TEHIK-EE/tedi-design-system/issues/722)) ([69afc05](https://github.com/TEHIK-EE/tedi-design-system/commit/69afc052572ec0ef8c3c6719efb0731d99103b3a))
+* **select:** Community select input bug fix [[#695](https://github.com/TEHIK-EE/tedi-design-system/issues/695)] ([#698](https://github.com/TEHIK-EE/tedi-design-system/issues/698)) ([2b4a2c9](https://github.com/TEHIK-EE/tedi-design-system/commit/2b4a2c9630cc90275b0853061bf54a3f40faa275))
+* **select:** TEDI Select development [#333](https://github.com/TEHIK-EE/tedi-design-system/issues/333) ([#670](https://github.com/TEHIK-EE/tedi-design-system/issues/670)) ([7d1c768](https://github.com/TEHIK-EE/tedi-design-system/commit/7d1c7684e10b91baa2ca969d696e063f273da51f))
+* **text-group:** add text group component with horizontal and vertic… ([#687](https://github.com/TEHIK-EE/tedi-design-system/issues/687)) ([7860191](https://github.com/TEHIK-EE/tedi-design-system/commit/78601910e65b400e5447fd2c2742170438fafa99)), closes [#664](https://github.com/TEHIK-EE/tedi-design-system/issues/664) [#664](https://github.com/TEHIK-EE/tedi-design-system/issues/664) [#664](https://github.com/TEHIK-EE/tedi-design-system/issues/664) [#664](https://github.com/TEHIK-EE/tedi-design-system/issues/664) [#664](https://github.com/TEHIK-EE/tedi-design-system/issues/664) [#664](https://github.com/TEHIK-EE/tedi-design-system/issues/664)
+
 # [@tehik-ee/tedi-react-v11.3.0-rc.14](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.3.0-rc.13...react-11.3.0-rc.14) (2025-04-24)
 
 ### Features
