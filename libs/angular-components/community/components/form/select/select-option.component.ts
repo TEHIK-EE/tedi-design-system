@@ -1,7 +1,6 @@
 import {
   Component,
   ElementRef,
-  OnInit,
   TemplateRef,
   inject,
   input,
@@ -12,9 +11,9 @@ import {
   selector: "tedi-select-option",
   standalone: true,
   imports: [],
-  template: `<ng-content />`,
+  template: `<ng-template #optionTemplate><ng-content /></ng-template>`,
 })
-export class SelectOptionComponent implements OnInit {
+export class SelectOptionComponent {
   /*
    * The value of the option.
    */
@@ -25,13 +24,6 @@ export class SelectOptionComponent implements OnInit {
    */
   isDisabled = input<boolean>(false);
 
-  textContent!: string;
-  innerHtml!: string;
-
   optionRef = inject(ElementRef);
-
-  ngOnInit() {
-    this.textContent = this.optionRef?.nativeElement?.textContent;
-    this.innerHtml = this.optionRef?.nativeElement?.innerHTML;
-  }
+  templateRef = viewChild("optionTemplate", { read: TemplateRef<any> });
 }

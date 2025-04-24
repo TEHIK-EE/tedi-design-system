@@ -12,8 +12,8 @@
     class="tedi-select__label"
     [class.tedi-select__label--placeholder]="!_selectedValue()"
   >
-    @if (selectedLabel(); as label) {
-      {{ label }}
+    @if (selectedLabel(); as labelTemplate) {
+      <ng-container [ngTemplateOutlet]="labelTemplate"></ng-container>
     } @else {
       {{ placeholder() }}
     }
@@ -49,10 +49,9 @@
           (cdkMenuItemTriggered)="select(option.value())"
           [selected]="option.value() === _selectedValue()"
           [disabled]="option.isDisabled()"
-          [innerHtml]="option.innerHtml"
-          [attr.aria-label]="option.textContent"
-          [title]="option.textContent"
-        ></button>
+        >
+          <ng-continer [ngTemplateOutlet]="option.templateRef() ?? null" />
+        </button>
       }
     </tedi-card-content>
   </tedi-card>

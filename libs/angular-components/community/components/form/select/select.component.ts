@@ -140,10 +140,10 @@ export class SelectComponent
     this.onTouched();
   }
 
-  selectedLabel = computed(
-    () =>
-      this._options().find((option) => option.value() === this._selectedValue())
-        ?.textContent,
+  selectedLabel = computed(() =>
+    this._options()
+      .find((option) => option.value() === this._selectedValue())
+      ?.templateRef(),
   );
 
   private setDropdownWidth() {
