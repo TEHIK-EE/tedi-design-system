@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-react-v11.3.0-rc.11](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.3.0-rc.10...react-11.3.0-rc.11) (2025-04-24)
+
+
+### Bug Fixes
+
+* **status-badge:** fix abbreviation styles [#714](https://github.com/TEHIK-EE/tedi-design-system/issues/714) ([#721](https://github.com/TEHIK-EE/tedi-design-system/issues/721)) ([4e2199d](https://github.com/TEHIK-EE/tedi-design-system/commit/4e2199da94b07cb86f16abe625077c54ef46e085))
+
 # [@tehik-ee/tedi-react-v11.3.0-rc.10](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.3.0-rc.9...react-11.3.0-rc.10) (2025-04-21)
 
 
