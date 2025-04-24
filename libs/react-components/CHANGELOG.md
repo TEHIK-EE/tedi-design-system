@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-react-v11.3.0-rc.12](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.3.0-rc.11...react-11.3.0-rc.12) (2025-04-24)
+
+
+### Bug Fixes
+
+* **select:** Select dropdown z-index inside modal [#715](https://github.com/TEHIK-EE/tedi-design-system/issues/715) ([#720](https://github.com/TEHIK-EE/tedi-design-system/issues/720)) ([347b4d8](https://github.com/TEHIK-EE/tedi-design-system/commit/347b4d817a48b90db2bf07d3ea3cb642711e2206))
+
 # [@tehik-ee/tedi-react-v11.3.0-rc.11](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.3.0-rc.10...react-11.3.0-rc.11) (2025-04-24)
 
 
