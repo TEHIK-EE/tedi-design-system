@@ -143,7 +143,7 @@ export class SelectComponent
   selectedLabel = computed(() =>
     this._options()
       .find((option) => option.value() === this._selectedValue())
-      ?.templateRef(),
+      ?.label(),
   );
 
   private setDropdownWidth() {

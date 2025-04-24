@@ -36,8 +36,12 @@
     }
   }
 
-  &:hover,
-  &:focus {
+  &:hover:not(.tedi-dropdown-item--active, .tedi-dropdown-item--disabled) {
+    --_background-color: var(--dropdown-item-hover-background);
+    --_color: var(--dropdown-item-hover-text);
+  }
+
+  &:focus-visible {
     --_background-color: var(--dropdown-item-hover-background);
     --_color: var(--dropdown-item-hover-text);
   }

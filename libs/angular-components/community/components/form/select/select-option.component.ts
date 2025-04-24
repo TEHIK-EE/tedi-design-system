@@ -18,6 +18,10 @@ export class SelectOptionComponent {
    * The value of the option.
    */
   value = input.required<any>();
+  /*
+   * The label of the option.
+   */
+  label = input.required<any>();
 
   /*
    * Should the option be disabled?
@@ -25,5 +29,5 @@ export class SelectOptionComponent {
   isDisabled = input<boolean>(false);
 
   optionRef = inject(ElementRef);
-  templateRef = viewChild("optionTemplate", { read: TemplateRef<any> });
+  templateRef = viewChild("optionTemplate", { read: TemplateRef });
 }

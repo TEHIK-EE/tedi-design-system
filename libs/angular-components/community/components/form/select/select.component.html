@@ -12,8 +12,8 @@
     class="tedi-select__label"
     [class.tedi-select__label--placeholder]="!_selectedValue()"
   >
-    @if (selectedLabel(); as labelTemplate) {
-      <ng-container [ngTemplateOutlet]="labelTemplate"></ng-container>
+    @if (selectedLabel(); as label) {
+      {{ label }}
     } @else {
       {{ placeholder() }}
     }
@@ -50,7 +50,9 @@
           [selected]="option.value() === _selectedValue()"
           [disabled]="option.isDisabled()"
         >
-          <ng-continer [ngTemplateOutlet]="option.templateRef() ?? null" />
+          @if (option.templateRef(); as optionTemplate) {
+            <ng-continer [ngTemplateOutlet]="optionTemplate" />
+          }
         </button>
       }
     </tedi-card-content>
