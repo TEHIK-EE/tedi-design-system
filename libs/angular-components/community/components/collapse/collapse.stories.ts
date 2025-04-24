@@ -1,18 +1,63 @@
-import type { Meta, StoryObj } from "@storybook/angular";
+import { argsToTemplate, type Meta, type StoryObj } from "@storybook/angular";
 
 import { CollapseComponent } from "./collapse.component";
 
 export default {
   title: "Community Angular/Components/Collapse",
   component: CollapseComponent,
+  args: {
+    openText: "Näita rohkem infot",
+    closeText: "Näita vähem infot",
+    defaultOpen: false,
+    hideOpenCloseText: false,
+    arrowType: "default",
+  },
+  argTypes: {
+    openText: {
+      control: "text",
+      description:
+        "The title/header element for the collapsible section. Rendered inside the toggle button.",
+      table: {
+        defaultValue: { summary: "Open" },
+      },
+    },
+    closeText: {
+      control: "text",
+      description:
+        "Text shown on the toggle button when the content is expanded.",
+      table: {
+        defaultValue: { summary: "Close" },
+      },
+    },
+    defaultOpen: {
+      control: "boolean",
+      description: "Whether the collapse should be initially open.",
+      table: {
+        defaultValue: { summary: "false" },
+      },
+    },
+    hideOpenCloseText: {
+      control: "boolean",
+      description: "To show or hide the openText and closeText",
+      table: {
+        defaultValue: { summary: "false" },
+      },
+    },
+    arrowType: {
+      control: "radio",
+      options: ["default", "secondary"],
+      description:
+        "You are able to toggle different arrow styles. Arrow type 'secondary' will add a circle over the icon.",
+      table: {
+        defaultValue: { summary: "default" },
+      },
+    },
+  },
   render: (args) => ({
     props: args,
     template: `
       <tedi-collapse
-        title="Juhtumi üldandmed"
-        openText="Näita rohkem"
-        closeText="Näita vähem"
-        [hideOpenCloseText]="false"
+        ${argsToTemplate(args)}
       >
         <div>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora rerum
