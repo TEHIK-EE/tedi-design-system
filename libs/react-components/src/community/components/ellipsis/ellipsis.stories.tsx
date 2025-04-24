@@ -6,6 +6,11 @@ import Ellipsis, { EllipsisProps } from './ellipsis';
 export default {
   title: 'Community/Ellipsis',
   component: Ellipsis,
+  parameters: {
+    status: {
+      type: ['deprecated', 'ExistsInTediReady'],
+    },
+  },
 } as Meta;
 
 type Story = StoryObj<typeof Ellipsis>;
