@@ -1,4 +1,4 @@
-import { Component, inject, input, Renderer2, signal } from "@angular/core";
+import { Component, inject, input, Renderer2, signal, AfterViewInit } from "@angular/core";
 import { IconComponent, TextComponent } from "@tehik-ee/tedi-angular/tedi";
 
 export type ArrowType = "default" | "secondary";
@@ -10,7 +10,7 @@ export type ArrowType = "default" | "secondary";
   templateUrl: "./collapse.component.html",
   styleUrls: ["./collapse.component.scss"],
 })
-export class CollapseComponent {
+export class CollapseComponent implements AfterViewInit {
   /**
    * The title/header element for the collapsible section.
    * Rendered inside the toggle button.
