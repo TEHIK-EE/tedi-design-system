@@ -53,7 +53,7 @@ export default {
       description:
         "The position of the tooltip relative to the trigger element. ",
       defaultValue: {
-        summary: '"top, bottom, left, right"',
+        summary: "top",
       },
     },
     maxWidth: {
