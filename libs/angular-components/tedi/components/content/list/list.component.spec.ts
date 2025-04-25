@@ -33,4 +33,11 @@ describe("List Component", () => {
   it("should handle undefined values for class", () => {
     expect(listElement.classList).not.toContain("undefined");
   });
+
+  it("should apply the correct color class", () => {
+    fixture.componentRef.setInput("color", "primary");
+    fixture.detectChanges();
+
+    expect(listElement.classList).toContain("tedi-list--bullet-color-primary");
+  });
 });
