@@ -1,6 +1,20 @@
-import { argsToTemplate, type Meta, type StoryObj } from "@storybook/angular";
+import {
+  argsToTemplate,
+  type Meta,
+  type StoryObj,
+  moduleMetadata,
+} from "@storybook/angular";
 
 import { CollapseComponent } from "./collapse.component";
+import { VerticalSpacingDirective } from "@tehik-ee/tedi-angular/tedi";
+import { TextGroupComponent } from "../text-group/text-group.component";
+
+/**
+ * <a href="https://www.figma.com/design/jWiRIXhHRxwVdMSimKX2FF/TEDI-READY-2.0.4-(work-in-progress)?node-id=15433-138256&amp;m=dev" target="_BLANK" class="sbdocs sbdocs-a css-ajfpqr">Figma ↗</a><br>
+ * <a href="https://tedi.tehik.ee/1ee8444b7/p/546461-floating-button" target="_BLANK" class="sbdocs sbdocs-a css-ajfpqr">Zeroheight ↗</a>
+ * <hr>
+ * <p>Collapse component is used to hide or show content.</p>
+ */
 
 export default {
   title: "Community Angular/Components/Collapse",
@@ -107,7 +121,6 @@ export const NoContent: Story = {
       <tedi-collapse
         ${argsToTemplate(args)}
       >
-        <!-- No content inside -->
       </tedi-collapse>
     `,
   }),
@@ -122,6 +135,45 @@ export const LongContent: Story = {
       >
         <div>
           ${"Lorem ipsum dolor sit amet, consectetur adipiscing elit. ".repeat(50)}
+        </div>
+      </tedi-collapse>
+    `,
+  }),
+};
+
+export const ChildComponent: Story = {
+  decorators: [
+    moduleMetadata({
+      imports: [VerticalSpacingDirective, TextGroupComponent],
+    }),
+  ],
+  render: (args) => ({
+    props: args,
+    template: `
+      <tedi-collapse
+        ${argsToTemplate(args)}
+      >
+        <div [tediVerticalSpacing]="0.5">
+          <tedi-text-group
+            labelWidth="150px"
+            label="Patsient"
+            value="Mari Maasikas"
+          />
+          <tedi-text-group
+            labelWidth="150px"
+            label="Address"
+            value="Tulbi tn 4, Tallinn, 23562, Estonia"
+          />
+          <tedi-text-group
+            labelWidth="150px"
+            label="Tervisekassa"
+            value="SA Põhja-Eesti Regionaalhaigla"
+          />
+          <tedi-text-group
+            labelWidth="150px"
+            label="Kuupäev"
+            value="16.08.2023 14:51:48"
+          />
         </div>
       </tedi-collapse>
     `,
