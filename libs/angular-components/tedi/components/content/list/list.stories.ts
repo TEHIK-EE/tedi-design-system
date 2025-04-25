@@ -19,6 +19,10 @@ export default {
       imports: [ListComponent],
     }),
   ],
+  args: {
+    styled: true,
+    color: "primary",
+  },
   argTypes: {
     styled: {
       description: "Is list styled?",
@@ -29,6 +33,27 @@ export default {
         category: "inputs",
         type: { summary: "boolean" },
         defaultValue: { summary: "true" },
+      },
+    },
+    color: {
+      description: "Color of the list bullet.",
+      control: "select",
+      options: [
+        "primary",
+        "secondary",
+        "tertiary",
+        "brand",
+        "brand-dark",
+        "success",
+        "warning",
+        "warning-dark",
+        "danger",
+        "white",
+      ],
+      table: {
+        category: "inputs",
+        type: { summary: "BulletColor" },
+        defaultValue: { summary: "primary" },
       },
     },
   },
