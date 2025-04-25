@@ -37,9 +37,9 @@ export class ListComponent {
   styled = input<boolean>(true);
   /**
    * Color of the list bullet.
-   * @default primary
+   * @default brand
    */
-  color = input<BulletColor>("primary");
+  color = input<BulletColor>("brand");
 
   classes = computed(() => {
     const classList = ["tedi-list"];

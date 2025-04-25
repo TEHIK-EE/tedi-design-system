@@ -21,11 +21,11 @@ export default {
   ],
   args: {
     styled: true,
-    color: "primary",
+    color: "brand",
   },
   argTypes: {
     styled: {
-      description: "Is list styled?",
+      description: "Used for showing or hiding the list bullets.",
       control: {
         type: "boolean",
       },
@@ -53,7 +53,7 @@ export default {
       table: {
         category: "inputs",
         type: { summary: "BulletColor" },
-        defaultValue: { summary: "primary" },
+        defaultValue: { summary: "brand" },
       },
     },
   },
