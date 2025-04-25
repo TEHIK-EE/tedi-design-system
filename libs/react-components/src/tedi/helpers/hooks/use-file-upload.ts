@@ -138,12 +138,16 @@ export const useFileUpload = (props: UseFileUploadProps) => {
         if (!isValidExtension) rejectedFiles.push({ type: 'extension', file });
         if (!isValidSize) rejectedFiles.push({ type: 'size', file });
 
-        return {
-          ...file,
+        const enhancedFile = new File([file], file.name, {
+          type: file.type,
+          lastModified: file.lastModified,
+        });
+
+        return Object.assign(enhancedFile, {
+          id: crypto.randomUUID(),
           isLoading: false,
-          name: file.name,
           isValid: isValidExtension && isValidSize,
-        };
+        });
       });
 
       if (!multiple && uploadedFiles.length > 0) {
