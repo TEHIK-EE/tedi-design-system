@@ -30,7 +30,7 @@ export default {
     openText: {
       control: "text",
       description:
-        "The title/header element for the collapsible section. Rendered inside the toggle button.",
+        "The title for the collapsible section. Rendered inside the toggle button.",
       table: {
         defaultValue: { summary: "Open" },
       },
@@ -45,7 +45,7 @@ export default {
     },
     defaultOpen: {
       control: "boolean",
-      description: "Whether the collapse should be initially open.",
+      description: "Optional prop to set the collapse open by default.",
       table: {
         defaultValue: { summary: "false" },
       },
@@ -109,7 +109,7 @@ export const SecondaryArrowType: Story = {
 
 export const CustomOpenCloseText: Story = {
   args: {
-    openText: "Vajuta siia, et näha veel rohkem informatsiooni",
+    openText: "Vajuta siia, et näha rohkem informatsiooni",
     closeText: "Vajuta siia, et peita kogu informatsioon",
   },
 };

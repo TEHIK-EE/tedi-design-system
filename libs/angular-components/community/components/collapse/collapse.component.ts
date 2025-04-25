@@ -1,4 +1,11 @@
-import { Component, inject, input, Renderer2, signal, AfterViewInit } from "@angular/core";
+import {
+  Component,
+  inject,
+  input,
+  Renderer2,
+  signal,
+  AfterViewInit,
+} from "@angular/core";
 import { IconComponent, TextComponent } from "@tehik-ee/tedi-angular/tedi";
 
 export type ArrowType = "default" | "secondary";
@@ -14,26 +21,26 @@ export class CollapseComponent implements AfterViewInit {
   /**
    * The title/header element for the collapsible section.
    * Rendered inside the toggle button.
+   * @default "Open"
    */
-  openText = input<string>("Näita rohkem infot");
+  openText = input<string>("Open");
   /**
    * Text shown on the toggle button when the content is expanded.
    * @default "Close"
    */
-  closeText = input<string>("Näita vähem infot");
+  closeText = input<string>("Close");
   /**
    * Whether the collapse should be initially open.
    * @default false
    */
   defaultOpen = input<boolean>(false);
   /**
-   * To show or hide the openText and closeText
+   * To show or hide the openText and closeText.
    * @default "false"
    */
   hideOpenCloseText = input<boolean>(false);
   /**
-   * You are able to toggle different arrow styles.
-   * Arrow type "secondary" will add a circle over the icon.
+   * Option for toggling different arrow styles.
    * @default "default"
    */
   arrowType = input<ArrowType>("default");
