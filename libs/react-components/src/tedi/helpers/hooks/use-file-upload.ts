@@ -144,7 +144,6 @@ export const useFileUpload = (props: UseFileUploadProps) => {
         });
 
         return Object.assign(enhancedFile, {
-          id: crypto.randomUUID(),
           isLoading: false,
           isValid: isValidExtension && isValidSize,
         });
