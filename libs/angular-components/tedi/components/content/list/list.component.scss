@@ -27,7 +27,7 @@ ul.tedi-list {
 
   li {
     position: relative;
-    padding-left: var(--list-padding-left-level-1-desktop);
+    @include mixins.responsive-styles(padding-left, list-padding-left-level-1);
 
     &::before {
       position: absolute;
