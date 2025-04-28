@@ -12,6 +12,7 @@ export default {
     placeholder: "Enter text",
     disabled: false,
     size: "default",
+    state: "default",
     resizeX: false,
     resizeY: true,
   },
