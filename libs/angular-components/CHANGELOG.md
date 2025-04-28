@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-angular-v1.7.0-rc.2](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.7.0-rc.1...angular-1.7.0-rc.2) (2025-04-28)
+
+
+### Features
+
+* **tooltip:** Angular community tooltip  [#669](https://github.com/TEHIK-EE/tedi-design-system/issues/669) ([#713](https://github.com/TEHIK-EE/tedi-design-system/issues/713)) ([3c80915](https://github.com/TEHIK-EE/tedi-design-system/commit/3c8091523c4c61cbba070595ccadd66defe9b301))
+
 # [@tehik-ee/tedi-angular-v1.7.0-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.6.0...angular-1.7.0-rc.1) (2025-04-24)
 
 
