@@ -1,12 +1,21 @@
-import { Meta, StoryObj, argsToTemplate, moduleMetadata } from "@storybook/angular";
+import { Meta, StoryFn, StoryObj, argsToTemplate, moduleMetadata } from "@storybook/angular";
 import { ToggleComponent } from "./toggle.component";
+import { ColComponent, RowComponent } from "@tehik-ee/tedi-angular/tedi";
+import { LabelComponent } from "../label/label.component";
+
+const PSEUDO_STATE = ["Default", "Hover", "Active", "Focus"];
+
+/**
+ * <a href="https://www.figma.com/design/jWiRIXhHRxwVdMSimKX2FF/TEDI-READY-2.1.6--work-in-progress-?node-id=7123-152108&m=dev" target="_blank">Figma ↗</a><br/>
+ * <a href="https://tedi.tehik.ee/1ee8444b7/p/7083d0-toggle" target="_blank">Zeroheight ↗</a>
+ */
 
 export default {
   title: "Community Angular/Form/Toggle",
   component: ToggleComponent,
   decorators: [
     moduleMetadata({
-      imports: [ToggleComponent],
+      imports: [ToggleComponent, RowComponent, ColComponent, LabelComponent],
     }),
   ],
   argTypes: {
@@ -114,4 +123,121 @@ export const Default: StoryObj<ToggleComponent> = {
     props: args,
     template: `<tedi-toggle ${argsToTemplate(args)} />`,
   }),
+};
+
+export const Size: StoryObj<ToggleComponent> = {
+  render: (args) => ({
+    props: args,
+    template: `
+      <tedi-row [cols]="2" [gapY]="3">
+        <b>Default</b>
+        <tedi-toggle id="example-toggle-2.1" />
+        <b>Large</b>
+        <tedi-toggle id="example-toggle-2.2" size="large" />
+      </tedi-row>
+    `,
+  })
+};
+
+export const LabelPosition: StoryObj<ToggleComponent> = {
+  render: (args) => ({
+    props: args,
+    template: `
+      <tedi-row [cols]="1" [gapY]="3">
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <label tedi-label for="example-toggle-3.1">Toggle button</label>
+          <tedi-toggle [id]="'example-toggle-3.1'" />
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <tedi-toggle [id]="'example-toggle-3.2'" />
+          <label tedi-label for="example-toggle-3.2">Toggle button</label>
+        </div>
+      </tedi-row>
+    `,
+  })
+};
+
+const Template: StoryFn<ToggleComponent> = (args) => ({
+  props: { ...args, pseudoState: PSEUDO_STATE },
+  template: `
+    <tedi-row [cols]="1" [gapY]="4">
+      <tedi-row *ngFor="let state of pseudoState;" cols="4" alignItems="center">
+        <b>{{ state }}</b>
+        <tedi-col [width]="3" style="display: flex; flex-wrap: wrap; align-items: center; column-gap: 2rem; row-gap: 0.75rem;">
+          <div style="display: flex; align-items: center; gap: 0.75rem;">
+            <tedi-toggle ${argsToTemplate(args)} [id]="state" />
+            <tedi-toggle ${argsToTemplate(args)} [id]="state" [checked]="true" />
+          </div>
+          <div style="display: flex; align-items: center; gap: 0.75rem;">
+            <tedi-toggle ${argsToTemplate(args)} [id]="state" size="large" />
+            <tedi-toggle ${argsToTemplate(args)} [id]="state" size="large" [checked]="true" />
+          </div>
+          <div style="display: flex; align-items: center; gap: 0.75rem;">
+            <tedi-toggle ${argsToTemplate(args)} [id]="state" size="large" [icon]="true" />
+            <tedi-toggle ${argsToTemplate(args)} [id]="state" size="large" [icon]="true" [checked]="true" />
+          </div>
+        </tedi-col>
+      </tedi-row>
+    </tedi-row>
+  `,
+});
+
+export const PrimaryFilled: StoryObj<ToggleComponent> = {
+  parameters: {
+    pseudo: {
+      hover: "#Hover",
+      active: "#Active",
+      focusVisible: "#Focus",
+    },
+  },
+  args: {
+    type: "filled",
+    variant: "primary"
+  },
+  render: Template,
+};
+
+export const PrimaryOutlined: StoryObj<ToggleComponent> = {
+  parameters: {
+    pseudo: {
+      hover: "#Hover",
+      active: "#Active",
+      focusVisible: "#Focus",
+    },
+  },
+  args: {
+    type: "outlined",
+    variant: "primary"
+  },
+  render: Template,
+};
+
+export const ColoredFilled: StoryObj<ToggleComponent> = {
+  parameters: {
+    pseudo: {
+      hover: "#Hover",
+      active: "#Active",
+      focusVisible: "#Focus",
+    },
+  },
+  args: {
+    type: "filled",
+    variant: "colored"
+  },
+  render: Template,
+};
+
+export const ColoredOutlined: StoryObj<ToggleComponent> = {
+  parameters: {
+    pseudo: {
+      hover: "#Hover",
+      active: "#Active",
+      focusVisible: "#Focus",
+    },
+  },
+  args: {
+    type: "outlined",
+    variant: "colored"
+  },
+  render: Template,
 };
