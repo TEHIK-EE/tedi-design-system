@@ -2,10 +2,14 @@ import {
   ChangeDetectionStrategy,
   Component,
   computed,
+  ElementRef,
+  forwardRef,
   input,
   model,
+  ViewChild,
   ViewEncapsulation,
 } from "@angular/core";
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from "@angular/forms";
 import { IconColor, IconComponent } from "@tehik-ee/tedi-angular/tedi";
 
 export type ToggleVariant = "primary" | "colored";
@@ -20,11 +24,36 @@ export type ToggleSize = "default" | "large";
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [IconComponent],
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => ToggleComponent),
+      multi: true
+    }
+  ],
   host: {
-    "[class]": "classes()",
-  },
+    "[class]": "classes()"
+  }
 })
-export class ToggleComponent {
+export class ToggleComponent implements ControlValueAccessor {
+  /**
+   * The unique identifier for the input element that is associated with label.
+   */
+  id = input.required<string>();
+  /**
+   * Is toggle checked? Supports two-way binding, use with form controls.
+   */
+  checked = model<boolean>(false);
+  /**
+   * Is input disabled?
+   * @default false
+   */
+  disabled = input<boolean>(false);
+  /**
+   * Indicates whether the input field is required.
+   * @default false
+   */
+  required = input<boolean>(false);
   /**
    * Color variant of the toggle
    * @default primary
@@ -45,10 +74,37 @@ export class ToggleComponent {
    * @default false
    */
   icon = input<boolean>(false);
-  /**
-   * Value of the toggle. Supports two-way binding, use with form controls.
-   */
-  value = model<boolean>(false);
+
+  @ViewChild('inputElement') inputRef!: ElementRef<HTMLInputElement>;
+  private onChange: (checked: boolean) => void = () => {};
+  private onTouched: () => void = () => {};
+
+  writeValue(checked: boolean): void {
+    this.checked.set(checked);
+  }
+
+  registerOnChange(fn: (checked: boolean) => void): void {
+    this.onChange = fn;
+  }
+
+  registerOnTouched(fn: () => void): void {
+    this.onTouched = fn;
+  }
+
+  focus(): void {
+    this.inputRef.nativeElement.focus();
+  }
+
+  blur(): void {
+    this.inputRef.nativeElement.blur();
+    this.onTouched();
+  }
+
+  handleChange = (event: Event) => {
+    const target = event.target as HTMLInputElement;
+    this.checked.set(target.checked);
+    this.onChange(target.checked);
+  }
 
   classes = computed(() => {
     return [
@@ -65,14 +121,9 @@ export class ToggleComponent {
 
     switch (this.variant()) {
       case "primary":
-        return this.value() ? "brand": "tertiary";
+        return this.checked() ? "brand": "tertiary";
       case "colored":
-        return this.value() ? "success" : "danger";
+        return this.checked() ? "success" : "danger";
     }
   });
-
-  handleChange = (event: Event) => {
-    const target = event.target as HTMLInputElement;
-    this.value.set(target.checked);
-  }
 }
