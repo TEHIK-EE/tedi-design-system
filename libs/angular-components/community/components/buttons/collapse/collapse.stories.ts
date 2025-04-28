@@ -7,7 +7,7 @@ import {
 
 import { CollapseComponent } from "./collapse.component";
 import { VerticalSpacingDirective } from "@tehik-ee/tedi-angular/tedi";
-import { TextGroupComponent } from "../text-group/text-group.component";
+import { TextGroupComponent } from "../../text-group/text-group.component";
 
 /**
  * <a href="https://www.figma.com/design/jWiRIXhHRxwVdMSimKX2FF/TEDI-READY-2.0.4-(work-in-progress)?node-id=15433-138256&amp;m=dev" target="_BLANK" class="sbdocs sbdocs-a css-ajfpqr">Figma ↗</a><br>
@@ -17,13 +17,13 @@ import { TextGroupComponent } from "../text-group/text-group.component";
  */
 
 export default {
-  title: "Community Angular/Components/Collapse",
+  title: "Community Angular/Buttons/Collapse",
   component: CollapseComponent,
   args: {
     openText: "Näita rohkem infot",
     closeText: "Näita vähem infot",
     defaultOpen: false,
-    hideOpenCloseText: false,
+    hideCollapseText: false,
     arrowType: "default",
   },
   argTypes: {
@@ -32,7 +32,7 @@ export default {
       description:
         "The title for the collapsible section. Rendered inside the toggle button.",
       table: {
-        defaultValue: { summary: "Open" },
+        defaultValue: { summary: "Näita rohkem" },
       },
     },
     closeText: {
@@ -40,7 +40,7 @@ export default {
       description:
         "Text shown on the toggle button when the content is expanded.",
       table: {
-        defaultValue: { summary: "Close" },
+        defaultValue: { summary: "Näita vähem" },
       },
     },
     defaultOpen: {
@@ -50,7 +50,7 @@ export default {
         defaultValue: { summary: "false" },
       },
     },
-    hideOpenCloseText: {
+    hideCollapseText: {
       control: "boolean",
       description: "To show or hide the openText and closeText",
       table: {
@@ -97,7 +97,7 @@ export const InitiallyOpen: Story = {
 
 export const HiddenOpenCloseText: Story = {
   args: {
-    hideOpenCloseText: true,
+    hideCollapseText: true,
   },
 };
 

@@ -21,14 +21,14 @@ export class CollapseComponent implements AfterViewInit {
   /**
    * The title/header element for the collapsible section.
    * Rendered inside the toggle button.
-   * @default "Open"
+   * @default "Näita"
    */
-  openText = input<string>("Open");
+  openText = input<string>("Näita rohkem");
   /**
    * Text shown on the toggle button when the content is expanded.
-   * @default "Close"
+   * @default "Peida"
    */
-  closeText = input<string>("Close");
+  closeText = input<string>("Näita vähem");
   /**
    * Whether the collapse should be initially open.
    * @default false
@@ -38,14 +38,14 @@ export class CollapseComponent implements AfterViewInit {
    * To show or hide the openText and closeText.
    * @default "false"
    */
-  hideOpenCloseText = input<boolean>(false);
+  hideCollapseText = input<boolean>(false);
   /**
    * Option for toggling different arrow styles.
    * @default "default"
    */
   arrowType = input<ArrowType>("default");
 
-  collapseContentId: string = `collapse-content-${Math.random().toString(36).substr(2, 9)}`;
+  collapseContentId: string = `collapse-content-${self.crypto.randomUUID()}`;
   isOpen = signal<boolean>(false);
   renderer = inject(Renderer2);
 

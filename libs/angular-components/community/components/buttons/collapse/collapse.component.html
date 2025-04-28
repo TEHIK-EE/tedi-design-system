@@ -5,7 +5,7 @@
     [attr.aria-expanded]="isOpen() ? true : false"
     [attr.aria-controls]="collapseContentId"
   >
-    @if (hideOpenCloseText() === false) {
+    @if (hideCollapseText() === false) {
       <p tedi-text color="brand" class="collapse__button--text">
         {{ isOpen() ? closeText() : openText() }}
       </p>
