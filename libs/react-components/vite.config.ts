@@ -75,6 +75,7 @@ const config: UserConfig = {
     rollupOptions: {
       external: (id) =>
         Object.keys(packageJson.dependencies).some((pkg) => id === pkg || id.startsWith(`${pkg}/`)) ||
+        Object.keys(packageJson.peerDependencies).some((pkg) => id === pkg || id.startsWith(`${pkg}/`)) ||
         id === 'react/jsx-runtime',
       output: {
         preserveModules: true,
