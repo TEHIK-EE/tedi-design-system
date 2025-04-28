@@ -42,14 +42,10 @@ export class ListComponent {
   color = input<BulletColor>("brand");
 
   classes = computed(() => {
-    const classList = ["tedi-list"];
+    const classList = ["tedi-list", `tedi-list--bullet-color-${this.color()}`];
 
     if (!this.styled()) {
       classList.push("tedi-list--unstyled");
-    }
-
-    if (this.color()) {
-      classList.push(`tedi-list--bullet-color-${this.color()}`);
     }
 
     return classList.join(" ");
