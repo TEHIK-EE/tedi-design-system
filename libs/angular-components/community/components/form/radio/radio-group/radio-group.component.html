@@ -1,0 +1,19 @@
+@if (label()) {
+  <label tedi-label [for]="id()">
+    {{ label() }}
+  </label>
+}
+<div
+  class="tedi-radio-group__radios"
+  [style.flex-direction]="direction()"
+  [style.gap]="spacing() + 'px'"
+>
+  <ng-content />
+</div>
+@if (feedbackText(); as feedback) {
+  <tedi-feedback-text
+    [text]="feedback.text"
+    [type]="feedback.type"
+    [position]="feedback.position"
+  />
+}
