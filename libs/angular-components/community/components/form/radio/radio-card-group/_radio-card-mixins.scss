@@ -75,7 +75,7 @@
 
     &:has(.tedi-radio__input:hover) {
       --_radio-card-border: var(
-        --form-checkbox-radio-card-#{$variant}-hover-#{$border-type}
+        --form-checkbox-radio-card-#{$variant}-hover-border
       );
     }
 
