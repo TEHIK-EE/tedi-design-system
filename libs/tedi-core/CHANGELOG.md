@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-core-v1.12.3](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.12.2...core-1.12.3) (2025-04-28)
+
+
+### Bug Fixes
+
+* **tedi-core:** reverting mobile list padding to original value [#735](https://github.com/TEHIK-EE/tedi-design-system/issues/735) ([#736](https://github.com/TEHIK-EE/tedi-design-system/issues/736)) ([7252fff](https://github.com/TEHIK-EE/tedi-design-system/commit/7252fff21d40523840fad2723260640d364b04bb))
+
 # [@tehik-ee/tedi-core-v1.12.2](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.12.1...core-1.12.2) (2025-04-28)
 
 
