@@ -42,7 +42,7 @@ export default {
         "Provides a text label for screen readers to announce the spinners purpose or status.",
       table: {
         category: "inputs",
-      }
+      },
     },
   },
 } as Meta<SpinnerComponent>;
