@@ -10,7 +10,7 @@ import { InputComponent } from "../input.component";
   selector: "[tedi-textarea]",
   standalone: true,
   template: "<ng-content />",
-  styleUrls: ["../input.component.scss", "./input-textarea.component.scss"],
+  styleUrls: ["../input.component.scss", "./textarea.component.scss"],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {

@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from "@storybook/angular";
-import { TextareaComponent } from "./input-textarea.component";
+import { TextareaComponent } from "./textarea.component";
 
 export default {
   title: "Community Angular/Form/TextArea",
