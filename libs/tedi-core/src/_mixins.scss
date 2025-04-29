@@ -11,11 +11,18 @@ $breakpoints: (
   xxl: 1400px,
 );
 
-@function construct-variables($variable-names, $suffix, $calc) {
+@function construct-variables($variable-names, $suffix, $calc, $additional-variable: null) {
   $result: '';
 
   @each $name in $variable-names {
-    $result: #{$result} apply-calculation(var(--#{$name}-#{$suffix}), $calc);
+    $base-value: var(--#{$name}-#{$suffix});
+    $additional-value: if($additional-variable != null, var(--#{$additional-variable}-#{$suffix}), null);
+
+    // Combine base value and additional variable using calc()
+    $combined-value: if($additional-value != null, calc(#{$base-value} + #{$additional-value}), $base-value);
+
+    // Apply additional calc logic if $calc is provided
+    $result: #{$result} apply-calculation($combined-value, $calc);
   }
 
   @return $result;
@@ -29,7 +36,7 @@ $breakpoints: (
   }
 }
 
-@mixin responsive-styles($property, $names, $exclude: null, $calc: null) {
+@mixin responsive-styles($property, $names, $exclude: null, $calc: null, $additional-variable: null) {
   $variable-names: ();
 
   @if meta.type-of($names) == 'string' {
@@ -39,18 +46,18 @@ $breakpoints: (
   }
 
   & {
-    #{$property}: #{construct-variables($variable-names, mobile, $calc)};
+    #{$property}: #{construct-variables($variable-names, mobile, $calc, $additional-variable)};
   }
 
   @if $exclude != 'tablet' {
     @media (min-width: map.get($breakpoints, sm)) {
-      #{$property}: #{construct-variables($variable-names, tablet, $calc)};
+      #{$property}: #{construct-variables($variable-names, tablet, $calc, $additional-variable)};
     }
   }
 
   @if $exclude != 'desktop' {
     @media (min-width: map.get($breakpoints, lg)) {
-      #{$property}: #{construct-variables($variable-names, desktop, $calc)};
+      #{$property}: #{construct-variables($variable-names, desktop, $calc, $additional-variable)};
     }
   }
 }
