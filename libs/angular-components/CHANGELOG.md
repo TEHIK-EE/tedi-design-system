@@ -1,3 +1,17 @@
+# [@tehik-ee/tedi-angular-v1.7.0-rc.4](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.7.0-rc.3...angular-1.7.0-rc.4) (2025-04-29)
+
+
+### Features
+
+* **radio:** community radio ([#710](https://github.com/TEHIK-EE/tedi-design-system/issues/710)) ([cdd81f3](https://github.com/TEHIK-EE/tedi-design-system/commit/cdd81f30afa8d5e9d41ca02b6db4f4d49e332745)), closes [#682](https://github.com/TEHIK-EE/tedi-design-system/issues/682) [#682](https://github.com/TEHIK-EE/tedi-design-system/issues/682) [#682](https://github.com/TEHIK-EE/tedi-design-system/issues/682) [#682](https://github.com/TEHIK-EE/tedi-design-system/issues/682) [#682](https://github.com/TEHIK-EE/tedi-design-system/issues/682) [#682](https://github.com/TEHIK-EE/tedi-design-system/issues/682) [#682](https://github.com/TEHIK-EE/tedi-design-system/issues/682) [#682](https://github.com/TEHIK-EE/tedi-design-system/issues/682)
+
+# [@tehik-ee/tedi-angular-v1.7.0-rc.3](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.7.0-rc.2...angular-1.7.0-rc.3) (2025-04-28)
+
+
+### Features
+
+* **list:** Angular list items color input update ([#729](https://github.com/TEHIK-EE/tedi-design-system/issues/729)) ([aea1208](https://github.com/TEHIK-EE/tedi-design-system/commit/aea1208456f4b0aa4524a473cdaf6fa99e8d5860)), closes [#521](https://github.com/TEHIK-EE/tedi-design-system/issues/521) [#521](https://github.com/TEHIK-EE/tedi-design-system/issues/521) [#521](https://github.com/TEHIK-EE/tedi-design-system/issues/521) [#521](https://github.com/TEHIK-EE/tedi-design-system/issues/521) [#521](https://github.com/TEHIK-EE/tedi-design-system/issues/521) [#521](https://github.com/TEHIK-EE/tedi-design-system/issues/521)
+
 # [@tehik-ee/tedi-angular-v1.7.0-rc.2](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.7.0-rc.1...angular-1.7.0-rc.2) (2025-04-28)
 
 

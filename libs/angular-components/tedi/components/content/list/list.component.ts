@@ -6,6 +6,18 @@ import {
   ViewEncapsulation,
 } from "@angular/core";
 
+export type BulletColor =
+  | "primary"
+  | "secondary"
+  | "tertiary"
+  | "brand"
+  | "brand-dark"
+  | "success"
+  | "warning"
+  | "warning-dark"
+  | "danger"
+  | "white";
+
 @Component({
   selector: "ul[tedi-list], ol[tedi-list]",
   standalone: true,
@@ -15,7 +27,7 @@ import {
   encapsulation: ViewEncapsulation.None,
   host: {
     "[class]": "classes()",
-  }
+  },
 })
 export class ListComponent {
   /**
@@ -23,9 +35,14 @@ export class ListComponent {
    * @default true
    */
   styled = input<boolean>(true);
+  /**
+   * Color of the list bullet.
+   * @default brand
+   */
+  color = input<BulletColor>("brand");
 
   classes = computed(() => {
-    const classList = ["tedi-list"];
+    const classList = ["tedi-list", `tedi-list--bullet-color-${this.color()}`];
 
     if (!this.styled()) {
       classList.push("tedi-list--unstyled");
