@@ -1,5 +1,10 @@
 import { Meta, StoryObj, moduleMetadata } from "@storybook/angular";
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import {
+  FormGroup,
+  FormControl,
+  FormsModule,
+  ReactiveFormsModule,
+} from "@angular/forms";
 import { SelectComponent } from "./select.component";
 import { SelectOptionComponent } from "./select-option.component";
 import { IconComponent } from "@tehik-ee/tedi-angular/tedi";
@@ -51,7 +56,6 @@ export const Basic: Story = {
             <tedi-icon name="close" /> Option 1
         </tedi-select-option>
         <tedi-select-option [value]="'option12'" [label]="'Option 12'">
-
           <tedi-icon name="check" /> Option 12
         </tedi-select-option>
         <tedi-select-option [value]="'option2'" [label]="'Option 2'">
@@ -70,19 +74,23 @@ export const WithPreselected: Story = {
   },
   render: (args) => ({
     template: `
-      <tedi-select [(ngModel)]="selectedValue" [placeholder]="placeholder">
-        <tedi-select-option [value]="'option1'" [label]="'Option 1'">
-          <tedi-icon name="login" /> Option 1 <small> Some description here also </small>
-        </tedi-select-option>
-        <tedi-select-option [value]="'option12'" [label]="'Option 12'">Option 12</tedi-select-option>
-        <tedi-select-option [value]="'option2'" [label]="'Option 2'">Option 2</tedi-select-option>
-        <tedi-select-option [value]="'option3'" [label]="'Option 3'">Option 3</tedi-select-option>
-      </tedi-select>
-      (ngModel): {{ selectedValue }}
+      <form [formGroup]="form">
+        <tedi-select formControlName="selectedOption" [placeholder]="placeholder">
+          <tedi-select-option [value]="'option1'" [label]="'Option 1'">
+            <tedi-icon name="login" /> Option 1 <small> Some description here also </small>
+          </tedi-select-option>
+          <tedi-select-option [value]="'option12'" [label]="'Option 12'">Option 12</tedi-select-option>
+          <tedi-select-option [value]="'option2'" [label]="'Option 2'">Option 2</tedi-select-option>
+          <tedi-select-option [value]="'option3'" [label]="'Option 3'">Option 3</tedi-select-option>
+        </tedi-select>
+      </form>
+      (FormControl value): {{ form.get('selectedOption').value }}
     `,
     props: {
       ...args,
-      selectedValue: "option2",
+      form: new FormGroup({
+        selectedOption: new FormControl("option2"),
+      }),
     },
   }),
 };
