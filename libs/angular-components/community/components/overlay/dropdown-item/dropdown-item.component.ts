@@ -22,7 +22,6 @@ export class DropdownItemComponent {
    * Applies the selected style to the dropdown item.
    */
   selected = input<boolean>(false);
-
   /**
    * Applies the disabled style to the dropdown item.
    */

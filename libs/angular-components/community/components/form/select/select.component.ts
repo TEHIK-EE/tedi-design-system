@@ -57,26 +57,22 @@ import { DropdownItemComponent } from "community/components/overlay/dropdown-ite
   },
 })
 export class SelectComponent
-  implements ControlValueAccessor, OnInit, AfterContentInit
-{
+  implements ControlValueAccessor, OnInit, AfterContentInit {
   /**
    * The placeholder text to display when no option is selected.
    * @default ""
    */
   placeholder = input<string>("");
-
   /**
    * Is the select disabled?
    * @default false
    */
   disabled = input<boolean>(false);
-
   /**
    * The state of the input.
    * @default "default"
    */
   state = input<InputState>("default");
-
   /**
    * The size of the input.
    * @default "default"
@@ -84,16 +80,16 @@ export class SelectComponent
   size = input<InputSize>("default");
 
   // Internal state
-  _selectedValue = signal<any>(null);
+  _selectedValue = signal(null);
   _disabled = signal<boolean>(false);
   _width = signal<number>(0);
   _options = contentChildren(SelectOptionComponent);
 
-  #selectRef = inject(ElementRef);
+  private selectRef = inject(ElementRef);
 
   // ControlValueAccessor methods
-  onChange = (value: any) => {};
-  onTouched = () => {};
+  private onChange = (value: any): void => {};
+  onTouched = (): void => {};
 
   writeValue(value: any): void {
     if (!value) return;
@@ -148,7 +144,7 @@ export class SelectComponent
 
   private setDropdownWidth() {
     const computedWidth =
-      this.#selectRef?.nativeElement?.getBoundingClientRect()?.width ?? 0;
+      this.selectRef?.nativeElement?.getBoundingClientRect()?.width ?? 0;
     this._width.set(computedWidth);
   }
 }

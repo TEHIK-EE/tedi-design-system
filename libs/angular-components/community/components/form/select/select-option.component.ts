@@ -10,11 +10,11 @@ export class SelectOptionComponent {
   /*
    * The value of the option.
    */
-  value = input.required<any>();
+  value = input.required();
   /*
    * The label of the option.
    */
-  label = input.required<any>();
+  label = input.required<string>();
   /*
    * Should the option be disabled?
    */
