@@ -1,0 +1,130 @@
+@use "@tehik-ee/tedi-core/mixins";
+
+@mixin input-state-styles {
+}
+
+.tedi-radio {
+  --_radio-bg: var(--form-checkbox-radio-default-background-default);
+  --_radio-border: var(--form-checkbox-radio-default-border-default);
+  --_radio-label-color: var(--general-text-primary);
+  --_radio-dot-bg: var(--_radio-border);
+  --_radio-dot-size: 12px;
+
+  display: grid;
+  grid-template-areas: "button label" ". feedback";
+  grid-template-columns: auto 1fr;
+  align-items: center;
+
+  @include mixins.responsive-styles(
+    --_radio-inner-spacing,
+    form-checkbox-radio-inner-spacing
+  );
+  @include mixins.responsive-styles(
+    --_radio-size,
+    form-checkbox-radio-size-responsive
+  );
+  @include mixins.responsive-styles(
+    --_label-size,
+    body-regular-size,
+    $exclude: tablet
+  );
+
+  &__button {
+    position: relative;
+    grid-area: button;
+  }
+
+  &__input {
+    position: absolute;
+    inset: 0;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+    z-index: 1;
+  }
+
+  &__indicator {
+    position: relative;
+    width: var(--_radio-size);
+    height: var(--_radio-size);
+    border-radius: 50%;
+    border: 1px solid var(--_radio-border);
+    background: var(--_radio-bg);
+    margin-right: var(--_radio-inner-spacing);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &::after {
+      content: "";
+      border-radius: 50%;
+      display: none;
+      background: var(--_radio-dot-bg);
+      height: var(--_radio-dot-size);
+      width: var(--_radio-dot-size);
+    }
+  }
+
+  &__label {
+    color: var(--_radio-label-color);
+    font-size: var(--_label-size);
+    grid-area: label;
+
+    @include mixins.responsive-styles(
+      font-family,
+      family-primary,
+      $exclude: tablet
+    );
+  }
+
+  &:has(#{&}__input:checked) {
+    .tedi-radio__indicator::after {
+      display: block;
+    }
+    --_radio-border: var(--form-checkbox-radio-default-border-selected);
+  }
+
+  &:has(#{&}__input:hover, #{&}__input:focus-visible) {
+    .tedi-radio__indicator {
+      outline: 1px solid var(--form-checkbox-radio-default-border-hover);
+    }
+    --_radio-border: var(--form-checkbox-radio-default-border-hover);
+  }
+
+  &:has(#{&}__input:active) {
+    --_radio-border: var(--form-checkbox-radio-default-border-active);
+  }
+
+  &:has(#{&}__input:disabled) {
+    pointer-events: none;
+    --_radio-label-color: var(--general-text-disabled);
+    --_radio-bg: var(--form-input-background-disabled);
+    --_radio-border: var(--form-input-border-disabled);
+  }
+
+  &:has(#{&}__input:disabled:checked) {
+    --_radio-dot-bg: var(
+      --form-checkbox-radio-default-background-selected-disabled
+    );
+    --_radio-border: var(
+      --form-checkbox-radio-default-border-selected-disabled
+    );
+  }
+
+  &--error {
+    --_radio-bg: var(--form-checkbox-radio-default-background-error);
+    --_radio-border: var(--form-general-feedback-error-border);
+  }
+
+  &--large {
+    --_radio-dot-size: 16px;
+    @include mixins.responsive-styles(
+      --_radio-size,
+      form-checkbox-radio-size-large
+    );
+  }
+
+  .tedi-feedback-text {
+    grid-area: feedback;
+  }
+}
