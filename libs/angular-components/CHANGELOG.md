@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-angular-v1.7.0-rc.4](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.7.0-rc.3...angular-1.7.0-rc.4) (2025-04-29)
+
+
+### Features
+
+* **radio:** community radio ([#710](https://github.com/TEHIK-EE/tedi-design-system/issues/710)) ([cdd81f3](https://github.com/TEHIK-EE/tedi-design-system/commit/cdd81f30afa8d5e9d41ca02b6db4f4d49e332745)), closes [#682](https://github.com/TEHIK-EE/tedi-design-system/issues/682) [#682](https://github.com/TEHIK-EE/tedi-design-system/issues/682) [#682](https://github.com/TEHIK-EE/tedi-design-system/issues/682) [#682](https://github.com/TEHIK-EE/tedi-design-system/issues/682) [#682](https://github.com/TEHIK-EE/tedi-design-system/issues/682) [#682](https://github.com/TEHIK-EE/tedi-design-system/issues/682) [#682](https://github.com/TEHIK-EE/tedi-design-system/issues/682) [#682](https://github.com/TEHIK-EE/tedi-design-system/issues/682)
+
 # [@tehik-ee/tedi-angular-v1.7.0-rc.3](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.7.0-rc.2...angular-1.7.0-rc.3) (2025-04-28)
 
 
