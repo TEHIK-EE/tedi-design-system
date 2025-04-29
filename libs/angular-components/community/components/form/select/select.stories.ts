@@ -46,6 +46,8 @@ export const Basic: Story = {
     props: args,
     template: `
       <tedi-select [placeholder]="placeholder" [disabled]="disabled" [state]="state" [size]="size">
+        <tedi-select-option [value]="'option0'" [label]="'Option 0'">
+        </tedi-select-option>
         <tedi-select-option [value]="'option1'" [label]="'Option 1'">
             <tedi-icon name="close" /> Option 1
         </tedi-select-option>

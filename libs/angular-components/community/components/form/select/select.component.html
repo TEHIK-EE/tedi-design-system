@@ -51,7 +51,12 @@
           [disabled]="option.isDisabled()"
         >
           @if (option.templateRef(); as optionTemplate) {
-            <ng-continer [ngTemplateOutlet]="optionTemplate" />
+            <div class="template">
+              <ng-container [ngTemplateOutlet]="optionTemplate" />
+            </div>
+            <div class="label">
+              {{ option.label() }}
+            </div>
           }
         </button>
       }
