@@ -50,7 +50,7 @@ export const WithIcon: Story = {
   render: () => ({
     template: `
       <div tedi-dropdown-item>
-        <tedi-icon name="info" style="margin-right: 8px;"></tedi-icon>
+        <tedi-icon name="info"></tedi-icon>
         Dropdown item with icon
       </div>
       <div tedi-dropdown-item>Default dropdown item</div>
@@ -80,7 +80,7 @@ export const AllVariants: Story = {
         <div tedi-dropdown-item [selected]="true">Selected dropdown item</div>
         <div tedi-dropdown-item [disabled]="true">Disabled dropdown item</div>
         <div tedi-dropdown-item>
-          <tedi-icon name="info" style="margin-right: 8px;"></tedi-icon>
+          <tedi-icon name="info"></tedi-icon>
           With icon
         </div>
         <div tedi-dropdown-item>

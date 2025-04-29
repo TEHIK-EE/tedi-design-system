@@ -22,9 +22,9 @@
   @if (_selectedValue()) {
     <button
       type="reset"
-      [attr.aria-label]="'Clear'"
-      title="Clear"
       class="tedi-select__clear"
+      title="Clear"
+      [attr.aria-label]="'Clear'"
       (click)="$event.stopPropagation(); clear()"
     >
       <tedi-icon name="clear" color="tertiary" />
@@ -35,7 +35,6 @@
 
 <ng-template #selectDropdown>
   <tedi-card
-    cdkMenu
     class="tedi-select__dropdown"
     spacing="none"
     [style.width.px]="_width()"
@@ -51,12 +50,12 @@
           [disabled]="option.isDisabled()"
         >
           @if (option.templateRef(); as optionTemplate) {
-            <div class="template">
+            <div class="tedi-select__dropdown-item--custom-content">
               <ng-container [ngTemplateOutlet]="optionTemplate" />
             </div>
-            <div class="label">
+            <span class="tedi-select__dropdown-item--label">
               {{ option.label() }}
-            </div>
+            </span>
           }
         </button>
       }
