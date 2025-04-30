@@ -71,10 +71,10 @@ const config: UserConfig = {
       },
       name: '@tehik-ee/tedi-react',
       formats: ['es', 'cjs'],
+      fileName: (format, entryName) => `${entryName.replace(/node_modules\//g, 'external/')}.${format}.js`,
     },
     rollupOptions: {
       external: (id) =>
-        Object.keys(packageJson.dependencies).some((pkg) => id === pkg || id.startsWith(`${pkg}/`)) ||
         Object.keys(packageJson.peerDependencies).some((pkg) => id === pkg || id.startsWith(`${pkg}/`)) ||
         id === 'react/jsx-runtime',
       output: {

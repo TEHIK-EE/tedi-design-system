@@ -5,14 +5,14 @@
   "sideEffects": false,
   "exports": {
     "./tedi": {
-      "types": "./tedi/tedi.d.ts",
-      "import": "./tedi.js",
-      "require": "./tedi.cjs"
+      "types": "./tedi.d.ts",
+      "import": "./tedi.es.js",
+      "require": "./tedi.cjs.js"
     },
     "./community": {
-      "types": "./community/community.d.ts",
-      "import": "./community.js",
-      "require": "./community.cjs"
+      "types": "./community.d.ts",
+      "import": "./community.es.js",
+      "require": "./community.cjs.js"
     },
     "./index.css": "./index.css"
   },
