@@ -3,7 +3,7 @@ import React from 'react';
 import { FeedbackTextProps } from '../../components/form/feedback-text/feedback-text';
 import { ILabelContext, useLabels } from '../../providers/label-provider';
 
-export interface FileUploadFile extends Partial<File> {
+export interface FileUploadFile extends File {
   /*
    * A unique identifier for the file, useful for tracking files in a list.
    */
@@ -194,6 +194,7 @@ export const useFileUpload = (props: UseFileUploadProps) => {
 
   const onFileRemove = (file: FileUploadFile): void => {
     const newFiles = innerFiles.filter((f) => f !== file);
+
     setInnerFiles(newFiles);
     onDelete?.(file);
     onChange?.(newFiles);
@@ -203,7 +204,9 @@ export const useFileUpload = (props: UseFileUploadProps) => {
     }
   };
 
-  const handleClear = (): void => {
+  const handleClear = (): FileUploadFile[] => {
+    const deletedFiles = [...innerFiles];
+    deletedFiles.forEach((file) => onDelete?.(file));
     setInnerFiles([]);
     onChange?.([]);
     setUploadErrorHelper(getDefaultHelpers({ accept, maxSize }, getLabel));
@@ -211,6 +214,8 @@ export const useFileUpload = (props: UseFileUploadProps) => {
     if (fileInputRef.current) {
       fileInputRef.current.value = '';
     }
+
+    return deletedFiles;
   };
 
   return {
