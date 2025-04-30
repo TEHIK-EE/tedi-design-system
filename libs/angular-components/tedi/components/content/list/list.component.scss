@@ -46,8 +46,18 @@ ul.tedi-list {
     }
 
     ul.tedi-list li ul.tedi-list li::before {
-      @include mixins.responsive-styles(width, list-icon-size, null, "* 0.9");
-      @include mixins.responsive-styles(height, list-icon-size, null, "* 0.9");
+      @include mixins.responsive-styles(
+        width,
+        list-icon-size,
+        null,
+        "* 0.9"
+      ); // UPDATE
+      @include mixins.responsive-styles(
+        height,
+        list-icon-size,
+        null,
+        "* 0.9"
+      ); // UPDATE
     }
   }
 

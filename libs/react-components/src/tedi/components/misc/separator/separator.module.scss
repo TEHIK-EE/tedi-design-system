@@ -187,10 +187,10 @@ $thicknesses: (
   }
 
   &.tedi-separator--dotted::before {
-    @include mixins.responsive-styles(top, separator-dotted-dot-lg, null, '/ 2 * -1');
+    @include mixins.responsive-styles(top, separator-dotted-dot-lg, null, '/ 2 * -1'); // UPDATE
   }
 
   &.tedi-separator--dotted-small::before {
-    @include mixins.responsive-styles(top, separator-dotted-dot-md, null, '/ 2 * -1');
+    @include mixins.responsive-styles(top, separator-dotted-dot-md, null, '/ 2 * -1'); // UPDATE
   }
 }

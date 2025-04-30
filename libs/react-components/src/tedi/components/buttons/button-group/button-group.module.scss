@@ -18,8 +18,8 @@
       cursor: pointer;
       border-radius: 0;
 
-      @include mixins.responsive-styles(padding-top, button-md-padding-y, null, '- 1px');
-      @include mixins.responsive-styles(padding-bottom, button-md-padding-y, null, '- 1px');
+      @include mixins.responsive-styles(padding-top, button-md-padding-y, null, '- 1px'); // UPDATE
+      @include mixins.responsive-styles(padding-bottom, button-md-padding-y, null, '- 1px'); // UPDATE
       @include mixins.responsive-styles(padding-left, button-md-padding-x);
       @include mixins.responsive-styles(padding-right, button-md-padding-x);
 
