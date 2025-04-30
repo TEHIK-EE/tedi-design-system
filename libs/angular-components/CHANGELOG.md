@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-angular-v1.7.0-rc.5](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.7.0-rc.4...angular-1.7.0-rc.5) (2025-04-30)
+
+
+### Features
+
+* **collapse:** angular community collapse component [#716](https://github.com/TEHIK-EE/tedi-design-system/issues/716) ([#726](https://github.com/TEHIK-EE/tedi-design-system/issues/726)) ([e4e65bb](https://github.com/TEHIK-EE/tedi-design-system/commit/e4e65bb8b4d9f411a9bd6a4cb21b27923c0cfc93))
+
 # [@tehik-ee/tedi-angular-v1.7.0-rc.4](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.7.0-rc.3...angular-1.7.0-rc.4) (2025-04-29)
 
 
