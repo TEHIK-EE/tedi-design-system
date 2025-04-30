@@ -1,0 +1,75 @@
+@use "@tehik-ee/tedi-core/mixins";
+@use "./radio-card-mixins";
+
+.tedi-radio-card-group {
+  .tedi-radio {
+    position: relative;
+    background-color: var(--_radio-card-bg);
+    border: 1px solid var(--_radio-card-border);
+    border-radius: var(--_radio-card-radius);
+    padding: var(--_radio-card-padding);
+
+    @include radio-card-mixins.padding-variables;
+
+    &__button {
+      position: static;
+    }
+  }
+
+  &--primary {
+    @include radio-card-mixins.color-variables("primary");
+    @include radio-card-mixins.border-colors("primary", "border-separate");
+
+    .tedi-radio:has(.tedi-radio__input:checked) {
+      --_radio-bg: transparent;
+      --_radio-border: var(
+        --form-checkbox-radio-default-border-selected-inverted
+      );
+    }
+
+    &.tedi-radio-card-group--stacked {
+      @include radio-card-mixins.border-colors("primary", "border-group");
+    }
+  }
+
+  &--secondary {
+    @include radio-card-mixins.color-variables("secondary");
+    @include radio-card-mixins.border-colors("secondary", "border");
+
+    .tedi-radio:has(.tedi-radio__input:checked) {
+      outline: 1px solid var(--_radio-border);
+      outline-offset: -2px;
+    }
+  }
+
+  .tedi-radio:has(.tedi-radio__input:focus-visible) {
+    .tedi-radio__indicator {
+      outline: none;
+    }
+    outline: 2px solid var(--form-input-border-active);
+    outline-offset: 1px;
+  }
+
+  &--plain {
+    .tedi-radio__indicator {
+      display: none;
+    }
+  }
+
+  &--stacked {
+    .tedi-radio {
+      &:not(:last-child) {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        margin-right: -1px;
+      }
+      &:not(:first-child) {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+      &:has(.tedi-radio__input:checked) {
+        z-index: 1;
+      }
+    }
+  }
+}

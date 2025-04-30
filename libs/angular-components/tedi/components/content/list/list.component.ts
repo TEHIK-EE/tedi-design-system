@@ -5,15 +5,18 @@ import {
   input,
   ViewEncapsulation,
 } from "@angular/core";
-import { InputsWithSignals } from "../../../types/inputs.type";
 
-export type ListInputs = {
-  /**
-   * Is list styled?
-   * @default true
-   */
-  styled: boolean;
-};
+export type BulletColor =
+  | "primary"
+  | "secondary"
+  | "tertiary"
+  | "brand"
+  | "brand-dark"
+  | "success"
+  | "warning"
+  | "warning-dark"
+  | "danger"
+  | "white";
 
 @Component({
   selector: "ul[tedi-list], ol[tedi-list]",
@@ -24,13 +27,22 @@ export type ListInputs = {
   encapsulation: ViewEncapsulation.None,
   host: {
     "[class]": "classes()",
-  }
+  },
 })
-export class ListComponent implements InputsWithSignals<ListInputs> {
+export class ListComponent {
+  /**
+   * Is list styled?
+   * @default true
+   */
   styled = input<boolean>(true);
+  /**
+   * Color of the list bullet.
+   * @default brand
+   */
+  color = input<BulletColor>("brand");
 
   classes = computed(() => {
-    const classList = ["tedi-list"];
+    const classList = ["tedi-list", `tedi-list--bullet-color-${this.color()}`];
 
     if (!this.styled()) {
       classList.push("tedi-list--unstyled");

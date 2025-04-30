@@ -29,6 +29,11 @@ export default {
       },
     },
   },
+  parameters: {
+    status: {
+      type: ['deprecated', 'ExistsInTediReady'],
+    },
+  },
 } as Meta;
 
 const Template: StoryFn<CollapseProps> = (args) => <Collapse {...args} />;

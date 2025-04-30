@@ -53,7 +53,7 @@ export const Ellipsis = (props: EllipsisProps): JSX.Element => {
   );
 
   return isEllipsed && popover ? (
-    <Popover openWith="hover">
+    <Popover openWith="hover" focusManager={{ modal: false }}>
       <Popover.Trigger>{ellipsis}</Popover.Trigger>
       <Popover.Content>{children}</Popover.Content>
     </Popover>

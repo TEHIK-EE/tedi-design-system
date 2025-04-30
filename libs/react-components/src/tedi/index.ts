@@ -16,6 +16,7 @@ export * from './components/buttons/button/button';
 export * from './components/buttons/info-button/info-button';
 export * from './components/buttons/floating-button/floating-button';
 export * from './components/buttons/button-group/button-group';
+export * from './components/buttons/collapse/collapse';
 export * from './components/layout/vertical-spacing';
 export * from './components/layout/grid';
 export * from './components/notifications/alert/alert';
