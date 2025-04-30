@@ -4,13 +4,13 @@ import {
   input,
   ViewEncapsulation,
 } from "@angular/core";
-import { InputComponent } from "../input.component";
+import { InputComponent } from "../input/input.component";
 
 @Component({
   selector: "[tedi-textarea]",
   standalone: true,
   template: "<ng-content />",
-  styleUrls: ["../input.component.scss", "./textarea.component.scss"],
+  styleUrls: ["../input/input.component.scss", "./textarea.component.scss"],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
