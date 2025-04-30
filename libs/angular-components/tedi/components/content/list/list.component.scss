@@ -27,7 +27,13 @@ ul.tedi-list {
 
   li {
     position: relative;
-    @include mixins.responsive-styles(padding-left, list-padding-left-level-1);
+    @include mixins.responsive-styles(
+      padding-left,
+      list-inner-spacing-x,
+      null,
+      null,
+      list-icon-size
+    );
 
     &::before {
       position: absolute;
