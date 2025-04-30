@@ -115,3 +115,15 @@ export const AlertColors: Story = {
     onClose: () => null,
   },
 };
+
+export const WithoutTitleLongText: Story = {
+  args: {
+    children:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque facilisis nisi purus, quis bibendum lectus finibus in. Sed sed tellus eu augue finibus efficitur sit amet a velit. Donec vitae ex et ligula commodo luctus. Phasellus accumsan ligula quis nibh hendrerit, ac rutrum velit dictum. Curabitur ut vulputate justo. Proin eu sapien tellus. Morbi quis dapibus felis. Quisque commodo tempus vulputate.',
+    type: 'warning',
+    icon: 'warning',
+  },
+  render: (args) => {
+    return <Alert {...args} />;
+  },
+};

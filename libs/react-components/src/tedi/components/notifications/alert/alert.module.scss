@@ -18,6 +18,10 @@
     display: flex;
     align-items: center;
 
+    .tedi-alert__icon {
+      flex-shrink: 0;
+    }
+
     @include mixins.responsive-styles(gap, alert-default-inner-spacing-x);
   }
 
