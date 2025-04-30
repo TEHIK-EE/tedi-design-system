@@ -54,8 +54,11 @@ $icon-sizes: (
 
     @each $size, $vars in $icon-sizes {
       &.tedi-icon__wrapper--size-#{$size} {
-        @include mixins.responsive-styles(width, $vars, null, '* 2'); // UPDATE
-        @include mixins.responsive-styles(height, $vars, null, '* 2'); // UPDATE
+        width: calc(var(--_width) * 2);
+        height: calc(var(--_height) * 2);
+
+        @include mixins.responsive-styles(--_width, $vars);
+        @include mixins.responsive-styles(--_height, $vars);
       }
     }
   }
