@@ -3,7 +3,7 @@ import React from 'react';
 import { FeedbackTextProps } from '../../components/form/feedback-text/feedback-text';
 import { ILabelContext, useLabels } from '../../providers/label-provider';
 
-export interface FileUploadFile extends File {
+export interface FileUploadFile extends Partial<File> {
   /*
    * A unique identifier for the file, useful for tracking files in a list.
    */
