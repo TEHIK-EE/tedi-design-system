@@ -58,7 +58,7 @@ import { CloseButtonComponent } from "community/components/buttons/closing-butto
     "[class.tedi-select]": "true",
   },
 })
-export class SelectComponent
+export class SelectComponent<T = unknown>
   implements ControlValueAccessor, OnInit, AfterContentInit
 {
   /**
@@ -83,7 +83,7 @@ export class SelectComponent
   size = input<InputSize>("default");
 
   // Internal state
-  _selectedValue = signal(null);
+  _selectedValue = signal<T | null>(null);
   _disabled = signal<boolean>(false);
   _width = signal<number>(0);
   _options = contentChildren(SelectOptionComponent);
@@ -91,20 +91,19 @@ export class SelectComponent
   private selectRef = inject(ElementRef);
 
   // ControlValueAccessor methods
-  private onChange = (value: any): void => {};
-  onTouched = (): void => {};
+  private onChange: (value: T | null) => void = () => {};
+  onTouched = () => {};
 
-  writeValue(value: any): void {
-    if (!value) return;
-
+  writeValue(value: T | null): void {
+    if (value === null || value === undefined) return;
     this.select(value);
   }
 
-  registerOnChange(fn: any): void {
+  registerOnChange(fn: (value: T | null) => void): void {
     this.onChange = fn;
   }
 
-  registerOnTouched(fn: any): void {
+  registerOnTouched(fn: () => void): void {
     this.onTouched = fn;
   }
 
@@ -127,9 +126,9 @@ export class SelectComponent
   }
 
   // Event handlers
-  select(value: any) {
-    this._selectedValue.set(value);
-    this.onChange(value);
+  select(value: unknown): void {
+    this._selectedValue.set(value as T);
+    this.onChange(value as T);
     this.onTouched();
   }
 
