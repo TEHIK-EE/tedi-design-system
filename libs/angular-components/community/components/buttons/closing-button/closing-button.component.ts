@@ -1,13 +1,10 @@
 import {
   ChangeDetectionStrategy,
   Component,
-  computed,
   input,
   ViewEncapsulation,
 } from "@angular/core";
 import { IconComponent } from "@tehik-ee/tedi-angular/tedi";
-
-export type CloseButtonSize = "default" | "small";
 
 @Component({
   selector: "[tedi-close-button]",
@@ -19,19 +16,19 @@ export type CloseButtonSize = "default" | "small";
   styleUrl: "./closing-button.component.scss",
   host: {
     "[class.tedi-closing-button]": "true",
-    "[class]": "modifierClasses()",
+    "[class.tedi-closing-button--small]": "small()",
+    "[class.tedi-closing-button--small-icon]": "smallIcon()",
   },
 })
 export class CloseButtonComponent {
   /**
-   * Size of the close button.
-   * @default default
+   * Should show small button instead of default button.
+   * @default false
    */
-  size = input<CloseButtonSize>("default");
-
-  modifierClasses = computed(() => {
-    const modifiers = [];
-    if (this.size()) modifiers.push(`tedi-closing-button--${this.size()}`);
-    return modifiers.join(" ");
-  });
+  small = input<boolean>(false);
+  /**
+   * Should show small icon instead of default icon.
+   * @default false
+   */
+  smallIcon = input<boolean>(false);
 }

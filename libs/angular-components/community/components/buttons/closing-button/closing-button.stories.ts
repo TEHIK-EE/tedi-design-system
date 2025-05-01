@@ -17,15 +17,23 @@ export default {
     }),
   ],
   argTypes: {
-    size: {
-      control: "radio",
-      options: ["default", "small"],
-      description: "Size of the close button.",
+    small: {
+      control: "boolean",
+      description: "Should show small button instead of default button.",
       table: {
-        defaultValue: { summary: "default" },
+        defaultValue: { summary: "false" },
         type: {
-          summary: "CloseButtonSize",
-          detail: '"default" | "small"',
+          summary: "boolean",
+        },
+      },
+    },
+    smallIcon: {
+      control: "boolean",
+      description: "Should show small icon instead of default icon.",
+      table: {
+        defaultValue: { summary: "false" },
+        type: {
+          summary: "boolean",
         },
       },
     },
@@ -44,24 +52,52 @@ type Story = StoryObj<CloseButtonComponent>;
 
 export const Default: Story = {
   args: {
-    size: "default",
+    small: false,
+    smallIcon: false,
   },
   render: (args) => ({
     props: args,
     template: `
-      <button tedi-close-button [size]="size"></button>
+      <button tedi-close-button [small]="small" [smallIcon]="smallIcon"></button>
     `,
   }),
 };
 
 export const Small: Story = {
   args: {
-    size: "small",
+    small: true,
+    smallIcon: false,
   },
   render: (args) => ({
     props: args,
     template: `
-      <button tedi-close-button [size]="size"></button>
+      <button tedi-close-button [small]="small" [smallIcon]="smallIcon"></button>
+    `,
+  }),
+};
+
+export const SmallIcon: Story = {
+  args: {
+    small: false,
+    smallIcon: true,
+  },
+  render: (args) => ({
+    props: args,
+    template: `
+      <button tedi-close-button [small]="small" [smallIcon]="smallIcon"></button>
+    `,
+  }),
+};
+
+export const SmallButtonWithSmallIcon: Story = {
+  args: {
+    small: true,
+    smallIcon: true,
+  },
+  render: (args) => ({
+    props: args,
+    template: `
+      <button tedi-close-button [small]="small" [smallIcon]="smallIcon"></button>
     `,
   }),
 };
