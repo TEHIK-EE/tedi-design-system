@@ -13,6 +13,8 @@
   transition: background 0.5s ease;
 
   @include mixins.responsive-styles(border-radius, button-radius-default);
+  @include mixins.responsive-styles(width, button-sm-icon-size);
+  @include mixins.responsive-styles(height, button-sm-icon-size);
 
   @each $state in hover, active, focus {
     &:#{ $state } {
@@ -25,5 +27,10 @@
   &:focus-visible {
     outline: 2px solid var(--button-main-primary-border-focus);
     outline-offset: -2px;
+  }
+
+  &--small {
+    @include mixins.responsive-styles(width, button-xs-icon-size);
+    @include mixins.responsive-styles(height, button-xs-icon-size);
   }
 }
