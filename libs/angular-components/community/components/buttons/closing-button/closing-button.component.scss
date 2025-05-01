@@ -1,0 +1,29 @@
+@use "@tehik-ee/tedi-core/mixins";
+
+.tedi-closing-button {
+  --general-icon-primary: var(--button-close-text-default);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  cursor: pointer;
+  background-color: var(--button-close-background-default);
+  border: 1px solid var(--button-close-background-default);
+  transition: background 0.5s ease;
+
+  @include mixins.responsive-styles(border-radius, button-radius-default);
+
+  @each $state in hover, active, focus {
+    &:#{ $state } {
+      --general-icon-primary: var(--button-close-text-#{$state});
+
+      background-color: var(--button-close-background-#{$state});
+    }
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--button-main-primary-border-focus);
+    outline-offset: -2px;
+  }
+}
