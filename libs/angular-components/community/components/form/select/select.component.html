@@ -20,16 +20,16 @@
   </span>
 
   @if (_selectedValue()) {
-    <button
+    <div
       tedi-close-button
+      class="tedi-select__clear"
       [small]="true"
       [smallIcon]="true"
-      type="reset"
-      class="tedi-select__clear"
       title="Clear"
       [attr.aria-label]="'Clear'"
+      tabindex="0"
       (click)="$event.stopPropagation(); clear()"
-    ></button>
+    ></div>
   }
   <tedi-icon class="tedi-select__arrow" name="arrow_drop_down" />
 </button>
