@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-angular-v1.7.0-rc.6](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.7.0-rc.5...angular-1.7.0-rc.6) (2025-05-02)
+
+
+### Features
+
+* **form-textarea:** Add TEDI-Angular textarea component [#639](https://github.com/TEHIK-EE/tedi-design-system/issues/639) ([#725](https://github.com/TEHIK-EE/tedi-design-system/issues/725)) ([6fa4d01](https://github.com/TEHIK-EE/tedi-design-system/commit/6fa4d017bc58a22dfb560a016fb90b0a7ebbec6e))
+
 # [@tehik-ee/tedi-angular-v1.7.0-rc.5](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.7.0-rc.4...angular-1.7.0-rc.5) (2025-04-30)
 
 
