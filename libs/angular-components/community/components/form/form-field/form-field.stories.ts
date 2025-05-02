@@ -82,3 +82,27 @@ export const Disabled: Story = {
     disabled: true,
   },
 };
+
+export const WithTextarea: Story = {
+  render: (args) => ({
+    props: args,
+    template: `
+      <tedi-form-field>
+        <label tedi-label for="storybook-textarea" [required]="required">{{label}}</label>
+        <textarea tedi-input id="storybook-textarea" [placeholder]="placeholder" [disabled]="disabled" [state]="state" rows="4"></textarea>
+        @if (errorText) {
+          <tedi-feedback-text type="error" [text]="errorText" />
+        } @else if (validText) {
+          <tedi-feedback-text type="valid" [text]="validText" />
+        } @else if (hintText) {
+          <tedi-feedback-text type="hint" [text]="hintText" />
+        }
+      </tedi-form-field>
+    `,
+  }),
+  args: {
+    ...Default.args,
+    label: "Description",
+    placeholder: "Enter a longer description here",
+  },
+};
