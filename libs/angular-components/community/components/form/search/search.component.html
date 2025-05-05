@@ -1,0 +1,16 @@
+<input type="text" [(ngModel)]="value" class="tedi-search__input" />
+
+@if (withButton()) {
+  <button tedi-button class="tedi-search__trigger" [size]="buttonSize()">
+    <tedi-icon name="search" color="white" [size]="buttonText() ? 18 : 24" />
+    {{ buttonText() }}
+  </button>
+} @else {
+  <div class="tedi-search__suffix">
+    @if (clearable() && value()) {
+      <tedi-icon name="close" [size]="iconSize()" />
+      <div class="separator"></div>
+    }
+    <tedi-icon name="search" color="secondary" [size]="iconSize()" />
+  </div>
+}
