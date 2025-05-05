@@ -6,7 +6,6 @@ import {
   forwardRef,
   input,
   model,
-  output,
   signal,
   ViewEncapsulation,
 } from "@angular/core";
@@ -59,11 +58,6 @@ export class CheckboxCardGroupComponent
    */
   value = model<string[]>([]);
 
-  /*
-   * Emits selected checkbox values.
-   */
-  valueChange = output<string[]>();
-
   checkboxes = contentChildren(
     forwardRef(() => CheckboxComponent),
     {
@@ -110,6 +104,5 @@ export class CheckboxCardGroupComponent
       }
     });
     this._onChange(this.value());
-    this.valueChange.emit(this.value());
   }
 }
