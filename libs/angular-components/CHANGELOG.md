@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-angular-v1.7.0-rc.7](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.7.0-rc.6...angular-1.7.0-rc.7) (2025-05-05)
+
+
+### Bug Fixes
+
+* **list:** list view padding issues fixed on on moblile phones [#738](https://github.com/TEHIK-EE/tedi-design-system/issues/738) ([#750](https://github.com/TEHIK-EE/tedi-design-system/issues/750)) ([21bd4b8](https://github.com/TEHIK-EE/tedi-design-system/commit/21bd4b8ee79e1effb4a6e3be94464dab517ed158))
+
 # [@tehik-ee/tedi-angular-v1.7.0-rc.6](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.7.0-rc.5...angular-1.7.0-rc.6) (2025-05-02)
 
 
