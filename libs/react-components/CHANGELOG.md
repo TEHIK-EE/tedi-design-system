@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-react-v11.3.1](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.3.0...react-11.3.1) (2025-05-05)
+
+
+### Bug Fixes
+
+* **tooltip,popover:** add missing exports [#711](https://github.com/TEHIK-EE/tedi-design-system/issues/711) ([#760](https://github.com/TEHIK-EE/tedi-design-system/issues/760)) ([d46efcb](https://github.com/TEHIK-EE/tedi-design-system/commit/d46efcb0d4a472de8a39444595d31d4c6e747997))
+
 # [@tehik-ee/tedi-react-v11.3.0](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.2.4...react-11.3.0) (2025-04-24)
 
 
