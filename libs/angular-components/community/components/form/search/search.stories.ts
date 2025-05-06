@@ -4,12 +4,30 @@ import {
   StoryObj,
   moduleMetadata,
 } from "@storybook/angular";
-import { SearchComponent } from "./search.component";
+import { SearchComponent, SearchOption } from "./search.component";
 import { RowComponent } from "@tehik-ee/tedi-angular/tedi";
 
 /**
  * <a href="https://tedi.tehik.ee/1ee8444b7/p/search" target="_blank">Zeroheight ↗</a>
  */
+
+const mockOptions: SearchOption[] = [
+  {
+    value: "option1",
+    label: "Option 1",
+    description: "Description for option 1",
+  },
+  {
+    value: "option2",
+    label: "Option 2",
+    description: "Description for option 2",
+  },
+  {
+    value: "option3",
+    label: "Option 3",
+    description: "Description for option 3",
+  },
+];
 
 export default {
   title: "Community Angular/Form/Search",
@@ -61,30 +79,47 @@ type SearchStory = StoryObj<SearchComponent>;
 export const Default: SearchStory = {
   args: {
     size: "default",
+    options: mockOptions,
   },
   render: (args) => ({
-    props: args,
+    props: {
+      ...args,
+      mockOptions,
+    },
     template: `<tedi-search ${argsToTemplate(args)} />`,
   }),
 };
 
 export const Sizes: SearchStory = {
   render: (args) => ({
-    props: args,
+    props: {
+      ...args,
+      mockOptions,
+    },
     template: `
-      <tedi-row class="example-list" cols="1" gapY="3">
-        <tedi-row cols="2" alignItems="center" class="padding-14-16 border-bottom">
-          <b>Large</b>
-          <tedi-search size="large" />
-        </tedi-row>
-        <tedi-row cols="2" alignItems="center" class="padding-14-16 border-bottom">
-          <b>Default</b>
-          <tedi-search size="default" />
-        </tedi-row>
-        <tedi-row cols="2" alignItems="center" class="padding-14-16">
-          <b>Small</b>
-          <tedi-search size="small" />
-        </tedi-row>
+      <b>Large</b>
+      <tedi-row cols="1" gap="3">
+        <tedi-search size="large" [options]="mockOptions"/>
+        <tedi-search size="large" [withButton]="true" [options]="mockOptions"/>
+        <tedi-search size="large" [withButton]="true" buttonText="Otsi" [options]="mockOptions"/>
+      </tedi-row>
+
+      <br />
+
+      <b>Default</b>
+      <tedi-row cols="1" gap="3">
+        <tedi-search size="default" [options]="mockOptions"/>
+        <tedi-search size="default" [withButton]="true" [options]="mockOptions"/>
+        <tedi-search size="default" [withButton]="true" buttonText="Otsi" [options]="mockOptions"/>
+      </tedi-row>
+
+      <br />
+
+      <b>Small</b>
+      <tedi-row cols="1" gap="3">
+        <tedi-search size="small" [options]="mockOptions"/>
+        <tedi-search size="small" [withButton]="true" [options]="mockOptions"/>
+        <tedi-search size="small" [withButton]="true" buttonText="Otsi" [options]="mockOptions"/>
       </tedi-row>
     `,
   }),
