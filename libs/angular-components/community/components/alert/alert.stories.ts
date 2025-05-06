@@ -7,12 +7,13 @@ import {
 
 import { AlertComponent } from "./alert.component";
 import { TextComponent } from "@tehik-ee/tedi-angular/tedi";
+import { LinkComponent } from "../navigation/link/link.component";
 
 export default {
   title: "Community Angular/Notifications/Alert",
   component: AlertComponent,
   args: {
-    title: "Alert Title",
+    title: "",
     type: "info",
     icon: "",
     showClose: false,
@@ -75,7 +76,7 @@ export default {
   },
   decorators: [
     moduleMetadata({
-      imports: [AlertComponent, TextComponent],
+      imports: [AlertComponent, TextComponent, LinkComponent],
     }),
   ],
   render: (args) => ({
@@ -91,12 +92,14 @@ type Story = StoryObj<AlertComponent>;
 
 export const Default: Story = {};
 
-export const Minimal: Story = {
-  args: {},
+export const WithTitle: Story = {
+  args: {
+    title: "Alert Title",
+  },
   render: (args) => ({
     props: args,
     template: `
-    <tedi-alert>
+    <tedi-alert ${argsToTemplate(args)}>
       <p tedi-text>This is an alert message. It provides important information to the user.</p>
     </tedi-alert>
     `,
@@ -107,11 +110,11 @@ export const Global: Story = {
   render: (args) => ({
     props: args,
     template: `
-    <tedi-alert isGlobal="true">
-      <p tedi-text>This is an alert message. It provides important information to the user.</p>
-    </tedi-alert>
     <tedi-alert title="Global Alert" isGlobal="true">
-      <p tedi-text>This is an alert message. It provides important information to the user.</p>
+      <p tedi-text>This is an global alert message. It provides important information to the user. <a style="display: inline;"tedi-link>Click here to read more</a></p>
+    </tedi-alert>
+    <tedi-alert isGlobal="true">
+      <p tedi-text>This is an global alert message. It provides important information to the user. <a style="display: inline;"tedi-link>Click here to read more</a></p>
     </tedi-alert>
     `,
   }),
@@ -122,10 +125,10 @@ export const noSideBorders: Story = {
   render: (args) => ({
     props: args,
     template: `
-    <tedi-alert noSideBorders="true">
+    <tedi-alert noSideBorders="true" title="Global Alert">
       <p tedi-text>This is an alert message. It provides important information to the user.</p>
     </tedi-alert>
-    <tedi-alert noSideBorders="true" title="Global Alert">
+    <tedi-alert noSideBorders="true">
       <p tedi-text>This is an alert message. It provides important information to the user.</p>
     </tedi-alert>
     `,
