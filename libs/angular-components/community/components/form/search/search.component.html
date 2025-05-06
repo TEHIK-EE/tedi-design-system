@@ -1,16 +1,40 @@
-<input type="text" [(ngModel)]="value" class="tedi-search__input" />
+<input
+  type="text"
+  [(ngModel)]="value"
+  class="tedi-search__input"
+  [cdkMenuTriggerFor]="searchPanel"
+  menu
+/>
+
+<div class="tedi-search__suffix">
+  @if (clearable() && value()) {
+    <tedi-icon name="close" [size]="iconSize()" />
+    <div class="separator"></div>
+  }
+  @if (!withButton()) {
+    <tedi-icon name="search" color="secondary" [size]="iconSize()" />
+  }
+</div>
 
 @if (withButton()) {
   <button tedi-button class="tedi-search__trigger" [size]="buttonSize()">
     <tedi-icon name="search" color="white" [size]="buttonText() ? 18 : 24" />
     {{ buttonText() }}
   </button>
-} @else {
-  <div class="tedi-search__suffix">
-    @if (clearable() && value()) {
-      <tedi-icon name="close" [size]="iconSize()" />
-      <div class="separator"></div>
-    }
-    <tedi-icon name="search" color="secondary" [size]="iconSize()" />
-  </div>
 }
+
+<ng-template #searchPanel>
+  <div cdkMenu>
+    @for (option of foundOptions(); track option.value) {
+      <button tedi-dropdown-item cdkMenuItem [value]="option.value">
+        {{ option.label }}
+      </button>
+    } @empty {
+      <ng-content select="[empty]"></ng-content>
+    }
+
+    <ng-content>
+      <div class="separator"></div>
+    </ng-content>
+  </div>
+</ng-template>
