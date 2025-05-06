@@ -3,6 +3,11 @@ import { Meta, StoryObj } from '@storybook/react';
 import { SideNavItem } from './components/sidenav-item/sidenav-item';
 import Sidenav from './sidenav';
 
+/**
+ * <a href="#" target="_BLANK">Figma ↗</a><br/>
+ * <a href="#" target="_BLANK">Zeroheight ↗</a>
+ */
+
 const meta: Meta<typeof Sidenav> = {
   component: Sidenav,
   title: 'TEDI-Ready/Components/Layout/Sidenav',
@@ -45,22 +50,10 @@ const exampleNavCollapsibleItems: SideNavItem[] = [
       {
         href: '#',
         children: 'Treatments',
-        subItems: [
-          { href: '#', children: 'Active Treatments' },
-          { href: '#', children: 'Treatment History' },
-          { href: '#', children: 'Treatment Plans' },
-          { href: '#', children: 'Clinical Protocols' },
-        ],
       },
       {
         href: '#',
         children: 'Documentation',
-        subItems: [
-          { href: '#', children: 'Clinical Notes' },
-          { href: '#', children: 'Medical Forms' },
-          { href: '#', children: 'Consent Forms' },
-          { href: '#', children: 'Reports' },
-        ],
       },
     ],
   },
