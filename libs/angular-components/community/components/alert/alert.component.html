@@ -1,0 +1,19 @@
+<div
+  [attr.aria-live]="ariaLive()"
+  [attr.aria-label]="ariaLabel()"
+  [class.tedi-alert--global]="isGlobal()"
+  [class]="classes()"
+>
+  <div
+    class="tedi-alert__container"
+    [class.tedi-alert__title-layout]="title()"
+    [class.tedi-alert__icon-layout]="icon()"
+  >
+    <tedi-icon *ngIf="icon()" class="tedi-alert__icon" [name]="icon()" />
+    <div class="tedi-alert__content">
+      <ng-content />
+    </div>
+    <tedi-icon *ngIf="showClose()" class="tedi-alert__close" name="close" />
+    <h5 class="tedi-alert__title" tedi-text>{{ title() }}</h5>
+  </div>
+</div>
