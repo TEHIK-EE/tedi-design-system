@@ -1,7 +1,5 @@
 @use '@tehik-ee/tedi-core/mixins';
 
-$btn-height: 2rem;
-
 .tedi-collapse {
   &__title {
     width: 100%;
@@ -19,10 +17,11 @@ $btn-height: 2rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: $btn-height;
-    height: $btn-height;
     border: var(--borders-01) solid var(--button-main-secondary-border-default);
     border-radius: 100%;
+
+    @include mixins.responsive-styles(width, button-sm-icon-size);
+    @include mixins.responsive-styles(height, button-sm-icon-size);
   }
 
   &__icon {
@@ -32,5 +31,9 @@ $btn-height: 2rem;
     .tedi-collapse--is-open & {
       transform: rotate(180deg);
     }
+  }
+
+  &__content {
+    margin-top: var(--dimensions-05);
   }
 }

@@ -75,33 +75,3 @@ export const TitleRow = {
     ),
   },
 };
-
-export const TitleRowReversed = {
-  args: {
-    id: 'collapse-1',
-    openText: 'Näita rohkem',
-    closeText: 'Näita vähem',
-    titleRowProps: { direction: 'row-reverse' },
-    title: (
-      <Heading element="h5" color="secondary">
-        Juhtumi üldandmed
-      </Heading>
-    ),
-    children: (
-      <VerticalSpacing>
-        <div>
-          <Text color="secondary">Laste osalus</Text>
-          <p>peretüli lapse osaluseta</p>
-        </div>
-        <div>
-          <Text color="secondary">Juhtumi liigid</Text>
-          <p>peretüli (lapsega)</p>
-        </div>
-        <div>
-          <Text color="secondary">Kannatanu seos vägivaldsega</Text>
-          <p>tütar</p>
-        </div>
-      </VerticalSpacing>
-    ),
-  },
-};

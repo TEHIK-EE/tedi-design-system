@@ -15,7 +15,8 @@
 
   &__label {
     display: flex;
-    width: var(--label-width, auto);
+    width: var(--_label-width);
+    min-width: fit-content;
   }
 
   &__value {

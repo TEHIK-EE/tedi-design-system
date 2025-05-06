@@ -20,22 +20,16 @@ export const Default: Story = {
     label: "Label",
     value: "Value",
     type: "horizontal",
-    labelWidth: "auto",
   },
   decorators: [
     moduleMetadata({
       imports: [VerticalSpacingDirective, TextGroupComponent],
     }),
   ],
-  render: (props) => ({
-    props,
+  render: (args) => ({
+    props: args,
     template: `
-      <tedi-text-group
-        [label]="label"
-        [value]="value"
-        [type]="type"
-        [labelWidth]="labelWidth"
-      ></tedi-text-group>
+      <tedi-text-group ${argsToTemplate(args)} />
     `,
   }),
   argTypes: {
@@ -72,28 +66,29 @@ export const Horizontal: Story = {
   render: (args) => ({
     props: args,
     template: `
-    <div [tediVerticalSpacing]="0.5">
-      <tedi-text-group
+      <div [tediVerticalSpacing]="0.5">
+        <tedi-text-group
           ${argsToTemplate(args)}
-          label="Patient"
+          label="Patsient"
           value="Mari Maasikas"
-        ></tedi-text-group>
+        />
         <tedi-text-group
           ${argsToTemplate(args)}
           label="Address"
           value="Tulbi tn 4, Tallinn, 23562, Estonia"
-        ></tedi-text-group>
+        />
         <tedi-text-group
           ${argsToTemplate(args)}
-          label="Healthcare provider"
+          label="Tervisekassa"
           value="SA Põhja-Eesti Regionaalhaigla"
-        ></tedi-text-group>
+        />
         <tedi-text-group
           ${argsToTemplate(args)}
-          label="Document created"
+          label="Kuupäev"
           value="16.08.2023 14:51:48"
-        ></tedi-text-group>
-      </div>`,
+        />
+      </div>
+    `,
   }),
 };
 
@@ -106,27 +101,28 @@ export const Vertical: Story = {
   render: (args) => ({
     props: args,
     template: `
-    <div [tediVerticalSpacing]="0.5">
-      <tedi-text-group
-          ${argsToTemplate(args)}
-          label="Patient"
-          value="Mari Maasikas"
-        ></tedi-text-group>
+      <div [tediVerticalSpacing]="0.5">
+        <tedi-text-group
+            ${argsToTemplate(args)}
+            label="Patsient"
+            value="Mari Maasikas"
+        />
         <tedi-text-group
           ${argsToTemplate(args)}
           label="Address"
           value="Tulbi tn 4, Tallinn, 23562, Estonia"
-        ></tedi-text-group>
+        />
         <tedi-text-group
           ${argsToTemplate(args)}
-          label="Healthcare provider"
+          label="Tervisekassa"
           value="SA Põhja-Eesti Regionaalhaigla"
-        ></tedi-text-group>
+        />
         <tedi-text-group
           ${argsToTemplate(args)}
-          label="Document created"
+          label="Kuupäev"
           value="16.08.2023 14:51:48"
-        ></tedi-text-group>
-      </div>`,
+        />
+      </div>
+    `,
   }),
 };

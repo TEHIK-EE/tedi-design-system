@@ -134,6 +134,12 @@ div.select__multi-value-item {
   .select__value-container .select__placeholder {
     color: var(--color-text-subtle);
   }
+
+  .select__placeholder {
+    position: absolute;
+    left: 0.5rem;
+    pointer-events: none;
+  }
 }
 
 .select--tags-row {
@@ -163,5 +169,9 @@ div.select__multi-value-item {
   :global .select__input-container {
     grid-template-columns: 0 min-content;
     margin: 0;
+  }
+
+  :global .select__placeholder {
+    left: 0;
   }
 }

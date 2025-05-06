@@ -20,7 +20,7 @@ export interface PopoverProps extends Omit<OverlayProps, 'arrowDimensions' | 'op
   offset?: OffsetOptions;
 }
 
-function Popover(props: PopoverProps) {
+export const Popover = (props: PopoverProps) => {
   const { openWith = 'click', ...rest } = props;
 
   return (
@@ -33,7 +33,7 @@ function Popover(props: PopoverProps) {
       {...rest}
     />
   );
-}
+};
 
 Popover.Trigger = PopoverTrigger;
 Popover.Content = PopoverContent;

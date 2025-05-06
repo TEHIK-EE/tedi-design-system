@@ -11,7 +11,6 @@ import {
   BreakpointService,
   IconComponent,
 } from "@tehik-ee/tedi-angular/tedi";
-import { NgIf } from "@angular/common";
 
 export type LinkVariant = "default" | "inverted";
 export type LinkSize = "default" | "small";
@@ -47,7 +46,7 @@ export type LinkInputs = {
   templateUrl: "./link.component.html",
   styleUrl: "./link.component.scss",
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [NgIf, IconComponent],
+  imports: [IconComponent],
   encapsulation: ViewEncapsulation.None,
   host: {
     "[class]": "classes()",

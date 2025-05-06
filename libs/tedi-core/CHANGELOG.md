@@ -1,3 +1,31 @@
+# [@tehik-ee/tedi-core-v1.12.3](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.12.2...core-1.12.3) (2025-04-28)
+
+
+### Bug Fixes
+
+* **tedi-core:** reverting mobile list padding to original value [#735](https://github.com/TEHIK-EE/tedi-design-system/issues/735) ([#736](https://github.com/TEHIK-EE/tedi-design-system/issues/736)) ([7252fff](https://github.com/TEHIK-EE/tedi-design-system/commit/7252fff21d40523840fad2723260640d364b04bb))
+
+# [@tehik-ee/tedi-core-v1.12.2](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.12.1...core-1.12.2) (2025-04-28)
+
+
+### Bug Fixes
+
+* **tedi-core:** update mobile list padding to match design specifications [#733](https://github.com/TEHIK-EE/tedi-design-system/issues/733) ([#734](https://github.com/TEHIK-EE/tedi-design-system/issues/734)) ([3d5917e](https://github.com/TEHIK-EE/tedi-design-system/commit/3d5917e253a9e355bd816a559c2a6c1e214c2b37))
+
+# [@tehik-ee/tedi-core-v1.12.1](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.12.0...core-1.12.1) (2025-04-23)
+
+
+### Bug Fixes
+
+* **select:** Increase dropdown z-index value [#715](https://github.com/TEHIK-EE/tedi-design-system/issues/715) ([29512ac](https://github.com/TEHIK-EE/tedi-design-system/commit/29512acc65ab455bafb41709108fff14e3774c9c))
+
+# [@tehik-ee/tedi-core-v1.12.0](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.11.0...core-1.12.0) (2025-04-17)
+
+
+### Features
+
+* **tedi-core:** add new form field variables [#702](https://github.com/TEHIK-EE/tedi-design-system/issues/702) ([#703](https://github.com/TEHIK-EE/tedi-design-system/issues/703)) ([8ff24b8](https://github.com/TEHIK-EE/tedi-design-system/commit/8ff24b860e1901f1e8e80f29e4a1786126f3f69a))
+
 # [@tehik-ee/tedi-core-v1.11.0](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.10.1...core-1.11.0) (2025-04-14)
 
 

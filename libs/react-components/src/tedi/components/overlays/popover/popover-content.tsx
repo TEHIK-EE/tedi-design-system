@@ -36,7 +36,7 @@ export interface PopoverContentProps extends Omit<OverlayContentProps, 'classNam
   width?: 'small' | 'medium' | 'large';
 }
 
-export function PopoverContent(props: PopoverContentProps) {
+export const PopoverContent = (props: PopoverContentProps) => {
   const {
     children,
     width = 'small',
@@ -76,4 +76,4 @@ export function PopoverContent(props: PopoverContentProps) {
       {children}
     </OverlayContent>
   );
-}
+};

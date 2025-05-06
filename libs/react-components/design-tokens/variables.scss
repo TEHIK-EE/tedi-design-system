@@ -64,15 +64,6 @@
   --color-warning-highlight: #fff0cf;
   --color-gradient-main: linear-gradient(140.44deg, #005295 -17.66%, #1769ab 71.2%);
   --border-radius-default: 0.25rem;
-  --z-index-dropdown: 1000;
-  --z-index-sticky: 1020;
-  --z-index-sidenav: 1030;
-  --z-index-bottom-header: 1040;
-  --z-index-header: 1050;
-  --z-index-feedback: 1060;
-  --z-index-fixed: 1070;
-  --z-index-modal: 1080;
-  --z-index-tooltip: 1090;
 }
 
 @include breakpoints.media-breakpoint-down(md) {

@@ -63,7 +63,7 @@ export const ResponsiveWithCustomPopover: Story = {
     lineClamp: 1,
     popover: false,
     children: (
-      <Popover openWith="hover">
+      <Popover openWith="hover" focusManager={{ modal: false }}>
         <Popover.Trigger>
           <span>
             Any inline <b>content (even bold)</b>, that is too long for the wrapper
