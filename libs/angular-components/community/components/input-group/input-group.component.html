@@ -18,4 +18,7 @@
       <ng-content select="[suffix-slot]" />
     </div>
   </div>
+  @if (feedbackText() && feedbackText() != "") {
+    <tedi-feedback-text [text]="feedbackText()!" />
+  }
 </div>

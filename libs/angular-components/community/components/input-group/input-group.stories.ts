@@ -2,7 +2,7 @@ import { moduleMetadata, type Meta, type StoryObj } from "@storybook/angular";
 
 import { VerticalSpacingDirective } from "@tehik-ee/tedi-angular/tedi";
 import { InputGroupComponent } from "./input-group.component";
-import { InputComponent, LabelComponent } from "../form";
+import { FeedbackTextType, InputComponent, LabelComponent } from "../form";
 
 /**
  * InputGroupComponent is a component that allows you to group multiple input elements together.
@@ -18,6 +18,9 @@ const uniqueId = (prefix: string) => {
 };
 
 interface StoryArgs {
+  disabled: boolean;
+  feedbackText: string;
+  feedbackTextType: FeedbackTextType;
   prefixText: string;
   suffixText: string;
   showPrefix: boolean;
@@ -40,6 +43,19 @@ const meta: Meta<StoryComponent> = {
     labelID: {
       control: "text",
       description: "ID for the text group's label",
+    },
+    disabled: {
+      control: "boolean",
+      description: "Disabled state of the input group",
+    },
+    feedbackText: {
+      control: "text",
+      description: "Feedback text for the input group",
+    },
+    feedbackTextType: {
+      control: "select",
+      options: ["hint", "valid", "error"],
+      description: "Type of the feedback text",
     },
     prefixText: {
       control: "text",
@@ -64,6 +80,9 @@ const meta: Meta<StoryComponent> = {
   },
   args: {
     label: "Label",
+    disabled: false,
+    feedbackText: "Feedback text",
+    feedbackTextType: "error",
     prefixText: "Prefix",
     suffixText: "Suffix",
     showPrefix: true,
@@ -72,6 +91,8 @@ const meta: Meta<StoryComponent> = {
   },
 };
 
+const currentArgs =
+  '[labelID]="labelID" [label]="label" [disabled]="disabled" [feedbackText]="feedbackText" [feedbackTextType]="feedbackTextType"';
 const renderPrefix = (showBool: boolean, slot: string) =>
   showBool ? `<div ${slot}-slot>{{${slot}Text}}</div>` : "";
 
@@ -101,9 +122,9 @@ export const Default: Story = {
     return {
       props: rest,
       template: `
-      <tedi-input-group [labelID]="labelID" [label]="label">
+      <tedi-input-group ${currentArgs}>
         ${renderPrefix(args.showPrefix, "prefix")}
-        <input tedi-input [id]="labelID">
+        <input tedi-input [id]="labelID" [disabled]="disabled" />
         ${renderPrefix(args.showSuffix, "suffix")}
       </tedi-input-group>
     `,
@@ -148,9 +169,9 @@ export const Select: SelectStory = {
     return {
       props: { ...rest },
       template: `
-      <tedi-input-group [labelID]="labelID" [label]="label">
+      <tedi-input-group ${currentArgs}>
         ${renderSelectPrefix(args.showPrefix)}
-        <input [id]="labelID" tedi-input />
+        <input [id]="labelID" tedi-input [disabled]="disabled" />
         ${renderPrefix(args.showSuffix, "suffix")}
       </tedi-input-group>
     `,

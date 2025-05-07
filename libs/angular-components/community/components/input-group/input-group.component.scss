@@ -19,22 +19,23 @@
   --input-group-min-height: var(--dimensions-14);
   --input-group-text-color: var(--form-input-text-filled);
   --input-group-border-width: var(--borders-01);
-  --input-group-border-type: var(--form-input-border-default);
-  --input-group-border: var(--input-group-border-width) solid var(--input-group-border-type);
-  --input-group-side-padding: var(--form-field-padding-y-md-default, 8px) var(--form-field-padding-x-md-default, 8px);
+  --input-group-border-color: var(--form-input-border-default);
+  --input-group-error-border: var(--form-general-feedback-error-border);
+  --input-group-error-border-color: var(--form-general-feedback-error-border);
 
-  --input-group-inner-border: var(0);
-  --input-group-inner-border-radius: var(0);
+  --input-group-side-padding: var(--form-field-padding-y-md-default, 8px) var(--form-field-padding-x-md-default, 8px);
+  --input-group-border: var(--input-group-border-width) solid var(--input-group-border-color);
+
+  --input-group-error-border: var(--input-group-border-width) solid var(#E1E2E5);
+  --input-group-error-text: var(--color-text-disabled);
 
   display: flex;
   justify-content: space-between;
 
   background: var(--input-group-background-color);
-  // border: var(--input-group-border-width) solid var(--input-group-border-type);
   min-height: var(--input-group-min-height);
   overflow: hidden;
 
-  // @include mixins.responsive-styles(border-radius, input-group-rounded);
   @include mixins.responsive-styles(font-family, family-primary);
 
   &>:not(.tedi-input-group__prefix, .tedi-input-group__suffix) {
@@ -68,6 +69,21 @@
     }
   }
 }
+
+.tedi-input-group__container--disabled {
+  &>:not(.tedi-input-group__prefix, .tedi-input-group__suffix) {
+    background-color: var(--form-input-background-disabled);
+    border-color: var(--color-border-default);
+  }
+
+  .tedi-input-group__prefix,
+  .tedi-input-group__suffix {
+    background-color: var(--form-input-background-disabled);
+    border-color: var(--color-border-default);
+  }
+}
+
+
 
 .tedi-input-group__prefix,
 .tedi-input-group__suffix {

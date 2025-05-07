@@ -1,4 +1,5 @@
 import { Component, input, ViewEncapsulation } from "@angular/core";
+import { FeedbackTextComponent, FeedbackTextType } from "../form";
 
 /**
  * InputGroupComponent is a component that allows you to group multiple input elements together.
@@ -19,6 +20,7 @@ import { Component, input, ViewEncapsulation } from "@angular/core";
   templateUrl: "./input-group.component.html",
   styleUrls: ["./input-group.component.scss"],
   encapsulation: ViewEncapsulation.None,
+  imports: [FeedbackTextComponent],
 })
 export class InputGroupComponent {
   /**
@@ -40,7 +42,12 @@ export class InputGroupComponent {
 
   /**
    * Error feedback text for the input group, displayed below the input group when there is an error.
-   * 
+   *
    */
   readonly feedbackText = input<string>();
+  /**
+   * Type of the feedback text, used to determine the style of the feedback text.
+   * @default error
+   */
+  readonly feedbackTextType = input<FeedbackTextType>("error");
 }
