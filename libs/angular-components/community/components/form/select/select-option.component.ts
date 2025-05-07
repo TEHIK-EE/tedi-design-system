@@ -10,7 +10,7 @@ export class SelectOptionComponent {
   /*
    * The value of the option.
    */
-  value = input.required();
+  value = input.required<string>();
   /*
    * The label of the option.
    */
