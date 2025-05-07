@@ -83,7 +83,7 @@ export class SelectComponent
   size = input<InputSize>("default");
 
   // Internal state
-  _selectedValue = signal(null);
+  _selectedValue = signal<string | null>(null);
   _disabled = signal<boolean>(false);
   _width = signal<number>(0);
   _options = contentChildren(SelectOptionComponent);
@@ -91,20 +91,20 @@ export class SelectComponent
   private selectRef = inject(ElementRef);
 
   // ControlValueAccessor methods
-  private onChange = (value: any): void => {};
-  onTouched = (): void => {};
+  private onChange: (value: string | null) => void = () => {};
+  private onTouched: () => void = () => {};
 
-  writeValue(value: any): void {
+  writeValue(value: string | null): void {
     if (!value) return;
 
     this.select(value);
   }
 
-  registerOnChange(fn: any): void {
+  registerOnChange(fn: (value: string | null) => void): void {
     this.onChange = fn;
   }
 
-  registerOnTouched(fn: any): void {
+  registerOnTouched(fn: () => void): void {
     this.onTouched = fn;
   }
 
@@ -127,7 +127,7 @@ export class SelectComponent
   }
 
   // Event handlers
-  select(value: any) {
+  select(value: string) {
     this._selectedValue.set(value);
     this.onChange(value);
     this.onTouched();
@@ -136,6 +136,10 @@ export class SelectComponent
   clear() {
     this._selectedValue.set(null);
     this.onChange(null);
+    this.onTouched();
+  }
+
+  touch() {
     this.onTouched();
   }
 
