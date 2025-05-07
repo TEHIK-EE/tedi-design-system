@@ -51,10 +51,10 @@ ul.tedi-list {
     }
 
     ul.tedi-list li ul.tedi-list li::before {
-      width: calc(var(--_dot-size) * 0.9);
-      height: calc(var(--_dot-size) * 0.9);
-
-      @include mixins.responsive-styles(--_dot-size, list-icon-size);
+      width: calc(var(--_width) * 0.9);
+      height: calc(var(--_height) * 0.9);
+      @include mixins.responsive-styles(--_width, list-icon-size);
+      @include mixins.responsive-styles(--_height, list-icon-size);
     }
   }
 
