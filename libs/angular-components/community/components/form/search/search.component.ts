@@ -16,7 +16,7 @@ import { ButtonComponent } from "community/components/buttons/button/button.comp
 import { IconComponent } from "@tehik-ee/tedi-angular/tedi";
 import { FormsModule } from "@angular/forms";
 import { OverlayModule } from "@angular/cdk/overlay";
-import { CdkMenu, CdkMenuModule } from "@angular/cdk/menu";
+import { CdkMenuModule } from "@angular/cdk/menu";
 import {
   CardComponent,
   CardContentComponent,
