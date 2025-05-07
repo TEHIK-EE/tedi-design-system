@@ -1,0 +1,23 @@
+@use "@tehik-ee/tedi-core/mixins";
+
+.tedi-textarea {
+  width: 100%;
+  resize: none;
+
+  @include mixins.responsive-styles(min-height, form-textarea-min-height);
+  @include mixins.responsive-styles(
+    padding,
+    form-field-padding-y-md-default form-field-padding-x-md-default
+  );
+
+  &--resizeX {
+    resize: horizontal;
+  }
+  &--resizeY {
+    resize: vertical;
+
+    &.tedi-textarea--resizeX {
+      resize: both;
+    }
+  }
+}

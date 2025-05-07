@@ -22,7 +22,7 @@ export interface FeedbackTextProps {
   className?: string;
   /**
    * Type of form-helper.
-   * @default help
+   * @default hint
    */
   type?: FeedbackTextType;
   /**

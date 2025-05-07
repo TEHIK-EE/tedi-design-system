@@ -27,7 +27,12 @@ ul.tedi-list {
 
   li {
     position: relative;
-    @include mixins.responsive-styles(padding-left, list-padding-left-level-1);
+    padding-left: calc(var(--_inner-padding-left) + var(--_icon-padding-left));
+    @include mixins.responsive-styles(
+      --_inner-padding-left,
+      list-inner-spacing-x
+    );
+    @include mixins.responsive-styles(--_icon-padding-left, list-icon-size);
 
     &::before {
       position: absolute;
@@ -46,8 +51,10 @@ ul.tedi-list {
     }
 
     ul.tedi-list li ul.tedi-list li::before {
-      @include mixins.responsive-styles(width, list-icon-size, null, "* 0.9");
-      @include mixins.responsive-styles(height, list-icon-size, null, "* 0.9");
+      width: calc(var(--_width) * 0.9);
+      height: calc(var(--_height) * 0.9);
+      @include mixins.responsive-styles(--_width, list-icon-size);
+      @include mixins.responsive-styles(--_height, list-icon-size);
     }
   }
 
