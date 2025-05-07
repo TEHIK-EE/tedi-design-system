@@ -9,3 +9,4 @@ export * from "./components/form";
 export * from "./components/navigation/link/link.component";
 export * from "./components/overlay";
 export * from "./components/text-group/text-group.component";
+export * from "./components/overlay";
