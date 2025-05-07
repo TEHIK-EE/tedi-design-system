@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-react-v11.4.0-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.3.4-rc.1...react-11.4.0-rc.1) (2025-05-07)
+
+
+### Features
+
+* **scss:** responsive-style scss function uptade ([#749](https://github.com/TEHIK-EE/tedi-design-system/issues/749)) ([975ef75](https://github.com/TEHIK-EE/tedi-design-system/commit/975ef75c91ea99c5c740f5a92dd647007230092c)), closes [#748](https://github.com/TEHIK-EE/tedi-design-system/issues/748) [#748](https://github.com/TEHIK-EE/tedi-design-system/issues/748)
+
 # [@tehik-ee/tedi-react-v11.3.4-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.3.3...react-11.3.4-rc.1) (2025-05-07)
 
 
