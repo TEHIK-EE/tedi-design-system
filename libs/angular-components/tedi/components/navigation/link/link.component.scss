@@ -32,7 +32,7 @@
 }
 
 .tedi-link {
-  display: inline-flex;
+  display: inline-block;
   cursor: pointer;
   text-decoration: none;
 
@@ -52,32 +52,37 @@
     );
   }
 
-  &__text {
-    text-decoration: underline;
+  &--small {
+    @include mixins.responsive-styles(font-size, body-small-regular-size, $exclude: tablet);
+  }
 
-    &--no-underline {
-      text-decoration: none;
-    }
-
-    &--small {
-      @include mixins.responsive-styles(
-        font-size,
-        body-small-regular-size,
-        $exclude: tablet
-      );
+  &:not(.tedi-link--no-underline) {
+    :not(tedi-icon) {
+      text-decoration: underline;
     }
   }
 
-  &__icon {
-    font-size: inherit !important;
-    color: inherit !important;
-
-    &--left {
-      @include mixins.responsive-styles(margin-right, button-sm-inner-spacing);
+  &:hover {
+    :not(tedi-icon) {
+      text-decoration: underline;
     }
+  }
 
-    &--right {
-      @include mixins.responsive-styles(margin-left, button-sm-inner-spacing);
+  tedi-icon {
+    height: fit-content;
+    font-size: inherit;
+    color: inherit;
+    line-height: inherit;
+
+    @include mixins.responsive-styles(margin-left, button-sm-inner-spacing);
+    @include mixins.responsive-styles(margin-right, button-sm-inner-spacing);
+
+    &:first-child {
+      margin-left: 0;
+    }
+  
+    &:last-child {
+      margin-right: 0;
     }
   }
 }

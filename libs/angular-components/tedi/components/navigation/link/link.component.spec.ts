@@ -42,17 +42,31 @@ describe("Link Component", () => {
     expect(instance.underline()).toBe(true);
   });
 
-  it("should accept iconLeft and iconRight inputs", () => {
-    fixture.componentRef.setInput("iconLeft", "arrow-left");
-    fixture.componentRef.setInput("iconRight", "arrow-right");
-    fixture.detectChanges();
-
-    const instance = fixture.componentInstance;
-    expect(instance.iconLeft()).toBe("arrow-left");
-    expect(instance.iconRight()).toBe("arrow-right");
-  });
-
   it("should have tabIndex attribute", () => {
     expect(linkElement.getAttribute("tabIndex")).toBe("0");
+  });
+
+  it("should wrap text nodes in a span", () => {
+    linkElement.textContent = "Click me";
+    fixture.detectChanges();
+    fixture.componentInstance.ngAfterContentInit();
+  
+    const span = linkElement.querySelector("span");
+    expect(span).toBeTruthy();
+    expect(span?.textContent).toBe("Click me");
+  });
+
+  it("should apply the small size class", () => {
+    fixture.componentRef.setInput("size", "small");
+    fixture.detectChanges();
+  
+    expect(linkElement.classList).toContain("tedi-link--small");
+  });
+
+  it("should apply the no-underline class when underline is false", () => {
+    fixture.componentRef.setInput("underline", false);
+    fixture.detectChanges();
+  
+    expect(linkElement.classList).toContain("tedi-link--no-underline");
   });
 });

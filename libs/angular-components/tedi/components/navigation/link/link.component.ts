@@ -1,9 +1,12 @@
 import {
+  AfterContentInit,
   ChangeDetectionStrategy,
   Component,
   computed,
+  ElementRef,
   inject,
   input,
+  Renderer2,
   ViewEncapsulation,
 } from "@angular/core";
 import { BreakpointInputs, BreakpointService } from "../../../services/breakpoint/breakpoint.service";
@@ -27,14 +30,6 @@ export type LinkInputs = {
    * @default true
    */
   underline: boolean;
-  /**
-   * Name of the icon we want to show on the left.
-   */
-  iconLeft?: string;
-  /**
-   * Name of the icon we want to show on the right.
-   */
-  iconRight?: string;
 };
 
 @Component({
@@ -50,12 +45,10 @@ export type LinkInputs = {
     "[attr.tabIndex]": "0",
   },
 })
-export class LinkComponent implements BreakpointInputs<LinkInputs> {
+export class LinkComponent implements BreakpointInputs<LinkInputs>, AfterContentInit {
   variant = input<LinkVariant>("default");
   size = input<LinkSize>("default");
   underline = input<boolean>(true);
-  iconLeft = input<string>();
-  iconRight = input<string>();
 
   xs = input<LinkInputs>();
   sm = input<LinkInputs>();
@@ -64,14 +57,30 @@ export class LinkComponent implements BreakpointInputs<LinkInputs> {
   xl = input<LinkInputs>();
   xxl = input<LinkInputs>();
 
+  private host = inject(ElementRef);
+  private renderer = inject(Renderer2);
+
+  ngAfterContentInit(): void {
+    const childNodes: ChildNode[] = Array.from(this.host.nativeElement.childNodes);
+    
+    for (const node of childNodes) {
+      if (node.nodeType === Node.TEXT_NODE && node.textContent?.trim()) {
+        const span = this.renderer.createElement('span') as HTMLSpanElement;
+
+        const textNode = this.renderer.createText(node.textContent.trim());
+        this.renderer.appendChild(span, textNode);
+        this.renderer.insertBefore(this.host.nativeElement, span, node);
+        this.renderer.removeChild(this.host.nativeElement, node);
+      }
+    }
+  }
+
   breakpointService = inject(BreakpointService);
   breakpointInputs = computed(() => {
     return this.breakpointService.getBreakpointInputs<LinkInputs>({
       variant: this.variant(),
       size: this.size(),
       underline: this.underline(),
-      iconLeft: this.iconLeft(),
-      iconRight: this.iconRight(),
 
       xs: this.xs(),
       sm: this.sm(),
@@ -87,6 +96,14 @@ export class LinkComponent implements BreakpointInputs<LinkInputs> {
 
     if (this.breakpointInputs().variant === "inverted") {
       classList.push("tedi-link--inverted");
+    }
+
+    if (this.breakpointInputs().size === "small") {
+      classList.push("tedi-link--small");
+    }
+
+    if (!this.breakpointInputs().underline) {
+      classList.push("tedi-link--no-underline");
     }
 
     return classList.join(" ");
