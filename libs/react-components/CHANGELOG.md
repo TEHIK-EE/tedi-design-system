@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-react-v11.3.3](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.3.2...react-11.3.3) (2025-05-07)
+
+
+### Bug Fixes
+
+* **choice-group:** add missing exports [#708](https://github.com/TEHIK-EE/tedi-design-system/issues/708) ([#767](https://github.com/TEHIK-EE/tedi-design-system/issues/767)) ([76a3f1a](https://github.com/TEHIK-EE/tedi-design-system/commit/76a3f1a2a48664b1195ffc4d352a4e6a905fcbaf))
+
 # [@tehik-ee/tedi-react-v11.3.2](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.3.1...react-11.3.2) (2025-05-05)
 
 
