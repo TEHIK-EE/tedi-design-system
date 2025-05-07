@@ -1,3 +1,12 @@
+# [@tehik-ee/tedi-react-v11.3.4-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.3.3...react-11.3.4-rc.1) (2025-05-07)
+
+
+### Bug Fixes
+
+* **alert:** prevent icon to be partially hidden if text grows larger [#744](https://github.com/TEHIK-EE/tedi-design-system/issues/744) ([#746](https://github.com/TEHIK-EE/tedi-design-system/issues/746)) ([2ed1af4](https://github.com/TEHIK-EE/tedi-design-system/commit/2ed1af4ff20176564e7ad83e1341c39a88584908))
+* **feedback-text:** fix default type description [#667](https://github.com/TEHIK-EE/tedi-design-system/issues/667) ([#772](https://github.com/TEHIK-EE/tedi-design-system/issues/772)) ([6966cc3](https://github.com/TEHIK-EE/tedi-design-system/commit/6966cc3441dd55c3dd940205b8d1c83f1fac5f62))
+* **file-upload:** file information fix [#727](https://github.com/TEHIK-EE/tedi-design-system/issues/727) ([#730](https://github.com/TEHIK-EE/tedi-design-system/issues/730)) ([e017623](https://github.com/TEHIK-EE/tedi-design-system/commit/e017623ab44ac6282f6c5a394f5a579392d51377))
+
 # [@tehik-ee/tedi-react-v11.3.3](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.3.2...react-11.3.3) (2025-05-07)
 
 ### Bug Fixes
