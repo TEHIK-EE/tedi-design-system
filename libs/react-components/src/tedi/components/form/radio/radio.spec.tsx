@@ -2,7 +2,7 @@ import { fireEvent, render, screen } from '@testing-library/react';
 import { act, useState } from 'react';
 
 import Radio from './radio';
-import styles from './radio.module.css';
+import styles from './radio.module.scss';
 
 jest.mock('../../base/icon/icon', () => ({
   Icon: jest.fn(() => <span data-testid="icon">Icon</span>),

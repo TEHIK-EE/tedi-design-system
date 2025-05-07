@@ -257,7 +257,7 @@ export const BreakpointProps: Story = {
   },
 };
 
-export const EqualHeight = {
+export const EqualHeight: StoryObj = {
   ...CardsExample,
 };
 

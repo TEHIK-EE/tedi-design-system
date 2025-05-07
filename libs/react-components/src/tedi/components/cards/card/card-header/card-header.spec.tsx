@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import { UnknownType } from 'libs/react-components/src/tedi/types/commonTypes';
 
 import { useBreakpointProps } from '../../../../helpers';
-import styles from '../../card.module.scss';
+import styles from '../card.module.scss';
 import { CardContentProps } from '../card-content/card-content';
 import { CardContext } from '../card-context';
 import CardHeader from './card-header';
