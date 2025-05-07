@@ -86,7 +86,9 @@ export const Default: SearchStory = {
       ...args,
       mockOptions,
     },
-    template: `<tedi-search ${argsToTemplate(args)} />`,
+    template: `<tedi-search ${argsToTemplate(args)} >
+      <p>Footer goes here</p>
+    </tedi-search>`,
   }),
 };
 
