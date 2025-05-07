@@ -1,0 +1,101 @@
+@use "@tehik-ee/tedi-core/mixins";
+@use "sass:list";
+
+@mixin left-round-corners() {
+  @include mixins.responsive-styles(border-top-left-radius, input-group-rounded);
+  @include mixins.responsive-styles(border-bottom-left-radius, input-group-rounded);
+}
+
+@mixin right-round-corners() {
+  @include mixins.responsive-styles(border-top-right-radius, input-group-rounded);
+  @include mixins.responsive-styles(border-bottom-right-radius, input-group-rounded);
+}
+
+.tedi-input-group__container {
+  --input-group-background-color: var(--form-input-background-default);
+  --input-group-rounded-desktop: var(--radius-02-default);
+  --input-group-rounded-tablet: var(--radius-02-default);
+  --input-group-rounded-mobile: var(--radius-02-default);
+  --input-group-min-height: var(--dimensions-14);
+  --input-group-text-color: var(--form-input-text-filled);
+  --input-group-border-width: var(--borders-01);
+  --input-group-border-type: var(--form-input-border-default);
+  --input-group-border: var(--input-group-border-width) solid var(--input-group-border-type);
+  --input-group-side-padding: var(--form-field-padding-y-md-default, 8px) var(--form-field-padding-x-md-default, 8px);
+
+  --input-group-inner-border: var(0);
+  --input-group-inner-border-radius: var(0);
+
+  display: flex;
+  justify-content: space-between;
+
+  background: var(--input-group-background-color);
+  // border: var(--input-group-border-width) solid var(--input-group-border-type);
+  min-height: var(--input-group-min-height);
+  overflow: hidden;
+
+  // @include mixins.responsive-styles(border-radius, input-group-rounded);
+  @include mixins.responsive-styles(font-family, family-primary);
+
+  &>:not(.tedi-input-group__prefix, .tedi-input-group__suffix) {
+    margin: 0;
+    width: 100%;
+
+    border-radius: var(--input-group-inner-border-radius);
+    border-top: var(--input-group-border);
+    border-bottom: var(--input-group-border);
+  }
+
+  select {
+    border: none;
+    background-color: transparent;
+  }
+
+
+  &:has(.tedi-input-group__prefix:empty) {
+    @include left-round-corners();
+
+    input {
+      @include left-round-corners();
+    }
+  }
+
+  &:has(.tedi-input-group__suffix:empty) {
+    @include right-round-corners();
+
+    input {
+      @include right-round-corners();
+    }
+  }
+}
+
+.tedi-input-group__prefix,
+.tedi-input-group__suffix {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+
+  padding: var(--form-field-padding-y-md-default) var(--form-field-padding-x-md-default);
+  background: var(--form-general-background-action-background);
+  border: var(--input-group-border);
+
+  >* {
+    padding: var(--input-group-side-padding);
+  }
+
+  &:empty {
+    display: none;
+  }
+}
+
+.tedi-input-group__prefix {
+  border-right: 0;
+
+  @include left-round-corners();
+}
+
+.tedi-input-group__suffix {
+  border-left: 0;
+
+  @include right-round-corners();
+}

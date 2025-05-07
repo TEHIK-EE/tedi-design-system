@@ -1,0 +1,21 @@
+<div class="tedi-input-group">
+  @if (label() && label() != "") {
+    <label tedi-label class="tedi-input-group__label" [for]="labelID()">
+      {{ label() }}
+    </label>
+  }
+
+  <div
+    class="tedi-input-group__container{{
+      disabled() ? ' tedi-input-group__container--disabled' : ''
+    }}"
+  >
+    <div class="tedi-input-group__prefix">
+      <ng-content select="[prefix-slot]" />
+    </div>
+    <ng-content />
+    <div class="tedi-input-group__suffix">
+      <ng-content select="[suffix-slot]" />
+    </div>
+  </div>
+</div>
