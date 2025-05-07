@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-react-v11.3.3-rc.3](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.3.3-rc.2...react-11.3.3-rc.3) (2025-05-07)
+
+
+### Bug Fixes
+
+* **feedback-text:** fix default type description [#667](https://github.com/TEHIK-EE/tedi-design-system/issues/667) ([#772](https://github.com/TEHIK-EE/tedi-design-system/issues/772)) ([6966cc3](https://github.com/TEHIK-EE/tedi-design-system/commit/6966cc3441dd55c3dd940205b8d1c83f1fac5f62))
+
 # [@tehik-ee/tedi-react-v11.3.3-rc.2](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.3.3-rc.1...react-11.3.3-rc.2) (2025-05-06)
 
 
