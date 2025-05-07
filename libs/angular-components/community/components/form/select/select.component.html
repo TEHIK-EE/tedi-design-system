@@ -1,0 +1,66 @@
+<button
+  tedi-input
+  type="button"
+  [state]="state()"
+  [size]="size()"
+  [cdkMenuTriggerFor]="selectDropdown"
+  [disabled]="_disabled()"
+  (click)="touch()"
+  class="tedi-select__trigger"
+>
+  <span
+    class="tedi-select__label"
+    [class.tedi-select__label--placeholder]="!_selectedValue()"
+  >
+    @if (selectedLabel(); as label) {
+      {{ label }}
+    } @else {
+      {{ placeholder() }}
+    }
+  </span>
+
+  @if (_selectedValue()) {
+    <div
+      tedi-close-button
+      class="tedi-select__clear"
+      [small]="true"
+      [smallIcon]="true"
+      title="Clear"
+      [attr.aria-label]="'Clear'"
+      tabindex="0"
+      (click)="$event.stopPropagation(); clear()"
+    ></div>
+  }
+  <tedi-icon class="tedi-select__arrow" name="arrow_drop_down" />
+</button>
+
+<ng-template #selectDropdown>
+  <tedi-card
+    cdkMenu
+    class="tedi-select__dropdown"
+    spacing="none"
+    [style.width.px]="_width()"
+  >
+    <tedi-card-content class="tedi-select__dropdown-content">
+      @for (option of _options(); track option.value()) {
+        <button
+          type="button"
+          cdkMenuItem
+          tedi-dropdown-item
+          (cdkMenuItemTriggered)="select(option.value())"
+          [selected]="option.value() === _selectedValue()"
+          [disabled]="option.isDisabled()"
+        >
+          @if (option.templateRef(); as optionTemplate) {
+            <div class="tedi-select__dropdown-item--custom-content">
+              <ng-container [ngTemplateOutlet]="optionTemplate" />
+            </div>
+            <span class="tedi-select__dropdown-item--label">
+              {{ option.label() }}
+            </span>
+          }
+        </button>
+      }
+    </tedi-card-content>
+  </tedi-card>
+</ng-template>
