@@ -60,6 +60,14 @@
     @include mixins.responsive-styles(padding, form-field-padding-y-md-default);
   }
 
+  &__option {
+    width: 100%;
+  }
+
+  &__panel {
+    margin: 4px 0;
+  }
+
   &--small .tedi-search__input {
     @include mixins.responsive-styles(padding-top, form-field-padding-y-sm);
     @include mixins.responsive-styles(padding-bottom, form-field-padding-y-sm);

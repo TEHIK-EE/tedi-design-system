@@ -99,7 +99,9 @@ export const Sizes: SearchStory = {
     template: `
       <b>Large</b>
       <tedi-row cols="1" gap="3">
-        <tedi-search size="large" [options]="mockOptions"/>
+        <tedi-search size="large" [options]="mockOptions">
+          <p>Footer goes here</p>
+        </tedi-search>
         <tedi-search size="large" [withButton]="true" [options]="mockOptions"/>
         <tedi-search size="large" [withButton]="true" buttonText="Otsi" [options]="mockOptions"/>
       </tedi-row>

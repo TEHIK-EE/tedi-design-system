@@ -1,13 +1,13 @@
 <input
   type="text"
-  [(ngModel)]="value"
+  [(ngModel)]="inputValue"
   class="tedi-search__input"
-  [cdkMenuTriggerFor]="searchPanel"
-  menu
+  cdkOverlayOrigin
+  #trigger="cdkOverlayOrigin"
 />
 
 <div class="tedi-search__suffix">
-  @if (clearable() && value()) {
+  @if (clearable() && inputValue()) {
     <tedi-icon name="close" [size]="iconSize()" />
     <div class="separator"></div>
   }
@@ -23,18 +23,34 @@
   </button>
 }
 
-<ng-template #searchPanel>
-  <div cdkMenu>
-    @for (option of foundOptions(); track option.value) {
-      <button tedi-dropdown-item cdkMenuItem [value]="option.value">
-        {{ option.label }}
-      </button>
-    } @empty {
-      <ng-content select="[empty]"></ng-content>
-    }
+<ng-template
+  cdkConnectedOverlay
+  [cdkConnectedOverlayOrigin]="trigger"
+  [cdkConnectedOverlayHasBackdrop]="true"
+  [cdkConnectedOverlayBackdropClass]="'cdk-overlay-transparent-backdrop'"
+  [cdkConnectedOverlayOpen]="isOpen()"
+  (detach)="isOpen.set(false)"
+  (backdropClick)="isOpen.set(false)"
+>
+  <tedi-card class="tedi-search__panel" [style.width.px]="width()" cdkMenu>
+    <tedi-card-content>
+      @for (option of foundOptions(); track option.value) {
+        <button
+          class="tedi-search__option"
+          tedi-dropdown-item
+          cdkMenuItem
+          [value]="option.value"
+          (click)="selectResult(option)"
+        >
+          {{ option.label }} x {{ option.description }}
+        </button>
+      } @empty {
+        <!-- TODO -->
+        <span>Empty message</span>
+      }
 
-    <ng-content>
-      <div class="separator"></div>
-    </ng-content>
-  </div>
+      <div class="tedi-search__separator"></div>
+      <ng-content></ng-content>
+    </tedi-card-content>
+  </tedi-card>
 </ng-template>
