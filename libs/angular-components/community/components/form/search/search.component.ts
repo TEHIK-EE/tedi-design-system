@@ -1,21 +1,26 @@
 import {
   AfterContentInit,
-  AfterViewInit,
   ChangeDetectionStrategy,
   Component,
   computed,
   effect,
+  ElementRef,
+  inject,
   input,
   model,
-  OnInit,
+  output,
   signal,
-  viewChild,
   ViewEncapsulation,
 } from "@angular/core";
 import { ButtonComponent } from "community/components/buttons/button/button.component";
 import { IconComponent } from "@tehik-ee/tedi-angular/tedi";
 import { FormsModule } from "@angular/forms";
-import { CdkMenu, CdkMenuModule, CdkMenuTrigger } from "@angular/cdk/menu";
+import { OverlayModule } from "@angular/cdk/overlay";
+import { CdkMenu, CdkMenuModule } from "@angular/cdk/menu";
+import {
+  CardComponent,
+  CardContentComponent,
+} from "community/components/cards/card";
 
 export type SearchSize = "large" | "default" | "small";
 export type SearchOption = {
@@ -27,7 +32,15 @@ export type SearchOption = {
 @Component({
   selector: "tedi-search",
   standalone: true,
-  imports: [FormsModule, ButtonComponent, IconComponent, CdkMenuModule],
+  imports: [
+    FormsModule,
+    ButtonComponent,
+    IconComponent,
+    OverlayModule,
+    CdkMenuModule,
+    CardComponent,
+    CardContentComponent,
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
   templateUrl: "./search.component.html",
@@ -64,26 +77,35 @@ export class SearchComponent implements AfterContentInit {
    */
   clearable = input<boolean>(true);
 
-  value = model<string>();
+  onSelect = output<SearchOption>();
 
-  menu = viewChild("searchPanel", { read: CdkMenu });
-  trigger = viewChild(CdkMenuTrigger);
+  inputValue = model<string>();
+  width = signal(0);
+  elementRef = inject(ElementRef);
 
-  ngAfterContentInit(): void {}
+  ngAfterContentInit(): void {
+    this.width.set(this.getWidth());
+  }
 
   foundOptions = computed(() => {
-    if (!this.value()) return this.options();
+    const inputValue = this.inputValue();
+    if (!inputValue) return this.options();
 
-    return this.options().filter((option) =>
-      option.value.toLowerCase().includes(this.value()!.toLowerCase()),
+    return this.options().filter(
+      (option) =>
+        option.label.toLowerCase().includes(inputValue.toLowerCase()) ||
+        option.description?.toLowerCase().includes(inputValue.toLowerCase()),
     );
   });
 
+  isOpen = signal(false);
+
   effect = effect(() => {
-    if (this.value() && this.value()!.length >= 3) {
-      this.trigger()?.open();
+    const inputValue = this.inputValue();
+    if (inputValue && inputValue.length >= 3) {
+      this.isOpen.set(true);
     } else {
-      this.trigger()?.close();
+      this.isOpen.set(false);
     }
   });
 
@@ -115,4 +137,14 @@ export class SearchComponent implements AfterContentInit {
         return "medium";
     }
   });
+
+  selectResult(option: SearchOption) {
+    this.inputValue.set(option.value);
+    this.isOpen.set(false);
+    this.onSelect.emit(option);
+  }
+
+  getWidth(): number {
+    return this.elementRef?.nativeElement?.getBoundingClientRect()?.width || 0;
+  }
 }
