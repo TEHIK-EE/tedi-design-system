@@ -16,7 +16,11 @@
 
   &__content {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
+
+    .tedi-alert__icon {
+      @include mixins.responsive-styles(line-height, body-regular-line-height);
+    }
 
     @include mixins.responsive-styles(gap, alert-default-inner-spacing-x);
   }

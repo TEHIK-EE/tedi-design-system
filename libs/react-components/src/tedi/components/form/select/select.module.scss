@@ -10,8 +10,8 @@ div.tedi-select__control {
   @include mixins.print-grayscale;
   @include mixins.responsive-styles(padding-left, form-field-padding-x-md-default);
   @include mixins.responsive-styles(padding-right, form-field-padding-x-md-default);
-  @include mixins.responsive-styles(padding-top, form-field-padding-y-md-default, null, '- 1px');
-  @include mixins.responsive-styles(padding-bottom, form-field-padding-y-md-default, null, '- 1px');
+  @include mixins.responsive-styles(padding-top, form-field-padding-y-md-default, null, '- 1px'); // UPDATE
+  @include mixins.responsive-styles(padding-bottom, form-field-padding-y-md-default, null, '- 1px'); // UPDATE
 
   .tedi-select__value-container {
     padding: 0;
@@ -144,19 +144,23 @@ div .tedi-select__menu {
 .tedi-select--small {
   .tedi-select__control {
     min-height: $input-height-small;
+    padding-top: calc(var(--_padding-top) - 1px);
+    padding-bottom: calc(var(--_padding-bottom) - 1px);
 
     @include mixins.responsive-styles(font-size, body-small-regular-size);
     @include mixins.responsive-styles(padding-left, form-field-padding-x-md-default);
     @include mixins.responsive-styles(padding-right, form-field-padding-x-md-default);
-    @include mixins.responsive-styles(padding-top, form-field-padding-y-sm, null, '- 1px');
-    @include mixins.responsive-styles(padding-bottom, form-field-padding-y-sm, null, '- 1px');
+    @include mixins.responsive-styles(--_padding-top, form-field-padding-y-sm);
+    @include mixins.responsive-styles(--_padding-bottom, form-field-padding-y-sm);
 
     @include breakpoints.media-breakpoint-down(md) {
       min-height: $input-height;
+      padding-top: calc(var(--_padding-top) - 1px);
+      padding-bottom: calc(var(--_padding-bottom) - 1px);
 
       @include mixins.responsive-styles(font-size, body-regular-size);
-      @include mixins.responsive-styles(padding-top, form-field-padding-y-md-default, null, '- 1px');
-      @include mixins.responsive-styles(padding-bottom, form-field-padding-y-md-default, null, '- 1px');
+      @include mixins.responsive-styles(--_padding-top, form-field-padding-y-md-default);
+      @include mixins.responsive-styles(--_padding-bottom, form-field-padding-y-md-default);
     }
   }
 

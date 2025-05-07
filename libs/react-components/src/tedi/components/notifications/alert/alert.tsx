@@ -102,7 +102,7 @@ export const Alert = (props: AlertProps): JSX.Element | null => {
     const iconProps: IconWithoutBackgroundProps =
       typeof icon === 'string' ? { ...defaultIconProps, name: icon } : { ...defaultIconProps, ...icon };
 
-    return <Icon {...iconProps} />;
+    return <Icon {...iconProps} className={styles['tedi-alert__icon']} />;
   };
 
   const ariaLive = role === 'alert' ? 'assertive' : role === 'status' ? 'polite' : 'off';
