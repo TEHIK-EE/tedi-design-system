@@ -1,0 +1,91 @@
+@use "@tehik-ee/tedi-core/mixins";
+@use "./choicegroup-card-mixins";
+
+.tedi-choicegroup {
+  .tedi-radio,
+  .tedi-checkbox {
+    position: relative;
+    background-color: var(--_choicegroup-card-bg);
+    border: 1px solid var(--_choicegroup-card-border);
+    border-radius: var(--_choicegroup-card-radius);
+    padding: var(--_choicegroup-card-padding);
+
+    @include choicegroup-card-mixins.padding-variables;
+
+    &__input-area {
+      position: static;
+    }
+  }
+
+  &--primary {
+    @include choicegroup-card-mixins.color-variables("primary");
+    @include choicegroup-card-mixins.border-colors(
+      "primary",
+      "border-separate"
+    );
+
+    :is(.tedi-radio, .tedi-checkbox):has(input:checked) {
+      --_radio-bg: transparent;
+      --_checkbox-bg: transparent;
+      --_radio-border: var(
+        --form-checkbox-radio-default-border-selected-inverted
+      );
+      --_checkbox-border: var(
+        --form-checkbox-radio-default-border-selected-inverted
+      );
+    }
+
+    .tedi-checkbox:has(input:active) {
+      --_checkbox-border: var(
+        --form-checkbox-radio-default-border-selected-inverted
+      );
+    }
+
+    &.tedi-choicegroup--stacked {
+      @include choicegroup-card-mixins.border-colors("primary", "border-group");
+    }
+  }
+
+  &--secondary {
+    @include choicegroup-card-mixins.color-variables("secondary");
+    @include choicegroup-card-mixins.border-colors("secondary", "border");
+
+    :is(.tedi-radio, .tedi-checkbox):has(input:checked) {
+      outline: 1px solid var(--_choicegroup-card-border);
+      outline-offset: -2px;
+    }
+  }
+
+  :is(.tedi-radio, .tedi-checkbox):has(input:focus-visible) {
+    .tedi-radio__indicator,
+    .tedi-checkbox__indicator {
+      outline: none;
+    }
+    outline: 2px solid var(--form-input-border-active);
+    outline-offset: 1px;
+  }
+
+  &--plain {
+    .tedi-radio__indicator,
+    .tedi-checkbox__indicator {
+      display: none;
+    }
+  }
+
+  &--stacked {
+    :is(.tedi-radio, .tedi-checkbox) {
+      &:not(:last-child) {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        margin-right: -1px;
+      }
+      &:not(:first-child) {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+      &:has(input:checked) {
+        z-index: 1;
+      }
+    }
+  }
+}
