@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-angular-v1.7.0-rc.8](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.7.0-rc.7...angular-1.7.0-rc.8) (2025-05-07)
+
+
+### Features
+
+* **scss:** responsive-style scss function uptade ([#749](https://github.com/TEHIK-EE/tedi-design-system/issues/749)) ([975ef75](https://github.com/TEHIK-EE/tedi-design-system/commit/975ef75c91ea99c5c740f5a92dd647007230092c)), closes [#748](https://github.com/TEHIK-EE/tedi-design-system/issues/748) [#748](https://github.com/TEHIK-EE/tedi-design-system/issues/748)
+
 # [@tehik-ee/tedi-angular-v1.7.0-rc.7](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.7.0-rc.6...angular-1.7.0-rc.7) (2025-05-05)
 
 
