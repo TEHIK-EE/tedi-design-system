@@ -45,20 +45,21 @@ export default {
         category: "inputs",
         defaultValue: { summary: "primary" },
         type: {
-          summary:
-            '"primary"  | "secondary" | "neutral" | "success" | "danger" | "danger-neutral"',
+          summary: "ButtonVariant",
+          detail: "primary \nsecondary \nneutral \nsuccess \ndanger \ndanger-neutral \nprimary-inverted \nsecondary-inverted \nneutral-inverted",
         },
       },
     },
     size: {
       control: "radio",
-      options: ["small", "medium"],
+      options: ["default", "small"],
       description: "Defines the size of the button.",
       table: {
         category: "inputs",
-        defaultValue: { summary: "medium" },
+        defaultValue: { summary: "default" },
         type: {
-          summary: '"small"  | "medium"',
+          summary: "ButtonSize",
+          detail: "default \nsmall"
         },
       },
     },

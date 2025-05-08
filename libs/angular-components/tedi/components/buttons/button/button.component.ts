@@ -39,7 +39,15 @@ export type ButtonSize = "default" | "small";
   },
 })
 export class ButtonComponent implements AfterContentInit {
+  /**
+   * Specifies the color theme of the button. The color should meet accessibility standards for color contrast.
+   * @default primary
+   */
   variant = input<ButtonVariant>("primary");
+  /**
+   * Defines the size of the button.
+   * @default default
+   */
   size = input<ButtonSize>("default");
 
   @ContentChildren(IconComponent, { descendants: true, read: ElementRef })
