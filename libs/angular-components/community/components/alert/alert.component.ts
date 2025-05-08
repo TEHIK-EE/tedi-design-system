@@ -1,7 +1,7 @@
 import { Component, computed, input, signal } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { TextComponent, IconComponent } from "@tehik-ee/tedi-angular/tedi";
-import { CloseButtonComponent } from "../buttons/closing-button/closing-button.component";
+import { ClosingButtonComponent } from "../buttons/closing-button/closing-button.component";
 
 export type AlertRole = "alert" | "status" | "none";
 export type AlertType = "info" | "success" | "warning" | "danger";
@@ -9,7 +9,7 @@ export type AlertType = "info" | "success" | "warning" | "danger";
 @Component({
   standalone: true,
   selector: "tedi-alert",
-  imports: [CommonModule, TextComponent, IconComponent, CloseButtonComponent],
+  imports: [CommonModule, TextComponent, IconComponent, ClosingButtonComponent],
   templateUrl: "./alert.component.html",
   styleUrls: ["./alert.component.scss"],
 })

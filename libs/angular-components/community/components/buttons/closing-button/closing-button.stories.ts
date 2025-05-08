@@ -5,7 +5,7 @@ import {
   moduleMetadata,
 } from "@storybook/angular";
 
-import { CloseButtonComponent } from "./closing-button.component";
+import { ClosingButtonComponent } from "./closing-button.component";
 import { IconComponent } from "@tehik-ee/tedi-angular/tedi";
 
 /**
@@ -16,7 +16,7 @@ import { IconComponent } from "@tehik-ee/tedi-angular/tedi";
  */
 export default {
   title: "Community Angular/Buttons/ClosingButton",
-  component: CloseButtonComponent,
+  component: ClosingButtonComponent,
   decorators: [
     moduleMetadata({
       imports: [IconComponent],
@@ -48,9 +48,9 @@ export default {
       },
     },
   },
-} as Meta<CloseButtonComponent>;
+} as Meta<ClosingButtonComponent>;
 
-type Story = StoryObj<CloseButtonComponent>;
+type Story = StoryObj<ClosingButtonComponent>;
 
 export const Default: Story = {
   args: {

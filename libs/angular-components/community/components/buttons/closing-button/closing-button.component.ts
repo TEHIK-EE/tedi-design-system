@@ -22,10 +22,9 @@ export type ClosingButtonSize = "medium" | "large";
     "[attr.aria-label]": "title()",
     "[class.tedi-closing-button]": "true",
     "[class.tedi-closing-button--small]": "size() === 'medium'",
-
   },
 })
-export class CloseButtonComponent {
+export class ClosingButtonComponent {
   /**
    * Determins if the button should be medium or large.
    * @default false
