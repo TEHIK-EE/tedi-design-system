@@ -1,7 +1,7 @@
 <div class="tedi-input-group">
   @if (label() && label() != "") {
-    <label tedi-label class="tedi-input-group__label" [for]="labelID()">
-      {{ label() }}
+    <label tedi-label [for]="labelID()">
+      <div class="tedi-input-group__label">{{ label() }}</div>
     </label>
   }
 
@@ -19,6 +19,6 @@
     </div>
   </div>
   @if (feedbackText() && feedbackText() != "") {
-    <tedi-feedback-text [text]="feedbackText()!" />
+    <tedi-feedback-text [text]="feedbackText()!" [type]="feedbackTextType()" />
   }
 </div>
