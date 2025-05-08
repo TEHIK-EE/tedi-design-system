@@ -4,6 +4,7 @@ import {
   argsToTemplate,
   moduleMetadata,
 } from "@storybook/angular";
+
 import { CloseButtonComponent } from "./closing-button.component";
 import { IconComponent } from "@tehik-ee/tedi-angular/tedi";
 
