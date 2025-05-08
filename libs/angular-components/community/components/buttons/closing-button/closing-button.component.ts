@@ -6,8 +6,10 @@ import {
 } from "@angular/core";
 import { IconComponent } from "@tehik-ee/tedi-angular/tedi";
 
+export type ClosingButtonSize = "medium" | "large";
+
 @Component({
-  selector: "[tedi-close-button]",
+  selector: "[tedi-closing-button]",
   imports: [IconComponent],
   standalone: true,
   encapsulation: ViewEncapsulation.None,
@@ -15,20 +17,24 @@ import { IconComponent } from "@tehik-ee/tedi-angular/tedi";
   templateUrl: "./closing-button.component.html",
   styleUrl: "./closing-button.component.scss",
   host: {
+    type: "button",
+    "[title]": "title()",
+    "[attr.aria-label]": "title()",
     "[class.tedi-closing-button]": "true",
-    "[class.tedi-closing-button--small]": "small()",
-    "[class.tedi-closing-button--small-icon]": "smallIcon()",
+    "[class.tedi-closing-button--small]": "size() === 'medium'",
   },
 })
-export class CloseButtonComponent {
+export class ClosingButtonComponent {
   /**
-   * Should show small button instead of default button.
+   * Determins if the button should be medium or large.
    * @default false
    */
-  small = input<boolean>(false);
+  size = input<ClosingButtonSize>("medium");
   /**
-   * Should show small icon instead of default icon.
-   * @default false
+   * The title for the button.
+   * Used for accessibility and inside browsers default tooltip on hover.
+   * If not provided, the 'close' label will be used as a fallback.
+   * @default Sulge
    */
-  smallIcon = input<boolean>(false);
+  title = input<string>("Sulge");
 }
