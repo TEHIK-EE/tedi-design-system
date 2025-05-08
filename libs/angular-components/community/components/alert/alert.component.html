@@ -12,7 +12,11 @@
     <div class="tedi-alert__content">
       <ng-content />
     </div>
-    <tedi-icon *ngIf="showClose()" class="tedi-alert__close" name="close" />
+    <button
+      tedi-closing-button
+      *ngIf="showClose()"
+      class="tedi-alert__close"
+    ></button>
     <h5 class="tedi-alert__title" tedi-text>{{ title() }}</h5>
   </div>
 </div>

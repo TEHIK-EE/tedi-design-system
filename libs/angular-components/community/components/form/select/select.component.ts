@@ -59,8 +59,7 @@ import { CloseButtonComponent } from "community/components/buttons/closing-butto
   },
 })
 export class SelectComponent
-  implements ControlValueAccessor, OnInit, AfterContentInit
-{
+  implements ControlValueAccessor, OnInit, AfterContentInit {
   /**
    * The placeholder text to display when no option is selected.
    * @default ""

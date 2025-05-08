@@ -25,10 +25,10 @@ export default {
     title: {
       control: "text",
       description:
-        "An optional title for the alert, typically used to summarize the message's purpose. If provided, it appears prominently at the top of the alert.",
+        "An optional title for the alert, typically used to summarize the message's purpose. Appears in top of the alert.",
     },
     type: {
-      control: "select",
+      control: "radio",
       options: ["info", "success", "warning", "error"],
       description:
         "Defines the visual and contextual type of the alert. This determines the icon, color, and overall style, making it clear whether the alert is informational, a success message, a warning, or an error.",
@@ -39,7 +39,7 @@ export default {
     icon: {
       control: "text",
       description:
-        "Specifies an optional icon to display in the alert, providing quick visual context. Can be a string (icon name) or an object with additional `IconProps` to further customize the icon.",
+        "Specifies an optional icon to display in the alert. See the icon component for more details.",
     },
     showClose: {
       control: "boolean",
@@ -52,7 +52,7 @@ export default {
       control: "select",
       options: ["alert", "status", "none"],
       description:
-        "The ARIA role of the alert, informing screen readers about the alert's purpose. Options: - 'alert': For high-priority messages that demand immediate attention. - 'status': For less urgent messages providing feedback or updates. - 'none': Used when no ARIA role is needed.",
+        "The ARIA role of the alert, informing screen readers about the alert's purpose. Options: \n - <b>alert</b> for high-priority messages that demand immediate attention. \n - <b>status</b> for less urgent messages providing feedback or updates.\n - <b>none</b> used when no ARIA role is needed.",
       defaultValue: {
         summary: "alert",
       },
