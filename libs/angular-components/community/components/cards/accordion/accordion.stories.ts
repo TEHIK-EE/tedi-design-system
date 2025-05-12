@@ -8,7 +8,7 @@ import { AccordionItemContentComponent } from "./accordion-item-content/accordio
 import { AccordionItemHeaderComponent } from "./accordion-item-header/accordion-item-header.component";
 import { AccordionItemComponent } from "./accordion-item/accordion-item.component";
 import { AccordionComponent } from "./accordion/accordion.component";
-import { CheckboxComponent } from "community/components/form";
+import { CheckboxComponent } from "../../form/checkbox/checkbox/checkbox.component";
 
 export default {
   title: "Community Angular/Cards/Accordion",
