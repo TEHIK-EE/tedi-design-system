@@ -1,3 +1,31 @@
+# [@tehik-ee/tedi-angular-v1.7.0-rc.8](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.7.0-rc.7...angular-1.7.0-rc.8) (2025-05-07)
+
+
+### Features
+
+* **scss:** responsive-style scss function uptade ([#749](https://github.com/TEHIK-EE/tedi-design-system/issues/749)) ([975ef75](https://github.com/TEHIK-EE/tedi-design-system/commit/975ef75c91ea99c5c740f5a92dd647007230092c)), closes [#748](https://github.com/TEHIK-EE/tedi-design-system/issues/748) [#748](https://github.com/TEHIK-EE/tedi-design-system/issues/748)
+
+# [@tehik-ee/tedi-angular-v1.7.0-rc.7](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.7.0-rc.6...angular-1.7.0-rc.7) (2025-05-05)
+
+
+### Bug Fixes
+
+* **list:** list view padding issues fixed on on moblile phones [#738](https://github.com/TEHIK-EE/tedi-design-system/issues/738) ([#750](https://github.com/TEHIK-EE/tedi-design-system/issues/750)) ([21bd4b8](https://github.com/TEHIK-EE/tedi-design-system/commit/21bd4b8ee79e1effb4a6e3be94464dab517ed158))
+
+# [@tehik-ee/tedi-angular-v1.7.0-rc.6](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.7.0-rc.5...angular-1.7.0-rc.6) (2025-05-02)
+
+
+### Features
+
+* **form-textarea:** Add TEDI-Angular textarea component [#639](https://github.com/TEHIK-EE/tedi-design-system/issues/639) ([#725](https://github.com/TEHIK-EE/tedi-design-system/issues/725)) ([6fa4d01](https://github.com/TEHIK-EE/tedi-design-system/commit/6fa4d017bc58a22dfb560a016fb90b0a7ebbec6e))
+
+# [@tehik-ee/tedi-angular-v1.7.0-rc.5](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.7.0-rc.4...angular-1.7.0-rc.5) (2025-04-30)
+
+
+### Features
+
+* **collapse:** angular community collapse component [#716](https://github.com/TEHIK-EE/tedi-design-system/issues/716) ([#726](https://github.com/TEHIK-EE/tedi-design-system/issues/726)) ([e4e65bb](https://github.com/TEHIK-EE/tedi-design-system/commit/e4e65bb8b4d9f411a9bd6a4cb21b27923c0cfc93))
+
 # [@tehik-ee/tedi-angular-v1.7.0-rc.4](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.7.0-rc.3...angular-1.7.0-rc.4) (2025-04-29)
 
 

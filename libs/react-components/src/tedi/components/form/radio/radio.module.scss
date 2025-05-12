@@ -47,8 +47,11 @@
       @include mixins.responsive-styles(height, form-checkbox-radio-size-responsive);
 
       &::after {
-        @include mixins.responsive-styles(width, form-checkbox-radio-size-responsive, null, '* 0.67');
-        @include mixins.responsive-styles(height, form-checkbox-radio-size-responsive, null, '* 0.67');
+        width: calc(var(--_width) * 0.67);
+        height: calc(var(--_height) * 0.67);
+
+        @include mixins.responsive-styles(--_width, form-checkbox-radio-size-responsive);
+        @include mixins.responsive-styles(--_height, form-checkbox-radio-size-responsive);
       }
     }
 
@@ -57,8 +60,11 @@
       @include mixins.responsive-styles(height, form-checkbox-radio-size-large);
 
       &::after {
-        @include mixins.responsive-styles(width, form-checkbox-radio-size-large, null, '* 0.67');
-        @include mixins.responsive-styles(height, form-checkbox-radio-size-large, null, '* 0.67');
+        width: calc(var(--_width) * 0.67);
+        height: calc(var(--_height) * 0.67);
+
+        @include mixins.responsive-styles(--_width, form-checkbox-radio-size-large);
+        @include mixins.responsive-styles(--_height, form-checkbox-radio-size-large);
       }
     }
 

@@ -9,3 +9,5 @@ export * from "./number-field/number-field.component";
 export * from "./checkbox/checkbox/checkbox.component";
 export * from "./checkbox/checkbox-group/checkbox-group.component";
 export * from "./checkbox/checkbox-card-group/checkbox-card-group.component";
+export * from "./select/select.component";
+export * from "./select/select-option.component";

@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-core-v1.13.0](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.12.3...core-1.13.0) (2025-05-07)
+
+
+### Features
+
+* **tedi-core:** simplify responsive-styles [#741](https://github.com/TEHIK-EE/tedi-design-system/issues/741) ([#742](https://github.com/TEHIK-EE/tedi-design-system/issues/742)) ([fee90ce](https://github.com/TEHIK-EE/tedi-design-system/commit/fee90ce90741115c2ec53ce1f84b9be2bf394ef7))
+
 # [@tehik-ee/tedi-core-v1.12.3](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.12.2...core-1.12.3) (2025-04-28)
 
 

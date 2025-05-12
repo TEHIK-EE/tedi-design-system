@@ -1,0 +1,22 @@
+<input
+  #inputElement
+  [id]="id()"
+  [checked]="checked()"
+  [disabled]="disabled()"
+  [required]="required()"
+  [attr.aria-checked]="checked()"
+  type="checkbox"
+  class="tedi-toggle__input"
+  role="switch"
+  (change)="handleChange($event)"
+/>
+<span class="tedi-toggle__slider" aria-hidden="true">
+  @if (icon() && size() === 'large') {
+    <tedi-icon 
+      [name]="checked() ? 'lock_open_right' : 'lock'" 
+      [color]="iconColor()" 
+      [size]="16"
+      class="tedi-toggle__icon"
+    />
+  }
+</span>

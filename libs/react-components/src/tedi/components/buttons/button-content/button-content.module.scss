@@ -121,6 +121,8 @@ $btn-width-large: 3.72rem;
   justify-content: center;
   max-width: 100%;
   min-height: $btn-height;
+  padding-top: calc(var(--_padding-top) - 1px);
+  padding-bottom: calc(var(--_padding-bottom) - 1px);
   margin: 0;
   text-align: center;
   text-decoration: none;
@@ -136,8 +138,8 @@ $btn-width-large: 3.72rem;
   @include mixins.responsive-styles(font-size, button-text-size-default);
 
   // subtract border height
-  @include mixins.responsive-styles(padding-top, button-md-padding-y, null, '- 1px');
-  @include mixins.responsive-styles(padding-bottom, button-md-padding-y, null, '- 1px');
+  @include mixins.responsive-styles(--_padding-top, button-md-padding-y);
+  @include mixins.responsive-styles(--_padding-bottom, button-md-padding-y);
   @include mixins.responsive-styles(padding-left, button-md-padding-x);
   @include mixins.responsive-styles(padding-right, button-md-padding-x);
   @include mixins.responsive-styles(border-radius, button-radius-default);
@@ -150,10 +152,12 @@ $btn-width-large: 3.72rem;
 
 .tedi-btn--small {
   min-height: $btn-height-small;
+  padding-top: calc(var(--_padding-top) - 1px);
+  padding-bottom: calc(var(--_padding-bottom) - 1px);
 
   @include mixins.responsive-styles(font-size, button-text-size-sm);
-  @include mixins.responsive-styles(padding-top, button-sm-padding-y, null, '- 1px');
-  @include mixins.responsive-styles(padding-bottom, button-sm-padding-y, null, '- 1px');
+  @include mixins.responsive-styles(--_padding-top, button-sm-padding-y);
+  @include mixins.responsive-styles(--_padding-bottom, button-sm-padding-y);
   @include mixins.responsive-styles(padding-left, button-sm-padding-x);
   @include mixins.responsive-styles(padding-right, button-sm-padding-x);
 
@@ -172,9 +176,11 @@ $btn-width-large: 3.72rem;
 
 .tedi-btn--large {
   height: $btn-height-large;
+  padding-top: calc(var(--_padding-top) - 1px);
+  padding-bottom: calc(var(--_padding-bottom) - 1px);
 
-  @include mixins.responsive-styles(padding-top, button-md-padding-y, null, '- 1px');
-  @include mixins.responsive-styles(padding-bottom, button-md-padding-y, null, '- 1px');
+  @include mixins.responsive-styles(--_padding-top, button-md-padding-y);
+  @include mixins.responsive-styles(--_padding-bottom, button-md-padding-y);
   @include mixins.responsive-styles(padding-left, button-md-padding-x);
   @include mixins.responsive-styles(padding-right, button-md-padding-x);
 
@@ -185,10 +191,12 @@ $btn-width-large: 3.72rem;
 
 .tedi-btn--neutral {
   padding: 0;
+  padding-top: calc(var(--_padding-top) - 1px);
+  padding-bottom: calc(var(--_padding-bottom) - 1px);
   background-clip: padding-box;
 
-  @include mixins.responsive-styles(padding-top, button-md-neutral-padding-y, null, '- 1px');
-  @include mixins.responsive-styles(padding-bottom, button-md-neutral-padding-y, null, '- 1px');
+  @include mixins.responsive-styles(--_padding-top, button-md-neutral-padding-y);
+  @include mixins.responsive-styles(--_padding-bottom, button-md-neutral-padding-y);
 
   &.tedi-btn--default.tedi-btn--icon-only {
     &:hover:not(:disabled) {
