@@ -1,7 +1,5 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
-
 import { InfoButtonComponent } from "./info-button.component";
-import { IconComponent } from "../../../../tedi/components/base/icon/icon.component";
 
 describe("InfoButtonComponent", () => {
   let fixture: ComponentFixture<InfoButtonComponent>;
@@ -10,7 +8,7 @@ describe("InfoButtonComponent", () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [InfoButtonComponent, IconComponent],
+      imports: [InfoButtonComponent],
     });
 
     fixture = TestBed.createComponent(InfoButtonComponent);
