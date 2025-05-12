@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-angular-v1.7.0-rc.9](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.7.0-rc.8...angular-1.7.0-rc.9) (2025-05-12)
+
+
+### Features
+
+* **toggle:** TEDI Angular community toggle component [#693](https://github.com/TEHIK-EE/tedi-design-system/issues/693) ([#737](https://github.com/TEHIK-EE/tedi-design-system/issues/737)) ([b328b95](https://github.com/TEHIK-EE/tedi-design-system/commit/b328b957d647322c706a973f6c57a7c7e0617550))
+
 # [@tehik-ee/tedi-angular-v1.7.0-rc.8](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.7.0-rc.7...angular-1.7.0-rc.8) (2025-05-07)
 
 
