@@ -2,6 +2,11 @@
 @use '@tehik-ee/tedi-core/bootstrap-utility/breakpoints';
 
 .tedi-sidenav {
+  --global-outline-color: var(--color-primary-highlight);
+  --global-outline-offset: -2px;
+  --bullet-color: #4587bc;
+  --subheading-color: #d0e1ee;
+
   z-index: var(--z-index-sidenav);
   display: flex;
   flex-direction: column;
@@ -12,9 +17,6 @@
   margin: 0;
   font-size: 0.875rem;
   background-color: var(--side-navigation-item-background-default);
-
-  --global-outline-color: var(--color-primary-highlight);
-  --global-outline-offset: -2px;
 
   @include mixins.print-grayscale;
 
@@ -43,19 +45,19 @@
       left: 26px;
       width: 2px;
       content: '';
-      background-color: var(--alpha-white-50);
+      background-color: var(--bullet-color);
       border-radius: 10px 10px 0 0;
     }
 
     &::after {
       position: absolute;
-      top: 35px;
+      top: 23px;
       bottom: 0;
       left: 28px;
       width: 15px;
       height: 2px;
       content: '';
-      background-color: var(--alpha-white-50);
+      background-color: var(--bullet-color);
       border-radius: 0 10px 10px 0;
     }
 
@@ -143,6 +145,14 @@
       padding-left: 0;
     }
   }
+
+  &.tedi-sidenav__sub-item {
+    a.tedi-sidenav__link {
+      min-height: 48px;
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+  }
 }
 
 .tedi-sidenav__item .tedi-sidenav__item {
@@ -200,14 +210,6 @@ a.tedi-sidenav__link {
   }
 
   .tedi-sidenav__item .tedi-sidenav__item .tedi-sidenav__item & {
-    & .tedi-sidenav__title:first-child {
-      margin-left: calc(44px + 1rem);
-    }
-
-    .tedi-sidenav--hide-subitem-icons & .tedi-sidenav__title {
-      margin-left: calc(34px + 1rem);
-    }
-
     & [data-name='icon']:first-child {
       margin-left: 20px;
     }
@@ -234,5 +236,56 @@ a.tedi-sidenav__link {
 
   &:hover {
     background-color: var(--side-navigation-item-background-hover);
+  }
+}
+
+.tedi-sidenav__subheading {
+  font-size: var(--size-01);
+  color: var(--subheading-color);
+  text-transform: uppercase;
+
+  @include mixins.responsive-styles(padding-top, layout-grid-gutters-02);
+  @include mixins.responsive-styles(padding-bottom, layout-grid-gutters-04);
+  @include mixins.responsive-styles(padding-left, side-navigation-item-padding-right);
+  @include mixins.responsive-styles(padding-right, side-navigation-item-padding-left-level-1);
+}
+
+.tedi-sidenav__item--has-children {
+  .tedi-sidenav__sub-item {
+    padding-left: 0;
+  }
+
+  flex-direction: column;
+
+  &::after {
+    display: none;
+  }
+
+  &::before {
+    margin-top: 23px;
+    margin-bottom: 23px;
+  }
+}
+
+.tedi-sidenav__bullet {
+  position: absolute;
+  top: 19px;
+  left: 22px;
+  width: 10px;
+  height: 10px;
+
+  &::before {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    content: '';
+    background-color: var(--bullet-color);
+    border-radius: 100%;
+  }
+}
+
+.tedi-sidenav__sub-item:has(+ .tedi-sidenav__item--has-children) {
+  &::before {
+    height: calc(50% + 1px);
   }
 }

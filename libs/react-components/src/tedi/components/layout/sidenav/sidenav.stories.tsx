@@ -44,16 +44,26 @@ const exampleNavCollapsibleItems: SideNavItem[] = [
     href: '#',
     children: 'Clinical Management',
     icon: 'medical_services',
-    subItems: [
-      { href: '#', children: 'Vital Signs' },
-      { href: '#', children: 'Assessments' },
+    subItemGroups: [
       {
-        href: '#',
-        children: 'Treatments',
+        subHeading: 'Patient Care',
+        subItems: [
+          { href: '#', children: 'Vital Signs' },
+          { href: '#', children: 'Assessments' },
+        ],
       },
       {
-        href: '#',
-        children: 'Documentation',
+        subHeading: 'Documentation',
+        subItems: [
+          {
+            href: '#',
+            children: 'Treatments',
+          },
+          {
+            href: '#',
+            children: 'Documentation',
+          },
+        ],
       },
     ],
   },
@@ -78,6 +88,51 @@ const exampleNavCollapsibleItems: SideNavItem[] = [
   { href: '#', children: 'Billing & Finance', icon: 'payments' },
 ];
 
+const exampleThirdLevelMenuItems: SideNavItem[] = [
+  { href: '#', children: 'Dashboard', icon: 'dashboard' },
+  { href: '#', children: 'Patient Records', icon: 'people' },
+  {
+    href: '#',
+    children: 'Clinical Management',
+    icon: 'medical_services',
+    subItems: [
+      { href: '#', children: 'Vital Signs' },
+      { href: '#', children: 'Assessments' },
+      {
+        href: '#',
+        children: 'Treatments',
+        subItems: [
+          { href: '#', children: 'Active Treatments' },
+          { href: '#', children: 'Treatment History' },
+          { href: '#', children: 'Treatment Plans' },
+          { href: '#', children: 'Clinical Protocols' },
+        ],
+      },
+      {
+        href: '#',
+        children: 'Documentation',
+        subItems: [
+          { href: '#', children: 'Clinical Notes' },
+          { href: '#', children: 'Medical Forms' },
+          { href: '#', children: 'Consent Forms' },
+          { href: '#', children: 'Reports' },
+        ],
+      },
+    ],
+  },
+  {
+    href: '#',
+    children: 'Administration',
+    icon: 'admin_panel_settings',
+    subItems: [
+      { href: '#', children: 'Staff Management' },
+      { href: '#', children: 'Scheduling' },
+    ],
+  },
+  { href: '#', children: 'Inventory Management', icon: 'inventory' },
+  { href: '#', children: 'Billing & Finance', icon: 'payments' },
+];
+
 export const Default: Story = {
   args: {
     navItems: exampleNavItems,
@@ -92,9 +147,16 @@ export const Public: Story = {
   },
 };
 
-export const Collapsible: Story = {
+export const SecondLevelMenuItems: Story = {
   args: {
     navItems: exampleNavCollapsibleItems,
+    ariaLabel: 'Menu title',
+  },
+};
+
+export const ThirdLevelMenuItems: Story = {
+  args: {
+    navItems: exampleThirdLevelMenuItems,
     ariaLabel: 'Menu title',
   },
 };
