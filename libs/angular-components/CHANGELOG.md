@@ -1,3 +1,22 @@
+# [@tehik-ee/tedi-angular-v1.7.0-rc.11](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.7.0-rc.10...angular-1.7.0-rc.11) (2025-05-12)
+
+
+### Bug Fixes
+
+* **rc release:** fix tedi-ready index.ts barrel files [#756](https://github.com/TEHIK-EE/tedi-design-system/issues/756) ([e4f43b4](https://github.com/TEHIK-EE/tedi-design-system/commit/e4f43b41ea28814fd8f6bf79aa83d15616a31057))
+
+# [@tehik-ee/tedi-angular-v1.7.0-rc.10](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.7.0-rc.9...angular-1.7.0-rc.10) (2025-05-12)
+
+
+### Bug Fixes
+
+* **rc release:** fix imports and index.ts barrel files [#756](https://github.com/TEHIK-EE/tedi-design-system/issues/756) ([7f2664d](https://github.com/TEHIK-EE/tedi-design-system/commit/7f2664d2152dcb8fdcc9764e04428c3b366226b9))
+
+
+### Features
+
+* **link:** TEDI-Ready component [#756](https://github.com/TEHIK-EE/tedi-design-system/issues/756) ([#774](https://github.com/TEHIK-EE/tedi-design-system/issues/774)) ([b9487d3](https://github.com/TEHIK-EE/tedi-design-system/commit/b9487d3cbd2e78ef0d2be9963ff9114192572d45))
+
 # [@tehik-ee/tedi-angular-v1.7.0-rc.9](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.7.0-rc.8...angular-1.7.0-rc.9) (2025-05-12)
 
 
