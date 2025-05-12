@@ -31,4 +31,8 @@
     border-color: var(--button-main-neutral-border-default);
     outline: var(--borders-02) solid var(--button-main-primary-border-focus);
   }
+
+  tedi-icon {
+    color: inherit;
+  }
 }
