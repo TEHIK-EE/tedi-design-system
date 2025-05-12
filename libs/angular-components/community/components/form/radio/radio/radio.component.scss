@@ -1,8 +1,5 @@
 @use "@tehik-ee/tedi-core/mixins";
 
-@mixin input-state-styles {
-}
-
 .tedi-radio {
   --_radio-bg: var(--form-checkbox-radio-default-background-default);
   --_radio-border: var(--form-checkbox-radio-default-border-default);
@@ -11,7 +8,7 @@
   --_radio-dot-size: 12px;
 
   display: grid;
-  grid-template-areas: "button label" ". feedback";
+  grid-template-areas: "input-area label" ". feedback";
   grid-template-columns: auto 1fr;
   align-items: center;
 
@@ -29,14 +26,17 @@
     $exclude: tablet
   );
 
-  &__button {
+  &__input-area {
     position: relative;
-    grid-area: button;
+    grid-area: input-area;
   }
 
   &__input {
     position: absolute;
-    inset: 0;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
     margin: 0;
     padding: 0;
     opacity: 0;
@@ -77,32 +77,32 @@
     );
   }
 
-  &:has(#{&}__input:checked) {
+  &:has(input:checked) {
     .tedi-radio__indicator::after {
       display: block;
     }
     --_radio-border: var(--form-checkbox-radio-default-border-selected);
   }
 
-  &:has(#{&}__input:hover, #{&}__input:focus-visible) {
+  &:has(input:hover, input:focus-visible) {
     .tedi-radio__indicator {
-      outline: 1px solid var(--form-checkbox-radio-default-border-hover);
+      outline: 1px solid var(--_radio-border);
     }
     --_radio-border: var(--form-checkbox-radio-default-border-hover);
   }
 
-  &:has(#{&}__input:active) {
+  &:has(input:active) {
     --_radio-border: var(--form-checkbox-radio-default-border-active);
   }
 
-  &:has(#{&}__input:disabled) {
+  &:has(input:disabled) {
     pointer-events: none;
     --_radio-label-color: var(--general-text-disabled);
     --_radio-bg: var(--form-input-background-disabled);
     --_radio-border: var(--form-input-border-disabled);
   }
 
-  &:has(#{&}__input:disabled:checked) {
+  &:has(input:disabled:checked) {
     --_radio-dot-bg: var(
       --form-checkbox-radio-default-background-selected-disabled
     );
