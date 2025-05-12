@@ -27,7 +27,7 @@ const preview: Preview = {
           description:
             "This component is only used to build other components and not being exported from library",
         },
-        ExistsInTediReady: {
+        existsInTediReady: {
           background: "#005aa3",
           color: "#fff",
           description: "This component has been migrated to TEDI-Ready",

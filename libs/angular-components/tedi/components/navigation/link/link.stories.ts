@@ -6,12 +6,10 @@ import {
   StoryFn,
 } from "@storybook/angular";
 import { LinkComponent } from "./link.component";
-import {
-  ColComponent,
-  RowComponent,
-  TextColor,
-} from "@tehik-ee/tedi-angular/tedi";
-import { TextComponent } from "@tehik-ee/tedi-angular/tedi";
+import { ColComponent } from "../../layout/grid/col/col.component";
+import { RowComponent } from "../../layout/grid/row/row.component";
+import { TextComponent, TextColor } from "../../base/text/text.component";
+import { IconComponent } from "tedi/components/base/icon/icon.component";
 
 const PSEUDO_STATE = ["Default", "Hover", "Active", "Focus"];
 
@@ -21,16 +19,16 @@ const PSEUDO_STATE = ["Default", "Hover", "Active", "Focus"];
  */
 
 export default {
-  title: "Community Angular/Navigation/Link",
+  title: "TEDI-Ready Angular/Navigation/Link",
   component: LinkComponent,
   decorators: [
     moduleMetadata({
-      imports: [LinkComponent, RowComponent, ColComponent, TextComponent],
+      imports: [LinkComponent, RowComponent, ColComponent, TextComponent, IconComponent],
     }),
   ],
   parameters: {
     status: {
-      type: ["breakpointSupport", "existsInTediReady"],
+      type: ["breakpointSupport"],
     },
   },
   argTypes: {
@@ -66,22 +64,6 @@ export default {
         category: "inputs",
         type: { summary: "boolean" },
         defaultValue: { summary: "true" },
-      },
-    },
-    iconLeft: {
-      description: "Name of the icon we want to show on the left.",
-      control: "text",
-      table: {
-        category: "inputs",
-        type: { summary: "string" },
-      },
-    },
-    iconRight: {
-      description: "Name of the icon we want to show on the right.",
-      control: "text",
-      table: {
-        category: "inputs",
-        type: { summary: "string" },
       },
     },
     xs: {
@@ -158,17 +140,13 @@ export const Sizes: StoryObj<LinkComponent> = {
     props: args,
     template: `
       <div class="example-list">
-        <tedi-row [cols]="2" [class]="'padding-14-16 border-bottom'">
-          <tedi-col>Default</tedi-col>
-          <tedi-col>
-            <a tedi-link ${argsToTemplate(args)}>View result</a>
-          </tedi-col>
+        <tedi-row [cols]="2" class="padding-14-16 border-bottom">
+          <b>Default</b>
+          <a tedi-link ${argsToTemplate(args)}>View result</a>
         </tedi-row>
-        <tedi-row [cols]="2" [class]="'padding-14-16'">
-          <tedi-col>Small</tedi-col>
-          <tedi-col>
-            <a tedi-link ${argsToTemplate(args)} [size]="'small'">View result</a>
-          </tedi-col>
+        <tedi-row [cols]="2" class="padding-14-16">
+          <b>Small</b>
+          <a tedi-link ${argsToTemplate(args)} size="small">View result</a>
         </tedi-row>
       </div>
     `,
@@ -179,22 +157,22 @@ export const Colors: StoryObj<LinkComponent> = {
   render: (args) => ({
     props: args,
     template: `
-      <div style="display: flex; flex-direction: column; gap: 1rem;">
+      <tedi-row [cols]="1" [gapY]="3">
         <a tedi-link ${argsToTemplate(args)}>
           Rebane on väikese koera suurune ja pika koheva sabaga. Joostes hoiab ta saba horisontaalselt. Tema selja karvad on oranžid. Eestis eelistab ta elupaigana metsatukkasid.
         </a>
         <a tedi-link ${argsToTemplate(args)} [underline]="false">
           Rebane on väikese koera suurune ja pika koheva sabaga. Joostes hoiab ta saba horisontaalselt. Tema selja karvad on oranžid. Eestis eelistab ta elupaigana metsatukkasid.
         </a>
-        <div style="display: flex; flex-direction: column; gap: 1rem; background: var(--general-icon-background-brand-primary); border-radius: 4px; padding: 1rem;">
-          <a tedi-link ${argsToTemplate(args)} [variant]="'inverted'">
+        <tedi-row [cols]="1" [gapY]="3" style="background: var(--general-icon-background-brand-primary); border-radius: 4px; padding: 1rem;">
+          <a tedi-link ${argsToTemplate(args)} variant="inverted">
             Rebane on väikese koera suurune ja pika koheva sabaga. Joostes hoiab ta saba horisontaalselt. Tema selja karvad on oranžid. Eestis eelistab ta elupaigana metsatukkasid.
           </a>
-          <a tedi-link ${argsToTemplate(args)} [variant]="'inverted'" [underline]="false">
+          <a tedi-link ${argsToTemplate(args)} variant="inverted" [underline]="false">
             Rebane on väikese koera suurune ja pika koheva sabaga. Joostes hoiab ta saba horisontaalselt. Tema selja karvad on oranžid. Eestis eelistab ta elupaigana metsatukkasid.
           </a>
-        </div>
-      </div>
+        </tedi-row>
+      </tedi-row>
     `,
   }),
 };
@@ -208,39 +186,43 @@ const LinkTemplate: StoryFn<TemplateType> = ({
   props: { ...args, titleColor: titleColor, pseudoState: PSEUDO_STATE },
   template: `
     <tedi-row [cols]="1" [xl]="{ cols: 2 }" [gapY]="5">
-      <tedi-col [class]="'tedi-vertical-spacing'" style="--vertical-spacing-internal: 1em;">
-        <p tedi-text [modifiers]="'bold'" [color]="titleColor">Default size</p>
+      <tedi-col class="tedi-vertical-spacing" style="--vertical-spacing-internal: 1em;">
+        <p tedi-text modifiers="bold" [color]="titleColor">Default size</p>
         <tedi-row *ngFor="let state of pseudoState;" [cols]="4">
-          <tedi-col>
-            <p tedi-text [color]="titleColor">{{ state }}</p>
-          </tedi-col>
+          <p tedi-text [color]="titleColor">{{ state }}</p>
           <tedi-col>
             <a tedi-link [id]="state" ${argsToTemplate(args)}>View result</a>
           </tedi-col>
           <tedi-col>
-            <a tedi-link [id]="state" [iconRight]="'arrow_forward'" ${argsToTemplate(args)}>Continue</a>
-          </tedi-col>
-          <tedi-col>
-            <a tedi-link [id]="state" [iconLeft]="'arrow_back'" ${argsToTemplate(args)}>Back</a>
-          </tedi-col>
-        </tedi-row>
-      </tedi-col>
-      <tedi-col [class]="'tedi-vertical-spacing'" style="--vertical-spacing-internal: 1em;">
-        <p tedi-text [modifiers]="'bold'" [color]="titleColor">Small size</p>
-        <tedi-row *ngFor="let state of pseudoState;" [cols]="4">
-          <tedi-col>
-            <p tedi-text [color]="titleColor">{{ state }}</p>
-          </tedi-col>
-          <tedi-col>
-            <a tedi-link [id]="state" [size]="'small'" ${argsToTemplate(args)}>View result</a>
-          </tedi-col>
-          <tedi-col>
-            <a tedi-link [id]="state" [iconRight]="'arrow_forward'" [size]="'small'" ${argsToTemplate(args)}>
+            <a tedi-link [id]="state" ${argsToTemplate(args)}>
               Continue
+              <tedi-icon name="arrow_forward" />
             </a>
           </tedi-col>
           <tedi-col>
-            <a tedi-link [id]="state" [iconLeft]="'arrow_back'" [size]="'small'" ${argsToTemplate(args)}>
+            <a tedi-link [id]="state" ${argsToTemplate(args)}>
+              <tedi-icon name="arrow_back" />
+              Back
+            </a>
+          </tedi-col>
+        </tedi-row>
+      </tedi-col>
+      <tedi-col class="tedi-vertical-spacing" style="--vertical-spacing-internal: 1em;">
+         <p tedi-text modifiers="bold" [color]="titleColor">Small size</p>
+        <tedi-row *ngFor="let state of pseudoState;" [cols]="4">
+          <p tedi-text [color]="titleColor">{{ state }}</p>
+          <tedi-col>
+            <a tedi-link [id]="state" size="small" ${argsToTemplate(args)}>View result</a>
+          </tedi-col>
+          <tedi-col>
+            <a tedi-link [id]="state" size="small" ${argsToTemplate(args)}>
+              Continue
+              <tedi-icon name="arrow_forward" />
+            </a>
+          </tedi-col>
+          <tedi-col>
+            <a tedi-link [id]="state" size="small" ${argsToTemplate(args)}>
+              <tedi-icon name="arrow_back" />
               Back
             </a>
           </tedi-col>
@@ -306,4 +288,41 @@ export const InvertedNoUnderline: StoryObj<TemplateType> = {
     titleColor: "white",
   },
   render: LinkTemplate,
+};
+
+export const WithIcons: StoryObj<LinkComponent> = {
+  render: (args) => ({
+    props: args,
+    template: `
+      <div class="example-list">
+        <tedi-row [cols]="2" class="padding-14-16 border-bottom">
+          <b>Multiple icons</b>
+          <a tedi-link ${argsToTemplate(args)}>
+            <tedi-icon name="notifications" />
+            This text contains
+            <tedi-icon name="notifications" />
+            multiple icons
+          </a>
+        </tedi-row>
+        <tedi-row [cols]="2" class="padding-14-16 border-bottom">
+          <b>Long Text Icon Inline</b>
+          <div style="max-width: 200px;">
+            <a tedi-link ${argsToTemplate(args)}>
+              <tedi-icon name="notifications" />
+              This is very long text with inline icon
+            </a>
+          </div>
+        </tedi-row>
+        <tedi-row [cols]="2" class="padding-14-16">
+          <b>Long Text Icon Flexed</b>
+          <div style="max-width: 200px;">
+            <a tedi-link ${argsToTemplate(args)} style="display: inline-flex;">
+              <tedi-icon name="notifications" />
+              This is very long text with flexed icon
+            </a>
+          </div>
+        </tedi-row>
+      </div>
+    `,
+  }),
 };
