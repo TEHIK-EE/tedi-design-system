@@ -1,0 +1,64 @@
+@use "@tehik-ee/tedi-core/mixins";
+
+.tedi-dropdown-item {
+  --_background-color: var(--dropdown-item-default-background);
+  --_color: var(--dropdown-item-default-text);
+
+  display: block;
+  width: 100%;
+  background-color: var(--_background-color);
+  color: var(--_color);
+  cursor: pointer;
+  text-align: left;
+  border: none;
+  border-radius: 0;
+
+  @include mixins.responsive-styles(font-family, family-primary);
+  @include mixins.responsive-styles(font-weight, body-regular-weight);
+  @include mixins.responsive-styles(font-size, body-regular-size);
+  @include mixins.responsive-styles(line-height, body-regular-line-height);
+  @include mixins.responsive-styles(
+    padding,
+    form-select-item-padding-y form-select-item-padding-x
+  );
+  @include mixins.responsive-styles(
+    --_form-select-item-radius,
+    form-select-item-radius
+  );
+
+  &--active {
+    &,
+    &:hover {
+      --_background-color: var(--dropdown-item-active-background);
+      --_color: var(--dropdown-item-active-text);
+    }
+  }
+
+  &--disabled {
+    &,
+    &:hover {
+      --_background-color: var(--dropdown-item-disabled-background);
+      --_color: var(--dropdown-item-disabled-text);
+    }
+  }
+
+  &:hover:not(.tedi-dropdown-item--active, .tedi-dropdown-item--disabled) {
+    --_background-color: var(--dropdown-item-hover-background);
+    --_color: var(--dropdown-item-hover-text);
+  }
+
+  &:focus-visible {
+    --_background-color: var(--dropdown-item-hover-background);
+    --_color: var(--dropdown-item-hover-text);
+  }
+
+  &:first-child {
+    border-top-left-radius: var(--_form-select-item-radius);
+    border-top-right-radius: var(--_form-select-item-radius);
+  }
+
+  &:last-child {
+    border-bottom-left-radius: var(--_form-select-item-radius);
+    border-bottom-right-radius: var(--_form-select-item-radius);
+  }
+}

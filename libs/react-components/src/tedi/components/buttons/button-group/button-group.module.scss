@@ -14,12 +14,14 @@
       justify-content: center;
       height: auto;
       min-height: 2.5rem;
+      padding-top: calc(var(--_padding-top) - 1px);
+      padding-bottom: calc(var(--_padding-bottom) - 1px);
       text-align: center;
       cursor: pointer;
       border-radius: 0;
 
-      @include mixins.responsive-styles(padding-top, button-md-padding-y, null, '- 1px');
-      @include mixins.responsive-styles(padding-bottom, button-md-padding-y, null, '- 1px');
+      @include mixins.responsive-styles(--_padding-top, button-md-padding-y);
+      @include mixins.responsive-styles(--_padding-bottom, button-md-padding-y);
       @include mixins.responsive-styles(padding-left, button-md-padding-x);
       @include mixins.responsive-styles(padding-right, button-md-padding-x);
 

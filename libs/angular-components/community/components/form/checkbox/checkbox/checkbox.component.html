@@ -1,0 +1,30 @@
+<div class="tedi-checkbox__input-area">
+  <input
+    class="tedi-checkbox__input"
+    type="checkbox"
+    #input
+    [id]="inputId()"
+    [checked]="checked()"
+    [disabled]="checkboxDisabled()"
+    [attr.aria-describedby]="feedbackTextId()"
+    [indeterminate]="indeterminate()"
+    (change)="onInputChange($event)"
+    (blur)="_onTouched()"
+  />
+  <div class="tedi-checkbox__indicator">
+    @if (indicatorIcon(); as iconName) {
+      <tedi-icon [name]="iconName" color="white" [size]="iconSize()" />
+    }
+  </div>
+</div>
+<label [for]="inputId()" class="tedi-checkbox__label">
+  <ng-content></ng-content>
+</label>
+@if (feedbackText(); as feedback) {
+  <tedi-feedback-text
+    [id]="feedbackTextId()"
+    [text]="feedback.text"
+    [type]="feedback.type"
+    [position]="feedback.position"
+  />
+}

@@ -69,7 +69,7 @@ export const Horizontal: Story = {
       <div [tediVerticalSpacing]="0.5">
         <tedi-text-group
           ${argsToTemplate(args)}
-          label="Patient"
+          label="Patsient"
           value="Mari Maasikas"
         />
         <tedi-text-group
@@ -79,12 +79,12 @@ export const Horizontal: Story = {
         />
         <tedi-text-group
           ${argsToTemplate(args)}
-          label="Healthcare provider"
+          label="Tervisekassa"
           value="SA Põhja-Eesti Regionaalhaigla"
         />
         <tedi-text-group
           ${argsToTemplate(args)}
-          label="Document created"
+          label="Kuupäev"
           value="16.08.2023 14:51:48"
         />
       </div>
@@ -104,7 +104,7 @@ export const Vertical: Story = {
       <div [tediVerticalSpacing]="0.5">
         <tedi-text-group
             ${argsToTemplate(args)}
-            label="Patient"
+            label="Patsient"
             value="Mari Maasikas"
         />
         <tedi-text-group
@@ -114,12 +114,12 @@ export const Vertical: Story = {
         />
         <tedi-text-group
           ${argsToTemplate(args)}
-          label="Healthcare provider"
+          label="Tervisekassa"
           value="SA Põhja-Eesti Regionaalhaigla"
         />
         <tedi-text-group
           ${argsToTemplate(args)}
-          label="Document created"
+          label="Kuupäev"
           value="16.08.2023 14:51:48"
         />
       </div>
