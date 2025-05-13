@@ -9,11 +9,6 @@ import { AlertComponent } from "./alert.component";
 import { TextComponent } from "@tehik-ee/tedi-angular/tedi";
 import { LinkComponent } from "../navigation/link/link.component";
 
-/*
- * noSideBorders - Removes the side borders from the alert for a cleaner appearance. This also sets the border radius to 0.
- * global - Indicates that the alert is intended to span the full width of the page, typically for critical or prominent messages.
- */
-
 export default {
   title: "Community Angular/Notifications/Alert",
   component: AlertComponent,
