@@ -8,7 +8,13 @@
 
 <div class="tedi-search__suffix">
   @if (clearable() && inputValue()) {
-    <tedi-icon name="close" [size]="iconSize()" />
+    <button
+      type="reset"
+      tedi-close-button
+      [small]="true"
+      [smallIcon]="true"
+      (click)="clearResult($event)"
+    ></button>
     <div class="separator"></div>
   }
   @if (!withButton()) {
@@ -17,7 +23,12 @@
 </div>
 
 @if (withButton()) {
-  <button tedi-button class="tedi-search__trigger" [size]="buttonSize()">
+  <button
+    tedi-button
+    class="tedi-search__trigger"
+    [size]="buttonSize()"
+    (click)="searchButtonClick()"
+  >
     <tedi-icon name="search" color="white" [size]="buttonText() ? 18 : 24" />
     {{ buttonText() }}
   </button>
@@ -26,31 +37,36 @@
 <ng-template
   cdkConnectedOverlay
   [cdkConnectedOverlayOrigin]="trigger"
-  [cdkConnectedOverlayHasBackdrop]="true"
-  [cdkConnectedOverlayBackdropClass]="'cdk-overlay-transparent-backdrop'"
   [cdkConnectedOverlayOpen]="isOpen()"
   (detach)="isOpen.set(false)"
-  (backdropClick)="isOpen.set(false)"
 >
-  <tedi-card class="tedi-search__panel" [style.width.px]="width()" cdkMenu>
+  <tedi-card
+    class="tedi-search__panel"
+    [style.width.px]="width()"
+    [spacing]="'none'"
+    cdkMenu
+  >
     <tedi-card-content>
-      @for (option of foundOptions(); track option.value) {
-        <button
-          class="tedi-search__option"
-          tedi-dropdown-item
-          cdkMenuItem
-          [value]="option.value"
-          (click)="selectResult(option)"
-        >
-          {{ option.label }} x {{ option.description }}
-        </button>
-      } @empty {
-        <!-- TODO -->
-        <span>Empty message</span>
-      }
-
+      <div class="options">
+        @for (option of foundOptions(); track option.value) {
+          <button
+            class="tedi-search__option"
+            tedi-dropdown-item
+            cdkMenuItem
+            [value]="option.value"
+            (cdkMenuItemTriggered)="selectResult(option)"
+          >
+            {{ option.label }} <small>x {{ option.description }}</small>
+          </button>
+        } @empty {
+          <!-- TODO -->
+          <span>Empty message</span>
+        }
+      </div>
       <div class="tedi-search__separator"></div>
-      <ng-content></ng-content>
+      <div class="tedi-search__footer">
+        <ng-content></ng-content>
+      </div>
     </tedi-card-content>
   </tedi-card>
 </ng-template>
