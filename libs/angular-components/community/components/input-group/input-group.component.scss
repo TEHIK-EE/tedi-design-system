@@ -4,51 +4,63 @@
 @mixin left-round-corners() {
   @include mixins.responsive-styles(
     border-top-left-radius,
-    input-group-rounded
+    input-group_rounded
   );
   @include mixins.responsive-styles(
     border-bottom-left-radius,
-    input-group-rounded
+    input-group_rounded
   );
 }
 
 @mixin right-round-corners() {
   @include mixins.responsive-styles(
     border-top-right-radius,
-    input-group-rounded
+    input-group_rounded
   );
   @include mixins.responsive-styles(
     border-bottom-right-radius,
-    input-group-rounded
+    input-group_rounded
   );
 }
 
 .tedi-input-group__container {
-  --input-group-background-color: var(--form-input-background-default);
-  --input-group-rounded-desktop: var(--radius-02-default);
-  --input-group-rounded-tablet: var(--radius-02-default);
-  --input-group-rounded-mobile: var(--radius-02-default);
-  --input-group-min-height: var(--dimensions-14);
-  --input-group-text-color: var(--general-text-secondary);
-  --input-group-border-width: var(--borders-01);
-  --input-group-border-color: var(--form-input-border-default);
+  --input-group_rounded-desktop: var(--radius-02-default);
+  --input-group_rounded-tablet: var(--radius-02-default);
+  --input-group_rounded-mobile: var(--radius-02-default);
 
-  --input-group-side-background-color: var(
+  --input-group_padding_x-desktop: var(
+    --form-field-padding-x-md-default-desktop
+  );
+  --input-group_padding_x-tablet: var(--form-field-padding-x-md-default-tablet);
+  --input-group_padding_x-mobile: var(--form-field-padding-x-md-default-mobile);
+  --input-group_padding_y-desktop: var(
+    --form-field-padding-y-md-default-desktop
+  );
+  --input-group_padding_y-tablet: var(--form-field-padding-y-md-default-tablet);
+  --input-group_padding_y-mobile: var(--form-field-padding-y-md-default-mobile);
+
+  --input-group_background_color: var(--form-input-background-default);
+  --input-group_min_height: var(--dimensions-14);
+  --input-group_text_color: var(--general-text-secondary);
+  --input-group_border_width: var(--borders-01);
+  --input-group_border_color: var(--form-input-border-default);
+
+  --input-group_side_background_color: var(
     --form-general-background-action-background
   );
-  --input-group-border: var(--input-group-border-width) solid
-    var(--input-group-border-color);
+  --input-group_border: var(--input-group_border_width) solid
+    var(--input-group_border_color);
 
-  --input-group-disabled-border-color: var(--neutral-350);
-  --input-group-disabled-background-color: var(--neutral-300);
-  --input-group-text-disabled-color: var(--neutral-450);
+  --input-group_disabled_border_color: var(--neutral-350);
+  --input-group_disabled_background_color: var(--neutral-300);
+  --input-group_text_disabled_color: var(--neutral-450);
 
   display: flex;
   justify-content: space-between;
 
-  color: var(--input-group-text-color);
-  background: var(--input-group-background-color);
-  min-height: var(--input-group-min-height);
+  color: var(--input-group_text_color);
+  background: var(--input-group_background_color);
+  min-height: var(--input-group_min_height);
   overflow: hidden;
 
   @include mixins.responsive-styles(font-family, family-primary);
@@ -57,9 +69,9 @@
     margin: 0;
     width: 100%;
 
-    border-radius: var(--input-group-inner-border-radius);
-    border-top: var(--input-group-border);
-    border-bottom: var(--input-group-border);
+    border-radius: var(--input-group_inner_border_radius);
+    border-top: var(--input-group_border);
+    border-bottom: var(--input-group_border);
   }
 
   select {
@@ -85,11 +97,11 @@
 }
 
 .tedi-input-group__container--disabled {
-  --input-group-text-color: var(--input-group-text-disabled-color);
-  --input-group-border-color: var(--input-group-disabled-border-color);
-  --input-group-background-color: var(--input-group-disabled-background-color);
-  --input-group-side-background-color: var(
-    --input-group-disabled-background-color
+  --input-group_text_color: var(--input-group_text_disabled_color);
+  --input-group_border_color: var(--input-group_disabled_border_color);
+  --input-group_background_color: var(--input-group_disabled_background_color);
+  --input-group_side_background_color: var(
+    --input-group_disabled_background_color
   );
 }
 
@@ -99,29 +111,13 @@
   align-items: center;
   flex-shrink: 0;
 
-  background: var(--input-group-side-background-color);
-  border: var(--input-group-border);
+  background: var(--input-group_side_background_color);
+  border: var(--input-group_border);
 
-  @include mixins.responsive-styles(
-    padding-left,
-    form-field-padding-x-md-default
-  );
-  @include mixins.responsive-styles(
-    padding-right,
-    form-field-padding-x-md-default
-  );
-  @include mixins.responsive-styles(
-    padding-top,
-    form-field-padding-y-md-default
-  );
-  @include mixins.responsive-styles(
-    padding-bottom,
-    form-field-padding-y-md-default
-  );
-
-  > * {
-    padding: var(--input-group-side-padding);
-  }
+  @include mixins.responsive-styles(padding-left, input-group_padding_x);
+  @include mixins.responsive-styles(padding-right, input-group_padding_x);
+  @include mixins.responsive-styles(padding-top, input-group_padding_y);
+  @include mixins.responsive-styles(padding-bottom, input-group_padding_y);
 
   &:empty {
     display: none;
