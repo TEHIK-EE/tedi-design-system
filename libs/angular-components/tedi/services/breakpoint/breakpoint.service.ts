@@ -23,7 +23,7 @@ export type BreakpointInputsWithoutSignals<TInputs> = TInputs &
   providedIn: "root",
 })
 export class BreakpointService {
-  private currentBreakpoint = signal<Breakpoint | undefined>(undefined);
+  currentBreakpoint = signal<Breakpoint | undefined>(undefined);
   constructor(private breakpointObserver: BreakpointObserver) {
     this.breakpointObserver
       .observe(

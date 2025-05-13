@@ -1,4 +1,4 @@
-import { Component, inject, input, signal } from "@angular/core";
+import { Component, effect, inject, input, signal } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { LinkComponent } from "../link/link.component"; //@tehik-ee/tedi-angular/community
 import { RouterLink } from "@angular/router";
@@ -6,14 +6,13 @@ import {
   IconComponent,
   TextComponent,
   BreakpointService,
+  type Breakpoint,
 } from "@tehik-ee/tedi-angular/tedi";
 
 export type Breadcrumb = {
   label: string;
   href: string;
 };
-
-export type Breakpoint = ["mobile", "tablet", "desktop"];
 
 const sampleCrumbs: Breadcrumb[] = [
   { label: "Kodu", href: "/" },
@@ -60,17 +59,27 @@ export class BreadcrumbsComponent {
    */
   crumbs = input<Breadcrumb[]>(sampleCrumbs);
   /**
-   * Whether to display single crumb or not. It is mostly used for mobile view which will display only the last crumb.
+   * Used to override the breakCrumbs value.
    * @default false
    */
   shortCrumbs = input<boolean>(false);
   /**
-   * Whether to display the breadcrumbs as a single line or not.
-   * @default false
+   * Breakpoint to be used for displaying single crumb.
+   * @default md
    */
+  breakCrumbs = input<Breakpoint>();
+
   singleCrumb = signal<boolean>(false);
 
   breakpointService = inject(BreakpointService);
+
+  constructor() {
+    effect(() => {
+      const current = this.breakpointService.currentBreakpoint();
+      console.log("Current breakpoint:", current);
+      this.singleCrumb.set(current === "xs" || current === "sm");
+    });
+  }
 
   getSecondLastCrumb(): Breadcrumb | null {
     if (this.crumbs().length > 1) {

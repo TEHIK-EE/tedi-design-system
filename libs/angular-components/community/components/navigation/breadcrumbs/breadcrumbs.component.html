@@ -4,27 +4,29 @@
   class="tedi__breadcrumbs"
 >
   <ol class="tedi__breadcrumbs__list">
-    <ng-container *ngFor="let crumb of crumbs(); let last = last">
-      @if (!last) {
-        <li class="tedi__breadcrumbs__item">
-          <a tedi-link [routerLink]="crumb.href" [underline]="false">{{
-            crumb.label
-          }}</a>
-          <tedi-icon color="brand" name="chevron_right" />
-        </li>
-      } @else {
-        <p
-          aria-current="page"
-          tedi-text
-          modifiers="inline-block"
-          color="secondary"
-        >
-          {{ crumb.label }}
-        </p>
-      }
+    <ng-container *ngIf="!singleCrumb()">
+      <ng-container *ngFor="let crumb of crumbs(); let last = last">
+        @if (!last) {
+          <li class="tedi__breadcrumbs__item">
+            <a tedi-link [routerLink]="crumb.href" [underline]="false">{{
+              crumb.label
+            }}</a>
+            <tedi-icon color="brand" name="chevron_right" />
+          </li>
+        } @else {
+          <p
+            aria-current="page"
+            tedi-text
+            modifiers="inline-block"
+            color="secondary"
+          >
+            {{ crumb.label }}
+          </p>
+        }
+      </ng-container>
     </ng-container>
   </ol>
-  <ng-container *ngIf="shortCrumbs()">
+  <ng-container *ngIf="singleCrumb()">
     <div class="tedi__breadcrumbs__item">
       <tedi-icon color="brand" name="arrow_back" />
       <a
