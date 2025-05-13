@@ -7,7 +7,6 @@ import '../src/tedi/styles/index.scss';
 import '../src/community/styles/index.scss';
 import '../../tedi-core/src/tedi-storybook-styles.scss';
 import '../src/community/styles/storybook.scss';
-import 'what-input';
 
 export const decorators: Preview['decorators'] = [
   (Story: React.ComponentType, context: StoryContext) => {
