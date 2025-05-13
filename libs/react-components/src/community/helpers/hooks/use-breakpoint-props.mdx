@@ -29,7 +29,7 @@ interface ComponentProps extends BreakpointSupport<ComponentBreakpointProps> {
 }
 
 const Component = (props: ComponentProps) => {
-  const { getCurrentBreakpointProps } = useBreakpointProps();
+  const { getCurrentBreakpointProps } = useBreakpointProps(props.defaultServerBreakpoint);
   const { prop1, prop2, ...rest } = getCurrentBreakpointProps<ComponentProps>(props, defaultPropsObject);
 
   return <p>content</p>;
@@ -40,6 +40,24 @@ And when using as Component:
 
 ```tsx
 <Component background="bg-muted" sm={{ background: 'bg-primary' }} xl={{ background: 'bg-primary-highlight' }}>
+  <p>Content</p>
+</Component>
+```
+
+## defaultServerBreakpoint with SSR
+
+When using SSR, you can to pass the defaultServerBreakpoint prop to the component.
+This prop should be set to the breakpoint that is wanted to render on the server side.
+This is important when wanting to avoid large layout shifts with SSR.
+Defaults to 'xs' if not set.
+
+```tsx
+<Component
+  defaultServerBreakpoint="xl"
+  background="bg-muted"
+  sm={{ background: 'bg-primary' }}
+  xl={{ background: 'bg-primary-highlight' }}
+>
   <p>Content</p>
 </Component>
 ```
