@@ -23,6 +23,7 @@ export type AlertTitleType =
   | "h6"
   | "div"
   | "strong";
+export type AlertVariant = "global" | "noSideBorders";
 
 @Component({
   standalone: true,
@@ -77,6 +78,12 @@ export class AlertComponent {
   noSideBorders = input<boolean>();
 
   /**
+   * Variant for the alert, which can be used to apply specific styles.
+   * For example, 'global' for full-width alerts or 'noSideBorders' for alerts without side borders.
+   */
+  variant = input<AlertVariant>();
+
+  /**
    * The HTML tag to be used for the alert title.
    * @default h2
    */
@@ -122,8 +129,8 @@ export class AlertComponent {
     return {
       "tedi-alert": true,
       [`tedi-alert--${this.type()}`]: !!this.type(),
-      "tedi-alert--global": this.isGlobal(),
-      "tedi-alert--no-side-borders": this.noSideBorders(),
+      "tedi-alert--global": this.variant() === "global",
+      "tedi-alert--no-side-borders": this.variant() === "noSideBorders",
     };
   });
 }

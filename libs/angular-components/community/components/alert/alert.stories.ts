@@ -9,6 +9,11 @@ import { AlertComponent } from "./alert.component";
 import { TextComponent } from "@tehik-ee/tedi-angular/tedi";
 import { LinkComponent } from "../navigation/link/link.component";
 
+/*
+ * noSideBorders - Removes the side borders from the alert for a cleaner appearance. This also sets the border radius to 0.
+ * global - Indicates that the alert is intended to span the full width of the page, typically for critical or prominent messages.
+ */
+
 export default {
   title: "Community Angular/Notifications/Alert",
   component: AlertComponent,
@@ -19,8 +24,6 @@ export default {
     showClose: false,
     role: "alert",
     titleElement: "h2",
-    isGlobal: false,
-    noSideBorders: false,
   },
   argTypes: {
     title: {
@@ -67,21 +70,11 @@ export default {
         summary: "alert",
       },
     },
-    isGlobal: {
-      control: "boolean",
+    variant: {
+      control: "select",
+      options: ["global", "noSideBorders"],
       description:
-        "Indicates that the alert is intended to span the full width of the page, typically for critical or prominent messages.",
-      defaultValue: {
-        summary: false,
-      },
-    },
-    noSideBorders: {
-      control: "boolean",
-      description:
-        "Removes the side borders from the alert for a cleaner appearance. This also sets the border radius to 0.",
-      defaultValue: {
-        summary: false,
-      },
+        "Defines the visual and contextual type of the alert. \n - <b>global</b> indicates that the alert is intended to span the full width of the page, typically for critical or prominent messages. \n - <b>noSideBorders</b> removes the side borders from the alert for a cleaner appearance. This also sets the border radius to 0.",
     },
   },
   decorators: [
@@ -120,11 +113,11 @@ export const Global: Story = {
   render: (args) => ({
     props: args,
     template: `
-    <tedi-alert title="Global Alert" isGlobal="true">
-      <p tedi-text>This is an global alert message. It provides important information to the user. <a style="display: inline;"tedi-link>Click here to read more</a></p>
+    <tedi-alert title="Global Alert" variant="global">
+      <p tedi-text>This is an global alert message. It provides important information to the user. <a style="display: inline;" tedi-link>Click here to read more</a></p>
     </tedi-alert>
-    <tedi-alert isGlobal="true">
-      <p tedi-text>This is an global alert message. It provides important information to the user. <a style="display: inline;"tedi-link>Click here to read more</a></p>
+    <tedi-alert variant="global">
+      <p tedi-text>This is an global alert message. It provides important information to the user. <a style="display: inline;" tedi-link>Click here to read more</a></p>
     </tedi-alert>
     `,
   }),
@@ -135,10 +128,10 @@ export const noSideBorders: Story = {
   render: (args) => ({
     props: args,
     template: `
-    <tedi-alert noSideBorders="true" title="Global Alert">
+    <tedi-alert variant="noSideBorders" title="Global Alert">
       <p tedi-text>This is an alert message. It provides important information to the user.</p>
     </tedi-alert>
-    <tedi-alert noSideBorders="true">
+    <tedi-alert variant="noSideBorders">
       <p tedi-text>This is an alert message. It provides important information to the user.</p>
     </tedi-alert>
     `,
@@ -152,8 +145,6 @@ export const Colors: Story = {
     type: "info",
     showClose: true,
     role: "alert",
-    isGlobal: false,
-    noSideBorders: false,
   },
   render: (args) => ({
     props: args,
