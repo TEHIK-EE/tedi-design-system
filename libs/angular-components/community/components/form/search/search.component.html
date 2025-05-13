@@ -1,10 +1,11 @@
-<input
-  type="text"
-  [(ngModel)]="inputValue"
-  class="tedi-search__input"
-  cdkOverlayOrigin
-  #trigger="cdkOverlayOrigin"
-/>
+<div class="tedi-search__input-wrapper">
+  <input type="text" [(ngModel)]="inputValue" class="tedi-search__input" />
+  <div
+    class="tedi-search__input-trigger"
+    [cdkMenuTriggerFor]="searchPanel"
+    #hiddenTrigger
+  ></div>
+</div>
 
 <div class="tedi-search__suffix">
   @if (clearable() && inputValue()) {
@@ -34,12 +35,7 @@
   </button>
 }
 
-<ng-template
-  cdkConnectedOverlay
-  [cdkConnectedOverlayOrigin]="trigger"
-  [cdkConnectedOverlayOpen]="isOpen()"
-  (detach)="isOpen.set(false)"
->
+<ng-template #searchPanel>
   <tedi-card
     class="tedi-search__panel"
     [style.width.px]="width()"

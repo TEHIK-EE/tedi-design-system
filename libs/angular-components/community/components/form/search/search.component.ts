@@ -10,13 +10,14 @@ import {
   model,
   output,
   signal,
+  viewChild,
   ViewEncapsulation,
 } from "@angular/core";
 import { ButtonComponent } from "community/components/buttons/button/button.component";
 import { IconComponent } from "@tehik-ee/tedi-angular/tedi";
 import { FormsModule } from "@angular/forms";
 import { OverlayModule } from "@angular/cdk/overlay";
-import { CdkMenuModule } from "@angular/cdk/menu";
+import { CdkMenuModule, CdkMenuTrigger } from "@angular/cdk/menu";
 import {
   CardComponent,
   CardContentComponent,
@@ -84,8 +85,10 @@ export class SearchComponent implements AfterContentInit {
   onSelect = output<SearchOption>();
 
   inputValue = model<string>();
+  selectedOption = model<SearchOption | undefined>(undefined);
   width = signal(0);
   elementRef = inject(ElementRef);
+  trigger = viewChild(CdkMenuTrigger);
 
   ngAfterContentInit(): void {
     this.width.set(this.getWidth());
@@ -102,14 +105,14 @@ export class SearchComponent implements AfterContentInit {
     );
   });
 
-  isOpen = signal(false);
+  isOpen = computed(() => {
+    return this.trigger()?.isOpen();
+  });
 
   effect = effect(() => {
     const inputValue = this.inputValue();
-    if (inputValue && inputValue.length >= 3 && !this.withButton()) {
-      this.isOpen.set(true);
-    } else {
-      this.isOpen.set(false);
+    if (inputValue && inputValue.length >= 3) {
+      this.trigger()?.open();
     }
   });
 
@@ -143,16 +146,17 @@ export class SearchComponent implements AfterContentInit {
   });
 
   searchButtonClick() {
-    const value = this.inputValue();
-    if (value && value.length >= 3) {
-      this.isOpen.set(true);
-    }
+    const selected = this.selectedOption();
+    if (selected) this.onSelect.emit(selected);
   }
 
   selectResult(option: SearchOption) {
+    this.selectedOption.set(option);
     this.inputValue.set(option.label);
-    this.isOpen.set(false);
-    this.onSelect.emit(option);
+
+    if (!this.withButton()) {
+      this.onSelect.emit(option);
+    }
   }
 
   clearResult(event: Event) {
