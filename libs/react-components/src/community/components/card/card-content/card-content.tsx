@@ -48,7 +48,7 @@ export interface CardContentProps extends BreakpointSupport<CardContentBreakpoin
 
 export const CardContent = (props: CardContentProps): JSX.Element => {
   const { padding: rootPadding, background: rootBackground } = React.useContext(CardContext);
-  const { getCurrentBreakpointProps } = useBreakpointProps();
+  const { getCurrentBreakpointProps } = useBreakpointProps(props.defaultServerBreakpoint);
 
   const { children, className, padding, background, ...rest } = getCurrentBreakpointProps<CardContentProps>(props, {
     padding: rootPadding,
