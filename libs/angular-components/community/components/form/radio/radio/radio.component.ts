@@ -70,6 +70,13 @@ export class RadioComponent implements OnInit {
     return this.value() === this.radioGroup?.groupValue() || this.checked();
   });
 
+  feedbackTextId = computed(() => {
+    if (this.feedbackText()) {
+      return crypto.randomUUID();
+    }
+    return;
+  });
+
   focus() {
     this._inputEl().nativeElement.focus();
   }

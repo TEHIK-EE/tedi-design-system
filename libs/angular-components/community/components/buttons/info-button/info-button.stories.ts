@@ -17,6 +17,11 @@ export default {
         <button tedi-info-button [title]="title" [ariaLabel]="label"></button>
       `,
   }),
+  parameters: {
+    status: {
+      type: ["existsInTediReady"],
+    },
+  },
   argTypes: {
     isSmall: {
       description: "If true, applies a small size to the InfoButton.",

@@ -2,24 +2,23 @@
   "name": "@tehik-ee/tedi-react",
   "version": "0.0.0-semantic-version",
   "type": "module",
-  "main": "community.es.js",
-  "module": "community.es.js",
+  "sideEffects": false,
   "exports": {
     "./tedi": {
-      "types": "./tedi/index.d.ts",
-      "import": "./tedi.es.js"
+      "types": "./tedi.d.ts",
+      "import": "./tedi.es.js",
+      "require": "./tedi.cjs.js"
     },
     "./community": {
-      "types": "./community/index.d.ts",
-      "import": "./community.es.js"
+      "types": "./community.d.ts",
+      "import": "./community.es.js",
+      "require": "./community.cjs.js"
     },
     "./index.css": "./index.css"
   },
   "scripts": {
-    "copy:community": "cp -a dist/libs/react-components/src/community/. dist/community/",
-    "copy:tedi": "cp -a dist/libs/react-components/src/tedi/. dist/tedi/",
     "start": "storybook dev -p 4400 -c .storybook",
-    "build": "vite build --config vite.config.ts && npm run copy:community && npm run copy:tedi && rm -rf dist/libs && replace-in-file //fonts//g \"./fonts/\" dist/index.css --isRegex",
+    "build": "rm -rf dist && vite build --config vite.config.ts && rm -rf dist/libs && replace-in-file //fonts//g \"./fonts/\" dist/index.css --isRegex",
     "build:sb": "storybook build -c .storybook -o dist/storybook/react-components",
     "lint": "npx stylelint \"src/**/*.scss\" --fix && eslint \"src/**/*.{ts,tsx}\" --no-ignore --fix",
     "lint:ci": "npx stylelint \"src/**/*.scss\" && eslint --quiet",
@@ -42,16 +41,17 @@
     "draftjs-md-converter": "^1.5.2",
     "formik": "^2.4.5",
     "lodash-es": "^4.17.21",
-    "next": "^14.1.3",
-    "react": "18.3.1",
     "react-animate-height": "^3.2.3",
-    "react-dom": "18.3.1",
     "react-select": "^5.10.1",
     "react-dropzone": "^14.3.5",
     "react-sticky-box": "2.0.5",
     "react-toastify": "^9.1.3",
     "what-input": "^5.2.12",
     "yup": "^1.4.0"
+  },
+  "peerDependencies": {
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
   },
   "devDependencies": {
     "@avalane/storybook-addon-status": "^5.0.1",
@@ -108,6 +108,7 @@
     "jest-environment-jsdom": "29.7.0",
     "linkify-string": "^4.1.3",
     "lint-staged": "^15.3.0",
+    "next": "^14.1.3",
     "prettier": "^2.8.8",
     "replace-in-file": "^7.1.0",
     "rollup-plugin-visualizer": "^5.12.0",
