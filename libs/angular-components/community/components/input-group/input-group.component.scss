@@ -2,13 +2,25 @@
 @use "sass:list";
 
 @mixin left-round-corners() {
-  @include mixins.responsive-styles(border-top-left-radius, input-group-rounded);
-  @include mixins.responsive-styles(border-bottom-left-radius, input-group-rounded);
+  @include mixins.responsive-styles(
+    border-top-left-radius,
+    input-group-rounded
+  );
+  @include mixins.responsive-styles(
+    border-bottom-left-radius,
+    input-group-rounded
+  );
 }
 
 @mixin right-round-corners() {
-  @include mixins.responsive-styles(border-top-right-radius, input-group-rounded);
-  @include mixins.responsive-styles(border-bottom-right-radius, input-group-rounded);
+  @include mixins.responsive-styles(
+    border-top-right-radius,
+    input-group-rounded
+  );
+  @include mixins.responsive-styles(
+    border-bottom-right-radius,
+    input-group-rounded
+  );
 }
 
 .tedi-input-group__container {
@@ -21,8 +33,11 @@
   --input-group-border-width: var(--borders-01);
   --input-group-border-color: var(--form-input-border-default);
 
-  --input-group-side-background-color: var(--form-general-background-action-background);
-  --input-group-border: var(--input-group-border-width) solid var(--input-group-border-color);
+  --input-group-side-background-color: var(
+    --form-general-background-action-background
+  );
+  --input-group-border: var(--input-group-border-width) solid
+    var(--input-group-border-color);
 
   --input-group-disabled-border-color: var(--neutral-350);
   --input-group-disabled-background-color: var(--neutral-300);
@@ -38,7 +53,7 @@
 
   @include mixins.responsive-styles(font-family, family-primary);
 
-  &>:not(.tedi-input-group__prefix, .tedi-input-group__suffix) {
+  & > :not(.tedi-input-group__prefix, .tedi-input-group__suffix) {
     margin: 0;
     width: 100%;
 
@@ -51,7 +66,6 @@
     border: none;
     background-color: transparent;
   }
-
 
   &:has(.tedi-input-group__prefix:empty) {
     @include left-round-corners();
@@ -74,10 +88,10 @@
   --input-group-text-color: var(--input-group-text-disabled-color);
   --input-group-border-color: var(--input-group-disabled-border-color);
   --input-group-background-color: var(--input-group-disabled-background-color);
-  --input-group-side-background-color: var(--input-group-disabled-background-color);
+  --input-group-side-background-color: var(
+    --input-group-disabled-background-color
+  );
 }
-
-
 
 .tedi-input-group__prefix,
 .tedi-input-group__suffix {
@@ -88,12 +102,24 @@
   background: var(--input-group-side-background-color);
   border: var(--input-group-border);
 
-  @include mixins.responsive-styles(padding-left, form-field-padding-x-md-default);
-  @include mixins.responsive-styles(padding-right, form-field-padding-x-md-default);
-  @include mixins.responsive-styles(padding-top, form-field-padding-y-md-default);
-  @include mixins.responsive-styles(padding-bottom, form-field-padding-y-md-default);
+  @include mixins.responsive-styles(
+    padding-left,
+    form-field-padding-x-md-default
+  );
+  @include mixins.responsive-styles(
+    padding-right,
+    form-field-padding-x-md-default
+  );
+  @include mixins.responsive-styles(
+    padding-top,
+    form-field-padding-y-md-default
+  );
+  @include mixins.responsive-styles(
+    padding-bottom,
+    form-field-padding-y-md-default
+  );
 
-  >* {
+  > * {
     padding: var(--input-group-side-padding);
   }
 
