@@ -7,7 +7,7 @@
   >
     @if (hideCollapseText() === false) {
       <p tedi-text color="brand" class="collapse__button--text">
-        {{ isOpen() ? closeText() : openText() }}
+        {{ isOpen() ? textClose() : textOpen() }}
       </p>
     }
     @if (arrowType() === "default") {

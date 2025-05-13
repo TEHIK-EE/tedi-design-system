@@ -5,8 +5,10 @@ import {
   Renderer2,
   signal,
   AfterViewInit,
+  ChangeDetectionStrategy,
+  computed,
 } from "@angular/core";
-import { IconComponent, TextComponent } from "@tehik-ee/tedi-angular/tedi";
+import { IconComponent, TextComponent, TranslationService } from "@tehik-ee/tedi-angular/tedi";
 
 export type ArrowType = "default" | "secondary";
 
@@ -16,19 +18,20 @@ export type ArrowType = "default" | "secondary";
   imports: [IconComponent, TextComponent],
   templateUrl: "./collapse.component.html",
   styleUrls: ["./collapse.component.scss"],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CollapseComponent implements AfterViewInit {
   /**
    * The title/header element for the collapsible section.
    * Rendered inside the toggle button.
-   * @default "Näita"
+   * @default "Ava"
    */
-  openText = input<string>("Näita rohkem");
+  openText = input<string>();
   /**
    * Text shown on the toggle button when the content is expanded.
-   * @default "Peida"
+   * @default "Sulge"
    */
-  closeText = input<string>("Näita vähem");
+  closeText = input<string>();
   /**
    * Whether the collapse should be initially open.
    * @default false
@@ -45,9 +48,11 @@ export class CollapseComponent implements AfterViewInit {
    */
   arrowType = input<ArrowType>("default");
 
-  collapseContentId: string = `collapse-content-${self.crypto.randomUUID()}`;
-  isOpen = signal<boolean>(false);
   renderer = inject(Renderer2);
+  translationService = inject(TranslationService);
+
+  collapseContentId: string = `collapse-content-${self.crypto.randomUUID()}`;
+  isOpen = signal<boolean>(false);  
 
   toggleCollapse() {
     this.isOpen.update((prev) => !prev);
@@ -58,4 +63,7 @@ export class CollapseComponent implements AfterViewInit {
       this.isOpen.set(true);
     }
   }
+
+  textOpen = computed(() => this.openText() ?? this.translationService.translate("open"))
+  textClose = computed(() => this.closeText() ?? this.translationService.translate("close"))
 }

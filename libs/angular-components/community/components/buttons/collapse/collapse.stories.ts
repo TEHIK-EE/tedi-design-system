@@ -20,8 +20,6 @@ export default {
   title: "Community Angular/Buttons/Collapse",
   component: CollapseComponent,
   args: {
-    openText: "Näita rohkem infot",
-    closeText: "Näita vähem infot",
     defaultOpen: false,
     hideCollapseText: false,
     arrowType: "default",
@@ -32,7 +30,7 @@ export default {
       description:
         "The title for the collapsible section. Rendered inside the toggle button.",
       table: {
-        defaultValue: { summary: "Näita rohkem" },
+        defaultValue: { summary: "Ava" },
       },
     },
     closeText: {
@@ -40,7 +38,7 @@ export default {
       description:
         "Text shown on the toggle button when the content is expanded.",
       table: {
-        defaultValue: { summary: "Näita vähem" },
+        defaultValue: { summary: "Sulge" },
       },
     },
     defaultOpen: {
