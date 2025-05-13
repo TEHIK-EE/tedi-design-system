@@ -1,7 +1,7 @@
 import { Component, inject, input, signal } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { LinkComponent } from "../link/link.component"; //@tehik-ee/tedi-angular/community
-// import { RouterLink } from "@angular/router";
+import { RouterLink } from "@angular/router";
 import {
   IconComponent,
   TextComponent,
@@ -31,7 +31,7 @@ const sampleCrumbs: Breadcrumb[] = [
   standalone: true,
   imports: [
     CommonModule,
-    // RouterLink,
+    RouterLink,
     LinkComponent,
     IconComponent,
     TextComponent,
