@@ -1,0 +1,9 @@
+<ng-content></ng-content>
+@if (required()) {
+    <span class="tedi-label__asterisk"> *</span>
+}
+@if (tooltip()) {
+    <tedi-tooltip [text]="tooltip()">
+        <button #tooltipTrigger tedi-info-button ariaLabel="Kuva tööriistavihje"></button>
+    </tedi-tooltip>
+}

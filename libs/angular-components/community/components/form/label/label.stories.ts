@@ -10,6 +10,11 @@ export default {
       <label tedi-label [size]="size" [required]="required">Label</label>
     `,
   }),
+  parameters: {
+    status: {
+      type: ["existsInTediReady"],
+    },
+  },
   args: {
     size: "default",
     required: false,
