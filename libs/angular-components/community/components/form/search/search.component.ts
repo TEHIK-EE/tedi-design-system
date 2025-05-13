@@ -21,6 +21,8 @@ import {
   CardComponent,
   CardContentComponent,
 } from "community/components/cards/card";
+import { DropdownItemComponent } from "community/components/overlay";
+import { CloseButtonComponent } from "community/components/buttons";
 
 export type SearchSize = "large" | "default" | "small";
 export type SearchOption = {
@@ -40,6 +42,8 @@ export type SearchOption = {
     CdkMenuModule,
     CardComponent,
     CardContentComponent,
+    DropdownItemComponent,
+    CloseButtonComponent,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
@@ -102,7 +106,7 @@ export class SearchComponent implements AfterContentInit {
 
   effect = effect(() => {
     const inputValue = this.inputValue();
-    if (inputValue && inputValue.length >= 3) {
+    if (inputValue && inputValue.length >= 3 && !this.withButton()) {
       this.isOpen.set(true);
     } else {
       this.isOpen.set(false);
@@ -138,10 +142,22 @@ export class SearchComponent implements AfterContentInit {
     }
   });
 
+  searchButtonClick() {
+    const value = this.inputValue();
+    if (value && value.length >= 3) {
+      this.isOpen.set(true);
+    }
+  }
+
   selectResult(option: SearchOption) {
-    this.inputValue.set(option.value);
+    this.inputValue.set(option.label);
     this.isOpen.set(false);
     this.onSelect.emit(option);
+  }
+
+  clearResult(event: Event) {
+    event.stopPropagation();
+    this.inputValue.set("");
   }
 
   getWidth(): number {
