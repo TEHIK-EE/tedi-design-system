@@ -39,7 +39,7 @@ export const useBreakpointProps = (defaultServerBreakpoint: Breakpoint = 'xs') =
  * BreakpointSupport is a utility type that allows you to define props for different breakpoints.
  * It extends the given type T and adds optional properties for each breakpoint except 'xs'.
  * This is useful for creating responsive components that can have different props based on the current breakpoint.
- * Also defaultSSRBreakpoint is added to the type, so you can set a default value for the component, when it's rendered on the server-side.
+ * Also defaultServerBreakpoint is added to the type, so you can set a default value for the component, when it's rendered on the server-side.
  * Because in SSR we don't have access to the window object and can't know the user's screen size.
  */
 export type BreakpointSupport<T> = T & {
