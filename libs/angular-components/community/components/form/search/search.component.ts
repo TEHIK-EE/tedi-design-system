@@ -26,7 +26,7 @@ import { DropdownItemComponent } from "community/components/overlay";
 import { CloseButtonComponent } from "community/components/buttons";
 
 export type SearchSize = "large" | "default" | "small";
-export type SearchOption = {
+export type AutocompleteOption = {
   value: string;
   label: string;
   description?: string;
@@ -56,36 +56,42 @@ export type SearchOption = {
   },
 })
 export class SearchComponent implements AfterContentInit {
-  options = input<SearchOption[]>([]);
-
+  /**
+   * Autocomplete options for the search input
+   * @default []
+   */
+  autocompleteOptions = input<AutocompleteOption[]>([]);
+  /**
+   * Minimum number of characters to trigger autocomplete
+   * @default 3
+   */
+  autocompleteFrom = input<number>(3);
   /**
    * Size of the search component
    * @default "default"
    */
   size = input<SearchSize>("default");
-
   /**
    * Should the search button be shown
    * @default false
    */
   withButton = input<boolean>(false);
-
   /**
    * Add text to the search button
    * @default undefined
    */
   buttonText = input<string | undefined>(undefined);
-
   /**
    * Should the search input be clearable
    * @default true
    */
   clearable = input<boolean>(true);
 
-  onSelect = output<SearchOption>();
+  // Emitted event
+  onSelect = output<AutocompleteOption | string>();
 
   inputValue = model<string>();
-  selectedOption = model<SearchOption | undefined>(undefined);
+  selectedOption = model<AutocompleteOption>();
   width = signal(0);
   elementRef = inject(ElementRef);
   trigger = viewChild(CdkMenuTrigger);
@@ -96,9 +102,9 @@ export class SearchComponent implements AfterContentInit {
 
   foundOptions = computed(() => {
     const inputValue = this.inputValue();
-    if (!inputValue) return this.options();
+    if (!inputValue) return this.autocompleteOptions();
 
-    return this.options().filter(
+    return this.autocompleteOptions().filter(
       (option) =>
         option.label.toLowerCase().includes(inputValue.toLowerCase()) ||
         option.description?.toLowerCase().includes(inputValue.toLowerCase()),
@@ -111,7 +117,7 @@ export class SearchComponent implements AfterContentInit {
 
   effect = effect(() => {
     const inputValue = this.inputValue();
-    if (inputValue && inputValue.length >= 3) {
+    if (inputValue && inputValue.length >= this.autocompleteFrom()) {
       this.trigger()?.open();
     }
   });
@@ -146,11 +152,10 @@ export class SearchComponent implements AfterContentInit {
   });
 
   searchButtonClick() {
-    const selected = this.selectedOption();
-    if (selected) this.onSelect.emit(selected);
+    this.onSelect.emit(this.selectedOption() ?? this.inputValue() ?? "");
   }
 
-  selectResult(option: SearchOption) {
+  selectResult(option: AutocompleteOption) {
     this.selectedOption.set(option);
     this.inputValue.set(option.label);
 
@@ -162,6 +167,8 @@ export class SearchComponent implements AfterContentInit {
   clearResult(event: Event) {
     event.stopPropagation();
     this.inputValue.set("");
+    this.selectedOption.set(undefined);
+    this.onSelect.emit("");
   }
 
   getWidth(): number {
