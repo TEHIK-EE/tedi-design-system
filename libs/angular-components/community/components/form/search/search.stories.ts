@@ -4,14 +4,10 @@ import {
   StoryObj,
   moduleMetadata,
 } from "@storybook/angular";
-import { SearchComponent, SearchOption } from "./search.component";
+import { SearchComponent, AutocompleteOption } from "./search.component";
 import { RowComponent } from "@tehik-ee/tedi-angular/tedi";
 
-/**
- * <a href="https://tedi.tehik.ee/1ee8444b7/p/search" target="_blank">Zeroheight ↗</a>
- */
-
-const mockOptions: SearchOption[] = [
+const mockOptions: AutocompleteOption[] = [
   {
     value: "option1",
     label: "Option 1",
@@ -79,16 +75,25 @@ type SearchStory = StoryObj<SearchComponent>;
 export const Default: SearchStory = {
   args: {
     size: "default",
-    options: mockOptions,
+    autocompleteOptions: mockOptions,
   },
   render: (args) => ({
     props: {
       ...args,
       mockOptions,
+      selectedItem: undefined,
+      onItemSelect: function (item: AutocompleteOption) {
+        console.log("Selected item:", item);
+        this["selectedItem"] = item;
+      },
     },
-    template: `<tedi-search ${argsToTemplate(args)} >
-      <p>Footer goes here</p>
-    </tedi-search>`,
+    template: `
+        <tedi-search ${argsToTemplate(args)} (onSelect)="onItemSelect($event)">
+          <p>Footer goes here</p>
+        </tedi-search>
+
+<pre>{{ selectedItem | json }}</pre>
+    `,
   }),
 };
 
