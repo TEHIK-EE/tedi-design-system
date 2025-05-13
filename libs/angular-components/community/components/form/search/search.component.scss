@@ -19,8 +19,13 @@
     box-shadow: 0 0 0 1px var(--form-input-border-active);
   }
 
-  &__input {
+  &__input-wrapper {
+    position: relative;
     flex-grow: 1;
+  }
+
+  &__input {
+    width: 100%;
     border: 0;
     padding: 0;
     margin: 0;
