@@ -3,13 +3,23 @@ import { FormFieldComponent } from "./form-field.component";
 import { InputComponent } from "../input/input.component";
 import { FeedbackTextComponent } from "../feedback-text/feedback-text.component";
 import { LabelComponent } from "../label/label.component";
+import { SelectComponent } from "../select/select.component";
+import { SelectOptionComponent } from "../select/select-option.component";
+import { IconComponent } from "@tehik-ee/tedi-angular/tedi";
 
 export default {
   title: "Community Angular/Form/FormField",
   component: FormFieldComponent,
   decorators: [
     moduleMetadata({
-      imports: [InputComponent, FeedbackTextComponent, LabelComponent],
+      imports: [
+        InputComponent,
+        FeedbackTextComponent,
+        LabelComponent,
+        SelectComponent,
+        SelectOptionComponent,
+        IconComponent,
+      ],
     }),
   ],
   argTypes: {
@@ -106,3 +116,38 @@ export const WithTextarea: Story = {
     placeholder: "Enter a longer description here",
   },
 };
+
+export const WithSelect: Story = {
+  render: (args) => ({
+    props: args,
+    template: `
+      <tedi-form-field>
+        <label tedi-label for="storybook-select" [required]="required">{{label}}</label>
+        <tedi-select
+          id="storybook-select"
+          [placeholder]="placeholder"
+          [disabled]="disabled"
+          [state]="state">
+          <tedi-select-option [value]="'option1'" [label]="'Option 1'">Option 1</tedi-select-option>
+          <tedi-select-option [value]="'option2'" [label]="'Option 2'">Option 2</tedi-select-option>
+          <tedi-select-option [value]="'option3'" [label]="'Option 3'">Option 3</tedi-select-option>
+          <tedi-select-option [value]="'option4'" [label]="'Option 4'">Option 4</tedi-select-option>
+        </tedi-select>
+        @if (errorText) {
+          <tedi-feedback-text type="error" [text]="errorText" />
+        } @else if (validText) {
+          <tedi-feedback-text type="valid" [text]="validText" />
+        } @else if (hintText) {
+          <tedi-feedback-text type="hint" [text]="hintText" />
+        }
+      </tedi-form-field>
+    `,
+  }),
+  args: {
+    ...Default.args,
+    label: "Select an option",
+    placeholder: "Choose from the list",
+    disabled: false,
+  },
+};
+

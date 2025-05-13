@@ -1,4 +1,4 @@
-<div class="tedi-radio__button">
+<div class="tedi-radio__input-area">
   <input
     class="tedi-radio__input"
     type="radio"
@@ -8,6 +8,7 @@
     [disabled]="inputDisabled()"
     [attr.name]="inputName()"
     [attr.value]="value()"
+    [attr.aria-describedby]="feedbackTextId()"
     (change)="onInputChange($event)"
   />
   <div class="tedi-radio__indicator"></div>
@@ -17,6 +18,7 @@
 </label>
 @if (feedbackText(); as feedback) {
   <tedi-feedback-text
+    [id]="feedbackTextId()"
     [text]="feedback.text"
     [type]="feedback.type"
     [position]="feedback.position"

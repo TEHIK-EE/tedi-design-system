@@ -120,6 +120,7 @@ overrides padding variables for neutal button
   transition: 150ms ease;
   transition-property: background-color, border-color;
   text-decoration: none;
+  white-space: nowrap;
 
   @include mixins.responsive-styles(
     font-family,

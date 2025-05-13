@@ -1,0 +1,88 @@
+@use "@tehik-ee/tedi-core/mixins";
+
+@mixin link-variant($color, $color-hover, $color-active, $color-focus) {
+  color: $color;
+
+  &:hover:not(:disabled, [aria-disabled="true"]) {
+    color: $color-hover;
+
+    .tedi-link__text {
+      text-decoration: underline;
+    }
+  }
+
+  &:active:not(:disabled, [aria-disabled="true"]) {
+    color: $color-active;
+
+    .tedi-link__text {
+      text-decoration: underline;
+    }
+  }
+
+  &:focus-visible:not(:disabled) {
+    color: $color-focus;
+    border-radius: 0;
+    outline: 2px solid $color-focus;
+    outline-offset: 1px;
+
+    .tedi-link__text {
+      text-decoration: underline;
+    }
+  }
+}
+
+.tedi-link {
+  display: inline-block;
+  cursor: pointer;
+  text-decoration: none;
+
+  @include link-variant(
+    var(--link-primary-default),
+    var(--link-primary-hover),
+    var(--link-primary-active),
+    var(--link-primary-focus)
+  );
+
+  &--inverted {
+    @include link-variant(
+      var(--link-inverted-default),
+      var(--link-inverted-hover),
+      var(--link-inverted-active),
+      var(--link-inverted-focus)
+    );
+  }
+
+  &--small {
+    @include mixins.responsive-styles(font-size, body-small-regular-size, $exclude: tablet);
+  }
+
+  &:not(.tedi-link--no-underline) {
+    :not(tedi-icon) {
+      text-decoration: underline;
+    }
+  }
+
+  &:hover {
+    :not(tedi-icon) {
+      text-decoration: underline;
+    }
+  }
+
+  tedi-icon {
+    height: fit-content;
+    font-size: inherit;
+    color: inherit;
+    line-height: inherit;
+
+    @include mixins.responsive-styles(margin-left, button-sm-inner-spacing);
+    @include mixins.responsive-styles(margin-right, button-sm-inner-spacing);
+
+    &:first-child {
+      margin-left: 0;
+    }
+  
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}

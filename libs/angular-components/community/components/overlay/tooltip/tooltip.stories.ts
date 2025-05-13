@@ -5,11 +5,9 @@ import {
   moduleMetadata,
 } from "@storybook/angular";
 import { TooltipComponent } from "./tooltip.component";
-import { ButtonComponent, InfoButtonComponent } from "community";
-import { RowComponent } from "tedi/components/layout/grid/row/row.component";
-import { ColComponent } from "tedi/components/layout/grid/col/col.component";
-import { VerticalSpacingItemDirective } from "tedi/directives/vertical-spacing/vertical-spacing-item.directive";
-import { TextComponent } from "tedi/components/base/text/text.component";
+import { ButtonComponent } from "../../buttons/button/button.component";
+import { InfoButtonComponent } from "../../buttons/info-button/info-button.component";
+import { RowComponent, ColComponent, VerticalSpacingItemDirective, TextComponent } from "@tehik-ee/tedi-angular/tedi";
 
 const MAXWIDTH = ["none", "small", "medium", "large"];
 
