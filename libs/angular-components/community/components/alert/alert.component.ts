@@ -1,15 +1,33 @@
-import { Component, computed, input, signal } from "@angular/core";
+import {
+  Component,
+  computed,
+  ElementRef,
+  inject,
+  input,
+  Renderer2,
+  signal,
+  ViewChild,
+} from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { TextComponent, IconComponent } from "@tehik-ee/tedi-angular/tedi";
+import { IconComponent } from "@tehik-ee/tedi-angular/tedi";
 import { ClosingButtonComponent } from "../buttons/closing-button/closing-button.component";
 
 export type AlertRole = "alert" | "status" | "none";
 export type AlertType = "info" | "success" | "warning" | "danger";
+export type AlertTitleType =
+  | "h1"
+  | "h2"
+  | "h3"
+  | "h4"
+  | "h5"
+  | "h6"
+  | "div"
+  | "strong";
 
 @Component({
   standalone: true,
   selector: "tedi-alert",
-  imports: [CommonModule, TextComponent, IconComponent, ClosingButtonComponent],
+  imports: [CommonModule, IconComponent, ClosingButtonComponent],
   templateUrl: "./alert.component.html",
   styleUrls: ["./alert.component.scss"],
 })
@@ -57,6 +75,35 @@ export class AlertComponent {
    * @default false
    */
   noSideBorders = input<boolean>();
+
+  /**
+   * The HTML tag to be used for the alert title.
+   * @default h2
+   */
+  titleElement = input<AlertTitleType>("h2");
+
+  @ViewChild("alertTitle", { static: true })
+  headingAnchor!: ElementRef<HTMLElement>;
+  renderer = inject(Renderer2);
+
+  ngAfterViewInit() {
+    if (this.title()) {
+      const headingTag = this.titleElement();
+      const headingElement = this.renderer.createElement(headingTag);
+
+      this.renderer.setAttribute(headingElement, "tedi-text", "");
+      this.renderer.addClass(headingElement, "tedi-alert__title__text");
+
+      const text = this.renderer.createText(this.title()!);
+
+      this.renderer.appendChild(headingElement, text);
+      this.renderer.appendChild(
+        this.headingAnchor.nativeElement,
+        headingElement,
+      );
+    }
+  }
+
   ariaLive = signal<string>(
     this.role() === "alert"
       ? "assertive"

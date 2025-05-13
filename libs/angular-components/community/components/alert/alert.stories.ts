@@ -18,6 +18,7 @@ export default {
     icon: "",
     showClose: false,
     role: "alert",
+    titleElement: "h2",
     isGlobal: false,
     noSideBorders: false,
   },
@@ -26,6 +27,15 @@ export default {
       control: "text",
       description:
         "An optional title for the alert, typically used to summarize the message's purpose. Appears in top of the alert.",
+    },
+    titleElement: {
+      control: "select",
+      options: ["h1", "h2", "h3", "h4", "h5", "h6", "div", "strong"],
+      description:
+        "The HTML tag to be used for the alert title. Useful for WCAG compliance.",
+      defaultValue: {
+        summary: "h2",
+      },
     },
     type: {
       control: "radio",

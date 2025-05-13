@@ -45,8 +45,15 @@
       cursor: pointer;
     }
 
-    .tedi-alert__title {
+    .tedi-alert__title__container {
       display: none;
+
+      .tedi-alert__title__text {
+        --heading-h5-weight-tablet: 700;
+        line-height: var(--heading-h5-line-height, 24px);
+        @include mixins.responsive-styles(font-size, heading-h5-size);
+        @include mixins.responsive-styles(font-weight, heading-h5-weight);
+      }
     }
 
     &.tedi-alert__icon-layout {
@@ -58,13 +65,13 @@
 
     &.tedi-alert__title-layout {
       &.tedi-alert__icon-layout {
-        .tedi-alert__title {
+        .tedi-alert__title__container {
           grid-column: 2;
           grid-row: 1;
         }
       }
 
-      .tedi-alert__title {
+      .tedi-alert__title__container {
         display: block;
         grid-column: 1;
         grid-row: 1;
