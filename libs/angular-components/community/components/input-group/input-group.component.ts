@@ -1,9 +1,6 @@
 import { Component, input, ViewEncapsulation } from "@angular/core";
-import {
-  FeedbackTextComponent,
-  FeedbackTextType,
-  LabelComponent,
-} from "../form";
+import { FeedbackTextComponent, LabelComponent } from "../form";
+import { ComponentInputs } from "tedi/types/inputs.type";
 
 /**
  * InputGroupComponent is a component that allows you to group multiple input elements together.
@@ -45,13 +42,7 @@ export class InputGroupComponent {
   readonly disabled = input<boolean>(false);
 
   /**
-   * Error feedback text for the input group, displayed below the input group when there is an error.
-   *
+   * FeedbackText component inputs, displayed below the input group.
    */
-  readonly feedbackText = input<string>();
-  /**
-   * Type of the feedback text, used to determine the style of the feedback text.
-   * @default error
-   */
-  readonly feedbackTextType = input<FeedbackTextType>("error");
+  readonly feedback = input<ComponentInputs<FeedbackTextComponent>>();
 }

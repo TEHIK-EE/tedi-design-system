@@ -25,8 +25,6 @@ interface StoryArgs {
   suffixText: string;
   showPrefix: boolean;
   showSuffix: boolean;
-  height: number;
-  width: number;
 }
 
 type StoryComponent = InputGroupComponent & StoryArgs;
@@ -73,10 +71,6 @@ const meta: Meta<StoryComponent> = {
       control: "boolean",
       description: "Provide suffix slot",
     },
-    width: {
-      control: "number",
-      description: "Width of the input group input",
-    },
   },
   args: {
     label: "Label",
@@ -87,12 +81,12 @@ const meta: Meta<StoryComponent> = {
     suffixText: "Suffix",
     showPrefix: true,
     showSuffix: true,
-    width: 400,
   },
 };
 
 const currentArgs =
-  '[labelID]="labelID" [label]="label" [disabled]="disabled" [feedbackText]="feedbackText" [feedbackTextType]="feedbackTextType"';
+  '[labelID]="labelID" [label]="label" [disabled]="disabled" \
+   [feedback]="{text: feedbackText, type: feedbackTextType}"';
 const renderPrefix = (showBool: boolean, slot: string) =>
   showBool ? `<div ${slot}-slot>{{${slot}Text}}</div>` : "";
 
