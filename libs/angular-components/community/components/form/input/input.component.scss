@@ -64,24 +64,26 @@
   &:hover {
     --_border-color: var(--form-input-border-hover);
   }
-  
+
   &:disabled {
     --_color: var(--form-input-text-disabled);
     --_border-color: var(--form-input-border-disabled);
     --_background-color: var(--form-input-background-disabled);
+
+    pointer-events: none;
   }
 
   &::placeholder {
     color: var(--_placeholder-color);
   }
 
-  &--error {
+  &--error:not(:disabled) {
     --_border-color: var(--form-general-feedback-error-border);
-    @include textfield-focus(var(--_border-color));
+    @include textfield-focus(var(--form-general-feedback-error-border));
   }
-  &--valid {
+  &--valid:not(:disabled) {
     --_border-color: var(--form-general-feedback-success-border);
-    @include textfield-focus(var(--_border-color));
+    @include textfield-focus(var(--form-general-feedback-success-border));
   }
   &--small {
     @include mixins.responsive-styles(--_padding-y, form-field-padding-y-sm);

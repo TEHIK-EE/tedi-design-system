@@ -1,0 +1,38 @@
+@use "@tehik-ee/tedi-core/mixins";
+
+.tedi-info-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  vertical-align: bottom;
+  color: var(--button-main-neutral-text-default);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+
+  @include mixins.responsive-styles(width, button-xs-icon-size);
+  @include mixins.responsive-styles(height, button-xs-icon-size);
+  @include mixins.responsive-styles(border-radius, button-radius-default);
+
+  &:hover {
+    color: var(--button-main-neutral-text-hover);
+    background: var(--button-main-neutral-icon-only-background-hover);
+  }
+
+  &:active {
+    color: var(--button-main-neutral-text-active);
+    background: var(--button-main-neutral-icon-only-background-active);
+  }
+
+  &:focus-visible {
+    color: var(--button-main-neutral-text-focus);
+    background-color: var(--button-main-neutral-background-focus);
+    outline-offset: var(--borders-01);
+    border-color: var(--button-main-neutral-border-default);
+    outline: var(--borders-02) solid var(--button-main-primary-border-focus);
+  }
+
+  tedi-icon {
+    color: inherit;
+  }
+}

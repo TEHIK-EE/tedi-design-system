@@ -1,0 +1,19 @@
+@if (label()) {
+  <span tedi-label [id]="labelId()">
+    {{ label() }}
+  </span>
+}
+<div
+  class="tedi-checkbox-group__checkboxes"
+  [style.flex-direction]="direction()"
+  [style.gap]="spacing() + 'px'"
+>
+  <ng-content />
+</div>
+@if (feedbackText(); as feedback) {
+  <tedi-feedback-text
+    [text]="feedback.text"
+    [type]="feedback.type"
+    [position]="feedback.position"
+  />
+}
