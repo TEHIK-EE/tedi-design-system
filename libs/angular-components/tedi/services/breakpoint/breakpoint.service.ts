@@ -10,6 +10,8 @@ export const BREAKPOINTS = {
   xxl: 1400,
 } as const;
 
+const breakpointsOrder: Breakpoint[] = ["xs", "sm", "md", "lg", "xl", "xxl"];
+
 export type Breakpoint = keyof typeof BREAKPOINTS;
 
 export type BreakpointInputs<TInputs> = {
@@ -51,15 +53,6 @@ export class BreakpointService {
   getBreakpointInputs<TInputs>(
     inputs: BreakpointInputsWithoutSignals<TInputs>,
   ): TInputs {
-    const breakpointsOrder: Breakpoint[] = [
-      "xs",
-      "sm",
-      "md",
-      "lg",
-      "xl",
-      "xxl",
-    ];
-
     let resolvedInputs: Partial<TInputs> = {};
 
     Object.keys(inputs).forEach((key) => {
@@ -85,5 +78,16 @@ export class BreakpointService {
     }
 
     return resolvedInputs as TInputs;
+  }
+
+  isBelowBreakpoint(breakpoint: Breakpoint): boolean {
+    const current = this.currentBreakpoint();
+
+    if (!current) return true;
+
+    const currentIndex = breakpointsOrder.indexOf(current);
+    const targetIndex = breakpointsOrder.indexOf(breakpoint);
+
+    return currentIndex < targetIndex;
   }
 }

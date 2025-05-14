@@ -4,7 +4,7 @@
   class="tedi__breadcrumbs"
 >
   <ol class="tedi__breadcrumbs__list">
-    <ng-container *ngIf="!singleCrumb()">
+    <ng-container *ngIf="!showSingleCrumb()">
       <ng-container *ngFor="let crumb of crumbs(); let last = last">
         @if (!last) {
           <li class="tedi__breadcrumbs__item">
@@ -26,7 +26,7 @@
       </ng-container>
     </ng-container>
   </ol>
-  <ng-container *ngIf="singleCrumb()">
+  <ng-container *ngIf="showSingleCrumb() && crumbs().length > 1">
     <div class="tedi__breadcrumbs__item">
       <tedi-icon color="brand" name="arrow_back" />
       <a
