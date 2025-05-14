@@ -106,29 +106,29 @@ export const Sizes: SearchStory = {
     template: `
       <b>Large</b>
       <tedi-row cols="1" gap="3">
-        <tedi-search size="large" [options]="mockOptions">
+        <tedi-search size="large" [autocompleteOptions]="mockOptions">
           <p>Footer goes here</p>
         </tedi-search>
-        <tedi-search size="large" [withButton]="true" [options]="mockOptions"/>
-        <tedi-search size="large" [withButton]="true" buttonText="Otsi" [options]="mockOptions"/>
+        <tedi-search size="large" [withButton]="true" [autocompleteOptions]="mockOptions"/>
+        <tedi-search size="large" [withButton]="true" buttonText="Otsi" [autocompleteOptions]="mockOptions"/>
       </tedi-row>
 
       <br />
 
       <b>Default</b>
       <tedi-row cols="1" gap="3">
-        <tedi-search size="default" [options]="mockOptions"/>
-        <tedi-search size="default" [withButton]="true" [options]="mockOptions"/>
-        <tedi-search size="default" [withButton]="true" buttonText="Otsi" [options]="mockOptions"/>
+        <tedi-search size="default" [autocompleteOptions]="mockOptions"/>
+        <tedi-search size="default" [withButton]="true" [autocompleteOptions]="mockOptions"/>
+        <tedi-search size="default" [withButton]="true" buttonText="Otsi" [autocompleteOptions]="mockOptions"/>
       </tedi-row>
 
       <br />
 
       <b>Small</b>
       <tedi-row cols="1" gap="3">
-        <tedi-search size="small" [options]="mockOptions"/>
-        <tedi-search size="small" [withButton]="true" [options]="mockOptions"/>
-        <tedi-search size="small" [withButton]="true" buttonText="Otsi" [options]="mockOptions"/>
+        <tedi-search size="small" [autocompleteOptions]="mockOptions"/>
+        <tedi-search size="small" [withButton]="true" [autocompleteOptions]="mockOptions"/>
+        <tedi-search size="small" [withButton]="true" buttonText="Otsi" [autocompleteOptions]="mockOptions"/>
       </tedi-row>
     `,
   }),

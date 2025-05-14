@@ -1,5 +1,5 @@
 import {
-  AfterContentInit,
+  AfterContentChecked,
   ChangeDetectionStrategy,
   Component,
   computed,
@@ -52,10 +52,11 @@ export type AutocompleteOption = {
   styleUrl: "./search.component.scss",
   host: {
     "[class.tedi-search]": "true",
+    "[class.tedi-search--with-button]": "withButton()",
     "[class]": "modifierClasses()",
   },
 })
-export class SearchComponent implements AfterContentInit {
+export class SearchComponent implements AfterContentChecked {
   /**
    * Autocomplete options for the search input
    * @default []
@@ -96,7 +97,7 @@ export class SearchComponent implements AfterContentInit {
   elementRef = inject(ElementRef);
   trigger = viewChild(CdkMenuTrigger);
 
-  ngAfterContentInit(): void {
+  ngAfterContentChecked(): void {
     this.width.set(this.getWidth());
   }
 
@@ -130,13 +131,18 @@ export class SearchComponent implements AfterContentInit {
   });
 
   iconSize = computed(() => {
-    switch (this.size()) {
-      case "large":
-        return 24;
-      case "small":
-        return 16;
-      default:
-        return 18;
+    const size = this.size();
+    const hasButton = this.withButton();
+    const hasButtonText = !!this.buttonText();
+
+    if (size === "large") {
+      if (hasButton && hasButtonText) return 18;
+      return 24;
+    } else if (size === "small") {
+      if (hasButton) return 18;
+      return 16;
+    } else {
+      return 18;
     }
   });
 

@@ -12,11 +12,13 @@
     <button
       type="reset"
       tedi-close-button
-      [small]="true"
-      [smallIcon]="true"
+      [small]="size() !== 'large'"
+      [smallIcon]="size() !== 'large'"
       (click)="clearResult($event)"
     ></button>
-    <div class="separator"></div>
+    @if (!withButton()) {
+      <div class="separator"></div>
+    }
   }
   @if (!withButton()) {
     <tedi-icon name="search" color="secondary" [size]="iconSize()" />
@@ -30,7 +32,7 @@
     [size]="buttonSize()"
     (click)="searchButtonClick()"
   >
-    <tedi-icon name="search" color="white" [size]="buttonText() ? 18 : 24" />
+    <tedi-icon name="search" color="white" [size]="iconSize()" />
     {{ buttonText() }}
   </button>
 }

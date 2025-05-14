@@ -63,6 +63,10 @@
 
     @include mixins.responsive-styles(gap, layout-grid-gutters-04);
     @include mixins.responsive-styles(padding, form-field-padding-y-md-default);
+
+    .tedi-search--with-button & {
+      padding-right: 0 !important;
+    }
   }
 
   &__option {
@@ -84,6 +88,11 @@
     }
     .tedi-search__suffix {
       @include mixins.responsive-styles(padding, form-field-padding-y-lg);
+    }
+
+    .tedi-search__trigger.tedi-btn {
+      padding-left: 15px;
+      padding-right: 15px;
     }
   }
 }
