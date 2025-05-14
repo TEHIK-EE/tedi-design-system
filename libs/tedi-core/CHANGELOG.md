@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-core-v1.13.2](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.13.1...core-1.13.2) (2025-05-14)
+
+
+### Bug Fixes
+
+* **variables:** add missing prefixes for dimensional variables [#511](https://github.com/TEHIK-EE/tedi-design-system/issues/511) ([ba31915](https://github.com/TEHIK-EE/tedi-design-system/commit/ba319158791b9f410184e54f7ae35d64be26f96f))
+
 # [@tehik-ee/tedi-core-v1.13.1](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.13.0...core-1.13.1) (2025-05-14)
 
 
