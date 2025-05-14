@@ -4,6 +4,7 @@ import { BreadcrumbsComponent } from "./breadcrumbs.component";
 import { type Breakpoint } from "tedi/services";
 
 const BREAKPOINTS: Breakpoint[] = ["xs", "sm", "md", "lg", "xl", "xxl"];
+
 /**
 <a href="https://www.figma.com/design/jWiRIXhHRxwVdMSimKX2FF/TEDI-READY-2.8.9--work-in-progress-?node-id=2370-14804&m=dev" target="_BLANK">Figma ↗</a><br/>
 * Breadcrumbs provide users with a clear path of where they are within the application.
@@ -73,35 +74,14 @@ type Story = StoryObj<BreadcrumbsComponent>;
 
 export const Default: Story = {};
 
-/*
- * ```typescript
- * crumbs = [
- *   { label: 'Kodu', href: '/' },
- *   { label: 'Tooted', href: '/products' },
- *   { label: 'Elektroonika', href: '/products/electronics' },
- *   { label: 'Mobiiltelefonid', href: '/products/electronics/mobile-phones' },
- *   { label: 'Nutitelefonid', href: '/products/electronics/mobile-phones/smartphones' },
- * ];
- * ```
- */
 export const ShortCrumbs: Story = {
-  render: (args) => ({
-    props: args,
+  render: (props) => ({
+    props,
     template: `
-        <tedi-breadcrumbs ${argsToTemplate(args)} />
+        <tedi-breadcrumbs ${argsToTemplate(props)} />
       `,
   }),
   args: {
     shortCrumbs: true,
-    crumbs: [
-      { label: "Kodu", href: "/" },
-      { label: "Tooted", href: "/products" },
-      { label: "Elektroonika", href: "/products/electronics" },
-      { label: "Mobiiltelefonid", href: "/products/electronics/mobile-phones" },
-      {
-        label: "Nutitelefonid",
-        href: "/products/electronics/mobile-phones/smartphones",
-      },
-    ],
   },
 };
