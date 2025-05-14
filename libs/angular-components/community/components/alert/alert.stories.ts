@@ -67,7 +67,7 @@ export default {
     },
     variant: {
       control: "select",
-      options: ["global", "noSideBorders"],
+      options: ["default", "global", "noSideBorders"],
       description:
         "Defines the visual and contextual type of the alert. \n - <b>global</b> indicates that the alert is intended to span the full width of the page, typically for critical or prominent messages. \n - <b>noSideBorders</b> removes the side borders from the alert for a cleaner appearance. This also sets the border radius to 0.",
     },

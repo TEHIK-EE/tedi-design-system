@@ -7,6 +7,7 @@ import {
   Renderer2,
   signal,
   ViewChild,
+  AfterViewInit,
 } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { IconComponent } from "@tehik-ee/tedi-angular/tedi";
@@ -23,7 +24,7 @@ export type AlertTitleType =
   | "h6"
   | "div"
   | "strong";
-export type AlertVariant = "global" | "noSideBorders";
+export type AlertVariant = "default" | "global" | "noSideBorders";
 
 @Component({
   standalone: true,
@@ -32,7 +33,7 @@ export type AlertVariant = "global" | "noSideBorders";
   templateUrl: "./alert.component.html",
   styleUrls: ["./alert.component.scss"],
 })
-export class AlertComponent {
+export class AlertComponent implements AfterViewInit {
   /**
    * An optional title for the alert, typically used to summarize the message's purpose.
    * If provided, it appears prominently at the top of the alert.
@@ -81,7 +82,7 @@ export class AlertComponent {
    * Variant for the alert, which can be used to apply specific styles.
    * For example, 'global' for full-width alerts or 'noSideBorders' for alerts without side borders.
    */
-  variant = input<AlertVariant>();
+  variant = input<AlertVariant>("default");
 
   /**
    * The HTML tag to be used for the alert title.
