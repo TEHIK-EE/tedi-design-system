@@ -4,6 +4,11 @@ import { ButtonComponent } from "./button.component";
 export default {
   title: "Community Angular/Buttons/Button",
   component: ButtonComponent,
+  parameters: {
+    status: {
+      type: ["existsInTediReady"],
+    },
+  },
   render: (props) => ({
     props,
     template: `

@@ -30,7 +30,7 @@ export default {
   ],
   parameters: {
     status: {
-      type: ["breakpointSupport"],
+      type: ["breakpointSupport", "existsInTediReady"],
     },
   },
   argTypes: {

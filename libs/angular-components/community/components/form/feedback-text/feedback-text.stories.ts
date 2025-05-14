@@ -21,7 +21,7 @@ export default {
   ],
   parameters: {
     status: {
-      type: ["devComponent"],
+      type: ["devComponent", "existsInTediReady"],
     },
   },
   argTypes: {
