@@ -8,11 +8,11 @@ import {
 import { FeedbackTextComponent } from "./feedback-text.component";
 
 /**
- * <a href="https://tedi.tehik.ee/1ee8444b7/p/67d4de-formhelper" target="_BLANK">Zeroheight ↗</a>
+ * <a href="https://tedi.tehik.ee/1ee8444b7/p/67d4de-formhelper" target="_blank">Zeroheight ↗</a>
  */
 
 export default {
-  title: "Community Angular/Form/FeedbackText",
+  title: "TEDI-Ready Angular/Form/FeedbackText",
   component: FeedbackTextComponent,
   decorators: [
     moduleMetadata({
@@ -21,7 +21,7 @@ export default {
   ],
   parameters: {
     status: {
-      type: ["devComponent", "existsInTediReady"],
+      type: ["devComponent"],
     },
   },
   argTypes: {
