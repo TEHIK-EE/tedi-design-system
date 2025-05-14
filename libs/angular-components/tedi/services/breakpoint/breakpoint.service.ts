@@ -25,7 +25,9 @@ export type BreakpointInputsWithoutSignals<TInputs> = TInputs &
   providedIn: "root",
 })
 export class BreakpointService {
-  currentBreakpoint = signal<Breakpoint | undefined>(undefined);
+  private readonly _currentBreakpoint = signal<Breakpoint | undefined>(
+    undefined,
+  );
   constructor(private breakpointObserver: BreakpointObserver) {
     this.breakpointObserver
       .observe(
@@ -33,21 +35,25 @@ export class BreakpointService {
       )
       .subscribe((state) => {
         if (state.breakpoints[`(min-width: ${BREAKPOINTS.xxl}px)`]) {
-          this.currentBreakpoint.set("xxl");
+          this._currentBreakpoint.set("xxl");
         } else if (state.breakpoints[`(min-width: ${BREAKPOINTS.xl}px)`]) {
-          this.currentBreakpoint.set("xl");
+          this._currentBreakpoint.set("xl");
         } else if (state.breakpoints[`(min-width: ${BREAKPOINTS.lg}px)`]) {
-          this.currentBreakpoint.set("lg");
+          this._currentBreakpoint.set("lg");
         } else if (state.breakpoints[`(min-width: ${BREAKPOINTS.md}px)`]) {
-          this.currentBreakpoint.set("md");
+          this._currentBreakpoint.set("md");
         } else if (state.breakpoints[`(min-width: ${BREAKPOINTS.sm}px)`]) {
-          this.currentBreakpoint.set("sm");
+          this._currentBreakpoint.set("sm");
         } else if (state.breakpoints[`(min-width: ${BREAKPOINTS.xs}px)`]) {
-          this.currentBreakpoint.set("xs");
+          this._currentBreakpoint.set("xs");
         } else {
-          this.currentBreakpoint.set(undefined);
+          this._currentBreakpoint.set(undefined);
         }
       });
+  }
+
+  get currentBreakpoint(): Breakpoint | undefined {
+    return this._currentBreakpoint();
   }
 
   getBreakpointInputs<TInputs>(
@@ -62,7 +68,7 @@ export class BreakpointService {
       }
     });
 
-    const currentBreakpoint = this.currentBreakpoint();
+    const currentBreakpoint = this._currentBreakpoint();
 
     if (!currentBreakpoint) {
       return resolvedInputs as TInputs;
@@ -81,7 +87,7 @@ export class BreakpointService {
   }
 
   isBelowBreakpoint(breakpoint: Breakpoint): boolean {
-    const current = this.currentBreakpoint();
+    const current = this._currentBreakpoint();
 
     if (!current) return true;
 
