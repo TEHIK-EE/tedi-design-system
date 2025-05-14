@@ -1,8 +1,13 @@
 import { moduleMetadata, type Meta, type StoryObj } from "@storybook/angular";
-
-import { VerticalSpacingDirective } from "@tehik-ee/tedi-angular/tedi";
 import { InputGroupComponent } from "./input-group.component";
-import { FeedbackTextType, InputComponent, LabelComponent } from "../form";
+import {
+  FeedbackTextType,
+  InputComponent,
+  LabelComponent,
+  SelectComponent,
+  SelectOptionComponent,
+} from "../form";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 /**
  * InputGroupComponent is a component that allows you to group multiple input elements together.
@@ -94,10 +99,13 @@ export const Default: Story = {
   decorators: [
     moduleMetadata({
       imports: [
-        VerticalSpacingDirective,
+        FormsModule,
+        ReactiveFormsModule,
         InputGroupComponent,
         InputComponent,
         LabelComponent,
+        SelectComponent,
+        SelectOptionComponent,
       ],
     }),
   ],
@@ -129,16 +137,16 @@ export const Default: Story = {
 interface SelectStoryArgs extends StoryArgs {
   selectOptions: string[];
 }
-type SelectComponent = InputGroupComponent & SelectStoryArgs;
-type SelectStory = StoryObj<SelectComponent>;
+type SelectComponentType = InputGroupComponent & SelectStoryArgs;
+type SelectStory = StoryObj<SelectComponentType>;
 
 const renderSelectPrefix = (showBool: boolean) => {
   if (!showBool) return "";
   return `
-  <select prefix-slot [name]=prefixText style="">
-    <option>{{prefixText}}</option>
-    <option *ngFor="let option of selectOptions" [value]="option">{{option}}</option>
-  </select>`;
+  <tedi-select prefix-slot [placeholder]="prefixText" [disabled]="disabled">
+    <tedi-select-option id="default" value="default" label="default" />
+    <tedi-select-option *ngFor="let option of selectOptions" [value]="option" [label]="option" />
+  </tedi-select>`;
 };
 
 const selectId = uniqueId("label-id");

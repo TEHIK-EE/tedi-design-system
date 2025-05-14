@@ -57,13 +57,17 @@
 
   display: flex;
   justify-content: space-between;
+  background-color: transparent;
 
   color: var(--input-group_text_color);
-  background: var(--input-group_background_color);
   min-height: var(--input-group_min_height);
   overflow: hidden;
 
   @include mixins.responsive-styles(font-family, family-primary);
+
+  input {
+    min-width: 100px;
+  }
 
   & > :not(.tedi-input-group__prefix, .tedi-input-group__suffix) {
     margin: 0;
@@ -72,11 +76,6 @@
     border-radius: var(--input-group_inner_border_radius);
     border-top: var(--input-group_border);
     border-bottom: var(--input-group_border);
-  }
-
-  select {
-    border: none;
-    background-color: transparent;
   }
 
   &:has(.tedi-input-group__prefix:empty) {
@@ -114,6 +113,20 @@
   background: var(--input-group_side_background_color);
   border: var(--input-group_border);
 
+  &:has(tedi-select) {
+    --input-group_border: 0;
+    padding: 0;
+  }
+
+  tedi-select button {
+    height: 100%;
+    margin: 0;
+    @include mixins.responsive-styles(padding-left, input-group_padding_x);
+    @include mixins.responsive-styles(padding-right, input-group_padding_x);
+    @include mixins.responsive-styles(padding-top, input-group_padding_y);
+    @include mixins.responsive-styles(padding-bottom, input-group_padding_y);
+  }
+
   @include mixins.responsive-styles(padding-left, input-group_padding_x);
   @include mixins.responsive-styles(padding-right, input-group_padding_x);
   @include mixins.responsive-styles(padding-top, input-group_padding_y);
@@ -128,10 +141,20 @@
   border-right: 0;
 
   @include left-round-corners();
+
+  tedi-select button {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
 }
 
 .tedi-input-group__suffix {
   border-left: 0;
 
   @include right-round-corners();
+
+  tedi-select button {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
 }
