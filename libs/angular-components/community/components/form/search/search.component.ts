@@ -12,7 +12,9 @@ import {
   signal,
   viewChild,
   ViewEncapsulation,
+  forwardRef,
 } from "@angular/core";
+import { NG_VALUE_ACCESSOR, ControlValueAccessor } from "@angular/forms";
 import { ButtonComponent } from "community/components/buttons/button/button.component";
 import { IconComponent } from "@tehik-ee/tedi-angular/tedi";
 import { FormsModule } from "@angular/forms";
@@ -55,8 +57,17 @@ export type AutocompleteOption = {
     "[class.tedi-search--with-button]": "withButton()",
     "[class]": "modifierClasses()",
   },
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => SearchComponent),
+      multi: true,
+    },
+  ],
 })
-export class SearchComponent implements AfterContentChecked {
+export class SearchComponent
+  implements AfterContentChecked, ControlValueAccessor
+{
   /**
    * Autocomplete options for the search input
    * @default []
@@ -91,18 +102,18 @@ export class SearchComponent implements AfterContentChecked {
   // Emitted event
   onSelect = output<AutocompleteOption | string>();
 
-  inputValue = model<string>();
-  selectedOption = model<AutocompleteOption>();
-  width = signal(0);
-  elementRef = inject(ElementRef);
-  trigger = viewChild(CdkMenuTrigger);
+  _inputValue = model<string>();
+  _selectedOption = model<AutocompleteOption>();
+  _width = signal(0);
+  _elementRef = inject(ElementRef);
+  _trigger = viewChild(CdkMenuTrigger);
 
   ngAfterContentChecked(): void {
-    this.width.set(this.getWidth());
+    this._width.set(this.getWidth());
   }
 
-  foundOptions = computed(() => {
-    const inputValue = this.inputValue();
+  _foundOptions = computed(() => {
+    const inputValue = this._inputValue();
     if (!inputValue) return this.autocompleteOptions();
 
     return this.autocompleteOptions().filter(
@@ -112,14 +123,14 @@ export class SearchComponent implements AfterContentChecked {
     );
   });
 
-  isOpen = computed(() => {
-    return this.trigger()?.isOpen();
+  _isOpen = computed(() => {
+    return this._trigger()?.isOpen();
   });
 
   effect = effect(() => {
-    const inputValue = this.inputValue();
+    const inputValue = this._inputValue();
     if (inputValue && inputValue.length >= this.autocompleteFrom()) {
-      this.trigger()?.open();
+      this._trigger()?.open();
     }
   });
 
@@ -157,27 +168,58 @@ export class SearchComponent implements AfterContentChecked {
     }
   });
 
+  private onChange: (value: string | AutocompleteOption) => void = () => {};
+  private onTouched: () => void = () => {};
+
+  writeValue(value: string | AutocompleteOption): void {
+    if (typeof value === "string") {
+      this._inputValue.set(value);
+      this._selectedOption.set(undefined);
+    } else {
+      this._inputValue.set(value?.label || "");
+      this._selectedOption.set(value);
+    }
+  }
+
+  registerOnChange(fn: (value: string | AutocompleteOption) => void): void {
+    this.onChange = fn;
+  }
+
+  registerOnTouched(fn: () => void): void {
+    this.onTouched = fn;
+  }
+
+  setDisabledState?(isDisabled: boolean): void {
+    // Implement logic to disable the component if needed
+  }
+
   searchButtonClick() {
-    this.onSelect.emit(this.selectedOption() ?? this.inputValue() ?? "");
+    this.onSelect.emit(this._selectedOption() ?? this._inputValue() ?? "");
+    this.onChange(this._selectedOption() ?? this._inputValue() ?? "");
+    this.onTouched();
   }
 
   selectResult(option: AutocompleteOption) {
-    this.selectedOption.set(option);
-    this.inputValue.set(option.label);
+    this._selectedOption.set(option);
+    this._inputValue.set(option.label);
 
     if (!this.withButton()) {
       this.onSelect.emit(option);
+      this.onChange(option);
     }
+    this.onTouched();
   }
 
   clearResult(event: Event) {
     event.stopPropagation();
-    this.inputValue.set("");
-    this.selectedOption.set(undefined);
+    this._inputValue.set("");
+    this._selectedOption.set(undefined);
     this.onSelect.emit("");
+    this.onChange("");
+    this.onTouched();
   }
 
   getWidth(): number {
-    return this.elementRef?.nativeElement?.getBoundingClientRect()?.width || 0;
+    return this._elementRef?.nativeElement?.getBoundingClientRect()?.width || 0;
   }
 }
