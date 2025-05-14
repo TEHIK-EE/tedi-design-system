@@ -1,5 +1,5 @@
 <div class="tedi-search__input-wrapper">
-  <input type="text" [(ngModel)]="inputValue" class="tedi-search__input" />
+  <input type="text" [(ngModel)]="_inputValue" class="tedi-search__input" />
   <div
     class="tedi-search__input-trigger"
     [cdkMenuTriggerFor]="searchPanel"
@@ -8,7 +8,7 @@
 </div>
 
 <div class="tedi-search__suffix">
-  @if (clearable() && inputValue()) {
+  @if (clearable() && _inputValue()) {
     <button
       type="reset"
       tedi-close-button
@@ -40,13 +40,13 @@
 <ng-template #searchPanel>
   <tedi-card
     class="tedi-search__panel"
-    [style.width.px]="width()"
+    [style.width.px]="_width()"
     [spacing]="'none'"
     cdkMenu
   >
     <tedi-card-content>
       <div class="options">
-        @for (option of foundOptions(); track option.value) {
+        @for (option of _foundOptions(); track option.value) {
           <button
             class="tedi-search__option"
             tedi-dropdown-item
