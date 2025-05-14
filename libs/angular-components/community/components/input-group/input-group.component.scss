@@ -55,8 +55,11 @@
   --input-group_disabled_background_color: var(--neutral-300);
   --input-group_text_disabled_color: var(--neutral-450);
 
+  --input-group_select_padding: 0;
+  --input-group_select_border: 0;
+  --input-group_select_exists_input_border: 0;
+
   display: flex;
-  justify-content: space-between;
   background-color: transparent;
 
   color: var(--input-group_text_color);
@@ -65,14 +68,27 @@
 
   @include mixins.responsive-styles(font-family, family-primary);
 
-  input {
+  input.tedi-input {
     min-width: 100px;
-  }
-
-  & > :not(.tedi-input-group__prefix, .tedi-input-group__suffix) {
+    // borders are handled by prefix/suffix
+    border-left: 0;
+    border-right: 0;
     margin: 0;
     width: 100%;
+  }
+  // if input.tedi-input is focused, remove borders from .tedi-input-group__suffix/prefix .tedi-input
+  &:has(input.tedi-input:focus) {
+    --input-group_border: var(--input-group_border_width) solid
+      var(--input-group_border_color);
+    --input-group_side_background_color: var(
+      --form-general-background-action-background
+    );
+    --input-group_text_color: var(--form-input-text-default);
+  }
 
+  .tedi-input-group__center input {
+    margin: 0;
+    width: 100%;
     border-radius: var(--input-group_inner_border_radius);
     border-top: var(--input-group_border);
     border-bottom: var(--input-group_border);
@@ -81,7 +97,7 @@
   &:has(.tedi-input-group__prefix:empty) {
     @include left-round-corners();
 
-    input {
+    .tedi-input {
       @include left-round-corners();
     }
   }
@@ -89,10 +105,27 @@
   &:has(.tedi-input-group__suffix:empty) {
     @include right-round-corners();
 
-    input {
+    .tedi-input {
       @include right-round-corners();
     }
   }
+
+  // &:has(.tedi-input-group__prefix tedi-select) {
+  //   input.tedi-input {
+  //     border-left: var(--input-group_select_exists_input_border);
+  //   }
+  // }
+  // &:has(.tedi-input-group__suffix tedi-select) {
+  //   input.tedi-input {
+  //     border-right: var(--input-group_select_exists_input_border);
+  //   }
+  // }
+  // // if input is focused, remove border from tedi-select
+  // &:has(.tedi-input:focus) {
+  //   tedi-select {
+  //     border-left: var(--input-group_select_border);
+  //   }
+  // }
 }
 
 .tedi-input-group__container--disabled {
@@ -114,11 +147,12 @@
   border: var(--input-group_border);
 
   &:has(tedi-select) {
-    --input-group_border: 0;
-    padding: 0;
+    --input-group_border: var(--input-group_select_border);
+    padding: var(--input-group_select_padding);
   }
 
   tedi-select button {
+    background: var(--input-group_side_background_color);
     height: 100%;
     margin: 0;
     @include mixins.responsive-styles(padding-left, input-group_padding_x);

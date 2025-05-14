@@ -144,7 +144,6 @@ const renderSelectPrefix = (showBool: boolean) => {
   if (!showBool) return "";
   return `
   <tedi-select prefix-slot [placeholder]="prefixText" [disabled]="disabled">
-    <tedi-select-option id="default" value="default" label="default" />
     <tedi-select-option *ngFor="let option of selectOptions" [value]="option" [label]="option" />
   </tedi-select>`;
 };
