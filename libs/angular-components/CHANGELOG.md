@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-angular-v1.7.0-rc.15](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.7.0-rc.14...angular-1.7.0-rc.15) (2025-05-14)
+
+
+### Features
+
+* **card:** Add missing variables [#579](https://github.com/TEHIK-EE/tedi-design-system/issues/579) ([4547883](https://github.com/TEHIK-EE/tedi-design-system/commit/4547883e286178b89ae023d3c97b2d47b51c9b3a))
+
 # [@tehik-ee/tedi-angular-v1.7.0-rc.14](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.7.0-rc.13...angular-1.7.0-rc.14) (2025-05-13)
 
 
