@@ -1,13 +1,13 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { TextGroupComponent } from './text-group.component';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
+import { TextGroupComponent } from "./text-group.component";
 
-describe('TextGroupComponent', () => {
+describe("TextGroupComponent", () => {
   let component: TextGroupComponent;
   let fixture: ComponentFixture<TextGroupComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [TextGroupComponent]
+      imports: [TextGroupComponent],
     });
 
     fixture = TestBed.createComponent(TextGroupComponent);
@@ -17,7 +17,34 @@ describe('TextGroupComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
+  });
+
+  it("should have the correct label and value inputs", () => {
+    expect(component.label()).toBe("Label");
+    expect(component.value()).toBe("Value");
+  });
+
+  it("should apply the default type if not provided", () => {
+    expect(component.type()).toBe("horizontal");
+  });
+
+  it("should compute the correct classes based on type", () => {
+    expect(component.classes()).toContain("tedi-text-group");
+    expect(component.classes()).toContain("tedi-text-group--horizontal");
+
+    fixture.componentRef.setInput("type", "vertical");
+    fixture.detectChanges();
+
+    expect(component.classes()).toContain("tedi-text-group--vertical");
+    expect(component.classes()).not.toContain("tedi-text-group--horizontal");
+  });
+
+  it("should handle labelWidth input correctly", () => {
+    fixture.componentRef.setInput("labelWidth", "200px");
+    fixture.detectChanges();
+
+    expect(component.labelWidth()).toBe("200px");
   });
 });
