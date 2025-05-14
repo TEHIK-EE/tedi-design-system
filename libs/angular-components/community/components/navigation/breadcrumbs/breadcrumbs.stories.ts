@@ -54,7 +54,11 @@ export default {
       options: BREAKPOINTS,
       description: "Breakpoint to be used for displaying single crumb.",
       table: {
-        type: { summary: "Breakpoint", detail: "xs \nsm \nmd \nlg \nxl \nxxl" },
+        type: {
+          summary: "Breakpoint",
+          detail:
+            "xs - 0px \nsm - 576px \nmd - 768px \nlg - 992px \nxl - 1200px \nxxl - 1400px",
+        },
         defaultValue: { summary: "md" },
       },
     },
