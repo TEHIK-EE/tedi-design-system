@@ -79,7 +79,12 @@
   }
 
   &__panel {
+    // TODO: add margin from correct variable
     margin: 4px 0;
+  }
+
+  &__footer-content:empty {
+    display: none;
   }
 
   &--small .tedi-search__input {
