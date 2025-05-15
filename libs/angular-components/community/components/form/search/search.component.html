@@ -43,7 +43,6 @@
       <tedi-card-content padding="none" [hasSeparator]="true">
         @for (option of _foundOptions(); track option.value) {
           <button
-            class="tedi-search__option"
             tedi-dropdown-item
             cdkMenuItem
             [value]="option.value"
