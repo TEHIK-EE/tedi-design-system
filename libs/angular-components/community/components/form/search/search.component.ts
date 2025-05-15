@@ -13,13 +13,14 @@ import {
   viewChild,
   ViewEncapsulation,
   forwardRef,
+  viewChildren,
 } from "@angular/core";
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from "@angular/forms";
 import { ButtonComponent } from "community/components/buttons/button/button.component";
 import { IconComponent } from "@tehik-ee/tedi-angular/tedi";
 import { FormsModule } from "@angular/forms";
 import { OverlayModule } from "@angular/cdk/overlay";
-import { CdkMenuModule, CdkMenuTrigger } from "@angular/cdk/menu";
+import { CdkMenuItem, CdkMenuModule, CdkMenuTrigger } from "@angular/cdk/menu";
 import {
   CardComponent,
   CardContentComponent,
@@ -113,6 +114,7 @@ export class SearchComponent
   _width = signal(0);
   _elementRef = inject(ElementRef);
   _trigger = viewChild(CdkMenuTrigger);
+  _optionToFocus = viewChildren(CdkMenuItem);
 
   ngAfterContentChecked(): void {
     this._width.set(this.getWidth());
@@ -129,9 +131,7 @@ export class SearchComponent
     );
   });
 
-  _isOpen = computed(() => {
-    return this._trigger()?.isOpen();
-  });
+  _isOpen = computed(() => this._trigger()?.isOpen());
 
   effect = effect(() => {
     const inputValue = this._inputValue();
