@@ -4,9 +4,6 @@
     [(ngModel)]="_inputValue"
     class="tedi-search__input"
     [cdkMenuTriggerFor]="searchPanel"
-    (click)="$event.stopPropagation(); $event.preventDefault()"
-    (keydown.enter)="$event.stopPropagation(); $event.preventDefault()"
-    (keydown.space)="$event.stopPropagation(); $event.preventDefault()"
     #searchInput
   />
   <!-- <div class="tedi-search__input-trigger" #hiddenTrigger></div> -->
