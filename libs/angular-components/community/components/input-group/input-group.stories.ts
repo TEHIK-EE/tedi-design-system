@@ -140,10 +140,10 @@ interface SelectStoryArgs extends StoryArgs {
 type SelectComponentType = InputGroupComponent & SelectStoryArgs;
 type SelectStory = StoryObj<SelectComponentType>;
 
-const renderSelectPrefix = (showBool: boolean) => {
+const renderSelectPrefix = (showBool: boolean, slot = "prefix-slot") => {
   if (!showBool) return "";
   return `
-  <tedi-select prefix-slot [placeholder]="prefixText" [disabled]="disabled">
+  <tedi-select ${slot} [placeholder]="prefixText" [disabled]="disabled">
     <tedi-select-option *ngFor="let option of selectOptions" [value]="option" [label]="option" />
   </tedi-select>`;
 };
@@ -169,15 +169,45 @@ export const Select: SelectStory = {
 
     return {
       props: { ...rest },
-      template: `
-      <tedi-input-group ${currentArgs}>
-        ${renderSelectPrefix(args.showPrefix)}
-        <input [id]="labelID" tedi-input [disabled]="disabled" />
-        ${renderPrefix(args.showSuffix, "suffix")}
-      </tedi-input-group>
-    `,
+      template: renderSelect(args),
     };
   },
 };
 
 export default meta;
+
+const disabledSelectId = uniqueId("label-id");
+
+const renderSelect = (args: SelectStoryArgs) => `
+  <tedi-input-group ${currentArgs}>
+    ${renderSelectPrefix(args.showPrefix)}
+    <input [id]="labelID" tedi-input [disabled]="disabled" />
+    ${renderSelectPrefix(args.showSuffix, "suffix-slot")}
+  </tedi-input-group>
+`;
+
+export const Disabled: SelectStory = {
+  ...Default,
+  argTypes: {
+    selectOptions: {
+      control: "object",
+      description: "Array of options for the select element",
+    },
+  },
+  args: {
+    disabled: true,
+    selectOptions: ["Option 1", "Option 2", "Option 3"],
+  },
+
+  render: (args) => {
+    const { ...rest } = args;
+    rest.labelID = rest.labelID ?? disabledSelectId;
+
+    return {
+      props: {
+        ...rest,
+      },
+      template: renderSelect(args),
+    };
+  },
+};
