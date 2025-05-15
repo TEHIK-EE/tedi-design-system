@@ -99,6 +99,12 @@ export class SearchComponent
    */
   clearable = input<boolean>(true);
 
+  /**
+   * Text to show when no results are found
+   * @default "Vasteid ei leitud"
+   */
+  noResultText = input<string>("Vasteid ei leitud");
+
   // Emitted event
   onSelect = output<AutocompleteOption | string>();
 

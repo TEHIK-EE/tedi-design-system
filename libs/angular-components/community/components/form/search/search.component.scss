@@ -67,6 +67,11 @@
     .tedi-search--with-button & {
       padding-right: 0 !important;
     }
+
+    &-separator {
+      width: 1px;
+      border-left: 1px solid var(--general-border-primary);
+    }
   }
 
   &__option {
@@ -95,9 +100,4 @@
       padding-right: 15px;
     }
   }
-}
-
-.separator {
-  width: 1px;
-  border-left: 1px solid var(--general-border-primary);
 }

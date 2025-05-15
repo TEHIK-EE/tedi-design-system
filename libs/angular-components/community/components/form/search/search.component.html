@@ -17,7 +17,7 @@
       (click)="clearResult($event)"
     ></button>
     @if (!withButton()) {
-      <div class="separator"></div>
+      <div class="tedi-search__suffix-separator"></div>
     }
   }
   @if (!withButton()) {
@@ -38,33 +38,35 @@
 }
 
 <ng-template #searchPanel>
-  <tedi-card
-    class="tedi-search__panel"
-    [style.width.px]="_width()"
-    [spacing]="'none'"
-    cdkMenu
-  >
-    <tedi-card-content>
-      <div class="options">
-        @for (option of _foundOptions(); track option.value) {
-          <button
-            class="tedi-search__option"
-            tedi-dropdown-item
-            cdkMenuItem
-            [value]="option.value"
-            (cdkMenuItemTriggered)="selectResult(option)"
-          >
-            {{ option.label }} <small>x {{ option.description }}</small>
-          </button>
-        } @empty {
-          <!-- TODO -->
-          <span>Empty message</span>
-        }
-      </div>
-      <div class="tedi-search__separator"></div>
-      <div class="tedi-search__footer">
-        <ng-content></ng-content>
-      </div>
+  <tedi-card class="tedi-search__panel" [style.width.px]="_width()" cdkMenu>
+    @if (_foundOptions().length) {
+      <tedi-card-content padding="none" [hasSeparator]="true">
+        <div class="options">
+          @for (option of _foundOptions(); track option.value) {
+            <button
+              class="tedi-search__option"
+              tedi-dropdown-item
+              cdkMenuItem
+              [value]="option.value"
+              (cdkMenuItemTriggered)="selectResult(option)"
+            >
+              @if (option.description) {
+                {{ option.label }} <small>x {{ option.description }}</small>
+              } @else {
+                {{ option.label }}
+              }
+            </button>
+          }
+        </div>
+      </tedi-card-content>
+    } @else {
+      <tedi-card-content [hasSeparator]="true" padding="md">
+        {{ noResultText() }}
+      </tedi-card-content>
+    }
+
+    <tedi-card-content padding="md">
+      <ng-content></ng-content>
     </tedi-card-content>
   </tedi-card>
 </ng-template>
