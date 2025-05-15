@@ -1,10 +1,15 @@
 <div class="tedi-search__input-wrapper">
-  <input type="text" [(ngModel)]="_inputValue" class="tedi-search__input" />
-  <div
-    class="tedi-search__input-trigger"
+  <input
+    type="text"
+    [(ngModel)]="_inputValue"
+    class="tedi-search__input"
     [cdkMenuTriggerFor]="searchPanel"
-    #hiddenTrigger
-  ></div>
+    (click)="$event.stopPropagation(); $event.preventDefault()"
+    (keydown.enter)="$event.stopPropagation(); $event.preventDefault()"
+    (keydown.space)="$event.stopPropagation(); $event.preventDefault()"
+    #searchInput
+  />
+  <!-- <div class="tedi-search__input-trigger" #hiddenTrigger></div> -->
 </div>
 
 <div class="tedi-search__suffix">
@@ -38,32 +43,37 @@
 }
 
 <ng-template #searchPanel>
-  <tedi-card class="tedi-search__panel" [style.width.px]="_width()" cdkMenu>
-    @if (_foundOptions().length) {
-      <tedi-card-content padding="none" [hasSeparator]="true">
-        @for (option of _foundOptions(); track option.value) {
-          <button
-            tedi-dropdown-item
-            cdkMenuItem
-            [value]="option.value"
-            (cdkMenuItemTriggered)="selectResult(option)"
-          >
-            @if (option.description) {
-              {{ option.label }} <small>x {{ option.description }}</small>
-            } @else {
-              {{ option.label }}
+  <div cdkMenu>
+    @let inputValue = _inputValue();
+    @if (inputValue && inputValue.length >= this.autocompleteFrom()) {
+      <tedi-card class="tedi-search__panel" [style.width.px]="_width()">
+        @if (_foundOptions().length) {
+          <tedi-card-content padding="none" [hasSeparator]="true">
+            @for (option of _foundOptions(); track option.value) {
+              <button
+                cdkMenuItem
+                tedi-dropdown-item
+                [value]="option.value"
+                (cdkMenuItemTriggered)="selectResult(option)"
+              >
+                @if (option.description) {
+                  <strong>{{ option.label }}</strong> · {{ option.description }}
+                } @else {
+                  {{ option.label }}
+                }
+              </button>
             }
-          </button>
+          </tedi-card-content>
+        } @else {
+          <tedi-card-content [hasSeparator]="true" padding="md">
+            {{ noResultText() }}
+          </tedi-card-content>
         }
-      </tedi-card-content>
-    } @else {
-      <tedi-card-content [hasSeparator]="true" padding="md">
-        {{ noResultText() }}
-      </tedi-card-content>
-    }
 
-    <tedi-card-content class="tedi-search__footer-content" padding="md">
-      <ng-content></ng-content>
-    </tedi-card-content>
-  </tedi-card>
+        <tedi-card-content class="tedi-search__footer-content" padding="md">
+          <ng-content></ng-content>
+        </tedi-card-content>
+      </tedi-card>
+    }
+  </div>
 </ng-template>
