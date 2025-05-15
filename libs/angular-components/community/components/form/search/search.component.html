@@ -41,23 +41,21 @@
   <tedi-card class="tedi-search__panel" [style.width.px]="_width()" cdkMenu>
     @if (_foundOptions().length) {
       <tedi-card-content padding="none" [hasSeparator]="true">
-        <div class="options">
-          @for (option of _foundOptions(); track option.value) {
-            <button
-              class="tedi-search__option"
-              tedi-dropdown-item
-              cdkMenuItem
-              [value]="option.value"
-              (cdkMenuItemTriggered)="selectResult(option)"
-            >
-              @if (option.description) {
-                {{ option.label }} <small>x {{ option.description }}</small>
-              } @else {
-                {{ option.label }}
-              }
-            </button>
-          }
-        </div>
+        @for (option of _foundOptions(); track option.value) {
+          <button
+            class="tedi-search__option"
+            tedi-dropdown-item
+            cdkMenuItem
+            [value]="option.value"
+            (cdkMenuItemTriggered)="selectResult(option)"
+          >
+            @if (option.description) {
+              {{ option.label }} <small>x {{ option.description }}</small>
+            } @else {
+              {{ option.label }}
+            }
+          </button>
+        }
       </tedi-card-content>
     } @else {
       <tedi-card-content [hasSeparator]="true" padding="md">
