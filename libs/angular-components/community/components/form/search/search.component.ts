@@ -114,7 +114,8 @@ export class SearchComponent
   _width = signal(0);
   _elementRef = inject(ElementRef);
   _trigger = viewChild(CdkMenuTrigger);
-  _optionToFocus = viewChildren(CdkMenuItem);
+  _optionToFocus = viewChildren(CdkMenuItem, { read: ElementRef });
+  _searchInput = viewChild("searchInput", { read: ElementRef });
 
   ngAfterContentChecked(): void {
     this._width.set(this.getWidth());
@@ -131,14 +132,31 @@ export class SearchComponent
     );
   });
 
-  _isOpen = computed(() => this._trigger()?.isOpen());
-
-  effect = effect(() => {
-    const inputValue = this._inputValue();
-    if (inputValue && inputValue.length >= this.autocompleteFrom()) {
-      this._trigger()?.open();
-    }
+  _isOpen = computed(() => {
+    return this._trigger()?.isOpen();
   });
+
+  // effect = effect(() => {
+  //   const inputValue = this._inputValue();
+  //   if (inputValue && inputValue.length >= this.autocompleteFrom()) {
+  //     this._trigger()?.open();
+  //   }
+  // });
+  // Focus effect to focus first option when dropdown is opened
+  // focusEffect = effect(() => {
+  //   const searchInput = this._searchInput()?.nativeElement;
+
+  //   if (searchInput.)
+
+  //   // if (this._optionToFocus().length > 0) {
+  //   //   setTimeout(() => {
+  //   //     const firstOption = this._optionToFocus()[0]?.nativeElement;
+  //   //     if (firstOption) {
+  //   //       firstOption.focus();
+  //   //     }
+  //   //   });
+  //   // }
+  // });
 
   modifierClasses = computed(() => {
     const modifiers = [];
@@ -190,12 +208,11 @@ export class SearchComponent
   registerOnChange(fn: (value: string | AutocompleteOption) => void): void {
     this.onChange = fn;
   }
-
   registerOnTouched(fn: () => void): void {
     this.onTouched = fn;
   }
 
-  setDisabledState?(isDisabled: boolean): void {
+  setDisabledState?(_isDisabled: boolean): void {
     // Implement logic to disable the component if needed
   }
 
