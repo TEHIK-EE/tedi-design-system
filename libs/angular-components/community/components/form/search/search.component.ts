@@ -136,28 +136,6 @@ export class SearchComponent
     return this._trigger()?.isOpen();
   });
 
-  // effect = effect(() => {
-  //   const inputValue = this._inputValue();
-  //   if (inputValue && inputValue.length >= this.autocompleteFrom()) {
-  //     this._trigger()?.open();
-  //   }
-  // });
-  // Focus effect to focus first option when dropdown is opened
-  // focusEffect = effect(() => {
-  //   const searchInput = this._searchInput()?.nativeElement;
-
-  //   if (searchInput.)
-
-  //   // if (this._optionToFocus().length > 0) {
-  //   //   setTimeout(() => {
-  //   //     const firstOption = this._optionToFocus()[0]?.nativeElement;
-  //   //     if (firstOption) {
-  //   //       firstOption.focus();
-  //   //     }
-  //   //   });
-  //   // }
-  // });
-
   modifierClasses = computed(() => {
     const modifiers = [];
     if (this.size()) modifiers.push(`tedi-search--${this.size()}`);
