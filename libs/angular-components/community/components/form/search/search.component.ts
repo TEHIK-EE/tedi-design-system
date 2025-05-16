@@ -3,24 +3,21 @@ import {
   ChangeDetectionStrategy,
   Component,
   computed,
-  effect,
   ElementRef,
   inject,
   input,
   model,
   output,
   signal,
-  viewChild,
   ViewEncapsulation,
   forwardRef,
-  viewChildren,
 } from "@angular/core";
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from "@angular/forms";
 import { ButtonComponent } from "community/components/buttons/button/button.component";
 import { IconComponent } from "@tehik-ee/tedi-angular/tedi";
 import { FormsModule } from "@angular/forms";
 import { OverlayModule } from "@angular/cdk/overlay";
-import { CdkMenuItem, CdkMenuModule, CdkMenuTrigger } from "@angular/cdk/menu";
+import { CdkMenuModule } from "@angular/cdk/menu";
 import {
   CardComponent,
   CardContentComponent,
@@ -118,16 +115,13 @@ export class SearchComponent
   placeholder = input<string>("");
 
   // Emitted event
-  onSelect = output<AutocompleteOption | string>();
+  searchEvent = output<AutocompleteOption | string>();
 
   _inputValue = model<string>();
   _selectedOption = model<AutocompleteOption>();
   _width = signal(0);
   _elementRef = inject(ElementRef);
-  _trigger = viewChild(CdkMenuTrigger);
-  _optionToFocus = viewChildren(CdkMenuItem, { read: ElementRef });
-  _searchInput = viewChild("searchInput", { read: ElementRef });
-  // _isDisabled = signal(false);
+  _disabled = signal(false);
 
   ngAfterContentChecked(): void {
     this._width.set(this.getWidth());
@@ -143,10 +137,6 @@ export class SearchComponent
         option.description?.toLowerCase().includes(inputValue.toLowerCase()),
     );
   });
-
-  // _isOpen = computed(() => {
-  //   return this._trigger()?.isOpen();
-  // });
 
   modifierClasses = computed(() => {
     const modifiers = [];
@@ -202,12 +192,12 @@ export class SearchComponent
     this.onTouched = fn;
   }
 
-  setDisabledState?(_isDisabled: boolean): void {
-    // Implement logic to disable the component if needed
+  setDisabledState?(isDisabled: boolean): void {
+    this._disabled.set(isDisabled);
   }
 
   searchButtonClick() {
-    this.onSelect.emit(this._selectedOption() ?? this._inputValue() ?? "");
+    this.searchEvent.emit(this._selectedOption() ?? this._inputValue() ?? "");
     this.onChange(this._selectedOption() ?? this._inputValue() ?? "");
     this.onTouched();
   }
@@ -217,7 +207,7 @@ export class SearchComponent
     this._inputValue.set(option.label);
 
     if (!this.withButton()) {
-      this.onSelect.emit(option);
+      this.searchEvent.emit(option);
       this.onChange(option);
     }
     this.onTouched();
@@ -227,7 +217,7 @@ export class SearchComponent
     event.stopPropagation();
     this._inputValue.set("");
     this._selectedOption.set(undefined);
-    this.onSelect.emit("");
+    this.searchEvent.emit("");
     this.onChange("");
     this.onTouched();
   }
