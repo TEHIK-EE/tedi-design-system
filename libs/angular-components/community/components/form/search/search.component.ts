@@ -56,6 +56,8 @@ export type AutocompleteOption = {
   host: {
     "[class.tedi-search]": "true",
     "[class.tedi-search--with-button]": "withButton()",
+    "[class.tedi-search--with-button-text]": "!!buttonText()",
+    "[class.tedi-search--disabled]": "disabled()",
     "[class]": "modifierClasses()",
   },
   providers: [
@@ -99,12 +101,21 @@ export class SearchComponent
    * @default true
    */
   clearable = input<boolean>(true);
-
   /**
    * Text to show when no results are found
    * @default "Vasteid ei leitud"
    */
   noResultText = input<string>("Vasteid ei leitud");
+  /**
+   * Should the searc input be disabled
+   * @default false
+   */
+  disabled = input<boolean>(false);
+  /**
+   * Placeholder text for the search input
+   * @default ""
+   */
+  placeholder = input<string>("");
 
   // Emitted event
   onSelect = output<AutocompleteOption | string>();
@@ -116,6 +127,7 @@ export class SearchComponent
   _trigger = viewChild(CdkMenuTrigger);
   _optionToFocus = viewChildren(CdkMenuItem, { read: ElementRef });
   _searchInput = viewChild("searchInput", { read: ElementRef });
+  // _isDisabled = signal(false);
 
   ngAfterContentChecked(): void {
     this._width.set(this.getWidth());
@@ -132,9 +144,9 @@ export class SearchComponent
     );
   });
 
-  _isOpen = computed(() => {
-    return this._trigger()?.isOpen();
-  });
+  // _isOpen = computed(() => {
+  //   return this._trigger()?.isOpen();
+  // });
 
   modifierClasses = computed(() => {
     const modifiers = [];

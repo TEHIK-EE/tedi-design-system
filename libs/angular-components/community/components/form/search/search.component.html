@@ -4,6 +4,8 @@
     [(ngModel)]="_inputValue"
     class="tedi-search__input"
     [cdkMenuTriggerFor]="searchPanel"
+    [placeholder]="placeholder()"
+    [disabled]="disabled()"
     #searchInput
   />
   <!-- <div class="tedi-search__input-trigger" #hiddenTrigger></div> -->
@@ -33,6 +35,7 @@
     class="tedi-search__trigger"
     [size]="buttonSize()"
     (click)="searchButtonClick()"
+    [disabled]="disabled()"
   >
     <tedi-icon name="search" color="white" [size]="iconSize()" />
     {{ buttonText() }}
