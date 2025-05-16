@@ -46,6 +46,8 @@ import '@tehik-ee/tedi-react/index.css';
 
 #### 3. If u are not using Layout component u should wrap your application with AccessibilityProvider
 
+It provides some global functionality for accessibility. For example Skeleton accessibilty texts and initializes what-input library.
+
 ```tsx
 <AccessibilityProvider>
   <YourApp />
@@ -59,3 +61,8 @@ Day.js must be an application dependency, so it's recommended to use it for hand
 
 The <code>'en'</code> locale has a modified rule that sets weekStart to Monday. Currently, overriding this rule is not supported.
 If you need to override it, please reach out on Slack.
+
+### Server-side-rendering
+
+When using SSR, you have option to pass defaultServerBreakpoint prop to every component that uses [BreakpointProps](/docs/helpers-usebreakpointprops--usebreakpointprops).
+This creates a possibility to tell in which breakpoint the component should be rendered on the server to avoid layout shifts.
