@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-react-v11.4.0-rc.3](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.4.0-rc.2...react-11.4.0-rc.3) (2025-05-16)
+
+
+### Bug Fixes
+
+* **useBreakpointProps:** remove window usage in SSR, add defaultServerBreakpoint [#786](https://github.com/TEHIK-EE/tedi-design-system/issues/786) ([#789](https://github.com/TEHIK-EE/tedi-design-system/issues/789)) ([2a61ed3](https://github.com/TEHIK-EE/tedi-design-system/commit/2a61ed3ff3e9ce0e7ac114586190f8f2fcec136d))
+
 # [@tehik-ee/tedi-react-v11.4.0-rc.2](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.4.0-rc.1...react-11.4.0-rc.2) (2025-05-12)
 
 
