@@ -69,6 +69,10 @@ export class SearchComponent
   implements AfterContentChecked, ControlValueAccessor
 {
   /**
+   * Search input ID for accessibility
+   */
+  inputId = input.required<string>();
+  /**
    * Autocomplete options for the search input
    * @default []
    */
