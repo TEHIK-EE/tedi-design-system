@@ -78,6 +78,64 @@ export default {
         defaultValue: { summary: "false" },
       },
     },
+    clearable: {
+      description: "Should the search input be clearable",
+      control: "radio",
+      options: [true, false],
+      table: {
+        category: "inputs",
+        type: { summary: "boolean", detail: "boolean" },
+        defaultValue: { summary: "true" },
+      },
+    },
+    noResultText: {
+      description: "Text to show when no results are found",
+      control: "text",
+      table: {
+        category: "inputs",
+        type: { summary: "string", detail: "string" },
+        defaultValue: { summary: "Vasteid ei leitud" },
+      },
+    },
+    placeholder: {
+      description: "Placeholder text for the search input",
+      control: "text",
+      table: {
+        category: "inputs",
+        type: { summary: "string", detail: "string" },
+        defaultValue: { summary: "" },
+      },
+    },
+    autocompleteFrom: {
+      description: "Minimum number of characters to trigger autocomplete",
+      control: { type: "number", min: 1 },
+      table: {
+        category: "inputs",
+        type: { summary: "number", detail: "number" },
+        defaultValue: { summary: "3" },
+      },
+    },
+    inputId: {
+      description: "Search input ID for accessibility",
+      control: "text",
+      table: {
+        category: "inputs",
+        type: { summary: "string", detail: "string" },
+        defaultValue: { summary: "undefined" },
+      },
+    },
+    autocompleteOptions: {
+      description: "Autocomplete options for the search input",
+      control: "object",
+      table: {
+        category: "inputs",
+        type: {
+          summary: "AutocompleteOption[]",
+          detail: "AutocompleteOption[]",
+        },
+        defaultValue: { summary: "[]" },
+      },
+    },
   },
 } as Meta<SearchComponent>;
 
@@ -87,6 +145,14 @@ export const Default: SearchStory = {
   args: {
     size: "default",
     autocompleteOptions: mockOptions,
+    withButton: false,
+    buttonText: "",
+    disabled: false,
+    clearable: true,
+    noResultText: "Vasteid ei leitud",
+    placeholder: "Search...",
+    autocompleteFrom: 3,
+    inputId: "search-input",
   },
   render: (args) => ({
     props: {
@@ -117,29 +183,29 @@ export const Sizes: SearchStory = {
     template: `
       <b>Large</b>
       <tedi-row cols="1" gap="3">
-        <tedi-search size="large" [autocompleteOptions]="mockOptions">
+        <tedi-search inputId="search-1" size="large" [autocompleteOptions]="mockOptions">
           <p>Footer goes here</p>
         </tedi-search>
-        <tedi-search size="large" [withButton]="true" [autocompleteOptions]="mockOptions"/>
-        <tedi-search size="large" [withButton]="true" buttonText="Otsi" [autocompleteOptions]="mockOptions"/>
+        <tedi-search inputId="search-2" size="large" [withButton]="true" [autocompleteOptions]="mockOptions"/>
+        <tedi-search inputId="search-3" size="large" [withButton]="true" buttonText="Otsi" [autocompleteOptions]="mockOptions"/>
       </tedi-row>
 
       <br />
 
       <b>Default</b>
       <tedi-row cols="1" gap="3">
-        <tedi-search size="default" [autocompleteOptions]="mockOptions"/>
-        <tedi-search size="default" [withButton]="true" [autocompleteOptions]="mockOptions"/>
-        <tedi-search size="default" [withButton]="true" buttonText="Otsi" [autocompleteOptions]="mockOptions"/>
+        <tedi-search inputId="search-4" size="default" [autocompleteOptions]="mockOptions"/>
+        <tedi-search inputId="search-5" size="default" [withButton]="true" [autocompleteOptions]="mockOptions"/>
+        <tedi-search inputId="search-6" size="default" [withButton]="true" buttonText="Otsi" [autocompleteOptions]="mockOptions"/>
       </tedi-row>
 
       <br />
 
       <b>Small</b>
       <tedi-row cols="1" gap="3">
-        <tedi-search size="small" [autocompleteOptions]="mockOptions"/>
-        <tedi-search size="small" [withButton]="true" [autocompleteOptions]="mockOptions"/>
-        <tedi-search size="small" [withButton]="true" buttonText="Otsi" [autocompleteOptions]="mockOptions"/>
+        <tedi-search inputId="search-7" size="small" [autocompleteOptions]="mockOptions"/>
+        <tedi-search inputId="search-8" size="small" [withButton]="true" [autocompleteOptions]="mockOptions"/>
+        <tedi-search inputId="search-9" size="small" [withButton]="true" buttonText="Otsi" [autocompleteOptions]="mockOptions"/>
       </tedi-row>
     `,
   }),
@@ -152,6 +218,6 @@ export const Disabled: SearchStory = {
     autocompleteOptions: mockOptions,
   },
   render: () => ({
-    template: `<tedi-search [disabled]="true" />`,
+    template: `<tedi-search inputId="search-10" [disabled]="true" />`,
   }),
 };
