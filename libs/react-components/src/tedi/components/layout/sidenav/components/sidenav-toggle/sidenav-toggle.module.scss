@@ -1,29 +1,42 @@
+@use '@tehik-ee/tedi-core/mixins';
 @use '@tehik-ee/tedi-core/bootstrap-utility/breakpoints';
 
-.sidenav-toggle {
-  --global-outline-offset: -3px;
-  --global-outline-color: var(--color-primary-highlight);
-
+.tedi-sidenav-toggle {
   width: 3.5rem;
   height: 3.5rem;
   margin: 0;
   border-radius: 0;
 
-  @include breakpoints.media-breakpoint-up(lg) {
-    display: none;
-  }
-
-  .header &--open {
-    background-color: var(--color-primary-active);
-    border-color: var(--color-primary-active);
-  }
-
-  .header &:focus {
-    border-radius: 0;
-  }
-
-  .sidenav-toggle__icon {
+  &__icon {
     width: 1.5rem;
-    font-size: 1.5rem;
+  }
+
+  &--mobile {
+    @include breakpoints.media-breakpoint-up(lg) {
+      display: none;
+    }
+  }
+
+  &.tedi-sidenav-toggle--collapse {
+    position: absolute;
+    top: calc(var(--sidenav-toggle-top) / 4);
+    right: calc(var(--sidenav-toggle-right) / 2 * -1);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--button-floating-secondary-text-default);
+    background-color: var(--button-floating-secondary-background-default);
+    border-color: var(--button-floating-secondary-border-default);
+    border-radius: var(--radius-08);
+    box-shadow: 0 4px 10px var(--alpha-14);
+
+    @include mixins.responsive-styles(--sidenav-toggle-right, button-md-icon-size);
+    @include mixins.responsive-styles(--sidenav-toggle-top, side-navigation-item-min-height);
+    @include mixins.responsive-styles(height, button-md-icon-size);
+    @include mixins.responsive-styles(width, button-md-icon-size);
+
+    @include breakpoints.media-breakpoint-down(md) {
+      display: none;
+    }
   }
 }

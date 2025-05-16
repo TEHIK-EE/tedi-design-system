@@ -2,26 +2,24 @@
 @use '@tehik-ee/tedi-core/bootstrap-utility/breakpoints';
 
 .tedi-sidenav {
-  --global-outline-color: var(--color-primary-highlight);
-  --global-outline-offset: -2px;
-  --bullet-color: #4587bc;
-  --subheading-color: #d0e1ee;
-
+  position: relative;
   z-index: var(--z-index-sidenav);
   display: flex;
   flex-direction: column;
   width: 70vw;
   min-width: 20rem;
   max-width: 25rem;
+  height: 100%;
   min-height: 100%;
   margin: 0;
   font-size: 0.875rem;
   background-color: var(--side-navigation-item-background-default);
+  transition: all 0.3s ease;
 
   @include mixins.print-grayscale;
 
   @include breakpoints.media-breakpoint-up(md) {
-    font-size: 1rem;
+    @include mixins.responsive-styles(font-size, body-regular-size);
   }
 
   @include breakpoints.media-breakpoint-up(lg) {
@@ -45,7 +43,7 @@
       left: 26px;
       width: 2px;
       content: '';
-      background-color: var(--bullet-color);
+      background-color: var(--side-navigation-tree-brand-default);
       border-radius: 10px 10px 0 0;
     }
 
@@ -57,7 +55,7 @@
       width: 15px;
       height: 2px;
       content: '';
-      background-color: var(--bullet-color);
+      background-color: var(--side-navigation-tree-brand-default);
       border-radius: 0 10px 10px 0;
     }
 
@@ -73,6 +71,73 @@
       &::after {
         left: 48px;
       }
+    }
+  }
+
+  &--collapsed {
+    width: 96px;
+
+    .tedi-sidenav {
+      &__title {
+        display: inline;
+        max-width: 75px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      &__bullet {
+        display: none;
+      }
+
+      &__item span[class^='row'] span[class^='col']:last-child {
+        display: none;
+      }
+
+      &__link {
+        flex-direction: column;
+        justify-content: center;
+        padding-right: 8px;
+        padding-left: 8px;
+        font-size: 14px;
+        text-align: center;
+
+        @include mixins.responsive-styles(gap, side-navigation-item-inner-spacing-sm);
+        @include mixins.responsive-styles(padding-top, side-navigation-item-padding-y);
+        @include mixins.responsive-styles(padding-bottom, side-navigation-item-padding-y);
+        @include mixins.responsive-styles(padding-left, side-navigation-item-padding-x-sm);
+        @include mixins.responsive-styles(padding-right, side-navigation-item-padding-x-sm);
+      }
+
+      &__link--active {
+        background-color: var(--side-navigation-item-background-active);
+      }
+
+      &__item--has-children {
+        position: relative;
+      }
+
+      &__item--has-children .tedi-sidenav__toggle-icon {
+        position: absolute;
+        top: 15px;
+        right: 10px;
+      }
+    }
+  }
+
+  &__collapse-toggle {
+    position: absolute;
+    right: 8px;
+    bottom: 16px;
+    padding: 8px;
+    color: var(--general-icon-white);
+    cursor: pointer;
+    background: none;
+    border: none;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      opacity: 0.8;
     }
   }
 }
@@ -94,7 +159,7 @@
 .tedi-sidenav__item {
   display: flex;
   flex-direction: row;
-  transition: 200ms ease;
+  transition: all 0.3s ease;
 
   .tedi-sidenav--has-dividers & {
     border-bottom: 1px solid var(--side-navigation-item-border);
@@ -114,17 +179,15 @@
 
   & [data-name='collapse-trigger'] {
     border-radius: 0;
-    transition: 200ms ease;
     transition-property: background-color, color;
 
-    [class^='tedi-sidenav__link'] {
-      padding-right: 0;
+    [data-name='icon'] {
+      color: var(--general-icon-white);
+      transition-property: color;
     }
 
-    [data-name='icon'] {
-      color: var(--general-text-white);
-      transition: 200ms ease;
-      transition-property: color;
+    &:hover {
+      background-color: var(--side-navigation-item-background-hover);
     }
   }
 
@@ -140,10 +203,6 @@
       padding-right: 0;
       padding-left: 0;
     }
-
-    & span[class^='col']:last-child {
-      padding-left: 0;
-    }
   }
 
   &.tedi-sidenav__sub-item {
@@ -151,6 +210,27 @@
       min-height: 48px;
       padding-top: 0;
       padding-bottom: 0;
+    }
+  }
+
+  .tedi-sidenav__link--has-children-link {
+    padding-right: 50px;
+
+    + .tedi-sidenav__link-collapse-wrapper [data-name='collapse-trigger'] {
+      position: absolute;
+      top: 20px;
+      right: 10px;
+      display: flex;
+      justify-content: center;
+
+      @include mixins.responsive-styles(border-radius, button-radius-sm);
+      @include mixins.responsive-styles(width, button-sm-icon-size);
+      @include mixins.responsive-styles(height, button-sm-icon-size);
+
+      &:hover,
+      &[aria-expanded='true'] {
+        background-color: var(--side-navigation-item-background-arrow-button-active);
+      }
     }
   }
 }
@@ -169,7 +249,7 @@
     &.tedi-sidenav__item--current {
       span.tedi-sidenav__link,
       [data-name='icon'] {
-        color: var(--general-text-white);
+        color: var(--side-navigation-item-text);
       }
     }
   }
@@ -181,9 +261,8 @@ a.tedi-sidenav__link {
   flex-grow: 1;
   align-items: center;
   font: inherit;
-  color: var(--general-text-white);
+  color: var(--side-navigation-item-text);
   text-decoration: none;
-  word-break: break-word;
   border-radius: 0;
   transition: 200ms ease;
   transition-property: background-color, color;
@@ -216,22 +295,14 @@ a.tedi-sidenav__link {
   }
 }
 
-a.tedi-sidenav__link {
+.tedi-sidenav__link {
   .tedi-sidenav__item--current > & {
-    color: var(--general-text-white);
+    color: var(--side-navigation-item-text);
     background-color: var(--side-navigation-item-background-active);
   }
 
-  .tedi-sidenav__item .tedi-sidenav__item & {
-    --global-outline-color: var(--color-primary-active);
-
-    &:hover {
-      color: var(--general-text-white);
-    }
-  }
-
   .tedi-sidenav__item .tedi-sidenav__item.sidenav__item--current > & {
-    color: var(--general-text-white);
+    color: var(--side-navigation-item-text);
   }
 
   &:hover {
@@ -240,8 +311,8 @@ a.tedi-sidenav__link {
 }
 
 .tedi-sidenav__subheading {
-  font-size: var(--size-01);
-  color: var(--subheading-color);
+  font-size: var(--size-00);
+  color: var(--side-navigation-group-title-text);
   text-transform: uppercase;
 
   @include mixins.responsive-styles(padding-top, layout-grid-gutters-02);
@@ -255,6 +326,7 @@ a.tedi-sidenav__link {
     padding-left: 0;
   }
 
+  position: relative;
   flex-direction: column;
 
   &::after {
@@ -264,6 +336,10 @@ a.tedi-sidenav__link {
   &::before {
     margin-top: 23px;
     margin-bottom: 23px;
+  }
+
+  &:hover {
+    cursor: pointer;
   }
 }
 
@@ -279,7 +355,7 @@ a.tedi-sidenav__link {
     width: 10px;
     height: 10px;
     content: '';
-    background-color: var(--bullet-color);
+    background-color: var(--side-navigation-tree-brand-default);
     border-radius: 100%;
   }
 }

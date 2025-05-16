@@ -1,12 +1,13 @@
 import { FloatingFocusManager, FloatingOverlay, useFloating } from '@floating-ui/react';
 import cn from 'classnames';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import Print from '../../../../tedi/components/misc/print/print';
 import { Breakpoint, isBreakpointBelow, useBreakpoint } from '../../../helpers';
 import { AllowedHTMLTags } from '../../../helpers/polymorphic/types';
 import { UnknownType } from '../../../types/commonTypes';
 import { SideNavItem } from './components/sidenav-item/sidenav-item';
+import SidenavToggle from './components/sidenav-toggle/sidenav-toggle';
 import styles from './sidenav.module.scss';
 
 type ConditionalTypes<C extends React.ElementType = 'a'> =
@@ -64,6 +65,15 @@ export type SideNavProps<C extends React.ElementType = 'a'> = ConditionalTypes<C
   onMenuToggle?: (isOpen: boolean) => void;
   useOverlay?: boolean;
   isOpen?: boolean;
+  /**
+   * Whether the sidenav is collapsed (showing only icons/shortened text)
+   * @default false
+   */
+  isCollapsed?: boolean;
+  /**
+   * Callback when the sidenav is toggled between collapsed/expanded
+   */
+  onCollapseToggle?: (isCollapsed: boolean) => void;
 };
 
 export const SideNav: <C extends React.ElementType = 'a'>(props: SideNavProps<C>) => React.ReactElement | null = (
@@ -80,13 +90,41 @@ export const SideNav: <C extends React.ElementType = 'a'>(props: SideNavProps<C>
     showMobileOverlay = true,
     useOverlay = false,
     isOpen = true,
+    isCollapsed: isCollapsedProp = false,
     onMenuToggle,
+    onCollapseToggle,
     ...rest
   } = props;
 
+  const mapToBreakpoint = (value: 'mobile' | 'tablet'): Breakpoint => {
+    const map: Record<'mobile' | 'tablet', Breakpoint> = {
+      mobile: 'md',
+      tablet: 'lg',
+    };
+    return map[value];
+  };
+  const breakpoint = useBreakpoint();
+  const isMobileView = isBreakpointBelow(breakpoint, mapToBreakpoint(mobileBreakpoint));
   const isControlled = typeof isOpen === 'boolean';
   const [internalOpen, setInternalOpen] = useState(false);
   const isMenuOpen = isControlled ? isOpen : internalOpen;
+
+  const [internalCollapsed, setInternalCollapsed] = useState(isCollapsedProp);
+  const isCollapsed = isMobileView ? false : internalCollapsed;
+  const isCollapsible = 'isCollapsed' in props;
+
+  useEffect(() => {
+    setInternalOpen(!isMobileView);
+  }, [isMobileView]);
+
+  const setCollapsed = (collapsed: boolean) => {
+    setInternalCollapsed(collapsed);
+    onCollapseToggle?.(collapsed);
+  };
+
+  const toggleCollapse = () => {
+    setCollapsed(!isCollapsed);
+  };
 
   const setMenuOpen = (open: boolean) => {
     if (!isControlled) {
@@ -94,12 +132,6 @@ export const SideNav: <C extends React.ElementType = 'a'>(props: SideNavProps<C>
     }
     onMenuToggle?.(open);
   };
-
-  const mapToBreakpoint = (value: 'mobile' | 'tablet'): Breakpoint => {
-    return value === 'mobile' ? 'md' : 'lg';
-  };
-  const breakpoint = useBreakpoint();
-  const isMobileView = isBreakpointBelow(breakpoint, mapToBreakpoint(mobileBreakpoint));
 
   const { refs, floatingStyles, context } = useFloating({
     open: isMenuOpen,
@@ -113,14 +145,23 @@ export const SideNav: <C extends React.ElementType = 'a'>(props: SideNavProps<C>
   const BEM = cn(styles['tedi-sidenav'], className, {
     [styles['tedi-sidenav--has-dividers']]: showDividers,
     [styles['tedi-sidenav--hide-subitem-icons']]: hideSubItemIcons,
+    [styles['tedi-sidenav--collapsed']]: isCollapsed,
   });
 
   const sidebarContent = (
     <Print visibility="hide">
       <nav id={props.id} data-name="sidenav" {...rest} className={BEM} aria-label={ariaLabel}>
+        {isCollapsible && <SidenavToggle menuOpen={!isCollapsed} toggleMenu={toggleCollapse} variant="collapse" />}
         <ul className={styles['tedi-sidenav__list']} role="menubar" aria-label={ariaLabel}>
           {navItems.map((item, key) => (
-            <SideNavItem as={linkAs} {...item} key={key} onItemClick={toggleMenu} />
+            <SideNavItem
+              as={linkAs}
+              {...item}
+              key={key}
+              onItemClick={toggleMenu}
+              isCollapsed={isCollapsed}
+              isMobile={isMobileView}
+            />
           ))}
         </ul>
       </nav>

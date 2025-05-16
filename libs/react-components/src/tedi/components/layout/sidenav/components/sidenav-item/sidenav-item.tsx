@@ -4,7 +4,9 @@ import React, { useState } from 'react';
 import { Icon, IconWithoutBackgroundProps } from '../../../../base/icon/icon';
 import Collapse from '../../../../buttons/collapse/collapse';
 import Link, { LinkProps } from '../../../../navigation/link/link';
+import { Tooltip } from '../../../../overlays/tooltip';
 import styles from '../../sidenav.module.scss';
+import { SideNavDropdown } from '../sidenav-dropdown/sidenav-dropdown';
 
 export type SideNavItem<C extends React.ElementType = 'a'> = LinkProps<C> & {
   /**
@@ -22,10 +24,19 @@ export type SideNavItem<C extends React.ElementType = 'a'> = LinkProps<C> & {
     subHeading?: string;
     subItems: SideNavItem<C>[];
   }[];
+  /**
+   * Whether the sidenav is currently collapsed
+   */
+  isCollapsed?: boolean;
 };
 
 export const SideNavItem = <C extends React.ElementType = 'a'>(
-  props: SideNavItem<C> & { onItemClick?: () => void; level?: number }
+  props: SideNavItem<C> & {
+    onItemClick?: () => void;
+    level?: number;
+    isCollapsed?: boolean;
+    isMobile?: boolean;
+  }
 ) => {
   const {
     icon,
@@ -38,10 +49,12 @@ export const SideNavItem = <C extends React.ElementType = 'a'>(
     onItemClick,
     className,
     level = 1,
+    isCollapsed = false,
     ...rest
   } = props;
 
-  const [isCollapsed, setIsCollapsed] = useState(false);
+  const [isCollapsedInternal, setIsCollapsedInternal] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const collapseId = React.useId();
 
   const groupsToRender = subItemGroups ?? (subItems ? [{ subItems }] : null);
@@ -51,7 +64,7 @@ export const SideNavItem = <C extends React.ElementType = 'a'>(
     styles['tedi-sidenav__item'],
     {
       [styles['tedi-sidenav__item--current']]: isActive,
-      [styles['tedi-sidenav__item--has-children']]: hasChildren && level === 2,
+      [styles['tedi-sidenav__item--has-children']]: hasChildren,
     },
     className
   );
@@ -82,20 +95,23 @@ export const SideNavItem = <C extends React.ElementType = 'a'>(
   };
 
   const handleCollapseToggle = (isOpen: boolean) => {
-    setIsCollapsed(isOpen);
+    setIsCollapsedInternal(isOpen);
   };
 
+  const isLinkedParent = hasChildren && (rest.href || rest.to);
   const linkProps = {
     ...rest,
     as,
     onClick: handleClick,
-    className: styles['tedi-sidenav__link'],
+    className: cn(styles['tedi-sidenav__link'], isLinkedParent && styles['tedi-sidenav__link--has-children-link']),
     noStyle: true,
     role: 'menuitem',
     'aria-current': isActive ? 'page' : undefined,
+    'aria-label': isCollapsed && typeof children === 'string' ? children : undefined,
   } as unknown as LinkProps<C>;
 
   const renderChildren = () =>
+    !isCollapsed &&
     groupsToRender?.map((group, index) => (
       <div key={index}>
         {group?.subHeading && <div className={styles['tedi-sidenav__subheading']}>{group.subHeading}</div>}
@@ -107,6 +123,7 @@ export const SideNavItem = <C extends React.ElementType = 'a'>(
               key={key}
               level={level + 1}
               onItemClick={onItemClick}
+              isCollapsed={isCollapsed}
               className={cn(styles['tedi-sidenav__sub-item'], item.className)}
             />
           ))}
@@ -114,45 +131,97 @@ export const SideNavItem = <C extends React.ElementType = 'a'>(
       </div>
     ));
 
-  return (
+  const content = (
     <li data-name="sidenav-item" className={SideNavItemBEM} role="presentation">
-      {hasChildren && level === 1 ? (
-        <Collapse
-          id={collapseId}
-          hideCollapseText
-          open={isCollapsed}
-          onToggle={handleCollapseToggle}
-          className={styles['tedi-sidenav__collapse']}
-          title={
-            <span
-              {...(({ _href, ...spanRest }) => spanRest)(rest)}
-              className={styles['tedi-sidenav__link']}
-              noStyle={true}
-              role="menuitem"
-              aria-current={isActive ? 'page' : undefined}
-            >
+      {hasChildren && isCollapsed ? (
+        <SideNavDropdown
+          trigger={
+            <Tooltip.Trigger>
+              <span
+                className={cn(styles['tedi-sidenav__link'], isDropdownOpen && styles['tedi-sidenav__link--active'])}
+              >
+                {icon && getIcon(icon)}
+                <Icon
+                  name={isDropdownOpen ? 'expand_less' : 'expand_more'}
+                  color="white"
+                  className={styles['tedi-sidenav__toggle-icon']}
+                />
+                <span className={styles['tedi-sidenav__title']}>{children}</span>
+              </span>
+            </Tooltip.Trigger>
+          }
+          groups={groupsToRender}
+          onOpenChange={setIsDropdownOpen}
+        />
+      ) : hasChildren && level === 1 ? (
+        rest.href || rest.to ? (
+          <>
+            <Link {...linkProps}>
               {icon && getIcon(icon)}
               <span className={styles['tedi-sidenav__title']}>{children}</span>
-            </span>
-          }
-        >
-          {renderChildren()}
-        </Collapse>
+            </Link>
+            <div className={styles['tedi-sidenav__link-collapse-wrapper']}>
+              <Collapse
+                id={collapseId}
+                hideCollapseText
+                open={isCollapsedInternal}
+                onToggle={handleCollapseToggle}
+                className={styles['tedi-sidenav__collapse']}
+              >
+                {renderChildren()}
+              </Collapse>
+            </div>
+          </>
+        ) : (
+          <Collapse
+            id={collapseId}
+            hideCollapseText
+            open={isCollapsedInternal}
+            onToggle={handleCollapseToggle}
+            className={styles['tedi-sidenav__collapse']}
+            title={
+              <span
+                className={cn(
+                  styles['tedi-sidenav__link'],
+                  isCollapsedInternal && styles['tedi-sidenav__link--active']
+                )}
+                role="menuitem"
+                aria-current={isActive ? 'page' : undefined}
+              >
+                {icon && getIcon(icon)}
+                <span className={styles['tedi-sidenav__title']}>{children}</span>
+              </span>
+            }
+          >
+            {renderChildren()}
+          </Collapse>
+        )
       ) : hasChildren ? (
         <>
           <Link {...linkProps}>
             {icon && getIcon(icon)}
             <span className={styles['tedi-sidenav__title']}>{children}</span>
-            <span className={styles['tedi-sidenav__bullet']}></span>
+            <i className={styles['tedi-sidenav__bullet']} />
           </Link>
           {renderChildren()}
         </>
       ) : (
-        <Link {...linkProps}>
-          {icon && getIcon(icon)}
-          <span className={styles['tedi-sidenav__title']}>{children}</span>
-        </Link>
+        <Tooltip.Trigger>
+          <Link {...linkProps}>
+            {icon && getIcon(icon)}
+            <span className={styles['tedi-sidenav__title']}>{children}</span>
+          </Link>
+        </Tooltip.Trigger>
       )}
     </li>
+  );
+
+  return level === 1 && isCollapsed ? (
+    <Tooltip placement="right">
+      <Tooltip.Content maxWidth="medium">{children}</Tooltip.Content>
+      {content}
+    </Tooltip>
+  ) : (
+    content
   );
 };
