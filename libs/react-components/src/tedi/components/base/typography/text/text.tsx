@@ -86,7 +86,7 @@ const isHeadingModifier = (modifier: TextModifiers): modifier is HeadingModifier
 };
 
 export const Text = (props: TextProps): JSX.Element => {
-  const { getCurrentBreakpointProps } = useBreakpointProps();
+  const { getCurrentBreakpointProps } = useBreakpointProps(props.defaultServerBreakpoint);
   const {
     children,
     className,

@@ -35,7 +35,7 @@ export interface TextGroupProps extends BreakpointSupport<TextGroupBreakpointPro
 }
 
 export const TextGroup = (props: TextGroupProps): JSX.Element => {
-  const { getCurrentBreakpointProps } = useBreakpointProps();
+  const { getCurrentBreakpointProps } = useBreakpointProps(props.defaultServerBreakpoint);
   const {
     label,
     value,
