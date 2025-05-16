@@ -51,7 +51,8 @@ export default {
     },
     withButton: {
       description: "Should the search button be shown",
-      control: "boolean",
+      control: "radio",
+      options: [true, false],
       table: {
         category: "inputs",
         type: { summary: "boolean", detail: "boolean" },
@@ -64,7 +65,17 @@ export default {
       table: {
         category: "inputs",
         type: { summary: "string", detail: "string" },
-        defaultValue: { summary: undefined },
+        defaultValue: { summary: "" },
+      },
+    },
+    disabled: {
+      description: "Should the search button be disabled",
+      control: "radio",
+      options: [true, false],
+      table: {
+        category: "inputs",
+        type: { summary: "boolean", detail: "boolean" },
+        defaultValue: { summary: "false" },
       },
     },
   },
@@ -131,5 +142,16 @@ export const Sizes: SearchStory = {
         <tedi-search size="small" [withButton]="true" buttonText="Otsi" [autocompleteOptions]="mockOptions"/>
       </tedi-row>
     `,
+  }),
+};
+
+export const Disabled: SearchStory = {
+  args: {
+    size: "default",
+    disabled: true,
+    autocompleteOptions: mockOptions,
+  },
+  render: () => ({
+    template: `<tedi-search [disabled]="true" />`,
   }),
 };

@@ -83,9 +83,14 @@
     display: none;
   }
 
-  &--small .tedi-search__input {
-    @include mixins.responsive-styles(padding-top, form-field-padding-y-sm);
-    @include mixins.responsive-styles(padding-bottom, form-field-padding-y-sm);
+  &--small {
+    .tedi-search__input {
+      @include mixins.responsive-styles(padding-top, form-field-padding-y-sm);
+      @include mixins.responsive-styles(
+        padding-bottom,
+        form-field-padding-y-sm
+      );
+    }
   }
 
   &--large {
@@ -100,5 +105,26 @@
       padding-left: 15px;
       padding-right: 15px;
     }
+  }
+
+  &--with-button:not(.tedi-search--with-button-text) {
+    &.tedi-search--small {
+      .tedi-search__trigger.tedi-btn {
+        padding-left: 6px;
+        padding-right: 6px;
+      }
+    }
+    &.tedi-search--default {
+      .tedi-search__trigger.tedi-btn {
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+    }
+  }
+
+  &--disabled {
+    background-color: var(--form-input-background-disabled);
+    border-color: var(--form-input-border-disabled);
+    pointer-events: none;
   }
 }
