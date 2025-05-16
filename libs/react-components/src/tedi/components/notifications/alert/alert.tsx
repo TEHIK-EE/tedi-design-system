@@ -71,7 +71,7 @@ export interface AlertProps extends BreakpointSupport<AlertBreakpointProps> {
 }
 
 export const Alert = (props: AlertProps): JSX.Element | null => {
-  const { getCurrentBreakpointProps } = useBreakpointProps();
+  const { getCurrentBreakpointProps } = useBreakpointProps(props.defaultServerBreakpoint);
   const {
     children,
     role = 'alert',

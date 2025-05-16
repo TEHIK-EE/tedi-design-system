@@ -76,7 +76,7 @@ export interface CollapseProps extends BreakpointSupport<CollapseBreakpointProps
 }
 
 export const Collapse = (props: CollapseProps): JSX.Element => {
-  const { getCurrentBreakpointProps } = useBreakpointProps();
+  const { getCurrentBreakpointProps } = useBreakpointProps(props.defaultServerBreakpoint);
   const { getLabel } = useLabels();
   const {
     id,
