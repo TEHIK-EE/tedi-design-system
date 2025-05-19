@@ -11,8 +11,6 @@ import {
   signal,
   ViewEncapsulation,
   forwardRef,
-  effect,
-  viewChildren,
   viewChild,
 } from "@angular/core";
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from "@angular/forms";
@@ -27,7 +25,7 @@ import {
 import { DropdownItemComponent } from "community/components/overlay";
 import { CloseButtonComponent } from "community/components/buttons";
 import { A11yModule } from "@angular/cdk/a11y";
-import { CdkMenuModule } from "@angular/cdk/menu";
+import { CdkMenu, CdkMenuModule } from "@angular/cdk/menu";
 
 export type SearchSize = "large" | "default" | "small";
 export type AutocompleteOption = {
@@ -131,38 +129,42 @@ export class SearchComponent
   _width = signal(0);
   _elementRef = inject(ElementRef);
   _disabled = signal(false);
-  _detailsOpen = signal(false);
-  _options = viewChildren("autocompleteOption", { read: ElementRef });
-  _overlayOrigin = viewChild(CdkOverlayOrigin);
+  _isVisible = signal(false);
+  _cdkMenuRef = viewChild(CdkMenu, { read: ElementRef });
+  _overlayOriginRef = viewChild(CdkOverlayOrigin, { read: ElementRef });
+
+  modifierClasses = computed(() => {
+    const modifiers = [];
+    if (this.size()) modifiers.push(`tedi-search--${this.size()}`);
+
+    return modifiers.join(" ");
+  });
 
   ngAfterContentChecked(): void {
     this._width.set(this.getWidth());
   }
 
-  inputChangeEvent(inputValue: string) {
+  inputChanged(inputValue: string) {
     const selected = this._selectedOption();
 
-    if (selected) {
-      if (inputValue !== selected.label) {
-        this._selectedOption.set(undefined);
-      }
-    }
-  }
-
-  showOptions = effect(() => {
-    const inputValue = this._inputValue();
-
+    // Logic to show/hide the autocomplete dropdown
     if (
       inputValue &&
       inputValue.length >= this.autocompleteFrom() &&
       !this._selectedOption()
     ) {
-      this._detailsOpen.set(true);
+      this._isVisible.set(true);
     } else {
-      this._detailsOpen.set(false);
+      this._isVisible.set(false);
     }
-  });
 
+    // Clear selected option if input value is changed and is not matching the selected option
+    if (selected && inputValue !== selected.label) {
+      this._selectedOption.set(undefined);
+    }
+  }
+
+  // Filter the autocomplete options based on the input value
   _foundOptions = computed(() => {
     const inputValue = this._inputValue();
     if (!inputValue) return this.autocompleteOptions();
@@ -172,13 +174,6 @@ export class SearchComponent
         option.label.toLowerCase().includes(inputValue.toLowerCase()) ||
         option.description?.toLowerCase().includes(inputValue.toLowerCase()),
     );
-  });
-
-  modifierClasses = computed(() => {
-    const modifiers = [];
-    if (this.size()) modifiers.push(`tedi-search--${this.size()}`);
-
-    return modifiers.join(" ");
   });
 
   iconSize = computed(() => {
@@ -208,6 +203,7 @@ export class SearchComponent
     }
   });
 
+  // ControlValueAccessor methods
   private onChange: (value: string | AutocompleteOption) => void = () => {};
   private onTouched: () => void = () => {};
 
@@ -242,16 +238,17 @@ export class SearchComponent
     this._selectedOption.set(option);
     this._inputValue.set(option.label);
 
+    // Emit the selected option if the search button is not shown
     if (!this.withButton()) {
       this.searchEvent.emit(option);
       this.onChange(option);
     }
-    this.closeOverlay();
+
     this.onTouched();
+    this.closeOverlay(true);
   }
 
-  clearResult(event: Event) {
-    event.stopPropagation();
+  clearResult() {
     this._inputValue.set("");
     this._selectedOption.set(undefined);
     this.searchEvent.emit("");
@@ -259,17 +256,20 @@ export class SearchComponent
     this.onTouched();
   }
 
-  focusFirstOption() {
-    const optionToFocus = this._options()[0];
+  focusDropdown() {
+    const dropdownToFocus = this._cdkMenuRef();
 
-    if (optionToFocus) {
-      optionToFocus.nativeElement.focus();
+    if (dropdownToFocus) {
+      dropdownToFocus.nativeElement.focus();
     }
   }
 
-  closeOverlay() {
-    this._detailsOpen.set(false);
-    this._overlayOrigin()?.elementRef.nativeElement.focus();
+  closeOverlay(focusBackToInput: boolean) {
+    this._isVisible.set(false);
+
+    if (focusBackToInput) {
+      this._overlayOriginRef()?.nativeElement?.focus();
+    }
   }
 
   getWidth(): number {
