@@ -1,20 +1,20 @@
 <div class="tedi-search__input-wrapper">
   <input
+    cdkOverlayOrigin
     [id]="inputId()"
+    class="tedi-search__input"
     type="text"
     [(ngModel)]="_inputValue"
-    class="tedi-search__input"
     [placeholder]="placeholder()"
     [disabled]="disabled()"
-    cdkOverlayOrigin
-    #trigger="cdkOverlayOrigin"
     (keydown.enter)="
       $event.preventDefault(); $event.stopPropagation(); focusFirstOption()
     "
     (keydown.arrowDown)="
       $event.preventDefault(); $event.stopPropagation(); focusFirstOption()
     "
-    (ngModelChange)="inputChangeEvent($event)"
+    (ngModelChange)="inputChanged($event)"
+    #trigger="cdkOverlayOrigin"
   />
 </div>
 
@@ -25,7 +25,7 @@
       tedi-close-button
       [small]="size() !== 'large'"
       [smallIcon]="size() !== 'large'"
-      (click)="clearResult($event)"
+      (click)="$event.stopPropagation(); clearResult()"
     ></button>
     @if (!withButton()) {
       <div class="tedi-search__suffix-separator"></div>
@@ -43,7 +43,6 @@
     [size]="buttonSize()"
     (click)="searchButtonClick()"
     [disabled]="disabled()"
-    cdkOverlayOrigin
   >
     <tedi-icon name="search" color="white" [size]="iconSize()" />
     {{ buttonText() }}
@@ -53,19 +52,15 @@
 <ng-template
   cdkConnectedOverlay
   [cdkConnectedOverlayOrigin]="trigger"
-  [cdkConnectedOverlayOpen]="_detailsOpen()"
+  [cdkConnectedOverlayOpen]="_isVisible()"
   [cdkConnectedOverlayDisableClose]="true"
-  (overlayKeydown)="$event.key === 'Escape' ? closeOverlay() : null"
+  (overlayOutsideClick)="closeOverlay(false)"
+  (overlayKeydown)="$event.key === 'Escape' ? closeOverlay(true) : null"
   #searchPanel
 >
-  <tedi-card
-    class="tedi-search__panel"
-    [style.width.px]="_width()"
-    cdkMenu
-    cdkTrapFocus
-  >
+  <tedi-card class="tedi-search__panel" [style.width.px]="_width()">
     @if (_foundOptions().length) {
-      <tedi-card-content padding="none" [hasSeparator]="true">
+      <tedi-card-content padding="none" [hasSeparator]="true" cdkMenu>
         @for (option of _foundOptions(); track option.value) {
           <button
             cdkMenuItem
