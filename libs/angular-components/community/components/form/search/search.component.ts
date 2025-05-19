@@ -11,19 +11,23 @@ import {
   signal,
   ViewEncapsulation,
   forwardRef,
+  effect,
+  viewChildren,
+  viewChild,
 } from "@angular/core";
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from "@angular/forms";
 import { ButtonComponent } from "community/components/buttons/button/button.component";
 import { IconComponent } from "@tehik-ee/tedi-angular/tedi";
 import { FormsModule } from "@angular/forms";
-import { OverlayModule } from "@angular/cdk/overlay";
-import { CdkMenuModule } from "@angular/cdk/menu";
+import { CdkOverlayOrigin, OverlayModule } from "@angular/cdk/overlay";
 import {
   CardComponent,
   CardContentComponent,
 } from "community/components/cards/card";
 import { DropdownItemComponent } from "community/components/overlay";
 import { CloseButtonComponent } from "community/components/buttons";
+import { A11yModule } from "@angular/cdk/a11y";
+import { CdkMenuModule } from "@angular/cdk/menu";
 
 export type SearchSize = "large" | "default" | "small";
 export type AutocompleteOption = {
@@ -39,12 +43,13 @@ export type AutocompleteOption = {
     FormsModule,
     ButtonComponent,
     IconComponent,
-    OverlayModule,
     CdkMenuModule,
+    OverlayModule,
     CardComponent,
     CardContentComponent,
     DropdownItemComponent,
     CloseButtonComponent,
+    A11yModule,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
@@ -126,10 +131,37 @@ export class SearchComponent
   _width = signal(0);
   _elementRef = inject(ElementRef);
   _disabled = signal(false);
+  _detailsOpen = signal(false);
+  _options = viewChildren("autocompleteOption", { read: ElementRef });
+  _overlayOrigin = viewChild(CdkOverlayOrigin);
 
   ngAfterContentChecked(): void {
     this._width.set(this.getWidth());
   }
+
+  inputChangeEvent(inputValue: string) {
+    const selected = this._selectedOption();
+
+    if (selected) {
+      if (inputValue !== selected.label) {
+        this._selectedOption.set(undefined);
+      }
+    }
+  }
+
+  showOptions = effect(() => {
+    const inputValue = this._inputValue();
+
+    if (
+      inputValue &&
+      inputValue.length >= this.autocompleteFrom() &&
+      !this._selectedOption()
+    ) {
+      this._detailsOpen.set(true);
+    } else {
+      this._detailsOpen.set(false);
+    }
+  });
 
   _foundOptions = computed(() => {
     const inputValue = this._inputValue();
@@ -214,6 +246,7 @@ export class SearchComponent
       this.searchEvent.emit(option);
       this.onChange(option);
     }
+    this.closeOverlay();
     this.onTouched();
   }
 
@@ -224,6 +257,19 @@ export class SearchComponent
     this.searchEvent.emit("");
     this.onChange("");
     this.onTouched();
+  }
+
+  focusFirstOption() {
+    const optionToFocus = this._options()[0];
+
+    if (optionToFocus) {
+      optionToFocus.nativeElement.focus();
+    }
+  }
+
+  closeOverlay() {
+    this._detailsOpen.set(false);
+    this._overlayOrigin()?.elementRef.nativeElement.focus();
   }
 
   getWidth(): number {
