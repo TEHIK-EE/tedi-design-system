@@ -1,9 +1,6 @@
 import { argsToTemplate, type Meta, type StoryObj } from "@storybook/angular";
 
 import { BreadcrumbsComponent } from "./breadcrumbs.component";
-import { type Breakpoint } from "tedi/services";
-
-const BREAKPOINTS: Breakpoint[] = ["xs", "sm", "md", "lg", "xl", "xxl"];
 
 /**
 <a href="https://www.figma.com/design/jWiRIXhHRxwVdMSimKX2FF/TEDI-READY-2.8.9--work-in-progress-?node-id=2370-14804&m=dev" target="_BLANK">Figma ↗</a><br/>
@@ -34,7 +31,6 @@ export default {
       },
     ],
     shortCrumbs: false,
-    breakCrumbs: "md",
   },
   argTypes: {
     crumbs: {
@@ -47,19 +43,6 @@ export default {
           summary: "Breadcrumb[]",
           detail: `type Breadcrumb = { \n  label: string; \n  href: string; \n}`,
         },
-      },
-    },
-    breakCrumbs: {
-      control: "select",
-      options: BREAKPOINTS,
-      description: "Breakpoint to be used for displaying single crumb.",
-      table: {
-        type: {
-          summary: "Breakpoint",
-          detail:
-            "xs - 0px \nsm - 576px \nmd - 768px \nlg - 992px \nxl - 1200px \nxxl - 1400px",
-        },
-        defaultValue: { summary: "md" },
       },
     },
     shortCrumbs: {
@@ -88,4 +71,16 @@ export const ShortCrumbs: Story = {
   args: {
     shortCrumbs: true,
   },
+};
+
+export const ResponsiveCrumbs: Story = {
+  args: {
+    shortCrumbs: true,
+  },
+  render: (props) => ({
+    props,
+    template: `
+        <tedi-breadcrumbs ${argsToTemplate(props)} [md]="{ shortCrumbs: false }" />
+      `,
+  }),
 };

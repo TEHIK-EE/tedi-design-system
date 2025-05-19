@@ -6,7 +6,7 @@ import {
   IconComponent,
   TextComponent,
   BreakpointService,
-  type Breakpoint,
+  BreakpointInputs,
 } from "@tehik-ee/tedi-angular/tedi";
 
 export type Breadcrumb = {
@@ -14,20 +14,7 @@ export type Breadcrumb = {
   href: string;
 };
 
-@Component({
-  selector: "tedi-breadcrumbs",
-  standalone: true,
-  imports: [
-    CommonModule,
-    RouterLink,
-    LinkComponent,
-    IconComponent,
-    TextComponent,
-  ],
-  templateUrl: "./breadcrumbs.component.html",
-  styleUrls: ["./breadcrumbs.component.scss"],
-})
-export class BreadcrumbsComponent {
+export type Breadcrumbs = {
   /**
    * Breadcrumbs to be displayed.
    * @example
@@ -46,30 +33,55 @@ export class BreadcrumbsComponent {
    * The breadcrumbs will be displayed in the order they are provided.
    * The last breadcrumb will not be a link, but will be displayed as plain text.
    */
-  crumbs = input<Breadcrumb[]>([]);
+  crumbs: Breadcrumb[];
   /**
-   * Used to override the breakCrumbs value to force always show single crumb.
+   * Displays second last crumb as a link. Mainly used for mobile/tablet views.
    * @default false
    */
+  shortCrumbs: boolean;
+};
+
+@Component({
+  selector: "tedi-breadcrumbs",
+  standalone: true,
+  imports: [
+    CommonModule,
+    RouterLink,
+    LinkComponent,
+    IconComponent,
+    TextComponent,
+  ],
+  templateUrl: "./breadcrumbs.component.html",
+  styleUrls: ["./breadcrumbs.component.scss"],
+})
+export class BreadcrumbsComponent implements BreakpointInputs<Breadcrumbs> {
+  crumbs = input<Breadcrumb[]>([]);
   shortCrumbs = input<boolean>(false);
-  /**
-   * Breakpoint to be used for displaying single crumb.
-   * @default md
-   */
-  breakCrumbs = input<Breakpoint>("md");
+  xs = input<Breadcrumbs>();
+  sm = input<Breadcrumbs>();
+  md = input<Breadcrumbs>();
+  lg = input<Breadcrumbs>();
+  xl = input<Breadcrumbs>();
+  xxl = input<Breadcrumbs>();
 
   breakpointService = inject(BreakpointService);
-
-  showSingleCrumb = computed(() => {
-    return (
-      this.shortCrumbs() ||
-      this.breakpointService.isBelowBreakpoint(this.breakCrumbs())
-    );
+  breakpointInputs = computed(() => {
+    return this.breakpointService.getBreakpointInputs<Breadcrumbs>({
+      crumbs: this.crumbs(),
+      shortCrumbs: this.shortCrumbs(),
+      xs: this.xs(),
+      sm: this.sm(),
+      md: this.md(),
+      lg: this.lg(),
+      xl: this.xl(),
+      xxl: this.xxl(),
+    });
   });
 
   getSecondLastCrumb(): Breadcrumb | null {
-    if (this.crumbs().length > 1) {
-      return this.crumbs()[this.crumbs().length - 2];
+    const crumbs = this.breakpointInputs().crumbs;
+    if (crumbs.length > 1) {
+      return crumbs[crumbs.length - 2];
     }
     return null;
   }
