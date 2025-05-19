@@ -13,7 +13,6 @@
     display: flex;
     flex-shrink: 0;
     width: var(--label-width, auto);
-    word-break: break-all;
   }
 
   &__value {
