@@ -81,7 +81,8 @@
     "vertical-spacing",
     "label-provider",
     "use-labels",
-    "style-provider"
+    "style-provider",
+    "input-group"
   ],
   "angular.enable-strict-mode-prompt": false
 }

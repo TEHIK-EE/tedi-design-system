@@ -1,3 +1,31 @@
+# [@tehik-ee/tedi-angular-v1.7.0-rc.18](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.7.0-rc.17...angular-1.7.0-rc.18) (2025-05-19)
+
+
+### Features
+
+* **alert:** Alert community component [#751](https://github.com/TEHIK-EE/tedi-design-system/issues/751) ([#771](https://github.com/TEHIK-EE/tedi-design-system/issues/771)) ([6e98717](https://github.com/TEHIK-EE/tedi-design-system/commit/6e987172fdcd9f9574f1ab2aaf0d4203ecba5c9e)), closes [#571](https://github.com/TEHIK-EE/tedi-design-system/issues/571) [#571](https://github.com/TEHIK-EE/tedi-design-system/issues/571) [#712](https://github.com/TEHIK-EE/tedi-design-system/issues/712) [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640)
+
+# [@tehik-ee/tedi-angular-v1.7.0-rc.17](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.7.0-rc.16...angular-1.7.0-rc.17) (2025-05-19)
+
+
+### Features
+
+* **input-group:** add angular community component [#747](https://github.com/TEHIK-EE/tedi-design-system/issues/747) ([#797](https://github.com/TEHIK-EE/tedi-design-system/issues/797)) ([88e503e](https://github.com/TEHIK-EE/tedi-design-system/commit/88e503e5f94f041ef2f1af45ab14f553697cd0bd)), closes [#780](https://github.com/TEHIK-EE/tedi-design-system/issues/780)
+
+# [@tehik-ee/tedi-angular-v1.7.0-rc.16](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.7.0-rc.15...angular-1.7.0-rc.16) (2025-05-19)
+
+
+### Features
+
+* **form-select:** Add max height and scrollbar to select dropdown [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) ([#796](https://github.com/TEHIK-EE/tedi-design-system/issues/796)) ([f0c3d62](https://github.com/TEHIK-EE/tedi-design-system/commit/f0c3d6292545a41813f1abd4ec9ff97da1a87dd6))
+
+# [@tehik-ee/tedi-angular-v1.7.0-rc.15](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.7.0-rc.14...angular-1.7.0-rc.15) (2025-05-14)
+
+
+### Features
+
+* **card:** Add missing variables [#579](https://github.com/TEHIK-EE/tedi-design-system/issues/579) ([4547883](https://github.com/TEHIK-EE/tedi-design-system/commit/4547883e286178b89ae023d3c97b2d47b51c9b3a))
+
 # [@tehik-ee/tedi-angular-v1.7.0-rc.14](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.7.0-rc.13...angular-1.7.0-rc.14) (2025-05-13)
 
 
