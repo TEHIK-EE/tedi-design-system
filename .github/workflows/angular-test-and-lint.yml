@@ -73,7 +73,15 @@ jobs:
   chromatic:
     runs-on: ubuntu-latest
     if: |
-      (github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository) || (github.event_name == 'push' && github.ref == 'refs/heads/rc')
+      (
+        github.event_name == 'pull_request' &&
+        github.event.pull_request.head.repo.full_name == github.repository &&
+        github.event.pull_request.draft == false &&
+        github.actor != 'dependabot[bot]'
+      ) || (
+        github.event_name == 'push' &&
+        github.ref == 'refs/heads/rc'
+      )
     steps:
       - name: Checkout
         uses: actions/checkout@v4
