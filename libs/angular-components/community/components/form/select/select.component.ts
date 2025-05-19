@@ -9,7 +9,7 @@ import {
   ViewEncapsulation,
   ChangeDetectionStrategy,
   contentChildren,
-  AfterContentInit,
+  AfterContentChecked,
   OnInit,
   computed,
 } from "@angular/core";
@@ -59,7 +59,7 @@ import { CloseButtonComponent } from "../../buttons/closing-button/closing-butto
   },
 })
 export class SelectComponent
-  implements ControlValueAccessor, OnInit, AfterContentInit {
+  implements ControlValueAccessor, OnInit, AfterContentChecked {
   /**
    * The placeholder text to display when no option is selected.
    * @default ""
@@ -116,7 +116,7 @@ export class SelectComponent
     if (this.disabled()) this.setDisabledState(this.disabled());
   }
 
-  ngAfterContentInit() {
+  ngAfterContentChecked() {
     this.setDropdownWidth();
   }
 
