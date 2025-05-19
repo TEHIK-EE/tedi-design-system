@@ -80,6 +80,10 @@
     "access": "public"
   },
   "overrides": {
-    "dayjs": "$dayjs"
+    "dayjs": "$dayjs",
+    "jest-environment-jsdom": {
+      "jsdom": "26.0.0",
+      "rrweb-cssom": "0.8.0"
+    }
   }
 }

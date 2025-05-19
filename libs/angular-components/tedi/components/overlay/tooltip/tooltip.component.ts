@@ -20,8 +20,8 @@ import {
 import { Overlay } from "@angular/cdk/overlay";
 import { CdkPortal, PortalModule } from "@angular/cdk/portal";
 
-const ARROW_OFFSET = 15;
-const TOOLTIP_TIMEOUT_MS = 150;
+export const TOOLTIP_ARROW_OFFSET = 15;
+export const TOOLTIP_TIMEOUT_MS = 150;
 
 const positionTop: ConnectedPosition = {
   originX: "center",
@@ -29,7 +29,7 @@ const positionTop: ConnectedPosition = {
   overlayX: "center",
   overlayY: "bottom",
   panelClass: "tooltip__arrow--top",
-  offsetY: -ARROW_OFFSET,
+  offsetY: -TOOLTIP_ARROW_OFFSET,
 };
 
 const positionBottom: ConnectedPosition = {
@@ -38,7 +38,7 @@ const positionBottom: ConnectedPosition = {
   overlayX: "center",
   overlayY: "top",
   panelClass: "tooltip__arrow--bottom",
-  offsetY: ARROW_OFFSET,
+  offsetY: TOOLTIP_ARROW_OFFSET,
 };
 
 const positionRight: ConnectedPosition = {
@@ -47,7 +47,7 @@ const positionRight: ConnectedPosition = {
   overlayX: "start",
   overlayY: "center",
   panelClass: "tooltip__arrow--left",
-  offsetX: ARROW_OFFSET,
+  offsetX: TOOLTIP_ARROW_OFFSET,
 };
 
 const positionLeft: ConnectedPosition = {
@@ -56,7 +56,7 @@ const positionLeft: ConnectedPosition = {
   overlayX: "end",
   overlayY: "center",
   panelClass: "tooltip__arrow--right",
-  offsetX: -ARROW_OFFSET,
+  offsetX: -TOOLTIP_ARROW_OFFSET,
 };
 
 export type TooltipPosition = "top" | "bottom" | "left" | "right";
@@ -92,17 +92,17 @@ export class TooltipComponent implements AfterViewInit, OnDestroy {
    * The position of the tooltip relative to the trigger element. If tooltip can't
    * be positioned in the specified direction, the CDK will try to position the tooltip
    * in the next direction in positions list.
-   * @default 'top'
+   * @default top
    */
   position = input<TooltipPosition>("top");
   /**
    * The trigger event that opens the tooltip. Can be 'click' or 'hover'.
-   * @default 'hover'
+   * @default hover
    */
   openWith = input<TooltipTrigger>("hover");
   /**
    * The width of the tooltip. Can be 'none', 'small', 'medium', or 'large'.
-   * @default 'medium'
+   * @default medium
    */
   maxWidth = input<TooltipWidth>("medium");
 
@@ -236,7 +236,7 @@ export class TooltipComponent implements AfterViewInit, OnDestroy {
 
     if (!this.overlayRef?.hasAttached()) {
       this.overlayRef.attach(this.portal);
-      setTimeout(() => this.addTooltipHoverListeners(), 0);
+      this.addTooltipHoverListeners();
     }
   }
 

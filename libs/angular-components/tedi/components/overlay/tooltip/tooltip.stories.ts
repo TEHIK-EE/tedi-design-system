@@ -167,7 +167,6 @@ export const Hover: Story = {
 };
 
 export const Widths: Story = {
-  name: "maxWidth examples",
   render: (args) => ({
     props: args,
     template: `
