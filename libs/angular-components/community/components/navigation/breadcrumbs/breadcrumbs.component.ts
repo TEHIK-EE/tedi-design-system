@@ -1,11 +1,4 @@
-import {
-  Component,
-  computed,
-  effect,
-  inject,
-  input,
-  signal,
-} from "@angular/core";
+import { Component, computed, inject, input } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { LinkComponent } from "../link/link.component"; //@tehik-ee/tedi-angular/community
 import { RouterLink } from "@angular/router";
@@ -55,7 +48,7 @@ export class BreadcrumbsComponent {
    */
   crumbs = input<Breadcrumb[]>([]);
   /**
-   * Used to override the breakCrumbs value to force always show singleCrumb.
+   * Used to override the breakCrumbs value to force always show single crumb.
    * @default false
    */
   shortCrumbs = input<boolean>(false);
@@ -65,21 +58,13 @@ export class BreadcrumbsComponent {
    */
   breakCrumbs = input<Breakpoint>("md");
 
-  singleCrumb = signal<boolean>(false);
-
   breakpointService = inject(BreakpointService);
 
-  constructor() {
-    effect(() => {
-      const breakPoint = this.breakpointService.isBelowBreakpoint(
-        this.breakCrumbs(),
-      );
-      this.singleCrumb.set(breakPoint);
-    });
-  }
-
   showSingleCrumb = computed(() => {
-    return this.shortCrumbs() || this.singleCrumb();
+    return (
+      this.shortCrumbs() ||
+      this.breakpointService.isBelowBreakpoint(this.breakCrumbs())
+    );
   });
 
   getSecondLastCrumb(): Breadcrumb | null {
