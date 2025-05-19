@@ -1,12 +1,10 @@
 import { moduleMetadata, type Meta, type StoryObj } from "@storybook/angular";
 import { InputGroupComponent } from "./input-group.component";
-import {
-  FeedbackTextType,
-  InputComponent,
-  LabelComponent,
-  SelectComponent,
-  SelectOptionComponent,
-} from "../form";
+import { FeedbackTextType } from "../feedback-text/feedback-text.component";
+import { InputComponent } from "../input/input.component";
+import { LabelComponent } from "../label/label.component";
+import { SelectComponent } from "../select/select.component";
+import { SelectOptionComponent } from "../select/select-option.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 /**
