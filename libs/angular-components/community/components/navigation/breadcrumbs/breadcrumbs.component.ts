@@ -21,17 +21,6 @@ export type Breadcrumb = {
   href: string;
 };
 
-const sampleCrumbs: Breadcrumb[] = [
-  { label: "Kodu", href: "/" },
-  { label: "Tooted", href: "/products" },
-  { label: "Elektroonika", href: "/products/electronics" },
-  { label: "Mobiiltelefonid", href: "/products/electronics/mobile-phones" },
-  {
-    label: "Nutitelefonid",
-    href: "/products/electronics/mobile-phones/smartphones",
-  },
-];
-
 @Component({
   selector: "tedi-breadcrumbs",
   standalone: true,
@@ -64,7 +53,7 @@ export class BreadcrumbsComponent {
    * The breadcrumbs will be displayed in the order they are provided.
    * The last breadcrumb will not be a link, but will be displayed as plain text.
    */
-  crumbs = input<Breadcrumb[]>(sampleCrumbs);
+  crumbs = input<Breadcrumb[]>([]);
   /**
    * Used to override the breakCrumbs value to force always show singleCrumb.
    * @default false
