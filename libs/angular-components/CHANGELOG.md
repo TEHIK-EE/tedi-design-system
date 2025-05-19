@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-angular-v1.7.0-rc.17](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.7.0-rc.16...angular-1.7.0-rc.17) (2025-05-19)
+
+
+### Features
+
+* **input-group:** add angular community component [#747](https://github.com/TEHIK-EE/tedi-design-system/issues/747) ([#797](https://github.com/TEHIK-EE/tedi-design-system/issues/797)) ([88e503e](https://github.com/TEHIK-EE/tedi-design-system/commit/88e503e5f94f041ef2f1af45ab14f553697cd0bd)), closes [#780](https://github.com/TEHIK-EE/tedi-design-system/issues/780)
+
 # [@tehik-ee/tedi-angular-v1.7.0-rc.16](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.7.0-rc.15...angular-1.7.0-rc.16) (2025-05-19)
 
 
