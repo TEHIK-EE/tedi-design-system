@@ -46,5 +46,10 @@ describe("TextGroupComponent", () => {
     fixture.detectChanges();
 
     expect(component.labelWidth()).toBe("200px");
+
+    fixture.componentRef.setInput("labelWidth", "20%");
+    fixture.detectChanges();
+
+    expect(component.labelWidth()).toBe("20%");
   });
 });
