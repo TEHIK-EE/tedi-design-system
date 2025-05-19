@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-angular-v1.7.0-rc.16](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.7.0-rc.15...angular-1.7.0-rc.16) (2025-05-19)
+
+
+### Features
+
+* **form-select:** Add max height and scrollbar to select dropdown [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) ([#796](https://github.com/TEHIK-EE/tedi-design-system/issues/796)) ([f0c3d62](https://github.com/TEHIK-EE/tedi-design-system/commit/f0c3d6292545a41813f1abd4ec9ff97da1a87dd6))
+
 # [@tehik-ee/tedi-angular-v1.7.0-rc.15](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.7.0-rc.14...angular-1.7.0-rc.15) (2025-05-14)
 
 
