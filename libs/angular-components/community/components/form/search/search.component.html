@@ -8,10 +8,10 @@
     [placeholder]="placeholder()"
     [disabled]="disabled()"
     (keydown.enter)="
-      $event.preventDefault(); $event.stopPropagation(); focusFirstOption()
+      $event.preventDefault(); $event.stopPropagation(); focusDropdown()
     "
     (keydown.arrowDown)="
-      $event.preventDefault(); $event.stopPropagation(); focusFirstOption()
+      $event.preventDefault(); $event.stopPropagation(); focusDropdown()
     "
     (ngModelChange)="inputChanged($event)"
     #trigger="cdkOverlayOrigin"
