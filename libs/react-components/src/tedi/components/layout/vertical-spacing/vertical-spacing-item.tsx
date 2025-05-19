@@ -29,7 +29,7 @@ export interface VerticalSpacingItemProps extends BreakpointSupport<VerticalSpac
 }
 
 export const VerticalSpacingItem = (props: VerticalSpacingItemProps): JSX.Element => {
-  const { getCurrentBreakpointProps } = useBreakpointProps();
+  const { getCurrentBreakpointProps } = useBreakpointProps(props.defaultServerBreakpoint);
   const {
     children,
     className,

@@ -50,7 +50,7 @@ export interface CardHeaderAsButton extends Partial<React.ButtonHTMLAttributes<H
 
 export const CardHeader = (props: CardHeaderProps): JSX.Element => {
   const { variant, ...restOfProps } = props;
-  const { getCurrentBreakpointProps } = useBreakpointProps();
+  const { getCurrentBreakpointProps } = useBreakpointProps(props.defaultServerBreakpoint);
   const { padding: rootPadding } = React.useContext(CardContext);
   const { children, className, background, padding, ...rest } = getCurrentBreakpointProps<CardHeaderProps>(
     restOfProps,
