@@ -18,7 +18,7 @@
     "test:watch": "ng test angular-components --watch",
     "test:coverage": "jest --config ./jest.config.ts --coverage",
     "release": "npx semantic-release -e semantic-release-monorepo",
-    "chromatic": "npx chromatic --project-token=$CHROMATIC_TOKEN --build-script-name=build:sb --baseline-branch=rc --include=\"tedi/**/*.stories.*\""
+    "chromatic": "npx chromatic --project-token=$CHROMATIC_PROJECT_TOKEN --build-script-name=build:sb --baseline-branch=rc --include=\"tedi/**/*.stories.*\""
   },
   "peerDependencies": {
     "@angular/cdk": "^18.0.0 || ^19.0.0",
