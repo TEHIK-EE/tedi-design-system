@@ -146,7 +146,7 @@ export const Type: Story = {
             <p tedi-text>Accessibility</p>
           </tedi-text-group-label>
           <tedi-text-group-value>
-            <tedi-icon size="18" name="lock" color="tertiary" />
+            <tedi-icon size="24" name="lock" color="tertiary" />
             <p tedi-text modifiers="inline-block">Visible to doctor and representative</p>
           </tedi-text-group-value>
         </tedi-text-group>
@@ -171,7 +171,7 @@ export const Type: Story = {
             <p tedi-text>Patient</p>
           </tedi-text-group-label>
           <tedi-text-group-value>
-            <tedi-icon size="18" name="person_filled" color="tertiary" />
+            <tedi-icon size="24" name="person_filled" color="tertiary" />
             <p tedi-text modifiers="inline-block">Mari Maasikas</p>
           </tedi-text-group-value>
         </tedi-text-group>
@@ -215,7 +215,7 @@ export const HorizontalLabelLength: Story = {
               <p tedi-text>Patient</p>
             </tedi-text-group-label>
             <tedi-text-group-value>
-              <tedi-icon size="18" name="person_filled" color="tertiary" />
+              <tedi-icon size="24" name="person_filled" color="tertiary" />
               <p tedi-text modifiers="inline-block">Mari Maasikas</p>
             </tedi-text-group-value>
           </tedi-text-group>
@@ -224,7 +224,7 @@ export const HorizontalLabelLength: Story = {
               <p tedi-text>Address</p>
             </tedi-text-group-label>
             <tedi-text-group-value>
-              <tedi-icon size="18" name="location_on" color="tertiary" />
+              <tedi-icon size="24" name="location_on" color="tertiary" />
               <p tedi-text modifiers="inline-block">
                 Tulbi tn 4, Tallinn, 23562, Estonia
               </p>
