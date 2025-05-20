@@ -6,11 +6,12 @@
   &--horizontal {
     display: flex;
     gap: 1rem;
-    align-items: center;
+    align-items: flex-start;
   }
 
   &__label {
     display: flex;
+    flex-shrink: 0;
     width: var(--label-width, auto);
   }
 

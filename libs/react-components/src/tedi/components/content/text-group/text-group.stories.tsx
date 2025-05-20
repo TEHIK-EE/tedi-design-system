@@ -170,3 +170,19 @@ export const MultipleItemsWithLabelWidth: Story = {
     type: 'horizontal',
   },
 };
+
+export const LongValueText: Story = {
+  render: TemplateWithLayouts,
+  args: {
+    label: 'Accessibility',
+    labelWidth: '150px',
+    value: (
+      <Text>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent pulvinar malesuada tellus, nec efficitur orci
+        interdum vitae. Proin semper venenatis est, vel malesuada sapien ornare at. Vestibulum egestas in lectus non
+        finibus. Donec rhoncus sapien vel justo elementum vestibulum. Vivamus euismod dui vel erat semper luctus. Nulla
+        egestas purus elit, non fermentum sapien sagittis nec. Pellentesque ac sapien non justo vehicula porta.
+      </Text>
+    ),
+  },
+};
