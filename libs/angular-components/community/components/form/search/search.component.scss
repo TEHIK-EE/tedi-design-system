@@ -6,9 +6,14 @@
   border: 1px solid;
   align-items: center;
   border-color: var(--form-input-border-default);
+  border-radius: var(--_border-radius);
 
-  @include mixins.responsive-styles(border-radius, form-field-radius);
+  @include mixins.responsive-styles(--_border-radius, form-field-radius);
   @include mixins.responsive-styles(gap, form-field-inner-spacing);
+  @include mixins.responsive-styles(
+    --_padding,
+    form-field-padding-y-md-default
+  );
 
   &:hover {
     border-color: var(--form-input-border-hover);
@@ -19,16 +24,14 @@
     box-shadow: 0 0 0 1px var(--form-input-border-active);
   }
 
-  &__input-wrapper {
-    position: relative;
-    flex-grow: 1;
-  }
-
   &__input {
     width: 100%;
+    flex-grow: 1;
     border: 0;
-    padding: 0;
+    padding: var(--_padding);
+    padding-right: 0;
     margin: 0;
+    border-radius: var(--_border-radius);
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
     letter-spacing: 0px;
@@ -36,20 +39,10 @@
     @include mixins.responsive-styles(font-weight, body-regular-weight);
     @include mixins.responsive-styles(font-size, body-regular-size);
     @include mixins.responsive-styles(line-height, body-regular-line-height);
-    @include mixins.responsive-styles(padding, form-field-padding-y-md-default);
-    @include mixins.responsive-styles(
-      border-top-left-radius,
-      form-field-radius
-    );
-    @include mixins.responsive-styles(
-      border-bottom-left-radius,
-      form-field-radius
-    );
   }
 
   &__trigger.tedi-btn {
     border-radius: var(--_border-radius);
-
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
     align-self: stretch;
@@ -60,17 +53,19 @@
   &__suffix {
     display: flex;
     align-self: stretch;
+    align-items: center;
+    padding: 0 var(--_padding);
 
     @include mixins.responsive-styles(gap, layout-grid-gutters-04);
-    @include mixins.responsive-styles(padding, form-field-padding-y-md-default);
 
     .tedi-search--with-button & {
-      padding-right: 0 !important;
+      padding: 0;
     }
 
     &-separator {
       width: 1px;
       border-left: 1px solid var(--general-border-primary);
+      height: 1em;
     }
   }
 
@@ -84,27 +79,16 @@
   }
 
   &--small {
-    .tedi-search__input {
-      @include mixins.responsive-styles(padding-top, form-field-padding-y-sm);
-      @include mixins.responsive-styles(
-        padding-bottom,
-        form-field-padding-y-sm
-      );
-    }
+    @include mixins.responsive-styles(--_padding, form-field-padding-y-sm);
   }
 
   &--large {
-    .tedi-search__input {
-      @include mixins.responsive-styles(padding, form-field-padding-y-lg);
-    }
-    .tedi-search__suffix {
-      @include mixins.responsive-styles(padding, form-field-padding-y-lg);
-    }
-
     .tedi-search__trigger.tedi-btn {
       padding-left: 15px;
       padding-right: 15px;
     }
+
+    @include mixins.responsive-styles(--_padding, form-field-padding-y-lg);
   }
 
   &--with-button:not(.tedi-search--with-button-text) {
