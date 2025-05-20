@@ -83,10 +83,14 @@ jobs:
         github.ref == 'refs/heads/rc'
       )
     steps:
-      - name: Checkout
+      - name: Checkout with branch context
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          ref: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.ref || github.ref }}
+
+      - name: Fetch baseline branch (rc)
+        run: git fetch origin rc:rc
 
       - name: Set up Node
         uses: actions/setup-node@v4
@@ -105,4 +109,5 @@ jobs:
       - name: Publish to Chromatic
         run: |
           cd libs/angular-components
+          echo "CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_TOKEN_ANGULAR }}"
           CHROMATIC_PROJECT_TOKEN=${{ secrets.CHROMATIC_TOKEN_ANGULAR }} npm run chromatic
