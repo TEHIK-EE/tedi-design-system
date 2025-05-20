@@ -9,7 +9,7 @@ import {
   ViewEncapsulation,
   ChangeDetectionStrategy,
   contentChildren,
-  AfterContentInit,
+  AfterContentChecked,
   OnInit,
   computed,
 } from "@angular/core";
@@ -22,13 +22,10 @@ import {
   InputSize,
   InputState,
 } from "../input/input.component";
-import {
-  CardComponent,
-  CardContentComponent,
-} from "../../cards/card";
+import { CardComponent, CardContentComponent } from "../../cards/card";
 import { IconComponent } from "@tehik-ee/tedi-angular/tedi";
 import { DropdownItemComponent } from "../../overlay/dropdown-item/dropdown-item.component";
-import { CloseButtonComponent } from "../../buttons/closing-button/closing-button.component";
+import { ClosingButtonComponent } from "../../buttons/closing-button/closing-button.component";
 
 @Component({
   selector: "tedi-select",
@@ -41,7 +38,7 @@ import { CloseButtonComponent } from "../../buttons/closing-button/closing-butto
     CardContentComponent,
     IconComponent,
     DropdownItemComponent,
-    CloseButtonComponent,
+    ClosingButtonComponent,
   ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -59,7 +56,7 @@ import { CloseButtonComponent } from "../../buttons/closing-button/closing-butto
   },
 })
 export class SelectComponent
-  implements ControlValueAccessor, OnInit, AfterContentInit {
+  implements ControlValueAccessor, OnInit, AfterContentChecked {
   /**
    * The placeholder text to display when no option is selected.
    * @default ""
@@ -116,7 +113,7 @@ export class SelectComponent
     if (this.disabled()) this.setDisabledState(this.disabled());
   }
 
-  ngAfterContentInit() {
+  ngAfterContentChecked() {
     this.setDropdownWidth();
   }
 

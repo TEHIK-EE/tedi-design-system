@@ -61,7 +61,7 @@ export interface StatusBadgeProps extends BreakpointSupport<StatusBadgePropsBrea
 }
 
 export const StatusBadge = (props: StatusBadgeProps): JSX.Element => {
-  const { getCurrentBreakpointProps } = useBreakpointProps();
+  const { getCurrentBreakpointProps } = useBreakpointProps(props.defaultServerBreakpoint);
   const {
     color = 'neutral',
     variant = 'filled',

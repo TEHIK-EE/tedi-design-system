@@ -43,7 +43,7 @@ export interface LabelProps
 }
 
 export const Label = forwardRef<HTMLLabelElement | HTMLSpanElement, LabelProps>((props, ref) => {
-  const { getCurrentBreakpointProps } = useBreakpointProps();
+  const { getCurrentBreakpointProps } = useBreakpointProps(props.defaultServerBreakpoint);
   const {
     as: Element = 'label',
     children,

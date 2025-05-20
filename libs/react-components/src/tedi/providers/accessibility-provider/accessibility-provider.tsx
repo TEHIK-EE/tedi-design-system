@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { useWhatInput } from '../../helpers';
+
 export interface LoaderObj {
   id: string;
   mountLabel?: string;
@@ -26,6 +28,7 @@ export interface AccessibilityProviderProps {
  */
 export const AccessibilityProvider = (props: AccessibilityProviderProps): JSX.Element => {
   const { children } = props;
+  useWhatInput(); // load what-input library only once when the component is mounted to avoid loading while SSR
   const [activeLoaders, setActiveLoaders] = React.useState<LoaderObj[]>([]);
   const [completedLoaders, setCompletedLoaders] = React.useState<LoaderObj[]>([]);
   const context = React.useContext(AccessibilityContext); // check if context already exists and prevent rendering provider again
