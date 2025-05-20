@@ -1,5 +1,3 @@
-import 'what-input';
-
 export * from './components/commonTypes';
 export * from './components/typography/heading/heading';
 export * from './components/typography/text/text';

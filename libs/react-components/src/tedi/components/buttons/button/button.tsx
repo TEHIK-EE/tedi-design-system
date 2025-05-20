@@ -29,7 +29,7 @@ export type ButtonProps<C extends React.ElementType = 'button'> = BreakpointSupp
 
 const ButtonComponent = forwardRef(
   <C extends React.ElementType = 'button'>(props: ButtonProps<C>, ref?: PolymorphicRef<C>) => {
-    const { getCurrentBreakpointProps } = useBreakpointProps();
+    const { getCurrentBreakpointProps } = useBreakpointProps(props.defaultServerBreakpoint);
 
     const {
       children,

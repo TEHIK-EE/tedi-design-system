@@ -44,6 +44,8 @@
 
   &__dropdown {
     box-shadow: 0px 1px 5px 0px var(--alpha-20);
+    max-height: 300px;
+    overflow-y: auto;
 
     @include mixins.responsive-styles(margin-top, form-field-outer-spacing);
     @include mixins.responsive-styles(margin-bottom, form-field-outer-spacing);

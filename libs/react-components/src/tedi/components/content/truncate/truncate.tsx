@@ -41,7 +41,7 @@ export interface TruncateProps extends BreakpointSupport<TruncateBreakpointProps
 }
 
 export const Truncate = (props: TruncateProps): JSX.Element => {
-  const { getCurrentBreakpointProps } = useBreakpointProps();
+  const { getCurrentBreakpointProps } = useBreakpointProps(props.defaultServerBreakpoint);
   const {
     children,
     className,
