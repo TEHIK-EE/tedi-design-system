@@ -1,3 +1,5 @@
+import { TextGroupValueComponent } from "./text-group-value.component";
+import { TextGroupLabelComponent } from "./text-group-label.component";
 import {
   argsToTemplate,
   moduleMetadata,
@@ -24,15 +26,21 @@ export const Default: Story = {
   },
   decorators: [
     moduleMetadata({
-      imports: [VerticalSpacingDirective, TextGroupComponent, TextComponent],
+      imports: [
+        VerticalSpacingDirective,
+        TextGroupComponent,
+        TextGroupLabelComponent,
+        TextGroupValueComponent,
+        TextComponent,
+      ],
     }),
   ],
   render: (args) => ({
     props: args,
     template: `
       <tedi-text-group ${argsToTemplate(args)} >
-        <p tedi-text tedi-text-group-label>Patsient</p>
-        <p tedi-text tedi-text-group-value>Mari Maasikas</p>
+        <tedi-text-group-label><p tedi-text>Patsient</p></tedi-text-group-label>
+        <tedi-text-group-value><p tedi-text>Mari Maasikas</p></tedi-text-group-value>
       </tedi-text-group>
     `,
   }),
@@ -51,42 +59,23 @@ export const Default: Story = {
   },
 };
 
-export const Horizontal: Story = {
+export const Vertical: Story = {
   ...Default,
   args: {
-    type: "horizontal",
-    labelWidth: "200px",
+    type: "vertical",
   },
   render: (args) => ({
     props: args,
     template: `
-      <div [tediVerticalSpacing]="0.5">
-        <tedi-text-group
-          ${argsToTemplate(args)}
-          label="Patsient"
-          value="Mari Maasikas"
-        />
-        <tedi-text-group
-          ${argsToTemplate(args)}
-          label="Address"
-          value="Tulbi tn 4, Tallinn, 23562, Estonia"
-        />
-        <tedi-text-group
-          ${argsToTemplate(args)}
-          label="Tervisekassa"
-          value="SA Põhja-Eesti Regionaalhaigla"
-        />
-        <tedi-text-group
-          ${argsToTemplate(args)}
-          label="Kuupäev"
-          value="16.08.2023 14:51:48"
-        />
-      </div>
+      <tedi-text-group ${argsToTemplate(args)} >
+        <tedi-text-group-label><p tedi-text>Patsient</p></tedi-text-group-label>
+        <tedi-text-group-value><p tedi-text>Mari Maasikas</p></tedi-text-group-value>
+      </tedi-text-group>
     `,
   }),
 };
 
-export const Vertical: Story = {
+export const Vertical2: Story = {
   ...Default,
   args: {
     labelWidth: "150px",
@@ -96,26 +85,22 @@ export const Vertical: Story = {
     props: args,
     template: `
       <div [tediVerticalSpacing]="0.5">
-        <tedi-text-group
-            ${argsToTemplate(args)}
-            label="Patsient"
-            value="Mari Maasikas"
-        />
-        <tedi-text-group
-          ${argsToTemplate(args)}
-          label="Address"
-          value="Tulbi tn 4, Tallinn, 23562, Estonia"
-        />
-        <tedi-text-group
-          ${argsToTemplate(args)}
-          label="Tervisekassa"
-          value="SA Põhja-Eesti Regionaalhaigla"
-        />
-        <tedi-text-group
-          ${argsToTemplate(args)}
-          label="Kuupäev"
-          value="16.08.2023 14:51:48"
-        />
+        <tedi-text-group ${argsToTemplate(args)} >
+          <tedi-text-group-label><p tedi-text>Patsient</p></tedi-text-group-label>
+          <tedi-text-group-value><p tedi-text>Mari Maasikas</p></tedi-text-group-value>
+        </tedi-text-group>
+        <tedi-text-group ${argsToTemplate(args)} >
+          <tedi-text-group-label><p tedi-text>Address</p></tedi-text-group-label>
+          <tedi-text-group-value><p tedi-text>Tulbi tn 4, Tallinn, 23562, Estonia</p></tedi-text-group-value>
+        </tedi-text-group>
+        <tedi-text-group ${argsToTemplate(args)} >
+          <tedi-text-group-label><p tedi-text>Tervisekassa</p></tedi-text-group-label>
+          <tedi-text-group-value><p tedi-text>SA Põhja-Eesti Regionaalhaigla</p></tedi-text-group-value>
+        </tedi-text-group>
+        <tedi-text-group ${argsToTemplate(args)} >
+          <tedi-text-group-label><p tedi-text>Kuupäev</p></tedi-text-group-label>
+          <tedi-text-group-value><p tedi-text>16.08.2023 14:51:48</p></tedi-text-group-value>
+        </tedi-text-group>
       </div>
     `,
   }),
