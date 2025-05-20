@@ -23,13 +23,17 @@ export const useIsTouchDevice = () => {
   // Prevent SSR errors
   if (typeof window !== 'undefined' && typeof navigator !== 'undefined') {
     if (window.PointerEvent && 'maxTouchPoints' in navigator) {
+      // if Pointer Events are supported, just check maxTouchPoints
       if (navigator.maxTouchPoints > 0) {
         result = true;
       }
     } else {
+      // no Pointer Events...
       if (window.matchMedia && window.matchMedia('(any-pointer:coarse)').matches) {
+        // check for any-pointer:coarse which mostly means touchscreen
         result = true;
       } else if ('ontouchstart' in window) {
+        // last resort - check for exposed event handler
         result = true;
       }
     }
