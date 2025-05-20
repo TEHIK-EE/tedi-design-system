@@ -23,7 +23,7 @@ import {
   CardContentComponent,
 } from "community/components/cards/card";
 import { DropdownItemComponent } from "community/components/overlay";
-import { CloseButtonComponent } from "community/components/buttons";
+import { ClosingButtonComponent } from "community/components/buttons";
 import { A11yModule } from "@angular/cdk/a11y";
 import { CdkMenu, CdkMenuModule } from "@angular/cdk/menu";
 
@@ -46,7 +46,7 @@ export type AutocompleteOption = {
     CardComponent,
     CardContentComponent,
     DropdownItemComponent,
-    CloseButtonComponent,
+    ClosingButtonComponent,
     A11yModule,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,

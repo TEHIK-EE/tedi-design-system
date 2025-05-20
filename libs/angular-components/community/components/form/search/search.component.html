@@ -22,9 +22,8 @@
   @if (clearable() && _inputValue()) {
     <button
       type="reset"
-      tedi-close-button
-      [small]="size() !== 'large'"
-      [smallIcon]="size() !== 'large'"
+      tedi-closing-button
+      [size]="size() === 'large' ? 'large' : 'medium'"
       (click)="$event.stopPropagation(); clearResult()"
     ></button>
     @if (!withButton()) {
