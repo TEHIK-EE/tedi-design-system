@@ -255,8 +255,13 @@ export class SearchComponent
     this.onChange("");
     this.onTouched();
   }
+  focusDropdown(event?: Event) {
+    // Prevent default behavior and stop propagation if event is provided
+    if (event) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
 
-  focusDropdown() {
     const dropdownToFocus = this._cdkMenuRef();
 
     if (dropdownToFocus) {

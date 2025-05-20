@@ -1,22 +1,16 @@
-<div class="tedi-search__input-wrapper">
-  <input
-    cdkOverlayOrigin
-    [id]="inputId()"
-    class="tedi-search__input"
-    type="text"
-    [(ngModel)]="_inputValue"
-    [placeholder]="placeholder()"
-    [disabled]="disabled()"
-    (keydown.enter)="
-      $event.preventDefault(); $event.stopPropagation(); focusDropdown()
-    "
-    (keydown.arrowDown)="
-      $event.preventDefault(); $event.stopPropagation(); focusDropdown()
-    "
-    (ngModelChange)="inputChanged($event)"
-    #trigger="cdkOverlayOrigin"
-  />
-</div>
+<input
+  cdkOverlayOrigin
+  [id]="inputId()"
+  class="tedi-search__input"
+  type="text"
+  [(ngModel)]="_inputValue"
+  [placeholder]="placeholder()"
+  [disabled]="disabled()"
+  (keydown.enter)="focusDropdown($event)"
+  (keydown.arrowDown)="focusDropdown($event)"
+  (ngModelChange)="inputChanged($event)"
+  #trigger="cdkOverlayOrigin"
+/>
 
 <div class="tedi-search__suffix">
   @if (clearable() && _inputValue()) {
@@ -31,7 +25,12 @@
     }
   }
   @if (!withButton()) {
-    <tedi-icon name="search" color="secondary" [size]="iconSize()" />
+    <tedi-icon
+      class="tedi-search__search-icon"
+      name="search"
+      color="secondary"
+      [size]="iconSize()"
+    />
   }
 </div>
 
