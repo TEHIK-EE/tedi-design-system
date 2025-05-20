@@ -9,6 +9,8 @@ import {
 
 import { TextGroupComponent } from "./text-group.component";
 import {
+  IconComponent,
+  RowComponent,
   TextComponent,
   VerticalSpacingDirective,
 } from "@tehik-ee/tedi-angular/tedi";
@@ -32,6 +34,8 @@ export const Default: Story = {
         TextGroupLabelComponent,
         TextGroupValueComponent,
         TextComponent,
+        IconComponent,
+        RowComponent,
       ],
     }),
   ],
@@ -39,8 +43,8 @@ export const Default: Story = {
     props: args,
     template: `
       <tedi-text-group ${argsToTemplate(args)} >
-        <tedi-text-group-label><p tedi-text>Patsient</p></tedi-text-group-label>
-        <tedi-text-group-value><p tedi-text>Mari Maasikas</p></tedi-text-group-value>
+        <tedi-text-group-label><p tedi-text>Label</p></tedi-text-group-label>
+        <tedi-text-group-value><p tedi-text>Value</p></tedi-text-group-value>
       </tedi-text-group>
     `,
   }),
@@ -59,49 +63,164 @@ export const Default: Story = {
   },
 };
 
-export const Vertical: Story = {
+export const Type: Story = {
   ...Default,
-  args: {
-    type: "vertical",
-  },
+  args: {},
   render: (args) => ({
     props: args,
     template: `
-      <tedi-text-group ${argsToTemplate(args)} >
-        <tedi-text-group-label><p tedi-text>Patsient</p></tedi-text-group-label>
-        <tedi-text-group-value><p tedi-text>Mari Maasikas</p></tedi-text-group-value>
-      </tedi-text-group>
+      <div [tediVerticalSpacing]="1.5">
+        <tedi-text-group type="vertical">
+          <tedi-text-group-label>
+            <p tedi-text>Accessibility</p>
+          </tedi-text-group-label>
+          <tedi-text-group-value>
+            <p tedi-text>Visible to doctor and representative</p>
+          </tedi-text-group-value>
+        </tedi-text-group>
+        <tedi-text-group type="vertical">
+          <tedi-text-group-label>
+            <p tedi-text>Accessibility</p>
+          </tedi-text-group-label>
+          <tedi-text-group-value>
+            <p tedi-text>Visible to doctor and representative</p>
+          </tedi-text-group-value>
+        </tedi-text-group>
+        <tedi-text-group type="vertical">
+          <tedi-text-group-label>
+            <p tedi-text>Accessibility</p>
+          </tedi-text-group-label>
+          <tedi-text-group-value>
+            <tedi-icon size="18" name="lock" color="tertiary" />
+            <p tedi-text modifiers="inline-block">Visible to doctor and representative</p>
+          </tedi-text-group-value>
+        </tedi-text-group>
+        <tedi-text-group type="vertical">
+          <tedi-text-group-label>
+            <p tedi-text modifiers="bold">Accessibility</p>
+          </tedi-text-group-label>
+          <tedi-text-group-value>
+            <p tedi-text>Visible to doctor and representative</p>
+          </tedi-text-group-value>
+        </tedi-text-group>
+        <tedi-text-group type="vertical">
+          <tedi-text-group-label>
+            <p tedi-text>Accessibility</p>
+          </tedi-text-group-label>
+          <tedi-text-group-value>
+            <p tedi-text modifiers="bold">Visible to doctor and representative</p>
+          </tedi-text-group-value>
+        </tedi-text-group>
+        <tedi-text-group type="horizontal">
+          <tedi-text-group-label>
+            <p tedi-text>Patient</p>
+          </tedi-text-group-label>
+          <tedi-text-group-value>
+            <tedi-icon size="18" name="person_filled" color="tertiary" />
+            <p tedi-text modifiers="inline-block">Mari Maasikas</p>
+          </tedi-text-group-value>
+        </tedi-text-group>
+      </div>
     `,
   }),
 };
 
-export const Vertical2: Story = {
+export const PositionType: Story = {
+  ...Default,
+  args: {},
+  render: (args) => ({
+    props: args,
+    template: `
+    <div [tediVerticalSpacing]="1">
+      <tedi-text-group type="vertical">
+        <tedi-text-group-label><p tedi-text>Accessibility</p></tedi-text-group-label>
+        <tedi-text-group-value><p tedi-text>Visible to doctor and representative</p></tedi-text-group-value>
+      </tedi-text-group>
+      <tedi-text-group type="horizontal">
+        <tedi-text-group-label><p tedi-text>Accessibility</p></tedi-text-group-label>
+        <tedi-text-group-value><p tedi-text>Visible to doctor and representative</p></tedi-text-group-value>
+      </tedi-text-group>
+    </div>
+    `,
+  }),
+};
+
+export const HorizontalLabelLength: Story = {
   ...Default,
   args: {
-    labelWidth: "150px",
-    type: "vertical",
+    type: "horizontal",
   },
   render: (args) => ({
     props: args,
     template: `
-      <div [tediVerticalSpacing]="0.5">
-        <tedi-text-group ${argsToTemplate(args)} >
-          <tedi-text-group-label><p tedi-text>Patsient</p></tedi-text-group-label>
-          <tedi-text-group-value><p tedi-text>Mari Maasikas</p></tedi-text-group-value>
-        </tedi-text-group>
-        <tedi-text-group ${argsToTemplate(args)} >
-          <tedi-text-group-label><p tedi-text>Address</p></tedi-text-group-label>
-          <tedi-text-group-value><p tedi-text>Tulbi tn 4, Tallinn, 23562, Estonia</p></tedi-text-group-value>
-        </tedi-text-group>
-        <tedi-text-group ${argsToTemplate(args)} >
-          <tedi-text-group-label><p tedi-text>Tervisekassa</p></tedi-text-group-label>
-          <tedi-text-group-value><p tedi-text>SA Põhja-Eesti Regionaalhaigla</p></tedi-text-group-value>
-        </tedi-text-group>
-        <tedi-text-group ${argsToTemplate(args)} >
-          <tedi-text-group-label><p tedi-text>Kuupäev</p></tedi-text-group-label>
-          <tedi-text-group-value><p tedi-text>16.08.2023 14:51:48</p></tedi-text-group-value>
-        </tedi-text-group>
-      </div>
+      <tedi-row cols="1" gap="3">
+        <div [tediVerticalSpacing]="0.25">
+          <tedi-text-group ${argsToTemplate(args)} labelWidth="132px">
+            <tedi-text-group-label>
+              <p tedi-text>Patient</p>
+            </tedi-text-group-label>
+            <tedi-text-group-value>
+              <tedi-icon size="18" name="person_filled" color="tertiary" />
+              <p tedi-text modifiers="inline-block">Mari Maasikas</p>
+            </tedi-text-group-value>
+          </tedi-text-group>
+          <tedi-text-group ${argsToTemplate(args)} labelWidth="132px">
+            <tedi-text-group-label>
+              <p tedi-text>Address</p>
+            </tedi-text-group-label>
+            <tedi-text-group-value>
+              <tedi-icon size="18" name="location_on" color="tertiary" />
+              <p tedi-text modifiers="inline-block">
+                Tulbi tn 4, Tallinn, 23562, Estonia
+              </p>
+            </tedi-text-group-value>
+          </tedi-text-group>
+        </div>
+        <div [tediVerticalSpacing]="0.25">
+          <tedi-text-group ${argsToTemplate(args)} labelWidth="164px">
+            <tedi-text-group-label>
+              <p tedi-text>Vaccine</p>
+            </tedi-text-group-label>
+            <tedi-text-group-value>
+              <p tedi-text>Mari Maasikas</p>
+            </tedi-text-group-value>
+          </tedi-text-group>
+          <tedi-text-group ${argsToTemplate(args)} labelWidth="164px">
+            <tedi-text-group-label>
+              <p tedi-text>Next vaccination</p>
+            </tedi-text-group-label>
+            <tedi-text-group-value>
+              <p tedi-text>Immunization finished</p>
+            </tedi-text-group-value>
+          </tedi-text-group>
+        </div>
+        <div [tediVerticalSpacing]="0.25">
+          <tedi-text-group ${argsToTemplate(args)} labelWidth="196px">
+            <tedi-text-group-label>
+              <p tedi-text>Healthcare provider</p>
+            </tedi-text-group-label>
+            <tedi-text-group-value>
+              <p tedi-text>SA Põhja-Eesti Regionaalhaigla</p>
+            </tedi-text-group-value>
+          </tedi-text-group>
+          <tedi-text-group ${argsToTemplate(args)} labelWidth="196px">
+            <tedi-text-group-label>
+              <p tedi-text>Healthcare specialist</p>
+            </tedi-text-group-label>
+            <tedi-text-group-value>
+              <p tedi-text>Mart Mets</p>
+            </tedi-text-group-value>
+          </tedi-text-group>
+          <tedi-text-group ${argsToTemplate(args)} labelWidth="196px">
+            <tedi-text-group-label>
+              <p tedi-text>Document creation time</p>
+            </tedi-text-group-label>
+            <tedi-text-group-value>
+              <p tedi-text>16.08.2023 14:51:48</p>
+            </tedi-text-group-value>
+          </tedi-text-group>
+        </div>
+      </tedi-row>
     `,
   }),
 };
