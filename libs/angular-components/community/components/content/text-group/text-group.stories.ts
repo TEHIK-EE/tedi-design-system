@@ -60,6 +60,61 @@ export const Default: Story = {
       description: 'Width for the label (e.g., "200px", "30%", etc.)',
       defaultValue: "auto",
     },
+
+    xs: {
+      description: "Overrides TextGroupInputs on xs breakpoint (<576px).",
+      table: {
+        category: "breakpoints",
+        type: {
+          summary: "TextGroupInputs",
+        },
+      },
+    },
+    sm: {
+      description: "Overrides TextGroupInputs on sm breakpoint (≥576px).",
+      table: {
+        category: "breakpoints",
+        type: {
+          summary: "TextGroupInputs",
+        },
+      },
+    },
+    md: {
+      description: "Overrides TextGroupInputs on md breakpoint (≥768px).",
+      table: {
+        category: "breakpoints",
+        type: {
+          summary: "TextGroupInputs",
+        },
+      },
+    },
+    lg: {
+      description: "Overrides TextGroupInputs on lg breakpoint (≥992px).",
+      table: {
+        category: "breakpoints",
+        type: {
+          summary: "TextGroupInputs",
+        },
+      },
+    },
+    xl: {
+      description: "Overrides TextGroupInputs on xl breakpoint (≥1200px).",
+      table: {
+        category: "breakpoints",
+        type: {
+          summary: "TextGroupInputs",
+        },
+      },
+    },
+    xxl: {
+      description: "Overrides TextGroupInputs on xxl breakpoint (≥1400px).",
+      table: {
+        category: "breakpoints",
+        type: {
+          summary: "TextGroupInputs",
+        },
+      },
+    },
   },
 };
 
