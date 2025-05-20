@@ -70,8 +70,14 @@
   }
 
   &__panel {
-    // TODO: add margin from correct variable
-    margin: 4px 0;
+    margin: var(--_form-outer-gap) 0;
+    max-height: 300px;
+    overflow-y: auto;
+
+    @include mixins.responsive-styles(
+      --_form-outer-gap,
+      form-field-outer-spacing
+    );
   }
 
   &__footer-content:empty {
