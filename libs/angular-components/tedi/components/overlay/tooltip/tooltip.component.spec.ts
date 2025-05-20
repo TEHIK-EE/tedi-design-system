@@ -1,10 +1,10 @@
 import { ComponentFixture, fakeAsync, flush, TestBed, tick } from '@angular/core/testing';
 import { Component, Injectable, input, OnDestroy, ViewChild } from '@angular/core';
-import { TOOLTIP_TIMEOUT_MS, TooltipComponent, TooltipPosition, TooltipTrigger, TooltipWidth } from './tooltip.component';
+import { TOOLTIP_TIMEOUT_MS, TooltipComponent, TooltipOpenWith } from './tooltip.component';
 import { OverlayContainer, OverlayModule } from '@angular/cdk/overlay';
 import { PortalModule } from '@angular/cdk/portal';
-
-const tooltipContent = 'Tooltip content';
+import { TooltipTriggerComponent } from './tooltip-trigger/tooltip-trigger.component';
+import { TooltipContentComponent, TooltipPosition, TooltipWidth } from './tooltip-content/tooltip-content.component';
 
 @Injectable()
 class NoopOverlayContainer extends OverlayContainer implements OnDestroy {
@@ -28,219 +28,302 @@ class NoopOverlayContainer extends OverlayContainer implements OnDestroy {
 
 @Component({
   standalone: true,
-  imports: [TooltipComponent],
+  imports: [TooltipComponent, TooltipTriggerComponent, TooltipContentComponent],
   template: `
-    <tedi-tooltip #tooltip [text]="text()" [position]="position()" [openWith]="openWith()" [maxWidth]="maxWidth()">
-      <button #tooltipTrigger>Trigger</button>
+    <tedi-tooltip #tooltip [openWith]="openWith()">
+      <tedi-tooltip-trigger #trigger>
+        Trigger
+      </tedi-tooltip-trigger>
+      <tedi-tooltip-content [position]="position()" [maxWidth]="maxWidth()">
+        Tooltip content
+      </tedi-tooltip-content>
     </tedi-tooltip>
   `,
 })
-class TooltipHostComponent {
-  text = input.required<string>();
-  position = input<TooltipPosition>('top');
-  openWith = input<TooltipTrigger>('hover');
-  maxWidth = input<TooltipWidth>('medium');
+class TooltipNormalComponent {
+  position = input<TooltipPosition>("top");
+  openWith = input<TooltipOpenWith>("hover");
+  maxWidth = input<TooltipWidth>("medium");
 
-  @ViewChild('tooltip') tooltipComponent!: TooltipComponent;
+  @ViewChild("tooltip") tooltipComponent!: TooltipComponent;
+  @ViewChild('trigger') triggerComponent!: TooltipTriggerComponent;
 }
 
 @Component({
   standalone: true,
-  imports: [TooltipComponent],
+  imports: [TooltipComponent, TooltipTriggerComponent, TooltipContentComponent],
   template: `
-    <tedi-tooltip [text]="text()">
-      <button>Trigger without template ref</button>
+    <tedi-tooltip>
+      <tedi-tooltip-trigger #trigger></tedi-tooltip-trigger>
+      <tedi-tooltip-content>Content</tedi-tooltip-content>
     </tedi-tooltip>
   `,
 })
-class TooltipWithoutTriggerRefComponent {
-  text = input.required<string>();
+class TooltipEmptyTriggerComponent {
+  @ViewChild('trigger') triggerComponent!: TooltipTriggerComponent;
 }
 
-describe('TooltipComponent', () => {
-  let fixture: ComponentFixture<TooltipHostComponent>;
-  let overlayContainer: OverlayContainer;
-  let overlayContainerElement: HTMLElement;
+@Component({
+  standalone: true,
+  imports: [TooltipComponent, TooltipTriggerComponent, TooltipContentComponent],
+  template: `
+    <tedi-tooltip>
+      <tedi-tooltip-trigger #trigger>
+        <div tabindex="5">Custom Tabindex</div>
+      </tedi-tooltip-trigger>
+      <tedi-tooltip-content>Content</tedi-tooltip-content>
+    </tedi-tooltip>
+  `,
+})
+class TooltipElementTriggerWithTabindexComponent {
+  @ViewChild('trigger') triggerComponent!: TooltipTriggerComponent;
+}
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({
-      imports: [TooltipHostComponent, OverlayModule, PortalModule],
-      providers: [{ provide: OverlayContainer, useClass: NoopOverlayContainer }],
+@Component({
+  standalone: true,
+  imports: [TooltipComponent, TooltipTriggerComponent, TooltipContentComponent],
+  template: `
+    <tedi-tooltip>
+      <tedi-tooltip-trigger #trigger>
+        <div>No tabindex</div>
+      </tedi-tooltip-trigger>
+      <tedi-tooltip-content>Content</tedi-tooltip-content>
+    </tedi-tooltip>
+  `,
+})
+class TooltipElementTriggerWithoutTabindexComponent {
+  @ViewChild('trigger') triggerComponent!: TooltipTriggerComponent;
+}
+
+
+describe("TooltipComponent", () => {
+  describe("Normal tooltip", () => {
+    let fixture: ComponentFixture<TooltipNormalComponent>;
+    let tooltipComponent: TooltipComponent;
+    let tooltipTriggerComponent: TooltipTriggerComponent;
+    let overlayContainer: OverlayContainer;
+    let overlayContainerElement: HTMLElement;
+
+    beforeEach(() => {
+      TestBed.configureTestingModule({
+        imports: [TooltipNormalComponent, OverlayModule, PortalModule],
+        providers: [{ provide: OverlayContainer, useClass: NoopOverlayContainer }],
+      });
+
+      overlayContainer = TestBed.inject(OverlayContainer);
+      overlayContainerElement = overlayContainer.getContainerElement();
+  
+      fixture = TestBed.createComponent(TooltipNormalComponent);
+      fixture.detectChanges();
+      tooltipComponent = fixture.componentInstance.tooltipComponent;
+      tooltipTriggerComponent = fixture.componentInstance.triggerComponent;
     });
 
-    overlayContainer = TestBed.inject(OverlayContainer);
-    overlayContainerElement = overlayContainer.getContainerElement();
+    afterEach(() => {
+      overlayContainer.ngOnDestroy();
+    });
 
-    fixture = TestBed.createComponent(TooltipHostComponent);
-    fixture.componentRef.setInput('text', tooltipContent);
-    fixture.detectChanges();
-  });
+    it('should show the tooltip when openTooltip is called', fakeAsync(() => {
+      tooltipComponent.openTooltip();
+      fixture.detectChanges();
+      tick();
+  
+      const tooltip = overlayContainerElement.querySelector('.tedi-tooltip-content');
+      expect(tooltip).toBeTruthy();
+    }));
+  
+    it('should hide the tooltip when closeTooltip is called', fakeAsync(() => {
+      tooltipComponent.openTooltip();
+      fixture.detectChanges();
+      tick();
+      expect(overlayContainerElement.querySelector('.tedi-tooltip-content')).toBeTruthy();
+  
+      tooltipComponent.closeTooltip();
+      fixture.detectChanges();
+      tick();
+      expect(overlayContainerElement.querySelector('.tedi-tooltip-content')).toBeFalsy();
+      flush();
+    }));
+  
+    it('should toggle the tooltip when toggleTooltip is called', fakeAsync(() => {
+      tooltipComponent.toggleTooltip();
+      fixture.detectChanges();
+      tick();
+      expect(overlayContainerElement.querySelector('.tedi-tooltip-content')).toBeTruthy();
+  
+      tooltipComponent.toggleTooltip();
+      fixture.detectChanges();
+      tick();
+      expect(overlayContainerElement.querySelector('.tedi-tooltip-content')).toBeFalsy();
+    }));
+  
+    it('should open on mouseenter and close after timeout on mouseleave when openWith="hover"', fakeAsync(() => {
+      fixture.componentRef.setInput('openWith', 'hover');
+      fixture.detectChanges();
+      tick();
+  
+      const trigger = tooltipTriggerComponent.element()!;
+      trigger.dispatchEvent(new MouseEvent('mouseenter', { bubbles: true }));
+      fixture.detectChanges();
+      tick();
+  
+      expect(overlayContainerElement.querySelector('.tedi-tooltip-content')).toBeTruthy();
+  
+      trigger.dispatchEvent(new MouseEvent('mouseleave', { bubbles: true }));
+      fixture.detectChanges();
+      tick(TOOLTIP_TIMEOUT_MS + 10);
+  
+      expect(overlayContainerElement.querySelector('.tedi-tooltip-content')).toBeFalsy();
+    }));
+  
+    it('should open and close tooltip on click when openWith="click"', fakeAsync(() => {
+      fixture.componentRef.setInput('openWith', 'click');
+      fixture.detectChanges();
+  
+      const trigger = tooltipTriggerComponent.element()!;
+      trigger.click();
+      fixture.detectChanges();
+      tick();
+      expect(overlayContainerElement.querySelector('.tedi-tooltip-content')).toBeTruthy();
+  
+      trigger.click();
+      fixture.detectChanges();
+      tick();
+      expect(overlayContainerElement.querySelector('.tedi-tooltip-content')).toBeFalsy();
+    }));
+  
+    it('should close tooltip when clicking outside', fakeAsync(() => {
+      fixture.componentRef.setInput('openWith', 'click');
+      fixture.detectChanges();
+  
+      const trigger = tooltipTriggerComponent.element()!;
+      trigger.click();
+      fixture.detectChanges();
+      tick();
+  
+      document.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+      fixture.detectChanges();
+      tick();
+      expect(overlayContainerElement.querySelector('.tedi-tooltip-content')).toBeFalsy();
+    }));
+  
+    it('should open tooltip on focus and close on blur', fakeAsync(() => {
+      const trigger = tooltipTriggerComponent.element()!;
+  
+      trigger.dispatchEvent(new Event('focus'));
+      fixture.detectChanges();
+      tick();
+      expect(overlayContainerElement.querySelector('.tedi-tooltip-content')).toBeTruthy();
+  
+      trigger.dispatchEvent(new Event('blur'));
+      fixture.detectChanges();
+      tick(TOOLTIP_TIMEOUT_MS + 10);
+      expect(overlayContainerElement.querySelector('.tedi-tooltip-content')).toBeFalsy();
+    }));
+  
+    it('should clear tooltip close timeout if it exists', fakeAsync(() => {
+      const trigger = tooltipTriggerComponent.element()!;
+  
+      trigger.dispatchEvent(new MouseEvent('mouseenter', { bubbles: true }));
+      fixture.detectChanges();
+      tick();
+  
+      trigger.dispatchEvent(new MouseEvent('mouseleave', { bubbles: true }));
+      fixture.detectChanges();
+      tick();
+      expect(tooltipComponent.closeTimeout()).not.toBeNull();
+  
+      tooltipComponent.openTooltip();
+      fixture.detectChanges();
+      tick();
+      expect(tooltipComponent.closeTimeout()).toBeNull();
+    }));
+  
+    it('should wrap text content in a span with tabindex', fakeAsync(() => {
+      const el = tooltipTriggerComponent.element()!;
+      expect(el.tagName.toLowerCase()).toBe('span');
+      expect(el.classList.contains('tedi-tooltip-trigger__text')).toBeTruthy();
+      expect(el.getAttribute('tabindex')).toBe('0');
+    }));
+  
+    it('should close tooltip when Escape key is pressed', fakeAsync(() => {
+      const trigger = tooltipTriggerComponent.element()!;
+  
+      trigger.dispatchEvent(new MouseEvent('mouseenter', { bubbles: true }));
+      fixture.detectChanges();
+      tick();
+    
+      expect(overlayContainerElement.querySelector('.tedi-tooltip-content')).toBeTruthy();
+    
+      const escEvent = new KeyboardEvent('keydown', { key: 'Escape' });
+      document.dispatchEvent(escEvent);
+      fixture.detectChanges();
+      tick();
+    
+      expect(overlayContainerElement.querySelector('.tedi-tooltip-content')).toBeFalsy();
+    }));
+  
+    it('should not fail if tooltip element is missing in addTooltipListeners', fakeAsync(() => {
+      tooltipComponent['overlayRef'] = tooltipComponent['overlay'].create(tooltipComponent['getOverlayConfig']());
+      tooltipComponent['overlayRef'].attach(tooltipComponent['portal']);
+      jest.spyOn(tooltipComponent['overlayRef'].overlayElement, 'querySelector').mockReturnValue(null);
+    
+      expect(() => tooltipComponent['addTooltipListeners']()).not.toThrow();
+    }));
+  
+    it('should schedule close when tooltip content mouseleave and openWith is hover', fakeAsync(() => {
+      fixture.componentRef.setInput('openWith', 'hover');
+      fixture.detectChanges();
+      tick();
+    
+      const trigger = tooltipTriggerComponent.element()!;
+      trigger.dispatchEvent(new MouseEvent('mouseenter', { bubbles: true }));
+      fixture.detectChanges();
+      tick();
+    
+      const tooltip = overlayContainerElement.querySelector('.tedi-tooltip-content')!;
+      tooltip.dispatchEvent(new MouseEvent('mouseleave', { bubbles: true }));
+      fixture.detectChanges();
+      tick(TOOLTIP_TIMEOUT_MS + 10);
+    
+      expect(overlayContainerElement.querySelector('.tedi-tooltip-content')).toBeFalsy();
+    }));
+  })
 
-  afterEach(() => {
-    overlayContainer.ngOnDestroy();
-  });
+  describe("Empty trigger tooltip", () => {
+    it('should not throw if trigger has no content', fakeAsync(() => {
+      const emptyFixture = TestBed.createComponent(TooltipEmptyTriggerComponent);
+      emptyFixture.detectChanges();
+      tick();
+    
+      const el = emptyFixture.componentInstance.triggerComponent.element();
+      expect(el).toBeNull();
+    }));
+  })
 
-  it('should show the tooltip when openTooltip is called', fakeAsync(() => {
-    fixture.componentInstance.tooltipComponent.openTooltip();
-    fixture.detectChanges();
-    tick();
+  describe("With element and tabindex tooltip", () => {
+    it('should not override existing tabindex on element child', fakeAsync(() => {
+      const elFixture = TestBed.createComponent(TooltipElementTriggerWithTabindexComponent);
+      elFixture.detectChanges();
+      tick();
+    
+      const el = elFixture.componentInstance.triggerComponent.element()!;
+      expect(el.tagName.toLowerCase()).toBe('div');
+      expect(el.getAttribute('tabindex')).toBe('5');
+      expect(el.textContent?.trim()).toBe('Custom Tabindex');
+    }));
+  })
 
-    const tooltip = overlayContainerElement.querySelector('.tooltip');
-    expect(tooltip).toBeTruthy();
-    expect(tooltip?.textContent).toContain(tooltipContent);
-  }));
-
-  it('should hide the tooltip when closeTooltip is called', fakeAsync(() => {
-    const cmp = fixture.componentInstance.tooltipComponent;
-
-    cmp.openTooltip();
-    fixture.detectChanges();
-    tick();
-    expect(overlayContainerElement.querySelector('.tooltip')).toBeTruthy();
-
-    cmp.closeTooltip();
-    fixture.detectChanges();
-    tick();
-    expect(overlayContainerElement.querySelector('.tooltip')).toBeFalsy();
-    flush();
-  }));
-
-  it('should toggle the tooltip when toggleTooltip is called', fakeAsync(() => {
-    const cmp = fixture.componentInstance.tooltipComponent;
-
-    cmp.toggleTooltip();
-    fixture.detectChanges();
-    tick();
-    expect(overlayContainerElement.querySelector('.tooltip')).toBeTruthy();
-
-    cmp.toggleTooltip();
-    fixture.detectChanges();
-    tick();
-    expect(overlayContainerElement.querySelector('.tooltip')).toBeFalsy();
-  }));
-
-  it('should open on mouseenter and close after timeout on mouseleave when openWith="hover"', fakeAsync(() => {
-    fixture.componentRef.setInput('openWith', 'hover');
-    fixture.detectChanges();
-    tick();
-
-    const trigger = fixture.nativeElement.querySelector('button');
-    trigger.dispatchEvent(new MouseEvent('mouseenter', { bubbles: true }));
-    fixture.detectChanges();
-    tick();
-
-    expect(overlayContainerElement.querySelector('.tooltip')).toBeTruthy();
-
-    trigger.dispatchEvent(new MouseEvent('mouseleave', { bubbles: true }));
-    fixture.detectChanges();
-    tick(TOOLTIP_TIMEOUT_MS + 10);
-
-    expect(overlayContainerElement.querySelector('.tooltip')).toBeFalsy();
-  }));
-
-  it('should stay open when hovering tooltip content', fakeAsync(() => {
-    fixture.componentRef.setInput('openWith', 'hover');
-    fixture.detectChanges();
-    tick();
-
-    const trigger = fixture.nativeElement.querySelector('button');
-    trigger.dispatchEvent(new MouseEvent('mouseenter', { bubbles: true }));
-    fixture.detectChanges();
-    tick();
-
-    const tooltip = overlayContainerElement.querySelector('.tooltip') as HTMLElement;
-    expect(tooltip).toBeTruthy();
-
-    tooltip.dispatchEvent(new MouseEvent('mouseenter', { bubbles: true }));
-    fixture.detectChanges();
-    tick();
-
-    trigger.dispatchEvent(new MouseEvent('mouseleave', { bubbles: true }));
-    fixture.detectChanges();
-    tick(TOOLTIP_TIMEOUT_MS + 10);
-    expect(overlayContainerElement.querySelector('.tooltip')).toBeTruthy();
-
-    tooltip.dispatchEvent(new MouseEvent('mouseleave', { bubbles: true }));
-    fixture.detectChanges();
-    tick(TOOLTIP_TIMEOUT_MS + 10);
-    expect(overlayContainerElement.querySelector('.tooltip')).toBeFalsy();
-  }));
-
-  it('should open and close tooltip on click when openWith="click"', fakeAsync(() => {
-    fixture.componentRef.setInput('openWith', 'click');
-    fixture.detectChanges();
-
-    const trigger = fixture.nativeElement.querySelector('button');
-    trigger.click();
-    fixture.detectChanges();
-    tick();
-    expect(overlayContainerElement.querySelector('.tooltip')).toBeTruthy();
-
-    trigger.click();
-    fixture.detectChanges();
-    tick();
-    expect(overlayContainerElement.querySelector('.tooltip')).toBeFalsy();
-  }));
-
-  it('should close tooltip when clicking outside', fakeAsync(() => {
-    fixture.componentRef.setInput('openWith', 'click');
-    fixture.detectChanges();
-
-    const trigger = fixture.nativeElement.querySelector('button');
-    trigger.click();
-    fixture.detectChanges();
-    tick();
-
-    document.dispatchEvent(new MouseEvent('click', { bubbles: true }));
-    fixture.detectChanges();
-    tick();
-    expect(overlayContainerElement.querySelector('.tooltip')).toBeFalsy();
-  }));
-
-  it('should open tooltip on focus and close on blur', fakeAsync(() => {
-    const trigger = fixture.nativeElement.querySelector('button');
-
-    trigger.dispatchEvent(new Event('focus'));
-    fixture.detectChanges();
-    tick();
-    expect(overlayContainerElement.querySelector('.tooltip')).toBeTruthy();
-
-    trigger.dispatchEvent(new Event('blur'));
-    fixture.detectChanges();
-    tick(TOOLTIP_TIMEOUT_MS + 10);
-    expect(overlayContainerElement.querySelector('.tooltip')).toBeFalsy();
-  }));
-
-  it('should not throw if triggerButton is not defined', () => {
-    const noTriggerFixture = TestBed.createComponent(TooltipWithoutTriggerRefComponent);
-    noTriggerFixture.componentRef.setInput('text', 'Hello');
-    expect(() => noTriggerFixture.detectChanges()).not.toThrow();
-  });
-
-  it('should clear tooltip close timeout if it exists', fakeAsync(() => {
-    const cmp = fixture.componentInstance.tooltipComponent;
-    const trigger = fixture.nativeElement.querySelector('button');
-
-    trigger.dispatchEvent(new MouseEvent('mouseenter', { bubbles: true }));
-    fixture.detectChanges();
-    tick();
-
-    trigger.dispatchEvent(new MouseEvent('mouseleave', { bubbles: true }));
-    fixture.detectChanges();
-    tick();
-    expect(cmp.hoverTimeout()).not.toBeNull();
-
-    cmp.openTooltip();
-    fixture.detectChanges();
-    tick();
-    expect(cmp.hoverTimeout()).toBeNull();
-  }));
-
-  it('should return empty array from buildPositions for invalid position', () => {
-    fixture.componentRef.setInput('position', 'invalid');
-    fixture.detectChanges();
-
-    const result = fixture.componentInstance.tooltipComponent.buildPositions();
-    expect(result).toEqual([]);
-  });
+  describe("With element and missing tabindex tooltip", () => {
+    it('should set tabindex="0" on element child if missing', fakeAsync(() => {
+      const elFixture = TestBed.createComponent(TooltipElementTriggerWithoutTabindexComponent);
+      elFixture.detectChanges();
+      tick();
+    
+      const el = elFixture.componentInstance.triggerComponent.element()!;
+      expect(el.tagName.toLowerCase()).toBe('div');
+      expect(el.getAttribute('tabindex')).toBe('0');
+      expect(el.textContent?.trim()).toBe('No tabindex');
+    }));
+  })
 });

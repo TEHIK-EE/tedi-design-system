@@ -1,5 +1,4 @@
 import {
-  argsToTemplate,
   type Meta,
   type StoryObj,
   moduleMetadata,
@@ -11,6 +10,8 @@ import { RowComponent } from "../../layout/grid/row/row.component";
 import { ColComponent } from "../../layout/grid/col/col.component";
 import { VerticalSpacingItemDirective } from "../../../directives/vertical-spacing/vertical-spacing-item.directive";
 import { TextComponent } from "../../base/text/text.component";
+import { TooltipTriggerComponent } from "./tooltip-trigger/tooltip-trigger.component";
+import { TooltipContentComponent, TooltipPosition, TooltipWidth } from "./tooltip-content/tooltip-content.component";
 
 const MAXWIDTH = ["none", "small", "medium", "large"];
 
@@ -29,6 +30,8 @@ export default {
     moduleMetadata({
       imports: [
         TooltipComponent,
+        TooltipTriggerComponent,
+        TooltipContentComponent,
         InfoButtonComponent,
         ButtonComponent,
         RowComponent,
@@ -38,26 +41,28 @@ export default {
       ],
     }),
   ],
-  args: {
-    text: "Tooltip content",
-    position: "top",
-    maxWidth: "medium",
-    openWith: "hover",
-  },
   argTypes: {
-    text: {
-      control: "text",
-      description: "The text to display in the tooltip.",
+    openWith: {
+      control: "select",
+      options: ["click", "hover"],
+      description: "The event that triggers the tooltip.",
       table: {
-        category: "inputs",
-      }
+        category: "tooltip inputs",
+        type: {
+          summary: "TooltipOpenWith",
+          detail: "click \nhover",
+        },
+        defaultValue: {
+          summary: "hover"
+        }
+      },
     },
     position: {
       control: "select",
       description: "The position of the tooltip relative to the trigger element. ",
       options: ["top", "bottom", "left", "right"],
       table: {
-        category: "inputs",
+        category: "tooltip-content inputs",
         type: {
           summary: "TooltipPosition", detail: "top \nbottom \nleft \nright"
         },
@@ -75,67 +80,89 @@ export default {
         summary: "medium",
       },
       table: {
-        category: "inputs",
+        category: "tooltip-content inputs",
         type: {
           summary: "TooltipWidth",
           detail: "none \nsmall \nmedium \nlarge",
         },
       },
     },
-    openWith: {
-      control: "select",
-      options: ["click", "hover"],
-      description: "The event that triggers the tooltip.",
-      table: {
-        category: "inputs",
-        type: {
-          summary: "TooltipTrigger",
-          detail: "click \nhover",
-        },
-        defaultValue: {
-          summary: "hover"
-        }
-      },
-    },
+  },
+} as Meta<TooltipComponent>;
+
+type Story = StoryObj<TooltipComponent & { 
+  position: TooltipPosition;
+  maxWidth: TooltipWidth;
+}>;
+
+export const Default: Story = {
+  args: {
+    openWith: "hover",
+    position: "top",
+    maxWidth: "medium",
+  },
+  parameters: {
+    layout: "centered",
   },
   render: (args) => ({
     props: args,
     template: `
-      <tedi-tooltip ${argsToTemplate(args)}>
-        <button #tooltipTrigger tedi-info-button ariaLabel="Kuva tööriistavihje"></button>
+      <tedi-tooltip [openWith]="openWith">
+        <tedi-tooltip-trigger>
+          <button tedi-info-button ariaLabel="Kuva tööriistavihje"></button>
+        </tedi-tooltip-trigger>
+        <tedi-tooltip-content [position]="position" [maxWidth]="maxWidth">
+          This is tooltip content. The quick brown fox jumps over the lazy dog.
+        </tedi-tooltip-content>
       </tedi-tooltip>
     `,
   }),
-} as Meta<TooltipComponent>;
-
-type Story = StoryObj<TooltipComponent>;
-
-export const Default: Story = {};
+};
 
 export const Positions: Story = {
   name: "Tooltip positions",
   render: (args) => ({
     props: args,
     template: `
-      <tedi-row cols="2" gapY="2" justifyItems="center">
+      <tedi-row [cols]="2" [gapY]="2" justifyItems="center">
         <tedi-col>
-          <tedi-tooltip text="Tooltip content" position="top">
-            <button #tooltipTrigger tedi-button>Top</button>
+          <tedi-tooltip>
+            <tedi-tooltip-trigger>
+              Top
+            </tedi-tooltip-trigger>
+            <tedi-tooltip-content position="top">
+              Tooltip content
+            </tedi-tooltip-content>
           </tedi-tooltip>
         </tedi-col>
         <tedi-col>
-          <tedi-tooltip text="Tooltip content" position="left">
-            <button #tooltipTrigger tedi-button>Left</button>
+          <tedi-tooltip>
+            <tedi-tooltip-trigger>
+              Left
+            </tedi-tooltip-trigger>
+            <tedi-tooltip-content position="left">
+              Tooltip content
+            </tedi-tooltip-content>
           </tedi-tooltip>
         </tedi-col>
         <tedi-col>
-          <tedi-tooltip text="Tooltip content" position="bottom">
-            <button #tooltipTrigger tedi-button>Bottom</button>
+          <tedi-tooltip>
+            <tedi-tooltip-trigger>
+              Bottom
+            </tedi-tooltip-trigger>
+            <tedi-tooltip-content position="bottom">
+              Tooltip content
+            </tedi-tooltip-content>
           </tedi-tooltip>
         </tedi-col>
         <tedi-col>
-          <tedi-tooltip text="Tooltip content" position="right">
-            <button #tooltipTrigger tedi-button>Right</button>
+          <tedi-tooltip>
+            <tedi-tooltip-trigger>
+              Right
+            </tedi-tooltip-trigger>
+            <tedi-tooltip-content position="right">
+              Tooltip content
+            </tedi-tooltip-content>
           </tedi-tooltip>
         </tedi-col>
       </tedi-row>
@@ -143,26 +170,39 @@ export const Positions: Story = {
   }),
 };
 
-export const Click: Story = {
-  name: "Open with click",
-  args: {
-    openWith: "click",
-  },
-};
-
-export const Hover: Story = {
-  name: "Text example",
-  args: {
-    openWith: "hover",
-  },
+export const OpenWithClick: Story = {
   render: (args) => ({
     props: args,
-    template: `<p tedi-text>Tooltip works even inside a text. Hover over 
-      <tedi-tooltip text="Tooltip content" position="top">
-        <span #tooltipTrigger tedi-text style="cursor: pointer" color="brand">this</span>
+    template: `
+      <tedi-tooltip openWith="click">
+        <tedi-tooltip-trigger>
+          <button tedi-info-button ariaLabel="Kuva tööriistavihje"></button>
+        </tedi-tooltip-trigger>
+        <tedi-tooltip-content>
+          Tooltip content
+        </tedi-tooltip-content>
       </tedi-tooltip>
-      text to see the tooltip. 
-    </p>`,
+    `,
+  }),
+};
+
+export const TextTrigger: Story = {
+  render: (args) => ({
+    props: args,
+    template: `
+      <p>
+        Tooltip works even inside a text. Hover over 
+        <tedi-tooltip>
+          <tedi-tooltip-trigger>
+            this
+          </tedi-tooltip-trigger>
+          <tedi-tooltip-content>
+            If tooltip trigger is a text, it will have an underline.
+          </tedi-tooltip-content>
+        </tedi-tooltip>
+        text to see the tooltip. 
+      </p>
+    `,
   }),
 };
 
@@ -170,28 +210,64 @@ export const Widths: Story = {
   render: (args) => ({
     props: args,
     template: `
-      <tedi-row cols="1" gapY="2" justifyItems="center">
+      <tedi-row [cols]="4">
         <tedi-col>
-          <tedi-tooltip text="This is an example for small tooltip. The quick brown fox jumps over the lazy dog" maxWidth="small">
-            <button #tooltipTrigger tedi-button>Small tooltip</button>
+          <tedi-tooltip>
+            <tedi-tooltip-trigger>
+              Small tooltip width
+            </tedi-tooltip-trigger>
+            <tedi-tooltip-content maxWidth="small">
+              This is an example for small tooltip. The quick brown fox jumps over the lazy dog.
+            </tedi-tooltip-content>
           </tedi-tooltip>
         </tedi-col>
         <tedi-col>
-          <tedi-tooltip text="This is an example of medium tooltip. The quick brown fox jumps over the lazy dog" maxWidth="medium">
-            <button #tooltipTrigger tedi-button>Medium tooltip</button>
+          <tedi-tooltip>
+            <tedi-tooltip-trigger>
+              Medium tooltip width
+            </tedi-tooltip-trigger>
+            <tedi-tooltip-content maxWidth="medium">
+              This is an example for medium tooltip. The quick brown fox jumps over the lazy dog.
+            </tedi-tooltip-content>
           </tedi-tooltip>
         </tedi-col>
         <tedi-col>
-          <tedi-tooltip text="This is an example for large tooltip. The quick brown fox jumps over the lazy dog" maxWidth="large">
-            <button #tooltipTrigger tedi-button>Large tooltip</button>
+          <tedi-tooltip>
+            <tedi-tooltip-trigger>
+              Large tooltip width
+            </tedi-tooltip-trigger>
+            <tedi-tooltip-content maxWidth="large">
+              This is an example for large tooltip. The quick brown fox jumps over the lazy dog.
+            </tedi-tooltip-content>
           </tedi-tooltip>
         </tedi-col>
         <tedi-col>
-          <tedi-tooltip text="This tooltip has no max width and is really wide. The quick brown fox jumps over the lazy dog" maxWidth="none">
-            <button #tooltipTrigger tedi-button>Full width</button>
+          <tedi-tooltip>
+            <tedi-tooltip-trigger>
+              Tooltip with no width limit
+            </tedi-tooltip-trigger>
+            <tedi-tooltip-content maxWidth="none">
+              This is an example for no max width tooltip. The quick brown fox jumps over the lazy dog.
+            </tedi-tooltip-content>
           </tedi-tooltip>
         </tedi-col>
       </tedi-row>
-      `,
+    `,
+  }),
+};
+
+export const CustomContent: Story = {
+  render: (args) => ({
+    props: args,
+    template: `
+      <tedi-tooltip>
+        <tedi-tooltip-trigger>
+          <span>Trigger</span>
+        </tedi-tooltip-trigger>
+        <tedi-tooltip-content>
+          This <b>tooltip trigger</b> does not have an <u>underline,</u> because it is <i>wrapped in a span.</i>
+        </tedi-tooltip-content>
+      </tedi-tooltip>
+    `,
   }),
 };
