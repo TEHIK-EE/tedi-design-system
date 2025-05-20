@@ -6,7 +6,10 @@ import {
 } from "@storybook/angular";
 
 import { TextGroupComponent } from "./text-group.component";
-import { VerticalSpacingDirective } from "@tehik-ee/tedi-angular/tedi";
+import {
+  TextComponent,
+  VerticalSpacingDirective,
+} from "@tehik-ee/tedi-angular/tedi";
 
 export default {
   title: "Community Angular/Content/TextGroup",
@@ -17,32 +20,23 @@ type Story = StoryObj<TextGroupComponent>;
 
 export const Default: Story = {
   args: {
-    label: "Label",
-    value: "Value",
     type: "horizontal",
   },
   decorators: [
     moduleMetadata({
-      imports: [VerticalSpacingDirective, TextGroupComponent],
+      imports: [VerticalSpacingDirective, TextGroupComponent, TextComponent],
     }),
   ],
   render: (args) => ({
     props: args,
     template: `
-      <tedi-text-group ${argsToTemplate(args)} />
+      <tedi-text-group ${argsToTemplate(args)} >
+        <p tedi-text tedi-text-group-label>Patsient</p>
+        <p tedi-text tedi-text-group-value>Mari Maasikas</p>
+      </tedi-text-group>
     `,
   }),
   argTypes: {
-    label: {
-      control: "text",
-      description: "Label for the text group",
-      defaultValue: "Label",
-    },
-    value: {
-      control: "text",
-      description: "Value displayed alongside the label",
-      defaultValue: "Value",
-    },
     type: {
       control: "radio",
       options: ["vertical", "horizontal"],

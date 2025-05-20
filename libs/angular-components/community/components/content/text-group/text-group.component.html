@@ -1,6 +1,11 @@
-<dl [class]="classes()">
-  <dt class="tedi-text-group__label" [style.--_label-width]="labelWidth()">
-    <label>{{ label() }}</label>
+<dl [class]="classes()" [style.--_label-width]="labelWidth()">
+  <dt class="tedi-text-group__label">
+    <label>
+      <ng-content select="[tedi-text-group-label]"></ng-content>
+    </label>
   </dt>
-  <dd class="tedi-text-group__value">{{ value() }}</dd>
+
+  <dd class="tedi-text-group__value">
+    <ng-content select="[tedi-text-group-value]"></ng-content>
+  </dd>
 </dl>

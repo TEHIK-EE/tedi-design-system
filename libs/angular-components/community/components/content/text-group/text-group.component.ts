@@ -9,14 +9,6 @@ export type TextGroupType = "vertical" | "horizontal";
   styleUrl: "./text-group.component.scss",
 })
 export class TextGroupComponent {
-   /**
-   * Label for the text group
-   */
-  label = input.required<string>();
-  /**
-   * Value displayed alongside the label
-   */
-  value = input.required<string>();
   /**
    * Type of text group layout
    * @default horizontal
