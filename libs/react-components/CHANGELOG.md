@@ -1,3 +1,17 @@
+# [@tehik-ee/tedi-react-v11.4.0-rc.6](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.4.0-rc.5...react-11.4.0-rc.6) (2025-05-20)
+
+
+### Bug Fixes
+
+* **text-group:** label width ignored when value is longer fix [#794](https://github.com/TEHIK-EE/tedi-design-system/issues/794) ([#799](https://github.com/TEHIK-EE/tedi-design-system/issues/799)) ([5dac227](https://github.com/TEHIK-EE/tedi-design-system/commit/5dac227e0d1a614a7bf4333176d576fc83989dde))
+
+# [@tehik-ee/tedi-react-v11.4.0-rc.5](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.4.0-rc.4...react-11.4.0-rc.5) (2025-05-20)
+
+
+### Bug Fixes
+
+* **useIsTouchDevice:** remove window usage in SSR, initalize what-input inside useEffect [#778](https://github.com/TEHIK-EE/tedi-design-system/issues/778) ([#809](https://github.com/TEHIK-EE/tedi-design-system/issues/809)) ([c550caa](https://github.com/TEHIK-EE/tedi-design-system/commit/c550caaa49c0f545f78553bd4cc7bb3114fdba14))
+
 # [@tehik-ee/tedi-react-v11.4.0-rc.4](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.4.0-rc.3...react-11.4.0-rc.4) (2025-05-16)
 
 
