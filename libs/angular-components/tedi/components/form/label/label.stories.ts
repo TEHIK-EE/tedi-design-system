@@ -1,6 +1,11 @@
 import { argsToTemplate, Meta, moduleMetadata, StoryObj } from "@storybook/angular";
 import { LabelComponent } from "./label.component";
-import { ColComponent, RowComponent } from "tedi/components/layout";
+import { RowComponent } from "../../layout/grid/row/row.component";
+import { ColComponent } from "../../layout/grid/col/col.component";
+import { TooltipComponent } from "../../overlay/tooltip/tooltip.component";
+import { TooltipTriggerComponent } from "../../overlay/tooltip/tooltip-trigger.component";
+import { TooltipContentComponent } from "../../overlay/tooltip/tooltip-content.component";
+import { InfoButtonComponent } from "../../buttons/info-button/info-button.component";
 
 /**
  * <a href="https://www.figma.com/design/jWiRIXhHRxwVdMSimKX2FF/TEDI-READY-(work-in-progress)?node-id=2137-19322&m=dev" target="_blank">Figma ↗</a><br />
@@ -12,7 +17,7 @@ export default {
   component: LabelComponent,
     decorators: [
       moduleMetadata({
-        imports: [LabelComponent, RowComponent, ColComponent],
+        imports: [LabelComponent, RowComponent, ColComponent, TooltipComponent, TooltipTriggerComponent, TooltipContentComponent, InfoButtonComponent],
       }),
   ],
   argTypes: {
@@ -45,16 +50,6 @@ export default {
         },
       },
     },
-    tooltip: {
-      control: "text",
-      description: "Tooltip text with info button.",
-      table: {
-        category: "inputs",
-        type: {
-          summary: "string"
-        }
-      }
-    }
   },
 } as Meta<LabelComponent>;
 
@@ -109,10 +104,30 @@ export const Structure: LabelStory = {
           <label tedi-label [required]="true">Active ingredient</label>
         </tedi-col>
         <tedi-col>
-          <label tedi-label tooltip="Tooltip text">Active ingredient</label>
+          <div style="display: flex; gap: 2px;">
+            <label tedi-label>Active ingredient</label>
+            <tedi-tooltip>
+              <tedi-tooltip-trigger>
+                <button tedi-info-button ariaLabel="Kuva tööriistavihje"></button>
+              </tedi-tooltip-trigger>
+              <tedi-tooltip-content>
+                Tooltip content
+              </tedi-tooltip-content>
+            </tedi-tooltip>
+          </div>
         </tedi-col>
         <tedi-col>
-          <label tedi-label [required]="true" tooltip="Tooltip text">Active ingredient</label>
+          <div style="display: flex; gap: 2px;">
+            <label tedi-label [required]="true">Active ingredient</label>
+            <tedi-tooltip>
+              <tedi-tooltip-trigger>
+                <button tedi-info-button ariaLabel="Kuva tööriistavihje"></button>
+              </tedi-tooltip-trigger>
+              <tedi-tooltip-content>
+                Tooltip content
+              </tedi-tooltip-content>
+            </tedi-tooltip>
+          </div>
         </tedi-col>
       </tedi-row>
     `,

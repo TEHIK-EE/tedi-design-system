@@ -5,8 +5,6 @@ import {
   input,
   ViewEncapsulation,
 } from "@angular/core";
-import { TooltipComponent } from "community";
-import { InfoButtonComponent } from "../../buttons/info-button/info-button.component";
 
 export type LabelSize = "small" | "default";
 
@@ -17,7 +15,6 @@ export type LabelSize = "small" | "default";
   standalone: true,
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [TooltipComponent, InfoButtonComponent],
   host: {
     "[class]": "classes()",
   },
@@ -33,10 +30,6 @@ export class LabelComponent {
    * @default false
    */
   required = input<boolean>(false);
-  /**
-   * Tooltip text with info button.
-   */
-  tooltip = input<string>("");
 
   classes = computed(() => {
     const classList = ["tedi-label"];
