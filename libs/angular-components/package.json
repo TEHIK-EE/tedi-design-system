@@ -15,7 +15,7 @@
     "build:sb": "ng run angular-components:build-storybook && replace-in-file //fonts//g \"./fonts/\" dist/storybook-static/main.css --isRegex",
     "lint": "ng lint angular-components --fix",
     "test": "jest --passWithNoTests",
-    "test:watch": "ng test angular-components --watch",
+    "test:watch": "jest --watch",
     "test:coverage": "jest --config ./jest.config.ts --coverage",
     "release": "npx semantic-release -e semantic-release-monorepo",
     "chromatic": "npx chromatic --project-token=$CHROMATIC_PROJECT_TOKEN --build-script-name=build:sb --baseline-branch=rc --include=\"tedi/**/*.stories.*\""
