@@ -28,6 +28,10 @@ export type SideNavItem<C extends React.ElementType = 'a'> = LinkProps<C> & {
    * Whether the sidenav is currently collapsed
    */
   isCollapsed?: boolean;
+  /**
+   * Whether this item with children should be open initially
+   */
+  isDefaultOpen?: boolean;
 };
 
 export const SideNavItem = <C extends React.ElementType = 'a'>(
@@ -49,10 +53,11 @@ export const SideNavItem = <C extends React.ElementType = 'a'>(
     className,
     level = 1,
     isCollapsed = false,
+    isDefaultOpen = false,
     ...rest
   } = props;
 
-  const [isCollapsedInternal, setIsCollapsedInternal] = useState(false);
+  const [isCollapsedInternal, setIsCollapsedInternal] = useState(props.isDefaultOpen ?? false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const collapseId = React.useId();
 

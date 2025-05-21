@@ -86,6 +86,56 @@ const exampleNavCollapsibleItems: SideNavItem[] = [
   { href: '#', children: 'Billing & Finance', icon: 'payments' },
 ];
 
+const exampleDefaultOpen: SideNavItem[] = [
+  { href: '#', children: 'Dashboard', icon: 'dashboard' },
+  { href: '#', children: 'Patient Records', icon: 'people' },
+  {
+    children: 'Clinical Management',
+    icon: 'medical_services',
+    subItemGroups: [
+      {
+        subHeading: 'Patient Care',
+        subItems: [
+          { href: '#', children: 'Vital Signs' },
+          { href: '#', children: 'Assessments' },
+        ],
+      },
+      {
+        subHeading: 'Documentation',
+        subItems: [
+          {
+            href: '#',
+            children: 'Treatments',
+          },
+          {
+            href: '#',
+            children: 'Documentation',
+          },
+        ],
+      },
+    ],
+  },
+  {
+    children: 'Administration',
+    isDefaultOpen: true,
+    icon: 'admin_panel_settings',
+    subItems: [
+      { href: '#', children: 'Staff Management' },
+      { href: '#', children: 'Scheduling' },
+      {
+        href: '#',
+        children: 'System Settings',
+      },
+      {
+        href: '#',
+        children: 'Reports & Analytics',
+      },
+    ],
+  },
+  { href: '#', children: 'Inventory Management', icon: 'inventory' },
+  { href: '#', children: 'Billing & Finance', icon: 'payments' },
+];
+
 const exampleNavCollapsibleItemsWithLinks: SideNavItem[] = [
   { href: '#', children: 'Dashboard', icon: 'dashboard' },
   { href: '#', children: 'Patient Records', icon: 'people' },
@@ -270,4 +320,11 @@ export const CollapsibleToggle: React.FC = () => {
 
 export const CollapsibleToggleSecondLevelitems: React.FC = () => {
   return <SideNav ariaLabel="Collapsible menu" navItems={exampleNavCollapsibleItems} isCollapsed={true} />;
+};
+
+export const DefaultOpen: Story = {
+  args: {
+    navItems: exampleDefaultOpen,
+    ariaLabel: 'Default open menu',
+  },
 };
