@@ -26,7 +26,7 @@ export interface TabsItemProps extends BreakpointSupport<TabsItemBreakpointProps
 }
 
 export const TabsItem = (props: TabsItemProps) => {
-  const { getCurrentBreakpointProps } = useBreakpointProps();
+  const { getCurrentBreakpointProps } = useBreakpointProps(props.defaultServerBreakpoint);
   const { className, padding, background, id, children } = getCurrentBreakpointProps<TabsItemProps>(props, {
     padding: { top: 1.5, right: 2, bottom: 2, left: 2 },
     background: 'white',

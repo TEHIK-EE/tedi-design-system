@@ -79,7 +79,7 @@ export interface TextProps extends BreakpointSupport<TextBreakpointProps> {
 }
 
 export const Text = (props: TextProps): JSX.Element => {
-  const { getCurrentBreakpointProps } = useBreakpointProps();
+  const { getCurrentBreakpointProps } = useBreakpointProps(props.defaultServerBreakpoint);
   const {
     children,
     className,

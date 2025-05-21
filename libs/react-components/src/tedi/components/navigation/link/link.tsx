@@ -28,7 +28,7 @@ export type LinkProps<C extends React.ElementType = 'a'> = BreakpointSupport<
 >;
 
 const LinkComponent = forwardRef(<C extends React.ElementType = 'a'>(props: LinkProps<C>, ref?: PolymorphicRef<C>) => {
-  const { getCurrentBreakpointProps } = useBreakpointProps();
+  const { getCurrentBreakpointProps } = useBreakpointProps(props.defaultServerBreakpoint);
   const { getLabel } = useLabels();
 
   const {

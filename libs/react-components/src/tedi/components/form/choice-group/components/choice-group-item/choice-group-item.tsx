@@ -35,7 +35,7 @@ export interface ExtendedChoiceGroupItemProps extends BreakpointSupport<ChoiceGr
 }
 
 export const ChoiceGroupItem = (props: ExtendedChoiceGroupItemProps): React.ReactElement => {
-  const { getCurrentBreakpointProps } = useBreakpointProps();
+  const { getCurrentBreakpointProps } = useBreakpointProps(props.defaultServerBreakpoint);
   const {
     id,
     label,

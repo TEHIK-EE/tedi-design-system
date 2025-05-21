@@ -1,5 +1,11 @@
-import { Meta, StoryObj, moduleMetadata } from "@storybook/angular";
-import { CloseButtonComponent } from "./closing-button.component";
+import {
+  Meta,
+  StoryObj,
+  argsToTemplate,
+  moduleMetadata,
+} from "@storybook/angular";
+
+import { ClosingButtonComponent } from "./closing-button.component";
 import { IconComponent } from "@tehik-ee/tedi-angular/tedi";
 
 /**
@@ -10,31 +16,27 @@ import { IconComponent } from "@tehik-ee/tedi-angular/tedi";
  */
 export default {
   title: "Community Angular/Buttons/ClosingButton",
-  component: CloseButtonComponent,
+  component: ClosingButtonComponent,
   decorators: [
     moduleMetadata({
       imports: [IconComponent],
     }),
   ],
   argTypes: {
-    small: {
-      control: "boolean",
-      description: "Should show small button instead of default button.",
+    size: {
+      control: "radio",
+      options: ["medium", "large"],
+      description: "The size of the button.",
       table: {
-        defaultValue: { summary: "false" },
-        type: {
-          summary: "boolean",
-        },
+        defaultValue: { summary: "medium" },
       },
     },
-    smallIcon: {
-      control: "boolean",
-      description: "Should show small icon instead of default icon.",
+    title: {
+      control: "text",
+      description:
+        "The title for the button. Used for accessibility and inside browsers default tooltip on hover.",
       table: {
-        defaultValue: { summary: "false" },
-        type: {
-          summary: "boolean",
-        },
+        defaultValue: { summary: "Sulge" },
       },
     },
   },
@@ -46,58 +48,32 @@ export default {
       },
     },
   },
-} as Meta<CloseButtonComponent>;
+} as Meta<ClosingButtonComponent>;
 
-type Story = StoryObj<CloseButtonComponent>;
+type Story = StoryObj<ClosingButtonComponent>;
 
 export const Default: Story = {
   args: {
-    small: false,
-    smallIcon: false,
+    size: "medium",
+    title: "Sulge",
   },
   render: (args) => ({
     props: args,
     template: `
-      <button tedi-close-button [small]="small" [smallIcon]="smallIcon"></button>
+      <button tedi-closing-button ${argsToTemplate(args)}></button>
     `,
   }),
 };
 
-export const Small: Story = {
+export const Large: Story = {
   args: {
-    small: true,
-    smallIcon: false,
+    size: "large",
+    title: "Sulge",
   },
   render: (args) => ({
     props: args,
     template: `
-      <button tedi-close-button [small]="small" [smallIcon]="smallIcon"></button>
-    `,
-  }),
-};
-
-export const SmallIcon: Story = {
-  args: {
-    small: false,
-    smallIcon: true,
-  },
-  render: (args) => ({
-    props: args,
-    template: `
-      <button tedi-close-button [small]="small" [smallIcon]="smallIcon"></button>
-    `,
-  }),
-};
-
-export const SmallButtonWithSmallIcon: Story = {
-  args: {
-    small: true,
-    smallIcon: true,
-  },
-  render: (args) => ({
-    props: args,
-    template: `
-      <button tedi-close-button [small]="small" [smallIcon]="smallIcon"></button>
+      <button tedi-closing-button ${argsToTemplate(args)}></button>
     `,
   }),
 };

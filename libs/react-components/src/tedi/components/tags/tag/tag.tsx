@@ -41,7 +41,7 @@ export interface TagProps extends BreakpointSupport<TagBreakpointProps> {
 }
 
 export const Tag = (props: TagProps): JSX.Element => {
-  const { getCurrentBreakpointProps } = useBreakpointProps();
+  const { getCurrentBreakpointProps } = useBreakpointProps(props.defaultServerBreakpoint);
   const {
     children,
     className,
