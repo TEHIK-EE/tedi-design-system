@@ -6,6 +6,7 @@ import {
 } from "@storybook/angular";
 import { ColComponent } from "./col.component";
 import { RowComponent } from "../row/row.component";
+import { createBreakpointArgTypes } from "../../../../../utils/createBreakpointArgTypes";
 
 /**
  * <a href="https://tedi.tehik.ee/1ee8444b7/p/24da19-grid" target="_BLANK">Zeroheight ↗</a><br/>
@@ -69,60 +70,7 @@ export default {
         },
       },
     },
-    xs: {
-      description: "Overrides ColInputs on xs breakpoint (<576px).",
-      table: {
-        category: "breakpoints",
-        type: {
-          summary: "ColInputs",
-        },
-      },
-    },
-    sm: {
-      description: "Overrides ColInputs on sm breakpoint (≥576px).",
-      table: {
-        category: "breakpoints",
-        type: {
-          summary: "ColInputs",
-        },
-      },
-    },
-    md: {
-      description: "Overrides ColInputs on md breakpoint (≥768px).",
-      table: {
-        category: "breakpoints",
-        type: {
-          summary: "ColInputs",
-        },
-      },
-    },
-    lg: {
-      description: "Overrides ColInputs on lg breakpoint (≥992px).",
-      table: {
-        category: "breakpoints",
-        type: {
-          summary: "ColInputs",
-        },
-      },
-    },
-    xl: {
-      description: "Overrides ColInputs on xl breakpoint (≥1200px).",
-      table: {
-        category: "breakpoints",
-        type: {
-          summary: "ColInputs",
-        },
-      },
-    },
-    xxl: {
-      description: "Overrides ColInputs on xxl breakpoint (≥1400px).",
-      table: {
-        category: "breakpoints",
-        type: {
-          summary: "ColInputs",
-        },
-      },
-    },
+    ...createBreakpointArgTypes("Col"),
   },
 } as Meta<ColComponent>;
 
