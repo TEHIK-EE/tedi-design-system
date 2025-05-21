@@ -14,6 +14,7 @@ import {
   TextComponent,
   VerticalSpacingDirective,
 } from "@tehik-ee/tedi-angular/tedi";
+import { createBreakpointArgTypes } from "../../../../utils/createBreakpointArgTypes";
 
 export default {
   title: "Community Angular/Content/TextGroup",
