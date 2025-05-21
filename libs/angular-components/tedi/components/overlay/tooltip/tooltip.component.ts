@@ -16,11 +16,11 @@ import {
   OverlayConfig,
   OverlayModule,
   OverlayRef,
+  Overlay
 } from "@angular/cdk/overlay";
-import { Overlay } from "@angular/cdk/overlay";
 import { CdkPortal, PortalModule } from "@angular/cdk/portal";
-import { TooltipTriggerComponent } from "./tooltip-trigger/tooltip-trigger.component";
-import { TooltipContentComponent } from "./tooltip-content/tooltip-content.component";
+import { TooltipTriggerComponent } from "./tooltip-trigger.component";
+import { TooltipContentComponent } from "./tooltip-content.component";
 
 export const TOOLTIP_ARROW_OFFSET = 15;
 export const TOOLTIP_TIMEOUT_MS = 150;

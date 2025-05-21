@@ -10,8 +10,8 @@ import { RowComponent } from "../../layout/grid/row/row.component";
 import { ColComponent } from "../../layout/grid/col/col.component";
 import { VerticalSpacingItemDirective } from "../../../directives/vertical-spacing/vertical-spacing-item.directive";
 import { TextComponent } from "../../base/text/text.component";
-import { TooltipTriggerComponent } from "./tooltip-trigger/tooltip-trigger.component";
-import { TooltipContentComponent, TooltipPosition, TooltipWidth } from "./tooltip-content/tooltip-content.component";
+import { TooltipTriggerComponent } from "./tooltip-trigger.component";
+import { TooltipContentComponent, TooltipPosition, TooltipWidth } from "./tooltip-content.component";
 
 const MAXWIDTH = ["none", "small", "medium", "large"];
 

@@ -3,8 +3,8 @@ import { Component, Injectable, input, OnDestroy, ViewChild } from '@angular/cor
 import { TOOLTIP_TIMEOUT_MS, TooltipComponent, TooltipOpenWith } from './tooltip.component';
 import { OverlayContainer, OverlayModule } from '@angular/cdk/overlay';
 import { PortalModule } from '@angular/cdk/portal';
-import { TooltipTriggerComponent } from './tooltip-trigger/tooltip-trigger.component';
-import { TooltipContentComponent, TooltipPosition, TooltipWidth } from './tooltip-content/tooltip-content.component';
+import { TooltipTriggerComponent } from './tooltip-trigger.component';
+import { TooltipContentComponent, TooltipPosition, TooltipWidth } from './tooltip-content.component';
 
 @Injectable()
 class NoopOverlayContainer extends OverlayContainer implements OnDestroy {

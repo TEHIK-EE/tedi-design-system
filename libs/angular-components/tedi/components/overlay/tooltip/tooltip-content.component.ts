@@ -7,7 +7,7 @@ export type TooltipWidth = "none" | "small" | "medium" | "large";
     standalone: true,
     selector: "tedi-tooltip-content",
     template: "<ng-content />",
-    styleUrl: "../tooltip.component.scss",
+    styleUrl: "./tooltip.component.scss",
     encapsulation: ViewEncapsulation.None,
     changeDetection: ChangeDetectionStrategy.OnPush,
     host: {
