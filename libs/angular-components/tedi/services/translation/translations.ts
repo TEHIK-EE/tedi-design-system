@@ -449,7 +449,16 @@ export const translationsMap = {
   },
 };
 
-export type ExactTMap = typeof translationsMap;
-export type CurrentLanguageMap<L extends Language> = {
-  [K in keyof ExactTMap]: ExactTMap[K][L];
+export type TediTranslationsMap<L extends Language> = {
+  [K in keyof typeof translationsMap]: typeof translationsMap[K][L];
 };
+
+export type TranslationEntry = {
+  description: string;
+  components: string[];
+} & {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  [L in Language]: string | ((...args: any[]) => string);
+};
+
+export type TranslationMap = Record<string, TranslationEntry>;
