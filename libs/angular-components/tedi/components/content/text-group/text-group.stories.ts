@@ -17,7 +17,7 @@ import {
 import { createBreakpointArgTypes } from "../../../../utils/createBreakpointArgTypes";
 
 export default {
-  title: "Community Angular/Content/TextGroup",
+  title: "TEDI-Ready Angular/Content/TextGroup",
   component: TextGroupComponent,
 } as Meta<TextGroupComponent>;
 
