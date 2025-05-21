@@ -265,5 +265,9 @@ export const ThirdLevelMenuItemsLink: Story = {
 };
 
 export const CollapsibleToggle: React.FC = () => {
+  return <SideNav ariaLabel="Collapsible menu" navItems={exampleThirdLevelMenuItems} isCollapsed={true} />;
+};
+
+export const CollapsibleToggleSecondLevelitems: React.FC = () => {
   return <SideNav ariaLabel="Collapsible menu" navItems={exampleNavCollapsibleItems} isCollapsed={true} />;
 };
