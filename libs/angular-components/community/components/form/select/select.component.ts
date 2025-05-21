@@ -56,7 +56,8 @@ import { ClosingButtonComponent } from "../../buttons/closing-button/closing-but
   },
 })
 export class SelectComponent
-  implements ControlValueAccessor, OnInit, AfterContentChecked {
+  implements ControlValueAccessor, OnInit, AfterContentChecked
+{
   /**
    * The placeholder text to display when no option is selected.
    * @default ""
@@ -71,32 +72,45 @@ export class SelectComponent
    * The state of the input.
    * @default "default"
    */
-  state = input<InputState>("default");
-  /**
+  state = input<InputState>("default"); /**
    * The size of the input.
    * @default "default"
    */
   size = input<InputSize>("default");
+  /**
+   * Enable multi-selection mode.
+   * @default false
+   */
+  multiselect = input<boolean>(false);
 
   // Internal state
-  _selectedValue = signal<string | null>(null);
+  _selectedValue = signal<string | string[] | null>(null);
   _disabled = signal<boolean>(false);
   _width = signal<number>(0);
   _options = contentChildren(SelectOptionComponent);
 
   private selectRef = inject(ElementRef);
-
   // ControlValueAccessor methods
-  private onChange: (value: string | null) => void = () => {};
+  private onChange: (value: string | string[] | null) => void = () => {};
   private onTouched: () => void = () => {};
 
-  writeValue(value: string | null): void {
-    if (!value) return;
+  writeValue(value: string | string[] | null): void {
+    if (value === null || value === undefined) {
+      this._selectedValue.set(null);
+      return;
+    }
 
-    this.select(value);
+    if (this.multiselect() && !Array.isArray(value)) {
+      // Convert single value to array for multiselect mode
+      this._selectedValue.set([value]);
+    } else if (!this.multiselect() && Array.isArray(value)) {
+      // Take the first value if single select mode but array provided
+      this._selectedValue.set(value.length > 0 ? value[0] : null);
+    } else {
+      this._selectedValue.set(value);
+    }
   }
-
-  registerOnChange(fn: (value: string | null) => void): void {
+  registerOnChange(fn: (value: string | string[] | null) => void): void {
     this.onChange = fn;
   }
 
@@ -124,8 +138,26 @@ export class SelectComponent
 
   // Event handlers
   select(value: string) {
-    this._selectedValue.set(value);
-    this.onChange(value);
+    if (this.multiselect()) {
+      const currentValue = this._selectedValue() ?? [];
+      const selectedValues = Array.isArray(currentValue)
+        ? [...currentValue]
+        : [currentValue];
+
+      // Toggle selection for multiselect
+      const index = selectedValues.indexOf(value);
+      if (index === -1) {
+        selectedValues.push(value);
+      } else {
+        selectedValues.splice(index, 1);
+      }
+
+      this._selectedValue.set(selectedValues.length ? selectedValues : null);
+    } else {
+      this._selectedValue.set(value);
+    }
+
+    this.onChange(this._selectedValue());
     this.onTouched();
   }
 
@@ -139,15 +171,52 @@ export class SelectComponent
     this.onTouched();
   }
 
-  selectedLabel = computed(() =>
-    this._options()
-      .find((option) => option.value() === this._selectedValue())
-      ?.label(),
-  );
+  selectedLabel = computed(() => {
+    const value = this._selectedValue();
+
+    if (!value) return null;
+
+    if (this.multiselect() && Array.isArray(value)) {
+      if (value.length === 0) return null;
+
+      const labels = value
+        .map((v) =>
+          this._options()
+            .find((option) => option.value() === v)
+            ?.label(),
+        )
+        .filter(Boolean);
+
+      return labels.join(", ");
+    }
+
+    const singleValue = Array.isArray(value) ? value[0] : value;
+    return this._options()
+      .find((option) => option.value() === singleValue)
+      ?.label();
+  });
 
   private setDropdownWidth() {
     const computedWidth =
       this.selectRef?.nativeElement?.getBoundingClientRect()?.width ?? 0;
     this._width.set(computedWidth);
+  }
+  isOptionSelected(value: string): boolean {
+    const selectedValue = this._selectedValue();
+    if (!selectedValue) return false;
+
+    if (Array.isArray(selectedValue)) {
+      return selectedValue.includes(value);
+    }
+
+    return selectedValue === value;
+  }
+
+  getOptionLabel(value: string): string | null {
+    return (
+      this._options()
+        .find((option) => option.value() === value)
+        ?.label() || value
+    );
   }
 }
