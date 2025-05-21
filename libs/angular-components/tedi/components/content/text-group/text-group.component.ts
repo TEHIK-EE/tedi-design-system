@@ -1,5 +1,8 @@
 import { Component, computed, inject, input } from "@angular/core";
-import { BreakpointInputs, BreakpointService } from "tedi/services";
+import {
+  BreakpointInputs,
+  BreakpointService,
+} from "../../../services/breakpoint/breakpoint.service";
 
 export type TextGroupType = "vertical" | "horizontal";
 

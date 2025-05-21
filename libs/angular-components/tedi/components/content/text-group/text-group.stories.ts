@@ -60,7 +60,6 @@ export const Default: Story = {
       description: 'Width for the label (e.g., "200px", "30%", etc.)',
       defaultValue: "auto",
     },
-
     xs: {
       description: "Overrides TextGroupInputs on xs breakpoint (<576px).",
       table: {
