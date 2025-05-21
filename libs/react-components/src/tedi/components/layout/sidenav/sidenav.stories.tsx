@@ -1,9 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
-import { useState } from 'react';
 
-import { Col, Row } from '../grid';
 import { SideNavItem } from './components/sidenav-item/sidenav-item';
-import SidenavToggle from './components/sidenav-toggle/sidenav-toggle';
 import Sidenav, { SideNav } from './sidenav';
 
 /**
@@ -150,6 +147,47 @@ const exampleThirdLevelMenuItems: SideNavItem[] = [
       { href: '#', children: 'Vital Signs' },
       { href: '#', children: 'Assessments' },
       {
+        children: 'Treatments',
+        subItems: [
+          { href: '#', children: 'Active Treatments' },
+          { href: '#', children: 'Treatment History' },
+          { href: '#', children: 'Treatment Plans' },
+          { href: '#', children: 'Clinical Protocols' },
+        ],
+      },
+      {
+        children: 'Documentation',
+        subItems: [
+          { href: '#', children: 'Clinical Notes' },
+          { href: '#', children: 'Medical Forms' },
+          { href: '#', children: 'Consent Forms' },
+          { href: '#', children: 'Reports' },
+        ],
+      },
+    ],
+  },
+  {
+    children: 'Administration',
+    icon: 'admin_panel_settings',
+    subItems: [
+      { href: '#', children: 'Staff Management' },
+      { href: '#', children: 'Scheduling' },
+    ],
+  },
+  { href: '#', children: 'Inventory Management', icon: 'inventory' },
+  { href: '#', children: 'Billing & Finance', icon: 'payments' },
+];
+
+const exampleThirdLevelMenuItemsLinks: SideNavItem[] = [
+  { href: '#', children: 'Dashboard', icon: 'dashboard' },
+  { href: '#', children: 'Patient Records', icon: 'people' },
+  {
+    children: 'Clinical Management',
+    icon: 'medical_services',
+    subItems: [
+      { href: '#', children: 'Vital Signs' },
+      { href: '#', children: 'Assessments' },
+      {
         href: '#',
         children: 'Treatments',
         subItems: [
@@ -172,6 +210,7 @@ const exampleThirdLevelMenuItems: SideNavItem[] = [
     ],
   },
   {
+    href: '#',
     children: 'Administration',
     icon: 'admin_panel_settings',
     subItems: [
@@ -218,46 +257,13 @@ export const ThirdLevelMenuItems: Story = {
   },
 };
 
+export const ThirdLevelMenuItemsLink: Story = {
+  args: {
+    navItems: exampleThirdLevelMenuItemsLinks,
+    ariaLabel: 'Menu title',
+  },
+};
+
 export const CollapsibleToggle: React.FC = () => {
-  return (
-    <>
-      <SideNav ariaLabel="Collapsible menu" navItems={exampleNavCollapsibleItems} isCollapsed={true} />
-    </>
-  );
-};
-
-export const CollapsibleToggleWithThirdLevelMenuItems: React.FC = () => {
-  const [isCollapsed, setIsCollapsed] = useState(true);
-
-  return (
-    <>
-      <SideNav
-        ariaLabel="Collapsible menu"
-        navItems={exampleThirdLevelMenuItems}
-        isCollapsed={isCollapsed}
-        onCollapseToggle={(collapsed) => setIsCollapsed(collapsed)}
-      />
-    </>
-  );
-};
-
-export const Mobile: React.FC = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  return (
-    <Row gutterX={0}>
-      <Col>
-        <SideNav
-          ariaLabel="Collapsible menu"
-          navItems={exampleThirdLevelMenuItems}
-          mobileBreakpoint="mobile"
-          isOpen={isMenuOpen}
-          onMenuToggle={setIsMenuOpen}
-        />
-      </Col>
-      <Col className="text-right" style={{ zIndex: 9999 }}>
-        <SidenavToggle variant="mobile" toggleMenu={() => setIsMenuOpen((open) => !open)} menuOpen={isMenuOpen} />
-      </Col>
-    </Row>
-  );
+  return <SideNav ariaLabel="Collapsible menu" navItems={exampleNavCollapsibleItems} isCollapsed={true} />;
 };

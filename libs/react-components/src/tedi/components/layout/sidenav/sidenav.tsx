@@ -7,6 +7,7 @@ import { Breakpoint, isBreakpointBelow, useBreakpoint } from '../../../helpers';
 import { AllowedHTMLTags } from '../../../helpers/polymorphic/types';
 import { UnknownType } from '../../../types/commonTypes';
 import { SideNavItem } from './components/sidenav-item/sidenav-item';
+import { SideNavMobile } from './components/sidenav-mobile-dropdown/sidenav-mobile';
 import SidenavToggle from './components/sidenav-toggle/sidenav-toggle';
 import styles from './sidenav.module.scss';
 
@@ -168,8 +169,18 @@ export const SideNav: <C extends React.ElementType = 'a'>(props: SideNavProps<C>
     </Print>
   );
 
-  if (!isMobileView) {
-    return sidebarContent;
+  if (isMobileView) {
+    return (
+      <SideNavMobile
+        navItems={navItems}
+        ariaLabel={ariaLabel}
+        linkAs={linkAs}
+        isOpen={isMenuOpen}
+        onClose={() => setMenuOpen(false)}
+        showOverlay={useOverlay && showMobileOverlay}
+        {...rest}
+      />
+    );
   }
 
   if (!showMobileOverlay) {

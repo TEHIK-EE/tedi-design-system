@@ -35,7 +35,6 @@ export const SideNavItem = <C extends React.ElementType = 'a'>(
     onItemClick?: () => void;
     level?: number;
     isCollapsed?: boolean;
-    isMobile?: boolean;
   }
 ) => {
   const {
