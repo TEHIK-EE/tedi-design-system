@@ -16,7 +16,7 @@ import {
 } from "@tehik-ee/tedi-angular/tedi";
 
 export default {
-  title: "Community Angular/Content/TextGroup",
+  title: "TEDI-Ready Angular/Content/TextGroup",
   component: TextGroupComponent,
 } as Meta<TextGroupComponent>;
 
