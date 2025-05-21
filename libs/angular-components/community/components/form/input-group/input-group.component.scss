@@ -43,7 +43,9 @@
   --_input-group-padding-y-tablet: var(
     --form-field-padding-y-md-default-tablet
   );
-  --input-group-padding-y-mobile: var(--form-field-padding-y-md-default-mobile);
+  --_input-group-padding-y-mobile: var(
+    --form-field-padding-y-md-default-mobile
+  );
 
   --_input-group-background-color: var(--form-input-background-default);
   --_input-group-min-height: var(--dimensions-14);
