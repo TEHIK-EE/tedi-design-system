@@ -10,7 +10,7 @@ export type LabelSize = "small" | "default";
 
 @Component({
   selector: "label[tedi-label]",
-  templateUrl: "./label.component.html",
+  template: "<ng-content />",
   styleUrl: "./label.component.scss",
   standalone: true,
   encapsulation: ViewEncapsulation.None,
@@ -36,6 +36,10 @@ export class LabelComponent {
 
     if (this.size() === "small") {
       classList.push("tedi-label--small");
+    }
+
+    if (this.required()) {
+      classList.push("tedi-label--required");
     }
 
     return classList.join(" ");

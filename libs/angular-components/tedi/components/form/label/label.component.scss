@@ -10,7 +10,10 @@
     @include mixins.responsive-styles(font-size, body-small-regular-size, $exclude: tablet);
   }
 
-  &__asterisk {
-    color: var(--form-general-feedback-error-border);
+  &--required {
+    &::after {
+      content: " *";
+      color: var(--form-general-feedback-error-border);
+    }
   }
 }

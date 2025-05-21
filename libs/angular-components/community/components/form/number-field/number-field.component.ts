@@ -15,9 +15,9 @@ import {
   ComponentInputs,
   IconComponent,
   TextComponent,
+  LabelComponent
 } from "@tehik-ee/tedi-angular/tedi";
 import { FeedbackTextComponent } from "../feedback-text/feedback-text.component";
-import { LabelComponent } from "../label/label.component";
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from "@angular/forms";
 
 export type NumberFieldSize = "default" | "small";
