@@ -1,0 +1,22 @@
+@if (type() === "danger") {
+  <tedi-icon name="error" color="danger" size="10" />
+}
+
+<span class="tedi-tag__content">
+  <ng-content />
+</span>
+
+@if (loading()) {
+  <span class="tedi-tag__spinner-wrapper">
+    <tedi-spinner [size]="10" />
+  </span>
+} @else if (closable()) {
+  <button
+    type="reset"
+    class="tedi-tag__closing-button"
+    [attr.aria-label]="'Eemalda'"
+    (click)="handleClose()"
+  >
+    <tedi-icon name="close" size="10" />
+  </button>
+}
