@@ -1,6 +1,5 @@
 import { Meta, StoryObj, moduleMetadata } from "@storybook/angular";
 import { TagComponent } from "./tag.component";
-import { RowComponent } from "tedi/components";
 
 /**
  * The Tag component is used to label, categorize, or organize items using keywords.
@@ -13,11 +12,6 @@ export default {
       imports: [TagComponent],
     }),
   ],
-  parameters: {
-    status: {
-      type: ["existsInTediReady"],
-    },
-  },
   render: (props) => ({
     props,
     template: `
