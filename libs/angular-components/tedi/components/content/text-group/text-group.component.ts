@@ -26,7 +26,7 @@ export type TextGroupInputs = {
 })
 export class TextGroupComponent implements BreakpointInputs<TextGroupInputs> {
   type = input<TextGroupType>("horizontal");
-  labelWidth = input<string>("auto");
+  labelWidth = input<string>();
   breakpointService = inject(BreakpointService);
 
   xs = input<TextGroupInputs>();
