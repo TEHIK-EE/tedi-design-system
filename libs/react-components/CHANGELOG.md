@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-react-v11.4.0-rc.7](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.4.0-rc.6...react-11.4.0-rc.7) (2025-05-22)
+
+
+### Bug Fixes
+
+* **react-types:** add missing types [#798](https://github.com/TEHIK-EE/tedi-design-system/issues/798) ([#811](https://github.com/TEHIK-EE/tedi-design-system/issues/811)) ([4882bed](https://github.com/TEHIK-EE/tedi-design-system/commit/4882bed318fba26c46c9107ff85f1ceb7738dfef))
+
 # [@tehik-ee/tedi-react-v11.4.0-rc.6](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.4.0-rc.5...react-11.4.0-rc.6) (2025-05-20)
 
 
