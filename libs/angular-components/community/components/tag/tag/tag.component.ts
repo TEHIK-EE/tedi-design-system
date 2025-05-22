@@ -25,11 +25,32 @@ export type TagType = "primary" | "secondary" | "danger";
   },
 })
 export class TagComponent {
+  /**
+   * Whether the tag is in loading state.
+   * When true, a spinner will be displayed inside the tag.
+   * @default false
+   */
   loading = input(false);
+
+  /**
+   * Whether the tag can be closed.
+   * When true, a close button will be displayed that emits the 'closed' event when clicked.
+   * @default false
+   */
   closable = input(false);
+
+  /**
+   * The visual style of the tag.
+   * Possible values: 'primary', 'secondary', 'danger'
+   * @default "primary"
+   */
   type = input<TagType>("primary");
 
-  closed = output();
+  /**
+   * Event emitted when the close button is clicked.
+   * Only relevant when closable is true.
+   */
+  closed = output<Event>();
 
   classes = computed(() => {
     const classList = [];
@@ -39,7 +60,7 @@ export class TagComponent {
     return classList.join(" ");
   });
 
-  handleClose() {
-    this.closed.emit();
+  handleClose(event: Event) {
+    this.closed.emit(event);
   }
 }
