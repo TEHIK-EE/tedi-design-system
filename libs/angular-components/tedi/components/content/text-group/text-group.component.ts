@@ -26,7 +26,7 @@ export type TextGroupInputs = {
 })
 export class TextGroupComponent implements BreakpointInputs<TextGroupInputs> {
   type = input<TextGroupType>("horizontal");
-  labelWidth = input<string>();
+  labelWidth = input<string>("auto");
   breakpointService = inject(BreakpointService);
 
   xs = input<TextGroupInputs>();
@@ -52,9 +52,7 @@ export class TextGroupComponent implements BreakpointInputs<TextGroupInputs> {
 
   classes = computed(() => {
     const classList = ["tedi-text-group"];
-    if (this.type()) {
-      classList.push(`tedi-text-group--${this.breakpointInputs().type}`);
-    }
+    classList.push(`tedi-text-group--${this.breakpointInputs().type}`);
     return classList.join(" ");
   });
 }

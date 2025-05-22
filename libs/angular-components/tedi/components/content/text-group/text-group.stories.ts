@@ -67,59 +67,35 @@ export const Default: Story = {
 
 export const Type: Story = {
   ...Default,
-  args: {},
+  args: {
+    textGroups: [
+      { type: "vertical", label: "Accessibility", value: "Visible to doctor and representative" },
+      { type: "vertical", label: "Accessibility", value: "Visible to doctor and representative" },
+      { type: "vertical", label: "Accessibility", value: "Visible to doctor and representative", icon: { size: 24, name: "lock", color: "tertiary" }, valueModifiers: "inline-block" },
+      { type: "vertical", label: "Accessibility", labelModifiers: "bold", value: "Visible to doctor and representative" },
+      { type: "vertical", label: "Accessibility", value: "Visible to doctor and representative", valueModifiers: "bold" },
+      { type: "horizontal", label: "Patient", value: "Mari Maasikas", icon: { size: 24, name: "person_filled", color: "tertiary" }, valueModifiers: "inline-block" },
+    ],
+  },
   render: (args) => ({
     props: args,
     template: `
       <div [tediVerticalSpacing]="1.5">
-        <tedi-text-group type="vertical">
+        <tedi-text-group
+          *ngFor="let group of textGroups"
+          [type]="group.type"
+        >
           <tedi-text-group-label>
-            <p tedi-text>Accessibility</p>
+            <p tedi-text [attr.modifiers]="group.labelModifiers">{{ group.label }}</p>
           </tedi-text-group-label>
           <tedi-text-group-value>
-            <p tedi-text>Visible to doctor and representative</p>
-          </tedi-text-group-value>
-        </tedi-text-group>
-        <tedi-text-group type="vertical">
-          <tedi-text-group-label>
-            <p tedi-text>Accessibility</p>
-          </tedi-text-group-label>
-          <tedi-text-group-value>
-            <p tedi-text>Visible to doctor and representative</p>
-          </tedi-text-group-value>
-        </tedi-text-group>
-        <tedi-text-group type="vertical">
-          <tedi-text-group-label>
-            <p tedi-text>Accessibility</p>
-          </tedi-text-group-label>
-          <tedi-text-group-value>
-            <tedi-icon size="24" name="lock" color="tertiary" />
-            <p tedi-text modifiers="inline-block">Visible to doctor and representative</p>
-          </tedi-text-group-value>
-        </tedi-text-group>
-        <tedi-text-group type="vertical">
-          <tedi-text-group-label>
-            <p tedi-text modifiers="bold">Accessibility</p>
-          </tedi-text-group-label>
-          <tedi-text-group-value>
-            <p tedi-text>Visible to doctor and representative</p>
-          </tedi-text-group-value>
-        </tedi-text-group>
-        <tedi-text-group type="vertical">
-          <tedi-text-group-label>
-            <p tedi-text>Accessibility</p>
-          </tedi-text-group-label>
-          <tedi-text-group-value>
-            <p tedi-text modifiers="bold">Visible to doctor and representative</p>
-          </tedi-text-group-value>
-        </tedi-text-group>
-        <tedi-text-group type="horizontal">
-          <tedi-text-group-label>
-            <p tedi-text>Patient</p>
-          </tedi-text-group-label>
-          <tedi-text-group-value>
-            <tedi-icon size="24" name="person_filled" color="tertiary" />
-            <p tedi-text modifiers="inline-block">Mari Maasikas</p>
+            <tedi-icon
+              *ngIf="group.icon"
+              [size]="group.icon.size"
+              [name]="group.icon.name"
+              [color]="group.icon.color"
+            ></tedi-icon>
+            <p tedi-text [attr.modifiers]="group.valueModifiers">{{ group.value }}</p>
           </tedi-text-group-value>
         </tedi-text-group>
       </div>
