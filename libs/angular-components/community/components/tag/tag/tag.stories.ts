@@ -5,7 +5,7 @@ import { TagComponent } from "./tag.component";
  * The Tag component is used to label, categorize, or organize items using keywords.
  */
 export default {
-  title: "Community Angular/Tag",
+  title: "Community Angular/Tag/Tag",
   component: TagComponent,
   decorators: [
     moduleMetadata({
