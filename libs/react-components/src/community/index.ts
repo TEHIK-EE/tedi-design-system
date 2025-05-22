@@ -35,5 +35,3 @@ export * from './components/placeholder/placeholder';
 export * from './helpers';
 
 export * from './providers/style-provider/style-provider';
-
-export * from './types/index';

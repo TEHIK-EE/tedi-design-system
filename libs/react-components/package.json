@@ -5,12 +5,12 @@
   "sideEffects": false,
   "exports": {
     "./tedi": {
-      "types": "./src/tedi/index.d.ts",
+      "types": "./tedi.d.ts",
       "import": "./tedi.es.js",
       "require": "./tedi.cjs.js"
     },
     "./community": {
-      "types": "./src/community/index.d.ts",
+      "types": "./community.d.ts",
       "import": "./community.es.js",
       "require": "./community.cjs.js"
     },

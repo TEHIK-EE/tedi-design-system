@@ -2,8 +2,6 @@ import { argsToTemplate, type Meta, type StoryObj } from "@storybook/angular";
 
 import { BreadcrumbsComponent } from "./breadcrumbs.component";
 import { createBreakpointArgTypes } from "../../../../utils/createBreakpointArgTypes";
-
-
 /**
 <a href="https://www.figma.com/design/jWiRIXhHRxwVdMSimKX2FF/TEDI-READY-2.8.9--work-in-progress-?node-id=2370-14804&m=dev" target="_BLANK">Figma ↗</a><br/>
 * Breadcrumbs provide users with a clear path of where they are within the application.
@@ -57,7 +55,6 @@ export default {
       },
     },
     ...createBreakpointArgTypes("Breadcrumbs"),
-
   },
 } as Meta<BreadcrumbsComponent>;
 

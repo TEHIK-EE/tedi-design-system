@@ -17,7 +17,8 @@ const config: UserConfig = {
     dts({
       tsconfigPath: join(__dirname, './tsconfig.lib.json'),
       entryRoot: join(__dirname, 'src'),
-      outDir: join(__dirname, 'dist/src'),
+      outDir: join(__dirname, 'dist'),
+      rollupTypes: true,
     }),
     react(),
     checker({
