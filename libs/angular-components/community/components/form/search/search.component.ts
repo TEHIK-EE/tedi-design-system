@@ -69,7 +69,9 @@ export type AutocompleteOption = {
   ],
 })
 export class SearchComponent
+
   implements AfterContentChecked, ControlValueAccessor {
+
   /**
    * Search input ID for accessibility
    */
