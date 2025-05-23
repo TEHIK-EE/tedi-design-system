@@ -1,11 +1,4 @@
-import {
-  Component,
-  inject,
-  input,
-  Renderer2,
-  signal,
-  AfterViewInit,
-} from "@angular/core";
+import { Component, input, signal, AfterViewInit } from "@angular/core";
 import { IconComponent, TextComponent } from "@tehik-ee/tedi-angular/tedi";
 
 export type ArrowType = "default" | "secondary";
@@ -23,12 +16,12 @@ export class CollapseComponent implements AfterViewInit {
    * Rendered inside the toggle button.
    * @default "Näita"
    */
-  openText = input<string>("Näita rohkem");
+  openText = input<string>("Näita");
   /**
    * Text shown on the toggle button when the content is expanded.
    * @default "Peida"
    */
-  closeText = input<string>("Näita vähem");
+  closeText = input<string>("Peida");
   /**
    * Whether the collapse should be initially open.
    * @default false
@@ -47,7 +40,6 @@ export class CollapseComponent implements AfterViewInit {
 
   collapseContentId: string = `collapse-content-${self.crypto.randomUUID()}`;
   isOpen = signal<boolean>(false);
-  renderer = inject(Renderer2);
 
   toggleCollapse() {
     this.isOpen.update((prev) => !prev);

@@ -32,7 +32,7 @@ export default {
       description:
         "The title for the collapsible section. Rendered inside the toggle button.",
       table: {
-        defaultValue: { summary: "Näita rohkem" },
+        defaultValue: { summary: "Näita" },
       },
     },
     closeText: {
@@ -40,7 +40,7 @@ export default {
       description:
         "Text shown on the toggle button when the content is expanded.",
       table: {
-        defaultValue: { summary: "Näita vähem" },
+        defaultValue: { summary: "Peida" },
       },
     },
     defaultOpen: {
