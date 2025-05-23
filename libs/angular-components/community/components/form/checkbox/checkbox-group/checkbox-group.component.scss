@@ -1,0 +1,8 @@
+.tedi-checkbox-group {
+  display: block;
+
+  &__checkboxes {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}

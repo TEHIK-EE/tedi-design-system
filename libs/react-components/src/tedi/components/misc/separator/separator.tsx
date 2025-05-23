@@ -109,7 +109,7 @@ export type SeparatorProps = BreakpointSupport<
   SeparatorBreakpointProps;
 
 export const Separator = (props: SeparatorProps): JSX.Element => {
-  const { getCurrentBreakpointProps } = useBreakpointProps();
+  const { getCurrentBreakpointProps } = useBreakpointProps(props.defaultServerBreakpoint);
   const {
     className,
     element: Element = 'div',

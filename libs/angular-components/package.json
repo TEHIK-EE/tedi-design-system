@@ -17,8 +17,8 @@
     "test": "jest --passWithNoTests",
     "test:watch": "ng test angular-components --watch",
     "test:coverage": "jest --config ./jest.config.ts --coverage",
-    "release": "npx semantic-release -e semantic-release-monorepo --debug",
-    "chromatic": "npx chromatic --project-token=$CHROMATIC_PROJECT_TOKEN --build-script-name=build:sb --baseline-branch=rc"
+    "release": "npx semantic-release -e semantic-release-monorepo",
+    "chromatic": "npx chromatic --project-token=$CHROMATIC_PROJECT_TOKEN --build-script-name=build:sb --baseline-branch=rc --include=\"tedi/**/*.stories.*\""
   },
   "peerDependencies": {
     "@angular/cdk": "^18.0.0 || ^19.0.0",
@@ -27,31 +27,29 @@
     "@angular/forms": "^18.0.0 || ^19.0.0",
     "@angular/platform-browser": "^18.0.0 || ^19.0.0"
   },
-  "dependencies": {
-    "@tehik-ee/tedi-core": "^1.12.0"
-  },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^19.2.6",
-    "@angular-devkit/core": "^19.2.6",
-    "@angular-devkit/schematics": "^19.2.6",
+    "@angular-devkit/build-angular": "^19.2.11",
+    "@angular-devkit/core": "^19.2.11",
+    "@angular-devkit/schematics": "^19.2.11",
     "@angular-eslint/builder": "^19.0.2",
     "@angular-eslint/eslint-plugin": "^19.0.2",
     "@angular-eslint/eslint-plugin-template": "^19.0.2",
     "@angular-eslint/schematics": "^19.0.2",
     "@angular-eslint/template-parser": "^19.0.2",
-    "@angular/cli": "^19.2.6",
-    "@angular/compiler-cli": "^19.2.6",
-    "@angular/forms": "^19.2.6",
-    "@angular/language-service": "^19.2.6",
+    "@angular/cli": "^19.2.11",
+    "@angular/compiler-cli": "^19.2.10",
+    "@angular/forms": "^19.2.10",
+    "@angular/language-service": "^19.2.10",
+    "@angular/router": "^19.2.10",
     "@compodoc/compodoc": "^1.1.26",
     "@etchteam/storybook-addon-status": "^5.0.0",
-    "@schematics/angular": "^19.2.6",
+    "@schematics/angular": "^19.2.11",
     "@storybook/addon-a11y": "^8.6.8",
     "@storybook/addon-docs": "^8.6.8",
     "@storybook/addon-essentials": "^8.6.8",
     "@storybook/addon-interactions": "^8.6.8",
     "@storybook/addon-onboarding": "^8.6.8",
-    "@storybook/angular": "^8.6.8",
+    "@storybook/angular": "^8.6.12",
     "@storybook/blocks": "^8.6.8",
     "@storybook/manager-api": "^8.6.8",
     "@storybook/test": "^8.6.8",
@@ -59,7 +57,7 @@
     "@types/jest": "^29.5.14",
     "@types/node": "^22.10.5",
     "@typescript-eslint/eslint-plugin": "^8.28.0",
-    "angular-eslint": "^18.4.2",
+    "angular-eslint": "^19.4.0",
     "chokidar": "4.0.0",
     "chromatic": "^11.27.0",
     "eslint-plugin-prettier": "^5.2.1",
@@ -72,6 +70,7 @@
     "replace-in-file": "^8.3.0",
     "sass": "^1.86.1",
     "storybook": "^8.4.7",
+    "storybook-addon-angular-router": "^1.10.1",
     "storybook-addon-pseudo-states": "^4.0.3",
     "ts-node": "^10.9.2",
     "tslib": "^2.5.0"
@@ -81,5 +80,8 @@
   },
   "overrides": {
     "dayjs": "$dayjs"
+  },
+  "dependencies": {
+    "@tehik-ee/tedi-core": "^1.12.3"
   }
 }

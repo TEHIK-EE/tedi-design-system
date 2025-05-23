@@ -1,11 +1,12 @@
 import react from '@vitejs/plugin-react';
-import path from 'node:path';
-import { join } from 'path';
+import { join, resolve } from 'path';
 import { visualizer } from 'rollup-plugin-visualizer';
-import { defineConfig, PluginOption, UserConfig } from 'vite';
+import { defineConfig, UserConfig } from 'vite';
 import checker from 'vite-plugin-checker';
 import dts from 'vite-plugin-dts';
 import { viteStaticCopy } from 'vite-plugin-static-copy';
+
+import packageJson from './package.json' assert { type: 'json' };
 
 const config: UserConfig = {
   define: {
@@ -15,6 +16,8 @@ const config: UserConfig = {
   plugins: [
     dts({
       tsconfigPath: join(__dirname, './tsconfig.lib.json'),
+      entryRoot: join(__dirname, 'src'),
+      outDir: join(__dirname, 'dist/src'),
     }),
     react(),
     checker({
@@ -30,7 +33,7 @@ const config: UserConfig = {
     visualizer({
       filename: './dist/bundle-stats.html',
       title: '@tehik-ee/tedi-react bundle stats',
-    }) as PluginOption,
+    }),
     viteStaticCopy({
       targets: [
         {
@@ -38,7 +41,7 @@ const config: UserConfig = {
           dest: './',
         },
         {
-          src: '../tedi-core/public/*',
+          src: '../tedi-core/public/fonts',
           dest: './',
         },
       ],
@@ -59,31 +62,27 @@ const config: UserConfig = {
     reportCompressedSize: true,
     commonjsOptions: { transformMixedEsModules: true },
     emptyOutDir: true,
+    cssCodeSplit: false,
     lib: {
       entry: {
-        community: path.resolve(__dirname, 'src/community/index.ts'),
-        tedi: path.resolve(__dirname, 'src/tedi/index.ts'),
+        community: resolve(__dirname, 'src/community/index.ts'),
+        tedi: resolve(__dirname, 'src/tedi/index.ts'),
       },
       name: '@tehik-ee/tedi-react',
-      fileName: (format, entryName) => `${entryName}.${format}.js`,
       formats: ['es', 'cjs'],
+      fileName: (format, entryName) => `${entryName.replace(/node_modules\//g, 'external/')}.${format}.js`,
     },
     rollupOptions: {
-      external: ['next', 'react', 'react/jsx-runtime', 'react-dom', 'dayjs', 'lodash-es', 'classnames'],
+      external: (id) =>
+        Object.keys(packageJson.peerDependencies).some((pkg) => id === pkg || id.startsWith(`${pkg}/`)) ||
+        id === 'react/jsx-runtime',
       output: {
-        dir: join(__dirname, 'dist'),
+        preserveModules: true,
+        dir: resolve(__dirname, 'dist'),
+        exports: 'named',
         assetFileNames: (assetInfo) => {
           if (assetInfo.name === 'style.css') return 'index.css';
           return assetInfo.name || '';
-        },
-        manualChunks: (id) => {
-          if (id.includes('src/community')) {
-            return 'community';
-          }
-          if (id.includes('src/tedi')) {
-            return 'tedi';
-          }
-          return undefined;
         },
       },
     },
