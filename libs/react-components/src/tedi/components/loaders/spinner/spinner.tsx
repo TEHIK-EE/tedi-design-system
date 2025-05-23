@@ -43,7 +43,7 @@ export interface SpinnerProps extends BreakpointSupport<SpinnerBreakpointProps> 
 
 export const Spinner = (props: SpinnerProps): JSX.Element => {
   const { getLabel } = useLabels();
-  const { getCurrentBreakpointProps } = useBreakpointProps();
+  const { getCurrentBreakpointProps } = useBreakpointProps(props.defaultServerBreakpoint);
 
   const {
     className,

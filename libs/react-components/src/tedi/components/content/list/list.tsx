@@ -38,7 +38,7 @@ export interface ListProps extends BreakpointSupport<ListBreakpointProps> {
 }
 
 export const List = (props: ListProps) => {
-  const { getCurrentBreakpointProps } = useBreakpointProps();
+  const { getCurrentBreakpointProps } = useBreakpointProps(props.defaultServerBreakpoint);
   const {
     children,
     element = 'ul',

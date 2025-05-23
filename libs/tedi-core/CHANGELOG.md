@@ -1,3 +1,24 @@
+# [@tehik-ee/tedi-core-v1.13.2](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.13.1...core-1.13.2) (2025-05-14)
+
+
+### Bug Fixes
+
+* **variables:** add missing prefixes for dimensional variables [#511](https://github.com/TEHIK-EE/tedi-design-system/issues/511) ([ba31915](https://github.com/TEHIK-EE/tedi-design-system/commit/ba319158791b9f410184e54f7ae35d64be26f96f))
+
+# [@tehik-ee/tedi-core-v1.13.1](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.13.0...core-1.13.1) (2025-05-14)
+
+
+### Bug Fixes
+
+* **sidenav,dropdown:** update sidenav and dropdown variables [#511](https://github.com/TEHIK-EE/tedi-design-system/issues/511) ([4559311](https://github.com/TEHIK-EE/tedi-design-system/commit/455931148d2a1a5db975200f97cf43fccebe0f32))
+
+# [@tehik-ee/tedi-core-v1.13.0](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.12.3...core-1.13.0) (2025-05-07)
+
+
+### Features
+
+* **tedi-core:** simplify responsive-styles [#741](https://github.com/TEHIK-EE/tedi-design-system/issues/741) ([#742](https://github.com/TEHIK-EE/tedi-design-system/issues/742)) ([fee90ce](https://github.com/TEHIK-EE/tedi-design-system/commit/fee90ce90741115c2ec53ce1f84b9be2bf394ef7))
+
 # [@tehik-ee/tedi-core-v1.12.3](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.12.2...core-1.12.3) (2025-04-28)
 
 

@@ -1,0 +1,89 @@
+<input
+  cdkOverlayOrigin
+  [id]="inputId()"
+  class="tedi-search__input"
+  type="text"
+  [(ngModel)]="_inputValue"
+  [placeholder]="placeholder()"
+  [disabled]="disabled()"
+  (keydown.enter)="focusDropdown($event)"
+  (keydown.arrowDown)="focusDropdown($event)"
+  (ngModelChange)="inputChanged($event)"
+  #trigger="cdkOverlayOrigin"
+/>
+
+<div class="tedi-search__suffix">
+  @if (clearable() && _inputValue()) {
+    <button
+      type="reset"
+      tedi-closing-button
+      [size]="size() === 'large' ? 'large' : 'medium'"
+      (click)="$event.stopPropagation(); clearResult()"
+    ></button>
+    @if (!withButton()) {
+      <div class="tedi-search__suffix-separator"></div>
+    }
+  }
+  @if (!withButton()) {
+    <tedi-icon
+      class="tedi-search__search-icon"
+      name="search"
+      color="secondary"
+      [size]="iconSize()"
+    />
+  }
+</div>
+
+@if (withButton()) {
+  <button
+    tedi-button
+    class="tedi-search__trigger"
+    [size]="buttonSize()"
+    (click)="searchButtonClick()"
+    [disabled]="disabled()"
+  >
+    <tedi-icon name="search" color="white" [size]="iconSize()" />
+    {{ buttonText() }}
+  </button>
+}
+
+<ng-template
+  cdkConnectedOverlay
+  [cdkConnectedOverlayOrigin]="trigger"
+  [cdkConnectedOverlayOpen]="_isVisible()"
+  [cdkConnectedOverlayDisableClose]="true"
+  (overlayOutsideClick)="closeOverlay(false)"
+  (overlayKeydown)="$event.key === 'Escape' ? closeOverlay(true) : null"
+  #searchPanel
+>
+  <tedi-card class="tedi-search__panel" [style.width.px]="_width()">
+    @if (_foundOptions().length) {
+      <tedi-card-content padding="none" [hasSeparator]="true" cdkMenu>
+        @for (option of _foundOptions(); track option.value) {
+          <button
+            cdkMenuItem
+            tedi-dropdown-item
+            [value]="option.value"
+            [selected]="option.value === _selectedOption()?.value"
+            (click)="selectResult(option)"
+            #autocompleteOption
+          >
+            @if (option.description) {
+              <strong>{{ option.label }}</strong> · {{ option.description }}
+            } @else {
+              {{ option.label }}
+            }
+          </button>
+        }
+      </tedi-card-content>
+    } @else {
+      <tedi-card-content [hasSeparator]="true" padding="md">
+        {{ noResultText() }}
+      </tedi-card-content>
+    }
+
+    <tedi-card-content class="tedi-search__footer-content" padding="md">
+      <ng-content></ng-content>
+    </tedi-card-content>
+  </tedi-card>
+</ng-template>

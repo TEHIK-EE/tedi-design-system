@@ -1,3 +1,113 @@
+# [@tehik-ee/tedi-react-v11.4.0-rc.7](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.4.0-rc.6...react-11.4.0-rc.7) (2025-05-22)
+
+
+### Bug Fixes
+
+* **react-types:** add missing types [#798](https://github.com/TEHIK-EE/tedi-design-system/issues/798) ([#811](https://github.com/TEHIK-EE/tedi-design-system/issues/811)) ([4882bed](https://github.com/TEHIK-EE/tedi-design-system/commit/4882bed318fba26c46c9107ff85f1ceb7738dfef))
+
+# [@tehik-ee/tedi-react-v11.4.0-rc.6](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.4.0-rc.5...react-11.4.0-rc.6) (2025-05-20)
+
+
+### Bug Fixes
+
+* **text-group:** label width ignored when value is longer fix [#794](https://github.com/TEHIK-EE/tedi-design-system/issues/794) ([#799](https://github.com/TEHIK-EE/tedi-design-system/issues/799)) ([5dac227](https://github.com/TEHIK-EE/tedi-design-system/commit/5dac227e0d1a614a7bf4333176d576fc83989dde))
+
+# [@tehik-ee/tedi-react-v11.4.0-rc.5](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.4.0-rc.4...react-11.4.0-rc.5) (2025-05-20)
+
+
+### Bug Fixes
+
+* **useIsTouchDevice:** remove window usage in SSR, initalize what-input inside useEffect [#778](https://github.com/TEHIK-EE/tedi-design-system/issues/778) ([#809](https://github.com/TEHIK-EE/tedi-design-system/issues/809)) ([c550caa](https://github.com/TEHIK-EE/tedi-design-system/commit/c550caaa49c0f545f78553bd4cc7bb3114fdba14))
+
+# [@tehik-ee/tedi-react-v11.4.0-rc.4](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.4.0-rc.3...react-11.4.0-rc.4) (2025-05-16)
+
+
+### Features
+
+* **accessibiltyProvider:** move initalizing what-input inside AccessibiltyProvider [#786](https://github.com/TEHIK-EE/tedi-design-system/issues/786) ([#790](https://github.com/TEHIK-EE/tedi-design-system/issues/790)) ([c97eae2](https://github.com/TEHIK-EE/tedi-design-system/commit/c97eae2a56dce536fe6a0c64fe2987ed5f9e4077))
+
+# [@tehik-ee/tedi-react-v11.4.0-rc.3](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.4.0-rc.2...react-11.4.0-rc.3) (2025-05-16)
+
+
+### Bug Fixes
+
+* **useBreakpointProps:** remove window usage in SSR, add defaultServerBreakpoint [#786](https://github.com/TEHIK-EE/tedi-design-system/issues/786) ([#789](https://github.com/TEHIK-EE/tedi-design-system/issues/789)) ([2a61ed3](https://github.com/TEHIK-EE/tedi-design-system/commit/2a61ed3ff3e9ce0e7ac114586190f8f2fcec136d))
+
+# [@tehik-ee/tedi-react-v11.4.0-rc.2](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.4.0-rc.1...react-11.4.0-rc.2) (2025-05-12)
+
+
+### Features
+
+* **tedi-react:** fix tree shaking and type errors [#707](https://github.com/TEHIK-EE/tedi-design-system/issues/707) ([#717](https://github.com/TEHIK-EE/tedi-design-system/issues/717)) ([25061b8](https://github.com/TEHIK-EE/tedi-design-system/commit/25061b81b864b9a0a8a6fa238e2252c9d3f8e5b3))
+
+# [@tehik-ee/tedi-react-v11.4.0-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.3.4-rc.1...react-11.4.0-rc.1) (2025-05-07)
+
+
+### Features
+
+* **scss:** responsive-style scss function uptade ([#749](https://github.com/TEHIK-EE/tedi-design-system/issues/749)) ([975ef75](https://github.com/TEHIK-EE/tedi-design-system/commit/975ef75c91ea99c5c740f5a92dd647007230092c)), closes [#748](https://github.com/TEHIK-EE/tedi-design-system/issues/748) [#748](https://github.com/TEHIK-EE/tedi-design-system/issues/748)
+
+# [@tehik-ee/tedi-react-v11.3.4-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.3.3...react-11.3.4-rc.1) (2025-05-07)
+
+
+### Bug Fixes
+
+* **alert:** prevent icon to be partially hidden if text grows larger [#744](https://github.com/TEHIK-EE/tedi-design-system/issues/744) ([#746](https://github.com/TEHIK-EE/tedi-design-system/issues/746)) ([2ed1af4](https://github.com/TEHIK-EE/tedi-design-system/commit/2ed1af4ff20176564e7ad83e1341c39a88584908))
+* **feedback-text:** fix default type description [#667](https://github.com/TEHIK-EE/tedi-design-system/issues/667) ([#772](https://github.com/TEHIK-EE/tedi-design-system/issues/772)) ([6966cc3](https://github.com/TEHIK-EE/tedi-design-system/commit/6966cc3441dd55c3dd940205b8d1c83f1fac5f62))
+* **file-upload:** file information fix [#727](https://github.com/TEHIK-EE/tedi-design-system/issues/727) ([#730](https://github.com/TEHIK-EE/tedi-design-system/issues/730)) ([e017623](https://github.com/TEHIK-EE/tedi-design-system/commit/e017623ab44ac6282f6c5a394f5a579392d51377))
+
+# [@tehik-ee/tedi-react-v11.3.3](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.3.2...react-11.3.3) (2025-05-07)
+
+### Bug Fixes
+
+- **choice-group:** add missing exports [#708](https://github.com/TEHIK-EE/tedi-design-system/issues/708) ([#767](https://github.com/TEHIK-EE/tedi-design-system/issues/767)) ([76a3f1a](https://github.com/TEHIK-EE/tedi-design-system/commit/76a3f1a2a48664b1195ffc4d352a4e6a905fcbaf))
+
+# [@tehik-ee/tedi-react-v11.3.3-rc.3](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.3.3-rc.2...react-11.3.3-rc.3) (2025-05-07)
+
+### Bug Fixes
+
+- **feedback-text:** fix default type description [#667](https://github.com/TEHIK-EE/tedi-design-system/issues/667) ([#772](https://github.com/TEHIK-EE/tedi-design-system/issues/772)) ([6966cc3](https://github.com/TEHIK-EE/tedi-design-system/commit/6966cc3441dd55c3dd940205b8d1c83f1fac5f62))
+
+# [@tehik-ee/tedi-react-v11.3.3-rc.2](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.3.3-rc.1...react-11.3.3-rc.2) (2025-05-06)
+
+### Bug Fixes
+
+- **alert:** prevent icon to be partially hidden if text grows larger [#744](https://github.com/TEHIK-EE/tedi-design-system/issues/744) ([#746](https://github.com/TEHIK-EE/tedi-design-system/issues/746)) ([2ed1af4](https://github.com/TEHIK-EE/tedi-design-system/commit/2ed1af4ff20176564e7ad83e1341c39a88584908))
+
+# [@tehik-ee/tedi-react-v11.3.3-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.3.2...react-11.3.3-rc.1) (2025-05-05)
+
+### Bug Fixes
+
+- **file-upload:** file information fix [#727](https://github.com/TEHIK-EE/tedi-design-system/issues/727) ([#730](https://github.com/TEHIK-EE/tedi-design-system/issues/730)) ([e017623](https://github.com/TEHIK-EE/tedi-design-system/commit/e017623ab44ac6282f6c5a394f5a579392d51377))
+
+# [@tehik-ee/tedi-react-v11.3.2-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.3.1...react-11.3.2-rc.1) (2025-05-05)
+
+# [@tehik-ee/tedi-react-v11.3.2](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.3.1...react-11.3.2) (2025-05-05)
+
+### Bug Fixes
+
+- **tooltip,popover:** add missing exports [#711](https://github.com/TEHIK-EE/tedi-design-system/issues/711) ([#765](https://github.com/TEHIK-EE/tedi-design-system/issues/765)) ([228047e](https://github.com/TEHIK-EE/tedi-design-system/commit/228047e0c22a7ca2aba2488f457963a0ad0a1302))
+
+# [@tehik-ee/tedi-react-v11.3.1](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.3.0...react-11.3.1) (2025-05-05)
+
+### Bug Fixes
+
+- **file-upload:** file information fix [#727](https://github.com/TEHIK-EE/tedi-design-system/issues/727) ([#730](https://github.com/TEHIK-EE/tedi-design-system/issues/730)) ([e017623](https://github.com/TEHIK-EE/tedi-design-system/commit/e017623ab44ac6282f6c5a394f5a579392d51377))
+
+### Bug Fixes
+
+- **tooltip,popover:** add missing exports [#711](https://github.com/TEHIK-EE/tedi-design-system/issues/711) ([#760](https://github.com/TEHIK-EE/tedi-design-system/issues/760)) ([d46efcb](https://github.com/TEHIK-EE/tedi-design-system/commit/d46efcb0d4a472de8a39444595d31d4c6e747997))
+
+# [@tehik-ee/tedi-react-v11.3.1-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.3.0...react-11.3.1-rc.1) (2025-05-02)
+
+- **tooltip,popover:** add missing exports [#711](https://github.com/TEHIK-EE/tedi-design-system/issues/711) ([#765](https://github.com/TEHIK-EE/tedi-design-system/issues/765)) ([228047e](https://github.com/TEHIK-EE/tedi-design-system/commit/228047e0c22a7ca2aba2488f457963a0ad0a1302))
+
+# [@tehik-ee/tedi-react-v11.3.1](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.3.0...react-11.3.1) (2025-05-05)
+
+### Bug Fixes
+
+- **file-upload:** file information fix [#727](https://github.com/TEHIK-EE/tedi-design-system/issues/727) ([#730](https://github.com/TEHIK-EE/tedi-design-system/issues/730)) ([e017623](https://github.com/TEHIK-EE/tedi-design-system/commit/e017623ab44ac6282f6c5a394f5a579392d51377))
+
 # [@tehik-ee/tedi-react-v11.3.0-rc.14](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.3.0-rc.13...react-11.3.0-rc.14) (2025-04-24)
 
 ### Features

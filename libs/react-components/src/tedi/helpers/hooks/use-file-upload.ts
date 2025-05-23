@@ -138,12 +138,15 @@ export const useFileUpload = (props: UseFileUploadProps) => {
         if (!isValidExtension) rejectedFiles.push({ type: 'extension', file });
         if (!isValidSize) rejectedFiles.push({ type: 'size', file });
 
-        return {
-          ...file,
+        const enhancedFile = new File([file], file.name, {
+          type: file.type,
+          lastModified: file.lastModified,
+        });
+
+        return Object.assign(enhancedFile, {
           isLoading: false,
-          name: file.name,
           isValid: isValidExtension && isValidSize,
-        };
+        });
       });
 
       if (!multiple && uploadedFiles.length > 0) {
@@ -191,6 +194,7 @@ export const useFileUpload = (props: UseFileUploadProps) => {
 
   const onFileRemove = (file: FileUploadFile): void => {
     const newFiles = innerFiles.filter((f) => f !== file);
+
     setInnerFiles(newFiles);
     onDelete?.(file);
     onChange?.(newFiles);
@@ -200,7 +204,9 @@ export const useFileUpload = (props: UseFileUploadProps) => {
     }
   };
 
-  const handleClear = (): void => {
+  const handleClear = (): FileUploadFile[] => {
+    const deletedFiles = [...innerFiles];
+    deletedFiles.forEach((file) => onDelete?.(file));
     setInnerFiles([]);
     onChange?.([]);
     setUploadErrorHelper(getDefaultHelpers({ accept, maxSize }, getLabel));
@@ -208,6 +214,8 @@ export const useFileUpload = (props: UseFileUploadProps) => {
     if (fileInputRef.current) {
       fileInputRef.current.value = '';
     }
+
+    return deletedFiles;
   };
 
   return {

@@ -37,8 +37,11 @@
     }
 
     ul.tedi-list .tedi-list__item ul.tedi-list .tedi-list__item::before {
-      @include mixins.responsive-styles(width, list-icon-size, null, '* 0.9');
-      @include mixins.responsive-styles(height, list-icon-size, null, '* 0.9');
+      width: calc(var(--_width) * 0.9);
+      height: calc(var(--_height) * 0.9);
+
+      @include mixins.responsive-styles(--_width, list-icon-size);
+      @include mixins.responsive-styles(--_height, list-icon-size);
     }
   }
 
