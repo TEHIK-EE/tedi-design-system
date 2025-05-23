@@ -1,3 +1,35 @@
+# [@tehik-ee/tedi-angular-v1.7.0-rc.19](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.7.0-rc.18...angular-1.7.0-rc.19) (2025-05-21)
+
+
+### Features
+
+* **community-form-search:** Add controlValueAccessor methods [#766](https://github.com/TEHIK-EE/tedi-design-system/issues/766) ([655a840](https://github.com/TEHIK-EE/tedi-design-system/commit/655a840233a9b0c90685da70542d7a96d1d773fa))
+* **community-form-search:** Add disabled state + fix the button sizes [#766](https://github.com/TEHIK-EE/tedi-design-system/issues/766) ([18e006b](https://github.com/TEHIK-EE/tedi-design-system/commit/18e006b6605e9f3dbe447056082ca142b688f4db))
+* **community-form-search:** Add textfield ID [@input](https://github.com/input) for accessibility [#766](https://github.com/TEHIK-EE/tedi-design-system/issues/766) ([b10c8d4](https://github.com/TEHIK-EE/tedi-design-system/commit/b10c8d44532f5e3ce936fd2a2e493294c1902b81))
+* **community-form-search:** Added closing button + search btn func + backdrop btn func  [#766](https://github.com/TEHIK-EE/tedi-design-system/issues/766) ([caf0295](https://github.com/TEHIK-EE/tedi-design-system/commit/caf02955b8e91188c115aee8ce25af862eb794a6))
+* **community-form-search:** Before focus trap stuff [#766](https://github.com/TEHIK-EE/tedi-design-system/issues/766) ([c342b3b](https://github.com/TEHIK-EE/tedi-design-system/commit/c342b3be08c4a694e0d34ef076996839efcca2c0))
+* **community-form-search:** Change functions in template after name change. [#766](https://github.com/TEHIK-EE/tedi-design-system/issues/766) ([8efc922](https://github.com/TEHIK-EE/tedi-design-system/commit/8efc922dcc6b6d22c555fda512b7393afa7d5c32))
+* **community-form-search:** Code review fixes [#766](https://github.com/TEHIK-EE/tedi-design-system/issues/766) ([8fe7add](https://github.com/TEHIK-EE/tedi-design-system/commit/8fe7add05df102129c5d30655c248e60f56a9c8d))
+* **community-form-search:** Fix last a11y issue. [#766](https://github.com/TEHIK-EE/tedi-design-system/issues/766) ([5715f2d](https://github.com/TEHIK-EE/tedi-design-system/commit/5715f2df1d34b94d90db62e6db23b4641e519d17))
+* **community-form-search:** Fix rendering of options with description [#766](https://github.com/TEHIK-EE/tedi-design-system/issues/766) ([509f7f3](https://github.com/TEHIK-EE/tedi-design-system/commit/509f7f330a615c76f0bf45396028bb69bbf03cee))
+* **community-form-search:** Fix stories [#766](https://github.com/TEHIK-EE/tedi-design-system/issues/766) ([0c16a62](https://github.com/TEHIK-EE/tedi-design-system/commit/0c16a6298b4ce339db7784b335ecd96fc3a59847))
+* **community-form-search:** Fixed footer + noResultText + separators  [#766](https://github.com/TEHIK-EE/tedi-design-system/issues/766) ([46abd9d](https://github.com/TEHIK-EE/tedi-design-system/commit/46abd9da012a2321c01a3f2556cf1e244838ada0))
+* **community-form-search:** implement CVA disabled + cleanup [#766](https://github.com/TEHIK-EE/tedi-design-system/issues/766) ([a2ff393](https://github.com/TEHIK-EE/tedi-design-system/commit/a2ff393e7981d6e25eb8449f116bca6f0f721444))
+* **community-form-search:** Implementation with cdkMenu and hidden trigger  [#766](https://github.com/TEHIK-EE/tedi-design-system/issues/766) ([c2b3a09](https://github.com/TEHIK-EE/tedi-design-system/commit/c2b3a094cc1fe56775afa9705f75a803d413573d))
+* **community-form-search:** Implementation with cdkMenu and hidden trigger  [#766](https://github.com/TEHIK-EE/tedi-design-system/issues/766) ([e227359](https://github.com/TEHIK-EE/tedi-design-system/commit/e22735972409860fd0aebf53ec97af4c6a4b94d3))
+* **community-form-search:** More code review fixes [#766](https://github.com/TEHIK-EE/tedi-design-system/issues/766) ([b254ec6](https://github.com/TEHIK-EE/tedi-design-system/commit/b254ec6a0dafcd3679171d9e21fbea39e23b9207))
+* **community-form-search:** Remove uncommented code [#766](https://github.com/TEHIK-EE/tedi-design-system/issues/766) ([7626a3b](https://github.com/TEHIK-EE/tedi-design-system/commit/7626a3bd0c6a630a138840ce886a09aa3e79a848))
+* **community-form-search:** Removed extra classes from option [#766](https://github.com/TEHIK-EE/tedi-design-system/issues/766) ([23a708d](https://github.com/TEHIK-EE/tedi-design-system/commit/23a708de73da23e06c795816c30729bfe8017a8b))
+* **community-form-search:** Removed extra wrapper div over options [#766](https://github.com/TEHIK-EE/tedi-design-system/issues/766) ([3953c86](https://github.com/TEHIK-EE/tedi-design-system/commit/3953c863187b426e098ab9062a7a6b2351acc9ad))
+* **community-form-search:** Removed unneccessary input bindings  [#766](https://github.com/TEHIK-EE/tedi-design-system/issues/766) ([1d63a13](https://github.com/TEHIK-EE/tedi-design-system/commit/1d63a133ad22ae84f2327aa2ca5508d6e6ff2cbf))
+* **community-form-search:** Rewrite using cdkoverlay to handle keyboard accessibility better [#766](https://github.com/TEHIK-EE/tedi-design-system/issues/766) ([1f52c91](https://github.com/TEHIK-EE/tedi-design-system/commit/1f52c91f0c0f10b976c1008dfb294706008238f3))
+* **community-form-search:** Search component poc [#766](https://github.com/TEHIK-EE/tedi-design-system/issues/766) ([838824c](https://github.com/TEHIK-EE/tedi-design-system/commit/838824cfc49dbe4fb3ddd12d449a1063b78d82b3))
+* **community-form-search:** Search component poc with cdkOverlay + cdkMenu [#766](https://github.com/TEHIK-EE/tedi-design-system/issues/766) ([40d689b](https://github.com/TEHIK-EE/tedi-design-system/commit/40d689b3872a6bf97ce1d3b6c956fa558bc8d616))
+* **community-form-search:** Search component poc with cdkOverlay + cdkMenu [#766](https://github.com/TEHIK-EE/tedi-design-system/issues/766) ([b0424b0](https://github.com/TEHIK-EE/tedi-design-system/commit/b0424b00f2587dd19ef8c7b7926d42357e236b59))
+* **community-form-search:** search/autocomplete poc  [#766](https://github.com/TEHIK-EE/tedi-design-system/issues/766) ([8e4c9cd](https://github.com/TEHIK-EE/tedi-design-system/commit/8e4c9cdeea2a5f2f09aba06b022181b76c4f8567))
+* **community-form-search:** Update from RC and fix closing-button usage [#766](https://github.com/TEHIK-EE/tedi-design-system/issues/766) ([2808691](https://github.com/TEHIK-EE/tedi-design-system/commit/2808691d8ca86178e408df7d01000a16786b5bc7))
+* **form-search:** Search component poc [#766](https://github.com/TEHIK-EE/tedi-design-system/issues/766) ([3ee9ac0](https://github.com/TEHIK-EE/tedi-design-system/commit/3ee9ac0f68657235fc2257b2a33813d7d69c45fc))
+
 # [@tehik-ee/tedi-angular-v1.7.0-rc.18](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.7.0-rc.17...angular-1.7.0-rc.18) (2025-05-19)
 
 
