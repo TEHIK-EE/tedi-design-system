@@ -78,10 +78,14 @@
   "publishConfig": {
     "access": "public"
   },
-  "overrides": {
-    "dayjs": "$dayjs"
-  },
   "dependencies": {
     "@tehik-ee/tedi-core": "^1.12.3"
+  },
+  "overrides": {
+    "dayjs": "$dayjs",
+    "jest-environment-jsdom": {
+      "jsdom": "26.0.0",
+      "rrweb-cssom": "0.8.0"
+    }
   }
 }
