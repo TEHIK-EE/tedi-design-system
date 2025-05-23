@@ -47,8 +47,7 @@ import { CheckboxComponent } from "../checkbox/checkbox.component";
 })
 export class CheckboxCardGroupComponent
   extends CheckboxGroupComponent
-  implements ControlValueAccessor
-{
+  implements ControlValueAccessor {
   /*
    * Direction in which checkboxes flow.
    */
