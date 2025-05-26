@@ -1,4 +1,11 @@
-import { Component, input, signal, AfterViewInit } from "@angular/core";
+import {
+  Component,
+  input,
+  signal,
+  AfterViewInit,
+  ChangeDetectionStrategy,
+  ViewEncapsulation,
+} from "@angular/core";
 import { IconComponent, TextComponent } from "@tehik-ee/tedi-angular/tedi";
 
 export type ArrowType = "default" | "secondary";
@@ -6,6 +13,8 @@ export type ArrowType = "default" | "secondary";
 @Component({
   standalone: true,
   selector: "tedi-collapse",
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.None,
   imports: [IconComponent, TextComponent],
   templateUrl: "./collapse.component.html",
   styleUrls: ["./collapse.component.scss"],
