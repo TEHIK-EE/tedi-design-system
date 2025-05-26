@@ -4,7 +4,7 @@ import { SideNavItem } from './components/sidenav-item/sidenav-item';
 import Sidenav, { SideNav } from './sidenav';
 
 /**
- * <a href="#" target="_BLANK">Figma ↗</a><br/>
+ * <a href="https://www.figma.com/design/jWiRIXhHRxwVdMSimKX2FF/TEDI-READY-2.8.9--work-in-progress-?node-id=6367-171750&m=dev" target="_BLANK">Figma ↗</a><br/>
  * <a href="#" target="_BLANK">Zeroheight ↗</a>
  */
 
@@ -14,6 +14,13 @@ const meta: Meta<typeof Sidenav> = {
   parameters: {
     layout: 'fullscreen',
   },
+  decorators: [
+    (Story) => (
+      <div style={{ height: '1024px' }}>
+        <Story />
+      </div>
+    ),
+  ],
 };
 
 export default meta;
@@ -45,15 +52,9 @@ const exampleNavCollapsibleItems: SideNavItem[] = [
     icon: 'medical_services',
     subItemGroups: [
       {
-        subHeading: 'Patient Care',
         subItems: [
           { href: '#', children: 'Vital Signs' },
           { href: '#', children: 'Assessments' },
-        ],
-      },
-      {
-        subHeading: 'Documentation',
-        subItems: [
           {
             href: '#',
             children: 'Treatments',
@@ -94,15 +95,9 @@ const exampleDefaultOpen: SideNavItem[] = [
     icon: 'medical_services',
     subItemGroups: [
       {
-        subHeading: 'Patient Care',
         subItems: [
           { href: '#', children: 'Vital Signs' },
           { href: '#', children: 'Assessments' },
-        ],
-      },
-      {
-        subHeading: 'Documentation',
-        subItems: [
           {
             href: '#',
             children: 'Treatments',
@@ -145,15 +140,9 @@ const exampleNavCollapsibleItemsWithLinks: SideNavItem[] = [
     icon: 'medical_services',
     subItemGroups: [
       {
-        subHeading: 'Patient Care',
         subItems: [
           { href: '#', children: 'Vital Signs' },
           { href: '#', children: 'Assessments' },
-        ],
-      },
-      {
-        subHeading: 'Documentation',
-        subItems: [
           {
             href: '#',
             children: 'Treatments',
@@ -233,6 +222,7 @@ const exampleThirdLevelMenuItemsLinks: SideNavItem[] = [
   { href: '#', children: 'Patient Records', icon: 'people' },
   {
     children: 'Clinical Management',
+    href: '#',
     icon: 'medical_services',
     subItems: [
       { href: '#', children: 'Vital Signs' },
@@ -277,12 +267,22 @@ export const Default: Story = {
     navItems: exampleNavItems,
     ariaLabel: 'Menu title',
   },
+  parameters: {
+    viewport: {
+      defaultViewport: 'desktop',
+    },
+  },
 };
 
 export const Public: Story = {
   args: {
     navItems: exampleNavItemsPublic,
     ariaLabel: 'Menu title',
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'desktop',
+    },
   },
 };
 
@@ -291,12 +291,22 @@ export const SecondLevelMenuItems: Story = {
     navItems: exampleNavCollapsibleItems,
     ariaLabel: 'Menu title',
   },
+  parameters: {
+    viewport: {
+      defaultViewport: 'desktop',
+    },
+  },
 };
 
 export const SecondLevelMenuItemsParentsAreLinks: Story = {
   args: {
     navItems: exampleNavCollapsibleItemsWithLinks,
     ariaLabel: 'Menu title',
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'desktop',
+    },
   },
 };
 
@@ -305,6 +315,11 @@ export const ThirdLevelMenuItems: Story = {
     navItems: exampleThirdLevelMenuItems,
     ariaLabel: 'Menu title',
   },
+  parameters: {
+    viewport: {
+      defaultViewport: 'desktop',
+    },
+  },
 };
 
 export const ThirdLevelMenuItemsLink: Story = {
@@ -312,19 +327,37 @@ export const ThirdLevelMenuItemsLink: Story = {
     navItems: exampleThirdLevelMenuItemsLinks,
     ariaLabel: 'Menu title',
   },
+  parameters: {
+    viewport: {
+      defaultViewport: 'desktop',
+    },
+  },
 };
 
 export const CollapsibleToggle: React.FC = () => {
   return <SideNav ariaLabel="Collapsible menu" navItems={exampleThirdLevelMenuItems} isCollapsed={true} />;
 };
 
-export const CollapsibleToggleSecondLevelitems: React.FC = () => {
-  return <SideNav ariaLabel="Collapsible menu" navItems={exampleNavCollapsibleItems} isCollapsed={true} />;
-};
-
 export const DefaultOpen: Story = {
   args: {
     navItems: exampleDefaultOpen,
     ariaLabel: 'Default open menu',
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'desktop',
+    },
+  },
+};
+
+export const MobileView: Story = {
+  args: {
+    navItems: exampleThirdLevelMenuItems,
+    ariaLabel: 'Mobile menu',
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile2',
+    },
   },
 };

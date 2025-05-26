@@ -221,6 +221,7 @@
       top: 20px;
       right: 10px;
       display: flex;
+      align-items: center;
       justify-content: center;
 
       @include mixins.responsive-styles(border-radius, button-radius-sm);
