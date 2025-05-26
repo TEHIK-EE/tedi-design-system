@@ -35,7 +35,6 @@ describe("LabelComponent", () => {
     fixture.componentRef.setInput("required", true);
     fixture.detectChanges();
 
-    const span = element.querySelector("span");
-    expect(span?.classList).toContain("tedi-label__asterisk");
+    expect(element.classList).toContain("tedi-label--required");
   });
 });
