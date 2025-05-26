@@ -454,8 +454,8 @@ export type TediTranslationsMap<L extends Language> = {
 };
 
 export type TranslationEntry = {
-  description: string;
-  components: string[];
+  description?: string;
+  components?: string[];
 } & {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [L in Language]: string | ((...args: any[]) => string);

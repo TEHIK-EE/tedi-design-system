@@ -1,31 +1,30 @@
-import { Injectable, signal } from "@angular/core";
+import { computed, inject, Injectable, isSignal, Pipe, PipeTransform, signal, Signal } from "@angular/core";
 import { translationsMap, TranslationMap, TediTranslationsMap } from "./translations";
 
 export type Language = "en" | "et" | "ru";
 
 @Injectable({ providedIn: "root" })
-export class TranslationService {
+export class TediTranslationService {
     private currentLang = signal<Language>("et");
     private translations = signal<TranslationMap>(translationsMap);
 
-    getLanguage() {
-        return this.currentLang();
-    }
-
+    getLanguage = this.currentLang.asReadonly();
+    
     setLanguage(lang: Language) {
         this.currentLang.set(lang);
     }
 
     translate<
-        L extends Language, 
-        K extends keyof TediTranslationsMap<L> | (string & {})
-    >(
-        key: K,
-        ...args: K extends keyof TediTranslationsMap<L>
-            ? TediTranslationsMap<L>[K] extends (...args: infer P) => string 
+        TLang extends Language, 
+        TKey extends keyof TediTranslationsMap<TLang> | (string & {}),
+        TArgs extends TKey extends keyof TediTranslationsMap<TLang>
+            ? TediTranslationsMap<TLang>[TKey] extends (...args: infer P) => string 
                 ? P 
                 : []
             : unknown[]
+    >(
+        key: TKey,
+        ...args: TArgs
     ): string {
         const lang = this.currentLang();
         const entry = this.translations()[key];
@@ -43,7 +42,41 @@ export class TranslationService {
         return value;
     }
 
+    track<
+        TLang extends Language, 
+        TKey extends keyof TediTranslationsMap<TLang> | (string & {}),
+        TArgs extends TKey extends keyof TediTranslationsMap<TLang>
+            ? TediTranslationsMap<TLang>[TKey] extends (...args: infer P) => string 
+                ? P 
+                : []
+            : unknown[]
+    >(
+        key: TKey,
+        ...args: Signal<TArgs[number]>[]
+    ) {
+        return computed(() => {
+            const resolvedArgs = args.map(arg =>
+                isSignal(arg) ? arg() : arg
+            ) as TArgs;
+
+            return this.translate(key, ...resolvedArgs);
+        });
+    }
+
     addTranslations(newTranslations: TranslationMap) {
         this.translations.update(prev => ({ ...prev, ...newTranslations }));
+    }
+}
+
+@Pipe({
+    name: "tediTranslate",
+    standalone: true,
+    pure: false
+})
+export class TediTranslationPipe implements PipeTransform {
+    translationService = inject(TediTranslationService);
+
+    transform(key: string, ...args: unknown[]): string {
+        return this.translationService.translate(key, ...args);
     }
 }

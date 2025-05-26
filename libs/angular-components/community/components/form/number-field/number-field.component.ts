@@ -9,14 +9,13 @@ import {
   ElementRef,
   signal,
   ViewChild,
-  inject,
 } from "@angular/core";
 import { ButtonComponent } from "../../buttons/button/button.component";
 import {
   ComponentInputs,
   IconComponent,
   TextComponent,
-  TranslationService
+  TediTranslationPipe
 } from "@tehik-ee/tedi-angular/tedi";
 import { FeedbackTextComponent } from "../feedback-text/feedback-text.component";
 import { LabelComponent } from "../label/label.component";
@@ -37,6 +36,7 @@ export type NumberFieldSize = "default" | "small";
     IconComponent,
     TextComponent,
     FeedbackTextComponent,
+    TediTranslationPipe
   ],
   providers: [
     {
@@ -101,7 +101,6 @@ export class NumberFieldComponent implements ControlValueAccessor {
    */
   feedbackText = input<ComponentInputs<FeedbackTextComponent>>();
 
-  translationService = inject(TranslationService);
   @ViewChild('inputElement') inputRef!: ElementRef<HTMLInputElement>;
   
   private formDisabled = signal(false);
@@ -172,7 +171,4 @@ export class NumberFieldComponent implements ControlValueAccessor {
     this.value.set(value);
     this.onChange(value);
   }
-
-  textDecrement = computed(() => this.translationService.translate("numberField.decrement", this.step()));
-  textIncrement = computed(() => this.translationService.translate("numberField.increment", this.step()));
 }

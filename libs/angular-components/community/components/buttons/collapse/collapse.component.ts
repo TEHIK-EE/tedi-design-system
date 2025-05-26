@@ -6,16 +6,15 @@ import {
   signal,
   AfterViewInit,
   ChangeDetectionStrategy,
-  computed,
 } from "@angular/core";
-import { IconComponent, TextComponent, TranslationService } from "@tehik-ee/tedi-angular/tedi";
+import { IconComponent, TextComponent, TediTranslationPipe } from "@tehik-ee/tedi-angular/tedi";
 
 export type ArrowType = "default" | "secondary";
 
 @Component({
   standalone: true,
   selector: "tedi-collapse",
-  imports: [IconComponent, TextComponent],
+  imports: [IconComponent, TextComponent, TediTranslationPipe],
   templateUrl: "./collapse.component.html",
   styleUrls: ["./collapse.component.scss"],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -49,7 +48,6 @@ export class CollapseComponent implements AfterViewInit {
   arrowType = input<ArrowType>("default");
 
   renderer = inject(Renderer2);
-  translationService = inject(TranslationService);
 
   collapseContentId: string = `collapse-content-${self.crypto.randomUUID()}`;
   isOpen = signal<boolean>(false);  
@@ -63,7 +61,4 @@ export class CollapseComponent implements AfterViewInit {
       this.isOpen.set(true);
     }
   }
-
-  textOpen = computed(() => this.openText() ?? this.translationService.translate("open"))
-  textClose = computed(() => this.closeText() ?? this.translationService.translate("close"))
 }
