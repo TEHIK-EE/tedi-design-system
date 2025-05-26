@@ -32,11 +32,11 @@
   @include mixins.responsive-styles(--_tag-padding-y, tag-default-padding-y);
 
   &__content {
-    padding: var(--_tag-padding-y) 0;
+    padding: calc(var(--_tag-padding-y) - var(--_border-width)) 0;
   }
 
   &__icon-wrapper {
-    line-height: calc(var(--_line-height) + var(--_tag-padding-y) * 2);
+    line-height: calc(var(--_line-height) + var(--_tag-padding-y));
   }
 
   &__closing-button {
@@ -49,7 +49,7 @@
     border: none;
     background-color: rgba(0, 0, 0, 0.01);
     transition: background-color 0.3s ease-in-out;
-    height: var(--_button-height);
+    height: calc(var(--_button-height) - var(--_border-width) * 2);
 
     @include mixins.responsive-styles(--_button-height, button-xs-icon-size);
     @include mixins.responsive-styles(min-width, button-xs-icon-size);
@@ -62,7 +62,7 @@
   &__spinner-wrapper {
     display: flex;
     align-items: center;
-    height: calc(var(--_line-height) + var(--_tag-padding-y) * 2);
+    height: calc(var(--_line-height) + var(--_tag-padding-y));
   }
 
   &--closable:not(.tedi-tag--loading) {
