@@ -1,3 +1,17 @@
+# [@tehik-ee/tedi-react-v11.4.0-rc.7](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.4.0-rc.6...react-11.4.0-rc.7) (2025-05-22)
+
+
+### Bug Fixes
+
+* **react-types:** add missing types [#798](https://github.com/TEHIK-EE/tedi-design-system/issues/798) ([#811](https://github.com/TEHIK-EE/tedi-design-system/issues/811)) ([4882bed](https://github.com/TEHIK-EE/tedi-design-system/commit/4882bed318fba26c46c9107ff85f1ceb7738dfef))
+
+# [@tehik-ee/tedi-react-v11.4.0-rc.6](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.4.0-rc.5...react-11.4.0-rc.6) (2025-05-20)
+
+
+### Bug Fixes
+
+* **text-group:** label width ignored when value is longer fix [#794](https://github.com/TEHIK-EE/tedi-design-system/issues/794) ([#799](https://github.com/TEHIK-EE/tedi-design-system/issues/799)) ([5dac227](https://github.com/TEHIK-EE/tedi-design-system/commit/5dac227e0d1a614a7bf4333176d576fc83989dde))
+
 # [@tehik-ee/tedi-react-v11.4.0-rc.5](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.4.0-rc.4...react-11.4.0-rc.5) (2025-05-20)
 
 
