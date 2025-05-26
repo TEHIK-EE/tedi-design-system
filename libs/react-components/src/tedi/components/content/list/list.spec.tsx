@@ -58,8 +58,19 @@ describe('List Component', () => {
     expect(container.firstChild).toHaveClass('tedi-list--bullet-color-brand');
   });
 
-  test('applies custom bullet color class when color prop is provided', () => {
-    const { container } = renderList({ color: 'danger' });
-    expect(container.firstChild).toHaveClass('tedi-list--bullet-color-danger');
+  test.each([
+    'primary',
+    'secondary',
+    'tertiary',
+    'brand',
+    'brand-dark',
+    'success',
+    'warning',
+    'warning-dark',
+    'danger',
+    'white',
+  ] as const)('applies bullet color class for color "%s"', (color) => {
+    const { container } = renderList({ color });
+    expect(container.firstChild).toHaveClass(`tedi-list--bullet-color-${color}`);
   });
 });
