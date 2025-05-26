@@ -61,25 +61,25 @@
             type="button"
             cdkMenuItemCheckbox
             tedi-dropdown-item
-            (click)="select(option.value())"
+            [cdkMenuItemChecked]="isOptionSelected(option.value())"
+            (cdkMenuItemTriggered)="select(option.value())"
+            (click)="$event.stopPropagation()"
             [disabled]="option.isDisabled()"
           >
-            <tedi-icon
-              class="tedi-select__dropdown-item-icon"
-              [name]="
-                isOptionSelected(option.value())
-                  ? 'check_box'
-                  : 'check_box_outline_blank'
-              "
-            />
-            @if (option.templateRef(); as optionTemplate) {
-              <span class="tedi-select__dropdown-item--custom-content">
-                <ng-container [ngTemplateOutlet]="optionTemplate" />
-              </span>
-              <span class="tedi-select__dropdown-item--label">
-                {{ option.label() }}
-              </span>
-            }
+            <tedi-checkbox
+              class="tedi-select__multiselect-checkbox"
+              [inputId]="'option-' + option.value()"
+              [checked]="isOptionSelected(option.value())"
+            >
+              @if (option.templateRef(); as optionTemplate) {
+                <span class="tedi-select__dropdown-item--custom-content">
+                  <ng-container [ngTemplateOutlet]="optionTemplate" />
+                </span>
+                <span class="tedi-select__dropdown-item--label">
+                  {{ option.label() }}
+                </span>
+              }
+            </tedi-checkbox>
           </button>
         } @else {
           <button

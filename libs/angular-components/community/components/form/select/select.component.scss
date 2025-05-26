@@ -39,6 +39,10 @@
     white-space: nowrap;
   }
 
+  &__multiselect-checkbox {
+    pointer-events: none;
+  }
+
   &__clear {
     padding: 0;
     margin: 0;

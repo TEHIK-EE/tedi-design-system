@@ -26,6 +26,7 @@ import { CardComponent, CardContentComponent } from "../../cards/card";
 import { IconComponent } from "@tehik-ee/tedi-angular/tedi";
 import { DropdownItemComponent } from "../../overlay/dropdown-item/dropdown-item.component";
 import { ClosingButtonComponent } from "../../buttons/closing-button/closing-button.component";
+import { CheckboxComponent } from "../checkbox";
 
 @Component({
   selector: "tedi-select",
@@ -39,6 +40,7 @@ import { ClosingButtonComponent } from "../../buttons/closing-button/closing-but
     IconComponent,
     DropdownItemComponent,
     ClosingButtonComponent,
+    CheckboxComponent,
   ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -90,6 +92,7 @@ export class SelectComponent
   _options = contentChildren(SelectOptionComponent);
 
   private selectRef = inject(ElementRef);
+
   // ControlValueAccessor methods
   private onChange: (value: string | string[] | null) => void = () => {};
   private onTouched: () => void = () => {};
@@ -201,6 +204,7 @@ export class SelectComponent
       this.selectRef?.nativeElement?.getBoundingClientRect()?.width ?? 0;
     this._width.set(computedWidth);
   }
+
   isOptionSelected(value: string): boolean {
     const selectedValue = this._selectedValue();
     if (!selectedValue) return false;
