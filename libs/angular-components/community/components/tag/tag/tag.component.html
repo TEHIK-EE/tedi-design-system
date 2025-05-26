@@ -1,5 +1,7 @@
 @if (type() === "danger") {
-  <tedi-icon name="error" color="danger" size="10" />
+  <span class="tedi-tag__icon-wrapper">
+    <tedi-icon name="error" color="danger" [size]="16" />
+  </span>
 }
 
 <span class="tedi-tag__content">
@@ -19,6 +21,6 @@
     title="Eemalda"
     (click)="handleClose($event)"
   >
-    <tedi-icon name="close" size="10" />
+    <tedi-icon name="close" [size]="18" />
   </button>
 }

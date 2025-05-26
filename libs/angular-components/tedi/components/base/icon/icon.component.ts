@@ -37,10 +37,10 @@ export type IconBackgroundColor =
   encapsulation: ViewEncapsulation.None,
   host: {
     "[class]": "classes()",
-    "role": "img",
+    role: "img",
     "[attr.aria-label]": "label()",
-    "[attr.aria-hidden]": "!label()"
-  }
+    "[attr.aria-hidden]": "!label()",
+  },
 })
 export class IconComponent {
   /**
