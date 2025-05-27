@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-react-v11.4.0-rc.8](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.4.0-rc.7...react-11.4.0-rc.8) (2025-05-27)
+
+
+### Features
+
+* **list:** Add ability to change bullet colors [#719](https://github.com/TEHIK-EE/tedi-design-system/issues/719) ([#821](https://github.com/TEHIK-EE/tedi-design-system/issues/821)) ([5a56437](https://github.com/TEHIK-EE/tedi-design-system/commit/5a5643705e492ea6ae5a521fdc8604c43c119abc))
+
 # [@tehik-ee/tedi-react-v11.4.0-rc.7](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.4.0-rc.6...react-11.4.0-rc.7) (2025-05-22)
 
 
