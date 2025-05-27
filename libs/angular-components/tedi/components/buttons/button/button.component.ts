@@ -55,37 +55,17 @@ export class ButtonComponent implements AfterViewInit, OnDestroy {
   private iconOnly = signal(false);
   private host = inject(ElementRef);
   private renderer = inject(Renderer2);
-
   private observer: MutationObserver | null = null;
 
   ngAfterViewInit(): void {
     this.observer = new MutationObserver((mutations) => {
       for (const mutation of mutations) {
-        for (const node of Array.from(mutation.addedNodes)) {
-          if (node.nodeType === Node.TEXT_NODE && node.textContent?.trim()) {
-            const span = this.renderer.createElement("span") as HTMLSpanElement;
-            const textNode = this.renderer.createText(node.textContent.trim());
-
-            this.renderer.appendChild(span, textNode);
-            this.renderer.insertBefore(this.host.nativeElement, span, node);
-            this.renderer.removeChild(this.host.nativeElement, node);
-          }
-        }
+        (Array.from(mutation.addedNodes) as Node[]).forEach((node: Node) => {
+          this.tryWrapTextNode(node);
+        });
       }
 
-      const childNodes: ChildNode[] = Array.from(
-        this.host.nativeElement.childNodes,
-      );
-      const elements = childNodes.filter(
-        (node) => node.nodeType === Node.ELEMENT_NODE,
-      );
-      const hasText = childNodes.some(
-        (node) => node.nodeType === Node.TEXT_NODE && node.textContent?.trim(),
-      );
-
-      if (elements.length === 1 && this.icons.length === 1 && !hasText) {
-        this.iconOnly.set(true);
-      }
+      this.checkIfIconOnly();
     });
 
     this.observer.observe(this.host.nativeElement, {
@@ -93,12 +73,55 @@ export class ButtonComponent implements AfterViewInit, OnDestroy {
       characterData: true,
       subtree: true,
     });
+
+    this.wrapTextNodes();
+    this.checkIfIconOnly();
   }
 
   ngOnDestroy(): void {
     if (this.observer) {
       this.observer.disconnect();
     }
+  }
+
+  private tryWrapTextNode(node: Node): void {
+    if (
+      node.nodeType === Node.TEXT_NODE &&
+      node.textContent?.trim() &&
+      !(
+        node.parentElement?.tagName === "SPAN" &&
+        node.parentElement.classList.contains("tedi-button__text")
+      )
+    ) {
+      const span = this.renderer.createElement("span") as HTMLSpanElement;
+      this.renderer.addClass(span, "tedi-button__text");
+
+      const textNode = this.renderer.createText(node.textContent.trim());
+      this.renderer.appendChild(span, textNode);
+      this.renderer.insertBefore(this.host.nativeElement, span, node);
+      this.renderer.removeChild(this.host.nativeElement, node);
+    }
+  }
+
+  private wrapTextNodes(): void {
+    const childNodes = Array.from(this.host.nativeElement.childNodes) as Node[];
+    for (const node of childNodes) {
+      this.tryWrapTextNode(node);
+    }
+  }
+
+  private checkIfIconOnly(): void {
+    const childNodes = Array.from(this.host.nativeElement.childNodes) as Node[];
+    const elements = childNodes.filter(
+      (node) => node.nodeType === Node.ELEMENT_NODE,
+    );
+    const hasText = childNodes.some(
+      (node) => node.nodeType === Node.TEXT_NODE && node.textContent?.trim(),
+    );
+
+    this.iconOnly.set(
+      elements.length === 1 && this.icons.length === 1 && !hasText,
+    );
   }
 
   classes = computed(() => {
