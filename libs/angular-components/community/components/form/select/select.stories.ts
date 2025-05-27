@@ -66,7 +66,7 @@ export const Basic: Story = {
   render: (args) => ({
     props: args,
     template: `
-      <tedi-select [placeholder]="placeholder" [disabled]="disabled" [state]="state" [size]="size">
+      <tedi-select [placeholder]="placeholder" [disabled]="disabled" [state]="state" [size]="size" [multiselect]="multiselect">
         <tedi-select-option [value]="'option0'" [label]="'Option 0'" />
         <tedi-select-option [value]="'option1'" [label]="'Option 1'">
             <tedi-icon name="close" /> Option 1
