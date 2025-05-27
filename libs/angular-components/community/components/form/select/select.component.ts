@@ -27,6 +27,7 @@ import { IconComponent } from "@tehik-ee/tedi-angular/tedi";
 import { DropdownItemComponent } from "../../overlay/dropdown-item/dropdown-item.component";
 import { ClosingButtonComponent } from "../../buttons/closing-button/closing-button.component";
 import { CheckboxComponent } from "../checkbox";
+import { TagComponent } from "community/components/tag";
 
 @Component({
   selector: "tedi-select",
@@ -41,6 +42,7 @@ import { CheckboxComponent } from "../checkbox";
     DropdownItemComponent,
     ClosingButtonComponent,
     CheckboxComponent,
+    TagComponent,
   ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -74,7 +76,8 @@ export class SelectComponent
    * The state of the input.
    * @default "default"
    */
-  state = input<InputState>("default"); /**
+  state = input<InputState>("default");
+  /**
    * The size of the input.
    * @default "default"
    */
@@ -162,6 +165,26 @@ export class SelectComponent
 
     this.onChange(this._selectedValue());
     this.onTouched();
+  }
+
+  unselect(value: string, event: Event) {
+    if (event) {
+      event.stopPropagation();
+      event.preventDefault();
+    }
+
+    if (!this.multiselect()) return;
+
+    const currentValue = this._selectedValue() ?? [];
+    if (!Array.isArray(currentValue)) return;
+
+    const index = currentValue.indexOf(value);
+    if (index !== -1) {
+      currentValue.splice(index, 1);
+      this._selectedValue.set(currentValue.length ? currentValue : null);
+      this.onChange(this._selectedValue());
+      this.onTouched();
+    }
   }
 
   clear() {

@@ -17,9 +17,13 @@
       @if (_selectedValue()) {
         <div class="tedi-select__multiselect-container">
           @for (selectedValue of _selectedValue(); track selectedValue) {
-            <span class="tedi-select__multiselect-item">{{
-              getOptionLabel(selectedValue)
-            }}</span>
+            <!-- <span class="tedi-select__multiselect-item"></span> -->
+            <tedi-tag
+              [closable]="true"
+              (closed)="unselect(selectedValue, $event)"
+            >
+              {{ getOptionLabel(selectedValue) }}
+            </tedi-tag>
           }
         </div>
       } @else {
@@ -58,13 +62,12 @@
       @for (option of _options(); track option.value()) {
         @if (multiselect()) {
           <button
-            type="button"
             cdkMenuItemCheckbox
             tedi-dropdown-item
             [cdkMenuItemChecked]="isOptionSelected(option.value())"
-            (cdkMenuItemTriggered)="select(option.value())"
-            (click)="$event.stopPropagation()"
+            (click)="select(option.value())"
             [disabled]="option.isDisabled()"
+            [cdkMenuTriggerFor]="keepCdkMenuOpen"
           >
             <tedi-checkbox
               class="tedi-select__multiselect-checkbox"
@@ -104,3 +107,5 @@
     </tedi-card-content>
   </tedi-card>
 </ng-template>
+
+<ng-template #keepCdkMenuOpen />
