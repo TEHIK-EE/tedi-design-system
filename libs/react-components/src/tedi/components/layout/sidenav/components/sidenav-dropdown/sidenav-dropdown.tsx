@@ -15,26 +15,24 @@ import classNames from 'classnames';
 import React, { useState } from 'react';
 
 import Link from '../../../../navigation/link/link';
-import { SideNavItem } from '../sidenav-item/sidenav-item';
+import { SideNavItemProps } from '../sidenav-item/sidenav-item';
 import styles from './sidenav-dropdown.module.scss';
 
 type SideNavDropdownProps<C extends React.ElementType = 'a'> = {
   trigger: React.ReactNode;
   groups: Group<C>[];
   onOpenChange?: (isOpen: boolean) => void;
-  label?: string;
 };
 
 type Group<C extends React.ElementType> = {
   subHeading?: string;
-  subItems: SideNavItem<C>[];
+  subItems: SideNavItemProps<C>[];
 };
 
 export const SideNavDropdown = <C extends React.ElementType = 'a'>({
   trigger,
   groups,
   onOpenChange,
-  label = 'Side navigation dropdown',
 }: SideNavDropdownProps<C>) => {
   const [open, setOpen] = useState(false);
 
@@ -52,11 +50,7 @@ export const SideNavDropdown = <C extends React.ElementType = 'a'>({
 
   const { getReferenceProps, getFloatingProps } = useInteractions([useClick(context), useDismiss(context)]);
 
-  function onItemClick() {
-    throw new Error('Function not implemented.');
-  }
-
-  const renderDropdownItem = <C extends React.ElementType>(item: SideNavItem<C>) => {
+  const renderDropdownItem = <C extends React.ElementType>(item: SideNavItemProps<C>) => {
     const hasChildren = item.subItemGroups || item.subItems;
 
     return (
@@ -77,7 +71,6 @@ export const SideNavDropdown = <C extends React.ElementType = 'a'>({
           noStyle
           onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
             item.onClick?.(e);
-            onItemClick?.();
             setOpen(false);
           }}
         >
@@ -132,7 +125,6 @@ export const SideNavDropdown = <C extends React.ElementType = 'a'>({
                 style={floatingStyles}
                 className={styles['tedi-sidenav-dropdown']}
                 role="menu"
-                aria-label={label}
                 {...getFloatingProps()}
               >
                 {groups.map((group, i) => (

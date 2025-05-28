@@ -2,18 +2,19 @@ import { FloatingOverlay } from '@floating-ui/react';
 import classNames from 'classnames';
 import React, { useState } from 'react';
 
+import { useLabels } from '../../../../../providers/label-provider';
 import { Icon } from '../../../../base/icon/icon';
 import styles from '../../sidenav.module.scss';
-import { SideNavItem, SideNavItem as SideNavItemType } from '../sidenav-item/sidenav-item';
+import { SideNavItem, SideNavItemProps } from '../sidenav-item/sidenav-item';
 
 type NavigationLevel<C extends React.ElementType> = {
-  items: SideNavItemType<C>[];
-  parent?: SideNavItemType<C>;
+  items: SideNavItemProps<C>[];
+  parent?: SideNavItemProps<C>;
   renderParentLink?: boolean;
 };
 
 type SideNavMobileProps<C extends React.ElementType = 'a'> = {
-  navItems: SideNavItemType<C>[];
+  navItems: SideNavItemProps<C>[];
   ariaLabel: string;
   linkAs?: C;
   isOpen: boolean;
@@ -29,12 +30,13 @@ export const SideNavMobile = <C extends React.ElementType = 'a'>({
   onClose,
   showOverlay = true,
 }: SideNavMobileProps<C>) => {
+  const { getLabel } = useLabels();
   const [navigationStack, setNavigationStack] = useState<NavigationLevel<C>[]>([{ items: navItems }]);
 
   const currentLevel = navigationStack[navigationStack.length - 1];
   const isRootLevel = navigationStack.length === 1;
 
-  const handleItemClick = (item: SideNavItemType<C>) => {
+  const handleItemClick = (item: SideNavItemProps<C>) => {
     const hasChildren = !!(item.subItems || item.subItemGroups);
     const isLinked = !!(item.href || item.to);
 
@@ -44,6 +46,7 @@ export const SideNavMobile = <C extends React.ElementType = 'a'>({
     }
 
     const nextLevelItems = item.subItemGroups?.flatMap((group) => group.subItems) || item.subItems || [];
+
     setNavigationStack([
       ...navigationStack,
       {
@@ -58,10 +61,14 @@ export const SideNavMobile = <C extends React.ElementType = 'a'>({
     setNavigationStack(navigationStack.slice(0, -1));
   };
 
+  const handleBackToRoot = () => {
+    setNavigationStack([navigationStack[0]]);
+  };
+
   const parentHasChildren = currentLevel.parent?.subItems?.length ?? currentLevel.parent?.subItemGroups?.length;
   const shouldRenderSubheading = navigationStack.length > 1 && !(currentLevel.renderParentLink && parentHasChildren);
 
-  const renderMobileItem = (item: SideNavItemType<C>, level: number) => {
+  const renderMobileItem = (item: SideNavItemProps<C>, level: number) => {
     if (level === 1) {
       const hasChildren = !!(item.subItems || item.subItemGroups);
 
@@ -97,7 +104,7 @@ export const SideNavMobile = <C extends React.ElementType = 'a'>({
     return renderNestedMobileItem(item, level);
   };
 
-  const renderNestedMobileItem = (item: SideNavItemType<C>, level: number) => {
+  const renderNestedMobileItem = (item: SideNavItemProps<C>, level: number) => {
     const isLink = !!(item.href || item.to);
     const hasChildren = !!(item.subItems || item.subItemGroups);
 
@@ -113,11 +120,7 @@ export const SideNavMobile = <C extends React.ElementType = 'a'>({
         />
       );
 
-      return hasChildren ? (
-        <div className={classNames(styles['tedi-sidenav__collapse'])}>{itemContent}</div>
-      ) : (
-        itemContent
-      );
+      return itemContent;
     }
 
     return (
@@ -146,12 +149,12 @@ export const SideNavMobile = <C extends React.ElementType = 'a'>({
           <div className={styles['tedi-sidenav__back-buttons']}>
             {navigationStack.length > 1 && (
               <button
-                onClick={handleBackClick}
+                onClick={handleBackToRoot}
                 className={classNames(styles['tedi-sidenav__link'], styles['tedi-sidenav__back-button'])}
                 aria-label="Back to main menu"
               >
                 <Icon name="arrow_back" size={16} color="white" />
-                <span>Peamenüüse</span>
+                <span>{getLabel('sidenav.backToMainMenu')}</span>
               </button>
             )}
 
@@ -162,7 +165,9 @@ export const SideNavMobile = <C extends React.ElementType = 'a'>({
                 aria-label="Back to 2nd level"
               >
                 <Icon name="arrow_back" size={16} color="white" />
-                <span>{navigationStack[navigationStack.length - 2]?.parent?.children + ' menuüsse'}</span>
+                <span>
+                  {navigationStack[navigationStack.length - 1]?.parent?.children + ' ' + getLabel('sidenav.backtoMenu')}
+                </span>
               </button>
             )}
           </div>
@@ -176,12 +181,13 @@ export const SideNavMobile = <C extends React.ElementType = 'a'>({
       <ul className={styles['tedi-sidenav__list']} role="menubar">
         {currentLevel.renderParentLink && currentLevel.parent && (
           <li className={styles['tedi-sidenav__list-item']}>
-            {renderMobileItem(currentLevel.parent, navigationStack.length)}
+            <div className={classNames(styles['tedi-sidenav__collapse'])}>
+              {renderMobileItem(currentLevel.parent, navigationStack.length)}
+            </div>
           </li>
         )}
-        {currentLevel.items.map((item) => (
-          <>{renderMobileItem(item, navigationStack.length)}</>
-        ))}
+        {!currentLevel.renderParentLink &&
+          currentLevel.items.map((item) => <>{renderMobileItem(item, navigationStack.length)}</>)}
       </ul>
     </nav>
   );

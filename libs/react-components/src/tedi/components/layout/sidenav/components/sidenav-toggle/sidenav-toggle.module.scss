@@ -19,7 +19,7 @@
 
   &.tedi-sidenav-toggle--collapse {
     position: absolute;
-    top: calc(var(--sidenav-toggle-top) / 4);
+    top: calc(var(--sidenav-toggle-top) / 5);
     right: calc(var(--sidenav-toggle-right) / 2 * -1);
     display: inline-flex;
     align-items: center;

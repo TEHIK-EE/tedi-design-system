@@ -8,7 +8,7 @@ import { Tooltip } from '../../../../overlays/tooltip';
 import styles from '../../sidenav.module.scss';
 import { SideNavDropdown } from '../sidenav-dropdown/sidenav-dropdown';
 
-export type SideNavItem<C extends React.ElementType = 'a'> = LinkProps<C> & {
+export type SideNavItemProps<C extends React.ElementType = 'a'> = LinkProps<C> & {
   /**
    * Icon of the item
    */
@@ -16,13 +16,13 @@ export type SideNavItem<C extends React.ElementType = 'a'> = LinkProps<C> & {
   /**
    * Submenu items (legacy)
    */
-  subItems?: SideNavItem<C>[];
+  subItems?: SideNavItemProps<C>[];
   /**
    * Grouped submenu items (preferred for headings)
    */
   subItemGroups?: {
     subHeading?: string;
-    subItems: SideNavItem<C>[];
+    subItems: SideNavItemProps<C>[];
   }[];
   /**
    * Whether the sidenav is currently collapsed
@@ -35,7 +35,7 @@ export type SideNavItem<C extends React.ElementType = 'a'> = LinkProps<C> & {
 };
 
 export const SideNavItem = <C extends React.ElementType = 'a'>(
-  props: SideNavItem<C> & {
+  props: SideNavItemProps<C> & {
     onItemClick?: () => void;
     level?: number;
     isCollapsed?: boolean;
@@ -57,7 +57,7 @@ export const SideNavItem = <C extends React.ElementType = 'a'>(
     ...rest
   } = props;
 
-  const [isCollapsedInternal, setIsCollapsedInternal] = useState(props.isDefaultOpen ?? false);
+  const [isCollapsedInternal, setIsCollapsedInternal] = useState(isDefaultOpen ?? false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const collapseId = React.useId();
 
@@ -145,11 +145,7 @@ export const SideNavItem = <C extends React.ElementType = 'a'>(
                 className={cn(styles['tedi-sidenav__link'], isDropdownOpen && styles['tedi-sidenav__link--active'])}
               >
                 {icon && getIcon(icon)}
-                <Icon
-                  name={isDropdownOpen ? 'expand_less' : 'expand_more'}
-                  color="white"
-                  className={styles['tedi-sidenav__toggle-icon']}
-                />
+                <Icon name="expand_more" color="white" className={styles['tedi-sidenav__toggle-icon']} size={18} />
                 <span className={styles['tedi-sidenav__title']}>{children}</span>
               </span>
             </Tooltip.Trigger>

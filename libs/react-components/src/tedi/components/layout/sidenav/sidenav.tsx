@@ -6,8 +6,8 @@ import Print from '../../../../tedi/components/misc/print/print';
 import { Breakpoint, isBreakpointBelow, useBreakpoint } from '../../../helpers';
 import { AllowedHTMLTags } from '../../../helpers/polymorphic/types';
 import { UnknownType } from '../../../types/commonTypes';
-import { SideNavItem } from './components/sidenav-item/sidenav-item';
-import { SideNavMobile } from './components/sidenav-mobile-dropdown/sidenav-mobile';
+import { SideNavItem, SideNavItemProps } from './components/sidenav-item/sidenav-item';
+import { SideNavMobile } from './components/sidenav-mobile/sidenav-mobile';
 import SidenavToggle from './components/sidenav-toggle/sidenav-toggle';
 import styles from './sidenav.module.scss';
 
@@ -20,11 +20,11 @@ type ConditionalTypes<C extends React.ElementType = 'a'> =
       /**
        * Level 1 menu links
        */
-      navItems: SideNavItem<C>[];
+      navItems: SideNavItemProps<C>[];
     }
   | {
       linkAs?: never;
-      navItems: SideNavItem<UnknownType>[];
+      navItems: SideNavItemProps<UnknownType>[];
     };
 
 export type SideNavProps<C extends React.ElementType = 'a'> = ConditionalTypes<C> & {
