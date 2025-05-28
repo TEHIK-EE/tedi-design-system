@@ -10,13 +10,13 @@
   &--horizontal {
     display: flex;
     gap: 1rem;
-    align-items: center;
+    align-items: flex-start;
   }
 
   &__label {
     display: flex;
     width: var(--_label-width);
-    min-width: fit-content;
+    flex-shrink: 0;
   }
 
   &__value {

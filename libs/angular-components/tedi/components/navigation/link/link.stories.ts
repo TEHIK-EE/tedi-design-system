@@ -10,6 +10,7 @@ import { ColComponent } from "../../layout/grid/col/col.component";
 import { RowComponent } from "../../layout/grid/row/row.component";
 import { TextComponent, TextColor } from "../../base/text/text.component";
 import { IconComponent } from "../../base/icon/icon.component";
+import { createBreakpointArgTypes } from "../../../../utils/createBreakpointArgTypes";
 
 const PSEUDO_STATE = ["Default", "Hover", "Active", "Focus"];
 
@@ -23,7 +24,13 @@ export default {
   component: LinkComponent,
   decorators: [
     moduleMetadata({
-      imports: [LinkComponent, RowComponent, ColComponent, TextComponent, IconComponent],
+      imports: [
+        LinkComponent,
+        RowComponent,
+        ColComponent,
+        TextComponent,
+        IconComponent,
+      ],
     }),
   ],
   parameters: {
@@ -66,60 +73,7 @@ export default {
         defaultValue: { summary: "true" },
       },
     },
-    xs: {
-      description: "Overrides LinkInputs on xs breakpoint (<576px).",
-      table: {
-        category: "breakpoints",
-        type: {
-          summary: "LinkInputs",
-        },
-      },
-    },
-    sm: {
-      description: "Overrides LinkInputs on sm breakpoint (≥576px).",
-      table: {
-        category: "breakpoints",
-        type: {
-          summary: "LinkInputs",
-        },
-      },
-    },
-    md: {
-      description: "Overrides LinkInputs on md breakpoint (≥768px).",
-      table: {
-        category: "breakpoints",
-        type: {
-          summary: "LinkInputs",
-        },
-      },
-    },
-    lg: {
-      description: "Overrides LinkInputs on lg breakpoint (≥992px).",
-      table: {
-        category: "breakpoints",
-        type: {
-          summary: "LinkInputs",
-        },
-      },
-    },
-    xl: {
-      description: "Overrides LinkInputs on xl breakpoint (≥1200px).",
-      table: {
-        category: "breakpoints",
-        type: {
-          summary: "LinkInputs",
-        },
-      },
-    },
-    xxl: {
-      description: "Overrides LinkInputs on xxl breakpoint (≥1400px).",
-      table: {
-        category: "breakpoints",
-        type: {
-          summary: "LinkInputs",
-        },
-      },
-    },
+    ...createBreakpointArgTypes("LinkInputs"),
   },
 } as Meta<LinkComponent>;
 
