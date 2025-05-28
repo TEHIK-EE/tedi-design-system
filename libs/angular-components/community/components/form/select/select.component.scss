@@ -28,19 +28,6 @@
     gap: var(--_inner-gap);
   }
 
-  // &__multiselect-item {
-  //   // display: inline-block;
-  //   // padding: 0.125rem 0.375rem;
-  //   // background-color: var(--general-background-secondary);
-  //   // border-radius: 0.25rem;
-  //   // font-size: 0.875rem;
-  //   // line-height: 1.25rem;
-  //   // max-width: 100%;
-  //   // overflow: hidden;
-  //   // text-overflow: ellipsis;
-  //   // white-space: nowrap;
-  // }
-
   &__multiselect-checkbox {
     pointer-events: none;
   }
@@ -65,6 +52,7 @@
     @include mixins.responsive-styles(padding-left, form-field-inner-spacing);
     @include mixins.responsive-styles(margin-left, form-field-inner-spacing);
   }
+
   &__dropdown {
     box-shadow: 0px 1px 5px 0px var(--alpha-20);
     max-height: 300px;

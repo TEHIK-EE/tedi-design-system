@@ -17,7 +17,6 @@
       @if (_selectedValue()) {
         <div class="tedi-select__multiselect-container">
           @for (selectedValue of _selectedValue(); track selectedValue) {
-            <!-- <span class="tedi-select__multiselect-item"></span> -->
             <tedi-tag
               [closable]="true"
               (closed)="unselect(selectedValue, $event)"
@@ -87,7 +86,7 @@
         } @else {
           <button
             type="button"
-            cdkMenuItemRadio
+            cdkMenuItem
             tedi-dropdown-item
             (cdkMenuItemTriggered)="select(option.value())"
             [selected]="isOptionSelected(option.value())"
