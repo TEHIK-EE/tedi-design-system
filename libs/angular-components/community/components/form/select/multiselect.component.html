@@ -1,0 +1,81 @@
+<button
+  tedi-input
+  type="button"
+  [state]="state()"
+  [size]="size()"
+  [cdkMenuTriggerFor]="selectDropdown"
+  [disabled]="_disabled()"
+  (click)="touch()"
+  class="tedi-select__trigger tedi-select__trigger--multiselect"
+>
+  <span
+    class="tedi-select__label"
+    [class.tedi-select__label--placeholder]="!_selectedValue()"
+  >
+    @if (_selectedValue()) {
+      <div class="tedi-select__multiselect-container">
+        @for (selectedValue of _selectedValue(); track selectedValue) {
+          <tedi-tag
+            [closable]="true"
+            (closed)="unselect(selectedValue, $event)"
+          >
+            {{ getOptionLabel(selectedValue) }}
+          </tedi-tag>
+        }
+      </div>
+    } @else {
+      {{ placeholder() }}
+    }
+  </span>
+
+  @if (_selectedValue()) {
+    <div
+      tedi-closing-button
+      class="tedi-select__clear"
+      title="Clear"
+      [attr.aria-label]="'Clear'"
+      tabindex="0"
+      (click)="$event.stopPropagation(); clear()"
+    ></div>
+  }
+  <tedi-icon class="tedi-select__arrow" name="arrow_drop_down" />
+</button>
+
+<ng-template #selectDropdown>
+  <tedi-card
+    cdkMenu
+    class="tedi-select__dropdown"
+    spacing="none"
+    [style.width.px]="_width()"
+  >
+    <tedi-card-content class="tedi-select__dropdown-content">
+      @for (option of _options(); track option.value()) {
+        <button
+          cdkMenuItemCheckbox
+          tedi-dropdown-item
+          [cdkMenuItemChecked]="isOptionSelected(option.value())"
+          (click)="select(option.value())"
+          [disabled]="option.isDisabled()"
+          [cdkMenuTriggerFor]="keepCdkMenuOpen"
+        >
+          <tedi-checkbox
+            class="tedi-select__multiselect-checkbox"
+            [inputId]="'option-' + option.value()"
+            [checked]="isOptionSelected(option.value())"
+          >
+            @if (option.templateRef(); as optionTemplate) {
+              <span class="tedi-select__dropdown-item--custom-content">
+                <ng-container [ngTemplateOutlet]="optionTemplate" />
+              </span>
+              <span class="tedi-select__dropdown-item--label">
+                {{ option.label() }}
+              </span>
+            }
+          </tedi-checkbox>
+        </button>
+      }
+    </tedi-card-content>
+  </tedi-card>
+</ng-template>
+
+<ng-template #keepCdkMenuOpen />

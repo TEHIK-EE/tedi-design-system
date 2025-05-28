@@ -6,6 +6,7 @@ import {
   ReactiveFormsModule,
 } from "@angular/forms";
 import { SelectComponent } from "./select.component";
+import { MultiselectComponent } from "./multiselect.component";
 import { SelectOptionComponent } from "./select-option.component";
 import { IconComponent } from "@tehik-ee/tedi-angular/tedi";
 
@@ -30,6 +31,7 @@ const meta: Meta<SelectComponent> = {
     moduleMetadata({
       imports: [
         SelectComponent,
+        MultiselectComponent,
         SelectOptionComponent,
         FormsModule,
         ReactiveFormsModule,
@@ -42,14 +44,12 @@ const meta: Meta<SelectComponent> = {
     disabled: { control: "boolean" },
     state: { control: "radio", options: ["error", "valid", "default"] },
     size: { control: "radio", options: ["small", "default"] },
-    multiselect: { control: "boolean" },
   },
   args: {
     placeholder: "Select an option...",
     disabled: false,
     state: "default",
     size: "default",
-    multiselect: false,
   },
 };
 
@@ -206,7 +206,6 @@ export const ManyOptions: Story = {
 
 export const Multiselect: Story = {
   args: {
-    multiselect: true,
     placeholder: "Select multiple options...",
   },
   parameters: {
@@ -220,13 +219,13 @@ export const Multiselect: Story = {
   render: (args) => ({
     template: `
       <form [formGroup]="form">
-        <tedi-select formControlName="selectedOptions" [multiselect]="multiselect" [placeholder]="placeholder">
+        <tedi-multiselect formControlName="selectedOptions" [multiselect]="multiselect" [placeholder]="placeholder">
           <tedi-select-option [value]="'option1'" [label]="'Option 1'">Option 1</tedi-select-option>
           <tedi-select-option [value]="'option2'" [label]="'Option 2'">Option 2</tedi-select-option>
           <tedi-select-option [value]="'option3'" [label]="'Option 3'">Option 3</tedi-select-option>
           <tedi-select-option [value]="'option4'" [label]="'Option 4'">Option 4</tedi-select-option>
           <tedi-select-option [value]="'option5'" [label]="'Option 5'">Option 5</tedi-select-option>
-        </tedi-select>
+        </tedi-multiselect>
       </form>
       <div style="margin-top: 16px;">
         <strong>Selected values:</strong> {{ form.get('selectedOptions').value | json }}
@@ -243,7 +242,6 @@ export const Multiselect: Story = {
 
 export const MultiselectWithCustomOptions: Story = {
   args: {
-    multiselect: true,
     placeholder: "Select multiple options...",
   },
   parameters: {
@@ -257,7 +255,7 @@ export const MultiselectWithCustomOptions: Story = {
   render: (args) => ({
     template: `
       <form [formGroup]="form">
-        <tedi-select formControlName="selectedOptions" [multiselect]="multiselect" [placeholder]="placeholder">
+        <tedi-multiselect formControlName="selectedOptions" [multiselect]="multiselect" [placeholder]="placeholder">
           <tedi-select-option [value]="'option1'" [label]="'Home'">
             <tedi-icon name="home" /> Home
           </tedi-select-option>
@@ -276,7 +274,7 @@ export const MultiselectWithCustomOptions: Story = {
           <tedi-select-option [value]="'option5'" [label]="'Logout'">
             <tedi-icon name="logout" /> Logout
           </tedi-select-option>
-        </tedi-select>
+        </tedi-multiselect>
       </form>
       <div style="margin-top: 16px;">
         <strong>Selected values:</strong> {{ form.get('selectedOptions').value | json }}
@@ -293,7 +291,6 @@ export const MultiselectWithCustomOptions: Story = {
 
 export const MultiselectProgrammaticControl: Story = {
   args: {
-    multiselect: true,
     placeholder: "Select multiple options...",
   },
   parameters: {
@@ -307,13 +304,13 @@ export const MultiselectProgrammaticControl: Story = {
   render: (args) => ({
     template: `
       <form [formGroup]="form">
-        <tedi-select formControlName="selectedOptions" [multiselect]="multiselect" [placeholder]="placeholder">
+        <tedi-multiselect formControlName="selectedOptions" [multiselect]="multiselect" [placeholder]="placeholder">
           <tedi-select-option [value]="'option1'" [label]="'Option 1'">Option 1</tedi-select-option>
           <tedi-select-option [value]="'option2'" [label]="'Option 2'">Option 2</tedi-select-option>
           <tedi-select-option [value]="'option3'" [label]="'Option 3'">Option 3</tedi-select-option>
           <tedi-select-option [value]="'option4'" [label]="'Option 4'">Option 4</tedi-select-option>
           <tedi-select-option [value]="'option5'" [label]="'Option 5'">Option 5</tedi-select-option>
-        </tedi-select>
+        </tedi-multiselect>
       </form>
 
       <div style="margin-top: 16px;">

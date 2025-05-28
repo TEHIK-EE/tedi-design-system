@@ -7,33 +7,15 @@
   [disabled]="_disabled()"
   (click)="touch()"
   class="tedi-select__trigger"
-  [class.tedi-select__trigger--multiselect]="multiselect()"
 >
   <span
     class="tedi-select__label"
     [class.tedi-select__label--placeholder]="!_selectedValue()"
   >
-    @if (multiselect()) {
-      @if (_selectedValue()) {
-        <div class="tedi-select__multiselect-container">
-          @for (selectedValue of _selectedValue(); track selectedValue) {
-            <tedi-tag
-              [closable]="true"
-              (closed)="unselect(selectedValue, $event)"
-            >
-              {{ getOptionLabel(selectedValue) }}
-            </tedi-tag>
-          }
-        </div>
-      } @else {
-        {{ placeholder() }}
-      }
+    @if (selectedLabel()) {
+      {{ selectedLabel() }}
     } @else {
-      @if (selectedLabel()) {
-        {{ selectedLabel() }}
-      } @else {
-        {{ placeholder() }}
-      }
+      {{ placeholder() }}
     }
   </span>
 
@@ -59,52 +41,24 @@
   >
     <tedi-card-content class="tedi-select__dropdown-content">
       @for (option of _options(); track option.value()) {
-        @if (multiselect()) {
-          <button
-            cdkMenuItemCheckbox
-            tedi-dropdown-item
-            [cdkMenuItemChecked]="isOptionSelected(option.value())"
-            (click)="select(option.value())"
-            [disabled]="option.isDisabled()"
-            [cdkMenuTriggerFor]="keepCdkMenuOpen"
-          >
-            <tedi-checkbox
-              class="tedi-select__multiselect-checkbox"
-              [inputId]="'option-' + option.value()"
-              [checked]="isOptionSelected(option.value())"
-            >
-              @if (option.templateRef(); as optionTemplate) {
-                <span class="tedi-select__dropdown-item--custom-content">
-                  <ng-container [ngTemplateOutlet]="optionTemplate" />
-                </span>
-                <span class="tedi-select__dropdown-item--label">
-                  {{ option.label() }}
-                </span>
-              }
-            </tedi-checkbox>
-          </button>
-        } @else {
-          <button
-            type="button"
-            cdkMenuItem
-            tedi-dropdown-item
-            (cdkMenuItemTriggered)="select(option.value())"
-            [selected]="isOptionSelected(option.value())"
-            [disabled]="option.isDisabled()"
-          >
-            @if (option.templateRef(); as optionTemplate) {
-              <div class="tedi-select__dropdown-item--custom-content">
-                <ng-container [ngTemplateOutlet]="optionTemplate" />
-              </div>
-              <span class="tedi-select__dropdown-item--label">
-                {{ option.label() }}
-              </span>
-            }
-          </button>
-        }
+        <button
+          type="button"
+          cdkMenuItem
+          tedi-dropdown-item
+          (cdkMenuItemTriggered)="select(option.value())"
+          [selected]="isOptionSelected(option.value())"
+          [disabled]="option.isDisabled()"
+        >
+          @if (option.templateRef(); as optionTemplate) {
+            <div class="tedi-select__dropdown-item--custom-content">
+              <ng-container [ngTemplateOutlet]="optionTemplate" />
+            </div>
+            <span class="tedi-select__dropdown-item--label">
+              {{ option.label() }}
+            </span>
+          }
+        </button>
       }
     </tedi-card-content>
   </tedi-card>
 </ng-template>
-
-<ng-template #keepCdkMenuOpen />

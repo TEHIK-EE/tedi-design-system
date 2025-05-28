@@ -11,7 +11,6 @@ import {
   contentChildren,
   AfterContentChecked,
   OnInit,
-  computed,
 } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { CdkMenuModule } from "@angular/cdk/menu";
@@ -26,9 +25,11 @@ import { CardComponent, CardContentComponent } from "../../cards/card";
 import { IconComponent } from "@tehik-ee/tedi-angular/tedi";
 import { DropdownItemComponent } from "../../overlay/dropdown-item/dropdown-item.component";
 import { ClosingButtonComponent } from "../../buttons/closing-button/closing-button.component";
+import { CheckboxComponent } from "../checkbox";
+import { TagComponent } from "community/components/tag";
 
 @Component({
-  selector: "tedi-select",
+  selector: "tedi-multiselect",
   standalone: true,
   imports: [
     CommonModule,
@@ -39,15 +40,17 @@ import { ClosingButtonComponent } from "../../buttons/closing-button/closing-but
     IconComponent,
     DropdownItemComponent,
     ClosingButtonComponent,
+    CheckboxComponent,
+    TagComponent,
   ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  templateUrl: "./select.component.html",
-  styleUrl: "./select.component.scss",
+  templateUrl: "./multiselect.component.html",
+  styleUrl: "./select.component.scss", // Reuse the same styles
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => SelectComponent),
+      useExisting: forwardRef(() => MultiselectComponent),
       multi: true,
     },
   ],
@@ -55,7 +58,7 @@ import { ClosingButtonComponent } from "../../buttons/closing-button/closing-but
     "[class.tedi-select]": "true",
   },
 })
-export class SelectComponent
+export class MultiselectComponent
   implements ControlValueAccessor, OnInit, AfterContentChecked
 {
   /**
@@ -80,7 +83,7 @@ export class SelectComponent
   size = input<InputSize>("default");
 
   // Internal state
-  _selectedValue = signal<string | null>(null);
+  _selectedValue = signal<string[] | null>(null);
   _disabled = signal<boolean>(false);
   _width = signal<number>(0);
   _options = contentChildren(SelectOptionComponent);
@@ -88,24 +91,19 @@ export class SelectComponent
   private selectRef = inject(ElementRef);
 
   // ControlValueAccessor methods
-  private onChange: (value: string | null) => void = () => {};
+  private onChange: (value: string[] | null) => void = () => {};
   private onTouched: () => void = () => {};
 
-  writeValue(value: string | null): void {
-    if (value === null || value === undefined) {
+  writeValue(value: string[] | null): void {
+    if (value === null || value === undefined || !Array.isArray(value)) {
       this._selectedValue.set(null);
       return;
     }
 
-    if (Array.isArray(value)) {
-      // Take the first value if array is provided
-      this._selectedValue.set(value.length > 0 ? value[0] : null);
-    } else {
-      this._selectedValue.set(value);
-    }
+    this._selectedValue.set(value.length > 0 ? value : null);
   }
 
-  registerOnChange(fn: (value: string | null) => void): void {
+  registerOnChange(fn: (value: string[] | null) => void): void {
     this.onChange = fn;
   }
 
@@ -133,9 +131,36 @@ export class SelectComponent
 
   // Event handlers
   select(value: string) {
-    this._selectedValue.set(value);
+    const currentValue = this._selectedValue() ?? [];
+    const selectedValues = [...currentValue];
+
+    // Toggle selection
+    const index = selectedValues.indexOf(value);
+    if (index === -1) {
+      selectedValues.push(value);
+    } else {
+      selectedValues.splice(index, 1);
+    }
+
+    this._selectedValue.set(selectedValues.length ? selectedValues : null);
     this.onChange(this._selectedValue());
     this.onTouched();
+  }
+
+  unselect(value: string, event: Event) {
+    if (event) {
+      event.stopPropagation();
+      event.preventDefault();
+    }
+
+    const currentValue = this._selectedValue() ?? [];
+    const index = currentValue.indexOf(value);
+    if (index !== -1) {
+      currentValue.splice(index, 1);
+      this._selectedValue.set(currentValue.length ? currentValue : null);
+      this.onChange(this._selectedValue());
+      this.onTouched();
+    }
   }
 
   clear() {
@@ -148,15 +173,6 @@ export class SelectComponent
     this.onTouched();
   }
 
-  selectedLabel = computed(() => {
-    const value = this._selectedValue();
-    if (!value) return null;
-
-    return this._options()
-      .find((option) => option.value() === value)
-      ?.label();
-  });
-
   private setDropdownWidth() {
     const computedWidth =
       this.selectRef?.nativeElement?.getBoundingClientRect()?.width ?? 0;
@@ -164,7 +180,9 @@ export class SelectComponent
   }
 
   isOptionSelected(value: string): boolean {
-    return this._selectedValue() === value;
+    const selectedValue = this._selectedValue();
+    if (!selectedValue) return false;
+    return selectedValue.includes(value);
   }
 
   getOptionLabel(value: string): string | null {
