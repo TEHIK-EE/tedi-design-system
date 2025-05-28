@@ -27,12 +27,10 @@ export class CollapseComponent implements AfterViewInit {
   /**
    * The title/header element for the collapsible section.
    * Rendered inside the toggle button.
-   * @default "Ava"
    */
   openText = input<string>();
   /**
    * Text shown on the toggle button when the content is expanded.
-   * @default "Sulge"
    */
   closeText = input<string>();
   /**
