@@ -1,7 +1,6 @@
 import { Component, input, ViewEncapsulation } from "@angular/core";
 import { FeedbackTextComponent } from "../feedback-text/feedback-text.component";
-import { LabelComponent } from "../label/label.component";
-import { ComponentInputs } from "@tehik-ee/tedi-angular/tedi";
+import { ComponentInputs, LabelComponent } from "@tehik-ee/tedi-angular/tedi";
 
 /**
  * InputGroupComponent is a component that allows you to group multiple input elements together.

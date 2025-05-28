@@ -12,7 +12,7 @@ import {
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from "@angular/forms";
 import { ChoiceGroupDirective } from "../../choicegroup/choicegroup.directive";
 import { FeedbackTextComponent } from "../../feedback-text/feedback-text.component";
-import { LabelComponent } from "../../label/label.component";
+import { LabelComponent } from "@tehik-ee/tedi-angular/tedi";
 import { CheckboxGroupComponent } from "../checkbox-group/checkbox-group.component";
 import { CheckboxComponent } from "../checkbox/checkbox.component";
 

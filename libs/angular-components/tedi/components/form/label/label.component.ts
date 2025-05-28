@@ -9,16 +9,14 @@ import {
 export type LabelSize = "small" | "default";
 
 @Component({
-  selector: "[tedi-label]",
-  templateUrl: "./label.component.html",
+  selector: "label[tedi-label]",
+  template: "<ng-content />",
   styleUrl: "./label.component.scss",
   standalone: true,
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
-    "[class.tedi-label]": "true",
-    "[class.tedi-label--required]": "required()",
-    "[class]": "modifierClasses()",
+    "[class]": "classes()",
   },
 })
 export class LabelComponent {
@@ -33,11 +31,17 @@ export class LabelComponent {
    */
   required = input<boolean>(false);
 
-  modifierClasses = computed(() => {
-    const modifiers = [];
-    if (this.size()) {
-      modifiers.push(`tedi-label--size--${this.size()}`);
+  classes = computed(() => {
+    const classList = ["tedi-label"];
+
+    if (this.size() === "small") {
+      classList.push("tedi-label--small");
     }
-    return modifiers.join(" ");
+
+    if (this.required()) {
+      classList.push("tedi-label--required");
+    }
+
+    return classList.join(" ");
   });
 }
