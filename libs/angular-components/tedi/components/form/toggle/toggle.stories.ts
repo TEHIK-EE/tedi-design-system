@@ -10,7 +10,7 @@ const PSEUDO_STATE = ["Default", "Hover", "Active", "Focus"];
  */
 
 export default {
-  title: "Community Angular/Form/Toggle",
+  title: "TEDI-Ready Angular/Form/Toggle",
   component: ToggleComponent,
   decorators: [
     moduleMetadata({
