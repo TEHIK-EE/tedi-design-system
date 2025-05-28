@@ -219,7 +219,7 @@ export const Multiselect: Story = {
   render: (args) => ({
     template: `
       <form [formGroup]="form">
-        <tedi-multiselect formControlName="selectedOptions" [multiselect]="multiselect" [placeholder]="placeholder">
+        <tedi-multiselect formControlName="selectedOptions" [multiselect]="multiselect" [placeholder]="placeholder" [selectAll]="true">
           <tedi-select-option [value]="'option1'" [label]="'Option 1'">Option 1</tedi-select-option>
           <tedi-select-option [value]="'option2'" [label]="'Option 2'">Option 2</tedi-select-option>
           <tedi-select-option [value]="'option3'" [label]="'Option 3'">Option 3</tedi-select-option>

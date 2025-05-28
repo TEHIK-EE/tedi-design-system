@@ -82,6 +82,11 @@ export class MultiselectComponent
    */
   size = input<InputSize>("default");
 
+  //new inputs for multiselect
+  multiRow = input<boolean>(false);
+  clearableTags = input<boolean>(false);
+  selectAll = input<boolean>(false);
+
   // Internal state
   _selectedValue = signal<string[] | null>(null);
   _disabled = signal<boolean>(false);
@@ -191,5 +196,42 @@ export class MultiselectComponent
         .find((option) => option.value() === value)
         ?.label() || value
     );
+  }
+
+  /**
+   * Checks if all available options are currently selected
+   */
+  areAllOptionsSelected(): boolean {
+    const options = this._options()
+      .filter((option) => !option.isDisabled())
+      .map((option) => option.value());
+
+    const selectedValues = this._selectedValue();
+
+    if (!selectedValues || options.length === 0) {
+      return false;
+    }
+
+    return options.every((value) => selectedValues.includes(value));
+  }
+
+  /**
+   * Toggles selection of all available options
+   */
+  toggleSelectAll(): void {
+    if (this.areAllOptionsSelected()) {
+      // If all are selected, deselect all
+      this._selectedValue.set(null);
+    } else {
+      // Otherwise, select all non-disabled options
+      const allValues = this._options()
+        .filter((option) => !option.isDisabled())
+        .map((option) => option.value());
+
+      this._selectedValue.set(allValues);
+    }
+
+    this.onChange(this._selectedValue());
+    this.onTouched();
   }
 }

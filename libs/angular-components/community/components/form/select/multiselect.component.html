@@ -49,6 +49,23 @@
     [style.width.px]="_width()"
   >
     <tedi-card-content class="tedi-select__dropdown-content">
+      @if (selectAll()) {
+        <button
+          cdkMenuItemCheckbox
+          tedi-dropdown-item
+          [cdkMenuItemChecked]="areAllOptionsSelected()"
+          (click)="toggleSelectAll()"
+          [cdkMenuTriggerFor]="keepCdkMenuOpen"
+        >
+          <tedi-checkbox
+            class="tedi-select__multiselect-checkbox"
+            [inputId]="'option-select-all'"
+            [checked]="areAllOptionsSelected()"
+          >
+            Select All
+          </tedi-checkbox>
+        </button>
+      }
       @for (option of _options(); track option.value()) {
         <button
           cdkMenuItemCheckbox
