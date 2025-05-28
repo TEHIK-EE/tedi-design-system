@@ -6,6 +6,7 @@ import {
 } from "@storybook/angular";
 import { RowComponent } from "./row.component";
 import { ColComponent } from "../col/col.component";
+import { createBreakpointArgTypes } from "../../../../../utils/createBreakpointArgTypes";
 
 /**
  * <a href="https://tedi.tehik.ee/1ee8444b7/p/24da19-grid" target="_BLANK">Zeroheight ↗</a><br/>
@@ -42,7 +43,8 @@ export default {
       },
     },
     minColWidth: {
-      description: "Applies minimum width (px) to the column when using auto layout.",
+      description:
+        "Applies minimum width (px) to the column when using auto layout.",
       control: {
         type: "number",
       },
@@ -51,7 +53,7 @@ export default {
         type: { summary: "number" },
         defaultValue: { summary: "200px" },
       },
-    },    
+    },
     justifyItems: {
       description: "Aligns items horizontally inside their grid cell.",
       control: {
@@ -131,51 +133,7 @@ export default {
         },
       },
     },
-    sm: {
-      description: "Overrides RowInputs on sm breakpoint (≥576px).",
-      table: {
-        category: "breakpoints",
-        type: {
-          summary: "RowInputs",
-        },
-      },
-    },
-    md: {
-      description: "Overrides RowInputs on md breakpoint (≥768px).",
-      table: {
-        category: "breakpoints",
-        type: {
-          summary: "RowInputs",
-        },
-      },
-    },
-    lg: {
-      description: "Overrides RowInputs on lg breakpoint (≥992px).",
-      table: {
-        category: "breakpoints",
-        type: {
-          summary: "RowInputs",
-        },
-      },
-    },
-    xl: {
-      description: "Overrides RowInputs on xl breakpoint (≥1200px).",
-      table: {
-        category: "breakpoints",
-        type: {
-          summary: "RowInputs",
-        },
-      },
-    },
-    xxl: {
-      description: "Overrides RowInputs on xxl breakpoint (≥1400px).",
-      table: {
-        category: "breakpoints",
-        type: {
-          summary: "RowInputs",
-        },
-      },
-    },
+    ...createBreakpointArgTypes("RowInputs"),
   },
 } as Meta<RowComponent>;
 

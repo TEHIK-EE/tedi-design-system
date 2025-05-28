@@ -1,1 +1,0 @@
-export * from "./text-group/text-group.component";
