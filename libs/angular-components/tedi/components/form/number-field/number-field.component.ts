@@ -128,8 +128,8 @@ export class NumberFieldComponent implements ControlValueAccessor {
     return this.isDisabled() || (max !== undefined && this.value() >= max);
   });
 
-  writeValue(value: number): void {
-    this.value.set(value ?? 0);
+  writeValue(value?: number): void {
+    this.value.set(value ? (isNaN(value) ? 0 : value) : 0);
   }
 
   registerOnChange(fn: (value: number) => void): void {

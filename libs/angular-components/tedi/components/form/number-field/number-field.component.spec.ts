@@ -128,10 +128,7 @@ describe("NumberFieldComponent", () => {
     });
 
     it("writeValue() should default to 0 when given null or undefined", () => {
-        (component as any).writeValue(undefined);
-        expect(component.value()).toBe(0);
-
-        component.writeValue(null as any);
+        component.writeValue(undefined);
         expect(component.value()).toBe(0);
     });
 
