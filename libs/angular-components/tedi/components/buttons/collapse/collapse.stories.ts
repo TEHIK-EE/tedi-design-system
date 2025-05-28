@@ -157,29 +157,39 @@ export const ChildComponent: Story = {
       ],
     }),
   ],
-  render: (args) => ({
-    props: args,
-    template: `
-      <tedi-collapse ${argsToTemplate(args)}>
-        <div [tediVerticalSpacing]="0.5">
-          <tedi-text-group labelWidth="150px">
-            <tedi-text-group-label>Patsient</tedi-text-group-label>
-            <tedi-text-group-value>Mari Maasikas</tedi-text-group-value>
-          </tedi-text-group>
-          <tedi-text-group labelWidth="150px">
-            <tedi-text-group-label>Address</tedi-text-group-label>
-            <tedi-text-group-value>Tulbi tn 4, Tallinn, 23562, Estonia</tedi-text-group-value>
-          </tedi-text-group>
-          <tedi-text-group labelWidth="150px">
-            <tedi-text-group-label>Tervisekassa</tedi-text-group-label>
-            <tedi-text-group-value>SA Põhja-Eesti Regionaalhaigla</tedi-text-group-value>
-          </tedi-text-group>
-          <tedi-text-group labelWidth="150px">
-            <tedi-text-group-label>Kuupäev</tedi-text-group-label>
-            <tedi-text-group-value>16.08.2023 14:51:48</tedi-text-group-value>
-          </tedi-text-group>
-        </div>
-      </tedi-collapse>
-    `,
-  }),
+  render: () => {
+    const sampleTextGroup = [
+      {
+        label: "Patsient",
+        value: "Mari Maasikas",
+      },
+      {
+        label: "Address",
+        value: "Tulbi tn 4, Tallinn, 23562, Estonia",
+      },
+      {
+        label: "Tervisekassa",
+        value: "SA Põhja-Eesti Regionaalhaigla",
+      },
+      {
+        label: "Kuupäev",
+        value: "16.08.2023 14:51:48",
+      },
+    ];
+    return {
+      props: { sampleTextGroup },
+      template: `
+        <tedi-collapse>
+          <div [tediVerticalSpacing]="0.5">
+            <ng-container *ngFor="let group of sampleTextGroup">
+              <tedi-text-group labelWidth="150px">
+                <tedi-text-group-label>{{ group.label }}</tedi-text-group-label>
+                <tedi-text-group-value>{{ group.value }}</tedi-text-group-value>
+              </tedi-text-group>
+            </ng-container>
+          </div>
+        </tedi-collapse>
+      `,
+    };
+  },
 };
