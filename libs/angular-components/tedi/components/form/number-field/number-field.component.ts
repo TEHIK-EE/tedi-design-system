@@ -11,12 +11,10 @@ import {
   ViewChild,
 } from "@angular/core";
 import { ButtonComponent } from "../../buttons/button/button.component";
-import {
-  ComponentInputs,
-  IconComponent,
-  TextComponent,
-  LabelComponent
-} from "@tehik-ee/tedi-angular/tedi";
+import { ComponentInputs } from "../../../types/inputs.type";
+import { IconComponent } from "../../base/icon/icon.component";
+import { TextComponent } from "../../base/text/text.component";
+import { LabelComponent } from "../label/label.component";
 import { FeedbackTextComponent } from "../feedback-text/feedback-text.component";
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from "@angular/forms";
 
@@ -130,8 +128,8 @@ export class NumberFieldComponent implements ControlValueAccessor {
     return this.isDisabled() || (max !== undefined && this.value() >= max);
   });
 
-  writeValue(value: number): void {
-    this.value.set(value ?? 0);
+  writeValue(value?: number): void {
+    this.value.set(value ? (isNaN(value) ? 0 : value) : 0);
   }
 
   registerOnChange(fn: (value: number) => void): void {
@@ -168,5 +166,9 @@ export class NumberFieldComponent implements ControlValueAccessor {
     const value = isNaN(input.valueAsNumber) ? 0 : input.valueAsNumber;
     this.value.set(value);
     this.onChange(value);
+  }
+
+  handleBlur() {
+    this.onTouched();
   }
 }

@@ -6,7 +6,7 @@ import {
   output,
   ViewEncapsulation,
 } from "@angular/core";
-import { IconComponent, SpinnerComponent } from "tedi/components";
+import { IconComponent, SpinnerComponent } from "@tehik-ee/tedi-angular/tedi";
 
 export type TagType = "primary" | "secondary" | "danger";
 
