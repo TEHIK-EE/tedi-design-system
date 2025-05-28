@@ -52,6 +52,7 @@
       [attr.step]="step()"
       [attr.aria-invalid]="isInvalid()"
       (input)="handleInputChange($event)"
+      (blur)="handleBlur()"
     />
     @if (suffix()) {
       <small tedi-text
