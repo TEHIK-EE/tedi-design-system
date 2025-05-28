@@ -2,10 +2,9 @@ import { moduleMetadata, StoryObj, Meta } from "@storybook/angular";
 import { FormFieldComponent } from "./form-field.component";
 import { InputComponent } from "../input/input.component";
 import { FeedbackTextComponent } from "../feedback-text/feedback-text.component";
-import { LabelComponent } from "../label/label.component";
 import { SelectComponent } from "../select/select.component";
 import { SelectOptionComponent } from "../select/select-option.component";
-import { IconComponent } from "@tehik-ee/tedi-angular/tedi";
+import { IconComponent, LabelComponent } from "@tehik-ee/tedi-angular/tedi";
 
 export default {
   title: "Community Angular/Form/FormField",

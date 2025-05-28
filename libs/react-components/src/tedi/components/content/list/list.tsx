@@ -1,11 +1,14 @@
 import cn from 'classnames';
 
 import { BreakpointSupport, useBreakpointProps } from '../../../helpers';
+import { IconColor } from '../../base/icon/icon';
 import { VerticalSpacing, VerticalSpacingProps } from '../../layout/vertical-spacing';
 import styles from './list.module.scss';
 import ListItem, { ListItemProps } from './list-item';
 
 type ListElement = 'ul' | 'ol';
+
+export type BulletColor = IconColor;
 
 type ListBreakpointProps = {
   /**
@@ -35,21 +38,29 @@ export interface ListProps extends BreakpointSupport<ListBreakpointProps> {
    * Adds a custom CSS class to the List element for additional styling or theming purposes
    */
   className?: string;
+  /**
+   * This prop is used to set the color of the bullet points in the list.
+   * Uses same color values as TEDI Icon
+   * @default brand
+   */
+  color?: BulletColor;
 }
 
 export const List = (props: ListProps) => {
-  const { getCurrentBreakpointProps } = useBreakpointProps();
+  const { getCurrentBreakpointProps } = useBreakpointProps(props.defaultServerBreakpoint);
   const {
     children,
     element = 'ul',
     style = 'none',
     verticalSpacing,
     className,
+    color = 'brand',
   } = getCurrentBreakpointProps<ListProps>(props);
   const listBEM = cn(
     styles['tedi-list'],
     styles[`tedi-list--${element === 'ul' ? 'unordered' : 'ordered'}`],
     styles[`tedi-list--style-${style}`],
+    styles[`tedi-list--bullet-color-${color}`],
     verticalSpacing?.className,
     className
   );

@@ -1,5 +1,3 @@
-import 'what-input';
-
 export * from './components/commonTypes';
 export * from './components/typography/heading/heading';
 export * from './components/typography/text/text';
@@ -37,3 +35,5 @@ export * from './components/placeholder/placeholder';
 export * from './helpers';
 
 export * from './providers/style-provider/style-provider';
+
+export * from './types/index';
