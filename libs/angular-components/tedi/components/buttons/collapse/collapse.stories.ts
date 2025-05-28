@@ -29,11 +29,17 @@ export default {
       control: "text",
       description:
         "The title for the collapsible section. Rendered inside the toggle button.",
+      table: {
+        type: { summary: "string" }
+      }
     },
     closeText: {
       control: "text",
       description:
         "Text shown on the toggle button when the content is expanded.",
+      table: {
+        type: { summary: "string" }
+      }
     },
     defaultOpen: {
       control: "boolean",
