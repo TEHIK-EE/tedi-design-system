@@ -61,7 +61,7 @@ export class ButtonComponent implements AfterViewInit, OnDestroy {
     this.observer = new MutationObserver((mutations) => {
       for (const mutation of mutations) {
         (Array.from(mutation.addedNodes) as Node[]).forEach((node: Node) => {
-          this.tryWrapTextNode(node);
+          this.applyTextNodeWrap(node);
         });
       }
 
@@ -84,7 +84,7 @@ export class ButtonComponent implements AfterViewInit, OnDestroy {
     }
   }
 
-  private tryWrapTextNode(node: Node): void {
+  private applyTextNodeWrap(node: Node): void {
     if (
       node.nodeType === Node.TEXT_NODE &&
       node.textContent?.trim() &&
@@ -106,7 +106,7 @@ export class ButtonComponent implements AfterViewInit, OnDestroy {
   private wrapTextNodes(): void {
     const childNodes = Array.from(this.host.nativeElement.childNodes) as Node[];
     for (const node of childNodes) {
-      this.tryWrapTextNode(node);
+      this.applyTextNodeWrap(node);
     }
   }
 
