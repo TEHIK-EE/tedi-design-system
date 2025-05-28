@@ -1,7 +1,7 @@
 import { argsToTemplate, Meta, StoryObj, moduleMetadata } from "@storybook/angular";
 import { NumberFieldComponent } from "./number-field.component";
-import { RowComponent } from "@tehik-ee/tedi-angular/tedi";
-import { LabelComponent } from "@tehik-ee/tedi-angular/tedi";
+import { RowComponent } from "../../layout/grid/row/row.component";
+import { LabelComponent } from "../label/label.component";
 import { FeedbackTextComponent } from "../feedback-text/feedback-text.component";
 
 /**

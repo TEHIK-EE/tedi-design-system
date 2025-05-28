@@ -6,7 +6,7 @@ import {
 } from "@storybook/angular";
 
 import { CollapseComponent } from "./collapse.component";
-import { VerticalSpacingDirective } from "@tehik-ee/tedi-angular/tedi";
+import { VerticalSpacingDirective } from "../../../directives/vertical-spacing/vertical-spacing.directive";
 import { TextGroupComponent } from "../../../../community/components/content/text-group/text-group.component";
 
 /**
