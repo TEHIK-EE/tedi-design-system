@@ -7,8 +7,12 @@ import {
 
 import { CollapseComponent } from "./collapse.component";
 
-import { VerticalSpacingDirective } from "../../../directives/vertical-spacing/vertical-spacing.directive";
-import { TextGroupComponent } from "@tehik-ee/tedi-angular/tedi";
+import {
+  TextGroupComponent,
+  TextGroupLabelComponent,
+  TextGroupValueComponent,
+  VerticalSpacingDirective,
+} from "@tehik-ee/tedi-angular/tedi";
 
 /**
  * <a href="https://www.figma.com/design/jWiRIXhHRxwVdMSimKX2FF/TEDI-READY-2.0.4-(work-in-progress)?node-id=15433-138256&amp;m=dev" target="_BLANK" class="sbdocs sbdocs-a css-ajfpqr">Figma ↗</a><br>
@@ -145,36 +149,35 @@ export const LongContent: Story = {
 export const ChildComponent: Story = {
   decorators: [
     moduleMetadata({
-      imports: [VerticalSpacingDirective, TextGroupComponent],
+      imports: [
+        VerticalSpacingDirective,
+        TextGroupComponent,
+        TextGroupLabelComponent,
+        TextGroupValueComponent,
+      ],
     }),
   ],
   render: (args) => ({
     props: args,
     template: `
-      <tedi-collapse
-        ${argsToTemplate(args)}
-      >
+      <tedi-collapse ${argsToTemplate(args)}>
         <div [tediVerticalSpacing]="0.5">
-          <tedi-text-group
-            labelWidth="150px"
-            label="Patsient"
-            value="Mari Maasikas"
-          />
-          <tedi-text-group
-            labelWidth="150px"
-            label="Address"
-            value="Tulbi tn 4, Tallinn, 23562, Estonia"
-          />
-          <tedi-text-group
-            labelWidth="150px"
-            label="Tervisekassa"
-            value="SA Põhja-Eesti Regionaalhaigla"
-          />
-          <tedi-text-group
-            labelWidth="150px"
-            label="Kuupäev"
-            value="16.08.2023 14:51:48"
-          />
+          <tedi-text-group labelWidth="150px">
+            <tedi-text-group-label>Patsient</tedi-text-group-label>
+            <tedi-text-group-value>Mari Maasikas</tedi-text-group-value>
+          </tedi-text-group>
+          <tedi-text-group labelWidth="150px">
+            <tedi-text-group-label>Address</tedi-text-group-label>
+            <tedi-text-group-value>Tulbi tn 4, Tallinn, 23562, Estonia</tedi-text-group-value>
+          </tedi-text-group>
+          <tedi-text-group labelWidth="150px">
+            <tedi-text-group-label>Tervisekassa</tedi-text-group-label>
+            <tedi-text-group-value>SA Põhja-Eesti Regionaalhaigla</tedi-text-group-value>
+          </tedi-text-group>
+          <tedi-text-group labelWidth="150px">
+            <tedi-text-group-label>Kuupäev</tedi-text-group-label>
+            <tedi-text-group-value>16.08.2023 14:51:48</tedi-text-group-value>
+          </tedi-text-group>
         </div>
       </tedi-collapse>
     `,
