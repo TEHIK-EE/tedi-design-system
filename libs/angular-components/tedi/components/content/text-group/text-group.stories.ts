@@ -16,16 +16,21 @@ import {
 } from "@tehik-ee/tedi-angular/tedi";
 import { createBreakpointArgTypes } from "../../../../utils/createBreakpointArgTypes";
 
+/**
+ * <a href="https://www.figma.com/file/jWiRIXhHRxwVdMSimKX2FF/TEDI-Design-System-(draft)?type=design&node-id=45-30752&mode=dev" target="_BLANK">Figma ↗</a><br/>
+ * <a href="https://tedi.tehik.ee/1ee8444b7/p/433820-text-group" target="_BLANK">Zeroheight ↗</a>
+ */
+
 export default {
   title: "TEDI-Ready Angular/Content/TextGroup",
   component: TextGroupComponent,
-} as Meta<TextGroupComponent>;
-
-type Story = StoryObj<TextGroupComponent>;
-
-export const Default: Story = {
   args: {
     type: "horizontal",
+  },
+  parameters: {
+    status: {
+      type: ["breakpointSupport"],
+    },
   },
   decorators: [
     moduleMetadata({
@@ -40,15 +45,6 @@ export const Default: Story = {
       ],
     }),
   ],
-  render: (args) => ({
-    props: args,
-    template: `
-      <tedi-text-group ${argsToTemplate(args)} >
-        <tedi-text-group-label><p tedi-text>Label</p></tedi-text-group-label>
-        <tedi-text-group-value><p tedi-text>Value</p></tedi-text-group-value>
-      </tedi-text-group>
-    `,
-  }),
   argTypes: {
     type: {
       control: "radio",
@@ -63,12 +59,24 @@ export const Default: Story = {
     },
     ...createBreakpointArgTypes("TextGroup"),
   },
+} as Meta<TextGroupComponent>;
+
+type Story = StoryObj<TextGroupComponent>;
+
+export const Default: Story = {
+  render: (args) => ({
+    props: args,
+    template: `
+      <tedi-text-group ${argsToTemplate(args)} >
+        <tedi-text-group-label><p tedi-text>Label</p></tedi-text-group-label>
+        <tedi-text-group-value><p tedi-text>Value</p></tedi-text-group-value>
+      </tedi-text-group>
+    `,
+  }),
 };
 
 export const Type: Story = {
-  ...Default,
-  args: {},
-  render: (args) => {
+  render: () => {
     const textGroups = [
       {
         type: "vertical",
@@ -109,7 +117,6 @@ export const Type: Story = {
     ];
     return {
       props: {
-        ...args,
         textGroups,
       },
       template: `
@@ -138,10 +145,7 @@ export const Type: Story = {
 };
 
 export const PositionType: Story = {
-  ...Default,
-  args: {},
-  render: (args) => ({
-    props: args,
+  render: () => ({
     template: `
     <div [tediVerticalSpacing]="1">
       <tedi-text-group type="vertical">
@@ -158,11 +162,7 @@ export const PositionType: Story = {
 };
 
 export const HorizontalLabelLength: Story = {
-  ...Default,
-  args: {
-    type: "horizontal",
-  },
-  render: (args) => {
+  render: () => {
     const textGroups = [
       {
         spacing: 0.25,
@@ -227,7 +227,7 @@ export const HorizontalLabelLength: Story = {
       },
     ];
     return {
-      props: { args, textGroups },
+      props: { textGroups },
       template: `
       <tedi-row cols="1" gap="3">
         <ng-container *ngFor="let section of textGroups">
@@ -256,4 +256,36 @@ export const HorizontalLabelLength: Story = {
     `,
     };
   },
+};
+
+export const LongTextValues: Story = {
+  render: (args) => ({
+    props: args,
+    template: `
+      <tedi-text-group type="horizontal" labelWidth="150px">
+        <tedi-text-group-label>
+          <p tedi-text>Label</p>
+        </tedi-text-group-label>
+        <tedi-text-group-value>
+          <p tedi-text>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent pulvinar
+            malesuada tellus, nec efficitur orci interdum vitae. Proin semper
+            venenatis est, vel malesuada sapien ornare at. Vestibulum egestas in
+            lectus non finibus.
+          </p></tedi-text-group-value
+        >
+      </tedi-text-group>
+      <tedi-text-group type="vertical" labelWidth="150px">
+        <tedi-text-group-label><p tedi-text>Label</p></tedi-text-group-label>
+        <tedi-text-group-value
+          ><p tedi-text>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent pulvinar
+            malesuada tellus, nec efficitur orci interdum vitae. Proin semper
+            venenatis est, vel malesuada sapien ornare at. Vestibulum egestas in
+            lectus non finibus.
+          </p></tedi-text-group-value
+        >
+      </tedi-text-group>
+    `,
+  }),
 };
