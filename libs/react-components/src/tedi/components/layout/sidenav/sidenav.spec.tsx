@@ -1,7 +1,7 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 
 import { useBreakpoint } from '../../../helpers';
-import { SideNavItem } from './components/sidenav-item/sidenav-item';
+import { SideNavItemProps } from './components/sidenav-item/sidenav-item';
 import { SideNavMobile } from './components/sidenav-mobile/sidenav-mobile';
 import SidenavToggle from './components/sidenav-toggle/sidenav-toggle';
 import { SideNav } from './sidenav';
@@ -13,7 +13,7 @@ jest.mock('../../../helpers');
 
 (useBreakpoint as jest.Mock).mockReturnValue('lg');
 
-const mockNavItems: SideNavItem[] = [
+const mockNavItems: SideNavItemProps[] = [
   { href: '#', children: 'Home', icon: 'home' },
   { href: '#', children: 'Clients', icon: 'account_box' },
   { href: '/', children: 'Children', icon: 'child_care', isActive: true },

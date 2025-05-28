@@ -1,7 +1,7 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 
 import { SideNavDropdown } from '../sidenav-dropdown/sidenav-dropdown';
-import { SideNavItem } from '../sidenav-item/sidenav-item';
+import { SideNavItemProps } from '../sidenav-item/sidenav-item';
 
 const mockGroups = [
   {
@@ -52,7 +52,7 @@ describe('SideNavDropdown', () => {
 
   it('calls item onClick and closes dropdown', () => {
     const onClickMock = jest.fn();
-    const customGroups: { subItems: SideNavItem<'a'>[] }[] = [
+    const customGroups: { subItems: SideNavItemProps<'a'>[] }[] = [
       {
         subItems: [
           {

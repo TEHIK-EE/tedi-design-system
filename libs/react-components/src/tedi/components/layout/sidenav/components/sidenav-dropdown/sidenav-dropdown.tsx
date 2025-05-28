@@ -5,7 +5,6 @@ import {
   FloatingOverlay,
   FloatingPortal,
   offset,
-  shift,
   useClick,
   useDismiss,
   useFloating,
@@ -38,7 +37,7 @@ export const SideNavDropdown = <C extends React.ElementType = 'a'>({
 
   const { refs, floatingStyles, context } = useFloating({
     open,
-    middleware: [offset({ mainAxis: 8 }), flip(), shift()],
+    middleware: [offset({ mainAxis: 8 }), flip()],
     whileElementsMounted: autoUpdate,
     placement: 'right-start',
     onOpenChange: (nextOpen) => {
@@ -117,7 +116,7 @@ export const SideNavDropdown = <C extends React.ElementType = 'a'>({
         {trigger}
       </div>
       {open && (
-        <FloatingOverlay lockScroll>
+        <FloatingOverlay>
           <FloatingPortal>
             <FloatingFocusManager context={context} modal={false}>
               <div

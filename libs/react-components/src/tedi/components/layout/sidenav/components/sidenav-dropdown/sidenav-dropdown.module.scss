@@ -52,39 +52,6 @@
 .tedi-sidenav-dropdown__item--has-children {
   position: relative;
 
-  > .tedi-sidenav-dropdown__link {
-    position: relative;
-    padding-left: 48px;
-
-    &::before {
-      position: absolute;
-      bottom: 0;
-      left: 23px;
-      width: 2px;
-      height: 50%;
-      content: '';
-      background-color: var(--side-navigation-tree-neutral-default);
-      border-radius: 10px 10px 0 0;
-    }
-
-    .tedi-sidenav__bullet {
-      position: absolute;
-      top: 14px;
-      left: 19px;
-      width: 10px;
-      height: 10px;
-
-      &::before {
-        position: absolute;
-        width: 10px;
-        height: 10px;
-        content: '';
-        background-color: var(--side-navigation-tree-neutral-default);
-        border-radius: 100%;
-      }
-    }
-  }
-
   .tedi-sidenav-dropdown__item {
     .tedi-sidenav-dropdown__link {
       position: relative;

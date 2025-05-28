@@ -7,19 +7,9 @@
   margin: 0;
   border-radius: 0;
 
-  &__icon {
-    width: 1.5rem;
-  }
-
-  &--mobile {
-    @include breakpoints.media-breakpoint-up(lg) {
-      display: none;
-    }
-  }
-
   &.tedi-sidenav-toggle--collapse {
     position: absolute;
-    top: calc(var(--sidenav-toggle-top) / 5);
+    top: calc(var(--sidenav-toggle-top) / 5.5);
     right: calc(var(--sidenav-toggle-right) / 2 * -1);
     display: inline-flex;
     align-items: center;
@@ -30,10 +20,11 @@
     border-radius: var(--radius-08);
     box-shadow: 0 4px 10px var(--alpha-14);
 
-    @include mixins.responsive-styles(--sidenav-toggle-right, button-md-icon-size);
+    @include mixins.responsive-styles(--sidenav-toggle-right, button-sm-icon-size);
     @include mixins.responsive-styles(--sidenav-toggle-top, side-navigation-item-min-height);
-    @include mixins.responsive-styles(height, button-md-icon-size);
-    @include mixins.responsive-styles(width, button-md-icon-size);
+    @include mixins.responsive-styles(min-height, button-sm-icon-size);
+    @include mixins.responsive-styles(height, button-sm-icon-size);
+    @include mixins.responsive-styles(width, button-sm-icon-size);
 
     @include breakpoints.media-breakpoint-down(md) {
       display: none;

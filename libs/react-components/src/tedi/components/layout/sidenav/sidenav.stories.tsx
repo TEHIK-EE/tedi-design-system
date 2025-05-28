@@ -1,30 +1,50 @@
 import { Meta, StoryObj } from '@storybook/react';
+import { useState } from 'react';
 
 import { SideNavItemProps } from './components/sidenav-item/sidenav-item';
-import Sidenav, { SideNav } from './sidenav';
+import { SideNav } from './sidenav';
 
 /**
  * <a href="https://www.figma.com/design/jWiRIXhHRxwVdMSimKX2FF/TEDI-READY-2.8.9--work-in-progress-?node-id=6367-171750&m=dev" target="_BLANK">Figma ↗</a><br/>
  * <a href="#" target="_BLANK">Zeroheight ↗</a>
+ *
+ * To test the mobile layout, either resize your browser window or use Storybook's built-in viewport tools.
  */
 
-const meta: Meta<typeof Sidenav> = {
-  component: Sidenav,
-  title: 'TEDI-Ready/Components/Layout/Sidenav',
+const meta: Meta<typeof SideNav> = {
+  component: SideNav,
+  title: 'TEDI-Ready/Components/Layout/SideNav',
+  subcomponents: {
+    'SideNav.Item': SideNav.Item,
+    'SideNav.Toggle': SideNav.Toggle,
+    'SideNav.Dropdown': SideNav.Dropdown,
+    'SideNav.Mobile': SideNav.Mobile,
+  },
   parameters: {
     layout: 'fullscreen',
+    docs: {
+      source: {
+        transform: (code: string) => {
+          return code
+            .replaceAll('SideNavItem', 'SideNav.Item')
+            .replaceAll('SideNavToggle', 'SideNav.Toggle')
+            .replaceAll('SideNavDropdown', 'SideNav.Dropdown')
+            .replaceAll('SideNavMobile', 'SideNav.Mobile');
+        },
+      },
+    },
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/design/jWiRIXhHRxwVdMSimKX2FF/TEDI-READY-2.8.9--work-in-progress-?node-id=6367-171750&m=dev',
+    },
+    status: {
+      type: 'partiallyTediReady',
+    },
   },
-  decorators: [
-    (Story) => (
-      <div style={{ height: '1024px' }}>
-        <Story />
-      </div>
-    ),
-  ],
 };
 
 export default meta;
-type Story = StoryObj<typeof Sidenav>;
+type Story = StoryObj<typeof SideNav>;
 
 const exampleNavItems: SideNavItemProps[] = [
   { href: '#', children: 'Home', icon: 'home' },
@@ -255,11 +275,13 @@ export const Default: Story = {
     navItems: exampleNavItems,
     ariaLabel: 'Menu title',
   },
-  parameters: {
-    viewport: {
-      defaultViewport: 'desktop',
-    },
-  },
+  decorators: [
+    (Story) => (
+      <div style={{ height: '1024px' }}>
+        <Story />
+      </div>
+    ),
+  ],
 };
 
 export const SecondLevelMenuItems: Story = {
@@ -267,11 +289,13 @@ export const SecondLevelMenuItems: Story = {
     navItems: exampleNavCollapsibleItems,
     ariaLabel: 'Menu title',
   },
-  parameters: {
-    viewport: {
-      defaultViewport: 'desktop',
-    },
-  },
+  decorators: [
+    (Story) => (
+      <div style={{ height: '1024px' }}>
+        <Story />
+      </div>
+    ),
+  ],
 };
 
 export const SecondLevelMenuItemsParentsAreLinks: Story = {
@@ -279,11 +303,13 @@ export const SecondLevelMenuItemsParentsAreLinks: Story = {
     navItems: exampleNavCollapsibleItemsWithLinks,
     ariaLabel: 'Menu title',
   },
-  parameters: {
-    viewport: {
-      defaultViewport: 'desktop',
-    },
-  },
+  decorators: [
+    (Story) => (
+      <div style={{ height: '1024px' }}>
+        <Story />
+      </div>
+    ),
+  ],
 };
 
 export const ThirdLevelMenuItems: Story = {
@@ -291,11 +317,13 @@ export const ThirdLevelMenuItems: Story = {
     navItems: exampleThirdLevelMenuItems,
     ariaLabel: 'Menu title',
   },
-  parameters: {
-    viewport: {
-      defaultViewport: 'desktop',
-    },
-  },
+  decorators: [
+    (Story) => (
+      <div style={{ height: '1024px' }}>
+        <Story />
+      </div>
+    ),
+  ],
 };
 
 export const ThirdLevelMenuItemsParentsAreLinks: Story = {
@@ -303,37 +331,46 @@ export const ThirdLevelMenuItemsParentsAreLinks: Story = {
     navItems: exampleThirdLevelMenuItemsLinks,
     ariaLabel: 'Menu title',
   },
-  parameters: {
-    viewport: {
-      defaultViewport: 'desktop',
-    },
-  },
+  decorators: [
+    (Story) => (
+      <div style={{ height: '1024px' }}>
+        <Story />
+      </div>
+    ),
+  ],
 };
 
 export const CollapsibleToggle: React.FC = () => {
   return <SideNav ariaLabel="Collapsible menu" navItems={exampleThirdLevelMenuItems} isCollapsed={true} />;
 };
 
+/**
+ * Works only for desktop
+ */
 export const DefaultOpen: Story = {
   args: {
     navItems: exampleDefaultOpen,
     ariaLabel: 'Default open menu',
   },
-  parameters: {
-    viewport: {
-      defaultViewport: 'desktop',
-    },
+};
+
+export const MobileToggle: Story = {
+  render: () => {
+    const [isOpen, setIsOpen] = useState(false);
+
+    return <SideNav.Toggle menuOpen={isOpen} toggleMenu={() => setIsOpen(!isOpen)} variant="mobile" />;
   },
 };
 
-export const MobileView: Story = {
-  args: {
-    navItems: exampleThirdLevelMenuItems,
-    ariaLabel: 'Mobile menu',
-  },
-  parameters: {
-    viewport: {
-      defaultViewport: 'mobile2',
-    },
+export const MobileToggleWithNav: Story = {
+  render: () => {
+    const [isOpen, setIsOpen] = useState(true);
+
+    return (
+      <>
+        <SideNav.Toggle menuOpen={isOpen} toggleMenu={() => setIsOpen(!isOpen)} variant="mobile" />
+        <SideNav ariaLabel="Collapsible menu" navItems={exampleThirdLevelMenuItems} isOpen={isOpen} />
+      </>
+    );
   },
 };

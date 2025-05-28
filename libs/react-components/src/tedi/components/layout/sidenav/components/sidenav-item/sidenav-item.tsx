@@ -67,6 +67,7 @@ export const SideNavItem = <C extends React.ElementType = 'a'>(
   const SideNavItemBEM = cn(
     styles['tedi-sidenav__item'],
     {
+      [styles[`tedi-sidenav__item--level-${level}`]]: level > 1,
       [styles['tedi-sidenav__item--current']]: isActive,
       [styles['tedi-sidenav__item--has-children']]: hasChildren,
     },
@@ -145,7 +146,12 @@ export const SideNavItem = <C extends React.ElementType = 'a'>(
                 className={cn(styles['tedi-sidenav__link'], isDropdownOpen && styles['tedi-sidenav__link--active'])}
               >
                 {icon && getIcon(icon)}
-                <Icon name="expand_more" color="white" className={styles['tedi-sidenav__toggle-icon']} size={18} />
+                <Icon
+                  name={!isDropdownOpen ? 'expand_more' : 'chevron_right'}
+                  color="white"
+                  className={styles['tedi-sidenav__toggle-icon']}
+                  size={18}
+                />
                 <span className={styles['tedi-sidenav__title']}>{children}</span>
               </span>
             </Tooltip.Trigger>

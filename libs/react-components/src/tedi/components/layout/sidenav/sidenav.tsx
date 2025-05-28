@@ -6,6 +6,7 @@ import Print from '../../../../tedi/components/misc/print/print';
 import { Breakpoint, isBreakpointBelow, useBreakpoint } from '../../../helpers';
 import { AllowedHTMLTags } from '../../../helpers/polymorphic/types';
 import { UnknownType } from '../../../types/commonTypes';
+import { SideNavDropdown } from './components/sidenav-dropdown/sidenav-dropdown';
 import { SideNavItem, SideNavItemProps } from './components/sidenav-item/sidenav-item';
 import { SideNavMobile } from './components/sidenav-mobile/sidenav-mobile';
 import SidenavToggle from './components/sidenav-toggle/sidenav-toggle';
@@ -77,7 +78,7 @@ export type SideNavProps<C extends React.ElementType = 'a'> = ConditionalTypes<C
   onCollapseToggle?: (isCollapsed: boolean) => void;
 };
 
-export const SideNav: <C extends React.ElementType = 'a'>(props: SideNavProps<C>) => React.ReactElement | null = (
+const SideNavComponent: <C extends React.ElementType = 'a'>(props: SideNavProps<C>) => React.ReactElement | null = (
   props
 ) => {
   const {
@@ -201,5 +202,12 @@ export const SideNav: <C extends React.ElementType = 'a'>(props: SideNavProps<C>
     </FloatingOverlay>
   ) : null;
 };
+
+export const SideNav = Object.assign(SideNavComponent, {
+  Toggle: SidenavToggle,
+  Item: SideNavItem,
+  Dropdown: SideNavDropdown,
+  Mobile: SideNavMobile,
+});
 
 export default SideNav;

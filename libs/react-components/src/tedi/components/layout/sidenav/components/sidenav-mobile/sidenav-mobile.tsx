@@ -187,7 +187,9 @@ export const SideNavMobile = <C extends React.ElementType = 'a'>({
           </li>
         )}
         {!currentLevel.renderParentLink &&
-          currentLevel.items.map((item) => <>{renderMobileItem(item, navigationStack.length)}</>)}
+          currentLevel.items.map((item, index) => (
+            <React.Fragment key={item.id || index}>{renderMobileItem(item, navigationStack.length)}</React.Fragment>
+          ))}
       </ul>
     </nav>
   );
