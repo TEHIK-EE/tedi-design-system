@@ -1,3 +1,18 @@
+# [@tehik-ee/tedi-angular-v1.7.0-rc.21](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.7.0-rc.20...angular-1.7.0-rc.21) (2025-05-28)
+
+
+### Bug Fixes
+
+* **build:** fix imports [#773](https://github.com/TEHIK-EE/tedi-design-system/issues/773) ([be085ad](https://github.com/TEHIK-EE/tedi-design-system/commit/be085ad601fa104897521764139680c54101e672))
+
+
+### Features
+
+* **collapse:** TEDI-Ready component [#777](https://github.com/TEHIK-EE/tedi-design-system/issues/777)  ([#822](https://github.com/TEHIK-EE/tedi-design-system/issues/822)) ([9efe2d5](https://github.com/TEHIK-EE/tedi-design-system/commit/9efe2d50f79d115c9f53b1310ee0d891830fe686))
+* **community-tag:** Community tag component  [#813](https://github.com/TEHIK-EE/tedi-design-system/issues/813) ([#818](https://github.com/TEHIK-EE/tedi-design-system/issues/818)) ([ba7e406](https://github.com/TEHIK-EE/tedi-design-system/commit/ba7e4062ae89005d2ee53b7739a1266b98e7b8f1))
+* **label:** TEDI-Ready Angular component [#631](https://github.com/TEHIK-EE/tedi-design-system/issues/631) ([#812](https://github.com/TEHIK-EE/tedi-design-system/issues/812)) ([53dad25](https://github.com/TEHIK-EE/tedi-design-system/commit/53dad253a78b7ad034cd4852d110e89587a38600)), closes [#792](https://github.com/TEHIK-EE/tedi-design-system/issues/792) [#792](https://github.com/TEHIK-EE/tedi-design-system/issues/792) [#792](https://github.com/TEHIK-EE/tedi-design-system/issues/792) [#792](https://github.com/TEHIK-EE/tedi-design-system/issues/792) [#792](https://github.com/TEHIK-EE/tedi-design-system/issues/792)
+* **number-field:** TEDI-Ready Angular component [#773](https://github.com/TEHIK-EE/tedi-design-system/issues/773) ([#823](https://github.com/TEHIK-EE/tedi-design-system/issues/823)) ([eba4192](https://github.com/TEHIK-EE/tedi-design-system/commit/eba41926923953c9a83bf1c9cc9fae60437d248c)), closes [#631](https://github.com/TEHIK-EE/tedi-design-system/issues/631) [#792](https://github.com/TEHIK-EE/tedi-design-system/issues/792) [#792](https://github.com/TEHIK-EE/tedi-design-system/issues/792) [#792](https://github.com/TEHIK-EE/tedi-design-system/issues/792) [#792](https://github.com/TEHIK-EE/tedi-design-system/issues/792) [#792](https://github.com/TEHIK-EE/tedi-design-system/issues/792) [#631](https://github.com/TEHIK-EE/tedi-design-system/issues/631) [#631](https://github.com/TEHIK-EE/tedi-design-system/issues/631) [#631](https://github.com/TEHIK-EE/tedi-design-system/issues/631) [#631](https://github.com/TEHIK-EE/tedi-design-system/issues/631)
+
 # [@tehik-ee/tedi-angular-v1.7.0-rc.20](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.7.0-rc.19...angular-1.7.0-rc.20) (2025-05-23)
 
 

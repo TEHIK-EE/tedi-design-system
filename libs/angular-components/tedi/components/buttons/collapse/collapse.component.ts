@@ -6,7 +6,8 @@ import {
   ChangeDetectionStrategy,
   ViewEncapsulation,
 } from "@angular/core";
-import { IconComponent, TextComponent } from "@tehik-ee/tedi-angular/tedi";
+import { IconComponent } from "../../base/icon/icon.component";
+import { TextComponent } from "../../base/text/text.component";
 
 export type ArrowType = "default" | "secondary";
 
