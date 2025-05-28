@@ -8,7 +8,7 @@ import {
 import { CollapseComponent } from "./collapse.component";
 
 import { VerticalSpacingDirective } from "../../../directives/vertical-spacing/vertical-spacing.directive";
-import { TextGroupComponent } from "../../../../community/components/content/text-group/text-group.component";
+import { TextGroupComponent } from "@tehik-ee/tedi-angular/tedi";
 
 /**
  * <a href="https://www.figma.com/design/jWiRIXhHRxwVdMSimKX2FF/TEDI-READY-2.0.4-(work-in-progress)?node-id=15433-138256&amp;m=dev" target="_BLANK" class="sbdocs sbdocs-a css-ajfpqr">Figma ↗</a><br>
