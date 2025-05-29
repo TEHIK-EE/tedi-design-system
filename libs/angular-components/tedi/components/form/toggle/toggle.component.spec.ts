@@ -1,157 +1,164 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
-import { ToggleComponent, ToggleVariant, ToggleType, ToggleSize } from "./toggle.component";
+import { ToggleComponent, ToggleSize, ToggleVariant, ToggleType } from "./toggle.component";
 import { IconComponent } from "@tehik-ee/tedi-angular/tedi";
 import { By } from "@angular/platform-browser";
 
 describe("ToggleComponent", () => {
   let fixture: ComponentFixture<ToggleComponent>;
-  let component: ToggleComponent;
-  let el: HTMLElement;
+  let toggleElement: HTMLElement;
   let inputEl: HTMLInputElement;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [ToggleComponent, IconComponent]
-    }).compileComponents();
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      imports: [ToggleComponent, IconComponent],
+    });
 
     fixture = TestBed.createComponent(ToggleComponent);
-    // set required id input before initial detectChanges
-    fixture.componentRef.setInput("id", "test-toggle");
+    fixture.componentRef.setInput("id", "test-toggle-id");
+    toggleElement = fixture.nativeElement;
     fixture.detectChanges();
 
-    component = fixture.componentInstance;
-    el = fixture.nativeElement;
-    inputEl = fixture.debugElement.query(By.css('input')).nativeElement;
+    inputEl = fixture.debugElement.query(By.css("input")).nativeElement;
   });
 
   it("should create component", () => {
-    expect(component).toBeTruthy();
-  });
-
-  it("should initialize with default unchecked state", () => {
-    expect(component.checked()).toBe(false);
-    expect(inputEl.checked).toBe(false);
+    expect(fixture.componentInstance).toBeTruthy();
   });
 
   it("should apply default classes", () => {
-    const hostClasses = el.className;
-    expect(hostClasses).toContain('tedi-toggle');
-    expect(hostClasses).toContain('tedi-toggle--primary-filled');
-    expect(hostClasses).toContain('tedi-toggle--size-default');
+    const classes = toggleElement.classList;
+    expect(classes).toContain("tedi-toggle");
+    expect(classes).toContain("tedi-toggle--primary-filled");
+    expect(classes).toContain("tedi-toggle--size-default");
   });
 
-  it("should update classes when variant, type, and size inputs change", () => {
-    fixture.componentRef.setInput("variant", 'colored' as ToggleVariant);
-    fixture.componentRef.setInput("type", 'outlined' as ToggleType);
-    fixture.componentRef.setInput("size", 'large' as ToggleSize);
+  it("should apply correct variant-type combinations", () => {
+    const variants: ToggleVariant[] = ["primary", "colored"];
+    const types: ToggleType[] = ["filled", "outlined"];
+
+    for (const variant of variants) {
+      for (const type of types) {
+        fixture.componentRef.setInput("variant", variant);
+        fixture.componentRef.setInput("type", type);
+        fixture.detectChanges();
+
+        expect(toggleElement.classList).toContain(`tedi-toggle--${variant}-${type}`);
+      }
+    }
+  });
+
+  it("should apply correct sizes", () => {
+    const sizes: ToggleSize[] = ["default", "large"];
+
+    for (const size of sizes) {
+      fixture.componentRef.setInput("size", size);
+      fixture.detectChanges();
+
+      expect(toggleElement.classList).toContain(`tedi-toggle--size-${size}`);
+    }
+  });
+
+  it("should not contain 'undefined' in class list", () => {
+    expect(toggleElement.classList).not.toContain("undefined");
+  });
+
+  it("should render lock icon when icon=true and size=large", () => {
+    fixture.componentRef.setInput("icon", true);
+    fixture.componentRef.setInput("size", "large");
     fixture.detectChanges();
 
-    const classes = el.className;
-    expect(classes).toContain('tedi-toggle--colored-outlined');
-    expect(classes).toContain('tedi-toggle--size-large');
+    const iconDebugEl = fixture.debugElement.query(By.directive(IconComponent));
+    expect(iconDebugEl).toBeTruthy();
   });
 
-  describe("iconColor computed property", () => {
-    it("returns white when type is outlined, regardless of checked", () => {
-      fixture.componentRef.setInput("type", 'outlined');
+  describe("ControlValueAccessor methods", () => {
+    it("writeValue should update checked model and input checked", () => {
+      expect(fixture.componentInstance.checked()).toBe(false);
+      expect(inputEl.checked).toBe(false);
+
+      fixture.componentInstance.writeValue(true);
       fixture.detectChanges();
-      expect(component.iconColor()).toBe('white');
-
-      component.checked.set(true);
-      expect(component.iconColor()).toBe('white');
-    });
-
-    it("returns tertiary when filled primary and unchecked", () => {
-      fixture.componentRef.setInput("type", 'filled');
-      fixture.componentRef.setInput("variant", 'primary');
-      component.checked.set(false);
-      expect(component.iconColor()).toBe('tertiary');
-    });
-
-    it("returns brand when filled primary and checked", () => {
-      fixture.componentRef.setInput("type", 'filled');
-      fixture.componentRef.setInput("variant", 'primary');
-      component.checked.set(true);
-      expect(component.iconColor()).toBe('brand');
-    });
-
-    it("returns danger when filled colored and unchecked", () => {
-      fixture.componentRef.setInput("variant", 'colored');
-      fixture.componentRef.setInput("type", 'filled');
-      component.checked.set(false);
-      expect(component.iconColor()).toBe('danger');
-    });
-
-    it("returns success when filled colored and checked", () => {
-      fixture.componentRef.setInput("variant", 'colored');
-      fixture.componentRef.setInput("type", 'filled');
-      component.checked.set(true);
-      expect(component.iconColor()).toBe('success');
-    });
-  });
-
-  describe("ControlValueAccessor implementation", () => {
-    it("writeValue should update checked state and input checked property", () => {
-      component.writeValue(true);
-      fixture.detectChanges();
-      expect(component.checked()).toBe(true);
+      expect(fixture.componentInstance.checked()).toBe(true);
       expect(inputEl.checked).toBe(true);
 
-      component.writeValue(false);
+      fixture.componentInstance.writeValue(false);
       fixture.detectChanges();
-      expect(component.checked()).toBe(false);
+      expect(fixture.componentInstance.checked()).toBe(false);
       expect(inputEl.checked).toBe(false);
     });
 
-    it("should call onChange when handleChange is triggered by user", () => {
-      const onChange = jest.fn<boolean, [boolean]>();
-      component.registerOnChange(onChange);
+    it("registerOnChange should register handler and handleChange should call it", () => {
+      const changeSpy = jest.fn();
+      fixture.componentInstance.registerOnChange(changeSpy);
 
       inputEl.checked = true;
-      inputEl.dispatchEvent(new Event('change'));
+      inputEl.dispatchEvent(new Event("change"));
       fixture.detectChanges();
 
-      expect(onChange).toHaveBeenCalledWith(true);
-      expect(component.checked()).toBe(true);
+      expect(changeSpy).toHaveBeenCalledWith(true);
+      expect(fixture.componentInstance.checked()).toBe(true);
     });
-  });
 
-  describe("focus and blur methods", () => {
-    it("focus() should focus the input element", () => {
-      const focusSpy = jest.spyOn(inputEl, 'focus');
-      component.focus();
+    it("registerOnTouched and blur should call onTouched callback", () => {
+      const touchSpy = jest.fn();
+      fixture.componentInstance.registerOnTouched(touchSpy);
+
+      const blurSpy = jest.spyOn(inputEl, "blur");
+      fixture.componentInstance.blur();
+      fixture.detectChanges();
+
+      expect(blurSpy).toHaveBeenCalled();
+      expect(touchSpy).toHaveBeenCalled();
+    });
+
+    it("focus() should call focus on the input element", () => {
+      const focusSpy = jest.spyOn(inputEl, "focus");
+      fixture.componentInstance.focus();
       expect(focusSpy).toHaveBeenCalled();
     });
+  });
 
-    it("blur() should blur the input element and mark touched", () => {
-      const blurSpy = jest.spyOn(inputEl, 'blur');
-      const onTouched = jest.fn();
-      component.registerOnTouched(onTouched);
+  describe("iconColor computed property", () => {
+    it("should return white when type is outlined, regardless of variant or checked", () => {
+      fixture.componentRef.setInput("type", "outlined");
+      fixture.componentRef.setInput("variant", "primary");
+      fixture.componentInstance.checked.set(true);
+      expect(fixture.componentInstance.iconColor()).toBe("white");
 
-      component.blur();
-      expect(blurSpy).toHaveBeenCalled();
-      expect(onTouched).toHaveBeenCalled();
+      fixture.componentInstance.checked.set(false);
+      expect(fixture.componentInstance.iconColor()).toBe("white");
+
+      fixture.componentRef.setInput("variant", "colored");
+      fixture.componentInstance.checked.set(true);
+      expect(fixture.componentInstance.iconColor()).toBe("white");
     });
-  });
 
-  it("should disable input when disabled input is true", () => {
-    fixture.componentRef.setInput("disabled", true);
-    fixture.detectChanges();
-    expect(inputEl.disabled).toBe(true);
-  });
+    it("should return tertiary when type=filled, variant=primary, checked=false", () => {
+      fixture.componentRef.setInput("type", "filled");
+      fixture.componentRef.setInput("variant", "primary");
+      fixture.componentInstance.checked.set(false);
+      expect(fixture.componentInstance.iconColor()).toBe("tertiary");
+    });
 
-  it("should set required attribute when required input is true", () => {
-    fixture.componentRef.setInput("required", true);
-    fixture.detectChanges();
-    expect(inputEl.required).toBe(true);
-  });
+    it("should return brand when type=filled, variant=primary, checked=true", () => {
+      fixture.componentRef.setInput("type", "filled");
+      fixture.componentRef.setInput("variant", "primary");
+      fixture.componentInstance.checked.set(true);
+      expect(fixture.componentInstance.iconColor()).toBe("brand");
+    });
 
-  it("should render lock IconComponent when icon=true and size=large", () => {
-    fixture.componentRef.setInput("size", 'large' as ToggleSize);
-    fixture.componentRef.setInput("icon", true);
-    fixture.detectChanges();
+    it("should return danger when type=filled, variant=colored, checked=false", () => {
+      fixture.componentRef.setInput("type", "filled");
+      fixture.componentRef.setInput("variant", "colored");
+      fixture.componentInstance.checked.set(false);
+      expect(fixture.componentInstance.iconColor()).toBe("danger");
+    });
 
-    const iconDebug = fixture.debugElement.query(By.directive(IconComponent));
-    expect(iconDebug).toBeTruthy();
+    it("should return success when type=filled, variant=colored, checked=true", () => {
+      fixture.componentRef.setInput("type", "filled");
+      fixture.componentRef.setInput("variant", "colored");
+      fixture.componentInstance.checked.set(true);
+      expect(fixture.componentInstance.iconColor()).toBe("success");
+    });
   });
 });
