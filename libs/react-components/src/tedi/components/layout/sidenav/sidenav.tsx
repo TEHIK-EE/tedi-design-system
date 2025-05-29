@@ -158,7 +158,21 @@ const SideNavComponent: <C extends React.ElementType = 'a'>(props: SideNavProps<
     [styles['tedi-sidenav--collapsed']]: isCollapsed,
   });
 
-  return !isMobileView ? (
+  if (isMobileView) {
+    return (
+      <SideNavMobile
+        navItems={navItems}
+        ariaLabel={ariaLabel}
+        linkAs={linkAs}
+        isOpen={isMenuOpen}
+        onClose={() => setMenuOpen(false)}
+        showOverlay={showMobileOverlay}
+        {...rest}
+      />
+    );
+  }
+
+  return (
     <Print visibility="hide">
       <nav id={props.id} data-name="sidenav" {...rest} className={BEM} aria-label={ariaLabel}>
         {isCollapsible && <SidenavToggle menuOpen={!isCollapsed} toggleMenu={toggleCollapse} variant="collapse" />}
@@ -169,16 +183,6 @@ const SideNavComponent: <C extends React.ElementType = 'a'>(props: SideNavProps<
         </ul>
       </nav>
     </Print>
-  ) : (
-    <SideNavMobile
-      navItems={navItems}
-      ariaLabel={ariaLabel}
-      linkAs={linkAs}
-      isOpen={isMenuOpen}
-      onClose={() => setMenuOpen(false)}
-      showOverlay={showMobileOverlay}
-      {...rest}
-    />
   );
 };
 

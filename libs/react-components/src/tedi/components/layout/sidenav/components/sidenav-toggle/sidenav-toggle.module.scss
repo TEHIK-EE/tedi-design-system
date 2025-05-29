@@ -7,7 +7,7 @@
   margin: 0;
   border-radius: 0;
 
-  @include breakpoints.media-breakpoint-up(md) {
+  @include breakpoints.media-breakpoint-up(lg) {
     display: none;
   }
 
