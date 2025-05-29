@@ -26,6 +26,21 @@
     display: flex;
     flex-wrap: wrap;
     gap: var(--_inner-gap);
+
+    &--single-row {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      scrollbar-width: none; /* Firefox */
+      -ms-overflow-style: none; /* Internet Explorer and Edge */
+
+      &::-webkit-scrollbar {
+        display: none; /* Chrome, Safari and Opera */
+      }
+
+      .tedi-tag__content {
+        white-space: nowrap;
+      }
+    }
   }
 
   &__multiselect-checkbox {
