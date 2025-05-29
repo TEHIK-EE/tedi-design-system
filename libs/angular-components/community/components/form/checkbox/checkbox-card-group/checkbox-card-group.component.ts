@@ -11,8 +11,7 @@ import {
 } from "@angular/core";
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from "@angular/forms";
 import { ChoiceGroupDirective } from "../../choicegroup/choicegroup.directive";
-import { FeedbackTextComponent } from "../../feedback-text/feedback-text.component";
-import { LabelComponent } from "@tehik-ee/tedi-angular/tedi";
+import { LabelComponent, FeedbackTextComponent } from "@tehik-ee/tedi-angular/tedi";
 import { CheckboxGroupComponent } from "../checkbox-group/checkbox-group.component";
 import { CheckboxComponent } from "../checkbox/checkbox.component";
 
