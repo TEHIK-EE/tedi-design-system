@@ -1,6 +1,8 @@
 import { Meta, StoryFn, StoryObj, argsToTemplate, moduleMetadata } from "@storybook/angular";
 import { ToggleComponent } from "./toggle.component";
-import { ColComponent, RowComponent, LabelComponent } from "@tehik-ee/tedi-angular/tedi";
+import { ColComponent } from "../../layout/grid/col/col.component";
+import { RowComponent } from "../../layout/grid/row/row.component";
+import { LabelComponent } from "../label/label.component";
 
 const PSEUDO_STATE = ["Default", "Hover", "Active", "Focus"];
 

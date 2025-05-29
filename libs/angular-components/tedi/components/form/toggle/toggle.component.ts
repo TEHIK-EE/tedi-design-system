@@ -10,7 +10,7 @@ import {
   ViewEncapsulation,
 } from "@angular/core";
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from "@angular/forms";
-import { IconColor, IconComponent } from "@tehik-ee/tedi-angular/tedi";
+import { IconColor, IconComponent } from "../../base/icon/icon.component";
 
 export type ToggleVariant = "primary" | "colored";
 export type ToggleType = "filled" | "outlined";

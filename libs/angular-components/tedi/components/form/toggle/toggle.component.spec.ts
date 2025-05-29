@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
 import { ToggleComponent, ToggleSize, ToggleVariant, ToggleType } from "./toggle.component";
-import { IconComponent } from "@tehik-ee/tedi-angular/tedi";
+import { IconComponent } from "../../base/icon/icon.component";
 import { By } from "@angular/platform-browser";
 
 describe("ToggleComponent", () => {
