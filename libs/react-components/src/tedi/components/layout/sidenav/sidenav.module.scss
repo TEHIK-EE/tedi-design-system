@@ -247,10 +247,6 @@ button.tedi-sidenav__link {
     & .tedi-sidenav__title:first-child {
       margin-left: calc(24px + 1rem);
     }
-
-    .tedi-sidenav--hide-subitem-icons & .tedi-sidenav__title {
-      margin-left: calc(14px + 1rem);
-    }
   }
 
   .tedi-sidenav__item .tedi-sidenav__item .tedi-sidenav__item & {

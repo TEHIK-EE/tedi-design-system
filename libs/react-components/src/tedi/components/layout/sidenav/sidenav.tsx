@@ -42,11 +42,6 @@ export type SideNavProps<C extends React.ElementType = 'a'> = ConditionalTypes<C
    */
   showDividers?: boolean;
   /**
-   * Hide submenu icons
-   * @default false
-   */
-  hideSubItemIcons?: boolean;
-  /**
    * Additional class names for the sidenav component
    */
   className?: string;
@@ -98,7 +93,6 @@ const SideNavComponent: <C extends React.ElementType = 'a'>(props: SideNavProps<
     ariaLabel,
     linkAs,
     showDividers = true,
-    hideSubItemIcons = false,
     className,
     mobileBreakpoint = 'tablet',
     showMobileOverlay = true,
@@ -154,7 +148,6 @@ const SideNavComponent: <C extends React.ElementType = 'a'>(props: SideNavProps<
 
   const BEM = cn(styles['tedi-sidenav'], className, {
     [styles['tedi-sidenav--has-dividers']]: showDividers,
-    [styles['tedi-sidenav--hide-subitem-icons']]: hideSubItemIcons,
     [styles['tedi-sidenav--collapsed']]: isCollapsed,
   });
 

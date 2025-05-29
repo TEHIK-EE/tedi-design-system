@@ -26,7 +26,6 @@ describe('SideNav', () => {
     ariaLabel: 'Test Navigation',
     linkAs: 'a' as const,
     showDividers: true,
-    hideSubItemIcons: false,
     className: '',
     mobileBreakpoint: 'tablet' as const,
     showMobileOverlay: true,
@@ -83,12 +82,6 @@ describe('SideNav', () => {
     render(<SideNav {...defaultProps} showDividers={true} />);
 
     expect(screen.getByRole('navigation')).toHaveClass('tedi-sidenav--has-dividers');
-  });
-
-  test('hides subitem icons when hideSubItemIcons is true', () => {
-    render(<SideNav {...defaultProps} hideSubItemIcons={true} />);
-
-    expect(screen.getByRole('navigation')).toHaveClass('tedi-sidenav--hide-subitem-icons');
   });
 
   test('does not call onMenuToggle unnecessarily in controlled state', () => {
