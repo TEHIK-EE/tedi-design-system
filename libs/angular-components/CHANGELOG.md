@@ -1,3 +1,15 @@
+# [@tehik-ee/tedi-angular-v1.7.0-rc.22](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.7.0-rc.21...angular-1.7.0-rc.22) (2025-05-28)
+
+
+### Bug Fixes
+
+* **button:** Button text rendering  [#824](https://github.com/TEHIK-EE/tedi-design-system/issues/824) ([#825](https://github.com/TEHIK-EE/tedi-design-system/issues/825)) ([064752b](https://github.com/TEHIK-EE/tedi-design-system/commit/064752bf404508e8cea2e50d33f4d6e5efa9b113))
+
+
+### Features
+
+* **text-group:** textgroup tedi ready component [#795](https://github.com/TEHIK-EE/tedi-design-system/issues/795)  ([#817](https://github.com/TEHIK-EE/tedi-design-system/issues/817)) ([70ef84c](https://github.com/TEHIK-EE/tedi-design-system/commit/70ef84c25c08c2ddf5b30d3c7fb9b4db72a5868f))
+
 # [@tehik-ee/tedi-angular-v1.7.0-rc.21](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.7.0-rc.20...angular-1.7.0-rc.21) (2025-05-28)
 
 
