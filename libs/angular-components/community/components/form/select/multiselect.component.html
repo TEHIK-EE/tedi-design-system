@@ -6,7 +6,7 @@
   [cdkMenuTriggerFor]="selectDropdown"
   [disabled]="_disabled()"
   (click)="touch()"
-  class="tedi-select__trigger tedi-select__trigger--multiselect"
+  class="tedi-select__trigger"
 >
   <span
     class="tedi-select__label"
@@ -69,7 +69,77 @@
           </tedi-checkbox>
         </button>
       }
-      @for (option of _options(); track option.value()) {
+      <!-- Grouped options -->
+      @for (group of getOptionGroups(); track group.name) {
+        <div
+          class="tedi-select__group"
+          [class.tedi-select__group--selectable]="selectableGroups()"
+        >
+          <!-- Group header with select all -->
+          @if (selectableGroups()) {
+            <button
+              cdkMenuItemCheckbox
+              tedi-dropdown-item
+              [cdkMenuItemChecked]="areAllGroupOptionsSelected(group.name)"
+              (click)="toggleSelectGroup(group.name)"
+              [cdkMenuTriggerFor]="keepCdkMenuOpen"
+              class="tedi-select__group-header"
+            >
+              <tedi-checkbox
+                class="tedi-select__multiselect-checkbox"
+                [inputId]="'group-' + group.name"
+                [checked]="areAllGroupOptionsSelected(group.name)"
+              >
+                {{ group.name }}
+              </tedi-checkbox>
+            </button>
+          } @else {
+            <div class="tedi-select__group-header">
+              <span
+                tedi-text
+                modifiers="subtitle"
+                color="tertiary"
+                class="tedi-select__group-name"
+              >
+                {{ group.name }}
+              </span>
+            </div>
+          }
+
+          <!-- Group options -->
+          @for (option of group.options; track option.value()) {
+            <button
+              cdkMenuItemCheckbox
+              tedi-dropdown-item
+              [cdkMenuItemChecked]="isOptionSelected(option.value())"
+              (click)="select(option.value())"
+              [disabled]="option.isDisabled()"
+              [cdkMenuTriggerFor]="keepCdkMenuOpen"
+              class="tedi-select__group-item"
+            >
+              <tedi-checkbox
+                class="tedi-select__multiselect-checkbox"
+                [inputId]="'option-' + option.value()"
+                [checked]="isOptionSelected(option.value())"
+              >
+                @if (option.templateRef(); as optionTemplate) {
+                  <span class="tedi-select__dropdown-item--custom-content">
+                    <ng-container [ngTemplateOutlet]="optionTemplate" />
+                  </span>
+                  <span class="tedi-select__dropdown-item--label">
+                    {{ option.label() }}
+                  </span>
+                } @else {
+                  {{ option.label() }}
+                }
+              </tedi-checkbox>
+            </button>
+          }
+        </div>
+      }
+
+      <!-- Ungrouped options -->
+      @for (option of getUngroupedOptions(); track option.value()) {
         <button
           cdkMenuItemCheckbox
           tedi-dropdown-item
@@ -90,6 +160,8 @@
               <span class="tedi-select__dropdown-item--label">
                 {{ option.label() }}
               </span>
+            } @else {
+              {{ option.label() }}
             }
           </tedi-checkbox>
         </button>

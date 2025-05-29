@@ -78,13 +78,6 @@
   }
 
   &__dropdown-item {
-    &-icon {
-      margin-right: 8px;
-      vertical-align: middle;
-    }
-  }
-
-  &__dropdown-item {
     &--label {
       display: none;
     }
@@ -92,5 +85,33 @@
     &--custom-content:empty + &--label {
       display: block;
     }
+  }
+
+  &__group {
+    &--selectable {
+      .tedi-select__group-item .tedi-select__multiselect-checkbox {
+        @include mixins.responsive-styles(
+          padding-left,
+          form-checkbox-radio-subitem-padding-left
+        );
+      }
+    }
+  }
+
+  &__group-name {
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 0px;
+    padding: 8px 12px 4px; // variables didn't work here (not defined)
+
+    @include mixins.responsive-styles(
+      font-weight,
+      heading-subtitle-small-weight
+    );
+    @include mixins.responsive-styles(font-size, heading-subtitle-small-size);
+    @include mixins.responsive-styles(
+      line-height,
+      heading-subtitle-small-line-height
+    );
   }
 }

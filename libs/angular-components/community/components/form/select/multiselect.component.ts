@@ -22,7 +22,7 @@ import {
   InputState,
 } from "../input/input.component";
 import { CardComponent, CardContentComponent } from "../../cards/card";
-import { IconComponent } from "@tehik-ee/tedi-angular/tedi";
+import { IconComponent, TextComponent } from "@tehik-ee/tedi-angular/tedi";
 import { DropdownItemComponent } from "../../overlay/dropdown-item/dropdown-item.component";
 import { ClosingButtonComponent } from "../../buttons/closing-button/closing-button.component";
 import { CheckboxComponent } from "../checkbox";
@@ -42,6 +42,7 @@ import { TagComponent } from "community/components/tag";
     ClosingButtonComponent,
     CheckboxComponent,
     TagComponent,
+    TextComponent,
   ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -86,6 +87,7 @@ export class MultiselectComponent
   multiRow = input<boolean>(false);
   clearableTags = input<boolean>(false);
   selectAll = input<boolean>(false);
+  selectableGroups = input<boolean>(false);
 
   // Internal state
   _selectedValue = signal<string[] | null>(null);
@@ -231,6 +233,77 @@ export class MultiselectComponent
       this._selectedValue.set(allValues);
     }
 
+    this.onChange(this._selectedValue());
+    this.onTouched();
+  }
+
+  // Get grouped options
+  getOptionGroups() {
+    const groups = new Map<string, SelectOptionComponent[]>();
+
+    // First pass: collect all groups
+    this._options().forEach((option) => {
+      const groupName = option.groupBy?.() || "";
+      if (groupName) {
+        if (!groups.has(groupName)) {
+          groups.set(groupName, []);
+        }
+        groups.get(groupName)?.push(option);
+      }
+    });
+
+    // Convert to array format for template
+    return Array.from(groups.entries()).map(([name, options]) => ({
+      name,
+      options,
+    }));
+  }
+
+  // Get ungrouped options
+  getUngroupedOptions() {
+    return this._options().filter((option) => !option.groupBy?.());
+  }
+
+  // Check if all options in a group are selected
+  areAllGroupOptionsSelected(groupName: string): boolean {
+    const groupOptions = this._options().filter(
+      (option) => option.groupBy?.() === groupName && !option.isDisabled(),
+    );
+
+    if (groupOptions.length === 0) return false;
+
+    const selectedValues = this._selectedValue() || [];
+    return groupOptions.every((option) =>
+      selectedValues.includes(option.value()),
+    );
+  }
+
+  // Toggle selection for all options in a group
+  toggleSelectGroup(groupName: string): void {
+    const allSelected = this.areAllGroupOptionsSelected(groupName);
+    const groupOptions = this._options()
+      .filter(
+        (option) => option.groupBy?.() === groupName && !option.isDisabled(),
+      )
+      .map((option) => option.value());
+
+    let selectedValues = [...(this._selectedValue() || [])];
+
+    if (allSelected) {
+      // Unselect all in this group
+      selectedValues = selectedValues.filter(
+        (value) => !groupOptions.includes(value),
+      );
+    } else {
+      // Select all in this group
+      groupOptions.forEach((value) => {
+        if (!selectedValues.includes(value)) {
+          selectedValues.push(value);
+        }
+      });
+    }
+
+    this._selectedValue.set(selectedValues.length ? selectedValues : null);
     this.onChange(this._selectedValue());
     this.onTouched();
   }
