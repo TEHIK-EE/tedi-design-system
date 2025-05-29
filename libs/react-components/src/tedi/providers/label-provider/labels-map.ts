@@ -714,6 +714,20 @@ export const labelsMap = {
     en: (count: string | number) => `Updated. New value ${count}`,
     ru: (count: string | number) => `Ууэндатуд. Уус вяэртус ${count}`,
   }),
+  'sidenav.backToMainMenu': validateLabel({
+    description: 'Side navigation label',
+    components: ['Sidenav'],
+    et: 'Peamenüüsse',
+    en: 'Back to main menu',
+    ru: 'Назад в главное меню',
+  }),
+  'sidenav.backtoMenu': validateLabel({
+    description: 'Side navigation label',
+    components: ['Sidenav'],
+    et: 'menüüsse',
+    en: 'menu',
+    ru: 'меню',
+  }),
 };
 
 export type LabelsMapType = typeof labelsMap;
