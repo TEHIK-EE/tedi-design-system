@@ -1,4 +1,11 @@
 .tedi-card-content {
+  --_card-padding-vertical: var(--_card-padding);
+  --_card-padding-horizontal: var(--_card-padding);
+  --_card-padding-top: var(--_card-padding-vertical);
+  --_card-padding-bottom: var(--_card-padding-vertical);
+  --_card-padding-left: var(--_card-padding-horizontal);
+  --_card-padding-right: var(--_card-padding-horizontal);
+
   display: block;
   background-color: var(--_card-bg);
   border: 1px solid var(--_card-border);

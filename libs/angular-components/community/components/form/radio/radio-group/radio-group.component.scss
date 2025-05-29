@@ -1,0 +1,8 @@
+.tedi-radio-group {
+  display: block;
+
+  &__radios {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}

@@ -1,0 +1,90 @@
+@use '@tehik-ee/tedi-core/mixins';
+
+.tedi-sidenav-dropdown {
+  z-index: var(--z-index-dropdown);
+  min-width: 16.5rem;
+  overflow: hidden;
+  background: var(--dropdown-item-default-background);
+  border-radius: var(--radius-02-default);
+  box-shadow: 0 1px 5px var(--alpha-20);
+}
+
+.tedi-sidenav-dropdown__heading {
+  font-size: var(--size-01);
+  font-weight: 600;
+  color: var(--general-text-tertiary);
+  text-transform: uppercase;
+
+  @include mixins.responsive-styles(padding-top, layout-grid-gutters-02);
+  @include mixins.responsive-styles(padding-bottom, layout-grid-gutters-04);
+  @include mixins.responsive-styles(padding-left, dropdown-group-label-padding-x);
+  @include mixins.responsive-styles(padding-right, dropdown-group-label-padding-x);
+}
+
+.tedi-sidenav-dropdown__list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.tedi-sidenav-dropdown__item {
+  width: 100%;
+}
+
+.tedi-sidenav-dropdown__link {
+  display: block;
+  justify-content: flex-start;
+  color: var(--dropdown-item-default-text);
+  cursor: pointer;
+  border-radius: 0;
+
+  @include mixins.responsive-styles(padding-top, dropdown-item-padding-y);
+  @include mixins.responsive-styles(padding-bottom, dropdown-item-padding-y);
+  @include mixins.responsive-styles(padding-left, dropdown-item-padding-x);
+  @include mixins.responsive-styles(padding-right, dropdown-item-padding-x);
+
+  &:hover {
+    color: var(--dropdown-item-hover-text);
+    background-color: var(--dropdown-item-hover-background);
+  }
+}
+
+.tedi-sidenav-dropdown__item--has-children {
+  position: relative;
+
+  .tedi-sidenav-dropdown__item {
+    .tedi-sidenav-dropdown__link {
+      position: relative;
+      padding-left: 48px;
+
+      &::before {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 23px;
+        width: 2px;
+        content: '';
+        background-color: var(--side-navigation-tree-neutral-default);
+        border-radius: 0;
+      }
+
+      &::after {
+        position: absolute;
+        top: 20px;
+        bottom: 0;
+        left: 23px;
+        width: 15px;
+        height: 2px;
+        content: '';
+        background-color: var(--side-navigation-tree-neutral-default);
+        border-radius: 0 10px 10px 0;
+      }
+    }
+
+    &:last-child {
+      .tedi-sidenav-dropdown__link::before {
+        height: calc(50% + 1px);
+      }
+    }
+  }
+}

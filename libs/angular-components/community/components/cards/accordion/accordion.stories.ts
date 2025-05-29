@@ -1,13 +1,13 @@
 import { Meta, moduleMetadata, StoryObj } from "@storybook/angular";
 
 import { CommonModule } from "@angular/common";
-import { IconComponent, TextComponent } from "@tehik-ee/tedi-angular/tedi";
-import { ButtonComponent } from "../../buttons/button/button.component";
+import { IconComponent, TextComponent, ButtonComponent } from "@tehik-ee/tedi-angular/tedi";
 import { AccordionIconComponent } from "./accordion-icon/accordion-icon.component";
 import { AccordionItemContentComponent } from "./accordion-item-content/accordion-item-content.component";
 import { AccordionItemHeaderComponent } from "./accordion-item-header/accordion-item-header.component";
 import { AccordionItemComponent } from "./accordion-item/accordion-item.component";
 import { AccordionComponent } from "./accordion/accordion.component";
+import { CheckboxComponent } from "../../form/checkbox/checkbox/checkbox.component";
 
 export default {
   title: "Community Angular/Cards/Accordion",
@@ -31,6 +31,7 @@ export default {
         TextComponent,
         IconComponent,
         ButtonComponent,
+        CheckboxComponent,
       ],
     }),
   ],
@@ -143,6 +144,33 @@ export const ColoredHeaders: AccordionStory = {
       </tedi-accordion-item>
     </div>
   </tedi-accordion>`,
+    };
+  },
+};
+
+export const AccordionWithEndContent: AccordionStory = {
+  render: () => {
+    const checkboxClickHandler = (e: Event) => {
+      e.stopPropagation();
+    };
+    return {
+      props: {
+        checkboxClickHandler,
+      },
+      template: `
+      <tedi-accordion-item id="accordion-item-end-1">
+        <tedi-accordion-item-header [indicator]="true">
+          <p tedi-text color="brand">Title</p>
+          <div tedi-accordion-header-end>
+            <tedi-checkbox inputId="accordion-checkbox" (click)="checkboxClickHandler($event)" />
+          </div>
+        </tedi-accordion-item-header>
+        <tedi-accordion-item-content>
+          <p tedi-text color="secondary">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+        </tedi-accordion-item-content>
+      </tedi-accordion-item>`,
     };
   },
 };

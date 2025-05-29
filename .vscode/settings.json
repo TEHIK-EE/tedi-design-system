@@ -6,7 +6,11 @@
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "eslint.format.enable": true,
   "eslint.alwaysShowStatus": true,
-  "eslint.workingDirectories": ["./libs/react-components/"],
+  "eslint.workingDirectories": [
+    "./libs/react-components/",
+    "./libs/angular-components/"
+  ],
+  "eslint.useFlatConfig": false,
   "editor.detectIndentation": true,
   "typescript.validate.enable": true,
   "editor.formatOnSave": true,
@@ -77,7 +81,8 @@
     "vertical-spacing",
     "label-provider",
     "use-labels",
-    "style-provider"
+    "style-provider",
+    "input-group"
   ],
   "angular.enable-strict-mode-prompt": false
 }

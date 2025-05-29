@@ -1,0 +1,201 @@
+@use "@tehik-ee/tedi-core/mixins";
+@use "sass:list";
+
+$neutral-variants: "neutral", "neutral-inverted", "danger-neutral";
+
+@mixin button-variant-color-vars($variant, $icon-only: false) {
+  & {
+    @if $icon-only {
+      --_btn-bg: var(--button-main-#{$variant}-icon-only-background-default);
+    } @else {
+      --_btn-bg: var(--button-main-#{$variant}-background-default);
+    }
+    
+    --_btn-border: var(--button-main-#{$variant}-border-default);
+    --_btn-text: var(--button-main-#{$variant}-text-default);
+    --_btn-outline: var(--primary-500);
+
+    @include button-state-color-vars($variant, "hover", $icon-only);
+    @include button-state-color-vars($variant, "focus", $icon-only);
+    @include button-state-color-vars($variant, "active", $icon-only);
+    @include button-disabled-color-vars($variant);
+  }
+}
+
+@mixin button-state-color-vars($variant, $state, $icon-only: false) {
+  & {
+    @if $icon-only {
+      --_btn-#{$state}-bg: var(--button-main-#{$variant}-icon-only-background-#{$state}, var(--button-main-#{$variant}-icon-only-background-default));
+    } @else {
+      --_btn-#{$state}-bg: var(--button-main-#{$variant}-background-#{$state}, var(--button-main-#{$variant}-background-default));
+    }
+    
+    --_btn-#{$state}-border: var(--button-main-#{$variant}-border-#{$state}, var(--button-main-#{$variant}-border-default));
+    --_btn-#{$state}-text: var(--button-main-#{$variant}-text-#{$state}, var(--button-main-#{$variant}-text-default));
+  }
+}
+
+@mixin button-disabled-color-vars($variant) {
+  & {
+    --_btn-disabled-text: var(--button-main-disabled-general-text);
+
+    @if list.index($neutral-variants, $variant) {
+      --_btn-disabled-bg: var(--button-main-disabled-neutral-background);
+      --_btn-disabled-border: var(--button-main-disabled-neutral-border);
+    } @else {
+      --_btn-disabled-bg: var(--button-main-disabled-general-background);
+      --_btn-disabled-border: var(--button-main-disabled-general-border);
+    }
+  }
+}
+
+@mixin button-size-vars($size) {
+  --_btn-padding: calc(var(--_btn-padding-y) - 1px) calc(var(--_btn-padding-x) - 1px);
+  @include mixins.responsive-styles(--_btn-inner-spacing, button-#{$size}-inner-spacing);
+  @include mixins.responsive-styles(--_btn-padding-y, button-#{$size}-padding-y);
+  @include mixins.responsive-styles(--_btn-padding-x, button-#{$size}-padding-x);
+}
+
+@mixin neutral-button-padding-overrides {
+  &:where(.tedi-button--small) {
+    @include mixins.responsive-styles(--_btn-padding, button-sm-neutral-padding-y button-sm-neutral-padding-x);
+  }
+  &:where(.tedi-button--default) {
+    @include mixins.responsive-styles(--_btn-padding, button-md-neutral-padding-y button-md-neutral-padding-x);
+  }
+}
+
+.tedi-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--_btn-inner-spacing);
+  text-decoration: none;
+  background: var(--_btn-bg);
+  color: var(--_btn-text);
+  border: var(--borders-01) solid var(--_btn-border);
+  padding: var(--_btn-padding);
+  transition: 150ms ease;
+  transition-property: background-color, border-color;
+  cursor: pointer;
+
+  @include mixins.responsive-styles(font-family, family-primary, $exclude: tablet);
+  @include mixins.responsive-styles(font-weight, body-regular-weight);
+  @include mixins.responsive-styles(line-height, body-bold-line-height);
+  @include mixins.responsive-styles(border-radius, button-radius-default);
+
+  &--small {
+    @include button-size-vars("sm");
+    @include mixins.responsive-styles(font-size, button-text-size-sm);
+  }
+
+  &--default {
+    @include button-size-vars("md");
+    @include mixins.responsive-styles(font-size, button-text-size-default);
+  }
+
+  &--primary {
+    @include button-variant-color-vars("primary");
+  }
+
+  &--secondary {
+    @include button-variant-color-vars("secondary");
+  }
+
+  &--neutral {
+    @include button-variant-color-vars("neutral");
+    @include neutral-button-padding-overrides;
+  }
+
+  &--success {
+    @include button-variant-color-vars("success");
+  }
+
+  &--danger {
+    @include button-variant-color-vars("danger");
+  }
+
+  &--danger-neutral {
+    @include neutral-button-padding-overrides;
+    @include button-variant-color-vars("danger-neutral");
+  }
+
+  &--primary-inverted {
+    @include button-variant-color-vars("primary-inverted");
+  }
+
+  &--secondary-inverted {
+    @include button-variant-color-vars("secondary-inverted");
+  }
+
+  &--neutral-inverted {
+    @include button-variant-color-vars("neutral-inverted");
+    @include neutral-button-padding-overrides;
+  }
+
+  &--icon-only {
+    @include mixins.responsive-styles(width, button-md-icon-size);
+    @include mixins.responsive-styles(height, button-md-icon-size);
+    @include mixins.responsive-styles(padding, button-md-icon-padding);
+
+    &.tedi-button--neutral {
+      @include button-variant-color-vars("neutral", true);
+    }
+    
+    &.tedi-button--neutral-inverted {
+      @include button-variant-color-vars("neutral-inverted", true);
+    }
+
+    &.tedi-button--danger-neutral {
+      @include button-variant-color-vars("danger-neutral", true);
+    }
+
+    &.tedi-button--small {
+      @include mixins.responsive-styles(width, button-sm-icon-size);
+      @include mixins.responsive-styles(height, button-sm-icon-size);
+      @include mixins.responsive-styles(padding, button-sm-icon-padding);
+    }
+  }
+  
+  &:not(.tedi-button--neutral):not(.tedi-button--danger-neutral):not(.tedi-button--neutral-inverted) {
+    > :first-child:not(tedi-icon) {
+      padding-left: var(--_btn-inner-spacing);
+    }
+
+    > :last-child:not(tedi-icon) {
+      padding-right: var(--_btn-inner-spacing);
+    }
+  }
+
+  &:hover {
+    background: var(--_btn-hover-bg);
+    border-color: var(--_btn-hover-border);
+    color: var(--_btn-hover-text);
+  }
+
+  &:active {
+    background: var(--_btn-active-bg);
+    border-color: var(--_btn-active-border);
+    color: var(--_btn-active-text);
+  }
+
+  &:focus-visible {
+    background: var(--_btn-focus-bg);
+    border-color: var(--_btn-focus-border);
+    color: var(--_btn-focus-text);
+    outline: 2px solid var(--_btn-outline);
+    outline-offset: 1px;
+  }
+
+  &:disabled {
+    background: var(--_btn-disabled-bg);
+    border-color: var(--_btn-disabled-border);
+    color: var(--_btn-disabled-text);
+    cursor: not-allowed;
+  }
+
+  tedi-icon {
+    color: inherit;
+    font-size: inherit;
+  }
+}

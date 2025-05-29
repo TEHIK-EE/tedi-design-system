@@ -34,7 +34,7 @@ export interface SkeletonBlockProps extends BreakpointSupport<SkeletonBlockBreak
 }
 
 export const SkeletonBlock = (props: SkeletonBlockProps) => {
-  const { getCurrentBreakpointProps } = useBreakpointProps();
+  const { getCurrentBreakpointProps } = useBreakpointProps(props.defaultServerBreakpoint);
   const { width = 'auto', height = 'p', className, style } = getCurrentBreakpointProps<SkeletonBlockProps>(props);
   let widthStyle: string;
   if (typeof width === 'number') {

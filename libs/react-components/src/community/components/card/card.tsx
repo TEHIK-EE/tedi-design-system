@@ -44,7 +44,7 @@ export interface CardProps extends BreakpointSupport<CardBreakpointProps> {
 }
 
 export const Card = forwardRef<HTMLDivElement, CardProps>((props, ref): JSX.Element => {
-  const { getCurrentBreakpointProps } = useBreakpointProps();
+  const { getCurrentBreakpointProps } = useBreakpointProps(props.defaultServerBreakpoint);
   const {
     children,
     className,

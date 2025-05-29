@@ -35,7 +35,7 @@ export interface StretchContentProps extends BreakpointSupport<StretchContentBre
 }
 
 export const StretchContent = (props: StretchContentProps): JSX.Element => {
-  const { getCurrentBreakpointProps } = useBreakpointProps();
+  const { getCurrentBreakpointProps } = useBreakpointProps(props.defaultServerBreakpoint);
   const {
     children,
     role,

@@ -1,0 +1,67 @@
+@use "@tehik-ee/tedi-core/mixins";
+
+$tooltip-max-width: (
+  "none": none,
+  "small": 10rem,
+  "medium": 15rem,
+  "large": 30rem,
+);
+
+.tedi-tooltip-trigger__text {
+  text-decoration: underline dashed var(--general-border-secondary);
+  text-underline-offset: 0.5em;
+}
+
+.tedi-tooltip-content {
+  position: relative;
+  background: var(--tooltip-background);
+  color: var(--tooltip-text);
+  box-shadow: 0px 1px 5px 0px var(--alpha-20, rgba(0, 0, 0, 0.2));
+
+  @include mixins.responsive-styles(max-width, tooltip-max-width);
+  @include mixins.responsive-styles(padding, tooltip-padding-y tooltip-padding-x);
+  @include mixins.responsive-styles(border-radius, tooltip-radius);
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    background: var(--tooltip-background);
+    transform: rotate(45deg);
+  }
+
+  @each $name, $width in $tooltip-max-width {
+    &--#{$name} {
+        max-width: $width;
+    }
+  }
+
+  &__arrow--top {
+    .tedi-tooltip-content::after {
+      top: calc(100% - 7px);
+      left: calc(50% - 7px);
+    }
+  }
+
+  &__arrow--bottom {
+    .tedi-tooltip-content::after {
+      bottom: calc(100% - 7px);
+      left: calc(50% - 7px);
+    }
+  }
+
+  &__arrow--left {
+    .tedi-tooltip-content::after {
+      top: calc(50% - 7px);
+      right: calc(100% - 7px);
+    }
+  }
+
+  &__arrow--right {
+    .tedi-tooltip-content::after {
+      top: calc(50% - 7px);
+      left: calc(100% - 7px);
+    }
+  }
+}

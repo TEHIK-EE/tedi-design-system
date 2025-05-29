@@ -1,192 +1,359 @@
-# [@tehik-ee/tedi-angular-v1.6.0](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.5.0...angular-1.6.0) (2025-04-24)
+# [@tehik-ee/tedi-angular-v2.0.0-rc.2](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.0.0-rc.1...angular-2.0.0-rc.2) (2025-05-29)
+
+
+### Features
+
+* **toggle:** TEDI-Ready Angular component [#692](https://github.com/TEHIK-EE/tedi-design-system/issues/692) ([#834](https://github.com/TEHIK-EE/tedi-design-system/issues/834)) ([e2d4a01](https://github.com/TEHIK-EE/tedi-design-system/commit/e2d4a01c24e941bbf2f089ca0a09bd0cd7ee6128))
+
+# [@tehik-ee/tedi-angular-v2.0.0-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.7.0-rc.23...angular-2.0.0-rc.1) (2025-05-29)
 
 
 ### Bug Fixes
 
-* **col, row:** fix component selectors and html [#680](https://github.com/TEHIK-EE/tedi-design-system/issues/680) ([#683](https://github.com/TEHIK-EE/tedi-design-system/issues/683)) ([a6fb4b7](https://github.com/TEHIK-EE/tedi-design-system/commit/a6fb4b7949a8b5319a7f859f521ca9452defe90e)), closes [#673](https://github.com/TEHIK-EE/tedi-design-system/issues/673) [#675](https://github.com/TEHIK-EE/tedi-design-system/issues/675) [#678](https://github.com/TEHIK-EE/tedi-design-system/issues/678) [#678](https://github.com/TEHIK-EE/tedi-design-system/issues/678)
-* **icon:** fix component element [#673](https://github.com/TEHIK-EE/tedi-design-system/issues/673) ([#674](https://github.com/TEHIK-EE/tedi-design-system/issues/674)) ([98b5974](https://github.com/TEHIK-EE/tedi-design-system/commit/98b59743c59cd49fc3eb4de824b2e522f06bd9c0))
-* **list:** list component selector [#678](https://github.com/TEHIK-EE/tedi-design-system/issues/678) ([#679](https://github.com/TEHIK-EE/tedi-design-system/issues/679)) ([240377c](https://github.com/TEHIK-EE/tedi-design-system/commit/240377cfe7edc363a0f24f1d16c5b1a4e941315d)), closes [#673](https://github.com/TEHIK-EE/tedi-design-system/issues/673) [#675](https://github.com/TEHIK-EE/tedi-design-system/issues/675)
-* **spinner:** fix component selector [#684](https://github.com/TEHIK-EE/tedi-design-system/issues/684) ([#685](https://github.com/TEHIK-EE/tedi-design-system/issues/685)) ([3c54b61](https://github.com/TEHIK-EE/tedi-design-system/commit/3c54b614196c683687fbc9ba258fe00056500197)), closes [#673](https://github.com/TEHIK-EE/tedi-design-system/issues/673) [#675](https://github.com/TEHIK-EE/tedi-design-system/issues/675) [#678](https://github.com/TEHIK-EE/tedi-design-system/issues/678) [#678](https://github.com/TEHIK-EE/tedi-design-system/issues/678) [#680](https://github.com/TEHIK-EE/tedi-design-system/issues/680) [#680](https://github.com/TEHIK-EE/tedi-design-system/issues/680) [#680](https://github.com/TEHIK-EE/tedi-design-system/issues/680)
-* **typography:** fix component selector ([#677](https://github.com/TEHIK-EE/tedi-design-system/issues/677)) ([f885832](https://github.com/TEHIK-EE/tedi-design-system/commit/f885832230b2ca316a0fb50cf254adac07a67dad)), closes [#673](https://github.com/TEHIK-EE/tedi-design-system/issues/673) [#675](https://github.com/TEHIK-EE/tedi-design-system/issues/675)
-* **vertical-spacing:** Adding vertical spacing to public-api.ts [#599](https://github.com/TEHIK-EE/tedi-design-system/issues/599) ([c449ae6](https://github.com/TEHIK-EE/tedi-design-system/commit/c449ae6aa0b1129690d4422c9345737240adb0de))
-* **vertical-spacing:** fixing lint errors [#599](https://github.com/TEHIK-EE/tedi-design-system/issues/599) ([c0d3b2d](https://github.com/TEHIK-EE/tedi-design-system/commit/c0d3b2db648911a9cda566eb473053418722e6ed))
-* **vertical-spacing:** updating rem to em [#599](https://github.com/TEHIK-EE/tedi-design-system/issues/599) ([125e12d](https://github.com/TEHIK-EE/tedi-design-system/commit/125e12de1c8f563e3351e042f9f528a5113db729))
-* **vertical-spacing:** updating storybook path  [#599](https://github.com/TEHIK-EE/tedi-design-system/issues/599) ([a34b2c4](https://github.com/TEHIK-EE/tedi-design-system/commit/a34b2c41ae7d03830c5ba43f48f8a2c134c880ce))
-* **vertical-spacing:** updating unit tests [#599](https://github.com/TEHIK-EE/tedi-design-system/issues/599) ([1d57525](https://github.com/TEHIK-EE/tedi-design-system/commit/1d57525cebef64e3eb14cfb40573ce998357b0fd))
+* **angular-community-components:** remove deprecated angular community components [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) ([#833](https://github.com/TEHIK-EE/tedi-design-system/issues/833)) ([aedd8d0](https://github.com/TEHIK-EE/tedi-design-system/commit/aedd8d07d9200f680048ff6c48724c9927f7f477))
+
+
+### BREAKING CHANGES
+
+* **angular-community-components:** remove angular community component
+* **angular-community-components:** remove community info button
+* **angular-community-components:** remove community feedback-text
+* **angular-community-components:** remove community link
+
+# [@tehik-ee/tedi-angular-v1.7.0-rc.23](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.7.0-rc.22...angular-1.7.0-rc.23) (2025-05-29)
 
 
 ### Features
 
-* **accordion:** create community accordion component [#552](https://github.com/TEHIK-EE/tedi-design-system/issues/552) ([#662](https://github.com/TEHIK-EE/tedi-design-system/issues/662)) ([2e1d47c](https://github.com/TEHIK-EE/tedi-design-system/commit/2e1d47cc17fba9252ed3df282d9d20fad28e0242))
-* **card:** Add communtity card docs [#579](https://github.com/TEHIK-EE/tedi-design-system/issues/579) ([12a66f9](https://github.com/TEHIK-EE/tedi-design-system/commit/12a66f92f0fc8a5a53f97246c5106d1cc1ed499a))
-* **card:** Change card folder structure [#579](https://github.com/TEHIK-EE/tedi-design-system/issues/579) ([d6100bd](https://github.com/TEHIK-EE/tedi-design-system/commit/d6100bd416fe944fa88ee9a69acc1e9bb37f0efe))
-* **card:** communtity card [#579](https://github.com/TEHIK-EE/tedi-design-system/issues/579) ([b512a7c](https://github.com/TEHIK-EE/tedi-design-system/commit/b512a7ca209fff5b0d872f8ae44f1d4a2a5e3104))
-* **card:** Enable card padding overrides, update stories [#579](https://github.com/TEHIK-EE/tedi-design-system/issues/579) ([b621bb9](https://github.com/TEHIK-EE/tedi-design-system/commit/b621bb9953b1e569a7dcff1f59016ca127d79cff))
-* **card:** Fix sass deprecation warnings [#579](https://github.com/TEHIK-EE/tedi-design-system/issues/579) ([3f74637](https://github.com/TEHIK-EE/tedi-design-system/commit/3f7463716b83c76bdf0af83b4b3ed209b499595f))
-* **card:** Fix story imports [#579](https://github.com/TEHIK-EE/tedi-design-system/issues/579) ([5c66b93](https://github.com/TEHIK-EE/tedi-design-system/commit/5c66b939a456e2cd9567ff7efe99c3bd48d122a1))
-* **card:** fix variables [#579](https://github.com/TEHIK-EE/tedi-design-system/issues/579) ([955cef7](https://github.com/TEHIK-EE/tedi-design-system/commit/955cef7712d0fce55b46eb2b6dd86e27f372e618))
-* **card:** Move card component to new folder [#579](https://github.com/TEHIK-EE/tedi-design-system/issues/579) ([ed9d022](https://github.com/TEHIK-EE/tedi-design-system/commit/ed9d02231b958d39c1b85a87a5606cbbd442c687))
-* **card:** Remove unecessary file [#579](https://github.com/TEHIK-EE/tedi-design-system/issues/579) ([3d7ac85](https://github.com/TEHIK-EE/tedi-design-system/commit/3d7ac8507e96c490f4c7286245f94f54b2dbccf8))
-* **card:** Remove unused import [#579](https://github.com/TEHIK-EE/tedi-design-system/issues/579) ([7350421](https://github.com/TEHIK-EE/tedi-design-system/commit/73504219abb6205d3b8da38b6de920f4035dac71))
-* **cards:** Update card story render functions to display HTML [#579](https://github.com/TEHIK-EE/tedi-design-system/issues/579) ([4a7b8a2](https://github.com/TEHIK-EE/tedi-design-system/commit/4a7b8a26f3f0f4e9e0acb1cf83db0a1cf54619da))
-* **card:** Update card stories [#579](https://github.com/TEHIK-EE/tedi-design-system/issues/579) ([89e1568](https://github.com/TEHIK-EE/tedi-design-system/commit/89e1568d3f9f307f649b60ee920d882e6b9725b5))
-* **documentation:** add get started and badges docs [#699](https://github.com/TEHIK-EE/tedi-design-system/issues/699) ([#701](https://github.com/TEHIK-EE/tedi-design-system/issues/701)) ([d7b9e97](https://github.com/TEHIK-EE/tedi-design-system/commit/d7b9e9726d93f35e8b1dd68e5a869e94d37048dc))
-* **feedback-text:** Community Angular feedback-text component [#654](https://github.com/TEHIK-EE/tedi-design-system/issues/654) ([#661](https://github.com/TEHIK-EE/tedi-design-system/issues/661)) ([e3dfd59](https://github.com/TEHIK-EE/tedi-design-system/commit/e3dfd5945ef337bbc1596565323d8fffb5663f24))
-* **form-label:** Community Angular form label component [#637](https://github.com/TEHIK-EE/tedi-design-system/issues/637) ([#672](https://github.com/TEHIK-EE/tedi-design-system/issues/672)) ([18edd87](https://github.com/TEHIK-EE/tedi-design-system/commit/18edd875300af75ed1812b2f1a21e1483880a21f)), closes [#650](https://github.com/TEHIK-EE/tedi-design-system/issues/650)
-* **form-text-field:** Community form-field & tedi-input directive ([#688](https://github.com/TEHIK-EE/tedi-design-system/issues/688)) ([5cc9add](https://github.com/TEHIK-EE/tedi-design-system/commit/5cc9adde08d5ec9ef756369788fe0e6e04b51bf6)), closes [#638](https://github.com/TEHIK-EE/tedi-design-system/issues/638) [#638](https://github.com/TEHIK-EE/tedi-design-system/issues/638) [#638](https://github.com/TEHIK-EE/tedi-design-system/issues/638)
-* **grid:** TEDI-Ready Angular Grid components [#564](https://github.com/TEHIK-EE/tedi-design-system/issues/564) ([#619](https://github.com/TEHIK-EE/tedi-design-system/issues/619)) ([9ee386d](https://github.com/TEHIK-EE/tedi-design-system/commit/9ee386dac06570935472661a7ac10d1883d66614)), closes [#587](https://github.com/TEHIK-EE/tedi-design-system/issues/587) [#587](https://github.com/TEHIK-EE/tedi-design-system/issues/587) [#587](https://github.com/TEHIK-EE/tedi-design-system/issues/587) [#587](https://github.com/TEHIK-EE/tedi-design-system/issues/587) [#587](https://github.com/TEHIK-EE/tedi-design-system/issues/587) [#587](https://github.com/TEHIK-EE/tedi-design-system/issues/587) [#587](https://github.com/TEHIK-EE/tedi-design-system/issues/587) [#587](https://github.com/TEHIK-EE/tedi-design-system/issues/587) [#587](https://github.com/TEHIK-EE/tedi-design-system/issues/587) [#587](https://github.com/TEHIK-EE/tedi-design-system/issues/587) [#587](https://github.com/TEHIK-EE/tedi-design-system/issues/587)
-* **info-button:** info button communtiy component [#630](https://github.com/TEHIK-EE/tedi-design-system/issues/630) ([#663](https://github.com/TEHIK-EE/tedi-design-system/issues/663)) ([1fafab5](https://github.com/TEHIK-EE/tedi-design-system/commit/1fafab5b3ce7bbe6a896b168569174ecc803982d)), closes [#637](https://github.com/TEHIK-EE/tedi-design-system/issues/637) [#672](https://github.com/TEHIK-EE/tedi-design-system/issues/672) [#650](https://github.com/TEHIK-EE/tedi-design-system/issues/650) [#637](https://github.com/TEHIK-EE/tedi-design-system/issues/637) [#637](https://github.com/TEHIK-EE/tedi-design-system/issues/637)
-* **link:** TEDI-Angular Community Link [#621](https://github.com/TEHIK-EE/tedi-design-system/issues/621) ([#653](https://github.com/TEHIK-EE/tedi-design-system/issues/653)) ([a62d394](https://github.com/TEHIK-EE/tedi-design-system/commit/a62d39491ca3f324bc512a49fa03c8f5ab444458))
-* **number-field:** TEDI Angular Community component [#665](https://github.com/TEHIK-EE/tedi-design-system/issues/665) ([#690](https://github.com/TEHIK-EE/tedi-design-system/issues/690)) ([29c0a5a](https://github.com/TEHIK-EE/tedi-design-system/commit/29c0a5ab69e0c81037e48f35dc74052bb597fde7)), closes [#654](https://github.com/TEHIK-EE/tedi-design-system/issues/654) [#654](https://github.com/TEHIK-EE/tedi-design-system/issues/654) [#654](https://github.com/TEHIK-EE/tedi-design-system/issues/654) [#654](https://github.com/TEHIK-EE/tedi-design-system/issues/654) [#654](https://github.com/TEHIK-EE/tedi-design-system/issues/654) [#673](https://github.com/TEHIK-EE/tedi-design-system/issues/673) [#675](https://github.com/TEHIK-EE/tedi-design-system/issues/675) [#678](https://github.com/TEHIK-EE/tedi-design-system/issues/678) [#678](https://github.com/TEHIK-EE/tedi-design-system/issues/678) [#680](https://github.com/TEHIK-EE/tedi-design-system/issues/680) [#680](https://github.com/TEHIK-EE/tedi-design-system/issues/680) [#680](https://github.com/TEHIK-EE/tedi-design-system/issues/680) [#684](https://github.com/TEHIK-EE/tedi-design-system/issues/684)
-* **select:** TEDI Select development [#333](https://github.com/TEHIK-EE/tedi-design-system/issues/333) ([#670](https://github.com/TEHIK-EE/tedi-design-system/issues/670)) ([7d1c768](https://github.com/TEHIK-EE/tedi-design-system/commit/7d1c7684e10b91baa2ca969d696e063f273da51f))
-* **text-group:** add text group component with horizontal and vertic… ([#687](https://github.com/TEHIK-EE/tedi-design-system/issues/687)) ([7860191](https://github.com/TEHIK-EE/tedi-design-system/commit/78601910e65b400e5447fd2c2742170438fafa99)), closes [#664](https://github.com/TEHIK-EE/tedi-design-system/issues/664) [#664](https://github.com/TEHIK-EE/tedi-design-system/issues/664) [#664](https://github.com/TEHIK-EE/tedi-design-system/issues/664) [#664](https://github.com/TEHIK-EE/tedi-design-system/issues/664) [#664](https://github.com/TEHIK-EE/tedi-design-system/issues/664) [#664](https://github.com/TEHIK-EE/tedi-design-system/issues/664)
-* **vertical-spacing-item:** directive for adding vertical space to a single container [#599](https://github.com/TEHIK-EE/tedi-design-system/issues/599) ([4113438](https://github.com/TEHIK-EE/tedi-design-system/commit/4113438aae18139612393ecd84ac392cdc2f7644))
-* **vertical-spacing:** add status to stories [#599](https://github.com/TEHIK-EE/tedi-design-system/issues/599) ([9042e51](https://github.com/TEHIK-EE/tedi-design-system/commit/9042e512dd93b4b9c78e824504bd58f54b98273a))
-* **vertical-spacing:** add status to stories [#599](https://github.com/TEHIK-EE/tedi-design-system/issues/599) ([142a365](https://github.com/TEHIK-EE/tedi-design-system/commit/142a365d4214626d199e02997061e4029adeece3))
-* **vertical-spacing:** Directive base and first story [#599](https://github.com/TEHIK-EE/tedi-design-system/issues/599) ([3e39231](https://github.com/TEHIK-EE/tedi-design-system/commit/3e392319326899554878f32a13f3d1014327ab6e))
-* **vertical-spacing:** Directive base and first story [#599](https://github.com/TEHIK-EE/tedi-design-system/issues/599) ([bee3d48](https://github.com/TEHIK-EE/tedi-design-system/commit/bee3d486460d37754e9a98457e0212784727acf4))
-* **vertical-spacing:** fix styles [#599](https://github.com/TEHIK-EE/tedi-design-system/issues/599) ([02015f2](https://github.com/TEHIK-EE/tedi-design-system/commit/02015f2a389b0ba76ffbafac103eca5ece17ac6f))
-* **vertical-spacing:** refactor styles and add vertical-spacing directive styles [#599](https://github.com/TEHIK-EE/tedi-design-system/issues/599) ([185d928](https://github.com/TEHIK-EE/tedi-design-system/commit/185d928c8a93ae51169d44aa30e9046df763e8af))
-* **verticalSpacing:** Updated directive to use CSS to add margin [#599](https://github.com/TEHIK-EE/tedi-design-system/issues/599) ([968c910](https://github.com/TEHIK-EE/tedi-design-system/commit/968c910c04b7a5e73465be10898d8515d862a7df))
+* **translations:** add translation service [#575](https://github.com/TEHIK-EE/tedi-design-system/issues/575) ([#782](https://github.com/TEHIK-EE/tedi-design-system/issues/782)) ([7e9b58c](https://github.com/TEHIK-EE/tedi-design-system/commit/7e9b58c9a1953e7dec909ba9e95a4517b87ad590))
 
-# [@tehik-ee/tedi-angular-v1.6.0](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.5.0...angular-1.6.0) (2025-04-24)
+# [@tehik-ee/tedi-angular-v1.7.0-rc.22](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.7.0-rc.21...angular-1.7.0-rc.22) (2025-05-28)
 
 
 ### Bug Fixes
 
-* **col, row:** fix component selectors and html [#680](https://github.com/TEHIK-EE/tedi-design-system/issues/680) ([#683](https://github.com/TEHIK-EE/tedi-design-system/issues/683)) ([a6fb4b7](https://github.com/TEHIK-EE/tedi-design-system/commit/a6fb4b7949a8b5319a7f859f521ca9452defe90e)), closes [#673](https://github.com/TEHIK-EE/tedi-design-system/issues/673) [#675](https://github.com/TEHIK-EE/tedi-design-system/issues/675) [#678](https://github.com/TEHIK-EE/tedi-design-system/issues/678) [#678](https://github.com/TEHIK-EE/tedi-design-system/issues/678)
-* **icon:** fix component element [#673](https://github.com/TEHIK-EE/tedi-design-system/issues/673) ([#674](https://github.com/TEHIK-EE/tedi-design-system/issues/674)) ([98b5974](https://github.com/TEHIK-EE/tedi-design-system/commit/98b59743c59cd49fc3eb4de824b2e522f06bd9c0))
-* **list:** list component selector [#678](https://github.com/TEHIK-EE/tedi-design-system/issues/678) ([#679](https://github.com/TEHIK-EE/tedi-design-system/issues/679)) ([240377c](https://github.com/TEHIK-EE/tedi-design-system/commit/240377cfe7edc363a0f24f1d16c5b1a4e941315d)), closes [#673](https://github.com/TEHIK-EE/tedi-design-system/issues/673) [#675](https://github.com/TEHIK-EE/tedi-design-system/issues/675)
-* **spinner:** fix component selector [#684](https://github.com/TEHIK-EE/tedi-design-system/issues/684) ([#685](https://github.com/TEHIK-EE/tedi-design-system/issues/685)) ([3c54b61](https://github.com/TEHIK-EE/tedi-design-system/commit/3c54b614196c683687fbc9ba258fe00056500197)), closes [#673](https://github.com/TEHIK-EE/tedi-design-system/issues/673) [#675](https://github.com/TEHIK-EE/tedi-design-system/issues/675) [#678](https://github.com/TEHIK-EE/tedi-design-system/issues/678) [#678](https://github.com/TEHIK-EE/tedi-design-system/issues/678) [#680](https://github.com/TEHIK-EE/tedi-design-system/issues/680) [#680](https://github.com/TEHIK-EE/tedi-design-system/issues/680) [#680](https://github.com/TEHIK-EE/tedi-design-system/issues/680)
-* **typography:** fix component selector ([#677](https://github.com/TEHIK-EE/tedi-design-system/issues/677)) ([f885832](https://github.com/TEHIK-EE/tedi-design-system/commit/f885832230b2ca316a0fb50cf254adac07a67dad)), closes [#673](https://github.com/TEHIK-EE/tedi-design-system/issues/673) [#675](https://github.com/TEHIK-EE/tedi-design-system/issues/675)
-* **vertical-spacing:** Adding vertical spacing to public-api.ts [#599](https://github.com/TEHIK-EE/tedi-design-system/issues/599) ([c449ae6](https://github.com/TEHIK-EE/tedi-design-system/commit/c449ae6aa0b1129690d4422c9345737240adb0de))
-* **vertical-spacing:** fixing lint errors [#599](https://github.com/TEHIK-EE/tedi-design-system/issues/599) ([c0d3b2d](https://github.com/TEHIK-EE/tedi-design-system/commit/c0d3b2db648911a9cda566eb473053418722e6ed))
-* **vertical-spacing:** updating rem to em [#599](https://github.com/TEHIK-EE/tedi-design-system/issues/599) ([125e12d](https://github.com/TEHIK-EE/tedi-design-system/commit/125e12de1c8f563e3351e042f9f528a5113db729))
-* **vertical-spacing:** updating storybook path  [#599](https://github.com/TEHIK-EE/tedi-design-system/issues/599) ([a34b2c4](https://github.com/TEHIK-EE/tedi-design-system/commit/a34b2c41ae7d03830c5ba43f48f8a2c134c880ce))
-* **vertical-spacing:** updating unit tests [#599](https://github.com/TEHIK-EE/tedi-design-system/issues/599) ([1d57525](https://github.com/TEHIK-EE/tedi-design-system/commit/1d57525cebef64e3eb14cfb40573ce998357b0fd))
+* **button:** Button text rendering  [#824](https://github.com/TEHIK-EE/tedi-design-system/issues/824) ([#825](https://github.com/TEHIK-EE/tedi-design-system/issues/825)) ([064752b](https://github.com/TEHIK-EE/tedi-design-system/commit/064752bf404508e8cea2e50d33f4d6e5efa9b113))
 
 
 ### Features
 
-* **accordion:** create community accordion component [#552](https://github.com/TEHIK-EE/tedi-design-system/issues/552) ([#662](https://github.com/TEHIK-EE/tedi-design-system/issues/662)) ([2e1d47c](https://github.com/TEHIK-EE/tedi-design-system/commit/2e1d47cc17fba9252ed3df282d9d20fad28e0242))
-* **card:** Add communtity card docs [#579](https://github.com/TEHIK-EE/tedi-design-system/issues/579) ([12a66f9](https://github.com/TEHIK-EE/tedi-design-system/commit/12a66f92f0fc8a5a53f97246c5106d1cc1ed499a))
-* **card:** Change card folder structure [#579](https://github.com/TEHIK-EE/tedi-design-system/issues/579) ([d6100bd](https://github.com/TEHIK-EE/tedi-design-system/commit/d6100bd416fe944fa88ee9a69acc1e9bb37f0efe))
-* **card:** communtity card [#579](https://github.com/TEHIK-EE/tedi-design-system/issues/579) ([b512a7c](https://github.com/TEHIK-EE/tedi-design-system/commit/b512a7ca209fff5b0d872f8ae44f1d4a2a5e3104))
-* **card:** Enable card padding overrides, update stories [#579](https://github.com/TEHIK-EE/tedi-design-system/issues/579) ([b621bb9](https://github.com/TEHIK-EE/tedi-design-system/commit/b621bb9953b1e569a7dcff1f59016ca127d79cff))
-* **card:** Fix sass deprecation warnings [#579](https://github.com/TEHIK-EE/tedi-design-system/issues/579) ([3f74637](https://github.com/TEHIK-EE/tedi-design-system/commit/3f7463716b83c76bdf0af83b4b3ed209b499595f))
-* **card:** Fix story imports [#579](https://github.com/TEHIK-EE/tedi-design-system/issues/579) ([5c66b93](https://github.com/TEHIK-EE/tedi-design-system/commit/5c66b939a456e2cd9567ff7efe99c3bd48d122a1))
-* **card:** fix variables [#579](https://github.com/TEHIK-EE/tedi-design-system/issues/579) ([955cef7](https://github.com/TEHIK-EE/tedi-design-system/commit/955cef7712d0fce55b46eb2b6dd86e27f372e618))
-* **card:** Move card component to new folder [#579](https://github.com/TEHIK-EE/tedi-design-system/issues/579) ([ed9d022](https://github.com/TEHIK-EE/tedi-design-system/commit/ed9d02231b958d39c1b85a87a5606cbbd442c687))
-* **card:** Remove unecessary file [#579](https://github.com/TEHIK-EE/tedi-design-system/issues/579) ([3d7ac85](https://github.com/TEHIK-EE/tedi-design-system/commit/3d7ac8507e96c490f4c7286245f94f54b2dbccf8))
-* **card:** Remove unused import [#579](https://github.com/TEHIK-EE/tedi-design-system/issues/579) ([7350421](https://github.com/TEHIK-EE/tedi-design-system/commit/73504219abb6205d3b8da38b6de920f4035dac71))
-* **cards:** Update card story render functions to display HTML [#579](https://github.com/TEHIK-EE/tedi-design-system/issues/579) ([4a7b8a2](https://github.com/TEHIK-EE/tedi-design-system/commit/4a7b8a26f3f0f4e9e0acb1cf83db0a1cf54619da))
-* **card:** Update card stories [#579](https://github.com/TEHIK-EE/tedi-design-system/issues/579) ([89e1568](https://github.com/TEHIK-EE/tedi-design-system/commit/89e1568d3f9f307f649b60ee920d882e6b9725b5))
-* **documentation:** add get started and badges docs [#699](https://github.com/TEHIK-EE/tedi-design-system/issues/699) ([#701](https://github.com/TEHIK-EE/tedi-design-system/issues/701)) ([d7b9e97](https://github.com/TEHIK-EE/tedi-design-system/commit/d7b9e9726d93f35e8b1dd68e5a869e94d37048dc))
-* **feedback-text:** Community Angular feedback-text component [#654](https://github.com/TEHIK-EE/tedi-design-system/issues/654) ([#661](https://github.com/TEHIK-EE/tedi-design-system/issues/661)) ([e3dfd59](https://github.com/TEHIK-EE/tedi-design-system/commit/e3dfd5945ef337bbc1596565323d8fffb5663f24))
-* **form-label:** Community Angular form label component [#637](https://github.com/TEHIK-EE/tedi-design-system/issues/637) ([#672](https://github.com/TEHIK-EE/tedi-design-system/issues/672)) ([18edd87](https://github.com/TEHIK-EE/tedi-design-system/commit/18edd875300af75ed1812b2f1a21e1483880a21f)), closes [#650](https://github.com/TEHIK-EE/tedi-design-system/issues/650)
-* **form-text-field:** Community form-field & tedi-input directive ([#688](https://github.com/TEHIK-EE/tedi-design-system/issues/688)) ([5cc9add](https://github.com/TEHIK-EE/tedi-design-system/commit/5cc9adde08d5ec9ef756369788fe0e6e04b51bf6)), closes [#638](https://github.com/TEHIK-EE/tedi-design-system/issues/638) [#638](https://github.com/TEHIK-EE/tedi-design-system/issues/638) [#638](https://github.com/TEHIK-EE/tedi-design-system/issues/638)
-* **grid:** TEDI-Ready Angular Grid components [#564](https://github.com/TEHIK-EE/tedi-design-system/issues/564) ([#619](https://github.com/TEHIK-EE/tedi-design-system/issues/619)) ([9ee386d](https://github.com/TEHIK-EE/tedi-design-system/commit/9ee386dac06570935472661a7ac10d1883d66614)), closes [#587](https://github.com/TEHIK-EE/tedi-design-system/issues/587) [#587](https://github.com/TEHIK-EE/tedi-design-system/issues/587) [#587](https://github.com/TEHIK-EE/tedi-design-system/issues/587) [#587](https://github.com/TEHIK-EE/tedi-design-system/issues/587) [#587](https://github.com/TEHIK-EE/tedi-design-system/issues/587) [#587](https://github.com/TEHIK-EE/tedi-design-system/issues/587) [#587](https://github.com/TEHIK-EE/tedi-design-system/issues/587) [#587](https://github.com/TEHIK-EE/tedi-design-system/issues/587) [#587](https://github.com/TEHIK-EE/tedi-design-system/issues/587) [#587](https://github.com/TEHIK-EE/tedi-design-system/issues/587) [#587](https://github.com/TEHIK-EE/tedi-design-system/issues/587)
-* **info-button:** info button communtiy component [#630](https://github.com/TEHIK-EE/tedi-design-system/issues/630) ([#663](https://github.com/TEHIK-EE/tedi-design-system/issues/663)) ([1fafab5](https://github.com/TEHIK-EE/tedi-design-system/commit/1fafab5b3ce7bbe6a896b168569174ecc803982d)), closes [#637](https://github.com/TEHIK-EE/tedi-design-system/issues/637) [#672](https://github.com/TEHIK-EE/tedi-design-system/issues/672) [#650](https://github.com/TEHIK-EE/tedi-design-system/issues/650) [#637](https://github.com/TEHIK-EE/tedi-design-system/issues/637) [#637](https://github.com/TEHIK-EE/tedi-design-system/issues/637)
-* **link:** TEDI-Angular Community Link [#621](https://github.com/TEHIK-EE/tedi-design-system/issues/621) ([#653](https://github.com/TEHIK-EE/tedi-design-system/issues/653)) ([a62d394](https://github.com/TEHIK-EE/tedi-design-system/commit/a62d39491ca3f324bc512a49fa03c8f5ab444458))
-* **number-field:** TEDI Angular Community component [#665](https://github.com/TEHIK-EE/tedi-design-system/issues/665) ([#690](https://github.com/TEHIK-EE/tedi-design-system/issues/690)) ([29c0a5a](https://github.com/TEHIK-EE/tedi-design-system/commit/29c0a5ab69e0c81037e48f35dc74052bb597fde7)), closes [#654](https://github.com/TEHIK-EE/tedi-design-system/issues/654) [#654](https://github.com/TEHIK-EE/tedi-design-system/issues/654) [#654](https://github.com/TEHIK-EE/tedi-design-system/issues/654) [#654](https://github.com/TEHIK-EE/tedi-design-system/issues/654) [#654](https://github.com/TEHIK-EE/tedi-design-system/issues/654) [#673](https://github.com/TEHIK-EE/tedi-design-system/issues/673) [#675](https://github.com/TEHIK-EE/tedi-design-system/issues/675) [#678](https://github.com/TEHIK-EE/tedi-design-system/issues/678) [#678](https://github.com/TEHIK-EE/tedi-design-system/issues/678) [#680](https://github.com/TEHIK-EE/tedi-design-system/issues/680) [#680](https://github.com/TEHIK-EE/tedi-design-system/issues/680) [#680](https://github.com/TEHIK-EE/tedi-design-system/issues/680) [#684](https://github.com/TEHIK-EE/tedi-design-system/issues/684)
-* **select:** TEDI Select development [#333](https://github.com/TEHIK-EE/tedi-design-system/issues/333) ([#670](https://github.com/TEHIK-EE/tedi-design-system/issues/670)) ([7d1c768](https://github.com/TEHIK-EE/tedi-design-system/commit/7d1c7684e10b91baa2ca969d696e063f273da51f))
-* **text-group:** add text group component with horizontal and vertic… ([#687](https://github.com/TEHIK-EE/tedi-design-system/issues/687)) ([7860191](https://github.com/TEHIK-EE/tedi-design-system/commit/78601910e65b400e5447fd2c2742170438fafa99)), closes [#664](https://github.com/TEHIK-EE/tedi-design-system/issues/664) [#664](https://github.com/TEHIK-EE/tedi-design-system/issues/664) [#664](https://github.com/TEHIK-EE/tedi-design-system/issues/664) [#664](https://github.com/TEHIK-EE/tedi-design-system/issues/664) [#664](https://github.com/TEHIK-EE/tedi-design-system/issues/664) [#664](https://github.com/TEHIK-EE/tedi-design-system/issues/664)
-* **vertical-spacing-item:** directive for adding vertical space to a single container [#599](https://github.com/TEHIK-EE/tedi-design-system/issues/599) ([4113438](https://github.com/TEHIK-EE/tedi-design-system/commit/4113438aae18139612393ecd84ac392cdc2f7644))
-* **vertical-spacing:** add status to stories [#599](https://github.com/TEHIK-EE/tedi-design-system/issues/599) ([9042e51](https://github.com/TEHIK-EE/tedi-design-system/commit/9042e512dd93b4b9c78e824504bd58f54b98273a))
-* **vertical-spacing:** add status to stories [#599](https://github.com/TEHIK-EE/tedi-design-system/issues/599) ([142a365](https://github.com/TEHIK-EE/tedi-design-system/commit/142a365d4214626d199e02997061e4029adeece3))
-* **vertical-spacing:** Directive base and first story [#599](https://github.com/TEHIK-EE/tedi-design-system/issues/599) ([3e39231](https://github.com/TEHIK-EE/tedi-design-system/commit/3e392319326899554878f32a13f3d1014327ab6e))
-* **vertical-spacing:** Directive base and first story [#599](https://github.com/TEHIK-EE/tedi-design-system/issues/599) ([bee3d48](https://github.com/TEHIK-EE/tedi-design-system/commit/bee3d486460d37754e9a98457e0212784727acf4))
-* **vertical-spacing:** fix styles [#599](https://github.com/TEHIK-EE/tedi-design-system/issues/599) ([02015f2](https://github.com/TEHIK-EE/tedi-design-system/commit/02015f2a389b0ba76ffbafac103eca5ece17ac6f))
-* **vertical-spacing:** refactor styles and add vertical-spacing directive styles [#599](https://github.com/TEHIK-EE/tedi-design-system/issues/599) ([185d928](https://github.com/TEHIK-EE/tedi-design-system/commit/185d928c8a93ae51169d44aa30e9046df763e8af))
-* **verticalSpacing:** Updated directive to use CSS to add margin [#599](https://github.com/TEHIK-EE/tedi-design-system/issues/599) ([968c910](https://github.com/TEHIK-EE/tedi-design-system/commit/968c910c04b7a5e73465be10898d8515d862a7df))
+* **text-group:** textgroup tedi ready component [#795](https://github.com/TEHIK-EE/tedi-design-system/issues/795)  ([#817](https://github.com/TEHIK-EE/tedi-design-system/issues/817)) ([70ef84c](https://github.com/TEHIK-EE/tedi-design-system/commit/70ef84c25c08c2ddf5b30d3c7fb9b4db72a5868f))
 
-# [@tehik-ee/tedi-angular-v1.6.0-rc.14](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.6.0-rc.13...angular-1.6.0-rc.14) (2025-04-22)
+# [@tehik-ee/tedi-angular-v1.7.0-rc.21](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.7.0-rc.20...angular-1.7.0-rc.21) (2025-05-28)
+
+
+### Bug Fixes
+
+* **build:** fix imports [#773](https://github.com/TEHIK-EE/tedi-design-system/issues/773) ([be085ad](https://github.com/TEHIK-EE/tedi-design-system/commit/be085ad601fa104897521764139680c54101e672))
 
 
 ### Features
 
-* **documentation:** add get started and badges docs [#699](https://github.com/TEHIK-EE/tedi-design-system/issues/699) ([#701](https://github.com/TEHIK-EE/tedi-design-system/issues/701)) ([d7b9e97](https://github.com/TEHIK-EE/tedi-design-system/commit/d7b9e9726d93f35e8b1dd68e5a869e94d37048dc))
+* **collapse:** TEDI-Ready component [#777](https://github.com/TEHIK-EE/tedi-design-system/issues/777)  ([#822](https://github.com/TEHIK-EE/tedi-design-system/issues/822)) ([9efe2d5](https://github.com/TEHIK-EE/tedi-design-system/commit/9efe2d50f79d115c9f53b1310ee0d891830fe686))
+* **community-tag:** Community tag component  [#813](https://github.com/TEHIK-EE/tedi-design-system/issues/813) ([#818](https://github.com/TEHIK-EE/tedi-design-system/issues/818)) ([ba7e406](https://github.com/TEHIK-EE/tedi-design-system/commit/ba7e4062ae89005d2ee53b7739a1266b98e7b8f1))
+* **label:** TEDI-Ready Angular component [#631](https://github.com/TEHIK-EE/tedi-design-system/issues/631) ([#812](https://github.com/TEHIK-EE/tedi-design-system/issues/812)) ([53dad25](https://github.com/TEHIK-EE/tedi-design-system/commit/53dad253a78b7ad034cd4852d110e89587a38600)), closes [#792](https://github.com/TEHIK-EE/tedi-design-system/issues/792) [#792](https://github.com/TEHIK-EE/tedi-design-system/issues/792) [#792](https://github.com/TEHIK-EE/tedi-design-system/issues/792) [#792](https://github.com/TEHIK-EE/tedi-design-system/issues/792) [#792](https://github.com/TEHIK-EE/tedi-design-system/issues/792)
+* **number-field:** TEDI-Ready Angular component [#773](https://github.com/TEHIK-EE/tedi-design-system/issues/773) ([#823](https://github.com/TEHIK-EE/tedi-design-system/issues/823)) ([eba4192](https://github.com/TEHIK-EE/tedi-design-system/commit/eba41926923953c9a83bf1c9cc9fae60437d248c)), closes [#631](https://github.com/TEHIK-EE/tedi-design-system/issues/631) [#792](https://github.com/TEHIK-EE/tedi-design-system/issues/792) [#792](https://github.com/TEHIK-EE/tedi-design-system/issues/792) [#792](https://github.com/TEHIK-EE/tedi-design-system/issues/792) [#792](https://github.com/TEHIK-EE/tedi-design-system/issues/792) [#792](https://github.com/TEHIK-EE/tedi-design-system/issues/792) [#631](https://github.com/TEHIK-EE/tedi-design-system/issues/631) [#631](https://github.com/TEHIK-EE/tedi-design-system/issues/631) [#631](https://github.com/TEHIK-EE/tedi-design-system/issues/631) [#631](https://github.com/TEHIK-EE/tedi-design-system/issues/631)
+
+# [@tehik-ee/tedi-angular-v1.7.0-rc.20](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.7.0-rc.19...angular-1.7.0-rc.20) (2025-05-23)
+
+
+### Features
+
+* **tooltip:** TEDI-Ready component [#792](https://github.com/TEHIK-EE/tedi-design-system/issues/792) ([#810](https://github.com/TEHIK-EE/tedi-design-system/issues/810)) ([444581d](https://github.com/TEHIK-EE/tedi-design-system/commit/444581d346998ff8bfa4285b56dc8be81c8f7922))
+
+# [@tehik-ee/tedi-angular-v1.7.0-rc.19](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.7.0-rc.18...angular-1.7.0-rc.19) (2025-05-21)
+
+
+### Features
+
+* **community-form-search:** Add controlValueAccessor methods [#766](https://github.com/TEHIK-EE/tedi-design-system/issues/766) ([655a840](https://github.com/TEHIK-EE/tedi-design-system/commit/655a840233a9b0c90685da70542d7a96d1d773fa))
+* **community-form-search:** Add disabled state + fix the button sizes [#766](https://github.com/TEHIK-EE/tedi-design-system/issues/766) ([18e006b](https://github.com/TEHIK-EE/tedi-design-system/commit/18e006b6605e9f3dbe447056082ca142b688f4db))
+* **community-form-search:** Add textfield ID [@input](https://github.com/input) for accessibility [#766](https://github.com/TEHIK-EE/tedi-design-system/issues/766) ([b10c8d4](https://github.com/TEHIK-EE/tedi-design-system/commit/b10c8d44532f5e3ce936fd2a2e493294c1902b81))
+* **community-form-search:** Added closing button + search btn func + backdrop btn func  [#766](https://github.com/TEHIK-EE/tedi-design-system/issues/766) ([caf0295](https://github.com/TEHIK-EE/tedi-design-system/commit/caf02955b8e91188c115aee8ce25af862eb794a6))
+* **community-form-search:** Before focus trap stuff [#766](https://github.com/TEHIK-EE/tedi-design-system/issues/766) ([c342b3b](https://github.com/TEHIK-EE/tedi-design-system/commit/c342b3be08c4a694e0d34ef076996839efcca2c0))
+* **community-form-search:** Change functions in template after name change. [#766](https://github.com/TEHIK-EE/tedi-design-system/issues/766) ([8efc922](https://github.com/TEHIK-EE/tedi-design-system/commit/8efc922dcc6b6d22c555fda512b7393afa7d5c32))
+* **community-form-search:** Code review fixes [#766](https://github.com/TEHIK-EE/tedi-design-system/issues/766) ([8fe7add](https://github.com/TEHIK-EE/tedi-design-system/commit/8fe7add05df102129c5d30655c248e60f56a9c8d))
+* **community-form-search:** Fix last a11y issue. [#766](https://github.com/TEHIK-EE/tedi-design-system/issues/766) ([5715f2d](https://github.com/TEHIK-EE/tedi-design-system/commit/5715f2df1d34b94d90db62e6db23b4641e519d17))
+* **community-form-search:** Fix rendering of options with description [#766](https://github.com/TEHIK-EE/tedi-design-system/issues/766) ([509f7f3](https://github.com/TEHIK-EE/tedi-design-system/commit/509f7f330a615c76f0bf45396028bb69bbf03cee))
+* **community-form-search:** Fix stories [#766](https://github.com/TEHIK-EE/tedi-design-system/issues/766) ([0c16a62](https://github.com/TEHIK-EE/tedi-design-system/commit/0c16a6298b4ce339db7784b335ecd96fc3a59847))
+* **community-form-search:** Fixed footer + noResultText + separators  [#766](https://github.com/TEHIK-EE/tedi-design-system/issues/766) ([46abd9d](https://github.com/TEHIK-EE/tedi-design-system/commit/46abd9da012a2321c01a3f2556cf1e244838ada0))
+* **community-form-search:** implement CVA disabled + cleanup [#766](https://github.com/TEHIK-EE/tedi-design-system/issues/766) ([a2ff393](https://github.com/TEHIK-EE/tedi-design-system/commit/a2ff393e7981d6e25eb8449f116bca6f0f721444))
+* **community-form-search:** Implementation with cdkMenu and hidden trigger  [#766](https://github.com/TEHIK-EE/tedi-design-system/issues/766) ([c2b3a09](https://github.com/TEHIK-EE/tedi-design-system/commit/c2b3a094cc1fe56775afa9705f75a803d413573d))
+* **community-form-search:** Implementation with cdkMenu and hidden trigger  [#766](https://github.com/TEHIK-EE/tedi-design-system/issues/766) ([e227359](https://github.com/TEHIK-EE/tedi-design-system/commit/e22735972409860fd0aebf53ec97af4c6a4b94d3))
+* **community-form-search:** More code review fixes [#766](https://github.com/TEHIK-EE/tedi-design-system/issues/766) ([b254ec6](https://github.com/TEHIK-EE/tedi-design-system/commit/b254ec6a0dafcd3679171d9e21fbea39e23b9207))
+* **community-form-search:** Remove uncommented code [#766](https://github.com/TEHIK-EE/tedi-design-system/issues/766) ([7626a3b](https://github.com/TEHIK-EE/tedi-design-system/commit/7626a3bd0c6a630a138840ce886a09aa3e79a848))
+* **community-form-search:** Removed extra classes from option [#766](https://github.com/TEHIK-EE/tedi-design-system/issues/766) ([23a708d](https://github.com/TEHIK-EE/tedi-design-system/commit/23a708de73da23e06c795816c30729bfe8017a8b))
+* **community-form-search:** Removed extra wrapper div over options [#766](https://github.com/TEHIK-EE/tedi-design-system/issues/766) ([3953c86](https://github.com/TEHIK-EE/tedi-design-system/commit/3953c863187b426e098ab9062a7a6b2351acc9ad))
+* **community-form-search:** Removed unneccessary input bindings  [#766](https://github.com/TEHIK-EE/tedi-design-system/issues/766) ([1d63a13](https://github.com/TEHIK-EE/tedi-design-system/commit/1d63a133ad22ae84f2327aa2ca5508d6e6ff2cbf))
+* **community-form-search:** Rewrite using cdkoverlay to handle keyboard accessibility better [#766](https://github.com/TEHIK-EE/tedi-design-system/issues/766) ([1f52c91](https://github.com/TEHIK-EE/tedi-design-system/commit/1f52c91f0c0f10b976c1008dfb294706008238f3))
+* **community-form-search:** Search component poc [#766](https://github.com/TEHIK-EE/tedi-design-system/issues/766) ([838824c](https://github.com/TEHIK-EE/tedi-design-system/commit/838824cfc49dbe4fb3ddd12d449a1063b78d82b3))
+* **community-form-search:** Search component poc with cdkOverlay + cdkMenu [#766](https://github.com/TEHIK-EE/tedi-design-system/issues/766) ([40d689b](https://github.com/TEHIK-EE/tedi-design-system/commit/40d689b3872a6bf97ce1d3b6c956fa558bc8d616))
+* **community-form-search:** Search component poc with cdkOverlay + cdkMenu [#766](https://github.com/TEHIK-EE/tedi-design-system/issues/766) ([b0424b0](https://github.com/TEHIK-EE/tedi-design-system/commit/b0424b00f2587dd19ef8c7b7926d42357e236b59))
+* **community-form-search:** search/autocomplete poc  [#766](https://github.com/TEHIK-EE/tedi-design-system/issues/766) ([8e4c9cd](https://github.com/TEHIK-EE/tedi-design-system/commit/8e4c9cdeea2a5f2f09aba06b022181b76c4f8567))
+* **community-form-search:** Update from RC and fix closing-button usage [#766](https://github.com/TEHIK-EE/tedi-design-system/issues/766) ([2808691](https://github.com/TEHIK-EE/tedi-design-system/commit/2808691d8ca86178e408df7d01000a16786b5bc7))
+* **form-search:** Search component poc [#766](https://github.com/TEHIK-EE/tedi-design-system/issues/766) ([3ee9ac0](https://github.com/TEHIK-EE/tedi-design-system/commit/3ee9ac0f68657235fc2257b2a33813d7d69c45fc))
+
+# [@tehik-ee/tedi-angular-v1.7.0-rc.18](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.7.0-rc.17...angular-1.7.0-rc.18) (2025-05-19)
+
+
+### Features
+
+* **alert:** Alert community component [#751](https://github.com/TEHIK-EE/tedi-design-system/issues/751) ([#771](https://github.com/TEHIK-EE/tedi-design-system/issues/771)) ([6e98717](https://github.com/TEHIK-EE/tedi-design-system/commit/6e987172fdcd9f9574f1ab2aaf0d4203ecba5c9e)), closes [#571](https://github.com/TEHIK-EE/tedi-design-system/issues/571) [#571](https://github.com/TEHIK-EE/tedi-design-system/issues/571) [#712](https://github.com/TEHIK-EE/tedi-design-system/issues/712) [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640)
+
+# [@tehik-ee/tedi-angular-v1.7.0-rc.17](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.7.0-rc.16...angular-1.7.0-rc.17) (2025-05-19)
+
+
+### Features
+
+* **input-group:** add angular community component [#747](https://github.com/TEHIK-EE/tedi-design-system/issues/747) ([#797](https://github.com/TEHIK-EE/tedi-design-system/issues/797)) ([88e503e](https://github.com/TEHIK-EE/tedi-design-system/commit/88e503e5f94f041ef2f1af45ab14f553697cd0bd)), closes [#780](https://github.com/TEHIK-EE/tedi-design-system/issues/780)
+
+# [@tehik-ee/tedi-angular-v1.7.0-rc.16](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.7.0-rc.15...angular-1.7.0-rc.16) (2025-05-19)
+
+
+### Features
+
+* **form-select:** Add max height and scrollbar to select dropdown [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) ([#796](https://github.com/TEHIK-EE/tedi-design-system/issues/796)) ([f0c3d62](https://github.com/TEHIK-EE/tedi-design-system/commit/f0c3d6292545a41813f1abd4ec9ff97da1a87dd6))
+
+# [@tehik-ee/tedi-angular-v1.7.0-rc.15](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.7.0-rc.14...angular-1.7.0-rc.15) (2025-05-14)
+
+
+### Features
+
+* **card:** Add missing variables [#579](https://github.com/TEHIK-EE/tedi-design-system/issues/579) ([4547883](https://github.com/TEHIK-EE/tedi-design-system/commit/4547883e286178b89ae023d3c97b2d47b51c9b3a))
+
+# [@tehik-ee/tedi-angular-v1.7.0-rc.14](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.7.0-rc.13...angular-1.7.0-rc.14) (2025-05-13)
+
+
+### Features
+
+* **feedback-text:** TEDI-Ready component [#783](https://github.com/TEHIK-EE/tedi-design-system/issues/783) ([#785](https://github.com/TEHIK-EE/tedi-design-system/issues/785)) ([1eb0d68](https://github.com/TEHIK-EE/tedi-design-system/commit/1eb0d68175df25952baf88e5a741c3eb99e48edc))
+
+# [@tehik-ee/tedi-angular-v1.7.0-rc.13](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.7.0-rc.12...angular-1.7.0-rc.13) (2025-05-13)
+
+
+### Features
+
+* **button:** TEDI-Ready Angular component [#768](https://github.com/TEHIK-EE/tedi-design-system/issues/768) ([#779](https://github.com/TEHIK-EE/tedi-design-system/issues/779)) ([8838198](https://github.com/TEHIK-EE/tedi-design-system/commit/88381981d5f7b42a6b74a94677f00da9b60d10f0)), closes [#756](https://github.com/TEHIK-EE/tedi-design-system/issues/756)
+
+# [@tehik-ee/tedi-angular-v1.7.0-rc.12](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.7.0-rc.11...angular-1.7.0-rc.12) (2025-05-13)
+
+
+### Features
+
+* **info-button:** TEDI-Ready component [#769](https://github.com/TEHIK-EE/tedi-design-system/issues/769) ([#781](https://github.com/TEHIK-EE/tedi-design-system/issues/781)) ([820aef8](https://github.com/TEHIK-EE/tedi-design-system/commit/820aef8e52f13c5718ced2c8230a7da847987aee))
+
+# [@tehik-ee/tedi-angular-v1.7.0-rc.11](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.7.0-rc.10...angular-1.7.0-rc.11) (2025-05-12)
+
+
+### Bug Fixes
+
+* **rc release:** fix tedi-ready index.ts barrel files [#756](https://github.com/TEHIK-EE/tedi-design-system/issues/756) ([e4f43b4](https://github.com/TEHIK-EE/tedi-design-system/commit/e4f43b41ea28814fd8f6bf79aa83d15616a31057))
+
+# [@tehik-ee/tedi-angular-v1.7.0-rc.10](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.7.0-rc.9...angular-1.7.0-rc.10) (2025-05-12)
+
+
+### Bug Fixes
+
+* **rc release:** fix imports and index.ts barrel files [#756](https://github.com/TEHIK-EE/tedi-design-system/issues/756) ([7f2664d](https://github.com/TEHIK-EE/tedi-design-system/commit/7f2664d2152dcb8fdcc9764e04428c3b366226b9))
+
+
+### Features
+
+* **link:** TEDI-Ready component [#756](https://github.com/TEHIK-EE/tedi-design-system/issues/756) ([#774](https://github.com/TEHIK-EE/tedi-design-system/issues/774)) ([b9487d3](https://github.com/TEHIK-EE/tedi-design-system/commit/b9487d3cbd2e78ef0d2be9963ff9114192572d45))
+
+# [@tehik-ee/tedi-angular-v1.7.0-rc.9](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.7.0-rc.8...angular-1.7.0-rc.9) (2025-05-12)
+
+
+### Features
+
+* **toggle:** TEDI Angular community toggle component [#693](https://github.com/TEHIK-EE/tedi-design-system/issues/693) ([#737](https://github.com/TEHIK-EE/tedi-design-system/issues/737)) ([b328b95](https://github.com/TEHIK-EE/tedi-design-system/commit/b328b957d647322c706a973f6c57a7c7e0617550))
+
+# [@tehik-ee/tedi-angular-v1.7.0-rc.8](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.7.0-rc.7...angular-1.7.0-rc.8) (2025-05-07)
+
+
+### Features
+
+* **scss:** responsive-style scss function uptade ([#749](https://github.com/TEHIK-EE/tedi-design-system/issues/749)) ([975ef75](https://github.com/TEHIK-EE/tedi-design-system/commit/975ef75c91ea99c5c740f5a92dd647007230092c)), closes [#748](https://github.com/TEHIK-EE/tedi-design-system/issues/748) [#748](https://github.com/TEHIK-EE/tedi-design-system/issues/748)
+
+# [@tehik-ee/tedi-angular-v1.7.0-rc.7](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.7.0-rc.6...angular-1.7.0-rc.7) (2025-05-05)
+
+
+### Bug Fixes
+
+* **list:** list view padding issues fixed on on moblile phones [#738](https://github.com/TEHIK-EE/tedi-design-system/issues/738) ([#750](https://github.com/TEHIK-EE/tedi-design-system/issues/750)) ([21bd4b8](https://github.com/TEHIK-EE/tedi-design-system/commit/21bd4b8ee79e1effb4a6e3be94464dab517ed158))
+
+# [@tehik-ee/tedi-angular-v1.7.0-rc.6](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.7.0-rc.5...angular-1.7.0-rc.6) (2025-05-02)
+
+
+### Features
+
+* **form-textarea:** Add TEDI-Angular textarea component [#639](https://github.com/TEHIK-EE/tedi-design-system/issues/639) ([#725](https://github.com/TEHIK-EE/tedi-design-system/issues/725)) ([6fa4d01](https://github.com/TEHIK-EE/tedi-design-system/commit/6fa4d017bc58a22dfb560a016fb90b0a7ebbec6e))
+
+# [@tehik-ee/tedi-angular-v1.7.0-rc.5](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.7.0-rc.4...angular-1.7.0-rc.5) (2025-04-30)
+
+
+### Features
+
+* **collapse:** angular community collapse component [#716](https://github.com/TEHIK-EE/tedi-design-system/issues/716) ([#726](https://github.com/TEHIK-EE/tedi-design-system/issues/726)) ([e4e65bb](https://github.com/TEHIK-EE/tedi-design-system/commit/e4e65bb8b4d9f411a9bd6a4cb21b27923c0cfc93))
+
+# [@tehik-ee/tedi-angular-v1.7.0-rc.4](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.7.0-rc.3...angular-1.7.0-rc.4) (2025-04-29)
+
+
+### Features
+
+* **radio:** community radio ([#710](https://github.com/TEHIK-EE/tedi-design-system/issues/710)) ([cdd81f3](https://github.com/TEHIK-EE/tedi-design-system/commit/cdd81f30afa8d5e9d41ca02b6db4f4d49e332745)), closes [#682](https://github.com/TEHIK-EE/tedi-design-system/issues/682) [#682](https://github.com/TEHIK-EE/tedi-design-system/issues/682) [#682](https://github.com/TEHIK-EE/tedi-design-system/issues/682) [#682](https://github.com/TEHIK-EE/tedi-design-system/issues/682) [#682](https://github.com/TEHIK-EE/tedi-design-system/issues/682) [#682](https://github.com/TEHIK-EE/tedi-design-system/issues/682) [#682](https://github.com/TEHIK-EE/tedi-design-system/issues/682) [#682](https://github.com/TEHIK-EE/tedi-design-system/issues/682)
+
+# [@tehik-ee/tedi-angular-v1.7.0-rc.3](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.7.0-rc.2...angular-1.7.0-rc.3) (2025-04-28)
+
+
+### Features
+
+* **list:** Angular list items color input update ([#729](https://github.com/TEHIK-EE/tedi-design-system/issues/729)) ([aea1208](https://github.com/TEHIK-EE/tedi-design-system/commit/aea1208456f4b0aa4524a473cdaf6fa99e8d5860)), closes [#521](https://github.com/TEHIK-EE/tedi-design-system/issues/521) [#521](https://github.com/TEHIK-EE/tedi-design-system/issues/521) [#521](https://github.com/TEHIK-EE/tedi-design-system/issues/521) [#521](https://github.com/TEHIK-EE/tedi-design-system/issues/521) [#521](https://github.com/TEHIK-EE/tedi-design-system/issues/521) [#521](https://github.com/TEHIK-EE/tedi-design-system/issues/521)
+
+# [@tehik-ee/tedi-angular-v1.7.0-rc.2](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.7.0-rc.1...angular-1.7.0-rc.2) (2025-04-28)
+
+
+### Features
+
+* **tooltip:** Angular community tooltip  [#669](https://github.com/TEHIK-EE/tedi-design-system/issues/669) ([#713](https://github.com/TEHIK-EE/tedi-design-system/issues/713)) ([3c80915](https://github.com/TEHIK-EE/tedi-design-system/commit/3c8091523c4c61cbba070595ccadd66defe9b301))
+
+# [@tehik-ee/tedi-angular-v1.7.0-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.6.0...angular-1.7.0-rc.1) (2025-04-24)
+
+
+### Features
+
+* **styles:** testing release [#000](https://github.com/TEHIK-EE/tedi-design-system/issues/000) ([20544fa](https://github.com/TEHIK-EE/tedi-design-system/commit/20544fad15a443ef970f299e56e9e9be6eb309ce))
+
+# [@tehik-ee/tedi-angular-v1.6.0](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.5.0...angular-1.6.0) (2025-04-24)
+
+### Bug Fixes
+
+- **col, row:** fix component selectors and html [#680](https://github.com/TEHIK-EE/tedi-design-system/issues/680) ([#683](https://github.com/TEHIK-EE/tedi-design-system/issues/683)) ([a6fb4b7](https://github.com/TEHIK-EE/tedi-design-system/commit/a6fb4b7949a8b5319a7f859f521ca9452defe90e)), closes [#673](https://github.com/TEHIK-EE/tedi-design-system/issues/673) [#675](https://github.com/TEHIK-EE/tedi-design-system/issues/675) [#678](https://github.com/TEHIK-EE/tedi-design-system/issues/678) [#678](https://github.com/TEHIK-EE/tedi-design-system/issues/678)
+- **icon:** fix component element [#673](https://github.com/TEHIK-EE/tedi-design-system/issues/673) ([#674](https://github.com/TEHIK-EE/tedi-design-system/issues/674)) ([98b5974](https://github.com/TEHIK-EE/tedi-design-system/commit/98b59743c59cd49fc3eb4de824b2e522f06bd9c0))
+- **list:** list component selector [#678](https://github.com/TEHIK-EE/tedi-design-system/issues/678) ([#679](https://github.com/TEHIK-EE/tedi-design-system/issues/679)) ([240377c](https://github.com/TEHIK-EE/tedi-design-system/commit/240377cfe7edc363a0f24f1d16c5b1a4e941315d)), closes [#673](https://github.com/TEHIK-EE/tedi-design-system/issues/673) [#675](https://github.com/TEHIK-EE/tedi-design-system/issues/675)
+- **spinner:** fix component selector [#684](https://github.com/TEHIK-EE/tedi-design-system/issues/684) ([#685](https://github.com/TEHIK-EE/tedi-design-system/issues/685)) ([3c54b61](https://github.com/TEHIK-EE/tedi-design-system/commit/3c54b614196c683687fbc9ba258fe00056500197)), closes [#673](https://github.com/TEHIK-EE/tedi-design-system/issues/673) [#675](https://github.com/TEHIK-EE/tedi-design-system/issues/675) [#678](https://github.com/TEHIK-EE/tedi-design-system/issues/678) [#678](https://github.com/TEHIK-EE/tedi-design-system/issues/678) [#680](https://github.com/TEHIK-EE/tedi-design-system/issues/680) [#680](https://github.com/TEHIK-EE/tedi-design-system/issues/680) [#680](https://github.com/TEHIK-EE/tedi-design-system/issues/680)
+- **typography:** fix component selector ([#677](https://github.com/TEHIK-EE/tedi-design-system/issues/677)) ([f885832](https://github.com/TEHIK-EE/tedi-design-system/commit/f885832230b2ca316a0fb50cf254adac07a67dad)), closes [#673](https://github.com/TEHIK-EE/tedi-design-system/issues/673) [#675](https://github.com/TEHIK-EE/tedi-design-system/issues/675)
+- **vertical-spacing:** Adding vertical spacing to public-api.ts [#599](https://github.com/TEHIK-EE/tedi-design-system/issues/599) ([c449ae6](https://github.com/TEHIK-EE/tedi-design-system/commit/c449ae6aa0b1129690d4422c9345737240adb0de))
+- **vertical-spacing:** fixing lint errors [#599](https://github.com/TEHIK-EE/tedi-design-system/issues/599) ([c0d3b2d](https://github.com/TEHIK-EE/tedi-design-system/commit/c0d3b2db648911a9cda566eb473053418722e6ed))
+- **vertical-spacing:** updating rem to em [#599](https://github.com/TEHIK-EE/tedi-design-system/issues/599) ([125e12d](https://github.com/TEHIK-EE/tedi-design-system/commit/125e12de1c8f563e3351e042f9f528a5113db729))
+- **vertical-spacing:** updating storybook path [#599](https://github.com/TEHIK-EE/tedi-design-system/issues/599) ([a34b2c4](https://github.com/TEHIK-EE/tedi-design-system/commit/a34b2c41ae7d03830c5ba43f48f8a2c134c880ce))
+- **vertical-spacing:** updating unit tests [#599](https://github.com/TEHIK-EE/tedi-design-system/issues/599) ([1d57525](https://github.com/TEHIK-EE/tedi-design-system/commit/1d57525cebef64e3eb14cfb40573ce998357b0fd))
+
+### Features
+
+- **styles:** testing release [#000](https://github.com/TEHIK-EE/tedi-design-system/issues/000) ([20544fa](https://github.com/TEHIK-EE/tedi-design-system/commit/20544fad15a443ef970f299e56e9e9be6eb309ce))
+
+# [@tehik-ee/tedi-angular-v1.6.0-rc.15](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.6.0-rc.14...angular-1.6.0-rc.15) (2025-04-24)
+
+- **accordion:** create community accordion component [#552](https://github.com/TEHIK-EE/tedi-design-system/issues/552) ([#662](https://github.com/TEHIK-EE/tedi-design-system/issues/662)) ([2e1d47c](https://github.com/TEHIK-EE/tedi-design-system/commit/2e1d47cc17fba9252ed3df282d9d20fad28e0242))
+- **card:** Add communtity card docs [#579](https://github.com/TEHIK-EE/tedi-design-system/issues/579) ([12a66f9](https://github.com/TEHIK-EE/tedi-design-system/commit/12a66f92f0fc8a5a53f97246c5106d1cc1ed499a))
+- **card:** Change card folder structure [#579](https://github.com/TEHIK-EE/tedi-design-system/issues/579) ([d6100bd](https://github.com/TEHIK-EE/tedi-design-system/commit/d6100bd416fe944fa88ee9a69acc1e9bb37f0efe))
+- **card:** communtity card [#579](https://github.com/TEHIK-EE/tedi-design-system/issues/579) ([b512a7c](https://github.com/TEHIK-EE/tedi-design-system/commit/b512a7ca209fff5b0d872f8ae44f1d4a2a5e3104))
+- **card:** Enable card padding overrides, update stories [#579](https://github.com/TEHIK-EE/tedi-design-system/issues/579) ([b621bb9](https://github.com/TEHIK-EE/tedi-design-system/commit/b621bb9953b1e569a7dcff1f59016ca127d79cff))
+- **card:** Fix sass deprecation warnings [#579](https://github.com/TEHIK-EE/tedi-design-system/issues/579) ([3f74637](https://github.com/TEHIK-EE/tedi-design-system/commit/3f7463716b83c76bdf0af83b4b3ed209b499595f))
+- **card:** Fix story imports [#579](https://github.com/TEHIK-EE/tedi-design-system/issues/579) ([5c66b93](https://github.com/TEHIK-EE/tedi-design-system/commit/5c66b939a456e2cd9567ff7efe99c3bd48d122a1))
+- **card:** fix variables [#579](https://github.com/TEHIK-EE/tedi-design-system/issues/579) ([955cef7](https://github.com/TEHIK-EE/tedi-design-system/commit/955cef7712d0fce55b46eb2b6dd86e27f372e618))
+- **card:** Move card component to new folder [#579](https://github.com/TEHIK-EE/tedi-design-system/issues/579) ([ed9d022](https://github.com/TEHIK-EE/tedi-design-system/commit/ed9d02231b958d39c1b85a87a5606cbbd442c687))
+- **card:** Remove unecessary file [#579](https://github.com/TEHIK-EE/tedi-design-system/issues/579) ([3d7ac85](https://github.com/TEHIK-EE/tedi-design-system/commit/3d7ac8507e96c490f4c7286245f94f54b2dbccf8))
+- **card:** Remove unused import [#579](https://github.com/TEHIK-EE/tedi-design-system/issues/579) ([7350421](https://github.com/TEHIK-EE/tedi-design-system/commit/73504219abb6205d3b8da38b6de920f4035dac71))
+- **cards:** Update card story render functions to display HTML [#579](https://github.com/TEHIK-EE/tedi-design-system/issues/579) ([4a7b8a2](https://github.com/TEHIK-EE/tedi-design-system/commit/4a7b8a26f3f0f4e9e0acb1cf83db0a1cf54619da))
+- **card:** Update card stories [#579](https://github.com/TEHIK-EE/tedi-design-system/issues/579) ([89e1568](https://github.com/TEHIK-EE/tedi-design-system/commit/89e1568d3f9f307f649b60ee920d882e6b9725b5))
+- **documentation:** add get started and badges docs [#699](https://github.com/TEHIK-EE/tedi-design-system/issues/699) ([#701](https://github.com/TEHIK-EE/tedi-design-system/issues/701)) ([d7b9e97](https://github.com/TEHIK-EE/tedi-design-system/commit/d7b9e9726d93f35e8b1dd68e5a869e94d37048dc))
+- **feedback-text:** Community Angular feedback-text component [#654](https://github.com/TEHIK-EE/tedi-design-system/issues/654) ([#661](https://github.com/TEHIK-EE/tedi-design-system/issues/661)) ([e3dfd59](https://github.com/TEHIK-EE/tedi-design-system/commit/e3dfd5945ef337bbc1596565323d8fffb5663f24))
+- **form-label:** Community Angular form label component [#637](https://github.com/TEHIK-EE/tedi-design-system/issues/637) ([#672](https://github.com/TEHIK-EE/tedi-design-system/issues/672)) ([18edd87](https://github.com/TEHIK-EE/tedi-design-system/commit/18edd875300af75ed1812b2f1a21e1483880a21f)), closes [#650](https://github.com/TEHIK-EE/tedi-design-system/issues/650)
+- **form-text-field:** Community form-field & tedi-input directive ([#688](https://github.com/TEHIK-EE/tedi-design-system/issues/688)) ([5cc9add](https://github.com/TEHIK-EE/tedi-design-system/commit/5cc9adde08d5ec9ef756369788fe0e6e04b51bf6)), closes [#638](https://github.com/TEHIK-EE/tedi-design-system/issues/638) [#638](https://github.com/TEHIK-EE/tedi-design-system/issues/638) [#638](https://github.com/TEHIK-EE/tedi-design-system/issues/638)
+- **grid:** TEDI-Ready Angular Grid components [#564](https://github.com/TEHIK-EE/tedi-design-system/issues/564) ([#619](https://github.com/TEHIK-EE/tedi-design-system/issues/619)) ([9ee386d](https://github.com/TEHIK-EE/tedi-design-system/commit/9ee386dac06570935472661a7ac10d1883d66614)), closes [#587](https://github.com/TEHIK-EE/tedi-design-system/issues/587) [#587](https://github.com/TEHIK-EE/tedi-design-system/issues/587) [#587](https://github.com/TEHIK-EE/tedi-design-system/issues/587) [#587](https://github.com/TEHIK-EE/tedi-design-system/issues/587) [#587](https://github.com/TEHIK-EE/tedi-design-system/issues/587) [#587](https://github.com/TEHIK-EE/tedi-design-system/issues/587) [#587](https://github.com/TEHIK-EE/tedi-design-system/issues/587) [#587](https://github.com/TEHIK-EE/tedi-design-system/issues/587) [#587](https://github.com/TEHIK-EE/tedi-design-system/issues/587) [#587](https://github.com/TEHIK-EE/tedi-design-system/issues/587) [#587](https://github.com/TEHIK-EE/tedi-design-system/issues/587)
+- **info-button:** info button communtiy component [#630](https://github.com/TEHIK-EE/tedi-design-system/issues/630) ([#663](https://github.com/TEHIK-EE/tedi-design-system/issues/663)) ([1fafab5](https://github.com/TEHIK-EE/tedi-design-system/commit/1fafab5b3ce7bbe6a896b168569174ecc803982d)), closes [#637](https://github.com/TEHIK-EE/tedi-design-system/issues/637) [#672](https://github.com/TEHIK-EE/tedi-design-system/issues/672) [#650](https://github.com/TEHIK-EE/tedi-design-system/issues/650) [#637](https://github.com/TEHIK-EE/tedi-design-system/issues/637) [#637](https://github.com/TEHIK-EE/tedi-design-system/issues/637)
+- **link:** TEDI-Angular Community Link [#621](https://github.com/TEHIK-EE/tedi-design-system/issues/621) ([#653](https://github.com/TEHIK-EE/tedi-design-system/issues/653)) ([a62d394](https://github.com/TEHIK-EE/tedi-design-system/commit/a62d39491ca3f324bc512a49fa03c8f5ab444458))
+- **number-field:** TEDI Angular Community component [#665](https://github.com/TEHIK-EE/tedi-design-system/issues/665) ([#690](https://github.com/TEHIK-EE/tedi-design-system/issues/690)) ([29c0a5a](https://github.com/TEHIK-EE/tedi-design-system/commit/29c0a5ab69e0c81037e48f35dc74052bb597fde7)), closes [#654](https://github.com/TEHIK-EE/tedi-design-system/issues/654) [#654](https://github.com/TEHIK-EE/tedi-design-system/issues/654) [#654](https://github.com/TEHIK-EE/tedi-design-system/issues/654) [#654](https://github.com/TEHIK-EE/tedi-design-system/issues/654) [#654](https://github.com/TEHIK-EE/tedi-design-system/issues/654) [#673](https://github.com/TEHIK-EE/tedi-design-system/issues/673) [#675](https://github.com/TEHIK-EE/tedi-design-system/issues/675) [#678](https://github.com/TEHIK-EE/tedi-design-system/issues/678) [#678](https://github.com/TEHIK-EE/tedi-design-system/issues/678) [#680](https://github.com/TEHIK-EE/tedi-design-system/issues/680) [#680](https://github.com/TEHIK-EE/tedi-design-system/issues/680) [#680](https://github.com/TEHIK-EE/tedi-design-system/issues/680) [#684](https://github.com/TEHIK-EE/tedi-design-system/issues/684)
+- **select:** TEDI Select development [#333](https://github.com/TEHIK-EE/tedi-design-system/issues/333) ([#670](https://github.com/TEHIK-EE/tedi-design-system/issues/670)) ([7d1c768](https://github.com/TEHIK-EE/tedi-design-system/commit/7d1c7684e10b91baa2ca969d696e063f273da51f))
+- **text-group:** add text group component with horizontal and vertic… ([#687](https://github.com/TEHIK-EE/tedi-design-system/issues/687)) ([7860191](https://github.com/TEHIK-EE/tedi-design-system/commit/78601910e65b400e5447fd2c2742170438fafa99)), closes [#664](https://github.com/TEHIK-EE/tedi-design-system/issues/664) [#664](https://github.com/TEHIK-EE/tedi-design-system/issues/664) [#664](https://github.com/TEHIK-EE/tedi-design-system/issues/664) [#664](https://github.com/TEHIK-EE/tedi-design-system/issues/664) [#664](https://github.com/TEHIK-EE/tedi-design-system/issues/664) [#664](https://github.com/TEHIK-EE/tedi-design-system/issues/664)
+- **vertical-spacing-item:** directive for adding vertical space to a single container [#599](https://github.com/TEHIK-EE/tedi-design-system/issues/599) ([4113438](https://github.com/TEHIK-EE/tedi-design-system/commit/4113438aae18139612393ecd84ac392cdc2f7644))
+- **vertical-spacing:** add status to stories [#599](https://github.com/TEHIK-EE/tedi-design-system/issues/599) ([9042e51](https://github.com/TEHIK-EE/tedi-design-system/commit/9042e512dd93b4b9c78e824504bd58f54b98273a))
+- **vertical-spacing:** add status to stories [#599](https://github.com/TEHIK-EE/tedi-design-system/issues/599) ([142a365](https://github.com/TEHIK-EE/tedi-design-system/commit/142a365d4214626d199e02997061e4029adeece3))
+- **vertical-spacing:** Directive base and first story [#599](https://github.com/TEHIK-EE/tedi-design-system/issues/599) ([3e39231](https://github.com/TEHIK-EE/tedi-design-system/commit/3e392319326899554878f32a13f3d1014327ab6e))
+- **vertical-spacing:** Directive base and first story [#599](https://github.com/TEHIK-EE/tedi-design-system/issues/599) ([bee3d48](https://github.com/TEHIK-EE/tedi-design-system/commit/bee3d486460d37754e9a98457e0212784727acf4))
+- **vertical-spacing:** fix styles [#599](https://github.com/TEHIK-EE/tedi-design-system/issues/599) ([02015f2](https://github.com/TEHIK-EE/tedi-design-system/commit/02015f2a389b0ba76ffbafac103eca5ece17ac6f))
+- **vertical-spacing:** refactor styles and add vertical-spacing directive styles [#599](https://github.com/TEHIK-EE/tedi-design-system/issues/599) ([185d928](https://github.com/TEHIK-EE/tedi-design-system/commit/185d928c8a93ae51169d44aa30e9046df763e8af))
+- **verticalSpacing:** Updated directive to use CSS to add margin [#599](https://github.com/TEHIK-EE/tedi-design-system/issues/599) ([968c910](https://github.com/TEHIK-EE/tedi-design-system/commit/968c910c04b7a5e73465be10898d8515d862a7df))
+
+# [@tehik-ee/tedi-angular-v1.6.0](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.5.0...angular-1.6.0) (2025-04-24)
+
+### Features
+
+- **documentation:** add get started and badges docs [#699](https://github.com/TEHIK-EE/tedi-design-system/issues/699) ([#701](https://github.com/TEHIK-EE/tedi-design-system/issues/701)) ([d7b9e97](https://github.com/TEHIK-EE/tedi-design-system/commit/d7b9e9726d93f35e8b1dd68e5a869e94d37048dc))
 
 # [@tehik-ee/tedi-angular-v1.6.0-rc.13](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.6.0-rc.12...angular-1.6.0-rc.13) (2025-04-22)
 
-
 ### Features
 
-* **number-field:** TEDI Angular Community component [#665](https://github.com/TEHIK-EE/tedi-design-system/issues/665) ([#690](https://github.com/TEHIK-EE/tedi-design-system/issues/690)) ([29c0a5a](https://github.com/TEHIK-EE/tedi-design-system/commit/29c0a5ab69e0c81037e48f35dc74052bb597fde7)), closes [#654](https://github.com/TEHIK-EE/tedi-design-system/issues/654) [#654](https://github.com/TEHIK-EE/tedi-design-system/issues/654) [#654](https://github.com/TEHIK-EE/tedi-design-system/issues/654) [#654](https://github.com/TEHIK-EE/tedi-design-system/issues/654) [#654](https://github.com/TEHIK-EE/tedi-design-system/issues/654) [#673](https://github.com/TEHIK-EE/tedi-design-system/issues/673) [#675](https://github.com/TEHIK-EE/tedi-design-system/issues/675) [#678](https://github.com/TEHIK-EE/tedi-design-system/issues/678) [#678](https://github.com/TEHIK-EE/tedi-design-system/issues/678) [#680](https://github.com/TEHIK-EE/tedi-design-system/issues/680) [#680](https://github.com/TEHIK-EE/tedi-design-system/issues/680) [#680](https://github.com/TEHIK-EE/tedi-design-system/issues/680) [#684](https://github.com/TEHIK-EE/tedi-design-system/issues/684)
+- **number-field:** TEDI Angular Community component [#665](https://github.com/TEHIK-EE/tedi-design-system/issues/665) ([#690](https://github.com/TEHIK-EE/tedi-design-system/issues/690)) ([29c0a5a](https://github.com/TEHIK-EE/tedi-design-system/commit/29c0a5ab69e0c81037e48f35dc74052bb597fde7)), closes [#654](https://github.com/TEHIK-EE/tedi-design-system/issues/654) [#654](https://github.com/TEHIK-EE/tedi-design-system/issues/654) [#654](https://github.com/TEHIK-EE/tedi-design-system/issues/654) [#654](https://github.com/TEHIK-EE/tedi-design-system/issues/654) [#654](https://github.com/TEHIK-EE/tedi-design-system/issues/654) [#673](https://github.com/TEHIK-EE/tedi-design-system/issues/673) [#675](https://github.com/TEHIK-EE/tedi-design-system/issues/675) [#678](https://github.com/TEHIK-EE/tedi-design-system/issues/678) [#678](https://github.com/TEHIK-EE/tedi-design-system/issues/678) [#680](https://github.com/TEHIK-EE/tedi-design-system/issues/680) [#680](https://github.com/TEHIK-EE/tedi-design-system/issues/680) [#680](https://github.com/TEHIK-EE/tedi-design-system/issues/680) [#684](https://github.com/TEHIK-EE/tedi-design-system/issues/684)
 
 # [@tehik-ee/tedi-angular-v1.6.0-rc.12](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.6.0-rc.11...angular-1.6.0-rc.12) (2025-04-14)
 
-
 ### Features
 
-* **text-group:** add text group component with horizontal and vertic… ([#687](https://github.com/TEHIK-EE/tedi-design-system/issues/687)) ([7860191](https://github.com/TEHIK-EE/tedi-design-system/commit/78601910e65b400e5447fd2c2742170438fafa99)), closes [#664](https://github.com/TEHIK-EE/tedi-design-system/issues/664) [#664](https://github.com/TEHIK-EE/tedi-design-system/issues/664) [#664](https://github.com/TEHIK-EE/tedi-design-system/issues/664) [#664](https://github.com/TEHIK-EE/tedi-design-system/issues/664) [#664](https://github.com/TEHIK-EE/tedi-design-system/issues/664) [#664](https://github.com/TEHIK-EE/tedi-design-system/issues/664)
+- **text-group:** add text group component with horizontal and vertic… ([#687](https://github.com/TEHIK-EE/tedi-design-system/issues/687)) ([7860191](https://github.com/TEHIK-EE/tedi-design-system/commit/78601910e65b400e5447fd2c2742170438fafa99)), closes [#664](https://github.com/TEHIK-EE/tedi-design-system/issues/664) [#664](https://github.com/TEHIK-EE/tedi-design-system/issues/664) [#664](https://github.com/TEHIK-EE/tedi-design-system/issues/664) [#664](https://github.com/TEHIK-EE/tedi-design-system/issues/664) [#664](https://github.com/TEHIK-EE/tedi-design-system/issues/664) [#664](https://github.com/TEHIK-EE/tedi-design-system/issues/664)
 
 # [@tehik-ee/tedi-angular-v1.6.0-rc.11](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.6.0-rc.10...angular-1.6.0-rc.11) (2025-04-14)
 
-
 ### Bug Fixes
 
-* **spinner:** fix component selector [#684](https://github.com/TEHIK-EE/tedi-design-system/issues/684) ([#685](https://github.com/TEHIK-EE/tedi-design-system/issues/685)) ([3c54b61](https://github.com/TEHIK-EE/tedi-design-system/commit/3c54b614196c683687fbc9ba258fe00056500197)), closes [#673](https://github.com/TEHIK-EE/tedi-design-system/issues/673) [#675](https://github.com/TEHIK-EE/tedi-design-system/issues/675) [#678](https://github.com/TEHIK-EE/tedi-design-system/issues/678) [#678](https://github.com/TEHIK-EE/tedi-design-system/issues/678) [#680](https://github.com/TEHIK-EE/tedi-design-system/issues/680) [#680](https://github.com/TEHIK-EE/tedi-design-system/issues/680) [#680](https://github.com/TEHIK-EE/tedi-design-system/issues/680)
+- **spinner:** fix component selector [#684](https://github.com/TEHIK-EE/tedi-design-system/issues/684) ([#685](https://github.com/TEHIK-EE/tedi-design-system/issues/685)) ([3c54b61](https://github.com/TEHIK-EE/tedi-design-system/commit/3c54b614196c683687fbc9ba258fe00056500197)), closes [#673](https://github.com/TEHIK-EE/tedi-design-system/issues/673) [#675](https://github.com/TEHIK-EE/tedi-design-system/issues/675) [#678](https://github.com/TEHIK-EE/tedi-design-system/issues/678) [#678](https://github.com/TEHIK-EE/tedi-design-system/issues/678) [#680](https://github.com/TEHIK-EE/tedi-design-system/issues/680) [#680](https://github.com/TEHIK-EE/tedi-design-system/issues/680) [#680](https://github.com/TEHIK-EE/tedi-design-system/issues/680)
 
 # [@tehik-ee/tedi-angular-v1.6.0-rc.10](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.6.0-rc.9...angular-1.6.0-rc.10) (2025-04-14)
 
-
 ### Bug Fixes
 
-* **col, row:** fix component selectors and html [#680](https://github.com/TEHIK-EE/tedi-design-system/issues/680) ([#683](https://github.com/TEHIK-EE/tedi-design-system/issues/683)) ([a6fb4b7](https://github.com/TEHIK-EE/tedi-design-system/commit/a6fb4b7949a8b5319a7f859f521ca9452defe90e)), closes [#673](https://github.com/TEHIK-EE/tedi-design-system/issues/673) [#675](https://github.com/TEHIK-EE/tedi-design-system/issues/675) [#678](https://github.com/TEHIK-EE/tedi-design-system/issues/678) [#678](https://github.com/TEHIK-EE/tedi-design-system/issues/678)
+- **col, row:** fix component selectors and html [#680](https://github.com/TEHIK-EE/tedi-design-system/issues/680) ([#683](https://github.com/TEHIK-EE/tedi-design-system/issues/683)) ([a6fb4b7](https://github.com/TEHIK-EE/tedi-design-system/commit/a6fb4b7949a8b5319a7f859f521ca9452defe90e)), closes [#673](https://github.com/TEHIK-EE/tedi-design-system/issues/673) [#675](https://github.com/TEHIK-EE/tedi-design-system/issues/675) [#678](https://github.com/TEHIK-EE/tedi-design-system/issues/678) [#678](https://github.com/TEHIK-EE/tedi-design-system/issues/678)
 
 # [@tehik-ee/tedi-angular-v1.6.0-rc.9](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.6.0-rc.8...angular-1.6.0-rc.9) (2025-04-14)
 
-
 ### Bug Fixes
 
-* **list:** list component selector [#678](https://github.com/TEHIK-EE/tedi-design-system/issues/678) ([#679](https://github.com/TEHIK-EE/tedi-design-system/issues/679)) ([240377c](https://github.com/TEHIK-EE/tedi-design-system/commit/240377cfe7edc363a0f24f1d16c5b1a4e941315d)), closes [#673](https://github.com/TEHIK-EE/tedi-design-system/issues/673) [#675](https://github.com/TEHIK-EE/tedi-design-system/issues/675)
+- **list:** list component selector [#678](https://github.com/TEHIK-EE/tedi-design-system/issues/678) ([#679](https://github.com/TEHIK-EE/tedi-design-system/issues/679)) ([240377c](https://github.com/TEHIK-EE/tedi-design-system/commit/240377cfe7edc363a0f24f1d16c5b1a4e941315d)), closes [#673](https://github.com/TEHIK-EE/tedi-design-system/issues/673) [#675](https://github.com/TEHIK-EE/tedi-design-system/issues/675)
 
 # [@tehik-ee/tedi-angular-v1.6.0-rc.8](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.6.0-rc.7...angular-1.6.0-rc.8) (2025-04-14)
 
-
 ### Bug Fixes
 
-* **typography:** fix component selector ([#677](https://github.com/TEHIK-EE/tedi-design-system/issues/677)) ([f885832](https://github.com/TEHIK-EE/tedi-design-system/commit/f885832230b2ca316a0fb50cf254adac07a67dad)), closes [#673](https://github.com/TEHIK-EE/tedi-design-system/issues/673) [#675](https://github.com/TEHIK-EE/tedi-design-system/issues/675)
+- **typography:** fix component selector ([#677](https://github.com/TEHIK-EE/tedi-design-system/issues/677)) ([f885832](https://github.com/TEHIK-EE/tedi-design-system/commit/f885832230b2ca316a0fb50cf254adac07a67dad)), closes [#673](https://github.com/TEHIK-EE/tedi-design-system/issues/673) [#675](https://github.com/TEHIK-EE/tedi-design-system/issues/675)
 
 # [@tehik-ee/tedi-angular-v1.6.0-rc.7](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.6.0-rc.6...angular-1.6.0-rc.7) (2025-04-14)
 
-
 ### Bug Fixes
 
-* **icon:** fix component element [#673](https://github.com/TEHIK-EE/tedi-design-system/issues/673) ([#674](https://github.com/TEHIK-EE/tedi-design-system/issues/674)) ([98b5974](https://github.com/TEHIK-EE/tedi-design-system/commit/98b59743c59cd49fc3eb4de824b2e522f06bd9c0))
-
+- **icon:** fix component element [#673](https://github.com/TEHIK-EE/tedi-design-system/issues/673) ([#674](https://github.com/TEHIK-EE/tedi-design-system/issues/674)) ([98b5974](https://github.com/TEHIK-EE/tedi-design-system/commit/98b59743c59cd49fc3eb4de824b2e522f06bd9c0))
 
 ### Features
 
-* **form-text-field:** Community form-field & tedi-input directive ([#688](https://github.com/TEHIK-EE/tedi-design-system/issues/688)) ([5cc9add](https://github.com/TEHIK-EE/tedi-design-system/commit/5cc9adde08d5ec9ef756369788fe0e6e04b51bf6)), closes [#638](https://github.com/TEHIK-EE/tedi-design-system/issues/638) [#638](https://github.com/TEHIK-EE/tedi-design-system/issues/638) [#638](https://github.com/TEHIK-EE/tedi-design-system/issues/638)
+- **form-text-field:** Community form-field & tedi-input directive ([#688](https://github.com/TEHIK-EE/tedi-design-system/issues/688)) ([5cc9add](https://github.com/TEHIK-EE/tedi-design-system/commit/5cc9adde08d5ec9ef756369788fe0e6e04b51bf6)), closes [#638](https://github.com/TEHIK-EE/tedi-design-system/issues/638) [#638](https://github.com/TEHIK-EE/tedi-design-system/issues/638) [#638](https://github.com/TEHIK-EE/tedi-design-system/issues/638)
 
 # [@tehik-ee/tedi-angular-v1.6.0-rc.6](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.6.0-rc.5...angular-1.6.0-rc.6) (2025-04-08)
 
-
 ### Features
 
-* **info-button:** info button communtiy component [#630](https://github.com/TEHIK-EE/tedi-design-system/issues/630) ([#663](https://github.com/TEHIK-EE/tedi-design-system/issues/663)) ([1fafab5](https://github.com/TEHIK-EE/tedi-design-system/commit/1fafab5b3ce7bbe6a896b168569174ecc803982d)), closes [#637](https://github.com/TEHIK-EE/tedi-design-system/issues/637) [#672](https://github.com/TEHIK-EE/tedi-design-system/issues/672) [#650](https://github.com/TEHIK-EE/tedi-design-system/issues/650) [#637](https://github.com/TEHIK-EE/tedi-design-system/issues/637) [#637](https://github.com/TEHIK-EE/tedi-design-system/issues/637)
+- **info-button:** info button communtiy component [#630](https://github.com/TEHIK-EE/tedi-design-system/issues/630) ([#663](https://github.com/TEHIK-EE/tedi-design-system/issues/663)) ([1fafab5](https://github.com/TEHIK-EE/tedi-design-system/commit/1fafab5b3ce7bbe6a896b168569174ecc803982d)), closes [#637](https://github.com/TEHIK-EE/tedi-design-system/issues/637) [#672](https://github.com/TEHIK-EE/tedi-design-system/issues/672) [#650](https://github.com/TEHIK-EE/tedi-design-system/issues/650) [#637](https://github.com/TEHIK-EE/tedi-design-system/issues/637) [#637](https://github.com/TEHIK-EE/tedi-design-system/issues/637)
 
 # [@tehik-ee/tedi-angular-v1.6.0-rc.3](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.6.0-rc.2...angular-1.6.0-rc.3) (2025-04-08)
 
 ### Features
 
-* **card:** Add communtity card docs [#579](https://github.com/TEHIK-EE/tedi-design-system/issues/579) ([12a66f9](https://github.com/TEHIK-EE/tedi-design-system/commit/12a66f92f0fc8a5a53f97246c5106d1cc1ed499a))
-* **card:** Change card folder structure [#579](https://github.com/TEHIK-EE/tedi-design-system/issues/579) ([d6100bd](https://github.com/TEHIK-EE/tedi-design-system/commit/d6100bd416fe944fa88ee9a69acc1e9bb37f0efe))
-* **card:** communtity card [#579](https://github.com/TEHIK-EE/tedi-design-system/issues/579) ([b512a7c](https://github.com/TEHIK-EE/tedi-design-system/commit/b512a7ca209fff5b0d872f8ae44f1d4a2a5e3104))
-* **card:** Enable card padding overrides, update stories [#579](https://github.com/TEHIK-EE/tedi-design-system/issues/579) ([b621bb9](https://github.com/TEHIK-EE/tedi-design-system/commit/b621bb9953b1e569a7dcff1f59016ca127d79cff))
-* **card:** Fix sass deprecation warnings [#579](https://github.com/TEHIK-EE/tedi-design-system/issues/579) ([3f74637](https://github.com/TEHIK-EE/tedi-design-system/commit/3f7463716b83c76bdf0af83b4b3ed209b499595f))
-* **card:** Fix story imports [#579](https://github.com/TEHIK-EE/tedi-design-system/issues/579) ([5c66b93](https://github.com/TEHIK-EE/tedi-design-system/commit/5c66b939a456e2cd9567ff7efe99c3bd48d122a1))
-* **card:** fix variables [#579](https://github.com/TEHIK-EE/tedi-design-system/issues/579) ([955cef7](https://github.com/TEHIK-EE/tedi-design-system/commit/955cef7712d0fce55b46eb2b6dd86e27f372e618))
-* **card:** Move card component to new folder [#579](https://github.com/TEHIK-EE/tedi-design-system/issues/579) ([ed9d022](https://github.com/TEHIK-EE/tedi-design-system/commit/ed9d02231b958d39c1b85a87a5606cbbd442c687))
-* **card:** Remove unecessary file [#579](https://github.com/TEHIK-EE/tedi-design-system/issues/579) ([3d7ac85](https://github.com/TEHIK-EE/tedi-design-system/commit/3d7ac8507e96c490f4c7286245f94f54b2dbccf8))
-* **card:** Remove unused import [#579](https://github.com/TEHIK-EE/tedi-design-system/issues/579) ([7350421](https://github.com/TEHIK-EE/tedi-design-system/commit/73504219abb6205d3b8da38b6de920f4035dac71))
-* **cards:** Update card story render functions to display HTML [#579](https://github.com/TEHIK-EE/tedi-design-system/issues/579) ([4a7b8a2](https://github.com/TEHIK-EE/tedi-design-system/commit/4a7b8a26f3f0f4e9e0acb1cf83db0a1cf54619da))
-* **card:** Update card stories [#579](https://github.com/TEHIK-EE/tedi-design-system/issues/579) ([89e1568](https://github.com/TEHIK-EE/tedi-design-system/commit/89e1568d3f9f307f649b60ee920d882e6b9725b5))
-* **form-label:** Community Angular form label component [#637](https://github.com/TEHIK-EE/tedi-design-system/issues/637) ([#672](https://github.com/TEHIK-EE/tedi-design-system/issues/672)) ([18edd87](https://github.com/TEHIK-EE/tedi-design-system/commit/18edd875300af75ed1812b2f1a21e1483880a21f)), closes [#650](https://github.com/TEHIK-EE/tedi-design-system/issues/650)
-* **link:** TEDI-Angular Community Link [#621](https://github.com/TEHIK-EE/tedi-design-system/issues/621) ([#653](https://github.com/TEHIK-EE/tedi-design-system/issues/653)) ([a62d394](https://github.com/TEHIK-EE/tedi-design-system/commit/a62d39491ca3f324bc512a49fa03c8f5ab444458))
-* **select:** TEDI Select development [#333](https://github.com/TEHIK-EE/tedi-design-system/issues/333) ([#670](https://github.com/TEHIK-EE/tedi-design-system/issues/670)) ([7d1c768](https://github.com/TEHIK-EE/tedi-design-system/commit/7d1c7684e10b91baa2ca969d696e063f273da51f))
+- **card:** Add communtity card docs [#579](https://github.com/TEHIK-EE/tedi-design-system/issues/579) ([12a66f9](https://github.com/TEHIK-EE/tedi-design-system/commit/12a66f92f0fc8a5a53f97246c5106d1cc1ed499a))
+- **card:** Change card folder structure [#579](https://github.com/TEHIK-EE/tedi-design-system/issues/579) ([d6100bd](https://github.com/TEHIK-EE/tedi-design-system/commit/d6100bd416fe944fa88ee9a69acc1e9bb37f0efe))
+- **card:** communtity card [#579](https://github.com/TEHIK-EE/tedi-design-system/issues/579) ([b512a7c](https://github.com/TEHIK-EE/tedi-design-system/commit/b512a7ca209fff5b0d872f8ae44f1d4a2a5e3104))
+- **card:** Enable card padding overrides, update stories [#579](https://github.com/TEHIK-EE/tedi-design-system/issues/579) ([b621bb9](https://github.com/TEHIK-EE/tedi-design-system/commit/b621bb9953b1e569a7dcff1f59016ca127d79cff))
+- **card:** Fix sass deprecation warnings [#579](https://github.com/TEHIK-EE/tedi-design-system/issues/579) ([3f74637](https://github.com/TEHIK-EE/tedi-design-system/commit/3f7463716b83c76bdf0af83b4b3ed209b499595f))
+- **card:** Fix story imports [#579](https://github.com/TEHIK-EE/tedi-design-system/issues/579) ([5c66b93](https://github.com/TEHIK-EE/tedi-design-system/commit/5c66b939a456e2cd9567ff7efe99c3bd48d122a1))
+- **card:** fix variables [#579](https://github.com/TEHIK-EE/tedi-design-system/issues/579) ([955cef7](https://github.com/TEHIK-EE/tedi-design-system/commit/955cef7712d0fce55b46eb2b6dd86e27f372e618))
+- **card:** Move card component to new folder [#579](https://github.com/TEHIK-EE/tedi-design-system/issues/579) ([ed9d022](https://github.com/TEHIK-EE/tedi-design-system/commit/ed9d02231b958d39c1b85a87a5606cbbd442c687))
+- **card:** Remove unecessary file [#579](https://github.com/TEHIK-EE/tedi-design-system/issues/579) ([3d7ac85](https://github.com/TEHIK-EE/tedi-design-system/commit/3d7ac8507e96c490f4c7286245f94f54b2dbccf8))
+- **card:** Remove unused import [#579](https://github.com/TEHIK-EE/tedi-design-system/issues/579) ([7350421](https://github.com/TEHIK-EE/tedi-design-system/commit/73504219abb6205d3b8da38b6de920f4035dac71))
+- **cards:** Update card story render functions to display HTML [#579](https://github.com/TEHIK-EE/tedi-design-system/issues/579) ([4a7b8a2](https://github.com/TEHIK-EE/tedi-design-system/commit/4a7b8a26f3f0f4e9e0acb1cf83db0a1cf54619da))
+- **card:** Update card stories [#579](https://github.com/TEHIK-EE/tedi-design-system/issues/579) ([89e1568](https://github.com/TEHIK-EE/tedi-design-system/commit/89e1568d3f9f307f649b60ee920d882e6b9725b5))
+- **form-label:** Community Angular form label component [#637](https://github.com/TEHIK-EE/tedi-design-system/issues/637) ([#672](https://github.com/TEHIK-EE/tedi-design-system/issues/672)) ([18edd87](https://github.com/TEHIK-EE/tedi-design-system/commit/18edd875300af75ed1812b2f1a21e1483880a21f)), closes [#650](https://github.com/TEHIK-EE/tedi-design-system/issues/650)
+- **link:** TEDI-Angular Community Link [#621](https://github.com/TEHIK-EE/tedi-design-system/issues/621) ([#653](https://github.com/TEHIK-EE/tedi-design-system/issues/653)) ([a62d394](https://github.com/TEHIK-EE/tedi-design-system/commit/a62d39491ca3f324bc512a49fa03c8f5ab444458))
+- **select:** TEDI Select development [#333](https://github.com/TEHIK-EE/tedi-design-system/issues/333) ([#670](https://github.com/TEHIK-EE/tedi-design-system/issues/670)) ([7d1c768](https://github.com/TEHIK-EE/tedi-design-system/commit/7d1c7684e10b91baa2ca969d696e063f273da51f))
 
 # [@tehik-ee/tedi-angular-v1.6.0-rc.2](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.6.0-rc.1...angular-1.6.0-rc.2) (2025-04-01)
 
@@ -194,10 +361,9 @@
 
 # [@tehik-ee/tedi-angular-v1.6.0-rc.5](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.6.0-rc.4...angular-1.6.0-rc.5) (2025-04-08)
 
-
 ### Features
 
-* **accordion:** create community accordion component [#552](https://github.com/TEHIK-EE/tedi-design-system/issues/552) ([#662](https://github.com/TEHIK-EE/tedi-design-system/issues/662)) ([2e1d47c](https://github.com/TEHIK-EE/tedi-design-system/commit/2e1d47cc17fba9252ed3df282d9d20fad28e0242))
+- **accordion:** create community accordion component [#552](https://github.com/TEHIK-EE/tedi-design-system/issues/552) ([#662](https://github.com/TEHIK-EE/tedi-design-system/issues/662)) ([2e1d47c](https://github.com/TEHIK-EE/tedi-design-system/commit/2e1d47cc17fba9252ed3df282d9d20fad28e0242))
 
 # [@tehik-ee/tedi-angular-v1.6.0-rc.4](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.6.0-rc.3...angular-1.6.0-rc.4) (2025-04-08)
 
@@ -219,7 +385,6 @@
 - **verticalSpacing:** Updated directive to use CSS to add margin [#599](https://github.com/TEHIK-EE/tedi-design-system/issues/599) ([968c910](https://github.com/TEHIK-EE/tedi-design-system/commit/968c910c04b7a5e73465be10898d8515d862a7df))
 
 * **feedback-text:** Community Angular feedback-text component [#654](https://github.com/TEHIK-EE/tedi-design-system/issues/654) ([#661](https://github.com/TEHIK-EE/tedi-design-system/issues/661)) ([e3dfd59](https://github.com/TEHIK-EE/tedi-design-system/commit/e3dfd5945ef337bbc1596565323d8fffb5663f24))
-
 
 # [@tehik-ee/tedi-angular-v1.6.0-rc.3](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.6.0-rc.2...angular-1.6.0-rc.3) (2025-04-08)
 
@@ -244,6 +409,7 @@
 - **list:** TEDI-Ready Angular List component [#548](https://github.com/TEHIK-EE/tedi-design-system/issues/548) ([#573](https://github.com/TEHIK-EE/tedi-design-system/issues/573)) ([0651fb3](https://github.com/TEHIK-EE/tedi-design-system/commit/0651fb3607823ecd27cbbcb2b6bbd71b5d477d77))
 - **spinner:** TEDI-Ready Angular spinner component [#555](https://github.com/TEHIK-EE/tedi-design-system/issues/555) ([#574](https://github.com/TEHIK-EE/tedi-design-system/issues/574)) ([e548eb4](https://github.com/TEHIK-EE/tedi-design-system/commit/e548eb4d44aeb3b2a4c5c9539ba2c13af6bf0caa))
 - **typography:** TEDI-Ready Angular Typography components [#507](https://github.com/TEHIK-EE/tedi-design-system/issues/507) ([#547](https://github.com/TEHIK-EE/tedi-design-system/issues/547)) ([9fa0afe](https://github.com/TEHIK-EE/tedi-design-system/commit/9fa0afec8da00713f45df58242cc9f4716c11564))
+
 * **card:** Add communtity card docs [#579](https://github.com/TEHIK-EE/tedi-design-system/issues/579) ([12a66f9](https://github.com/TEHIK-EE/tedi-design-system/commit/12a66f92f0fc8a5a53f97246c5106d1cc1ed499a))
 * **card:** Change card folder structure [#579](https://github.com/TEHIK-EE/tedi-design-system/issues/579) ([d6100bd](https://github.com/TEHIK-EE/tedi-design-system/commit/d6100bd416fe944fa88ee9a69acc1e9bb37f0efe))
 * **card:** communtity card [#579](https://github.com/TEHIK-EE/tedi-design-system/issues/579) ([b512a7c](https://github.com/TEHIK-EE/tedi-design-system/commit/b512a7ca209fff5b0d872f8ae44f1d4a2a5e3104))

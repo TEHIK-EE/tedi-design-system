@@ -1,5 +1,18 @@
 @use "@tehik-ee/tedi-core/mixins";
 
+$bullet-colors: (
+  "primary": "general-icon-primary",
+  "secondary": "general-icon-secondary",
+  "tertiary": "general-icon-tertiary",
+  "brand": "general-icon-brand",
+  "brand-dark": "general-icon-brand-dark",
+  "success": "general-icon-success",
+  "warning": "general-icon-warning",
+  "warning-dark": "general-icon-warning-dark",
+  "danger": "general-icon-danger",
+  "white": "general-icon-white",
+);
+
 .tedi-list {
   li {
     @include mixins.responsive-styles(margin-top, list-list-item-margin-y);
@@ -9,21 +22,24 @@
 
 ul.tedi-list {
   list-style: none;
+
   @include mixins.responsive-styles(padding-left, list-padding-left-level-1);
 
   li {
     position: relative;
+    padding-left: calc(var(--_inner-padding-left) + var(--_icon-padding-left));
     @include mixins.responsive-styles(
-      padding-left,
-      list-padding-left-level-1
+      --_inner-padding-left,
+      list-inner-spacing-x
     );
+    @include mixins.responsive-styles(--_icon-padding-left, list-icon-size);
 
     &::before {
       position: absolute;
       top: 0.5em;
       left: 0;
       content: "";
-      border: 2px solid var(--list-icon);
+      border: 2px solid var(--general-icon-brand);
       border-radius: 50%;
 
       @include mixins.responsive-styles(width, list-icon-size);
@@ -35,13 +51,18 @@ ul.tedi-list {
     }
 
     ul.tedi-list li ul.tedi-list li::before {
-      @include mixins.responsive-styles(width, list-icon-size, null, "* 0.9");
-      @include mixins.responsive-styles(
-        height,
-        list-icon-size,
-        null,
-        "* 0.9"
-      );
+      width: calc(var(--_width) * 0.9);
+      height: calc(var(--_height) * 0.9);
+      @include mixins.responsive-styles(--_width, list-icon-size);
+      @include mixins.responsive-styles(--_height, list-icon-size);
+    }
+  }
+
+  @each $name, $var in $bullet-colors {
+    &--bullet-color-#{$name} {
+      li::before {
+        border-color: var(--#{$var});
+      }
     }
   }
 
@@ -65,10 +86,7 @@ ol.tedi-list {
 
   li {
     counter-increment: item;
-    @include mixins.responsive-styles(
-      padding-left,
-      list-padding-left-level-1
-    );
+    @include mixins.responsive-styles(padding-left, list-padding-left-level-1);
 
     &::before {
       content: counters(item, ".") ". ";
