@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-angular-v2.0.0-rc.2](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.0.0-rc.1...angular-2.0.0-rc.2) (2025-05-29)
+
+
+### Features
+
+* **toggle:** TEDI-Ready Angular component [#692](https://github.com/TEHIK-EE/tedi-design-system/issues/692) ([#834](https://github.com/TEHIK-EE/tedi-design-system/issues/834)) ([e2d4a01](https://github.com/TEHIK-EE/tedi-design-system/commit/e2d4a01c24e941bbf2f089ca0a09bd0cd7ee6128))
+
 # [@tehik-ee/tedi-angular-v2.0.0-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.7.0-rc.23...angular-2.0.0-rc.1) (2025-05-29)
 
 
