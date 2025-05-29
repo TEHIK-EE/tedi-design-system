@@ -14,6 +14,7 @@
     // contains paddings, borders, typography, etc.
   }
   &__label {
+    overflow: hidden;
     text-align: left;
     flex-grow: 1;
 
@@ -28,6 +29,7 @@
     gap: var(--_inner-gap);
 
     &--single-row {
+      overflow: hidden;
       flex-wrap: nowrap;
       overflow-x: auto;
       scrollbar-width: none; /* Firefox */
@@ -37,8 +39,11 @@
         display: none; /* Chrome, Safari and Opera */
       }
 
-      .tedi-tag__content {
-        white-space: nowrap;
+      .tedi-tag {
+        flex-shrink: 0;
+        &__content {
+          white-space: nowrap;
+        }
       }
     }
   }
