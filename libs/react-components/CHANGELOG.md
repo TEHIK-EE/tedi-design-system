@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-react-v11.4.0-rc.9](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.4.0-rc.8...react-11.4.0-rc.9) (2025-05-29)
+
+
+### Bug Fixes
+
+* **usePrint:** remove window usage in SSR [#827](https://github.com/TEHIK-EE/tedi-design-system/issues/827) ([#828](https://github.com/TEHIK-EE/tedi-design-system/issues/828)) ([9f10c1b](https://github.com/TEHIK-EE/tedi-design-system/commit/9f10c1b8714b8c6ab63800a5e6dea056d10f77fb))
+
 # [@tehik-ee/tedi-react-v11.4.0-rc.8](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.4.0-rc.7...react-11.4.0-rc.8) (2025-05-27)
 
 
