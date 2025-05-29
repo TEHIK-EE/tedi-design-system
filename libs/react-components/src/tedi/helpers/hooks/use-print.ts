@@ -2,7 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 export const usePrint = (): boolean => {
-  const [isPrinting, setIsPrinting] = React.useState(window.matchMedia('print').matches);
+  const isServerSide = typeof window === 'undefined';
+  const [isPrinting, setIsPrinting] = React.useState(isServerSide ? false : window.matchMedia('print').matches);
 
   const handleBeforePrint = () => {
     // https://github.com/facebook/react/issues/11876#issuecomment-352421144

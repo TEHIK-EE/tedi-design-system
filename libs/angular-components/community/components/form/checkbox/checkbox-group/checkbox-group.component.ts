@@ -6,8 +6,7 @@ import {
   ViewEncapsulation,
 } from "@angular/core";
 import { CheckboxSize } from "../checkbox/checkbox.component";
-import { FeedbackTextComponent } from "../../feedback-text/feedback-text.component";
-import { ComponentInputs, LabelComponent } from "@tehik-ee/tedi-angular/tedi";
+import { ComponentInputs, LabelComponent, FeedbackTextComponent } from "@tehik-ee/tedi-angular/tedi";
 
 @Component({
   standalone: true,

@@ -18,8 +18,9 @@ $transition-duration: 300ms;
     text-decoration: underline;
   }
 
-  &:focus {
-    @include mixins.focus-element;
+  &:focus-visible {
+    outline: 2px solid var(--button-main-neutral-text-default);
+    outline-offset: var(--global-outline-offset);
   }
 }
 
