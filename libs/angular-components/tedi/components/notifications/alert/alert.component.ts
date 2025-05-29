@@ -9,8 +9,8 @@ import {
   AfterViewInit,
 } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { IconComponent } from "@tehik-ee/tedi-angular/tedi";
-import { ClosingButtonComponent } from "../buttons/closing-button/closing-button.component";
+import { IconComponent } from "../../base/icon/icon.component";
+import { ClosingButtonComponent } from "../../../../community/components/buttons/closing-button/closing-button.component";
 
 export type AlertRole = "alert" | "status" | "none";
 export type AlertType = "info" | "success" | "warning" | "danger";

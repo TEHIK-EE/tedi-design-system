@@ -6,8 +6,7 @@ import {
 } from "@storybook/angular";
 
 import { AlertComponent } from "./alert.component";
-import { TextComponent } from "@tehik-ee/tedi-angular/tedi";
-import { LinkComponent } from "../navigation/link/link.component";
+import { TextComponent, LinkComponent } from "@tehik-ee/tedi-angular/tedi";
 
 export default {
   title: "Community Angular/Notifications/Alert",
