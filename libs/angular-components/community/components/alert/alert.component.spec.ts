@@ -1,6 +1,25 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
 import { By } from "@angular/platform-browser";
-import { AlertComponent } from "./alert.component";
+import { AlertComponent, AlertRole, AlertTitleType } from "./alert.component";
+
+const tagNames: AlertTitleType[] = [
+  "h1",
+  "h2",
+  "h3",
+  "h4",
+  "h5",
+  "h6",
+  "div",
+  "strong",
+];
+
+const roleToLiveMap: Record<AlertRole, string> = {
+  alert: "assertive",
+  status: "polite",
+  none: "off",
+};
+
+const roles: AlertRole[] = ["alert", "status", "none"];
 
 describe("AlertComponent", () => {
   let component: AlertComponent;
@@ -46,6 +65,53 @@ describe("AlertComponent", () => {
     expect(titleElement.nativeElement.textContent).toBe(
       "Title with Strong Tag",
     );
+  });
+
+  describe("titleElement variants", () => {
+    tagNames.forEach((tag) => {
+      it(`should render title inside <${tag}> when titleElement is '${tag}'`, () => {
+        fixture.componentRef.setInput("title", "Test Title");
+        fixture.componentRef.setInput("titleElement", tag);
+        fixture.componentInstance.ngAfterViewInit();
+        fixture.detectChanges();
+
+        const titleElement = fixture.debugElement.query(
+          By.css(`${tag}.tedi-alert__title__text`),
+        );
+
+        expect(titleElement.nativeElement.textContent).toBe("Test Title");
+      });
+    });
+  });
+
+  describe("Role attribute tests", () => {
+    roles.forEach((role) => {
+      it(`should ${role === "none" ? "not set" : "set"} role attribute when role="${role}"`, () => {
+        fixture.componentRef.setInput("role", role);
+        fixture.detectChanges();
+
+        const alertElement = fixture.debugElement.query(By.css("div"));
+
+        if (role === "none") {
+          expect(alertElement.attributes["role"]).toBeUndefined();
+        } else {
+          expect(alertElement.attributes["role"]).toBe(role);
+        }
+      });
+    });
+  });
+
+  describe("aria-live attribute tests", () => {
+    (Object.keys(roleToLiveMap) as AlertRole[]).forEach((role) => {
+      it(`should set aria-live="${roleToLiveMap[role]}" when role="${role}"`, () => {
+        fixture.componentRef.setInput("role", role);
+        fixture.detectChanges();
+
+        const alertElement = fixture.debugElement.query(By.css("div"));
+        const expectedLive = roleToLiveMap[role];
+        expect(alertElement.attributes["aria-live"]).toBe(expectedLive);
+      });
+    });
   });
 
   it("should apply the correct type class based on the type input", () => {
