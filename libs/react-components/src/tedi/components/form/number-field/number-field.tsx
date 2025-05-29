@@ -77,7 +77,7 @@ export interface NumberFieldProps extends BreakpointSupport<NumberFieldBreakpoin
 }
 
 export const NumberField = (props: NumberFieldProps) => {
-  const { getCurrentBreakpointProps } = useBreakpointProps();
+  const { getCurrentBreakpointProps } = useBreakpointProps(props.defaultServerBreakpoint);
   const {
     id,
     label,

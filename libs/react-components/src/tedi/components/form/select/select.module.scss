@@ -5,15 +5,14 @@ $input-height: 2.5rem;
 $input-height-small: 2rem;
 
 div.tedi-select__control {
-  padding-top: calc(var(--select-padding-top) * -1);
-  padding-bottom: calc(var(--select-padding-bottom) * -1);
+  padding-top: calc(var(--_padding-y) - 1px);
+  padding-bottom: calc(var(--_padding-y) - 1px);
   border: 1px solid var(--form-input-border-default);
 
   @include mixins.print-grayscale;
   @include mixins.responsive-styles(padding-left, form-field-padding-x-md-default);
   @include mixins.responsive-styles(padding-right, form-field-padding-x-md-default);
-  @include mixins.responsive-styles(--select-padding-top, form-field-padding-y-md-default);
-  @include mixins.responsive-styles(--select-padding-bottom, form-field-padding-y-md-default);
+  @include mixins.responsive-styles(--_padding-y, form-field-padding-y-md-default);
 
   .tedi-select__value-container {
     padding: 0;

@@ -50,8 +50,10 @@ $neutral-variants: "neutral", "neutral-inverted", "danger-neutral";
 }
 
 @mixin button-size-vars($size) {
+  --_btn-padding: calc(var(--_btn-padding-y) - 1px) calc(var(--_btn-padding-x) - 1px);
   @include mixins.responsive-styles(--_btn-inner-spacing, button-#{$size}-inner-spacing);
-  @include mixins.responsive-styles(--_btn-padding, button-#{$size}-padding-y button-#{$size}-padding-x);
+  @include mixins.responsive-styles(--_btn-padding-y, button-#{$size}-padding-y);
+  @include mixins.responsive-styles(--_btn-padding-x, button-#{$size}-padding-x);
 }
 
 @mixin neutral-button-padding-overrides {
@@ -78,17 +80,18 @@ $neutral-variants: "neutral", "neutral-inverted", "danger-neutral";
   cursor: pointer;
 
   @include mixins.responsive-styles(font-family, family-primary, $exclude: tablet);
-  @include mixins.responsive-styles(font-size, button-text-size-default);
   @include mixins.responsive-styles(font-weight, body-regular-weight);
   @include mixins.responsive-styles(line-height, body-bold-line-height);
   @include mixins.responsive-styles(border-radius, button-radius-default);
 
   &--small {
     @include button-size-vars("sm");
+    @include mixins.responsive-styles(font-size, button-text-size-sm);
   }
 
   &--default {
     @include button-size-vars("md");
+    @include mixins.responsive-styles(font-size, button-text-size-default);
   }
 
   &--primary {

@@ -1,0 +1,28 @@
+@use "@tehik-ee/tedi-core/mixins";
+
+:host {
+  display: block;
+}
+
+.tedi-text-group {
+  margin-bottom: var(--dimensions-03-rem);
+
+  &--horizontal {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  &__label {
+    display: flex;
+    width: var(--_label-width);
+    flex-shrink: 0;
+  }
+
+  &__value {
+    display: flex;
+    align-items: center;
+
+    @include mixins.responsive-styles(gap, text-group-value-inner-spacing);
+  }
+}

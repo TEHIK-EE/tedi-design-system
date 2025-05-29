@@ -1,0 +1,120 @@
+@use "@tehik-ee/tedi-core/mixins";
+
+.tedi-search {
+  display: flex;
+  align-items: start;
+  border: 1px solid;
+  align-items: center;
+  border-color: var(--form-input-border-default);
+  border-radius: var(--_border-radius);
+
+  @include mixins.responsive-styles(--_border-radius, form-field-radius);
+  @include mixins.responsive-styles(gap, form-field-inner-spacing);
+  @include mixins.responsive-styles(
+    --_padding,
+    form-field-padding-y-md-default
+  );
+
+  &:hover {
+    border-color: var(--form-input-border-hover);
+  }
+
+  &:focus-within {
+    border-color: var(--form-input-border-active);
+    box-shadow: 0 0 0 1px var(--form-input-border-active);
+  }
+
+  &__input {
+    width: 100%;
+    flex-grow: 1;
+    border: 0;
+    padding: var(--_padding);
+    padding-right: 0;
+    margin: 0;
+    border-radius: var(--_border-radius);
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    letter-spacing: 0px;
+
+    @include mixins.responsive-styles(font-weight, body-regular-weight);
+    @include mixins.responsive-styles(font-size, body-regular-size);
+    @include mixins.responsive-styles(line-height, body-regular-line-height);
+  }
+
+  &__trigger.tedi-btn {
+    border-radius: var(--_border-radius);
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    align-self: stretch;
+
+    @include mixins.responsive-styles(--_border-radius, button-radius-sm);
+  }
+
+  &__suffix {
+    display: flex;
+    align-self: stretch;
+    align-items: center;
+    padding: 0 var(--_padding);
+
+    @include mixins.responsive-styles(gap, layout-grid-gutters-04);
+
+    .tedi-search--with-button & {
+      padding: 0;
+    }
+
+    &-separator {
+      width: 1px;
+      border-left: 1px solid var(--general-border-primary);
+      height: 1em;
+    }
+  }
+
+  &__panel {
+    margin: var(--_form-outer-gap) 0;
+    max-height: 300px;
+    overflow-y: auto;
+
+    @include mixins.responsive-styles(
+      --_form-outer-gap,
+      form-field-outer-spacing
+    );
+  }
+
+  &__footer-content:empty {
+    display: none;
+  }
+
+  &--small {
+    @include mixins.responsive-styles(--_padding, form-field-padding-y-sm);
+  }
+
+  &--large {
+    .tedi-search__trigger.tedi-btn {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+
+    @include mixins.responsive-styles(--_padding, form-field-padding-y-lg);
+  }
+
+  &--with-button:not(.tedi-search--with-button-text) {
+    &.tedi-search--small {
+      .tedi-search__trigger.tedi-btn {
+        padding-left: 6px;
+        padding-right: 6px;
+      }
+    }
+    &.tedi-search--default {
+      .tedi-search__trigger.tedi-btn {
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+    }
+  }
+
+  &--disabled {
+    background-color: var(--form-input-background-disabled);
+    border-color: var(--form-input-border-disabled);
+    pointer-events: none;
+  }
+}

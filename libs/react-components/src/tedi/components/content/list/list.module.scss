@@ -1,5 +1,18 @@
 @use '@tehik-ee/tedi-core/mixins';
 
+$bullet-colors: (
+  'primary': 'general-icon-primary',
+  'secondary': 'general-icon-secondary',
+  'tertiary': 'general-icon-tertiary',
+  'brand': 'general-icon-brand',
+  'brand-dark': 'general-icon-brand-dark',
+  'success': 'general-icon-success',
+  'warning': 'general-icon-warning',
+  'warning-dark': 'general-icon-warning-dark',
+  'danger': 'general-icon-danger',
+  'white': 'general-icon-white',
+);
+
 .tedi-list {
   &:not([data-name='vertical-spacing']) {
     .tedi-list__item {
@@ -25,7 +38,7 @@
       top: 0.5em;
       left: 0;
       content: '';
-      border: 2px solid var(--list-icon);
+      border: 2px solid;
       border-radius: 50%;
 
       @include mixins.responsive-styles(width, list-icon-size);
@@ -47,6 +60,16 @@
 
   ul.tedi-list {
     padding-left: 0;
+  }
+
+  &.tedi-list {
+    @each $name, $var in $bullet-colors {
+      &--bullet-color-#{$name} {
+        li::before {
+          border-color: var(--#{$var});
+        }
+      }
+    }
   }
 }
 

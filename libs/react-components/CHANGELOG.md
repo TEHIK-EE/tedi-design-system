@@ -1,3 +1,52 @@
+# [@tehik-ee/tedi-react-v11.4.0-rc.9](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.4.0-rc.8...react-11.4.0-rc.9) (2025-05-29)
+
+
+### Bug Fixes
+
+* **usePrint:** remove window usage in SSR [#827](https://github.com/TEHIK-EE/tedi-design-system/issues/827) ([#828](https://github.com/TEHIK-EE/tedi-design-system/issues/828)) ([9f10c1b](https://github.com/TEHIK-EE/tedi-design-system/commit/9f10c1b8714b8c6ab63800a5e6dea056d10f77fb))
+
+# [@tehik-ee/tedi-react-v11.4.0-rc.8](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.4.0-rc.7...react-11.4.0-rc.8) (2025-05-27)
+
+
+### Features
+
+* **list:** Add ability to change bullet colors [#719](https://github.com/TEHIK-EE/tedi-design-system/issues/719) ([#821](https://github.com/TEHIK-EE/tedi-design-system/issues/821)) ([5a56437](https://github.com/TEHIK-EE/tedi-design-system/commit/5a5643705e492ea6ae5a521fdc8604c43c119abc))
+
+# [@tehik-ee/tedi-react-v11.4.0-rc.7](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.4.0-rc.6...react-11.4.0-rc.7) (2025-05-22)
+
+
+### Bug Fixes
+
+* **react-types:** add missing types [#798](https://github.com/TEHIK-EE/tedi-design-system/issues/798) ([#811](https://github.com/TEHIK-EE/tedi-design-system/issues/811)) ([4882bed](https://github.com/TEHIK-EE/tedi-design-system/commit/4882bed318fba26c46c9107ff85f1ceb7738dfef))
+
+# [@tehik-ee/tedi-react-v11.4.0-rc.6](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.4.0-rc.5...react-11.4.0-rc.6) (2025-05-20)
+
+
+### Bug Fixes
+
+* **text-group:** label width ignored when value is longer fix [#794](https://github.com/TEHIK-EE/tedi-design-system/issues/794) ([#799](https://github.com/TEHIK-EE/tedi-design-system/issues/799)) ([5dac227](https://github.com/TEHIK-EE/tedi-design-system/commit/5dac227e0d1a614a7bf4333176d576fc83989dde))
+
+# [@tehik-ee/tedi-react-v11.4.0-rc.5](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.4.0-rc.4...react-11.4.0-rc.5) (2025-05-20)
+
+
+### Bug Fixes
+
+* **useIsTouchDevice:** remove window usage in SSR, initalize what-input inside useEffect [#778](https://github.com/TEHIK-EE/tedi-design-system/issues/778) ([#809](https://github.com/TEHIK-EE/tedi-design-system/issues/809)) ([c550caa](https://github.com/TEHIK-EE/tedi-design-system/commit/c550caaa49c0f545f78553bd4cc7bb3114fdba14))
+
+# [@tehik-ee/tedi-react-v11.4.0-rc.4](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.4.0-rc.3...react-11.4.0-rc.4) (2025-05-16)
+
+
+### Features
+
+* **accessibiltyProvider:** move initalizing what-input inside AccessibiltyProvider [#786](https://github.com/TEHIK-EE/tedi-design-system/issues/786) ([#790](https://github.com/TEHIK-EE/tedi-design-system/issues/790)) ([c97eae2](https://github.com/TEHIK-EE/tedi-design-system/commit/c97eae2a56dce536fe6a0c64fe2987ed5f9e4077))
+
+# [@tehik-ee/tedi-react-v11.4.0-rc.3](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.4.0-rc.2...react-11.4.0-rc.3) (2025-05-16)
+
+
+### Bug Fixes
+
+* **useBreakpointProps:** remove window usage in SSR, add defaultServerBreakpoint [#786](https://github.com/TEHIK-EE/tedi-design-system/issues/786) ([#789](https://github.com/TEHIK-EE/tedi-design-system/issues/789)) ([2a61ed3](https://github.com/TEHIK-EE/tedi-design-system/commit/2a61ed3ff3e9ce0e7ac114586190f8f2fcec136d))
+
 # [@tehik-ee/tedi-react-v11.4.0-rc.2](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.4.0-rc.1...react-11.4.0-rc.2) (2025-05-12)
 
 
