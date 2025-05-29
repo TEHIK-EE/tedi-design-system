@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-angular-v1.7.0-rc.23](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.7.0-rc.22...angular-1.7.0-rc.23) (2025-05-29)
+
+
+### Features
+
+* **translations:** add translation service [#575](https://github.com/TEHIK-EE/tedi-design-system/issues/575) ([#782](https://github.com/TEHIK-EE/tedi-design-system/issues/782)) ([7e9b58c](https://github.com/TEHIK-EE/tedi-design-system/commit/7e9b58c9a1953e7dec909ba9e95a4517b87ad590))
+
 # [@tehik-ee/tedi-angular-v1.7.0-rc.22](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.7.0-rc.21...angular-1.7.0-rc.22) (2025-05-28)
 
 
