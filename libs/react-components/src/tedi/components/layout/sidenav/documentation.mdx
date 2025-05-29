@@ -1,0 +1,135 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="TEDI-Ready/Components/Layout/Sidenav/Documentation" />
+
+# SideNav
+
+> **Heads-up!** The `SideNav` component has been decoupled from the layout and context systems. This means it's now fully modular — more flexible, but with added responsibility for the developer.
+
+## What's Changed
+
+The `SideNav` is no longer included in any layout or context provider by default. You must now:
+
+1. Manually position the `SideNav` in your layout using `absolute` or `fixed` positioning.
+2. Integrate the `SideNav.Toggle` yourself to control visibility or collapse behavior.
+
+---
+
+## Basic Usage
+
+```tsx
+import { useState } from 'react';
+import { SideNav } from '@tehik-ee/tedi-react/tedi';
+
+const MyPage = () => {
+  const [isOpen, setIsOpen] = useState(true);
+
+  return (
+    <>
+      {/* Toggle button (you must place this yourself) */}
+      <SideNav.Toggle menuOpen={isOpen} toggleMenu={() => setIsOpen(!isOpen)} />
+
+      {/* Position SideNav on the left manually */}
+      <div className="fixed left-0 top-0 h-full z-50">
+        <SideNav
+          ariaLabel="Main navigation"
+          isMobileOpen={isOpen}
+          navItems={[
+            { label: 'Dashboard', href: '/' },
+            { label: 'Settings', href: '/settings' },
+          ]}
+        />
+      </div>
+    </>
+  );
+};
+```
+
+> Use `fixed`, `absolute`, or any positioning strategy that fits your layout.  
+> The component doesn't dictate placement anymore.
+
+---
+
+## Component Props
+
+### `SideNav`
+
+```tsx
+| Prop               | Type                             | Default    | Description                           |
+| ------------------ | -------------------------------- | ---------- | ------------------------------------- |
+| `ariaLabel`        | `string`                         | —          | Accessible label for the nav          |
+| `navItems`         | `SideNavItemProps[]`             | —          | Menu item definitions                 |
+| `isMobileOpen`     | `boolean`                        | —          | Controls open state (controlled mode) |
+| `isCollapsed`      | `boolean`                        | `false`    | Shows icons/short labels only         |
+| `onCollapseToggle` | `(isCollapsed: boolean) => void` | —          | Collapse toggle callback              |
+| `mobileBreakpoint` | `'mobile' \| 'tablet'`           | `'tablet'` | Defines when to switch to mobile view |
+| `showDividers`     | `boolean`                        | `true`     | Show item dividers                    |
+| `hideSubItemIcons` | `boolean`                        | `false`    | Hide submenu arrows                   |
+```
+
+---
+
+### `SideNav.Toggle`
+
+```tsx
+<SideNav.Toggle menuOpen={isOpen} toggleMenu={() => setIsOpen(!isOpen)} />
+```
+
+Use this component to toggle the mobile menu or collapse state (when `variant="collapse"`).
+
+```tsx
+| Prop         | Type                     | Default    | Description                                 |
+| ------------ | ------------------------ | ---------- | ------------------------------------------- |
+| `menuOpen`   | `boolean`                | —          | Current open/collapse state                 |
+| `toggleMenu` | `() => void`             | —          | Toggle function                             |
+| `variant`    | `'mobile' \| 'collapse'` | `'mobile'` | Type of toggle (mobile or sidebar collapse) |
+```
+
+---
+
+## Tips
+
+- Wrap `SideNav` in a container with manual `position` styling.
+- Use the `SideNav.Toggle` for better UX on both mobile and desktop views.
+- You **must** pass `isMobileOpen` and manage the open state manually in controlled mode.
+
+---
+
+## Responsive Design
+
+By default, `SideNav` switches to a mobile view at the `tablet` breakpoint. You can customize this via the `mobileBreakpoint` prop:
+
+```tsx
+<SideNav mobileBreakpoint="mobile" ... />
+```
+
+---
+
+## Storybook Example
+
+```tsx
+const [isOpen, setIsOpen] = useState(true);
+
+return (
+  <>
+    <SideNav.Toggle menuOpen={isOpen} toggleMenu={() => setIsOpen(!isOpen)} />
+    <SideNav {...args} isMobileOpen={isOpen} />
+  </>
+);
+```
+
+---
+
+## Responsibility Shift
+
+**Previously:**
+
+- Part of global layout
+- State/context managed
+
+**Now:**
+
+- Modular and independent
+- You manage toggle state and layout
+
+This allows for more flexibility and better SSR/isolation — but you have to wire it up.
