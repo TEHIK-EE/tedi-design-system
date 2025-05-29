@@ -1,3 +1,18 @@
+# [@tehik-ee/tedi-react-v12.0.0-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.4.0-rc.9...react-12.0.0-rc.1) (2025-05-29)
+
+
+### Bug Fixes
+
+* **angular-community-components:** remove deprecated angular community components [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) ([#833](https://github.com/TEHIK-EE/tedi-design-system/issues/833)) ([aedd8d0](https://github.com/TEHIK-EE/tedi-design-system/commit/aedd8d07d9200f680048ff6c48724c9927f7f477))
+
+
+### BREAKING CHANGES
+
+* **angular-community-components:** remove angular community component
+* **angular-community-components:** remove community info button
+* **angular-community-components:** remove community feedback-text
+* **angular-community-components:** remove community link
+
 # [@tehik-ee/tedi-react-v11.4.0-rc.9](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.4.0-rc.8...react-11.4.0-rc.9) (2025-05-29)
 
 
