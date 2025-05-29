@@ -8,7 +8,7 @@ import {
   inject,
   Renderer2
 } from "@angular/core";
-import { TediTranslationPipe } from "../../../services/translation/translation.service";
+import { TediTranslationPipe } from "../../../services/translation/translation.pipe";
 import { IconComponent } from "../../base/icon/icon.component";
 import { TextComponent } from "../../base/text/text.component";
 

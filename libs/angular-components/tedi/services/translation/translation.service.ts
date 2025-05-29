@@ -1,4 +1,4 @@
-import { computed, inject, Injectable, isSignal, Pipe, PipeTransform, signal, Signal } from "@angular/core";
+import { computed, Injectable, isSignal, signal, Signal } from "@angular/core";
 import { translationsMap, TranslationMap, TediTranslationsMap } from "./translations";
 
 export type Language = "en" | "et" | "ru";
@@ -65,18 +65,5 @@ export class TediTranslationService {
 
     addTranslations(newTranslations: TranslationMap) {
         this.translations.update(prev => ({ ...prev, ...newTranslations }));
-    }
-}
-
-@Pipe({
-    name: "tediTranslate",
-    standalone: true,
-    pure: false
-})
-export class TediTranslationPipe implements PipeTransform {
-    translationService = inject(TediTranslationService);
-
-    transform(key: string, ...args: unknown[]): string {
-        return this.translationService.translate(key, ...args);
     }
 }

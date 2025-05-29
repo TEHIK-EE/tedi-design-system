@@ -11,7 +11,7 @@ import {
   ViewChild,
 } from "@angular/core";
 import { ButtonComponent } from "../../buttons/button/button.component";
-import { TediTranslationPipe } from "../../../services/translation/translation.service";
+import { TediTranslationPipe } from "../../../services/translation/translation.pipe";
 import { ComponentInputs } from "../../../types/inputs.type";
 import { IconComponent } from "../../base/icon/icon.component";
 import { TextComponent } from "../../base/text/text.component";
