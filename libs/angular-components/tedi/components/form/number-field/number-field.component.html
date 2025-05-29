@@ -27,7 +27,7 @@
     [disabled]="decrementDisabled()"
     (click)="handleButtonClick('decrement')"
   >
-    <tedi-icon name="remove" [size]="18" [label]="'Vähenda ' + step() + ' võrra'" />
+    <tedi-icon name="remove" [size]="18" [label]="'numberField.decrement' | tediTranslate: step()" />
   </button>
   <div
     [class]="{
@@ -75,7 +75,7 @@
     [disabled]="incrementDisabled()"
     (click)="handleButtonClick('increment')"
   >
-    <tedi-icon name="add" [size]="18" [label]="'Suurenda ' + step() + ' võrra'" />
+    <tedi-icon name="add" [size]="18" [label]="'numberField.increment' | tediTranslate: step()" />
   </button>
 </div>
 @if (feedbackText(); as feedback) {

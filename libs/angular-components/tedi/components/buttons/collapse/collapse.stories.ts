@@ -25,8 +25,6 @@ export default {
   title: "TEDI Ready Angular/Buttons/Collapse",
   component: CollapseComponent,
   args: {
-    openText: "Näita rohkem infot",
-    closeText: "Näita vähem infot",
     defaultOpen: false,
     hideCollapseText: false,
     arrowType: "default",
@@ -37,16 +35,16 @@ export default {
       description:
         "The title for the collapsible section. Rendered inside the toggle button.",
       table: {
-        defaultValue: { summary: "Näita" },
-      },
+        type: { summary: "string" }
+      }
     },
     closeText: {
       control: "text",
       description:
         "Text shown on the toggle button when the content is expanded.",
       table: {
-        defaultValue: { summary: "Peida" },
-      },
+        type: { summary: "string" }
+      }
     },
     defaultOpen: {
       control: "boolean",

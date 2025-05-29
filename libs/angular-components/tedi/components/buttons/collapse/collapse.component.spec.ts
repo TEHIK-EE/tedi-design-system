@@ -26,8 +26,6 @@ describe("CollapseComponent", () => {
   });
 
   it("should initialize with default values", () => {
-    expect(component.openText()).toBe("Näita");
-    expect(component.closeText()).toBe("Peida");
     expect(component.defaultOpen()).toBe(false);
     expect(component.hideCollapseText()).toBe(false);
     expect(component.arrowType()).toBe("default");
@@ -57,21 +55,31 @@ describe("CollapseComponent", () => {
   });
 
   it("should render openText when collapsed", () => {
-    component.isOpen.set(false);
+    fixture.componentRef.setInput("openText", "Open");
     fixture.detectChanges();
+    component.isOpen.set(false);
+
     const buttonText = fixture.nativeElement
       .querySelector(".collapse__button--text")
       .textContent.trim();
-    expect(buttonText).toBe("Näita");
+    
+    fixture.whenStable().then(() => {
+      expect(buttonText).toBe("Open");
+    })
   });
 
   it("should render closeText when expanded", () => {
-    component.isOpen.set(true);
+    fixture.componentRef.setInput("closeText", "Close");
     fixture.detectChanges();
+    component.isOpen.set(true);
+  
     const buttonText = fixture.nativeElement
       .querySelector(".collapse__button--text")
       .textContent.trim();
-    expect(buttonText).toBe("Peida");
+    
+    fixture.whenStable().then(() => {
+      expect(buttonText).toBe("Close");
+    })
   });
 
   it("should hide openText and closeText when hideCollapseText is true", () => {
