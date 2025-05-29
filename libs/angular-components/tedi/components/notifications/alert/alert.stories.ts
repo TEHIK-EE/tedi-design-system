@@ -9,7 +9,7 @@ import { AlertComponent } from "./alert.component";
 import { TextComponent, LinkComponent } from "@tehik-ee/tedi-angular/tedi";
 
 export default {
-  title: "Community Angular/Notifications/Alert",
+  title: "TEDI-Ready Angular/Notifications/Alert",
   component: AlertComponent,
   args: {
     title: "",

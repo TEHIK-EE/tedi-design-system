@@ -4,7 +4,7 @@ import {
   input,
   ViewEncapsulation,
 } from "@angular/core";
-import { IconComponent } from "@tehik-ee/tedi-angular/tedi";
+import { IconComponent } from "../../../../tedi/components/base/icon/icon.component";
 
 export type ClosingButtonSize = "medium" | "large";
 
