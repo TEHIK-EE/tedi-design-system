@@ -6,4 +6,3 @@ export * from "./input-group/input-group.component";
 export * from "./radio";
 export * from "./select";
 export * from "./textarea/textarea.component";
-export * from "./toggle/toggle.component";
