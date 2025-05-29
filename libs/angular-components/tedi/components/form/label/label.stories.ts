@@ -108,7 +108,7 @@ export const Structure: LabelStory = {
             <label tedi-label>Active ingredient</label>
             <tedi-tooltip>
               <tedi-tooltip-trigger>
-                <button tedi-info-button ariaLabel="Kuva tööriistavihje"></button>
+                <button tedi-info-button></button>
               </tedi-tooltip-trigger>
               <tedi-tooltip-content>
                 Tooltip content
@@ -121,7 +121,7 @@ export const Structure: LabelStory = {
             <label tedi-label [required]="true">Active ingredient</label>
             <tedi-tooltip>
               <tedi-tooltip-trigger>
-                <button tedi-info-button ariaLabel="Kuva tööriistavihje"></button>
+                <button tedi-info-button></button>
               </tedi-tooltip-trigger>
               <tedi-tooltip-content>
                 Tooltip content

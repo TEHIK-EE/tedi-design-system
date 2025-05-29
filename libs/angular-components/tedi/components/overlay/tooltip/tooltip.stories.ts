@@ -109,7 +109,7 @@ export const Default: Story = {
     template: `
       <tedi-tooltip [openWith]="openWith">
         <tedi-tooltip-trigger>
-          <button tedi-info-button ariaLabel="Kuva tööriistavihje"></button>
+          <button tedi-info-button></button>
         </tedi-tooltip-trigger>
         <tedi-tooltip-content [position]="position" [maxWidth]="maxWidth">
           This is tooltip content. The quick brown fox jumps over the lazy dog.
@@ -176,7 +176,7 @@ export const OpenWithClick: Story = {
     template: `
       <tedi-tooltip openWith="click">
         <tedi-tooltip-trigger>
-          <button tedi-info-button ariaLabel="Kuva tööriistavihje"></button>
+          <button tedi-info-button></button>
         </tedi-tooltip-trigger>
         <tedi-tooltip-content>
           Tooltip content

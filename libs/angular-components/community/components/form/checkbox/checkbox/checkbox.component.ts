@@ -11,8 +11,7 @@ import {
   viewChild,
   ViewEncapsulation,
 } from "@angular/core";
-import { ComponentInputs, IconComponent } from "@tehik-ee/tedi-angular/tedi";
-import { FeedbackTextComponent } from "../../feedback-text/feedback-text.component";
+import { ComponentInputs, IconComponent, FeedbackTextComponent } from "@tehik-ee/tedi-angular/tedi";
 import { CheckboxCardGroupComponent } from "../checkbox-card-group/checkbox-card-group.component";
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from "@angular/forms";
 import { CheckboxGroupComponent } from "../checkbox-group/checkbox-group.component";

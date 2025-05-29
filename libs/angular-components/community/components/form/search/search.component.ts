@@ -14,8 +14,7 @@ import {
   viewChild,
 } from "@angular/core";
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from "@angular/forms";
-import { ButtonComponent } from "community/components/buttons/button/button.component";
-import { IconComponent } from "@tehik-ee/tedi-angular/tedi";
+import { IconComponent, ButtonComponent } from "@tehik-ee/tedi-angular/tedi";
 import { FormsModule } from "@angular/forms";
 import { CdkOverlayOrigin, OverlayModule } from "@angular/cdk/overlay";
 import {

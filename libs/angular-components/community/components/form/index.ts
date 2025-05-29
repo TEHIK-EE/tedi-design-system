@@ -1,6 +1,5 @@
 export * from "./checkbox";
 export * from "./choicegroup/choicegroup.directive";
-export * from "./feedback-text/feedback-text.component";
 export * from "./form-field/form-field.component";
 export * from "./input/input.component";
 export * from "./input-group/input-group.component";

@@ -86,57 +86,43 @@ const ButtonTemplate: StoryFn<TemplateType> = ({
 }) => ({
   props: { ...args, titleColor: titleColor, pseudoState: PSEUDO_STATE },
   template: `
-    <tedi-row [cols]="1" [xl]="{ cols: 2 }" [gapY]="5">
-      <tedi-col [class]="'tedi-vertical-spacing'" style="--vertical-spacing-internal: 1em;">
+    <tedi-row [cols]="1" [gapY]="5">
+      <tedi-col [class]="'tedi-vertical-spacing'" style="--vertical-spacing-internal: 1em; overflow-x: auto;">
         <p tedi-text modifiers="bold" [color]="titleColor">Default</p>
-        <tedi-row *ngFor="let state of pseudoState;" [cols]="5" alignItems="center">
-          <tedi-col>
-            <p tedi-text [color]="titleColor">{{ state }}</p>
-          </tedi-col>
-          <tedi-col>
+        <tedi-row *ngFor="let state of pseudoState;" [cols]="5" alignItems="center" [gapX]="2">
+          <p tedi-text [color]="titleColor">{{ state }}</p>
+          <tedi-col [width]="4" style="display: flex; gap: 1rem;">
             <button tedi-button ${argsToTemplate(args)} [id]="state" [disabled]="state === 'Disabled'">Create</button>
-          </tedi-col>
-          <tedi-col>
             <button tedi-button ${argsToTemplate(args)} [id]="state" [disabled]="state === 'Disabled'">
               Continue
               <tedi-icon name="arrow_right_alt" />
             </button>
-          </tedi-col>
-          <tedi-col justifySelf="center">
             <button tedi-button ${argsToTemplate(args)} [id]="state" [disabled]="state === 'Disabled'">
               <tedi-icon name="edit" />
               Edit
             </button>
-          </tedi-col>
-          <tedi-col>
             <button tedi-button ${argsToTemplate(args)} [id]="state" [disabled]="state === 'Disabled'">
               <tedi-icon name="arrow_forward" />
             </button>
           </tedi-col>
         </tedi-row>
       </tedi-col>
-      <tedi-col [class]="'tedi-vertical-spacing'" style="--vertical-spacing-internal: 1.4em;">
+      <tedi-col [class]="'tedi-vertical-spacing'" style="--vertical-spacing-internal: 1.4em; overflow-x: auto;">
         <p tedi-text modifiers="bold" [color]="titleColor">Small</p>
-        <tedi-row *ngFor="let state of pseudoState;" [cols]="5" alignItems="center">
+        <tedi-row *ngFor="let state of pseudoState;" [cols]="5" alignItems="center" [gapX]="2">
           <tedi-col>
             <p tedi-text [color]="titleColor">{{ state }}</p>
           </tedi-col>
-          <tedi-col>
+          <tedi-col [width]="4" style="display: flex; gap: 1rem;">
             <button tedi-button ${argsToTemplate(args)} [id]="state" [disabled]="state === 'Disabled'" [size]="'small'">Create</button>
-          </tedi-col>
-          <tedi-col>
             <button tedi-button ${argsToTemplate(args)} [id]="state" [disabled]="state === 'Disabled'" [size]="'small'">
               Continue
               <tedi-icon name="arrow_right_alt" />
             </button>
-          </tedi-col>
-          <tedi-col justifySelf="center">
             <button tedi-button ${argsToTemplate(args)} [id]="state" [disabled]="state === 'Disabled'" [size]="'small'">
               <tedi-icon name="edit" />
               Edit
             </button>
-          </tedi-col>
-          <tedi-col>
             <button tedi-button ${argsToTemplate(args)} [id]="state" [disabled]="state === 'Disabled'" [size]="'small'">
               <tedi-icon name="arrow_forward" />
             </button>
