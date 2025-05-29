@@ -1,3 +1,25 @@
+# [@tehik-ee/tedi-angular-v2.0.0-rc.2](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.0.0-rc.1...angular-2.0.0-rc.2) (2025-05-29)
+
+
+### Features
+
+* **toggle:** TEDI-Ready Angular component [#692](https://github.com/TEHIK-EE/tedi-design-system/issues/692) ([#834](https://github.com/TEHIK-EE/tedi-design-system/issues/834)) ([e2d4a01](https://github.com/TEHIK-EE/tedi-design-system/commit/e2d4a01c24e941bbf2f089ca0a09bd0cd7ee6128))
+
+# [@tehik-ee/tedi-angular-v2.0.0-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.7.0-rc.23...angular-2.0.0-rc.1) (2025-05-29)
+
+
+### Bug Fixes
+
+* **angular-community-components:** remove deprecated angular community components [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) ([#833](https://github.com/TEHIK-EE/tedi-design-system/issues/833)) ([aedd8d0](https://github.com/TEHIK-EE/tedi-design-system/commit/aedd8d07d9200f680048ff6c48724c9927f7f477))
+
+
+### BREAKING CHANGES
+
+* **angular-community-components:** remove angular community component
+* **angular-community-components:** remove community info button
+* **angular-community-components:** remove community feedback-text
+* **angular-community-components:** remove community link
+
 # [@tehik-ee/tedi-angular-v1.7.0-rc.23](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-1.7.0-rc.22...angular-1.7.0-rc.23) (2025-05-29)
 
 
