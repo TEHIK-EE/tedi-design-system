@@ -57,6 +57,7 @@ import { TagComponent } from "community/components/tag";
   ],
   host: {
     "[class.tedi-select]": "true",
+    "[class.tedi-select--multiselect]": "true",
   },
 })
 export class MultiselectComponent

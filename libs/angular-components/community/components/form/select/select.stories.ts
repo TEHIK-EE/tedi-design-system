@@ -296,3 +296,20 @@ export const MultiselectSelectableGroups: Story = {
     },
   }),
 };
+
+export const MultiselectTagsMultirow: Story = {
+  render: (args) => ({
+    template: `
+      <tedi-multiselect [selectableGroups]="true" [multiRow]="true">
+        <tedi-select-option value="option1" label="Option 1" groupBy="Grupp 1"/>
+        <tedi-select-option value="option2" label="Option 2" groupBy="Grupp 1"/>
+        <tedi-select-option value="option3" label="Option 3" groupBy="Grupp 1"/>
+        <tedi-select-option value="option4" label="Option 4" groupBy="Grupp 2"/>
+        <tedi-select-option value="option5" label="Option 5" groupBy="Grupp 2"/>
+      </tedi-multiselect>
+    `,
+    props: {
+      ...args,
+    },
+  }),
+};
