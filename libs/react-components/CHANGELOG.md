@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-react-v12.0.0-rc.2](https://github.com/TEHIK-EE/tedi-design-system/compare/react-12.0.0-rc.1...react-12.0.0-rc.2) (2025-05-29)
+
+
+### Features
+
+* **sidenav:** sidenav development [#511](https://github.com/TEHIK-EE/tedi-design-system/issues/511) ([#829](https://github.com/TEHIK-EE/tedi-design-system/issues/829)) ([85b8c2b](https://github.com/TEHIK-EE/tedi-design-system/commit/85b8c2b6c96f8a3cbb8df7ff7ccbf4954883f626)), closes [#696](https://github.com/TEHIK-EE/tedi-design-system/issues/696)
+
 # [@tehik-ee/tedi-react-v12.0.0-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.4.0-rc.9...react-12.0.0-rc.1) (2025-05-29)
 
 
