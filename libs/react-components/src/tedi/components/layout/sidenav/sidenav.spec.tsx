@@ -1,6 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 
-import { useBreakpoint } from '../../../helpers';
+import { isBreakpointBelow, useBreakpoint } from '../../../helpers';
 import { SideNavItemProps } from './components/sidenav-item/sidenav-item';
 import { SideNavMobile } from './components/sidenav-mobile/sidenav-mobile';
 import SidenavToggle from './components/sidenav-toggle/sidenav-toggle';
@@ -10,8 +10,6 @@ jest.mock('./components/sidenav-mobile/sidenav-mobile');
 jest.mock('./components/sidenav-item/sidenav-item');
 jest.mock('./components/sidenav-toggle/sidenav-toggle');
 jest.mock('../../../helpers');
-
-(useBreakpoint as jest.Mock).mockReturnValue('lg');
 
 const mockNavItems: SideNavItemProps[] = [
   { href: '#', children: 'Home', icon: 'home' },
@@ -30,10 +28,9 @@ describe('SideNav', () => {
     showDividers: true,
     hideSubItemIcons: false,
     className: '',
-    mobileBreakpoint: 'tablet' as 'tablet' | 'mobile',
+    mobileBreakpoint: 'tablet' as const,
     showMobileOverlay: true,
-    useOverlay: false,
-    isOpen: true,
+    isMobileOpen: true,
     isCollapsed: false,
     onMenuToggle: jest.fn(),
     onCollapseToggle: jest.fn(),
@@ -42,9 +39,11 @@ describe('SideNav', () => {
 
   beforeEach(() => {
     jest.clearAllMocks();
+    (useBreakpoint as jest.Mock).mockReturnValue('lg'); // desktop
+    (isBreakpointBelow as jest.Mock).mockReturnValue(false);
   });
 
-  test('should render successfully', () => {
+  test('should render successfully in desktop', () => {
     const { baseElement } = render(<SideNav ariaLabel="Menu" navItems={[]} />);
     expect(baseElement).toBeTruthy();
   });
@@ -65,13 +64,11 @@ describe('SideNav', () => {
     expect(SidenavToggle).toHaveBeenCalled();
   });
 
-  test('renders with overlay when useOverlay is true', () => {
-    render(<SideNav {...defaultProps} useOverlay={true} />);
-    expect(document.querySelector('.tedi-sidenav__overlay')).toBeInTheDocument();
-  });
+  test('does not render nav when isMenuOpen is false (mobile)', () => {
+    (useBreakpoint as jest.Mock).mockReturnValue('sm');
+    (isBreakpointBelow as jest.Mock).mockReturnValue(true);
 
-  test('handles conditional rendering based on isOpen', () => {
-    render(<SideNav {...defaultProps} isOpen={false} />);
+    render(<SideNav {...defaultProps} isMobileOpen={false} />);
 
     expect(screen.queryByRole('navigation')).not.toBeInTheDocument();
   });
@@ -94,21 +91,22 @@ describe('SideNav', () => {
     expect(screen.getByRole('navigation')).toHaveClass('tedi-sidenav--hide-subitem-icons');
   });
 
-  test('maintains controlled state', () => {
-    render(<SideNav {...defaultProps} isOpen={false} />);
+  test('does not call onMenuToggle unnecessarily in controlled state', () => {
+    (useBreakpoint as jest.Mock).mockReturnValue('sm');
+    (isBreakpointBelow as jest.Mock).mockReturnValue(true);
+
+    render(<SideNav {...defaultProps} isMobileOpen={false} />);
 
     expect(screen.queryByRole('navigation')).not.toBeInTheDocument();
     expect(defaultProps.onMenuToggle).not.toHaveBeenCalled();
   });
 
   test('renders mobile view when below breakpoint', () => {
-    const { isBreakpointBelow } = jest.requireMock('../../../helpers');
-    (useBreakpoint as jest.Mock).mockReturnValue('sm');
-    isBreakpointBelow.mockReturnValue(true);
+    (useBreakpoint as jest.Mock).mockReturnValue('md');
+    (isBreakpointBelow as jest.Mock).mockReturnValue(true);
 
-    render(<SideNav {...defaultProps} mobileBreakpoint="tablet" />);
+    render(<SideNav {...defaultProps} mobileBreakpoint="mobile" isMobileOpen={true} />);
 
-    expect(SideNavMobile).toHaveBeenCalled();
     expect(SideNavMobile).toHaveBeenCalledWith(
       expect.objectContaining({
         navItems: mockNavItems,

@@ -7,6 +7,10 @@
   margin: 0;
   border-radius: 0;
 
+  @include breakpoints.media-breakpoint-up(md) {
+    display: none;
+  }
+
   &.tedi-sidenav-toggle--collapse {
     position: absolute;
     top: calc(var(--sidenav-toggle-top) / 5.5);

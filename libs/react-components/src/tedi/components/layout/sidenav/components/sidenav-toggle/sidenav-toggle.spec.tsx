@@ -18,8 +18,7 @@ describe('SidenavToggle', () => {
     toggleMenu: jest.fn(),
     referenceRef: undefined,
     getReferenceProps: () => ({}),
-    show: true,
-    variant: 'collapse' as const,
+    variant: 'mobile' as const,
   };
 
   beforeEach(() => {
@@ -40,15 +39,6 @@ describe('SidenavToggle', () => {
     fireEvent.click(button);
 
     expect(defaultProps.toggleMenu).toHaveBeenCalled();
-  });
-
-  test('shows/hides based on show prop', () => {
-    const { rerender } = render(<SidenavToggle {...defaultProps} show={true} />);
-
-    expect(screen.getByRole('button')).toBeInTheDocument();
-
-    rerender(<SidenavToggle {...defaultProps} show={false} />);
-    expect(screen.queryByRole('button')).not.toBeInTheDocument();
   });
 
   test('renders correct variant styles', () => {

@@ -197,7 +197,14 @@ export const SideNavMobile = <C extends React.ElementType = 'a'>({
   if (!isOpen) return null;
 
   return showOverlay ? (
-    <FloatingOverlay lockScroll className={styles['tedi-sidenav__overlay']}>
+    <FloatingOverlay
+      style={{
+        top: '0',
+        position: 'relative',
+        height: '100%',
+      }}
+      className={styles['tedi-sidenav__overlay']}
+    >
       {content}
     </FloatingOverlay>
   ) : (

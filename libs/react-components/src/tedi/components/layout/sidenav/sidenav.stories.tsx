@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import { useState } from 'react';
 
 import { SideNavItemProps } from './components/sidenav-item/sidenav-item';
@@ -270,7 +270,19 @@ const exampleThirdLevelMenuItemsLinks: SideNavItemProps[] = [
   { href: '#', children: 'Billing & Finance', icon: 'payments' },
 ];
 
+const Template: StoryFn<typeof SideNav> = (args) => {
+  const [isOpen, setIsOpen] = useState(true);
+
+  return (
+    <>
+      <SideNav.Toggle menuOpen={isOpen} toggleMenu={() => setIsOpen(!isOpen)} />
+      <SideNav {...args} isMobileOpen={isOpen} />
+    </>
+  );
+};
+
 export const Default: Story = {
+  render: Template,
   args: {
     navItems: exampleNavItems,
     ariaLabel: 'Menu title',
@@ -285,6 +297,7 @@ export const Default: Story = {
 };
 
 export const SecondLevelMenuItems: Story = {
+  render: Template,
   args: {
     navItems: exampleNavCollapsibleItems,
     ariaLabel: 'Menu title',
@@ -299,6 +312,7 @@ export const SecondLevelMenuItems: Story = {
 };
 
 export const SecondLevelMenuItemsParentsAreLinks: Story = {
+  render: Template,
   args: {
     navItems: exampleNavCollapsibleItemsWithLinks,
     ariaLabel: 'Menu title',
@@ -313,6 +327,7 @@ export const SecondLevelMenuItemsParentsAreLinks: Story = {
 };
 
 export const ThirdLevelMenuItems: Story = {
+  render: Template,
   args: {
     navItems: exampleThirdLevelMenuItems,
     ariaLabel: 'Menu title',
@@ -327,6 +342,7 @@ export const ThirdLevelMenuItems: Story = {
 };
 
 export const ThirdLevelMenuItemsParentsAreLinks: Story = {
+  render: Template,
   args: {
     navItems: exampleThirdLevelMenuItemsLinks,
     ariaLabel: 'Menu title',
@@ -341,36 +357,24 @@ export const ThirdLevelMenuItemsParentsAreLinks: Story = {
 };
 
 export const CollapsibleToggle: React.FC = () => {
-  return <SideNav ariaLabel="Collapsible menu" navItems={exampleThirdLevelMenuItems} isCollapsed={true} />;
+  return (
+    <SideNav
+      ariaLabel="Collapsible menu"
+      navItems={exampleThirdLevelMenuItems}
+      isCollapsed={true}
+      isMobileOpen={true}
+    />
+  );
 };
 
 /**
  * Works only for desktop
  */
 export const DefaultOpen: Story = {
+  render: Template,
   args: {
     navItems: exampleDefaultOpen,
     ariaLabel: 'Default open menu',
-  },
-};
-
-export const MobileToggle: Story = {
-  render: () => {
-    const [isOpen, setIsOpen] = useState(false);
-
-    return <SideNav.Toggle menuOpen={isOpen} toggleMenu={() => setIsOpen(!isOpen)} variant="mobile" />;
-  },
-};
-
-export const MobileToggleWithNav: Story = {
-  render: () => {
-    const [isOpen, setIsOpen] = useState(true);
-
-    return (
-      <>
-        <SideNav.Toggle menuOpen={isOpen} toggleMenu={() => setIsOpen(!isOpen)} variant="mobile" />
-        <SideNav ariaLabel="Collapsible menu" navItems={exampleThirdLevelMenuItems} isOpen={isOpen} />
-      </>
-    );
+    isMobileOpen: true,
   },
 };

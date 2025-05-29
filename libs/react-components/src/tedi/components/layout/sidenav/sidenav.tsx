@@ -1,4 +1,3 @@
-import { FloatingFocusManager, FloatingOverlay, useFloating } from '@floating-ui/react';
 import cn from 'classnames';
 import React, { useEffect, useState } from 'react';
 
@@ -65,8 +64,21 @@ export type SideNavProps<C extends React.ElementType = 'a'> = ConditionalTypes<C
    * Callback when the mobile menu is toggled
    */
   onMenuToggle?: (isOpen: boolean) => void;
-  useOverlay?: boolean;
-  isOpen?: boolean;
+  /**
+   * Controls the open state of the mobile sidenav. When provided, the mobile menu becomes a controlled component.
+   *
+   * To control the menu externally (e.g. from a toggle button), pair this prop with `SideNav.Toggle`:
+   *
+   * ```tsx
+   * const [isOpen, setIsOpen] = useState(true);
+   *
+   * <SideNav.Toggle menuOpen={isOpen} toggleMenu={() => setIsOpen(!isOpen)} />
+   * <SideNav isMobileOpen={isOpen} ariaLabel="Mobile menu" navItems={...} />
+   * ```
+   *
+   * If not provided, the mobile menu manages its open state internally based on viewport size.
+   */
+  isMobileOpen?: boolean;
   /**
    * Whether the sidenav is collapsed (showing only icons/shortened text)
    * @default false
@@ -90,8 +102,7 @@ const SideNavComponent: <C extends React.ElementType = 'a'>(props: SideNavProps<
     className,
     mobileBreakpoint = 'tablet',
     showMobileOverlay = true,
-    useOverlay = false,
-    isOpen = true,
+    isMobileOpen,
     isCollapsed: isCollapsedProp = false,
     onMenuToggle,
     onCollapseToggle,
@@ -107,17 +118,19 @@ const SideNavComponent: <C extends React.ElementType = 'a'>(props: SideNavProps<
   };
   const breakpoint = useBreakpoint();
   const isMobileView = isBreakpointBelow(breakpoint, mapToBreakpoint(mobileBreakpoint));
-  const isControlled = typeof isOpen === 'boolean';
-  const [internalOpen, setInternalOpen] = useState(false);
-  const isMenuOpen = isControlled ? isOpen : internalOpen;
+  const isControlled = isMobileOpen !== undefined;
+  const [internalOpen, setInternalOpen] = useState(!isMobileView);
+  const isMenuOpen = isControlled ? isMobileOpen : internalOpen;
 
   const [internalCollapsed, setInternalCollapsed] = useState(isCollapsedProp);
   const isCollapsed = isMobileView ? false : internalCollapsed;
   const isCollapsible = 'isCollapsed' in props;
 
   useEffect(() => {
-    setInternalOpen(!isMobileView);
-  }, [isMobileView]);
+    if (!isControlled) {
+      setInternalOpen(!isMobileView);
+    }
+  }, [isMobileView, isControlled]);
 
   const setCollapsed = (collapsed: boolean) => {
     setInternalCollapsed(collapsed);
@@ -135,11 +148,6 @@ const SideNavComponent: <C extends React.ElementType = 'a'>(props: SideNavProps<
     onMenuToggle?.(open);
   };
 
-  const { refs, floatingStyles, context } = useFloating({
-    open: isMenuOpen,
-    onOpenChange: setMenuOpen,
-  });
-
   const toggleMenu = () => {
     setMenuOpen(!isMenuOpen);
   };
@@ -150,57 +158,28 @@ const SideNavComponent: <C extends React.ElementType = 'a'>(props: SideNavProps<
     [styles['tedi-sidenav--collapsed']]: isCollapsed,
   });
 
-  const sidebarContent = (
+  return !isMobileView ? (
     <Print visibility="hide">
       <nav id={props.id} data-name="sidenav" {...rest} className={BEM} aria-label={ariaLabel}>
         {isCollapsible && <SidenavToggle menuOpen={!isCollapsed} toggleMenu={toggleCollapse} variant="collapse" />}
         <ul className={styles['tedi-sidenav__list']} role="menubar" aria-label={ariaLabel}>
           {navItems.map((item, key) => (
-            <SideNavItem
-              as={linkAs}
-              {...item}
-              key={key}
-              onItemClick={toggleMenu}
-              isCollapsed={isCollapsed}
-              isMobile={isMobileView}
-            />
+            <SideNavItem as={linkAs} {...item} key={key} onItemClick={toggleMenu} isCollapsed={isCollapsed} />
           ))}
         </ul>
       </nav>
     </Print>
+  ) : (
+    <SideNavMobile
+      navItems={navItems}
+      ariaLabel={ariaLabel}
+      linkAs={linkAs}
+      isOpen={isMenuOpen}
+      onClose={() => setMenuOpen(false)}
+      showOverlay={showMobileOverlay}
+      {...rest}
+    />
   );
-
-  if (isMobileView) {
-    return (
-      <SideNavMobile
-        navItems={navItems}
-        ariaLabel={ariaLabel}
-        linkAs={linkAs}
-        isOpen={isMenuOpen}
-        onClose={() => setMenuOpen(false)}
-        showOverlay={useOverlay && showMobileOverlay}
-        {...rest}
-      />
-    );
-  }
-
-  if (!showMobileOverlay) {
-    return isMenuOpen ? sidebarContent : null;
-  }
-
-  if (!useOverlay) {
-    return isMenuOpen ? sidebarContent : null;
-  }
-
-  return isMenuOpen ? (
-    <FloatingOverlay lockScroll className={styles['tedi-sidenav__overlay']}>
-      <FloatingFocusManager context={context} order={['reference', 'content']}>
-        <div ref={refs.setFloating} style={floatingStyles} className={styles['tedi-sidenav']} aria-label={ariaLabel}>
-          {sidebarContent}
-        </div>
-      </FloatingFocusManager>
-    </FloatingOverlay>
-  ) : null;
 };
 
 export const SideNav = Object.assign(SideNavComponent, {

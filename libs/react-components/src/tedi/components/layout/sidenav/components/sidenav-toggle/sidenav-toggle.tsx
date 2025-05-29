@@ -26,10 +26,6 @@ export type SidenavToggleProps = {
    */
   getReferenceProps?: () => UnknownType;
   /**
-   * Whether the toggle should be shown
-   */
-  show?: boolean;
-  /**
    * Variant of toggle (mobile overlay or collapse control)
    */
   variant?: SidenavToggleVariant;
@@ -40,12 +36,9 @@ export const SidenavToggle = ({
   toggleMenu,
   referenceRef,
   getReferenceProps = () => ({}),
-  show = true,
-  variant = 'collapse',
+  variant = 'mobile',
 }: SidenavToggleProps) => {
   const { getLabel } = useLabels();
-
-  if (!show) return null;
 
   const toggleLabel = getLabel('header.toggle');
 
