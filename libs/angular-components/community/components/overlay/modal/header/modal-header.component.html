@@ -7,9 +7,11 @@
     </ng-container>
 
     <ng-container slot="[header-exit-button-slot]">
-      <button tedi-button variant="neutral" (click)="closeModal()">
-        <tedi-icon name="close" />
-      </button>
+      @if (closeButton()) {
+        <button tedi-button variant="neutral" (click)="closeModal()">
+          <tedi-icon name="close" />
+        </button>
+      }
     </ng-container>
   </div>
 

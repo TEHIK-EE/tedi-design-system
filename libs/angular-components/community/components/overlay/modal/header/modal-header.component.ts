@@ -23,6 +23,7 @@ import { DialogData } from "../modal.component";
 export class ModalHeaderComponent implements OnInit {
   title = model("Title");
   feedback = model<ComponentInputs<FeedbackTextComponent>>();
+  closeButton = model(true);
 
   private readonly dialogRef = inject(DialogRef, { optional: true });
   readonly dialogData = inject(DIALOG_DATA, {
@@ -35,9 +36,9 @@ export class ModalHeaderComponent implements OnInit {
 
   ngOnInit(): void {
     const data: DialogData = this.dialogData;
-
     if (!data) return;
-    const { title, feedback } = data;
+
+    const { title, feedback, closeButton } = data;
 
     if (title) {
       this.title.set(title);
@@ -47,6 +48,10 @@ export class ModalHeaderComponent implements OnInit {
       this.feedback.set({
         ...feedback,
       });
+    }
+
+    if (typeof closeButton === "boolean") {
+      this.closeButton.set(data.closeButton);
     }
   }
 }

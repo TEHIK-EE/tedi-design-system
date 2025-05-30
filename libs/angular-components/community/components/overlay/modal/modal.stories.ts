@@ -6,27 +6,16 @@ import {
   LabelComponent,
 } from "tedi/components";
 import { Dialog } from "@angular/cdk/dialog";
-import { ModalComponent, ModalSizes } from "./modal.component";
+import { DialogData, ModalComponent, ModalSizes } from "./modal.component";
 import { SelectComponent } from "community/components/form/select/select.component";
 import { SelectOptionComponent } from "community/components/form/select/select-option.component";
 import { resetIndexId, indexId } from "community/utils/unique-id";
 import { NgFor } from "@angular/common";
 import {
-  ModalFooterButton,
   ModalFooterComponent,
   ModalIconPosition,
 } from "./footer/modal-footer.component";
-import { ComponentInputs } from "tedi/types";
 import { ModalHeaderComponent } from "./header/modal-header.component";
-
-type StoryBookArgs = StorybookModalComponent & {
-  maxWidth: ModalSizes;
-  height: string;
-  title?: string;
-  feedback?: ComponentInputs<FeedbackTextComponent>;
-  buttons?: ModalFooterButton[];
-  alignButtons?: string;
-};
 
 resetIndexId();
 
@@ -38,7 +27,7 @@ resetIndexId();
   imports: [ButtonComponent],
 })
 class ModalOpenComponent {
-  args = input<StoryBookArgs>();
+  args = input<DialogData>();
   dialog = inject(Dialog);
 
   openDialog() {
@@ -56,6 +45,7 @@ class ModalOpenComponent {
         header-slot
         [title]="args()?.title"
         [feedback]="args()?.feedback"
+        [closeButton]="args()?.closeButton"
       />
 
       <label tedi-label [for]="selectOneId">Label</label>
@@ -104,7 +94,7 @@ class StorybookModalComponent implements OnInit {
     { value: "5", label: "Option 5" },
   ];
 
-  readonly args = model<StoryBookArgs>();
+  readonly args = model<DialogData>();
 
   selectOneId?: string;
   selectTwoId?: string;
@@ -121,9 +111,9 @@ class StorybookModalComponent implements OnInit {
  *
  * It is also possible to re-use **ModalFooterComponent** and **ModalHeaderComponent** in your own components
  * with custom arguments, or modified inside the modal component's slots.
- * For convenience, you can supply args to all modal components via the `args` input in cdk dialog's open config.
+ * For convenience, you can supply args to all modal components via the `args` input in cdk dialog's `open()` function's option object.
  */
-const meta: Meta<StoryBookArgs> = {
+const meta: Meta<DialogData> = {
   title: "Community Angular/Overlay/Modal",
   component: ModalComponent,
   decorators: [
@@ -154,6 +144,10 @@ const meta: Meta<StoryBookArgs> = {
     buttons: {
       control: "object",
       description: "Buttons to display in the modal footer",
+    },
+    closeButton: {
+      control: "boolean",
+      description: "Whether to show the close button in the header",
     },
   },
   args: {
@@ -186,7 +180,7 @@ const meta: Meta<StoryBookArgs> = {
 
 export default meta;
 
-type Story = StoryObj<StoryBookArgs>;
+type Story = StoryObj<DialogData>;
 
 const renderExampleModal = () =>
   `<storybook-modal style="display: contents;" [args]="args" />`;
