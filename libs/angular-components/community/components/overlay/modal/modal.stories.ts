@@ -1,12 +1,15 @@
 import { Component, inject, input, model, OnInit } from "@angular/core";
 import { Meta, moduleMetadata, StoryObj } from "@storybook/angular";
-import { ButtonComponent, FeedbackTextComponent } from "tedi/components";
+import {
+  ButtonComponent,
+  FeedbackTextComponent,
+  LabelComponent,
+} from "tedi/components";
 import { Dialog, DIALOG_DATA } from "@angular/cdk/dialog";
 import { ModalComponent, ModalSizes } from "./modal.component";
 import { SelectComponent } from "community/components/form/select/select.component";
 import { SelectOptionComponent } from "community/components/form/select/select-option.component";
 import { resetIndexId, indexId } from "community/utils/unique-id";
-import { LabelComponent } from "community/components/form/label/label.component";
 import { NgFor, NgIf } from "@angular/common";
 import { ModalHeaderComponent } from "./header/modal-header.component";
 import {

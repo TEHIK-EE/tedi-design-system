@@ -1,7 +1,11 @@
 import { NgFor, NgIf, NgStyle } from "@angular/common";
 import { Component, input } from "@angular/core";
-import { ButtonVariant } from "community/components/buttons";
-import { ButtonComponent, ButtonSize, IconComponent } from "tedi/components";
+import {
+  ButtonComponent,
+  ButtonSize,
+  ButtonVariant,
+  IconComponent,
+} from "tedi/components";
 
 export interface ModalFooterButton {
   label: string;
