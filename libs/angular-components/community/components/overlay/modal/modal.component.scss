@@ -2,20 +2,24 @@
 @use "@tehik-ee/tedi-core/mixins";
 @include cdk.overlay();
 
-:host.tedi-modal {
-  display: block;
+@mixin pane-max-width($size) {
 
-  &--lg {
-    @include mixins.responsive-styles(width, modal-max-width-lg);
+  .cdk-overlay-pane:has(.tedi-modal--#{$size}),
+  .tedi-modal--#{$size} {
+    @include mixins.responsive-styles(max-width, modal-max-width-#{$size});
   }
+}
 
-  &--md {
-    @include mixins.responsive-styles(width, modal-max-width-md);
-  }
+.cdk-overlay-pane {
+  width: 100%;
+}
 
-  &--sm {
-    @include mixins.responsive-styles(width, modal-max-width-sm);
-  }
+@include pane-max-width(lg);
+@include pane-max-width(md);
+@include pane-max-width(sm);
+
+.tedi-modal {
+  overflow: auto;
 }
 
 .tedi-modal__center {
@@ -28,21 +32,6 @@
 
   background-color: var(--modal-background);
   border: var(--_modal-border);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 
   @include mixins.responsive-styles(border-radius, modal-radius);
-
-  &--lg {
-    @include mixins.responsive-styles(max-width, modal-max-width-lg);
-  }
-
-  &--md {
-    @include mixins.responsive-styles(max-width, modal-max-width-md);
-  }
-
-  &--sm {
-    @include mixins.responsive-styles(max-width, modal-max-width-sm);
-  }
 }

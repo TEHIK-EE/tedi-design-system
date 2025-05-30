@@ -191,14 +191,12 @@ export default meta;
 type Story = StoryObj<StoryBookArgs>;
 
 const renderExampleModal = () =>
-  `<storybook-modal style="display: inline-block;" [args]="args" />`;
+  `<storybook-modal style="display: contents;" [args]="args" />`;
 
 const renderFull = () => `
   <div style="display: flex; flex-direction: column; gap: 1.5rem;">
     <storybook-open-modal [args]="args" />
-    <div>
-      ${renderExampleModal()}
-    </div>
+    ${renderExampleModal()}
   </div>
   `;
 
