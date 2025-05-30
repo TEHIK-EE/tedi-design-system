@@ -1,0 +1,15 @@
+.tedi-modal-header--title {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: var(--_modal-border);
+
+  p {
+    margin-left: 1rem;
+    align-content: center;
+  }
+
+  .tedi-button {
+    color: black;
+    border-radius: 0;
+  }
+}

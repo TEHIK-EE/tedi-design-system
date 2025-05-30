@@ -8,7 +8,8 @@
 
   background-color: var(--modal-background);
   border: var(--_modal-border);
-  padding: var(--_modal-padding);
+  // padding-left: var(--_modal-padding);
+  // padding-right: var(--_modal-padding);
 
   // TODO: Make lg dynamic
   @include mixins.responsive-styles(max-width, modal-max-width-lg);

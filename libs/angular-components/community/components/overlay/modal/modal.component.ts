@@ -1,5 +1,5 @@
-import { Component, inject } from "@angular/core";
-import { DIALOG_DATA, DialogModule } from "@angular/cdk/dialog";
+import { Component } from "@angular/core";
+import { DialogModule } from "@angular/cdk/dialog";
 import { ModalHeaderComponent } from "./header/modal-header.component";
 import { ModalFooterComponent } from "./footer/modal-footer.component";
 
