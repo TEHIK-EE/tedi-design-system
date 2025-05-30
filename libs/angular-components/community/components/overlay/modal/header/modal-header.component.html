@@ -4,7 +4,7 @@
       {{ title() }}
     </p>
     <ng-container slot="[exit-button-icon]">
-      <button tedi-button variant="neutral">
+      <button tedi-button variant="neutral" (click)="closeModal()">
         <tedi-icon name="close" />
       </button>
     </ng-container>

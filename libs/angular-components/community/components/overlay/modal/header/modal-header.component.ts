@@ -1,4 +1,5 @@
-import { Component, input } from "@angular/core";
+import { DialogRef } from "@angular/cdk/dialog";
+import { Component, inject, input } from "@angular/core";
 import {
   ButtonComponent,
   FeedbackTextComponent,
@@ -14,4 +15,10 @@ import {
 export class ModalHeaderComponent {
   title = input("Title");
   description = input<string>();
+
+  private dialogRef = inject(DialogRef, { optional: true });
+
+  public closeModal(): void {
+    this.dialogRef?.close();
+  }
 }

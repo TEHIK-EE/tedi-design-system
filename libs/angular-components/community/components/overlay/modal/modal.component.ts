@@ -9,6 +9,4 @@ import { ModalFooterComponent } from "./footer/modal-footer.component";
   styleUrl: "./modal.component.scss",
   imports: [DialogModule, ModalHeaderComponent, ModalFooterComponent],
 })
-export class ModalComponent {
-  // readonly data = inject(DIALOG_DATA, { optional: true });
-}
+export class ModalComponent {}

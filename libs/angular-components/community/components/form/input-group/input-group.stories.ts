@@ -5,6 +5,7 @@ import { LabelComponent, FeedbackTextType } from "@tehik-ee/tedi-angular/tedi";
 import { SelectComponent } from "../select/select.component";
 import { SelectOptionComponent } from "../select/select-option.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { resetIndexId, indexId } from "community/utils/unique-id";
 
 /**
  * InputGroupComponent is a component that allows you to group multiple input elements together.
@@ -13,11 +14,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
  *
  */
 
-let id = 0;
-
-const uniqueId = (prefix: string) => {
-  return `${prefix}-${id++}`;
-};
+resetIndexId();
 
 interface StoryArgs {
   disabled: boolean;
@@ -113,7 +110,7 @@ export const Default: Story = {
   },
 
   render: (args) => {
-    const defaultId = uniqueId("label-id");
+    const defaultId = indexId("label-id");
 
     const { ...rest } = args;
     rest.labelID = rest.labelID ?? defaultId;
@@ -145,7 +142,7 @@ const renderSelectPrefix = (showBool: boolean, slot = "prefix-slot") => {
   </tedi-select>`;
 };
 
-const selectId = uniqueId("label-id");
+const selectId = indexId("label-id");
 
 export const Select: SelectStory = {
   ...Default,
@@ -173,7 +170,7 @@ export const Select: SelectStory = {
 
 export default meta;
 
-const disabledSelectId = uniqueId("label-id");
+const disabledSelectId = indexId("label-id");
 
 const renderSelect = (args: SelectStoryArgs) => `
   <tedi-input-group ${currentArgs}>
