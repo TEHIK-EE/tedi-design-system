@@ -26,10 +26,18 @@ export default {
   argTypes: {
     size: {
       control: "radio",
-      options: ["medium", "large"],
+      options: ["default", "small"],
       description: "The size of the button.",
       table: {
-        defaultValue: { summary: "medium" },
+        defaultValue: { summary: "default" },
+      },
+    },
+    iconSize: {
+      control: "radio",
+      options: ["24px", "18px"],
+      description: "The size of the button.",
+      table: {
+        defaultValue: { summary: "24px" },
       },
     },
     title: {
@@ -59,7 +67,7 @@ type Story = StoryObj<ClosingButtonComponent>;
 
 export const Default: Story = {
   args: {
-    size: "medium",
+    size: "default",
     title: "Sulge",
   },
   render: (args) => ({
@@ -72,7 +80,7 @@ export const Default: Story = {
 
 export const Large: Story = {
   args: {
-    size: "large",
+    size: "default",
     title: "Sulge",
   },
   render: (args) => ({
