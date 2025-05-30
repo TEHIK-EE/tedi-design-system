@@ -1,4 +1,9 @@
 <div class="tedi-modal">
-  <div>Succesfully opened a opened a modal!</div>
+  <ng-content select="[title-slot]">
+    <tedi-modal-header />
+  </ng-content>
   <ng-content></ng-content>
+  <ng-content class="tedi-modal--buttons" select="[buttons-slot]">
+    <tedi-modal-footer />
+  </ng-content>
 </div>

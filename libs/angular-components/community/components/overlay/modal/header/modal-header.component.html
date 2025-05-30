@@ -1,0 +1,11 @@
+<div class="tedi-modal-header">
+  <div class="tedi-modal-header--title">
+    {{ title() }}
+  </div>
+  @if (description()) {
+    <tedi-feedback-text
+      class="tedi-modal-header--description"
+      [text]="description()!"
+    />
+  }
+</div>

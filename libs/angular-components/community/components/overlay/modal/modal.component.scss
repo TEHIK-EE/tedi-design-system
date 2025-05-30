@@ -1,8 +1,10 @@
 @use '@angular/cdk' as cdk;
-
+@use "@tehik-ee/tedi-core/mixins";
 @include cdk.overlay();
 
 .tedi-modal {
   background-color: grey;
+  @include mixins.responsive-styles(max-width,
+    _input-group-rounded);
 
 }
