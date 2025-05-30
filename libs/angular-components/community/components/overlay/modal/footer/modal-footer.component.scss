@@ -1,0 +1,7 @@
+.tedi-modal-footer {
+  display: flex;
+  gap: var(--button-gutter-x, 16px);
+  padding: var(--modal-footer-padding-y, 16px)
+    var(--modal-footer-padding-x, 24px);
+  justify-content: flex-end;
+}

@@ -2,8 +2,10 @@
   <ng-content select="[title-slot]">
     <tedi-modal-header />
   </ng-content>
-  <ng-content></ng-content>
-  <ng-content class="tedi-modal--buttons" select="[buttons-slot]">
+  <div class="tedi-modal__center">
+    <ng-content></ng-content>
+  </div>
+  <ng-content class="tedi-modal__buttons" select="[buttons-slot]">
     <tedi-modal-footer />
   </ng-content>
 </div>

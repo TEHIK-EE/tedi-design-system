@@ -1,11 +1,11 @@
-import { Component, inject, input } from "@angular/core";
+import { Component, inject } from "@angular/core";
 import {
   argsToTemplate,
   Meta,
   moduleMetadata,
   StoryObj,
 } from "@storybook/angular";
-import { ButtonComponent } from "tedi/components";
+import { ButtonComponent, FeedbackTextComponent } from "tedi/components";
 import { Dialog } from "@angular/cdk/dialog";
 import { ModalComponent } from "./modal.component";
 import { SelectComponent } from "community/components/form/select/select.component";
@@ -13,65 +13,59 @@ import { SelectOptionComponent } from "community/components/form/select/select-o
 
 @Component({
   selector: "storybook-open-modal",
-  template: `<button tedi-button (click)="openDialog()">Open modal</button> `,
-  imports: [ButtonComponent],
-})
-class ModalOpenComponent {
-  args = input.required<unknown[]>();
-  dialog = inject(Dialog);
-
-  openDialog() {
-    console.log(this.args());
-    this.dialog.open(ModalComponent, { data: this.args() });
-  }
-}
-
-@Component({
-  selector: "storybook-select-open-modal",
   template: `<button tedi-button (click)="openDialog()">
     Open Select modal
   </button> `,
   imports: [ButtonComponent],
 })
-class SelectModalOpenComponent {
-  args = input.required<unknown[]>();
+class ModalOpenComponent {
   dialog = inject(Dialog);
 
   openDialog() {
-    this.dialog.open(SelectModalComponent, { data: this.args() });
+    this.dialog.open(StorybookModalComponent);
   }
 }
 
 @Component({
-  selector: "storybook-select-modal",
+  selector: "storybook-modal",
   template: `
-    <tedi-modal [title]="title()" [description]="description()">
+    <tedi-modal>
+      <tedi-feedback-text text="Test Description" />
       <tedi-select placeholder="Select an option" state="default">
         <tedi-select-option value="1" label="Option 1" />
         <tedi-select-option value="2" label="Option 2" />
-        <tedi-select-option value="3" label="Option 3" />
-        <tedi-select-option value="4" label="Option 4" />
-        <tedi-select-option value="5" label="Option 5" />
+      </tedi-select>
+
+      <tedi-feedback-text text="Test Description" />
+      <tedi-select placeholder="Select an option" state="default">
+        <tedi-select-option value="1" label="Option 1" />
+        <tedi-select-option value="2" label="Option 2" />
       </tedi-select>
     </tedi-modal>
   `,
-  imports: [SelectComponent, SelectOptionComponent, ModalComponent],
+  imports: [
+    SelectComponent,
+    SelectOptionComponent,
+    ModalComponent,
+    FeedbackTextComponent,
+  ],
 })
-class SelectModalComponent {
-  title = input<string | undefined>();
-  description = input<string | undefined>();
+class StorybookModalComponent {
+  readonly options = [
+    { value: "1", label: "Option 1" },
+    { value: "2", label: "Option 2" },
+    { value: "3", label: "Option 3" },
+    { value: "4", label: "Option 4" },
+    { value: "5", label: "Option 5" },
+  ];
 }
 
-const meta: Meta<ModalComponent> = {
+const meta: Meta<StorybookModalComponent> = {
   title: "Community Angular/Overlay/Modal",
   component: ModalComponent,
   decorators: [
     moduleMetadata({
-      imports: [
-        ModalOpenComponent,
-        SelectModalOpenComponent,
-        SelectModalComponent,
-      ],
+      imports: [ModalOpenComponent, StorybookModalComponent],
     }),
   ],
   // argTypes: {
@@ -101,19 +95,7 @@ export const Default: Story = {
     template: `
     <div style="display: flex; flex-direction: column; gap: 1rem;">
       <storybook-open-modal [args]="args" />
-      <tedi-modal ${argsToTemplate(args)} />
-    </div>
-    `,
-  }),
-};
-
-export const WithSelect: Story = {
-  render: (args) => ({
-    props: { ...args, args },
-    template: `
-    <div style="display: flex; flex-direction: column; gap: 1rem;">
-      <storybook-select-open-modal [args]="args" />
-      <storybook-select-modal ${argsToTemplate(args)} />
+      <storybook-modal ${argsToTemplate(args)} />
     </div>
     `,
   }),

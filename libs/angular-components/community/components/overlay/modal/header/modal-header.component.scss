@@ -1,15 +1,20 @@
+@use "@tehik-ee/tedi-core/mixins";
+
 .tedi-modal-header--title {
   display: flex;
   justify-content: space-between;
   border-bottom: var(--_modal-border);
 
+  @include mixins.responsive-styles(padding-left, modal-heading-padding-x);
+  @include mixins.responsive-styles(padding-right, modal-heading-padding-x);
+
   p {
-    margin-left: 1rem;
     align-content: center;
   }
 
   .tedi-button {
     color: black;
     border-radius: 0;
+    padding: 1px;
   }
 }
