@@ -7,6 +7,7 @@ import {
 
 import { ClosingButtonComponent } from "./closing-button.component";
 import { IconComponent } from "@tehik-ee/tedi-angular/tedi";
+import { createBreakpointArgTypes } from "utils/createBreakpointArgTypes";
 
 /**
  * <a href="https://www.figma.com/design/jWiRIXhHRxwVdMSimKX2FF/TEDI-READY-(work-in-progress)?node-id=4514-63815&m=dev" target="_BLANK">Figma ↗</a><br/>
@@ -39,6 +40,7 @@ export default {
         defaultValue: { summary: "Sulge" },
       },
     },
+    ...createBreakpointArgTypes("ClosingButton"),
   },
   parameters: {
     docs: {
@@ -46,6 +48,9 @@ export default {
         component:
           "A button component used for closing or dismissing UI elements such as modals, popovers, or panels.",
       },
+    },
+    status: {
+      type: ["breakpointSupport"],
     },
   },
 } as Meta<ClosingButtonComponent>;
