@@ -1,6 +1,5 @@
 @use "@angular/cdk" as cdk;
 @use "@tehik-ee/tedi-core/mixins";
-@use "@tehik-ee/tedi-core/bootstrap-utility/breakpoints";
 @include cdk.overlay();
 
 .tedi-modal {
@@ -19,17 +18,15 @@
     padding: var(--_modal-padding);
   }
 
-  @include breakpoints.media-breakpoint-up(lg) {
-    &--lg {
-      @include mixins.responsive-styles(max-width, modal-max-width-lg);
-    }
+  &--lg {
+    @include mixins.responsive-styles(max-width, modal-max-width-lg);
+  }
 
-    &--md {
-      @include mixins.responsive-styles(max-width, modal-max-width-md);
-    }
+  &--md {
+    @include mixins.responsive-styles(max-width, modal-max-width-md);
+  }
 
-    &--sm {
-      @include mixins.responsive-styles(max-width, modal-max-width-sm);
-    }
+  &--sm {
+    @include mixins.responsive-styles(max-width, modal-max-width-sm);
   }
 }

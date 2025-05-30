@@ -26,6 +26,7 @@ type StoryBookArgs = StorybookModalComponent & {
 };
 
 resetIndexId();
+
 @Component({
   selector: "storybook-open-modal",
   template: `<button tedi-button (click)="openDialog()">
@@ -47,12 +48,8 @@ class ModalOpenComponent {
 @Component({
   selector: "storybook-modal",
   template: `
-    <tedi-modal [width]="args()?.width" [height]="args()?.height">
-      <tedi-modal-header
-        header-slot
-        [title]="args()?.title"
-        [description]="args()?.description"
-      />
+    <tedi-modal [maxWidth]="args()?.maxWidth">
+      <tedi-modal-header header-slot [feedback]="args()?.feedback" />
 
       <label tedi-label [for]="selectOneId">Label</label>
 
@@ -155,7 +152,11 @@ const meta: Meta<StoryBookArgs> = {
     maxWidth: ModalSizes.Large,
     title: "Title",
     alignButtons: "flex-end",
-    feedback: undefined,
+    feedback: {
+      text: "",
+      type: "hint",
+      position: "left",
+    },
     buttons: [
       {
         label: "Cancel",
