@@ -7,6 +7,7 @@ import {
 
 import { ClosingButtonComponent } from "./closing-button.component";
 import { IconComponent } from "@tehik-ee/tedi-angular/tedi";
+import { createBreakpointArgTypes } from "utils/createBreakpointArgTypes";
 
 /**
  * <a href="https://www.figma.com/design/jWiRIXhHRxwVdMSimKX2FF/TEDI-READY-(work-in-progress)?node-id=4514-63815&m=dev" target="_BLANK">Figma ↗</a><br/>
@@ -15,7 +16,7 @@ import { IconComponent } from "@tehik-ee/tedi-angular/tedi";
  * A closing button component used for dismissing content or dialogs. It's typically displayed as an 'X' icon and can be used in various scenarios such as closing modals, popovers, or panels.
  */
 export default {
-  title: "Community Angular/Buttons/ClosingButton",
+  title: "TEDI-Ready Angular/Buttons/ClosingButton",
   component: ClosingButtonComponent,
   decorators: [
     moduleMetadata({
@@ -25,10 +26,18 @@ export default {
   argTypes: {
     size: {
       control: "radio",
-      options: ["medium", "large"],
+      options: ["default", "small"],
       description: "The size of the button.",
       table: {
-        defaultValue: { summary: "medium" },
+        defaultValue: { summary: "default" },
+      },
+    },
+    iconSize: {
+      control: "radio",
+      options: ["24px", "18px"],
+      description: "The size of the button.",
+      table: {
+        defaultValue: { summary: "24px" },
       },
     },
     title: {
@@ -39,6 +48,7 @@ export default {
         defaultValue: { summary: "Sulge" },
       },
     },
+    ...createBreakpointArgTypes("ClosingButton"),
   },
   parameters: {
     docs: {
@@ -47,6 +57,9 @@ export default {
           "A button component used for closing or dismissing UI elements such as modals, popovers, or panels.",
       },
     },
+    status: {
+      type: ["breakpointSupport"],
+    },
   },
 } as Meta<ClosingButtonComponent>;
 
@@ -54,7 +67,7 @@ type Story = StoryObj<ClosingButtonComponent>;
 
 export const Default: Story = {
   args: {
-    size: "medium",
+    size: "default",
     title: "Sulge",
   },
   render: (args) => ({
@@ -67,7 +80,7 @@ export const Default: Story = {
 
 export const Large: Story = {
   args: {
-    size: "large",
+    size: "default",
     title: "Sulge",
   },
   render: (args) => ({

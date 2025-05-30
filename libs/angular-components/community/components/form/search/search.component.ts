@@ -22,7 +22,7 @@ import {
   CardContentComponent,
 } from "community/components/cards/card";
 import { DropdownItemComponent } from "community/components/overlay";
-import { ClosingButtonComponent } from "community/components/buttons";
+import { ClosingButtonComponent } from "@tehik-ee/tedi-angular/tedi";
 import { A11yModule } from "@angular/cdk/a11y";
 import { CdkMenu, CdkMenuModule } from "@angular/cdk/menu";
 
