@@ -1,7 +1,13 @@
 <div class="tedi-modal-header">
   <div class="tedi-modal-header--title">
     {{ title() }}
+    <ng-container slot="[exit-button-icon]">
+      <button variant="neutral">
+        <tedi-icon tedi-button name="close" />
+      </button>
+    </ng-container>
   </div>
+
   @if (description()) {
     <tedi-feedback-text
       class="tedi-modal-header--description"

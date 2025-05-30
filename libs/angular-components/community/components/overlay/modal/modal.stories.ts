@@ -16,7 +16,7 @@ import { SelectOptionComponent } from "community/components/form/select/select-o
   template: `<button tedi-button (click)="openDialog()">Open modal</button> `,
   imports: [ButtonComponent],
 })
-class ModalOpen {
+class ModalOpenComponent {
   args = input.required<unknown[]>();
   dialog = inject(Dialog);
 
@@ -33,12 +33,12 @@ class ModalOpen {
   </button> `,
   imports: [ButtonComponent],
 })
-class SelectModalOpen {
+class SelectModalOpenComponent {
   args = input.required<unknown[]>();
   dialog = inject(Dialog);
 
   openDialog() {
-    this.dialog.open(SelectModal, { data: this.args() });
+    this.dialog.open(SelectModalComponent, { data: this.args() });
   }
 }
 
@@ -57,7 +57,7 @@ class SelectModalOpen {
   `,
   imports: [SelectComponent, SelectOptionComponent, ModalComponent],
 })
-class SelectModal {
+class SelectModalComponent {
   title = input<string | undefined>();
   description = input<string | undefined>();
 }
@@ -67,7 +67,11 @@ const meta: Meta<ModalComponent> = {
   component: ModalComponent,
   decorators: [
     moduleMetadata({
-      imports: [ModalOpen, SelectModalOpen, SelectModal],
+      imports: [
+        ModalOpenComponent,
+        SelectModalOpenComponent,
+        SelectModalComponent,
+      ],
     }),
   ],
   // argTypes: {
@@ -88,15 +92,17 @@ const meta: Meta<ModalComponent> = {
 
 export default meta;
 
-type Story = StoryObj<ModalOpen>;
+type Story = StoryObj<ModalOpenComponent>;
 
 export const Default: Story = {
   render: (args) => ({
     // we need the args object for passing into the modal conveniently
     props: { ...args, args },
     template: `
+    <div style="display: flex; flex-direction: column; gap: 1rem;">
       <storybook-open-modal [args]="args" />
       <tedi-modal ${argsToTemplate(args)} />
+    </div>
     `,
   }),
 };
@@ -105,8 +111,10 @@ export const WithSelect: Story = {
   render: (args) => ({
     props: { ...args, args },
     template: `
+    <div style="display: flex; flex-direction: column; gap: 1rem;">
       <storybook-select-open-modal [args]="args" />
       <storybook-select-modal ${argsToTemplate(args)} />
+    </div>
     `,
   }),
 };

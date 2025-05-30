@@ -1,11 +1,11 @@
 import { Component, input } from "@angular/core";
-import { FeedbackTextComponent } from "../../../../../tedi/components/form/feedback-text/feedback-text.component";
+import { ButtonComponent, FeedbackTextComponent } from "tedi/components";
 
 @Component({
   selector: "tedi-modal-header",
   templateUrl: "./modal-header.component.html",
   styleUrl: "./modal-header.component.scss",
-  imports: [FeedbackTextComponent],
+  imports: [FeedbackTextComponent, ButtonComponent],
 })
 export class ModalHeaderComponent {
   title = input("Title");

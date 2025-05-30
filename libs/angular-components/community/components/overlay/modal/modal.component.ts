@@ -1,4 +1,4 @@
-import { Component, inject, Inject, model, Optional } from "@angular/core";
+import { Component, inject } from "@angular/core";
 import { DIALOG_DATA, DialogModule } from "@angular/cdk/dialog";
 import { ModalHeaderComponent } from "./header/modal-header.component";
 import { ModalFooterComponent } from "./footer/modal-footer.component";
@@ -10,5 +10,5 @@ import { ModalFooterComponent } from "./footer/modal-footer.component";
   imports: [DialogModule, ModalHeaderComponent, ModalFooterComponent],
 })
 export class ModalComponent {
-  readonly data = inject(DIALOG_DATA, { optional: true });
+  // readonly data = inject(DIALOG_DATA, { optional: true });
 }

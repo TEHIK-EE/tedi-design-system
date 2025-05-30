@@ -1,10 +1,16 @@
-@use '@angular/cdk' as cdk;
+@use "@angular/cdk" as cdk;
 @use "@tehik-ee/tedi-core/mixins";
 @include cdk.overlay();
 
 .tedi-modal {
-  background-color: grey;
-  @include mixins.responsive-styles(max-width,
-    _input-group-rounded);
+  --_modal-border: var(--borders-01) solid var(--modal-border);
+  --_modal-padding: var(--dimensions-13);
 
+  background-color: var(--modal-background);
+  border: var(--_modal-border);
+  padding: var(--_modal-padding);
+
+  // TODO: Make lg dynamic
+  @include mixins.responsive-styles(max-width, modal-max-width-lg);
+  @include mixins.responsive-styles(border-radius, modal-radius);
 }
