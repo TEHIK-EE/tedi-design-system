@@ -1,4 +1,4 @@
-<div class="tedi-modal">
+<div [class]="['tedi-modal', `tedi-modal--${this.maxWidth()}`]">
   <ng-content select="[header-slot]">
     <tedi-modal-header />
   </ng-content>

@@ -1,5 +1,5 @@
 <div class="tedi-modal-header">
-  <div class="tedi-modal-header--title">
+  <div class="tedi-modal-header__title">
     <ng-container slot="[header-title-slot]">
       <h1 tedi-text class="tedi-text--h3">
         {{ title() }}
@@ -13,10 +13,11 @@
     </ng-container>
   </div>
 
-  @if (description()) {
+  @if (feedback()) {
     <tedi-feedback-text
-      class="tedi-modal-header--description"
-      [text]="description()!"
+      [text]="feedback()!.text"
+      [type]="feedback()!.type"
+      [position]="feedback()!.position"
     />
   }
 </div>

@@ -8,15 +8,27 @@
 
   background-color: var(--modal-background);
   border: var(--_modal-border);
-  height: 100%;
-  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 
   @include mixins.responsive-styles(border-radius, modal-radius);
 
-  .tedi-modal__center {
+  &__center {
     padding: var(--_modal-padding);
+  }
+
+  @include breakpoints.media-breakpoint-up(lg) {
+    &--lg {
+      @include mixins.responsive-styles(max-width, modal-max-width-lg);
+    }
+
+    &--md {
+      @include mixins.responsive-styles(max-width, modal-max-width-md);
+    }
+
+    &--sm {
+      @include mixins.responsive-styles(max-width, modal-max-width-sm);
+    }
   }
 }

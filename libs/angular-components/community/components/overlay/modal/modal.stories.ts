@@ -2,7 +2,7 @@ import { Component, inject, input, model, OnInit } from "@angular/core";
 import { Meta, moduleMetadata, StoryObj } from "@storybook/angular";
 import { ButtonComponent, FeedbackTextComponent } from "tedi/components";
 import { Dialog, DIALOG_DATA } from "@angular/cdk/dialog";
-import { ModalComponent } from "./modal.component";
+import { ModalComponent, ModalSizes } from "./modal.component";
 import { SelectComponent } from "community/components/form/select/select.component";
 import { SelectOptionComponent } from "community/components/form/select/select-option.component";
 import { resetIndexId, indexId } from "community/utils/unique-id";
@@ -14,24 +14,18 @@ import {
   ModalFooterComponent,
   ModalIconPosition,
 } from "./footer/modal-footer.component";
-
-export enum ModalMaxWidth {
-  Small = 328,
-  Medium = 460,
-  Large = 616,
-}
+import { ComponentInputs } from "tedi/types";
 
 type StoryBookArgs = StorybookModalComponent & {
-  width: ModalMaxWidth;
-  height: number;
+  width: ModalSizes;
+  height: string;
   title?: string;
-  description?: string;
+  feedback?: ComponentInputs<FeedbackTextComponent>;
   buttons?: ModalFooterButton[];
   alignButtons?: string;
 };
 
-const defaultHeight = 340;
-const defaultWidth = ModalMaxWidth.Large;
+const defaultWidth: ModalSizes = "large";
 
 resetIndexId();
 @Component({
@@ -45,15 +39,14 @@ class ModalOpenComponent {
   args = input<StoryBookArgs>();
 
   width = input(defaultWidth);
-  height = input(defaultHeight);
   dialog = inject(Dialog);
 
   openDialog() {
     this.dialog.open(StorybookModalComponent, {
-      maxWidth: `${this.width()}px`,
-      minWidth: `${this.width()}px`,
-      maxHeight: `${this.height()}px`,
-      minHeight: `${this.height()}px`,
+      // maxWidth: this.width(),
+      // minWidth: this.width(),
+      // maxHeight: this.height(),
+      // minHeight: this.height(),
       data: this.args(),
     });
   }
@@ -62,7 +55,7 @@ class ModalOpenComponent {
 @Component({
   selector: "storybook-modal",
   template: `
-    <tedi-modal>
+    <tedi-modal [width]="args()?.width" [height]="args()?.height">
       <tedi-modal-header
         header-slot
         [title]="args()?.title"
@@ -146,38 +139,33 @@ const meta: Meta<StoryBookArgs> = {
   argTypes: {
     width: {
       control: {
-        type: "number",
+        type: "radio",
       },
+      options: ["small", "medium", "large", "large"],
       description: "Width of the modal container",
-    },
-    height: {
-      control: {
-        type: "number",
-      },
-      description: "Height of the modal container",
     },
     title: {
       control: "text",
       description: "Title of the modal",
     },
-    description: {
+    alignButtons: {
       control: "text",
+      description: "Alignment of the buttons in the footer",
+    },
+    feedback: {
+      control: "object",
       description: "Description of the modal",
     },
     buttons: {
       control: "object",
       description: "Buttons to display in the modal footer",
     },
-    alignButtons: {
-      control: "text",
-      description: "Alignment of the buttons in the footer",
-    },
   },
   args: {
-    width: ModalMaxWidth.Large,
-    height: defaultHeight,
+    width: "large",
     title: "Title",
-    description: "",
+    alignButtons: "flex-end",
+    feedback: undefined,
     buttons: [
       {
         label: "Cancel",
@@ -194,7 +182,6 @@ const meta: Meta<StoryBookArgs> = {
         action: () => {},
       },
     ],
-    alignButtons: "flex-end",
   },
 };
 
@@ -202,32 +189,20 @@ export default meta;
 
 type Story = StoryObj<StoryBookArgs>;
 
-const renderExampleModal = (
-  width: StoryBookArgs["width"],
-  height: StoryBookArgs["height"]
-) => `
-  <div style="width: ${width}px; height: ${height}px;">
-    <storybook-modal [args]="args" />
+const renderExampleModal = () => `<storybook-modal [args]="args" />`;
+
+const renderFull = () => `
+  <div style="display: flex; flex-direction: column; gap: 1rem;">
+    <storybook-open-modal [args]="args" />
+    ${renderExampleModal()}
   </div>
   `;
 
-const renderFull = (
-  width: StoryBookArgs["width"],
-  height: StoryBookArgs["height"]
-) => `
-    <div style="display: flex; flex-direction: column; gap: 1rem;">
-      <storybook-open-modal [width]="width" [height]="height" [args]="args" />
-      ${renderExampleModal(width, height)}
-    </div>
-    `;
-
 export const Default: Story = {
-  render: ({ width, height, ...args }) => {
+  render: (args) => {
     return {
-      props: { args, width, height },
-      template: `
-        ${renderFull(width, height)}
-      `,
+      props: { args },
+      template: renderFull(),
     };
   },
 };
@@ -248,10 +223,10 @@ export const leftAlignedButtons: Story = {
       },
     ],
   },
-  render: ({ width, height, ...args }) => {
+  render: (args) => {
     return {
-      props: { args, width, height },
-      template: renderFull(width, height),
+      props: { args },
+      template: renderFull(),
     };
   },
 };
@@ -281,12 +256,10 @@ export const threeButtons: Story = {
     ],
   },
 
-  render: ({ width, height, ...args }) => {
+  render: (args) => {
     return {
-      props: { args, width, height },
-      template: `
-        ${renderFull(width, height)}
-      `,
+      props: { args },
+      template: renderFull(),
     };
   },
 };

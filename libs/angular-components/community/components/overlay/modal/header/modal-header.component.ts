@@ -6,6 +6,7 @@ import {
   IconComponent,
   TextComponent,
 } from "tedi/components";
+import { ComponentInputs } from "tedi/types";
 
 @Component({
   selector: "tedi-modal-header",
@@ -20,7 +21,7 @@ import {
 })
 export class ModalHeaderComponent {
   title = input("Title");
-  description = input<string>();
+  feedback = input<ComponentInputs<FeedbackTextComponent>>();
 
   private dialogRef = inject(DialogRef, { optional: true });
 
