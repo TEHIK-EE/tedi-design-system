@@ -3,7 +3,7 @@ import { Meta, moduleMetadata, StoryObj } from "@storybook/angular";
 import { ButtonComponent } from "tedi/components";
 import { Dialog } from "@angular/cdk/dialog";
 import { ModalComponent } from "./modal.component";
-import { Select } from "community/components/form/input-group/input-group.stories";
+
 @Component({
   selector: "storybook-modal",
   template: `<button tedi-button (click)="openDialog()">Open modal</button> `,
