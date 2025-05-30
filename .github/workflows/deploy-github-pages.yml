@@ -1,33 +1,58 @@
-name: PR Preview Deployment
+name: Continuous Deployment
 
 on:
-  pull_request:
-    types: [opened, synchronize, reopened]
+  workflow_dispatch:
 
+  push:
+    branches:
+      - "**"
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: read
   pages: write
   id-token: write
+  actions: read
 
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
 concurrency:
-  group: "pr-${{ github.event.pull_request.number }}"
+  group: "pages"
   cancel-in-progress: true
 
 jobs:
-  build-and-deploy:
+  build_matrix:
     runs-on: ubuntu-latest
-    name: Build & Deploy PR Preview
+    outputs:
+      json_branches: ${{ steps.generate-matrix.outputs.json_branches }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Generate Matrix
+        id: generate-matrix
+        run: |
+          echo "$(.github/workflows/list-storybook-branches.sh)"
+          echo "json_branches=$(.github/workflows/list-storybook-branches.sh)" >> $GITHUB_OUTPUT
+
+  build:
+    runs-on: ubuntu-latest
+    name: Build
+    needs:
+      - build_matrix
+    strategy:
+      fail-fast: false
+      matrix:
+        branch: ${{ fromJSON(needs.build_matrix.outputs.json_branches) }}
+    continue-on-error: true
 
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: ${{ github.head_ref }}
-
+          ref: ${{ matrix.branch }}
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-
-      - name: Install & Build Storybooks
+      - name: Build
         run: |
           npm ci
           cd libs/angular-components
@@ -37,25 +62,64 @@ jobs:
           npm ci
           npm run build:sb
           cd ../..
-          mkdir -p compiled-storybook/angular compiled-storybook/react
+          mkdir compiled-storybook
           mv libs/angular-components/dist/storybook-static compiled-storybook/angular
           mv libs/react-components/dist/storybook/react-components compiled-storybook/react
-
-      - name: Prepare public folder
-        run: |
-          mkdir public
-          echo "<h1>Storybook for PR #${{ github.event.pull_request.number }}</h1>" > public/index.html
-          mv compiled-storybook/* public/
-
-      - name: Upload GitHub Pages artifact
-        uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
-          path: ./public/
+          name: ${{ strategy.job-index }}
+          path: compiled-storybook/
 
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
-
+  deploy:
+    runs-on: ubuntu-latest
+    name: Deploy
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+    needs:
+      - build_matrix
+      - build
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+      - uses: actions/download-artifact@v4
+        name: "Download artifacts"
+        with:
+          path: branches/
+      - name: Create public folder
+        shell: bash
+        run: |
+          ls -la branches
+          mkdir public
+          mv .github/workflows/index.html ./public/index.html
+          cd public
+          branches=$(echo '${{ needs.build_matrix.outputs.json_branches }}' | jq -r '.[]')
+          valid_branches=""
+          i=-1
+          for branch in ${branches};
+          do
+            echo "Processing branch: $branch"
+            i=$((i+1))
+            if [[ -d ../branches/$i ]]; then
+              echo "Branch $branch deemed legit, adding to valid branches"
+              valid_branches+="\"$branch\","
+              mkdir -p -- $branch
+              mv ../branches/$i/* ./$branch
+            else
+              echo "Excluding $branch because folder does not exist"
+            fi
+          done
+          valid_branches="[${valid_branches::-1}]"
+          echo "$valid_branches" >> index.html
+          cat ../.github/workflows/index_suffix.html >> index.html
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./public/
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
