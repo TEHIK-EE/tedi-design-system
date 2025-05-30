@@ -8,6 +8,11 @@
 
   background-color: var(--modal-background);
   border: var(--_modal-border);
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
   @include mixins.responsive-styles(border-radius, modal-radius);
 

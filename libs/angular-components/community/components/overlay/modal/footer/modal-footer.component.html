@@ -10,8 +10,22 @@
       tedi-button
       [size]="button.size || 'small'"
       [variant]="button.variant || 'secondary'"
+      [disabled]="button.disabled"
+      [ngStyle]="button.style"
+      (click)="button.action()"
     >
+      <tedi-icon
+        *ngIf="
+          button.icon &&
+          (button.iconPosition == iconPosition.Start || !button.iconPosition)
+        "
+        [name]="button.icon"
+      />
       {{ button.label }}
+      <tedi-icon
+        *ngIf="button.icon && button.iconPosition == iconPosition.End"
+        [name]="button.icon"
+      />
     </button>
   </ng-content>
 </div>

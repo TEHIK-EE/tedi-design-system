@@ -1,4 +1,4 @@
-import { Component, inject, input, OnInit } from "@angular/core";
+import { Component, inject, input, model, OnInit } from "@angular/core";
 import { Meta, moduleMetadata, StoryObj } from "@storybook/angular";
 import { ButtonComponent, FeedbackTextComponent } from "tedi/components";
 import { Dialog, DIALOG_DATA } from "@angular/cdk/dialog";
@@ -12,9 +12,10 @@ import { ModalHeaderComponent } from "./header/modal-header.component";
 import {
   ModalFooterButton,
   ModalFooterComponent,
+  ModalIconPosition,
 } from "./footer/modal-footer.component";
 
-enum ModalMaxWidth {
+export enum ModalMaxWidth {
   Small = 328,
   Medium = 460,
   Large = 616,
@@ -64,11 +65,11 @@ class ModalOpenComponent {
     <tedi-modal>
       <tedi-modal-header
         header-slot
-        [title]="dialogData?.title ?? args()?.title"
-        [description]="dialogData?.description ?? args()?.description"
+        [title]="args()?.title"
+        [description]="args()?.description"
       />
 
-      <label tedi-label [id]="selectOneId">Label</label>
+      <label tedi-label [for]="selectOneId">Label</label>
 
       <tedi-select [id]="selectOneId" state="default">
         <tedi-select-option
@@ -78,7 +79,7 @@ class ModalOpenComponent {
         />
       </tedi-select>
 
-      <label tedi-label [id]="selectTwoId">Label</label>
+      <label tedi-label [for]="selectTwoId">Label</label>
       <tedi-select [id]="selectTwoId" state="default">
         <tedi-select-option
           *ngFor="let option of options"
@@ -89,9 +90,9 @@ class ModalOpenComponent {
 
       <tedi-modal-footer
         footer-slot
-        *ngIf="dialogData?.buttons || args()?.buttons"
-        [buttons]="dialogData?.buttons ?? args()?.buttons"
-        [alignButtons]="dialogData?.alignButtons ?? args()?.alignButtons"
+        *ngIf="args()?.buttons?.length"
+        [buttons]="args()?.buttons"
+        [alignButtons]="args()?.alignButtons"
       />
     </tedi-modal>
   `,
@@ -115,14 +116,20 @@ class StorybookModalComponent implements OnInit {
     { value: "4", label: "Option 4" },
     { value: "5", label: "Option 5" },
   ];
+
+  readonly args = model<StoryBookArgs>();
+  readonly dialogData = inject<StoryBookArgs>(DIALOG_DATA, { optional: true });
+
   selectOneId?: string;
   selectTwoId?: string;
 
-  args = input<StoryBookArgs>();
-
-  dialogData = inject<StoryBookArgs>(DIALOG_DATA, { optional: true });
-
   ngOnInit(): void {
+    console.log("StorybookModalComponent initialized with args:", this.args());
+    console.log("Dialog data:", this.dialogData);
+    if (this.dialogData) {
+      this.args.set(this.dialogData);
+    }
+
     this.selectOneId = indexId("select-one");
     this.selectTwoId = indexId("select-two");
   }
@@ -157,12 +164,37 @@ const meta: Meta<StoryBookArgs> = {
       control: "text",
       description: "Description of the modal",
     },
+    buttons: {
+      control: "object",
+      description: "Buttons to display in the modal footer",
+    },
+    alignButtons: {
+      control: "text",
+      description: "Alignment of the buttons in the footer",
+    },
   },
   args: {
     width: ModalMaxWidth.Large,
     height: defaultHeight,
     title: "Title",
     description: "",
+    buttons: [
+      {
+        label: "Cancel",
+        variant: "secondary",
+        icon: "",
+        style: {},
+        action: () => {},
+      },
+      {
+        label: "Save",
+        variant: "primary",
+        icon: "",
+        style: {},
+        action: () => {},
+      },
+    ],
+    alignButtons: "flex-end",
   },
 };
 
@@ -170,43 +202,90 @@ export default meta;
 
 type Story = StoryObj<StoryBookArgs>;
 
-const renderModal = (
+const renderExampleModal = (
   width: StoryBookArgs["width"],
-  height: StoryBookArgs["height"],
-  argsName = "args"
+  height: StoryBookArgs["height"]
+) => `
+  <div style="width: ${width}px; height: ${height}px;">
+    <storybook-modal [args]="args" />
+  </div>
+  `;
+
+const renderFull = (
+  width: StoryBookArgs["width"],
+  height: StoryBookArgs["height"]
 ) => `
     <div style="display: flex; flex-direction: column; gap: 1rem;">
-      <storybook-open-modal [width]="width" [height]="height" [args]="${argsName}" />
-      <div style="width: ${width}px; height: ${height}px;">
-        <storybook-modal [args]="${argsName}" />
-      </div>
+      <storybook-open-modal [width]="width" [height]="height" [args]="args" />
+      ${renderExampleModal(width, height)}
     </div>
     `;
 
 export const Default: Story = {
   render: ({ width, height, ...args }) => {
-    const secondArgs = {
-      ...args,
-      alignButtons: "flex-start",
-      buttons: [
-        {
-          label: "Cancel",
-          variant: "secondary",
-          action: () => {},
-        },
-        {
-          label: "Approve",
-          variant: "primary",
-          action: () => {},
-        },
-      ],
-    };
-
     return {
-      props: { args, secondArgs, width, height },
+      props: { args, width, height },
       template: `
-        ${renderModal(width, height)}
-        ${renderModal(width, height, "secondArgs")}
+        ${renderFull(width, height)}
+      `,
+    };
+  },
+};
+
+export const leftAlignedButtons: Story = {
+  args: {
+    alignButtons: "space-between",
+    buttons: [
+      {
+        label: "Cancel",
+        variant: "secondary",
+        action: () => {},
+      },
+      {
+        label: "Approve",
+        variant: "primary",
+        action: () => {},
+      },
+    ],
+  },
+  render: ({ width, height, ...args }) => {
+    return {
+      props: { args, width, height },
+      template: renderFull(width, height),
+    };
+  },
+};
+
+export const threeButtons: Story = {
+  args: {
+    buttons: [
+      {
+        label: "Back",
+        variant: "neutral",
+        icon: "arrow_back",
+        style: { "margin-right": "auto" },
+        action: () => {},
+      },
+      {
+        label: "Cancel",
+        variant: "secondary",
+        action: () => {},
+      },
+      {
+        label: "Continue",
+        variant: "primary",
+        icon: "arrow_forward",
+        iconPosition: ModalIconPosition.End,
+        action: () => {},
+      },
+    ],
+  },
+
+  render: ({ width, height, ...args }) => {
+    return {
+      props: { args, width, height },
+      template: `
+        ${renderFull(width, height)}
       `,
     };
   },

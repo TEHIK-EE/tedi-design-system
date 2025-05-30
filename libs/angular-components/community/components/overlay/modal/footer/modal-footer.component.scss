@@ -4,7 +4,6 @@
   display: flex;
   gap: var(--button-gutter-x, 16px);
   border-top: var(--_modal-border);
-  justify-content: flex-end;
 
   @include mixins.responsive-styles(padding-left, modal-footer-padding-x);
   @include mixins.responsive-styles(padding-right, modal-footer-padding-x);
