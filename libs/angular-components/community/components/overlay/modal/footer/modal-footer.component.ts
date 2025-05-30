@@ -1,11 +1,13 @@
 import { NgFor, NgIf, NgStyle } from "@angular/common";
-import { Component, input } from "@angular/core";
+import { Component, inject, model, OnInit } from "@angular/core";
 import {
   ButtonComponent,
   ButtonSize,
   ButtonVariant,
   IconComponent,
 } from "tedi/components";
+import { DialogData } from "../modal.component";
+import { DIALOG_DATA } from "@angular/cdk/dialog";
 
 export interface ModalFooterButton {
   label: string;
@@ -43,8 +45,26 @@ const defaultButtons: ModalFooterButton[] = [
   styleUrl: "./modal-footer.component.scss",
   imports: [ButtonComponent, IconComponent, NgFor, NgIf, NgStyle],
 })
-export class ModalFooterComponent {
-  alignButtons = input<string>("flex-end");
-  buttons = input<ModalFooterButton[]>(defaultButtons);
+export class ModalFooterComponent implements OnInit {
+  alignButtons = model<string>("flex-end");
+  buttons = model<ModalFooterButton[]>(defaultButtons);
   iconPosition = ModalIconPosition;
+
+  readonly dialogData = inject(DIALOG_DATA, {
+    optional: true,
+  });
+
+  ngOnInit(): void {
+    const data: DialogData = this.dialogData;
+
+    if (!data) return;
+
+    const { buttons, alignButtons } = data;
+    if (buttons) {
+      this.buttons.set(buttons);
+    }
+    if (alignButtons) {
+      this.alignButtons.set(alignButtons);
+    }
+  }
 }

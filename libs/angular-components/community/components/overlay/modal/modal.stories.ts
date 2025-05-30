@@ -5,19 +5,19 @@ import {
   FeedbackTextComponent,
   LabelComponent,
 } from "tedi/components";
-import { Dialog, DIALOG_DATA } from "@angular/cdk/dialog";
+import { Dialog } from "@angular/cdk/dialog";
 import { ModalComponent, ModalSizes } from "./modal.component";
 import { SelectComponent } from "community/components/form/select/select.component";
 import { SelectOptionComponent } from "community/components/form/select/select-option.component";
 import { resetIndexId, indexId } from "community/utils/unique-id";
-import { NgFor, NgIf } from "@angular/common";
-import { ModalHeaderComponent } from "./header/modal-header.component";
+import { NgFor } from "@angular/common";
 import {
   ModalFooterButton,
   ModalFooterComponent,
   ModalIconPosition,
 } from "./footer/modal-footer.component";
 import { ComponentInputs } from "tedi/types";
+import { ModalHeaderComponent } from "./header/modal-header.component";
 
 type StoryBookArgs = StorybookModalComponent & {
   maxWidth: ModalSizes;
@@ -52,7 +52,11 @@ class ModalOpenComponent {
   selector: "storybook-modal",
   template: `
     <tedi-modal [maxWidth]="args()?.maxWidth">
-      <tedi-modal-header header-slot [feedback]="args()?.feedback" />
+      <tedi-modal-header
+        header-slot
+        [title]="args()?.title"
+        [feedback]="args()?.feedback"
+      />
 
       <label tedi-label [for]="selectOneId">Label</label>
 
@@ -75,7 +79,6 @@ class ModalOpenComponent {
 
       <tedi-modal-footer
         footer-slot
-        *ngIf="args()?.buttons?.length"
         [buttons]="args()?.buttons"
         [alignButtons]="args()?.alignButtons"
       />
@@ -90,7 +93,6 @@ class ModalOpenComponent {
     FeedbackTextComponent,
     LabelComponent,
     NgFor,
-    NgIf,
   ],
 })
 class StorybookModalComponent implements OnInit {
@@ -103,16 +105,11 @@ class StorybookModalComponent implements OnInit {
   ];
 
   readonly args = model<StoryBookArgs>();
-  readonly dialogData = inject<StoryBookArgs>(DIALOG_DATA, { optional: true });
 
   selectOneId?: string;
   selectTwoId?: string;
 
   ngOnInit(): void {
-    if (this.dialogData) {
-      this.args.set(this.dialogData);
-    }
-
     this.selectOneId = indexId("select-one");
     this.selectTwoId = indexId("select-two");
   }
@@ -124,6 +121,7 @@ class StorybookModalComponent implements OnInit {
  *
  * It is also possible to re-use **ModalFooterComponent** and **ModalHeaderComponent** in your own components
  * with custom arguments, or modified inside the modal component's slots.
+ * For convenience, you can supply args to all modal components via the `args` input in cdk dialog's open config.
  */
 const meta: Meta<StoryBookArgs> = {
   title: "Community Angular/Overlay/Modal",

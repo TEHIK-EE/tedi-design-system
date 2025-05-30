@@ -1,5 +1,5 @@
-import { DialogRef } from "@angular/cdk/dialog";
-import { Component, inject, input } from "@angular/core";
+import { DIALOG_DATA, DialogRef } from "@angular/cdk/dialog";
+import { Component, inject, model, OnInit } from "@angular/core";
 import {
   ButtonComponent,
   FeedbackTextComponent,
@@ -7,6 +7,7 @@ import {
   TextComponent,
 } from "tedi/components";
 import { ComponentInputs } from "tedi/types";
+import { DialogData } from "../modal.component";
 
 @Component({
   selector: "tedi-modal-header",
@@ -19,13 +20,33 @@ import { ComponentInputs } from "tedi/types";
     TextComponent,
   ],
 })
-export class ModalHeaderComponent {
-  title = input("Title");
-  feedback = input<ComponentInputs<FeedbackTextComponent>>();
+export class ModalHeaderComponent implements OnInit {
+  title = model("Title");
+  feedback = model<ComponentInputs<FeedbackTextComponent>>();
 
-  private dialogRef = inject(DialogRef, { optional: true });
+  private readonly dialogRef = inject(DialogRef, { optional: true });
+  readonly dialogData = inject(DIALOG_DATA, {
+    optional: true,
+  });
 
   public closeModal(): void {
     this.dialogRef?.close();
+  }
+
+  ngOnInit(): void {
+    const data: DialogData = this.dialogData;
+
+    if (!data) return;
+    const { title, feedback } = data;
+
+    if (title) {
+      this.title.set(title);
+    }
+
+    if (feedback) {
+      this.feedback.set({
+        ...feedback,
+      });
+    }
   }
 }

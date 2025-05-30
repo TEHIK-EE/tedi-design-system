@@ -3,15 +3,11 @@
 @include cdk.overlay();
 
 @mixin pane-max-width($size) {
-
   .cdk-overlay-pane:has(.tedi-modal--#{$size}),
   .tedi-modal--#{$size} {
+    width: 100%;
     @include mixins.responsive-styles(max-width, modal-max-width-#{$size});
   }
-}
-
-.cdk-overlay-pane {
-  width: 100%;
 }
 
 @include pane-max-width(lg);
