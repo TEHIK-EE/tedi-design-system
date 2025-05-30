@@ -9,8 +9,6 @@
   background-color: var(--modal-background);
   border: var(--_modal-border);
 
-  // TODO: Make lg dynamic
-  @include mixins.responsive-styles(max-width, modal-max-width-lg);
   @include mixins.responsive-styles(border-radius, modal-radius);
 
   .tedi-modal__center {

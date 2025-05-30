@@ -1,7 +1,14 @@
+@use "@tehik-ee/tedi-core/mixins";
+
 .tedi-modal-footer {
   display: flex;
   gap: var(--button-gutter-x, 16px);
-  padding: var(--modal-footer-padding-y, 16px)
-    var(--modal-footer-padding-x, 24px);
+  border-top: var(--_modal-border);
   justify-content: flex-end;
+
+  @include mixins.responsive-styles(padding-left, modal-footer-padding-x);
+  @include mixins.responsive-styles(padding-right, modal-footer-padding-x);
+
+  @include mixins.responsive-styles(padding-top, modal-footer-padding-y);
+  @include mixins.responsive-styles(padding-bottom, modal-footer-padding-y);
 }

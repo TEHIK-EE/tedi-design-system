@@ -1,4 +1,17 @@
-<div class="tedi-modal-footer">
-  <button tedi-button size="small" variant="secondary">Cancel</button>
-  <button tedi-button size="small">Save</button>
+<div
+  class="tedi-modal-footer"
+  [ngStyle]="{
+    'justify-content': alignButtons(),
+  }"
+>
+  <ng-content>
+    <button
+      *ngFor="let button of buttons()"
+      tedi-button
+      [size]="button.size || 'small'"
+      [variant]="button.variant || 'secondary'"
+    >
+      {{ button.label }}
+    </button>
+  </ng-content>
 </div>

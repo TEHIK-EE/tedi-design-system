@@ -4,13 +4,19 @@ import {
   ButtonComponent,
   FeedbackTextComponent,
   IconComponent,
+  TextComponent,
 } from "tedi/components";
 
 @Component({
   selector: "tedi-modal-header",
   templateUrl: "./modal-header.component.html",
   styleUrl: "./modal-header.component.scss",
-  imports: [FeedbackTextComponent, ButtonComponent, IconComponent],
+  imports: [
+    FeedbackTextComponent,
+    ButtonComponent,
+    IconComponent,
+    TextComponent,
+  ],
 })
 export class ModalHeaderComponent {
   title = input("Title");

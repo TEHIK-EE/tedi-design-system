@@ -1,9 +1,12 @@
 <div class="tedi-modal-header">
   <div class="tedi-modal-header--title">
-    <p>
-      {{ title() }}
-    </p>
-    <ng-container slot="[exit-button-icon]">
+    <ng-container slot="[header-title-slot]">
+      <h1 tedi-text class="tedi-text--h3">
+        {{ title() }}
+      </h1>
+    </ng-container>
+
+    <ng-container slot="[header-exit-button-slot]">
       <button tedi-button variant="neutral" (click)="closeModal()">
         <tedi-icon name="close" />
       </button>
