@@ -25,7 +25,7 @@ import {
 import { CardComponent, CardContentComponent } from "../../cards/card";
 import { IconComponent } from "@tehik-ee/tedi-angular/tedi";
 import { DropdownItemComponent } from "../../overlay/dropdown-item/dropdown-item.component";
-import { ClosingButtonComponent } from "../../buttons/closing-button/closing-button.component";
+import { ClosingButtonComponent } from "../../../../tedi/components/buttons/closing-button/closing-button.component";
 
 @Component({
   selector: "tedi-select",

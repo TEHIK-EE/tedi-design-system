@@ -15,7 +15,7 @@ import { IconComponent } from "@tehik-ee/tedi-angular/tedi";
  * A closing button component used for dismissing content or dialogs. It's typically displayed as an 'X' icon and can be used in various scenarios such as closing modals, popovers, or panels.
  */
 export default {
-  title: "Community Angular/Buttons/ClosingButton",
+  title: "TEDI-Ready Angular/Buttons/ClosingButton",
   component: ClosingButtonComponent,
   decorators: [
     moduleMetadata({
