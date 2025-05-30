@@ -1,0 +1,16 @@
+@use '@angular/cdk' as cdk;
+
+@include cdk.overlay();
+
+.tedi-modal {
+  background-color: grey;
+
+  @include mixins.responsive-styles(border-top-right-radius,
+    _input-group-rounded);
+  @include mixins.responsive-styles(border-bottom-right-radius,
+    _input-group-rounded);
+  @include mixins.responsive-styles(border-top-left-radius,
+    _input-group-rounded);
+  @include mixins.responsive-styles(border-bottom-left-radius,
+    _input-group-rounded);
+}
