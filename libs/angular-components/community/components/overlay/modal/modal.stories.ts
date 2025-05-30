@@ -17,15 +17,13 @@ import {
 import { ComponentInputs } from "tedi/types";
 
 type StoryBookArgs = StorybookModalComponent & {
-  width: ModalSizes;
+  maxWidth: ModalSizes;
   height: string;
   title?: string;
   feedback?: ComponentInputs<FeedbackTextComponent>;
   buttons?: ModalFooterButton[];
   alignButtons?: string;
 };
-
-const defaultWidth: ModalSizes = "large";
 
 resetIndexId();
 @Component({
@@ -37,16 +35,10 @@ resetIndexId();
 })
 class ModalOpenComponent {
   args = input<StoryBookArgs>();
-
-  width = input(defaultWidth);
   dialog = inject(Dialog);
 
   openDialog() {
     this.dialog.open(StorybookModalComponent, {
-      // maxWidth: this.width(),
-      // minWidth: this.width(),
-      // maxHeight: this.height(),
-      // minHeight: this.height(),
       data: this.args(),
     });
   }
@@ -117,8 +109,6 @@ class StorybookModalComponent implements OnInit {
   selectTwoId?: string;
 
   ngOnInit(): void {
-    console.log("StorybookModalComponent initialized with args:", this.args());
-    console.log("Dialog data:", this.dialogData);
     if (this.dialogData) {
       this.args.set(this.dialogData);
     }
@@ -137,12 +127,12 @@ const meta: Meta<StoryBookArgs> = {
     }),
   ],
   argTypes: {
-    width: {
+    maxWidth: {
       control: {
         type: "radio",
       },
-      options: ["small", "medium", "large", "large"],
-      description: "Width of the modal container",
+      options: [ModalSizes.Small, ModalSizes.Medium, ModalSizes.Large],
+      description: "Maximum Width of the modal container",
     },
     title: {
       control: "text",
@@ -162,7 +152,7 @@ const meta: Meta<StoryBookArgs> = {
     },
   },
   args: {
-    width: "large",
+    maxWidth: ModalSizes.Large,
     title: "Title",
     alignButtons: "flex-end",
     feedback: undefined,
@@ -189,12 +179,15 @@ export default meta;
 
 type Story = StoryObj<StoryBookArgs>;
 
-const renderExampleModal = () => `<storybook-modal [args]="args" />`;
+const renderExampleModal = () =>
+  `<storybook-modal style="display: inline-block;" [args]="args" />`;
 
 const renderFull = () => `
-  <div style="display: flex; flex-direction: column; gap: 1rem;">
+  <div style="display: flex; flex-direction: column; gap: 1.5rem;">
     <storybook-open-modal [args]="args" />
-    ${renderExampleModal()}
+    <div>
+      ${renderExampleModal()}
+    </div>
   </div>
   `;
 

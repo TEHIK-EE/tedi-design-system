@@ -1,5 +1,6 @@
 @use "@angular/cdk" as cdk;
 @use "@tehik-ee/tedi-core/mixins";
+@use "@tehik-ee/tedi-core/bootstrap-utility/breakpoints";
 @include cdk.overlay();
 
 .tedi-modal {

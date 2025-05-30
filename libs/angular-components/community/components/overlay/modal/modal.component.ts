@@ -3,7 +3,11 @@ import { DialogModule } from "@angular/cdk/dialog";
 import { ModalHeaderComponent } from "./header/modal-header.component";
 import { ModalFooterComponent } from "./footer/modal-footer.component";
 
-export type ModalSizes = "small" | "medium" | "large";
+export enum ModalSizes {
+  Large = "lg",
+  Medium = "md",
+  Small = "sm",
+}
 
 @Component({
   selector: "tedi-modal",
@@ -12,5 +16,5 @@ export type ModalSizes = "small" | "medium" | "large";
   imports: [DialogModule, ModalHeaderComponent, ModalFooterComponent],
 })
 export class ModalComponent {
-  readonly maxWidth = input<ModalSizes>("large");
+  readonly maxWidth = input(ModalSizes.Large);
 }
