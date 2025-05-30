@@ -115,6 +115,13 @@ class StorybookModalComponent implements OnInit {
   }
 }
 
+/**
+ * **ModalComponent** is a component that is optimized for use via @angular/cdk/dialog.
+ * It has 3 slots: header-slot, footer-slot and the default slot.
+ *
+ * It is also possible to re-use **ModalFooterComponent** and **ModalHeaderComponent** in your own components
+ * with custom arguments, or modified inside the modal component's slots.
+ */
 const meta: Meta<StoryBookArgs> = {
   title: "Community Angular/Overlay/Modal",
   component: ModalComponent,
@@ -149,7 +156,7 @@ const meta: Meta<StoryBookArgs> = {
     },
   },
   args: {
-    maxWidth: ModalSizes.Large,
+    maxWidth: ModalSizes.Small,
     title: "Title",
     alignButtons: "flex-end",
     feedback: {

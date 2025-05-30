@@ -2,7 +2,27 @@
 @use "@tehik-ee/tedi-core/mixins";
 @include cdk.overlay();
 
-.tedi-modal {
+:host.tedi-modal {
+  display: block;
+
+  &--lg {
+    @include mixins.responsive-styles(width, modal-max-width-lg);
+  }
+
+  &--md {
+    @include mixins.responsive-styles(width, modal-max-width-md);
+  }
+
+  &--sm {
+    @include mixins.responsive-styles(width, modal-max-width-sm);
+  }
+}
+
+.tedi-modal__center {
+  padding: var(--_modal-padding);
+}
+
+.tedi-modal__container {
   --_modal-border: var(--borders-01) solid var(--modal-border);
   --_modal-padding: var(--dimensions-13);
 
@@ -13,10 +33,6 @@
   justify-content: space-between;
 
   @include mixins.responsive-styles(border-radius, modal-radius);
-
-  &__center {
-    padding: var(--_modal-padding);
-  }
 
   &--lg {
     @include mixins.responsive-styles(max-width, modal-max-width-lg);
