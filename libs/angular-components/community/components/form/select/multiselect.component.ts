@@ -83,11 +83,25 @@ export class MultiselectComponent
    * @default "default"
    */
   size = input<InputSize>("default");
-
-  //new inputs for multiselect
+  /**
+   * Whether the select should be rendered as a multi-row dropdown.
+   * @default false
+   */
   multiRow = input<boolean>(false);
+  /**
+   * Whether the selected labels show removing buttons.
+   * @default false
+   */
   clearableTags = input<boolean>(false);
+  /**
+   * Whether the select should allow selecting all options at once.
+   * @default false
+   */
   selectAll = input<boolean>(false);
+  /**
+   * Whether the select should allow selecting groups of options.
+   * @default false
+   */
   selectableGroups = input<boolean>(false);
 
   // Internal state
@@ -124,11 +138,11 @@ export class MultiselectComponent
   }
 
   // Lifecycle hooks
-  ngOnInit() {
+  ngOnInit(): void {
     if (this.disabled()) this.setDisabledState(this.disabled());
   }
 
-  ngAfterContentChecked() {
+  ngAfterContentChecked(): void {
     this.setDropdownWidth();
   }
 
@@ -138,7 +152,7 @@ export class MultiselectComponent
   }
 
   // Event handlers
-  select(value: string) {
+  select(value: string): void {
     const currentValue = this._selectedValue() ?? [];
     const selectedValues = [...currentValue];
 
@@ -155,7 +169,7 @@ export class MultiselectComponent
     this.onTouched();
   }
 
-  unselect(value: string, event: Event) {
+  unselect(value: string, event: Event): void {
     if (event) {
       event.stopPropagation();
       event.preventDefault();
@@ -171,17 +185,17 @@ export class MultiselectComponent
     }
   }
 
-  clear() {
+  clear(): void {
     this._selectedValue.set(null);
     this.onChange(null);
     this.onTouched();
   }
 
-  touch() {
+  touch(): void {
     this.onTouched();
   }
 
-  private setDropdownWidth() {
+  private setDropdownWidth(): void {
     const computedWidth =
       this.selectRef?.nativeElement?.getBoundingClientRect()?.width ?? 0;
     this._width.set(computedWidth);
@@ -239,7 +253,7 @@ export class MultiselectComponent
   }
 
   // Get grouped options
-  getOptionGroups() {
+  getOptionGroups(): { name: string; options: SelectOptionComponent[] }[] {
     const groups = new Map<string, SelectOptionComponent[]>();
 
     // First pass: collect all groups
@@ -261,7 +275,7 @@ export class MultiselectComponent
   }
 
   // Get ungrouped options
-  getUngroupedOptions() {
+  getUngroupedOptions(): SelectOptionComponent[] {
     return this._options().filter((option) => !option.groupBy?.());
   }
 
