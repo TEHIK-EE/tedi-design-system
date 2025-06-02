@@ -13,7 +13,6 @@ import {
   TextComponent,
   VerticalSpacingDirective,
 } from "@tehik-ee/tedi-angular/tedi";
-import { createBreakpointArgTypes } from "utils/createBreakpointArgTypes";
 
 const PSEUDO_STATE = ["Button", "Hover", "Active", "Focus"];
 
@@ -62,7 +61,6 @@ export default {
         defaultValue: { summary: "Sulge" },
       },
     },
-    ...createBreakpointArgTypes("ClosingButton"),
   },
   parameters: {
     docs: {
