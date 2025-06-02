@@ -1,0 +1,92 @@
+@use "@tehik-ee/tedi-core/mixins";
+
+.tedi-input {
+  border-width: var(--borders-01);
+  border-style: solid;
+  border-color: var(--_input-border-color);
+  background: var(--form-input-background-default);
+  color: var(--form-input-text-filled);
+  font-style: normal;
+
+  @include mixins.responsive-styles(
+    line-height,
+    body-regular-line-height,
+    $exclude: tablet
+  );
+  @include mixins.responsive-styles(
+    font-weight,
+    body-regular-weight,
+    $exclude: tablet
+  );
+  @include mixins.responsive-styles(
+    font-size,
+    body-regular-size,
+    $exclude: tablet
+  );
+  @include mixins.responsive-styles(
+    font-family,
+    family-primary,
+    $exclude: tablet
+  );
+  @include mixins.responsive-styles(border-radius, form-field-radius);
+
+  &--size {
+    &-default {
+      @include mixins.responsive-styles(height, form-field-height);
+      @include mixins.responsive-styles(
+        padding,
+        form-field-padding-y-md-default form-field-padding-x-md-default
+      );
+    }
+
+    &-small {
+      @include mixins.responsive-styles(height, form-field-height-sm);
+      @include mixins.responsive-styles(
+        padding,
+        form-field-padding-y-sm form-field-padding-x-sm
+      );
+    }
+  }
+
+  &--state {
+    &-default {
+      --_input-border-color: var(--form-input-border-default);
+
+      &:hover {
+        --_input-border-color: var(--form-input-border-hover);
+      }
+
+      &:active {
+        --_input-border-color: var(--form-input-border-active);
+      }
+
+      &:focus {
+        --_input-border-color: var(--form-input-border-focus);
+      }
+    }
+
+    &-valid {
+      --_input-border-color: var(--form-general-feedback-success-border);
+    }
+
+    &-error {
+      --_input-border-color: var(--form-general-feedback-error-border);
+    }
+  }
+
+  &:not(:disabled):active,
+  &:not(:disabled):focus {
+    outline: var(--borders-01) solid var(--_input-border-color);
+    outline-offset: 0;
+  }
+
+  &::placeholder {
+    color: var(--form-input-text-placeholder);
+  }
+
+  &:disabled {
+    border-color: var(--form-input-border-disabled);
+    background: var(--form-input-background-disabled);
+    color: var(--form-input-text-disabled);
+  }
+}
