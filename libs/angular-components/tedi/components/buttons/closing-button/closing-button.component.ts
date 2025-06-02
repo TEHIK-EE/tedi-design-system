@@ -38,7 +38,7 @@ export type ClosingButton = {
   title: string;
 };
 @Component({
-  selector: "[tedi-closing-button]",
+  selector: "button[tedi-closing-button]",
   imports: [IconComponent],
   standalone: true,
   encapsulation: ViewEncapsulation.None,
@@ -46,7 +46,6 @@ export type ClosingButton = {
   templateUrl: "./closing-button.component.html",
   styleUrl: "./closing-button.component.scss",
   host: {
-    type: "button",
     "[title]": "this.breakpointInputs().title",
     "[attr.aria-label]": "this.breakpointInputs().title",
     "[class.tedi-closing-button]": "true",

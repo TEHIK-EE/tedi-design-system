@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
 import { ClosingButtonComponent } from "./closing-button.component";
+import { screen } from "@testing-library/angular";
 
 describe("ClosingButtonComponent", () => {
   let fixture: ComponentFixture<ClosingButtonComponent>;
@@ -19,11 +20,9 @@ describe("ClosingButtonComponent", () => {
 
   it("should create the component", () => {
     expect(component).toBeTruthy();
-  });
-
-  it("should have default size as 'medium'", () => {
-    expect(component.size()).toBe("medium");
-    expect(buttonElement.classList).toContain("tedi-closing-button--small");
+    expect(component.size()).toBe("default");
+    expect(buttonElement.classList).toContain("tedi-closing-button");
+    expect(buttonElement.classList).not.toContain("tedi-closing-button--small");
   });
 
   it("should have default title as 'Sulge'", () => {
@@ -33,10 +32,10 @@ describe("ClosingButtonComponent", () => {
   });
 
   it("should update size when input changes", () => {
-    fixture.componentRef.setInput("size", "large");
+    fixture.componentRef.setInput("size", "small");
     fixture.detectChanges();
 
-    expect(buttonElement.classList).not.toContain("tedi-closing-button--small");
+    expect(buttonElement.classList).toContain("tedi-closing-button--small");
   });
 
   it("should update title when input changes", () => {
@@ -45,9 +44,5 @@ describe("ClosingButtonComponent", () => {
 
     expect(buttonElement.getAttribute("title")).toBe("Close");
     expect(buttonElement.getAttribute("aria-label")).toBe("Close");
-  });
-
-  it("should apply the correct host classes", () => {
-    expect(buttonElement.classList).toContain("tedi-closing-button");
   });
 });
