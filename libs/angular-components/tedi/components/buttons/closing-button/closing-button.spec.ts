@@ -1,6 +1,5 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
 import { ClosingButtonComponent } from "./closing-button.component";
-import { screen } from "@testing-library/angular";
 
 describe("ClosingButtonComponent", () => {
   let fixture: ComponentFixture<ClosingButtonComponent>;
