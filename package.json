@@ -19,15 +19,15 @@
     "node": ">=18.0.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "^19.8.0",
-    "@commitlint/config-conventional": "^19.8.0",
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/commit-analyzer": "^13.0.0",
     "@semantic-release/git": "^10.0.1",
     "@semantic-release/npm": "^12.0.1",
     "husky": "^9.0.11",
-    "lint-staged": "^15.5.1",
-    "semantic-release": "^24.2.3",
+    "lint-staged": "^16.1.0",
+    "semantic-release": "^24.2.5",
     "semantic-release-monorepo": "^8.0.2",
     "typescript": "5.8.3"
   },
