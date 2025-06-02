@@ -20,8 +20,18 @@ describe("ClosingButtonComponent", () => {
   it("should create the component", () => {
     expect(component).toBeTruthy();
     expect(component.size()).toBe("default");
+    expect(component.iconSize()).toBe(24);
     expect(buttonElement.classList).toContain("tedi-closing-button");
     expect(buttonElement.classList).not.toContain("tedi-closing-button--small");
+  });
+
+  it("should render small icon with 18px ", () => {
+    fixture.componentRef.setInput("iconSize", 18);
+    fixture.detectChanges();
+
+    const icon = fixture.nativeElement.querySelector(".tedi-icon");
+
+    expect(icon.classList).toContain("tedi-icon--size-18");
   });
 
   it("should have default title as 'Sulge'", () => {
