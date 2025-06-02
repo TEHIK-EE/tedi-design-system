@@ -25,7 +25,7 @@ import {
 import { CardComponent, CardContentComponent } from "../../cards/card";
 import { IconComponent } from "@tehik-ee/tedi-angular/tedi";
 import { DropdownItemComponent } from "../../overlay/dropdown-item/dropdown-item.component";
-import { ClosingButtonComponent } from "../../../../tedi/components/buttons/closing-button/closing-button.component";
+import { ClosingButtonComponent } from "@tehik-ee/tedi-angular/tedi";
 
 @Component({
   selector: "tedi-select",
@@ -56,7 +56,8 @@ import { ClosingButtonComponent } from "../../../../tedi/components/buttons/clos
   },
 })
 export class SelectComponent
-  implements ControlValueAccessor, OnInit, AfterContentChecked {
+  implements ControlValueAccessor, OnInit, AfterContentChecked
+{
   /**
    * The placeholder text to display when no option is selected.
    * @default ""
