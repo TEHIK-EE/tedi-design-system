@@ -13,7 +13,7 @@ import { SideNav } from './sidenav';
 
 const meta: Meta<typeof SideNav> = {
   component: SideNav,
-  title: 'TEDI-Ready/Components/Layout/SideNav',
+  title: 'TEDI-Ready/Layout/SideNav',
   subcomponents: {
     'SideNav.Item': SideNav.Item,
     'SideNav.Toggle': SideNav.Toggle,
@@ -376,5 +376,24 @@ export const DefaultOpen: Story = {
     navItems: exampleDefaultOpen,
     ariaLabel: 'Default open menu',
     isMobileOpen: true,
+  },
+};
+
+export const MediumSideNavItems: Story = {
+  render: Template,
+  args: {
+    navItems: exampleThirdLevelMenuItems,
+    ariaLabel: 'Default open menu',
+    sideNavItemSize: 'medium',
+  },
+};
+
+export const SmallSideNavItems: Story = {
+  render: Template,
+  args: {
+    navItems: exampleThirdLevelMenuItems,
+    ariaLabel: 'Default open menu',
+    sideNavItemSize: 'small',
+    showDividers: false,
   },
 };
