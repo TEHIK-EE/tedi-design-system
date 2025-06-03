@@ -142,6 +142,7 @@
   flex-direction: row;
   background-color: var(--side-navigation-item-background-default);
   transition: all 0.3s ease;
+}
 
   &:focus-visible {
     border-color: var(--side-navigation-item-border);
@@ -330,6 +331,13 @@ button.tedi-sidenav__link.tedi-sidenav__back-button {
     outline: var(--borders-02) solid var(--primary-500);
     outline-offset: 1px;
   }
+}
+
+.tedi-sidenav__item .tedi-sidenav__item .tedi-sidenav__link .tedi-sidenav__title:first-child {
+  margin-left: calc((var(--dimensions) / 3) + var(--padding-left));
+
+  @include mixins.responsive-styles(--padding-left, side-navigation-item-padding-left-level-2);
+  @include mixins.responsive-styles(--dimensions, side-navigation-item-min-height);
 }
 
 .tedi-sidenav__item .tedi-sidenav__item .tedi-sidenav__link .tedi-sidenav__title:first-child {
