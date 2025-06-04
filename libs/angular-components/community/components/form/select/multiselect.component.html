@@ -3,7 +3,7 @@
     {{ label() }}
   </label>
 }
-<div
+<button
   tedi-input
   [id]="inputId()"
   [state]="state()"
@@ -12,7 +12,6 @@
   (click)="touch()"
   class="tedi-select__trigger"
   [class.tedi-input--disabled]="disabled()"
-  role="combobox"
 >
   <span
     class="tedi-select__label"
@@ -45,7 +44,7 @@
     ></div>
   }
   <tedi-icon class="tedi-select__arrow" name="arrow_drop_down" />
-</div>
+</button>
 @if (feedbackText(); as feedback) {
   <tedi-feedback-text
     [text]="feedback.text"
