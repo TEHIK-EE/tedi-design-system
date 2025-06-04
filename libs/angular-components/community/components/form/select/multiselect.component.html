@@ -3,16 +3,16 @@
     {{ label() }}
   </label>
 }
-<button
-  [id]="inputId()"
+<div
   tedi-input
-  type="button"
+  [id]="inputId()"
   [state]="state()"
   [size]="size()"
   [cdkMenuTriggerFor]="selectDropdown"
-  [disabled]="_disabled()"
   (click)="touch()"
   class="tedi-select__trigger"
+  [class.tedi-input--disabled]="disabled()"
+  role="combobox"
 >
   <span
     class="tedi-select__label"
@@ -48,7 +48,7 @@
     ></div>
   }
   <tedi-icon class="tedi-select__arrow" name="arrow_drop_down" />
-</button>
+</div>
 @if (feedbackText(); as feedback) {
   <tedi-feedback-text
     [text]="feedback.text"
@@ -63,6 +63,7 @@
     class="tedi-select__dropdown"
     spacing="none"
     [style.width.px]="_width()"
+    [attr.aria-multiselectable]="true"
   >
     <tedi-card-content class="tedi-select__dropdown-content">
       @if (selectAll()) {
