@@ -155,18 +155,17 @@ export class MultiselectComponent
 
   // Event handlers
   select(value: string): void {
-    const currentValue = this._selectedValue() ?? [];
-    const selectedValues = [...currentValue];
+    this._selectedValue.update((currentValues) => {
+      if (currentValues?.includes(value)) {
+        const filteredValues = currentValues.filter(
+          (currentValue) => currentValue !== value,
+        );
+        return filteredValues.length ? filteredValues : null;
+      } else {
+        return [...(currentValues ?? []), value];
+      }
+    });
 
-    // Toggle selection
-    const index = selectedValues.indexOf(value);
-    if (index === -1) {
-      selectedValues.push(value);
-    } else {
-      selectedValues.splice(index, 1);
-    }
-
-    this._selectedValue.set(selectedValues.length ? selectedValues : null);
     this.onChange(this._selectedValue());
     this.onTouched();
   }
