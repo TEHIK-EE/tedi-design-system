@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-react-v12.0.1](https://github.com/TEHIK-EE/tedi-design-system/compare/react-12.0.0...react-12.0.1) (2025-06-02)
+
+
+### Bug Fixes
+
+* **text-field:** fix small textfield [#844](https://github.com/TEHIK-EE/tedi-design-system/issues/844) ([#846](https://github.com/TEHIK-EE/tedi-design-system/issues/846)) ([5cfed4e](https://github.com/TEHIK-EE/tedi-design-system/commit/5cfed4e145ac88ee7b93c09ec4419de6f4cb2f49))
+
 # [@tehik-ee/tedi-react-v12.0.0](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.3.3...react-12.0.0) (2025-05-29)
 
 ### Bug Fixes
