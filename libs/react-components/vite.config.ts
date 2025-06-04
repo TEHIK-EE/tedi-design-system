@@ -8,6 +8,8 @@ import { viteStaticCopy } from 'vite-plugin-static-copy';
 
 import packageJson from './package.json' assert { type: 'json' };
 
+const externalDependencies = [...Object.keys(packageJson.peerDependencies), 'react/jsx-runtime', 'dayjs'];
+
 const config: UserConfig = {
   define: {
     'process.env.JEST_WORKER_ID': JSON.stringify(process.env.JEST_WORKER_ID),
@@ -73,9 +75,7 @@ const config: UserConfig = {
       fileName: (format, entryName) => `${entryName.replace(/node_modules\//g, 'external/')}.${format}.js`,
     },
     rollupOptions: {
-      external: (id) =>
-        Object.keys(packageJson.peerDependencies).some((pkg) => id === pkg || id.startsWith(`${pkg}/`)) ||
-        id === 'react/jsx-runtime',
+      external: (id) => externalDependencies.some((pkg) => id === pkg || id.startsWith(`${pkg}/`)),
       output: {
         preserveModules: true,
         dir: resolve(__dirname, 'dist'),
