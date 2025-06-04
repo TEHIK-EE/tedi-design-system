@@ -22,7 +22,13 @@ import {
   InputState,
 } from "../input/input.component";
 import { CardComponent, CardContentComponent } from "../../cards/card";
-import { IconComponent, TextComponent } from "@tehik-ee/tedi-angular/tedi";
+import {
+  ComponentInputs,
+  FeedbackTextComponent,
+  IconComponent,
+  LabelComponent,
+  TextComponent,
+} from "@tehik-ee/tedi-angular/tedi";
 import { DropdownItemComponent } from "../../overlay/dropdown-item/dropdown-item.component";
 import { ClosingButtonComponent } from "../../buttons/closing-button/closing-button.component";
 import { CheckboxComponent } from "../checkbox";
@@ -45,6 +51,8 @@ import { TediTranslationPipe } from "../../../../tedi/services/translation/trans
     TagComponent,
     TextComponent,
     TediTranslationPipe,
+    LabelComponent,
+    FeedbackTextComponent,
   ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -66,10 +74,24 @@ export class MultiselectComponent
   implements ControlValueAccessor, OnInit, AfterContentChecked
 {
   /**
+   * The unique identifier for the input element.
+   * This ID should be unique within the document.
+   */
+  inputId = input.required<string>();
+  /**
    * The placeholder text to display when no option is selected.
    * @default ""
    */
   placeholder = input<string>("");
+  /**
+   * The placeholder text to display when no option is selected.
+   */
+  label = input<string>();
+  /**
+   * Indicates whether the input field is required. If set to true, the required indicator will be displayed next to the label.
+   * @default false
+   */
+  required = input<boolean>(false);
   /**
    * Is the select disabled?
    * @default false
@@ -105,6 +127,10 @@ export class MultiselectComponent
    * @default false
    */
   selectableGroups = input<boolean>(false);
+  /**
+   * FeedbackText component inputs.
+   */
+  feedbackText = input<ComponentInputs<FeedbackTextComponent>>();
 
   // Internal state
   _selectedValue = signal<string[] | null>(null);
@@ -119,7 +145,7 @@ export class MultiselectComponent
   private onTouched: () => void = () => {};
 
   writeValue(value: string[] | null): void {
-    if (value === null || value === undefined || !Array.isArray(value)) {
+    if (!Array.isArray(value)) {
       this._selectedValue.set(null);
       return;
     }

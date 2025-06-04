@@ -1,4 +1,10 @@
+@if (label()) {
+  <label tedi-label [for]="inputId()" [required]="required()" [size]="size()">
+    {{ label() }}
+  </label>
+}
 <button
+  [id]="inputId()"
   tedi-input
   type="button"
   [state]="state()"
@@ -43,6 +49,13 @@
   }
   <tedi-icon class="tedi-select__arrow" name="arrow_drop_down" />
 </button>
+@if (feedbackText(); as feedback) {
+  <tedi-feedback-text
+    [text]="feedback.text"
+    [type]="feedback.type"
+    [position]="feedback.position"
+  />
+}
 
 <ng-template #selectDropdown>
   <tedi-card

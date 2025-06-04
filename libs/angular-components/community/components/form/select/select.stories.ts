@@ -207,7 +207,13 @@ export const ManyOptions: Story = {
 export const Multiselect: Story = {
   render: () => ({
     template: `
-        <tedi-multiselect placeholder="Select multiple options...">
+        <tedi-multiselect
+          inputId="multiselect-1"
+          placeholder="Select multiple options..."
+          label="Custom label"
+          [required]="true"
+          [feedbackText]="{type: hint, text: 'Custom hint for using the multiselect'}"
+        >
           <tedi-select-option value="option1" label="Option 1" />
           <tedi-select-option value="option2" label="Option 2" />
           <tedi-select-option value="option3" label="Option 3" />
@@ -221,7 +227,13 @@ export const Multiselect: Story = {
 export const MultiselectWithCustomOptions: Story = {
   render: () => ({
     template: `
-        <tedi-multiselect>
+        <tedi-multiselect
+          inputId="multiselect-2"
+          placeholder="Select multiple options..."
+          label="Custom label"
+          [required]="true"
+          [feedbackText]="{type: hint, text: 'Custom hint for using the multiselect'}"
+        >
           <tedi-select-option value="option1" label="Home">
             <tedi-icon name="home" /> Home
           </tedi-select-option>
@@ -252,7 +264,14 @@ export const MultiselectWithCustomOptions: Story = {
 export const MultiselectSelectAll: Story = {
   render: (args) => ({
     template: `
-      <tedi-multiselect [selectAll]="true">
+      <tedi-multiselect
+        inputId="multiselect-3"
+        [selectAll]="true"
+        placeholder="Select multiple options..."
+        label="Custom label"
+        [required]="true"
+        [feedbackText]="{type: hint, text: 'Custom hint for using the multiselect'}"
+      >
         <tedi-select-option value="option1" label="Option 1" />
         <tedi-select-option value="option2" label="Option 2" />
         <tedi-select-option value="option3" label="Option 3" />
@@ -269,7 +288,13 @@ export const MultiselectSelectAll: Story = {
 export const MultiselectGroupedOptions: Story = {
   render: () => ({
     template: `
-      <tedi-multiselect>
+      <tedi-multiselect
+        inputId="multiselect-4"
+        placeholder="Select multiple options..."
+        label="Custom label"
+        [required]="true"
+        [feedbackText]="{type: hint, text: 'Custom hint for using the multiselect'}"
+      >
         <tedi-select-option value="option1" label="Option 1" groupBy="Grupp 1"/>
         <tedi-select-option value="option2" label="Option 2" groupBy="Grupp 1"/>
         <tedi-select-option value="option3" label="Option 3" groupBy="Grupp 1"/>
@@ -283,7 +308,14 @@ export const MultiselectGroupedOptions: Story = {
 export const MultiselectSelectableGroups: Story = {
   render: (args) => ({
     template: `
-      <tedi-multiselect [selectableGroups]="true">
+      <tedi-multiselect
+        inputId="multiselect-5"
+        [selectableGroups]="true"
+        placeholder="Select multiple options..."
+        label="Custom label"
+        [required]="true"
+        [feedbackText]="{type: hint, text: 'Custom hint for using the multiselect'}"
+      >
         <tedi-select-option value="option1" label="Option 1" groupBy="Grupp 1"/>
         <tedi-select-option value="option2" label="Option 2" groupBy="Grupp 1"/>
         <tedi-select-option value="option3" label="Option 3" groupBy="Grupp 1"/>
@@ -300,7 +332,15 @@ export const MultiselectSelectableGroups: Story = {
 export const MultiselectTagsMultirow: Story = {
   render: (args) => ({
     template: `
-      <tedi-multiselect [selectableGroups]="true" [multiRow]="true">
+      <tedi-multiselect
+        inputId="multiselect-6"
+        placeholder="Select multiple options..."
+        label="Custom label"
+        [required]="true"
+        [feedbackText]="{type: hint, text: 'Custom hint for using the multiselect'}"
+        [selectableGroups]="true"
+        [multiRow]="true"
+      >
         <tedi-select-option value="option1" label="Option 1" groupBy="Grupp 1"/>
         <tedi-select-option value="option2" label="Option 2" groupBy="Grupp 1"/>
         <tedi-select-option value="option3" label="Option 3" groupBy="Grupp 1"/>
