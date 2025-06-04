@@ -1,10 +1,12 @@
 import {
   ChangeDetectionStrategy,
   Component,
+  inject,
   input,
   ViewEncapsulation,
 } from "@angular/core";
 import { IconComponent } from "../../base/icon/icon.component";
+import { TediTranslationService } from "../../../services/translation/translation.service";
 
 export type ClosingButtonSize = "default" | "small";
 export type ClosingButtonIconSize = 18 | 24;
@@ -17,8 +19,8 @@ export type ClosingButtonIconSize = 18 | 24;
   templateUrl: "./closing-button.component.html",
   styleUrl: "./closing-button.component.scss",
   host: {
-    "[title]": "title()",
-    "[attr.aria-label]": "title()",
+    "[title]": "title",
+    "[attr.aria-label]": "title",
     "[class.tedi-closing-button]": "true",
     "[class.tedi-closing-button--small]": "size() === 'small'",
   },
@@ -38,11 +40,7 @@ export class ClosingButtonComponent {
    * @default 24
    */
   iconSize = input<ClosingButtonIconSize>(24);
-  /**
-   * The title for the button.
-   * Used for accessibility and inside browsers default tooltip.
-   * If not provided, the 'Sulge' label will be used as a fallback.
-   * @default Sulge
-   */
-  title = input<string>("Sulge");
+
+  private translationService = inject(TediTranslationService);
+  title = this.translationService.translate("close");
 }

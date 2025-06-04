@@ -34,12 +34,6 @@ describe("ClosingButtonComponent", () => {
     expect(icon.classList).toContain("tedi-icon--size-18");
   });
 
-  it("should have default title as 'Sulge'", () => {
-    expect(component.title()).toBe("Sulge");
-    expect(buttonElement.getAttribute("title")).toBe("Sulge");
-    expect(buttonElement.getAttribute("aria-label")).toBe("Sulge");
-  });
-
   it("should update size when input changes", () => {
     fixture.componentRef.setInput("size", "small");
     fixture.detectChanges();
@@ -47,11 +41,8 @@ describe("ClosingButtonComponent", () => {
     expect(buttonElement.classList).toContain("tedi-closing-button--small");
   });
 
-  it("should update title when input changes", () => {
-    fixture.componentRef.setInput("title", "Close");
-    fixture.detectChanges();
-
-    expect(buttonElement.getAttribute("title")).toBe("Close");
-    expect(buttonElement.getAttribute("aria-label")).toBe("Close");
+  it("should have default title and aria-label as 'Sulge'", () => {
+    expect(buttonElement.getAttribute("title")).toBe("Sulge");
+    expect(buttonElement.getAttribute("aria-label")).toBe("Sulge");
   });
 });

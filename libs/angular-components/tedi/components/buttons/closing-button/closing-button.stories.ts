@@ -53,14 +53,6 @@ export default {
         defaultValue: { summary: "24" },
       },
     },
-    title: {
-      control: "text",
-      description:
-        "The title for the button. Used for accessibility and inside browsers default tooltip on hover.",
-      table: {
-        defaultValue: { summary: "Sulge" },
-      },
-    },
   },
   parameters: {
     docs: {
@@ -80,7 +72,6 @@ type Story = StoryObj<ClosingButtonComponent>;
 export const Default: Story = {
   args: {
     size: "default",
-    title: "Sulge",
   },
   render: (args) => ({
     props: args,
@@ -93,7 +84,6 @@ export const Default: Story = {
 export const Size: Story = {
   args: {
     size: "default",
-    title: "Sulge",
   },
   render: (args) => ({
     props: args,
@@ -123,7 +113,6 @@ export const Size: Story = {
 export const IconSize: Story = {
   args: {
     size: "default",
-    title: "Sulge",
   },
   render: (args) => ({
     props: args,
