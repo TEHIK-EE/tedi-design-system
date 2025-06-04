@@ -1,0 +1,234 @@
+import { argsToTemplate, Meta, StoryObj } from "@storybook/angular";
+
+import {
+  StatusBadgeColor,
+  StatusBadgeComponent,
+  StatusBadgeSize,
+  StatusBadgeStatus,
+  StatusBadgeVariant,
+} from "./status-badge.component";
+import { ComponentInputs } from "tedi/types";
+
+const colors: StatusBadgeColor[] = [
+  "neutral",
+  "brand",
+  "accent",
+  "success",
+  "danger",
+  "warning",
+];
+const variants: StatusBadgeVariant[] = [
+  "filled",
+  "filled-bordered",
+  "bordered",
+];
+const statuses: StatusBadgeStatus[] = [
+  "inactive",
+  "success",
+  "warning",
+  "danger",
+];
+const colorToIconMap: Record<StatusBadgeColor, string> = {
+  neutral: "edit",
+  brand: "send",
+  accent: "sync",
+  success: "check_circle",
+  danger: "error",
+  warning: "warning",
+  transparent: "edit",
+};
+const statusToIconMap: Record<StatusBadgeStatus, string> = {
+  inactive: "edit",
+  success: "send",
+  warning: "sync",
+  danger: "error",
+};
+
+/**
+ * <a href="https://www.figma.com/file/jWiRIXhHRxwVdMSimKX2FF/TEDI-Design-System-(draft)?type=design&node-id=2385-24154&m=dev" target="_BLANK">Figma ↗</a><br/>
+ * <a href="https://tedi.tehik.ee/1ee8444b7/p/764a67-status-badge" target="_BLANK">ZeroHeight ↗</a>
+ */
+
+const meta: Meta<StatusBadgeComponent> = {
+  component: StatusBadgeComponent,
+  // decorators: [
+  //   moduleMetadata({
+  //     imports: [StatusBadgeComponent],
+  //   }),
+  // ],
+
+  title: "Community Angular/Tags/StatusBadge",
+  args: {
+    className: "",
+    title: "",
+    id: "",
+    role: "",
+    color: "neutral",
+    variant: "filled",
+    size: "default",
+    status: "inactive",
+    icon: "",
+  },
+  argTypes: {
+    className: {
+      control: "text",
+      description:
+        "Additional classes to apply custom styles to the StatusBadge.",
+    },
+    title: {
+      control: "text",
+      description:
+        "Provides the full text or description when the Badge represents an abbreviation. This is typically shown as a tooltip on hover.",
+    },
+    id: {
+      control: "text",
+      description: "ID attribute",
+    },
+    role: {
+      control: "text",
+      description: "ARIA role attribute for accessibility.",
+    },
+    color: {
+      control: "radio",
+      options: colors,
+      description: "Specifies the color scheme of the StatusBadge.",
+    },
+    variant: {
+      control: "radio",
+      options: variants,
+      description: "Determines the style or visual type of the StatusBadge.",
+    },
+    size: {
+      control: "radio",
+      options: ["default", "large"] as StatusBadgeSize[],
+      description: "Specifies the size of the StatusBadge.",
+    },
+    status: {
+      control: "radio",
+      options: statuses,
+      description: "StatusBadge status indicator",
+    },
+  },
+  parameters: {
+    design: {
+      type: "figma",
+      url: "https://www.figma.com/file/jWiRIXhHRxwVdMSimKX2FF/TEDI-Design-System-(draft)?type=design&node-id=2385-24154&m=dev",
+    },
+  },
+};
+
+export default meta;
+
+type Story = StoryObj<StatusBadgeComponent>;
+
+const defaultTemplate = (args: ComponentInputs<StatusBadgeComponent>) =>
+  `<tedi-status-badge ${argsToTemplate(args)}>Text</tedi-status-badge>`;
+
+export const Default: Story = {
+  render: (args) => ({ template: defaultTemplate(args) }),
+  args: {
+    color: "neutral",
+    variant: "filled",
+  },
+};
+
+// const TemplateAllCombos = `
+//     <div className="badge-grid">
+//       <div [tediVerticalSpacing]="1">
+//         {colors.map((color) => (
+//           <tedi-row className="mb-2">
+//             <tedi-col md={2} className="d-flex align-items-center">
+//               <strong>{color.charAt(0).toUpperCase() + color.slice(1)}</strong>
+//             </tedi-col>
+//             {variants.map((variant) => (
+//               <tedi-col width="auto">
+//                 <tedi-status-badge {...args} color={color} variant={variant}>
+//                   Text
+//                 </tedi-status-badge>
+//               </tedi-col>
+//               <tedi-col width="auto">
+//                 <tedi-status-badge {...args} color={color} variant={variant} icon={colorToIconMap[color]}>
+//                   Text
+//                 </tedi-status-badge>
+//               </tedi-col>
+//               <tedi-col width="auto">
+//                 <tedi-status-badge {...args} color={color} variant={variant} icon={colorToIconMap[color]} />
+//               </tedi-col>
+//             ))}
+//           </tedi-row>
+//         ))}
+//       </div>
+//     </div>
+//     `;
+
+// const TemplateStatusGrid = `
+//     <div className="badge-grid">
+//       <div [tediVerticalSpacing]="1">
+//         {statuses.map((status) => (
+//           <tedi-row key={status} className="mb-2">
+//             <tedi-col md={2} className="d-flex align-items-center">
+//               <strong>{status?.charAt(0).toUpperCase() + (status as string).slice(1)}</strong>
+//             </tedi-col>
+//             {variants.map((variant) => (
+//               <tedi-col width="auto">
+//                 <tedi-status-badge {...args} color="neutral" variant={variant} status={status}>
+//                   Text
+//                 </tedi-status-badge>
+//               </tedi-col>
+//               <tedi-col width="auto">
+//                 <tedi-status-badge
+//                   {...args}
+//                   color="neutral"
+//                   variant={variant}
+//                   icon={statusToIconMap[status]}
+//                   status={status}
+//                 >
+//                   Text
+//                 </tedi-status-badge>
+//               </tedi-col>
+//               <tedi-col width="auto">
+//                 <tedi-status-badge
+//                   {...args}
+//                   color="neutral"
+//                   variant={variant}
+//                   icon={statusToIconMap[status]}
+//                   status={status}
+//                 />
+//               </tedi-col>
+//             ))}
+//           </tedi-row>
+//         ))}
+//       </div>
+//     </div>
+// `;
+
+// export const Colors: Story = {
+//   render: () => ({ template: TemplateAllCombos }),
+// };
+
+// export const StatusIndicator: Story = {
+//   render: () => ({ template: TemplateStatusGrid }),
+//   args: {
+//     color: "neutral",
+//   },
+// };
+
+// const TemplateLarge = `
+//   <tedi-row>
+//     <tedi-col width="auto">
+//       <tedi-status-badge {...args}>Draft</tedi-status-badge>
+//     </tedi-col>
+//     <tedi-col width="auto">
+//       <tedi-status-badge {...args} status="success">Draft</tedi-status-badge>
+//     </tedi-col>
+//   </tedi-row>
+// `;
+
+// export const Large: Story = {
+//   render: () => ({ template: TemplateLarge }),
+//   args: {
+//     color: "neutral",
+//     size: "large",
+//     // children: "Draft",
+//   },
+// };

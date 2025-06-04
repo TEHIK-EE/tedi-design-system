@@ -1,0 +1,18 @@
+<div
+  [class]="classes()"
+  [id]="id()"
+  [title]="title()"
+  [attr.aria-live]="ariaLive()"
+  [attr.role]="role()"
+>
+  @if (icon()) {
+    <tedi-icon
+      [name]="icon()"
+      [color]="mapBadgeColorToIconColor(color())"
+      [size]="16"
+    />
+  }
+  <span class="tedi-status-badge__inner-text">
+    <ng-content></ng-content>
+  </span>
+</div>
