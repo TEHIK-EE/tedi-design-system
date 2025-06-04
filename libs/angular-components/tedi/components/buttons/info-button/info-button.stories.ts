@@ -21,20 +21,9 @@ export default {
       imports: [InfoButtonComponent, RowComponent, ColComponent],
     }),
   ],
-  argTypes: {
-    ariaLabel: {
-      description: "Required aria label provided to button element.",
-      table: {
-        category: "inputs",
-      }
-    }
-  }
 } as Meta<InfoButtonComponent>;
 
 export const Default: StoryObj<InfoButtonComponent> = {
-  args: {
-    ariaLabel: "Info button"
-  },
   render: (args) => ({
     props: args,
     template: `
@@ -50,9 +39,6 @@ export const States: StoryObj<InfoButtonComponent> = {
       active: "#Active",
       focusVisible: "#Focus",
     },
-  },
-  args: {
-    ariaLabel: "Info button",
   },
   render: (args) => ({
     props: { ...args, pseudoState: PSEUDO_STATE },

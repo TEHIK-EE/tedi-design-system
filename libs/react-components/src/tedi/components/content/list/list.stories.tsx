@@ -114,3 +114,11 @@ export const NoStyleList: Story = {
     style: 'none',
   },
 };
+
+export const DifferentBulletColorList: Story = {
+  render: TemplateOrderedNested,
+  args: {
+    color: 'danger',
+    style: 'styled',
+  },
+};

@@ -52,4 +52,25 @@ describe('List Component', () => {
     const { container } = renderList({ className: customClass });
     expect(container.firstChild).toHaveClass(customClass);
   });
+
+  test('applies default bullet color class "brand" when no color is provided', () => {
+    const { container } = renderList();
+    expect(container.firstChild).toHaveClass('tedi-list--bullet-color-brand');
+  });
+
+  test.each([
+    'primary',
+    'secondary',
+    'tertiary',
+    'brand',
+    'brand-dark',
+    'success',
+    'warning',
+    'warning-dark',
+    'danger',
+    'white',
+  ] as const)('applies bullet color class for color "%s"', (color) => {
+    const { container } = renderList({ color });
+    expect(container.firstChild).toHaveClass(`tedi-list--bullet-color-${color}`);
+  });
 });

@@ -1,8 +1,7 @@
 import { Meta, moduleMetadata, StoryObj } from "@storybook/angular";
 
 import { CommonModule } from "@angular/common";
-import { IconComponent, TextComponent } from "@tehik-ee/tedi-angular/tedi";
-import { ButtonComponent } from "../../buttons/button/button.component";
+import { IconComponent, TextComponent, ButtonComponent } from "@tehik-ee/tedi-angular/tedi";
 import { AccordionIconComponent } from "./accordion-icon/accordion-icon.component";
 import { AccordionItemContentComponent } from "./accordion-item-content/accordion-item-content.component";
 import { AccordionItemHeaderComponent } from "./accordion-item-header/accordion-item-header.component";

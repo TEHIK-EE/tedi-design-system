@@ -166,10 +166,10 @@ div.tedi-textfield__icon-wrapper {
     height: $input-height-small;
 
     @include mixins.responsive-styles(font-size, body-small-regular-size);
-    @include mixins.responsive-styles(padding-left, form-field-padding-x-2);
-    @include mixins.responsive-styles(padding-right, form-field-padding-x-2);
-    @include mixins.responsive-styles(padding-top, form-field-padding-y-2);
-    @include mixins.responsive-styles(padding-bottom, form-field-padding-y-2);
+    @include mixins.responsive-styles(padding-left, form-field-padding-x-md-default);
+    @include mixins.responsive-styles(padding-right, form-field-padding-x-md-default);
+    @include mixins.responsive-styles(padding-top, form-field-padding-y-sm);
+    @include mixins.responsive-styles(padding-bottom, form-field-padding-y-sm);
 
     @include breakpoints.media-breakpoint-down(md) {
       height: $input-height-mobile;

@@ -10,9 +10,8 @@ import {
   viewChild,
   ViewEncapsulation,
 } from "@angular/core";
-import { FeedbackTextComponent } from "../../feedback-text/feedback-text.component";
 import { RadioGroupComponent } from "../radio-group/radio-group.component";
-import { ComponentInputs } from "@tehik-ee/tedi-angular/tedi";
+import { ComponentInputs, FeedbackTextComponent } from "@tehik-ee/tedi-angular/tedi";
 
 export type RadioValue = string;
 

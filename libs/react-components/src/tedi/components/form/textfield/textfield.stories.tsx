@@ -132,6 +132,7 @@ export const Sizes: StoryObj<TemplateMultipleProps> = {
     id: 'example-2',
     label: 'Label',
     property: 'size',
+    value: 'Text value',
     array: sizeArray,
   },
 };

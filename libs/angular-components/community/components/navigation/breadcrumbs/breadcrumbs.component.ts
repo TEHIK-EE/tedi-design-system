@@ -1,12 +1,12 @@
 import { Component, computed, inject, input } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { LinkComponent } from "../link/link.component"; //@tehik-ee/tedi-angular/community
 import { RouterLink } from "@angular/router";
 import {
   IconComponent,
   TextComponent,
   BreakpointService,
   BreakpointInputs,
+  LinkComponent
 } from "@tehik-ee/tedi-angular/tedi";
 
 export type Breadcrumb = {
