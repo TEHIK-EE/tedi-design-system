@@ -66,7 +66,16 @@ export const Basic: Story = {
   render: (args) => ({
     props: args,
     template: `
-      <tedi-select [placeholder]="placeholder" [disabled]="disabled" [state]="state" [size]="size">
+      <tedi-select
+        inputId="select-1"
+        label="Custom select label"
+        [feedbackText]="{type: hint, text: 'Custom hint for using the select'}"
+        [required]="true"
+        [placeholder]="placeholder"
+        [disabled]="disabled"
+        [state]="state"
+        [size]="size"
+      >
         <tedi-select-option [value]="'option0'" [label]="'Option 0'" />
         <tedi-select-option [value]="'option1'" [label]="'Option 1'">
             <tedi-icon name="close" /> Option 1
@@ -91,7 +100,14 @@ export const WithPreselected: Story = {
   render: (args) => ({
     template: `
       <form [formGroup]="form">
-        <tedi-select formControlName="selectedOption" [placeholder]="placeholder">
+        <tedi-select
+          inputId="select-2"
+          label="Custom select label"
+          [feedbackText]="{type: hint, text: 'Custom hint for using the select'}"
+          [required]="true"
+          formControlName="selectedOption"
+          [placeholder]="placeholder"
+        >
           <tedi-select-option [value]="'option1'" [label]="'Option 1'">
             <tedi-icon name="login" /> Option 1 <small> Some description here also </small>
           </tedi-select-option>
@@ -119,7 +135,14 @@ export const Disabled: Story = {
   render: (args) => ({
     props: args,
     template: `
-      <tedi-select [disabled]="disabled" [placeholder]="placeholder">
+      <tedi-select
+        inputId="select-3"
+        label="Custom select label"
+        [feedbackText]="{type: hint, text: 'Custom hint for using the select'}"
+        [required]="true"
+        [disabled]="disabled"
+        [placeholder]="placeholder"
+      >
         <tedi-select-option [value]="'option1'">Option 1</tedi-select-option>
         <tedi-select-option [value]="'option2'">Option 2</tedi-select-option>
         <tedi-select-option [value]="'option3'">Option 3</tedi-select-option>
@@ -136,7 +159,14 @@ export const ValidState: Story = {
   render: (args) => ({
     props: args,
     template: `
-      <tedi-select [state]="state" [placeholder]="placeholder">
+      <tedi-select
+        inputId="select-4"
+        label="Custom select label"
+        [feedbackText]="{type: hint, text: 'Custom hint for using the select'}"
+        [required]="true"
+        [state]="state"
+        [placeholder]="placeholder"
+      >
         <tedi-select-option [value]="'option1'" [label]="'Option 1'">Option 1</tedi-select-option>
         <tedi-select-option [value]="'option2'" [label]="'Option 2'">Option 2</tedi-select-option>
         <tedi-select-option [value]="'option3'" [label]="'Option 3'">Option 3</tedi-select-option>
@@ -153,7 +183,14 @@ export const ErrorState: Story = {
   render: (args) => ({
     props: args,
     template: `
-      <tedi-select [state]="state" [placeholder]="placeholder">
+      <tedi-select
+        inputId="select-5"
+        label="Custom select label"
+        [feedbackText]="{type: hint, text: 'Custom hint for using the select'}"
+        [required]="true"
+        [state]="state"
+        [placeholder]="placeholder"
+      >
         <tedi-select-option [value]="'option1'" [label]="'Option 1'">Option 1</tedi-select-option>
         <tedi-select-option [value]="'option2'" [label]="'Option 2'">Option 2</tedi-select-option>
         <tedi-select-option [value]="'option3'" [label]="'Option 3'">Option 3</tedi-select-option>
@@ -170,7 +207,14 @@ export const SmallSize: Story = {
   render: (args) => ({
     props: args,
     template: `
-      <tedi-select [size]="size" [placeholder]="placeholder">
+      <tedi-select
+        inputId="select-6"
+        label="Custom select label"
+        [feedbackText]="{type: hint, text: 'Custom hint for using the select'}"
+        [required]="true"
+        [size]="size"
+        [placeholder]="placeholder"
+        >
         <tedi-select-option [value]="'option1'" [label]="'Option 1'">Option 1</tedi-select-option>
         <tedi-select-option [value]="'option2'" [label]="'Option 2'">Option 2</tedi-select-option>
         <tedi-select-option [value]="'option3'" [label]="'Option 3'">Option 3</tedi-select-option>
@@ -182,7 +226,12 @@ export const SmallSize: Story = {
 export const ManyOptions: Story = {
   render: () => ({
     template: `
-      <tedi-select>
+      <tedi-select
+        inputId="select-7"
+        label="Custom select label"
+        [feedbackText]="{type: hint, text: 'Custom hint for using the select'}"
+        [required]="true"
+      >
         <tedi-select-option [value]="'option1'" [label]="'Option 1'">Option 1</tedi-select-option>
         <tedi-select-option [value]="'option2'" [label]="'Option 2'">Option 2</tedi-select-option>
         <tedi-select-option [value]="'option3'" [label]="'Option 3'">Option 3</tedi-select-option>

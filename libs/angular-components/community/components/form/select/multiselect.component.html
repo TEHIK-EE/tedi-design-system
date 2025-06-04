@@ -24,10 +24,7 @@
         [class.tedi-select__multiselect-container--single-row]="!multiRow()"
       >
         @for (selectedValue of _selectedValue(); track selectedValue) {
-          <tedi-tag
-            [closable]="true"
-            (closed)="unselect(selectedValue, $event)"
-          >
+          <tedi-tag [closable]="true" (closed)="unselect(selectedValue)">
             {{ getOptionLabel(selectedValue) }}
           </tedi-tag>
         }

@@ -1,3 +1,8 @@
+@if (label()) {
+  <label tedi-label [for]="inputId()" [required]="required()" [size]="size()">
+    {{ label() }}
+  </label>
+}
 <button
   tedi-input
   type="button"
@@ -62,3 +67,10 @@
     </tedi-card-content>
   </tedi-card>
 </ng-template>
+@if (feedbackText(); as feedback) {
+  <tedi-feedback-text
+    [text]="feedback.text"
+    [type]="feedback.type"
+    [position]="feedback.position"
+  />
+}

@@ -23,7 +23,12 @@ import {
   InputState,
 } from "../input/input.component";
 import { CardComponent, CardContentComponent } from "../../cards/card";
-import { IconComponent } from "@tehik-ee/tedi-angular/tedi";
+import {
+  ComponentInputs,
+  FeedbackTextComponent,
+  IconComponent,
+  LabelComponent,
+} from "@tehik-ee/tedi-angular/tedi";
 import { DropdownItemComponent } from "../../overlay/dropdown-item/dropdown-item.component";
 import { ClosingButtonComponent } from "../../buttons/closing-button/closing-button.component";
 
@@ -39,6 +44,8 @@ import { ClosingButtonComponent } from "../../buttons/closing-button/closing-but
     IconComponent,
     DropdownItemComponent,
     ClosingButtonComponent,
+    LabelComponent,
+    FeedbackTextComponent,
   ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -59,6 +66,21 @@ export class SelectComponent
   implements ControlValueAccessor, OnInit, AfterContentChecked
 {
   /**
+   * The label for the select input.
+   * @default ""
+   */
+  label = input<string>();
+  /**
+   * The id of the select input (for label association).
+   * @default ""
+   */
+  inputId = input.required<string>();
+  /**
+   * Should show label as required?
+   * @default false
+   */
+  required = input<boolean>(false);
+  /**
    * The placeholder text to display when no option is selected.
    * @default ""
    */
@@ -78,6 +100,7 @@ export class SelectComponent
    * @default "default"
    */
   size = input<InputSize>("default");
+  feedbackText = input<ComponentInputs<FeedbackTextComponent>>();
 
   // Internal state
   _selectedValue = signal<string | null>(null);

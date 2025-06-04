@@ -196,12 +196,7 @@ export class MultiselectComponent
     this.onTouched();
   }
 
-  unselect(value: string, event: Event): void {
-    if (event) {
-      event.stopPropagation();
-      event.preventDefault();
-    }
-
+  unselect(value: string): void {
     const currentValue = this._selectedValue() ?? [];
     const index = currentValue.indexOf(value);
     if (index !== -1) {
