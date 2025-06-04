@@ -1,7 +1,17 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import { useState } from 'react';
 
-import { SideNavItemProps } from './components/sidenav-item/sidenav-item';
+import { Text } from '../../base/typography/text/text';
+import { Col, Row } from '../grid';
+import { SideNavItem } from './components/sidenav-item/sidenav-item';
+import {
+  exampleDefaultOpen,
+  exampleNavCollapsibleItems,
+  exampleNavCollapsibleItemsWithLinks,
+  exampleNavItems,
+  exampleThirdLevelMenuItems,
+  exampleThirdLevelMenuItemsLinks,
+} from './examples';
 import { SideNav } from './sidenav';
 
 /**
@@ -21,7 +31,6 @@ const meta: Meta<typeof SideNav> = {
     'SideNav.Mobile': SideNav.Mobile,
   },
   parameters: {
-    layout: 'fullscreen',
     docs: {
       source: {
         transform: (code: string) => {
@@ -37,238 +46,11 @@ const meta: Meta<typeof SideNav> = {
       type: 'figma',
       url: 'https://www.figma.com/design/jWiRIXhHRxwVdMSimKX2FF/TEDI-READY-2.8.9--work-in-progress-?node-id=6367-171750&m=dev',
     },
-    status: {
-      type: 'partiallyTediReady',
-    },
   },
 };
 
 export default meta;
 type Story = StoryObj<typeof SideNav>;
-
-const exampleNavItems: SideNavItemProps[] = [
-  { href: '#', children: 'Home', icon: 'home' },
-  { href: '#', children: 'Clients', icon: 'account_box' },
-  { href: '/', children: 'Children', icon: 'child_care', isActive: true },
-  { href: '#', children: 'Some very long text that doest fit anything and wraps', icon: 'assignment' },
-  { href: '#', children: 'Assignments', icon: 'assignment' },
-  { href: '#', children: 'Assignment that is a long text', icon: 'assignment' },
-  { href: '#', children: 'Assignments', icon: 'assignment' },
-];
-
-const exampleNavCollapsibleItems: SideNavItemProps[] = [
-  { href: '#', children: 'Dashboard', icon: 'dashboard' },
-  { href: '#', children: 'Patient Records', icon: 'people' },
-  {
-    children: 'Clinical Management',
-    icon: 'medical_services',
-    subItemGroups: [
-      {
-        subItems: [
-          { href: '#', children: 'Vital Signs' },
-          { href: '#', children: 'Assessments' },
-          {
-            href: '#',
-            children: 'Treatments',
-          },
-          {
-            href: '#',
-            children: 'Documentation',
-          },
-        ],
-      },
-    ],
-  },
-  {
-    children: 'Administration',
-    icon: 'admin_panel_settings',
-    subItems: [
-      { href: '#', children: 'Staff Management' },
-      { href: '#', children: 'Scheduling' },
-      {
-        href: '#',
-        children: 'System Settings',
-      },
-      {
-        href: '#',
-        children: 'Reports & Analytics',
-      },
-    ],
-  },
-  { href: '#', children: 'Inventory Management', icon: 'inventory' },
-  { href: '#', children: 'Billing & Finance', icon: 'payments' },
-];
-
-const exampleDefaultOpen: SideNavItemProps[] = [
-  { href: '#', children: 'Dashboard', icon: 'dashboard' },
-  { href: '#', children: 'Patient Records', icon: 'people' },
-  {
-    children: 'Clinical Management',
-    icon: 'medical_services',
-    subItemGroups: [
-      {
-        subItems: [
-          { href: '#', children: 'Vital Signs' },
-          { href: '#', children: 'Assessments' },
-          {
-            href: '#',
-            children: 'Treatments',
-          },
-          {
-            href: '#',
-            children: 'Documentation',
-          },
-        ],
-      },
-    ],
-  },
-  {
-    children: 'Administration',
-    isDefaultOpen: true,
-    icon: 'admin_panel_settings',
-    subItems: [
-      { href: '#', children: 'Staff Management' },
-      { href: '#', children: 'Scheduling' },
-      {
-        href: '#',
-        children: 'System Settings',
-      },
-      {
-        href: '#',
-        children: 'Reports & Analytics',
-      },
-    ],
-  },
-  { href: '#', children: 'Inventory Management', icon: 'inventory' },
-  { href: '#', children: 'Billing & Finance', icon: 'payments' },
-];
-
-const exampleNavCollapsibleItemsWithLinks: SideNavItemProps[] = [
-  { href: '#', children: 'Dashboard', icon: 'dashboard' },
-  { href: '#', children: 'Patient Records', icon: 'people' },
-  {
-    href: '#critical-management',
-    children: 'Clinical Management',
-    icon: 'medical_services',
-    subItems: [
-      { href: '#', children: 'Vital Signs' },
-      { href: '#', children: 'Assessments' },
-      {
-        href: '#',
-        children: 'Treatments',
-      },
-      {
-        href: '#',
-        children: 'Documentation',
-      },
-    ],
-  },
-  {
-    href: '#',
-    children: 'Administration',
-    icon: 'admin_panel_settings',
-    subItems: [
-      { href: '#', children: 'Staff Management' },
-      { href: '#', children: 'Scheduling' },
-      {
-        href: '#',
-        children: 'System Settings',
-      },
-      {
-        href: '#',
-        children: 'Reports & Analytics',
-      },
-    ],
-  },
-  { href: '#', children: 'Inventory Management', icon: 'inventory' },
-  { href: '#', children: 'Billing & Finance', icon: 'payments' },
-];
-
-const exampleThirdLevelMenuItems: SideNavItemProps[] = [
-  { href: '#', children: 'Dashboard', icon: 'dashboard' },
-  { href: '#', children: 'Patient Records', icon: 'people' },
-  {
-    children: 'Clinical Management',
-    icon: 'medical_services',
-    subItems: [
-      { href: '#', children: 'Vital Signs' },
-      { href: '#', children: 'Assessments' },
-      {
-        children: 'Treatments',
-        subItems: [
-          { href: '#', children: 'Active Treatments' },
-          { href: '#', children: 'Treatment History' },
-          { href: '#', children: 'Treatment Plans' },
-          { href: '#', children: 'Clinical Protocols' },
-        ],
-      },
-      {
-        children: 'Documentation',
-        subItems: [
-          { href: '#', children: 'Clinical Notes' },
-          { href: '#', children: 'Medical Forms' },
-          { href: '#', children: 'Consent Forms' },
-          { href: '#', children: 'Reports' },
-        ],
-      },
-    ],
-  },
-  {
-    children: 'Administration',
-    icon: 'admin_panel_settings',
-    subItems: [
-      { href: '#', children: 'Staff Management' },
-      { href: '#', children: 'Scheduling' },
-    ],
-  },
-  { href: '#', children: 'Inventory Management', icon: 'inventory' },
-  { href: '#', children: 'Billing & Finance', icon: 'payments' },
-];
-
-const exampleThirdLevelMenuItemsLinks: SideNavItemProps[] = [
-  { href: '#', children: 'Dashboard', icon: 'dashboard' },
-  { href: '#', children: 'Patient Records', icon: 'people' },
-  {
-    children: 'Clinical Management',
-    href: '#',
-    icon: 'medical_services',
-    subItems: [
-      { href: '#', children: 'Vital Signs' },
-      { href: '#', children: 'Assessments' },
-      {
-        href: '#',
-        children: 'Treatments',
-        subItems: [
-          { href: '#', children: 'Active Treatments' },
-          { href: '#', children: 'Treatment History' },
-          { href: '#', children: 'Treatment Plans' },
-          { href: '#', children: 'Clinical Protocols' },
-        ],
-      },
-      {
-        href: '#',
-        children: 'Documentation',
-        subItems: [
-          { href: '#', children: 'Clinical Notes' },
-          { href: '#', children: 'Medical Forms' },
-          { href: '#', children: 'Consent Forms' },
-          { href: '#', children: 'Reports' },
-        ],
-      },
-    ],
-  },
-  {
-    href: '#',
-    children: 'Administration',
-    icon: 'admin_panel_settings',
-    subItems: [
-      { href: '#', children: 'Staff Management' },
-      { href: '#', children: 'Scheduling' },
-    ],
-  },
-  { href: '#', children: 'Inventory Management', icon: 'inventory' },
-  { href: '#', children: 'Billing & Finance', icon: 'payments' },
-];
 
 const Template: StoryFn<typeof SideNav> = (args) => {
   const [isOpen, setIsOpen] = useState(true);
@@ -294,6 +76,106 @@ export const Default: Story = {
       </div>
     ),
   ],
+};
+
+const stateArray = ['Default', 'Hover', 'Focus', 'Active'];
+
+interface TemplateStateProps extends React.ComponentProps<typeof SideNavItem> {
+  states: typeof stateArray;
+}
+
+const TemplateWithStates: StoryFn<TemplateStateProps> = (args) => {
+  const { states, ...sideNavItemProps } = args;
+
+  return (
+    <>
+      {states.map((state, index) => (
+        <Row key={index} className="padding-14-16">
+          <Col width={3} className="display-flex align-items-center">
+            <Text modifiers="bold">{state}</Text>
+          </Col>
+          <Col className="display-flex align-items-center">
+            <ul style={{ listStyle: 'none', padding: 0, margin: 0, width: '240px' }}>
+              <SideNavItem
+                {...sideNavItemProps}
+                isActive={state === 'Active'}
+                className={state === 'Focus' ? 'focus-visible' : ''}
+                id={state}
+              />
+            </ul>
+          </Col>
+        </Row>
+      ))}
+
+      <Row className="padding-14-16">
+        <Col width={3} className="display-flex align-items-center">
+          <Text modifiers="bold">With Subitems</Text>
+        </Col>
+        <Col className="display-flex align-items-center">
+          <ul style={{ listStyle: 'none', padding: 0, margin: 0, width: '240px' }}>
+            <SideNavItem
+              {...sideNavItemProps}
+              isDefaultOpen
+              subItems={[{ children: 'Sub Item 1' }, { children: 'Sub Item 2', isActive: true }]}
+            >
+              Parent item
+            </SideNavItem>
+          </ul>
+        </Col>
+      </Row>
+      <Row className="padding-14-16">
+        <Col width={3} className="display-flex align-items-center">
+          <Text modifiers="bold">Parent is link with subitems</Text>
+        </Col>
+        <Col className="display-flex align-items-center">
+          <ul style={{ listStyle: 'none', padding: 0, margin: 0, width: '240px' }}>
+            <SideNavItem
+              href="#"
+              isDefaultOpen
+              subItems={[{ children: 'Sub Item 1' }, { children: 'Sub Item 2', isActive: true }]}
+            >
+              Parent item
+            </SideNavItem>
+          </ul>
+        </Col>
+      </Row>
+      <Row className="padding-14-16">
+        <Col width={3} className="display-flex align-items-center">
+          <Text modifiers="bold">Sub item is parent</Text>
+        </Col>
+        <Col className="display-flex align-items-center">
+          <ul style={{ listStyle: 'none', padding: 0, margin: 0, width: '240px' }}>
+            <SideNavItem
+              isDefaultOpen
+              subItems={[
+                { children: 'Second level' },
+                { children: 'Second level' },
+                { children: 'Second level parent', isActive: true, subItems: [{ children: 'Third level' }] },
+              ]}
+            >
+              First level
+            </SideNavItem>
+          </ul>
+        </Col>
+      </Row>
+    </>
+  );
+};
+
+export const SidenavItemStates: StoryObj<TemplateStateProps> = {
+  render: TemplateWithStates,
+  args: {
+    states: stateArray,
+    children: 'Text',
+    icon: 'dashboard',
+  },
+  parameters: {
+    pseudo: {
+      hover: '#Hover',
+      focusVisible: '#Focus',
+      active: '#Active',
+    },
+  },
 };
 
 export const SecondLevelMenuItems: Story = {

@@ -319,6 +319,12 @@ button.tedi-sidenav__link.tedi-sidenav__back-button {
   &:hover {
     background-color: var(--side-navigation-item-background-hover);
   }
+
+  &:focus-visible {
+    border-color: var(--side-navigation-item-border);
+    outline: var(--borders-02) solid var(--primary-500);
+    outline-offset: 1px;
+  }
 }
 
 .tedi-sidenav__item .tedi-sidenav__item .tedi-sidenav__link .tedi-sidenav__title:first-child {
