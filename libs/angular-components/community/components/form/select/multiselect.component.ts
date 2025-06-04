@@ -27,6 +27,7 @@ import { DropdownItemComponent } from "../../overlay/dropdown-item/dropdown-item
 import { ClosingButtonComponent } from "../../buttons/closing-button/closing-button.component";
 import { CheckboxComponent } from "../checkbox";
 import { TagComponent } from "community/components/tag/tag.component";
+import { TediTranslationPipe } from "../../../../tedi/services/translation/translation.pipe";
 
 @Component({
   selector: "tedi-multiselect",
@@ -43,6 +44,7 @@ import { TagComponent } from "community/components/tag/tag.component";
     CheckboxComponent,
     TagComponent,
     TextComponent,
+    TediTranslationPipe,
   ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,

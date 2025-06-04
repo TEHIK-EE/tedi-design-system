@@ -35,8 +35,8 @@
     <div
       tedi-closing-button
       class="tedi-select__clear"
-      title="Clear"
-      [attr.aria-label]="'Clear'"
+      [title]="'clear' | tediTranslate"
+      [attr.aria-label]="'clear' | tediTranslate"
       tabindex="0"
       (click)="$event.stopPropagation(); clear()"
     ></div>
@@ -65,7 +65,7 @@
             [inputId]="'option-select-all'"
             [checked]="areAllOptionsSelected()"
           >
-            Select All
+            {{ "select.select-all" | tediTranslate }}
           </tedi-checkbox>
         </button>
       }
