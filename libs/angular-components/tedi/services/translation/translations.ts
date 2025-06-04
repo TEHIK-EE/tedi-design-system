@@ -24,7 +24,7 @@ export const translationsMap = {
   },
   remove: {
     description: "Used for removing",
-    components: ["FileUpload"],
+    components: ["FileUpload", "Tag"],
     et: "Eemalda",
     en: "Remove",
     ru: "Удалить",
