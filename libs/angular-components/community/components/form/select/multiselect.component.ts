@@ -26,7 +26,7 @@ import { IconComponent, TextComponent } from "@tehik-ee/tedi-angular/tedi";
 import { DropdownItemComponent } from "../../overlay/dropdown-item/dropdown-item.component";
 import { ClosingButtonComponent } from "../../buttons/closing-button/closing-button.component";
 import { CheckboxComponent } from "../checkbox";
-import { TagComponent } from "community/components/tag";
+import { TagComponent } from "community/components/tag/tag.component";
 
 @Component({
   selector: "tedi-multiselect",
