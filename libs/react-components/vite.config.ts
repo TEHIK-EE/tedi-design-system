@@ -8,7 +8,7 @@ import { viteStaticCopy } from 'vite-plugin-static-copy';
 
 import packageJson from './package.json' assert { type: 'json' };
 
-const externalDependencies = [...Object.keys(packageJson.peerDependencies), 'react/jsx-runtime', 'dayjs'];
+const externalDependencies = [...Object.keys(packageJson.peerDependencies), 'react/jsx-runtime'];
 
 const config: UserConfig = {
   define: {
