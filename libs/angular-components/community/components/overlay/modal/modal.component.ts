@@ -26,9 +26,9 @@ export type DialogData = ComponentInputs<
   encapsulation: ViewEncapsulation.None,
   host: {
     "[class.tedi-modal]": "true",
-    "[class.tedi-modal--lg]": "maxWidth() === ModalSizes.Large",
-    "[class.tedi-modal--md]": "maxWidth() === ModalSizes.Medium",
-    "[class.tedi-modal--sm]": "maxWidth() === ModalSizes.Small",
+    "[class.tedi-modal--lg]": "maxWidth() === 'lg'",
+    "[class.tedi-modal--md]": "maxWidth() === 'md'",
+    "[class.tedi-modal--sm]": "maxWidth() === 'sm'",
   },
 })
 export class ModalComponent implements OnInit {

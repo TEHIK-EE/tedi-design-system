@@ -39,7 +39,6 @@ class ModalOpenComponent {
   template: `
     <tedi-modal [maxWidth]="args()?.maxWidth">
       <tedi-modal-header
-        header-slot
         [title]="args()?.title"
         [feedback]="args()?.feedback"
         [closeButton]="args()?.closeButton"
