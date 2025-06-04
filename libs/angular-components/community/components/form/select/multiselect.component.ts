@@ -197,14 +197,15 @@ export class MultiselectComponent
   }
 
   unselect(value: string): void {
-    const currentValue = this._selectedValue() ?? [];
-    const index = currentValue.indexOf(value);
-    if (index !== -1) {
-      currentValue.splice(index, 1);
-      this._selectedValue.set(currentValue.length ? currentValue : null);
-      this.onChange(this._selectedValue());
-      this.onTouched();
-    }
+    this._selectedValue.update((currentValues) => {
+      if (!currentValues) return null;
+
+      const updatedValues = currentValues.filter((v) => v !== value);
+      return updatedValues.length ? updatedValues : null;
+    });
+
+    this.onChange(this._selectedValue());
+    this.onTouched();
   }
 
   clear(): void {

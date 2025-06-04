@@ -44,12 +44,25 @@ const meta: Meta<SelectComponent> = {
     disabled: { control: "boolean" },
     state: { control: "radio", options: ["error", "valid", "default"] },
     size: { control: "radio", options: ["small", "default"] },
+    label: { control: "text" },
+    required: { control: "boolean" },
+    feedbackText: {
+      control: "object",
+      description: "Feedback message configuration",
+    },
   },
   args: {
     placeholder: "Select an option...",
     disabled: false,
     state: "default",
     size: "default",
+    label: "Custom select label",
+    required: true,
+    feedbackText: {
+      type: "hint",
+      text: "Custom hint for using the multiselect",
+      position: "left",
+    },
   },
 };
 
@@ -68,9 +81,9 @@ export const Basic: Story = {
     template: `
       <tedi-select
         inputId="select-1"
-        label="Custom select label"
-        [feedbackText]="{type: hint, text: 'Custom hint for using the select'}"
-        [required]="true"
+        [label]="label"
+        [feedbackText]="feedbackText"
+        [required]="required"
         [placeholder]="placeholder"
         [disabled]="disabled"
         [state]="state"
@@ -102,9 +115,9 @@ export const WithPreselected: Story = {
       <form [formGroup]="form">
         <tedi-select
           inputId="select-2"
-          label="Custom select label"
-          [feedbackText]="{type: hint, text: 'Custom hint for using the select'}"
-          [required]="true"
+          [label]="label"
+          [feedbackText]="feedbackText"
+          [required]="required"
           formControlName="selectedOption"
           [placeholder]="placeholder"
         >
@@ -137,9 +150,9 @@ export const Disabled: Story = {
     template: `
       <tedi-select
         inputId="select-3"
-        label="Custom select label"
-        [feedbackText]="{type: hint, text: 'Custom hint for using the select'}"
-        [required]="true"
+        [label]="label"
+        [feedbackText]="feedbackText"
+        [required]="required"
         [disabled]="disabled"
         [placeholder]="placeholder"
       >
@@ -161,9 +174,9 @@ export const ValidState: Story = {
     template: `
       <tedi-select
         inputId="select-4"
-        label="Custom select label"
-        [feedbackText]="{type: hint, text: 'Custom hint for using the select'}"
-        [required]="true"
+        [label]="label"
+        [feedbackText]="feedbackText"
+        [required]="required"
         [state]="state"
         [placeholder]="placeholder"
       >
@@ -185,9 +198,9 @@ export const ErrorState: Story = {
     template: `
       <tedi-select
         inputId="select-5"
-        label="Custom select label"
-        [feedbackText]="{type: hint, text: 'Custom hint for using the select'}"
-        [required]="true"
+        [label]="label"
+        [feedbackText]="feedbackText"
+        [required]="required"
         [state]="state"
         [placeholder]="placeholder"
       >
@@ -209,12 +222,12 @@ export const SmallSize: Story = {
     template: `
       <tedi-select
         inputId="select-6"
-        label="Custom select label"
-        [feedbackText]="{type: hint, text: 'Custom hint for using the select'}"
-        [required]="true"
+        [label]="label"
+        [feedbackText]="feedbackText"
+        [required]="required"
         [size]="size"
         [placeholder]="placeholder"
-        >
+      >
         <tedi-select-option [value]="'option1'" [label]="'Option 1'">Option 1</tedi-select-option>
         <tedi-select-option [value]="'option2'" [label]="'Option 2'">Option 2</tedi-select-option>
         <tedi-select-option [value]="'option3'" [label]="'Option 3'">Option 3</tedi-select-option>
@@ -224,13 +237,14 @@ export const SmallSize: Story = {
 };
 
 export const ManyOptions: Story = {
-  render: () => ({
+  render: (args) => ({
     template: `
       <tedi-select
         inputId="select-7"
-        label="Custom select label"
-        [feedbackText]="{type: hint, text: 'Custom hint for using the select'}"
-        [required]="true"
+        [placeholder]="placeholder"
+        [label]="label"
+        [feedbackText]="feedbackText"
+        [required]="required"
       >
         <tedi-select-option [value]="'option1'" [label]="'Option 1'">Option 1</tedi-select-option>
         <tedi-select-option [value]="'option2'" [label]="'Option 2'">Option 2</tedi-select-option>
@@ -250,18 +264,21 @@ export const ManyOptions: Story = {
         <tedi-select-option [value]="'option16'" [label]="'Option 16'">Option 16</tedi-select-option>
       </tedi-select>
     `,
+    props: {
+      ...args,
+    },
   }),
 };
 
 export const Multiselect: Story = {
-  render: () => ({
+  render: (args) => ({
     template: `
         <tedi-multiselect
           inputId="multiselect-1"
-          placeholder="Select multiple options..."
-          label="Custom label"
-          [required]="true"
-          [feedbackText]="{type: hint, text: 'Custom hint for using the multiselect'}"
+          [placeholder]="placeholder"
+          [label]="label"
+          [feedbackText]="feedbackText"
+          [required]="required"
         >
           <tedi-select-option value="option1" label="Option 1" />
           <tedi-select-option value="option2" label="Option 2" />
@@ -270,18 +287,21 @@ export const Multiselect: Story = {
           <tedi-select-option value="option5" label="Option 5" />
         </tedi-multiselect>
     `,
+    props: {
+      ...args,
+    },
   }),
 };
 
 export const MultiselectWithCustomOptions: Story = {
-  render: () => ({
+  render: (args) => ({
     template: `
         <tedi-multiselect
           inputId="multiselect-2"
-          placeholder="Select multiple options..."
-          label="Custom label"
-          [required]="true"
-          [feedbackText]="{type: hint, text: 'Custom hint for using the multiselect'}"
+          [placeholder]="placeholder"
+          [label]="label"
+          [feedbackText]="feedbackText"
+          [required]="required"
         >
           <tedi-select-option value="option1" label="Home">
             <tedi-icon name="home" /> Home
@@ -307,6 +327,9 @@ export const MultiselectWithCustomOptions: Story = {
           </tedi-select-option>
         </tedi-multiselect>
     `,
+    props: {
+      ...args,
+    },
   }),
 };
 
@@ -316,10 +339,10 @@ export const MultiselectSelectAll: Story = {
       <tedi-multiselect
         inputId="multiselect-3"
         [selectAll]="true"
-        placeholder="Select multiple options..."
-        label="Custom label"
-        [required]="true"
-        [feedbackText]="{type: hint, text: 'Custom hint for using the multiselect'}"
+        [placeholder]="placeholder"
+        [label]="label"
+        [feedbackText]="feedbackText"
+        [required]="required"
       >
         <tedi-select-option value="option1" label="Option 1" />
         <tedi-select-option value="option2" label="Option 2" />
@@ -335,14 +358,14 @@ export const MultiselectSelectAll: Story = {
 };
 
 export const MultiselectGroupedOptions: Story = {
-  render: () => ({
+  render: (args) => ({
     template: `
       <tedi-multiselect
         inputId="multiselect-4"
-        placeholder="Select multiple options..."
-        label="Custom label"
-        [required]="true"
-        [feedbackText]="{type: hint, text: 'Custom hint for using the multiselect'}"
+        [placeholder]="placeholder"
+        [label]="label"
+        [feedbackText]="feedbackText"
+        [required]="required"
       >
         <tedi-select-option value="option1" label="Option 1" groupBy="Grupp 1"/>
         <tedi-select-option value="option2" label="Option 2" groupBy="Grupp 1"/>
@@ -351,6 +374,9 @@ export const MultiselectGroupedOptions: Story = {
         <tedi-select-option value="option5" label="Option 5" groupBy="Grupp 2"/>
       </tedi-multiselect>
     `,
+    props: {
+      ...args,
+    },
   }),
 };
 
@@ -360,10 +386,10 @@ export const MultiselectSelectableGroups: Story = {
       <tedi-multiselect
         inputId="multiselect-5"
         [selectableGroups]="true"
-        placeholder="Select multiple options..."
-        label="Custom label"
-        [required]="true"
-        [feedbackText]="{type: hint, text: 'Custom hint for using the multiselect'}"
+        [placeholder]="placeholder"
+        [label]="label"
+        [feedbackText]="feedbackText"
+        [required]="required"
       >
         <tedi-select-option value="option1" label="Option 1" groupBy="Grupp 1"/>
         <tedi-select-option value="option2" label="Option 2" groupBy="Grupp 1"/>
@@ -383,10 +409,10 @@ export const MultiselectTagsMultirow: Story = {
     template: `
       <tedi-multiselect
         inputId="multiselect-6"
-        placeholder="Select multiple options..."
-        label="Custom label"
-        [required]="true"
-        [feedbackText]="{type: hint, text: 'Custom hint for using the multiselect'}"
+        [placeholder]="placeholder"
+        [label]="label"
+        [feedbackText]="feedbackText"
+        [required]="required"
         [selectableGroups]="true"
         [multiRow]="true"
       >
