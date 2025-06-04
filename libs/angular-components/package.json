@@ -29,7 +29,6 @@
     "@angular/platform-browser": "^19.2.14"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^19.2.14",
     "@angular-devkit/core": "^19.2.14",
     "@angular-devkit/schematics": "^19.2.14",
     "@angular-eslint/builder": "^19.7.0",
