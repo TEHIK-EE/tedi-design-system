@@ -10,11 +10,7 @@ import { ModalHeaderComponent } from "./header/modal-header.component";
 import { ModalFooterComponent } from "./footer/modal-footer.component";
 import { ComponentInputs } from "tedi/types";
 
-export enum ModalSizes {
-  Large = "lg",
-  Medium = "md",
-  Small = "sm",
-}
+export type ModalSizes = "lg" | "md" | "sm";
 
 export type DialogData = ComponentInputs<
   ModalHeaderComponent & ModalFooterComponent
@@ -26,7 +22,7 @@ export type DialogData = ComponentInputs<
   selector: "tedi-modal",
   templateUrl: "./modal.component.html",
   styleUrl: "./modal.component.scss",
-  imports: [DialogModule, ModalHeaderComponent, ModalFooterComponent],
+  imports: [DialogModule],
   encapsulation: ViewEncapsulation.None,
   host: {
     "[class.tedi-modal]": "true",
@@ -36,10 +32,7 @@ export type DialogData = ComponentInputs<
   },
 })
 export class ModalComponent implements OnInit {
-  readonly maxWidth = model(ModalSizes.Large);
-  readonly showFooter = model(true);
-
-  readonly ModalSizes = ModalSizes;
+  readonly maxWidth = model<ModalSizes>("lg");
 
   readonly dialogRef = inject(DialogRef, { optional: true });
   readonly dialogData = inject(DIALOG_DATA, {

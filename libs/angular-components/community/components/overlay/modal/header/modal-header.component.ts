@@ -1,24 +1,15 @@
 import { DIALOG_DATA, DialogRef } from "@angular/cdk/dialog";
 import { Component, inject, model, OnInit } from "@angular/core";
-import {
-  ButtonComponent,
-  FeedbackTextComponent,
-  IconComponent,
-  TextComponent,
-} from "tedi/components";
+import { FeedbackTextComponent, TextComponent } from "tedi/components";
 import { ComponentInputs } from "tedi/types";
 import { DialogData } from "../modal.component";
+import { ClosingButtonComponent } from "community/components/buttons";
 
 @Component({
   selector: "tedi-modal-header",
   templateUrl: "./modal-header.component.html",
   styleUrl: "./modal-header.component.scss",
-  imports: [
-    FeedbackTextComponent,
-    ButtonComponent,
-    IconComponent,
-    TextComponent,
-  ],
+  imports: [FeedbackTextComponent, ClosingButtonComponent, TextComponent],
 })
 export class ModalHeaderComponent implements OnInit {
   title = model("Title");

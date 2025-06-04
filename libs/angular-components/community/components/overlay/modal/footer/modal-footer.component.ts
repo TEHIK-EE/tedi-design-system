@@ -1,4 +1,4 @@
-import { NgFor, NgIf, NgStyle } from "@angular/common";
+import { NgIf, NgStyle } from "@angular/common";
 import { Component, inject, model, OnInit } from "@angular/core";
 import {
   ButtonComponent,
@@ -20,35 +20,17 @@ export interface ModalFooterButton {
   action: () => void;
 }
 
-export enum ModalIconPosition {
-  None = 0,
-  Start = 1 << 0,
-  End = 1 << 1,
-}
-
-const defaultButtons: ModalFooterButton[] = [
-  {
-    label: "Cancel",
-    variant: "secondary",
-    action: () => {},
-  },
-  {
-    label: "Confirm",
-    variant: "primary",
-    action: () => {},
-  },
-];
+export type ModalIconPosition = "start" | "end";
 
 @Component({
   selector: "tedi-modal-footer",
   templateUrl: "./modal-footer.component.html",
   styleUrl: "./modal-footer.component.scss",
-  imports: [ButtonComponent, IconComponent, NgFor, NgIf, NgStyle],
+  imports: [ButtonComponent, IconComponent, NgIf, NgStyle],
 })
 export class ModalFooterComponent implements OnInit {
   alignButtons = model<string>("flex-end");
-  buttons = model<ModalFooterButton[]>(defaultButtons);
-  iconPosition = ModalIconPosition;
+  buttons = model<ModalFooterButton[]>();
 
   readonly dialogData = inject(DIALOG_DATA, {
     optional: true,

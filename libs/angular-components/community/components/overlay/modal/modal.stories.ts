@@ -6,15 +6,12 @@ import {
   LabelComponent,
 } from "tedi/components";
 import { Dialog } from "@angular/cdk/dialog";
-import { DialogData, ModalComponent, ModalSizes } from "./modal.component";
+import { DialogData, ModalComponent } from "./modal.component";
 import { SelectComponent } from "community/components/form/select/select.component";
 import { SelectOptionComponent } from "community/components/form/select/select-option.component";
 import { resetIndexId, indexId } from "community/utils/unique-id";
 import { NgFor } from "@angular/common";
-import {
-  ModalFooterComponent,
-  ModalIconPosition,
-} from "./footer/modal-footer.component";
+import { ModalFooterComponent } from "./footer/modal-footer.component";
 import { ModalHeaderComponent } from "./header/modal-header.component";
 
 resetIndexId();
@@ -126,7 +123,7 @@ const meta: Meta<DialogData> = {
       control: {
         type: "radio",
       },
-      options: [ModalSizes.Small, ModalSizes.Medium, ModalSizes.Large],
+      options: ["sm", "md", "lg"],
       description: "Maximum Width of the modal container",
     },
     title: {
@@ -151,7 +148,7 @@ const meta: Meta<DialogData> = {
     },
   },
   args: {
-    maxWidth: ModalSizes.Small,
+    maxWidth: "lg",
     title: "Title",
     alignButtons: "flex-end",
     feedback: {
@@ -244,7 +241,7 @@ export const threeButtons: Story = {
         label: "Continue",
         variant: "primary",
         icon: "arrow_forward",
-        iconPosition: ModalIconPosition.End,
+        iconPosition: "end",
         action: () => {},
       },
     ],

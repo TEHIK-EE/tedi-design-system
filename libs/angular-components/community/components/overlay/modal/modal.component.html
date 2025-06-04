@@ -2,14 +2,10 @@
   [class]="['tedi-modal__container',
   `tedi-modal__container--${this.maxWidth()}`]"
 >
-  <ng-content select="[header-slot]">
-    <tedi-modal-header />
-  </ng-content>
-  <div class="tedi-modal__center">
+  <ng-content select="tedi-modal-header" />
+  <div class="tedi-modal__content">
     <ng-content />
   </div>
 
-  <ng-content class="tedi-modal__buttons" select="[footer-slot]">
-    <tedi-modal-footer />
-  </ng-content>
+  <ng-content select="tedi-modal-footer" />
 </div>

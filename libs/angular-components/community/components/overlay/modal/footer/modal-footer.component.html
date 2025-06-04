@@ -1,32 +1,29 @@
 <div
-  *ngIf="buttons() && buttons().length > 0"
   class="tedi-modal-footer"
   [ngStyle]="{
     'justify-content': alignButtons(),
   }"
 >
   <ng-content>
-    <button
-      *ngFor="let button of buttons()"
-      tedi-button
-      [size]="button.size || 'small'"
-      [variant]="button.variant || 'secondary'"
-      [disabled]="button.disabled"
-      [ngStyle]="button.style"
-      (click)="button.action()"
-    >
-      <tedi-icon
-        *ngIf="
-          button.icon &&
-          (button.iconPosition == iconPosition.Start || !button.iconPosition)
-        "
-        [name]="button.icon"
-      />
-      {{ button.label }}
-      <tedi-icon
-        *ngIf="button.icon && button.iconPosition == iconPosition.End"
-        [name]="button.icon"
-      />
-    </button>
+    @for (button of buttons(); track button.label) {
+      <button
+        tedi-button
+        [size]="button.size || 'small'"
+        [variant]="button.variant || 'secondary'"
+        [disabled]="button.disabled"
+        [ngStyle]="button.style"
+        (click)="button.action()"
+      >
+        <tedi-icon
+          *ngIf="button.icon && button.iconPosition == 'start'"
+          [name]="button.icon"
+        />
+        {{ button.label }}
+        <tedi-icon
+          *ngIf="button.icon && button.iconPosition == 'end'"
+          [name]="button.icon"
+        />
+      </button>
+    }
   </ng-content>
 </div>
