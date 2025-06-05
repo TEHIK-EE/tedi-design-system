@@ -19,8 +19,8 @@ export type ClosingButtonIconSize = 18 | 24;
   templateUrl: "./closing-button.component.html",
   styleUrl: "./closing-button.component.scss",
   host: {
-    "[title]": "title",
-    "[attr.aria-label]": "title",
+    "[title]": "title()",
+    "[attr.aria-label]": "title()",
     "[class.tedi-closing-button]": "true",
     "[class.tedi-closing-button--small]": "size() === 'small'",
   },
@@ -42,5 +42,5 @@ export class ClosingButtonComponent {
   iconSize = input<ClosingButtonIconSize>(24);
 
   private translationService = inject(TediTranslationService);
-  title = this.translationService.translate("close");
+  title = this.translationService.track("close");
 }
