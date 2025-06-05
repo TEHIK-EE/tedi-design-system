@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-react-v12.0.2](https://github.com/TEHIK-EE/tedi-design-system/compare/react-12.0.1...react-12.0.2) (2025-06-05)
+
+
+### Bug Fixes
+
+* **dayjs:** change labelprovider, move dayjs to peer-dependency [#850](https://github.com/TEHIK-EE/tedi-design-system/issues/850) ([#856](https://github.com/TEHIK-EE/tedi-design-system/issues/856)) ([f479ed5](https://github.com/TEHIK-EE/tedi-design-system/commit/f479ed540bfaa2435dbdf0be74615962031a3b73))
+
 # [@tehik-ee/tedi-react-v12.0.1](https://github.com/TEHIK-EE/tedi-design-system/compare/react-12.0.0...react-12.0.1) (2025-06-02)
 
 
