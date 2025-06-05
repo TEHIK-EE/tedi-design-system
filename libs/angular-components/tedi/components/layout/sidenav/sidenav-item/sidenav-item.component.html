@@ -1,119 +1,20 @@
-@if (sidenavService.isMobile()) {
-  @if (sidenavService.isMobileItemOpen() && dropdown?.open()) {
-    <ng-container *ngIf="!href() && !routerLink(); else mobileLink">
-      <tedi-sidenav-group-title>
-        <ng-container *ngTemplateOutlet="content"></ng-container>
-      </tedi-sidenav-group-title>
-    </ng-container>
-    <ng-template #mobileLink>
-      <ng-container *ngIf="routerLink(); else mobileHref">
-        <a
-          class="tedi-sidenav-item__link"
-          [routerLink]="routerLink()"
-          tabindex="0"
-        >
-          <ng-container *ngTemplateOutlet="content"></ng-container>
-        </a>
-      </ng-container>
-      <ng-template #mobileHref>
-        <a class="tedi-sidenav-item__link" [href]="href()" tabindex="0">
-          <ng-container *ngTemplateOutlet="content"></ng-container>
-        </a>
-      </ng-template>
-    </ng-template>
-  } @else {
-    <div class="tedi-sidenav-item__trigger">
-      <ng-container *ngTemplateOutlet="buttonOrLink"></ng-container>
-    </div>
-  }
+@if (href()) {
+  <a class="tedi-sidenav-item__title" [href]="href()">
+    <ng-container *ngTemplateOutlet="content"></ng-container>
+  </a>
+} @else if (routerLink()) {
+  <a class="tedi-sidenav-item__title" [routerLink]="routerLink()">
+    <ng-container *ngTemplateOutlet="content"></ng-container>
+  </a>
 } @else {
-  <div class="tedi-sidenav-item__trigger">
-    <ng-container *ngTemplateOutlet="buttonOrLink"></ng-container>
+  <div class="tedi-sidenav-item__title">
+    <ng-container *ngTemplateOutlet="content"></ng-container>
   </div>
 }
 
-<ng-template #buttonOrLink>
-  <ng-container *ngIf="!href() && !routerLink(); else hasLink">
-    <button
-      class="tedi-sidenav-item__title"
-      (click)="toggleDropdown()"
-      tabindex="0"
-    >
-      <ng-container *ngTemplateOutlet="content"></ng-container>
-      @if (dropdown) {
-        <tedi-icon
-          name="expand_more"
-          class="tedi-sidenav-item__caret"
-          color="white"
-          [attr.data-open]="dropdown?.open() ? 'true' : 'false'"
-        />
-      }
-    </button>
-  </ng-container>
-  <ng-template #hasLink>
-    <ng-container
-      *ngIf="
-        (dropdown && sidenavService.isCollapsed()) ||
-          (dropdown && sidenavService.isMobile());
-        else plainLink
-      "
-    >
-      <button
-        class="tedi-sidenav-item__title"
-        (click)="toggleDropdown()"
-        tabindex="0"
-      >
-        <ng-container *ngTemplateOutlet="content"></ng-container>
-        <tedi-icon
-          name="expand_more"
-          class="tedi-sidenav-item__caret"
-          color="white"
-          [attr.data-open]="dropdown?.open() ? 'true' : 'false'"
-        />
-      </button>
-    </ng-container>
-    <ng-template #plainLink>
-      <ng-container *ngIf="routerLink(); else normalHref">
-        <a
-          class="tedi-sidenav-item__title"
-          [routerLink]="routerLink()"
-          tabindex="0"
-        >
-          <ng-container *ngTemplateOutlet="content"></ng-container>
-        </a>
-      </ng-container>
-      <ng-template #normalHref>
-        <a class="tedi-sidenav-item__title" [href]="href()" tabindex="0">
-          <ng-container *ngTemplateOutlet="content"></ng-container>
-        </a>
-      </ng-template>
-      @if (dropdown) {
-        <button
-          class="tedi-sidenav-item__caret-button"
-          (click)="toggleDropdown()"
-          tabindex="0"
-        >
-          <div class="tedi-sidenav-item__caret-container">
-            <tedi-icon
-              name="expand_more"
-              class="tedi-sidenav-item__caret"
-              color="white"
-              [attr.data-open]="dropdown?.open() ? 'true' : 'false'"
-            />
-          </div>
-        </button>
-      }
-    </ng-template>
-  </ng-template>
-</ng-template>
-
 <ng-template #content>
-  @if (icon() && !(sidenavService.isMobileItemOpen() && dropdown?.open())) {
-    <tedi-icon [name]="icon()" color="white" class="tedi-sidenav-item__icon" />
+  @if (icon()) {
+    <tedi-icon [name]="icon()" />
   }
-  <span class="tedi-sidenav-item__text">
-    <ng-content></ng-content>
-  </span>
+  <ng-content></ng-content>
 </ng-template>
-
-<ng-content select="tedi-sidenav-dropdown"></ng-content>

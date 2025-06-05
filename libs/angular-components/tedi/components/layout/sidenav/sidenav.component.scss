@@ -2,195 +2,36 @@
 @use "@tehik-ee/tedi-core/bootstrap-utility/breakpoints";
 
 :root {
-  --_sidenav-tree-container: 24px;
-  --_sidenav-tree-trunk-width: 2px;
-  --_sidenav-tree-branch-width: 10px;
-  --_sidenav-tree-bullet-size: 8px;
-  --_sidenav-tree-left-padding: (
-      var(--_sidenav-tree-container) - var(--_sidenav-tree-trunk-width)
-    ) /
-    2;
-
-  --_sidenav-dropdown-collapsed-min-width: 16.5rem;
-  --_sidenav-dropdown-collapsed-left: 4px;
-  --_sidenav-dropdown-item-large-height: 48px;
-  --_sidenav-dropdown-item-medium-height: 44px;
-  --_sidenav-dropdown-item-small-height: 36px;
-
-  --_sidenav-collapsed-text-width: 4.5rem;
-  --_sidenav-transition-duration: 300ms;
+  --medium-sidenav-item-height: 2.75rem;
+  --small-sidenav-item-height: 2.25rem;
+  --tree-trunk-width: 2px;
+  --tree-branch-width: 12px;
+  --tree-bullet-size: 8px;
+  --sidenav-width-desktop: 15rem;
+  --sidenav-width-mobile: 70vw;
 }
 
 .tedi-sidenav {
   position: relative;
+  z-index: var(--z-index-sidenav);
   display: flex;
   flex-direction: column;
-  max-width: 100%;
-  min-height: 100%;
+  width: var(--sidenav-width-mobile);
+  min-width: 20rem;
+  max-width: 25rem;
+  height: 100%;
+  margin: 0;
   background-color: var(--side-navigation-item-background-default);
-  transition: all var(--_sidenav-transition-duration) ease;
-  z-index: var(--z-index-sidenav);
+  transition: all 0.3s ease;
 
-  @include mixins.responsive-styles(width, side-navigation-item-width-default);
+  @include mixins.print-grayscale;
+  @include mixins.responsive-styles(font-size, side-navigation-text-size);
 
-  &__collapse {
-    position: absolute;
-    right: 0;
-    transform: translateX(50%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: var(--button-floating-secondary-text-default);
-    border: var(--borders-01) solid
-      var(--button-floating-secondary-border-default);
-    background: var(--button-floating-secondary-background-default);
-    z-index: var(--z-index-sidenav);
-    cursor: pointer;
-
-    @include mixins.responsive-styles(top, side-navigation-item-padding-y);
-    @include mixins.responsive-styles(width, button-sm-height);
-    @include mixins.responsive-styles(height, button-sm-height);
-    @include mixins.responsive-styles(padding, button-md-icon-padding);
-    @include mixins.responsive-styles(border-radius, button-radius-default);
-
-    &:hover {
-      color: var(--button-floating-secondary-text-hover);
-      border: var(--borders-01) solid
-        var(--button-floating-secondary-border-hover);
-      background: var(--button-floating-secondary-background-hover);
-    }
-
-    &:active {
-      color: var(--button-floating-secondary-text-active);
-      border: var(--borders-01) solid
-        var(--button-floating-secondary-border-active);
-      background: var(--button-floating-secondary-background-active);
-    }
-
-    &:focus-visible {
-      outline: var(--borders-02) solid var(--primary-500);
-      outline-offset: var(--borders-01);
-    }
-  }
-
-  &--hidden {
-    display: none;
-  }
-
-  &--large {
-    --_sidenav-dropdown-item-height: var(--_sidenav-dropdown-item-large-height);
-
-    @include mixins.responsive-styles(
-      --_sidenav-item-min-height,
-      side-navigation-item-min-height
-    );
-    @include mixins.responsive-styles(
-      --_sidenav-item-font-size,
-      side-navigation-text-size
-    );
-    @include mixins.responsive-styles(
-      --_sidenav-item-line-height,
-      body-regular-line-height,
-      $exclude: tablet
-    );
-    @include mixins.responsive-styles(
-      --_sidenav-item-padding-y,
-      side-navigation-item-padding-y
-    );
-    @include mixins.responsive-styles(
-      --_sidenav-item-padding-right,
-      side-navigation-item-padding-right
-    );
-    @include mixins.responsive-styles(
-      --_sidenav-item-padding-left,
-      side-navigation-item-padding-left-level-1
-    );
-    @include mixins.responsive-styles(
-      --_sidenav-item-icon-size,
-      side-navigation-item-icon
-    );
-    @include mixins.responsive-styles(
-      --_sidenav-item-caret-size,
-      side-navigation-item-icon
-    );
-  }
-
-  &--medium {
-    --_sidenav-dropdown-item-height: var(
-      --_sidenav-dropdown-item-medium-height
-    );
-
-    @include mixins.responsive-styles(
-      --_sidenav-item-min-height,
-      side-navigation-item-min-height-medium
-    );
-    @include mixins.responsive-styles(
-      --_sidenav-item-font-size,
-      side-navigation-text-size-sm
-    );
-    @include mixins.responsive-styles(
-      --_sidenav-item-line-height,
-      body-small-regular-line-height,
-      $exclude: tablet
-    );
-    @include mixins.responsive-styles(
-      --_sidenav-item-padding-y,
-      side-navigation-item-padding-y-md
-    );
-    @include mixins.responsive-styles(
-      --_sidenav-item-padding-right,
-      side-navigation-item-padding-right
-    );
-    @include mixins.responsive-styles(
-      --_sidenav-item-padding-left,
-      side-navigation-item-padding-left-level-1
-    );
-    @include mixins.responsive-styles(
-      --_sidenav-item-icon-size,
-      side-navigation-item-icon-md
-    );
-    @include mixins.responsive-styles(
-      --_sidenav-item-caret-size,
-      side-navigation-item-icon-md
-    );
-  }
-
-  &--small {
-    --_sidenav-dropdown-item-height: var(--_sidenav-dropdown-item-small-height);
-
-    @include mixins.responsive-styles(
-      --_sidenav-item-min-height,
-      side-navigation-item-min-height-small
-    );
-    @include mixins.responsive-styles(
-      --_sidenav-item-font-size,
-      side-navigation-text-size-sm
-    );
-    @include mixins.responsive-styles(
-      --_sidenav-item-line-height,
-      body-small-regular-line-height,
-      $exclude: tablet
-    );
-    @include mixins.responsive-styles(
-      --_sidenav-item-padding-y,
-      side-navigation-item-padding-y-sm
-    );
-    @include mixins.responsive-styles(
-      --_sidenav-item-padding-right,
-      side-navigation-item-padding-right
-    );
-    @include mixins.responsive-styles(
-      --_sidenav-item-padding-left,
-      side-navigation-item-padding-left-level-1
-    );
-    @include mixins.responsive-styles(
-      --_sidenav-item-icon-size,
-      side-navigation-item-icon-sm
-    );
-    @include mixins.responsive-styles(
-      --_sidenav-item-caret-size,
-      side-navigation-item-icon-sm
-    );
+  @include breakpoints.media-breakpoint-up(lg) {
+    width: var(--sidenav-width-desktop);
+    min-width: 0;
+    max-width: none;
+    min-height: auto;
   }
 
   &--dividers {
@@ -202,225 +43,514 @@
       }
     }
   }
+}
 
-  &--mobile {
-    .tedi-sidenav-item {
-      .tedi-sidenav-dropdown {
-        transition: none;
-      }
+.tedi-sidenav__collapse {
+  .tedi-sidenav__item {
+    position: relative;
 
-      .tedi-sidenav-item__text {
-        white-space: wrap;
-        animation: none;
-      }
-    }
-
-    &-item-open {
-      .tedi-sidenav-group-title {
-        display: none;
-      }
-
-      .tedi-sidenav-item {
-        border-bottom: 0;
-
-        .tedi-sidenav-group-title {
-          display: block;
-        }
-      }
-    }
-  }
-
-  &--collapsed {
-    @include mixins.responsive-styles(
-      --_sidenav-item-icon-size,
-      side-navigation-item-icon
-    );
-    @include mixins.responsive-styles(
-      --_sidenav-item-caret-size,
-      side-navigation-item-icon-sm
-    );
-
-    @include mixins.responsive-styles(
-      width,
-      side-navigation-item-width-collapsed
-    );
-
-    .tedi-sidenav-item {
-      @include mixins.responsive-styles(
-        --_sidenav-item-font-size,
-        side-navigation-text-size-sm
-      );
-
-      .tedi-sidenav-item__title {
-        flex-direction: column;
-        text-align: center;
-
-        @include mixins.responsive-styles(
-          min-height,
-          side-navigation-item-min-height-large
-        );
-
-        @include mixins.responsive-styles(
-          padding,
-          side-navigation-item-padding-y side-navigation-item-padding-x-sm
-        );
-      }
-
-      .tedi-sidenav-item__caret {
-        position: absolute;
-        top: var(--_sidenav-item-padding-y);
-        right: var(--_sidenav-item-padding-right);
-        font-size: var(--size-03);
-
-        &[data-open="true"] {
-          transform: rotate(-90deg);
-        }
-      }
-
-      .tedi-sidenav-item__text {
-        white-space: nowrap;
-        max-width: var(--_sidenav-collapsed-text-width);
-        animation: none;
-      }
-    }
-
-    .tedi-sidenav-group-title {
-      border-bottom: var(--borders-01) solid
-        var(--side-navigation-group-title-text);
-
-      .tedi-sidenav-group-title__text {
-        display: none;
-      }
-    }
-
-    .tedi-sidenav-dropdown {
-      min-width: var(--_sidenav-dropdown-collapsed-min-width);
+    &::before {
       position: absolute;
       top: 0;
-      left: calc(100% + var(--_sidenav-dropdown-collapsed-left));
-      background: var(--dropdown-item-default-background);
-      border: var(--borders-01) solid var(--card-border-primary);
-      box-shadow: 0px 1px 5px 0px var(--alpha-20);
-      transition: none;
-      visibility: hidden;
+      bottom: 0;
+      width: var(--tree-trunk-width);
+      content: "";
+      background-color: var(--side-navigation-tree-brand-default);
+      border-radius: 0;
 
-      @include mixins.responsive-styles(border-radius, form-select-area-radius);
-
-      &--open {
-        visibility: visible;
-      }
-
-      .tedi-sidenav-group-title {
-        border: 0;
-
-        .tedi-sidenav-group-title__text {
-          display: block;
-          color: var(--general-text-tertiary);
-          font-size: 14px;
-          line-height: 20px;
-
-          @include mixins.responsive-styles(
-            padding,
-            dropdown-group-label-padding-y dropdown-group-label-padding-x
-              layout-grid-gutters-04 dropdown-group-label-padding-x
-          );
-        }
-      }
+      @include mixins.responsive-styles(left, button-xs-icon-size);
     }
 
-    .tedi-sidenav-dropdown-item {
-      color: var(--dropdown-item-default-text);
+    &::after {
+      position: absolute;
+      top: calc(var(--tree) / 3);
+      bottom: 0;
+      left: calc(var(--tree) / 3);
+      width: var(--tree-branch-width);
+      height: var(--tree-trunk-width);
+      content: "";
+      background-color: var(--side-navigation-tree-brand-default);
+      border-radius: 0 var(--button-radius) var(--button-radius) 0;
 
-      &.tedi-sidenav-dropdown-item--selected,
-      &:hover {
-        color: var(--dropdown-item-hover-text);
-        background-color: var(--dropdown-item-hover-background);
+      @include breakpoints.media-breakpoint-down(lg) {
+        top: calc(var(--tree) / 2);
+        left: calc(var(--tree) / 2 - var(--tree-trunk-width));
       }
 
-      @include mixins.responsive-styles(padding-left, dropdown-item-padding-x);
-      @include mixins.responsive-styles(--_gap, dropdown-item-inner-spacing);
-
-      &::before,
-      &::after {
-        height: 0;
-        width: 0;
-      }
+      @include mixins.responsive-styles(
+        --tree,
+        side-navigation-item-min-height
+      );
+      @include mixins.responsive-styles(--button-radius, button-radius-sm);
     }
 
-    .tedi-sidenav-dropdown-group {
-      .tedi-sidenav-dropdown-item {
-        padding-left: calc(
-          var(--_padding-left) + var(--_sidenav-tree-container) + var(--_gap)
-        );
+    &:last-child::before {
+      height: calc(50% + var(--tree-trunk-width));
+    }
 
-        @include mixins.responsive-styles(
-          --_padding-left,
-          dropdown-item-padding-x
-        );
-
-        &::after {
-          width: var(--_sidenav-tree-branch-width);
-          height: var(--_sidenav-tree-trunk-width);
-          top: 50%;
-          transform: translateY(-50%);
-          background-color: var(--side-navigation-tree-neutral-default);
-        }
-
-        &::before {
-          height: 100%;
-          width: var(--_sidenav-tree-trunk-width);
-          background-color: var(--side-navigation-tree-neutral-default);
-        }
-
-        &:first-of-type {
-          @include mixins.responsive-styles(
-            padding-left,
-            dropdown-item-padding-x
-          );
-
-          &::after {
-            width: 0;
-            height: 0;
-          }
-
-          &:not(:only-child) {
-            &::after,
-            &::before {
-              width: 0;
-              height: 0;
-            }
-          }
-        }
-
-        &:last-of-type {
-          &::before {
-            height: 50%;
-          }
-        }
-      }
+    .tedi-sidenav--has-dividers & {
+      border-bottom: 0;
     }
   }
+}
 
-  .tedi-sidenav-back {
-    min-height: var(--_sidenav-item-min-height);
-    font-size: var(--_sidenav-item-font-size);
-    line-height: var(--_sidenav-item-line-height);
-    padding: var(--_sidenav-item-padding-y) var(--_sidenav-item-padding-right)
-      var(--_sidenav-item-padding-y) var(--_sidenav-item-padding-left);
-    color: var(--side-navigation-item-text);
-    text-align: start;
-    border: 0;
-    border-bottom: var(--borders-01) solid var(--side-navigation-item-border);
-    background: transparent;
-    font-size: inherit;
-    cursor: pointer;
+.tedi-sidenav--collapsed {
+  width: 6rem;
+}
 
-    &:hover {
-      background: var(--side-navigation-item-background-hover);
+.tedi-sidenav--collapsed .tedi-sidenav__title {
+  display: inline;
+  max-width: 4.5rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tedi-sidenav--collapsed .tedi-sidenav__bullet {
+  display: none;
+}
+
+.tedi-sidenav--collapsed
+  .tedi-sidenav__item
+  span[class^="row"]
+  span[class^="col"]:last-child {
+  display: none;
+}
+
+.tedi-sidenav--collapsed .tedi-sidenav__link {
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+
+  @include mixins.responsive-styles(font-size, side-navigation-text-size-sm);
+  @include mixins.responsive-styles(gap, side-navigation-item-inner-spacing-sm);
+  @include mixins.responsive-styles(
+    padding-top,
+    side-navigation-item-padding-y
+  );
+  @include mixins.responsive-styles(
+    padding-bottom,
+    side-navigation-item-padding-y
+  );
+  @include mixins.responsive-styles(
+    padding-left,
+    side-navigation-item-padding-x-sm
+  );
+  @include mixins.responsive-styles(
+    padding-right,
+    side-navigation-item-padding-x-sm
+  );
+}
+
+.tedi-sidenav--collapsed .tedi-sidenav__link--active {
+  background-color: var(--side-navigation-item-background-active);
+}
+
+.tedi-sidenav--collapsed .tedi-sidenav__item--has-children {
+  position: relative;
+}
+
+.tedi-sidenav--collapsed
+  .tedi-sidenav__item--has-children
+  .tedi-sidenav__toggle-icon {
+  position: absolute;
+  top: 20px;
+  right: 10px;
+}
+
+.tedi-sidenav__overlay {
+  z-index: calc(var(--z-index-header) - 1);
+  background: var(--alpha-20);
+}
+
+.tedi-sidenav__list {
+  margin: 0;
+  list-style: none;
+
+  .tedi-sidenav__list {
+    margin: 0;
+  }
+}
+
+.tedi-sidenav__item {
+  display: flex;
+  flex-direction: row;
+  background-color: var(--side-navigation-item-background-default);
+  transition: all 0.3s ease;
+}
+
+.tedi-sidenav--has-dividers .tedi-sidenav__item {
+  border-bottom: var(--borders-01) solid var(--side-navigation-item-border);
+
+  &:last-of-type {
+    border-bottom: 0;
+  }
+}
+
+.tedi-sidenav__item [data-name="collapse-trigger"] {
+  [data-name="icon"] {
+    color: var(--general-icon-white);
+  }
+
+  &:hover {
+    background-color: var(--side-navigation-item-background-hover);
+  }
+}
+
+.tedi-sidenav__item [data-name="collapse-trigger"] .tedi-sidenav__link:hover {
+  background-color: var(--alpha-00);
+}
+
+.tedi-sidenav__item div[class^="tedi-collapse__content"] {
+  margin: 0;
+}
+
+.tedi-sidenav__item span[class^="row"] {
+  margin-right: 0;
+  margin-left: 0;
+
+  & span[class^="col"]:first-child {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+.tedi-sidenav__item.tedi-sidenav__sub-item .tedi-sidenav__link {
+  min-height: auto;
+
+  @include mixins.responsive-styles(
+    padding-top,
+    side-navigation-item-padding-y
+  );
+  @include mixins.responsive-styles(
+    padding-bottom,
+    side-navigation-item-padding-y
+  );
+}
+
+.tedi-sidenav__item .tedi-sidenav__link--has-children-link {
+  padding-right: calc(
+    var(--sidenav-item-padding-with-children) + var(--collapse-toggle-width)
+  );
+
+  @include mixins.responsive-styles(
+    --sidenav-item-padding-with-children,
+    side-navigation-item-padding-right
+  );
+  @include mixins.responsive-styles(
+    --collapse-toggle-width,
+    button-xs-icon-size
+  );
+
+  @include breakpoints.media-breakpoint-down(md) {
+    margin-left: calc(var(--padding-left) + var(--button-size));
+
+    @include mixins.responsive-styles(--button-size, button-xs-icon-size);
+    @include mixins.responsive-styles(
+      --padding-left,
+      side-navigation-item-padding-right
+    );
+  }
+}
+
+.tedi-sidenav__item
+  .tedi-sidenav__link--has-children-link
+  + .tedi-sidenav__link-collapse-wrapper
+  [data-name="collapse-trigger"] {
+  position: absolute;
+  top: calc(var(--collapse-trigger-top) / 3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @include mixins.responsive-styles(
+    --collapse-trigger-top,
+    side-navigation-item-min-height
+  );
+  @include mixins.responsive-styles(right, side-navigation-item-padding-right);
+  @include mixins.responsive-styles(border-radius, button-radius-sm);
+  @include mixins.responsive-styles(width, button-xs-icon-size);
+  @include mixins.responsive-styles(height, button-xs-icon-size);
+
+  &:hover,
+  &[aria-expanded="true"] {
+    background-color: var(
+      --side-navigation-item-background-arrow-button-active
+    );
+  }
+}
+
+.tedi-sidenav__item--mobile {
+  border-bottom: var(--borders-01) solid var(--side-navigation-item-border);
+}
+
+.tedi-sidenav__item.tedi-sidenav__item--current {
+  color: var(--side-navigation-item-text);
+  background-color: var(--side-navigation-item-background-active);
+
+  @include mixins.responsive-styles(font-weight, body-bold-weight);
+}
+
+.tedi-sidenav__item--medium {
+  .tedi-sidenav__link {
+    min-height: auto;
+  }
+
+  .tedi-sidenav__sub-item .tedi-sidenav__link {
+    @include mixins.responsive-styles(
+      padding-top,
+      side-navigation-item-padding-y
+    );
+    @include mixins.responsive-styles(
+      padding-bottom,
+      side-navigation-item-padding-y
+    );
+  }
+
+  .tedi-sidenav__sub-item .tedi-sidenav__title {
+    @include mixins.responsive-styles(
+      line-height,
+      body-small-regular-line-height
+    );
+  }
+
+  .tedi-sidenav__bullet,
+  .tedi-sidenav__sub-item::after {
+    top: calc(var(--medium-sidenav-item-height) / 2);
+  }
+
+  .tedi-sidenav__icon {
+    font-size: var(--size-05);
+  }
+}
+
+.tedi-sidenav__item--small {
+  .tedi-sidenav__link {
+    min-height: auto;
+
+    @include mixins.responsive-styles(
+      padding-top,
+      side-navigation-item-padding-y-sm
+    );
+    @include mixins.responsive-styles(
+      padding-bottom,
+      side-navigation-item-padding-y-sm
+    );
+  }
+
+  .tedi-sidenav__sub-item .tedi-sidenav__title {
+    @include mixins.responsive-styles(
+      line-height,
+      body-small-regular-line-height
+    );
+  }
+
+  .tedi-sidenav__sub-item .tedi-sidenav__link {
+    @include mixins.responsive-styles(
+      padding-top,
+      side-navigation-item-padding-y-sm
+    );
+    @include mixins.responsive-styles(
+      padding-bottom,
+      side-navigation-item-padding-y-sm
+    );
+  }
+
+  .tedi-sidenav__bullet,
+  .tedi-sidenav__sub-item::after {
+    top: calc(var(--small-sidenav-item-height) / 2);
+  }
+
+  .tedi-sidenav__icon {
+    font-size: var(--size-03);
+  }
+}
+
+button.tedi-sidenav__link {
+  width: 100%;
+  background: none;
+  border: none;
+}
+
+button.tedi-sidenav__link.tedi-sidenav__back-button {
+  border-bottom: var(--borders-01) solid var(--side-navigation-item-border);
+
+  @include mixins.responsive-styles(gap, link-inner-spacing-x);
+}
+
+.tedi-sidenav__link {
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+  font: inherit;
+  color: var(--side-navigation-item-text);
+  text-decoration: none;
+  border-radius: 0;
+  transition: 200ms ease;
+  transition-property: background-color, color;
+
+  @include mixins.responsive-styles(
+    padding-right,
+    side-navigation-item-padding-right
+  );
+  @include mixins.responsive-styles(
+    padding-left,
+    side-navigation-item-padding-left-level-1
+  );
+  @include mixins.responsive-styles(
+    padding-top,
+    side-navigation-item-padding-y
+  );
+  @include mixins.responsive-styles(
+    padding-bottom,
+    side-navigation-item-padding-y
+  );
+  @include mixins.responsive-styles(gap, side-navigation-item-inner-spacing);
+  @include mixins.responsive-styles(
+    min-height,
+    side-navigation-item-min-height
+  );
+
+  &:hover {
+    background-color: var(--side-navigation-item-background-hover);
+  }
+}
+
+.tedi-sidenav__item
+  .tedi-sidenav__item
+  .tedi-sidenav__link
+  .tedi-sidenav__title:first-child {
+  margin-left: calc((var(--dimensions) / 3) + var(--padding-left));
+
+  @include mixins.responsive-styles(
+    --padding-left,
+    side-navigation-item-padding-left-level-2
+  );
+  @include mixins.responsive-styles(
+    --dimensions,
+    side-navigation-item-min-height
+  );
+}
+
+.tedi-sidenav__subheading {
+  font-size: var(--size-00);
+  color: var(--side-navigation-group-title-text);
+  text-transform: uppercase;
+
+  @include mixins.responsive-styles(padding-top, layout-grid-gutters-02);
+  @include mixins.responsive-styles(padding-bottom, layout-grid-gutters-04);
+  @include mixins.responsive-styles(
+    padding-left,
+    side-navigation-item-padding-right
+  );
+  @include mixins.responsive-styles(
+    padding-right,
+    side-navigation-item-padding-left-level-1
+  );
+
+  @include breakpoints.media-breakpoint-down(lg) {
+    margin-top: 10px;
+    background-color: var(--side-navigation-item-background-default);
+
+    &:not(.tedi-sidenav__subheading--mobile) {
+      position: relative;
+      z-index: 10;
+      margin-left: 10px;
+    }
+  }
+}
+
+.tedi-sidenav__subheading--mobile {
+  @include breakpoints.media-breakpoint-down(md) {
+    margin-top: 10px;
+  }
+}
+
+.tedi-sidenav__item--current > .tedi-sidenav__subheading {
+  color: var(--side-navigation-item-text);
+  background-color: var(--side-navigation-item-background-active);
+}
+
+.tedi-sidenav__item
+  .tedi-sidenav__item.sidenav__item--current
+  > .tedi-sidenav__subheading {
+  color: var(--side-navigation-item-text);
+}
+
+.tedi-sidenav__item--has-children {
+  position: relative;
+  flex-direction: column;
+
+  &::after {
+    display: none;
+  }
+
+  &::before {
+    margin-top: calc(var(--tree-trunk-top) / 3);
+
+    @include breakpoints.media-breakpoint-down(lg) {
+      margin-top: calc(var(--tree-trunk-top) / 2);
     }
 
-    tedi-icon {
-      font-size: var(--_sidenav-item-icon-size);
+    @include mixins.responsive-styles(
+      --tree-trunk-top,
+      side-navigation-item-min-height
+    );
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.tedi-sidenav__bullet {
+  position: absolute;
+  top: calc((var(--tree) / 3) - (var(--tree-bullet-size) / 2));
+  left: calc((var(--tree) / 3) - (var(--tree-bullet-size) / 2) + 1px);
+
+  @include breakpoints.media-breakpoint-down(lg) {
+    top: calc((var(--tree) / 2) - (var(--tree-bullet-size) / 2));
+    left: calc((var(--tree) / 2) - (var(--tree-bullet-size) - 1px));
+  }
+
+  @include mixins.responsive-styles(--tree, side-navigation-item-min-height);
+
+  &::before {
+    position: absolute;
+    width: var(--tree-bullet-size);
+    height: var(--tree-bullet-size);
+    content: "";
+    background-color: var(--side-navigation-tree-brand-default);
+    border-radius: 100%;
+  }
+}
+
+.tedi-sidenav__sub-item:has(+ .tedi-sidenav__item--has-children)::before {
+  height: calc(50% + var(--tree-trunk-width));
+}
+
+.tedi-sidenav__toggle-icon {
+  @include breakpoints.media-breakpoint-down(lg) {
+    margin-left: auto;
+  }
+}
+
+.tedi-sidenav__item--level-2 {
+  @include breakpoints.media-breakpoint-down(md) {
+    &::before {
+      display: none;
+    }
+
+    .tedi-sidenav__link {
+      margin-left: 0;
+
+      .tedi-sidenav__bullet {
+        display: none;
+      }
+    }
+
+    .tedi-sidenav__item--level-3 .tedi-sidenav__bullet {
+      display: block;
     }
   }
 }
