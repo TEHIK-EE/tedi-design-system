@@ -1,4 +1,9 @@
-import { argsToTemplate, Meta, StoryObj } from "@storybook/angular";
+import {
+  argsToTemplate,
+  Meta,
+  moduleMetadata,
+  StoryObj,
+} from "@storybook/angular";
 
 import {
   StatusBadgeColor,
@@ -8,6 +13,9 @@ import {
   StatusBadgeVariant,
 } from "./status-badge.component";
 import { ComponentInputs } from "tedi/types";
+import { VerticalSpacingDirective } from "tedi/directives";
+import { NgFor } from "@angular/common";
+import { ColComponent, RowComponent } from "tedi/components";
 
 const colors: StatusBadgeColor[] = [
   "neutral",
@@ -51,11 +59,17 @@ const statusToIconMap: Record<StatusBadgeStatus, string> = {
 
 const meta: Meta<StatusBadgeComponent> = {
   component: StatusBadgeComponent,
-  // decorators: [
-  //   moduleMetadata({
-  //     imports: [StatusBadgeComponent],
-  //   }),
-  // ],
+  decorators: [
+    moduleMetadata({
+      imports: [
+        StatusBadgeComponent,
+        VerticalSpacingDirective,
+        NgFor,
+        RowComponent,
+        ColComponent,
+      ],
+    }),
+  ],
 
   title: "Community Angular/Tags/StatusBadge",
   args: {
@@ -125,41 +139,50 @@ const defaultTemplate = (args: ComponentInputs<StatusBadgeComponent>) =>
   `<tedi-status-badge ${argsToTemplate(args)}>Text</tedi-status-badge>`;
 
 export const Default: Story = {
-  render: (args) => ({ template: defaultTemplate(args) }),
+  render: (args) => ({ template: defaultTemplate(args), props: args }),
   args: {
     color: "neutral",
     variant: "filled",
   },
 };
 
-// const TemplateAllCombos = `
-//     <div className="badge-grid">
-//       <div [tediVerticalSpacing]="1">
-//         {colors.map((color) => (
-//           <tedi-row className="mb-2">
-//             <tedi-col md={2} className="d-flex align-items-center">
-//               <strong>{color.charAt(0).toUpperCase() + color.slice(1)}</strong>
-//             </tedi-col>
-//             {variants.map((variant) => (
-//               <tedi-col width="auto">
-//                 <tedi-status-badge {...args} color={color} variant={variant}>
-//                   Text
-//                 </tedi-status-badge>
-//               </tedi-col>
-//               <tedi-col width="auto">
-//                 <tedi-status-badge {...args} color={color} variant={variant} icon={colorToIconMap[color]}>
-//                   Text
-//                 </tedi-status-badge>
-//               </tedi-col>
-//               <tedi-col width="auto">
-//                 <tedi-status-badge {...args} color={color} variant={variant} icon={colorToIconMap[color]} />
-//               </tedi-col>
-//             ))}
-//           </tedi-row>
-//         ))}
-//       </div>
-//     </div>
-//     `;
+const TemplateAllCombos = (args: ComponentInputs<StatusBadgeComponent>) => {
+  return `
+<div className="badge-grid">
+  <div [tediVerticalSpacing]="1">
+    <tedi-row *ngFor="let color of colors" className="mb-2">
+      <tedi-col md={2} className="d-flex align-items-center">
+        <strong>{{color.charAt(0).toUpperCase() + color.slice(1)}}</strong>
+      </tedi-col>
+
+      <tedi-col *ngFor="let color of colors" width="auto">
+        <tedi-status-badge ${argsToTemplate(args)}>
+          Text
+        </tedi-status-badge>
+      </tedi-col>
+      <tedi-col width="auto">
+        <tedi-status-badge ${argsToTemplate(args)} color={color} variant={variant} icon={colorToIconMap[color]}>
+          Text
+        </tedi-status-badge>
+      </tedi-col>
+      <tedi-col width="auto">
+        <tedi-status-badge ${argsToTemplate(args)} color={color} variant={variant} icon={colorToIconMap[color]} />
+      </tedi-col>
+    </tedi-row>
+  </div>
+</div>
+`;
+};
+
+export const Colors: Story = {
+  render: (args) => {
+    const { color: _color, variant: _variant, ...rest } = args;
+    return {
+      template: TemplateAllCombos(args),
+      props: { colors, variants, colorToIconMap, ...rest },
+    };
+  },
+};
 
 // const TemplateStatusGrid = `
 //     <div className="badge-grid">
@@ -201,10 +224,6 @@ export const Default: Story = {
 //       </div>
 //     </div>
 // `;
-
-// export const Colors: Story = {
-//   render: () => ({ template: TemplateAllCombos }),
-// };
 
 // export const StatusIndicator: Story = {
 //   render: () => ({ template: TemplateStatusGrid }),
