@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-angular-v2.1.0-rc.2](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.1.0-rc.1...angular-2.1.0-rc.2) (2025-06-05)
+
+
+### Features
+
+* **packages:** Update angular packages to latest v19 version [#849](https://github.com/TEHIK-EE/tedi-design-system/issues/849)  ([#852](https://github.com/TEHIK-EE/tedi-design-system/issues/852)) ([ddfb547](https://github.com/TEHIK-EE/tedi-design-system/commit/ddfb5470bd380c7eb441ee0d3bb181f7a5f515f7)), closes [#836](https://github.com/TEHIK-EE/tedi-design-system/issues/836)
+
 # [@tehik-ee/tedi-angular-v2.1.0-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.0.1...angular-2.1.0-rc.1) (2025-06-04)
 
 
