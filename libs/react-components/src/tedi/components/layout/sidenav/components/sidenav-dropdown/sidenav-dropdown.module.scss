@@ -55,14 +55,14 @@
   .tedi-sidenav-dropdown__item {
     .tedi-sidenav-dropdown__link {
       position: relative;
-      padding-left: 48px;
+      padding-left: calc(var(--dropdown-item-padding) * 3);
 
       &::before {
         position: absolute;
         top: 0;
         bottom: 0;
-        left: 23px;
-        width: 2px;
+        left: calc(var(--dropdown-item-padding) * 1.5);
+        width: var(--tree-trunk-width);
         content: '';
         background-color: var(--side-navigation-tree-neutral-default);
         border-radius: 0;
@@ -72,18 +72,21 @@
         position: absolute;
         top: 20px;
         bottom: 0;
-        left: 23px;
-        width: 15px;
-        height: 2px;
+        left: calc(var(--dropdown-item-padding) * 1.5);
+        width: var(--tree-branch-width);
+        height: var(--tree-trunk-width);
         content: '';
         background-color: var(--side-navigation-tree-neutral-default);
-        border-radius: 0 10px 10px 0;
+        border-radius: 0 var(--button-radius) var(--button-radius) 0;
       }
+
+      @include mixins.responsive-styles(--button-radius, button-radius-sm);
+      @include mixins.responsive-styles(--dropdown-item-padding, dropdown-item-padding-x);
     }
 
     &:last-child {
       .tedi-sidenav-dropdown__link::before {
-        height: calc(50% + 1px);
+        height: calc(50% + var(--tree-trunk-width));
       }
     }
   }
