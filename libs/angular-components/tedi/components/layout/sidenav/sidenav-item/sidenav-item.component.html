@@ -1,0 +1,20 @@
+@if (href()) {
+  <a class="tedi-sidenav-item__title" [href]="href()">
+    <ng-container *ngTemplateOutlet="content"></ng-container>
+  </a>
+} @else if (routerLink()) {
+  <a class="tedi-sidenav-item__title" [routerLink]="routerLink()">
+    <ng-container *ngTemplateOutlet="content"></ng-container>
+  </a>
+} @else {
+  <div class="tedi-sidenav-item__title">
+    <ng-container *ngTemplateOutlet="content"></ng-container>
+  </div>
+}
+
+<ng-template #content>
+  @if (icon()) {
+    <tedi-icon [name]="icon()" />
+  }
+  <ng-content></ng-content>
+</ng-template>

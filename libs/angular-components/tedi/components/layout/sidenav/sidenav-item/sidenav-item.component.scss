@@ -1,0 +1,109 @@
+@use "@tehik-ee/tedi-core/mixins";
+
+.tedi-sidenav-item {
+  display: flex;
+  align-items: center;
+
+  &--large {
+    @include mixins.responsive-styles(
+      min-height,
+      side-navigation-item-min-height
+    );
+    @include mixins.responsive-styles(font-size, side-navigation-text-size);
+    @include mixins.responsive-styles(
+      line-height,
+      body-regular-line-height,
+      $exclude: tablet
+    );
+
+    .tedi-sidenav-item__title {
+      @include mixins.responsive-styles(
+        padding,
+        side-navigation-item-padding-y side-navigation-item-padding-right
+          side-navigation-item-padding-y
+          side-navigation-item-padding-left-level-1
+      );
+    }
+  }
+
+  &--medium {
+    @include mixins.responsive-styles(
+      min-height,
+      side-navigation-item-min-height-medium
+    );
+    @include mixins.responsive-styles(font-size, side-navigation-text-size-sm);
+    @include mixins.responsive-styles(
+      line-height,
+      body-small-regular-line-height,
+      $exclude: tablet
+    );
+
+    .tedi-sidenav-item__title {
+      @include mixins.responsive-styles(
+        padding,
+        side-navigation-item-padding-y-md side-navigation-item-padding-right
+          side-navigation-item-padding-y-md
+          side-navigation-item-padding-left-level-1
+      );
+
+      tedi-icon {
+        font-size: var(--size-05);
+      }
+    }
+  }
+
+  &--small {
+    @include mixins.responsive-styles(
+      min-height,
+      side-navigation-item-min-height-small
+    );
+    @include mixins.responsive-styles(font-size, side-navigation-text-size-sm);
+    @include mixins.responsive-styles(
+      line-height,
+      body-small-regular-line-height,
+      $exclude: tablet
+    );
+
+    .tedi-sidenav-item__title {
+      @include mixins.responsive-styles(
+        padding,
+        side-navigation-item-padding-y-sm side-navigation-item-padding-right
+          side-navigation-item-padding-y-sm
+          side-navigation-item-padding-left-level-1
+      );
+
+      tedi-icon {
+        font-size: var(--size-03);
+      }
+    }
+  }
+
+  .tedi-sidenav-item__title {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--side-navigation-item-text);
+
+    @include mixins.responsive-styles(gap, side-navigation-item-inner-spacing);
+
+    tedi-icon {
+      color: inherit;
+    }
+  }
+
+  &:hover {
+    background: var(--side-navigation-item-background-hover);
+  }
+
+  &:focus-visible {
+    background: var(--side-navigation-item-background-focus);
+  }
+
+  &--selected {
+    background: var(--side-navigation-item-background-active);
+
+    @include mixins.responsive-styles(font-weight, body-bold-weight);
+  }
+}
