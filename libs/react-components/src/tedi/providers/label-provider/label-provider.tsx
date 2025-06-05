@@ -66,9 +66,7 @@ export const LabelProvider = (props: LabelProviderProps): JSX.Element => {
     ...labels,
   };
 
-  React.useEffect(() => {
-    dayjs.locale(locale);
-  }, [locale]);
+  dayjs.locale(locale);
 
   const getLabel = (key: keyof DefaultLabelsMap) => {
     const label = mergedLabels[key];
