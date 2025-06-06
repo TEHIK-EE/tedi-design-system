@@ -1,3 +1,8 @@
+@if (label()) {
+  <label tedi-label [for]="inputId()" [required]="required()" [size]="size()">
+    {{ label() }}
+  </label>
+}
 <button
   tedi-input
   type="button"
@@ -12,8 +17,8 @@
     class="tedi-select__label"
     [class.tedi-select__label--placeholder]="!_selectedValue()"
   >
-    @if (selectedLabel(); as label) {
-      {{ label }}
+    @if (selectedLabel()) {
+      {{ selectedLabel() }}
     } @else {
       {{ placeholder() }}
     }
@@ -46,7 +51,7 @@
           cdkMenuItem
           tedi-dropdown-item
           (cdkMenuItemTriggered)="select(option.value())"
-          [selected]="option.value() === _selectedValue()"
+          [selected]="isOptionSelected(option.value())"
           [disabled]="option.isDisabled()"
         >
           @if (option.templateRef(); as optionTemplate) {
@@ -62,3 +67,10 @@
     </tedi-card-content>
   </tedi-card>
 </ng-template>
+@if (feedbackText(); as feedback) {
+  <tedi-feedback-text
+    [text]="feedback.text"
+    [type]="feedback.type"
+    [position]="feedback.position"
+  />
+}

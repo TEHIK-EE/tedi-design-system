@@ -68,7 +68,8 @@ export type AutocompleteOption = {
   ],
 })
 export class SearchComponent
-  implements AfterContentChecked, ControlValueAccessor {
+  implements AfterContentChecked, ControlValueAccessor
+{
   /**
    * Search input ID for accessibility
    */
@@ -193,11 +194,11 @@ export class SearchComponent
   buttonSize = computed(() => {
     switch (this.size()) {
       case "large":
-        return "medium";
+        return "default";
       case "small":
         return "small";
       default:
-        return "medium";
+        return "default";
     }
   });
 
@@ -218,6 +219,7 @@ export class SearchComponent
   registerOnChange(fn: (value: string | AutocompleteOption) => void): void {
     this.onChange = fn;
   }
+
   registerOnTouched(fn: () => void): void {
     this.onTouched = fn;
   }
@@ -253,6 +255,7 @@ export class SearchComponent
     this.onChange("");
     this.onTouched();
   }
+
   focusDropdown(event?: Event) {
     // Prevent default behavior and stop propagation if event is provided
     if (event) {

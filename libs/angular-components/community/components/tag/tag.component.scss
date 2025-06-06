@@ -54,7 +54,8 @@
     @include mixins.responsive-styles(--_button-height, button-xs-icon-size);
     @include mixins.responsive-styles(min-width, button-xs-icon-size);
 
-    &:hover {
+    &:hover,
+    &:focus {
       background-color: rgba(0, 0, 0, 0.1);
     }
   }
