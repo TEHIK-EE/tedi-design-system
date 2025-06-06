@@ -29,7 +29,7 @@ export type ModalIconPosition = "start" | "end";
   imports: [ButtonComponent, IconComponent, NgIf, NgStyle],
 })
 export class ModalFooterComponent implements OnInit {
-  alignButtons = model<string>("flex-end");
+  align = model<string>("flex-end");
   buttons = model<ModalFooterButton[]>();
 
   readonly dialogData = inject(DIALOG_DATA, {
@@ -41,12 +41,12 @@ export class ModalFooterComponent implements OnInit {
 
     if (!data) return;
 
-    const { buttons, alignButtons } = data;
+    const { buttons, align: alignButtons } = data;
     if (buttons) {
       this.buttons.set(buttons);
     }
     if (alignButtons) {
-      this.alignButtons.set(alignButtons);
+      this.align.set(alignButtons);
     }
   }
 }

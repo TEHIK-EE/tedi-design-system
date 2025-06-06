@@ -16,6 +16,7 @@ export type DialogData = ComponentInputs<
   ModalHeaderComponent & ModalFooterComponent
 > & {
   maxWidth?: ModalSizes;
+  variant?: "default" | "small";
 };
 
 @Component({
@@ -29,10 +30,12 @@ export type DialogData = ComponentInputs<
     "[class.tedi-modal--lg]": "maxWidth() === 'lg'",
     "[class.tedi-modal--md]": "maxWidth() === 'md'",
     "[class.tedi-modal--sm]": "maxWidth() === 'sm'",
+    "[class.tedi-modal--small]": "variant() === 'small'",
   },
 })
 export class ModalComponent implements OnInit {
-  readonly maxWidth = model<ModalSizes>("lg");
+  readonly maxWidth = model<ModalSizes>("sm");
+  readonly variant = model<"default" | "small">("default");
 
   readonly dialogRef = inject(DialogRef, { optional: true });
   readonly dialogData = inject(DIALOG_DATA, {
@@ -47,6 +50,9 @@ export class ModalComponent implements OnInit {
 
     if (data.maxWidth) {
       this.maxWidth.set(data.maxWidth);
+    }
+    if (data.variant) {
+      this.variant.set(data.variant);
     }
   }
 }

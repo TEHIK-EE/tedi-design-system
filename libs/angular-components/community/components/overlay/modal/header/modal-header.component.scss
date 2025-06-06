@@ -1,31 +1,13 @@
 @use "@tehik-ee/tedi-core/mixins";
 
 .tedi-modal-header {
-  --_modal-header-button-color: var(--neutral-900);
-  --_modal-header-button-size: var(--dimensions-14);
-  --_modal-heading-font-size: var(--dimensions-12);
-
   border-bottom: var(--_modal-border);
-
-  @include mixins.responsive-styles(padding-left, modal-heading-padding-x);
-  @include mixins.responsive-styles(padding-right, modal-heading-padding-x);
-
-  @include mixins.responsive-styles(padding-top, modal-heading-padding-y);
-  @include mixins.responsive-styles(padding-bottom, modal-heading-padding-y);
+  padding: var(--_tedi-modal-heading-padding-y)
+    var(--_tedi-modal-heading-padding-x);
 
   &__title {
     display: flex;
     justify-content: space-between;
     align-items: center;
-  }
-
-  h1 {
-    font-size: var(--_modal-heading-font-size);
-  }
-
-  .tedi-button {
-    color: var(--_modal-header-button-color);
-    width: var(--_modal-header-button-size);
-    height: var(--_modal-header-button-size);
   }
 }

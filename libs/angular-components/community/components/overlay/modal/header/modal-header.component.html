@@ -1,12 +1,12 @@
 <div class="tedi-modal-header">
   <div class="tedi-modal-header__title">
-    <ng-container slot="[header-title-slot]">
+    <ng-content slot="header-title-slot">
       <h1 tedi-text class="tedi-text--h3">
         {{ title() }}
       </h1>
-    </ng-container>
+    </ng-content>
 
-    <ng-container slot="[header-exit-button-slot]">
+    <ng-content slot="header-exit-button-slot">
       @if (closeButton()) {
         <button
           tedi-closing-button
@@ -14,7 +14,7 @@
           (click)="closeModal()"
         ></button>
       }
-    </ng-container>
+    </ng-content>
   </div>
 
   @if (feedback()) {

@@ -1,9 +1,4 @@
-<div
-  class="tedi-modal-footer"
-  [ngStyle]="{
-    'justify-content': alignButtons(),
-  }"
->
+<div class="tedi-modal-footer" [style.justify-content]="align()">
   <ng-content>
     @for (button of buttons(); track button.label) {
       <button

@@ -6,9 +6,6 @@
   gap: var(--_modal-footer-gap);
   border-top: var(--_modal-border);
 
-  @include mixins.responsive-styles(padding-left, modal-footer-padding-x);
-  @include mixins.responsive-styles(padding-right, modal-footer-padding-x);
-
-  @include mixins.responsive-styles(padding-top, modal-footer-padding-y);
-  @include mixins.responsive-styles(padding-bottom, modal-footer-padding-y);
+  padding: var(--_tedi-modal-footer-padding-y)
+    var(--_tedi-modal-footer-padding-x);
 }

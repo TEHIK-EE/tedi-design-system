@@ -37,7 +37,7 @@ class ModalOpenComponent {
 @Component({
   selector: "storybook-modal",
   template: `
-    <tedi-modal [maxWidth]="args()?.maxWidth">
+    <tedi-modal [maxWidth]="args()?.maxWidth" [variant]="args()?.variant">
       <tedi-modal-header
         [title]="args()?.title"
         [feedback]="args()?.feedback"
@@ -66,7 +66,7 @@ class ModalOpenComponent {
       <tedi-modal-footer
         footer-slot
         [buttons]="args()?.buttons"
-        [alignButtons]="args()?.alignButtons"
+        [align]="args()?.align"
       />
     </tedi-modal>
   `,
@@ -129,7 +129,7 @@ const meta: Meta<DialogData> = {
       control: "text",
       description: "Title of the modal",
     },
-    alignButtons: {
+    align: {
       control: "text",
       description: "Alignment of the buttons in the footer",
     },
@@ -145,11 +145,16 @@ const meta: Meta<DialogData> = {
       control: "boolean",
       description: "Whether to show the close button in the header",
     },
+    variant: {
+      control: "radio",
+      options: ["small", "default"],
+      description: "Variant of the modal",
+    },
   },
   args: {
-    maxWidth: "lg",
+    maxWidth: "sm",
     title: "Title",
-    alignButtons: "flex-end",
+    align: "flex-end",
     feedback: {
       text: "",
       type: "hint",
@@ -171,6 +176,8 @@ const meta: Meta<DialogData> = {
         action: () => {},
       },
     ],
+    closeButton: true,
+    variant: "default",
   },
 };
 
@@ -199,7 +206,7 @@ export const Default: Story = {
 
 export const leftAlignedButtons: Story = {
   args: {
-    alignButtons: "space-between",
+    align: "space-between",
     buttons: [
       {
         label: "Cancel",
