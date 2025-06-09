@@ -1,15 +1,17 @@
 import {
+  AfterContentInit,
   ChangeDetectionStrategy,
   Component,
   computed,
+  ContentChild,
   input,
+  signal,
   ViewEncapsulation,
 } from "@angular/core";
 import { IconComponent } from "../../../base/icon/icon.component";
 import { RouterLink } from "@angular/router";
 import { NgTemplateOutlet } from "@angular/common";
-
-export type SideNavItemSize = "small" | "medium" | "large";
+import { SideNavDropdownComponent } from "../sidenav-dropdown/sidenav-dropdown.component";
 
 @Component({
   selector: "tedi-sidenav-item",
@@ -23,12 +25,7 @@ export type SideNavItemSize = "small" | "medium" | "large";
     "[class]": "classes()",
   },
 })
-export class SideNavItemComponent {
-  /**
-   * Size of navigation item
-   * @default large
-   */
-  size = input<SideNavItemSize>("large");
+export class SideNavItemComponent implements AfterContentInit {
   /**
    * Is navigation item selected
    * @default false
@@ -47,11 +44,22 @@ export class SideNavItemComponent {
    */
   routerLink = input<string>("");
 
+  @ContentChild(SideNavDropdownComponent) dropdown?: SideNavDropdownComponent;
+
+  hasDropdown = signal(false);
+
+  ngAfterContentInit(): void {
+    const dropdown = this.dropdown;
+
+    if (!dropdown) {
+      return;
+    }
+
+    this.hasDropdown.set(true);
+  }
+
   classes = computed(() => {
-    const classList = [
-      "tedi-sidenav-item",
-      `tedi-sidenav-item--${this.size()}`,
-    ];
+    const classList = ["tedi-sidenav-item"];
 
     if (this.selected()) {
       classList.push("tedi-sidenav-item--selected");
@@ -59,4 +67,12 @@ export class SideNavItemComponent {
 
     return classList.join(" ");
   });
+
+  toggleDropdown() {
+    if (!this.dropdown) {
+      return;
+    }
+
+    this.dropdown.open.set(!this.dropdown.open());
+  }
 }

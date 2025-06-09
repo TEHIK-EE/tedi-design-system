@@ -6,6 +6,8 @@ import {
   ViewEncapsulation,
 } from "@angular/core";
 
+export type SideNavItemSize = "small" | "medium" | "large";
+
 @Component({
   selector: "tedi-sidenav",
   standalone: true,
@@ -23,9 +25,14 @@ export class SideNavComponent {
    * @default true
    */
   dividers = input<boolean>(true);
+  /**
+   * Size of navigation item
+   * @default large
+   */
+  size = input<SideNavItemSize>("large");
 
   classes = computed(() => {
-    const classList = ["tedi-sidenav"];
+    const classList = ["tedi-sidenav", `tedi-sidenav--${this.size()}`];
 
     if (this.dividers()) {
       classList.push("tedi-sidenav--dividers");
