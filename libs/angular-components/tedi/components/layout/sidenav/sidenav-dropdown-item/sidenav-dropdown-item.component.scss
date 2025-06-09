@@ -1,0 +1,65 @@
+@use "@tehik-ee/tedi-core/mixins";
+
+$tree-container: 24px;
+$tree-width: 2px;
+$tree-branch-width: 10px;
+
+.tedi-sidenav-dropdown-item {
+  position: relative;
+  color: var(--side-navigation-item-text);
+  padding-left: calc(var(--_padding-left) + $tree-container + var(--_gap));
+  cursor: pointer;
+
+  @include mixins.responsive-styles(
+    padding-top,
+    side-navigation-item-padding-y
+  );
+
+  @include mixins.responsive-styles(
+    padding-bottom,
+    side-navigation-item-padding-y
+  );
+
+  @include mixins.responsive-styles(
+    padding-right,
+    side-navigation-item-padding-right
+  );
+
+  @include mixins.responsive-styles(
+    --_padding-left,
+    side-navigation-item-padding-left-level-2
+  );
+
+  @include mixins.responsive-styles(--_gap, side-navigation-item-inner-spacing);
+
+  &:hover {
+    background: var(--side-navigation-item-background-hover);
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: calc(var(--_padding-left) + ($tree-container - $tree-width) / 2);
+    width: $tree-width;
+    height: 100%;
+    background-color: var(--side-navigation-tree-brand-default);
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: calc(var(--_padding-left) + ($tree-container - $tree-width) / 2);
+    width: $tree-branch-width;
+    height: $tree-width;
+    transform: translateY(-50%);
+    background-color: var(--side-navigation-tree-brand-default);
+  }
+
+  &:last-of-type {
+    &::before {
+      height: 50%;
+    }
+  }
+}

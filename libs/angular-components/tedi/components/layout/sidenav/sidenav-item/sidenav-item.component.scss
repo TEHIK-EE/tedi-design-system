@@ -2,108 +2,89 @@
 
 .tedi-sidenav-item {
   display: flex;
-  align-items: center;
+  flex-direction: column;
 
-  &--large {
-    @include mixins.responsive-styles(
-      min-height,
-      side-navigation-item-min-height
-    );
-    @include mixins.responsive-styles(font-size, side-navigation-text-size);
-    @include mixins.responsive-styles(
-      line-height,
-      body-regular-line-height,
-      $exclude: tablet
-    );
+  &--selected {
+    .tedi-sidenav-item__trigger {
+      background: var(--side-navigation-item-background-active);
 
-    .tedi-sidenav-item__title {
-      @include mixins.responsive-styles(
-        padding,
-        side-navigation-item-padding-y side-navigation-item-padding-right
-          side-navigation-item-padding-y
-          side-navigation-item-padding-left-level-1
-      );
+      @include mixins.responsive-styles(font-weight, body-bold-weight);
     }
   }
 
-  &--medium {
-    @include mixins.responsive-styles(
-      min-height,
-      side-navigation-item-min-height-medium
-    );
-    @include mixins.responsive-styles(font-size, side-navigation-text-size-sm);
-    @include mixins.responsive-styles(
-      line-height,
-      body-small-regular-line-height,
-      $exclude: tablet
-    );
-
-    .tedi-sidenav-item__title {
-      @include mixins.responsive-styles(
-        padding,
-        side-navigation-item-padding-y-md side-navigation-item-padding-right
-          side-navigation-item-padding-y-md
-          side-navigation-item-padding-left-level-1
-      );
-
-      tedi-icon {
-        font-size: var(--size-05);
-      }
-    }
-  }
-
-  &--small {
-    @include mixins.responsive-styles(
-      min-height,
-      side-navigation-item-min-height-small
-    );
-    @include mixins.responsive-styles(font-size, side-navigation-text-size-sm);
-    @include mixins.responsive-styles(
-      line-height,
-      body-small-regular-line-height,
-      $exclude: tablet
-    );
-
-    .tedi-sidenav-item__title {
-      @include mixins.responsive-styles(
-        padding,
-        side-navigation-item-padding-y-sm side-navigation-item-padding-right
-          side-navigation-item-padding-y-sm
-          side-navigation-item-padding-left-level-1
-      );
-
-      tedi-icon {
-        font-size: var(--size-03);
-      }
-    }
-  }
-
-  .tedi-sidenav-item__title {
-    width: 100%;
-    height: 100%;
+  .tedi-sidenav-item__trigger {
     display: flex;
     align-items: center;
-    text-decoration: none;
-    color: var(--side-navigation-item-text);
+    cursor: pointer;
 
-    @include mixins.responsive-styles(gap, side-navigation-item-inner-spacing);
+    &:hover {
+      background: var(--side-navigation-item-background-hover);
+    }
+
+    &:has(> .tedi-sidenav-item__link-button:hover) {
+      background: transparent;
+    }
+
+    .tedi-sidenav-item__title {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      text-align: start;
+      color: var(--side-navigation-item-text);
+      border: 0;
+
+      &:focus-visible {
+        outline: 2px solid var(--primary-500);
+        outline-offset: 1px;
+      }
+
+      @include mixins.responsive-styles(
+        gap,
+        side-navigation-item-inner-spacing
+      );
+    }
+
+    .tedi-sidenav-item__link-button {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-items: center;
+
+      &:hover {
+        .tedi-sidenav-item__link-button__icon {
+          background-color: var(
+            --side-navigation-item-background-arrow-button-active
+          );
+        }
+      }
+
+      &:focus-visible {
+        .tedi-sidenav-item__link-button__icon {
+          outline: 2px solid var(--primary-500);
+          outline-offset: 1px;
+        }
+      }
+
+      &__icon {
+        @include mixins.responsive-styles(height, icon-05);
+        @include mixins.responsive-styles(width, icon-05);
+        @include mixins.responsive-styles(border-radius, button-radius-sm);
+      }
+    }
+
+    button {
+      font-size: inherit;
+      color: var(--side-navigation-item-text);
+      background-color: transparent;
+      border: 0;
+      padding: 0;
+      cursor: pointer;
+    }
 
     tedi-icon {
       color: inherit;
     }
-  }
-
-  &:hover {
-    background: var(--side-navigation-item-background-hover);
-  }
-
-  &:focus-visible {
-    background: var(--side-navigation-item-background-focus);
-  }
-
-  &--selected {
-    background: var(--side-navigation-item-background-active);
-
-    @include mixins.responsive-styles(font-weight, body-bold-weight);
   }
 }

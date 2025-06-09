@@ -1,0 +1,22 @@
+$transition-duration: 300ms;
+
+.tedi-sidenav-dropdown {
+  display: grid;
+  grid-template-rows: 0fr;
+  overflow: hidden;
+  transition: grid-template-rows $transition-duration ease;
+
+  &--open {
+    grid-template-rows: 1fr;
+
+    .tedi-sidenav-dropdown__items {
+      visibility: visible;
+    }
+  }
+
+  &__items {
+    min-height: 0;
+    transition: visibility $transition-duration ease;
+    visibility: hidden;
+  }
+}
