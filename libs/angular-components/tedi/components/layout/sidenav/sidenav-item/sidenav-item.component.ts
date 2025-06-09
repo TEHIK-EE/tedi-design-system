@@ -12,6 +12,7 @@ import {
   Renderer2,
   signal,
   ViewEncapsulation,
+  AfterContentInit,
 } from "@angular/core";
 import { IconComponent } from "../../../base/icon/icon.component";
 import { RouterLink } from "@angular/router";
@@ -38,7 +39,9 @@ import { SideNavService } from "../../../../services/sidenav/sidenav.service";
     "[class]": "classes()",
   },
 })
-export class SideNavItemComponent implements AfterViewInit, OnInit, OnDestroy {
+export class SideNavItemComponent
+  implements AfterViewInit, OnInit, OnDestroy, AfterContentInit
+{
   /**
    * Is navigation item selected
    * @default false
@@ -103,6 +106,20 @@ export class SideNavItemComponent implements AfterViewInit, OnInit, OnDestroy {
         }
       }),
     );
+  }
+
+  @ContentChild(SideNavDropdownComponent) dropdown?: SideNavDropdownComponent;
+
+  hasDropdown = signal(false);
+
+  ngAfterContentInit(): void {
+    const dropdown = this.dropdown;
+
+    if (!dropdown) {
+      return;
+    }
+
+    this.hasDropdown.set(true);
   }
 
   classes = computed(() => {
