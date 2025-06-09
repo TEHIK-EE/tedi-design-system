@@ -1,16 +1,53 @@
-@if (href()) {
-  <a class="tedi-sidenav-item__title" [href]="href()">
-    <ng-container *ngTemplateOutlet="content"></ng-container>
-  </a>
-} @else if (routerLink()) {
-  <a class="tedi-sidenav-item__title" [routerLink]="routerLink()">
-    <ng-container *ngTemplateOutlet="content"></ng-container>
-  </a>
-} @else {
-  <div class="tedi-sidenav-item__title">
-    <ng-container *ngTemplateOutlet="content"></ng-container>
-  </div>
-}
+<div class="tedi-sidenav-item__trigger">
+  @if (href()) {
+    <a class="tedi-sidenav-item__title" [href]="href()" tabindex="0">
+      <ng-container *ngTemplateOutlet="content"></ng-container>
+    </a>
+    @if (hasDropdown()) {
+      <button
+        class="tedi-sidenav-item__link-button"
+        (click)="toggleDropdown()"
+        tabindex="0"
+      >
+        <div class="tedi-sidenav-item__link-button__icon">
+          <tedi-icon name="expand_more" />
+        </div>
+      </button>
+    }
+  } @else if (routerLink()) {
+    <a
+      class="tedi-sidenav-item__title"
+      [routerLink]="routerLink()"
+      tabindex="0"
+    >
+      <ng-container *ngTemplateOutlet="content"></ng-container>
+    </a>
+    @if (hasDropdown()) {
+      <button
+        class="tedi-sidenav-item__link-button"
+        (click)="toggleDropdown()"
+        tabindex="0"
+      >
+        <div class="tedi-sidenav-item__link-button__icon">
+          <tedi-icon name="expand_more" />
+        </div>
+      </button>
+    }
+  } @else if (hasDropdown()) {
+    <button
+      class="tedi-sidenav-item__title"
+      (click)="toggleDropdown()"
+      tabindex="0"
+    >
+      <ng-container *ngTemplateOutlet="content"></ng-container>
+      <tedi-icon name="expand_more" style="margin-left: auto" />
+    </button>
+  } @else {
+    <div class="tedi-sidenav-item__title" tabindex="0">
+      <ng-container *ngTemplateOutlet="content"></ng-container>
+    </div>
+  }
+</div>
 
 <ng-template #content>
   @if (icon()) {
@@ -18,3 +55,4 @@
   }
   <ng-content></ng-content>
 </ng-template>
+<ng-content select="tedi-sidenav-dropdown"></ng-content>
