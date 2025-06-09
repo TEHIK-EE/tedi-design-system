@@ -56,6 +56,11 @@
       border-radius: 0 var(--button-radius) var(--button-radius) 0;
 
       @include breakpoints.media-breakpoint-down(lg) {
+        top: calc(var(--tree) / 2.5);
+        left: calc(var(--tree) / 3);
+      }
+
+      @include breakpoints.media-breakpoint-down(sm) {
         top: calc(var(--tree) / 2);
         left: calc(var(--tree) / 2 - var(--tree-trunk-width));
       }
@@ -429,7 +434,7 @@ button.tedi-sidenav__link.tedi-sidenav__back-button {
 }
 
 .tedi-sidenav__item--level-2 {
-  @include breakpoints.media-breakpoint-down(md) {
+  @include breakpoints.media-breakpoint-down(lg) {
     &::before {
       display: none;
     }
