@@ -1,3 +1,36 @@
+# [@tehik-ee/tedi-angular-v2.1.0-rc.3](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.1.0-rc.2...angular-2.1.0-rc.3) (2025-06-09)
+
+
+### Bug Fixes
+
+* **rc:** fix community search, multiselect, tag [#845](https://github.com/TEHIK-EE/tedi-design-system/issues/845) ([eb32822](https://github.com/TEHIK-EE/tedi-design-system/commit/eb328229ae8b18254a484e94870dde1214a29bab))
+
+
+### Features
+
+* **community-form-multiselect:** add multiselect capabilities to community select  [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) ([5b8905c](https://github.com/TEHIK-EE/tedi-design-system/commit/5b8905c03fa7017aa1ea68f0dd7f5e82b5a0f78d))
+* **community-form-multiselect:** Add tag closing button focus [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) ([a696365](https://github.com/TEHIK-EE/tedi-design-system/commit/a696365fe33166e317a308bd8333b7649d9d4de2))
+* **community-form-multiselect:** Added input comments and function return types [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) ([d831c5c](https://github.com/TEHIK-EE/tedi-design-system/commit/d831c5c7d203c0648f00a9d40f67ee2433ae9198))
+* **community-form-multiselect:** Cleaning code [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) ([e03e169](https://github.com/TEHIK-EE/tedi-design-system/commit/e03e16929b084a163ad7d02ce98cc751e1f487db))
+* **community-form-multiselect:** make cdkMenu keep itself open when multiselect option clicked [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) ([febad25](https://github.com/TEHIK-EE/tedi-design-system/commit/febad25742e41bf719896a87425101821ecf4029))
+* **community-form-multiselect:** make multiselect arg work in story [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) ([34ddc6b](https://github.com/TEHIK-EE/tedi-design-system/commit/34ddc6baea961e037bd022f10606bb7c61a8dacc))
+* **community-form-multiselect:** Multiselect with grouped options [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) ([947ac5f](https://github.com/TEHIK-EE/tedi-design-system/commit/947ac5fa0ea40c607e5206318f7f80f14a3c687d))
+* **community-form-multiselect:** Tags in single row  [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) ([3fabf19](https://github.com/TEHIK-EE/tedi-design-system/commit/3fabf1958de0ac090303556e216a436f30a6466a))
+* **community-form-multiselect:** Use tedi-checkbox for checkbox visuals  [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) ([fbbfdff](https://github.com/TEHIK-EE/tedi-design-system/commit/fbbfdff67bfd0c43341bac479ac46c1869c99fcc))
+* **community-form-search:** Little cleanup [#766](https://github.com/TEHIK-EE/tedi-design-system/issues/766) ([c05270e](https://github.com/TEHIK-EE/tedi-design-system/commit/c05270e8ba731c7e6d83b4fd19f76dcaf0720f74))
+* **community-multiselect:** Add "select all" option for multiselect [#766](https://github.com/TEHIK-EE/tedi-design-system/issues/766) ([d29b70b](https://github.com/TEHIK-EE/tedi-design-system/commit/d29b70b3f615355f7d872306497dc6f0f3ce48c5))
+* **community-multiselect:** Add label + feedbackText for single select [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) ([34e61cc](https://github.com/TEHIK-EE/tedi-design-system/commit/34e61ccc0f1416b6b8bbb734aa9c1a483cf94e80))
+* **community-multiselect:** Add label and feedbacktext to multiselect [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) ([d8b0df0](https://github.com/TEHIK-EE/tedi-design-system/commit/d8b0df0abaf00c1e550371258b8006d5c4df544f))
+* **community-multiselect:** Add missing aria [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) ([1f198d2](https://github.com/TEHIK-EE/tedi-design-system/commit/1f198d215639ace7bd283e5e3def841f9bb933e1))
+* **community-multiselect:** Add translations with tediTranslate [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) ([ffcfb59](https://github.com/TEHIK-EE/tedi-design-system/commit/ffcfb592d9a3face22f51b940ee77076cf56e4f5))
+* **community-multiselect:** Change multiselect trigger back to button [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) ([cab78c2](https://github.com/TEHIK-EE/tedi-design-system/commit/cab78c2fb7d46b5ec5d6ad2df758f86ec8b102fc))
+* **community-multiselect:** Fix tag component import in multiselect [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) ([71d923c](https://github.com/TEHIK-EE/tedi-design-system/commit/71d923c0beed20e0daca00a4f274bf733f7fc957))
+* **community-multiselect:** Remove type="reset" from tag remove button [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) ([9bb2e14](https://github.com/TEHIK-EE/tedi-design-system/commit/9bb2e14bfd0e27b6015059ffed9a6d222ed47eb3))
+* **community-multiselect:** separate multi and single select [#766](https://github.com/TEHIK-EE/tedi-design-system/issues/766) ([63b77e3](https://github.com/TEHIK-EE/tedi-design-system/commit/63b77e3d1609f8410c3435a74fdfb1e2dcbdd6d9))
+* **community-multiselect:** Singlerow/multirow input [#766](https://github.com/TEHIK-EE/tedi-design-system/issues/766) ([3654f6b](https://github.com/TEHIK-EE/tedi-design-system/commit/3654f6b783509b76a905783027c2d13c1d5d46db))
+* **community-multiselect:** Update unselect button to use signal.update() [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) ([367ba08](https://github.com/TEHIK-EE/tedi-design-system/commit/367ba08fccc4eb22fcab0bb74650f944eedfdb65))
+* **community-multiselect:** Use signal.update() instead of signal.set() in select function [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) ([7f8ee47](https://github.com/TEHIK-EE/tedi-design-system/commit/7f8ee47ceea28a339757eadd17fd161ad5b9d3aa))
+
 # [@tehik-ee/tedi-angular-v2.1.0-rc.2](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.1.0-rc.1...angular-2.1.0-rc.2) (2025-06-05)
 
 
