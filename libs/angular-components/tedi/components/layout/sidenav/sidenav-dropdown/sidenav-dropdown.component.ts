@@ -2,9 +2,9 @@ import {
   ChangeDetectionStrategy,
   Component,
   computed,
+  signal,
   ViewEncapsulation,
 } from "@angular/core";
-import { CollapseComponent } from "../../../buttons/collapse/collapse.component";
 
 @Component({
   selector: "tedi-sidenav-dropdown",
@@ -13,14 +13,19 @@ import { CollapseComponent } from "../../../buttons/collapse/collapse.component"
   styleUrl: "./sidenav-dropdown.component.scss",
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
-  imports: [CollapseComponent],
   host: {
     "[class]": "classes()",
   },
 })
 export class SideNavDropdownComponent {
+  open = signal(false);
+
   classes = computed(() => {
     const classList = ["tedi-sidenav-dropdown"];
+
+    if (this.open()) {
+      classList.push("tedi-sidenav-dropdown--open");
+    }
 
     return classList.join(" ");
   });

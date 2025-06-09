@@ -1,15 +1,1 @@
-@if (href()) {
-  <a [href]="href()">
-    <ng-container *ngTemplateOutlet="content"></ng-container>
-  </a>
-} @else if (routerLink()) {
-  <a [routerLink]="routerLink()">
-    <ng-container *ngTemplateOutlet="content"></ng-container>
-  </a>
-} @else {
-  <ng-container *ngTemplateOutlet="content"></ng-container>
-}
-
-<ng-template #content>
-  <ng-content></ng-content>
-</ng-template>
+<ng-content></ng-content>
