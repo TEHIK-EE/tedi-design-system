@@ -28,12 +28,12 @@ import {
   IconComponent,
   LabelComponent,
   TextComponent,
+  ClosingButtonComponent,
+  TediTranslationPipe,
 } from "@tehik-ee/tedi-angular/tedi";
 import { DropdownItemComponent } from "../../overlay/dropdown-item/dropdown-item.component";
-import { ClosingButtonComponent } from "../../buttons/closing-button/closing-button.component";
 import { CheckboxComponent } from "../checkbox";
-import { TagComponent } from "community/components/tag/tag.component";
-import { TediTranslationPipe } from "../../../../tedi/services/translation/translation.pipe";
+import { TagComponent } from "../../tag/tag.component";
 
 @Component({
   selector: "tedi-multiselect",
@@ -71,8 +71,7 @@ import { TediTranslationPipe } from "../../../../tedi/services/translation/trans
   },
 })
 export class MultiselectComponent
-  implements ControlValueAccessor, OnInit, AfterContentChecked
-{
+  implements ControlValueAccessor, OnInit, AfterContentChecked {
   /**
    * The unique identifier for the input element.
    * This ID should be unique within the document.

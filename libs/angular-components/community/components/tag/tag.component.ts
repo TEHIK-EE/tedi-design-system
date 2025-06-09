@@ -6,8 +6,11 @@ import {
   output,
   ViewEncapsulation,
 } from "@angular/core";
-import { IconComponent, SpinnerComponent } from "@tehik-ee/tedi-angular/tedi";
-import { TediTranslationPipe } from "tedi/services/translation/translation.pipe";
+import {
+  IconComponent,
+  SpinnerComponent,
+  TediTranslationPipe,
+} from "@tehik-ee/tedi-angular/tedi";
 
 export type TagType = "primary" | "secondary" | "danger";
 

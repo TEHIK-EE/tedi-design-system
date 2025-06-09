@@ -28,9 +28,9 @@ import {
   FeedbackTextComponent,
   IconComponent,
   LabelComponent,
+  ClosingButtonComponent,
 } from "@tehik-ee/tedi-angular/tedi";
 import { DropdownItemComponent } from "../../overlay/dropdown-item/dropdown-item.component";
-import { ClosingButtonComponent } from "@tehik-ee/tedi-angular/tedi";
 
 @Component({
   selector: "tedi-select",
@@ -63,8 +63,7 @@ import { ClosingButtonComponent } from "@tehik-ee/tedi-angular/tedi";
   },
 })
 export class SelectComponent
-  implements ControlValueAccessor, OnInit, AfterContentChecked
-{
+  implements ControlValueAccessor, OnInit, AfterContentChecked {
   /**
    * The label for the select input.
    * @default ""

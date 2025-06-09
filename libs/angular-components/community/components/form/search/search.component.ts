@@ -14,15 +14,16 @@ import {
   viewChild,
 } from "@angular/core";
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from "@angular/forms";
-import { IconComponent, ButtonComponent } from "@tehik-ee/tedi-angular/tedi";
+import {
+  IconComponent,
+  ButtonComponent,
+  ClosingButtonComponent,
+} from "@tehik-ee/tedi-angular/tedi";
 import { FormsModule } from "@angular/forms";
 import { CdkOverlayOrigin, OverlayModule } from "@angular/cdk/overlay";
-import {
-  CardComponent,
-  CardContentComponent,
-} from "community/components/cards/card";
-import { DropdownItemComponent } from "community/components/overlay";
-import { ClosingButtonComponent } from "@tehik-ee/tedi-angular/tedi";
+import { CardComponent } from "../../cards/card/card.component";
+import { CardContentComponent } from "../../cards/card/card-content/card-content.component";
+import { DropdownItemComponent } from "../../overlay/dropdown-item/dropdown-item.component";
 import { A11yModule } from "@angular/cdk/a11y";
 import { CdkMenu, CdkMenuModule } from "@angular/cdk/menu";
 
@@ -68,8 +69,7 @@ export type AutocompleteOption = {
   ],
 })
 export class SearchComponent
-  implements AfterContentChecked, ControlValueAccessor
-{
+  implements AfterContentChecked, ControlValueAccessor {
   /**
    * Search input ID for accessibility
    */
