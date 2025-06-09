@@ -15,10 +15,10 @@
 } @else if (closable()) {
   <!-- TODO: Not sure about the aria-label and title here. Should they come from input and be translatable? -->
   <button
-    type="reset"
+    type="button"
     class="tedi-tag__closing-button"
-    [attr.aria-label]="'Eemalda'"
-    title="Eemalda"
+    [attr.aria-label]="'remove' | tediTranslate"
+    [title]="'remove' | tediTranslate"
     (click)="handleClose($event)"
   >
     <tedi-icon name="close" [size]="18" />
