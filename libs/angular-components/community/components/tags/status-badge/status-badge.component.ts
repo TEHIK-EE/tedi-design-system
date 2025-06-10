@@ -1,4 +1,4 @@
-import { Component, computed, input, OnInit } from "@angular/core";
+import { Component, computed, input } from "@angular/core";
 import { IconColor, IconComponent } from "tedi/components";
 
 export type StatusBadgeColor =
@@ -62,11 +62,15 @@ export class StatusBadgeComponent {
   icon = input<string>("");
 
   classes = computed(() => {
-    const classList = [
-      "tedi-status-badge",
-      `tedi-status-badge--variant-${this.variant()}`,
-      `tedi-status-badge--color-${this.color()}`,
-    ];
+    const classList = ["tedi-status-badge"];
+    if (this.color()) {
+      classList.push(`tedi-status-badge--color-${this.color()}`);
+    }
+
+    console.log(this.variant());
+    if (this.variant()) {
+      classList.push(`tedi-status-badge--variant-${this.variant()}`);
+    }
 
     if (this.status()) {
       classList.push(
