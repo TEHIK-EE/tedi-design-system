@@ -68,6 +68,8 @@ export class StatusBadgeComponent {
     }
 
     console.log(this.variant());
+    console.log(this.color());
+
     if (this.variant()) {
       classList.push(`tedi-status-badge--variant-${this.variant()}`);
     }
