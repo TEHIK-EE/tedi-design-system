@@ -1,3 +1,5 @@
+/// Identical to libs/react-components/src/tedi/components/tags/status-badge/status-badge.module.scss,
+///  redo to use shared file when possible
 @use "@tehik-ee/tedi-core/mixins";
 
 $badge-colors: (
@@ -9,8 +11,17 @@ $badge-colors: (
   "warning",
   "transparent"
 );
-$badge-variants: ("filled", "filled-bordered", "bordered");
-$badge-status-colors: ("inactive", "success", "danger", "warning");
+$badge-variants: (
+  "filled",
+  "filled-bordered",
+  "bordered"
+);
+$badge-status-colors: (
+  "inactive",
+  "success",
+  "danger",
+  "warning"
+);
 
 :root {
   --status-badge-icon-primary: var(--blue-700);
@@ -24,25 +35,17 @@ $badge-status-colors: ("inactive", "success", "danger", "warning");
   justify-content: center;
   text-decoration: none;
 
-  @include mixins.responsive-styles(
-    font-size,
+  @include mixins.responsive-styles(font-size,
     body-small-regular-size,
-    $exclude: tablet
-  );
-  @include mixins.responsive-styles(
-    font-weight,
+    $exclude: tablet);
+  @include mixins.responsive-styles(font-weight,
     body-small-regular-weight,
-    $exclude: tablet
-  );
-  @include mixins.responsive-styles(
-    line-height,
+    $exclude: tablet);
+  @include mixins.responsive-styles(line-height,
     body-small-regular-line-height,
-    $exclude: tablet
-  );
-  @include mixins.responsive-styles(
-    padding,
-    tag-default-padding-y tag-default-padding-x
-  );
+    $exclude: tablet);
+  @include mixins.responsive-styles(padding,
+    tag-default-padding-y tag-default-padding-x);
   @include mixins.responsive-styles(border-radius, tag-default-radius);
 
   &__inner-text {
@@ -54,10 +57,8 @@ $badge-status-colors: ("inactive", "success", "danger", "warning");
 
   &--large {
     @include mixins.responsive-styles(min-width, tag-status-large-min-width);
-    @include mixins.responsive-styles(
-      padding,
-      tag-status-large-padding-y tag-status-large-padding-x
-    );
+    @include mixins.responsive-styles(padding,
+      tag-status-large-padding-y tag-status-large-padding-x);
   }
 
   @each $variant in $badge-variants {
@@ -66,15 +67,17 @@ $badge-status-colors: ("inactive", "success", "danger", "warning");
         &.tedi-status-badge--color-#{$color} {
           color: var(--status-badge-text-#{$color});
 
-          @if $variant == "bordered" {
+          @if $variant =="bordered" {
             background: transparent;
             box-shadow: inset 0 0 0 1px var(--status-badge-border-#{$color});
-          } @else {
+          }
+
+          @else {
             background-color: var(--status-badge-background-#{$color});
             box-shadow: inset 0 0 0 1px var(--status-badge-border-#{$color});
           }
 
-          @if $variant == "filled" {
+          @if $variant =="filled" {
             box-shadow: none;
           }
         }
@@ -114,10 +117,8 @@ $badge-status-colors: ("inactive", "success", "danger", "warning");
     align-items: center;
     min-height: 24px;
 
-    @include mixins.responsive-styles(
-      line-height,
-      body-small-regular-line-height
-    );
+    @include mixins.responsive-styles(line-height,
+      body-small-regular-line-height);
   }
 
   &__icon-primary {
