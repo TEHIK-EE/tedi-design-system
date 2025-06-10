@@ -17,6 +17,9 @@ import { VerticalSpacingDirective } from "tedi/directives";
 import { NgFor } from "@angular/common";
 import { ColComponent, RowComponent } from "tedi/components";
 
+/// presets identical to libs/react-components/src/tedi/components/tags/status-badge/status-badge.stories.tsx,
+///  redo to use shared constants when possible
+
 const colors: StatusBadgeColor[] = [
   "neutral",
   "brand",
@@ -53,6 +56,10 @@ const statusToIconMap: Record<StatusBadgeStatus, string> = {
 };
 
 /**
+ * StatusBadge is a component that displays a badge with a status indicator. <br>
+ * It can be used to represent various states such as success, danger, warning, or inactivity. <br>
+ * The badge can be styled with different colors and variants, and it can optionally include an icon.
+ *
  * <a href="https://www.figma.com/file/jWiRIXhHRxwVdMSimKX2FF/TEDI-Design-System-(draft)?type=design&node-id=2385-24154&m=dev" target="_BLANK">Figma ↗</a><br/>
  * <a href="https://tedi.tehik.ee/1ee8444b7/p/764a67-status-badge" target="_BLANK">ZeroHeight ↗</a>
  */
@@ -130,7 +137,6 @@ const meta: Meta<StatusBadgeComponent> = {
     },
   },
 };
-
 export default meta;
 
 type Story = StoryObj<StatusBadgeComponent>;
