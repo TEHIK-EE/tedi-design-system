@@ -1,3 +1,8 @@
 <div class="tedi-sidenav-dropdown__items">
+  @if (showParentInDropdown()) {
+    <tedi-sidenav-dropdown-item class="tedi-sidenav-dropdown-item--parent">
+      Parent
+    </tedi-sidenav-dropdown-item>
+  }
   <ng-content></ng-content>
 </div>
