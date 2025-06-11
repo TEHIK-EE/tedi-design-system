@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-core-v1.13.3](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.13.2...core-1.13.3) (2025-06-04)
+
+
+### Bug Fixes
+
+* **sidenav:** update sidenav min-height variables [#832](https://github.com/TEHIK-EE/tedi-design-system/issues/832) ([b5a9560](https://github.com/TEHIK-EE/tedi-design-system/commit/b5a9560a89535f096c9ea869ce5affc5af687440))
+
 # [@tehik-ee/tedi-core-v1.13.2](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.13.1...core-1.13.2) (2025-05-14)
 
 
