@@ -7,7 +7,7 @@ import {
 @Component({
   selector: "tedi-sidenav-group-title",
   standalone: true,
-  template: "<ng-content />",
+  templateUrl: "./sidenav-group-title.component.html",
   styleUrl: "./sidenav-group-title.component.scss",
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
