@@ -1,0 +1,13 @@
+@use "@tehik-ee/tedi-core/mixins";
+
+.tedi-modal-header {
+  border-bottom: var(--_modal-border);
+  padding: var(--_tedi-modal-heading-padding-y)
+    var(--_tedi-modal-heading-padding-x);
+
+  &__title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
