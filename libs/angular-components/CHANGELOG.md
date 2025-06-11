@@ -1,3 +1,37 @@
+# [@tehik-ee/tedi-angular-v2.1.0-rc.4](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.1.0-rc.3...angular-2.1.0-rc.4) (2025-06-11)
+
+
+### Bug Fixes
+
+* **modal:** fix community modal [#837](https://github.com/TEHIK-EE/tedi-design-system/issues/837) ([13b5556](https://github.com/TEHIK-EE/tedi-design-system/commit/13b5556374c3ed179034d17848f71fd819603c86))
+
+
+### Features
+
+* **modal:** add basic styling [#776](https://github.com/TEHIK-EE/tedi-design-system/issues/776) ([05a6991](https://github.com/TEHIK-EE/tedi-design-system/commit/05a69919b27dd010b2ab8369849be8dc59afaafd))
+* **modal:** add closeButton arg to header & slightly change documentation [#776](https://github.com/TEHIK-EE/tedi-design-system/issues/776) ([df01126](https://github.com/TEHIK-EE/tedi-design-system/commit/df01126d60a4866b99b464dae6b2568cbf480052))
+* **modal:** add styling to sub-components [#776](https://github.com/TEHIK-EE/tedi-design-system/issues/776) ([9dc0d74](https://github.com/TEHIK-EE/tedi-design-system/commit/9dc0d74fc6c0982f52c0698c2f71964cfa01a6b5))
+* **modal:** address reviews by [@pesarv](https://github.com/pesarv) & add index file to modal [#776](https://github.com/TEHIK-EE/tedi-design-system/issues/776) ([55d4f84](https://github.com/TEHIK-EE/tedi-design-system/commit/55d4f8418dada5e9cce386b09ea15e9d090ac869))
+* **modal:** address second round of reviews by [@pesarv](https://github.com/pesarv) [#776](https://github.com/TEHIK-EE/tedi-design-system/issues/776) ([e6c9d8d](https://github.com/TEHIK-EE/tedi-design-system/commit/e6c9d8da4ffe9fac7b510e69d81bbcac83f36479))
+* **modal:** attempt max-width implementation for modal sizing [#776](https://github.com/TEHIK-EE/tedi-design-system/issues/776) ([f101975](https://github.com/TEHIK-EE/tedi-design-system/commit/f1019759918a4d40919bf0e6788ef7ac28f2827c))
+* **modal:** fix errors with removed prop inputs  [#776](https://github.com/TEHIK-EE/tedi-design-system/issues/776) ([82cd286](https://github.com/TEHIK-EE/tedi-design-system/commit/82cd286f5af7210e341a158475b5b30aaa5b0007))
+* **modal:** fix import issues arising from update [#776](https://github.com/TEHIK-EE/tedi-design-system/issues/776) ([6e8cc37](https://github.com/TEHIK-EE/tedi-design-system/commit/6e8cc3788cca42ec33d0fddd76ac9f6325bbb789))
+* **modal:** fix issues with modal min-width setting  [#776](https://github.com/TEHIK-EE/tedi-design-system/issues/776) ([5524748](https://github.com/TEHIK-EE/tedi-design-system/commit/552474821d5220169eff8eedf31fac352036be3e))
+* **modal:** fix missed changes to now-removed enums [#776](https://github.com/TEHIK-EE/tedi-design-system/issues/776) ([ebdb515](https://github.com/TEHIK-EE/tedi-design-system/commit/ebdb515d9da730c5eae8d07c7d9e923a23663f88))
+* **modal:** fix select styles override & add support for dialog getting data from DialogData [#776](https://github.com/TEHIK-EE/tedi-design-system/issues/776) ([567d58f](https://github.com/TEHIK-EE/tedi-design-system/commit/567d58feca5eed674c1272ef72996225ed985ea9))
+* **modal:** further styling for sub-components to differentiate [#776](https://github.com/TEHIK-EE/tedi-design-system/issues/776) ([101aa62](https://github.com/TEHIK-EE/tedi-design-system/commit/101aa6266581641808b34038225881dfdbf3c98a))
+* **modal:** implement modal appearance to near-completion [#776](https://github.com/TEHIK-EE/tedi-design-system/issues/776) ([9836bc8](https://github.com/TEHIK-EE/tedi-design-system/commit/9836bc896ff34339c80ed5d513694121851effc2))
+* **modal:** implement the separate modal components [#776](https://github.com/TEHIK-EE/tedi-design-system/issues/776) ([014be93](https://github.com/TEHIK-EE/tedi-design-system/commit/014be9325ec8f665962319080749e5d98be593a5))
+* **modal:** improve custom button props and expand on storybook [#776](https://github.com/TEHIK-EE/tedi-design-system/issues/776) ([b70f695](https://github.com/TEHIK-EE/tedi-design-system/commit/b70f695fa1c85537059df439b7cb0c6f2229d96e))
+* **modal:** improve modularity and storybook [#776](https://github.com/TEHIK-EE/tedi-design-system/issues/776) ([f219d74](https://github.com/TEHIK-EE/tedi-design-system/commit/f219d7465f42794426a9ac16e0fa12e10cb8e6c3))
+* **modal:** initial implementation of modal[#776](https://github.com/TEHIK-EE/tedi-design-system/issues/776) ([9250820](https://github.com/TEHIK-EE/tedi-design-system/commit/92508207f8125ddf0f0c614fa3bed923d088b9de))
+* **modal:** remove input group changes [#776](https://github.com/TEHIK-EE/tedi-design-system/issues/776) ([0b38d9c](https://github.com/TEHIK-EE/tedi-design-system/commit/0b38d9c955ba4b199e6da283aefb3c886816d6c2))
+* **modal:** remove mixins for now [#776](https://github.com/TEHIK-EE/tedi-design-system/issues/776) ([0b20faf](https://github.com/TEHIK-EE/tedi-design-system/commit/0b20faf20ff0232b162791cc4857ca0e5eb241f8))
+* **modal:** replace usages of ngIf and ngFor with [@for](https://github.com/for) and [@if](https://github.com/if) syntax [#776](https://github.com/TEHIK-EE/tedi-design-system/issues/776) ([241049c](https://github.com/TEHIK-EE/tedi-design-system/commit/241049c2ae26545da771676c6632b89be187b0f5))
+* **modal:** use fixed width for outer container [#776](https://github.com/TEHIK-EE/tedi-design-system/issues/776) ([bd3c41e](https://github.com/TEHIK-EE/tedi-design-system/commit/bd3c41e6ef9a66acc9ef6e12c2d5777a78f2c1e8))
+* **modal:** use non-encapsulated styles to implement non-fixed width sizing [#776](https://github.com/TEHIK-EE/tedi-design-system/issues/776) ([b909ddf](https://github.com/TEHIK-EE/tedi-design-system/commit/b909ddfeab4b6aac00531132ae28f3294627f004))
+* **modal:** use tedi-text modifiers prop instead of class [#776](https://github.com/TEHIK-EE/tedi-design-system/issues/776) ([5f5b350](https://github.com/TEHIK-EE/tedi-design-system/commit/5f5b35040ce2ac5ccfda240aa376447552a1b1b9))
+
 # [@tehik-ee/tedi-angular-v2.1.0-rc.3](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.1.0-rc.2...angular-2.1.0-rc.3) (2025-06-09)
 
 
