@@ -1,1 +1,9 @@
-<ng-content />
+@if (collapsible()) {
+  <button class="tedi-sidenav__collapse" (click)="handleCollapse()">
+    <tedi-icon
+      [name]="isCollapsed() ? 'left_panel_open' : 'right_panel_open'"
+      color="inherit"
+    />
+  </button>
+}
+<ng-content></ng-content>

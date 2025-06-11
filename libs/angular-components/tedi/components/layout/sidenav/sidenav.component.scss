@@ -9,6 +9,7 @@
   --tree-bullet-size: 8px;
   --sidenav-width-desktop: 15rem;
   --sidenav-width-mobile: 70vw;
+  --sidenav-collapsed-text-width: 4.5rem;
 }
 
 .tedi-sidenav {
@@ -32,53 +33,6 @@
     min-width: 0;
     max-width: none;
     min-height: auto;
-  }
-
-  &--large {
-    tedi-sidenav-item {
-      .tedi-sidenav-item__trigger {
-        @include mixins.responsive-styles(
-          min-height,
-          side-navigation-item-min-height
-        );
-
-        @include mixins.responsive-styles(font-size, side-navigation-text-size);
-        @include mixins.responsive-styles(
-          line-height,
-          body-regular-line-height,
-          $exclude: tablet
-        );
-
-        .tedi-sidenav-item__title {
-          @include mixins.responsive-styles(
-            padding,
-            side-navigation-item-padding-y side-navigation-item-padding-right
-              side-navigation-item-padding-y
-              side-navigation-item-padding-left-level-1
-          );
-
-          &:not(:only-child) {
-            padding-right: 0;
-          }
-        }
-
-        .tedi-sidenav-item__link-button {
-          &:last-child {
-            @include mixins.responsive-styles(
-              padding-right,
-              side-navigation-item-padding-right
-            );
-          }
-        }
-      }
-
-      tedi-sidenav-dropdown {
-        tedi-sidenav-dropdown-item {
-          display: block;
-          min-height: 48px;
-        }
-      }
-    }
   }
 
   &--medium {
@@ -166,5 +120,155 @@
         border-bottom: 0;
       }
     }
+  }
+
+  &--collapsible {
+    @include mixins.responsive-styles(
+      width,
+      side-navigation-item-width-collapsed
+    );
+
+    &--open {
+      width: var(--sidenav-width-desktop);
+    }
+
+    .tedi-sidenav-item {
+      .tedi-sidenav-dropdown {
+        min-width: 16.5rem;
+        position: absolute;
+        top: 0;
+        left: calc(100% + 4px);
+        background: var(--dropdown-item-default-background);
+        border: var(--borders-01) solid var(--card-border-primary);
+        box-shadow: 0px 1px 5px 0px var(--alpha-20, rgba(0, 0, 0, 0.2));
+        transition: none;
+        visibility: hidden;
+
+        &--open {
+          visibility: visible;
+        }
+
+        @include mixins.responsive-styles(
+          border-radius,
+          form-select-area-radius
+        );
+      }
+
+      .tedi-sidenav-dropdown-item {
+        color: var(--dropdown-item-default-text);
+
+        &--selected,
+        &:hover {
+          color: var(--dropdown-item-hover-text);
+          background-color: var(--dropdown-item-hover-background);
+        }
+
+        @include mixins.responsive-styles(
+          --_padding-left,
+          dropdown-item-padding-x
+        );
+
+        @include mixins.responsive-styles(--_gap, dropdown-item-inner-spacing);
+
+        &::before,
+        &::after {
+          background-color: var(--side-navigation-tree-neutral-default);
+        }
+
+        &::after {
+          width: 10px;
+        }
+      }
+
+      .tedi-sidenav-item__trigger {
+        position: relative;
+
+        @include mixins.responsive-styles(
+          font-size,
+          side-navigation-text-size-sm
+        );
+
+        &:has(> .tedi-sidenav-item__caret-button:hover) {
+          background: var(--side-navigation-item-background-hover);
+        }
+
+        .tedi-sidenav-item__title {
+          flex-direction: column;
+          text-align: center;
+
+          @include mixins.responsive-styles(
+            min-height,
+            side-navigation-item-min-height-large
+          );
+
+          @include mixins.responsive-styles(
+            padding,
+            side-navigation-item-padding-y side-navigation-item-padding-x-sm
+          );
+        }
+
+        .tedi-sidenav-item__caret-button {
+          height: fit-content;
+          position: absolute;
+
+          @include mixins.responsive-styles(
+            top,
+            side-navigation-item-padding-y
+          );
+
+          @include mixins.responsive-styles(
+            right,
+            side-navigation-item-padding-x-sm
+          );
+
+          &:hover {
+            .tedi-sidenav-item__caret-container {
+              background-color: transparent;
+            }
+          }
+
+          &:last-child {
+            padding-right: 0;
+          }
+        }
+      }
+    }
+  }
+
+  &__collapse {
+    position: absolute;
+    right: 0;
+    transform: translateX(50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--button-floating-secondary-text-default);
+    border: 1px solid var(--button-floating-secondary-border-default);
+    background: var(--button-floating-secondary-background-default);
+    z-index: var(--z-index-sidenav);
+    cursor: pointer;
+
+    &:hover {
+      color: var(--button-floating-secondary-text-hover);
+      border: 1px solid var(--button-floating-secondary-border-hover);
+      background: var(--button-floating-secondary-background-hover);
+    }
+
+    &:active {
+      color: var(--button-floating-secondary-text-active);
+      border: 1px solid var(--button-floating-secondary-border-active);
+      background: var(--button-floating-secondary-background-active);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--primary-500);
+      outline-offset: 1px;
+    }
+
+    @include mixins.responsive-styles(top, side-navigation-item-padding-y);
+    @include mixins.responsive-styles(width, button-sm-height);
+    @include mixins.responsive-styles(height, button-sm-height);
+    @include mixins.responsive-styles(padding, button-md-icon-padding);
+    @include mixins.responsive-styles(border-radius, button-radius-default);
   }
 }
