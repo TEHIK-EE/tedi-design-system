@@ -1,6 +1,9 @@
 import { Component, computed, input } from "@angular/core";
 import { IconColor, IconComponent } from "tedi/components";
 
+// StatusBadgeColor, StatusBadgeVariant, StatusBadgeSize, StatusBadgeStatus are identical to libs/react-components/src/tedi/components/tags/status-badge/status-badge.tsx,
+// redo to use shared constants when possible
+
 export type StatusBadgeColor =
   | "neutral"
   | "brand"
