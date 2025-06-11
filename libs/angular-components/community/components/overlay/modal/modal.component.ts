@@ -8,7 +8,7 @@ import {
 import { DIALOG_DATA, DialogModule, DialogRef } from "@angular/cdk/dialog";
 import { ModalHeaderComponent } from "./header/modal-header.component";
 import { ModalFooterComponent } from "./footer/modal-footer.component";
-import { ComponentInputs } from "tedi/types";
+import { ComponentInputs } from "@tehik-ee/tedi-angular/tedi";
 
 export type ModalSizes = "lg" | "md" | "sm";
 

@@ -1,9 +1,12 @@
 import { DIALOG_DATA, DialogRef } from "@angular/cdk/dialog";
 import { Component, inject, model, OnInit } from "@angular/core";
-import { FeedbackTextComponent, TextComponent } from "tedi/components";
-import { ComponentInputs } from "tedi/types";
 import { DialogData } from "../modal.component";
-import { ClosingButtonComponent } from "community/components/buttons";
+import {
+  FeedbackTextComponent,
+  TextComponent,
+  ClosingButtonComponent,
+  ComponentInputs,
+} from "@tehik-ee/tedi-angular/tedi";
 
 @Component({
   selector: "tedi-modal-header",

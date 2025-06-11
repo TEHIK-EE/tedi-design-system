@@ -5,7 +5,7 @@ import {
   ButtonSize,
   ButtonVariant,
   IconComponent,
-} from "tedi/components";
+} from "@tehik-ee/tedi-angular/tedi";
 import { DialogData } from "../modal.component";
 import { DIALOG_DATA } from "@angular/cdk/dialog";
 

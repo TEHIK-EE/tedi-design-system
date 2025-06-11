@@ -28,6 +28,8 @@
   --_modal-border: var(--borders-01) solid var(--modal-border);
   --_modal-padding: var(--dimensions-13);
 
+  overflow: auto;
+
   @include responsive-sizes(
     var(--dimensions-10),
     var(--dimensions-05),
@@ -51,8 +53,6 @@
     --_tedi-modal-footer-padding-y,
     modal-footer-padding-y
   );
-
-  overflow: auto;
 
   &--small {
     @include responsive-sizes(
