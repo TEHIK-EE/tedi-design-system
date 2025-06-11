@@ -36,6 +36,10 @@ $tree-branch-width: 10px;
     background: var(--side-navigation-item-background-hover);
   }
 
+  &--selected {
+    background: var(--side-navigation-item-background-active);
+  }
+
   &::before {
     content: "";
     position: absolute;
@@ -55,6 +59,15 @@ $tree-branch-width: 10px;
     height: $tree-width;
     transform: translateY(-50%);
     background-color: var(--side-navigation-tree-brand-default);
+  }
+
+  &--parent {
+    @include mixins.responsive-styles(padding-left, dropdown-item-padding-x);
+
+    &::before,
+    &::after {
+      display: none;
+    }
   }
 
   &:last-of-type {

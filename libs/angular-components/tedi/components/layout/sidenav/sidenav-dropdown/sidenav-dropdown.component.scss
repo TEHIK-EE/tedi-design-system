@@ -4,9 +4,11 @@ $transition-duration: 300ms;
   display: grid;
   grid-template-rows: 0fr;
   overflow: hidden;
+  visibility: hidden;
   transition: grid-template-rows $transition-duration ease;
 
   &--open {
+    visibility: visible;
     grid-template-rows: 1fr;
 
     .tedi-sidenav-dropdown__items {
