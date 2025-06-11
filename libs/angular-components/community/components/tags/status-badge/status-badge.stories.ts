@@ -17,8 +17,8 @@ import { VerticalSpacingDirective } from "tedi/directives";
 import { NgFor } from "@angular/common";
 import { ColComponent, RowComponent } from "tedi/components";
 
-/// presets identical to libs/react-components/src/tedi/components/tags/status-badge/status-badge.stories.tsx,
-///  redo to use shared constants when possible
+// colors, variants, statuses, colorToIconMap, statusToIconMap are identical to libs/react-components/src/tedi/components/tags/status-badge/status-badge.stories.tsx,
+//  redo to use shared constants when possible
 
 const colors: StatusBadgeColor[] = [
   "neutral",
