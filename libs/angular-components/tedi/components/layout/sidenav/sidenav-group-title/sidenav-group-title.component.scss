@@ -1,17 +1,17 @@
-@use "@tehik-ee/tedi-core/mixins";
+tedi-sidenav-group-title {
+  color: var(--side-navigation-group-title-text, #d0e1ee);
+  font-feature-settings:
+    "liga" off,
+    "clig" off;
+  font-family: var(--family-primary, Roboto);
+  font-size: var(--body-extra-small-bold-size, 12px);
+  font-style: normal;
+  font-weight: var(--body-extra-small-bold-weight, 700);
+  line-height: var(--body-extra-small-bold-line-height, 16px); /* 133.333% */
+  text-transform: uppercase;
 
-.tedi-sidenav-group-title {
-  .tedi-sidenav-group-title__text {
-    color: var(--side-navigation-group-title-text);
-    font-size: 12px;
-    font-weight: 700;
-    line-height: 16px;
-    text-transform: uppercase;
-
-    @include mixins.responsive-styles(
-      padding,
-      layout-grid-gutters-16 side-navigation-item-padding-right
-        layout-grid-gutters-02 side-navigation-item-padding-left-level-1
-    );
-  }
+  padding: var(--layout-grid-gutters-16, 16px)
+    var(--side-navigation-item-padding-right, 16px)
+    var(--layout-grid-gutters-02, 2px)
+    var(--side-navigation-item-padding-left-level-1, 16px);
 }

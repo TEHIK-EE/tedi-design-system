@@ -1,18 +1,12 @@
 @use "@tehik-ee/tedi-core/mixins";
 
 .tedi-sidenav-item {
+  position: relative;
   display: flex;
   flex-direction: column;
 
-  &--selected {
-    .tedi-sidenav-item__trigger {
-      background: var(--side-navigation-item-background-active);
-
-      @include mixins.responsive-styles(font-weight, body-bold-weight);
-    }
-  }
-
   .tedi-sidenav-item__trigger {
+    position: relative;
     display: flex;
     align-items: center;
     cursor: pointer;
@@ -24,67 +18,167 @@
     &:has(> .tedi-sidenav-item__link-button:hover) {
       background: transparent;
     }
+  }
 
-    .tedi-sidenav-item__title {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      text-decoration: none;
-      text-align: start;
-      color: var(--side-navigation-item-text);
-      border: 0;
+  .tedi-sidenav-item__caret {
+    margin-left: auto;
+    transition: transform 300ms ease;
 
-      &:focus-visible {
+    &[data-open="true"] {
+      transform: rotate(180deg);
+    }
+
+    &--collapsed {
+      margin-left: 0;
+      position: absolute;
+
+      @include mixins.responsive-styles(
+        right,
+        side-navigation-item-padding-right
+      );
+      @include mixins.responsive-styles(top, side-navigation-item-padding-y);
+
+      &[data-open="true"] {
+        transform: rotate(-90deg);
+      }
+    }
+  }
+
+  .tedi-sidenav-item__title {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    text-align: start;
+    color: var(--side-navigation-item-text);
+    border: 0;
+
+    &:focus-visible {
+      outline: 2px solid var(--primary-500);
+      outline-offset: 1px;
+    }
+
+    @include mixins.responsive-styles(gap, side-navigation-item-inner-spacing);
+  }
+
+  .tedi-sidenav-item__caret-button {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+
+    &:hover {
+      .tedi-sidenav-item__caret-container {
+        background-color: var(
+          --side-navigation-item-background-arrow-button-active
+        );
+      }
+    }
+
+    &:focus-visible {
+      .tedi-sidenav-item__caret-container {
         outline: 2px solid var(--primary-500);
         outline-offset: 1px;
       }
-
-      @include mixins.responsive-styles(
-        gap,
-        side-navigation-item-inner-spacing
-      );
     }
+  }
 
-    .tedi-sidenav-item__link-button {
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-items: center;
+  .tedi-sidenav-item__caret-container {
+    @include mixins.responsive-styles(height, icon-05);
+    @include mixins.responsive-styles(width, icon-05);
+    @include mixins.responsive-styles(border-radius, button-radius-sm);
+  }
 
-      &:hover {
-        .tedi-sidenav-item__link-button__icon {
-          background-color: var(
-            --side-navigation-item-background-arrow-button-active
+  .tedi-sidenav-item__text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: var(--sidenav-collapsed-text-width);
+  }
+
+  button {
+    font-size: inherit;
+    color: var(--side-navigation-item-text);
+    background-color: transparent;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+  }
+
+  tedi-icon {
+    color: inherit;
+  }
+
+  &--selected {
+    .tedi-sidenav-item__trigger {
+      background: var(--side-navigation-item-background-active);
+
+      @include mixins.responsive-styles(font-weight, body-bold-weight);
+    }
+  }
+
+  &--large {
+    .tedi-sidenav-item__trigger {
+      @include mixins.responsive-styles(
+        min-height,
+        side-navigation-item-min-height
+      );
+
+      @include mixins.responsive-styles(font-size, side-navigation-text-size);
+      @include mixins.responsive-styles(
+        line-height,
+        body-regular-line-height,
+        $exclude: tablet
+      );
+
+      .tedi-sidenav-item__title {
+        @include mixins.responsive-styles(
+          padding,
+          side-navigation-item-padding-y side-navigation-item-padding-right
+            side-navigation-item-padding-y
+            side-navigation-item-padding-left-level-1
+        );
+
+        &:not(:only-child) {
+          padding-right: 0;
+        }
+      }
+
+      .tedi-sidenav-item__caret-button {
+        &:last-child {
+          @include mixins.responsive-styles(
+            padding-right,
+            side-navigation-item-padding-right
           );
         }
       }
+    }
 
-      &:focus-visible {
-        .tedi-sidenav-item__link-button__icon {
-          outline: 2px solid var(--primary-500);
-          outline-offset: 1px;
+    tedi-sidenav-dropdown {
+      tedi-sidenav-dropdown-item {
+        display: block;
+        min-height: 48px;
+      }
+    }
+  }
+}
+
+.tedi-sidenav {
+  &:not(&--collapsible) {
+    .tedi-sidenav-item {
+      .tedi-sidenav-item__trigger {
+        .tedi-sidenav-item__text {
+          animation: enable-wrap 0s 300ms forwards;
         }
       }
-
-      &__icon {
-        @include mixins.responsive-styles(height, icon-05);
-        @include mixins.responsive-styles(width, icon-05);
-        @include mixins.responsive-styles(border-radius, button-radius-sm);
-      }
     }
+  }
+}
 
-    button {
-      font-size: inherit;
-      color: var(--side-navigation-item-text);
-      background-color: transparent;
-      border: 0;
-      padding: 0;
-      cursor: pointer;
-    }
-
-    tedi-icon {
-      color: inherit;
-    }
+@keyframes enable-wrap {
+  to {
+    white-space: normal;
+    max-width: none;
   }
 }
