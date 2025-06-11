@@ -58,7 +58,7 @@ export const Default: StoryObj<SideNavComponent> = {
                 <tedi-sidenav-item icon="dashboard" [selected]="true">
                   Nested dropdown
                   <tedi-sidenav-dropdown>
-                    <tedi-sidenav-group-title>Links</tedi-sidenav-group-title>
+                    <tedi-sidenav-group-title>Items</tedi-sidenav-group-title>
                     <tedi-sidenav-dropdown-item>
                       First item
                     </tedi-sidenav-dropdown-item>
@@ -97,7 +97,6 @@ export const Default: StoryObj<SideNavComponent> = {
                   External link dropdown
                   <tedi-sidenav-dropdown>
                     <tedi-sidenav-dropdown-group>
-                    Test
                       <tedi-sidenav-dropdown-item>
                         Sub item
                       </tedi-sidenav-dropdown-item>

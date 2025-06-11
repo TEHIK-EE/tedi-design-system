@@ -132,6 +132,14 @@
       width: var(--sidenav-width-desktop);
     }
 
+    tedi-sidenav-group-title {
+      border-bottom: 1px solid white;
+
+      .tedi-sidenav-group-title__text {
+        display: none;
+      }
+    }
+
     .tedi-sidenav-item {
       .tedi-sidenav-dropdown {
         min-width: 16.5rem;
@@ -152,6 +160,24 @@
           border-radius,
           form-select-area-radius
         );
+
+        tedi-sidenav-group-title {
+          border: 0;
+
+          .tedi-sidenav-group-title__text {
+            display: block;
+            color: var(--general-text-tertiary, #5d6071);
+            font-feature-settings:
+              "liga" off,
+              "clig" off;
+            font-family: Roboto;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 20px; /* 142.857% */
+            text-transform: uppercase;
+          }
+        }
       }
 
       .tedi-sidenav-dropdown-item {
