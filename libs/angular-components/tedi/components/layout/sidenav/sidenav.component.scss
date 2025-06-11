@@ -193,53 +193,6 @@
     );
   }
 
-  &--large {
-    tedi-sidenav-item {
-      .tedi-sidenav-item__trigger {
-        @include mixins.responsive-styles(
-          min-height,
-          side-navigation-item-min-height
-        );
-
-        @include mixins.responsive-styles(font-size, side-navigation-text-size);
-        @include mixins.responsive-styles(
-          line-height,
-          body-regular-line-height,
-          $exclude: tablet
-        );
-
-        .tedi-sidenav-item__title {
-          @include mixins.responsive-styles(
-            padding,
-            side-navigation-item-padding-y side-navigation-item-padding-right
-              side-navigation-item-padding-y
-              side-navigation-item-padding-left-level-1
-          );
-
-          &:not(:only-child) {
-            padding-right: 0;
-          }
-        }
-
-        .tedi-sidenav-item__link-button {
-          &:last-child {
-            @include mixins.responsive-styles(
-              padding-right,
-              side-navigation-item-padding-right
-            );
-          }
-        }
-      }
-
-      tedi-sidenav-dropdown {
-        tedi-sidenav-dropdown-item {
-          display: block;
-          min-height: 48px;
-        }
-      }
-    }
-  }
-
   &--medium {
     tedi-sidenav-item {
       .tedi-sidenav-item__trigger {

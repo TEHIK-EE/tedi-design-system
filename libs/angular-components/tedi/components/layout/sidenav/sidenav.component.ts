@@ -1,9 +1,12 @@
 import {
+  AfterContentInit,
   ChangeDetectionStrategy,
   Component,
   computed,
   inject,
   input,
+  QueryList,
+  signal,
   ViewEncapsulation,
 } from "@angular/core";
 
@@ -25,7 +28,7 @@ export type SideNavItemSize = "small" | "medium" | "large";
     "[class]": "classes()",
   },
 })
-export class SideNavComponent {
+export class SideNavComponent implements AfterContentInit {
   /**
    * Show dividers between items
    * @default true

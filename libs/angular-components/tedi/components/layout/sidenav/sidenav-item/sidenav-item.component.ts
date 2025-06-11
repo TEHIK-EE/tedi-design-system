@@ -110,20 +110,63 @@ export class SideNavItemComponent
 
   @ContentChild(SideNavDropdownComponent) dropdown?: SideNavDropdownComponent;
 
+  readonly injector = inject(Injector);
+  size = signal<SideNavItemSize>("large");
+  isCollapsed = signal(false);
   hasDropdown = signal(false);
+  element = signal<Element | null>(null);
+
+  private readonly host = inject(ElementRef);
+  private readonly renderer = inject(Renderer2);
+  private readonly eventListeners: (() => void)[] = [];
 
   ngAfterContentInit(): void {
     const dropdown = this.dropdown;
+
+    if (this.host.nativeElement) {
+      const hostEl = this.host.nativeElement as Element;
+      const trigger = hostEl
+        .getElementsByClassName("tedi-sidenav-item__title")
+        .item(0);
+
+      if (trigger) {
+        this.element.set(trigger);
+      }
+    }
 
     if (!dropdown) {
       return;
     }
 
+    runInInjectionContext(this.injector, () => {
+      effect(() => {
+        dropdown.showParentInDropdown.set(
+          this.isCollapsed() && (!!this.href() || !!this.routerLink()),
+        );
+      });
+    });
+
     this.hasDropdown.set(true);
+    this.eventListeners.push(
+      this.renderer.listen("document", "click", (event: MouseEvent) => {
+        if (this.isCollapsed()) {
+          const target = event.target as HTMLElement;
+          const clickedInsideDropdown = dropdown.element()?.contains(target);
+          const clickedInsideTrigger = this.host.nativeElement.contains(target);
+
+          if (!clickedInsideTrigger && !clickedInsideDropdown) {
+            dropdown.open.set(false);
+          }
+        }
+      }),
+    );
   }
 
   classes = computed(() => {
-    const classList = ["tedi-sidenav-item"];
+    const classList = [
+      "tedi-sidenav-item",
+      `tedi-sidenav-item--${this.size()}`,
+    ];
 
     if (this.selected()) {
       classList.push("tedi-sidenav-item--selected");
