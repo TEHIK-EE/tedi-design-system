@@ -10,7 +10,6 @@ import { DialogData, ModalComponent } from "./modal.component";
 import { SelectComponent } from "community/components/form/select/select.component";
 import { SelectOptionComponent } from "community/components/form/select/select-option.component";
 import { resetIndexId, indexId } from "community/utils/unique-id";
-import { NgFor } from "@angular/common";
 import { ModalFooterComponent } from "./footer/modal-footer.component";
 import { ModalHeaderComponent } from "./header/modal-header.component";
 
@@ -47,20 +46,16 @@ class ModalOpenComponent {
       <label tedi-label [for]="selectOneId">Label</label>
 
       <tedi-select [id]="selectOneId" state="default">
-        <tedi-select-option
-          *ngFor="let option of options"
-          [value]="option.value"
-          [label]="option.label"
-        />
+        @for (option of options; track option.value) {
+          <tedi-select-option [value]="option.value" [label]="option.label" />
+        }
       </tedi-select>
 
       <label tedi-label [for]="selectTwoId">Label</label>
       <tedi-select [id]="selectTwoId" state="default">
-        <tedi-select-option
-          *ngFor="let option of options"
-          [value]="option.value"
-          [label]="option.label"
-        />
+        @for (option of options; track option.value) {
+          <tedi-select-option [value]="option.value" [label]="option.label" />
+        }
       </tedi-select>
 
       <tedi-modal-footer
@@ -78,7 +73,6 @@ class ModalOpenComponent {
     ModalFooterComponent,
     FeedbackTextComponent,
     LabelComponent,
-    NgFor,
   ],
 })
 class StorybookModalComponent implements OnInit {

@@ -1,4 +1,4 @@
-import { NgIf, NgStyle } from "@angular/common";
+import { NgStyle } from "@angular/common";
 import { Component, inject, model, OnInit } from "@angular/core";
 import {
   ButtonComponent,
@@ -26,7 +26,7 @@ export type ModalIconPosition = "start" | "end";
   selector: "tedi-modal-footer",
   templateUrl: "./modal-footer.component.html",
   styleUrl: "./modal-footer.component.scss",
-  imports: [ButtonComponent, IconComponent, NgIf, NgStyle],
+  imports: [ButtonComponent, IconComponent, NgStyle],
 })
 export class ModalFooterComponent implements OnInit {
   align = model<string>("flex-end");

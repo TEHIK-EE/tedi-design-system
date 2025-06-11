@@ -9,15 +9,13 @@
         [ngStyle]="button.style"
         (click)="button.action()"
       >
-        <tedi-icon
-          *ngIf="button.icon && button.iconPosition == 'start'"
-          [name]="button.icon"
-        />
+        @if (button.icon && button.iconPosition == "start") {
+          <tedi-icon [name]="button.icon" />
+        }
         {{ button.label }}
-        <tedi-icon
-          *ngIf="button.icon && button.iconPosition == 'end'"
-          [name]="button.icon"
-        />
+        @if (button.icon && button.iconPosition == "end") {
+          <tedi-icon [name]="button.icon" />
+        }
       </button>
     }
   </ng-content>
