@@ -111,7 +111,7 @@ div .tedi-select__menu {
     background-color: var(--form-input-background-default);
   }
 
-  &:active,
+  &:active:not(.tedi-select__option--disabled),
   &--selected {
     color: var(--dropdown-item-active-text);
     background-color: var(--dropdown-item-active-background);
