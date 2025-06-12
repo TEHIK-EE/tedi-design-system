@@ -1,3 +1,15 @@
+# [@tehik-ee/tedi-react-v12.1.0-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/react-12.0.2...react-12.1.0-rc.1) (2025-06-12)
+
+
+### Bug Fixes
+
+* **select:** fix async select input [#743](https://github.com/TEHIK-EE/tedi-design-system/issues/743) ([#861](https://github.com/TEHIK-EE/tedi-design-system/issues/861)) ([608dc50](https://github.com/TEHIK-EE/tedi-design-system/commit/608dc506b4922900e2215d70ab977feea9a3b492))
+
+
+### Features
+
+* **community-form-multiselect:** add multiselect capabilities to community select  [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) ([5b8905c](https://github.com/TEHIK-EE/tedi-design-system/commit/5b8905c03fa7017aa1ea68f0dd7f5e82b5a0f78d))
+
 # [@tehik-ee/tedi-react-v12.0.2](https://github.com/TEHIK-EE/tedi-design-system/compare/react-12.0.1...react-12.0.2) (2025-06-05)
 
 
