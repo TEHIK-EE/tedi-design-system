@@ -6,13 +6,17 @@ import {
   output,
   ViewEncapsulation,
 } from "@angular/core";
-import { IconComponent, SpinnerComponent } from "@tehik-ee/tedi-angular/tedi";
+import {
+  IconComponent,
+  SpinnerComponent,
+  TediTranslationPipe,
+} from "@tehik-ee/tedi-angular/tedi";
 
 export type TagType = "primary" | "secondary" | "danger";
 
 @Component({
   selector: "tedi-tag",
-  imports: [SpinnerComponent, IconComponent],
+  imports: [SpinnerComponent, IconComponent, TediTranslationPipe],
   templateUrl: "./tag.component.html",
   styleUrl: "./tag.component.scss",
   encapsulation: ViewEncapsulation.None,

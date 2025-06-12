@@ -24,7 +24,7 @@ export const translationsMap = {
   },
   remove: {
     description: "Used for removing",
-    components: ["FileUpload"],
+    components: ["FileUpload", "Tag"],
     et: "Eemalda",
     en: "Remove",
     ru: "Удалить",
@@ -182,6 +182,13 @@ export const translationsMap = {
     et: "Valikud puuduvad",
     en: "No options",
     ru: "Нет вариантов",
+  },
+  "select.select-all": {
+    description: "Text when select has 'select all' option",
+    components: ["select"],
+    et: "Vali kõik",
+    en: "Select all",
+    ru: "Выбрать все",
   },
   "stepper.completed": {
     description:
@@ -403,12 +410,9 @@ export const translationsMap = {
   "pagination.results": {
     description: "Total results text",
     components: ["Table", "Pagination"],
-    et: (count?: number) =>
-      count === 1 ? `${count} tulemus` : `${count} tulemust`,
-    en: (count?: number) =>
-      count === 1 ? `${count} result` : `${count} results`,
-    ru: (count?: number) =>
-      count === 1 ? `${count} результат` : `${count} результа`,
+    et: (count?: number) => (count === 1 ? "tulemus" : "tulemust"),
+    en: (count?: number) => (count === 1 ? "result" : "results"),
+    ru: (count?: number) => (count === 1 ? "результат" : "результа"),
   },
   "pagination.page-size": {
     description: "Label of page size select",

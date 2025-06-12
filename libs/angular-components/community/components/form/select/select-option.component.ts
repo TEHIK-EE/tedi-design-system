@@ -19,6 +19,10 @@ export class SelectOptionComponent {
    * Should the option be disabled?
    */
   isDisabled = input<boolean>(false);
+  /*
+   * A group name this option belongs to.
+   */
+  groupBy = input<string>();
 
   templateRef = viewChild(TemplateRef);
 }

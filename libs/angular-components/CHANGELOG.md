@@ -1,3 +1,70 @@
+# [@tehik-ee/tedi-angular-v2.1.0-rc.4](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.1.0-rc.3...angular-2.1.0-rc.4) (2025-06-11)
+
+
+### Bug Fixes
+
+* **modal:** fix community modal [#837](https://github.com/TEHIK-EE/tedi-design-system/issues/837) ([13b5556](https://github.com/TEHIK-EE/tedi-design-system/commit/13b5556374c3ed179034d17848f71fd819603c86))
+
+
+### Features
+
+* **modal:** add basic styling [#776](https://github.com/TEHIK-EE/tedi-design-system/issues/776) ([05a6991](https://github.com/TEHIK-EE/tedi-design-system/commit/05a69919b27dd010b2ab8369849be8dc59afaafd))
+* **modal:** add closeButton arg to header & slightly change documentation [#776](https://github.com/TEHIK-EE/tedi-design-system/issues/776) ([df01126](https://github.com/TEHIK-EE/tedi-design-system/commit/df01126d60a4866b99b464dae6b2568cbf480052))
+* **modal:** add styling to sub-components [#776](https://github.com/TEHIK-EE/tedi-design-system/issues/776) ([9dc0d74](https://github.com/TEHIK-EE/tedi-design-system/commit/9dc0d74fc6c0982f52c0698c2f71964cfa01a6b5))
+* **modal:** address reviews by [@pesarv](https://github.com/pesarv) & add index file to modal [#776](https://github.com/TEHIK-EE/tedi-design-system/issues/776) ([55d4f84](https://github.com/TEHIK-EE/tedi-design-system/commit/55d4f8418dada5e9cce386b09ea15e9d090ac869))
+* **modal:** address second round of reviews by [@pesarv](https://github.com/pesarv) [#776](https://github.com/TEHIK-EE/tedi-design-system/issues/776) ([e6c9d8d](https://github.com/TEHIK-EE/tedi-design-system/commit/e6c9d8da4ffe9fac7b510e69d81bbcac83f36479))
+* **modal:** attempt max-width implementation for modal sizing [#776](https://github.com/TEHIK-EE/tedi-design-system/issues/776) ([f101975](https://github.com/TEHIK-EE/tedi-design-system/commit/f1019759918a4d40919bf0e6788ef7ac28f2827c))
+* **modal:** fix errors with removed prop inputs  [#776](https://github.com/TEHIK-EE/tedi-design-system/issues/776) ([82cd286](https://github.com/TEHIK-EE/tedi-design-system/commit/82cd286f5af7210e341a158475b5b30aaa5b0007))
+* **modal:** fix import issues arising from update [#776](https://github.com/TEHIK-EE/tedi-design-system/issues/776) ([6e8cc37](https://github.com/TEHIK-EE/tedi-design-system/commit/6e8cc3788cca42ec33d0fddd76ac9f6325bbb789))
+* **modal:** fix issues with modal min-width setting  [#776](https://github.com/TEHIK-EE/tedi-design-system/issues/776) ([5524748](https://github.com/TEHIK-EE/tedi-design-system/commit/552474821d5220169eff8eedf31fac352036be3e))
+* **modal:** fix missed changes to now-removed enums [#776](https://github.com/TEHIK-EE/tedi-design-system/issues/776) ([ebdb515](https://github.com/TEHIK-EE/tedi-design-system/commit/ebdb515d9da730c5eae8d07c7d9e923a23663f88))
+* **modal:** fix select styles override & add support for dialog getting data from DialogData [#776](https://github.com/TEHIK-EE/tedi-design-system/issues/776) ([567d58f](https://github.com/TEHIK-EE/tedi-design-system/commit/567d58feca5eed674c1272ef72996225ed985ea9))
+* **modal:** further styling for sub-components to differentiate [#776](https://github.com/TEHIK-EE/tedi-design-system/issues/776) ([101aa62](https://github.com/TEHIK-EE/tedi-design-system/commit/101aa6266581641808b34038225881dfdbf3c98a))
+* **modal:** implement modal appearance to near-completion [#776](https://github.com/TEHIK-EE/tedi-design-system/issues/776) ([9836bc8](https://github.com/TEHIK-EE/tedi-design-system/commit/9836bc896ff34339c80ed5d513694121851effc2))
+* **modal:** implement the separate modal components [#776](https://github.com/TEHIK-EE/tedi-design-system/issues/776) ([014be93](https://github.com/TEHIK-EE/tedi-design-system/commit/014be9325ec8f665962319080749e5d98be593a5))
+* **modal:** improve custom button props and expand on storybook [#776](https://github.com/TEHIK-EE/tedi-design-system/issues/776) ([b70f695](https://github.com/TEHIK-EE/tedi-design-system/commit/b70f695fa1c85537059df439b7cb0c6f2229d96e))
+* **modal:** improve modularity and storybook [#776](https://github.com/TEHIK-EE/tedi-design-system/issues/776) ([f219d74](https://github.com/TEHIK-EE/tedi-design-system/commit/f219d7465f42794426a9ac16e0fa12e10cb8e6c3))
+* **modal:** initial implementation of modal[#776](https://github.com/TEHIK-EE/tedi-design-system/issues/776) ([9250820](https://github.com/TEHIK-EE/tedi-design-system/commit/92508207f8125ddf0f0c614fa3bed923d088b9de))
+* **modal:** remove input group changes [#776](https://github.com/TEHIK-EE/tedi-design-system/issues/776) ([0b38d9c](https://github.com/TEHIK-EE/tedi-design-system/commit/0b38d9c955ba4b199e6da283aefb3c886816d6c2))
+* **modal:** remove mixins for now [#776](https://github.com/TEHIK-EE/tedi-design-system/issues/776) ([0b20faf](https://github.com/TEHIK-EE/tedi-design-system/commit/0b20faf20ff0232b162791cc4857ca0e5eb241f8))
+* **modal:** replace usages of ngIf and ngFor with [@for](https://github.com/for) and [@if](https://github.com/if) syntax [#776](https://github.com/TEHIK-EE/tedi-design-system/issues/776) ([241049c](https://github.com/TEHIK-EE/tedi-design-system/commit/241049c2ae26545da771676c6632b89be187b0f5))
+* **modal:** use fixed width for outer container [#776](https://github.com/TEHIK-EE/tedi-design-system/issues/776) ([bd3c41e](https://github.com/TEHIK-EE/tedi-design-system/commit/bd3c41e6ef9a66acc9ef6e12c2d5777a78f2c1e8))
+* **modal:** use non-encapsulated styles to implement non-fixed width sizing [#776](https://github.com/TEHIK-EE/tedi-design-system/issues/776) ([b909ddf](https://github.com/TEHIK-EE/tedi-design-system/commit/b909ddfeab4b6aac00531132ae28f3294627f004))
+* **modal:** use tedi-text modifiers prop instead of class [#776](https://github.com/TEHIK-EE/tedi-design-system/issues/776) ([5f5b350](https://github.com/TEHIK-EE/tedi-design-system/commit/5f5b35040ce2ac5ccfda240aa376447552a1b1b9))
+
+# [@tehik-ee/tedi-angular-v2.1.0-rc.3](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.1.0-rc.2...angular-2.1.0-rc.3) (2025-06-09)
+
+
+### Bug Fixes
+
+* **rc:** fix community search, multiselect, tag [#845](https://github.com/TEHIK-EE/tedi-design-system/issues/845) ([eb32822](https://github.com/TEHIK-EE/tedi-design-system/commit/eb328229ae8b18254a484e94870dde1214a29bab))
+
+
+### Features
+
+* **community-form-multiselect:** add multiselect capabilities to community select  [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) ([5b8905c](https://github.com/TEHIK-EE/tedi-design-system/commit/5b8905c03fa7017aa1ea68f0dd7f5e82b5a0f78d))
+* **community-form-multiselect:** Add tag closing button focus [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) ([a696365](https://github.com/TEHIK-EE/tedi-design-system/commit/a696365fe33166e317a308bd8333b7649d9d4de2))
+* **community-form-multiselect:** Added input comments and function return types [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) ([d831c5c](https://github.com/TEHIK-EE/tedi-design-system/commit/d831c5c7d203c0648f00a9d40f67ee2433ae9198))
+* **community-form-multiselect:** Cleaning code [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) ([e03e169](https://github.com/TEHIK-EE/tedi-design-system/commit/e03e16929b084a163ad7d02ce98cc751e1f487db))
+* **community-form-multiselect:** make cdkMenu keep itself open when multiselect option clicked [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) ([febad25](https://github.com/TEHIK-EE/tedi-design-system/commit/febad25742e41bf719896a87425101821ecf4029))
+* **community-form-multiselect:** make multiselect arg work in story [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) ([34ddc6b](https://github.com/TEHIK-EE/tedi-design-system/commit/34ddc6baea961e037bd022f10606bb7c61a8dacc))
+* **community-form-multiselect:** Multiselect with grouped options [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) ([947ac5f](https://github.com/TEHIK-EE/tedi-design-system/commit/947ac5fa0ea40c607e5206318f7f80f14a3c687d))
+* **community-form-multiselect:** Tags in single row  [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) ([3fabf19](https://github.com/TEHIK-EE/tedi-design-system/commit/3fabf1958de0ac090303556e216a436f30a6466a))
+* **community-form-multiselect:** Use tedi-checkbox for checkbox visuals  [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) ([fbbfdff](https://github.com/TEHIK-EE/tedi-design-system/commit/fbbfdff67bfd0c43341bac479ac46c1869c99fcc))
+* **community-form-search:** Little cleanup [#766](https://github.com/TEHIK-EE/tedi-design-system/issues/766) ([c05270e](https://github.com/TEHIK-EE/tedi-design-system/commit/c05270e8ba731c7e6d83b4fd19f76dcaf0720f74))
+* **community-multiselect:** Add "select all" option for multiselect [#766](https://github.com/TEHIK-EE/tedi-design-system/issues/766) ([d29b70b](https://github.com/TEHIK-EE/tedi-design-system/commit/d29b70b3f615355f7d872306497dc6f0f3ce48c5))
+* **community-multiselect:** Add label + feedbackText for single select [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) ([34e61cc](https://github.com/TEHIK-EE/tedi-design-system/commit/34e61ccc0f1416b6b8bbb734aa9c1a483cf94e80))
+* **community-multiselect:** Add label and feedbacktext to multiselect [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) ([d8b0df0](https://github.com/TEHIK-EE/tedi-design-system/commit/d8b0df0abaf00c1e550371258b8006d5c4df544f))
+* **community-multiselect:** Add missing aria [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) ([1f198d2](https://github.com/TEHIK-EE/tedi-design-system/commit/1f198d215639ace7bd283e5e3def841f9bb933e1))
+* **community-multiselect:** Add translations with tediTranslate [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) ([ffcfb59](https://github.com/TEHIK-EE/tedi-design-system/commit/ffcfb592d9a3face22f51b940ee77076cf56e4f5))
+* **community-multiselect:** Change multiselect trigger back to button [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) ([cab78c2](https://github.com/TEHIK-EE/tedi-design-system/commit/cab78c2fb7d46b5ec5d6ad2df758f86ec8b102fc))
+* **community-multiselect:** Fix tag component import in multiselect [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) ([71d923c](https://github.com/TEHIK-EE/tedi-design-system/commit/71d923c0beed20e0daca00a4f274bf733f7fc957))
+* **community-multiselect:** Remove type="reset" from tag remove button [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) ([9bb2e14](https://github.com/TEHIK-EE/tedi-design-system/commit/9bb2e14bfd0e27b6015059ffed9a6d222ed47eb3))
+* **community-multiselect:** separate multi and single select [#766](https://github.com/TEHIK-EE/tedi-design-system/issues/766) ([63b77e3](https://github.com/TEHIK-EE/tedi-design-system/commit/63b77e3d1609f8410c3435a74fdfb1e2dcbdd6d9))
+* **community-multiselect:** Singlerow/multirow input [#766](https://github.com/TEHIK-EE/tedi-design-system/issues/766) ([3654f6b](https://github.com/TEHIK-EE/tedi-design-system/commit/3654f6b783509b76a905783027c2d13c1d5d46db))
+* **community-multiselect:** Update unselect button to use signal.update() [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) ([367ba08](https://github.com/TEHIK-EE/tedi-design-system/commit/367ba08fccc4eb22fcab0bb74650f944eedfdb65))
+* **community-multiselect:** Use signal.update() instead of signal.set() in select function [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) ([7f8ee47](https://github.com/TEHIK-EE/tedi-design-system/commit/7f8ee47ceea28a339757eadd17fd161ad5b9d3aa))
+
 # [@tehik-ee/tedi-angular-v2.1.0-rc.2](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.1.0-rc.1...angular-2.1.0-rc.2) (2025-06-05)
 
 
