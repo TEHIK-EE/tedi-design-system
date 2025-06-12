@@ -1,19 +1,9 @@
 import cn from 'classnames';
-import React, { forwardRef, ReactElement } from 'react';
+import React, { forwardRef } from 'react';
 import ReactSelect, {
-  ClearIndicatorProps,
-  components as ReactSelectComponents,
-  ControlProps,
   GroupBase,
-  GroupHeadingProps,
-  GroupProps,
   InputActionMeta,
-  InputProps,
-  LoadingIndicatorProps,
   MenuListProps,
-  MenuProps,
-  MultiValueProps,
-  MultiValueRemoveProps,
   OnChangeValue,
   OptionProps,
   OptionsOrGroups,
@@ -21,20 +11,26 @@ import ReactSelect, {
   SelectInstance,
 } from 'react-select';
 import AsyncSelect from 'react-select/async';
-import { MenuPortalProps } from 'react-select/dist/declarations/src/components/Menu';
 
 import { FeedbackText, FeedbackTextProps } from '../../../../tedi/components/form/feedback-text/feedback-text';
 import { FormLabel, FormLabelProps } from '../../../../tedi/components/form/form-label/form-label';
 import { useLabels } from '../../../../tedi/providers/label-provider';
-import { UnknownType } from '../../../types/commonTypes';
-import { Icon } from '../../base/icon/icon';
-import { Text, TextProps } from '../../base/typography/text/text';
-import ClosingButton from '../../buttons/closing-button/closing-button';
-import { Spinner } from '../../loaders/spinner/spinner';
-import Separator from '../../misc/separator/separator';
-import { Tag } from '../../tags/tag/tag';
-import Checkbox from '../checkbox/checkbox';
-import Radio from '../radio/radio';
+import { TextProps } from '../../base/typography/text/text';
+import { SelectClearIndicator } from './components/select-clear-indicator';
+import { SelectControl } from './components/select-control';
+import { SelectDropDownIndicator } from './components/select-dropdown-indicator';
+import { SelectGroup } from './components/select-group';
+import { SelectGroupHeading } from './components/select-group-heading';
+import { SelectIndicatorsContainer } from './components/select-indicators-container';
+import { SelectInput } from './components/select-input';
+import { SelectLoadingIndicator } from './components/select-loading-indicator';
+import { SelectMenu } from './components/select-menu';
+import { SelectMenuList } from './components/select-menu-list';
+import { SelectMenuPortal } from './components/select-menu-portal';
+import { SelectMultiValue } from './components/select-multi-value';
+import { SelectMultiValueRemove } from './components/select-multi-value-remove';
+import { SelectOption } from './components/select-option';
+import { SelectValueContainer } from './components/select-value-container';
 import styles from './select.module.scss';
 
 declare module 'react-select/dist/declarations/src/Select' {
@@ -42,32 +38,6 @@ declare module 'react-select/dist/declarations/src/Select' {
     inputIsHidden?: boolean;
   }
 }
-
-const CustomControl = (props: ControlProps<ISelectOption, boolean>): JSX.Element => {
-  const CustomControlBEM = cn(styles['tedi-select__control'], props.className, {
-    [styles['tedi-select__control--focused']]: props.isFocused,
-  });
-
-  return <ReactSelectComponents.Control {...props} className={CustomControlBEM} />;
-};
-
-const CustomInput = (props: InputProps<ISelectOption, boolean>): JSX.Element => (
-  <ReactSelectComponents.Input
-    {...props}
-    className={cn(props.className, styles['tedi-select__input'])}
-    isHidden={props.selectProps.inputIsHidden !== undefined ? props.selectProps.inputIsHidden : props.isHidden}
-    aria-required={props.selectProps.required}
-    required={props.selectProps.required}
-  />
-);
-
-const Menu = (props: MenuProps<ISelectOption, boolean>): JSX.Element => (
-  <ReactSelectComponents.Menu {...props} className={cn(props.className, styles['tedi-select__menu'])} />
-);
-
-const MenuPortal = (props: MenuPortalProps<ISelectOption, boolean, IGroupedOptions<ISelectOption>>): JSX.Element => (
-  <ReactSelectComponents.MenuPortal {...props} className={cn(props.className, styles['tedi-select__menu-portal'])} />
-);
 
 export interface SelectProps extends FormLabelProps {
   id: string;
@@ -230,245 +200,24 @@ export const Select = forwardRef<SelectInstance<ISelectOption, boolean, IGrouped
       }
     };
 
-    const getDropDownIndicator = (): JSX.Element => (
-      <Icon name={iconName} size={24} color="secondary" className={styles['tedi-select__arrow']} />
-    );
-
-    const MenuList = React.useCallback(
-      (props: MenuListProps<ISelectOption, boolean>) => (
-        <div className={styles['tedi-select__menu-list-wrapper']}>
-          <ReactSelectComponents.MenuList {...props} className={cn(props.className, styles['tedi-select__menu-list'])}>
-            {props.children}
-          </ReactSelectComponents.MenuList>
-          {renderMessageListFooter && (
-            <div className={styles['tedi-select__menu-list-footer']}>{renderMessageListFooter(props)}</div>
-          )}
-        </div>
-      ),
-      [renderMessageListFooter]
-    );
-
-    const getMultiOption = (props: OptionProps<ISelectOption, boolean>): JSX.Element => {
-      const OptionBEM = cn(
-        styles['tedi-select__option'],
-        { [styles['tedi-select__option--disabled']]: props.isDisabled },
-        { [styles['tedi-select__option--focused']]: props.isFocused }
-      );
-
-      const { tabIndex, ...innerProps } = props.innerProps;
-
-      return (
-        <ReactSelectComponents.Option
-          {...props}
-          innerProps={{ ...innerProps, role: 'option', 'aria-selected': props.isSelected }}
-          className={OptionBEM}
-          tab-index={tabIndex}
-        >
-          {renderOption ? (
-            renderOption(props)
-          ) : (
-            <>
-              <span className="sr-only">{props.label}</span>
-              <Checkbox
-                id={props.data.value}
-                label={props.label}
-                aria-hidden={true}
-                className={styles['tedi-select__checkbox']}
-                value={props.data.value}
-                name={props.data.value}
-                checked={props.isSelected}
-                onChange={() => null}
-                disabled={props.isDisabled}
-                hover={props.isFocused}
-              />
-            </>
-          )}
-        </ReactSelectComponents.Option>
-      );
-    };
-
-    const getSingleOption = (props: OptionProps<ISelectOption, boolean>): JSX.Element => {
-      const OptionBEM = cn(
-        styles['tedi-select__option'],
-        { [styles['tedi-select__option--disabled']]: props.isDisabled },
-        { [styles['tedi-select__option--selected']]: props.isSelected },
-        { [styles['tedi-select__option--focused']]: props.isFocused }
-      );
-
-      return (
-        <ReactSelectComponents.Option
-          {...props}
-          innerProps={{
-            role: 'option',
-            'aria-selected': props.isSelected,
-            'aria-disabled': props.isDisabled,
-            ...props.innerProps,
-          }}
-          className={OptionBEM}
-        >
-          {showRadioButtons ? (
-            <>
-              <span className="sr-only">{props.label}</span>
-              <Radio
-                label={props.label}
-                id={props.data.value}
-                name={props.data.value}
-                className={styles['tedi-select__radio']}
-                value={props.data.value}
-                checked={props.isSelected}
-                onChange={(value, checked) => null}
-                disabled={props.isDisabled}
-              />
-            </>
-          ) : renderOption ? (
-            renderOption(props)
-          ) : (
-            props.children
-          )}
-        </ReactSelectComponents.Option>
-      );
-    };
-
-    const getOption = (props: OptionProps<ISelectOption, boolean>): JSX.Element => {
-      return multiple
-        ? getMultiOption(props)
-        : getSingleOption({ ...props, innerProps: { ...props.innerProps, tabIndex: 0 } });
-    };
-
-    const getMultiValue = ({ children, removeProps }: MultiValueProps<ISelectOption>): JSX.Element => {
-      const handleClose: React.MouseEventHandler<HTMLButtonElement> & React.KeyboardEventHandler<HTMLButtonElement> = (
-        event
-      ) => {
-        if (event.type === 'click' && removeProps.onClick) {
-          removeProps.onClick(event as unknown as React.MouseEvent<HTMLDivElement>);
-        }
-
-        if (event.type === 'keydown') {
-          const keyboardEvent = event as React.KeyboardEvent<HTMLButtonElement>;
-          if ((keyboardEvent.key === 'Enter' || keyboardEvent.key === ' ') && removeProps.onClick) {
-            keyboardEvent.preventDefault();
-            keyboardEvent.stopPropagation();
-            removeProps.onClick(keyboardEvent as unknown as React.MouseEvent<HTMLDivElement>);
-          }
-        }
-      };
-
-      return (
-        <div onMouseDown={(event) => event.stopPropagation()}>
-          <Tag color="primary" onClose={isTagRemovable ? handleClose : undefined}>
-            {children}
-          </Tag>
-        </div>
-      );
-    };
-
-    const getMultiValueRemove = ({ data, innerProps }: MultiValueRemoveProps<ISelectOption>): JSX.Element => {
-      const handleClick: React.MouseEventHandler<HTMLButtonElement> = (event) => {
-        if (innerProps.onClick) {
-          innerProps.onClick(event as unknown as React.MouseEvent<HTMLDivElement>);
-        }
-      };
-
-      const handleKeyDown = (event: React.KeyboardEvent) => {
-        if (event.key === 'Enter' || event.key === ' ') {
-          handleClick(event as unknown as React.MouseEvent<HTMLButtonElement>);
-        }
-      };
-
-      return (
-        <>
-          <ClosingButton
-            onMouseDown={(event) => event.stopPropagation()}
-            onClick={handleClick}
-            onKeyDown={handleKeyDown}
-            className={styles['tedi-select__multi-value-clear']}
-            title={getLabel('clear')}
-          />
-          <Separator color="primary" axis="vertical" className={styles['tedi-select__separator']} />
-        </>
-      );
-    };
-
-    const getClearIndicator = ({ innerProps: { ref, ...restInnerProps } }: ClearIndicatorProps<ISelectOption>) => {
-      return isClearIndicatorVisible ? (
-        <>
-          <ClosingButton tabIndex={0} ref={ref as UnknownType} {...(restInnerProps as UnknownType)}>
-            {getLabel('clear')}
-          </ClosingButton>
-          <Separator color="primary" axis="vertical" className={styles['tedi-select__separator']} />
-        </>
-      ) : null;
-    };
-
-    const getGroup = (props: GroupProps<ISelectOption, boolean, IGroupedOptions<ISelectOption>>): JSX.Element => {
-      return (
-        <ReactSelectComponents.Group {...props} className={cn(styles['tedi-select__group'])}>
-          {props.children}
-        </ReactSelectComponents.Group>
-      );
-    };
-
-    const getGroupHeading = (
-      props: GroupHeadingProps<ISelectOption, boolean, IGroupedOptions<ISelectOption>>
-    ): ReactElement => {
-      const textSettings = props.data.text || optionGroupHeadingText;
-
-      return (
-        <ReactSelectComponents.GroupHeading {...props} className={cn(styles['tedi-select__group-heading'])}>
-          <Text {...textSettings}>{props.data.label}</Text>
-        </ReactSelectComponents.GroupHeading>
-      );
-    };
-
-    const CustomValueContainer = ({ children, ...props }: UnknownType): JSX.Element => {
-      return (
-        <ReactSelectComponents.ValueContainer
-          {...props}
-          className={cn(styles['tedi-select__value-container'], props.className)}
-        >
-          {children}
-        </ReactSelectComponents.ValueContainer>
-      );
-    };
-
-    const CustomIndicatorsContainer = ({ children, ...props }: UnknownType): JSX.Element => {
-      return (
-        <ReactSelectComponents.IndicatorsContainer
-          {...props}
-          className={cn(styles['tedi-select__indicators-container'], props.className)}
-        >
-          {children}
-        </ReactSelectComponents.IndicatorsContainer>
-      );
-    };
-
-    const CustomLoadingIndicator = (props: LoadingIndicatorProps<UnknownType, boolean>) => {
-      return (
-        <div className={styles['tedi-select__loading-indicator']} {...props.innerProps}>
-          <Spinner />
-          <Separator color="primary" axis="vertical" className={styles['tedi-select__separator']} />
-        </div>
-      );
-    };
-
     const renderReactSelect = (): JSX.Element => {
       const customComponents: SelectComponentsConfig<ISelectOption, boolean, IGroupedOptions<ISelectOption>> = {
-        ClearIndicator: getClearIndicator,
-        DropdownIndicator: getDropDownIndicator,
+        ClearIndicator: (props) => SelectClearIndicator({ isClearIndicatorVisible, ...props }),
+        DropdownIndicator: () => SelectDropDownIndicator({ iconName }),
         IndicatorSeparator: () => null,
-        MenuPortal: MenuPortal,
-        Menu: Menu,
-        MenuList: MenuList,
-        Option: getOption,
-        Control: CustomControl,
-        Input: CustomInput,
-        MultiValue: getMultiValue,
-        MultiValueRemove: getMultiValueRemove,
-        Group: getGroup,
-        GroupHeading: getGroupHeading,
-        IndicatorsContainer: CustomIndicatorsContainer,
-        ValueContainer: CustomValueContainer,
-        LoadingIndicator: CustomLoadingIndicator,
+        MenuPortal: SelectMenuPortal,
+        Menu: SelectMenu,
+        MenuList: (props) => SelectMenuList({ renderMessageListFooter, ...props }),
+        Option: (props) => SelectOption({ renderOption, multiple, showRadioButtons, ...props }),
+        Control: SelectControl,
+        Input: SelectInput,
+        MultiValue: (props) => SelectMultiValue({ isTagRemovable, ...props }),
+        MultiValueRemove: SelectMultiValueRemove,
+        Group: SelectGroup,
+        GroupHeading: (props) => SelectGroupHeading({ optionGroupHeadingText, ...props }),
+        IndicatorsContainer: SelectIndicatorsContainer,
+        ValueContainer: SelectValueContainer,
+        LoadingIndicator: SelectLoadingIndicator,
       };
 
       const ReactSelectElement = async ? AsyncSelect : ReactSelect;
