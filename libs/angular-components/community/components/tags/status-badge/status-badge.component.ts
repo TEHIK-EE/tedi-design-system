@@ -70,9 +70,6 @@ export class StatusBadgeComponent {
       classList.push(`tedi-status-badge--color-${this.color()}`);
     }
 
-    console.log(this.variant());
-    console.log(this.color());
-
     if (this.variant()) {
       classList.push(`tedi-status-badge--variant-${this.variant()}`);
     }
