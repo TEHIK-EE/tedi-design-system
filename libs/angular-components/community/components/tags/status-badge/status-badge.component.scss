@@ -22,12 +22,10 @@ $badge-status-colors: (
   "warning"
 );
 
-:root {
+.tedi-status-badge {
   --status-badge-icon-primary: var(--blue-700);
   --status-badge-icon-secondary: var(--orange-700);
-}
 
-.tedi-status-badge {
   position: relative;
   display: inline-flex;
   align-items: center;

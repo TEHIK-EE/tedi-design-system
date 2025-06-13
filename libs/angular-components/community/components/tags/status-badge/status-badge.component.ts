@@ -1,4 +1,4 @@
-import { Component, computed, input } from "@angular/core";
+import { Component, computed, input, ViewEncapsulation } from "@angular/core";
 import { IconColor, IconComponent } from "tedi/components";
 
 // StatusBadgeColor, StatusBadgeVariant, StatusBadgeSize, StatusBadgeStatus are identical to libs/react-components/src/tedi/components/tags/status-badge/status-badge.tsx,
@@ -17,10 +17,19 @@ export type StatusBadgeSize = "default" | "large";
 export type StatusBadgeStatus = "danger" | "success" | "warning" | "inactive";
 
 @Component({
-  selector: "tedi-status-badge",
+  selector: "[tedi-status-badge]",
   templateUrl: "./status-badge.component.html",
   styleUrl: "./status-badge.component.scss",
   imports: [IconComponent],
+  encapsulation: ViewEncapsulation.None,
+  host: {
+    "[class]": "classes()",
+    "[attr.title]": "title()",
+    "[attr.id]": "id()",
+    "[attr.role]": "role()",
+    "[attr.aria-live]": "ariaLive()",
+    "[attr.aria-label]": "title()",
+  },
 })
 export class StatusBadgeComponent {
   /**
