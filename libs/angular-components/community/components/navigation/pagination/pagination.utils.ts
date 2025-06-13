@@ -2,7 +2,11 @@ export const getPagesToDisplay = (currentPage: number, lastPage: number) => {
   const pages = new Set([1, currentPage, lastPage]);
 
   let pagesAdded = pages.size;
-  for (let diffFromCurrent = 1; diffFromCurrent <= 6; diffFromCurrent++) {
+  for (
+    let diffFromCurrent = 1;
+    diffFromCurrent <= 6 && pagesAdded < 7;
+    diffFromCurrent++
+  ) {
     if (currentPage - diffFromCurrent > 1) {
       pages.add(currentPage - diffFromCurrent);
       pagesAdded += 1;
@@ -11,7 +15,6 @@ export const getPagesToDisplay = (currentPage: number, lastPage: number) => {
       pages.add(currentPage + diffFromCurrent);
       pagesAdded += 1;
     }
-    if (pagesAdded >= 7) break;
   }
   const sortedPages = [...pages].sort((a, b) => a - b);
 

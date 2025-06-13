@@ -2,20 +2,6 @@
 @use "@tehik-ee/tedi-core/bootstrap-utility/breakpoints";
 
 .tedi-pagination {
-  @include mixins.responsive-styles(
-    --_pagination-padding-y,
-    pagination-padding-y
-  );
-  @include mixins.responsive-styles(
-    --_pagination-padding-x,
-    pagination-padding-x
-  );
-  @include mixins.responsive-styles(
-    --_pagination-button-size,
-    pagination-button-size
-  );
-  @include mixins.responsive-styles(gap, layout-grid-gutters-04);
-
   --_pagination-border: var(--general-border-secondary, #9293a4);
   --_pagination-background: var(--general-surface-primary, #fff);
   --_pagination-page-background: transparent;
@@ -29,6 +15,19 @@
   align-items: center;
   grid-template-areas: var(--_pagination-layout);
 
+  @include mixins.responsive-styles(
+    --_pagination-padding-y,
+    pagination-padding-y
+  );
+  @include mixins.responsive-styles(
+    --_pagination-padding-x,
+    pagination-padding-x
+  );
+  @include mixins.responsive-styles(
+    --_pagination-button-size,
+    pagination-button-size
+  );
+  @include mixins.responsive-styles(gap, layout-grid-gutters-04);
   @include breakpoints.media-breakpoint-up(md) {
     --_pagination-layout: "results pager page-size-options";
     grid-template-columns: repeat(3, 1fr);
@@ -44,13 +43,13 @@
   }
 
   &__pages {
-    @include mixins.responsive-styles(gap, layout-grid-gutters-08);
-
     display: flex;
     justify-items: center;
     align-items: center;
     list-style: none;
     margin: 0;
+
+    @include mixins.responsive-styles(gap, layout-grid-gutters-08);
   }
 
   &__page {
@@ -107,17 +106,17 @@
   }
 
   &__page-size-options {
-    @include mixins.responsive-styles(gap, form-field-inner-spacing);
-
     grid-area: page-size-options;
     display: flex;
     align-items: center;
     justify-self: flex-end;
+
+    @include mixins.responsive-styles(gap, form-field-inner-spacing);
   }
 
   &__dropdown {
+    border: 1px solid var(--form-input-border-default, #838494);
     @include mixins.responsive-styles(border-radius, form-field-radius);
     @include mixins.responsive-styles(min-height, form-field-height-sm);
-    border: 1px solid var(--form-input-border-default, #838494);
   }
 }
