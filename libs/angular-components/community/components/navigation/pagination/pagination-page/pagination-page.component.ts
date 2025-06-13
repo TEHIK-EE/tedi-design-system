@@ -17,9 +17,9 @@ import { TediTranslationPipe } from "tedi/services/translation/translation.pipe"
 export class PaginationPageComponent {
   page = input.required<number>();
   active = input<boolean>();
-  pageSelected = output<number>();
+  pageSelected = output<void>();
 
   selectPage() {
-    this.pageSelected.emit(this.page());
+    this.pageSelected.emit();
   }
 }

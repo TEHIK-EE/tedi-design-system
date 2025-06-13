@@ -1,40 +1,31 @@
 export const getPagesToDisplay = (currentPage: number, lastPage: number) => {
-  if (!lastPage || lastPage === 1) {
-    return [1];
-  }
+  const pages = new Set([1, currentPage, lastPage]);
 
-  let pagesAdded = 0;
-  const pages = [1, lastPage];
-
-  if (!pages.includes(currentPage)) {
-    pages.push(currentPage);
-    pagesAdded += 1;
-  }
-
-  let diffFromCurrent = 1;
-  while (pagesAdded < 5 && diffFromCurrent < 6) {
+  let pagesAdded = pages.size;
+  for (let diffFromCurrent = 1; diffFromCurrent <= 6; diffFromCurrent++) {
     if (currentPage - diffFromCurrent > 1) {
-      pages.push(currentPage - diffFromCurrent);
+      pages.add(currentPage - diffFromCurrent);
       pagesAdded += 1;
     }
     if (currentPage + diffFromCurrent < lastPage) {
-      pages.push(currentPage + diffFromCurrent);
+      pages.add(currentPage + diffFromCurrent);
       pagesAdded += 1;
     }
-    diffFromCurrent += 1;
+    if (pagesAdded >= 7) break;
   }
-  pages.sort((a, b) => a - b);
+  const sortedPages = [...pages].sort((a, b) => a - b);
 
-  if (pages[0] && pages[2] && pages[2] - pages[0] > 2) {
-    pages.splice(1, 1, -1);
+  if (sortedPages[0] && sortedPages[2] && sortedPages[2] - sortedPages[0] > 2) {
+    sortedPages.splice(1, 1, -1);
   }
   if (
-    pages[pages.length - 1] &&
-    pages[pages.length - 3] &&
-    pages[pages.length - 1] - pages[pages.length - 3] > 2
+    sortedPages[sortedPages.length - 1] &&
+    sortedPages[sortedPages.length - 3] &&
+    sortedPages[sortedPages.length - 1] - sortedPages[sortedPages.length - 3] >
+      2
   ) {
-    pages.splice(pages.length - 2, 1, -1);
+    sortedPages.splice(sortedPages.length - 2, 1, -1);
   }
 
-  return pages;
+  return sortedPages;
 };
