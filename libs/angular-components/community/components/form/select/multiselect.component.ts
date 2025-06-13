@@ -33,7 +33,7 @@ import {
 } from "@tehik-ee/tedi-angular/tedi";
 import { DropdownItemComponent } from "../../overlay/dropdown-item/dropdown-item.component";
 import { CheckboxComponent } from "../checkbox";
-import { TagComponent } from "../../tag/tag.component";
+import { TagComponent } from "../../tags/tag/tag.component";
 
 @Component({
   selector: "tedi-multiselect",
@@ -183,7 +183,7 @@ export class MultiselectComponent
     this._selectedValue.update((currentValues) => {
       if (currentValues?.includes(value)) {
         const filteredValues = currentValues.filter(
-          (currentValue) => currentValue !== value,
+          (currentValue) => currentValue !== value
         );
         return filteredValues.length ? filteredValues : null;
       } else {
@@ -304,14 +304,14 @@ export class MultiselectComponent
   // Check if all options in a group are selected
   areAllGroupOptionsSelected(groupName: string): boolean {
     const groupOptions = this._options().filter(
-      (option) => option.groupBy?.() === groupName && !option.isDisabled(),
+      (option) => option.groupBy?.() === groupName && !option.isDisabled()
     );
 
     if (groupOptions.length === 0) return false;
 
     const selectedValues = this._selectedValue() || [];
     return groupOptions.every((option) =>
-      selectedValues.includes(option.value()),
+      selectedValues.includes(option.value())
     );
   }
 
@@ -320,7 +320,7 @@ export class MultiselectComponent
     const allSelected = this.areAllGroupOptionsSelected(groupName);
     const groupOptions = this._options()
       .filter(
-        (option) => option.groupBy?.() === groupName && !option.isDisabled(),
+        (option) => option.groupBy?.() === groupName && !option.isDisabled()
       )
       .map((option) => option.value());
 
@@ -329,7 +329,7 @@ export class MultiselectComponent
     if (allSelected) {
       // Unselect all in this group
       selectedValues = selectedValues.filter(
-        (value) => !groupOptions.includes(value),
+        (value) => !groupOptions.includes(value)
       );
     } else {
       // Select all in this group
