@@ -5,7 +5,6 @@ import {
   inject,
   input,
   Renderer2,
-  signal,
   ViewChild,
   AfterViewInit,
 } from "@angular/core";
@@ -114,21 +113,31 @@ export class AlertComponent implements AfterViewInit {
     }
   }
 
-  ariaLive = signal<string>(
-    this.role() === "alert"
-      ? "assertive"
-      : this.role() === "status"
-        ? "polite"
-        : "off",
-  );
+  getAriaLive = computed(() => {
+    switch (this.role()) {
+      case "alert":
+        return "assertive";
+      case "status":
+        return "polite";
+      case "none":
+        return "off";
+      default:
+        return "off";
+    }
+  });
 
-  ariaLabel = signal<string>(
-    this.title()
-      ? `${this.type()} alert: ${this.title()}`
-      : `${this.type()} alert`,
-  );
+  getAriaLabel = computed(() => {
+    if (this.title()) {
+      return `${this.type()} alert: ${this.title()}`;
+    }
+    return `${this.type()} alert`;
+  });
 
-  classes = computed(() => {
+  getRole = computed(() => {
+    return this.role() === "none" ? null : this.role();
+  });
+
+  getClasses = computed(() => {
     return {
       "tedi-alert": true,
       [`tedi-alert--${this.type()}`]: !!this.type(),
