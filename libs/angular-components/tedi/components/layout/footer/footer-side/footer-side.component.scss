@@ -21,7 +21,7 @@
 }
 
 .tedi-footer-side--start {
-  padding-left: var(--layout-footer-padding-x, 40px); 
+  padding-left: var(--layout-footer-padding-x, 40px);
 
   &.tedi-footer-side--mobile {
     width: 100%;
@@ -30,10 +30,7 @@
 }
 
 .tedi-footer-side--end {
-  padding-right: var(
-    --layout-footer-padding-x,
-    40px
-  ); 
+  padding-right: var(--layout-footer-padding-x, 40px);
   &.tedi-footer-side--mobile {
     width: 100%;
     padding: 0 16px 16px 16px;
