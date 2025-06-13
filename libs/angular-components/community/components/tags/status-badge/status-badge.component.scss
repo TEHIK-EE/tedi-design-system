@@ -1,5 +1,4 @@
-// Identical to libs/react-components/src/tedi/components/tags/status-badge/status-badge.module.scss,
-//  redo to use shared file when possible
+// Redo this file to share styles with libs/react-components/src/tedi/components/tags/status-badge/status-badge.module.scss
 @use "@tehik-ee/tedi-core/mixins";
 
 $badge-colors: (
@@ -35,6 +34,10 @@ $badge-status-colors: (
   justify-content: center;
   text-decoration: none;
 
+  color: var(--_status-badge-text);
+  background: var(--_status-badge-background);
+  box-shadow: var(--_status-badge-box-shadow);
+
   @include mixins.responsive-styles(font-size,
     body-small-regular-size,
     $exclude: tablet);
@@ -65,20 +68,20 @@ $badge-status-colors: (
     &.tedi-status-badge--variant-#{$variant} {
       @each $color in $badge-colors {
         &.tedi-status-badge--color-#{$color} {
-          color: var(--status-badge-text-#{$color});
+          --_status-badge-text: var(--status-badge-text-#{$color});
 
           @if $variant =="bordered" {
-            background: transparent;
-            box-shadow: inset 0 0 0 1px var(--status-badge-border-#{$color});
+            --_status-badge-background: transparent;
+            --_status-badge-box-shadow: inset 0 0 0 1px var(--status-badge-border-#{$color});
           }
 
           @else {
-            background-color: var(--status-badge-background-#{$color});
-            box-shadow: inset 0 0 0 1px var(--status-badge-border-#{$color});
+            --_status-badge-background: var(--status-badge-background-#{$color});
+            --_status-badge-box-shadow: inset 0 0 0 1px var(--status-badge-border-#{$color});
           }
 
           @if $variant =="filled" {
-            box-shadow: none;
+            --_status-badge-box-shadow: none;
           }
         }
       }
@@ -86,6 +89,7 @@ $badge-status-colors: (
   }
 
   &--status {
+
     &::before {
       position: absolute;
       top: -0.25rem;
@@ -96,6 +100,7 @@ $badge-status-colors: (
       content: "";
       border: 1px solid var(--neutral-100);
       border-radius: 50%;
+      background-color: var(--_status-badge--indicator-background);
     }
 
     &.tedi-badge--large::before {
@@ -107,7 +112,7 @@ $badge-status-colors: (
 
     @each $status in $badge-status-colors {
       &-#{$status}::before {
-        background-color: var(--status-badge-indicator-#{$status});
+        --_status-badge--indicator-background: var(--status-badge-indicator-#{$status});
       }
     }
   }
