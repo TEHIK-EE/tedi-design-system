@@ -10,19 +10,19 @@ import {
   TemplateRef,
   ViewChild,
   ViewEncapsulation,
-} from '@angular/core';
-import { BreakpointService, LinkComponent } from '@tehik-ee/tedi-angular/tedi';
+} from "@angular/core";
+import { BreakpointService, LinkComponent } from "@tehik-ee/tedi-angular/tedi";
 
 @Component({
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
-  selector: 'tedi-footer-bottom',
-  templateUrl: './footer-bottom.component.html',
-  styleUrl: './footer-bottom.component.scss',
+  selector: "tedi-footer-bottom",
+  templateUrl: "./footer-bottom.component.html",
+  styleUrl: "./footer-bottom.component.scss",
   host: {
-    class: 'tedi-footer-bottom',
-    '[class.tedi-footer-bottom--mobile]': 'showEllipsis()',
+    class: "tedi-footer-bottom",
+    "[class.tedi-footer-bottom--mobile]": "showEllipsis()",
   },
 })
 export class FooterBottomComponent {
@@ -30,14 +30,14 @@ export class FooterBottomComponent {
   breakpointService = inject(BreakpointService);
 
   showEllipsis = computed(() => {
-    return this.breakpointService.isBelowBreakpoint('sm');
+    return this.breakpointService.isBelowBreakpoint("sm");
   });
 
-  @ViewChild('ellipsis', { static: true }) ellipsis!: TemplateRef<any>;
+  @ViewChild("ellipsis", { static: true }) ellipsis!: TemplateRef<any>;
   @ContentChildren(LinkComponent, { descendants: true, read: ElementRef })
   links!: QueryList<ElementRef>;
 
-  ngAfterContentInit() {
+  AfterContentInit() {
     this.addEllipsElements();
   }
 

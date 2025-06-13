@@ -6,61 +6,60 @@ import {
   input,
   signal,
   ViewEncapsulation,
-} from '@angular/core';
-import { CommonModule } from '@angular/common';
+} from "@angular/core";
 import {
   trigger,
   state,
   style,
   transition,
   animate,
-} from '@angular/animations';
+} from "@angular/animations";
 import {
   BreakpointService,
   IconComponent,
   TextComponent,
-} from '@tehik-ee/tedi-angular/tedi';
+} from "@tehik-ee/tedi-angular/tedi";
 
 @Component({
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
-  selector: 'tedi-footer-links',
+  selector: "tedi-footer-links",
   imports: [IconComponent, TextComponent],
-  templateUrl: './footer-links.component.html',
-  styleUrl: './footer-links.component.scss',
+  templateUrl: "./footer-links.component.html",
+  styleUrl: "./footer-links.component.scss",
   host: {
-    class: 'tedi-footer-links',
-    '[class.tedi-footer-links--collapse]': 'applyCollapse()',
+    class: "tedi-footer-links",
+    "[class.tedi-footer-links--collapse]": "applyCollapse()",
   },
   animations: [
-    trigger('collapseContent', [
+    trigger("collapseContent", [
       state(
-        'collapsed',
+        "collapsed",
         style({
-          height: '0',
+          height: "0",
           opacity: 0,
-          overflow: 'hidden',
-          visibility: 'hidden',
-          display: 'none',
+          overflow: "hidden",
+          visibility: "hidden",
+          display: "none",
         }),
       ),
       state(
-        'expanded',
+        "expanded",
         style({
-          height: '*',
+          height: "*",
           opacity: 1,
-          overflow: 'visible',
-          visibility: 'visible',
+          overflow: "visible",
+          visibility: "visible",
         }),
       ),
-      transition('collapsed <=> expanded', [animate('300ms ease')]),
+      transition("collapsed <=> expanded", [animate("300ms ease")]),
     ]),
   ],
 })
 export class FooterLinksComponent {
-  icon = input<string>('');
-  heading = input<string>('');
+  icon = input<string>("");
+  heading = input<string>("");
   collapse = input<boolean>(false);
 
   applyCollapse = computed(() => {
@@ -71,12 +70,12 @@ export class FooterLinksComponent {
   breakpointService = inject(BreakpointService);
 
   hideIcon = computed(() => {
-    const isBelowBreakpoint = this.breakpointService.isBelowBreakpoint('lg');
+    const isBelowBreakpoint = this.breakpointService.isBelowBreakpoint("lg");
     return !isBelowBreakpoint;
   });
 
   mobileLayout = computed(() => {
-    return this.breakpointService.isBelowBreakpoint('sm');
+    return this.breakpointService.isBelowBreakpoint("sm");
   });
 
   toggleCollapse() {

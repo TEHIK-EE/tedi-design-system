@@ -8,35 +8,35 @@ import {
   signal,
   ViewEncapsulation,
   HostBinding,
-} from '@angular/core';
-import { BreakpointService } from '@tehik-ee/tedi-angular/tedi';
+} from "@angular/core";
+import { BreakpointService } from "@tehik-ee/tedi-angular/tedi";
 
-export type FooterSidePosition = 'top' | 'center' | 'bottom';
-export type FooterSidePlacement = 'start' | 'end';
+export type FooterSidePosition = "top" | "center" | "bottom";
+export type FooterSidePlacement = "start" | "end";
 
 @Component({
   standalone: true,
-  selector: 'tedi-footer-side',
+  selector: "tedi-footer-side",
   template: `<ng-content />`,
-  styleUrl: './footer-side.component.scss',
+  styleUrl: "./footer-side.component.scss",
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
 })
 export class FooterSideComponent {
-  position = input<FooterSidePosition>('center');
+  position = input<FooterSidePosition>("center");
   placement = signal<FooterSidePlacement | null>(null);
   breakpointService = inject(BreakpointService);
 
   mobileLayout = computed(() => {
-    return this.breakpointService.isBelowBreakpoint('sm');
+    return this.breakpointService.isBelowBreakpoint("sm");
   });
 
   constructor(
-    @Attribute('tedi-footer-start') public isStart: string,
-    @Attribute('tedi-footer-end') public isEnd: string,
+    @Attribute("tedi-footer-start") public isStart: string,
+    @Attribute("tedi-footer-end") public isEnd: string,
   ) {
     const side =
-      this.isStart !== null ? 'start' : this.isEnd !== null ? 'end' : null;
+      this.isStart !== null ? "start" : this.isEnd !== null ? "end" : null;
     if (side) this.placement.set(side as FooterSidePlacement);
     else
       console.warn(
@@ -44,15 +44,15 @@ export class FooterSideComponent {
       );
   }
 
-  @HostBinding('class')
+  @HostBinding("class")
   get hostClasses(): string {
-    const classes = ['tedi-footer-side'];
+    const classes = ["tedi-footer-side"];
 
-    if (this.mobileLayout()) classes.push('tedi-footer-side--mobile');
+    if (this.mobileLayout()) classes.push("tedi-footer-side--mobile");
 
     classes.push(`tedi-footer-side--${this.placement()}`);
     classes.push(`tedi-footer-side--${this.position()}`);
 
-    return classes.join(' ');
+    return classes.join(" ");
   }
 }
