@@ -1,0 +1,18 @@
+.tedi-footer {
+  background-color: var(--footer-background);
+
+  .tedi-footer__container {
+    display: flex;
+  }
+
+  .tedi-footer__center {
+    width: 100%;
+  }
+}
+
+.tedi-footer.tedi-footer--mobile {
+  .tedi-footer__container {
+    display: flex;
+    flex-direction: column;
+  }
+}

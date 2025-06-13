@@ -1,0 +1,41 @@
+.tedi-footer-side {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  &--top {
+    justify-content: flex-start;
+  }
+
+  &--bottom {
+    justify-content: flex-end;
+  }
+
+  &--mobile {
+    width: 100%;
+    padding: 16px 16px 0 16px;
+  }
+}
+
+.tedi-footer-side--start {
+  padding-left: var(--layout-footer-padding-x, 40px); 
+
+  &.tedi-footer-side--mobile {
+    width: 100%;
+    padding: 16px 16px 0 16px;
+  }
+}
+
+.tedi-footer-side--end {
+  padding-right: var(
+    --layout-footer-padding-x,
+    40px
+  ); 
+  &.tedi-footer-side--mobile {
+    width: 100%;
+    padding: 0 16px 16px 16px;
+  }
+}
