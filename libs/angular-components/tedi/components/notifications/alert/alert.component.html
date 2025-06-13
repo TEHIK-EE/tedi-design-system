@@ -1,7 +1,8 @@
 <div
-  [attr.aria-live]="ariaLive()"
-  [attr.aria-label]="ariaLabel()"
-  [class]="classes()"
+  [attr.aria-live]="getAriaLive()"
+  [attr.aria-label]="getAriaLabel()"
+  [class]="getClasses()"
+  [attr.role]="getRole()"
 >
   <div
     class="tedi-alert__container"
