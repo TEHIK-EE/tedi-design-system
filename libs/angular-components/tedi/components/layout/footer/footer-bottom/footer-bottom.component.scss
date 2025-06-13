@@ -1,0 +1,22 @@
+.tedi-footer-bottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--footer-bottom-background, #262b3b);
+  padding: var(--layout-footer-bottom-padding-y, 8px)
+    var(--layout-footer-bottom-padding-x, 40px);
+  flex-wrap: wrap;
+  gap: var(--layout-grid-gutters-24, 24px);
+
+  .tedi-footer-bottom__ellipsis {
+    display: none;
+  }
+
+  &.tedi-footer-bottom--mobile {
+    gap: var(--layout-grid-gutters-16-desktop, 16px);
+
+    .tedi-footer-bottom__ellipsis {
+      display: block;
+    }
+  }
+}
