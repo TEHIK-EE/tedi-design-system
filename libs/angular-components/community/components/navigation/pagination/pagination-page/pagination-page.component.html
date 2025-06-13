@@ -1,0 +1,14 @@
+@if (page() === -1) {
+  <span tedi-text color="secondary">...</span>
+} @else {
+  <button
+    class="tedi-pagination__page"
+    [class.tedi-pagination__page--active]="active()"
+    type="button"
+    [attr.aria-current]="active() ? 'page' : undefined"
+    [attr.aria-label]="'pagination.page' | tediTranslate: page() : active()"
+    (click)="selectPage()"
+  >
+    {{ page() }}
+  </button>
+}

@@ -1,0 +1,73 @@
+<div class="tedi-pagination">
+  @if (!hideResults()) {
+    <span
+      tedi-text
+      class="tedi-pagination__results"
+      color="secondary"
+      modifiers="small"
+      >{{ length() }} {{ "pagination.results" | tediTranslate: length() }}</span
+    >
+  }
+  <nav
+    [attr.aria-label]="'pagination.title' | tediTranslate"
+    class="tedi-pagination__pager"
+  >
+    <ul class="tedi-pagination__pages">
+      <li>
+        <button
+          tedi-button
+          [disabled]="!hasPreviousButton()"
+          class="tedi-pagination__nav-button"
+          size="small"
+          variant="neutral"
+          type="button"
+          (click)="changePage(-1)"
+          [attr.aria-label]="'pagination.prev-page' | tediTranslate"
+        >
+          <tedi-icon name="arrow_back" />
+        </button>
+      </li>
+      @for (pageNr of pages(); track $index) {
+        <li>
+          <tedi-pagination-page
+            [page]="pageNr"
+            [active]="pageNr === page()"
+            (pageSelected)="selectPage(pageNr)"
+          />
+        </li>
+      }
+      <li>
+        <button
+          tedi-button
+          [disabled]="!hasNextButton()"
+          class="tedi-pagination__nav-button"
+          size="small"
+          variant="neutral"
+          type="button"
+          (click)="changePage(1)"
+          [attr.aria-label]="'pagination.next-page' | tediTranslate"
+        >
+          <tedi-icon name="arrow_forward" />
+        </button>
+      </li>
+    </ul>
+  </nav>
+
+  @if (!hidePageSize()) {
+    <div class="tedi-pagination__page-size-options">
+      <label tedi-text color="secondary" modifiers="small" [for]="dropdownId">{{
+        "pagination.page-size" | tediTranslate
+      }}</label>
+      <select
+        [id]="dropdownId"
+        [(ngModel)]="pageSize"
+        (change)="pageSizeChanged()"
+        class="tedi-pagination__dropdown"
+      >
+        @for (size of pageSizeOptions(); track size) {
+          <option [value]="size">{{ size }}</option>
+        }
+      </select>
+    </div>
+  }
+</div>
