@@ -1,0 +1,31 @@
+@if (!!icon() && hideIcon()) {
+  <tedi-icon class="tedi-footer-links__icon" [name]="icon()" color="white" />
+}
+
+<div
+  class="tedi-footer-links__container"
+  [class.tedi-footer-links__container--mobile]="mobileLayout()"
+>
+  @if (applyCollapse()) {
+    <button class="tedi-footer-links__button" (click)="toggleCollapse()">
+      {{ heading() }}
+      <tedi-icon
+        class="collapse__icon"
+        color="white"
+        [name]="collapseOpen() ? 'expand_less' : 'expand_more'"
+      />
+    </button>
+  } @else {
+    <strong tedi-text class="tedi-footer-links__heading" color="white">
+      {{ heading() }}
+    </strong>
+  }
+  <div
+    [@collapseContent]="
+      applyCollapse() ? (collapseOpen() ? 'expanded' : 'collapsed') : 'expanded'
+    "
+    class="tedi-footer-links__content"
+  >
+    <ng-content></ng-content>
+  </div>
+</div>
