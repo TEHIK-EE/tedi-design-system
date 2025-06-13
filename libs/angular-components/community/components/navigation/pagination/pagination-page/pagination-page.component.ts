@@ -4,8 +4,10 @@ import {
   input,
   output,
 } from "@angular/core";
-import { TextComponent } from "tedi/components";
-import { TediTranslationPipe } from "tedi/services/translation/translation.pipe";
+import {
+  TediTranslationPipe,
+  TextComponent,
+} from "@tehik-ee/tedi-angular/tedi";
 
 @Component({
   selector: "tedi-pagination-page",
