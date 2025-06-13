@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 
 import { useLabels } from '../../../../../providers/label-provider';
 import { Icon } from '../../../../base/icon/icon';
+import Button from '../../../../buttons/button/button';
 import styles from '../../sidenav.module.scss';
 import { SideNavItem, SideNavItemProps } from '../sidenav-item/sidenav-item';
 
@@ -125,7 +126,8 @@ export const SideNavMobile = <C extends React.ElementType = 'a'>({
 
     return (
       <li className={classNames(styles['tedi-sidenav__item'])}>
-        <button
+        <Button
+          noStyle
           onClick={() => (hasChildren ? handleItemClick(item) : onClose())}
           className={styles['tedi-sidenav__link']}
         >
@@ -133,7 +135,7 @@ export const SideNavMobile = <C extends React.ElementType = 'a'>({
           {hasChildren ? (
             <Icon name="expand_more" color="white" className={styles['tedi-sidenav__toggle-icon']} />
           ) : null}
-        </button>
+        </Button>
       </li>
     );
   };
@@ -148,27 +150,27 @@ export const SideNavMobile = <C extends React.ElementType = 'a'>({
         {!isRootLevel && (
           <div className={styles['tedi-sidenav__back-buttons']}>
             {navigationStack.length > 1 && (
-              <button
+              <Button
+                noStyle
                 onClick={handleBackToRoot}
                 className={classNames(styles['tedi-sidenav__link'], styles['tedi-sidenav__back-button'])}
-                aria-label="Back to main menu"
               >
                 <Icon name="arrow_back" size={16} color="white" />
                 <span>{getLabel('sidenav.backToMainMenu')}</span>
-              </button>
+              </Button>
             )}
 
             {navigationStack.length > 2 && (
-              <button
+              <Button
+                noStyle
                 onClick={handleBackClick}
                 className={classNames(styles['tedi-sidenav__link'], styles['tedi-sidenav__back-button'])}
-                aria-label="Back to 2nd level"
               >
                 <Icon name="arrow_back" size={16} color="white" />
                 <span>
                   {navigationStack[navigationStack.length - 1]?.parent?.children + ' ' + getLabel('sidenav.backtoMenu')}
                 </span>
-              </button>
+              </Button>
             )}
           </div>
         )}

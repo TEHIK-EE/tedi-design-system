@@ -11,6 +11,8 @@ import { SideNavMobile } from './components/sidenav-mobile/sidenav-mobile';
 import SidenavToggle from './components/sidenav-toggle/sidenav-toggle';
 import styles from './sidenav.module.scss';
 
+export type SideNavItemSize = 'default' | 'medium' | 'small';
+
 type ConditionalTypes<C extends React.ElementType = 'a'> =
   | {
       /**
@@ -83,6 +85,12 @@ export type SideNavProps<C extends React.ElementType = 'a'> = ConditionalTypes<C
    * Callback when the sidenav is toggled between collapsed/expanded
    */
   onCollapseToggle?: (isCollapsed: boolean) => void;
+  /**
+   * Height of the SideNavIem
+   * <br/> Medium/small better for dashboards
+   * @default default
+   */
+  sideNavItemSize?: SideNavItemSize;
 };
 
 const SideNavComponent: <C extends React.ElementType = 'a'>(props: SideNavProps<C>) => React.ReactElement | null = (
@@ -100,6 +108,7 @@ const SideNavComponent: <C extends React.ElementType = 'a'>(props: SideNavProps<
     isCollapsed: isCollapsedProp = false,
     onMenuToggle,
     onCollapseToggle,
+    sideNavItemSize = 'default',
     ...rest
   } = props;
 
@@ -171,7 +180,14 @@ const SideNavComponent: <C extends React.ElementType = 'a'>(props: SideNavProps<
         {isCollapsible && <SidenavToggle menuOpen={!isCollapsed} toggleMenu={toggleCollapse} variant="collapse" />}
         <ul className={styles['tedi-sidenav__list']} role="menubar" aria-label={ariaLabel}>
           {navItems.map((item, key) => (
-            <SideNavItem as={linkAs} {...item} key={key} onItemClick={toggleMenu} isCollapsed={isCollapsed} />
+            <SideNavItem
+              as={linkAs}
+              {...item}
+              key={key}
+              onItemClick={toggleMenu}
+              isCollapsed={isCollapsed}
+              sideNavItemSize={sideNavItemSize}
+            />
           ))}
         </ul>
       </nav>

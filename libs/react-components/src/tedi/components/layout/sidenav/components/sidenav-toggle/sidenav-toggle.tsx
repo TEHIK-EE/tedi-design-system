@@ -4,6 +4,7 @@ import React from 'react';
 
 import { useLabels } from '../../../../../../tedi/providers/label-provider';
 import Button from '../../../../buttons/button/button';
+import FloatingButton from '../../../../buttons/floating-button/floating-button';
 import styles from './sidenav-toggle.module.scss';
 
 export type SidenavToggleVariant = 'mobile' | 'collapse';
@@ -47,8 +48,10 @@ export const SidenavToggle = ({
     [styles[`tedi-sidenav-toggle--${variant}`]]: true,
   });
 
+  const Element = variant === 'collapse' ? FloatingButton : Button;
+
   return (
-    <Button
+    <Element
       {...getReferenceProps()}
       ref={referenceRef}
       icon={{
@@ -57,12 +60,14 @@ export const SidenavToggle = ({
         className: styles['tedi-sidenav-toggle__icon'],
         size: variant === 'collapse' ? 18 : 24,
       }}
-      visualType="primary"
+      visualType={variant === 'collapse' ? 'secondary' : 'primary'}
       className={BEM}
       onClick={toggleMenu}
+      position={variant === 'collapse' ? 'absolute' : 'static'}
+      size={variant === 'collapse' ? 'small' : ''}
     >
       {typeof toggleLabel === 'string' ? toggleLabel : toggleLabel(menuOpen)}
-    </Button>
+    </Element>
   );
 };
 

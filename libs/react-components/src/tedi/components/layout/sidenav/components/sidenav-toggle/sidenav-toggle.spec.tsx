@@ -44,10 +44,11 @@ describe('SidenavToggle', () => {
   test('renders correct variant styles', () => {
     const { rerender } = render(<SidenavToggle {...defaultProps} variant="collapse" menuOpen={true} />);
 
-    const button = screen.getByRole('button');
+    let button = screen.getByRole('button');
     expect(button.querySelector('span[data-name="icon"]')).toBeInTheDocument();
 
     rerender(<SidenavToggle {...defaultProps} variant="mobile" menuOpen={true} />);
+    button = screen.getByRole('button');
     expect(button.querySelector('span[data-name="icon"]')).toBeInTheDocument();
   });
 
