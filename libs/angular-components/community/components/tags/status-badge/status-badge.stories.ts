@@ -142,7 +142,7 @@ export default meta;
 type Story = StoryObj<StatusBadgeComponent>;
 
 const defaultTemplate = (args: ComponentInputs<StatusBadgeComponent>) =>
-  `<tedi-status-badge ${argsToTemplate(args)}>Text</tedi-status-badge>`;
+  `<abr tedi-status-badge ${argsToTemplate(args)}>Text</abr>`;
 
 export const Default: Story = {
   render: (args) => ({ template: defaultTemplate(args), props: args }),
@@ -162,17 +162,17 @@ const TemplateAllCombos = (args: ComponentInputs<StatusBadgeComponent>) => {
         </div>
         <ng-container *ngFor="let variant of variants">
           <div>
-            <tedi-status-badge ${argsToTemplate(args)}>
+            <abr tedi-status-badge ${argsToTemplate(args)}>
               Text
-            </tedi-status-badge>
+            </abr>
           </div>
           <div>
-            <tedi-status-badge ${argsToTemplate(args)} [color]="color" [variant]="variant" [icon]="colorToIconMap[color]">
+            <abr tedi-status-badge ${argsToTemplate(args)} [color]="color" [variant]="variant" [icon]="colorToIconMap[color]">
               Text
-            </tedi-status-badge>
+            </abr>
           </div>
           <div>
-            <tedi-status-badge ${argsToTemplate(args)} [color]="color" [variant]="variant" [icon]="colorToIconMap[color]" />
+            <abr tedi-status-badge ${argsToTemplate(args)} [color]="color" [variant]="variant" [icon]="colorToIconMap[color]" />
           </div>
         </ng-container>
       </div>
@@ -201,17 +201,17 @@ const TemplateStatusGrid = (args: ComponentInputs<StatusBadgeComponent>) => {
         </div>
         <ng-container *ngFor="let variant of variants">
           <div>
-            <tedi-status-badge ${argsToTemplate(args)}>
+            <abr tedi-status-badge ${argsToTemplate(args)}>
               Text
-            </tedi-status-badge>
+            </abr>
           </div>
           <div>
-            <tedi-status-badge ${argsToTemplate(args)} [variant]="variant" [icon]="statusToIconMap[status]" [status]="status" >
+            <abr tedi-status-badge ${argsToTemplate(args)} [variant]="variant" [icon]="statusToIconMap[status]" [status]="status" >
               Text
-            </tedi-status-badge>
+            </abr>
           </div>
           <div>
-            <tedi-status-badge ${argsToTemplate(args)} [variant]="variant" [icon]="statusToIconMap[status]" [status]="status" />
+            <abr tedi-status-badge ${argsToTemplate(args)} [variant]="variant" [icon]="statusToIconMap[status]" [status]="status" />
           </div>
         </ng-container>
       </div>
@@ -233,10 +233,10 @@ export const StatusIndicator: Story = {
 const TemplateLarge = (args: ComponentInputs<StatusBadgeComponent>) => `
   <div style="display: flex; gap: 1rem;">
     <div>
-      <tedi-status-badge ${argsToTemplate(args)}>Draft</tedi-status-badge>
+      <abr tedi-status-badge ${argsToTemplate(args)}>Draft</abr>
     </div>
     <div>
-      <tedi-status-badge ${argsToTemplate(args)} [status]="'success'">Draft</tedi-status-badge>
+      <abr tedi-status-badge ${argsToTemplate(args)} [status]="'success'">Draft</abr>
     </div>
   </div>
 `;
