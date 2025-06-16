@@ -722,20 +722,67 @@ tedi-sidenav {
         background-color: var(--dropdown-item-hover-background);
       }
 
-      @include mixins.responsive-styles(
-        --_padding-left,
-        dropdown-item-padding-x
-      );
+      @include mixins.responsive-styles(padding-left, dropdown-item-padding-x);
 
       @include mixins.responsive-styles(--_gap, dropdown-item-inner-spacing);
 
       &::before,
       &::after {
-        background-color: var(--side-navigation-tree-neutral-default);
+        height: 0;
+        width: 0;
       }
+    }
 
-      &::after {
-        width: 10px;
+    tedi-sidenav-dropdown-group {
+      .tedi-sidenav-dropdown-item {
+        padding-left: calc(
+          var(--_padding-left) + var(--_sidenav-tree-container) + var(--_gap)
+        );
+
+        @include mixins.responsive-styles(
+          --_padding-left,
+          dropdown-item-padding-x
+        );
+
+        &::after {
+          width: var(--_sidenav-tree-branch-width);
+          height: var(--_sidenav-tree-trunk-width);
+          top: 50%;
+          transform: translateY(-50%);
+          background-color: var(--side-navigation-tree-neutral-default);
+        }
+
+        &::before {
+          height: 100%;
+          width: var(--_sidenav-tree-trunk-width);
+          background-color: var(--side-navigation-tree-neutral-default);
+        }
+
+        &:first-of-type {
+          @include mixins.responsive-styles(
+            padding-left,
+            dropdown-item-padding-x
+          );
+
+          &::after {
+            width: 0;
+            height: 0;
+          }
+
+          &:not(:only-child) {
+            &::after,
+            &::before {
+              width: 0;
+              height: 0;
+            }
+          }
+        }
+
+        &:last-of-type {
+          &::before {
+            height: 50%;
+          }
+        }
       }
     }
   }
@@ -926,11 +973,7 @@ tedi-sidenav {
       content: "";
       position: absolute;
       top: 0;
-      left: calc(
-        var(--_padding-left) +
-          (var(--_sidenav-tree-container) - var(--_sidenav-tree-trunk-width)) /
-          2
-      );
+      left: calc(var(--_padding-left) + var(--_sidenav-tree-left-padding));
       width: var(--_sidenav-tree-trunk-width);
       height: 100%;
       background-color: var(--side-navigation-tree-brand-default);
@@ -940,11 +983,7 @@ tedi-sidenav {
       content: "";
       position: absolute;
       top: 50%;
-      left: calc(
-        var(--_padding-left) +
-          (var(--_sidenav-tree-container) - var(--_sidenav-tree-trunk-width)) /
-          2
-      );
+      left: calc(var(--_padding-left) + var(--_sidenav-tree-left-padding));
       width: var(--_sidenav-tree-branch-width);
       height: var(--_sidenav-tree-trunk-width);
       transform: translateY(-50%);
