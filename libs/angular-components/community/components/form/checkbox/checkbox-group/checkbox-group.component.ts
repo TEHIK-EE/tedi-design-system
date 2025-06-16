@@ -6,7 +6,12 @@ import {
   ViewEncapsulation,
 } from "@angular/core";
 import { CheckboxSize } from "../checkbox/checkbox.component";
-import { ComponentInputs, LabelComponent, FeedbackTextComponent } from "@tehik-ee/tedi-angular/tedi";
+import {
+  ComponentInputs,
+  LabelComponent,
+  FeedbackTextComponent,
+} from "@tehik-ee/tedi-angular/tedi";
+import { generateUUID } from "../../../../../utils/generateUUID";
 
 @Component({
   standalone: true,
@@ -55,7 +60,7 @@ export class CheckboxGroupComponent {
 
   labelId = computed(() => {
     if (this.label()) {
-      return crypto.randomUUID();
+      return generateUUID();
     }
     return;
   });

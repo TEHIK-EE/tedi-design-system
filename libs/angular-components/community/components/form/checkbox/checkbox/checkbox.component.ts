@@ -11,10 +11,15 @@ import {
   viewChild,
   ViewEncapsulation,
 } from "@angular/core";
-import { ComponentInputs, IconComponent, FeedbackTextComponent } from "@tehik-ee/tedi-angular/tedi";
+import {
+  ComponentInputs,
+  IconComponent,
+  FeedbackTextComponent,
+} from "@tehik-ee/tedi-angular/tedi";
 import { CheckboxCardGroupComponent } from "../checkbox-card-group/checkbox-card-group.component";
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from "@angular/forms";
 import { CheckboxGroupComponent } from "../checkbox-group/checkbox-group.component";
+import { generateUUID } from "../../../../../utils/generateUUID";
 
 export type CheckboxSize = "default" | "large";
 
@@ -84,7 +89,7 @@ export class CheckboxComponent implements ControlValueAccessor, OnInit {
 
   feedbackTextId = computed(() => {
     if (this.feedbackText()) {
-      return crypto.randomUUID();
+      return generateUUID();
     }
     return;
   });
