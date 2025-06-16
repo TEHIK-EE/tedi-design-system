@@ -1,18 +1,14 @@
 import {
-  AfterContentInit,
   ChangeDetectionStrategy,
   Component,
   computed,
-  ContentChildren,
-  effect,
   input,
-  QueryList,
   signal,
   ViewEncapsulation,
 } from "@angular/core";
 
 import { IconComponent } from "../../base/icon/icon.component";
-import { SideNavItemComponent } from "./sidenav-item/sidenav-item.component";
+import { TediTranslationPipe } from "../../../services/translation/translation.pipe";
 
 export type SideNavItemSize = "small" | "medium" | "large";
 
@@ -23,12 +19,12 @@ export type SideNavItemSize = "small" | "medium" | "large";
   styleUrl: "./sidenav.component.scss",
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
-  imports: [IconComponent],
+  imports: [IconComponent, TediTranslationPipe],
   host: {
     "[class]": "classes()",
   },
 })
-export class SideNavComponent implements AfterContentInit {
+export class SideNavComponent {
   /**
    * Show dividers between items
    * @default true
@@ -45,40 +41,21 @@ export class SideNavComponent implements AfterContentInit {
    */
   collapsible = input<boolean>(true);
 
-  @ContentChildren(SideNavItemComponent)
-  items?: QueryList<SideNavItemComponent>;
-
   isCollapsed = signal(false);
-  navItems = signal<SideNavItemComponent[]>([]);
-
-  ngAfterContentInit(): void {
-    if (this.items) {
-      this.navItems.set(Array.from(this.items));
-    }
-  }
-
-  constructor() {
-    effect(() => {
-      this.navItems().forEach((item) => {
-        item.isCollapsed.set(this.isCollapsed());
-        item.size.set(this.size());
-      });
-    });
-  }
 
   handleCollapse() {
     this.isCollapsed.update((prev) => !prev);
   }
 
   classes = computed(() => {
-    const classList = ["tedi-sidenav", `tedi-sidenav--${this.size()}`];
+    const classList = [`tedi-sidenav--${this.size()}`];
 
     if (this.dividers()) {
       classList.push("tedi-sidenav--dividers");
     }
 
     if (this.isCollapsed()) {
-      classList.push("tedi-sidenav--collapsible");
+      classList.push("tedi-sidenav--collapsed");
     }
 
     return classList.join(" ");

@@ -8,7 +8,7 @@ import {
   selector: "tedi-sidenav-group-title",
   standalone: true,
   templateUrl: "./sidenav-group-title.component.html",
-  styleUrl: "./sidenav-group-title.component.scss",
+  styleUrl: "../sidenav.component.scss",
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
 })
