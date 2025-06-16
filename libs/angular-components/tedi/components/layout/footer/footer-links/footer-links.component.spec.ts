@@ -1,13 +1,28 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
 import { FooterLinksComponent } from "./footer-links.component";
+import { BreakpointService } from "../../../../services/breakpoint/breakpoint.service";
+import { provideNoopAnimations } from "@angular/platform-browser/animations";
+import { signal } from "@angular/core";
 
-describe("FooterBodyLinksComponent", () => {
+describe("FooterLinksComponent", () => {
   let component: FooterLinksComponent;
   let fixture: ComponentFixture<FooterLinksComponent>;
+  let mockBreakpointService: { isBelowBreakpoint: jest.Mock };
 
   beforeEach(async () => {
+    mockBreakpointService = {
+      isBelowBreakpoint: jest.fn().mockReturnValue(false),
+    };
+
     await TestBed.configureTestingModule({
       imports: [FooterLinksComponent],
+      providers: [
+        {
+          provide: BreakpointService,
+          useValue: mockBreakpointService,
+        },
+        provideNoopAnimations(),
+      ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(FooterLinksComponent);
@@ -15,7 +30,97 @@ describe("FooterBodyLinksComponent", () => {
     fixture.detectChanges();
   });
 
-  it("should create", () => {
+  it("should create component", () => {
     expect(component).toBeTruthy();
+  });
+
+  it("should set default input values", () => {
+    expect(component.icon()).toBeUndefined();
+    expect(component.heading()).toBeUndefined();
+    expect(component.collapse()).toBe(false);
+  });
+
+  it("should set custom input values", () => {
+    fixture.componentRef.setInput("icon", "test-icon");
+    fixture.componentRef.setInput("heading", "Test Heading");
+    fixture.componentRef.setInput("collapse", true);
+    fixture.detectChanges();
+
+    expect(component.icon()).toBe("test-icon");
+    expect(component.heading()).toBe("Test Heading");
+    expect(component.collapse()).toBe(true);
+  });
+
+  it("should show icon when icon is provided", () => {
+    fixture.componentRef.setInput("icon", "test-icon");
+    fixture.detectChanges();
+
+    const iconElement = fixture.nativeElement.querySelector(
+      ".tedi-footer-links__icon",
+    );
+    expect(iconElement).toBeTruthy();
+    expect(component.icon()).toBe("test-icon");
+  });
+
+  it("should hide icon when below large breakpoint", () => {
+    fixture.componentRef.setInput("icon", "test-icon");
+    mockBreakpointService.isBelowBreakpoint.mockReturnValue(true);
+    fixture.detectChanges();
+
+    const iconElement = fixture.nativeElement.querySelector(
+      ".tedi-footer-links__icon",
+    );
+    expect(iconElement).toBeFalsy();
+  });
+
+  it("should toggle collapse state when collapse is enabled and mobile", () => {
+    fixture.componentRef.setInput("heading", "test-heading");
+    fixture.componentRef.setInput("collapse", true);
+    fixture.componentInstance.applyCollapse = signal(true);
+    fixture.detectChanges();
+
+    fixture
+      .whenStable()
+      .then(() => {
+        const content = fixture.nativeElement.querySelector(
+          ".tedi-footer-links__content",
+        );
+
+        expect(content.getAttribute("ng-reflect-animation-state")).toBe(
+          "collapsed",
+        );
+
+        const button = fixture.nativeElement.querySelector(
+          ".tedi-footer-links__button",
+        );
+        button.click();
+        fixture.detectChanges();
+
+        return fixture.whenStable();
+      })
+      .then(() => {
+        const content = fixture.nativeElement.querySelector(
+          ".tedi-footer-links__content",
+        );
+        expect(content.getAttribute("ng-reflect-animation-state")).toBe(
+          "expanded",
+        );
+
+        const button = fixture.nativeElement.querySelector(
+          ".tedi-footer-links__button",
+        );
+        button.click();
+        fixture.detectChanges();
+
+        return fixture.whenStable();
+      })
+      .then(() => {
+        const content = fixture.nativeElement.querySelector(
+          ".tedi-footer-links__content",
+        );
+        expect(content.getAttribute("ng-reflect-animation-state")).toBe(
+          "collapsed",
+        );
+      });
   });
 });

@@ -10,6 +10,7 @@ import {
   TemplateRef,
   ViewChild,
   ViewEncapsulation,
+  AfterContentInit,
 } from "@angular/core";
 import { LinkComponent } from "../../../navigation/link/link.component";
 import { BreakpointService } from "../../../../services/breakpoint/breakpoint.service";
@@ -26,32 +27,38 @@ import { BreakpointService } from "../../../../services/breakpoint/breakpoint.se
     "[class.tedi-footer-bottom--mobile]": "showEllipsis()",
   },
 })
-export class FooterBottomComponent {
-  renderer = inject(Renderer2);
-  breakpointService = inject(BreakpointService);
+export class FooterBottomComponent implements AfterContentInit {
+  private renderer = inject(Renderer2);
+  private breakpointService = inject(BreakpointService);
 
   showEllipsis = computed(() => {
     return this.breakpointService.isBelowBreakpoint("sm");
   });
 
-  @ViewChild("ellipsis", { static: true }) ellipsis!: TemplateRef<unknown>;
+  @ViewChild("ellipsis", { static: true }) ellipsis!: TemplateRef<void>;
   @ContentChildren(LinkComponent, { descendants: true, read: ElementRef })
   links!: QueryList<ElementRef>;
 
-  AfterContentInit() {
+  ngAfterContentInit() {
     this.addEllipsElements();
   }
 
-  addEllipsElements() {
+  private addEllipsElements() {
     const linksArray = this.links.toArray();
+
+    const existingEllipsis = document.querySelectorAll(
+      ".tedi-footer-bottom__ellipsis",
+    );
+    existingEllipsis.forEach((ellipsis) => ellipsis.remove());
 
     linksArray.forEach((link, index) => {
       const nativeElement = link.nativeElement;
 
       if (index < linksArray.length - 1) {
         const parent = nativeElement.parentNode;
+        if (!parent) return;
 
-        const embeddedView = this.ellipsis.createEmbeddedView({});
+        const embeddedView = this.ellipsis.createEmbeddedView();
         const ellipsisElement = embeddedView.rootNodes[0];
 
         this.renderer.insertBefore(

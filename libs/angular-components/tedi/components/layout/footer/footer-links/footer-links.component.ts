@@ -59,14 +59,12 @@ import { BreakpointService } from "../../../../services/breakpoint/breakpoint.se
 export class FooterLinksComponent {
   /**
    * Specifies the icon to be displayed in the footer links.
-   * @default ""
    */
   icon = input<string>();
   /**
    * Specifies the heading text for the footer links.
-   * @default ""
    */
-  heading = input<string>("");
+  heading = input<string>();
   /**
    * Enables the collapse functionality for the footer links.
    * When set to true, the footer links will be collapsible on mobile devices.
@@ -75,7 +73,7 @@ export class FooterLinksComponent {
   collapse = input<boolean>(false);
 
   applyCollapse = computed(() => {
-    return this.collapse() === true && this.mobileLayout();
+    return this.collapse() && this.mobileLayout();
   });
 
   collapseOpen = signal<boolean>(false);

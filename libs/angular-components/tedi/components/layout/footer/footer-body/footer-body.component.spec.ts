@@ -1,5 +1,7 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
 import { FooterBodyComponent } from "./footer-body.component";
+import { BreakpointService } from "../../../../services/breakpoint/breakpoint.service";
+import { signal } from "@angular/core";
 
 describe("FooterBodyComponent", () => {
   let component: FooterBodyComponent;
@@ -8,6 +10,14 @@ describe("FooterBodyComponent", () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [FooterBodyComponent],
+      providers: [
+        {
+          provide: BreakpointService,
+          useValue: {
+            isBelowBreakpoint: () => false,
+          },
+        },
+      ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(FooterBodyComponent);
@@ -17,5 +27,34 @@ describe("FooterBodyComponent", () => {
 
   it("should create", () => {
     expect(component).toBeTruthy();
+  });
+
+  it("should have the base tedi-footer-body class", () => {
+    const element = fixture.nativeElement;
+    expect(element.classList).toContain("tedi-footer-body");
+  });
+
+  it("should not have mobile class when screen is not below sm breakpoint", () => {
+    component.mobileLayout = signal(false);
+    fixture.detectChanges();
+
+    const element = fixture.nativeElement;
+    expect(element.classList).not.toContain("tedi-footer-body--mobile");
+  });
+
+  it("should have mobile class when screen is below sm breakpoint", () => {
+    component.mobileLayout = signal(true);
+    fixture.detectChanges();
+
+    const element = fixture.nativeElement;
+    expect(element.classList).toContain("tedi-footer-body--mobile");
+  });
+
+  it("should project content", () => {
+    const testContent = "<div>Test Content</div>";
+    fixture.nativeElement.innerHTML = testContent;
+    fixture.detectChanges();
+
+    expect(fixture.nativeElement.textContent).toContain("Test Content");
   });
 });

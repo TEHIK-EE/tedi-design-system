@@ -11,6 +11,7 @@ import { FooterLinksComponent } from "./footer-links/footer-links.component";
 import { FooterSideComponent } from "./footer-side/footer-side.component";
 import { FooterBottomComponent } from "./footer-bottom/footer-bottom.component";
 import { TextComponent } from "@tehik-ee/tedi-angular/tedi";
+import { LinkComponent } from "@tehik-ee/tedi-angular/tedi";
 
 /**
  * <a href="https://www.figma.com/design/jWiRIXhHRxwVdMSimKX2FF/TEDI-READY-2.12.16--work-in-progress-?node-id=6459-181755&m=dev" target="_BLANK">Figma ↗</a><br/>
@@ -41,6 +42,7 @@ export default {
         FooterSideComponent,
         FooterBottomComponent,
         TextComponent,
+        LinkComponent,
       ],
     }),
   ],
@@ -59,22 +61,22 @@ export const Default: Story = {
       <tedi-footer>
         <tedi-footer-body>
           <tedi-footer-links heading="Heading" icon="account_circle">
-            <a tedi-text color="white" href="#">Link</a>
-            <a tedi-text color="white" href="#">Link</a>
-            <a tedi-text color="white" href="#">Link</a>
-            <a tedi-text color="white" href="#">Link</a>
+            <a tedi-link variant="inverted" href="#">Link</a>
+            <a tedi-link variant="inverted" href="#">Link</a>
+            <a tedi-link variant="inverted" href="#">Link</a>
+            <a tedi-link variant="inverted" href="#">Link</a>
           </tedi-footer-links>
           <tedi-footer-links heading="Heading" icon="account_circle">
-            <a tedi-text color="white" href="#">Link</a>
-            <a tedi-text color="white" href="#">Link</a>
-            <a tedi-text color="white" href="#">Link</a>
-            <a tedi-text color="white" href="#">Link</a>
+            <a tedi-link variant="inverted" href="#">Link</a>
+            <a tedi-link variant="inverted" href="#">Link</a>
+            <a tedi-link variant="inverted" href="#">Link</a>
+            <a tedi-link variant="inverted" href="#">Link</a>
           </tedi-footer-links>
            <tedi-footer-links heading="Heading" icon="account_circle">
-            <a tedi-text color="white" href="#">Link</a>
-            <a tedi-text color="white" href="#">Link</a>
-            <a tedi-text color="white" href="#">Link</a>
-            <a tedi-text color="white" href="#">Link</a>
+            <a tedi-link variant="inverted" href="#">Link</a>
+            <a tedi-link variant="inverted" href="#">Link</a>
+            <a tedi-link variant="inverted" href="#">Link</a>
+            <a tedi-link variant="inverted" href="#">Link</a>
           </tedi-footer-links>
         </tedi-footer-body>
         <tedi-footer-side position="center" tedi-footer-end>
@@ -98,22 +100,22 @@ export const NoLogos: Story = {
       <tedi-footer>
         <tedi-footer-body>
           <tedi-footer-links heading="Heading">
-            <a tedi-text color="white" href="#">Link</a>
-            <a tedi-text color="white" href="#">Link</a>
-            <a tedi-text color="white" href="#">Link</a>
-            <a tedi-text color="white" href="#">Link</a>
+            <a tedi-link variant="inverted" href="#">Link</a>
+            <a tedi-link variant="inverted" href="#">Link</a>
+            <a tedi-link variant="inverted" href="#">Link</a>
+            <a tedi-link variant="inverted" href="#">Link</a>
           </tedi-footer-links>
           <tedi-footer-links heading="Heading">
-            <a tedi-text color="white" href="#">Link</a>
-            <a tedi-text color="white" href="#">Link</a>
-            <a tedi-text color="white" href="#">Link</a>
-            <a tedi-text color="white" href="#">Link</a>
+            <a tedi-link variant="inverted" href="#">Link</a>
+            <a tedi-link variant="inverted" href="#">Link</a>
+            <a tedi-link variant="inverted" href="#">Link</a>
+            <a tedi-link variant="inverted" href="#">Link</a>
           </tedi-footer-links>
            <tedi-footer-links heading="Heading">
-            <a tedi-text color="white" href="#">Link</a>
-            <a tedi-text color="white" href="#">Link</a>
-            <a tedi-text color="white" href="#">Link</a>
-            <a tedi-text color="white" href="#">Link</a>
+            <a tedi-link variant="inverted" href="#">Link</a>
+            <a tedi-link variant="inverted" href="#">Link</a>
+            <a tedi-link variant="inverted" href="#">Link</a>
+            <a tedi-link variant="inverted" href="#">Link</a>
           </tedi-footer-links>
         </tedi-footer-body>
       </tedi-footer>
@@ -127,30 +129,30 @@ export const FooterBottom: Story = {
       <tedi-footer>
         <tedi-footer-body>
           <tedi-footer-links heading="Heading" icon="account_circle">
-            <a tedi-text color="white" href="#">Link</a>
-            <a tedi-text color="white" href="#">Link</a>
-            <a tedi-text color="white" href="#">Link</a>
-            <a tedi-text color="white" href="#">Link</a>
+            <a tedi-link variant="inverted" href="#">Link</a>
+            <a tedi-link variant="inverted" href="#">Link</a>
+            <a tedi-link variant="inverted" href="#">Link</a>
+            <a tedi-link variant="inverted" href="#">Link</a>
           </tedi-footer-links>
           <tedi-footer-links heading="Heading" icon="account_circle">
-            <a tedi-text color="white" href="#">Link</a>
-            <a tedi-text color="white" href="#">Link</a>
-            <a tedi-text color="white" href="#">Link</a>
-            <a tedi-text color="white" href="#">Link</a>
+            <a tedi-link variant="inverted" href="#">Link</a>
+            <a tedi-link variant="inverted" href="#">Link</a>
+            <a tedi-link variant="inverted" href="#">Link</a>
+            <a tedi-link variant="inverted" href="#">Link</a>
           </tedi-footer-links>
            <tedi-footer-links heading="Heading" icon="account_circle">
-            <a tedi-text color="white" href="#">Link</a>
-            <a tedi-text color="white" href="#">Link</a>
-            <a tedi-text color="white" href="#">Link</a>
-            <a tedi-text color="white" href="#">Link</a>
+            <a tedi-link variant="inverted" href="#">Link</a>
+            <a tedi-link variant="inverted" href="#">Link</a>
+            <a tedi-link variant="inverted" href="#">Link</a>
+            <a tedi-link variant="inverted" href="#">Link</a>
           </tedi-footer-links>
         </tedi-footer-body>
         <tedi-footer-bottom>
-          <a tedi-text color="white" href="#">Link</a>
-          <a tedi-text color="white" href="#">Link</a>
-          <a tedi-text color="white" href="#">Link</a>
-          <a tedi-text color="white" href="#">Link</a>
-          <a tedi-text color="white" href="#">Link</a>
+          <a tedi-link variant="inverted" href="#">Link</a>
+          <a tedi-link variant="inverted" href="#">Link</a>
+          <a tedi-link variant="inverted" href="#">Link</a>
+          <a tedi-link variant="inverted" href="#">Link</a>
+          <a tedi-link variant="inverted" href="#">Link</a>
         </tedi-footer-bottom>
       </tedi-footer>
     `,
@@ -163,30 +165,30 @@ export const MobileCollapse: Story = {
       <tedi-footer>
         <tedi-footer-body>
           <tedi-footer-links heading="Heading" icon="account_circle" [collapse]="true">
-            <a tedi-text color="white" href="#">Link</a>
-            <a tedi-text color="white" href="#">Link</a>
-            <a tedi-text color="white" href="#">Link</a>
-            <a tedi-text color="white" href="#">Link</a>
+            <a tedi-link variant="inverted" href="#">Link</a>
+            <a tedi-link variant="inverted" href="#">Link</a>
+            <a tedi-link variant="inverted" href="#">Link</a>
+            <a tedi-link variant="inverted" href="#">Link</a>
           </tedi-footer-links>
           <tedi-footer-links heading="Heading" icon="account_circle" [collapse]="true">
-            <a tedi-text color="white" href="#">Link</a>
-            <a tedi-text color="white" href="#">Link</a>
-            <a tedi-text color="white" href="#">Link</a>
-            <a tedi-text color="white" href="#">Link</a>
+            <a tedi-link variant="inverted" href="#">Link</a>
+            <a tedi-link variant="inverted" href="#">Link</a>
+            <a tedi-link variant="inverted" href="#">Link</a>
+            <a tedi-link variant="inverted" href="#">Link</a>
           </tedi-footer-links>
            <tedi-footer-links heading="Heading" icon="account_circle" [collapse]="true">
-            <a tedi-text color="white" href="#">Link</a>
-            <a tedi-text color="white" href="#">Link</a>
-            <a tedi-text color="white" href="#">Link</a>
-            <a tedi-text color="white" href="#">Link</a>
+            <a tedi-link variant="inverted" href="#">Link</a>
+            <a tedi-link variant="inverted" href="#">Link</a>
+            <a tedi-link variant="inverted" href="#">Link</a>
+            <a tedi-link variant="inverted" href="#">Link</a>
           </tedi-footer-links>
         </tedi-footer-body>
         <tedi-footer-bottom>
-          <a tedi-text color="white" href="#">Link</a>
-          <a tedi-text color="white" href="#">Link</a>
-          <a tedi-text color="white" href="#">Link</a>
-          <a tedi-text color="white" href="#">Link</a>
-          <a tedi-text color="white" href="#">Link</a>
+          <a tedi-link variant="inverted" href="#">Link</a>
+          <a tedi-link variant="inverted" href="#">Link</a>
+          <a tedi-link variant="inverted" href="#">Link</a>
+          <a tedi-link variant="inverted" href="#">Link</a>
+          <a tedi-link variant="inverted" href="#">Link</a>
         </tedi-footer-bottom>
       </tedi-footer>
     `,
@@ -201,7 +203,7 @@ export const LogoPositions: Story = {
     template: `
     <ng-template ngFor let-position [ngForOf]="logoPositions">
     <br>
-    <h4>Logo position: {{ position }}</h4>
+    <h4 tedi-text>Logo position: {{ position }}</h4>
       <tedi-footer>
         <tedi-footer-side position="{{ position }}" tedi-footer-start>
           <picture>
@@ -215,16 +217,16 @@ export const LogoPositions: Story = {
         </tedi-footer-side>
         <tedi-footer-body>
           <tedi-footer-links heading="Heading" icon="account_circle">
-            <a tedi-text color="white" href="#">Link</a>
-            <a tedi-text color="white" href="#">Link</a>
-            <a tedi-text color="white" href="#">Link</a>
-            <a tedi-text color="white" href="#">Link</a>
+            <a tedi-link variant="inverted" href="#">Link</a>
+            <a tedi-link variant="inverted" href="#">Link</a>
+            <a tedi-link variant="inverted" href="#">Link</a>
+            <a tedi-link variant="inverted" href="#">Link</a>
           </tedi-footer-links>
           <tedi-footer-links heading="Heading" icon="account_circle">
-            <a tedi-text color="white" href="#">Link</a>
-            <a tedi-text color="white" href="#">Link</a>
-            <a tedi-text color="white" href="#">Link</a>
-            <a tedi-text color="white" href="#">Link</a>
+            <a tedi-link variant="inverted" href="#">Link</a>
+            <a tedi-link variant="inverted" href="#">Link</a>
+            <a tedi-link variant="inverted" href="#">Link</a>
+            <a tedi-link variant="inverted" href="#">Link</a>
           </tedi-footer-links>
         </tedi-footer-body>
         <tedi-footer-side position="{{ position }}" tedi-footer-end>
