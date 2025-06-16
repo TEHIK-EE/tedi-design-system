@@ -1,4 +1,10 @@
-import { Meta, moduleMetadata, StoryObj } from "@storybook/angular";
+import {
+  applicationConfig,
+  Meta,
+  moduleMetadata,
+  StoryObj,
+} from "@storybook/angular";
+import { provideAnimations } from "@angular/platform-browser/animations";
 import { FooterComponent } from "./footer.component";
 import { FooterBodyComponent } from "./footer-body/footer-body.component";
 import { FooterLinksComponent } from "./footer-links/footer-links.component";
@@ -10,6 +16,9 @@ export default {
   title: "TEDI-Ready Angular/Layout/Footer",
   component: FooterComponent,
   decorators: [
+    applicationConfig({
+      providers: [provideAnimations()],
+    }),
     moduleMetadata({
       imports: [
         FooterComponent,
@@ -34,26 +43,32 @@ export const Default: Story = {
   render: () => ({
     template: `
       <tedi-footer>
-        <tedi-footer-side tedi-footer-start>
-          <tedi-icon name="tehik_logo" color="white" />
-        </tedi-footer-side>
         <tedi-footer-body>
-          <tedi-footer-links heading="Category 1">
-            <a tedi-text color="white" href="#">Text link 1</a>
-            <a tedi-text color="white" href="#">Text link 2</a>
-            <a tedi-text color="white" href="#">Text link 3</a>
+          <tedi-footer-links heading="Heading" [collapse]="true">
+            <a tedi-text color="white" href="#">Link</a>
+            <a tedi-text color="white" href="#">Link</a>
+            <a tedi-text color="white" href="#">Link</a>
+            <a tedi-text color="white" href="#">Link</a>
           </tedi-footer-links>
-          <tedi-footer-links heading="Category 2">
-            <a tedi-text color="white" href="#">Text link 4</a>
-            <a tedi-text color="white" href="#">Text link 5</a>
+          <tedi-footer-links heading="Heading" [collapse]="true">
+            <a tedi-text color="white" href="#">Link</a>
+            <a tedi-text color="white" href="#">Link</a>
+            <a tedi-text color="white" href="#">Link</a>
+            <a tedi-text color="white" href="#">Link</a>
+          </tedi-footer-links>
+           <tedi-footer-links heading="Heading">
+            <a tedi-text color="white" href="#">Link</a>
+            <a tedi-text color="white" href="#">Link</a>
+            <a tedi-text color="white" href="#">Link</a>
+            <a tedi-text color="white" href="#">Link</a>
           </tedi-footer-links>
         </tedi-footer-body>
-        <tedi-footer-side tedi-footer-end>
-          <tedi-icon name="facebook" color="white" />
-        </tedi-footer-side>
         <tedi-footer-bottom>
-          <a tedi-text color="white" href="#">Privacy Policy</a>
-          <a tedi-text color="white" href="#">Terms of Service</a>
+          <a tedi-text color="white" href="#">Link</a>
+          <a tedi-text color="white" href="#">Link</a>
+          <a tedi-text color="white" href="#">Link</a>
+          <a tedi-text color="white" href="#">Link</a>
+          <a tedi-text color="white" href="#">Link</a>
         </tedi-footer-bottom>
       </tedi-footer>
     `,

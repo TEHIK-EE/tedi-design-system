@@ -11,7 +11,8 @@ import {
   ViewChild,
   ViewEncapsulation,
 } from "@angular/core";
-import { BreakpointService, LinkComponent } from "@tehik-ee/tedi-angular/tedi";
+import { LinkComponent } from "../../../navigation/link/link.component";
+import { BreakpointService } from "../../../../services/breakpoint/breakpoint.service";
 
 @Component({
   standalone: true,
@@ -33,7 +34,7 @@ export class FooterBottomComponent {
     return this.breakpointService.isBelowBreakpoint("sm");
   });
 
-  @ViewChild("ellipsis", { static: true }) ellipsis!: TemplateRef<any>;
+  @ViewChild("ellipsis", { static: true }) ellipsis!: TemplateRef<unknown>;
   @ContentChildren(LinkComponent, { descendants: true, read: ElementRef })
   links!: QueryList<ElementRef>;
 

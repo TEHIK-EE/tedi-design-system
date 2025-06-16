@@ -14,11 +14,10 @@ import {
   transition,
   animate,
 } from "@angular/animations";
-import {
-  BreakpointService,
-  IconComponent,
-  TextComponent,
-} from "@tehik-ee/tedi-angular/tedi";
+
+import { TextComponent } from "../../../../components/base/text/text.component";
+import { IconComponent } from "../../../../components/base/icon/icon.component";
+import { BreakpointService } from "../../../../services/breakpoint/breakpoint.service";
 
 @Component({
   standalone: true,

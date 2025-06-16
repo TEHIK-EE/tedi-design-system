@@ -5,7 +5,7 @@ import {
   inject,
   ViewEncapsulation,
 } from "@angular/core";
-import { BreakpointService } from "@tehik-ee/tedi-angular/tedi";
+import { BreakpointService } from "../../../services/breakpoint/breakpoint.service";
 
 @Component({
   standalone: true,

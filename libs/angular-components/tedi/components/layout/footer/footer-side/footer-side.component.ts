@@ -9,7 +9,7 @@ import {
   ViewEncapsulation,
   HostBinding,
 } from "@angular/core";
-import { BreakpointService } from "@tehik-ee/tedi-angular/tedi";
+import { BreakpointService } from "../../../../services/breakpoint/breakpoint.service";
 
 export type FooterSidePosition = "top" | "center" | "bottom";
 export type FooterSidePlacement = "start" | "end";

@@ -35,6 +35,7 @@
   .tedi-footer-links__button {
     @include mixins.button-reset;
     font-weight: 700;
+    color: var(--general-text-white);
 
     &:focus-visible {
       color: var(--link-inverted-focus);
