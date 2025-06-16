@@ -1,5 +1,5 @@
 import {
-  AfterContentInit,
+  AfterViewInit,
   ChangeDetectionStrategy,
   Component,
   computed,
@@ -24,7 +24,7 @@ import { SideNavComponent } from "../sidenav.component";
     "[class]": "classes()",
   },
 })
-export class SideNavDropdownComponent implements AfterContentInit {
+export class SideNavDropdownComponent implements AfterViewInit {
   private readonly host = inject(ElementRef);
 
   open = signal(false);
@@ -32,7 +32,7 @@ export class SideNavDropdownComponent implements AfterContentInit {
   sidenav = inject(SideNavComponent, { host: true });
   sidenavItem = inject(SideNavItemComponent, { host: true });
 
-  ngAfterContentInit(): void {
+  ngAfterViewInit(): void {
     if (this.host.nativeElement) {
       this.element.set(this.host.nativeElement);
     }
