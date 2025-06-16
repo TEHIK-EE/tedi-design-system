@@ -11,7 +11,7 @@ import {
 import { TediTranslationPipe } from "../../../services/translation/translation.pipe";
 import { IconComponent } from "../../base/icon/icon.component";
 import { TextComponent } from "../../base/text/text.component";
-import { generateUUID } from "../../../helpers/generate-uuid";
+import { generateUUID } from "../../../../utils/generateUUID";
 
 export type ArrowType = "default" | "secondary";
 
