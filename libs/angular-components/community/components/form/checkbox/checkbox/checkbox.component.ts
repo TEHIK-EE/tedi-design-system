@@ -19,7 +19,7 @@ import {
 import { CheckboxCardGroupComponent } from "../checkbox-card-group/checkbox-card-group.component";
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from "@angular/forms";
 import { CheckboxGroupComponent } from "../checkbox-group/checkbox-group.component";
-import { generateUUID } from "../../../../../tedi/helpers/generateUUID";
+import { generateUUID } from "@tehik-ee/tedi-angular/tedi";
 
 export type CheckboxSize = "default" | "large";
 

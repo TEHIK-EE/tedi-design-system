@@ -11,7 +11,7 @@ import {
   LabelComponent,
   FeedbackTextComponent,
 } from "@tehik-ee/tedi-angular/tedi";
-import { generateUUID } from "../../../../../tedi/helpers/generateUUID";
+import { generateUUID } from "@tehik-ee/tedi-angular/tedi";
 
 @Component({
   standalone: true,

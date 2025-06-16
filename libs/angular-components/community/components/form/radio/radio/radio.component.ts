@@ -15,7 +15,7 @@ import {
   ComponentInputs,
   FeedbackTextComponent,
 } from "@tehik-ee/tedi-angular/tedi";
-import { generateUUID } from "../../../../../tedi/helpers/generateUUID";
+import { generateUUID } from "@tehik-ee/tedi-angular/tedi";
 
 export type RadioValue = string;
 
