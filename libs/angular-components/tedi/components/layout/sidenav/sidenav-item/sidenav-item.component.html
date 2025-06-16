@@ -1,5 +1,5 @@
 <div class="tedi-sidenav-item__trigger">
-  @if (isCollapsed() || (!href() && !routerLink())) {
+  @if (sidenav.isCollapsed() || (!href() && !routerLink())) {
     <button
       class="tedi-sidenav-item__title"
       (click)="toggleDropdown()"
@@ -9,11 +9,9 @@
       @if (hasDropdown()) {
         <tedi-icon
           name="expand_more"
-          [class]="{
-            'tedi-sidenav-item__caret': true,
-            'tedi-sidenav-item__caret--collapsed': isCollapsed(),
-          }"
-          [size]="isCollapsed() ? 18 : 24"
+          class="tedi-sidenav-item__caret"
+          color="white"
+          [size]="sidenav.isCollapsed() ? 18 : 24"
           [attr.data-open]="dropdown?.open() ? 'true' : 'false'"
         />
       }
@@ -43,8 +41,9 @@
           <tedi-icon
             name="expand_more"
             class="tedi-sidenav-item__caret"
-            [size]="isCollapsed() ? 18 : 24"
+            [size]="sidenav.isCollapsed() ? 18 : 24"
             [attr.data-open]="dropdown?.open() ? 'true' : 'false'"
+            color="white"
           />
         </div>
       </button>
@@ -54,7 +53,7 @@
 
 <ng-template #content>
   @if (icon()) {
-    <tedi-icon [name]="icon()" />
+    <tedi-icon [name]="icon()" color="white" />
   }
   <span class="tedi-sidenav-item__text">
     <ng-content></ng-content>

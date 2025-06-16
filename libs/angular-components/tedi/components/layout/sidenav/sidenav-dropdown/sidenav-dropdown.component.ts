@@ -9,12 +9,14 @@ import {
   ViewEncapsulation,
 } from "@angular/core";
 import { SideNavDropdownItemComponent } from "../sidenav-dropdown-item/sidenav-dropdown-item.component";
+import { SideNavItemComponent } from "../sidenav-item/sidenav-item.component";
+import { SideNavComponent } from "../sidenav.component";
 
 @Component({
   selector: "tedi-sidenav-dropdown",
   standalone: true,
   templateUrl: "./sidenav-dropdown.component.html",
-  styleUrl: "./sidenav-dropdown.component.scss",
+  styleUrl: "../sidenav.component.scss",
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
   imports: [SideNavDropdownItemComponent],
@@ -27,7 +29,8 @@ export class SideNavDropdownComponent implements AfterContentInit {
 
   open = signal(false);
   element = signal<HTMLElement | null>(null);
-  showParentInDropdown = signal(false);
+  sidenav = inject(SideNavComponent, { host: true });
+  sidenavItem = inject(SideNavItemComponent, { host: true });
 
   ngAfterContentInit(): void {
     if (this.host.nativeElement) {

@@ -1,16 +1,14 @@
 import {
-  AfterContentInit,
+  AfterViewInit,
   ChangeDetectionStrategy,
   Component,
   computed,
   ContentChild,
-  effect,
   ElementRef,
   inject,
   Injector,
   input,
   Renderer2,
-  runInInjectionContext,
   signal,
   ViewEncapsulation,
 } from "@angular/core";
@@ -18,13 +16,13 @@ import { IconComponent } from "../../../base/icon/icon.component";
 import { RouterLink } from "@angular/router";
 import { NgTemplateOutlet } from "@angular/common";
 import { SideNavDropdownComponent } from "../sidenav-dropdown/sidenav-dropdown.component";
-import { SideNavItemSize } from "../sidenav.component";
+import { SideNavComponent } from "../sidenav.component";
 
 @Component({
   selector: "tedi-sidenav-item",
   standalone: true,
   templateUrl: "./sidenav-item.component.html",
-  styleUrl: "./sidenav-item.component.scss",
+  styleUrl: "../sidenav.component.scss",
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
   imports: [IconComponent, RouterLink, NgTemplateOutlet],
@@ -32,7 +30,7 @@ import { SideNavItemSize } from "../sidenav.component";
     "[class]": "classes()",
   },
 })
-export class SideNavItemComponent implements AfterContentInit {
+export class SideNavItemComponent implements AfterViewInit {
   /**
    * Is navigation item selected
    * @default false
@@ -54,26 +52,23 @@ export class SideNavItemComponent implements AfterContentInit {
   @ContentChild(SideNavDropdownComponent) dropdown?: SideNavDropdownComponent;
 
   readonly injector = inject(Injector);
-  size = signal<SideNavItemSize>("large");
-  isCollapsed = signal(false);
   hasDropdown = signal(false);
-  element = signal<Element | null>(null);
+  textContent = signal("");
 
   private readonly host = inject(ElementRef);
   private readonly renderer = inject(Renderer2);
   private readonly eventListeners: (() => void)[] = [];
+  private sidenav = inject(SideNavComponent, { host: true });
 
-  ngAfterContentInit(): void {
+  ngAfterViewInit(): void {
     const dropdown = this.dropdown;
 
     if (this.host.nativeElement) {
       const hostEl = this.host.nativeElement as Element;
-      const trigger = hostEl
-        .getElementsByClassName("tedi-sidenav-item__title")
-        .item(0);
+      const titleElement = hostEl.querySelector(".tedi-sidenav-item__text");
 
-      if (trigger) {
-        this.element.set(trigger);
+      if (titleElement?.textContent) {
+        this.textContent.set(titleElement.textContent);
       }
     }
 
@@ -81,18 +76,10 @@ export class SideNavItemComponent implements AfterContentInit {
       return;
     }
 
-    runInInjectionContext(this.injector, () => {
-      effect(() => {
-        dropdown.showParentInDropdown.set(
-          this.isCollapsed() && (!!this.href() || !!this.routerLink()),
-        );
-      });
-    });
-
     this.hasDropdown.set(true);
     this.eventListeners.push(
       this.renderer.listen("document", "click", (event: MouseEvent) => {
-        if (this.isCollapsed()) {
+        if (this.sidenav.isCollapsed()) {
           const target = event.target as HTMLElement;
           const clickedInsideDropdown = dropdown.element()?.contains(target);
           const clickedInsideTrigger = this.host.nativeElement.contains(target);
@@ -108,14 +95,14 @@ export class SideNavItemComponent implements AfterContentInit {
   classes = computed(() => {
     const classList = [
       "tedi-sidenav-item",
-      `tedi-sidenav-item--${this.size()}`,
+      `tedi-sidenav-item--${this.sidenav.size()}`,
     ];
 
     if (this.selected()) {
       classList.push("tedi-sidenav-item--selected");
     }
 
-    if (this.isCollapsed()) {
+    if (this.sidenav.isCollapsed()) {
       classList.push("tedi-sidenav-item--collapsed");
     }
 

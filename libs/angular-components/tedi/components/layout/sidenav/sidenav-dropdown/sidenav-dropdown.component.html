@@ -1,7 +1,17 @@
 <div class="tedi-sidenav-dropdown__items">
-  @if (showParentInDropdown()) {
-    <tedi-sidenav-dropdown-item class="tedi-sidenav-dropdown-item--parent">
-      Parent
+  @if (sidenav.isCollapsed() && !!sidenavItem.href()) {
+    <tedi-sidenav-dropdown-item
+      class="tedi-sidenav-dropdown-item--parent"
+      [href]="sidenavItem.href()"
+    >
+      {{ sidenavItem.textContent() }}
+    </tedi-sidenav-dropdown-item>
+  } @else if (sidenav.isCollapsed() && !!sidenavItem.routerLink()) {
+    <tedi-sidenav-dropdown-item
+      class="tedi-sidenav-dropdown-item--parent"
+      [routerLink]="sidenavItem.routerLink()"
+    >
+      {{ sidenavItem.textContent() }}
     </tedi-sidenav-dropdown-item>
   }
   <ng-content></ng-content>

@@ -1,5 +1,9 @@
 @if (collapsible()) {
-  <button class="tedi-sidenav__collapse" (click)="handleCollapse()">
+  <button
+    class="tedi-sidenav__collapse"
+    (click)="handleCollapse()"
+    [attr.aria-label]="'toggle' | tediTranslate: !isCollapsed()"
+  >
     <tedi-icon
       [name]="isCollapsed() ? 'left_panel_open' : 'right_panel_open'"
       color="inherit"
