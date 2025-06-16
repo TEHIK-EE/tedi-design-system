@@ -24,7 +24,7 @@ export const translationsMap = {
   },
   remove: {
     description: "Used for removing",
-    components: ["FileUpload", "Tag"],
+    components: ["FileUpload"],
     et: "Eemalda",
     en: "Remove",
     ru: "Удалить",
@@ -64,19 +64,19 @@ export const translationsMap = {
     en: "Breadcrumbs",
     ru: "Навигационная цепочка",
   },
+  toggle: {
+    description: "Label for header toggle on mobile",
+    components: ["Header", "SideNav"],
+    et: (isOpen: boolean) => (isOpen ? "Sulge menüü" : "Ava menüü"),
+    en: (isOpen: boolean) => (isOpen ? "Close menu" : "Open menu"),
+    ru: (isOpen: boolean) => (isOpen ? "Закрыть меню" : "Открыть меню"),
+  },
   "anchor.new-tab": {
     description: "Label for when anchor opens in new tab",
     components: ["Anchor"],
     et: "Avaneb uuel vahelehel",
     en: "Opens in new tab",
     ru: "Открывается в новой вкладке",
-  },
-  "header.toggle": {
-    description: "Label for header toggle on mobile",
-    components: ["Header"],
-    et: (isOpen: boolean) => (isOpen ? "Sulge menüü" : "Ava menüü"),
-    en: (isOpen: boolean) => (isOpen ? "Close menu" : "Open menu"),
-    ru: (isOpen: boolean) => (isOpen ? "Закрыть меню" : "Открыть меню"),
   },
   "header.settings": {
     description: "Label for HeaderSettings Button",
@@ -182,13 +182,6 @@ export const translationsMap = {
     et: "Valikud puuduvad",
     en: "No options",
     ru: "Нет вариантов",
-  },
-  "select.select-all": {
-    description: "Text when select has 'select all' option",
-    components: ["select"],
-    et: "Vali kõik",
-    en: "Select all",
-    ru: "Выбрать все",
   },
   "stepper.completed": {
     description:

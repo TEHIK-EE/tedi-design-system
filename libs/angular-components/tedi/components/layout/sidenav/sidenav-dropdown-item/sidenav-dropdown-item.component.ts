@@ -1,3 +1,4 @@
+import { NgTemplateOutlet } from "@angular/common";
 import {
   ChangeDetectionStrategy,
   Component,
@@ -5,14 +6,16 @@ import {
   input,
   ViewEncapsulation,
 } from "@angular/core";
+import { RouterLink } from "@angular/router";
 
 @Component({
   selector: "tedi-sidenav-dropdown-item",
   standalone: true,
-  template: "<ng-content />",
-  styleUrl: "./sidenav-dropdown-item.component.scss",
+  templateUrl: "./sidenav-dropdown-item.component.html",
+  styleUrl: "../sidenav.component.scss",
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
+  imports: [RouterLink, NgTemplateOutlet],
   host: {
     "[class]": "classes()",
   },
@@ -23,6 +26,14 @@ export class SideNavDropdownItemComponent {
    * @default false
    */
   selected = input<boolean>(false);
+  /**
+   * External link
+   */
+  href = input<string>();
+  /**
+   * Router link
+   */
+  routerLink = input<string>();
 
   classes = computed(() => {
     const classList = ["tedi-sidenav-dropdown-item"];

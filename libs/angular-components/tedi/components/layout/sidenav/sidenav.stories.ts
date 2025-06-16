@@ -30,7 +30,7 @@ export const Default: StoryObj<SideNavComponent> = {
   render: (args) => ({
     props: args,
     template: `
-        <div style="height: 700px;">
+        <div style="height: 1024px;">
             <tedi-sidenav size="large">
                 <tedi-sidenav-item icon="dashboard" [selected]="true">
                   Selected text
