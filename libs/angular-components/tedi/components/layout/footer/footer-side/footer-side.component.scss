@@ -6,11 +6,11 @@
   justify-content: center;
   gap: 10px;
 
-  &--top {
+  &--vertical-start {
     justify-content: flex-start;
   }
 
-  &--bottom {
+  &--vertical-end {
     justify-content: flex-end;
   }
 

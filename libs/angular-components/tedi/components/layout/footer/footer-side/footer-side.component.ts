@@ -11,7 +11,7 @@ import {
 } from "@angular/core";
 import { BreakpointService } from "../../../../services/breakpoint/breakpoint.service";
 
-export type FooterSidePosition = "top" | "center" | "bottom";
+export type FooterSidePosition = "start" | "center" | "end";
 export type FooterSidePlacement = "start" | "end";
 
 @Component({
@@ -51,7 +51,7 @@ export class FooterSideComponent {
     if (this.mobileLayout()) classes.push("tedi-footer-side--mobile");
 
     classes.push(`tedi-footer-side--${this.placement()}`);
-    classes.push(`tedi-footer-side--${this.position()}`);
+    classes.push(`tedi-footer-side--vertical-${this.position()}`);
 
     return classes.join(" ");
   }

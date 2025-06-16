@@ -32,7 +32,7 @@ export default {
   ],
   parameters: {
     status: {
-      type: ["devComponent", "breakpointSupport"],
+      type: ["breakpointSupport"],
     },
   },
 } as Meta<FooterComponent>;
@@ -44,19 +44,97 @@ export const Default: Story = {
     template: `
       <tedi-footer>
         <tedi-footer-body>
-          <tedi-footer-links heading="Heading" [collapse]="true">
+          <tedi-footer-links heading="Heading" icon="account_circle">
             <a tedi-text color="white" href="#">Link</a>
             <a tedi-text color="white" href="#">Link</a>
             <a tedi-text color="white" href="#">Link</a>
             <a tedi-text color="white" href="#">Link</a>
           </tedi-footer-links>
-          <tedi-footer-links heading="Heading" [collapse]="true">
+          <tedi-footer-links heading="Heading" icon="account_circle">
+            <a tedi-text color="white" href="#">Link</a>
+            <a tedi-text color="white" href="#">Link</a>
+            <a tedi-text color="white" href="#">Link</a>
+            <a tedi-text color="white" href="#">Link</a>
+          </tedi-footer-links>
+           <tedi-footer-links heading="Heading" icon="account_circle">
+            <a tedi-text color="white" href="#">Link</a>
+            <a tedi-text color="white" href="#">Link</a>
+            <a tedi-text color="white" href="#">Link</a>
+            <a tedi-text color="white" href="#">Link</a>
+          </tedi-footer-links>
+        </tedi-footer-body>
+        <tedi-footer-side position="center" tedi-footer-end>
+          <picture>
+            <source
+              srcset="SF-horizontal.png"
+              alt="Logo"
+              media="(max-width: 576px)"
+            />
+            <img src="SF-vertical.png" alt="Logo" />
+          </picture>
+        </tedi-footer-side>
+      </tedi-footer>
+    `,
+  }),
+};
+
+export const NoLogos: Story = {
+  render: () => ({
+    template: `
+      <tedi-footer>
+        <tedi-footer-body>
+          <tedi-footer-links heading="Heading">
+            <a tedi-text color="white" href="#">Link</a>
+            <a tedi-text color="white" href="#">Link</a>
+            <a tedi-text color="white" href="#">Link</a>
+            <a tedi-text color="white" href="#">Link</a>
+          </tedi-footer-links>
+          <tedi-footer-links heading="Heading">
             <a tedi-text color="white" href="#">Link</a>
             <a tedi-text color="white" href="#">Link</a>
             <a tedi-text color="white" href="#">Link</a>
             <a tedi-text color="white" href="#">Link</a>
           </tedi-footer-links>
            <tedi-footer-links heading="Heading">
+            <a tedi-text color="white" href="#">Link</a>
+            <a tedi-text color="white" href="#">Link</a>
+            <a tedi-text color="white" href="#">Link</a>
+            <a tedi-text color="white" href="#">Link</a>
+          </tedi-footer-links>
+        </tedi-footer-body>
+        <tedi-footer-side position="center" tedi-footer-end>
+          <picture>
+            <source
+              srcset="SF-horizontal.png"
+              alt="Logo"
+              media="(max-width: 576px)"
+            />
+            <img src="SF-vertical.png" alt="Logo" />
+          </picture>
+        </tedi-footer-side>
+      </tedi-footer>
+    `,
+  }),
+};
+
+export const FooterBottom: Story = {
+  render: () => ({
+    template: `
+      <tedi-footer>
+        <tedi-footer-body>
+          <tedi-footer-links heading="Heading" icon="account_circle">
+            <a tedi-text color="white" href="#">Link</a>
+            <a tedi-text color="white" href="#">Link</a>
+            <a tedi-text color="white" href="#">Link</a>
+            <a tedi-text color="white" href="#">Link</a>
+          </tedi-footer-links>
+          <tedi-footer-links heading="Heading" icon="account_circle">
+            <a tedi-text color="white" href="#">Link</a>
+            <a tedi-text color="white" href="#">Link</a>
+            <a tedi-text color="white" href="#">Link</a>
+            <a tedi-text color="white" href="#">Link</a>
+          </tedi-footer-links>
+           <tedi-footer-links heading="Heading" icon="account_circle">
             <a tedi-text color="white" href="#">Link</a>
             <a tedi-text color="white" href="#">Link</a>
             <a tedi-text color="white" href="#">Link</a>
@@ -71,6 +149,92 @@ export const Default: Story = {
           <a tedi-text color="white" href="#">Link</a>
         </tedi-footer-bottom>
       </tedi-footer>
+    `,
+  }),
+};
+
+export const MobileCollapse: Story = {
+  render: () => ({
+    template: `
+      <tedi-footer>
+        <tedi-footer-body>
+          <tedi-footer-links heading="Heading" icon="account_circle" [collapse]="true">
+            <a tedi-text color="white" href="#">Link</a>
+            <a tedi-text color="white" href="#">Link</a>
+            <a tedi-text color="white" href="#">Link</a>
+            <a tedi-text color="white" href="#">Link</a>
+          </tedi-footer-links>
+          <tedi-footer-links heading="Heading" icon="account_circle" [collapse]="true">
+            <a tedi-text color="white" href="#">Link</a>
+            <a tedi-text color="white" href="#">Link</a>
+            <a tedi-text color="white" href="#">Link</a>
+            <a tedi-text color="white" href="#">Link</a>
+          </tedi-footer-links>
+           <tedi-footer-links heading="Heading" icon="account_circle" [collapse]="true">
+            <a tedi-text color="white" href="#">Link</a>
+            <a tedi-text color="white" href="#">Link</a>
+            <a tedi-text color="white" href="#">Link</a>
+            <a tedi-text color="white" href="#">Link</a>
+          </tedi-footer-links>
+        </tedi-footer-body>
+        <tedi-footer-bottom>
+          <a tedi-text color="white" href="#">Link</a>
+          <a tedi-text color="white" href="#">Link</a>
+          <a tedi-text color="white" href="#">Link</a>
+          <a tedi-text color="white" href="#">Link</a>
+          <a tedi-text color="white" href="#">Link</a>
+        </tedi-footer-bottom>
+      </tedi-footer>
+    `,
+  }),
+};
+
+export const LogoPositions: Story = {
+  render: () => ({
+    props: {
+      logoPositions: ["start", "center", "end"],
+    },
+    template: `
+    <ng-template ngFor let-position [ngForOf]="logoPositions">
+    <br>
+    <h4>Logo position: {{ position }}</h4>
+      <tedi-footer>
+        <tedi-footer-side position="{{ position }}" tedi-footer-start>
+          <picture>
+            <source
+              srcset="SF-horizontal.png"
+              alt="Logo"
+              media="(max-width: 576px)"
+            />
+            <img src="SF-vertical.png" alt="Logo" />
+          </picture>
+        </tedi-footer-side>
+        <tedi-footer-body>
+          <tedi-footer-links heading="Heading" icon="account_circle">
+            <a tedi-text color="white" href="#">Link</a>
+            <a tedi-text color="white" href="#">Link</a>
+            <a tedi-text color="white" href="#">Link</a>
+            <a tedi-text color="white" href="#">Link</a>
+          </tedi-footer-links>
+          <tedi-footer-links heading="Heading" icon="account_circle">
+            <a tedi-text color="white" href="#">Link</a>
+            <a tedi-text color="white" href="#">Link</a>
+            <a tedi-text color="white" href="#">Link</a>
+            <a tedi-text color="white" href="#">Link</a>
+          </tedi-footer-links>
+        </tedi-footer-body>
+        <tedi-footer-side position="{{ position }}" tedi-footer-end>
+          <picture>
+            <source
+              srcset="SF-horizontal.png"
+              alt="Logo"
+              media="(max-width: 576px)"
+            />
+            <img src="SF-vertical.png" alt="Logo" />
+          </picture>
+        </tedi-footer-side>
+      </tedi-footer>
+      <ng-template>
     `,
   }),
 };
