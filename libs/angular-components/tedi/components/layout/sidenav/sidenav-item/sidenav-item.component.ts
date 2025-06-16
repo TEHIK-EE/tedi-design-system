@@ -25,7 +25,7 @@ import { SideNavService } from "../../../../services/sidenav/sidenav.service";
   selector: "tedi-sidenav-item",
   standalone: true,
   templateUrl: "./sidenav-item.component.html",
-  styleUrl: "./sidenav-item.component.scss",
+  styleUrl: "../sidenav.component.scss",
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
   imports: [
@@ -111,26 +111,23 @@ export class SideNavItemComponent
   @ContentChild(SideNavDropdownComponent) dropdown?: SideNavDropdownComponent;
 
   readonly injector = inject(Injector);
-  size = signal<SideNavItemSize>("large");
-  isCollapsed = signal(false);
   hasDropdown = signal(false);
-  element = signal<Element | null>(null);
+  textContent = signal("");
 
   private readonly host = inject(ElementRef);
   private readonly renderer = inject(Renderer2);
   private readonly eventListeners: (() => void)[] = [];
+  private sidenav = inject(SideNavComponent, { host: true });
 
-  ngAfterContentInit(): void {
+  ngAfterViewInit(): void {
     const dropdown = this.dropdown;
 
     if (this.host.nativeElement) {
       const hostEl = this.host.nativeElement as Element;
-      const trigger = hostEl
-        .getElementsByClassName("tedi-sidenav-item__title")
-        .item(0);
+      const titleElement = hostEl.querySelector(".tedi-sidenav-item__text");
 
-      if (trigger) {
-        this.element.set(trigger);
+      if (titleElement?.textContent) {
+        this.textContent.set(titleElement.textContent);
       }
     }
 
@@ -138,18 +135,10 @@ export class SideNavItemComponent
       return;
     }
 
-    runInInjectionContext(this.injector, () => {
-      effect(() => {
-        dropdown.showParentInDropdown.set(
-          this.isCollapsed() && (!!this.href() || !!this.routerLink()),
-        );
-      });
-    });
-
     this.hasDropdown.set(true);
     this.eventListeners.push(
       this.renderer.listen("document", "click", (event: MouseEvent) => {
-        if (this.isCollapsed()) {
+        if (this.sidenav.isCollapsed()) {
           const target = event.target as HTMLElement;
           const clickedInsideDropdown = dropdown.element()?.contains(target);
           const clickedInsideTrigger = this.host.nativeElement.contains(target);
@@ -165,7 +154,7 @@ export class SideNavItemComponent
   classes = computed(() => {
     const classList = [
       "tedi-sidenav-item",
-      `tedi-sidenav-item--${this.size()}`,
+      `tedi-sidenav-item--${this.sidenav.size()}`,
     ];
 
     if (this.selected()) {

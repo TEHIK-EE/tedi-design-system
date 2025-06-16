@@ -11,8 +11,8 @@ import { RouterLink } from "@angular/router";
 @Component({
   selector: "tedi-sidenav-dropdown-item",
   standalone: true,
-  template: "<ng-content />",
-  styleUrl: "./sidenav-dropdown-item.component.scss",
+  templateUrl: "./sidenav-dropdown-item.component.html",
+  styleUrl: "../sidenav.component.scss",
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
   imports: [RouterLink, NgTemplateOutlet],

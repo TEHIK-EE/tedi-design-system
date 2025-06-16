@@ -1,11 +1,9 @@
 import {
-  AfterContentInit,
   ChangeDetectionStrategy,
   Component,
   computed,
   inject,
   input,
-  QueryList,
   signal,
   ViewEncapsulation,
 } from "@angular/core";
@@ -28,7 +26,7 @@ export type SideNavItemSize = "small" | "medium" | "large";
     "[class]": "classes()",
   },
 })
-export class SideNavComponent implements AfterContentInit {
+export class SideNavComponent {
   /**
    * Show dividers between items
    * @default true
@@ -48,7 +46,7 @@ export class SideNavComponent implements AfterContentInit {
   sidenavService = inject(SideNavService);
 
   classes = computed(() => {
-    const classList = ["tedi-sidenav", `tedi-sidenav--${this.size()}`];
+    const classList = [`tedi-sidenav--${this.size()}`];
 
     if (this.dividers()) {
       classList.push("tedi-sidenav--dividers");
