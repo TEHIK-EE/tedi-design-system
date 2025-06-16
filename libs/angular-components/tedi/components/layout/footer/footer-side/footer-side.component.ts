@@ -23,6 +23,10 @@ export type FooterSidePlacement = "start" | "end";
   encapsulation: ViewEncapsulation.None,
 })
 export class FooterSideComponent {
+  /**
+   * Specifies the position of the footer internal content.
+   * @default primary
+   */
   position = input<FooterSidePosition>("center");
   placement = signal<FooterSidePlacement | null>(null);
   breakpointService = inject(BreakpointService);
