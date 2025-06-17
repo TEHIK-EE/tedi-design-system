@@ -18,7 +18,7 @@ import { SideNavItemComponent } from "./sidenav-item/sidenav-item.component";
 export type SideNavItemSize = "small" | "medium" | "large";
 
 @Component({
-  selector: "tedi-sidenav",
+  selector: "nav[tedi-sidenav]",
   standalone: true,
   templateUrl: "./sidenav.component.html",
   styleUrl: "./sidenav.component.scss",
