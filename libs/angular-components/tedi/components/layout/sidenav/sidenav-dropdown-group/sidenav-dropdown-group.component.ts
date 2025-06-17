@@ -9,7 +9,7 @@ import {
   selector: "tedi-sidenav-dropdown-group",
   standalone: true,
   templateUrl: "./sidenav-dropdown-group.component.html",
-  styleUrl: "../sidenav.component.scss",
+  styleUrl: "./sidenav-dropdown-group.component.scss",
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
   host: {
