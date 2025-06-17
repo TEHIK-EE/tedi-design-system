@@ -31,7 +31,7 @@ export const Default: StoryObj<SideNavComponent> = {
     props: args,
     template: `
         <div style="height: 1024px;">
-            <tedi-sidenav size="large">
+            <nav tedi-sidenav size="large">
                 <tedi-sidenav-item icon="dashboard" [selected]="true">
                   Selected text
                   <tedi-sidenav-dropdown>
@@ -135,7 +135,7 @@ export const Default: StoryObj<SideNavComponent> = {
                     </tedi-sidenav-dropdown-item>
                   </tedi-sidenav-dropdown>
                 </tedi-sidenav-item>
-            </tedi-sidenav>
+            </nav>
         </div>
     `,
   }),

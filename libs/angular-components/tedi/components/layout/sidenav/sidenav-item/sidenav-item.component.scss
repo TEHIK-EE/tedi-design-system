@@ -11,12 +11,22 @@
     display: none;
   }
 
+  &--selected {
+    .tedi-sidenav-item__trigger {
+      background: var(--side-navigation-item-background-active);
+    }
+  }
+
   &__trigger {
     position: relative;
     display: flex;
-    align-items: center;
     cursor: pointer;
-    min-height: var(--_sidenav-item-min-height);
+    gap: var(--_gap);
+
+    @include mixins.responsive-styles(
+      --_gap,
+      side-navigation-item-inner-spacing
+    );
 
     &:hover {
       background: var(--side-navigation-item-background-hover);
@@ -28,10 +38,11 @@
   }
 
   &__title {
-    height: 100%;
     width: 100%;
+    min-height: var(--_sidenav-item-min-height);
     display: flex;
     align-items: center;
+    gap: var(--_gap);
     text-decoration: none;
     text-align: start;
     border: 0;
@@ -43,24 +54,26 @@
       var(--_sidenav-item-padding-y) var(--_sidenav-item-padding-left);
 
     &:focus-visible {
-      outline: 2px solid var(--primary-500);
-      outline-offset: 1px;
+      outline: var(--borders-02) solid var(--primary-500);
+      outline-offset: var(--borders-01);
     }
-
-    @include mixins.responsive-styles(gap, side-navigation-item-inner-spacing);
 
     &:not(:only-child) {
       max-width: calc(
-        100% - var(--_sidenav-item-padding-right) - var(--_test2)
+        100% - var(--_sidenav-item-padding-right) - var(
+            --_sidenav-item-caret-size
+          ) - var(--_gap)
       );
       padding-right: 0;
-
-      @include mixins.responsive-styles(--_test2, icon-05);
     }
   }
 
+  &__icon {
+    font-size: var(--_sidenav-item-icon-size) !important;
+  }
+
   &__caret-button {
-    height: 100%;
+    min-height: var(--_sidenav-item-min-height);
     display: flex;
     align-items: center;
     justify-items: center;
@@ -68,6 +81,7 @@
     background: transparent;
     font-size: inherit;
     cursor: pointer;
+    padding: 0;
 
     &:hover {
       .tedi-sidenav-item__caret-container {
@@ -79,8 +93,8 @@
 
     &:focus-visible {
       .tedi-sidenav-item__caret-container {
-        outline: 2px solid var(--primary-500);
-        outline-offset: 1px;
+        outline: var(--borders-02) solid var(--primary-500);
+        outline-offset: var(--borders-01);
       }
     }
 
@@ -90,14 +104,19 @@
   }
 
   &__caret-container {
-    @include mixins.responsive-styles(height, icon-05);
-    @include mixins.responsive-styles(width, icon-05);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    height: fit-content;
+
     @include mixins.responsive-styles(border-radius, button-radius-sm);
   }
 
   &__caret {
-    margin-left: auto;
+    font-size: var(--_sidenav-item-caret-size) !important;
     transition: transform var(--_sidenav-transition-duration) ease;
+    margin-left: auto;
 
     &[data-open="true"] {
       transform: rotate(180deg);

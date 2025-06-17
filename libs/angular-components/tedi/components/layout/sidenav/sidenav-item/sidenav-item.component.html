@@ -45,7 +45,6 @@
           name="expand_more"
           class="tedi-sidenav-item__caret"
           color="white"
-          [size]="sidenav.isCollapsed() ? 18 : 24"
           [attr.data-open]="dropdown?.open() ? 'true' : 'false'"
         />
       }
@@ -68,7 +67,6 @@
           name="expand_more"
           class="tedi-sidenav-item__caret"
           color="white"
-          [size]="sidenav.isCollapsed() ? 18 : 24"
           [attr.data-open]="dropdown?.open() ? 'true' : 'false'"
         />
       </button>
@@ -98,9 +96,8 @@
             <tedi-icon
               name="expand_more"
               class="tedi-sidenav-item__caret"
-              [size]="sidenav.isCollapsed() ? 18 : 24"
-              [attr.data-open]="dropdown?.open() ? 'true' : 'false'"
               color="white"
+              [attr.data-open]="dropdown?.open() ? 'true' : 'false'"
             />
           </div>
         </button>
@@ -111,7 +108,7 @@
 
 <ng-template #content>
   @if (icon() && !(sidenav.isMobileMenuOpen() && dropdown?.open())) {
-    <tedi-icon [name]="icon()" color="white" />
+    <tedi-icon [name]="icon()" color="white" class="tedi-sidenav-item__icon" />
   }
   <span class="tedi-sidenav-item__text">
     <ng-content></ng-content>
