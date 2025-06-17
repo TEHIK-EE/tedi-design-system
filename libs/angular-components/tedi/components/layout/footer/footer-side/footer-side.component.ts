@@ -11,8 +11,8 @@ import {
 } from "@angular/core";
 import { BreakpointService } from "../../../../services/breakpoint/breakpoint.service";
 
-export type FooterSidePosition = "start" | "center" | "end";
 export type FooterSidePlacement = "start" | "end";
+export type FooterSidePosition = "start" | "center" | "end";
 
 @Component({
   standalone: true,
@@ -25,7 +25,7 @@ export type FooterSidePlacement = "start" | "end";
 export class FooterSideComponent {
   /**
    * Specifies the position of the footer internal content.
-   * @default primary
+   * @default center
    */
   position = input<FooterSidePosition>("center");
   placement = signal<FooterSidePlacement | null>(null);
