@@ -67,15 +67,14 @@ $badge-status-colors: (
       @each $color in $badge-colors {
         &.tedi-status-badge--color-#{$color} {
           --_status-badge-text: var(--status-badge-text-#{$color});
+          --_status-badge-box-shadow: inset 0 0 0 1px var(--status-badge-border-#{$color});
 
           @if $variant =="bordered" {
             --_status-badge-background: transparent;
-            --_status-badge-box-shadow: inset 0 0 0 1px var(--status-badge-border-#{$color});
           }
 
           @else {
             --_status-badge-background: var(--status-badge-background-#{$color});
-            --_status-badge-box-shadow: inset 0 0 0 1px var(--status-badge-border-#{$color});
           }
 
           @if $variant =="filled" {

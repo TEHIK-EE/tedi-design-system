@@ -12,10 +12,13 @@ import {
   StatusBadgeStatus,
   StatusBadgeVariant,
 } from "./status-badge.component";
-import { ComponentInputs } from "tedi/types";
-import { VerticalSpacingDirective } from "tedi/directives";
 import { NgFor } from "@angular/common";
-import { ColComponent, RowComponent } from "tedi/components";
+import {
+  ColComponent,
+  RowComponent,
+  VerticalSpacingDirective,
+  ComponentInputs,
+} from "@tehik-ee/tedi-angular/tedi";
 
 // colors, variants, statuses, colorToIconMap, statusToIconMap are identical to libs/react-components/src/tedi/components/tags/status-badge/status-badge.stories.tsx,
 //  redo to use shared constants when possible

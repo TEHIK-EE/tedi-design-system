@@ -1,5 +1,5 @@
 import { Component, computed, input, ViewEncapsulation } from "@angular/core";
-import { IconColor, IconComponent } from "tedi/components";
+import { IconColor, IconComponent } from "@tehik-ee/tedi-angular/tedi";
 
 // StatusBadgeColor, StatusBadgeVariant, StatusBadgeSize, StatusBadgeStatus are identical to libs/react-components/src/tedi/components/tags/status-badge/status-badge.tsx,
 // redo to use shared constants when possible
@@ -112,8 +112,8 @@ export class StatusBadgeComponent {
     }
   });
 
-  mapBadgeColorToIconColor = (badgeColor: StatusBadgeColor): IconColor => {
-    switch (badgeColor) {
+  mapBadgeColorToIconColor = computed((): IconColor => {
+    switch (this.color()) {
       case "brand":
         return "brand-dark";
       case "success":
@@ -127,5 +127,5 @@ export class StatusBadgeComponent {
       default:
         return "primary";
     }
-  };
+  });
 }
