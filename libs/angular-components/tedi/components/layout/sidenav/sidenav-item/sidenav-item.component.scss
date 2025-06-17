@@ -139,6 +139,10 @@
     &:hover {
       background: var(--side-navigation-item-background-hover);
     }
+
+    .tedi-sidenav-item__text {
+      white-space: wrap;
+    }
   }
 }
 
