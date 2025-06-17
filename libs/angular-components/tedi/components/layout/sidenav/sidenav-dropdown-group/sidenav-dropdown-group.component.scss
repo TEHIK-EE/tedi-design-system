@@ -1,13 +1,11 @@
-$dot-size: 8px;
-
 .tedi-sidenav-dropdown-group {
   .tedi-sidenav-dropdown-item {
     &:first-of-type {
       &::before {
         top: 50%;
         transform: translateY(-50%) translateX(calc(-50% + 1px));
-        width: $dot-size;
-        height: $dot-size;
+        width: var(--_sidenav-tree-bullet-size);
+        height: var(--_sidenav-tree-bullet-size);
         border-radius: 50%;
       }
 

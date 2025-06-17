@@ -1,11 +1,9 @@
-$transition-duration: 300ms;
-
 .tedi-sidenav-dropdown {
   display: grid;
   grid-template-rows: 0fr;
   overflow: hidden;
   visibility: hidden;
-  transition: grid-template-rows $transition-duration ease;
+  transition: grid-template-rows var(--_sidenav-transition-duration) ease;
 
   &--open {
     visibility: visible;
@@ -18,7 +16,7 @@ $transition-duration: 300ms;
 
   &__items {
     min-height: 0;
-    transition: visibility $transition-duration ease;
+    transition: visibility var(--_sidenav-transition-duration) ease;
     visibility: hidden;
   }
 }

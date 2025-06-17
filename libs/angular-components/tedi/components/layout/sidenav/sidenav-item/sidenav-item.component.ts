@@ -6,7 +6,6 @@ import {
   ContentChild,
   ElementRef,
   inject,
-  Injector,
   input,
   Renderer2,
   signal,
@@ -14,18 +13,25 @@ import {
 } from "@angular/core";
 import { IconComponent } from "../../../base/icon/icon.component";
 import { RouterLink } from "@angular/router";
-import { NgTemplateOutlet } from "@angular/common";
+import { NgIf, NgTemplateOutlet } from "@angular/common";
 import { SideNavDropdownComponent } from "../sidenav-dropdown/sidenav-dropdown.component";
 import { SideNavComponent } from "../sidenav.component";
+import { SideNavGroupTitleComponent } from "../sidenav-group-title/sidenav-group-title.component";
 
 @Component({
   selector: "tedi-sidenav-item",
   standalone: true,
   templateUrl: "./sidenav-item.component.html",
-  styleUrl: "../sidenav.component.scss",
+  styleUrl: "./sidenav-item.component.scss",
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
-  imports: [IconComponent, RouterLink, NgTemplateOutlet],
+  imports: [
+    IconComponent,
+    RouterLink,
+    NgTemplateOutlet,
+    NgIf,
+    SideNavGroupTitleComponent,
+  ],
   host: {
     "[class]": "classes()",
   },
@@ -51,8 +57,6 @@ export class SideNavItemComponent implements AfterViewInit {
 
   @ContentChild(SideNavDropdownComponent) dropdown?: SideNavDropdownComponent;
 
-  readonly injector = inject(Injector);
-  hasDropdown = signal(false);
   textContent = signal("");
 
   private readonly host = inject(ElementRef);
@@ -76,7 +80,6 @@ export class SideNavItemComponent implements AfterViewInit {
       return;
     }
 
-    this.hasDropdown.set(true);
     this.eventListeners.push(
       this.renderer.listen("document", "click", (event: MouseEvent) => {
         if (this.sidenav.isCollapsed()) {
@@ -93,17 +96,14 @@ export class SideNavItemComponent implements AfterViewInit {
   }
 
   classes = computed(() => {
-    const classList = [
-      "tedi-sidenav-item",
-      `tedi-sidenav-item--${this.sidenav.size()}`,
-    ];
+    const classList = ["tedi-sidenav-item"];
 
     if (this.selected()) {
       classList.push("tedi-sidenav-item--selected");
     }
 
-    if (this.sidenav.isCollapsed()) {
-      classList.push("tedi-sidenav-item--collapsed");
+    if (this.sidenav.isMobileMenuOpen() && !this.dropdown?.open()) {
+      classList.push("tedi-sidenav-item--hidden");
     }
 
     return classList.join(" ");
@@ -114,6 +114,6 @@ export class SideNavItemComponent implements AfterViewInit {
       return;
     }
 
-    this.dropdown.open.set(!this.dropdown.open());
+    this.dropdown.open.update((prev) => !prev);
   }
 }
