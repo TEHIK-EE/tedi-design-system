@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
 import { CollapseComponent } from "./collapse.component";
 
-jest.mock("../../../helpers/generateUUID", () => ({
+jest.mock("../../../helpers/generate-uuid", () => ({
   generateUUID: () => "mocked-random-uuid",
 }));
 
