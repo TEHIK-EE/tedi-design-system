@@ -4,55 +4,43 @@
   position: relative;
   display: flex;
   flex-direction: column;
+  font-size: var(--_sidenav-item-font-size);
+  line-height: var(--_sidenav-item-line-height);
 
-  .tedi-sidenav-item__trigger {
+  &--hidden {
+    display: none;
+  }
+
+  &__trigger {
     position: relative;
     display: flex;
     align-items: center;
     cursor: pointer;
+    min-height: var(--_sidenav-item-min-height);
 
     &:hover {
       background: var(--side-navigation-item-background-hover);
     }
 
-    &:has(> .tedi-sidenav-item__link-button:hover) {
+    &:has(> .tedi-sidenav-item__caret-button:hover) {
       background: transparent;
     }
   }
 
-  .tedi-sidenav-item__caret {
-    margin-left: auto;
-    transition: transform 300ms ease;
-
-    &[data-open="true"] {
-      transform: rotate(180deg);
-    }
-
-    &--collapsed {
-      margin-left: 0;
-      position: absolute;
-
-      @include mixins.responsive-styles(
-        right,
-        side-navigation-item-padding-right
-      );
-      @include mixins.responsive-styles(top, side-navigation-item-padding-y);
-
-      &[data-open="true"] {
-        transform: rotate(-90deg);
-      }
-    }
-  }
-
-  .tedi-sidenav-item__title {
-    width: 100%;
+  &__title {
     height: 100%;
+    width: 100%;
     display: flex;
     align-items: center;
     text-decoration: none;
     text-align: start;
-    color: var(--side-navigation-item-text);
     border: 0;
+    background: transparent;
+    font-size: inherit;
+    cursor: pointer;
+    color: var(--side-navigation-item-text);
+    padding: var(--_sidenav-item-padding-y) var(--_sidenav-item-padding-right)
+      var(--_sidenav-item-padding-y) var(--_sidenav-item-padding-left);
 
     &:focus-visible {
       outline: 2px solid var(--primary-500);
@@ -60,13 +48,26 @@
     }
 
     @include mixins.responsive-styles(gap, side-navigation-item-inner-spacing);
+
+    &:not(:only-child) {
+      max-width: calc(
+        100% - var(--_sidenav-item-padding-right) - var(--_test2)
+      );
+      padding-right: 0;
+
+      @include mixins.responsive-styles(--_test2, icon-05);
+    }
   }
 
-  .tedi-sidenav-item__caret-button {
+  &__caret-button {
     height: 100%;
     display: flex;
     align-items: center;
     justify-items: center;
+    border: 0;
+    background: transparent;
+    font-size: inherit;
+    cursor: pointer;
 
     &:hover {
       .tedi-sidenav-item__caret-container {
@@ -82,96 +83,42 @@
         outline-offset: 1px;
       }
     }
+
+    &:last-child {
+      padding-right: var(--_sidenav-item-padding-right);
+    }
   }
 
-  .tedi-sidenav-item__caret-container {
+  &__caret-container {
     @include mixins.responsive-styles(height, icon-05);
     @include mixins.responsive-styles(width, icon-05);
     @include mixins.responsive-styles(border-radius, button-radius-sm);
   }
 
-  .tedi-sidenav-item__text {
+  &__caret {
+    margin-left: auto;
+    transition: transform var(--_sidenav-transition-duration) ease;
+
+    &[data-open="true"] {
+      transform: rotate(180deg);
+    }
+  }
+
+  &__text {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-width: var(--sidenav-collapsed-text-width);
+    animation: enable-wrap 0s var(--_sidenav-transition-duration) forwards;
   }
 
-  button {
-    font-size: inherit;
+  &__link {
+    text-decoration: none;
     color: var(--side-navigation-item-text);
-    background-color: transparent;
-    border: 0;
-    padding: 0;
-    cursor: pointer;
-  }
+    padding: var(--_sidenav-item-padding-y) var(--_sidenav-item-padding-right)
+      var(--_sidenav-item-padding-y) var(--_sidenav-item-padding-left);
 
-  tedi-icon {
-    color: inherit;
-  }
-
-  &--selected {
-    .tedi-sidenav-item__trigger {
-      background: var(--side-navigation-item-background-active);
-
-      @include mixins.responsive-styles(font-weight, body-bold-weight);
-    }
-  }
-
-  &--large {
-    .tedi-sidenav-item__trigger {
-      @include mixins.responsive-styles(
-        min-height,
-        side-navigation-item-min-height
-      );
-
-      @include mixins.responsive-styles(font-size, side-navigation-text-size);
-      @include mixins.responsive-styles(
-        line-height,
-        body-regular-line-height,
-        $exclude: tablet
-      );
-
-      .tedi-sidenav-item__title {
-        @include mixins.responsive-styles(
-          padding,
-          side-navigation-item-padding-y side-navigation-item-padding-right
-            side-navigation-item-padding-y
-            side-navigation-item-padding-left-level-1
-        );
-
-        &:not(:only-child) {
-          padding-right: 0;
-        }
-      }
-
-      .tedi-sidenav-item__caret-button {
-        &:last-child {
-          @include mixins.responsive-styles(
-            padding-right,
-            side-navigation-item-padding-right
-          );
-        }
-      }
-    }
-
-    tedi-sidenav-dropdown {
-      tedi-sidenav-dropdown-item {
-        display: block;
-        min-height: 48px;
-      }
-    }
-  }
-}
-
-.tedi-sidenav {
-  &:not(&--collapsible) {
-    .tedi-sidenav-item {
-      .tedi-sidenav-item__trigger {
-        .tedi-sidenav-item__text {
-          animation: enable-wrap 0s 300ms forwards;
-        }
-      }
+    &:hover {
+      background: var(--side-navigation-item-background-hover);
     }
   }
 }
