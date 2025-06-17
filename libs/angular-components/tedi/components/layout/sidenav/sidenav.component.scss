@@ -11,9 +11,8 @@
     ) /
     2;
 
-  --_sidenav-width-desktop: 15rem;
-  --_sidenav-width-mobile: 70vw;
-
+  --_sidenav-dropdown-collapsed-min-width: 16.5rem;
+  --_sidenav-dropdown-collapsed-left: 4px;
   --_sidenav-dropdown-item-large-height: 48px;
   --_sidenav-dropdown-item-medium-height: 44px;
   --_sidenav-dropdown-item-small-height: 36px;
@@ -26,22 +25,13 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  width: var(--_sidenav-width-mobile);
-  height: 100%;
-  min-width: 20rem;
-  max-width: 25rem;
+  max-width: 100%;
   min-height: 100%;
-  margin: 0;
   background-color: var(--side-navigation-item-background-default);
   transition: all var(--_sidenav-transition-duration) ease;
   z-index: var(--z-index-sidenav);
 
-  @include breakpoints.media-breakpoint-up(lg) {
-    width: var(--_sidenav-width-desktop);
-    min-width: 0;
-    max-width: none;
-    min-height: auto;
-  }
+  @include mixins.responsive-styles(width, side-navigation-item-width-default);
 
   &__collapse {
     position: absolute;
@@ -56,6 +46,12 @@
     background: var(--button-floating-secondary-background-default);
     z-index: var(--z-index-sidenav);
     cursor: pointer;
+
+    @include mixins.responsive-styles(top, side-navigation-item-padding-y);
+    @include mixins.responsive-styles(width, button-sm-height);
+    @include mixins.responsive-styles(height, button-sm-height);
+    @include mixins.responsive-styles(padding, button-md-icon-padding);
+    @include mixins.responsive-styles(border-radius, button-radius-default);
 
     &:hover {
       color: var(--button-floating-secondary-text-hover);
@@ -73,23 +69,12 @@
 
     &:focus-visible {
       outline: var(--borders-02) solid var(--primary-500);
-      outline-offset: 1px;
-    }
-
-    @include mixins.responsive-styles(top, side-navigation-item-padding-y);
-    @include mixins.responsive-styles(width, button-sm-height);
-    @include mixins.responsive-styles(height, button-sm-height);
-    @include mixins.responsive-styles(padding, button-md-icon-padding);
-    @include mixins.responsive-styles(border-radius, button-radius-default);
-
-    @include breakpoints.media-breakpoint-down(lg) {
-      display: none;
+      outline-offset: var(--borders-01);
     }
   }
 
   &--large {
     --_sidenav-dropdown-item-height: var(--_sidenav-dropdown-item-large-height);
-    --_sidenav-item-icon-size: var(--size-05);
 
     @include mixins.responsive-styles(
       --_sidenav-item-min-height,
@@ -116,13 +101,20 @@
       --_sidenav-item-padding-left,
       side-navigation-item-padding-left-level-1
     );
+    @include mixins.responsive-styles(
+      --_sidenav-item-icon-size,
+      side-navigation-item-icon
+    );
+    @include mixins.responsive-styles(
+      --_sidenav-item-caret-size,
+      side-navigation-item-icon
+    );
   }
 
   &--medium {
     --_sidenav-dropdown-item-height: var(
       --_sidenav-dropdown-item-medium-height
     );
-    --_sidenav-item-icon-size: var(--size-05);
 
     @include mixins.responsive-styles(
       --_sidenav-item-min-height,
@@ -149,11 +141,18 @@
       --_sidenav-item-padding-left,
       side-navigation-item-padding-left-level-1
     );
+    @include mixins.responsive-styles(
+      --_sidenav-item-icon-size,
+      side-navigation-item-icon-md
+    );
+    @include mixins.responsive-styles(
+      --_sidenav-item-caret-size,
+      side-navigation-item-icon-md
+    );
   }
 
   &--small {
     --_sidenav-dropdown-item-height: var(--_sidenav-dropdown-item-small-height);
-    --_sidenav-item-icon-size: var(--size-03);
 
     @include mixins.responsive-styles(
       --_sidenav-item-min-height,
@@ -179,6 +178,14 @@
     @include mixins.responsive-styles(
       --_sidenav-item-padding-left,
       side-navigation-item-padding-left-level-1
+    );
+    @include mixins.responsive-styles(
+      --_sidenav-item-icon-size,
+      side-navigation-item-icon-sm
+    );
+    @include mixins.responsive-styles(
+      --_sidenav-item-caret-size,
+      side-navigation-item-icon-sm
     );
   }
 
@@ -215,6 +222,15 @@
   }
 
   &--collapsed {
+    @include mixins.responsive-styles(
+      --_sidenav-item-icon-size,
+      side-navigation-item-icon
+    );
+    @include mixins.responsive-styles(
+      --_sidenav-item-caret-size,
+      side-navigation-item-icon-sm
+    );
+
     @include mixins.responsive-styles(
       width,
       side-navigation-item-width-collapsed
@@ -260,7 +276,8 @@
     }
 
     .tedi-sidenav-group-title {
-      border-bottom: var(--borders-01) solid white;
+      border-bottom: var(--borders-01) solid
+        var(--side-navigation-group-title-text);
 
       .tedi-sidenav-group-title__text {
         display: none;
@@ -268,13 +285,13 @@
     }
 
     .tedi-sidenav-dropdown {
-      min-width: 16.5rem;
+      min-width: var(--_sidenav-dropdown-collapsed-min-width);
       position: absolute;
       top: 0;
-      left: calc(100% + 4px);
+      left: calc(100% + var(--_sidenav-dropdown-collapsed-left));
       background: var(--dropdown-item-default-background);
       border: var(--borders-01) solid var(--card-border-primary);
-      box-shadow: 0px 1px 5px 0px var(--alpha-20, rgba(0, 0, 0, 0.2));
+      box-shadow: 0px 1px 5px 0px var(--alpha-20);
       transition: none;
       visibility: hidden;
 
@@ -289,16 +306,15 @@
 
         .tedi-sidenav-group-title__text {
           display: block;
-          color: var(--general-text-tertiary, #5d6071);
-          font-feature-settings:
-            "liga" off,
-            "clig" off;
-          font-family: Roboto;
+          color: var(--general-text-tertiary);
           font-size: 14px;
-          font-style: normal;
-          font-weight: 700;
-          line-height: 20px; /* 142.857% */
-          text-transform: uppercase;
+          line-height: 20px;
+
+          @include mixins.responsive-styles(
+            padding,
+            dropdown-group-label-padding-y dropdown-group-label-padding-x
+              layout-grid-gutters-04 dropdown-group-label-padding-x
+          );
         }
       }
     }
@@ -312,11 +328,7 @@
         background-color: var(--dropdown-item-hover-background);
       }
 
-      @include mixins.responsive-styles(
-        --_padding-left,
-        dropdown-item-padding-x
-      );
-
+      @include mixins.responsive-styles(padding-left, dropdown-item-padding-x);
       @include mixins.responsive-styles(--_gap, dropdown-item-inner-spacing);
 
       &::before,
@@ -395,6 +407,9 @@
     &:hover {
       background: var(--side-navigation-item-background-hover);
     }
-    // --_sidenav-item-icon-size: var(--size-05);
+
+    tedi-icon {
+      font-size: var(--_sidenav-item-icon-size);
+    }
   }
 }

@@ -1,4 +1,4 @@
-@if (collapsible()) {
+@if (!isMobile() && collapsible()) {
   <button
     class="tedi-sidenav__collapse"
     (click)="handleCollapse()"
