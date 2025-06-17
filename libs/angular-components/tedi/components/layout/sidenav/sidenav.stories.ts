@@ -31,107 +31,93 @@ export const Default: StoryObj<SideNavComponent> = {
     props: args,
     template: `
         <div style="height: 1024px;">
-            <nav tedi-sidenav size="large">
-                <tedi-sidenav-item icon="dashboard" [selected]="true">
-                  Selected text
+            <nav tedi-sidenav>
+                <tedi-sidenav-item icon="home" href="#">
+                  Home
+                </tedi-sidenav-item>
+                <tedi-sidenav-item icon="account_box" href="#">
+                  Clients
+                </tedi-sidenav-item>
+                <tedi-sidenav-group-title>Group title</tedi-sidenav-group-title>
+                <tedi-sidenav-item icon="child_care">
+                  Children
                   <tedi-sidenav-dropdown>
                     <tedi-sidenav-dropdown-item>
                       First item
                     </tedi-sidenav-dropdown-item>
-                    <tedi-sidenav-dropdown-item [selected]="true">
+                    <tedi-sidenav-dropdown-item>
+                      Second item
+                    </tedi-sidenav-dropdown-item>
+                    <tedi-sidenav-dropdown-group>
+                      <tedi-sidenav-dropdown-item>
+                        First item
+                      </tedi-sidenav-dropdown-item>
+                      <tedi-sidenav-dropdown-item>
+                        Second item
+                      </tedi-sidenav-dropdown-item>
+                      <tedi-sidenav-dropdown-item>
+                        Third item
+                      </tedi-sidenav-dropdown-item>
+                    </tedi-sidenav-dropdown-group>
+                    <tedi-sidenav-dropdown-group>
+                      <tedi-sidenav-dropdown-item>
+                        First item
+                      </tedi-sidenav-dropdown-item>
+                      <tedi-sidenav-dropdown-item>
+                        Second item
+                      </tedi-sidenav-dropdown-item>
+                      <tedi-sidenav-dropdown-item>
+                        Third item
+                      </tedi-sidenav-dropdown-item>
+                    </tedi-sidenav-dropdown-group>
+                  </tedi-sidenav-dropdown>
+                </tedi-sidenav-item>
+                <tedi-sidenav-item icon="assignment" href="#">
+                  This item is a link, but also has a dropdown
+                  <tedi-sidenav-dropdown>
+                    <tedi-sidenav-dropdown-group>
+                      <tedi-sidenav-dropdown-item href="#">
+                        First item
+                      </tedi-sidenav-dropdown-item>
+                      <tedi-sidenav-dropdown-item href="#">
+                        Second item
+                      </tedi-sidenav-dropdown-item>
+                    </tedi-sidenav-dropdown-group>
+                    <tedi-sidenav-dropdown-group>
+                      <tedi-sidenav-dropdown-item href="#">
+                        Third item
+                      </tedi-sidenav-dropdown-item>
+                      <tedi-sidenav-dropdown-item href="#">
+                        Fourth item
+                      </tedi-sidenav-dropdown-item>
+                      <tedi-sidenav-dropdown-item href="#">
+                        Fifth item
+                      </tedi-sidenav-dropdown-item>
+                    </tedi-sidenav-dropdown-group>
+                  </tedi-sidenav-dropdown>
+                </tedi-sidenav-item>
+                <tedi-sidenav-item icon="payments" routerLink="#" [selected]="true">
+                  This is a router link
+                </tedi-sidenav-item>
+                <tedi-sidenav-item icon="inventory">
+                  This item has dropdown with group titles
+                  <tedi-sidenav-dropdown>
+                    <tedi-sidenav-group-title>First title</tedi-sidenav-group-title>
+                    <tedi-sidenav-dropdown-item>
+                      First item
+                    </tedi-sidenav-dropdown-item>
+                    <tedi-sidenav-dropdown-item>
                       Second item
                     </tedi-sidenav-dropdown-item>
                     <tedi-sidenav-dropdown-item>
                       Third item
                     </tedi-sidenav-dropdown-item>
+                    <tedi-sidenav-group-title>Second title</tedi-sidenav-group-title>
                     <tedi-sidenav-dropdown-item>
                       Fourth item
                     </tedi-sidenav-dropdown-item>
                     <tedi-sidenav-dropdown-item>
                       Fifth item
-                    </tedi-sidenav-dropdown-item>
-                  </tedi-sidenav-dropdown>
-                </tedi-sidenav-item>
-                <tedi-sidenav-item icon="dashboard">
-                  Normal text
-                </tedi-sidenav-item>
-                <tedi-sidenav-item icon="dashboard" [selected]="true">
-                  Nested dropdown
-                  <tedi-sidenav-dropdown>
-                    <tedi-sidenav-group-title>Items</tedi-sidenav-group-title>
-                    <tedi-sidenav-dropdown-item>
-                      First item
-                    </tedi-sidenav-dropdown-item>
-                    <tedi-sidenav-dropdown-item>
-                      Second item
-                    </tedi-sidenav-dropdown-item>
-                    <tedi-sidenav-dropdown-group>
-                      <tedi-sidenav-dropdown-item>
-                        First item
-                      </tedi-sidenav-dropdown-item>
-                      <tedi-sidenav-dropdown-item>
-                        Second item
-                      </tedi-sidenav-dropdown-item>
-                      <tedi-sidenav-dropdown-item>
-                        Third item
-                      </tedi-sidenav-dropdown-item>
-                    </tedi-sidenav-dropdown-group>
-                    <tedi-sidenav-dropdown-group>
-                      <tedi-sidenav-dropdown-item>
-                        First item
-                      </tedi-sidenav-dropdown-item>
-                      <tedi-sidenav-dropdown-item>
-                        Second item
-                      </tedi-sidenav-dropdown-item>
-                      <tedi-sidenav-dropdown-item>
-                        Third item
-                      </tedi-sidenav-dropdown-item>
-                    </tedi-sidenav-dropdown-group>
-                  </tedi-sidenav-dropdown>
-                </tedi-sidenav-item>
-                <tedi-sidenav-group-title>Links</tedi-sidenav-group-title>
-                <tedi-sidenav-item icon="dashboard" href="/asd">
-                  External link
-                </tedi-sidenav-item>
-                <tedi-sidenav-item icon="dashboard" href="/asd">
-                  External link dropdown
-                  <tedi-sidenav-dropdown>
-                    <tedi-sidenav-dropdown-group>
-                      <tedi-sidenav-dropdown-item>
-                        Sub item
-                      </tedi-sidenav-dropdown-item>
-                      <tedi-sidenav-dropdown-item>
-                        Sub item
-                      </tedi-sidenav-dropdown-item>
-                      <tedi-sidenav-dropdown-item>
-                        Sub item
-                      </tedi-sidenav-dropdown-item>
-                      <tedi-sidenav-dropdown-item>
-                        Sub item
-                      </tedi-sidenav-dropdown-item>
-                    </tedi-sidenav-dropdown-group>
-                  </tedi-sidenav-dropdown>
-                </tedi-sidenav-item>
-                <tedi-sidenav-item icon="dashboard" routerLink="/test">
-                  Router link
-                </tedi-sidenav-item>
-                <tedi-sidenav-item icon="dashboard" routerLink="/test">
-                  Router link dropdown
-                  <tedi-sidenav-dropdown>
-                    <tedi-sidenav-dropdown-item>
-                      Sub item
-                    </tedi-sidenav-dropdown-item>
-                    <tedi-sidenav-dropdown-item>
-                      Sub item
-                    </tedi-sidenav-dropdown-item>
-                    <tedi-sidenav-dropdown-item>
-                      Sub item
-                    </tedi-sidenav-dropdown-item>
-                    <tedi-sidenav-dropdown-item>
-                      Sub item
-                    </tedi-sidenav-dropdown-item>
-                    <tedi-sidenav-dropdown-item>
-                      Sub item
                     </tedi-sidenav-dropdown-item>
                   </tedi-sidenav-dropdown>
                 </tedi-sidenav-item>
