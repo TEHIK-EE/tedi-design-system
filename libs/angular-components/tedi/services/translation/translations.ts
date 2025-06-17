@@ -485,6 +485,20 @@ export const translationsMap = {
     en: (count: string | number) => `Updated. New value ${count}`,
     ru: (count: string | number) => `Ууэндатуд. Уус вяэртус ${count}`,
   },
+  "sidenav.backToMainMenu": {
+    description: "Side navigation label",
+    components: ["Sidenav"],
+    et: "Tagasi peamenüüsse",
+    en: "Back to main menu",
+    ru: "Назад в главное меню",
+  },
+  "sidenav.backtoMenu": {
+    description: "Side navigation label",
+    components: ["Sidenav"],
+    et: "menüüsse",
+    en: "menu",
+    ru: "меню",
+  },
 };
 
 export type TediTranslationsMap<L extends Language> = {

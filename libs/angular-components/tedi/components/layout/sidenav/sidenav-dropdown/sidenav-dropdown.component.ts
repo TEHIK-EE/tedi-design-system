@@ -16,7 +16,7 @@ import { SideNavComponent } from "../sidenav.component";
   selector: "tedi-sidenav-dropdown",
   standalone: true,
   templateUrl: "./sidenav-dropdown.component.html",
-  styleUrl: "../sidenav.component.scss",
+  styleUrl: "./sidenav-dropdown.component.scss",
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
   imports: [SideNavDropdownItemComponent],

@@ -1,4 +1,4 @@
-import { Injectable, InputSignal, signal } from "@angular/core";
+import { computed, Injectable, InputSignal, signal } from "@angular/core";
 import { BreakpointObserver } from "@angular/cdk/layout";
 
 export const BREAKPOINTS = {
@@ -52,8 +52,10 @@ export class BreakpointService {
       });
   }
 
-  get currentBreakpoint(): Breakpoint | undefined {
-    return this._currentBreakpoint();
+  currentBreakpoint() {
+    return computed(() => {
+      return this._currentBreakpoint();
+    });
   }
 
   getBreakpointInputs<TInputs>(
@@ -86,14 +88,16 @@ export class BreakpointService {
     return resolvedInputs as TInputs;
   }
 
-  isBelowBreakpoint(breakpoint: Breakpoint): boolean {
-    const current = this._currentBreakpoint();
+  isBelowBreakpoint(breakpoint: Breakpoint) {
+    return computed(() => {
+      const current = this._currentBreakpoint();
 
-    if (!current) return true;
+      if (!current) return true;
 
-    const currentIndex = breakpointsOrder.indexOf(current);
-    const targetIndex = breakpointsOrder.indexOf(breakpoint);
+      const currentIndex = breakpointsOrder.indexOf(current);
+      const targetIndex = breakpointsOrder.indexOf(breakpoint);
 
-    return currentIndex < targetIndex;
+      return currentIndex < targetIndex;
+    });
   }
 }

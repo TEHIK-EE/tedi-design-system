@@ -10,4 +10,10 @@
     />
   </button>
 }
+@if (isMobileMenuOpen()) {
+  <button class="tedi-sidenav-back" (click)="handleMainMenu()">
+    <tedi-icon name="arrow_back" color="white" />
+    {{ "sidenav.backToMainMenu" | tediTranslate }}
+  </button>
+}
 <ng-content></ng-content>
