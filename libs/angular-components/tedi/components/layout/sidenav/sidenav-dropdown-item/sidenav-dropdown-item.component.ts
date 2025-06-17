@@ -12,7 +12,7 @@ import { RouterLink } from "@angular/router";
   selector: "tedi-sidenav-dropdown-item",
   standalone: true,
   templateUrl: "./sidenav-dropdown-item.component.html",
-  styleUrl: "../sidenav.component.scss",
+  styleUrl: "./sidenav-dropdown-item.component.scss",
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
   imports: [RouterLink, NgTemplateOutlet],

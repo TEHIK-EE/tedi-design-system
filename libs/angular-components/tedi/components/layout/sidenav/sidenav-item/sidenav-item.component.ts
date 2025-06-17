@@ -25,7 +25,7 @@ import { SideNavService } from "../../../../services/sidenav/sidenav.service";
   selector: "tedi-sidenav-item",
   standalone: true,
   templateUrl: "./sidenav-item.component.html",
-  styleUrl: "../sidenav.component.scss",
+  styleUrl: "./sidenav-item.component.scss",
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
   imports: [
@@ -135,7 +135,6 @@ export class SideNavItemComponent
       return;
     }
 
-    this.hasDropdown.set(true);
     this.eventListeners.push(
       this.renderer.listen("document", "click", (event: MouseEvent) => {
         if (this.sidenav.isCollapsed()) {
@@ -152,10 +151,7 @@ export class SideNavItemComponent
   }
 
   classes = computed(() => {
-    const classList = [
-      "tedi-sidenav-item",
-      `tedi-sidenav-item--${this.sidenav.size()}`,
-    ];
+    const classList = ["tedi-sidenav-item"];
 
     if (this.selected()) {
       classList.push("tedi-sidenav-item--selected");

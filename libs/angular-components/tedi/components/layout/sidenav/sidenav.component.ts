@@ -45,8 +45,19 @@ export class SideNavComponent {
 
   sidenavService = inject(SideNavService);
 
+  handleMainMenu() {
+    this.sidenavItems().forEach((item) => item.dropdown?.open.set(false));
+  }
+
+  isMobileMenuOpen = computed(() => {
+    return (
+      this.isMobile() &&
+      this.sidenavItems().some((item) => item.dropdown?.open())
+    );
+  });
+
   classes = computed(() => {
-    const classList = [`tedi-sidenav--${this.size()}`];
+    const classList = ["tedi-sidenav", `tedi-sidenav--${this.size()}`];
 
     if (this.dividers()) {
       classList.push("tedi-sidenav--dividers");
