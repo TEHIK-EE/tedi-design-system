@@ -3,7 +3,7 @@
     &:first-of-type {
       &::before {
         top: 50%;
-        transform: translateY(-50%) translateX(calc(-50% + 1px));
+        transform: translateY(-50%) translateX(calc(-50% + var(--borders-01)));
         width: var(--_sidenav-tree-bullet-size);
         height: var(--_sidenav-tree-bullet-size);
         border-radius: 50%;
@@ -16,7 +16,7 @@
       &:not(:only-child) {
         &::after {
           top: 50%;
-          width: 2px;
+          width: var(--_sidenav-tree-trunk-width);
           height: 50%;
           transform: translateY(0);
         }
