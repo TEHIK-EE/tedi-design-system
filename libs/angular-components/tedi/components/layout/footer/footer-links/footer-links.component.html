@@ -21,6 +21,9 @@
     </strong>
   }
   <div
+    [class.tedi-footer-links__content-hidden]="
+      applyCollapse() && !collapseOpen()
+    "
     [@collapseContent]="
       applyCollapse() ? (collapseOpen() ? 'expanded' : 'collapsed') : 'expanded'
     "

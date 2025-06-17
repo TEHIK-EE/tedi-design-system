@@ -38,9 +38,7 @@ import { BreakpointService } from "../../../../services/breakpoint/breakpoint.se
         style({
           height: "0",
           opacity: 0,
-          overflow: "hidden",
           visibility: "hidden",
-          display: "none",
         }),
       ),
       state(
@@ -48,7 +46,6 @@ import { BreakpointService } from "../../../../services/breakpoint/breakpoint.se
         style({
           height: "*",
           opacity: 1,
-          overflow: "visible",
           visibility: "visible",
         }),
       ),
