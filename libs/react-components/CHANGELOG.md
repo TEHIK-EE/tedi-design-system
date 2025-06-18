@@ -1,4 +1,9 @@
-# [@tehik-ee/tedi-react-v13.0.0-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/react-12.1.0-rc.1...react-13.0.0-rc.1) (2025-06-13)
+# [@tehik-ee/tedi-react-v13.0.0-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/react-12.1.0-rc.1...react-13.0.0-rc.1) (2025-06-18)
+
+
+### Bug Fixes
+
+* **react:** fix changelog [#820](https://github.com/TEHIK-EE/tedi-design-system/issues/820) ([083d487](https://github.com/TEHIK-EE/tedi-design-system/commit/083d487fa8b5e678cd86fd99dcec4716c75e4533))
 
 
 ### Features
