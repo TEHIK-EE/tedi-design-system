@@ -492,12 +492,12 @@ export const translationsMap = {
     en: "Back to main menu",
     ru: "Назад в главное меню",
   },
-  "sidenav.backtoMenu": {
-    description: "Side navigation label",
+  "sidenav.toggle": {
+    description: "Label for sidenav toggle on mobile",
     components: ["Sidenav"],
-    et: "menüüsse",
-    en: "menu",
-    ru: "меню",
+    et: (isOpen: boolean) => (isOpen ? "Sulge menüü" : "Ava menüü"),
+    en: (isOpen: boolean) => (isOpen ? "Close menu" : "Open menu"),
+    ru: (isOpen: boolean) => (isOpen ? "Закрыть меню" : "Открыть меню"),
   },
 };
 

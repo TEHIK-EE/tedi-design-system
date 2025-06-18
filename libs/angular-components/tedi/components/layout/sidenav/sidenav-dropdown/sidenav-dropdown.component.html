@@ -1,12 +1,12 @@
 <div class="tedi-sidenav-dropdown__items">
-  @if (sidenav.isCollapsed() && !!sidenavItem.href()) {
+  @if (sidenavService.isCollapsed() && !!sidenavItem.href()) {
     <tedi-sidenav-dropdown-item
       class="tedi-sidenav-dropdown-item--parent"
       [href]="sidenavItem.href()"
     >
       {{ sidenavItem.textContent() }}
     </tedi-sidenav-dropdown-item>
-  } @else if (sidenav.isCollapsed() && !!sidenavItem.routerLink()) {
+  } @else if (sidenavService.isCollapsed() && !!sidenavItem.routerLink()) {
     <tedi-sidenav-dropdown-item
       class="tedi-sidenav-dropdown-item--parent"
       [routerLink]="sidenavItem.routerLink()"
