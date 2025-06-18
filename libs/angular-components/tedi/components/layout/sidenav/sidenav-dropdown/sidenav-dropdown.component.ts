@@ -10,7 +10,7 @@ import {
 } from "@angular/core";
 import { SideNavDropdownItemComponent } from "../sidenav-dropdown-item/sidenav-dropdown-item.component";
 import { SideNavItemComponent } from "../sidenav-item/sidenav-item.component";
-import { SideNavComponent } from "../sidenav.component";
+import { SideNavService } from "../../../../services/sidenav/sidenav.service";
 
 @Component({
   selector: "tedi-sidenav-dropdown",
@@ -29,7 +29,7 @@ export class SideNavDropdownComponent implements AfterContentInit {
 
   open = signal(false);
   element = signal<HTMLElement | null>(null);
-  sidenav = inject(SideNavComponent, { host: true });
+  sidenavService = inject(SideNavService);
   sidenavItem = inject(SideNavItemComponent, { host: true });
 
   ngAfterContentInit(): void {

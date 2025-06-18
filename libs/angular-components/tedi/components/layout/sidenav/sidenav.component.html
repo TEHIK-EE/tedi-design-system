@@ -1,17 +1,22 @@
-@if (!isMobile() && collapsible()) {
+@if (!sidenavService.isMobile() && collapsible()) {
   <button
     class="tedi-sidenav__collapse"
-    (click)="handleCollapse()"
-    [attr.aria-label]="'toggle' | tediTranslate: !isCollapsed()"
+    (click)="sidenavService.handleCollapse()"
+    [attr.aria-label]="'toggle' | tediTranslate: !sidenavService.isCollapsed()"
   >
     <tedi-icon
-      [name]="isCollapsed() ? 'left_panel_open' : 'right_panel_open'"
+      [name]="
+        sidenavService.isCollapsed() ? 'left_panel_open' : 'right_panel_open'
+      "
       color="inherit"
     />
   </button>
 }
-@if (isMobileMenuOpen()) {
-  <button class="tedi-sidenav-back" (click)="handleMainMenu()">
+@if (sidenavService.isMobileItemOpen()) {
+  <button
+    class="tedi-sidenav-back"
+    (click)="sidenavService.handleGoToMainMenu()"
+  >
     <tedi-icon name="arrow_back" color="white" />
     {{ "sidenav.backToMainMenu" | tediTranslate }}
   </button>

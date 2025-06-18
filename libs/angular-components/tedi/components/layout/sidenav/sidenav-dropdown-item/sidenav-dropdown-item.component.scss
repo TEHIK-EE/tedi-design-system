@@ -38,6 +38,8 @@
 
   &--selected {
     background: var(--side-navigation-item-background-active);
+
+    @include mixins.responsive-styles(font-weight, body-bold-weight);
   }
 
   &::before {

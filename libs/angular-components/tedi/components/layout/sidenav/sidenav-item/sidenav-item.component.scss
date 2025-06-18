@@ -15,6 +15,10 @@
     .tedi-sidenav-item__trigger {
       background: var(--side-navigation-item-background-active);
     }
+
+    .tedi-sidenav-item__text {
+      @include mixins.responsive-styles(font-weight, body-bold-weight);
+    }
   }
 
   &__trigger {

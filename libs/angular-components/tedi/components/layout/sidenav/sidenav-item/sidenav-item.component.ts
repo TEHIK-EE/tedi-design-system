@@ -7,6 +7,8 @@ import {
   ElementRef,
   inject,
   input,
+  OnDestroy,
+  OnInit,
   Renderer2,
   signal,
   ViewEncapsulation,
@@ -15,8 +17,8 @@ import { IconComponent } from "../../../base/icon/icon.component";
 import { RouterLink } from "@angular/router";
 import { NgIf, NgTemplateOutlet } from "@angular/common";
 import { SideNavDropdownComponent } from "../sidenav-dropdown/sidenav-dropdown.component";
-import { SideNavComponent } from "../sidenav.component";
 import { SideNavGroupTitleComponent } from "../sidenav-group-title/sidenav-group-title.component";
+import { SideNavService } from "../../../../services/sidenav/sidenav.service";
 
 @Component({
   selector: "tedi-sidenav-item",
@@ -36,7 +38,7 @@ import { SideNavGroupTitleComponent } from "../sidenav-group-title/sidenav-group
     "[class]": "classes()",
   },
 })
-export class SideNavItemComponent implements AfterViewInit {
+export class SideNavItemComponent implements AfterViewInit, OnInit, OnDestroy {
   /**
    * Is navigation item selected
    * @default false
@@ -59,10 +61,18 @@ export class SideNavItemComponent implements AfterViewInit {
 
   textContent = signal("");
 
+  sidenavService = inject(SideNavService);
   private readonly host = inject(ElementRef);
   private readonly renderer = inject(Renderer2);
   private readonly eventListeners: (() => void)[] = [];
-  private sidenav = inject(SideNavComponent, { host: true });
+
+  ngOnInit() {
+    this.sidenavService.registerItem(this);
+  }
+
+  ngOnDestroy() {
+    this.sidenavService.unregisterItem(this);
+  }
 
   ngAfterViewInit(): void {
     const dropdown = this.dropdown;
@@ -82,7 +92,7 @@ export class SideNavItemComponent implements AfterViewInit {
 
     this.eventListeners.push(
       this.renderer.listen("document", "click", (event: MouseEvent) => {
-        if (this.sidenav.isCollapsed()) {
+        if (this.sidenavService.isCollapsed()) {
           const target = event.target as HTMLElement;
           const clickedInsideDropdown = dropdown.element()?.contains(target);
           const clickedInsideTrigger = this.host.nativeElement.contains(target);
@@ -102,7 +112,7 @@ export class SideNavItemComponent implements AfterViewInit {
       classList.push("tedi-sidenav-item--selected");
     }
 
-    if (this.sidenav.isMobileMenuOpen() && !this.dropdown?.open()) {
+    if (this.sidenavService.isMobileItemOpen() && !this.dropdown?.open()) {
       classList.push("tedi-sidenav-item--hidden");
     }
 
