@@ -1,13 +1,13 @@
 @if (icon() && hideIcon()) {
-  <tedi-icon class="tedi-footer-links__icon" [name]="icon()!" color="white" />
+  <tedi-icon class="tedi-footer-section__icon" [name]="icon()!" color="white" />
 }
 
 <div
-  class="tedi-footer-links__container"
-  [class.tedi-footer-links__container--mobile]="mobileLayout()"
+  class="tedi-footer-section__container"
+  [class.tedi-footer-section__container--mobile]="mobileLayout()"
 >
   @if (applyCollapse()) {
-    <button class="tedi-footer-links__button" (click)="toggleCollapse()">
+    <button class="tedi-footer-section__button" (click)="toggleCollapse()">
       {{ heading() }}
       <tedi-icon
         class="collapse__icon"
@@ -16,18 +16,18 @@
       />
     </button>
   } @else {
-    <strong tedi-text class="tedi-footer-links__heading" color="white">
+    <strong tedi-text class="tedi-footer-section__heading" color="white">
       {{ heading() }}
     </strong>
   }
   <div
-    [class.tedi-footer-links__content-hidden]="
+    [class.tedi-footer-section__content-hidden]="
       applyCollapse() && !collapseOpen()
     "
     [@collapseContent]="
       applyCollapse() ? (collapseOpen() ? 'expanded' : 'collapsed') : 'expanded'
     "
-    class="tedi-footer-links__content"
+    class="tedi-footer-section__content"
   >
     <ng-content></ng-content>
   </div>

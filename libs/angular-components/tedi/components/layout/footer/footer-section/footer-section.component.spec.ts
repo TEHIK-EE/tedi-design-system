@@ -1,12 +1,12 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
-import { FooterLinksComponent } from "./footer-links.component";
+import { FooterSectionComponent } from "./footer-section.component";
 import { BreakpointService } from "../../../../services/breakpoint/breakpoint.service";
 import { provideNoopAnimations } from "@angular/platform-browser/animations";
 import { signal } from "@angular/core";
 
-describe("FooterLinksComponent", () => {
-  let component: FooterLinksComponent;
-  let fixture: ComponentFixture<FooterLinksComponent>;
+describe("FooterSectionComponent", () => {
+  let component: FooterSectionComponent;
+  let fixture: ComponentFixture<FooterSectionComponent>;
   let mockBreakpointService: { isBelowBreakpoint: jest.Mock };
 
   beforeEach(async () => {
@@ -15,7 +15,7 @@ describe("FooterLinksComponent", () => {
     };
 
     await TestBed.configureTestingModule({
-      imports: [FooterLinksComponent],
+      imports: [FooterSectionComponent],
       providers: [
         {
           provide: BreakpointService,
@@ -25,7 +25,7 @@ describe("FooterLinksComponent", () => {
       ],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(FooterLinksComponent);
+    fixture = TestBed.createComponent(FooterSectionComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

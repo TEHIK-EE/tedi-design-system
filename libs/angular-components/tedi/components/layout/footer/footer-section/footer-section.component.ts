@@ -15,21 +15,21 @@ import {
   animate,
 } from "@angular/animations";
 
-import { TextComponent } from "../../../../components/base/text/text.component";
-import { IconComponent } from "../../../../components/base/icon/icon.component";
+import { TextComponent } from "../../../base/text/text.component";
+import { IconComponent } from "../../../base/icon/icon.component";
 import { BreakpointService } from "../../../../services/breakpoint/breakpoint.service";
 
 @Component({
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
-  selector: "tedi-footer-links",
+  selector: "tedi-footer-section",
   imports: [IconComponent, TextComponent],
-  templateUrl: "./footer-links.component.html",
-  styleUrl: "./footer-links.component.scss",
+  templateUrl: "./footer-section.component.html",
+  styleUrl: "./footer-section.component.scss",
   host: {
-    class: "tedi-footer-links",
-    "[class.tedi-footer-links--collapse]": "applyCollapse()",
+    class: "tedi-footer-section",
+    "[class.tedi-footer-section--collapse]": "applyCollapse()",
   },
   animations: [
     trigger("collapseContent", [
@@ -53,7 +53,7 @@ import { BreakpointService } from "../../../../services/breakpoint/breakpoint.se
     ]),
   ],
 })
-export class FooterLinksComponent {
+export class FooterSectionComponent {
   /**
    * Specifies the icon to be displayed in the footer links.
    */
