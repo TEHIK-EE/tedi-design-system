@@ -18,21 +18,22 @@
     width: 100%;
     padding: 16px 16px 0 16px;
   }
-}
 
-.tedi-footer-side--start {
-  padding-left: var(--layout-footer-padding-x, 40px);
+  &--start {
+    padding-left: var(--layout-footer-padding-x, 40px);
 
-  &.tedi-footer-side--mobile {
-    width: 100%;
-    padding: 16px 16px 0 16px;
+    &.tedi-footer-side--mobile {
+      width: 100%;
+      padding: 16px 16px 0 16px;
+    }
   }
-}
 
-.tedi-footer-side--end {
-  padding-right: var(--layout-footer-padding-x, 40px);
-  &.tedi-footer-side--mobile {
-    width: 100%;
-    padding: 0 16px 16px 16px;
+  &--end {
+    padding-right: var(--layout-footer-padding-x, 40px);
+
+    &.tedi-footer-side--mobile {
+      width: 100%;
+      padding: 0 16px 16px 16px;
+    }
   }
 }

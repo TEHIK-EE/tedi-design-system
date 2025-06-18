@@ -24,8 +24,8 @@
   }
 
   .tedi-footer-links__container {
-    @include footer-links;
     padding-bottom: 0.75rem;
+    @include footer-links;
 
     .tedi-footer-links__content {
       @include footer-links;
