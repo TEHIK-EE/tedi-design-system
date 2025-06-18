@@ -117,7 +117,14 @@ export class SideNavItemComponent
   private readonly host = inject(ElementRef);
   private readonly renderer = inject(Renderer2);
   private readonly eventListeners: (() => void)[] = [];
-  private sidenav = inject(SideNavComponent, { host: true });
+
+  ngOnInit() {
+    this.sidenavService.registerItem(this);
+  }
+
+  ngOnDestroy() {
+    this.sidenavService.unregisterItem(this);
+  }
 
   ngAfterViewInit(): void {
     const dropdown = this.dropdown;
@@ -137,7 +144,7 @@ export class SideNavItemComponent
 
     this.eventListeners.push(
       this.renderer.listen("document", "click", (event: MouseEvent) => {
-        if (this.sidenav.isCollapsed()) {
+        if (this.sidenavService.isCollapsed()) {
           const target = event.target as HTMLElement;
           const clickedInsideDropdown = dropdown.element()?.contains(target);
           const clickedInsideTrigger = this.host.nativeElement.contains(target);

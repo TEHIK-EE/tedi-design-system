@@ -650,9 +650,14 @@
       .tedi-sidenav-dropdown {
         transition: none;
       }
+
+      .tedi-sidenav-item__text {
+        white-space: wrap;
+        animation: none;
+      }
     }
 
-    &-open {
+    &-item-open {
       .tedi-sidenav-group-title {
         display: none;
       }
