@@ -833,10 +833,8 @@
   --side-navigation-item-min-height-mobile: 56px;
   --side-navigation-item-min-height-rem-mobile: 3.5rem;
   --side-navigation-item-width-default-desktop: 240px;
-  --side-navigation-item-width-default-rem-desktop: 15rem;
-  --side-navigation-item-width-default-tablet: 400;
+  --side-navigation-item-width-default-tablet: 400px;
   --side-navigation-item-width-default-mobile: 320px;
-  --side-navigation-item-width-default-rem-mobile: 20rem;
   --side-navigation-text-size-desktop: var(--body-regular-size-desktop);
   --side-navigation-text-size-tablet: var(--body-regular-size-tablet);
   --side-navigation-text-size-mobile: var(--body-regular-size-mobile);
@@ -868,11 +866,8 @@
   --side-navigation-item-icon-md-tablet: var(--icon-05-tablet);
   --side-navigation-item-icon-md-mobile: var(--icon-05-mobile);
   --side-navigation-item-width-collapsed-desktop: 96px;
-  --side-navigation-item-width-collapsed-rem-desktop: 6rem;
   --side-navigation-item-width-collapsed-tablet: 96px;
-  --side-navigation-item-width-collapsed-rem-tablet: 6rem;
   --side-navigation-item-width-collapsed-mobile: 96px;
-  --side-navigation-item-width-collapsed-rem-mobile: 6rem;
   --side-navigation-item-padding-x-sm-desktop: var(--dimensions-05);
   --side-navigation-item-padding-x-sm-tablet: var(--dimensions-05);
   --side-navigation-item-padding-x-sm-mobile: var(--dimensions-05);
