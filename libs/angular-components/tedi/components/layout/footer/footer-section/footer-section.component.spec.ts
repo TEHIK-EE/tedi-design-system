@@ -56,7 +56,7 @@ describe("FooterSectionComponent", () => {
     fixture.detectChanges();
 
     const iconElement = fixture.nativeElement.querySelector(
-      ".tedi-footer-links__icon",
+      ".tedi-footer-section__icon",
     );
     expect(iconElement).toBeTruthy();
     expect(component.icon()).toBe("test-icon");
@@ -68,7 +68,7 @@ describe("FooterSectionComponent", () => {
     fixture.detectChanges();
 
     const iconElement = fixture.nativeElement.querySelector(
-      ".tedi-footer-links__icon",
+      ".tedi-footer-section__icon",
     );
     expect(iconElement).toBeFalsy();
   });
@@ -83,7 +83,7 @@ describe("FooterSectionComponent", () => {
       .whenStable()
       .then(() => {
         const content = fixture.nativeElement.querySelector(
-          ".tedi-footer-links__content",
+          ".tedi-footer-section__content",
         );
 
         expect(content.getAttribute("ng-reflect-animation-state")).toBe(
@@ -91,7 +91,7 @@ describe("FooterSectionComponent", () => {
         );
 
         const button = fixture.nativeElement.querySelector(
-          ".tedi-footer-links__button",
+          ".tedi-footer-section__button",
         );
         button.click();
         fixture.detectChanges();
@@ -100,14 +100,14 @@ describe("FooterSectionComponent", () => {
       })
       .then(() => {
         const content = fixture.nativeElement.querySelector(
-          ".tedi-footer-links__content",
+          ".tedi-footer-section__content",
         );
         expect(content.getAttribute("ng-reflect-animation-state")).toBe(
           "expanded",
         );
 
         const button = fixture.nativeElement.querySelector(
-          ".tedi-footer-links__button",
+          ".tedi-footer-section__button",
         );
         button.click();
         fixture.detectChanges();
@@ -116,7 +116,7 @@ describe("FooterSectionComponent", () => {
       })
       .then(() => {
         const content = fixture.nativeElement.querySelector(
-          ".tedi-footer-links__content",
+          ".tedi-footer-section__content",
         );
         expect(content.getAttribute("ng-reflect-animation-state")).toBe(
           "collapsed",
