@@ -11,6 +11,9 @@ import {
   ViewChild,
   ViewEncapsulation,
   AfterContentInit,
+  effect,
+  Injector,
+  runInInjectionContext,
 } from "@angular/core";
 import { LinkComponent } from "../../../navigation/link/link.component";
 import { BreakpointService } from "../../../../services/breakpoint/breakpoint.service";
@@ -24,32 +27,39 @@ import { BreakpointService } from "../../../../services/breakpoint/breakpoint.se
   styleUrl: "./footer-bottom.component.scss",
   host: {
     class: "tedi-footer-bottom",
-    "[class.tedi-footer-bottom--mobile]": "showEllipsis()",
+    "[class.tedi-footer-bottom--mobile]": "mobileLayout()",
   },
 })
 export class FooterBottomComponent implements AfterContentInit {
+  private injector = inject(Injector);
   private renderer = inject(Renderer2);
   private breakpointService = inject(BreakpointService);
-
-  showEllipsis = computed(() => {
-    return this.breakpointService.isBelowBreakpoint("sm");
-  });
+  private hostRef = inject(ElementRef<HTMLElement>);
 
   @ViewChild("ellipsis", { static: true }) ellipsis!: TemplateRef<void>;
   @ContentChildren(LinkComponent, { descendants: true, read: ElementRef })
   links!: QueryList<ElementRef>;
 
-  ngAfterContentInit() {
-    this.addEllipsElements();
+  readonly mobileLayout = computed(() =>
+    this.breakpointService.isBelowBreakpoint("sm"),
+  );
+
+  ngAfterContentInit(): void {
+    runInInjectionContext(this.injector, () => {
+      effect(() => {
+        if (this.mobileLayout()) {
+          this.addEllipsisElements();
+        } else {
+          this.removeEllipsisElements();
+        }
+      });
+    });
   }
 
-  private addEllipsElements() {
+  private addEllipsisElements() {
+    if (!this.links || this.links.length === 0) return;
     const linksArray = this.links.toArray();
-
-    const existingEllipsis = document.querySelectorAll(
-      ".tedi-footer-bottom__ellipsis",
-    );
-    existingEllipsis.forEach((ellipsis) => ellipsis.remove());
+    this.removeEllipsisElements();
 
     linksArray.forEach((link, index) => {
       const nativeElement = link.nativeElement;
@@ -60,12 +70,26 @@ export class FooterBottomComponent implements AfterContentInit {
 
         const embeddedView = this.ellipsis.createEmbeddedView();
         const ellipsisElement = embeddedView.rootNodes[0];
+        this.renderer.addClass(ellipsisElement, "tedi-footer-bottom__ellipsis");
 
         this.renderer.insertBefore(
           parent,
           ellipsisElement,
           nativeElement.nextSibling,
         );
+      }
+    });
+  }
+
+  private removeEllipsisElements(): void {
+    const ellipsisEls = this.hostRef.nativeElement.querySelectorAll(
+      ".tedi-footer-bottom__ellipsis",
+    );
+
+    ellipsisEls.forEach((el: HTMLElement) => {
+      const parent = el.parentNode;
+      if (parent) {
+        this.renderer.removeChild(parent, el);
       }
     });
   }

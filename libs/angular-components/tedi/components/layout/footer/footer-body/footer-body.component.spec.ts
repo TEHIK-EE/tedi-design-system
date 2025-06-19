@@ -1,6 +1,5 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
 import { FooterBodyComponent } from "./footer-body.component";
-import { BreakpointService } from "../../../../services/breakpoint/breakpoint.service";
 import { signal } from "@angular/core";
 
 describe("FooterBodyComponent", () => {
@@ -10,14 +9,6 @@ describe("FooterBodyComponent", () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [FooterBodyComponent],
-      providers: [
-        {
-          provide: BreakpointService,
-          useValue: {
-            isBelowBreakpoint: () => false,
-          },
-        },
-      ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(FooterBodyComponent);
@@ -34,7 +25,7 @@ describe("FooterBodyComponent", () => {
     expect(element.classList).toContain("tedi-footer-body");
   });
 
-  it("should not have mobile class when screen is not below sm breakpoint", () => {
+  it("should not have mobile class when screen is above sm breakpoint", () => {
     component.mobileLayout = signal(false);
     fixture.detectChanges();
 

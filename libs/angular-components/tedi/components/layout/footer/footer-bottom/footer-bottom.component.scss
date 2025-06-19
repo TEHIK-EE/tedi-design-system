@@ -8,15 +8,7 @@
   flex-wrap: wrap;
   gap: var(--layout-grid-gutters-24, 24px);
 
-  .tedi-footer-bottom__ellipsis {
-    display: none;
-  }
-
   &.tedi-footer-bottom--mobile {
     gap: var(--layout-grid-gutters-16-desktop, 16px);
-
-    .tedi-footer-bottom__ellipsis {
-      display: block;
-    }
   }
 }
