@@ -1,11 +1,9 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
 import { CollapseComponent } from "./collapse.component";
 
-Object.defineProperty(global.self, "crypto", {
-  value: {
-    randomUUID: () => "mocked-random-uuid",
-  },
-});
+jest.mock("../../../helpers/generate-uuid", () => ({
+  generateUUID: () => "mocked-random-uuid",
+}));
 
 describe("CollapseComponent", () => {
   let component: CollapseComponent;
@@ -62,24 +60,24 @@ describe("CollapseComponent", () => {
     const buttonText = fixture.nativeElement
       .querySelector(".collapse__button--text")
       .textContent.trim();
-    
+
     fixture.whenStable().then(() => {
       expect(buttonText).toBe("Open");
-    })
+    });
   });
 
   it("should render closeText when expanded", () => {
     fixture.componentRef.setInput("closeText", "Close");
     fixture.detectChanges();
     component.isOpen.set(true);
-  
+
     const buttonText = fixture.nativeElement
       .querySelector(".collapse__button--text")
       .textContent.trim();
-    
+
     fixture.whenStable().then(() => {
       expect(buttonText).toBe("Close");
-    })
+    });
   });
 
   it("should hide openText and closeText when hideCollapseText is true", () => {
