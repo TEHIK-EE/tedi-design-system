@@ -13,6 +13,13 @@ import { SideNavGroupTitleComponent } from "./sidenav-group-title/sidenav-group-
 import { SideNavToggleComponent } from "./sidenav-toggle/sidenav-toggle.component";
 import { SideNavOverlayComponent } from "./sidenav-overlay/sidenav-overlay.component";
 
+/**
+ * <a href="https://www.figma.com/design/jWiRIXhHRxwVdMSimKX2FF/TEDI-READY-2.8.9--work-in-progress-?node-id=6367-171750&m=dev" target="_BLANK">Figma ↗</a><br/>
+ * <a href="#" target="_BLANK">Zeroheight ↗</a>
+ *
+ * To test the mobile layout, either resize your browser window or use Storybook's built-in viewport tools.
+ */
+
 export default {
   title: "TEDI-Ready Angular/Layout/SideNav",
   component: SideNavComponent,
@@ -146,9 +153,9 @@ export const Default: StoryObj<SideNavComponent> = {
             This is a router link
           </tedi-sidenav-item>
           <tedi-sidenav-item icon="inventory">
-            This item has dropdown with group titles
+            This item has dropdown with group title
             <tedi-sidenav-dropdown>
-              <tedi-sidenav-group-title>First title</tedi-sidenav-group-title>
+              <tedi-sidenav-group-title>Group title</tedi-sidenav-group-title>
               <tedi-sidenav-dropdown-item>
                 First item
               </tedi-sidenav-dropdown-item>
@@ -158,7 +165,6 @@ export const Default: StoryObj<SideNavComponent> = {
               <tedi-sidenav-dropdown-item>
                 Third item
               </tedi-sidenav-dropdown-item>
-              <tedi-sidenav-group-title>Second title</tedi-sidenav-group-title>
               <tedi-sidenav-dropdown-item>
                 Fourth item
               </tedi-sidenav-dropdown-item>
