@@ -6,11 +6,12 @@ import {
   ChangeDetectionStrategy,
   ViewEncapsulation,
   inject,
-  Renderer2
+  Renderer2,
 } from "@angular/core";
 import { TediTranslationPipe } from "../../../services/translation/translation.pipe";
 import { IconComponent } from "../../base/icon/icon.component";
 import { TextComponent } from "../../base/text/text.component";
+import { generateUUID } from "../../../helpers/generate-uuid";
 
 export type ArrowType = "default" | "secondary";
 
@@ -21,7 +22,7 @@ export type ArrowType = "default" | "secondary";
   templateUrl: "./collapse.component.html",
   styleUrls: ["./collapse.component.scss"],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
 })
 export class CollapseComponent implements AfterViewInit {
   /**
@@ -50,7 +51,7 @@ export class CollapseComponent implements AfterViewInit {
   arrowType = input<ArrowType>("default");
 
   renderer = inject(Renderer2);
-  collapseContentId: string = `collapse-content-${self.crypto.randomUUID()}`;
+  collapseContentId: string = `collapse-content-${generateUUID()}`;
   isOpen = signal<boolean>(false);
 
   toggleCollapse() {

@@ -9,7 +9,7 @@ import { Dialog } from "@angular/cdk/dialog";
 import { DialogData, ModalComponent } from "./modal.component";
 import { SelectComponent } from "../../form/select/select.component";
 import { SelectOptionComponent } from "../../form/select/select-option.component";
-import { resetIndexId, indexId } from "../../../utils/unique-id";
+import { resetIndexId, indexId } from "../../../helpers/unique-id";
 import { ModalFooterComponent } from "./footer/modal-footer.component";
 import { ModalHeaderComponent } from "./header/modal-header.component";
 
