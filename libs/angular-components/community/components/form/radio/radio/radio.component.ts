@@ -11,7 +11,11 @@ import {
   ViewEncapsulation,
 } from "@angular/core";
 import { RadioGroupComponent } from "../radio-group/radio-group.component";
-import { ComponentInputs, FeedbackTextComponent } from "@tehik-ee/tedi-angular/tedi";
+import {
+  ComponentInputs,
+  FeedbackTextComponent,
+} from "@tehik-ee/tedi-angular/tedi";
+import { generateUUID } from "@tehik-ee/tedi-angular/tedi";
 
 export type RadioValue = string;
 
@@ -71,7 +75,7 @@ export class RadioComponent implements OnInit {
 
   feedbackTextId = computed(() => {
     if (this.feedbackText()) {
-      return crypto.randomUUID();
+      return generateUUID();
     }
     return;
   });

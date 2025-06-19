@@ -6,7 +6,7 @@ import {
 } from "@storybook/angular";
 import { ColComponent } from "./col.component";
 import { RowComponent } from "../row/row.component";
-import { createBreakpointArgTypes } from "../../../../../utils/createBreakpointArgTypes";
+import { createBreakpointArgTypes } from "../../../../../dev-tools/createBreakpointArgTypes";
 
 /**
  * <a href="https://tedi.tehik.ee/1ee8444b7/p/24da19-grid" target="_BLANK">Zeroheight ↗</a><br/>
