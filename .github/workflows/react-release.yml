@@ -95,7 +95,6 @@ jobs:
           git pull
           echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc
           npm run release
-          ../../.github/workflows/publish_mirror.sh tedi-react tedi-design-system
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPMJS_TEDI_AUTH_TOKEN }}
