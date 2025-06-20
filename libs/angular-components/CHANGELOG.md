@@ -1,3 +1,28 @@
+# [@tehik-ee/tedi-angular-v2.1.0-rc.5](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.1.0-rc.4...angular-2.1.0-rc.5) (2025-06-20)
+
+
+### Bug Fixes
+
+* **collapse:** Collapse randomuuid not found bugfix [#866](https://github.com/TEHIK-EE/tedi-design-system/issues/866) ([#867](https://github.com/TEHIK-EE/tedi-design-system/issues/867)) ([9944620](https://github.com/TEHIK-EE/tedi-design-system/commit/99446203f25a16ee4583f4c006e07d0346b9348d))
+* **tag:** Adding missing exports for community tag folder [#837](https://github.com/TEHIK-EE/tedi-design-system/issues/837) ([#874](https://github.com/TEHIK-EE/tedi-design-system/issues/874)) ([087ee1f](https://github.com/TEHIK-EE/tedi-design-system/commit/087ee1fad764eceea5bb8c749569b591cbf6d4e3))
+
+
+### Features
+
+* **alert:** TEDI-Ready component [#820](https://github.com/TEHIK-EE/tedi-design-system/issues/820) ([#831](https://github.com/TEHIK-EE/tedi-design-system/issues/831)) ([454bf75](https://github.com/TEHIK-EE/tedi-design-system/commit/454bf75b3c0df590beab49a0b8f59eeafac98ef0))
+* **status-badge:** add documentation  [#776](https://github.com/TEHIK-EE/tedi-design-system/issues/776) ([fa6fcb5](https://github.com/TEHIK-EE/tedi-design-system/commit/fa6fcb5cc37be3a1afa38d645b0fbdc443b89e93))
+* **status-badge:** change multiselect tag import as it was moved [#814](https://github.com/TEHIK-EE/tedi-design-system/issues/814) ([c6ce4e7](https://github.com/TEHIK-EE/tedi-design-system/commit/c6ce4e7190eb42e64490bb7b6f809d8470d3f078))
+* **status-badge:** change styles to use private vars instead of setting properties [#814](https://github.com/TEHIK-EE/tedi-design-system/issues/814) ([9258dda](https://github.com/TEHIK-EE/tedi-design-system/commit/9258dda5d37ce08e43e56ed14406766b8413c252))
+* **status-badge:** convert status-badge into a directive [#814](https://github.com/TEHIK-EE/tedi-design-system/issues/814) ([09f55df](https://github.com/TEHIK-EE/tedi-design-system/commit/09f55dfaa1020d680d9f38cf2b098e95a6f1ee20))
+* **status-badge:** create status badge component [#814](https://github.com/TEHIK-EE/tedi-design-system/issues/814) ([6c74bfa](https://github.com/TEHIK-EE/tedi-design-system/commit/6c74bfad9013f1408fe8aa046b25137511433e7f))
+* **status-badge:** finish up missing story templates  [#776](https://github.com/TEHIK-EE/tedi-design-system/issues/776) ([c598327](https://github.com/TEHIK-EE/tedi-design-system/commit/c59832769710cf275df0a03451e4e07529c91a50))
+* **status-badge:** implement status badge component story [#814](https://github.com/TEHIK-EE/tedi-design-system/issues/814) ([b1b7b10](https://github.com/TEHIK-EE/tedi-design-system/commit/b1b7b1050e283eb9d43674985d537851108f9660))
+* **status-badge:** make mapBadgeColorToIconColor computed, move var override out of a if else [#776](https://github.com/TEHIK-EE/tedi-design-system/issues/776) ([16aa236](https://github.com/TEHIK-EE/tedi-design-system/commit/16aa236c6287a4375819045280171ad00f6cebe0))
+* **status-badge:** move tag component into tags folder [#814](https://github.com/TEHIK-EE/tedi-design-system/issues/814) ([6c93e96](https://github.com/TEHIK-EE/tedi-design-system/commit/6c93e96083c0314089ae10a23abfdbfb140ecc15))
+* **status-badge:** properly fix alignment and add TemplateStatusGrid story variant  [#776](https://github.com/TEHIK-EE/tedi-design-system/issues/776) ([9202918](https://github.com/TEHIK-EE/tedi-design-system/commit/9202918c6bd0072e02a2775a8167b68bfb1eab3c))
+* **status-badge:** remove console log from status badge [#776](https://github.com/TEHIK-EE/tedi-design-system/issues/776) ([c996e63](https://github.com/TEHIK-EE/tedi-design-system/commit/c996e63fe4055e73e68afcab52a1ddf74bb39246))
+* **status-badge:** slightly change note of copied over variables & add one for component file [#814](https://github.com/TEHIK-EE/tedi-design-system/issues/814) ([542f907](https://github.com/TEHIK-EE/tedi-design-system/commit/542f907836ddf501fa57875170d2ae01da8121d6))
+
 # [@tehik-ee/tedi-angular-v3.0.0-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.1.0-rc.4...angular-3.0.0-rc.1) (2025-06-19)
 
 
