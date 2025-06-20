@@ -1,3 +1,15 @@
+# [@tehik-ee/tedi-react-v12.1.0-rc.2](https://github.com/TEHIK-EE/tedi-design-system/compare/react-12.1.0-rc.1...react-12.1.0-rc.2) (2025-06-20)
+
+
+### Bug Fixes
+
+* **react:** fix changelog [#820](https://github.com/TEHIK-EE/tedi-design-system/issues/820) ([c1a5c64](https://github.com/TEHIK-EE/tedi-design-system/commit/c1a5c64364b204cb46fb975e034d45154e083baf))
+
+
+### Features
+
+* **alert:** TEDI-Ready component [#820](https://github.com/TEHIK-EE/tedi-design-system/issues/820) ([#831](https://github.com/TEHIK-EE/tedi-design-system/issues/831)) ([454bf75](https://github.com/TEHIK-EE/tedi-design-system/commit/454bf75b3c0df590beab49a0b8f59eeafac98ef0))
+
 # [@tehik-ee/tedi-react-v13.0.0-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/react-12.1.0-rc.1...react-13.0.0-rc.1) (2025-06-19)
 
 
