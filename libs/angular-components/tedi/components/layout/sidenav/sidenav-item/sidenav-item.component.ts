@@ -19,6 +19,9 @@ import { NgIf, NgTemplateOutlet } from "@angular/common";
 import { SideNavDropdownComponent } from "../sidenav-dropdown/sidenav-dropdown.component";
 import { SideNavGroupTitleComponent } from "../sidenav-group-title/sidenav-group-title.component";
 import { SideNavService } from "../../../../services/sidenav/sidenav.service";
+import { TooltipComponent } from "../../../overlay/tooltip/tooltip.component";
+import { TooltipContentComponent } from "../../../overlay/tooltip/tooltip-content.component";
+import { TooltipTriggerComponent } from "../../../overlay/tooltip/tooltip-trigger.component";
 
 @Component({
   selector: "tedi-sidenav-item",
@@ -33,6 +36,9 @@ import { SideNavService } from "../../../../services/sidenav/sidenav.service";
     NgTemplateOutlet,
     NgIf,
     SideNavGroupTitleComponent,
+    TooltipComponent,
+    TooltipTriggerComponent,
+    TooltipContentComponent
   ],
   host: {
     "[class]": "classes()",

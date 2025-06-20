@@ -16,6 +16,7 @@
   --_sidenav-dropdown-item-large-height: 48px;
   --_sidenav-dropdown-item-medium-height: 44px;
   --_sidenav-dropdown-item-small-height: 36px;
+  --_sidenav-dropdown-item-collapsed-height: 40px;
 
   --_sidenav-collapsed-text-width: 4.5rem;
   --_sidenav-transition-duration: 300ms;
@@ -231,6 +232,8 @@
   }
 
   &--collapsed {
+    --_sidenav-dropdown-item-height: var(--_sidenav-dropdown-item-collapsed-height);
+
     @include mixins.responsive-styles(
       --_sidenav-item-icon-size,
       side-navigation-item-icon
@@ -331,14 +334,22 @@
     .tedi-sidenav-dropdown-item {
       color: var(--dropdown-item-default-text);
 
+      @include mixins.responsive-styles(padding-top, dropdown-item-padding-y);
+      @include mixins.responsive-styles(padding-bottom, dropdown-item-padding-y);
+      @include mixins.responsive-styles(padding-right, dropdown-item-padding-x);
+      @include mixins.responsive-styles(padding-left, dropdown-item-padding-x);
+      @include mixins.responsive-styles(--_gap, dropdown-item-inner-spacing);
+      @include mixins.responsive-styles(
+        font-size,
+        body-regular-size,
+        $exclude: tablet
+      );
+
       &.tedi-sidenav-dropdown-item--selected,
       &:hover {
         color: var(--dropdown-item-hover-text);
         background-color: var(--dropdown-item-hover-background);
       }
-
-      @include mixins.responsive-styles(padding-left, dropdown-item-padding-x);
-      @include mixins.responsive-styles(--_gap, dropdown-item-inner-spacing);
 
       &::before,
       &::after {

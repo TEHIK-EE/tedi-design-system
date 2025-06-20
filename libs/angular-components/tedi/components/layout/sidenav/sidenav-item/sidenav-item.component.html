@@ -27,9 +27,16 @@
     </div>
   }
 } @else {
-  <div class="tedi-sidenav-item__trigger">
-    <ng-container *ngTemplateOutlet="buttonOrLink"></ng-container>
-  </div>
+  <tedi-tooltip>
+      <tedi-tooltip-trigger>
+        <div class="tedi-sidenav-item__trigger">
+          <ng-container *ngTemplateOutlet="buttonOrLink"></ng-container>
+        </div>
+      </tedi-tooltip-trigger>
+      <tedi-tooltip-content position="right" [style]="{ 'display': sidenavService.tooltipEnabled() ? 'block' : 'none' }">
+        {{ textContent() }}
+      </tedi-tooltip-content>
+  </tedi-tooltip>
 }
 
 <ng-template #buttonOrLink>

@@ -40,4 +40,8 @@ export class SideNavService {
       this.isMobile() && this.items().some((item) => item.dropdown?.open())
     );
   });
+
+  tooltipEnabled = computed(() => {
+    return this.isCollapsed() && !this.items().some(item => item.dropdown?.open());
+  })
 }

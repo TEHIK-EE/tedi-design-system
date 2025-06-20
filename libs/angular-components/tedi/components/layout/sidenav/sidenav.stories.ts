@@ -42,7 +42,7 @@ export default {
       description: "Show dividers between items",
       control: "boolean",
       table: {
-        category: "inputs",
+        category: "sidenav",
         type: { summary: "boolean" },
         defaultValue: { summary: "true" },
       },
@@ -52,7 +52,7 @@ export default {
       control: "radio",
       options: ["small", "medium", "large"],
       table: {
-        category: "inputs",
+        category: "sidenav",
         type: { summary: "SideNavItemSize", detail: "small \nmedium \nlarge" },
         defaultValue: { summary: "large" },
       },
@@ -61,9 +61,74 @@ export default {
       description: "Is navigation collapsible in desktop?",
       control: "boolean",
       table: {
-        category: "inputs",
+        category: "sidenav",
         type: { summary: "boolean" },
         defaultValue: { summary: "false" },
+      },
+    },
+    itemSelected: {
+      name: "selected",
+      description: "Is navigation item selected",
+      control: "boolean",
+      table: {
+        category: "sidenav-item",
+        type: { summary: "boolean" },
+        defaultValue: { summary: "false" },
+      },
+    },
+    itemIcon: {
+      name: "icon",
+      description: "Name of the item icon",
+      control: "text",
+      table: {
+        category: "sidenav-item",
+        type: { summary: "string" },
+      },
+    },
+    itemHref: {
+      name: "href",
+      description: "External link",
+      control: "text",
+      table: {
+        category: "sidenav-item",
+        type: { summary: "string" },
+      },
+    },
+    itemRouterLink: {
+      name: "routerLink",
+      description: "Router link",
+      control: "text",
+      table: {
+        category: "sidenav-item",
+        type: { summary: "string" },
+      },
+    },
+    dropdownItemSelected: {
+      name: "selected",
+      description: "Is dropdown item selected",
+      control: "boolean",
+      table: {
+        category: "sidenav-dropdown-item",
+        type: { summary: "boolean" },
+        defaultValue: { summary: "false" },
+      },
+    },
+    dropdownItemHref: {
+      name: "href",
+      description: "External link",
+      control: "text",
+      table: {
+        category: "sidenav-dropdown-item",
+        type: { summary: "string" },
+      },
+    },
+    dropdownItemRouterLink: {
+      name: "routerLink",
+      description: "Router link",
+      control: "text",
+      table: {
+        category: "sidenav-dropdown-item",
+        type: { summary: "string" },
       },
     },
   },
@@ -91,87 +156,658 @@ export const Default: StoryObj<SideNavComponent> = {
           <tedi-sidenav-item icon="account_box" href="#">
             Clients
           </tedi-sidenav-item>
-          <tedi-sidenav-group-title>Group title</tedi-sidenav-group-title>
-          <tedi-sidenav-item icon="child_care">
+          <tedi-sidenav-item icon="child_care" href="#" [selected]="true">
             Children
-            <tedi-sidenav-dropdown>
-              <tedi-sidenav-dropdown-item>
-                First item
-              </tedi-sidenav-dropdown-item>
-              <tedi-sidenav-dropdown-item>
-                Second item
-              </tedi-sidenav-dropdown-item>
-              <tedi-sidenav-dropdown-group>
-                <tedi-sidenav-dropdown-item>
-                  First item
-                </tedi-sidenav-dropdown-item>
-                <tedi-sidenav-dropdown-item>
-                  Second item
-                </tedi-sidenav-dropdown-item>
-                <tedi-sidenav-dropdown-item>
-                  Third item
-                </tedi-sidenav-dropdown-item>
-              </tedi-sidenav-dropdown-group>
-              <tedi-sidenav-dropdown-group>
-                <tedi-sidenav-dropdown-item>
-                  First item
-                </tedi-sidenav-dropdown-item>
-                <tedi-sidenav-dropdown-item>
-                  Second item
-                </tedi-sidenav-dropdown-item>
-                <tedi-sidenav-dropdown-item>
-                  Third item
-                </tedi-sidenav-dropdown-item>
-              </tedi-sidenav-dropdown-group>
-            </tedi-sidenav-dropdown>
+          </tedi-sidenav-item>
+          <tedi-sidenav-item icon="edit" routerLink="#">
+            Some very long text that wraps to new line
           </tedi-sidenav-item>
           <tedi-sidenav-item icon="assignment" href="#">
-            This item is a link, but also has a dropdown
+            Assignments
+          </tedi-sidenav-item>
+          <tedi-sidenav-item icon="payments" routerLink="#">
+            Payments
+          </tedi-sidenav-item>
+        </nav>
+      </div>
+    `,
+  }),
+};
+
+export const SecondLevelMenuItems: StoryObj<SideNavComponent> = {
+  parameters: {
+    layout: "fullscreen",
+  },
+  args: {
+    dividers: true,
+    size: "large",
+    collapsible: false,
+  },
+  render: (args) => ({
+    props: args,
+    template: `
+      <button tedi-sidenav-toggle></button>
+      <tedi-sidenav-overlay></tedi-sidenav-overlay>
+      <div style="height: 1024px;">
+        <nav tedi-sidenav ${argsToTemplate(args)}>
+          <tedi-sidenav-item icon="dashboard" href="#">
+            Dashboard
+          </tedi-sidenav-item>
+          <tedi-sidenav-item icon="people" routerLink="#">
+            Patient Records
+          </tedi-sidenav-item>
+          <tedi-sidenav-item icon="medical_services">
+            Clinical Management
             <tedi-sidenav-dropdown>
+              <tedi-sidenav-dropdown-item href="#">
+                Vital Signs
+              </tedi-sidenav-dropdown-item>
+              <tedi-sidenav-dropdown-item href="#">
+                Assessments
+              </tedi-sidenav-dropdown-item>
+              <tedi-sidenav-dropdown-item href="#">
+                Treatments
+              </tedi-sidenav-dropdown-item>
+              <tedi-sidenav-dropdown-item href="#">
+                Documentation
+              </tedi-sidenav-dropdown-item>
+            </tedi-sidenav-dropdown>
+          </tedi-sidenav-item>
+          <tedi-sidenav-item icon="admin_panel_settings">
+            Administration
+            <tedi-sidenav-dropdown>
+              <tedi-sidenav-dropdown-item routerLink="#">
+                Staff Management
+              </tedi-sidenav-dropdown-item>
+              <tedi-sidenav-dropdown-item routerLink="#">
+                Scheduling
+              </tedi-sidenav-dropdown-item>
+              <tedi-sidenav-dropdown-item routerLink="#">
+                System Settings
+              </tedi-sidenav-dropdown-item>
+              <tedi-sidenav-dropdown-item routerLink="#">
+                Reports & Analytics
+              </tedi-sidenav-dropdown-item>
+            </tedi-sidenav-dropdown>
+          </tedi-sidenav-item>
+          <tedi-sidenav-item icon="inventory" href="#">
+            Inventory Management
+          </tedi-sidenav-item>
+          <tedi-sidenav-item icon="payments" routerLink="#">
+            Billing & Finance
+          </tedi-sidenav-item>
+        </nav>
+      </div>
+    `,
+  }),
+};
+
+export const SecondLevelMenuItemsParentsAreLinks: StoryObj<SideNavComponent> = {
+  parameters: {
+    layout: "fullscreen",
+  },
+  args: {
+    dividers: true,
+    size: "large",
+    collapsible: false,
+  },
+  render: (args) => ({
+    props: args,
+    template: `
+      <button tedi-sidenav-toggle></button>
+      <tedi-sidenav-overlay></tedi-sidenav-overlay>
+      <div style="height: 1024px;">
+        <nav tedi-sidenav ${argsToTemplate(args)}>
+          <tedi-sidenav-item icon="dashboard" href="#">
+            Dashboard
+          </tedi-sidenav-item>
+          <tedi-sidenav-item icon="people" routerLink="#">
+            Patient Records
+          </tedi-sidenav-item>
+          <tedi-sidenav-item icon="medical_services" href="#">
+            Clinical Management
+            <tedi-sidenav-dropdown>
+              <tedi-sidenav-dropdown-item href="#">
+                Vital Signs
+              </tedi-sidenav-dropdown-item>
+              <tedi-sidenav-dropdown-item href="#">
+                Assessments
+              </tedi-sidenav-dropdown-item>
+              <tedi-sidenav-dropdown-item href="#">
+                Treatments
+              </tedi-sidenav-dropdown-item>
+              <tedi-sidenav-dropdown-item href="#">
+                Documentation
+              </tedi-sidenav-dropdown-item>
+            </tedi-sidenav-dropdown>
+          </tedi-sidenav-item>
+          <tedi-sidenav-item icon="admin_panel_settings" routerLink="#">
+            Administration
+            <tedi-sidenav-dropdown>
+              <tedi-sidenav-dropdown-item routerLink="#">
+                Staff Management
+              </tedi-sidenav-dropdown-item>
+              <tedi-sidenav-dropdown-item routerLink="#">
+                Scheduling
+              </tedi-sidenav-dropdown-item>
+              <tedi-sidenav-dropdown-item routerLink="#">
+                System Settings
+              </tedi-sidenav-dropdown-item>
+              <tedi-sidenav-dropdown-item routerLink="#">
+                Reports & Analytics
+              </tedi-sidenav-dropdown-item>
+            </tedi-sidenav-dropdown>
+          </tedi-sidenav-item>
+          <tedi-sidenav-item icon="inventory" href="#">
+            Inventory Management
+          </tedi-sidenav-item>
+          <tedi-sidenav-item icon="payments" routerLink="#">
+            Billing & Finance
+          </tedi-sidenav-item>
+        </nav>
+      </div>
+    `,
+  }),
+};
+
+export const ThirdLevelMenuItems: StoryObj<SideNavComponent> = {
+  parameters: {
+    layout: "fullscreen",
+  },
+  args: {
+    dividers: true,
+    size: "large",
+    collapsible: false,
+  },
+  render: (args) => ({
+    props: args,
+    template: `
+      <button tedi-sidenav-toggle></button>
+      <tedi-sidenav-overlay></tedi-sidenav-overlay>
+      <div style="height: 1024px;">
+        <nav tedi-sidenav ${argsToTemplate(args)}>
+          <tedi-sidenav-item icon="dashboard" href="#">
+            Dashboard
+          </tedi-sidenav-item>
+          <tedi-sidenav-item icon="people" routerLink="#">
+            Patient Records
+          </tedi-sidenav-item>
+          <tedi-sidenav-item icon="medical_services">
+            Clinical Management
+            <tedi-sidenav-dropdown>
+              <tedi-sidenav-dropdown-item href="#">
+                Vital Signs
+              </tedi-sidenav-dropdown-item>
+              <tedi-sidenav-dropdown-item href="#">
+                Assessments
+              </tedi-sidenav-dropdown-item>
               <tedi-sidenav-dropdown-group>
                 <tedi-sidenav-dropdown-item href="#">
-                  First item
+                  Treatments
                 </tedi-sidenav-dropdown-item>
                 <tedi-sidenav-dropdown-item href="#">
-                  Second item
+                  Active Treatments
+                </tedi-sidenav-dropdown-item>
+                <tedi-sidenav-dropdown-item href="#">
+                  Treatment History
+                </tedi-sidenav-dropdown-item>
+                <tedi-sidenav-dropdown-item href="#">
+                  Treatment Plans
+                </tedi-sidenav-dropdown-item>
+                <tedi-sidenav-dropdown-item href="#">
+                  Clinical Protocols
                 </tedi-sidenav-dropdown-item>
               </tedi-sidenav-dropdown-group>
               <tedi-sidenav-dropdown-group>
                 <tedi-sidenav-dropdown-item href="#">
-                  Third item
+                  Documentation
                 </tedi-sidenav-dropdown-item>
                 <tedi-sidenav-dropdown-item href="#">
-                  Fourth item
+                  Clinical Notes
                 </tedi-sidenav-dropdown-item>
                 <tedi-sidenav-dropdown-item href="#">
-                  Fifth item
+                  Medical Forms
+                </tedi-sidenav-dropdown-item>
+                <tedi-sidenav-dropdown-item href="#">
+                  Consent Forms
+                </tedi-sidenav-dropdown-item>
+                <tedi-sidenav-dropdown-item href="#">
+                  Reports
                 </tedi-sidenav-dropdown-item>
               </tedi-sidenav-dropdown-group>
             </tedi-sidenav-dropdown>
           </tedi-sidenav-item>
-          <tedi-sidenav-item icon="payments" routerLink="#" [selected]="true">
-            This is a router link
-          </tedi-sidenav-item>
-          <tedi-sidenav-item icon="inventory">
-            This item has dropdown with group title
+          <tedi-sidenav-item icon="admin_panel_settings">
+            Administration
             <tedi-sidenav-dropdown>
-              <tedi-sidenav-group-title>Group title</tedi-sidenav-group-title>
-              <tedi-sidenav-dropdown-item>
-                First item
+              <tedi-sidenav-dropdown-group>
+                <tedi-sidenav-dropdown-item routerLink="#">
+                  Staff Management
+                </tedi-sidenav-dropdown-item>
+                <tedi-sidenav-dropdown-item routerLink="#">
+                  Scheduling
+                </tedi-sidenav-dropdown-item>
+                <tedi-sidenav-dropdown-item routerLink="#">
+                  System Settings
+                </tedi-sidenav-dropdown-item>
+              </tedi-sidenav-dropdown-group>
+              <tedi-sidenav-dropdown-item routerLink="#">
+                Reports & Analytics
               </tedi-sidenav-dropdown-item>
-              <tedi-sidenav-dropdown-item>
-                Second item
-              </tedi-sidenav-dropdown-item>
-              <tedi-sidenav-dropdown-item>
-                Third item
-              </tedi-sidenav-dropdown-item>
-              <tedi-sidenav-dropdown-item>
-                Fourth item
-              </tedi-sidenav-dropdown-item>
-              <tedi-sidenav-dropdown-item>
-                Fifth item
+              <tedi-sidenav-dropdown-item routerLink="#">
+                Statistics
               </tedi-sidenav-dropdown-item>
             </tedi-sidenav-dropdown>
+          </tedi-sidenav-item>
+          <tedi-sidenav-item icon="inventory" href="#">
+            Inventory Management
+          </tedi-sidenav-item>
+          <tedi-sidenav-item icon="payments" routerLink="#">
+            Billing & Finance
+          </tedi-sidenav-item>
+        </nav>
+      </div>
+    `,
+  }),
+};
+
+export const ThirdLevelMenuItemsParentsAreLinks: StoryObj<SideNavComponent> = {
+  parameters: {
+    layout: "fullscreen",
+  },
+  args: {
+    dividers: true,
+    size: "large",
+    collapsible: false,
+  },
+  render: (args) => ({
+    props: args,
+    template: `
+      <button tedi-sidenav-toggle></button>
+      <tedi-sidenav-overlay></tedi-sidenav-overlay>
+      <div style="height: 1024px;">
+        <nav tedi-sidenav ${argsToTemplate(args)}>
+          <tedi-sidenav-item icon="dashboard" href="#">
+            Dashboard
+          </tedi-sidenav-item>
+          <tedi-sidenav-item icon="people" routerLink="#">
+            Patient Records
+          </tedi-sidenav-item>
+          <tedi-sidenav-item icon="medical_services" href="#">
+            Clinical Management
+            <tedi-sidenav-dropdown>
+              <tedi-sidenav-dropdown-item href="#">
+                Vital Signs
+              </tedi-sidenav-dropdown-item>
+              <tedi-sidenav-dropdown-item href="#">
+                Assessments
+              </tedi-sidenav-dropdown-item>
+              <tedi-sidenav-dropdown-group>
+                <tedi-sidenav-dropdown-item href="#">
+                  Treatments
+                </tedi-sidenav-dropdown-item>
+                <tedi-sidenav-dropdown-item href="#">
+                  Active Treatments
+                </tedi-sidenav-dropdown-item>
+                <tedi-sidenav-dropdown-item href="#">
+                  Treatment History
+                </tedi-sidenav-dropdown-item>
+                <tedi-sidenav-dropdown-item href="#">
+                  Treatment Plans
+                </tedi-sidenav-dropdown-item>
+                <tedi-sidenav-dropdown-item href="#">
+                  Clinical Protocols
+                </tedi-sidenav-dropdown-item>
+              </tedi-sidenav-dropdown-group>
+              <tedi-sidenav-dropdown-group>
+                <tedi-sidenav-dropdown-item href="#">
+                  Documentation
+                </tedi-sidenav-dropdown-item>
+                <tedi-sidenav-dropdown-item href="#">
+                  Clinical Notes
+                </tedi-sidenav-dropdown-item>
+                <tedi-sidenav-dropdown-item href="#">
+                  Medical Forms
+                </tedi-sidenav-dropdown-item>
+                <tedi-sidenav-dropdown-item href="#">
+                  Consent Forms
+                </tedi-sidenav-dropdown-item>
+                <tedi-sidenav-dropdown-item href="#">
+                  Reports
+                </tedi-sidenav-dropdown-item>
+              </tedi-sidenav-dropdown-group>
+            </tedi-sidenav-dropdown>
+          </tedi-sidenav-item>
+          <tedi-sidenav-item icon="admin_panel_settings" routerLink="#">
+            Administration
+            <tedi-sidenav-dropdown>
+              <tedi-sidenav-dropdown-group>
+                <tedi-sidenav-dropdown-item routerLink="#">
+                  Staff Management
+                </tedi-sidenav-dropdown-item>
+                <tedi-sidenav-dropdown-item routerLink="#">
+                  Scheduling
+                </tedi-sidenav-dropdown-item>
+                <tedi-sidenav-dropdown-item routerLink="#">
+                  System Settings
+                </tedi-sidenav-dropdown-item>
+              </tedi-sidenav-dropdown-group>
+              <tedi-sidenav-dropdown-item routerLink="#">
+                Reports & Analytics
+              </tedi-sidenav-dropdown-item>
+              <tedi-sidenav-dropdown-item routerLink="#">
+                Statistics
+              </tedi-sidenav-dropdown-item>
+            </tedi-sidenav-dropdown>
+          </tedi-sidenav-item>
+          <tedi-sidenav-item icon="inventory" href="#">
+            Inventory Management
+          </tedi-sidenav-item>
+          <tedi-sidenav-item icon="payments" routerLink="#">
+            Billing & Finance
+          </tedi-sidenav-item>
+        </nav>
+      </div>
+    `,
+  }),
+};
+
+export const CollapsibleToggle: StoryObj<SideNavComponent> = {
+  parameters: {
+    layout: "fullscreen",
+  },
+  args: {
+    dividers: true,
+    size: "large",
+    collapsible: true,
+  },
+  render: (args) => ({
+    props: args,
+    template: `
+      <button tedi-sidenav-toggle></button>
+      <tedi-sidenav-overlay></tedi-sidenav-overlay>
+      <div style="height: 1024px;">
+        <nav tedi-sidenav ${argsToTemplate(args)}>
+          <tedi-sidenav-item icon="dashboard" href="#">
+            Dashboard
+          </tedi-sidenav-item>
+          <tedi-sidenav-item icon="people" routerLink="#">
+            Patient Records
+          </tedi-sidenav-item>
+          <tedi-sidenav-item icon="medical_services" href="#">
+            Clinical Management
+            <tedi-sidenav-dropdown>
+              <tedi-sidenav-dropdown-item href="#">
+                Vital Signs
+              </tedi-sidenav-dropdown-item>
+              <tedi-sidenav-dropdown-item href="#">
+                Assessments
+              </tedi-sidenav-dropdown-item>
+              <tedi-sidenav-dropdown-group>
+                <tedi-sidenav-dropdown-item href="#">
+                  Treatments
+                </tedi-sidenav-dropdown-item>
+                <tedi-sidenav-dropdown-item href="#">
+                  Active Treatments
+                </tedi-sidenav-dropdown-item>
+                <tedi-sidenav-dropdown-item href="#">
+                  Treatment History
+                </tedi-sidenav-dropdown-item>
+                <tedi-sidenav-dropdown-item href="#">
+                  Treatment Plans
+                </tedi-sidenav-dropdown-item>
+                <tedi-sidenav-dropdown-item href="#">
+                  Clinical Protocols
+                </tedi-sidenav-dropdown-item>
+              </tedi-sidenav-dropdown-group>
+              <tedi-sidenav-dropdown-group>
+                <tedi-sidenav-dropdown-item href="#">
+                  Documentation
+                </tedi-sidenav-dropdown-item>
+                <tedi-sidenav-dropdown-item href="#">
+                  Clinical Notes
+                </tedi-sidenav-dropdown-item>
+                <tedi-sidenav-dropdown-item href="#">
+                  Medical Forms
+                </tedi-sidenav-dropdown-item>
+                <tedi-sidenav-dropdown-item href="#">
+                  Consent Forms
+                </tedi-sidenav-dropdown-item>
+                <tedi-sidenav-dropdown-item href="#">
+                  Reports
+                </tedi-sidenav-dropdown-item>
+              </tedi-sidenav-dropdown-group>
+            </tedi-sidenav-dropdown>
+          </tedi-sidenav-item>
+          <tedi-sidenav-item icon="admin_panel_settings">
+            Administration
+            <tedi-sidenav-dropdown>
+              <tedi-sidenav-dropdown-group>
+                <tedi-sidenav-dropdown-item routerLink="#">
+                  Staff Management
+                </tedi-sidenav-dropdown-item>
+                <tedi-sidenav-dropdown-item routerLink="#">
+                  Scheduling
+                </tedi-sidenav-dropdown-item>
+                <tedi-sidenav-dropdown-item routerLink="#">
+                  System Settings
+                </tedi-sidenav-dropdown-item>
+              </tedi-sidenav-dropdown-group>
+              <tedi-sidenav-dropdown-item routerLink="#">
+                Reports & Analytics
+              </tedi-sidenav-dropdown-item>
+              <tedi-sidenav-dropdown-item routerLink="#">
+                Statistics
+              </tedi-sidenav-dropdown-item>
+            </tedi-sidenav-dropdown>
+          </tedi-sidenav-item>
+          <tedi-sidenav-item icon="inventory" href="#">
+            Inventory Management
+          </tedi-sidenav-item>
+          <tedi-sidenav-item icon="payments" routerLink="#">
+            Billing & Finance
+          </tedi-sidenav-item>
+        </nav>
+      </div>
+    `,
+  }),
+};
+
+export const MediumSidenavItems: StoryObj<SideNavComponent> = {
+  parameters: {
+    layout: "fullscreen",
+  },
+  args: {
+    dividers: true,
+    size: "medium",
+    collapsible: false,
+  },
+  render: (args) => ({
+    props: args,
+    template: `
+      <button tedi-sidenav-toggle></button>
+      <tedi-sidenav-overlay></tedi-sidenav-overlay>
+      <div style="height: 1024px;">
+        <nav tedi-sidenav ${argsToTemplate(args)}>
+          <tedi-sidenav-item icon="dashboard" href="#">
+            Dashboard
+          </tedi-sidenav-item>
+          <tedi-sidenav-item icon="people" routerLink="#">
+            Patient Records
+          </tedi-sidenav-item>
+          <tedi-sidenav-item icon="medical_services" href="#">
+            Clinical Management
+            <tedi-sidenav-dropdown>
+              <tedi-sidenav-dropdown-item href="#">
+                Vital Signs
+              </tedi-sidenav-dropdown-item>
+              <tedi-sidenav-dropdown-item href="#">
+                Assessments
+              </tedi-sidenav-dropdown-item>
+              <tedi-sidenav-dropdown-group>
+                <tedi-sidenav-dropdown-item href="#">
+                  Treatments
+                </tedi-sidenav-dropdown-item>
+                <tedi-sidenav-dropdown-item href="#">
+                  Active Treatments
+                </tedi-sidenav-dropdown-item>
+                <tedi-sidenav-dropdown-item href="#">
+                  Treatment History
+                </tedi-sidenav-dropdown-item>
+                <tedi-sidenav-dropdown-item href="#">
+                  Treatment Plans
+                </tedi-sidenav-dropdown-item>
+                <tedi-sidenav-dropdown-item href="#">
+                  Clinical Protocols
+                </tedi-sidenav-dropdown-item>
+              </tedi-sidenav-dropdown-group>
+              <tedi-sidenav-dropdown-group>
+                <tedi-sidenav-dropdown-item href="#">
+                  Documentation
+                </tedi-sidenav-dropdown-item>
+                <tedi-sidenav-dropdown-item href="#">
+                  Clinical Notes
+                </tedi-sidenav-dropdown-item>
+                <tedi-sidenav-dropdown-item href="#">
+                  Medical Forms
+                </tedi-sidenav-dropdown-item>
+                <tedi-sidenav-dropdown-item href="#">
+                  Consent Forms
+                </tedi-sidenav-dropdown-item>
+                <tedi-sidenav-dropdown-item href="#">
+                  Reports
+                </tedi-sidenav-dropdown-item>
+              </tedi-sidenav-dropdown-group>
+            </tedi-sidenav-dropdown>
+          </tedi-sidenav-item>
+          <tedi-sidenav-item icon="admin_panel_settings">
+            Administration
+            <tedi-sidenav-dropdown>
+              <tedi-sidenav-dropdown-group>
+                <tedi-sidenav-dropdown-item routerLink="#">
+                  Staff Management
+                </tedi-sidenav-dropdown-item>
+                <tedi-sidenav-dropdown-item routerLink="#">
+                  Scheduling
+                </tedi-sidenav-dropdown-item>
+                <tedi-sidenav-dropdown-item routerLink="#">
+                  System Settings
+                </tedi-sidenav-dropdown-item>
+              </tedi-sidenav-dropdown-group>
+              <tedi-sidenav-dropdown-item routerLink="#">
+                Reports & Analytics
+              </tedi-sidenav-dropdown-item>
+              <tedi-sidenav-dropdown-item routerLink="#">
+                Statistics
+              </tedi-sidenav-dropdown-item>
+            </tedi-sidenav-dropdown>
+          </tedi-sidenav-item>
+          <tedi-sidenav-item icon="inventory" href="#">
+            Inventory Management
+          </tedi-sidenav-item>
+          <tedi-sidenav-item icon="payments" routerLink="#">
+            Billing & Finance
+          </tedi-sidenav-item>
+        </nav>
+      </div>
+    `,
+  }),
+};
+
+export const SmallSidenavItems: StoryObj<SideNavComponent> = {
+  parameters: {
+    layout: "fullscreen",
+  },
+  args: {
+    dividers: true,
+    size: "small",
+    collapsible: false,
+  },
+  render: (args) => ({
+    props: args,
+    template: `
+      <button tedi-sidenav-toggle></button>
+      <tedi-sidenav-overlay></tedi-sidenav-overlay>
+      <div style="height: 800px;">
+        <nav tedi-sidenav ${argsToTemplate(args)}>
+          <tedi-sidenav-item icon="dashboard" href="#">
+            Dashboard
+          </tedi-sidenav-item>
+          <tedi-sidenav-item icon="people" routerLink="#">
+            Patient Records
+          </tedi-sidenav-item>
+          <tedi-sidenav-item icon="medical_services" href="#">
+            Clinical Management
+            <tedi-sidenav-dropdown>
+              <tedi-sidenav-dropdown-item href="#">
+                Vital Signs
+              </tedi-sidenav-dropdown-item>
+              <tedi-sidenav-dropdown-item href="#">
+                Assessments
+              </tedi-sidenav-dropdown-item>
+              <tedi-sidenav-dropdown-group>
+                <tedi-sidenav-dropdown-item href="#">
+                  Treatments
+                </tedi-sidenav-dropdown-item>
+                <tedi-sidenav-dropdown-item href="#">
+                  Active Treatments
+                </tedi-sidenav-dropdown-item>
+                <tedi-sidenav-dropdown-item href="#">
+                  Treatment History
+                </tedi-sidenav-dropdown-item>
+                <tedi-sidenav-dropdown-item href="#">
+                  Treatment Plans
+                </tedi-sidenav-dropdown-item>
+                <tedi-sidenav-dropdown-item href="#">
+                  Clinical Protocols
+                </tedi-sidenav-dropdown-item>
+              </tedi-sidenav-dropdown-group>
+              <tedi-sidenav-dropdown-group>
+                <tedi-sidenav-dropdown-item href="#">
+                  Documentation
+                </tedi-sidenav-dropdown-item>
+                <tedi-sidenav-dropdown-item href="#">
+                  Clinical Notes
+                </tedi-sidenav-dropdown-item>
+                <tedi-sidenav-dropdown-item href="#">
+                  Medical Forms
+                </tedi-sidenav-dropdown-item>
+                <tedi-sidenav-dropdown-item href="#">
+                  Consent Forms
+                </tedi-sidenav-dropdown-item>
+                <tedi-sidenav-dropdown-item href="#">
+                  Reports
+                </tedi-sidenav-dropdown-item>
+              </tedi-sidenav-dropdown-group>
+            </tedi-sidenav-dropdown>
+          </tedi-sidenav-item>
+          <tedi-sidenav-item icon="admin_panel_settings">
+            Administration
+            <tedi-sidenav-dropdown>
+              <tedi-sidenav-dropdown-group>
+                <tedi-sidenav-dropdown-item routerLink="#">
+                  Staff Management
+                </tedi-sidenav-dropdown-item>
+                <tedi-sidenav-dropdown-item routerLink="#">
+                  Scheduling
+                </tedi-sidenav-dropdown-item>
+                <tedi-sidenav-dropdown-item routerLink="#">
+                  System Settings
+                </tedi-sidenav-dropdown-item>
+              </tedi-sidenav-dropdown-group>
+              <tedi-sidenav-dropdown-item routerLink="#">
+                Reports & Analytics
+              </tedi-sidenav-dropdown-item>
+              <tedi-sidenav-dropdown-item routerLink="#">
+                Statistics
+              </tedi-sidenav-dropdown-item>
+            </tedi-sidenav-dropdown>
+          </tedi-sidenav-item>
+          <tedi-sidenav-item icon="inventory" href="#">
+            Inventory Management
+          </tedi-sidenav-item>
+          <tedi-sidenav-item icon="payments" routerLink="#">
+            Billing & Finance
           </tedi-sidenav-item>
         </nav>
       </div>

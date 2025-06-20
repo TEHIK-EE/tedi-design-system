@@ -5,25 +5,13 @@
   position: relative;
   display: block;
   color: var(--side-navigation-item-text);
+  padding-top: var(--_sidenav-item-padding-y);
+  padding-bottom: var(--_sidenav-item-padding-y);
+  padding-right: var(--_sidenav-item-padding-right);
   padding-left: calc(
     var(--_padding-left) + var(--_sidenav-tree-container) + var(--_gap)
   );
   cursor: pointer;
-
-  @include mixins.responsive-styles(
-    padding-top,
-    side-navigation-item-padding-y
-  );
-
-  @include mixins.responsive-styles(
-    padding-bottom,
-    side-navigation-item-padding-y
-  );
-
-  @include mixins.responsive-styles(
-    padding-right,
-    side-navigation-item-padding-right
-  );
 
   @include mixins.responsive-styles(
     --_padding-left,
