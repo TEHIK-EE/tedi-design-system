@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-angular-v2.1.0-rc.6](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.1.0-rc.5...angular-2.1.0-rc.6) (2025-06-20)
+
+
+### Bug Fixes
+
+* **inputgroup:** Style fixes [#747](https://github.com/TEHIK-EE/tedi-design-system/issues/747) ([#882](https://github.com/TEHIK-EE/tedi-design-system/issues/882)) ([579d8d1](https://github.com/TEHIK-EE/tedi-design-system/commit/579d8d12361352569437d7f065d97b4fcd08883f))
+
 # [@tehik-ee/tedi-angular-v2.1.0-rc.5](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.1.0-rc.4...angular-2.1.0-rc.5) (2025-06-20)
 
 
