@@ -1,0 +1,43 @@
+@use '@tehik-ee/tedi-core/mixins';
+@use '@tehik-ee/tedi-core/bootstrap-utility/breakpoints';
+
+.tedi-editing-actions {
+  position: relative;
+  z-index: 10;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  background-color: var(--general-surface-primary);
+  border: 1px solid var(--button-main-neutral-border-default);
+  box-shadow: 0 1px 5px 0 var(--alpha-20);
+
+  @include breakpoints.media-breakpoint-down(xl) {
+    display: inline-block;
+  }
+
+  @include mixins.responsive-styles(border-radius, card-radius-rounded);
+
+  > * {
+    position: relative;
+
+    &::after {
+      position: absolute;
+      top: 2px;
+      right: 0;
+      bottom: 2px;
+      width: 1px;
+      content: '';
+      background-color: var(--general-border-primary);
+    }
+
+    &:last-child {
+      &::after {
+        display: none;
+      }
+    }
+
+    @include mixins.responsive-styles(padding-right, button-gutter-x);
+    @include mixins.responsive-styles(padding-left, button-gutter-x);
+  }
+}
