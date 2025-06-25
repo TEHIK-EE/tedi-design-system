@@ -12,6 +12,7 @@ import { SideNavService } from "../../../../services/sidenav/sidenav.service";
   selector: "tedi-sidenav-overlay",
   standalone: true,
   styleUrl: "./sidenav-overlay.component.scss",
+  template: "<ng-content />",
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
   host: {

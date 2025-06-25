@@ -1,7 +1,6 @@
 import {
   ChangeDetectionStrategy,
   Component,
-  computed,
   ViewEncapsulation,
 } from "@angular/core";
 
@@ -13,12 +12,7 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
   host: {
-    "[class]": "classes()",
+    "class": "tedi-sidenav-group-title",
   },
 })
-export class SideNavGroupTitleComponent {
-  classes = computed(() => {
-    const classList = ["tedi-sidenav-group-title"];
-    return classList.join(" ");
-  });
-}
+export class SideNavGroupTitleComponent {}

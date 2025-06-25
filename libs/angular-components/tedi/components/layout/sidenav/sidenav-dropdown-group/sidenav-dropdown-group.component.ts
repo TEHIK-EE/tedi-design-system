@@ -1,25 +1,18 @@
 import {
   ChangeDetectionStrategy,
   Component,
-  computed,
   ViewEncapsulation,
 } from "@angular/core";
 
 @Component({
   selector: "tedi-sidenav-dropdown-group",
   standalone: true,
-  templateUrl: "./sidenav-dropdown-group.component.html",
+  template: "<ng-content />",
   styleUrl: "./sidenav-dropdown-group.component.scss",
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
   host: {
-    "[class]": "classes()",
+    "class": "tedi-sidenav-dropdown-group",
   },
 })
-export class SideNavDropdownGroupComponent {
-  classes = computed(() => {
-    const classList = ["tedi-sidenav-dropdown-group"];
-
-    return classList.join(" ");
-  });
-}
+export class SideNavDropdownGroupComponent {}
