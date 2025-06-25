@@ -16,7 +16,7 @@
       }
 
       &:not(:last-child) {
-        border-right-color: var(--alpha-00);
+        border-right-color: var(--alpha-01);
 
         &:active,
         &:hover {
@@ -53,7 +53,7 @@
       }
 
       &:not(:last-child) {
-        border-bottom-color: var(--alpha-00);
+        border-bottom-color: var(--alpha-01);
 
         &:active,
         &:hover {

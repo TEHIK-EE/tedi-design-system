@@ -63,7 +63,6 @@
 
 .tedi-left-panel__header-controls {
   display: flex;
-  gap: var(--layout-grid-gutters-08);
   align-items: center;
   justify-content: space-between;
   color: var(--button-main-neutral-inverted-text-default);
@@ -74,6 +73,7 @@
   @include mixins.responsive-styles(padding-bottom, layout-grid-gutters-04);
   @include mixins.responsive-styles(border-bottom-left-radius, sidepanel-header-radius-bottom);
   @include mixins.responsive-styles(border-bottom-right-radius, sidepanel-header-radius-bottom);
+  @include mixins.responsive-styles(gap, layout-grid-gutters-08);
 }
 
 .tedi-accordion {

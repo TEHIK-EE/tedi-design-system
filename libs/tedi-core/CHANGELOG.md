@@ -4,14 +4,6 @@
 ### Bug Fixes
 
 * **sidenav:** change tedi-core sidenav variables [#868](https://github.com/TEHIK-EE/tedi-design-system/issues/868) ([#869](https://github.com/TEHIK-EE/tedi-design-system/issues/869)) ([5a86250](https://github.com/TEHIK-EE/tedi-design-system/commit/5a86250b36f229f8db12f0f24e4c059ef8eacaad))
-* **tedi-core:** change header css variables [#886](https://github.com/TEHIK-EE/tedi-design-system/issues/886) ([#887](https://github.com/TEHIK-EE/tedi-design-system/issues/887)) ([ae6155e](https://github.com/TEHIK-EE/tedi-design-system/commit/ae6155ea51961bac711e948a2999c55228da052d))
-
-# [@tehik-ee/tedi-core-v1.13.4](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.13.3...core-1.13.4) (2025-06-25)
-
-
-### Bug Fixes
-
-* **sidenav:** change tedi-core sidenav variables [#868](https://github.com/TEHIK-EE/tedi-design-system/issues/868) ([#869](https://github.com/TEHIK-EE/tedi-design-system/issues/869)) ([5a86250](https://github.com/TEHIK-EE/tedi-design-system/commit/5a86250b36f229f8db12f0f24e4c059ef8eacaad))
 
 # [@tehik-ee/tedi-core-v1.13.4](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.13.3...core-1.13.4) (2025-06-25)
 

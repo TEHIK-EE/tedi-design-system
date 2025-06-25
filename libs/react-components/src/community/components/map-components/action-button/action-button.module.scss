@@ -64,7 +64,7 @@
   &--selected {
     color: var(--button-primary-text-active);
     background-color: var(--button-primary-background-hover);
-    border-color: var(--alpha-00);
+    border-color: var(--alpha-01);
     outline: 2px solid var(--button-primary-border-active);
     outline-offset: -2px;
 
@@ -83,7 +83,7 @@
       width: 0;
       height: 0;
       content: '';
-      border-color: var(--alpha-00) var(--alpha-00) var(--button-primary-text-default) var(--alpha-00);
+      border-color: var(--alpha-01) var(--alpha-01) var(--button-primary-text-default) var(--alpha-01);
       border-style: solid;
       border-width: 0 0 6px 6px;
       transform: rotate(0deg);
