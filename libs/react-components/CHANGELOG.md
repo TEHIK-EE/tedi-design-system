@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-react-v12.1.0-rc.3](https://github.com/TEHIK-EE/tedi-design-system/compare/react-12.1.0-rc.2...react-12.1.0-rc.3) (2025-06-25)
+
+
+### Features
+
+* **map-components:**  add kaardirakendus components for storybook [#888](https://github.com/TEHIK-EE/tedi-design-system/issues/888) ([#889](https://github.com/TEHIK-EE/tedi-design-system/issues/889)) ([2c7524f](https://github.com/TEHIK-EE/tedi-design-system/commit/2c7524fcd23a6b3a71f71d87fe9422d40cce5ed6))
+
 # [@tehik-ee/tedi-react-v12.1.0-rc.2](https://github.com/TEHIK-EE/tedi-design-system/compare/react-12.1.0-rc.1...react-12.1.0-rc.2) (2025-06-20)
 
 
