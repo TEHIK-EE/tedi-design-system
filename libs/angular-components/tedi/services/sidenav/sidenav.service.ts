@@ -4,7 +4,7 @@ import { SideNavItemComponent } from "../../components/layout/sidenav/sidenav-it
 
 @Injectable({ providedIn: "root" })
 export class SideNavService {
-  breakpointService = inject(BreakpointService);
+  private readonly breakpointService = inject(BreakpointService);
 
   items = signal<SideNavItemComponent[]>([]);
   isMobile = this.breakpointService.isBelowBreakpoint("lg");

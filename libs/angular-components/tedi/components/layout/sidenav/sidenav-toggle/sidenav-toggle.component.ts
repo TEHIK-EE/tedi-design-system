@@ -7,7 +7,7 @@ import {
 } from "@angular/core";
 import { IconComponent } from "../../../base/icon/icon.component";
 import { SideNavService } from "../../../../services/sidenav/sidenav.service";
-import { TediTranslationService } from "tedi/services";
+import { TediTranslationService } from "../../../../services/translation/translation.service";
 
 @Component({
   selector: "button[tedi-sidenav-toggle]",
