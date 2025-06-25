@@ -1,4 +1,5 @@
 @forward '../../../design-tokens/variables';
+@use 'map-component.variables';
 @use 'components/datepicker';
 @use 'components/calendar';
 @use 'components/text-editor';

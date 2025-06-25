@@ -1,0 +1,130 @@
+@use '@tehik-ee/tedi-core/mixins';
+@use '@tehik-ee/tedi-core/bootstrap-utility/breakpoints';
+
+.tedi-button-group {
+  display: flex;
+  gap: 0;
+  overflow: hidden;
+
+  &--horizontal {
+    flex-direction: row;
+
+    .tedi-button-group__item {
+      &:first-child {
+        @include mixins.responsive-styles(border-top-left-radius, button-radius-sm);
+        @include mixins.responsive-styles(border-bottom-left-radius, button-radius-sm);
+      }
+
+      &:not(:last-child) {
+        border-right-color: var(--alpha-00);
+
+        &:active,
+        &:hover {
+          border-right-color: var(--button-primary-border-hover);
+        }
+      }
+
+      &:last-child {
+        @include mixins.responsive-styles(border-top-right-radius, button-radius-sm);
+        @include mixins.responsive-styles(border-bottom-right-radius, button-radius-sm);
+      }
+    }
+
+    .tedi-button-group__suffix {
+      @include mixins.responsive-styles(border-bottom-right-radius, button-radius-sm);
+      @include mixins.responsive-styles(border-top-right-radius, button-radius-sm);
+    }
+
+    .tedi-button-group__prefix {
+      border-right: 0;
+
+      @include mixins.responsive-styles(border-bottom-left-radius, button-radius-sm);
+      @include mixins.responsive-styles(border-bottom-right-radius, button-radius-sm);
+    }
+  }
+
+  &--vertical {
+    flex-direction: column;
+
+    .tedi-button-group__item {
+      &:first-child {
+        @include mixins.responsive-styles(border-top-left-radius, button-radius-sm);
+        @include mixins.responsive-styles(border-top-right-radius, button-radius-sm);
+      }
+
+      &:not(:last-child) {
+        border-bottom-color: var(--alpha-00);
+
+        &:active,
+        &:hover {
+          border-bottom-color: var(--button-primary-border-hover);
+        }
+      }
+
+      &:last-child {
+        @include mixins.responsive-styles(border-bottom-left-radius, button-radius-sm);
+        @include mixins.responsive-styles(border-bottom-right-radius, button-radius-sm);
+      }
+    }
+
+    .tedi-button-group__suffix,
+    .tedi-button-group__prefix {
+      width: var(--dimensions-16);
+
+      > span {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    }
+
+    .tedi-button-group__suffix {
+      @include mixins.responsive-styles(border-bottom-right-radius, button-radius-sm);
+      @include mixins.responsive-styles(border-bottom-left-radius, button-radius-sm);
+    }
+
+    .tedi-button-group__prefix {
+      border-bottom: 0;
+
+      @include mixins.responsive-styles(border-top-right-radius, button-radius-sm);
+      @include mixins.responsive-styles(border-top-left-radius, button-radius-sm);
+    }
+  }
+
+  .tedi-button-group__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: calc(var(--padding-top) - 1px);
+    padding-bottom: calc(var(--padding-bottom) - 1px);
+    text-align: center;
+    cursor: pointer;
+    border-radius: 0;
+
+    @include mixins.responsive-styles(--padding-top, button-md-padding-y);
+    @include mixins.responsive-styles(--padding-bottom, button-md-padding-y);
+    @include mixins.responsive-styles(padding-left, button-md-padding-x);
+    @include mixins.responsive-styles(padding-right, button-md-padding-x);
+
+    @include breakpoints.media-breakpoint-down(md) {
+      flex: 1;
+    }
+  }
+
+  &--stretch {
+    .tedi-button-group__item {
+      flex: 1;
+    }
+  }
+
+  &__prefix,
+  &__suffix {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 0.5rem;
+    font-weight: 700;
+    background: var(--general-surface-tertiary);
+    border: 1px solid var(--button-primary-border-default);
+  }
+}
