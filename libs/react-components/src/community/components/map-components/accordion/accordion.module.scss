@@ -12,7 +12,6 @@
 
 .tedi-accordion__item-header {
   display: flex;
-  gap: var(--layout-grid-gutters-08);
   align-items: center;
   justify-content: space-between;
   min-height: var(--accordion-item-min-height);
@@ -20,6 +19,8 @@
   color: var(--general-text-white);
   border-radius: 0;
   transition: 300ms ease;
+
+  @include mixins.responsive-styles(gap, layout-grid-gutters-08);
 
   .tedi-accordion__item--disabled & {
     color: var(--general-text-disabled);

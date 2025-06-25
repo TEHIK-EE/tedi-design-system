@@ -7,14 +7,19 @@
 }
 
 .tedi-resize__content {
+  display: flex;
   width: 100%;
   height: 100%;
+
+  > * {
+    height: 100%;
+  }
 }
 
 .tedi-resize__handle-wrapper {
   position: absolute;
   z-index: 100;
-  background-color: var(--alpha-00);
+  background-color: var(--alpha-01);
 
   .tedi-resize__drag-handle {
     position: absolute;

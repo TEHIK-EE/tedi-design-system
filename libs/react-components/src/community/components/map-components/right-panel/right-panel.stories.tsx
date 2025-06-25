@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 
-import { Button, Card, Text } from '../../../../tedi';
+import { Button, Card, Text, VerticalSpacing } from '../../../../tedi';
 import { measurementContent } from './examples';
 import RightPanel from './right-panel';
 
@@ -42,12 +42,12 @@ export const OneItem: Story = {
       {
         id: 'first',
         title: (
-          <>
+          <VerticalSpacing size={0.5}>
             <Text modifiers={['thin', 'h4']}>Infopäring</Text>
             <Button visualType="secondary" iconRight="north_east" size="small">
               Kaldaaerofotod
             </Button>
-          </>
+          </VerticalSpacing>
         ),
         content: measurementContent,
       },
