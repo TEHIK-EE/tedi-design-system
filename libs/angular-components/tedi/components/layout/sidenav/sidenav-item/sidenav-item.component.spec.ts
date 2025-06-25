@@ -25,7 +25,7 @@ describe("SideNavItemComponent", () => {
         isCollapsed: signal(false),
         isMobile: signal(false),
         isMobileItemOpen: signal(false),
-        isMobileOpen: signal(true),
+        isMobileOpen: signal(false),
         tooltipEnabled: signal(false),
         registerItem: jest.fn(),
         unregisterItem: jest.fn(),
@@ -106,11 +106,10 @@ describe("SideNavItemComponent", () => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     fixture.componentInstance.dropdown = dropdownStub as any;
     fixture.componentInstance.ngAfterViewInit();
-    
+
     sidenavService.isCollapsed.set(true);
     fixture.detectChanges();
 
-    // click outside host and dropdown
     document.dispatchEvent(new MouseEvent("click", { bubbles: true }));
     expect(dropdownStub.open()).toBe(false);
   });

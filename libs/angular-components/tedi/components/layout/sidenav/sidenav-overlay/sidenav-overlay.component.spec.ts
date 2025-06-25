@@ -6,14 +6,33 @@ import { SideNavService } from "../../../../services/sidenav/sidenav.service";
 describe("SideNavOverlayComponent", () => {
   let fixture: ComponentFixture<SideNavOverlayComponent>;
   let overlayElement: HTMLElement;
-
-  const sidenavService = {
-    isMobile: signal(false),
-    isMobileOpen: signal(false),
-    handleGoToMainMenu: jest.fn(),
-  };
+  let sidenavService: {
+    items: ReturnType<typeof signal>,
+    isCollapsed: ReturnType<typeof signal>,
+    isMobile: ReturnType<typeof signal>,
+    isMobileItemOpen: ReturnType<typeof signal>,
+    isMobileOpen: ReturnType<typeof signal>,
+    tooltipEnabled: ReturnType<typeof signal>,
+    registerItem: jest.Mock,
+    unregisterItem: jest.Mock,
+    handleGoToMainMenu: jest.Mock,
+    handleCollapse: jest.Mock
+  }
 
   beforeEach(() => {
+    sidenavService = {
+        items: signal([]),
+        isCollapsed: signal(false),
+        isMobile: signal(false),
+        isMobileItemOpen: signal(false),
+        isMobileOpen: signal(false),
+        tooltipEnabled: signal(false),
+        registerItem: jest.fn(),
+        unregisterItem: jest.fn(),
+        handleGoToMainMenu: jest.fn(),
+        handleCollapse: jest.fn()
+    };
+    
     TestBed.configureTestingModule({
       imports: [SideNavOverlayComponent],
       providers: [

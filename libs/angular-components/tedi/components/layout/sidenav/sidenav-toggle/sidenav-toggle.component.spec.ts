@@ -7,11 +7,18 @@ import { TediTranslationService } from "../../../../services/translation/transla
 describe("SideNavToggleComponent", () => {
   let fixture: ComponentFixture<SideNavToggleComponent>;
   let toggleElement: HTMLElement;
-
-  const sidenavService = {
-    isMobileOpen: signal(false),
-    handleGoToMainMenu: jest.fn(),
-  };
+  let sidenavService: {
+    items: ReturnType<typeof signal>,
+    isCollapsed: ReturnType<typeof signal>,
+    isMobile: ReturnType<typeof signal>,
+    isMobileItemOpen: ReturnType<typeof signal>,
+    isMobileOpen: ReturnType<typeof signal>,
+    tooltipEnabled: ReturnType<typeof signal>,
+    registerItem: jest.Mock,
+    unregisterItem: jest.Mock,
+    handleGoToMainMenu: jest.Mock,
+    handleCollapse: jest.Mock
+  }
 
   const translationTrackSpy = jest.fn().mockReturnValue(signal("Translated Label"));
   const translationService = {
@@ -19,6 +26,19 @@ describe("SideNavToggleComponent", () => {
   };
 
   beforeEach(() => {
+    sidenavService = {
+        items: signal([]),
+        isCollapsed: signal(false),
+        isMobile: signal(false),
+        isMobileItemOpen: signal(false),
+        isMobileOpen: signal(false),
+        tooltipEnabled: signal(false),
+        registerItem: jest.fn(),
+        unregisterItem: jest.fn(),
+        handleGoToMainMenu: jest.fn(),
+        handleCollapse: jest.fn()
+    };
+
     TestBed.configureTestingModule({
       imports: [SideNavToggleComponent],
       providers: [
@@ -43,9 +63,6 @@ describe("SideNavToggleComponent", () => {
   });
 
   it("should toggle isMobileOpen and call handleGoToMainMenu on click", () => {
-    expect(sidenavService.isMobileOpen()).toBe(false);
-    expect(sidenavService.handleGoToMainMenu).not.toHaveBeenCalled();
-
     toggleElement.click();
     fixture.detectChanges();
     expect(sidenavService.isMobileOpen()).toBe(true);
