@@ -4,6 +4,7 @@ import { FooterBottomComponent } from "./footer-bottom.component";
 import { LinkComponent } from "../../../navigation/link/link.component";
 import { BreakpointService } from "../../../../services/breakpoint/breakpoint.service";
 import { By } from "@angular/platform-browser";
+import { signal } from "@angular/core";
 
 @Component({
   standalone: true,
@@ -38,7 +39,7 @@ describe("FooterBottomComponent", () => {
 
   beforeEach(async () => {
     mockBreakpointService = {
-      isBelowBreakpoint: jest.fn().mockReturnValue(false),
+      isBelowBreakpoint: jest.fn().mockReturnValue(signal(false)),
       getBreakpointInputs: jest.fn().mockReturnValue({}),
     };
 
@@ -58,8 +59,7 @@ describe("FooterBottomComponent", () => {
   });
 
   it("should add ellipsis elements when in mobile layout", () => {
-    mockBreakpointService.isBelowBreakpoint.mockReturnValue(true);
-
+    mockBreakpointService.isBelowBreakpoint.mockReturnValue(signal(true));
     fixture = TestBed.createComponent(TestHostComponent);
     fixture.detectChanges();
     const ellipsisEls = fixture.debugElement.queryAll(
@@ -69,7 +69,7 @@ describe("FooterBottomComponent", () => {
   });
 
   it("should not add ellipsis elements if there is only one link", () => {
-    mockBreakpointService.isBelowBreakpoint.mockReturnValue(true);
+    mockBreakpointService.isBelowBreakpoint.mockReturnValue(signal(true));
     const singleLinkFixture = TestBed.createComponent(
       TestHostSingleLinkComponent,
     );

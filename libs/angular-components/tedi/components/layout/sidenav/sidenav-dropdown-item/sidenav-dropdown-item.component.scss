@@ -1,0 +1,73 @@
+@use "@tehik-ee/tedi-core/mixins";
+
+.tedi-sidenav-dropdown-item {
+  min-height: var(--_sidenav-dropdown-item-height);
+  position: relative;
+  display: block;
+  color: var(--side-navigation-item-text);
+  padding-top: var(--_sidenav-item-padding-y);
+  padding-bottom: var(--_sidenav-item-padding-y);
+  padding-right: var(--_sidenav-item-padding-right);
+  padding-left: calc(
+    var(--_padding-left) + var(--_sidenav-tree-container) + var(--_gap)
+  );
+  cursor: pointer;
+
+  @include mixins.responsive-styles(
+    --_padding-left,
+    side-navigation-item-padding-left-level-2
+  );
+
+  @include mixins.responsive-styles(--_gap, side-navigation-item-inner-spacing);
+
+  &:hover {
+    background: var(--side-navigation-item-background-hover);
+  }
+
+  &--selected {
+    background: var(--side-navigation-item-background-active);
+
+    @include mixins.responsive-styles(font-weight, body-bold-weight);
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: calc(var(--_padding-left) + var(--_sidenav-tree-left-padding));
+    width: var(--_sidenav-tree-trunk-width);
+    height: 100%;
+    background-color: var(--side-navigation-tree-brand-default);
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: calc(var(--_padding-left) + var(--_sidenav-tree-left-padding));
+    width: var(--_sidenav-tree-branch-width);
+    height: var(--_sidenav-tree-trunk-width);
+    transform: translateY(-50%);
+    background-color: var(--side-navigation-tree-brand-default);
+  }
+
+  &--parent {
+    @include mixins.responsive-styles(padding-left, dropdown-item-padding-x);
+
+    &::before,
+    &::after {
+      display: none;
+    }
+  }
+
+  &:last-of-type {
+    &::before {
+      height: 50%;
+    }
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+}
