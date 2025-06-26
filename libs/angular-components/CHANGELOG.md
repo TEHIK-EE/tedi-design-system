@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-angular-v2.2.0-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.1.0...angular-2.2.0-rc.1) (2025-06-26)
+
+
+### Features
+
+* **sidenav:** Angular TEDI-Ready ([#880](https://github.com/TEHIK-EE/tedi-design-system/issues/880)) ([cce71f5](https://github.com/TEHIK-EE/tedi-design-system/commit/cce71f59ab6416aaf57735c8f552f1f4c71a6bd1)), closes [#851](https://github.com/TEHIK-EE/tedi-design-system/issues/851) [#851](https://github.com/TEHIK-EE/tedi-design-system/issues/851) [#851](https://github.com/TEHIK-EE/tedi-design-system/issues/851) [#851](https://github.com/TEHIK-EE/tedi-design-system/issues/851) [#851](https://github.com/TEHIK-EE/tedi-design-system/issues/851) [#851](https://github.com/TEHIK-EE/tedi-design-system/issues/851) [#851](https://github.com/TEHIK-EE/tedi-design-system/issues/851) [#851](https://github.com/TEHIK-EE/tedi-design-system/issues/851) [#851](https://github.com/TEHIK-EE/tedi-design-system/issues/851) [#851](https://github.com/TEHIK-EE/tedi-design-system/issues/851) [#851](https://github.com/TEHIK-EE/tedi-design-system/issues/851) [#851](https://github.com/TEHIK-EE/tedi-design-system/issues/851) [#851](https://github.com/TEHIK-EE/tedi-design-system/issues/851) [#851](https://github.com/TEHIK-EE/tedi-design-system/issues/851) [#851](https://github.com/TEHIK-EE/tedi-design-system/issues/851) [#851](https://github.com/TEHIK-EE/tedi-design-system/issues/851) [#851](https://github.com/TEHIK-EE/tedi-design-system/issues/851) [#851](https://github.com/TEHIK-EE/tedi-design-system/issues/851) [#851](https://github.com/TEHIK-EE/tedi-design-system/issues/851) [#900](https://github.com/TEHIK-EE/tedi-design-system/issues/900) [#851](https://github.com/TEHIK-EE/tedi-design-system/issues/851) [#851](https://github.com/TEHIK-EE/tedi-design-system/issues/851) [#851](https://github.com/TEHIK-EE/tedi-design-system/issues/851)
+
 # [@tehik-ee/tedi-angular-v2.1.0](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.0.1...angular-2.1.0) (2025-06-26)
 
 
