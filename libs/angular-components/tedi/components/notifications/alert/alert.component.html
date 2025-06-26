@@ -1,0 +1,23 @@
+<div
+  [attr.aria-live]="getAriaLive()"
+  [attr.aria-label]="getAriaLabel()"
+  [class]="getClasses()"
+  [attr.role]="getRole()"
+>
+  <div
+    class="tedi-alert__container"
+    [class.tedi-alert__title-layout]="title()"
+    [class.tedi-alert__icon-layout]="icon()"
+  >
+    <tedi-icon *ngIf="icon()" class="tedi-alert__icon" [name]="icon()" />
+    <div class="tedi-alert__content">
+      <ng-content />
+    </div>
+    <button
+      tedi-closing-button
+      *ngIf="showClose()"
+      class="tedi-alert__close"
+    ></button>
+    <div class="tedi-alert__title__container" #alertTitle></div>
+  </div>
+</div>

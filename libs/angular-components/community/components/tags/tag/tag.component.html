@@ -1,0 +1,26 @@
+@if (type() === "danger") {
+  <span class="tedi-tag__icon-wrapper">
+    <tedi-icon name="error" color="danger" [size]="16" />
+  </span>
+}
+
+<span class="tedi-tag__content">
+  <ng-content />
+</span>
+
+@if (loading()) {
+  <span class="tedi-tag__spinner-wrapper">
+    <tedi-spinner [size]="10" />
+  </span>
+} @else if (closable()) {
+  <!-- TODO: Not sure about the aria-label and title here. Should they come from input and be translatable? -->
+  <button
+    type="button"
+    class="tedi-tag__closing-button"
+    [attr.aria-label]="'remove' | tediTranslate"
+    [title]="'remove' | tediTranslate"
+    (click)="handleClose($event)"
+  >
+    <tedi-icon name="close" [size]="18" />
+  </button>
+}

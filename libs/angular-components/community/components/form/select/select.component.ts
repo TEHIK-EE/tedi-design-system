@@ -23,9 +23,14 @@ import {
   InputState,
 } from "../input/input.component";
 import { CardComponent, CardContentComponent } from "../../cards/card";
-import { IconComponent } from "@tehik-ee/tedi-angular/tedi";
+import {
+  ComponentInputs,
+  FeedbackTextComponent,
+  IconComponent,
+  LabelComponent,
+  ClosingButtonComponent,
+} from "@tehik-ee/tedi-angular/tedi";
 import { DropdownItemComponent } from "../../overlay/dropdown-item/dropdown-item.component";
-import { ClosingButtonComponent } from "../../buttons/closing-button/closing-button.component";
 
 @Component({
   selector: "tedi-select",
@@ -39,6 +44,8 @@ import { ClosingButtonComponent } from "../../buttons/closing-button/closing-but
     IconComponent,
     DropdownItemComponent,
     ClosingButtonComponent,
+    LabelComponent,
+    FeedbackTextComponent,
   ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -57,6 +64,21 @@ import { ClosingButtonComponent } from "../../buttons/closing-button/closing-but
 })
 export class SelectComponent
   implements ControlValueAccessor, OnInit, AfterContentChecked {
+  /**
+   * The label for the select input.
+   * @default ""
+   */
+  label = input<string>();
+  /**
+   * The id of the select input (for label association).
+   * @default ""
+   */
+  inputId = input.required<string>();
+  /**
+   * Should show label as required?
+   * @default false
+   */
+  required = input<boolean>(false);
   /**
    * The placeholder text to display when no option is selected.
    * @default ""
@@ -77,6 +99,7 @@ export class SelectComponent
    * @default "default"
    */
   size = input<InputSize>("default");
+  feedbackText = input<ComponentInputs<FeedbackTextComponent>>();
 
   // Internal state
   _selectedValue = signal<string | null>(null);
@@ -91,9 +114,17 @@ export class SelectComponent
   private onTouched: () => void = () => {};
 
   writeValue(value: string | null): void {
-    if (!value) return;
+    if (value === null || value === undefined) {
+      this._selectedValue.set(null);
+      return;
+    }
 
-    this.select(value);
+    if (Array.isArray(value)) {
+      // Take the first value if array is provided
+      this._selectedValue.set(value.length > 0 ? value[0] : null);
+    } else {
+      this._selectedValue.set(value);
+    }
   }
 
   registerOnChange(fn: (value: string | null) => void): void {
@@ -125,7 +156,7 @@ export class SelectComponent
   // Event handlers
   select(value: string) {
     this._selectedValue.set(value);
-    this.onChange(value);
+    this.onChange(this._selectedValue());
     this.onTouched();
   }
 
@@ -139,15 +170,30 @@ export class SelectComponent
     this.onTouched();
   }
 
-  selectedLabel = computed(() =>
-    this._options()
-      .find((option) => option.value() === this._selectedValue())
-      ?.label(),
-  );
+  selectedLabel = computed(() => {
+    const value = this._selectedValue();
+    if (!value) return null;
+
+    return this._options()
+      .find((option) => option.value() === value)
+      ?.label();
+  });
 
   private setDropdownWidth() {
     const computedWidth =
       this.selectRef?.nativeElement?.getBoundingClientRect()?.width ?? 0;
     this._width.set(computedWidth);
+  }
+
+  isOptionSelected(value: string): boolean {
+    return this._selectedValue() === value;
+  }
+
+  getOptionLabel(value: string): string | null {
+    return (
+      this._options()
+        .find((option) => option.value() === value)
+        ?.label() || value
+    );
   }
 }

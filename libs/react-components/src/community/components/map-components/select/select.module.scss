@@ -1,0 +1,10 @@
+/** will be fixed in tedi-select, this override is for the dark-mode */
+.tedi-select__control-wrapper {
+  color: var(--form-input-text-filled) !important;
+  background-color: var(--form-input-background-default) !important;
+  border-color: var(--form-input-border-default) !important;
+}
+
+.tedi-select__single-value {
+  color: var(--form-input-text-filled) !important;
+}

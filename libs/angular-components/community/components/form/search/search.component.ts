@@ -14,15 +14,16 @@ import {
   viewChild,
 } from "@angular/core";
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from "@angular/forms";
-import { IconComponent, ButtonComponent } from "@tehik-ee/tedi-angular/tedi";
+import {
+  IconComponent,
+  ButtonComponent,
+  ClosingButtonComponent,
+} from "@tehik-ee/tedi-angular/tedi";
 import { FormsModule } from "@angular/forms";
 import { CdkOverlayOrigin, OverlayModule } from "@angular/cdk/overlay";
-import {
-  CardComponent,
-  CardContentComponent,
-} from "community/components/cards/card";
-import { DropdownItemComponent } from "community/components/overlay";
-import { ClosingButtonComponent } from "community/components/buttons";
+import { CardComponent } from "../../cards/card/card.component";
+import { CardContentComponent } from "../../cards/card/card-content/card-content.component";
+import { DropdownItemComponent } from "../../overlay/dropdown-item/dropdown-item.component";
 import { A11yModule } from "@angular/cdk/a11y";
 import { CdkMenu, CdkMenuModule } from "@angular/cdk/menu";
 
@@ -193,11 +194,11 @@ export class SearchComponent
   buttonSize = computed(() => {
     switch (this.size()) {
       case "large":
-        return "medium";
+        return "default";
       case "small":
         return "small";
       default:
-        return "medium";
+        return "default";
     }
   });
 
@@ -218,6 +219,7 @@ export class SearchComponent
   registerOnChange(fn: (value: string | AutocompleteOption) => void): void {
     this.onChange = fn;
   }
+
   registerOnTouched(fn: () => void): void {
     this.onTouched = fn;
   }
@@ -253,6 +255,7 @@ export class SearchComponent
     this.onChange("");
     this.onTouched();
   }
+
   focusDropdown(event?: Event) {
     // Prevent default behavior and stop propagation if event is provided
     if (event) {

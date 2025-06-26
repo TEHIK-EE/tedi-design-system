@@ -1,0 +1,31 @@
+@use "@tehik-ee/tedi-core/mixins";
+
+.tedi-footer-bottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--footer-bottom-background);
+  flex-wrap: wrap;
+  gap: 24px;
+
+  @include mixins.responsive-styles(
+    padding-left,
+    layout-footer-bottom-padding-x
+  );
+  @include mixins.responsive-styles(
+    padding-right,
+    layout-footer-bottom-padding-x
+  );
+  @include mixins.responsive-styles(
+    padding-top,
+    layout-footer-bottom-padding-y
+  );
+  @include mixins.responsive-styles(
+    padding-bottom,
+    layout-footer-bottom-padding-y
+  );
+
+  &--mobile {
+    @include mixins.responsive-styles(gap, layout-grid-gutters-16);
+  }
+}

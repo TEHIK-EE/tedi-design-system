@@ -1,0 +1,82 @@
+@use "@tehik-ee/tedi-core/mixins";
+
+.tedi-tag {
+  --_background-color: var(--tag-primary-background);
+  --_border-color: var(--tag-primary-border);
+  --_border-width: 1px;
+  --_tag-padding-y: calc(var(--tag-default-padding-y) - var(--_border-width));
+
+  display: inline-flex;
+  align-items: flex-start;
+  gap: var(--_gap-x);
+  padding: 0 var(--_padding-x);
+  background-color: var(--_background-color);
+  border: var(--_border-width) solid;
+  border-color: var(--_border-color);
+  border-radius: var(--_border-radius);
+  font-family: var(--family-primary);
+  color: var(--general-text-primary);
+  line-height: var(--_line-height);
+  overflow: hidden;
+
+  @include mixins.responsive-styles(--_padding-y, tag-default-padding-y);
+  @include mixins.responsive-styles(--_padding-x, tag-default-padding-x);
+  @include mixins.responsive-styles(--_border-radius, tag-default-radius);
+  @include mixins.responsive-styles(--_gap-x, tag-default-padding-x);
+  @include mixins.responsive-styles(font-weight, body-small-regular-weight);
+  @include mixins.responsive-styles(font-size, body-small-regular-size);
+  @include mixins.responsive-styles(
+    --_line-height,
+    body-small-regular-line-height
+  );
+  @include mixins.responsive-styles(--_tag-padding-y, tag-default-padding-y);
+
+  &__content {
+    padding: calc(var(--_tag-padding-y) - var(--_border-width)) 0;
+  }
+
+  &__icon-wrapper {
+    line-height: calc(var(--_line-height) + var(--_tag-padding-y));
+  }
+
+  &__closing-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    border: none;
+    background-color: rgba(0, 0, 0, 0.01);
+    transition: background-color 0.3s ease-in-out;
+    height: calc(var(--_button-height) - var(--_border-width) * 2);
+
+    @include mixins.responsive-styles(--_button-height, button-xs-icon-size);
+    @include mixins.responsive-styles(min-width, button-xs-icon-size);
+
+    &:hover,
+    &:focus {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  &__spinner-wrapper {
+    display: flex;
+    align-items: center;
+    height: calc(var(--_line-height) + var(--_tag-padding-y));
+  }
+
+  &--closable:not(.tedi-tag--loading) {
+    padding-right: 0;
+  }
+
+  &--secondary {
+    --_background-color: var(--tag-secondary-background);
+    --_border-color: var(--tag-secondary-border);
+  }
+
+  &--danger {
+    --_background-color: var(--tag-danger-background);
+    --_border-color: var(--tag-danger-border);
+  }
+}

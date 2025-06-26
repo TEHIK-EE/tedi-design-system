@@ -1,0 +1,21 @@
+@use "@tehik-ee/tedi-core/mixins";
+
+.tedi-footer-body {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-around;
+  width: 100%;
+  flex-wrap: wrap;
+
+  @include mixins.responsive-styles(gap, layout-grid-gutters-24);
+  @include mixins.responsive-styles(padding, footer-padding-y footer-padding-x);
+
+  &--mobile {
+    gap: 0.75rem;
+    flex-direction: column;
+    @include mixins.responsive-styles(
+      padding,
+      layout-footer-padding-y layout-footer-padding-x
+    );
+  }
+}
