@@ -115,8 +115,10 @@
 </ng-template>
 
 <ng-template #content>
-  @if (icon() && !(sidenavService.isMobileItemOpen() && dropdown?.open())) {
-    <tedi-icon [name]="icon()" color="white" class="tedi-sidenav-item__icon" />
+  @if (icon(); as icon) {
+    @if (!(sidenavService.isMobileItemOpen() && dropdown?.open())) {
+      <tedi-icon [name]="icon" color="white" class="tedi-sidenav-item__icon" />
+    }
   }
   <span class="tedi-sidenav-item__text">
     <ng-content></ng-content>

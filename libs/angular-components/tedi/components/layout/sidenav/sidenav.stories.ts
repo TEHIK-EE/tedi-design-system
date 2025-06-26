@@ -18,6 +18,16 @@ import { SideNavOverlayComponent } from "./sidenav-overlay/sidenav-overlay.compo
  * <a href="#" target="_BLANK">Zeroheight ↗</a>
  *
  * To test the mobile layout, either resize your browser window or use Storybook's built-in viewport tools.
+ * The sidenav component is used to display the side navigation at the left side of the page. It can contain external links, router links, dropdowns, and more.
+ * This component is responsive and adapts to mobile layout when at certain screen size. To toggle side navigation in mobile user needs to click sidenav-toggle button.
+ * It consists of several sub-components:
+ * - `SideNavItemComponent`: Used for showing item which can be text, external link or router link. And can contain a dropdown.
+ * - `SideNavDropdownComponent`: Used for showing subitems in a dropdown.
+ * - `SideNavDropdownItemComponent`: Dropdown item component. Subitems can be text, external link or router link.
+ * - `SideNavDropdownGroup`: Used for grouping items in a dropdown. Grouping changes first item style, suggesting it is parent link.
+ * - `SideNavGroupTitleComponent`: Used for showing title in menu and grouping similar items.
+ * - `SideNavToggleComponent`: Used for toggling side navigation in mobile layout.
+ * - `SideNavOverlayComponent`: Used for showing dark overlay when side navigation is open in mobile layout.
  */
 
 export default {
