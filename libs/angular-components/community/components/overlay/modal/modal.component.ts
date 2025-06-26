@@ -1,5 +1,6 @@
 import {
   Component,
+  computed,
   inject,
   model,
   OnInit,
@@ -40,6 +41,14 @@ export class ModalComponent implements OnInit {
   readonly dialogRef = inject(DialogRef, { optional: true });
   readonly dialogData = inject(DIALOG_DATA, {
     optional: true,
+  });
+
+  readonly containerClasses = computed(() => {
+    const classes = ["tedi-modal__container"];
+    if (this.maxWidth()) {
+      classes.push(`tedi-modal__container--${this.maxWidth()}`);
+    }
+    return classes.join(" ");
   });
 
   ngOnInit(): void {
