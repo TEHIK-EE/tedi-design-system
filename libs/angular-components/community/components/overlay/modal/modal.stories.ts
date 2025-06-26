@@ -6,7 +6,11 @@ import {
   LabelComponent,
 } from "tedi/components";
 import { Dialog } from "@angular/cdk/dialog";
-import { DialogData, ModalComponent } from "./modal.component";
+import {
+  DialogData,
+  modalBreakpoints,
+  ModalComponent,
+} from "./modal.component";
 import { SelectComponent } from "../../form/select/select.component";
 import { SelectOptionComponent } from "../../form/select/select-option.component";
 import { resetIndexId, indexId } from "../../../helpers/unique-id";
@@ -116,8 +120,8 @@ const meta: Meta<DialogData> = {
       control: {
         type: "radio",
       },
-      options: ["sm", "md", "lg"],
-      description: "Maximum Width of the modal container",
+      options: modalBreakpoints,
+      description: "Maximum width of the modal container",
     },
     title: {
       control: "text",
@@ -142,7 +146,7 @@ const meta: Meta<DialogData> = {
     variant: {
       control: "radio",
       options: ["small", "default"],
-      description: "Variant of the modal",
+      description: "Variant of the modal padding to use",
     },
   },
   args: {
