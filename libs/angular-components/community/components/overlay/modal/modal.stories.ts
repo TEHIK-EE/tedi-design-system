@@ -6,13 +6,16 @@ import {
   LabelComponent,
 } from "tedi/components";
 import { Dialog } from "@angular/cdk/dialog";
-import { DialogData, ModalComponent } from "./modal.component";
+import {
+  DialogData,
+  modalBreakpoints,
+  ModalComponent,
+} from "./modal.component";
 import { SelectComponent } from "../../form/select/select.component";
 import { SelectOptionComponent } from "../../form/select/select-option.component";
 import { resetIndexId, indexId } from "../../../helpers/unique-id";
 import { ModalFooterComponent } from "./footer/modal-footer.component";
 import { ModalHeaderComponent } from "./header/modal-header.component";
-import { BREAKPOINTS } from "@tehik-ee/tedi-angular/tedi";
 
 resetIndexId();
 
@@ -117,7 +120,7 @@ const meta: Meta<DialogData> = {
       control: {
         type: "radio",
       },
-      options: Object.keys(BREAKPOINTS),
+      options: modalBreakpoints,
       description: "Maximum width of the modal container",
     },
     title: {

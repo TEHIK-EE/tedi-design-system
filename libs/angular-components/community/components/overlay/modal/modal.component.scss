@@ -1,6 +1,5 @@
 @use "@angular/cdk" as cdk;
 @use "@tehik-ee/tedi-core/mixins";
-@use "@tehik-ee/tedi-core/variables/bootstrap-variables" as vars;
 @include cdk.overlay();
 
 @mixin pane-max-width($size) {
@@ -21,7 +20,9 @@
   --#{$name}-y-mobile: #{$y-value};
 }
 
-@each $breakpoint, $size in vars.$grid-breakpoints {
+$modal-breapoints: (xs, sm, md, lg, xl);
+
+@each $breakpoint in $modal-breapoints {
   @include pane-max-width($breakpoint);
 }
 

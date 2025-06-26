@@ -12,7 +12,6 @@ import { ModalFooterComponent } from "./footer/modal-footer.component";
 import {
   ComponentInputs,
   Breakpoint,
-  BREAKPOINTS,
 } from "@tehik-ee/tedi-angular/tedi";
 
 export type DialogData = ComponentInputs<
@@ -21,6 +20,8 @@ export type DialogData = ComponentInputs<
   maxWidth?: Breakpoint;
   variant?: "default" | "small";
 };
+
+export const modalBreakpoints = ["xs", "sm", "md", "lg", "xl"];
 
 @Component({
   selector: "tedi-modal",
@@ -49,7 +50,7 @@ export class ModalComponent implements OnInit {
       classes.push("tedi-modal--padding-small");
     }
 
-    for (const breakpoint of Object.keys(BREAKPOINTS)) {
+    for (const breakpoint of modalBreakpoints) {
       if (this.maxWidth() === breakpoint) {
         classes.push(`tedi-modal--width-${breakpoint}`);
       }
