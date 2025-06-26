@@ -1191,4 +1191,22 @@
   --button-md-height-desktop: var(--dimensions-16);
   --button-md-height-tablet: var(--dimensions-16);
   --button-md-height-mobile: var(--dimensions-17);
+  --layout-footer-padding-x-desktop: var(--dimensions-16);
+  --layout-footer-padding-x-tablet: var(--dimensions-16);
+  --layout-footer-padding-x-mobile: var(--dimensions-10);
+  --layout-footer-padding-y-desktop: var(--dimensions-16);
+  --layout-footer-padding-y-tablet: var(--dimensions-16);
+  --layout-footer-padding-y-mobile: var(--dimensions-10);
+  --layout-footer-bottom-padding-x-desktop: var(--layout-page-spacing-x-desktop);
+  --layout-footer-bottom-padding-x-tablet: var(--layout-page-spacing-x-tablet);
+  --layout-footer-bottom-padding-x-mobile: var(--layout-page-spacing-x-mobile);
+  --layout-footer-bottom-padding-y-desktop: var(--dimensions-05);
+  --layout-footer-bottom-padding-y-tablet: var(--dimensions-05);
+  --layout-footer-bottom-padding-y-mobile: var(--dimensions-05);
+  --layout-footer-item-vertical-spacing-desktop: var(--dimensions-05);
+  --layout-footer-item-vertical-spacing-tablet: var(--dimensions-05);
+  --layout-footer-item-vertical-spacing-mobile: var(--dimensions-05);
+  --layout-footer-col-padding-x-desktop: var(--dimensions-07);
+  --layout-footer-col-padding-x-tablet: var(--dimensions-07);
+  --layout-footer-col-padding-x-mobile: 0rem;
 }
