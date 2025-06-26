@@ -12,6 +12,7 @@ import { SelectOptionComponent } from "../../form/select/select-option.component
 import { resetIndexId, indexId } from "../../../helpers/unique-id";
 import { ModalFooterComponent } from "./footer/modal-footer.component";
 import { ModalHeaderComponent } from "./header/modal-header.component";
+import { BREAKPOINTS } from "@tehik-ee/tedi-angular/tedi";
 
 resetIndexId();
 
@@ -116,7 +117,7 @@ const meta: Meta<DialogData> = {
       control: {
         type: "radio",
       },
-      options: ["sm", "md", "lg"],
+      options: Object.keys(BREAKPOINTS),
       description: "Maximum Width of the modal container",
     },
     title: {

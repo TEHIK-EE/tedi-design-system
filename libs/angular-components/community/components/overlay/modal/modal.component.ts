@@ -9,14 +9,16 @@ import {
 import { DIALOG_DATA, DialogModule, DialogRef } from "@angular/cdk/dialog";
 import { ModalHeaderComponent } from "./header/modal-header.component";
 import { ModalFooterComponent } from "./footer/modal-footer.component";
-import { ComponentInputs } from "@tehik-ee/tedi-angular/tedi";
-
-export type ModalSizes = "lg" | "md" | "sm";
+import {
+  ComponentInputs,
+  Breakpoint,
+  BREAKPOINTS,
+} from "@tehik-ee/tedi-angular/tedi";
 
 export type DialogData = ComponentInputs<
   ModalHeaderComponent & ModalFooterComponent
 > & {
-  maxWidth?: ModalSizes;
+  maxWidth?: Breakpoint;
   variant?: "default" | "small";
 };
 
@@ -27,15 +29,11 @@ export type DialogData = ComponentInputs<
   imports: [DialogModule],
   encapsulation: ViewEncapsulation.None,
   host: {
-    "[class.tedi-modal]": "true",
-    "[class.tedi-modal--lg]": "maxWidth() === 'lg'",
-    "[class.tedi-modal--md]": "maxWidth() === 'md'",
-    "[class.tedi-modal--sm]": "maxWidth() === 'sm'",
-    "[class.tedi-modal--small]": "variant() === 'small'",
+    "[class]": "hostClasses()",
   },
 })
 export class ModalComponent implements OnInit {
-  readonly maxWidth = model<ModalSizes>("sm");
+  readonly maxWidth = model<Breakpoint>("sm");
   readonly variant = model<"default" | "small">("default");
 
   readonly dialogRef = inject(DialogRef, { optional: true });
@@ -43,10 +41,18 @@ export class ModalComponent implements OnInit {
     optional: true,
   });
 
-  readonly containerClasses = computed(() => {
-    const classes = ["tedi-modal__container"];
-    if (this.maxWidth()) {
-      classes.push(`tedi-modal__container--${this.maxWidth()}`);
+  // host classes
+  readonly hostClasses = computed(() => {
+    const classes = ["tedi-modal"];
+
+    if (this.variant() === "small") {
+      classes.push("tedi-modal--small");
+    }
+
+    for (const breakpoint of Object.keys(BREAKPOINTS)) {
+      if (this.maxWidth() === breakpoint) {
+        classes.push(`tedi-modal--width-${breakpoint}`);
+      }
     }
     return classes.join(" ");
   });
