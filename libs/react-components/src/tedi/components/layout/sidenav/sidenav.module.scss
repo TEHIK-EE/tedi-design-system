@@ -46,7 +46,7 @@
 
     &::after {
       position: absolute;
-      top: calc(var(--tree) / 3);
+      top: calc((var(--tree) / 3) + 2px);
       bottom: 0;
       left: calc(var(--tree) / 3);
       width: var(--tree-branch-width);
@@ -56,12 +56,12 @@
       border-radius: 0 var(--button-radius) var(--button-radius) 0;
 
       @include breakpoints.media-breakpoint-down(lg) {
-        top: calc(var(--tree) / 2.5);
+        top: calc((var(--tree) / 2.5) + 2px);
         left: calc(var(--tree) / 3);
       }
 
       @include breakpoints.media-breakpoint-down(sm) {
-        top: calc(var(--tree) / 2);
+        top: calc((var(--tree) / 2) + 1px);
         left: calc(var(--tree) / 2 - var(--tree-trunk-width));
       }
 
@@ -130,6 +130,26 @@
 .tedi-sidenav__overlay {
   z-index: calc(var(--z-index-header) - 1);
   background: var(--alpha-20);
+
+  .tedi-sidenav__item--level-2 {
+    @include breakpoints.media-breakpoint-down(lg) {
+      &::before {
+        display: none;
+      }
+
+      .tedi-sidenav__link {
+        margin-left: 0;
+
+        .tedi-sidenav__bullet {
+          display: none;
+        }
+      }
+
+      .tedi-sidenav__item--level-3 .tedi-sidenav__bullet {
+        display: block;
+      }
+    }
+  }
 }
 
 .tedi-sidenav__list {
@@ -413,6 +433,11 @@ button.tedi-sidenav__link.tedi-sidenav__back-button {
 
   @include breakpoints.media-breakpoint-down(lg) {
     top: calc((var(--tree) / 2) - (var(--tree-bullet-size) / 2));
+    left: calc(((var(--tree) / 2) - (var(--tree-bullet-size) * 2) + 1px));
+  }
+
+  @include breakpoints.media-breakpoint-down(sm) {
+    top: calc((var(--tree) / 2) - (var(--tree-bullet-size) / 2));
     left: calc((var(--tree) / 2) - (var(--tree-bullet-size) - 1px));
   }
 
@@ -435,25 +460,5 @@ button.tedi-sidenav__link.tedi-sidenav__back-button {
 .tedi-sidenav__toggle-icon {
   @include breakpoints.media-breakpoint-down(lg) {
     margin-left: auto;
-  }
-}
-
-.tedi-sidenav__item--level-2 {
-  @include breakpoints.media-breakpoint-down(lg) {
-    &::before {
-      display: none;
-    }
-
-    .tedi-sidenav__link {
-      margin-left: 0;
-
-      .tedi-sidenav__bullet {
-        display: none;
-      }
-    }
-
-    .tedi-sidenav__item--level-3 .tedi-sidenav__bullet {
-      display: block;
-    }
   }
 }
