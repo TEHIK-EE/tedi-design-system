@@ -2,48 +2,17 @@
 @use "sass:list";
 
 @mixin left-round-corners() {
-  @include mixins.responsive-styles(
-    border-top-left-radius,
-    _input-group-rounded
-  );
-  @include mixins.responsive-styles(
-    border-bottom-left-radius,
-    _input-group-rounded
-  );
+  border-top-left-radius: var(--_input-group-rounded);
+  border-bottom-left-radius: var(--_input-group-rounded);
 }
 
 @mixin right-round-corners() {
-  @include mixins.responsive-styles(
-    border-top-right-radius,
-    _input-group-rounded
-  );
-  @include mixins.responsive-styles(
-    border-bottom-right-radius,
-    _input-group-rounded
-  );
+  border-top-right-radius: var(--_input-group-rounded);
+  border-bottom-right-radius: var(--_input-group-rounded);
 }
 
 .tedi-input-group__container {
-  --_input-group-rounded-desktop: var(--radius-02-default);
-  --_input-group-rounded-tablet: var(--radius-02-default);
-  --_input-group-rounded-mobile: var(--radius-02-default);
-
-  --_input-group-padding-x-desktop: var(
-    --form-field-padding-x-md-default-desktop
-  );
-  --_input-group-padding-x-tablet: var(
-    --form-field-padding-x-md-default-tablet
-  );
-  --_input-group-padding-x-mobile: var(
-    --form-field-padding-x-md-default-mobile
-  );
-  --_input-group-padding-y-desktop: var(
-    --form-field-padding-y-md-default-desktop
-  );
-  --_input-group-padding-y-tablet: var(
-    --form-field-padding-y-md-default-tablet
-  );
-  --input-group-padding-y-mobile: var(--form-field-padding-y-md-default-mobile);
+  --_input-group-rounded: var(--radius-02-default);
 
   --_input-group-background-color: var(--form-input-background-default);
   --_input-group-min-height: var(--dimensions-14);
@@ -74,11 +43,21 @@
   min-height: var(--_input-group-min-height);
   overflow: hidden;
 
+  @include mixins.responsive-styles(
+    --_input-group-padding-x,
+    form-field-padding-x-md-default
+  );
+  @include mixins.responsive-styles(
+    --_input-group-padding-y,
+    form-field-padding-y-md-default
+  );
+
   input.tedi-input {
     // borders are handled by prefix/suffix
     margin: 0;
     width: 100%;
   }
+
   .tedi-input-group__prefix .tedi-input:focus {
     z-index: 1000;
     overflow: visible;
@@ -108,6 +87,7 @@
         var(--form-input-border-hover);
     }
   }
+
   .tedi-input-group__suffix tedi-select button {
     &:focus,
     &:hover {
@@ -115,6 +95,7 @@
         var(--form-input-border-hover);
     }
   }
+
   &:has(
       .tedi-input-group__prefix tedi-select button:focus,
       .tedi-input-group__prefix tedi-select button:hover
@@ -123,6 +104,7 @@
       border-left: var(--_input-group-share-border-size);
     }
   }
+
   &:has(
       .tedi-input-group__suffix tedi-select button:focus,
       .tedi-input-group__suffix tedi-select button:hover
@@ -157,10 +139,7 @@
   background: var(--_input-group-side-background-color);
   border: var(--_input-group-border);
 
-  @include mixins.responsive-styles(padding-left, _input-group-padding-x);
-  @include mixins.responsive-styles(padding-right, _input-group-padding-x);
-  @include mixins.responsive-styles(padding-top, _input-group-padding-y);
-  @include mixins.responsive-styles(padding-bottom, _input-group-padding-y);
+  padding: var(--_input-group-padding-y) var(--_input-group-padding-x);
 
   // move handling of borders and padding to the inner elements (tedi-select/tedi-input)
   &:has(tedi-select) {

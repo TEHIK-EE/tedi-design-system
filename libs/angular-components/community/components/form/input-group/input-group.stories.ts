@@ -1,17 +1,10 @@
 import { moduleMetadata, type Meta, type StoryObj } from "@storybook/angular";
 import { InputGroupComponent } from "./input-group.component";
+import { FeedbackTextType, LabelComponent } from "@tehik-ee/tedi-angular/tedi";
 import { InputComponent } from "../input/input.component";
-import { LabelComponent, FeedbackTextType } from "@tehik-ee/tedi-angular/tedi";
 import { SelectComponent } from "../select/select.component";
 import { SelectOptionComponent } from "../select/select-option.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-
-/**
- * InputGroupComponent is a component that allows you to group multiple input elements together.
- *
- * Use prefix-slot, suffix-slot and unnamed slots to add input elements to the group.
- *
- */
 
 let id = 0;
 
@@ -31,6 +24,13 @@ interface StoryArgs {
 
 type StoryComponent = InputGroupComponent & StoryArgs;
 type Story = StoryObj<StoryComponent>;
+
+/**
+ * InputGroupComponent is a component that allows you to group multiple input elements together.
+ *
+ * Use prefix-slot, suffix-slot and unnamed slots to add input elements to the group.
+ *
+ */
 
 const meta: Meta<StoryComponent> = {
   title: "Community Angular/Form/InputGroup",
@@ -86,9 +86,9 @@ const meta: Meta<StoryComponent> = {
   },
 };
 
-const currentArgs =
-  '[labelID]="labelID" [label]="label" [disabled]="disabled" \
-   [feedback]="{text: feedbackText, type: feedbackTextType}"';
+const currentArgs = `
+  [labelID]="labelID" [label]="label" [disabled]="disabled"
+  [feedback]="{ text: feedbackText, type: feedbackTextType}"`;
 const renderPrefix = (showBool: boolean, slot: string) =>
   showBool ? `<div ${slot}-slot>{{${slot}Text}}</div>` : "";
 
