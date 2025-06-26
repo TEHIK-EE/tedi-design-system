@@ -17,7 +17,7 @@ export type SidenavToggleProps = {
   /**
    * Toggle open/collapse state
    */
-  toggleMenu: () => void;
+  toggleMenu: (open: boolean) => void;
   /**
    * Optional ref to attach to button (for floating UI etc.)
    */

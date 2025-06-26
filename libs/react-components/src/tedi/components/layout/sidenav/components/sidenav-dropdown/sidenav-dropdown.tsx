@@ -108,7 +108,7 @@ export const SideNavDropdown = <C extends React.ElementType = 'a'>({
         ref={refs.setReference}
         {...getReferenceProps()}
         role="button"
-        tabIndex={0}
+        tabIndex={-1}
         aria-haspopup="menu"
         aria-expanded={open}
         onKeyDown={handleKeyDown}
