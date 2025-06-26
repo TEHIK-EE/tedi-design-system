@@ -2,7 +2,6 @@ import {
   Attribute,
   ChangeDetectionStrategy,
   Component,
-  computed,
   inject,
   input,
   signal,
@@ -31,9 +30,7 @@ export class FooterSideComponent {
   placement = signal<FooterSidePlacement | null>(null);
   breakpointService = inject(BreakpointService);
 
-  mobileLayout = computed(() => {
-    return this.breakpointService.isBelowBreakpoint("sm");
-  });
+  mobileLayout = this.breakpointService.isBelowBreakpoint("sm");
 
   constructor(
     @Attribute("tedi-footer-start") public isStart: string,
