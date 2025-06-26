@@ -118,7 +118,7 @@ const meta: Meta<DialogData> = {
         type: "radio",
       },
       options: Object.keys(BREAKPOINTS),
-      description: "Maximum Width of the modal container",
+      description: "Maximum width of the modal container",
     },
     title: {
       control: "text",
@@ -143,7 +143,7 @@ const meta: Meta<DialogData> = {
     variant: {
       control: "radio",
       options: ["small", "default"],
-      description: "Variant of the modal",
+      description: "Variant of the modal padding to use",
     },
   },
   args: {

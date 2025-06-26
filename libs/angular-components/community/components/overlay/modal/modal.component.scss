@@ -55,7 +55,7 @@
     modal-footer-padding-y
   );
 
-  &--small {
+  &--padding-small {
     @include responsive-sizes(
       var(--dimensions-10),
       var(--dimensions-05),

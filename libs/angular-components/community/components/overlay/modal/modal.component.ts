@@ -46,7 +46,7 @@ export class ModalComponent implements OnInit {
     const classes = ["tedi-modal"];
 
     if (this.variant() === "small") {
-      classes.push("tedi-modal--small");
+      classes.push("tedi-modal--padding-small");
     }
 
     for (const breakpoint of Object.keys(BREAKPOINTS)) {
