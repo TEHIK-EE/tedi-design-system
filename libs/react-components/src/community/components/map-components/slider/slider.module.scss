@@ -1,0 +1,36 @@
+.tedi-slider__wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.tedi-slider__navigation-button {
+  position: absolute;
+  top: 50%;
+  z-index: 10;
+  transform: translateY(-50%);
+}
+
+.tedi-slider__prev {
+  left: 0;
+}
+
+.tedi-slider__next {
+  right: 0;
+}
+
+.tedi-slider__viewport {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.tedi-slider__slider-track {
+  display: flex;
+  gap: 10px;
+  transition: transform 0.3s ease;
+  will-change: transform;
+}
+
+.tedi-slider__item {
+  flex-shrink: 0;
+}

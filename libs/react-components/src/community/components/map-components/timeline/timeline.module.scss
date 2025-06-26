@@ -1,0 +1,222 @@
+@use '@tehik-ee/tedi-core/mixins';
+
+.tedi-timeline {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 34px;
+  color: var(--general-text-secondary);
+
+  &__clock {
+    display: flex;
+
+    @include mixins.responsive-styles(gap, layout-grid-gutters-08);
+  }
+
+  &__clock-wrapper {
+    display: flex;
+    flex-shrink: 0;
+    width: auto;
+    padding: 5px 12px;
+    background-color: var(--general-surface-secondary);
+
+    @include mixins.responsive-styles(gap, layout-grid-gutters-12);
+  }
+
+  &__date {
+    @include mixins.responsive-styles(font-weight, body-bold-weight);
+  }
+
+  &__main-track {
+    position: relative;
+    display: inline-block;
+    flex-grow: 2;
+    width: 100%;
+    background: var(--general-surface-primary);
+    border: none;
+  }
+
+  &__track-bar {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  &__tick--tiny {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 1px;
+    height: 8px;
+    background-color: var(--timeline-line-small);
+  }
+
+  &__tick--large {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 1px;
+    height: 12px;
+    background-color: var(--timeline-line-large);
+  }
+
+  &__tick-label {
+    position: absolute;
+    top: 0;
+    z-index: 10;
+    font-size: 10px;
+    color: var(--general-text-secondary);
+    white-space: nowrap;
+  }
+
+  &__tick-group {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    height: 100%;
+  }
+
+  &__track {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: auto;
+  }
+
+  &__tracks {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+
+  &__needle {
+    position: absolute;
+    top: -25px;
+    bottom: -2px;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    pointer-events: none;
+  }
+
+  &__needle-head {
+    z-index: 10;
+    display: flex;
+    flex-shrink: 0;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    margin-block-start: 2px;
+    pointer-events: none;
+    background: var(--timeline-indicator-background-default);
+    border: 1px solid var(--timeline-indicator-border);
+    border-radius: 8.237px;
+  }
+
+  &__needle-line {
+    position: absolute;
+    flex-grow: 1;
+    width: 2px;
+    height: 100%;
+    background-color: var(--timeline-indicator-border);
+  }
+}
+
+/* ---------- VERTICAL MODE OVERRIDES ---------- */
+
+.tedi-timeline--vertical {
+  flex-direction: column;
+  width: 34px;
+  height: 100%;
+}
+
+.tedi-timeline--vertical .tedi-timeline__clock {
+  flex-direction: column;
+}
+
+.tedi-timeline--vertical .tedi-timeline__clock-wrapper {
+  justify-content: center;
+  width: 155px;
+
+  @include mixins.responsive-styles(border-bottom-right-radius, card-radius-rounded);
+  @include mixins.responsive-styles(border-top-right-radius, card-radius-rounded);
+}
+
+.tedi-timeline--vertical .tedi-timeline__main-track {
+  width: 16px;
+  height: 100%;
+}
+
+.tedi-timeline--vertical .tedi-timeline__track-bar {
+  overflow: visible;
+}
+
+.tedi-timeline--vertical .tedi-timeline__tick--tiny {
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 1px;
+}
+
+.tedi-timeline--vertical .tedi-timeline__tick--large {
+  top: 0;
+  left: 0;
+  width: 12px;
+  height: 1px;
+}
+
+.tedi-timeline--vertical .tedi-timeline__tick-label {
+  top: -10px;
+  bottom: auto;
+  left: 100%;
+  width: auto;
+  height: auto;
+  margin-left: 0;
+  background-color: var(--general-surface-primary);
+
+  @include mixins.responsive-styles(border-radius, card-radius-rounded);
+  @include mixins.responsive-styles(padding, card-padding-xxs);
+}
+
+.tedi-timeline--vertical .tedi-timeline__tick-group {
+  bottom: auto;
+  left: 0;
+  flex-direction: row;
+  width: 50%;
+  height: auto;
+}
+
+.tedi-timeline--vertical .tedi-timeline__track {
+  position: absolute;
+  right: 0;
+  width: 1px;
+  height: 100%;
+  border-top: none;
+}
+
+.tedi-timeline--vertical .tedi-timeline__tracks {
+  width: 1px;
+  height: 100%;
+}
+
+.tedi-timeline--vertical .tedi-timeline__needle {
+  inset: 0 -40px auto -4px;
+  flex-direction: row-reverse;
+  align-self: center;
+  width: auto;
+  height: auto;
+}
+
+.tedi-timeline--vertical .tedi-timeline__needle-line {
+  width: 100%;
+  height: 2px;
+  margin-right: -2px;
+}

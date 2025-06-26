@@ -1,0 +1,37 @@
+@use '@tehik-ee/tedi-core/mixins';
+
+.tedi-scale-bar {
+  &__wrapper {
+    display: flex;
+    align-items: flex-end;
+    font-size: var(--size-00);
+    line-height: var(--size-00);
+    color: var(--button-map-info-text-default);
+
+    @include mixins.responsive-styles(gap, layout-grid-gutters-04);
+  }
+
+  &__indicator {
+    position: relative;
+    height: 1px;
+    background-color: var(--button-map-info-text-default);
+
+    &::after,
+    &::before {
+      position: absolute;
+      bottom: 0;
+      width: 1px;
+      height: 10px;
+      content: '';
+      background-color: var(--button-map-info-text-default);
+    }
+
+    &::before {
+      left: 0;
+    }
+
+    &::after {
+      right: 0;
+    }
+  }
+}
