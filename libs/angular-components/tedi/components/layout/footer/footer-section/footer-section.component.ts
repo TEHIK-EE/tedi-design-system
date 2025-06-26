@@ -68,13 +68,12 @@ export class FooterSectionComponent {
    * @default "false"
    */
   collapse = input<boolean>(false);
+  collapseOpen = signal<boolean>(false);
+  private breakpointService = inject(BreakpointService);
 
   applyCollapse = computed(() => {
     return this.collapse() && this.mobileLayout();
   });
-
-  collapseOpen = signal<boolean>(false);
-  breakpointService = inject(BreakpointService);
 
   hideIcon = computed(() => {
     return !this.breakpointService.isBelowBreakpoint("lg");

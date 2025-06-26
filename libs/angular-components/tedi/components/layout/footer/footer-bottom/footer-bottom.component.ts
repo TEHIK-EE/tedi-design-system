@@ -14,6 +14,8 @@ import {
   effect,
   Injector,
   runInInjectionContext,
+  ViewContainerRef,
+  EmbeddedViewRef,
 } from "@angular/core";
 import { LinkComponent } from "../../../navigation/link/link.component";
 import { BreakpointService } from "../../../../services/breakpoint/breakpoint.service";
@@ -35,14 +37,14 @@ export class FooterBottomComponent implements AfterContentInit {
   private renderer = inject(Renderer2);
   private breakpointService = inject(BreakpointService);
   private hostRef = inject(ElementRef<HTMLElement>);
+  private viewContainerRef = inject(ViewContainerRef);
+  private ellipsisViews: Array<EmbeddedViewRef<void>> = [];
 
   @ViewChild("ellipsis", { static: true }) ellipsis!: TemplateRef<void>;
   @ContentChildren(LinkComponent, { descendants: true, read: ElementRef })
   links!: QueryList<ElementRef>;
 
-  readonly mobileLayout = computed(() =>
-    this.breakpointService.isBelowBreakpoint("sm"),
-  );
+  mobileLayout = computed(() => this.breakpointService.isBelowBreakpoint("sm"));
 
   ngAfterContentInit(): void {
     runInInjectionContext(this.injector, () => {
@@ -68,7 +70,11 @@ export class FooterBottomComponent implements AfterContentInit {
         const parent = nativeElement.parentNode;
         if (!parent) return;
 
-        const embeddedView = this.ellipsis.createEmbeddedView();
+        const embeddedView = this.viewContainerRef.createEmbeddedView(
+          this.ellipsis,
+        );
+        embeddedView.detectChanges();
+        this.ellipsisViews.push(embeddedView);
         const ellipsisElement = embeddedView.rootNodes[0];
         this.renderer.addClass(ellipsisElement, "tedi-footer-bottom__ellipsis");
 
@@ -92,5 +98,7 @@ export class FooterBottomComponent implements AfterContentInit {
         this.renderer.removeChild(parent, el);
       }
     });
+    this.ellipsisViews.forEach((view) => view.destroy());
+    this.ellipsisViews = [];
   }
 }

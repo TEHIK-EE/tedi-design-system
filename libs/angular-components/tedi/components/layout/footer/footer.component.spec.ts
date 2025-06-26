@@ -39,4 +39,13 @@ describe("FooterComponent", () => {
     fixture.detectChanges();
     expect(component.mobileLayout()).toBe(false);
   });
+
+  it("should add mobile class to container when isBelowBreakpoint returns true", () => {
+    mockBreakpointService.isBelowBreakpoint.mockReturnValue(true);
+    fixture.detectChanges();
+    const containerElement = fixture.nativeElement.querySelector(
+      ".tedi-footer__container",
+    );
+    expect(containerElement.classList).toContain("tedi-footer--mobile");
+  });
 });
