@@ -9,10 +9,7 @@ import {
 import { DIALOG_DATA, DialogModule, DialogRef } from "@angular/cdk/dialog";
 import { ModalHeaderComponent } from "./header/modal-header.component";
 import { ModalFooterComponent } from "./footer/modal-footer.component";
-import {
-  ComponentInputs,
-  Breakpoint,
-} from "@tehik-ee/tedi-angular/tedi";
+import { ComponentInputs, Breakpoint } from "@tehik-ee/tedi-angular/tedi";
 
 export type DialogData = ComponentInputs<
   ModalHeaderComponent & ModalFooterComponent
@@ -21,7 +18,8 @@ export type DialogData = ComponentInputs<
   variant?: "default" | "small";
 };
 
-export const modalBreakpoints = ["xs", "sm", "md", "lg", "xl"];
+export const modalBreakpoints = ["xs", "sm", "md", "lg", "xl"] as const;
+export type ModalBreakpoint = "xs" | "sm" | "md" | "lg" | "xl";
 
 @Component({
   selector: "tedi-modal",
@@ -34,7 +32,7 @@ export const modalBreakpoints = ["xs", "sm", "md", "lg", "xl"];
   },
 })
 export class ModalComponent implements OnInit {
-  readonly maxWidth = model<Breakpoint>("sm");
+  readonly maxWidth = model<ModalBreakpoint>("sm");
   readonly variant = model<"default" | "small">("default");
 
   readonly dialogRef = inject(DialogRef, { optional: true });
