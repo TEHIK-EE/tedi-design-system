@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-react-v12.1.0-rc.4](https://github.com/TEHIK-EE/tedi-design-system/compare/react-12.1.0-rc.3...react-12.1.0-rc.4) (2025-06-26)
+
+
+### Features
+
+* **sidenav:** sizes prop, refactor css, add sidenav item states example [#832](https://github.com/TEHIK-EE/tedi-design-system/issues/832) ([#881](https://github.com/TEHIK-EE/tedi-design-system/issues/881)) ([9432d22](https://github.com/TEHIK-EE/tedi-design-system/commit/9432d22588c79ace749b15a29c876bd3164f0ed3))
+
 # [@tehik-ee/tedi-react-v12.1.0-rc.3](https://github.com/TEHIK-EE/tedi-design-system/compare/react-12.1.0-rc.2...react-12.1.0-rc.3) (2025-06-25)
 
 
