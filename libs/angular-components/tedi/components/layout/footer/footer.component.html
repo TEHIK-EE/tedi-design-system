@@ -1,5 +1,8 @@
-<footer class="tedi-footer" [class.tedi-footer--mobile]="mobileLayout()">
-  <div class="tedi-footer__container">
+<footer class="tedi-footer">
+  <div
+    class="tedi-footer__container"
+    [class.tedi-footer--mobile]="mobileLayout()"
+  >
     <ng-content select="[tedi-footer-start]" />
     <div class="tedi-footer__center">
       <ng-content select="tedi-footer-body" />

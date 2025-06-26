@@ -1,17 +1,15 @@
 .tedi-footer {
   background-color: var(--footer-background);
 
-  .tedi-footer__container {
+  &__container {
     display: flex;
   }
 
-  .tedi-footer__center {
+  &__center {
     width: 100%;
   }
-}
 
-.tedi-footer.tedi-footer--mobile {
-  .tedi-footer__container {
+  &--mobile {
     display: flex;
     flex-direction: column;
   }

@@ -24,7 +24,7 @@ const config: StorybookConfig = {
       builder: "angular",
     },
   },
-  staticDirs: ["../../tedi-core/public", "../public"],
+  staticDirs: ["../../tedi-core/public"],
   docs: {
     autodocs: true,
   },

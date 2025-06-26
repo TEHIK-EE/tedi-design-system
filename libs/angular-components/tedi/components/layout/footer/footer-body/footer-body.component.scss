@@ -1,22 +1,21 @@
-@use "../../../../../node_modules/@tehik-ee/tedi-core/mixins" as mixins;
+@use "@tehik-ee/tedi-core/mixins";
 
 .tedi-footer-body {
   display: flex;
   align-items: flex-start;
   justify-content: space-around;
-  flex: 1 1 0;
   width: 100%;
   flex-wrap: wrap;
-  @include mixins.responsive-styles(gap, layout-grid-gutters-24);
-  @include mixins.responsive-styles(padding-top, footer-padding-y);
-  @include mixins.responsive-styles(padding-bottom, footer-padding-y);
-  @include mixins.responsive-styles(padding-left, footer-padding-x);
-  @include mixins.responsive-styles(padding-right, footer-padding-x);
 
-  &.tedi-footer-body--mobile {
+  @include mixins.responsive-styles(gap, layout-grid-gutters-24);
+  @include mixins.responsive-styles(padding, footer-padding-y footer-padding-x);
+
+  &--mobile {
     gap: 0.75rem;
     flex-direction: column;
-    padding: var(--layout-footer-padding-y, 16px)
-      var(--layout-footer-padding-x, 16px); // responsive-styles not found
+    @include mixins.responsive-styles(
+      padding,
+      layout-footer-padding-y layout-footer-padding-x
+    );
   }
 }

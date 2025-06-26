@@ -1,42 +1,45 @@
-@use "../../../../../node_modules/@tehik-ee/tedi-core/mixins" as mixins;
+@use "@tehik-ee/tedi-core/mixins";
 
 @mixin footer-links {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+
   @include mixins.responsive-styles(gap, footer-item-vertical-spacing);
 }
 
 .tedi-footer-section {
   display: flex;
   align-items: flex-start;
+
   @include mixins.responsive-styles(gap, footer-col-padding-x);
 
-  &.tedi-footer-section--collapse {
-    border-bottom: 1px solid var(--alpha-white-10, #e0e0e0);
+  &--collapse {
+    border-bottom: 1px solid var(--alpha-white-10);
     width: 100%;
   }
 
-  .tedi-footer-section__icon {
-    padding: var(--icon-background-padding-lg, 12px);
-    border-radius: var(--icon-background-radius, 360px);
-    background: var(--footer-icon-background, rgba(255, 255, 255, 0.2));
+  &__icon {
+    background: var(--footer-icon-background);
+
+    @include mixins.responsive-styles(padding, icon-background-padding-lg);
+    @include mixins.responsive-styles(border-radius, icon-background-radius);
+    @include mixins.responsive-styles(gap, footer-item-vertical-spacing);
   }
 
-  .tedi-footer-section__container {
+  &__container {
     padding-bottom: 0.75rem;
     @include footer-links;
-
-    .tedi-footer-section__content {
-      @include footer-links;
-
-      &.tedi-footer-section__content-hidden {
-        display: none;
-      }
-    }
+  }
+  &__content {
+    @include footer-links;
   }
 
-  .tedi-footer-section__button {
+  &__content-hidden {
+    display: none;
+  }
+
+  &__button {
     @include mixins.button-reset;
     font-weight: 700;
     color: var(--general-text-white);
