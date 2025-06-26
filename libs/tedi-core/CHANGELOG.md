@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-core-v1.15.0](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.14.1...core-1.15.0) (2025-06-26)
+
+
+### Features
+
+* **footer:** TEDI-Ready component [#857](https://github.com/TEHIK-EE/tedi-design-system/issues/857) ([#870](https://github.com/TEHIK-EE/tedi-design-system/issues/870)) ([1eb1a1c](https://github.com/TEHIK-EE/tedi-design-system/commit/1eb1a1c11c3c17c9a9528ecd1a5064fda332208c)), closes [#866](https://github.com/TEHIK-EE/tedi-design-system/issues/866) [#866](https://github.com/TEHIK-EE/tedi-design-system/issues/866) [#866](https://github.com/TEHIK-EE/tedi-design-system/issues/866)
+
 # [@tehik-ee/tedi-core-v1.14.1](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.14.0...core-1.14.1) (2025-06-26)
 
 
