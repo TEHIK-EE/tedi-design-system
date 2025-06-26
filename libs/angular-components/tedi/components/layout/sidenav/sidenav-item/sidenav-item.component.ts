@@ -38,7 +38,8 @@ import { TooltipTriggerComponent } from "../../../overlay/tooltip/tooltip-trigge
     SideNavGroupTitleComponent,
     TooltipComponent,
     TooltipTriggerComponent,
-    TooltipContentComponent
+    TooltipContentComponent,
+    SideNavDropdownComponent,
   ],
   host: {
     "[class]": "classes()",

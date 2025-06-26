@@ -28,14 +28,17 @@
   }
 } @else {
   <tedi-tooltip>
-      <tedi-tooltip-trigger>
-        <div class="tedi-sidenav-item__trigger">
-          <ng-container *ngTemplateOutlet="buttonOrLink"></ng-container>
-        </div>
-      </tedi-tooltip-trigger>
-      <tedi-tooltip-content position="right" [style]="{ 'display': sidenavService.tooltipEnabled() ? 'block' : 'none' }">
-        {{ textContent() }}
-      </tedi-tooltip-content>
+    <tedi-tooltip-trigger>
+      <div class="tedi-sidenav-item__trigger">
+        <ng-container *ngTemplateOutlet="buttonOrLink"></ng-container>
+      </div>
+    </tedi-tooltip-trigger>
+    <tedi-tooltip-content
+      position="right"
+      [style]="{ display: sidenavService.tooltipEnabled() ? 'block' : 'none' }"
+    >
+      {{ textContent() }}
+    </tedi-tooltip-content>
   </tedi-tooltip>
 }
 
@@ -125,4 +128,12 @@
   </span>
 </ng-template>
 
-<ng-content select="tedi-sidenav-dropdown"></ng-content>
+<tedi-sidenav-dropdown
+  [href]="href()"
+  [routerLink]="routerLink()"
+  [textContent]="textContent()"
+>
+  <ng-content
+    select="tedi-sidenav-dropdown-item, tedi-sidenav-dropdown-group"
+  ></ng-content>
+</tedi-sidenav-dropdown>

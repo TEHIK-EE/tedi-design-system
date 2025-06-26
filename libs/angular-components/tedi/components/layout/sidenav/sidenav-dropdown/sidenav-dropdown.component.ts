@@ -7,9 +7,9 @@ import {
   inject,
   signal,
   ViewEncapsulation,
+  input,
 } from "@angular/core";
 import { SideNavDropdownItemComponent } from "../sidenav-dropdown-item/sidenav-dropdown-item.component";
-import { SideNavItemComponent } from "../sidenav-item/sidenav-item.component";
 import { SideNavService } from "../../../../services/sidenav/sidenav.service";
 
 @Component({
@@ -30,7 +30,10 @@ export class SideNavDropdownComponent implements AfterViewInit {
   open = signal(false);
   element = signal<HTMLElement | null>(null);
   sidenavService = inject(SideNavService);
-  sidenavItem = inject(SideNavItemComponent, { host: true });
+
+  href = input<string | undefined>(undefined);
+  routerLink = input<string | undefined>(undefined);
+  textContent = input<string | undefined>(undefined);
 
   ngAfterViewInit(): void {
     if (this.host.nativeElement) {
