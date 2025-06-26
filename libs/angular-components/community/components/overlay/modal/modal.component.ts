@@ -9,12 +9,12 @@ import {
 import { DIALOG_DATA, DialogModule, DialogRef } from "@angular/cdk/dialog";
 import { ModalHeaderComponent } from "./header/modal-header.component";
 import { ModalFooterComponent } from "./footer/modal-footer.component";
-import { ComponentInputs, Breakpoint } from "@tehik-ee/tedi-angular/tedi";
+import { ComponentInputs } from "@tehik-ee/tedi-angular/tedi";
 
 export type DialogData = ComponentInputs<
   ModalHeaderComponent & ModalFooterComponent
 > & {
-  maxWidth?: Breakpoint;
+  maxWidth?: ModalBreakpoint;
   variant?: "default" | "small";
 };
 
