@@ -1,14 +1,23 @@
 @use '@tehik-ee/tedi-core/mixins';
 @use '@tehik-ee/tedi-core/bootstrap-utility/breakpoints';
 
+:root {
+  --medium-sidenav-item-height: 2.75rem;
+  --small-sidenav-item-height: 2.25rem;
+  --tree-trunk-width: 2px;
+  --tree-branch-width: 12px;
+  --tree-bullet-size: 8px;
+  --collapsed-menu-toggle-arrow-top: 20px;
+  --collapsed-menu-toggle-arrow-right: 10px;
+  --collapsed-title-max-width: 4.5rem;
+  --collapsed-menu-width: 6rem;
+}
+
 .tedi-sidenav {
   position: relative;
   z-index: var(--z-index-sidenav);
   display: flex;
   flex-direction: column;
-  width: 70vw;
-  min-width: 20rem;
-  max-width: 25rem;
   height: 100%;
   margin: 0;
   background-color: var(--side-navigation-item-background-default);
@@ -16,102 +25,131 @@
 
   @include mixins.print-grayscale;
   @include mixins.responsive-styles(font-size, side-navigation-text-size);
+  @include mixins.responsive-styles(width, side-navigation-item-width-default);
+}
 
-  @include breakpoints.media-breakpoint-up(lg) {
-    width: 15rem;
-    min-width: 0;
-    max-width: none;
-    min-height: auto;
-  }
-
-  &__collapse .tedi-sidenav__item {
+.tedi-sidenav__collapse {
+  .tedi-sidenav__item {
     position: relative;
-
-    .tedi-sidenav--has-dividers & {
-      border-bottom: 0;
-    }
 
     &::before {
       position: absolute;
       top: 0;
       bottom: 0;
-      left: 26px;
-      width: 2px;
+      width: var(--tree-trunk-width);
       content: '';
       background-color: var(--side-navigation-tree-brand-default);
       border-radius: 0;
+
+      @include mixins.responsive-styles(left, button-xs-icon-size);
     }
 
     &::after {
       position: absolute;
-      top: 23px;
+      top: calc((var(--tree) / 3) + 2px);
       bottom: 0;
-      left: 28px;
-      width: 15px;
-      height: 2px;
+      left: calc(var(--tree) / 3);
+      width: var(--tree-branch-width);
+      height: var(--tree-trunk-width);
       content: '';
       background-color: var(--side-navigation-tree-brand-default);
-      border-radius: 0 10px 10px 0;
+      border-radius: 0 var(--button-radius) var(--button-radius) 0;
+
+      @include breakpoints.media-breakpoint-down(lg) {
+        top: calc((var(--tree) / 2.5) + 2px);
+        left: calc(var(--tree) / 3);
+      }
+
+      @include breakpoints.media-breakpoint-down(sm) {
+        top: calc((var(--tree) / 2) + 1px);
+        left: calc(var(--tree) / 2 - var(--tree-trunk-width));
+      }
+
+      @include mixins.responsive-styles(--tree, side-navigation-item-min-height);
+      @include mixins.responsive-styles(--button-radius, button-radius-sm);
     }
 
     &:last-child::before {
-      height: calc(50% + 1px);
+      height: calc(50% + var(--tree-trunk-width));
+    }
+
+    .tedi-sidenav--has-dividers & {
+      border-bottom: 0;
     }
   }
 
-  &--collapsed {
-    width: 6rem;
-
-    .tedi-sidenav {
-      &__title {
-        display: inline;
-        max-width: 4.5rem;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-      }
-
-      &__bullet {
-        display: none;
-      }
-
-      &__item span[class^='row'] span[class^='col']:last-child {
-        display: none;
-      }
-
-      &__link {
-        flex-direction: column;
-        justify-content: center;
-        text-align: center;
-
-        @include mixins.responsive-styles(font-size, side-navigation-text-size-sm);
-        @include mixins.responsive-styles(gap, side-navigation-item-inner-spacing-sm);
-        @include mixins.responsive-styles(padding-top, side-navigation-item-padding-y);
-        @include mixins.responsive-styles(padding-bottom, side-navigation-item-padding-y);
-        @include mixins.responsive-styles(padding-left, side-navigation-item-padding-x-sm);
-        @include mixins.responsive-styles(padding-right, side-navigation-item-padding-x-sm);
-      }
-
-      &__link--active {
-        background-color: var(--side-navigation-item-background-active);
-      }
-
-      &__item--has-children {
-        position: relative;
-      }
-
-      &__item--has-children .tedi-sidenav__toggle-icon {
-        position: absolute;
-        top: 20px;
-        right: 10px;
-      }
-    }
+  [data-name='collapse-trigger'] {
+    border: 1px solid var(--alpha-01);
   }
+}
+
+.tedi-sidenav--collapsed {
+  width: var(--collapsed-menu-width);
+}
+
+.tedi-sidenav--collapsed .tedi-sidenav__title {
+  display: inline;
+  max-width: var(--collapsed-title-max-width);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tedi-sidenav--collapsed .tedi-sidenav__bullet,
+.tedi-sidenav--collapsed .tedi-sidenav__item span[class^='row'] span[class^='col']:last-child {
+  display: none;
+}
+
+.tedi-sidenav--collapsed .tedi-sidenav__link {
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+
+  @include mixins.responsive-styles(font-size, side-navigation-text-size-sm);
+  @include mixins.responsive-styles(gap, side-navigation-item-inner-spacing-sm);
+  @include mixins.responsive-styles(padding-top, side-navigation-item-padding-y);
+  @include mixins.responsive-styles(padding-bottom, side-navigation-item-padding-y);
+  @include mixins.responsive-styles(padding-left, side-navigation-item-padding-x-sm);
+  @include mixins.responsive-styles(padding-right, side-navigation-item-padding-x-sm);
+}
+
+.tedi-sidenav--collapsed .tedi-sidenav__link--active {
+  background-color: var(--side-navigation-item-background-active);
+}
+
+.tedi-sidenav--collapsed .tedi-sidenav__item--has-children {
+  position: relative;
+}
+
+.tedi-sidenav--collapsed .tedi-sidenav__item--has-children .tedi-sidenav__toggle-icon {
+  position: absolute;
+  top: var(--collapsed-menu-toggle-arrow-top);
+  right: var(--collapsed-menu-toggle-arrow-right);
 }
 
 .tedi-sidenav__overlay {
   z-index: calc(var(--z-index-header) - 1);
-  background: rgb(0 0 0 / 25%);
+  background: var(--alpha-20);
+
+  .tedi-sidenav__item--level-2 {
+    @include breakpoints.media-breakpoint-down(lg) {
+      &::before {
+        display: none;
+      }
+
+      .tedi-sidenav__link {
+        margin-left: 0;
+
+        .tedi-sidenav__bullet {
+          display: none;
+        }
+      }
+
+      .tedi-sidenav__item--level-3 .tedi-sidenav__bullet {
+        display: block;
+      }
+    }
+  }
 }
 
 .tedi-sidenav__list {
@@ -123,93 +161,158 @@
   }
 }
 
+.tedi-sidenav--has-dividers .tedi-sidenav__item {
+  border-bottom: var(--borders-01) solid var(--side-navigation-item-border);
+
+  &:last-of-type {
+    border-bottom: 0;
+  }
+}
+
 .tedi-sidenav__item {
   display: flex;
   flex-direction: row;
   background-color: var(--side-navigation-item-background-default);
   transition: all 0.3s ease;
+}
 
-  .tedi-sidenav--has-dividers & {
-    border-bottom: 1px solid var(--side-navigation-item-border);
+.tedi-sidenav__item [data-name='collapse-trigger'] {
+  border-radius: 0;
 
-    &:last-of-type {
-      border-bottom: 0;
-    }
+  [data-name='icon'] {
+    color: var(--general-icon-white);
   }
 
-  & [data-name='collapse-trigger'] {
-    [data-name='icon'] {
-      color: var(--general-icon-white);
-    }
-
-    &:hover {
-      background-color: var(--side-navigation-item-background-hover);
-    }
-
-    .tedi-sidenav__link:hover {
-      background-color: var(--alpha-00);
-    }
+  &:hover {
+    background-color: var(--side-navigation-item-background-hover);
   }
 
-  & div[class^='tedi-collapse__content'] {
-    margin: 0;
+  &:focus-visible {
+    border: 1px solid var(--neutral-100);
+    outline: 1px solid var(--side-navigation-item-background-focus);
+  }
+}
+
+.tedi-sidenav__item [data-name='collapse-trigger'] .tedi-sidenav__link:hover {
+  background-color: var(--alpha-00);
+}
+
+.tedi-sidenav__item div[class^='tedi-collapse__content'] {
+  margin: 0;
+}
+
+.tedi-sidenav__item span[class^='row'] {
+  margin-right: 0;
+  margin-left: 0;
+
+  & span[class^='col']:first-child {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+.tedi-sidenav__item.tedi-sidenav__sub-item .tedi-sidenav__link {
+  min-height: auto;
+
+  @include mixins.responsive-styles(padding-top, side-navigation-item-padding-y);
+  @include mixins.responsive-styles(padding-bottom, side-navigation-item-padding-y);
+}
+
+.tedi-sidenav__item .tedi-sidenav__link--has-children-link {
+  padding-right: calc(var(--sidenav-item-padding-with-children) + var(--collapse-toggle-width));
+
+  @include mixins.responsive-styles(--sidenav-item-padding-with-children, side-navigation-item-padding-right);
+  @include mixins.responsive-styles(--collapse-toggle-width, button-xs-icon-size);
+
+  @include breakpoints.media-breakpoint-down(md) {
+    margin-left: calc(var(--padding-left) + var(--button-size));
+
+    @include mixins.responsive-styles(--button-size, button-xs-icon-size);
+    @include mixins.responsive-styles(--padding-left, side-navigation-item-padding-right);
+  }
+}
+
+.tedi-sidenav__item
+  .tedi-sidenav__link--has-children-link
+  + .tedi-sidenav__link-collapse-wrapper
+  [data-name='collapse-trigger'] {
+  position: absolute;
+  top: calc(var(--collapse-trigger-top) / 3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @include mixins.responsive-styles(--collapse-trigger-top, side-navigation-item-min-height);
+  @include mixins.responsive-styles(right, side-navigation-item-padding-right);
+  @include mixins.responsive-styles(border-radius, button-radius-sm);
+  @include mixins.responsive-styles(width, button-xs-icon-size);
+  @include mixins.responsive-styles(height, button-xs-icon-size);
+
+  &:hover,
+  &[aria-expanded='true'] {
+    background-color: var(--side-navigation-item-background-arrow-button-active);
+  }
+}
+
+.tedi-sidenav__item--mobile {
+  border-bottom: var(--borders-01) solid var(--side-navigation-item-border);
+}
+
+.tedi-sidenav__item.tedi-sidenav__item--current {
+  color: var(--side-navigation-item-text);
+  background-color: var(--side-navigation-item-background-active);
+
+  @include mixins.responsive-styles(font-weight, body-bold-weight);
+}
+
+.tedi-sidenav__item--medium {
+  .tedi-sidenav__link {
+    min-height: auto;
   }
 
-  & span[class^='row'] {
-    margin-right: 0;
-    margin-left: 0;
-
-    & span[class^='col']:first-child {
-      padding-right: 0;
-      padding-left: 0;
-    }
+  .tedi-sidenav__sub-item .tedi-sidenav__link {
+    @include mixins.responsive-styles(padding-top, side-navigation-item-padding-y);
+    @include mixins.responsive-styles(padding-bottom, side-navigation-item-padding-y);
   }
 
-  &.tedi-sidenav__sub-item {
-    .tedi-sidenav__link {
-      min-height: 48px;
-      padding-top: 0;
-      padding-bottom: 0;
-    }
+  .tedi-sidenav__sub-item .tedi-sidenav__title {
+    @include mixins.responsive-styles(line-height, body-small-regular-line-height);
   }
 
-  .tedi-sidenav__link--has-children-link {
-    padding-right: 50px;
-
-    + .tedi-sidenav__link-collapse-wrapper [data-name='collapse-trigger'] {
-      position: absolute;
-      top: 24px;
-      right: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      @include mixins.responsive-styles(border-radius, button-radius-sm);
-      @include mixins.responsive-styles(width, button-xs-icon-size);
-      @include mixins.responsive-styles(height, button-xs-icon-size);
-
-      &:hover,
-      &[aria-expanded='true'] {
-        background-color: var(--side-navigation-item-background-arrow-button-active);
-      }
-    }
-
-    @include breakpoints.media-breakpoint-down(md) {
-      margin-left: calc(var(--padding-left) + 24px);
-
-      @include mixins.responsive-styles(--padding-left, side-navigation-item-padding-right);
-    }
+  .tedi-sidenav__bullet,
+  .tedi-sidenav__sub-item::after {
+    top: calc(var(--medium-sidenav-item-height) / 2);
   }
 
-  &--mobile {
-    border-bottom: 1px solid var(--side-navigation-item-border);
+  .tedi-sidenav__icon {
+    font-size: var(--size-05);
+  }
+}
+
+.tedi-sidenav__item--small {
+  .tedi-sidenav__link {
+    min-height: auto;
+
+    @include mixins.responsive-styles(padding-top, side-navigation-item-padding-y-sm);
+    @include mixins.responsive-styles(padding-bottom, side-navigation-item-padding-y-sm);
   }
 
-  &.tedi-sidenav__item--current {
-    color: var(--side-navigation-item-text);
-    background-color: var(--side-navigation-item-background-active);
+  .tedi-sidenav__sub-item .tedi-sidenav__title {
+    @include mixins.responsive-styles(line-height, body-small-regular-line-height);
+  }
 
-    @include mixins.responsive-styles(font-weight, body-bold-weight);
+  .tedi-sidenav__sub-item .tedi-sidenav__link {
+    @include mixins.responsive-styles(padding-top, side-navigation-item-padding-y-sm);
+    @include mixins.responsive-styles(padding-bottom, side-navigation-item-padding-y-sm);
+  }
+
+  .tedi-sidenav__bullet,
+  .tedi-sidenav__sub-item::after {
+    top: calc(var(--small-sidenav-item-height) / 2);
+  }
+
+  .tedi-sidenav__icon {
+    font-size: var(--size-03);
   }
 }
 
@@ -217,12 +320,12 @@ button.tedi-sidenav__link {
   width: 100%;
   background: none;
   border: none;
+}
 
-  &.tedi-sidenav__back-button {
-    border-bottom: 1px solid var(--side-navigation-item-border);
+button.tedi-sidenav__link.tedi-sidenav__back-button {
+  border-bottom: var(--borders-01) solid var(--side-navigation-item-border);
 
-    @include mixins.responsive-styles(gap, link-inner-spacing-x);
-  }
+  @include mixins.responsive-styles(gap, link-inner-spacing-x);
 }
 
 .tedi-sidenav__link {
@@ -232,6 +335,7 @@ button.tedi-sidenav__link {
   font: inherit;
   color: var(--side-navigation-item-text);
   text-decoration: none;
+  border: 1px solid var(--alpha-01);
   border-radius: 0;
   transition: 200ms ease;
   transition-property: background-color, color;
@@ -243,21 +347,21 @@ button.tedi-sidenav__link {
   @include mixins.responsive-styles(gap, side-navigation-item-inner-spacing);
   @include mixins.responsive-styles(min-height, side-navigation-item-min-height);
 
-  .tedi-sidenav__item .tedi-sidenav__item & {
-    & .tedi-sidenav__title:first-child {
-      margin-left: calc(24px + 1rem);
-    }
-  }
-
-  .tedi-sidenav__item .tedi-sidenav__item .tedi-sidenav__item & {
-    & [data-name='icon']:first-child {
-      margin-left: 20px;
-    }
-  }
-
   &:hover {
     background-color: var(--side-navigation-item-background-hover);
   }
+
+  &:focus-visible {
+    border: 1px solid var(--neutral-100);
+    outline: 1px solid var(--side-navigation-item-background-focus);
+  }
+}
+
+.tedi-sidenav__item .tedi-sidenav__item .tedi-sidenav__link .tedi-sidenav__title:first-child {
+  margin-left: calc((var(--dimensions) / 3) + var(--padding-left));
+
+  @include mixins.responsive-styles(--padding-left, side-navigation-item-padding-left-level-2);
+  @include mixins.responsive-styles(--dimensions, side-navigation-item-min-height);
 }
 
 .tedi-sidenav__subheading {
@@ -270,31 +374,33 @@ button.tedi-sidenav__link {
   @include mixins.responsive-styles(padding-left, side-navigation-item-padding-right);
   @include mixins.responsive-styles(padding-right, side-navigation-item-padding-left-level-1);
 
-  @include breakpoints.media-breakpoint-down(md) {
-    margin-top: 10px;
+  @include breakpoints.media-breakpoint-down(lg) {
     background-color: var(--side-navigation-item-background-default);
+
+    @include mixins.responsive-styles(margin-top, layout-grid-gutters-08);
 
     &:not(.tedi-sidenav__subheading--mobile) {
       position: relative;
       z-index: 10;
-      margin-left: 10px;
+
+      @include mixins.responsive-styles(margin-left, layout-grid-gutters-08);
     }
   }
+}
 
-  &--mobile {
-    @include breakpoints.media-breakpoint-down(md) {
-      margin-top: 10px;
-    }
+.tedi-sidenav__subheading--mobile {
+  @include breakpoints.media-breakpoint-down(md) {
+    @include mixins.responsive-styles(margin-top, layout-grid-gutters-08);
   }
+}
 
-  .tedi-sidenav__item--current > & {
-    color: var(--side-navigation-item-text);
-    background-color: var(--side-navigation-item-background-active);
-  }
+.tedi-sidenav__item--current > .tedi-sidenav__subheading {
+  color: var(--side-navigation-item-text);
+  background-color: var(--side-navigation-item-background-active);
+}
 
-  .tedi-sidenav__item .tedi-sidenav__item.sidenav__item--current > & {
-    color: var(--side-navigation-item-text);
-  }
+.tedi-sidenav__item .tedi-sidenav__item.sidenav__item--current > .tedi-sidenav__subheading {
+  color: var(--side-navigation-item-text);
 }
 
 .tedi-sidenav__item--has-children {
@@ -306,7 +412,13 @@ button.tedi-sidenav__link {
   }
 
   &::before {
-    margin-top: 24px;
+    margin-top: calc(var(--tree-trunk-top) / 3);
+
+    @include breakpoints.media-breakpoint-down(lg) {
+      margin-top: calc(var(--tree-trunk-top) / 2);
+    }
+
+    @include mixins.responsive-styles(--tree-trunk-top, side-navigation-item-min-height);
   }
 
   &:hover {
@@ -316,49 +428,37 @@ button.tedi-sidenav__link {
 
 .tedi-sidenav__bullet {
   position: absolute;
-  top: 20px;
-  left: 23px;
+  top: calc((var(--tree) / 3) - (var(--tree-bullet-size) / 2));
+  left: calc((var(--tree) / 3) - (var(--tree-bullet-size) / 2) + 1px);
+
+  @include breakpoints.media-breakpoint-down(lg) {
+    top: calc((var(--tree) / 2) - (var(--tree-bullet-size) / 2));
+    left: calc(((var(--tree) / 2) - (var(--tree-bullet-size) * 2) + 1px));
+  }
+
+  @include breakpoints.media-breakpoint-down(sm) {
+    top: calc((var(--tree) / 2) - (var(--tree-bullet-size) / 2));
+    left: calc((var(--tree) / 2) - (var(--tree-bullet-size) - 1px));
+  }
+
+  @include mixins.responsive-styles(--tree, side-navigation-item-min-height);
 
   &::before {
     position: absolute;
-    width: 8px;
-    height: 8px;
+    width: var(--tree-bullet-size);
+    height: var(--tree-bullet-size);
     content: '';
     background-color: var(--side-navigation-tree-brand-default);
     border-radius: 100%;
   }
 }
 
-.tedi-sidenav__sub-item:has(+ .tedi-sidenav__item--has-children) {
-  &::before {
-    height: calc(50% + 1px);
-  }
+.tedi-sidenav__sub-item:has(+ .tedi-sidenav__item--has-children)::before {
+  height: calc(50% + var(--tree-trunk-width));
 }
 
 .tedi-sidenav__toggle-icon {
-  @include breakpoints.media-breakpoint-down(md) {
+  @include breakpoints.media-breakpoint-down(lg) {
     margin-left: auto;
-  }
-}
-
-.tedi-sidenav__item--level-2 {
-  @include breakpoints.media-breakpoint-down(md) {
-    &::before {
-      display: none;
-    }
-
-    .tedi-sidenav__link {
-      margin-left: 0;
-
-      .tedi-sidenav__bullet {
-        display: none;
-      }
-    }
-
-    .tedi-sidenav__item--level-3 {
-      .tedi-sidenav__bullet {
-        display: block;
-      }
-    }
   }
 }
