@@ -232,7 +232,7 @@ export const SideNavItem = <C extends React.ElementType = 'a'>(
   );
 
   return level === 1 && isCollapsed ? (
-    <Tooltip placement="right">
+    <Tooltip placement="right" focusManager={{ order: ['content'] }}>
       <Tooltip.Content maxWidth="medium">{children}</Tooltip.Content>
       {content}
     </Tooltip>
