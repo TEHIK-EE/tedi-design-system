@@ -5,6 +5,7 @@ import {
   computed,
   ContentChild,
   ElementRef,
+  forwardRef,
   inject,
   input,
   OnDestroy,
@@ -38,7 +39,8 @@ import { TooltipTriggerComponent } from "../../../overlay/tooltip/tooltip-trigge
     SideNavGroupTitleComponent,
     TooltipComponent,
     TooltipTriggerComponent,
-    TooltipContentComponent
+    TooltipContentComponent,
+    forwardRef(() => SideNavDropdownComponent),
   ],
   host: {
     "[class]": "classes()",
@@ -63,7 +65,7 @@ export class SideNavItemComponent implements AfterViewInit, OnInit, OnDestroy {
    */
   routerLink = input<string>();
 
-  @ContentChild(SideNavDropdownComponent) dropdown?: SideNavDropdownComponent;
+  @ContentChild(forwardRef(() => SideNavDropdownComponent)) dropdown?: SideNavDropdownComponent;
 
   textContent = signal("");
 

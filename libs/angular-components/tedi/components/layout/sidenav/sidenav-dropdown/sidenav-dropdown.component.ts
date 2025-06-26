@@ -4,6 +4,7 @@ import {
   Component,
   computed,
   ElementRef,
+  forwardRef,
   inject,
   signal,
   ViewEncapsulation,
@@ -30,7 +31,10 @@ export class SideNavDropdownComponent implements AfterViewInit {
   open = signal(false);
   element = signal<HTMLElement | null>(null);
   sidenavService = inject(SideNavService);
-  sidenavItem = inject(SideNavItemComponent, { host: true });
+  sidenavItem = inject(
+    forwardRef(() => SideNavItemComponent),
+    { host: true, optional: true }
+  );
 
   ngAfterViewInit(): void {
     if (this.host.nativeElement) {
