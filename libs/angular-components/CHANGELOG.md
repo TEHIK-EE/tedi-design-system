@@ -1,3 +1,15 @@
+# [@tehik-ee/tedi-angular-v2.1.0-rc.8](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.1.0-rc.7...angular-2.1.0-rc.8) (2025-06-26)
+
+
+### Bug Fixes
+
+* **modal:** limit Modal maxWidth typing to valid breakpoints [#776](https://github.com/TEHIK-EE/tedi-design-system/issues/776) ([184be45](https://github.com/TEHIK-EE/tedi-design-system/commit/184be452cda06640cd417b0114a259df5c06ac1a))
+* **modal:** remove of untagged template literals for compatibility [#776](https://github.com/TEHIK-EE/tedi-design-system/issues/776) ([f9977e9](https://github.com/TEHIK-EE/tedi-design-system/commit/f9977e9ebe4a569013710f5b87b710b1bc3c53bc))
+* **modal:** remove unused container sizes and add missing sizing for tedi-modal [#776](https://github.com/TEHIK-EE/tedi-design-system/issues/776) ([dcc65c9](https://github.com/TEHIK-EE/tedi-design-system/commit/dcc65c9817c1c96660a0a13298e5fd1e0cf81b82))
+* **modal:** rename tedi-modal-small to tedi-modal--padding-small to better describe it [#776](https://github.com/TEHIK-EE/tedi-design-system/issues/776) ([5bc51cb](https://github.com/TEHIK-EE/tedi-design-system/commit/5bc51cb9509b0957971ce6ef68cc0a1d27675f33))
+* **modal:** use lesser version of breakpoints as modal lacks all sizings [#776](https://github.com/TEHIK-EE/tedi-design-system/issues/776) ([f1fafec](https://github.com/TEHIK-EE/tedi-design-system/commit/f1fafec3daaa3ff9d9880973a80cb8d9730dbed9))
+* **modal:** use same type for DialogData maxWidth [#776](https://github.com/TEHIK-EE/tedi-design-system/issues/776) ([3758e05](https://github.com/TEHIK-EE/tedi-design-system/commit/3758e05a496c58341e85d457df21db5199dfec9e))
+
 # [@tehik-ee/tedi-angular-v2.1.0-rc.7](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.1.0-rc.6...angular-2.1.0-rc.7) (2025-06-26)
 
 
