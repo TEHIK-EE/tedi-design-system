@@ -1,0 +1,41 @@
+<div
+  tedi-input
+  (click)="toggleIsOpen()"
+  cdkOverlayOrigin
+  #trigger="cdkOverlayOrigin"
+  [attr.role]="'combobox'"
+  [attr.aria-haspopup]="'listbox'"
+  tabindex="0"
+>
+  @if (selectedOptions.length > 0) {
+    @for (option of selectedOptions; track option) {
+      {{ option }}
+    }
+  } @else {
+    placeholder
+  }
+</div>
+
+<ng-template
+  cdkConnectedOverlay
+  [cdkConnectedOverlayOrigin]="trigger"
+  [cdkConnectedOverlayOpen]="isOpen()"
+  (detach)="toggleIsOpen(false)"
+>
+  <tedi-card spacing="none">
+    <tedi-card-content>
+      <ul
+        cdkListbox
+        cdkListboxUseActiveDescendant
+        [cdkListboxValue]="selectedOptions"
+        (cdkListboxValueChange)="handleValueChange($event)"
+        aria-labelledby="example-spatula-label"
+        #dropdownListbox
+      >
+        @for (option of options(); track option) {
+          <li tedi-dropdown-item [cdkOption]="option">{{ option }}</li>
+        }
+      </ul>
+    </tedi-card-content>
+  </tedi-card>
+</ng-template>

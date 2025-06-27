@@ -9,6 +9,7 @@ import { SelectComponent } from "./select.component";
 import { MultiselectComponent } from "./multiselect.component";
 import { SelectOptionComponent } from "./select-option.component";
 import { IconComponent } from "@tehik-ee/tedi-angular/tedi";
+import { Select2Component } from "./../select2/select2.component";
 
 /**
  * The Select component provides users with a dropdown of options to choose from.
@@ -36,6 +37,7 @@ const meta: Meta<SelectComponent> = {
         FormsModule,
         ReactiveFormsModule,
         IconComponent,
+        Select2Component,
       ],
     }),
   ],
@@ -102,6 +104,7 @@ export const Basic: Story = {
         </tedi-select-option>
         <tedi-select-option [value]="'option3'" [label]="'Option 3'">Option 3</tedi-select-option>
       </tedi-select>
+      <select2></select2>
     `,
   }),
 };
