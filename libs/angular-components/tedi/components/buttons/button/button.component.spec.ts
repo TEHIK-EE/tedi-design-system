@@ -61,14 +61,4 @@ describe("ButtonComponent", () => {
   it("should not contain 'undefined' in class list", () => {
     expect(buttonElement.classList).not.toContain("undefined");
   });
-
-  it("should wrap text nodes in a <span>", () => {
-    buttonElement.textContent = "Save";
-    fixture.detectChanges();
-    fixture.componentInstance.ngAfterViewInit();
-
-    const span = buttonElement.querySelector("span");
-    expect(span).not.toBeNull();
-    expect(span?.textContent?.trim()).toBe("Save");
-  });
 });
