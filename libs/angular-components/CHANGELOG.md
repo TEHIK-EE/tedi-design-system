@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-angular-v2.2.0-rc.2](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.2.0-rc.1...angular-2.2.0-rc.2) (2025-06-30)
+
+
+### Bug Fixes
+
+* **button:** fix projected content state changes [#902](https://github.com/TEHIK-EE/tedi-design-system/issues/902) ([#903](https://github.com/TEHIK-EE/tedi-design-system/issues/903)) ([6e0ec9d](https://github.com/TEHIK-EE/tedi-design-system/commit/6e0ec9d7b0dba9d8229c39cc99c3cb16ef89e0c5))
+
 # [@tehik-ee/tedi-angular-v2.2.0-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.1.0...angular-2.2.0-rc.1) (2025-06-26)
 
 
