@@ -51,7 +51,7 @@ export class ButtonComponent implements AfterContentChecked {
 
   ngAfterContentChecked(): void {
     const hostElement = this.host.nativeElement as HTMLElement;
-    const nodes = Array.from(hostElement.childNodes);
+    const nodes = Array.from(hostElement.childNodes).filter(node => node.nodeType === Node.ELEMENT_NODE || (node.nodeType === Node.TEXT_NODE && node.textContent?.trim()));
     const nodeCount = nodes.length;
     const iconIndexes = nodes
       .map((node, index) => ({ node, index }))
