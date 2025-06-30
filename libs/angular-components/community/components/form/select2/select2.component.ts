@@ -3,9 +3,9 @@ import { CdkListbox, CdkListboxModule } from "@angular/cdk/listbox";
 import {
   ChangeDetectionStrategy,
   Component,
+  contentChildren,
   effect,
   ElementRef,
-  input,
   signal,
   viewChild,
   ViewEncapsulation,
@@ -17,6 +17,7 @@ import {
 } from "community/components/cards";
 import { DropdownItemComponent } from "community/components/overlay";
 import { ClosingButtonComponent } from "tedi/components";
+import { Select2OptionComponent } from "./select2option.component";
 
 @Component({
   selector: "select2",
@@ -36,23 +37,18 @@ import { ClosingButtonComponent } from "tedi/components";
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Select2Component {
-  options = input([
-    "Hydrodynamic",
-    "Port & Starboard Attachments",
-    "Turbo Drive",
-  ]);
-
   isOpen = signal(false);
   selectedOptions: readonly string[] = [];
   listbox = viewChild(CdkListbox, { read: ElementRef });
   trigger = viewChild(CdkOverlayOrigin, { read: ElementRef });
+  options = contentChildren(Select2OptionComponent);
 
   toggleIsOpen(value?: boolean): void {
     if (value === undefined) {
       this.isOpen.update((val) => !val);
     } else if (value === false) {
       this.isOpen.update(() => value);
-      this.trigger()?.nativeElement.focus();
+      this.focusTrigger();
     }
   }
 
@@ -65,9 +61,13 @@ export class Select2Component {
     this.selectedOptions = [];
   }
 
-  something = effect(() => {
+  focusListboxWhenVisible = effect(() => {
     if (this.listbox()) this.listbox()?.nativeElement.focus();
   });
+
+  focusTrigger(): void {
+    this.trigger()?.nativeElement.focus();
+  }
 
   isOptionSelected(option: string): boolean {
     return this.selectedOptions.includes(option);

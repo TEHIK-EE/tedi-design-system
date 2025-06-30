@@ -50,10 +50,11 @@
         @for (option of options(); track option) {
           <li
             tedi-dropdown-item
-            [selected]="isOptionSelected(option)"
-            [cdkOption]="option"
+            [selected]="isOptionSelected(option.value())"
+            [cdkOption]="option.value()"
+            [cdkOptionDisabled]="option.disabled()"
           >
-            {{ option }}
+            {{ option.label() }}
           </li>
         }
       </ul>
