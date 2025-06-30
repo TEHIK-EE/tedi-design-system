@@ -78,11 +78,6 @@ export class Select2Component implements AfterContentChecked {
    */
   placeholder = input<string>("");
   /**
-   * Is the select disabled?
-   * @default false
-   */
-  disabled = input<boolean>(false);
-  /**
    * The state of the input.
    * @default "default"
    */
@@ -101,6 +96,7 @@ export class Select2Component implements AfterContentChecked {
   hostRef = inject(ElementRef);
   options = contentChildren(Select2OptionComponent);
   dropdownWidth = signal(0);
+  disabled = signal(false);
 
   ngAfterContentChecked(): void {
     this.setDropdownWidth();
@@ -112,6 +108,8 @@ export class Select2Component implements AfterContentChecked {
   }
 
   toggleIsOpen(value?: boolean): void {
+    if (this.disabled()) return;
+
     if (value === undefined) {
       this.isOpen.update((val) => !val);
     } else if (value === false) {

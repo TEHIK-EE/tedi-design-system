@@ -14,6 +14,7 @@
 }
 <div
   class="tedi-select__trigger"
+  [class.tedi-input--disabled]="disabled()"
   tedi-input
   cdkOverlayOrigin
   #trigger="cdkOverlayOrigin"
@@ -22,7 +23,7 @@
   [attr.aria-expanded]="isOpen()"
   [attr.aria-controls]="listboxId"
   [attr.aria-labelledby]="labelId"
-  tabindex="0"
+  [tabindex]="disabled() ? -1 : 0"
   [state]="state()"
   [size]="size()"
   [id]="inputId()"
