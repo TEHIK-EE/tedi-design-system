@@ -39,6 +39,9 @@ import { Select2OptionComponent } from "./select2option.component";
   standalone: true,
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  host: {
+    class: "tedi-select",
+  },
 })
 export class Select2Component implements AfterContentChecked {
   isOpen = signal(false);
