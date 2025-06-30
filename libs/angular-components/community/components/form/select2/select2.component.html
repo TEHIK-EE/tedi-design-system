@@ -1,18 +1,34 @@
 <div
   tedi-input
-  (click)="toggleIsOpen()"
   cdkOverlayOrigin
   #trigger="cdkOverlayOrigin"
-  [attr.role]="'combobox'"
-  [attr.aria-haspopup]="'listbox'"
+  role="combobox"
+  aria-haspopup="listbox"
+  (click)="toggleIsOpen()"
+  (keydown.enter)="toggleIsOpen()"
+  (keydown.space)="$event.preventDefault(); toggleIsOpen()"
   tabindex="0"
+  class="tedi-select__trigger"
 >
-  @if (selectedOptions.length > 0) {
+  @if (selectedOptions.length === 1) {
+    {{ selectedOptions }}
+  } @else if (selectedOptions.length > 1) {
     @for (option of selectedOptions; track option) {
       {{ option }}
     }
   } @else {
     placeholder
+  }
+
+  @if (selectedOptions.length > 0) {
+    <button
+      type="button"
+      tedi-closing-button
+      size="small"
+      [iconSize]="18"
+      title="Clear"
+      (click)="$event.stopPropagation(); clear()"
+    ></button>
   }
 </div>
 
@@ -30,10 +46,15 @@
         [cdkListboxValue]="selectedOptions"
         (cdkListboxValueChange)="handleValueChange($event)"
         aria-labelledby="example-spatula-label"
-        #dropdownListbox
       >
         @for (option of options(); track option) {
-          <li tedi-dropdown-item [cdkOption]="option">{{ option }}</li>
+          <li
+            tedi-dropdown-item
+            [selected]="isOptionSelected(option)"
+            [cdkOption]="option"
+          >
+            {{ option }}
+          </li>
         }
       </ul>
     </tedi-card-content>

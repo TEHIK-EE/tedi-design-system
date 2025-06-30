@@ -1,0 +1,12 @@
+.cdk-listbox:focus .cdk-option-active {
+  background: var(--dropdown-item-hover-background);
+  color: black;
+}
+
+.tedi-select {
+  &__trigger {
+    display: flex;
+    justify-content: space-between;
+    cursor: default;
+  }
+}

@@ -1,9 +1,10 @@
-import { OverlayModule } from "@angular/cdk/overlay";
+import { CdkOverlayOrigin, OverlayModule } from "@angular/cdk/overlay";
 import { CdkListbox, CdkListboxModule } from "@angular/cdk/listbox";
 import {
   ChangeDetectionStrategy,
   Component,
   effect,
+  ElementRef,
   input,
   signal,
   viewChild,
@@ -15,6 +16,7 @@ import {
   CardContentComponent,
 } from "community/components/cards";
 import { DropdownItemComponent } from "community/components/overlay";
+import { ClosingButtonComponent } from "tedi/components";
 
 @Component({
   selector: "select2",
@@ -25,9 +27,10 @@ import { DropdownItemComponent } from "community/components/overlay";
     CardComponent,
     CardContentComponent,
     DropdownItemComponent,
+    ClosingButtonComponent,
   ],
   templateUrl: "./select2.component.html",
-  styleUrl: "./select2.component.css",
+  styleUrl: "./select2.component.scss",
   standalone: true,
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -41,12 +44,16 @@ export class Select2Component {
 
   isOpen = signal(false);
   selectedOptions: readonly string[] = [];
-  dropdown = viewChild(CdkListbox);
+  listbox = viewChild(CdkListbox, { read: ElementRef });
+  trigger = viewChild(CdkOverlayOrigin, { read: ElementRef });
 
   toggleIsOpen(value?: boolean): void {
-    return value === undefined
-      ? this.isOpen.update((val) => !val)
-      : this.isOpen.update(() => value);
+    if (value === undefined) {
+      this.isOpen.update((val) => !val);
+    } else if (value === false) {
+      this.isOpen.update(() => value);
+      this.trigger()?.nativeElement.focus();
+    }
   }
 
   handleValueChange(event: { value: readonly string[] }): void {
@@ -54,14 +61,15 @@ export class Select2Component {
     this.toggleIsOpen(false);
   }
 
+  clear(): void {
+    this.selectedOptions = [];
+  }
+
   something = effect(() => {
-    if (this.dropdown()) {
-      this.dropdown()?.focus();
-    }
+    if (this.listbox()) this.listbox()?.nativeElement.focus();
   });
 
-  // updateSelectedOption(option: string): void {
-  //   this.starter.set(option);
-  //   this.toggleIsOpen(false);
-  // }
+  isOptionSelected(option: string): boolean {
+    return this.selectedOptions.includes(option);
+  }
 }
