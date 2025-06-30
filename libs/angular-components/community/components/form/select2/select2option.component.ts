@@ -2,13 +2,15 @@ import {
   ChangeDetectionStrategy,
   Component,
   input,
+  TemplateRef,
+  viewChild,
   ViewEncapsulation,
 } from "@angular/core";
 
 @Component({
   selector: "select2-option",
   imports: [],
-  template: "<ng-content />",
+  template: "<ng-template><ng-content /></ng-template>",
   standalone: true,
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -32,4 +34,6 @@ export class Select2OptionComponent {
    * If not provided, the option will not be grouped.
    */
   group = input<string | null>(null);
+
+  templateRef = viewChild(TemplateRef);
 }

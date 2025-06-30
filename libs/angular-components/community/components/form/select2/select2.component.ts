@@ -35,10 +35,12 @@ import {
 } from "tedi/components";
 import { Select2OptionComponent } from "./select2option.component";
 import { ComponentInputs } from "tedi/types/inputs.type";
+import { CommonModule } from "@angular/common";
 
 @Component({
   selector: "select2",
   imports: [
+    CommonModule,
     OverlayModule,
     CdkListboxModule,
     InputComponent,
@@ -127,7 +129,7 @@ export class Select2Component
     if (this.disabled()) return;
 
     if (value === undefined) {
-      this.isOpen.update((val) => !val);
+      this.isOpen.update((previousValue) => !previousValue);
     } else if (value === false) {
       this.isOpen.update(() => value);
       this.focusTrigger();
