@@ -1,13 +1,14 @@
 import { Meta, StoryObj, moduleMetadata } from "@storybook/angular";
 import { Select2Component } from "./select2.component";
 import { Select2OptionComponent } from "./select2option.component";
+import { FormControl, FormGroup, ReactiveFormsModule } from "@angular/forms";
 
 export default {
   title: "Community Angular/Form/Select2",
   component: Select2Component,
   decorators: [
     moduleMetadata({
-      imports: [Select2Component, Select2OptionComponent],
+      imports: [Select2Component, Select2OptionComponent, ReactiveFormsModule],
     }),
   ],
   render: () => ({
@@ -51,4 +52,57 @@ export const WithGroupedOptions: Select2Story = {
       </select2>
     `,
   }),
+};
+
+export const WithFormIntegration: Select2Story = {
+  render: (args) => {
+    // Create a form with a Select2 control
+    const formGroup = new FormGroup({
+      selection: new FormControl(["option2"]),
+    });
+
+    return {
+      props: {
+        formGroup,
+        ...args,
+        onSelectionChange: (event: unknown) => {
+          console.log("Selection changed:", event);
+        },
+      },
+      template: `
+        <div [formGroup]="formGroup">
+          <select2
+            inputId="4"
+            label="Reactive Form Example"
+            placeholder="Select an option"
+            formControlName="selection"
+            [feedbackText]="{ text: 'Form value: ' + (formGroup.value | json) }"
+            >
+            <select2-option value="option1" label="Option 1"></select2-option>
+            <select2-option value="option2" label="Option 2"></select2-option>
+            <select2-option value="option3" label="Option 3"></select2-option>
+            <select2-option value="option4" label="Option 4"></select2-option>
+          </select2>
+
+          <div style="margin-top: 20px;">
+            <button (click)="formGroup.controls.selection.setValue(['option1'])">
+              Select "Option 1"
+            </button>
+            <button (click)="formGroup.controls.selection.setValue(['option3', 'option4'])">
+              Select "Option 3 & 4"
+            </button>
+            <button (click)="formGroup.controls.selection.reset()">
+              Reset
+            </button>
+            <button (click)="formGroup.controls.selection.disable()">
+              Disable
+            </button>
+            <button (click)="formGroup.controls.selection.enable()">
+              Enable
+            </button>
+          </div>
+        </div>
+      `,
+    };
+  },
 };
