@@ -1,11 +1,14 @@
 import { CdkOverlayOrigin, OverlayModule } from "@angular/cdk/overlay";
 import { CdkListbox, CdkListboxModule } from "@angular/cdk/listbox";
 import {
+  AfterContentChecked,
   ChangeDetectionStrategy,
   Component,
   contentChildren,
   effect,
   ElementRef,
+  HostListener,
+  inject,
   signal,
   viewChild,
   ViewEncapsulation,
@@ -16,7 +19,7 @@ import {
   CardContentComponent,
 } from "community/components/cards";
 import { DropdownItemComponent } from "community/components/overlay";
-import { ClosingButtonComponent } from "tedi/components";
+import { ClosingButtonComponent, IconComponent } from "tedi/components";
 import { Select2OptionComponent } from "./select2option.component";
 
 @Component({
@@ -29,6 +32,7 @@ import { Select2OptionComponent } from "./select2option.component";
     CardContentComponent,
     DropdownItemComponent,
     ClosingButtonComponent,
+    IconComponent,
   ],
   templateUrl: "./select2.component.html",
   styleUrl: "./select2.component.scss",
@@ -36,12 +40,23 @@ import { Select2OptionComponent } from "./select2option.component";
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class Select2Component {
+export class Select2Component implements AfterContentChecked {
   isOpen = signal(false);
   selectedOptions: readonly string[] = [];
-  listbox = viewChild(CdkListbox, { read: ElementRef });
-  trigger = viewChild(CdkOverlayOrigin, { read: ElementRef });
+  listboxRef = viewChild(CdkListbox, { read: ElementRef });
+  triggerRef = viewChild(CdkOverlayOrigin, { read: ElementRef });
+  hostRef = inject(ElementRef);
   options = contentChildren(Select2OptionComponent);
+  dropdownWidth = signal(0);
+
+  ngAfterContentChecked() {
+    this.setDropdownWidth();
+  }
+
+  @HostListener("window:resize")
+  onWindowResize() {
+    this.setDropdownWidth();
+  }
 
   toggleIsOpen(value?: boolean): void {
     if (value === undefined) {
@@ -62,14 +77,20 @@ export class Select2Component {
   }
 
   focusListboxWhenVisible = effect(() => {
-    if (this.listbox()) this.listbox()?.nativeElement.focus();
+    if (this.listboxRef()) this.listboxRef()?.nativeElement.focus();
   });
 
   focusTrigger(): void {
-    this.trigger()?.nativeElement.focus();
+    this.triggerRef()?.nativeElement.focus();
   }
 
   isOptionSelected(option: string): boolean {
     return this.selectedOptions.includes(option);
+  }
+
+  private setDropdownWidth() {
+    const computedWidth =
+      this.hostRef?.nativeElement?.getBoundingClientRect()?.width ?? 0;
+    this.dropdownWidth.set(computedWidth);
   }
 }

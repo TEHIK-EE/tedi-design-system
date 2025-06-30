@@ -1,89 +1,53 @@
 import { Meta, StoryObj, moduleMetadata } from "@storybook/angular";
 import { Select2Component } from "./select2.component";
+import { Select2OptionComponent } from "./select2option.component";
 
-/**
- * Select2 component provides a custom dropdown selection with improved UX.
- * - Allows single or multiple selections
- * - Fully accessible keyboard navigation
- * - Custom styling options
- */
 export default {
   title: "Community Angular/Form/Select2",
   component: Select2Component,
   decorators: [
     moduleMetadata({
-      imports: [Select2Component],
+      imports: [Select2Component, Select2OptionComponent],
     }),
   ],
-  parameters: {
-    status: {
-      type: ["devComponent"],
-    },
-  },
-  args: {
-    options: ["Hydrodynamic", "Port & Starboard Attachments", "Turbo Drive"],
-    selectedOptions: [],
-  },
-  argTypes: {
-    options: {
-      description: "Array of options to display in the dropdown",
-      control: "object",
-      table: {
-        type: { summary: "string[]" },
-      },
-    },
-    selectedOptions: {
-      description: "Currently selected options",
-      control: "object",
-      table: {
-        type: { summary: "readonly string[]" },
-      },
-    },
-  },
-} satisfies Meta<Select2Component>;
-
-export const Default: StoryObj<Select2Component> = {
-  render: (args) => ({
-    props: args,
+  render: () => ({
     template: `
-      <div style="margin: 20px; max-width: 400px;">
-        <select2 />
-      </div>
+      <select2>
+        <select2-option value="option1" label="Option 1" />
+        <select2-option value="option2" label="Option 2" />
+        <select2-option value="option3" label="Option 3" />
+        <select2-option value="option4" label="Option 4" />
+      </select2>
+    `,
+  }),
+} as Meta;
+
+type Select2Story = StoryObj;
+
+export const Default: Select2Story = {};
+
+export const WithDisabledOptions: Select2Story = {
+  render: () => ({
+    template: `
+      <select2>
+        <select2-option value="option1" label="Option 1"></select2-option>
+        <select2-option value="option2" label="Option 2" [disabled]="true"></select2-option>
+        <select2-option value="option3" label="Option 3"></select2-option>
+        <select2-option value="option4" label="Option 4" [disabled]="true"></select2-option>
+      </select2>
     `,
   }),
 };
 
-export const WithPreselectedOption: StoryObj<Select2Component> = {
-  render: (args) => ({
-    props: {
-      ...args,
-      selectedOptions: ["Hydrodynamic"],
-    },
+export const WithGroupedOptions: Select2Story = {
+  render: () => ({
     template: `
-      <div style="margin: 20px; max-width: 400px;">
-        <select2 [selectedOptions]="selectedOptions" />
-      </div>
-    `,
-  }),
-};
-
-export const CustomOptions: StoryObj<Select2Component> = {
-  render: (args) => ({
-    props: {
-      ...args,
-      customOptions: [
-        "Option 1",
-        "Option 2",
-        "Option 3",
-        "Option 4",
-        "Option 5",
-      ],
-      selectedOptions: ["Option 3"],
-    },
-    template: `
-      <div style="margin: 20px; max-width: 400px;">
-        <select2 [options]="customOptions" [selectedOptions]="selectedOptions" />
-      </div>
+      <select2>
+        <select2-option value="fruit1" label="Apple" group="Fruits"></select2-option>
+        <select2-option value="fruit2" label="Banana" group="Fruits"></select2-option>
+        <select2-option value="veg1" label="Carrot" group="Vegetables"></select2-option>
+        <select2-option value="veg2" label="Broccoli" group="Vegetables"></select2-option>
+      </select2>
     `,
   }),
 };

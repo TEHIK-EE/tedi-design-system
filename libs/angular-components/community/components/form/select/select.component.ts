@@ -63,7 +63,8 @@ import { DropdownItemComponent } from "../../overlay/dropdown-item/dropdown-item
   },
 })
 export class SelectComponent
-  implements ControlValueAccessor, OnInit, AfterContentChecked {
+  implements ControlValueAccessor, OnInit, AfterContentChecked
+{
   /**
    * The label for the select input.
    * @default ""
