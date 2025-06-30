@@ -6,10 +6,8 @@ import {
   input,
   signal,
   ViewEncapsulation,
-  contentChildren,
   AfterContentChecked,
 } from "@angular/core";
-import { IconComponent } from "../../base/icon/icon.component";
 
 export type ButtonVariant =
   | "primary"
@@ -46,16 +44,24 @@ export class ButtonComponent implements AfterContentChecked {
    */
   size = input<ButtonSize>("default");
 
-  icons = contentChildren(IconComponent);
   private host = inject(ElementRef);
   iconOnly = signal(false);
+  iconFirst = signal(false);
+  iconLast = signal(false);
 
   ngAfterContentChecked(): void {
     const hostElement = this.host.nativeElement as HTMLElement;
-    const nodeCount = hostElement.childNodes.length;
-    const iconCount = this.icons().length;
-
+    const nodes = Array.from(hostElement.childNodes);
+    const nodeCount = nodes.length;
+    const iconIndexes = nodes
+      .map((node, index) => ({ node, index }))
+      .filter(x => x.node.nodeType === Node.ELEMENT_NODE && x.node.nodeName === "TEDI-ICON")
+      .map(x => x.index);
+    
+    const iconCount = iconIndexes.length;
     this.iconOnly.set(nodeCount === 1 && iconCount === 1);
+    this.iconFirst.set(iconIndexes.includes(0));
+    this.iconLast.set(iconIndexes.includes(nodes.length - 1));
   }
 
   classes = computed(() => {
@@ -67,6 +73,14 @@ export class ButtonComponent implements AfterContentChecked {
 
     if (this.iconOnly()) {
       classList.push("tedi-button--icon-only");
+    }
+
+    if (!this.iconFirst()) {
+      classList.push("tedi-button--pl");
+    }
+
+    if (!this.iconLast()) {
+      classList.push("tedi-button--pr");
     }
 
     return classList.join(" ");

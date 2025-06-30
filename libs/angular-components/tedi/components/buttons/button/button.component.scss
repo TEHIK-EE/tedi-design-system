@@ -156,15 +156,13 @@ $neutral-variants: "neutral", "neutral-inverted", "danger-neutral";
       @include mixins.responsive-styles(padding, button-sm-icon-padding);
     }
   }
-  
-  &:not(.tedi-button--neutral):not(.tedi-button--danger-neutral):not(.tedi-button--neutral-inverted) {
-    > :first-child:not(tedi-icon) {
-      padding-left: var(--_btn-inner-spacing);
-    }
 
-    > :last-child:not(tedi-icon) {
-      padding-right: var(--_btn-inner-spacing);
-    }
+  &--pl {
+    padding-left: calc(var(--_btn-padding-x) + var(--_btn-inner-spacing) - 1px);
+  }
+
+  &--pr {
+    padding-right: calc(var(--_btn-padding-x) + var(--_btn-inner-spacing) - 1px);
   }
 
   &:hover {
