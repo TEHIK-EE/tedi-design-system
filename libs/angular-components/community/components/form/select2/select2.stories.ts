@@ -12,7 +12,7 @@ export default {
   ],
   render: () => ({
     template: `
-      <select2 inputId="1" placeholder="Select an option">
+      <select2 inputId="1" label="Select an option" placeholder="Select an option" [feedbackText]="{text:'Something'}">
         <select2-option value="option1" label="Option 1" />
         <select2-option value="option2" label="Option 2" />
         <select2-option value="option3" label="Option 3" />

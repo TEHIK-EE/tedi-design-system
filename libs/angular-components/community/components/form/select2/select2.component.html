@@ -1,5 +1,14 @@
+@let listboxId = inputId() + "-listbox";
+@let labelId = inputId() + "-label";
+
 @if (label()) {
-  <label tedi-label [for]="inputId()" [required]="required()" [size]="size()">
+  <label
+    [id]="labelId"
+    tedi-label
+    [for]="inputId()"
+    [required]="required()"
+    [size]="size()"
+  >
     {{ label() }}
   </label>
 }
@@ -10,6 +19,9 @@
   #trigger="cdkOverlayOrigin"
   role="combobox"
   aria-haspopup="listbox"
+  [attr.aria-expanded]="isOpen()"
+  [attr.aria-controls]="listboxId"
+  [attr.aria-labelledby]="labelId"
   tabindex="0"
   [state]="state()"
   [size]="size()"
@@ -22,7 +34,9 @@
     @if (selectedOptions().length) {
       {{ selectedOptions() }}
     } @else {
-      <span class="tedi-select__label--placeholder">{{ placeholder() }}</span>
+      <span class="tedi-select__label--placeholder">
+        {{ placeholder() }}
+      </span>
     }
   </span>
 
@@ -64,6 +78,7 @@
   >
     <tedi-card-content>
       <ul
+        [id]="listboxId"
         cdkListbox
         cdkListboxUseActiveDescendant
         [cdkListboxValue]="selectedOptions()"
