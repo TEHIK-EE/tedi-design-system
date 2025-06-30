@@ -1,28 +1,36 @@
+@if (label()) {
+  <label tedi-label [for]="inputId()" [required]="required()" [size]="size()">
+    {{ label() }}
+  </label>
+}
 <div
+  class="tedi-select__trigger"
   tedi-input
   cdkOverlayOrigin
   #trigger="cdkOverlayOrigin"
   role="combobox"
   aria-haspopup="listbox"
+  tabindex="0"
+  [state]="state()"
+  [size]="size()"
+  [id]="inputId()"
   (click)="toggleIsOpen()"
   (keydown.enter)="toggleIsOpen()"
   (keydown.space)="$event.preventDefault(); toggleIsOpen()"
-  tabindex="0"
-  class="tedi-select__trigger"
 >
   <span class="tedi-select__label">
-    @if (selectedOptions.length) {
-      {{ selectedOptions }}
+    @if (selectedOptions().length) {
+      {{ selectedOptions() }}
     } @else {
-      <span class="tedi-select__label--placeholder">placeholder</span>
+      <span class="tedi-select__label--placeholder">{{ placeholder() }}</span>
     }
   </span>
 
-  @if (selectedOptions.length) {
+  @if (selectedOptions().length) {
     <button
       class="tedi-select__clear"
-      type="button"
       tedi-closing-button
+      type="button"
       size="small"
       [iconSize]="18"
       title="Clear"
@@ -32,6 +40,13 @@
 
   <tedi-icon class="tedi-select__arrow" name="arrow_drop_down" />
 </div>
+@if (feedbackText(); as feedback) {
+  <tedi-feedback-text
+    [text]="feedback.text"
+    [type]="feedback.type"
+    [position]="feedback.position"
+  />
+}
 
 <ng-template
   cdkConnectedOverlay
@@ -51,7 +66,7 @@
       <ul
         cdkListbox
         cdkListboxUseActiveDescendant
-        [cdkListboxValue]="selectedOptions"
+        [cdkListboxValue]="selectedOptions()"
         (cdkListboxValueChange)="handleValueChange($event)"
         aria-labelledby="example-spatula-label"
         class="tedi-select__options"
@@ -62,6 +77,7 @@
             [selected]="isOptionSelected(option.value())"
             [cdkOption]="option.value()"
             [cdkOptionDisabled]="option.disabled()"
+            [disabled]="option.disabled()"
           >
             {{ option.label() }}
           </li>
