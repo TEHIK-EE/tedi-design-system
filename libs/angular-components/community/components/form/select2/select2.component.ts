@@ -13,7 +13,10 @@ import {
   signal,
   viewChild,
   ViewEncapsulation,
+  forwardRef,
+  computed,
 } from "@angular/core";
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from "@angular/forms";
 import {
   InputComponent,
   InputSize,
@@ -55,8 +58,17 @@ import { ComponentInputs } from "tedi/types/inputs.type";
   host: {
     class: "tedi-select",
   },
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => Select2Component),
+      multi: true,
+    },
+  ],
 })
-export class Select2Component implements AfterContentChecked {
+export class Select2Component
+  implements AfterContentChecked, ControlValueAccessor
+{
   /**
    * The id of the select input (for label association).
    * @default ""
@@ -98,6 +110,10 @@ export class Select2Component implements AfterContentChecked {
   dropdownWidth = signal(0);
   disabled = signal(false);
 
+  // ControlValueAccessor implementation
+  onChange: (value: readonly string[]) => void = () => {};
+  onTouched: () => void = () => {};
+
   ngAfterContentChecked(): void {
     this.setDropdownWidth();
   }
@@ -120,6 +136,8 @@ export class Select2Component implements AfterContentChecked {
 
   handleValueChange(event: { value: readonly string[] }): void {
     this.selectedOptions.update(() => event.value);
+    this.onChange(event.value);
+    this.onTouched();
     this.toggleIsOpen(false);
   }
 
@@ -127,6 +145,8 @@ export class Select2Component implements AfterContentChecked {
     event.preventDefault();
     event.stopPropagation();
     this.selectedOptions.update(() => []);
+    this.onChange([]);
+    this.onTouched();
   }
 
   focusListboxWhenVisible = effect(() => {
@@ -141,9 +161,32 @@ export class Select2Component implements AfterContentChecked {
     return this.selectedOptions().includes(option);
   }
 
+  selectedLabels = computed(() => {
+    return this.options()
+      .filter((option) => this.isOptionSelected(option.value()))
+      .map((option) => option.label());
+  });
+
   private setDropdownWidth(): void {
     const computedWidth =
       this.hostRef?.nativeElement?.getBoundingClientRect()?.width ?? 0;
     this.dropdownWidth.set(computedWidth);
+  }
+
+  // ControlValueAccessor interface implementation
+  writeValue(value: readonly string[]): void {
+    this.selectedOptions.set(value || []);
+  }
+
+  registerOnChange(fn: (value: readonly string[]) => void): void {
+    this.onChange = fn;
+  }
+
+  registerOnTouched(fn: () => void): void {
+    this.onTouched = fn;
+  }
+
+  setDisabledState(isDisabled: boolean): void {
+    this.disabled.set(isDisabled);
   }
 }

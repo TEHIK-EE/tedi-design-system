@@ -30,10 +30,11 @@
   (click)="toggleIsOpen()"
   (keydown.enter)="toggleIsOpen()"
   (keydown.space)="$event.preventDefault(); toggleIsOpen()"
+  (blur)="onTouched()"
 >
   <span class="tedi-select__label">
-    @if (selectedOptions().length) {
-      {{ selectedOptions() }}
+    @if (selectedLabels().length) {
+      {{ selectedLabels() }}
     } @else {
       <span class="tedi-select__label--placeholder">
         {{ placeholder() }}
