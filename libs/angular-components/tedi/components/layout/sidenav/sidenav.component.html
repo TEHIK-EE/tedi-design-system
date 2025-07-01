@@ -1,0 +1,24 @@
+@if (!sidenavService.isMobile() && collapsible()) {
+  <button
+    class="tedi-sidenav__collapse"
+    (click)="sidenavService.handleCollapse()"
+    [attr.aria-label]="'toggle' | tediTranslate: !sidenavService.isCollapsed()"
+  >
+    <tedi-icon
+      [name]="
+        sidenavService.isCollapsed() ? 'left_panel_open' : 'right_panel_open'
+      "
+      color="brand"
+    />
+  </button>
+}
+@if (sidenavService.isMobileItemOpen()) {
+  <button
+    class="tedi-sidenav-back"
+    (click)="sidenavService.handleGoToMainMenu()"
+  >
+    <tedi-icon name="arrow_back" color="white" />
+    {{ "sidenav.backToMainMenu" | tediTranslate }}
+  </button>
+}
+<ng-content></ng-content>

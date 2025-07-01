@@ -14,7 +14,7 @@ import {
   TextComponent,
   VerticalSpacingDirective,
 } from "@tehik-ee/tedi-angular/tedi";
-import { createBreakpointArgTypes } from "../../../../utils/createBreakpointArgTypes";
+import { createBreakpointArgTypes } from "../../../../dev-tools/createBreakpointArgTypes";
 
 /**
  * <a href="https://www.figma.com/file/jWiRIXhHRxwVdMSimKX2FF/TEDI-Design-System-(draft)?type=design&node-id=45-30752&mode=dev" target="_BLANK">Figma ↗</a><br/>

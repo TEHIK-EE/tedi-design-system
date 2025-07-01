@@ -83,6 +83,5 @@
     "use-labels",
     "style-provider",
     "input-group"
-  ],
-  "angular.enable-strict-mode-prompt": false
+  ]
 }

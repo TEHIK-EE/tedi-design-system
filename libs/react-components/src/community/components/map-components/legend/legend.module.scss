@@ -1,0 +1,21 @@
+.tedi-legend {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+
+  &__label {
+    width: 40px;
+    height: 26px;
+    overflow: hidden;
+    font-size: 12px;
+    text-align: center;
+    text-wrap: wrap;
+    background-color: var(--general-surface-primary);
+    border: 1px solid var(--general-border-primary);
+    border-radius: var(--borders-04);
+
+    > img {
+      height: 100%;
+    }
+  }
+}

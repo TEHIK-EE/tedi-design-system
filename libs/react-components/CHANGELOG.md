@@ -1,52 +1,102 @@
-# [@tehik-ee/tedi-react-v13.0.0-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/react-12.1.0-rc.1...react-13.0.0-rc.1) (2025-06-18)
-
+# [@tehik-ee/tedi-react-v12.1.0](https://github.com/TEHIK-EE/tedi-design-system/compare/react-12.0.2...react-12.1.0) (2025-06-26)
 
 ### Bug Fixes
 
-* **react:** fix changelog [#820](https://github.com/TEHIK-EE/tedi-design-system/issues/820) ([083d487](https://github.com/TEHIK-EE/tedi-design-system/commit/083d487fa8b5e678cd86fd99dcec4716c75e4533))
-
+- **react:** fix changelog [#820](https://github.com/TEHIK-EE/tedi-design-system/issues/820) ([c1a5c64](https://github.com/TEHIK-EE/tedi-design-system/commit/c1a5c64364b204cb46fb975e034d45154e083baf))
+- **select:** fix async select input [#743](https://github.com/TEHIK-EE/tedi-design-system/issues/743) ([#861](https://github.com/TEHIK-EE/tedi-design-system/issues/861)) ([608dc50](https://github.com/TEHIK-EE/tedi-design-system/commit/608dc506b4922900e2215d70ab977feea9a3b492))
 
 ### Features
 
-* **alert:** TEDI-Ready component [#820](https://github.com/TEHIK-EE/tedi-design-system/issues/820) ([#831](https://github.com/TEHIK-EE/tedi-design-system/issues/831)) ([e3fc051](https://github.com/TEHIK-EE/tedi-design-system/commit/e3fc051daa133703a500e21bfbc970b22bb864d9)), closes [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#833](https://github.com/TEHIK-EE/tedi-design-system/issues/833) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#692](https://github.com/TEHIK-EE/tedi-design-system/issues/692) [#834](https://github.com/TEHIK-EE/tedi-design-system/issues/834) [#692](https://github.com/TEHIK-EE/tedi-design-system/issues/692) [#692](https://github.com/TEHIK-EE/tedi-design-system/issues/692) [#692](https://github.com/TEHIK-EE/tedi-design-system/issues/692) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#833](https://github.com/TEHIK-EE/tedi-design-system/issues/833) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#849](https://github.com/TEHIK-EE/tedi-design-system/issues/849) [#852](https://github.com/TEHIK-EE/tedi-design-system/issues/852) [#836](https://github.com/TEHIK-EE/tedi-design-system/issues/836) [#849](https://github.com/TEHIK-EE/tedi-design-system/issues/849) [#849](https://github.com/TEHIK-EE/tedi-design-system/issues/849) [#849](https://github.com/TEHIK-EE/tedi-design-system/issues/849) [#849](https://github.com/TEHIK-EE/tedi-design-system/issues/849) [#849](https://github.com/TEHIK-EE/tedi-design-system/issues/849)
+- **alert:** TEDI-Ready component [#820](https://github.com/TEHIK-EE/tedi-design-system/issues/820) ([#831](https://github.com/TEHIK-EE/tedi-design-system/issues/831)) ([454bf75](https://github.com/TEHIK-EE/tedi-design-system/commit/454bf75b3c0df590beab49a0b8f59eeafac98ef0))
+- **community-form-multiselect:** add multiselect capabilities to community select [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) ([5b8905c](https://github.com/TEHIK-EE/tedi-design-system/commit/5b8905c03fa7017aa1ea68f0dd7f5e82b5a0f78d))
+- **map-components:** add kaardirakendus components for storybook [#888](https://github.com/TEHIK-EE/tedi-design-system/issues/888) ([#889](https://github.com/TEHIK-EE/tedi-design-system/issues/889)) ([2c7524f](https://github.com/TEHIK-EE/tedi-design-system/commit/2c7524fcd23a6b3a71f71d87fe9422d40cce5ed6))
+- **sidenav:** sizes prop, refactor css, add sidenav item states example [#832](https://github.com/TEHIK-EE/tedi-design-system/issues/832) ([#881](https://github.com/TEHIK-EE/tedi-design-system/issues/881)) ([9432d22](https://github.com/TEHIK-EE/tedi-design-system/commit/9432d22588c79ace749b15a29c876bd3164f0ed3))
 
+# [@tehik-ee/tedi-react-v12.1.0-rc.4](https://github.com/TEHIK-EE/tedi-design-system/compare/react-12.1.0-rc.3...react-12.1.0-rc.4) (2025-06-26)
+
+### Features
+
+- **sidenav:** sizes prop, refactor css, add sidenav item states example [#832](https://github.com/TEHIK-EE/tedi-design-system/issues/832) ([#881](https://github.com/TEHIK-EE/tedi-design-system/issues/881)) ([9432d22](https://github.com/TEHIK-EE/tedi-design-system/commit/9432d22588c79ace749b15a29c876bd3164f0ed3))
+
+# [@tehik-ee/tedi-react-v12.1.0-rc.3](https://github.com/TEHIK-EE/tedi-design-system/compare/react-12.1.0-rc.2...react-12.1.0-rc.3) (2025-06-25)
+
+### Features
+
+- **map-components:** add kaardirakendus components for storybook [#888](https://github.com/TEHIK-EE/tedi-design-system/issues/888) ([#889](https://github.com/TEHIK-EE/tedi-design-system/issues/889)) ([2c7524f](https://github.com/TEHIK-EE/tedi-design-system/commit/2c7524fcd23a6b3a71f71d87fe9422d40cce5ed6))
+
+# [@tehik-ee/tedi-react-v12.1.0-rc.2](https://github.com/TEHIK-EE/tedi-design-system/compare/react-12.1.0-rc.1...react-12.1.0-rc.2) (2025-06-20)
+
+### Bug Fixes
+
+- **react:** fix changelog [#820](https://github.com/TEHIK-EE/tedi-design-system/issues/820) ([c1a5c64](https://github.com/TEHIK-EE/tedi-design-system/commit/c1a5c64364b204cb46fb975e034d45154e083baf))
+
+### Features
+
+- **alert:** TEDI-Ready component [#820](https://github.com/TEHIK-EE/tedi-design-system/issues/820) ([#831](https://github.com/TEHIK-EE/tedi-design-system/issues/831)) ([454bf75](https://github.com/TEHIK-EE/tedi-design-system/commit/454bf75b3c0df590beab49a0b8f59eeafac98ef0))
+
+# [@tehik-ee/tedi-react-v13.0.0-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/react-12.1.0-rc.1...react-13.0.0-rc.1) (2025-06-19)
+
+### Bug Fixes
+
+- **react:** fix changelog [#820](https://github.com/TEHIK-EE/tedi-design-system/issues/820) ([083d487](https://github.com/TEHIK-EE/tedi-design-system/commit/083d487fa8b5e678cd86fd99dcec4716c75e4533))
+
+### Features
+
+- **alert:** TEDI-Ready component [#820](https://github.com/TEHIK-EE/tedi-design-system/issues/820) ([#831](https://github.com/TEHIK-EE/tedi-design-system/issues/831)) ([e3fc051](https://github.com/TEHIK-EE/tedi-design-system/commit/e3fc051daa133703a500e21bfbc970b22bb864d9)), closes [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#833](https://github.com/TEHIK-EE/tedi-design-system/issues/833) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#692](https://github.com/TEHIK-EE/tedi-design-system/issues/692) [#834](https://github.com/TEHIK-EE/tedi-design-system/issues/834) [#692](https://github.com/TEHIK-EE/tedi-design-system/issues/692) [#692](https://github.com/TEHIK-EE/tedi-design-system/issues/692) [#692](https://github.com/TEHIK-EE/tedi-design-system/issues/692) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#833](https://github.com/TEHIK-EE/tedi-design-system/issues/833) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#849](https://github.com/TEHIK-EE/tedi-design-system/issues/849) [#852](https://github.com/TEHIK-EE/tedi-design-system/issues/852) [#836](https://github.com/TEHIK-EE/tedi-design-system/issues/836) [#849](https://github.com/TEHIK-EE/tedi-design-system/issues/849) [#849](https://github.com/TEHIK-EE/tedi-design-system/issues/849) [#849](https://github.com/TEHIK-EE/tedi-design-system/issues/849) [#849](https://github.com/TEHIK-EE/tedi-design-system/issues/849) [#849](https://github.com/TEHIK-EE/tedi-design-system/issues/849)
 
 ### BREAKING CHANGES
 
-* **alert:** remove angular community component
-* **alert:** remove community info button
-* **alert:** remove community feedback-text
-* **alert:** remove community link
-* **alert:** remove angular community component
-* **alert:** remove community info button
-* **alert:** remove community feedback-text
-* **alert:** remove community link
+- **alert:** remove angular community component
+- **alert:** remove community info button
+- **alert:** remove community feedback-text
+- **alert:** remove community link
+- **alert:** remove angular community component
+- **alert:** remove community info button
+- **alert:** remove community feedback-text
+- **alert:** remove community link
 
-# [@tehik-ee/tedi-react-v12.1.0-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/react-12.0.2...react-12.1.0-rc.1) (2025-06-12)
-
+# [@tehik-ee/tedi-react-v13.0.0-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/react-12.1.0-rc.1...react-13.0.0-rc.1) (2025-06-18)
 
 ### Bug Fixes
 
-* **select:** fix async select input [#743](https://github.com/TEHIK-EE/tedi-design-system/issues/743) ([#861](https://github.com/TEHIK-EE/tedi-design-system/issues/861)) ([608dc50](https://github.com/TEHIK-EE/tedi-design-system/commit/608dc506b4922900e2215d70ab977feea9a3b492))
-
+- **react:** fix changelog [#820](https://github.com/TEHIK-EE/tedi-design-system/issues/820) ([083d487](https://github.com/TEHIK-EE/tedi-design-system/commit/083d487fa8b5e678cd86fd99dcec4716c75e4533))
 
 ### Features
 
-* **community-form-multiselect:** add multiselect capabilities to community select  [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) ([5b8905c](https://github.com/TEHIK-EE/tedi-design-system/commit/5b8905c03fa7017aa1ea68f0dd7f5e82b5a0f78d))
+- **alert:** TEDI-Ready component [#820](https://github.com/TEHIK-EE/tedi-design-system/issues/820) ([#831](https://github.com/TEHIK-EE/tedi-design-system/issues/831)) ([e3fc051](https://github.com/TEHIK-EE/tedi-design-system/commit/e3fc051daa133703a500e21bfbc970b22bb864d9)), closes [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#833](https://github.com/TEHIK-EE/tedi-design-system/issues/833) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#692](https://github.com/TEHIK-EE/tedi-design-system/issues/692) [#834](https://github.com/TEHIK-EE/tedi-design-system/issues/834) [#692](https://github.com/TEHIK-EE/tedi-design-system/issues/692) [#692](https://github.com/TEHIK-EE/tedi-design-system/issues/692) [#692](https://github.com/TEHIK-EE/tedi-design-system/issues/692) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#833](https://github.com/TEHIK-EE/tedi-design-system/issues/833) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#849](https://github.com/TEHIK-EE/tedi-design-system/issues/849) [#852](https://github.com/TEHIK-EE/tedi-design-system/issues/852) [#836](https://github.com/TEHIK-EE/tedi-design-system/issues/836) [#849](https://github.com/TEHIK-EE/tedi-design-system/issues/849) [#849](https://github.com/TEHIK-EE/tedi-design-system/issues/849) [#849](https://github.com/TEHIK-EE/tedi-design-system/issues/849) [#849](https://github.com/TEHIK-EE/tedi-design-system/issues/849) [#849](https://github.com/TEHIK-EE/tedi-design-system/issues/849)
+
+### BREAKING CHANGES
+
+- **alert:** remove angular community component
+- **alert:** remove community info button
+- **alert:** remove community feedback-text
+- **alert:** remove community link
+- **alert:** remove angular community component
+- **alert:** remove community info button
+- **alert:** remove community feedback-text
+- **alert:** remove community link
+
+# [@tehik-ee/tedi-react-v12.1.0-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/react-12.0.2...react-12.1.0-rc.1) (2025-06-12)
+
+### Bug Fixes
+
+- **select:** fix async select input [#743](https://github.com/TEHIK-EE/tedi-design-system/issues/743) ([#861](https://github.com/TEHIK-EE/tedi-design-system/issues/861)) ([608dc50](https://github.com/TEHIK-EE/tedi-design-system/commit/608dc506b4922900e2215d70ab977feea9a3b492))
+
+### Features
+
+- **community-form-multiselect:** add multiselect capabilities to community select [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) ([5b8905c](https://github.com/TEHIK-EE/tedi-design-system/commit/5b8905c03fa7017aa1ea68f0dd7f5e82b5a0f78d))
 
 # [@tehik-ee/tedi-react-v12.0.2](https://github.com/TEHIK-EE/tedi-design-system/compare/react-12.0.1...react-12.0.2) (2025-06-05)
 
-
 ### Bug Fixes
 
-* **dayjs:** change labelprovider, move dayjs to peer-dependency [#850](https://github.com/TEHIK-EE/tedi-design-system/issues/850) ([#856](https://github.com/TEHIK-EE/tedi-design-system/issues/856)) ([f479ed5](https://github.com/TEHIK-EE/tedi-design-system/commit/f479ed540bfaa2435dbdf0be74615962031a3b73))
+- **dayjs:** change labelprovider, move dayjs to peer-dependency [#850](https://github.com/TEHIK-EE/tedi-design-system/issues/850) ([#856](https://github.com/TEHIK-EE/tedi-design-system/issues/856)) ([f479ed5](https://github.com/TEHIK-EE/tedi-design-system/commit/f479ed540bfaa2435dbdf0be74615962031a3b73))
 
 # [@tehik-ee/tedi-react-v12.0.1](https://github.com/TEHIK-EE/tedi-design-system/compare/react-12.0.0...react-12.0.1) (2025-06-02)
 
-
 ### Bug Fixes
 
-* **text-field:** fix small textfield [#844](https://github.com/TEHIK-EE/tedi-design-system/issues/844) ([#846](https://github.com/TEHIK-EE/tedi-design-system/issues/846)) ([5cfed4e](https://github.com/TEHIK-EE/tedi-design-system/commit/5cfed4e145ac88ee7b93c09ec4419de6f4cb2f49))
+- **text-field:** fix small textfield [#844](https://github.com/TEHIK-EE/tedi-design-system/issues/844) ([#846](https://github.com/TEHIK-EE/tedi-design-system/issues/846)) ([5cfed4e](https://github.com/TEHIK-EE/tedi-design-system/commit/5cfed4e145ac88ee7b93c09ec4419de6f4cb2f49))
 
 # [@tehik-ee/tedi-react-v12.0.0](https://github.com/TEHIK-EE/tedi-design-system/compare/react-11.3.3...react-12.0.0) (2025-05-29)
 

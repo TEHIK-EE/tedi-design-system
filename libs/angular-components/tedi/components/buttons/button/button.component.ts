@@ -1,18 +1,13 @@
 import {
   Component,
   computed,
-  ContentChildren,
   ElementRef,
   inject,
   input,
-  QueryList,
-  Renderer2,
   signal,
   ViewEncapsulation,
-  AfterViewInit,
-  OnDestroy,
+  AfterContentChecked,
 } from "@angular/core";
-import { IconComponent } from "../../base/icon/icon.component";
 
 export type ButtonVariant =
   | "primary"
@@ -30,14 +25,14 @@ export type ButtonSize = "default" | "small";
 @Component({
   selector: "[tedi-button]",
   standalone: true,
-  templateUrl: "./button.component.html",
+  template: "<ng-content />",
   styleUrl: "./button.component.scss",
   encapsulation: ViewEncapsulation.None,
   host: {
     "[class]": "classes()",
   },
 })
-export class ButtonComponent implements AfterViewInit, OnDestroy {
+export class ButtonComponent implements AfterContentChecked {
   /**
    * Specifies the color theme of the button. The color should meet accessibility standards for color contrast.
    * @default primary
@@ -49,79 +44,24 @@ export class ButtonComponent implements AfterViewInit, OnDestroy {
    */
   size = input<ButtonSize>("default");
 
-  @ContentChildren(IconComponent, { descendants: true, read: ElementRef })
-  icons!: QueryList<ElementRef>;
-
-  private iconOnly = signal(false);
   private host = inject(ElementRef);
-  private renderer = inject(Renderer2);
-  private observer: MutationObserver | null = null;
+  iconOnly = signal(false);
+  iconFirst = signal(false);
+  iconLast = signal(false);
 
-  ngAfterViewInit(): void {
-    this.observer = new MutationObserver((mutations) => {
-      for (const mutation of mutations) {
-        (Array.from(mutation.addedNodes) as Node[]).forEach((node: Node) => {
-          this.applyTextNodeWrap(node);
-        });
-      }
-
-      this.checkIfIconOnly();
-    });
-
-    this.observer.observe(this.host.nativeElement, {
-      childList: true,
-      characterData: true,
-      subtree: true,
-    });
-
-    this.wrapTextNodes();
-    this.checkIfIconOnly();
-  }
-
-  ngOnDestroy(): void {
-    if (this.observer) {
-      this.observer.disconnect();
-    }
-  }
-
-  private applyTextNodeWrap(node: Node): void {
-    if (
-      node.nodeType === Node.TEXT_NODE &&
-      node.textContent?.trim() &&
-      !(
-        node.parentElement?.tagName === "SPAN" &&
-        node.parentElement.classList.contains("tedi-button__text")
-      )
-    ) {
-      const span = this.renderer.createElement("span") as HTMLSpanElement;
-      this.renderer.addClass(span, "tedi-button__text");
-
-      const textNode = this.renderer.createText(node.textContent.trim());
-      this.renderer.appendChild(span, textNode);
-      this.renderer.insertBefore(this.host.nativeElement, span, node);
-      this.renderer.removeChild(this.host.nativeElement, node);
-    }
-  }
-
-  private wrapTextNodes(): void {
-    const childNodes = Array.from(this.host.nativeElement.childNodes) as Node[];
-    for (const node of childNodes) {
-      this.applyTextNodeWrap(node);
-    }
-  }
-
-  private checkIfIconOnly(): void {
-    const childNodes = Array.from(this.host.nativeElement.childNodes) as Node[];
-    const elements = childNodes.filter(
-      (node) => node.nodeType === Node.ELEMENT_NODE,
-    );
-    const hasText = childNodes.some(
-      (node) => node.nodeType === Node.TEXT_NODE && node.textContent?.trim(),
-    );
-
-    this.iconOnly.set(
-      elements.length === 1 && this.icons.length === 1 && !hasText,
-    );
+  ngAfterContentChecked(): void {
+    const hostElement = this.host.nativeElement as HTMLElement;
+    const nodes = Array.from(hostElement.childNodes).filter(node => node.nodeType === Node.ELEMENT_NODE || (node.nodeType === Node.TEXT_NODE && node.textContent?.trim()));
+    const nodeCount = nodes.length;
+    const iconIndexes = nodes
+      .map((node, index) => ({ node, index }))
+      .filter(x => x.node.nodeType === Node.ELEMENT_NODE && x.node.nodeName === "TEDI-ICON")
+      .map(x => x.index);
+    
+    const iconCount = iconIndexes.length;
+    this.iconOnly.set(nodeCount === 1 && iconCount === 1);
+    this.iconFirst.set(iconIndexes.includes(0));
+    this.iconLast.set(iconIndexes.includes(nodes.length - 1));
   }
 
   classes = computed(() => {
@@ -133,6 +73,14 @@ export class ButtonComponent implements AfterViewInit, OnDestroy {
 
     if (this.iconOnly()) {
       classList.push("tedi-button--icon-only");
+    }
+
+    if (!this.iconFirst()) {
+      classList.push("tedi-button--pl");
+    }
+
+    if (!this.iconLast()) {
+      classList.push("tedi-button--pr");
     }
 
     return classList.join(" ");
