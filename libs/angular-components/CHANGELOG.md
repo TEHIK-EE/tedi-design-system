@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-angular-v2.2.0-rc.3](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.2.0-rc.2...angular-2.2.0-rc.3) (2025-07-01)
+
+
+### Features
+
+* **card:** export card padding type [#579](https://github.com/TEHIK-EE/tedi-design-system/issues/579) ([f60f0ff](https://github.com/TEHIK-EE/tedi-design-system/commit/f60f0ffec35ff9c9e01e3b41f15ab15ee24be31b))
+
 # [@tehik-ee/tedi-angular-v2.2.0-rc.2](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.2.0-rc.1...angular-2.2.0-rc.2) (2025-06-30)
 
 
