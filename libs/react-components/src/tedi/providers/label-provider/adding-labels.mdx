@@ -1,0 +1,81 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta name="Labels" title="TEDI-Ready/Providers/LabelProvider/Adding labels" />
+
+# Adding labels
+
+If you are building a wrapper library or just want to add custom labels that you can use in your components, you can follow this example.
+
+## Create your own labelsMap
+
+```tsx
+import { labelsMap as tediLabelsMap, validateLabel, mapToLang } from '@tehik-ee/tedi-react/tedi';
+
+/**
+ * Creates a map of default translations.
+ * et, en and ru values must be of the same type
+ */
+export const labelsMap = {
+  ...tediLabelsMap, // add TEDIs default labels that you can also override if needed
+  example: validateLabel({
+    description: 'Example translations.',
+    et: 'Näidis tõlge',
+    en: 'Example translation',
+    ru: 'Пример перевода',
+    components: ['Tooltip'],
+  }),
+};
+
+export const defaultEELabels = mapToLang(labelsMap, 'et');
+export const defaultENLabels = mapToLang(labelsMap, 'en');
+export const defaultRULabels = mapToLang(labelsMap, 'ru');
+
+// Allows app to module augment custom labels
+export interface CustomLabels {}
+export type LabelsMapType = typeof labelsMap & CustomLabels;
+
+// Use module augmentation
+// This way `useLayout` hook will have correct types for our custom labels
+declare module '@tehik-ee/tedi-react/tedi' {
+  interface CustomLabels extends LabelsMapType {}
+}
+```
+
+## Create a wrapper for LabelProvider
+
+```tsx
+import { LabelProvider as TediLabelProvider, type LabelProviderProps as TediLabelProviderProps } from '@tehik-ee/tedi-react/tedi';
+import { defaultEELabels, defaultENLabels, defaultRULabels } from './labels-map';
+
+export type LabelProviderProps = TediLabelProviderProps;
+
+/**
+ * A wrapper of TEDIs LabelProvider to add custom labels
+ */
+export const LabelProvider = (props: LabelProviderProps) => {
+  const { children, locale, labels, ...rest } = props;
+
+  // Will contain TEDIs labels, your own custom labels and label overrides defined through the `labels` prop
+  const customLabels: LabelProviderProps['labels'] = {
+    ...(locale === 'et' ? defaultEELabels : []),
+    ...(locale === 'en' ? defaultENLabels : []),
+    ...(locale === 'ru' ? defaultRULabels : []),
+    ...labels,
+  };
+
+  return (
+    <TediLabelProvider locale={locale} labels={customLabels} {...rest}>
+      {children}
+    </TediLabelProvider>
+  );
+};
+```
+
+## Usage
+```tsx
+import { useLabels } from '@tehik-ee/tedi-react/tedi';
+
+const { getLabel } = useLabels();
+
+console.log(getLabel('example'));
+```
