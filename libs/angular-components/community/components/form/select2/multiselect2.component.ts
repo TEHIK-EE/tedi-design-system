@@ -240,4 +240,54 @@ export class Multiselect2Component
     this.selectedOptions.update(() => newSelection);
     this.onChange(newSelection);
   }
+
+  /**
+   * Checks if all enabled options in a group are selected
+   */
+  isGroupSelected(groupLabel: string): boolean {
+    const group = this.optionGroups().find((g) => g.label === groupLabel);
+    if (!group) return false;
+
+    const enabledGroupOptions = group.options
+      .filter((option) => !option.disabled())
+      .map((option) => option.value());
+
+    return (
+      enabledGroupOptions.length > 0 &&
+      enabledGroupOptions.every((option) =>
+        this.selectedOptions().includes(option),
+      )
+    );
+  }
+
+  /**
+   * Toggles selection of all enabled options in a group
+   */
+  toggleGroupSelection(groupLabel: string): void {
+    const group = this.optionGroups().find((g) => g.label === groupLabel);
+    if (!group) return;
+
+    const enabledGroupOptions = group.options
+      .filter((option) => !option.disabled())
+      .map((option) => option.value());
+
+    const allGroupOptionsSelected = this.isGroupSelected(groupLabel);
+
+    let newSelection: readonly string[];
+
+    if (allGroupOptionsSelected) {
+      // If all options in the group are selected, deselect them
+      newSelection = this.selectedOptions().filter(
+        (option) => !enabledGroupOptions.includes(option),
+      );
+    } else {
+      // If not all options in the group are selected, select all of them
+      const currentSelected = new Set(this.selectedOptions());
+      enabledGroupOptions.forEach((option) => currentSelected.add(option));
+      newSelection = Array.from(currentSelected);
+    }
+
+    this.selectedOptions.update(() => newSelection);
+    this.onChange(newSelection);
+  }
 }

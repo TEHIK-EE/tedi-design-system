@@ -77,17 +77,6 @@
     }
   }
 
-  // &__group {
-  //   &--selectable {
-  //     .tedi-select__group-item .tedi-select__multiselect-checkbox {
-  //       @include mixins.responsive-styles(
-  //         padding-left,
-  //         form-checkbox-radio-subitem-padding-left
-  //       );
-  //     }
-  //   }
-  // }
-
   &__group-name {
     display: block;
     text-transform: uppercase;
@@ -103,6 +92,15 @@
       line-height,
       heading-subtitle-small-line-height
     );
+
+    &--selectable {
+      & ~ .tedi-dropdown-item > *:first-child {
+        @include mixins.responsive-styles(
+          padding-left,
+          form-checkbox-radio-subitem-padding-left
+        );
+      }
+    }
   }
 
   &--multiselect {

@@ -117,10 +117,30 @@
 
         @for (group of optionGroups(); track group.label) {
           @if (group.label.length > 0) {
-            <li class="tedi-select__group-name" role="presentation">
-              <span tedi-text color="tertiary">
-                {{ group.label }}
-              </span>
+            <li
+              class="tedi-select__group-name"
+              [class.tedi-select__group-name--selectable]="selectableGroups()"
+            >
+              @if (selectableGroups()) {
+                <div
+                  class="tedi-select__group-checkbox"
+                  (click)="toggleGroupSelection(group.label)"
+                >
+                  <tedi-checkbox
+                    class="tedi-select__multiselect-checkbox"
+                    [inputId]="'group-' + group.label"
+                    [checked]="isGroupSelected(group.label)"
+                  >
+                    <span tedi-text color="tertiary">
+                      {{ group.label }}
+                    </span>
+                  </tedi-checkbox>
+                </div>
+              } @else {
+                <span tedi-text color="tertiary">
+                  {{ group.label }}
+                </span>
+              }
             </li>
           }
 

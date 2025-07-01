@@ -123,7 +123,7 @@ export const WithFormIntegration: Select2Story = {
 export const Multiselect2: Select2Story = {
   render: () => ({
     template: `
-      <multiselect2 inputId="3" placeholder="Select an option" [selectAll]="true">
+      <multiselect2 inputId="3" placeholder="Select an option" [selectAll]="true" [selectableGroups]="true">
         <select2-option value="fruit1" label="Apple" group="Fruits" />
         <select2-option value="fruit2" label="Banana" group="Fruits" />
         <select2-option value="veg1" label="Carrot" group="Vegetables" />
