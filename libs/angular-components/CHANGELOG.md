@@ -36,6 +36,44 @@
 * **alert:** remove community feedback-text
 * **alert:** remove community link
 
+# [@tehik-ee/tedi-angular-v3.0.0-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.2.0-rc.3...angular-3.0.0-rc.1) (2025-07-01)
+
+
+### Features
+
+* **alert:** TEDI-Ready component [#820](https://github.com/TEHIK-EE/tedi-design-system/issues/820) ([#831](https://github.com/TEHIK-EE/tedi-design-system/issues/831)) ([e3fc051](https://github.com/TEHIK-EE/tedi-design-system/commit/e3fc051daa133703a500e21bfbc970b22bb864d9)), closes [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#833](https://github.com/TEHIK-EE/tedi-design-system/issues/833) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#692](https://github.com/TEHIK-EE/tedi-design-system/issues/692) [#834](https://github.com/TEHIK-EE/tedi-design-system/issues/834) [#692](https://github.com/TEHIK-EE/tedi-design-system/issues/692) [#692](https://github.com/TEHIK-EE/tedi-design-system/issues/692) [#692](https://github.com/TEHIK-EE/tedi-design-system/issues/692) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#833](https://github.com/TEHIK-EE/tedi-design-system/issues/833) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#830](https://github.com/TEHIK-EE/tedi-design-system/issues/830) [#849](https://github.com/TEHIK-EE/tedi-design-system/issues/849) [#852](https://github.com/TEHIK-EE/tedi-design-system/issues/852) [#836](https://github.com/TEHIK-EE/tedi-design-system/issues/836) [#849](https://github.com/TEHIK-EE/tedi-design-system/issues/849) [#849](https://github.com/TEHIK-EE/tedi-design-system/issues/849) [#849](https://github.com/TEHIK-EE/tedi-design-system/issues/849) [#849](https://github.com/TEHIK-EE/tedi-design-system/issues/849) [#849](https://github.com/TEHIK-EE/tedi-design-system/issues/849)
+* **pagination:** Add TEDI community pagination [#641](https://github.com/TEHIK-EE/tedi-design-system/issues/641) ([0176daa](https://github.com/TEHIK-EE/tedi-design-system/commit/0176daa3db735d8b36bf3ee74871be455867c044))
+* **pagination:** Change import path [#641](https://github.com/TEHIK-EE/tedi-design-system/issues/641) ([66e6a52](https://github.com/TEHIK-EE/tedi-design-system/commit/66e6a52d34e0b3135b9a91815127b7495077cd02))
+* **pagination:** fix results count label [#641](https://github.com/TEHIK-EE/tedi-design-system/issues/641) ([23bd2c3](https://github.com/TEHIK-EE/tedi-design-system/commit/23bd2c3ecbe816835b7db7a79d83b5f5cc876d09))
+* **pagination:** fix sass warnings [#641](https://github.com/TEHIK-EE/tedi-design-system/issues/641) ([0c3b0fc](https://github.com/TEHIK-EE/tedi-design-system/commit/0c3b0fcf5ca8f4c23f64eae325888ea9e8054227))
+* **pagination:** Refactor pages generation [#641](https://github.com/TEHIK-EE/tedi-design-system/issues/641) ([f9557e4](https://github.com/TEHIK-EE/tedi-design-system/commit/f9557e425192893c257f43cb8048ff2a2b9ce7ac))
+* **pagination:** remove unnecessary this [#641](https://github.com/TEHIK-EE/tedi-design-system/issues/641) ([db4e8de](https://github.com/TEHIK-EE/tedi-design-system/commit/db4e8de01110653117c4d71e02ede15cd99f6c82))
+* **pagination:** update imports [#641](https://github.com/TEHIK-EE/tedi-design-system/issues/641) ([0abcde7](https://github.com/TEHIK-EE/tedi-design-system/commit/0abcde7488dbe3bee308af5b27df12f3eb8796a1))
+* **status-badge:** add documentation  [#776](https://github.com/TEHIK-EE/tedi-design-system/issues/776) ([99ecd79](https://github.com/TEHIK-EE/tedi-design-system/commit/99ecd79ba5ecdf295bbadff849ebd520fc5fab38))
+* **status-badge:** change multiselect tag import as it was moved [#814](https://github.com/TEHIK-EE/tedi-design-system/issues/814) ([9e4621d](https://github.com/TEHIK-EE/tedi-design-system/commit/9e4621db7f162d5601d91244b2b03df409d2d151))
+* **status-badge:** change styles to use private vars instead of setting properties [#814](https://github.com/TEHIK-EE/tedi-design-system/issues/814) ([b59f5de](https://github.com/TEHIK-EE/tedi-design-system/commit/b59f5de3af366b49b4706a3d301ee73358a5fea7))
+* **status-badge:** convert status-badge into a directive [#814](https://github.com/TEHIK-EE/tedi-design-system/issues/814) ([0e3489a](https://github.com/TEHIK-EE/tedi-design-system/commit/0e3489a578a8767f839f4b5a239efca9e1485428))
+* **status-badge:** create status badge component [#814](https://github.com/TEHIK-EE/tedi-design-system/issues/814) ([24a65d9](https://github.com/TEHIK-EE/tedi-design-system/commit/24a65d97b389d7be4747e9b0e10c4964a63f5b88))
+* **status-badge:** finish up missing story templates  [#776](https://github.com/TEHIK-EE/tedi-design-system/issues/776) ([2893d92](https://github.com/TEHIK-EE/tedi-design-system/commit/2893d920fff124a6c790cb04449149a025711990))
+* **status-badge:** implement status badge component story [#814](https://github.com/TEHIK-EE/tedi-design-system/issues/814) ([fc7a064](https://github.com/TEHIK-EE/tedi-design-system/commit/fc7a0647441dfc2e844c1b13d5eab3fd9bd847d2))
+* **status-badge:** make mapBadgeColorToIconColor computed, move var override out of a if else [#776](https://github.com/TEHIK-EE/tedi-design-system/issues/776) ([24afd59](https://github.com/TEHIK-EE/tedi-design-system/commit/24afd59a35d240c060bbe8d3f021522575bc1dc3))
+* **status-badge:** move tag component into tags folder [#814](https://github.com/TEHIK-EE/tedi-design-system/issues/814) ([8609d01](https://github.com/TEHIK-EE/tedi-design-system/commit/8609d0118dec250026dece50f0f10bcbe75e564d))
+* **status-badge:** properly fix alignment and add TemplateStatusGrid story variant  [#776](https://github.com/TEHIK-EE/tedi-design-system/issues/776) ([5ce4680](https://github.com/TEHIK-EE/tedi-design-system/commit/5ce4680a8377bd64a9fe9820f5b17dc24dd1d25b))
+* **status-badge:** remove console log from status badge [#776](https://github.com/TEHIK-EE/tedi-design-system/issues/776) ([f2882df](https://github.com/TEHIK-EE/tedi-design-system/commit/f2882df825a0e4937a0405a5551d896eff9e9659))
+* **status-badge:** slightly change note of copied over variables & add one for component file [#814](https://github.com/TEHIK-EE/tedi-design-system/issues/814) ([67681fb](https://github.com/TEHIK-EE/tedi-design-system/commit/67681fb1fdf995075b78e51c62f05dfd2c8814c6))
+
+
+### BREAKING CHANGES
+
+* **alert:** remove angular community component
+* **alert:** remove community info button
+* **alert:** remove community feedback-text
+* **alert:** remove community link
+* **alert:** remove angular community component
+* **alert:** remove community info button
+* **alert:** remove community feedback-text
+* **alert:** remove community link
+
 # [@tehik-ee/tedi-angular-v2.2.0-rc.3](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.2.0-rc.2...angular-2.2.0-rc.3) (2025-07-01)
 
 
