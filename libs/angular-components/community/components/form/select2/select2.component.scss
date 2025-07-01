@@ -94,7 +94,7 @@
     );
 
     &--selectable {
-      & ~ .tedi-dropdown-item > *:first-child {
+      & ~ .tedi-dropdown-item:not(.tedi-select__group-name) {
         @include mixins.responsive-styles(
           padding-left,
           form-checkbox-radio-subitem-padding-left

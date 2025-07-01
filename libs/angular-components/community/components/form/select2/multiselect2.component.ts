@@ -241,6 +241,11 @@ export class Multiselect2Component
     this.onChange(newSelection);
   }
 
+  getLabel(value: string): string | undefined {
+    const option = this.options().find((opt) => opt.value() === value);
+    return option ? option.label() : undefined;
+  }
+
   /**
    * Checks if all enabled options in a group are selected
    */

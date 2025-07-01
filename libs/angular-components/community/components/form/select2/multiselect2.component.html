@@ -40,7 +40,7 @@
       >
         @for (option of selectedOptions(); track option) {
           <tedi-tag [closable]="clearableTags()">
-            {{ option }}
+            {{ getLabel(option) }}
           </tedi-tag>
         }
       </div>
@@ -106,9 +106,7 @@
             <tedi-checkbox
               class="tedi-select__multiselect-checkbox"
               [inputId]="inputId() + '-select-all'"
-              [checked]="
-                this.selectedOptions().length === this.allOptions().length
-              "
+              [checked]="allOptionsSelected()"
             >
               Select all
             </tedi-checkbox>
@@ -118,6 +116,7 @@
         @for (group of optionGroups(); track group.label) {
           @if (group.label.length > 0) {
             <li
+              tedi-dropdown-item
               class="tedi-select__group-name"
               [class.tedi-select__group-name--selectable]="selectableGroups()"
             >
