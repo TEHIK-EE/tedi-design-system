@@ -87,7 +87,35 @@
         [cdkListboxValue]="selectedOptions()"
         (cdkListboxValueChange)="handleValueChange($event)"
       >
-        @for (option of options(); track option) {
+        @for (group of optionGroups(); track group.label) {
+          @if (group.label.length > 0) {
+            <li class="tedi-select__group-name" role="presentation">
+              <span tedi-text color="tertiary">
+                {{ group.label }}
+              </span>
+            </li>
+          }
+
+          @for (option of group.options; track option.value()) {
+            <li
+              tedi-dropdown-item
+              [selected]="isOptionSelected(option.value())"
+              [cdkOption]="option.value()"
+              [cdkOptionDisabled]="option.disabled()"
+              [disabled]="option.disabled()"
+            >
+              @if (option.templateRef(); as optionNgContent) {
+                <div class="tedi-select__dropdown-item--custom-content">
+                  <ng-container [ngTemplateOutlet]="optionNgContent" />
+                </div>
+                <span class="tedi-select__dropdown-item--label">
+                  {{ option.label() }}
+                </span>
+              }
+            </li>
+          }
+        }
+        <!-- @for (option of options(); track option) {
           <li
             tedi-dropdown-item
             [selected]="isOptionSelected(option.value())"
@@ -104,7 +132,7 @@
               </span>
             }
           </li>
-        }
+        } -->
       </ul>
     </tedi-card-content>
   </tedi-card>

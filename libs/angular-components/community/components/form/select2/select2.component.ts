@@ -32,6 +32,7 @@ import {
   FeedbackTextComponent,
   IconComponent,
   LabelComponent,
+  TextComponent,
 } from "tedi/components";
 import { Select2OptionComponent } from "./select2option.component";
 import { ComponentInputs } from "tedi/types/inputs.type";
@@ -51,6 +52,7 @@ import { CommonModule } from "@angular/common";
     IconComponent,
     LabelComponent,
     FeedbackTextComponent,
+    TextComponent,
   ],
   templateUrl: "./select2.component.html",
   styleUrl: "./select2.component.scss",
@@ -111,6 +113,19 @@ export class Select2Component
   options = contentChildren(Select2OptionComponent);
   dropdownWidth = signal(0);
   disabled = signal(false);
+
+  optionGroups = computed(() => {
+    const groups: { label: string; options: Select2OptionComponent[] }[] = [];
+    this.options().forEach((option) => {
+      const group = groups.find((g) => g.label === option.group());
+      if (group) {
+        group.options.push(option);
+      } else {
+        groups.push({ label: option.group() ?? "", options: [option] });
+      }
+    });
+    return groups;
+  });
 
   // ControlValueAccessor implementation
   onChange: (value: readonly string[]) => void = () => {};

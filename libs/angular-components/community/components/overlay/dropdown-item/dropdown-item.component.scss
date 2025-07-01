@@ -39,6 +39,7 @@
     &:hover {
       --_background-color: var(--dropdown-item-disabled-background);
       --_color: var(--dropdown-item-disabled-text);
+      pointer-events: none;
     }
   }
 
