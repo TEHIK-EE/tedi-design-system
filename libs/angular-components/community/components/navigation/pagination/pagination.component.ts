@@ -8,11 +8,11 @@ import {
   ViewEncapsulation,
 } from "@angular/core";
 import { FormsModule } from "@angular/forms";
-import { IconComponent } from "../../../../tedi/components/base/icon/icon.component";
 import { PaginationPageComponent } from "./pagination-page/pagination-page.component";
 import { getPagesToDisplay } from "./pagination.utils";
 import {
   ButtonComponent,
+  IconComponent,
   TediTranslationPipe,
   TextComponent,
 } from "@tehik-ee/tedi-angular/tedi";
