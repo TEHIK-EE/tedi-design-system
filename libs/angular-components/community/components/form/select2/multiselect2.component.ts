@@ -223,4 +223,21 @@ export class Multiselect2Component
   setDisabledState(isDisabled: boolean): void {
     this.disabled.set(isDisabled);
   }
+
+  allOptions = computed(() => {
+    return this.options()
+      .filter((option) => !option.disabled())
+      .map((option) => option.value());
+  });
+
+  allOptionsSelected = computed(() => {
+    return this.selectedOptions().length === this.allOptions().length;
+  });
+
+  toggleSelectAll(): void {
+    const newSelection = this.allOptionsSelected() ? [] : this.allOptions();
+
+    this.selectedOptions.update(() => newSelection);
+    this.onChange(newSelection);
+  }
 }

@@ -97,6 +97,24 @@
         (cdkListboxValueChange)="handleValueChange($event)"
         #listbox="cdkListbox"
       >
+        @if (selectAll()) {
+          <li
+            tedi-dropdown-item
+            (click)="toggleSelectAll()"
+            [attr.tabindex]="-1"
+          >
+            <tedi-checkbox
+              class="tedi-select__multiselect-checkbox"
+              [inputId]="inputId() + '-select-all'"
+              [checked]="
+                this.selectedOptions().length === this.allOptions().length
+              "
+            >
+              Select all
+            </tedi-checkbox>
+          </li>
+        }
+
         @for (group of optionGroups(); track group.label) {
           @if (group.label.length > 0) {
             <li class="tedi-select__group-name" role="presentation">
