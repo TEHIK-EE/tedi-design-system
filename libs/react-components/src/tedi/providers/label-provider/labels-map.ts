@@ -3,43 +3,43 @@ import type { MuiPickersAdapter } from '@mui/x-date-pickers/internals/models';
 
 import type { DatepickerValue, TimePickerValue } from '../../../../src/community/components/form/pickers';
 
-interface SharedLabel {
+export interface SharedLabel {
   description: string;
   components: string[];
 }
 
-interface StringLabel extends SharedLabel {
+export interface StringLabel extends SharedLabel {
   et: string;
   en: string;
   ru: string;
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-interface FunctionLabel<T extends any[]> extends SharedLabel {
+export interface FunctionLabel<T extends any[]> extends SharedLabel {
   et: (...args: T) => string;
   en: (...args: T) => string;
   ru: (...args: T) => string;
 }
 
-type OverloadLabel = {
+export type OverloadLabel = {
   (params: StringLabel): typeof params;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   <T extends any[]>(params: FunctionLabel<T>): typeof params;
 };
 
-const validateLabel: OverloadLabel = <T>(map: T) => map;
+export const validateLabel: OverloadLabel = <T>(map: T) => map;
 
 /**
  * Language keys that we support
  */
-type SupportedLanguages = 'et' | 'en' | 'ru';
+export type SupportedLanguages = 'et' | 'en' | 'ru';
 
 const muiTranslationsUrl =
   'https://github.com/mui/mui-x/blob/HEAD/packages/x-date-pickers/src/locales/utils/pickersLocaleTextApi.ts';
 
 /**
  * Creates a map of default translations.
- * et, en and ru values must be of same type
+ * et, en and ru values must be of the same type
  */
 export const labelsMap = {
   close: validateLabel({
@@ -730,15 +730,21 @@ export const labelsMap = {
   }),
 };
 
-export type LabelsMapType = typeof labelsMap;
+// This interface can be populated with new labels using module augmentation
+export interface CustomLabels {}
+export type LabelsMapType = typeof labelsMap & CustomLabels;
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type FlatLabelsMap<T extends { [K in keyof T]: { [L: string]: any } }, L extends SupportedLanguages> = {
   [K in keyof T]: string | T[K][L];
 };
 
-const mapToLang = <L extends SupportedLanguages>(map: LabelsMapType, lang: L) => {
-  return Object.keys(map).reduce<FlatLabelsMap<LabelsMapType, typeof lang>>(
-    (a, c) => ({ ...a, [c]: labelsMap[c as keyof LabelsMapType][lang] }),
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export type GeneralLabelType = StringLabel | FunctionLabel<any[]>;
+export type GeneralLabelsMapType = Record<string, GeneralLabelType>;
+
+export const mapToLang = <M extends GeneralLabelsMapType, L extends SupportedLanguages>(map: M, lang: L) => {
+  return Object.entries(map).reduce<FlatLabelsMap<M, typeof lang>>(
+    (a, [key, value]) => ({ ...a, [key]: (value as GeneralLabelType)[lang] }),
     {} as never
   );
 };
