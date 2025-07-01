@@ -1,5 +1,6 @@
 import { Meta, StoryObj, moduleMetadata } from "@storybook/angular";
 import { Select2Component } from "./select2.component";
+import { Multiselect2Component } from "./multiselect2.component";
 import { Select2OptionComponent } from "./select2option.component";
 import { FormControl, FormGroup, ReactiveFormsModule } from "@angular/forms";
 import { IconComponent } from "tedi/components";
@@ -14,6 +15,7 @@ export default {
         Select2OptionComponent,
         ReactiveFormsModule,
         IconComponent,
+        Multiselect2Component,
       ],
     }),
   ],
@@ -114,4 +116,19 @@ export const WithFormIntegration: Select2Story = {
       `,
     };
   },
+};
+
+// Story for multiselect
+
+export const Multiselect2: Select2Story = {
+  render: () => ({
+    template: `
+      <multiselect2 inputId="3" placeholder="Select an option" [selectAll]="true">
+        <select2-option value="fruit1" label="Apple" group="Fruits" />
+        <select2-option value="fruit2" label="Banana" group="Fruits" />
+        <select2-option value="veg1" label="Carrot" group="Vegetables" />
+        <select2-option value="veg2" label="Broccoli" group="Vegetables" />
+      </multiselect2>
+    `,
+  }),
 };

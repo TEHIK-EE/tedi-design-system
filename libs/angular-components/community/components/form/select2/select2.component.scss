@@ -105,38 +105,31 @@
     );
   }
 
-  // &--multiselect {
-  //   .tedi-select__trigger {
-  //     align-items: flex-start;
-  //   }
-  // }
+  &--multiselect {
+    .tedi-select__trigger {
+      align-items: flex-start;
+    }
+  }
 
-  // &__multiselect-container {
-  //   display: flex;
-  //   flex-wrap: wrap;
-  //   gap: var(--_inner-gap);
+  &__multiselect-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--_inner-gap);
 
-  //   &--single-row {
-  //     overflow: hidden;
-  //     flex-wrap: nowrap;
-  //     overflow-x: auto;
-  //     scrollbar-width: none; /* Firefox */
-  //     -ms-overflow-style: none; /* Internet Explorer and Edge */
+    &--single-row {
+      overflow: hidden;
+      flex-wrap: nowrap;
 
-  //     &::-webkit-scrollbar {
-  //       display: none; /* Chrome, Safari and Opera */
-  //     }
+      .tedi-tag {
+        flex-shrink: 0;
+        &__content {
+          white-space: nowrap;
+        }
+      }
+    }
+  }
 
-  //     .tedi-tag {
-  //       flex-shrink: 0;
-  //       &__content {
-  //         white-space: nowrap;
-  //       }
-  //     }
-  //   }
-  // }
-
-  // &__multiselect-checkbox {
-  //   pointer-events: none;
-  // }
+  &__multiselect-checkbox {
+    pointer-events: none;
+  }
 }

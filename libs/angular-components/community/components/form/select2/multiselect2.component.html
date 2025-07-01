@@ -33,8 +33,17 @@
   (blur)="onTouched()"
 >
   <span class="tedi-select__label">
-    @if (selectedLabels().length) {
-      {{ selectedLabels() }}
+    @if (selectedOptions().length) {
+      <div
+        class="tedi-select__multiselect-container"
+        [class.tedi-select__multiselect-container--single-row]="!multiRow()"
+      >
+        @for (option of selectedOptions(); track option) {
+          <tedi-tag [closable]="clearableTags()">
+            {{ option }}
+          </tedi-tag>
+        }
+      </div>
     } @else {
       <span class="tedi-select__label--placeholder">
         {{ placeholder() }}
@@ -83,9 +92,10 @@
         [id]="listboxId"
         class="tedi-select__options"
         cdkListbox
-        cdkListboxUseActiveDescendant
+        cdkListboxMultiple
         [cdkListboxValue]="selectedOptions()"
         (cdkListboxValueChange)="handleValueChange($event)"
+        #listbox="cdkListbox"
       >
         @for (group of optionGroups(); track group.label) {
           @if (group.label.length > 0) {
@@ -99,19 +109,26 @@
           @for (option of group.options; track option.value()) {
             <li
               tedi-dropdown-item
-              [selected]="isOptionSelected(option.value())"
               [cdkOption]="option.value()"
               [cdkOptionDisabled]="option.disabled()"
               [disabled]="option.disabled()"
             >
-              @if (option.templateRef(); as optionNgContent) {
-                <div class="tedi-select__dropdown-item--custom-content">
-                  <ng-container [ngTemplateOutlet]="optionNgContent" />
-                </div>
-                <span class="tedi-select__dropdown-item--label">
+              <tedi-checkbox
+                class="tedi-select__multiselect-checkbox"
+                [inputId]="'option-' + option.value()"
+                [checked]="isOptionSelected(option.value())"
+              >
+                @if (option.templateRef(); as optionTemplate) {
+                  <span class="tedi-select__dropdown-item--custom-content">
+                    <ng-container [ngTemplateOutlet]="optionTemplate" />
+                  </span>
+                  <span class="tedi-select__dropdown-item--label">
+                    {{ option.label() }}
+                  </span>
+                } @else {
                   {{ option.label() }}
-                </span>
-              }
+                }
+              </tedi-checkbox>
             </li>
           }
         }
