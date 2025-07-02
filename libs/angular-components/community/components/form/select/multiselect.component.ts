@@ -22,23 +22,20 @@ import {
   InputSize,
   InputState,
 } from "../input/input.component";
-import {
-  CardComponent,
-  CardContentComponent,
-} from "community/components/cards";
-import { DropdownItemComponent } from "community/components/overlay";
+import { SelectOptionComponent } from "./select-option.component";
+import { CommonModule } from "@angular/common";
+import { CheckboxComponent } from "../checkbox";
 import {
   ClosingButtonComponent,
+  ComponentInputs,
   FeedbackTextComponent,
   IconComponent,
   LabelComponent,
   TextComponent,
-} from "tedi/components";
-import { SelectOptionComponent } from "./select-option.component";
-import { ComponentInputs } from "tedi/types/inputs.type";
-import { CommonModule } from "@angular/common";
-import { CheckboxComponent } from "../checkbox";
-import { TagComponent } from "community/components/tags";
+} from "@tehik-ee/tedi-angular/tedi";
+import { CardComponent, CardContentComponent } from "../../../components/cards";
+import { DropdownItemComponent } from "../../../components/overlay";
+import { TagComponent } from "../../../components/tags";
 
 @Component({
   selector: "tedi-multiselect",
