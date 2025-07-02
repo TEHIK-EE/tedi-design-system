@@ -1,0 +1,40 @@
+.tedi-carousel__wrapper {
+  position: relative;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+
+.tedi-carousel__navigation-button {
+  position: absolute;
+  top: 50%;
+  z-index: 10;
+  transform: translateY(-50%);
+}
+
+.tedi-carousel__prev {
+  position: absolute !important;
+  left: 0;
+}
+
+.tedi-carousel__next {
+  position: absolute !important;
+  right: 0;
+}
+
+.tedi-carousel__viewport {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.tedi-carousel__carousel-track {
+  display: flex;
+  gap: 10px;
+  transition: transform 0.3s ease;
+  will-change: transform;
+}
+
+.tedi-carousel__item {
+  flex-shrink: 0;
+}

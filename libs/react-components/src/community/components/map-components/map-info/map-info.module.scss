@@ -1,0 +1,37 @@
+@use '@tehik-ee/tedi-core/mixins';
+
+.tedi-map-info__wrapper {
+  display: inline-flex;
+  align-items: flex-start;
+  font-size: var(--size-00);
+  line-height: var(--size-00);
+  color: var(--button-map-info-text-default);
+  background: var(--button-map-info-background-default);
+  border-radius: var(--borders-04);
+
+  @include mixins.responsive-styles(padding, card-padding-xxs);
+  @include mixins.responsive-styles(gap, layout-grid-gutters-04);
+
+  &:hover {
+    color: var(--button-map-info-text-open);
+  }
+
+  &:focus-visible {
+    border: 1px solid var(--button-primary-border-focus);
+  }
+
+  &.tedi-map-info--has-popover {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.tedi-map-info--open {
+  background: var(--button-primary-background-active);
+}
+
+.tedi-map-info__toggler {
+  line-height: var(--size-00);
+  color: var(--button-map-info-text-default);
+}

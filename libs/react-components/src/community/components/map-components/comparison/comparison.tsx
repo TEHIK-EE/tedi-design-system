@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import React, { JSX, useRef, useState } from 'react';
 
-import { Button, Icon } from '../../../../tedi';
+import { Button, Icon, isBreakpointBelow, useBreakpoint, useLabels } from '../../../../tedi';
 import styles from './comparison.module.scss';
 
 export interface ComparisonProps {
@@ -45,26 +45,57 @@ export interface ComparisonProps {
 const Comparison = (props: ComparisonProps): JSX.Element => {
   const { left, right, primary, width, height, position = 'relative', onClose } = props;
   const containerRef = useRef<HTMLDivElement>(null);
-  const [sliderX, setSliderX] = useState(50);
+  const currentBreakpoint = useBreakpoint();
+  const [sliderPercent, setSliderPercent] = useState(50);
+  const isMobile = isBreakpointBelow(currentBreakpoint, 'md');
+  const { getLabel } = useLabels();
 
-  const handleDrag = (e: React.MouseEvent) => {
+  const calculateSliderPercent = (x: number, y: number) => {
     if (!containerRef.current) return;
     const rect = containerRef.current.getBoundingClientRect();
-    const newX = ((e.clientX - rect.left) / rect.width) * 100;
-    setSliderX(Math.max(0, Math.min(newX, 100)));
+
+    const newPercent = isMobile ? ((y - rect.top) / rect.height) * 100 : ((x - rect.left) / rect.width) * 100;
+
+    setSliderPercent(Math.max(0, Math.min(newPercent, 100)));
   };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (e.buttons !== 1) return;
+    calculateSliderPercent(e.clientX, e.clientY);
+  };
+
+  const handleMouseDown = (e: React.MouseEvent) => {
+    calculateSliderPercent(e.clientX, e.clientY);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    const touch = e.touches[0];
+    if (!touch) return;
+    calculateSliderPercent(touch.clientX, touch.clientY);
+  };
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    const touch = e.touches[0];
+    if (!touch) return;
+    calculateSliderPercent(touch.clientX, touch.clientY);
+  };
+
+  const clipPathStyle = isMobile ? `inset(0 0 ${100 - sliderPercent}% 0)` : `inset(0 ${100 - sliderPercent}% 0 0)`;
 
   return (
     <div
       className={classNames(styles['tedi-comparison__wrapper'], styles[`tedi-comparison__wrapper--${position}`])}
       ref={containerRef}
-      onMouseMove={(e) => e.buttons === 1 && handleDrag(e)}
-      onMouseDown={handleDrag}
+      onMouseMove={handleMouseMove}
+      onMouseDown={handleMouseDown}
+      onTouchMove={handleTouchMove}
+      onTouchStart={handleTouchStart}
       style={{
         width: typeof width === 'number' ? `${width}px` : width ?? '100%',
         height: typeof height === 'number' ? `${height}px` : height ?? '100%',
         position,
         overflow: 'hidden',
+        touchAction: 'none',
       }}
     >
       <div
@@ -80,14 +111,20 @@ const Comparison = (props: ComparisonProps): JSX.Element => {
           [styles['tedi-comparison__primary']]: primary === 'left',
         })}
         style={{
-          clipPath: `inset(0 ${100 - sliderX}% 0 0)`,
-          WebkitClipPath: `inset(0 ${100 - sliderX}% 0 0)`,
+          clipPath: clipPathStyle,
+          WebkitClipPath: clipPathStyle,
         }}
       >
         {left}
       </div>
 
-      <div className={styles['tedi-comparison__drag-indicator']} style={{ left: `${sliderX}%` }}>
+      <div
+        className={styles['tedi-comparison__drag-indicator']}
+        style={{
+          left: isMobile ? undefined : `${sliderPercent}%`,
+          top: isMobile ? `${sliderPercent}%` : undefined,
+        }}
+      >
         <div className={styles['tedi-comparison__drag-line']} />
         <div className={styles['tedi-comparison__drag-handle']}>
           <Icon name="code" size={18} className={styles['tedi-comparison__drag-handle__icon']} />
@@ -99,7 +136,7 @@ const Comparison = (props: ComparisonProps): JSX.Element => {
             onClick={onClose}
             icon="close"
           >
-            Close comparison
+            {getLabel('close')}
           </Button>
         )}
       </div>

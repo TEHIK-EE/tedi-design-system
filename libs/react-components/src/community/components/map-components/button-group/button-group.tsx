@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import { Children, cloneElement, isValidElement, JSX, ReactNode } from 'react';
 
-import ActionButton, { ActionButtonProps } from '../action-button/action-button';
+import MapButton, { MapButtonProps } from '../map-button/map-button';
 import styles from './button-group.module.scss';
 
 export type ButtonGroupProps = {
@@ -88,8 +88,8 @@ export const ButtonGroup = (props: ButtonGroupProps): JSX.Element => {
       )}
 
       {Children.map(children, (child) => {
-        if (isValidElement(child) && child.type === ActionButton) {
-          const typedChild = child as React.ReactElement<ActionButtonProps>;
+        if (isValidElement(child) && child.type === MapButton) {
+          const typedChild = child as React.ReactElement<MapButtonProps>;
           return cloneElement(typedChild, {
             className: cn(styles['tedi-button-group__item'], {
               [styles['tedi-button-group__item--active']]: typedChild.props.isActive,

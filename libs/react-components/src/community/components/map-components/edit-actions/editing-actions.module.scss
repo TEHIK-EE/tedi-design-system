@@ -16,6 +16,14 @@
     display: inline-block;
   }
 
+  @include breakpoints.media-breakpoint-down(md) {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+    @include mixins.responsive-styles(padding, card-padding-xs);
+  }
+
   @include mixins.responsive-styles(border-radius, card-radius-rounded);
 
   > * {
@@ -39,5 +47,13 @@
 
     @include mixins.responsive-styles(padding-right, button-gutter-x);
     @include mixins.responsive-styles(padding-left, button-gutter-x);
+
+    @include breakpoints.media-breakpoint-down(md) {
+      padding: 0;
+
+      &::after {
+        display: none;
+      }
+    }
   }
 }

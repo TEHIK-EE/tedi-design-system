@@ -37,3 +37,26 @@ export * from './helpers';
 export * from './providers/style-provider/style-provider';
 
 export * from './types/index';
+
+// Map components
+export * from './components/map-components/base-map-selection/base-map-selection';
+export * from './components/map-components/button-group/button-group';
+export * from './components/map-components/carousel/carousel';
+export * from './components/map-components/color-and-icon-picker/color-and-icon-picker';
+export * from './components/map-components/comparison/comparison';
+export * from './components/map-components/directions';
+export * from './components/map-components/edit-actions/editing-actions';
+export * from './components/map-components/left-panel/left-panel';
+export * from './components/map-components/legend/legend';
+export * from './components/map-components/map-accordion/map-accordion';
+export * from './components/map-components/map-button/map-button';
+export * from './components/map-components/map-dropdown/map-dropdown';
+export * from './components/map-components/map-info/map-info';
+export * from './components/map-components/map-layer/map-layer';
+export * from './components/map-components/map-preview/map-preview';
+export * from './components/map-components/resizer/resizer';
+export * from './components/map-components/right-panel/right-panel';
+export * from './components/map-components/scale-bar/scale-bar';
+export * from './components/map-components/map-select/map-select';
+export * from './components/map-components/sheet/sheet';
+export * from './components/map-components/timeline/timeline';

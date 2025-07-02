@@ -145,8 +145,13 @@ const Resizer = (props: ResizerProps): JSX.Element => {
         data-show-indicator={showIndicator}
       >
         <div className={styles['tedi-resize__drag-handle']}>
-          <Icon name="code" size={18} />
+          <Icon name="drag_handle" size={18} />
         </div>
+        {!showIndicator && (
+          <div className={styles['tedi-resize__drag-indicator']}>
+            <Icon name="drag_handle" color="brand" size={18} />
+          </div>
+        )}
       </div>
     </div>
   );

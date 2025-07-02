@@ -1,0 +1,105 @@
+@use '@tehik-ee/tedi-core/mixins';
+
+:root {
+  --tree-dimensions: 2px;
+  --panel-item-padding-left: 24px;
+}
+
+.tedi-map-layer {
+  &__select-all {
+    padding: 1rem;
+
+    @include mixins.responsive-styles(padding-top, card-padding-xs);
+    @include mixins.responsive-styles(padding-bottom, card-padding-xs);
+  }
+
+  &__item {
+    padding: var(--card-padding-xs) 0;
+
+    @include mixins.responsive-styles(padding-top, card-padding-xs);
+    @include mixins.responsive-styles(padding-bottom, card-padding-xs);
+  }
+
+  > .tedi-map-layer__item {
+    position: relative;
+    padding-left: calc(var(--panel-item-padding-left) + 1rem);
+
+    &::before {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: calc(var(--panel-gutter) + 1rem);
+      width: var(--tree-dimensions);
+      content: '';
+      background-color: var(--general-border-primary);
+      border-radius: 0;
+
+      @include mixins.responsive-styles(--panel-gutter, layout-grid-gutters-08);
+    }
+
+    &::after {
+      position: absolute;
+      top: calc((var(--panel-gutter) * 2) + (calc(var(--tree-dimensions) * 2)));
+      bottom: 0;
+      left: calc(var(--panel-gutter) + 1rem);
+      width: var(--panel-gutter);
+      height: var(--tree-dimensions);
+      content: '';
+      background-color: var(--general-border-primary);
+      border-radius: 0 10px 10px 0;
+
+      @include mixins.responsive-styles(--panel-gutter, layout-grid-gutters-08);
+    }
+
+    &:last-child::before {
+      height: calc((var(--panel-gutter) * 2) + (calc(var(--tree-dimensions) * 2)));
+
+      @include mixins.responsive-styles(--panel-gutter, layout-grid-gutters-08);
+    }
+
+    &:first-child::before {
+      @include mixins.responsive-styles(top, layout-grid-gutters-08);
+    }
+
+    &:hover {
+      background-color: var(--sidepanel-item-white-background-hover);
+
+      &::after,
+      &::before {
+        background-color: var(--sidepanel-tree-hover);
+      }
+    }
+
+    &:hover .tedi-map-layer__actions {
+      pointer-events: auto;
+      opacity: 1;
+    }
+  }
+
+  &__label {
+    font-weight: bold;
+  }
+
+  &.tedi-map-layer--no-checkboxes {
+    .tedi-map-layer__item {
+      @include mixins.responsive-styles(padding-top, layout-grid-gutters-04);
+      @include mixins.responsive-styles(padding-bottom, layout-grid-gutters-04);
+    }
+  }
+}
+
+.tedi-map-layer__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.tedi-map-layer__actions {
+  display: flex;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+
+  @include mixins.responsive-styles(gap, layout-grid-gutters-04);
+}

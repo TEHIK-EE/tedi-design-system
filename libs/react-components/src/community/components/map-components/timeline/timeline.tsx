@@ -84,6 +84,7 @@ export const Timeline: React.FC<TimelineProps> = ({
   const barRef = useRef<HTMLDivElement>(null);
   const [barSize, setBarSize] = useState({ width: 0, height: 0 });
   const [needlePosition, setNeedlePosition] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
   const [open, setOpen] = useState(false);
 
   const duration = maxDate.getTime() - minDate.getTime();
@@ -167,15 +168,57 @@ export const Timeline: React.FC<TimelineProps> = ({
     if (!barRef.current) return;
     const rect = barRef.current.getBoundingClientRect();
 
-    // Calculate position based on orientation
-    const position = vertical
-      ? rect.height - (e.clientY - rect.top) // Invert Y-axis for vertical
-      : e.clientX - rect.left;
+    const position = vertical ? rect.height - (e.clientY - rect.top) : e.clientX - rect.left;
 
     const maxPosition = vertical ? barSize.height : barSize.width;
     const clampedPosition = Math.max(0, Math.min(position, maxPosition));
     setNeedlePosition(clampedPosition);
   };
+
+  const handleDragStart = (e: React.MouseEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsDragging(true);
+
+    document.body.classList.add(styles['no-select']);
+  };
+
+  const handleDragMove = (e: MouseEvent) => {
+    if (!isDragging || !barRef.current) return;
+
+    const rect = barRef.current.getBoundingClientRect();
+    let position: number;
+
+    if (vertical) {
+      position = e.clientY - rect.top - 12;
+    } else {
+      position = e.clientX - rect.left;
+    }
+
+    const maxPosition = vertical ? barSize.height : barSize.width;
+    const clampedPosition = Math.max(0, Math.min(position, maxPosition));
+    setNeedlePosition(clampedPosition);
+  };
+
+  const handleDragEnd = () => {
+    setIsDragging(false);
+    document.body.classList.remove(styles['no-select']);
+  };
+
+  useEffect(() => {
+    if (isDragging) {
+      window.addEventListener('mousemove', handleDragMove);
+      window.addEventListener('mouseup', handleDragEnd);
+    } else {
+      window.removeEventListener('mousemove', handleDragMove);
+      window.removeEventListener('mouseup', handleDragEnd);
+    }
+
+    return () => {
+      window.removeEventListener('mousemove', handleDragMove);
+      window.removeEventListener('mouseup', handleDragEnd);
+    };
+  }, [isDragging]);
 
   const { tinyTicks, mainTicksWithLabels } = generateTicks();
 
@@ -247,9 +290,26 @@ export const Timeline: React.FC<TimelineProps> = ({
         </div>
         <div
           className={classNames(styles['tedi-timeline__needle'], vertical && styles['tedi-timeline--vertical'])}
-          style={vertical ? { bottom: `${needlePosition}px` } : { left: `${needlePosition}px` }}
+          style={
+            vertical
+              ? {
+                  top: `${needlePosition}px`,
+                  transform: 'translateY(0)',
+                }
+              : {
+                  left: `${needlePosition}px`,
+                  transform: 'translateX(-50%)',
+                }
+          }
         >
-          <div className={styles['tedi-timeline__needle-head']}>
+          <div
+            className={styles['tedi-timeline__needle-head']}
+            onMouseDown={handleDragStart}
+            style={{
+              cursor: isDragging ? 'grabbing' : 'grab',
+              touchAction: 'none',
+            }}
+          >
             <Icon name="code" color="brand" size={12} />
           </div>
           <div
