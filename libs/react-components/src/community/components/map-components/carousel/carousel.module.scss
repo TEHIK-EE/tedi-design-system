@@ -1,6 +1,8 @@
 .tedi-carousel__wrapper {
   position: relative;
   width: 100%;
+  height: auto;
+  overflow: hidden;
 }
 
 .tedi-carousel__navigation-button {
@@ -11,10 +13,12 @@
 }
 
 .tedi-carousel__prev {
+  position: absolute !important;
   left: 0;
 }
 
 .tedi-carousel__next {
+  position: absolute !important;
   right: 0;
 }
 

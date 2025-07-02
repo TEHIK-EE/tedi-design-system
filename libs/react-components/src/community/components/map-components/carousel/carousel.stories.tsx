@@ -8,27 +8,27 @@ import { Carousel } from './carousel';
  */
 
 const meta: Meta<typeof Carousel> = {
-  title: 'Community/Map components/Carousel',
   component: Carousel,
+  title: 'Community/Map components/Carousel',
 };
 
 export default meta;
 type Story = StoryObj<typeof Carousel>;
 
-const generateMockItems = (count: number) =>
-  Array.from({ length: count }, (_, i) => (
-    <BaseMapSelection
-      key={i}
-      id={`map-${i}`}
-      type="historical"
-      title="Ajalooline kaart"
-      content={<img src="https://snazzy-maps-cdn.azureedge.net/assets/72543-assassins-creed-iv.png" alt="" />}
-    />
-  ));
+const mockChildren = Array.from({ length: 10 }, (_, i) => (
+  <BaseMapSelection
+    key={i}
+    id={`map-${i}`}
+    type="historical"
+    title="Ajalooline kaart"
+    content={<img src="https://snazzy-maps-cdn.azureedge.net/assets/72543-assassins-creed-iv.png" alt="" />}
+  />
+));
 
 export const Default: Story = {
-  render: (args) => <Carousel {...args}>{generateMockItems(10)}</Carousel>,
   args: {
     itemCountShown: 6,
+    children: mockChildren,
   },
+  render: (args) => <Carousel {...args} />,
 };

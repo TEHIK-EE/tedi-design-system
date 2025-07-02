@@ -29,7 +29,7 @@
 
 .tedi-base-map-selection--historical {
   &.tedi-base-map-selection__wrapper {
-    width: 144px;
+    max-width: 144px;
     height: 80px;
 
     &:hover {

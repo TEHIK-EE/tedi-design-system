@@ -115,7 +115,7 @@
     width: 24px;
     height: 24px;
     margin-block-start: 2px;
-    pointer-events: none;
+    pointer-events: auto;
     background: var(--timeline-indicator-background-default);
     border: 1px solid var(--timeline-indicator-border);
     border-radius: 8.237px;
