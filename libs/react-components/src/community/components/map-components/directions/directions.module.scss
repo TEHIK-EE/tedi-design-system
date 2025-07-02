@@ -1,0 +1,140 @@
+:root {
+  --stepper-step-selected-border: #004277;
+  --stepper-item-vertical-line: #d2d3d8;
+  --stepper-step-default-bg: #fff;
+}
+
+.tedi-directions__item {
+  position: relative;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 10px 0;
+  padding-left: 18px;
+
+  .tedi-directions__remove {
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0;
+  }
+
+  &:hover,
+  &:active {
+    cursor: grabbing;
+  }
+
+  &--dragging {
+    z-index: 100;
+
+    .tedi-directions__content {
+      box-shadow: 0 4px 10px 0 var(--alpha-14);
+    }
+  }
+
+  &:hover {
+    .tedi-directions__drag-icon {
+      opacity: 1;
+    }
+
+    .tedi-directions__remove {
+      pointer-events: auto;
+      opacity: 1;
+    }
+  }
+}
+
+.tedi-directions__items {
+  width: 100%;
+}
+
+.tedi-directions__item-wrapper {
+  position: relative;
+  flex: 1;
+
+  &::before {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 1px;
+    content: '';
+    background-color: var(--stepper-item-vertical-line);
+  }
+
+  &::after {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -4px;
+    width: 9px;
+    height: 9px;
+    margin: auto;
+    content: '';
+    background-color: var(--stepper-step-default-bg);
+    border: 1px solid var(--stepper-item-vertical-line);
+    border-radius: 50%;
+    outline: 2px solid var(--stepper-step-default-bg);
+  }
+
+  &:last-child::before {
+    bottom: 50%;
+  }
+
+  &:last-child::after {
+    left: -7px;
+    width: 1rem;
+    height: 1rem;
+    border: 4px solid var(--stepper-step-selected-border);
+  }
+
+  &:first-child {
+    &::before {
+      top: 50%;
+    }
+  }
+}
+
+.tedi-route {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  &__items {
+    flex: 1;
+  }
+}
+
+.tedi-directions__content {
+  position: relative;
+  z-index: 10;
+  flex: 1;
+}
+
+.tedi-directions__drag-icon {
+  position: absolute;
+  top: 50%;
+  right: -12px;
+  z-index: 2;
+  border-radius: 100%;
+  opacity: 0;
+  transform: translateY(-50%);
+}
+
+.tedi-route__drag-overlay {
+  z-index: 5;
+  pointer-events: none;
+}
+
+.tedi-directions__drop-indicator {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 2px;
+  margin: 0.5rem 0;
+  background-color: var(--general-border-accent);
+}
+
+.tedi-directions {
+  display: flex;
+  align-items: center;
+}

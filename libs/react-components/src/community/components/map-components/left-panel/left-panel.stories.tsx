@@ -2,12 +2,12 @@ import { Meta, StoryObj } from '@storybook/react';
 
 import { Card, Col, Icon, Row, Text } from '../../../../tedi';
 import Toggle from '../../form/toggle/toggle';
-import { Accordion } from '../accordion/accordion';
-import AccordionItem from '../accordion/accordion-item';
-import AccordionItemContent from '../accordion/accordion-item-content';
-import AccordionItemHeader from '../accordion/accordion-item-header';
-import LayerFilterPanel, { LayerOption } from '../layer-filter-panel/layer-filter-panel';
-import Select from '../select/select';
+import MapAccordion from '../map-accordion/map-accordion';
+import MapAccordionItem from '../map-accordion/map-accordion-item';
+import MapAccordionItemContent from '../map-accordion/map-accordion-item-content';
+import MapAccordionItemHeader from '../map-accordion/map-accordion-item-header';
+import MapLayer, { LayerOption } from '../map-layer/map-layer';
+import Select from '../map-select/map-select';
 import LeftPanel from './left-panel';
 
 /**
@@ -160,9 +160,9 @@ export const Default: Story = {
         </Card.Content>
       </Card>
 
-      <Accordion defaultOpenItem={['first']}>
-        <AccordionItem id="first">
-          <AccordionItemHeader
+      <MapAccordion defaultOpenItem={['first']}>
+        <MapAccordionItem id="first">
+          <MapAccordionItemHeader
             title="Maainfo"
             dropdownContent={[
               { children: 'Lisa pöördumine', onClick: () => console.log('Lisa pöördumine') },
@@ -175,33 +175,33 @@ export const Default: Story = {
               </div>
             }
           />
-          <AccordionItemContent>
-            <Accordion>
+          <MapAccordionItemContent>
+            <MapAccordion>
               {mapLayers.map(({ id, label }) => (
-                <AccordionItem key={id} id={id}>
-                  <AccordionItemHeader backgroundColor="secondary" hasSeparator title={label} />
-                  <AccordionItemContent padding={0}>
+                <MapAccordionItem key={id} id={id}>
+                  <MapAccordionItemHeader backgroundColor="secondary" hasSeparator title={label} />
+                  <MapAccordionItemContent padding={0}>
                     <Card borderRadius={false} borderless>
-                      <Card.Content padding={1}>
-                        <LayerFilterPanel items={LayerPanelItems} />
+                      <Card.Content padding={0}>
+                        <MapLayer items={LayerPanelItems} />
                       </Card.Content>
                     </Card>
-                  </AccordionItemContent>
-                </AccordionItem>
+                  </MapAccordionItemContent>
+                </MapAccordionItem>
               ))}
-            </Accordion>
-          </AccordionItemContent>
-        </AccordionItem>
+            </MapAccordion>
+          </MapAccordionItemContent>
+        </MapAccordionItem>
 
-        <AccordionItem id="second">
-          <AccordionItemHeader title="Minu kihid" dropdownContent={dropdownContent} />
-          <AccordionItemContent>
+        <MapAccordionItem id="second">
+          <MapAccordionItemHeader title="Minu kihid" dropdownContent={dropdownContent} />
+          <MapAccordionItemContent>
             <Card borderRadius={false} borderless>
               <Card.Content padding={1}>Lorem ipsum</Card.Content>
             </Card>
-          </AccordionItemContent>
-        </AccordionItem>
-      </Accordion>
+          </MapAccordionItemContent>
+        </MapAccordionItem>
+      </MapAccordion>
     </LeftPanel>
   ),
 };

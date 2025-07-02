@@ -1,8 +1,8 @@
 import { Button, Card, Checkbox, ChoiceGroup, Col, Row, Separator, Text, VerticalSpacing } from '../../../../tedi';
-import Accordion from '../accordion/accordion';
-import AccordionItem from '../accordion/accordion-item';
-import AccordionItemContent from '../accordion/accordion-item-content';
-import AccordionItemHeader from '../accordion/accordion-item-header';
+import MapAccordion from '../map-accordion/map-accordion';
+import MapAccordionItem from '../map-accordion/map-accordion-item';
+import MapAccordionItemContent from '../map-accordion/map-accordion-item-content';
+import MapAccordionItemHeader from '../map-accordion/map-accordion-item-header';
 
 const layers = [
   { id: 'koordinaadid', label: <Text>Koordinaadid</Text>, content: <>Lorem</> },
@@ -71,20 +71,20 @@ export const measurementContent = (
 export const infoQueryContent = (
   <Card borderRadius={false} borderless padding={0}>
     <Card.Content>
-      <Accordion>
+      <MapAccordion>
         {layers.map(({ id, label, content }) => (
-          <AccordionItem key={id} id={id}>
-            <AccordionItemHeader backgroundColor="secondary" hasSeparator>
+          <MapAccordionItem key={id} id={id}>
+            <MapAccordionItemHeader backgroundColor="secondary" hasSeparator>
               {label}
-            </AccordionItemHeader>
-            <AccordionItemContent padding={0}>
+            </MapAccordionItemHeader>
+            <MapAccordionItemContent padding={0}>
               <Card borderRadius={false} borderless>
                 <Card.Content padding={1}>{content}</Card.Content>
               </Card>
-            </AccordionItemContent>
-          </AccordionItem>
+            </MapAccordionItemContent>
+          </MapAccordionItem>
         ))}
-      </Accordion>
+      </MapAccordion>
     </Card.Content>
   </Card>
 );

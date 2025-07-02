@@ -1,0 +1,131 @@
+@use '@tehik-ee/tedi-core/mixins';
+
+.tedi-sheet-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-color: var(--alpha-40);
+  transition: opacity 0.3s ease;
+}
+
+.tedi-sheet {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: var(--dropdown-item-default-background);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+
+  &--bottom {
+    align-self: flex-end;
+    transform: translateY(100%);
+
+    @include mixins.responsive-styles(border-top-left-radius, sheet-header-radius);
+    @include mixins.responsive-styles(border-top-right-radius, sheet-header-radius);
+
+    &.is-visible {
+      transform: translateY(0);
+    }
+  }
+
+  &--top {
+    align-self: flex-start;
+    transform: translateY(-100%);
+
+    @include mixins.responsive-styles(border-bottom-left-radius, sheet-header-radius);
+    @include mixins.responsive-styles(border-bottom-right-radius, sheet-header-radius);
+
+    &.is-visible {
+      transform: translateY(0);
+    }
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--sheet-header-background-default);
+
+    @include mixins.responsive-styles(padding-left, sheet-header-padding-x);
+    @include mixins.responsive-styles(padding-right, sheet-header-padding-x);
+    @include mixins.responsive-styles(padding-top, sheet-header-padding-y);
+    @include mixins.responsive-styles(padding-bottom, sheet-header-padding-y);
+    @include mixins.responsive-styles(border-top-left-radius, sheet-header-radius);
+    @include mixins.responsive-styles(border-top-right-radius, sheet-header-radius);
+
+    &-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    &-actions {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+    }
+
+    .tedi-sheet__handle {
+      width: 32px;
+      height: 4px;
+      margin: 0.25rem auto 0;
+      background-color: var(--drag-indicator-light);
+
+      @include mixins.responsive-styles(border-radius, drag-indicator-radius);
+    }
+
+    &--active {
+      background-color: var(--sheet-header-background-brand);
+
+      &.tedi-sheet__handle {
+        background-color: var(--alpha-50);
+      }
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__content {
+    flex-grow: 1;
+    overflow-y: auto;
+  }
+
+  &__footer {
+    @include mixins.responsive-styles(padding-left, sheet-footer-padding-x);
+    @include mixins.responsive-styles(padding-right, sheet-footer-padding-x);
+    @include mixins.responsive-styles(padding-top, sheet-footer-padding-y);
+    @include mixins.responsive-styles(padding-bottom, sheet-footer-padding-y);
+  }
+}
+
+.tedi-sheet__closer--active {
+  > * {
+    color: var(--button-main-neutral-inverted-text-default);
+  }
+}
+
+.tedi-sheet--peek {
+  transform: translateY(calc(100% - 68px));
+}
+
+.tedi-sheet-overlay--peek {
+  background-color: var(--alpha-01);
+
+  &.is-visible {
+    background-color: var(--alpha-40);
+  }
+}
+
+.tedi-sheet__heading {
+  display: flex;
+  align-items: center;
+
+  @include mixins.responsive-styles(gap, layout-grid-gutters-04);
+}
