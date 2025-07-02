@@ -5,6 +5,7 @@ import { Icon, IconWithoutBackgroundProps } from '../../../../base/icon/icon';
 import Collapse from '../../../../buttons/collapse/collapse';
 import Link, { LinkProps } from '../../../../navigation/link/link';
 import { Tooltip } from '../../../../overlays/tooltip';
+import { SideNavItemSize } from '../../sidenav';
 import styles from '../../sidenav.module.scss';
 import { SideNavDropdown } from '../sidenav-dropdown/sidenav-dropdown';
 
@@ -32,6 +33,12 @@ export type SideNavItemProps<C extends React.ElementType = 'a'> = LinkProps<C> &
    * Whether this item with children should be open initially
    */
   isDefaultOpen?: boolean;
+  /**
+   * Height of the SideNavIem
+   * <br/> Medium/small better for dashboards
+   * @default default
+   */
+  sideNavItemSize?: SideNavItemSize;
 };
 
 export const SideNavItem = <C extends React.ElementType = 'a'>(
@@ -54,6 +61,7 @@ export const SideNavItem = <C extends React.ElementType = 'a'>(
     level = 1,
     isCollapsed = false,
     isDefaultOpen = false,
+    sideNavItemSize = 'default',
     ...rest
   } = props;
 
@@ -66,6 +74,7 @@ export const SideNavItem = <C extends React.ElementType = 'a'>(
 
   const SideNavItemBEM = cn(
     styles['tedi-sidenav__item'],
+    styles[`tedi-sidenav__item--${sideNavItemSize}`],
     {
       [styles[`tedi-sidenav__item--level-${level}`]]: level > 1,
       [styles['tedi-sidenav__item--current']]: isActive,
@@ -223,7 +232,7 @@ export const SideNavItem = <C extends React.ElementType = 'a'>(
   );
 
   return level === 1 && isCollapsed ? (
-    <Tooltip placement="right">
+    <Tooltip placement="right" focusManager={{ order: ['content'] }}>
       <Tooltip.Content maxWidth="medium">{children}</Tooltip.Content>
       {content}
     </Tooltip>

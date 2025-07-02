@@ -1,0 +1,54 @@
+@use "@tehik-ee/tedi-core/mixins";
+
+@mixin footer-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  @include mixins.responsive-styles(gap, footer-item-vertical-spacing);
+}
+
+.tedi-footer-section {
+  display: flex;
+  align-items: flex-start;
+
+  @include mixins.responsive-styles(gap, footer-col-padding-x);
+
+  &--collapse {
+    border-bottom: 1px solid var(--alpha-white-10);
+    width: 100%;
+  }
+
+  &__icon {
+    background: var(--footer-icon-background);
+
+    @include mixins.responsive-styles(padding, icon-background-padding-lg);
+    @include mixins.responsive-styles(border-radius, icon-background-radius);
+    @include mixins.responsive-styles(gap, footer-item-vertical-spacing);
+  }
+
+  &__container {
+    padding-bottom: 0.75rem;
+    @include footer-links;
+  }
+  &__content {
+    @include footer-links;
+  }
+
+  &__content-hidden {
+    display: none;
+  }
+
+  &__button {
+    @include mixins.button-reset;
+    font-weight: 700;
+    color: var(--general-text-white);
+
+    &:focus-visible {
+      color: var(--link-inverted-focus);
+      border-radius: 0;
+      outline: 2px solid var(--link-inverted-focus);
+      outline-offset: 1px;
+    }
+  }
+}

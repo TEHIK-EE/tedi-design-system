@@ -1,3 +1,26 @@
+# [@tehik-ee/tedi-react-v12.1.0](https://github.com/TEHIK-EE/tedi-design-system/compare/react-12.0.2...react-12.1.0) (2025-06-26)
+
+
+### Bug Fixes
+
+* **react:** fix changelog [#820](https://github.com/TEHIK-EE/tedi-design-system/issues/820) ([c1a5c64](https://github.com/TEHIK-EE/tedi-design-system/commit/c1a5c64364b204cb46fb975e034d45154e083baf))
+* **select:** fix async select input [#743](https://github.com/TEHIK-EE/tedi-design-system/issues/743) ([#861](https://github.com/TEHIK-EE/tedi-design-system/issues/861)) ([608dc50](https://github.com/TEHIK-EE/tedi-design-system/commit/608dc506b4922900e2215d70ab977feea9a3b492))
+
+
+### Features
+
+* **alert:** TEDI-Ready component [#820](https://github.com/TEHIK-EE/tedi-design-system/issues/820) ([#831](https://github.com/TEHIK-EE/tedi-design-system/issues/831)) ([454bf75](https://github.com/TEHIK-EE/tedi-design-system/commit/454bf75b3c0df590beab49a0b8f59eeafac98ef0))
+* **community-form-multiselect:** add multiselect capabilities to community select  [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) ([5b8905c](https://github.com/TEHIK-EE/tedi-design-system/commit/5b8905c03fa7017aa1ea68f0dd7f5e82b5a0f78d))
+* **map-components:**  add kaardirakendus components for storybook [#888](https://github.com/TEHIK-EE/tedi-design-system/issues/888) ([#889](https://github.com/TEHIK-EE/tedi-design-system/issues/889)) ([2c7524f](https://github.com/TEHIK-EE/tedi-design-system/commit/2c7524fcd23a6b3a71f71d87fe9422d40cce5ed6))
+* **sidenav:** sizes prop, refactor css, add sidenav item states example [#832](https://github.com/TEHIK-EE/tedi-design-system/issues/832) ([#881](https://github.com/TEHIK-EE/tedi-design-system/issues/881)) ([9432d22](https://github.com/TEHIK-EE/tedi-design-system/commit/9432d22588c79ace749b15a29c876bd3164f0ed3))
+
+# [@tehik-ee/tedi-react-v12.1.0-rc.4](https://github.com/TEHIK-EE/tedi-design-system/compare/react-12.1.0-rc.3...react-12.1.0-rc.4) (2025-06-26)
+
+
+### Features
+
+* **sidenav:** sizes prop, refactor css, add sidenav item states example [#832](https://github.com/TEHIK-EE/tedi-design-system/issues/832) ([#881](https://github.com/TEHIK-EE/tedi-design-system/issues/881)) ([9432d22](https://github.com/TEHIK-EE/tedi-design-system/commit/9432d22588c79ace749b15a29c876bd3164f0ed3))
+
 # [@tehik-ee/tedi-react-v12.1.0-rc.3](https://github.com/TEHIK-EE/tedi-design-system/compare/react-12.1.0-rc.2...react-12.1.0-rc.3) (2025-06-25)
 
 

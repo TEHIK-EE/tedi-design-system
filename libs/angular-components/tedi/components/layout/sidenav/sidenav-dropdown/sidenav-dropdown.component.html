@@ -1,0 +1,18 @@
+<div class="tedi-sidenav-dropdown__items">
+  @if (sidenavService.isCollapsed() && !!sidenavItem.href()) {
+    <tedi-sidenav-dropdown-item
+      class="tedi-sidenav-dropdown-item--parent"
+      [href]="sidenavItem.href()"
+    >
+      {{ sidenavItem.textContent() }}
+    </tedi-sidenav-dropdown-item>
+  } @else if (sidenavService.isCollapsed() && !!sidenavItem.routerLink()) {
+    <tedi-sidenav-dropdown-item
+      class="tedi-sidenav-dropdown-item--parent"
+      [routerLink]="sidenavItem.routerLink()"
+    >
+      {{ sidenavItem.textContent() }}
+    </tedi-sidenav-dropdown-item>
+  }
+  <ng-content></ng-content>
+</div>

@@ -1,0 +1,16 @@
+.tedi-footer {
+  background-color: var(--footer-background);
+
+  &__container {
+    display: flex;
+  }
+
+  &__center {
+    width: 100%;
+  }
+
+  &--mobile {
+    display: flex;
+    flex-direction: column;
+  }
+}

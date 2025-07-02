@@ -1,7 +1,7 @@
 import { computed, Directive, input } from "@angular/core";
 import { CardSpacing } from "./card.component";
 
-type CardPadding =
+export type CardPadding =
   | CardSpacing
   | { horizontal?: CardSpacing; vertical?: CardSpacing }
   | {

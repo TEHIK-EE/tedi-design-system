@@ -1,0 +1,17 @@
+@use "@tehik-ee/tedi-core/mixins";
+
+.tedi-sidenav-group-title {
+  .tedi-sidenav-group-title__text {
+    color: var(--side-navigation-group-title-text);
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 16px;
+    text-transform: uppercase;
+
+    @include mixins.responsive-styles(
+      padding,
+      layout-grid-gutters-16 side-navigation-item-padding-right
+        layout-grid-gutters-02 side-navigation-item-padding-left-level-1
+    );
+  }
+}
