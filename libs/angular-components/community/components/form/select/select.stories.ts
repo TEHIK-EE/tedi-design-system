@@ -143,19 +143,28 @@ export const Disabled: Story = {
     placeholder: "Disabled select",
   },
   render: (args) => ({
-    props: args,
+    props: {
+      ...args,
+      form: new FormGroup({
+        selectedOption: new FormControl({ value: "", disabled: true }),
+      }),
+    },
     template: `
-      <tedi-select
-        inputId="select-3"
-        [label]="label"
-        [feedbackText]="feedbackText"
-        [required]="required"
-        [placeholder]="placeholder"
-      >
-        <tedi-select-option [value]="'option1'" label="Option 1" />
-        <tedi-select-option [value]="'option2'" label="Option 2" />
-        <tedi-select-option [value]="'option3'" label="Option 3" />
-      </tedi-select>
+      <form [formGroup]="form">
+        <tedi-select
+          formControlName="selectedOption"
+          inputId="select-3"
+          [label]="label"
+          [feedbackText]="feedbackText"
+          [required]="required"
+          [placeholder]="placeholder"
+
+        >
+          <tedi-select-option [value]="'option1'" label="Option 1" />
+          <tedi-select-option [value]="'option2'" label="Option 2" />
+          <tedi-select-option [value]="'option3'" label="Option 3" />
+        </tedi-select>
+      </form>
     `,
   }),
 };
