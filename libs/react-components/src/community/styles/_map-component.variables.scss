@@ -100,7 +100,7 @@
   --sidepanel-item-white-background-hover: var(--general-surface-hover);
   --sidepanel-tree-default: var(--general-border-primary);
   --sidepanel-tree-hover: var(--primary-200);
-  --timeline-indicator-border: var(--drag-indicator-accent);
+  --timeline-indicator-border: var(--primary-600);
   --timeline-indicator-background-default: var(--neutral-300);
   --timeline-indicator-background-hover: var(--general-surface-primary);
   --timeline-indicator-background-selected: var(--timeline-indicator-background-hover);
@@ -109,7 +109,7 @@
   --timeline-indicator-icon-selected: var(--general-icon-brand-dark);
   --timeline-line-large: var(--general-border-brand);
   --timeline-line-small: var(--general-border-secondary);
-  --form-checkbox-radio-card-primary-selected-background: #005aa3;
+  --form-checkbox-radio-card-primary-selected-background: var(--primary-600);
   --button-group-primary-selected-background: var(--form-checkbox-radio-card-primary-selected-background);
 
   /** dimensional variables **/
@@ -156,10 +156,10 @@
   --timeline-layout-gutter-tablet: 0px;
   --timeline-layout-gutter-rem-tablet: 0rem;
   --timeline-layout-gutter-mobile: var(--dimensions-07);
-  --timeline-layout-padding-left-desktop: var(--timeline-layout-gutter);
+  --timeline-layout-padding-left-desktop: var(--timeline-layout-gutter-mobile);
   --timeline-layout-padding-left-tablet: 0px;
   --timeline-layout-padding-left-rem-tablet: 0rem;
-  --timeline-layout-padding-left-mobile: var(--timeline-layout-gutter);
+  --timeline-layout-padding-left-mobile: var(--timeline-layout-gutter-mobile);
   --timeline-layout-padding-top-desktop: var(--dimensions-13);
   --timeline-layout-padding-top-tablet: 0px;
   --timeline-layout-padding-top-rem-tablet: 0rem;
@@ -187,22 +187,22 @@
   --sheet-body-padding-x-rem-desktop: 0rem;
   --sheet-body-padding-x-tablet: 0px;
   --sheet-body-padding-x-rem-tablet: 0rem;
-  --sheet-body-padding-x-mobile: var(--sheet-header-padding-x);
+  --sheet-body-padding-x-mobile: var(--sheet-header-padding-x-mobile);
   --sheet-footer-padding-y-desktop: 0px;
   --sheet-footer-padding-y-rem-desktop: 0rem;
   --sheet-footer-padding-y-tablet: 0px;
   --sheet-footer-padding-y-rem-tablet: 0rem;
-  --sheet-footer-padding-y-mobile: var(--sheet-header-padding-y);
+  --sheet-footer-padding-y-mobile: var(--sheet-header-padding-y-mobile);
   --sheet-footer-padding-x-desktop: 0px;
   --sheet-footer-padding-x-rem-desktop: 0rem;
   --sheet-footer-padding-x-tablet: 0px;
   --sheet-footer-padding-x-rem-tablet: 0rem;
-  --sheet-footer-padding-x-mobile: var(--sheet-header-padding-x);
+  --sheet-footer-padding-x-mobile: var(--sheet-header-padding-x-mobile);
   --sheet-body-padding-y-desktop: 0px;
   --sheet-body-padding-y-rem-desktop: 0rem;
   --sheet-body-padding-y-tablet: 0px;
   --sheet-body-padding-y-rem-tablet: 0rem;
-  --sheet-body-padding-y-mobile: var(--sheet-header-padding-y);
+  --sheet-body-padding-y-mobile: var(--sheet-header-padding-y-mobile);
   --drag-indicator-radius-desktop: var(--radius-08);
   --drag-indicator-radius-tablet: var(--radius-08);
   --drag-indicator-radius-mobile: var(--radius-08);

@@ -2,10 +2,10 @@ import classNames from 'classnames';
 import { JSX } from 'react';
 
 import { ClosingButton } from '../../../../tedi';
-import Accordion from '../accordion/accordion';
-import AccordionItem from '../accordion/accordion-item';
-import AccordionItemContent from '../accordion/accordion-item-content';
-import AccordionItemHeader from '../accordion/accordion-item-header';
+import MapAccordion from '../map-accordion/map-accordion';
+import MapAccordionItem from '../map-accordion/map-accordion-item';
+import MapAccordionItemContent from '../map-accordion/map-accordion-item-content';
+import MapAccordionItemHeader from '../map-accordion/map-accordion-item-header';
 import styles from './right-panel.module.scss';
 
 interface AccordionItemData {
@@ -55,7 +55,7 @@ const RightPanel = (props: RightPanelProps): JSX.Element => {
         [styles['tedi-right-panel--multi']]: !isSingleItem,
       })}
     >
-      <Accordion
+      <MapAccordion
         defaultOpenItem={defaultOpenItem}
         className={styles['tedi-right-panel__accordion']}
         expanderMode
@@ -72,16 +72,16 @@ const RightPanel = (props: RightPanelProps): JSX.Element => {
         )}
       >
         {items.map(({ id, title, content }) => (
-          <AccordionItem key={id} id={id}>
-            <AccordionItemHeader
+          <MapAccordionItem key={id} id={id}>
+            <MapAccordionItemHeader
               className={styles['tedi-right-panel__accordion-header']}
               renderToggleButton={renderToggleButton}
               title={title}
             />
-            <AccordionItemContent>{content}</AccordionItemContent>
-          </AccordionItem>
+            <MapAccordionItemContent>{content}</MapAccordionItemContent>
+          </MapAccordionItem>
         ))}
-      </Accordion>
+      </MapAccordion>
     </div>
   );
 };

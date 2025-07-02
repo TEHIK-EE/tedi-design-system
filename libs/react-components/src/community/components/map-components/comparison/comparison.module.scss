@@ -1,4 +1,5 @@
 @use '@tehik-ee/tedi-core/mixins';
+@use '@tehik-ee/tedi-core/bootstrap-utility/breakpoints';
 
 .tedi-comparison {
   &__wrapper {
@@ -32,27 +33,19 @@
     object-fit: cover;
   }
 
-  &__left,
-  &__right {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-  }
-
-  &__right {
-    overflow: hidden;
-    pointer-events: none;
-  }
-
   &__drag-indicator {
     position: absolute;
     top: 0;
     bottom: 0;
     z-index: 50;
     pointer-events: none;
+
+    @include breakpoints.media-breakpoint-down(md) {
+      inset: auto 0;
+      z-index: 100;
+      width: 100%;
+      height: auto;
+    }
   }
 
   &__primary {
@@ -69,6 +62,16 @@
     transform: translateX(-2px);
 
     @include mixins.responsive-styles(width, drag-indicator-vertical-width);
+
+    @include breakpoints.media-breakpoint-down(md) {
+      top: auto;
+      right: 0;
+      left: 0;
+      width: 100%;
+      transform: translateY(0);
+
+      @include mixins.responsive-styles(height, drag-indicator-vertical-width);
+    }
   }
 
   &__drag-handle {
@@ -91,10 +94,23 @@
 
     &__icon {
       color: var(--general-text-brand);
+
+      @include breakpoints.media-breakpoint-down(md) {
+        transform: rotate(90deg);
+      }
     }
 
     > span {
       width: 100%;
+    }
+
+    @include breakpoints.media-breakpoint-down(md) {
+      top: auto;
+      left: 50%;
+      margin-right: 0;
+      margin-bottom: calc((var(--button-icon-size) / 2) * -1);
+
+      @include mixins.responsive-styles(--button-icon-size, button-sm-icon-size);
     }
   }
 
@@ -104,5 +120,10 @@
     z-index: 200;
     flex-shrink: 0;
     margin-left: -1.25rem;
+
+    @include breakpoints.media-breakpoint-down(md) {
+      top: auto;
+      bottom: 20%;
+    }
   }
 }

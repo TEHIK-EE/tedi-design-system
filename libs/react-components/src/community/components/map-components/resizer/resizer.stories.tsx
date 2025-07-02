@@ -1,5 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 
+import Placeholder from '../../placeholder/placeholder';
 import Resizer from './resizer';
 
 /**
@@ -19,9 +20,7 @@ export const ResizeRight: Story = {
   args: {
     handlePosition: 'right',
     showIndicator: true,
-    initialHeight: 205,
-    minHeight: 205,
-    children: <img src="https://snazzy-maps-cdn.azureedge.net/assets/72543-assassins-creed-iv.png" alt="" />,
+    children: <Placeholder>You have no data to display.</Placeholder>,
   },
 };
 
@@ -29,31 +28,57 @@ export const ResizeLeft: Story = {
   name: 'Resize from Left',
   args: {
     handlePosition: 'left',
-    initialHeight: 205,
-    minHeight: 205,
     showIndicator: true,
-    children: <img src="https://snazzy-maps-cdn.azureedge.net/assets/72543-assassins-creed-iv.png" alt="" />,
+    children: <Placeholder>You have no data to display.</Placeholder>,
   },
+  decorators: [
+    (Story) => (
+      <div style={{ display: 'flex', justifyContent: 'flex-end', padding: '2rem' }}>
+        <Story />
+      </div>
+    ),
+  ],
 };
 
 export const ResizeTop: Story = {
   name: 'Resize from Top',
   args: {
     handlePosition: 'top',
-    initialHeight: 205,
-    minHeight: 205,
     showIndicator: true,
-    children: <img src="https://snazzy-maps-cdn.azureedge.net/assets/72543-assassins-creed-iv.png" alt="" />,
+    initialHeight: 118,
+    minHeight: 118,
+    children: <Placeholder>You have no data to display.</Placeholder>,
   },
+  decorators: [
+    (Story) => (
+      <div style={{ display: 'flex', height: '400px', alignItems: 'flex-end', padding: '2rem' }}>
+        <Story />
+      </div>
+    ),
+  ],
 };
 
 export const ResizeBottom: Story = {
   name: 'Resize from Bottom',
   args: {
     handlePosition: 'bottom',
-    initialHeight: 205,
-    minHeight: 205,
+    initialHeight: 118,
+    minHeight: 118,
     showIndicator: true,
-    children: <img src="https://snazzy-maps-cdn.azureedge.net/assets/72543-assassins-creed-iv.png" alt="" />,
+    children: <Placeholder>You have no data to display.</Placeholder>,
+  },
+  decorators: [
+    (Story) => (
+      <div style={{ display: 'flex', height: '400px', alignItems: 'flex-start', padding: '2rem' }}>
+        <Story />
+      </div>
+    ),
+  ],
+};
+
+export const DragIndicator: Story = {
+  args: {
+    handlePosition: 'right',
+    children: <Placeholder>You have no data to display.</Placeholder>,
   },
 };
