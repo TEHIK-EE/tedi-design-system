@@ -1,3 +1,11 @@
+# [@tehik-ee/tedi-angular-v2.2.0-rc.3](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.2.0-rc.2...angular-2.2.0-rc.3) (2025-07-02)
+
+
+### Features
+
+* **card:** export card padding type [#579](https://github.com/TEHIK-EE/tedi-design-system/issues/579) ([98c801d](https://github.com/TEHIK-EE/tedi-design-system/commit/98c801dfad9d8b0d6d9446c1f83d44ef4a3d0bf0))
+* **pagination:** Create community pagination [#641](https://github.com/TEHIK-EE/tedi-design-system/issues/641) ([#917](https://github.com/TEHIK-EE/tedi-design-system/issues/917)) ([f9aea6a](https://github.com/TEHIK-EE/tedi-design-system/commit/f9aea6a22544dac45bd2398535045b54252f1e07))
+
 # [@tehik-ee/tedi-angular-v2.2.0-rc.2](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.2.0-rc.1...angular-2.2.0-rc.2) (2025-07-02)
 
 
