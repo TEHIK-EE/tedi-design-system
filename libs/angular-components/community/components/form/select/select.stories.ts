@@ -9,7 +9,6 @@ import { SelectComponent } from "./select.component";
 import { MultiselectComponent } from "./multiselect.component";
 import { SelectOptionComponent } from "./select-option.component";
 import { IconComponent } from "@tehik-ee/tedi-angular/tedi";
-import { Select2Component } from "./../select2/select2.component";
 
 /**
  * The Select component provides users with a dropdown of options to choose from.
@@ -37,7 +36,6 @@ const meta: Meta<SelectComponent> = {
         FormsModule,
         ReactiveFormsModule,
         IconComponent,
-        Select2Component,
       ],
     }),
   ],
@@ -55,7 +53,6 @@ const meta: Meta<SelectComponent> = {
   },
   args: {
     placeholder: "Select an option...",
-    disabled: false,
     state: "default",
     size: "default",
     label: "Custom select label",
@@ -74,7 +71,6 @@ type Story = StoryObj<SelectComponent>;
 export const Basic: Story = {
   args: {
     placeholder: "Select an option...",
-    disabled: false,
     state: "default",
     size: "default",
   },
@@ -104,7 +100,6 @@ export const Basic: Story = {
         </tedi-select-option>
         <tedi-select-option [value]="'option3'" [label]="'Option 3'">Option 3</tedi-select-option>
       </tedi-select>
-      <select2></select2>
     `,
   }),
 };
@@ -145,7 +140,6 @@ export const WithPreselected: Story = {
 
 export const Disabled: Story = {
   args: {
-    disabled: true,
     placeholder: "Disabled select",
   },
   render: (args) => ({
@@ -156,12 +150,11 @@ export const Disabled: Story = {
         [label]="label"
         [feedbackText]="feedbackText"
         [required]="required"
-        [disabled]="disabled"
         [placeholder]="placeholder"
       >
-        <tedi-select-option [value]="'option1'">Option 1</tedi-select-option>
-        <tedi-select-option [value]="'option2'">Option 2</tedi-select-option>
-        <tedi-select-option [value]="'option3'">Option 3</tedi-select-option>
+        <tedi-select-option [value]="'option1'" label="Option 1" />
+        <tedi-select-option [value]="'option2'" label="Option 2" />
+        <tedi-select-option [value]="'option3'" label="Option 3" />
       </tedi-select>
     `,
   }),
@@ -370,11 +363,11 @@ export const MultiselectGroupedOptions: Story = {
         [feedbackText]="feedbackText"
         [required]="required"
       >
-        <tedi-select-option value="option1" label="Option 1" groupBy="Grupp 1"/>
-        <tedi-select-option value="option2" label="Option 2" groupBy="Grupp 1"/>
-        <tedi-select-option value="option3" label="Option 3" groupBy="Grupp 1"/>
-        <tedi-select-option value="option4" label="Option 4" groupBy="Grupp 2"/>
-        <tedi-select-option value="option5" label="Option 5" groupBy="Grupp 2"/>
+        <tedi-select-option value="option1" label="Option 1" group="Grupp 1"/>
+        <tedi-select-option value="option2" label="Option 2" group="Grupp 1"/>
+        <tedi-select-option value="option3" label="Option 3" group="Grupp 1"/>
+        <tedi-select-option value="option4" label="Option 4" group="Grupp 2"/>
+        <tedi-select-option value="option5" label="Option 5" group="Grupp 2"/>
       </tedi-multiselect>
     `,
     props: {
@@ -394,11 +387,11 @@ export const MultiselectSelectableGroups: Story = {
         [feedbackText]="feedbackText"
         [required]="required"
       >
-        <tedi-select-option value="option1" label="Option 1" groupBy="Grupp 1"/>
-        <tedi-select-option value="option2" label="Option 2" groupBy="Grupp 1"/>
-        <tedi-select-option value="option3" label="Option 3" groupBy="Grupp 1"/>
-        <tedi-select-option value="option4" label="Option 4" groupBy="Grupp 2"/>
-        <tedi-select-option value="option5" label="Option 5" groupBy="Grupp 2"/>
+        <tedi-select-option value="option1" label="Option 1" group="Grupp 1"/>
+        <tedi-select-option value="option2" label="Option 2" group="Grupp 1"/>
+        <tedi-select-option value="option3" label="Option 3" group="Grupp 1"/>
+        <tedi-select-option value="option4" label="Option 4" group="Grupp 2"/>
+        <tedi-select-option value="option5" label="Option 5" group="Grupp 2"/>
       </tedi-multiselect>
     `,
     props: {
@@ -419,11 +412,11 @@ export const MultiselectTagsMultirow: Story = {
         [selectableGroups]="true"
         [multiRow]="true"
       >
-        <tedi-select-option value="option1" label="Option 1" groupBy="Grupp 1"/>
-        <tedi-select-option value="option2" label="Option 2" groupBy="Grupp 1"/>
-        <tedi-select-option value="option3" label="Option 3" groupBy="Grupp 1"/>
-        <tedi-select-option value="option4" label="Option 4" groupBy="Grupp 2"/>
-        <tedi-select-option value="option5" label="Option 5" groupBy="Grupp 2"/>
+        <tedi-select-option value="option1" label="Option 1" group="Grupp 1"/>
+        <tedi-select-option value="option2" label="Option 2" group="Grupp 1"/>
+        <tedi-select-option value="option3" label="Option 3" group="Grupp 1"/>
+        <tedi-select-option value="option4" label="Option 4" group="Grupp 2"/>
+        <tedi-select-option value="option5" label="Option 5" group="Grupp 2"/>
       </tedi-multiselect>
     `,
     props: {
