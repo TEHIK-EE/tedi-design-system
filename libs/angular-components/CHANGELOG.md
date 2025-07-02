@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-angular-v2.2.0-rc.4](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.2.0-rc.3...angular-2.2.0-rc.4) (2025-07-02)
+
+
+### Features
+
+* **pagination:** Create community pagination [#641](https://github.com/TEHIK-EE/tedi-design-system/issues/641) ([#917](https://github.com/TEHIK-EE/tedi-design-system/issues/917)) ([f9aea6a](https://github.com/TEHIK-EE/tedi-design-system/commit/f9aea6a22544dac45bd2398535045b54252f1e07))
+
 # [@tehik-ee/tedi-angular-v2.2.0-rc.3](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.2.0-rc.2...angular-2.2.0-rc.3) (2025-07-02)
 
 
