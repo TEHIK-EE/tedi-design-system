@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-react-v12.2.0](https://github.com/TEHIK-EE/tedi-design-system/compare/react-12.1.0...react-12.2.0) (2025-07-02)
+
+
+### Features
+
+* **map-components:** update names, add exports, add new components [#911](https://github.com/TEHIK-EE/tedi-design-system/issues/911) ([#915](https://github.com/TEHIK-EE/tedi-design-system/issues/915)) ([b85e5c4](https://github.com/TEHIK-EE/tedi-design-system/commit/b85e5c4f99a708bc6542071788b06ef11149b520))
+
 # [@tehik-ee/tedi-react-v12.1.0](https://github.com/TEHIK-EE/tedi-design-system/compare/react-12.0.2...react-12.1.0) (2025-06-26)
 
 
