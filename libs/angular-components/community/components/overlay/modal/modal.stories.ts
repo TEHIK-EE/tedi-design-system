@@ -48,7 +48,6 @@ class ModalOpenComponent {
       />
 
       <label tedi-label [for]="selectOneId">Label</label>
-
       <tedi-select [id]="selectOneId" state="default">
         @for (option of options; track option.value) {
           <tedi-select-option [value]="option.value" [label]="option.label" />

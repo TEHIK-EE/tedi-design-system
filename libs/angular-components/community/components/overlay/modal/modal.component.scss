@@ -72,9 +72,13 @@ $modal-breapoints: (xs, sm, md, lg, xl);
 
 .tedi-modal__content {
   padding: var(--_modal-padding);
+  overflow-y: auto;
 }
 
 .tedi-modal__container {
+  display: flex;
+  flex-direction: column;
+  max-height: 95dvh;
   background-color: var(--modal-background);
   border: var(--_modal-border);
 
