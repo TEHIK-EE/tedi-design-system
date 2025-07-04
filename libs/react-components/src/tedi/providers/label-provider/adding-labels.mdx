@@ -1,0 +1,53 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta name="Labels" title="TEDI-Ready/Providers/LabelProvider/Adding labels" />
+
+# Adding labels
+
+If you are building a wrapper library or just want to add custom labels that you can use in your components, you can follow this example.
+
+## Create your own custom labels
+
+```tsx
+import React from 'react';
+import { validateLabels, LabelProvider } from '@tehik-ee/tedi-react/tedi';
+
+/**
+ * Description and components keys are optional.
+ * Language values (et, en, ru etc...) values must be of the same type.
+ * When overriding existing labels, you must use same type as before.
+ */
+export const customLabels = validateLabels({
+  'string.example': {
+    description: 'Example translations with string.',
+    components: ['Tooltip'],
+    et: 'Näidis tõlge',
+    en: 'Example translation',
+    ru: 'Пример перевода',
+  },
+  'function.example': {
+    description: 'Example translations with function.',
+    components: ['Tooltip'],
+    et: (text: string) => `Näidis tõlge ${text}`,
+    en: (text: string) => `Example translation ${text}`,
+    ru: (text: string) => `Пример перевода ${text}`,
+  },
+});
+
+type CustomLabels = typeof customLabels;
+
+// Use module augmentation
+// This way `getLabel` function will have correct types for our custom labels
+declare module '@tehik-ee/tedi-react/tedi' {
+  interface TediLabels extends CustomLabels {}
+}
+
+// This will override existing labels and add new labels
+export const Providers = ({ children }: { children: React.ReactNode }) => {
+  return (
+    <LabelProvider labels={customLabels}>
+      {children}
+    </LabelProvider>
+  );
+};
+```

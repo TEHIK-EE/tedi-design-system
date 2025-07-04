@@ -9,7 +9,7 @@ import styles from './sidenav-toggle.module.scss';
 export const SidenavToggle = () => {
   const { menuOpen, reference, getReferenceProps, sideNavProps } = React.useContext(LayoutContext);
   const { getLabel } = useLabels();
-  const toggleLabel = getLabel('header.toggle');
+  const toggleLabel = getLabel('header.toggle', menuOpen);
 
   const BEM = cn(styles['sidenav-toggle'], { [styles['sidenav-toggle--open']]: menuOpen });
 
@@ -28,7 +28,7 @@ export const SidenavToggle = () => {
       visualType="primary"
       className={BEM}
     >
-      {typeof toggleLabel === 'string' ? toggleLabel : toggleLabel(menuOpen)}
+      {toggleLabel}
     </Button>
   );
 };

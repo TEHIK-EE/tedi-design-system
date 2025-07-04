@@ -25,8 +25,9 @@ export const TableOfContentsModal = (props: TableOfContentsProps) => {
   const { showIcons } = useContext(TableOfContentsContext);
 
   const isOpen = onToggle && typeof open !== 'undefined' ? open : innerOpen;
-  const validLabel = getLabel('table-of-contents.valid');
-  const invalidLabel = getLabel('table-of-contents.invalid');
+  const validLabel1 = getLabel('table-of-contents.valid', `${correctItems} / ${items.length}`);
+  const validLabel2 = getLabel('table-of-contents.valid', correctItems);
+  const invalidLabel = getLabel('table-of-contents.invalid', invalidItems);
 
   const handleToggle = (open: boolean) => {
     setInnerOpen(open);
@@ -48,7 +49,7 @@ export const TableOfContentsModal = (props: TableOfContentsProps) => {
               {correctItems} / {items.length}
             </Text>
             <Text element="span" className="sr-only">
-              {typeof validLabel === 'string' ? validLabel : validLabel?.(`${correctItems} / ${items.length}`)}
+              {validLabel1}
             </Text>
           </Col>
         </Row>
@@ -64,7 +65,7 @@ export const TableOfContentsModal = (props: TableOfContentsProps) => {
                   {correctItems}
                 </Text>
                 <Text element="span" className="sr-only">
-                  {typeof validLabel === 'string' ? validLabel : validLabel?.(correctItems)}
+                  {validLabel2}
                 </Text>
               </Col>
             </Row>
@@ -79,7 +80,7 @@ export const TableOfContentsModal = (props: TableOfContentsProps) => {
                   {invalidItems}
                 </Text>
                 <Text element="span" className="sr-only">
-                  {typeof invalidLabel === 'string' ? invalidLabel : invalidLabel?.(invalidItems)}
+                  {invalidLabel}
                 </Text>
               </Col>
             </Row>
