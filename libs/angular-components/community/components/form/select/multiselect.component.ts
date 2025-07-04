@@ -1,63 +1,68 @@
+import { CdkOverlayOrigin, OverlayModule } from "@angular/cdk/overlay";
+import { CdkListbox, CdkListboxModule } from "@angular/cdk/listbox";
 import {
+  AfterContentChecked,
+  ChangeDetectionStrategy,
   Component,
-  signal,
-  forwardRef,
-  input,
+  contentChildren,
+  effect,
   ElementRef,
   HostListener,
   inject,
+  input,
+  signal,
+  viewChild,
   ViewEncapsulation,
-  ChangeDetectionStrategy,
-  contentChildren,
-  AfterContentChecked,
-  OnInit,
+  forwardRef,
+  computed,
 } from "@angular/core";
-import { CommonModule } from "@angular/common";
-import { CdkMenuModule } from "@angular/cdk/menu";
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from "@angular/forms";
-import { SelectOptionComponent } from "./select-option.component";
 import {
   InputComponent,
   InputSize,
   InputState,
 } from "../input/input.component";
-import { CardComponent, CardContentComponent } from "../../cards/card";
+import { SelectOptionComponent } from "./select-option.component";
+import { CommonModule } from "@angular/common";
+import { CheckboxComponent } from "../checkbox";
 import {
+  ClosingButtonComponent,
   ComponentInputs,
   FeedbackTextComponent,
   IconComponent,
   LabelComponent,
   TextComponent,
-  ClosingButtonComponent,
-  TediTranslationPipe,
 } from "@tehik-ee/tedi-angular/tedi";
-import { DropdownItemComponent } from "../../overlay/dropdown-item/dropdown-item.component";
-import { CheckboxComponent } from "../checkbox";
-import { TagComponent } from "../../tags/tag/tag.component";
+import { CardComponent, CardContentComponent } from "../../../components/cards";
+import { DropdownItemComponent } from "../../../components/overlay";
+import { TagComponent } from "../../../components/tags";
 
 @Component({
   selector: "tedi-multiselect",
-  standalone: true,
   imports: [
     CommonModule,
-    CdkMenuModule,
+    OverlayModule,
+    CdkListboxModule,
     InputComponent,
     CardComponent,
     CardContentComponent,
-    IconComponent,
     DropdownItemComponent,
     ClosingButtonComponent,
-    CheckboxComponent,
-    TagComponent,
-    TextComponent,
-    TediTranslationPipe,
+    IconComponent,
     LabelComponent,
     FeedbackTextComponent,
+    TextComponent,
+    CheckboxComponent,
+    TagComponent,
   ],
+  templateUrl: "./multiselect.component.html",
+  styleUrl: "./select.component.scss",
+  standalone: true,
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  templateUrl: "./multiselect.component.html",
-  styleUrl: "./select.component.scss", // Reuse the same styles
+  host: {
+    class: "tedi-select tedi-select--multiselect",
+  },
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
@@ -65,37 +70,30 @@ import { TagComponent } from "../../tags/tag/tag.component";
       multi: true,
     },
   ],
-  host: {
-    "[class.tedi-select]": "true",
-    "[class.tedi-select--multiselect]": "true",
-  },
 })
 export class MultiselectComponent
-  implements ControlValueAccessor, OnInit, AfterContentChecked {
+  implements AfterContentChecked, ControlValueAccessor
+{
   /**
-   * The unique identifier for the input element.
-   * This ID should be unique within the document.
+   * The id of the select input (for label association).
+   * @default ""
    */
   inputId = input.required<string>();
+  /**
+   * The label for the select input.
+   * @default ""
+   */
+  label = input<string>();
+  /**
+   * Should show label as required?
+   * @default false
+   */
+  required = input<boolean>(false);
   /**
    * The placeholder text to display when no option is selected.
    * @default ""
    */
   placeholder = input<string>("");
-  /**
-   * The placeholder text to display when no option is selected.
-   */
-  label = input<string>();
-  /**
-   * Indicates whether the input field is required. If set to true, the required indicator will be displayed next to the label.
-   * @default false
-   */
-  required = input<boolean>(false);
-  /**
-   * Is the select disabled?
-   * @default false
-   */
-  disabled = input<boolean>(false);
   /**
    * The state of the input.
    * @default "default"
@@ -126,33 +124,151 @@ export class MultiselectComponent
    * @default false
    */
   selectableGroups = input<boolean>(false);
-  /**
-   * FeedbackText component inputs.
-   */
   feedbackText = input<ComponentInputs<FeedbackTextComponent>>();
 
-  // Internal state
-  _selectedValue = signal<string[] | null>(null);
-  _disabled = signal<boolean>(false);
-  _width = signal<number>(0);
-  _options = contentChildren(SelectOptionComponent);
+  isOpen = signal(false);
+  selectedOptions = signal<readonly string[]>([]);
+  listboxRef = viewChild(CdkListbox, { read: ElementRef });
+  triggerRef = viewChild(CdkOverlayOrigin, { read: ElementRef });
+  hostRef = inject(ElementRef);
+  options = contentChildren(SelectOptionComponent);
+  dropdownWidth = signal(0);
+  disabled = signal(false);
 
-  private selectRef = inject(ElementRef);
+  optionGroups = computed(() => {
+    const groups: { label: string; options: SelectOptionComponent[] }[] = [];
+    this.options().forEach((option) => {
+      const group = groups.find((g) => g.label === option.group());
+      if (group) {
+        group.options.push(option);
+      } else {
+        groups.push({ label: option.group() ?? "", options: [option] });
+      }
+    });
+    return groups;
+  });
 
-  // ControlValueAccessor methods
-  private onChange: (value: string[] | null) => void = () => {};
-  private onTouched: () => void = () => {};
-
-  writeValue(value: string[] | null): void {
-    if (!Array.isArray(value)) {
-      this._selectedValue.set(null);
-      return;
-    }
-
-    this._selectedValue.set(value.length > 0 ? value : null);
+  @HostListener("window:resize")
+  onWindowResize() {
+    this.setDropdownWidth();
   }
 
-  registerOnChange(fn: (value: string[] | null) => void): void {
+  toggleIsOpen(value?: boolean): void {
+    if (this.disabled()) return;
+
+    if (value === undefined) {
+      this.isOpen.update((previousValue) => !previousValue);
+    } else if (value === false) {
+      this.isOpen.update(() => value);
+      this.focusTrigger();
+    }
+  }
+
+  handleValueChange(event: { value: readonly string[] }): void {
+    this.selectedOptions.update(() => event.value);
+    this.onChange(event.value);
+    this.onTouched();
+  }
+
+  clear(event: Event): void {
+    event.preventDefault();
+    event.stopPropagation();
+    this.selectedOptions.update(() => []);
+    this.onChange([]);
+    this.onTouched();
+  }
+
+  focusListboxWhenVisible = effect(() => {
+    if (this.listboxRef()) this.listboxRef()?.nativeElement.focus();
+  });
+
+  focusTrigger(): void {
+    this.triggerRef()?.nativeElement.focus();
+  }
+
+  isOptionSelected(option: string): boolean {
+    return this.selectedOptions().includes(option);
+  }
+
+  private setDropdownWidth(): void {
+    const computedWidth =
+      this.hostRef?.nativeElement?.getBoundingClientRect()?.width ?? 0;
+    this.dropdownWidth.set(computedWidth);
+  }
+
+  allOptions = computed(() => {
+    return this.options()
+      .filter((option) => !option.disabled())
+      .map((option) => option.value());
+  });
+
+  allOptionsSelected = computed(() => {
+    return this.selectedOptions().length === this.allOptions().length;
+  });
+
+  toggleSelectAll(): void {
+    const newSelection = this.allOptionsSelected() ? [] : this.allOptions();
+
+    this.selectedOptions.update(() => newSelection);
+    this.onChange(newSelection);
+  }
+
+  getLabel(value: string): string | undefined {
+    const option = this.options().find((opt) => opt.value() === value);
+    return option ? option.label() : undefined;
+  }
+
+  isGroupSelected(groupLabel: string): boolean {
+    const group = this.optionGroups().find((g) => g.label === groupLabel);
+    if (!group) return false;
+
+    const enabledGroupOptions = group.options
+      .filter((option) => !option.disabled())
+      .map((option) => option.value());
+
+    return (
+      enabledGroupOptions.length > 0 &&
+      enabledGroupOptions.every((option) =>
+        this.selectedOptions().includes(option),
+      )
+    );
+  }
+
+  toggleGroupSelection(groupLabel: string): void {
+    const group = this.optionGroups().find((g) => g.label === groupLabel);
+    if (!group) return;
+
+    const enabledGroupOptions = group.options
+      .filter((option) => !option.disabled())
+      .map((option) => option.value());
+
+    const allGroupOptionsSelected = this.isGroupSelected(groupLabel);
+
+    let newSelection: readonly string[];
+
+    if (allGroupOptionsSelected) {
+      newSelection = this.selectedOptions().filter(
+        (option) => !enabledGroupOptions.includes(option),
+      );
+    } else {
+      const currentSelected = new Set(this.selectedOptions());
+      enabledGroupOptions.forEach((option) => currentSelected.add(option));
+      newSelection = Array.from(currentSelected);
+    }
+
+    this.selectedOptions.update(() => newSelection);
+    this.onChange(newSelection);
+  }
+
+  // ControlValueAccessor implementation
+  onChange: (value: readonly string[]) => void = () => {};
+  onTouched: () => void = () => {};
+
+  writeValue(value: readonly string[]): void {
+    this.selectedOptions.set(value || []);
+  }
+
+  registerOnChange(fn: (value: readonly string[]) => void): void {
     this.onChange = fn;
   }
 
@@ -161,187 +277,10 @@ export class MultiselectComponent
   }
 
   setDisabledState(isDisabled: boolean): void {
-    this._disabled.set(isDisabled);
-  }
-
-  // Lifecycle hooks
-  ngOnInit(): void {
-    if (this.disabled()) this.setDisabledState(this.disabled());
+    this.disabled.set(isDisabled);
   }
 
   ngAfterContentChecked(): void {
     this.setDropdownWidth();
-  }
-
-  @HostListener("window:resize")
-  onWindowResize() {
-    this.setDropdownWidth();
-  }
-
-  // Event handlers
-  select(value: string): void {
-    this._selectedValue.update((currentValues) => {
-      if (currentValues?.includes(value)) {
-        const filteredValues = currentValues.filter(
-          (currentValue) => currentValue !== value
-        );
-        return filteredValues.length ? filteredValues : null;
-      } else {
-        return [...(currentValues ?? []), value];
-      }
-    });
-
-    this.onChange(this._selectedValue());
-    this.onTouched();
-  }
-
-  unselect(value: string): void {
-    this._selectedValue.update((currentValues) => {
-      if (!currentValues) return null;
-
-      const updatedValues = currentValues.filter((v) => v !== value);
-      return updatedValues.length ? updatedValues : null;
-    });
-
-    this.onChange(this._selectedValue());
-    this.onTouched();
-  }
-
-  clear(): void {
-    this._selectedValue.set(null);
-    this.onChange(null);
-    this.onTouched();
-  }
-
-  touch(): void {
-    this.onTouched();
-  }
-
-  private setDropdownWidth(): void {
-    const computedWidth =
-      this.selectRef?.nativeElement?.getBoundingClientRect()?.width ?? 0;
-    this._width.set(computedWidth);
-  }
-
-  isOptionSelected(value: string): boolean {
-    const selectedValue = this._selectedValue();
-    if (!selectedValue) return false;
-    return selectedValue.includes(value);
-  }
-
-  getOptionLabel(value: string): string | null {
-    return (
-      this._options()
-        .find((option) => option.value() === value)
-        ?.label() || value
-    );
-  }
-
-  /**
-   * Checks if all available options are currently selected
-   */
-  areAllOptionsSelected(): boolean {
-    const options = this._options()
-      .filter((option) => !option.isDisabled())
-      .map((option) => option.value());
-
-    const selectedValues = this._selectedValue();
-
-    if (!selectedValues || options.length === 0) {
-      return false;
-    }
-
-    return options.every((value) => selectedValues.includes(value));
-  }
-
-  /**
-   * Toggles selection of all available options
-   */
-  toggleSelectAll(): void {
-    if (this.areAllOptionsSelected()) {
-      // If all are selected, deselect all
-      this._selectedValue.set(null);
-    } else {
-      // Otherwise, select all non-disabled options
-      const allValues = this._options()
-        .filter((option) => !option.isDisabled())
-        .map((option) => option.value());
-
-      this._selectedValue.set(allValues);
-    }
-
-    this.onChange(this._selectedValue());
-    this.onTouched();
-  }
-
-  // Get grouped options
-  getOptionGroups(): { name: string; options: SelectOptionComponent[] }[] {
-    const groups = new Map<string, SelectOptionComponent[]>();
-
-    // First pass: collect all groups
-    this._options().forEach((option) => {
-      const groupName = option.groupBy?.() || "";
-      if (groupName) {
-        if (!groups.has(groupName)) {
-          groups.set(groupName, []);
-        }
-        groups.get(groupName)?.push(option);
-      }
-    });
-
-    // Convert to array format for template
-    return Array.from(groups.entries()).map(([name, options]) => ({
-      name,
-      options,
-    }));
-  }
-
-  // Get ungrouped options
-  getUngroupedOptions(): SelectOptionComponent[] {
-    return this._options().filter((option) => !option.groupBy?.());
-  }
-
-  // Check if all options in a group are selected
-  areAllGroupOptionsSelected(groupName: string): boolean {
-    const groupOptions = this._options().filter(
-      (option) => option.groupBy?.() === groupName && !option.isDisabled()
-    );
-
-    if (groupOptions.length === 0) return false;
-
-    const selectedValues = this._selectedValue() || [];
-    return groupOptions.every((option) =>
-      selectedValues.includes(option.value())
-    );
-  }
-
-  // Toggle selection for all options in a group
-  toggleSelectGroup(groupName: string): void {
-    const allSelected = this.areAllGroupOptionsSelected(groupName);
-    const groupOptions = this._options()
-      .filter(
-        (option) => option.groupBy?.() === groupName && !option.isDisabled()
-      )
-      .map((option) => option.value());
-
-    let selectedValues = [...(this._selectedValue() || [])];
-
-    if (allSelected) {
-      // Unselect all in this group
-      selectedValues = selectedValues.filter(
-        (value) => !groupOptions.includes(value)
-      );
-    } else {
-      // Select all in this group
-      groupOptions.forEach((value) => {
-        if (!selectedValues.includes(value)) {
-          selectedValues.push(value);
-        }
-      });
-    }
-
-    this._selectedValue.set(selectedValues.length ? selectedValues : null);
-    this.onChange(this._selectedValue());
-    this.onTouched();
   }
 }

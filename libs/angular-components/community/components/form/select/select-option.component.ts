@@ -1,28 +1,39 @@
-import { Component, TemplateRef, input, viewChild } from "@angular/core";
+import {
+  ChangeDetectionStrategy,
+  Component,
+  input,
+  TemplateRef,
+  viewChild,
+  ViewEncapsulation,
+} from "@angular/core";
 
 @Component({
   selector: "tedi-select-option",
-  standalone: true,
   imports: [],
-  template: `<ng-template><ng-content /></ng-template>`,
+  template: "<ng-template><ng-content /></ng-template>",
+  standalone: true,
+  encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SelectOptionComponent {
-  /*
-   * The value of the option.
+  /**
+   * Value of the option
    */
   value = input.required<string>();
-  /*
-   * The label of the option.
+  /**
+   * Label of the option
    */
   label = input.required<string>();
-  /*
-   * Should the option be disabled?
+  /**
+   * Whether the option is disabled
    */
-  isDisabled = input<boolean>(false);
-  /*
-   * A group name this option belongs to.
+  disabled = input(false);
+  /**
+   * Group the option belongs to
+   * This is used for grouping options in the dropdown.
+   * If not provided, the option will not be grouped.
    */
-  groupBy = input<string>();
+  group = input<string | null>(null);
 
   templateRef = viewChild(TemplateRef);
 }

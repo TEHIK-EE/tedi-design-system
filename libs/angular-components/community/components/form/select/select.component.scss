@@ -18,6 +18,7 @@
     overflow: hidden;
     text-align: left;
     flex-grow: 1;
+    cursor: default;
 
     &--placeholder {
       pointer-events: none;
@@ -41,6 +42,7 @@
 
   &__arrow {
     flex-grow: 0;
+    cursor: default;
 
     @include mixins.responsive-styles(padding-left, form-field-inner-spacing);
     @include mixins.responsive-styles(margin-left, form-field-inner-spacing);
@@ -55,6 +57,16 @@
     @include mixins.responsive-styles(margin-bottom, form-field-outer-spacing);
   }
 
+  &__options {
+    margin: 0;
+    padding: 0;
+
+    &:focus .cdk-option-active {
+      background: var(--dropdown-item-hover-background);
+      color: var(--dropdown-item-hover-text);
+    }
+  }
+
   &__dropdown-item {
     &--label {
       display: none;
@@ -62,17 +74,6 @@
 
     &--custom-content:empty + &--label {
       display: block;
-    }
-  }
-
-  &__group {
-    &--selectable {
-      .tedi-select__group-item .tedi-select__multiselect-checkbox {
-        @include mixins.responsive-styles(
-          padding-left,
-          form-checkbox-radio-subitem-padding-left
-        );
-      }
     }
   }
 
@@ -91,6 +92,15 @@
       line-height,
       heading-subtitle-small-line-height
     );
+
+    &--selectable {
+      & ~ .tedi-dropdown-item:not(.tedi-select__group-name) {
+        @include mixins.responsive-styles(
+          padding-left,
+          form-checkbox-radio-subitem-padding-left
+        );
+      }
+    }
   }
 
   &--multiselect {
@@ -107,13 +117,6 @@
     &--single-row {
       overflow: hidden;
       flex-wrap: nowrap;
-      overflow-x: auto;
-      scrollbar-width: none; /* Firefox */
-      -ms-overflow-style: none; /* Internet Explorer and Edge */
-
-      &::-webkit-scrollbar {
-        display: none; /* Chrome, Safari and Opera */
-      }
 
       .tedi-tag {
         flex-shrink: 0;
