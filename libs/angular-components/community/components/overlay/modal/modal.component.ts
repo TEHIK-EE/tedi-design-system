@@ -10,6 +10,7 @@ import { DIALOG_DATA, DialogModule, DialogRef } from "@angular/cdk/dialog";
 import { ModalHeaderComponent } from "./header/modal-header.component";
 import { ModalFooterComponent } from "./footer/modal-footer.component";
 import { ComponentInputs } from "@tehik-ee/tedi-angular/tedi";
+import { CdkScrollable } from "@angular/cdk/scrolling";
 
 export type DialogData = ComponentInputs<
   ModalHeaderComponent & ModalFooterComponent
@@ -25,7 +26,7 @@ export type ModalBreakpoint = "xs" | "sm" | "md" | "lg" | "xl";
   selector: "tedi-modal",
   templateUrl: "./modal.component.html",
   styleUrl: "./modal.component.scss",
-  imports: [DialogModule],
+  imports: [DialogModule, CdkScrollable],
   encapsulation: ViewEncapsulation.None,
   host: {
     "[class]": "hostClasses()",
