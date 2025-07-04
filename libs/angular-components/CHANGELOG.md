@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-angular-v2.2.0-rc.5](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.2.0-rc.4...angular-2.2.0-rc.5) (2025-07-04)
+
+
+### Bug Fixes
+
+* **modal:** Added scrollbar and cdkScrollable directive to modal content [#776](https://github.com/TEHIK-EE/tedi-design-system/issues/776) ([7192044](https://github.com/TEHIK-EE/tedi-design-system/commit/71920449f6c8f6ed0ca903eeae6bdf104e0d1060))
+
 # [@tehik-ee/tedi-angular-v2.2.0-rc.4](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.2.0-rc.3...angular-2.2.0-rc.4) (2025-07-02)
 
 
