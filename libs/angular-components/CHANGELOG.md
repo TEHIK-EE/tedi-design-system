@@ -1,3 +1,11 @@
+# [@tehik-ee/tedi-angular-v2.2.0-rc.6](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.2.0-rc.5...angular-2.2.0-rc.6) (2025-07-07)
+
+
+### Bug Fixes
+
+* **modal:** Better content projection for modal header [#776](https://github.com/TEHIK-EE/tedi-design-system/issues/776) ([2c07120](https://github.com/TEHIK-EE/tedi-design-system/commit/2c071204887aabff93a35975765b11e1e7a916d5))
+* **modal:** Fixed modal content projection [#776](https://github.com/TEHIK-EE/tedi-design-system/issues/776) ([de0f77a](https://github.com/TEHIK-EE/tedi-design-system/commit/de0f77a7f34cb62194f36ba65d4aec281b791999))
+
 # [@tehik-ee/tedi-angular-v2.2.0-rc.5](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.2.0-rc.4...angular-2.2.0-rc.5) (2025-07-04)
 
 
