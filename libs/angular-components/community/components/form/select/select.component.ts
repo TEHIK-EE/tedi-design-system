@@ -22,7 +22,7 @@ import {
   InputSize,
   InputState,
 } from "../input/input.component";
-import { DropdownItemComponent } from "community/components/overlay";
+import { DropdownItemComponent } from "../../../components/overlay";
 import { SelectOptionComponent } from "./select-option.component";
 import { CommonModule } from "@angular/common";
 import {
