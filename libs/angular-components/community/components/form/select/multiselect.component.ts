@@ -172,18 +172,21 @@ export class MultiselectComponent
   }
 
   handleValueChange(event: { value: readonly string[] }): void {
+    // Check if event value includes any "select-all-group" selection
     const selectedGroup = event.value
       .find((v) => v.startsWith(specialOptionControls.SELECTGROUP))
       ?.replace(specialOptionControls.SELECTGROUP, "");
 
-    // Kind of a hack to get keyboard support for "Select All" option
     if (event.value.includes(specialOptionControls.SELECT_ALL)) {
+      // If "select-all" is selected, toggle all options
       this.toggleSelectAll();
       this.onChange(this.selectedOptions());
     } else if (selectedGroup) {
+      // If a group selection is made, toggle the group
       this.toggleGroupSelection(selectedGroup);
       this.onChange(this.selectedOptions());
     } else {
+      // Otherwise, update the selected options directly
       this.selectedOptions.update(() => event.value);
       this.onChange(event.value);
     }
