@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-angular-v2.1.1](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.1.0...angular-2.1.1) (2025-07-08)
+
+
+### Bug Fixes
+
+* **angular-animations:** move to peer dependency, change get started story [#911](https://github.com/TEHIK-EE/tedi-design-system/issues/911) ([377c8e1](https://github.com/TEHIK-EE/tedi-design-system/commit/377c8e198b2a8dd05c68007f6d6b6881816ecd3d))
+
 # [@tehik-ee/tedi-angular-v2.1.0](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.0.1...angular-2.1.0) (2025-06-26)
 
 
