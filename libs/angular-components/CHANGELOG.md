@@ -1,3 +1,14 @@
+# [@tehik-ee/tedi-angular-v2.2.0-rc.8](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.2.0-rc.7...angular-2.2.0-rc.8) (2025-07-08)
+
+
+### Features
+
+* **community-multiselect:** Add clearable tags method to clear options [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) ([e731f8b](https://github.com/TEHIK-EE/tedi-design-system/commit/e731f8bef88673e33dd1418f128a3a8ec696b2c0))
+* **community-multiselect:** Added a comment [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) ([dc2c5ce](https://github.com/TEHIK-EE/tedi-design-system/commit/dc2c5ce09e48f3cee0d136401ad114cd8a99604f))
+* **community-multiselect:** Code review fixes [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) ([0f64173](https://github.com/TEHIK-EE/tedi-design-system/commit/0f64173c8a9b9b28d71bb81f9b2688b328c49d3e))
+* **community-multiselect:** Fix "select-all" and "select-group" keyboard navigation [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) ([1a43ec5](https://github.com/TEHIK-EE/tedi-design-system/commit/1a43ec5ec254b4432b86725316327dd9a7848ccc))
+* **community-multiselect:** rewrite select to use cdkListbox and cdkOverlay [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) ([61857c9](https://github.com/TEHIK-EE/tedi-design-system/commit/61857c90df0fb387b17bbf692114ca5cd637b040))
+
 # [@tehik-ee/tedi-angular-v2.2.0-rc.7](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.2.0-rc.6...angular-2.2.0-rc.7) (2025-07-08)
 
 
