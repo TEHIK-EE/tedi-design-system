@@ -433,3 +433,29 @@ export const MultiselectTagsMultirow: Story = {
     },
   }),
 };
+
+export const clearableTags: Story = {
+  render: (args) => ({
+    template: `
+      <tedi-multiselect
+        inputId="multiselect-7"
+        [placeholder]="placeholder"
+        [label]="label"
+        [feedbackText]="feedbackText"
+        [required]="required"
+        [selectableGroups]="true"
+        [multiRow]="true"
+        [clearableTags]="true"
+      >
+        <tedi-select-option value="option1" label="Option 1" group="Grupp 1"/>
+        <tedi-select-option value="option2" label="Option 2" group="Grupp 1"/>
+        <tedi-select-option value="option3" label="Option 3" group="Grupp 1"/>
+        <tedi-select-option value="option4" label="Option 4" group="Grupp 2"/>
+        <tedi-select-option value="option5" label="Option 5" group="Grupp 2"/>
+      </tedi-multiselect>
+    `,
+    props: {
+      ...args,
+    },
+  }),
+};

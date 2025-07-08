@@ -281,6 +281,20 @@ export class MultiselectComponent
     this.onChange(newSelection);
   }
 
+  deselect(event: Event, value: string): void {
+    event.stopPropagation();
+    event.preventDefault();
+
+    if (this.disabled()) return;
+
+    const newSelection = this.selectedOptions().filter(
+      (option) => option !== value,
+    );
+    this.selectedOptions.set(newSelection);
+    this.onChange(newSelection);
+    this.onTouched();
+  }
+
   // ControlValueAccessor implementation
   onChange: (value: readonly string[]) => void = () => {};
   onTouched: () => void = () => {};
