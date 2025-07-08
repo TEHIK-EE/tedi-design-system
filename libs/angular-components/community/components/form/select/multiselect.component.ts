@@ -166,7 +166,7 @@ export class MultiselectComponent
     if (value === undefined) {
       this.isOpen.update((previousValue) => !previousValue);
     } else if (value === false) {
-      this.isOpen.update(() => value);
+      this.isOpen.set(value);
       this.focusTrigger();
     }
   }
@@ -180,14 +180,12 @@ export class MultiselectComponent
     if (event.value.includes(specialOptionControls.SELECT_ALL)) {
       // If "select-all" is selected, toggle all options
       this.toggleSelectAll();
-      this.onChange(this.selectedOptions());
     } else if (selectedGroup) {
       // If a group selection is made, toggle the group
       this.toggleGroupSelection(selectedGroup);
-      this.onChange(this.selectedOptions());
     } else {
       // Otherwise, update the selected options directly
-      this.selectedOptions.update(() => event.value);
+      this.selectedOptions.set(event.value);
       this.onChange(event.value);
     }
 
@@ -197,7 +195,7 @@ export class MultiselectComponent
   clear(event: Event): void {
     event.preventDefault();
     event.stopPropagation();
-    this.selectedOptions.update(() => []);
+    this.selectedOptions.set([]);
     this.onChange([]);
     this.onTouched();
   }
@@ -233,7 +231,7 @@ export class MultiselectComponent
   toggleSelectAll(): void {
     const newSelection = this.allOptionsSelected() ? [] : this.allOptions();
 
-    this.selectedOptions.update(() => newSelection);
+    this.selectedOptions.set(newSelection);
     this.onChange(newSelection);
   }
 
@@ -280,7 +278,7 @@ export class MultiselectComponent
       newSelection = Array.from(currentSelected);
     }
 
-    this.selectedOptions.update(() => newSelection);
+    this.selectedOptions.set(newSelection);
     this.onChange(newSelection);
   }
 
