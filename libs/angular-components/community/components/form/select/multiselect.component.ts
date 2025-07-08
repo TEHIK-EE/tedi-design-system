@@ -37,6 +37,11 @@ import { CardComponent, CardContentComponent } from "../../../components/cards";
 import { DropdownItemComponent } from "../../../components/overlay";
 import { TagComponent } from "../../../components/tags";
 
+export enum specialOptionControls {
+  SELECT_ALL = "SELECT_ALL",
+  SELECTGROUP = "SELECTGROUP_",
+}
+
 @Component({
   selector: "tedi-multiselect",
   imports: [
@@ -126,6 +131,8 @@ export class MultiselectComponent
   selectableGroups = input<boolean>(false);
   feedbackText = input<ComponentInputs<FeedbackTextComponent>>();
 
+  readonly specialOptionControls = specialOptionControls;
+
   isOpen = signal(false);
   selectedOptions = signal<readonly string[]>([]);
   listboxRef = viewChild(CdkListbox, { read: ElementRef });
@@ -165,8 +172,22 @@ export class MultiselectComponent
   }
 
   handleValueChange(event: { value: readonly string[] }): void {
-    this.selectedOptions.update(() => event.value);
-    this.onChange(event.value);
+    const selectedGroup = event.value
+      .find((v) => v.startsWith(specialOptionControls.SELECTGROUP))
+      ?.replace(specialOptionControls.SELECTGROUP, "");
+
+    // Kind of a hack to get keyboard support for "Select All" option
+    if (event.value.includes(specialOptionControls.SELECT_ALL)) {
+      this.toggleSelectAll();
+      this.onChange(this.selectedOptions());
+    } else if (selectedGroup) {
+      this.toggleGroupSelection(selectedGroup);
+      this.onChange(this.selectedOptions());
+    } else {
+      this.selectedOptions.update(() => event.value);
+      this.onChange(event.value);
+    }
+
     this.onTouched();
   }
 

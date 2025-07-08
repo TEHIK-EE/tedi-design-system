@@ -99,11 +99,7 @@
         #listbox="cdkListbox"
       >
         @if (selectAll()) {
-          <li
-            tedi-dropdown-item
-            (click)="toggleSelectAll()"
-            [attr.tabindex]="-1"
-          >
+          <li tedi-dropdown-item [cdkOption]="specialOptionControls.SELECT_ALL">
             <tedi-checkbox
               class="tedi-select__multiselect-checkbox"
               [inputId]="inputId() + '-select-all'"
@@ -114,18 +110,15 @@
           </li>
         }
 
-        @for (group of optionGroups(); track group.label) {
-          @if (group.label.length > 0) {
-            <li
-              tedi-dropdown-item
-              class="tedi-select__group-name"
-              [class.tedi-select__group-name--selectable]="selectableGroups()"
-            >
-              @if (selectableGroups()) {
-                <div
-                  class="tedi-select__group-checkbox"
-                  (click)="toggleGroupSelection(group.label)"
-                >
+        @for (group of optionGroups(); track group.options) {
+          @if (group.label.length) {
+            @if (selectableGroups()) {
+              <li
+                tedi-dropdown-item
+                class="tedi-select__group-name tedi-select__group-name--selectable"
+                [cdkOption]="specialOptionControls.SELECTGROUP + group.label"
+              >
+                <div class="tedi-select__group-checkbox">
                   <tedi-checkbox
                     class="tedi-select__multiselect-checkbox"
                     [inputId]="'group-' + group.label"
@@ -136,12 +129,18 @@
                     </span>
                   </tedi-checkbox>
                 </div>
-              } @else {
+              </li>
+            } @else {
+              <li
+                tedi-dropdown-item
+                class="tedi-select__group-name"
+                role="presentation"
+              >
                 <span tedi-text color="tertiary">
                   {{ group.label }}
                 </span>
-              }
-            </li>
+              </li>
+            }
           }
 
           @for (option of group.options; track option.value()) {

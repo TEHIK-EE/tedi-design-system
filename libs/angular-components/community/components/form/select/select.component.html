@@ -88,7 +88,7 @@
         [cdkListboxValue]="selectedOptions()"
         (cdkListboxValueChange)="handleValueChange($event)"
       >
-        @for (group of optionGroups(); track group.label) {
+        @for (group of optionGroups(); track group.options) {
           @if (group.label.length > 0) {
             <li class="tedi-select__group-name" role="presentation">
               <span tedi-text color="tertiary">
