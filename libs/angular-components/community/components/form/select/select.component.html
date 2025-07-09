@@ -88,33 +88,39 @@
         [cdkListboxValue]="selectedOptions()"
         (cdkListboxValueChange)="handleValueChange($event)"
       >
-        @for (group of optionGroups(); track group.options) {
-          @if (group.label.length > 0) {
-            <li class="tedi-select__group-name" role="presentation">
-              <span tedi-text color="tertiary">
-                {{ group.label }}
-              </span>
-            </li>
-          }
-
-          @for (option of group.options; track option.value()) {
-            <li
-              tedi-dropdown-item
-              [selected]="isOptionSelected(option.value())"
-              [cdkOption]="option.value()"
-              [cdkOptionDisabled]="option.disabled()"
-              [disabled]="option.disabled()"
-            >
-              @if (option.templateRef(); as optionNgContent) {
-                <div class="tedi-select__dropdown-item--custom-content">
-                  <ng-container [ngTemplateOutlet]="optionNgContent" />
-                </div>
-                <span class="tedi-select__dropdown-item--label">
-                  {{ option.label() }}
+        @if (options().length) {
+          @for (group of optionGroups(); track $index) {
+            @if (group.label.length > 0) {
+              <li class="tedi-select__group-name" role="presentation">
+                <span tedi-text color="tertiary">
+                  {{ group.label }}
                 </span>
-              }
-            </li>
+              </li>
+            }
+
+            @for (option of group.options; track option.value()) {
+              <li
+                tedi-dropdown-item
+                [selected]="isOptionSelected(option.value())"
+                [cdkOption]="option.value()"
+                [cdkOptionDisabled]="option.disabled()"
+                [disabled]="option.disabled()"
+              >
+                @if (option.templateRef(); as optionNgContent) {
+                  <div class="tedi-select__dropdown-item--custom-content">
+                    <ng-container [ngTemplateOutlet]="optionNgContent" />
+                  </div>
+                  <span class="tedi-select__dropdown-item--label">
+                    {{ option.label() }}
+                  </span>
+                }
+              </li>
+            }
           }
+        } @else {
+          <li tedi-dropdown-item class="tedi-select__no-options">
+            {{ "select.no-options" | tediTranslate }}
+          </li>
         }
       </ul>
     </tedi-card-content>

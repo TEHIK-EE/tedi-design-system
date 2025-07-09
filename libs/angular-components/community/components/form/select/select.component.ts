@@ -31,6 +31,7 @@ import {
   FeedbackTextComponent,
   IconComponent,
   LabelComponent,
+  TediTranslationPipe,
   TextComponent,
 } from "@tehik-ee/tedi-angular/tedi";
 import { CardComponent, CardContentComponent } from "../../../components/cards";
@@ -50,6 +51,7 @@ import { CardComponent, CardContentComponent } from "../../../components/cards";
     LabelComponent,
     FeedbackTextComponent,
     TextComponent,
+    TediTranslationPipe,
   ],
   templateUrl: "./select.component.html",
   styleUrl: "./select.component.scss",
@@ -139,13 +141,13 @@ export class SelectComponent
     if (value === undefined) {
       this.isOpen.update((previousValue) => !previousValue);
     } else if (value === false) {
-      this.isOpen.update(() => value);
+      this.isOpen.set(value);
       this.focusTrigger();
     }
   }
 
   handleValueChange(event: { value: readonly string[] }): void {
-    this.selectedOptions.update(() => event.value);
+    this.selectedOptions.set(event.value);
     this.onChange(event.value);
     this.onTouched();
     this.toggleIsOpen(false);
@@ -154,7 +156,7 @@ export class SelectComponent
   clear(event: Event): void {
     event.preventDefault();
     event.stopPropagation();
-    this.selectedOptions.update(() => []);
+    this.selectedOptions.set([]);
     this.onChange([]);
     this.onTouched();
   }

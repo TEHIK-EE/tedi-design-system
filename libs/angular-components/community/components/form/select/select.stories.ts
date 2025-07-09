@@ -275,6 +275,23 @@ export const ManyOptions: Story = {
   }),
 };
 
+export const singleSelectNoOptions: Story = {
+  render: (args) => ({
+    template: `
+      <tedi-select
+        inputId="select-8"
+        [placeholder]="placeholder"
+        [label]="label"
+        [feedbackText]="feedbackText"
+        [required]="required"
+      />
+    `,
+    props: {
+      ...args,
+    },
+  }),
+};
+
 export const Multiselect: Story = {
   render: (args) => ({
     template: `
@@ -453,6 +470,26 @@ export const clearableTags: Story = {
         <tedi-select-option value="option4" label="Option 4" group="Grupp 2"/>
         <tedi-select-option value="option5" label="Option 5" group="Grupp 2"/>
       </tedi-multiselect>
+    `,
+    props: {
+      ...args,
+    },
+  }),
+};
+
+export const multiselectNoOptions: Story = {
+  render: (args) => ({
+    template: `
+      <tedi-multiselect
+        inputId="multiselect-8"
+        [placeholder]="placeholder"
+        [label]="label"
+        [feedbackText]="feedbackText"
+        [required]="required"
+        [selectableGroups]="true"
+        [multiRow]="true"
+        [clearableTags]="true"
+      />
     `,
     props: {
       ...args,
