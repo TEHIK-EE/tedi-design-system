@@ -101,76 +101,85 @@
         (cdkListboxValueChange)="handleValueChange($event)"
         #listbox="cdkListbox"
       >
-        @if (selectAll()) {
-          <li tedi-dropdown-item [cdkOption]="specialOptionControls.SELECT_ALL">
-            <tedi-checkbox
-              class="tedi-select__multiselect-checkbox"
-              [inputId]="inputId() + '-select-all'"
-              [checked]="allOptionsSelected()"
-            >
-              Select all
-            </tedi-checkbox>
-          </li>
-        }
-
-        @for (group of optionGroups(); track $index) {
-          @if (group.label.length) {
-            @if (selectableGroups()) {
-              <li
-                tedi-dropdown-item
-                class="tedi-select__group-name tedi-select__group-name--selectable"
-                [cdkOption]="specialOptionControls.SELECTGROUP + group.label"
-              >
-                <div class="tedi-select__group-checkbox">
-                  <tedi-checkbox
-                    class="tedi-select__multiselect-checkbox"
-                    [inputId]="'group-' + group.label"
-                    [checked]="isGroupSelected(group.label)"
-                  >
-                    <span tedi-text color="tertiary">
-                      {{ group.label }}
-                    </span>
-                  </tedi-checkbox>
-                </div>
-              </li>
-            } @else {
-              <li
-                tedi-dropdown-item
-                class="tedi-select__group-name"
-                role="presentation"
-              >
-                <span tedi-text color="tertiary">
-                  {{ group.label }}
-                </span>
-              </li>
-            }
-          }
-
-          @for (option of group.options; track option.value()) {
+        @if (options().length) {
+          @if (selectAll()) {
             <li
               tedi-dropdown-item
-              [cdkOption]="option.value()"
-              [cdkOptionDisabled]="option.disabled()"
-              [disabled]="option.disabled()"
+              [cdkOption]="specialOptionControls.SELECT_ALL"
             >
               <tedi-checkbox
                 class="tedi-select__multiselect-checkbox"
-                [inputId]="'option-' + option.value()"
-                [checked]="isOptionSelected(option.value())"
+                [inputId]="inputId() + '-select-all'"
+                [checked]="allOptionsSelected()"
               >
-                @if (option.templateRef(); as optionTemplate) {
-                  <span class="tedi-select__dropdown-item--custom-content">
-                    <ng-container [ngTemplateOutlet]="optionTemplate" />
-                  </span>
-                  <span class="tedi-select__dropdown-item--label">
-                    {{ option.label() }}
-                  </span>
-                } @else {
-                  {{ option.label() }}
-                }
+                {{ "select.select-all" | tediTranslate }}
               </tedi-checkbox>
             </li>
           }
+
+          @for (group of optionGroups(); track $index) {
+            @if (group.label.length) {
+              @if (selectableGroups()) {
+                <li
+                  tedi-dropdown-item
+                  class="tedi-select__group-name tedi-select__group-name--selectable"
+                  [cdkOption]="specialOptionControls.SELECTGROUP + group.label"
+                >
+                  <div class="tedi-select__group-checkbox">
+                    <tedi-checkbox
+                      class="tedi-select__multiselect-checkbox"
+                      [inputId]="'group-' + group.label"
+                      [checked]="isGroupSelected(group.label)"
+                    >
+                      <span tedi-text color="tertiary">
+                        {{ group.label }}
+                      </span>
+                    </tedi-checkbox>
+                  </div>
+                </li>
+              } @else {
+                <li
+                  tedi-dropdown-item
+                  class="tedi-select__group-name"
+                  role="presentation"
+                >
+                  <span tedi-text color="tertiary">
+                    {{ group.label }}
+                  </span>
+                </li>
+              }
+            }
+
+            @for (option of group.options; track option.value()) {
+              <li
+                tedi-dropdown-item
+                [cdkOption]="option.value()"
+                [cdkOptionDisabled]="option.disabled()"
+                [disabled]="option.disabled()"
+              >
+                <tedi-checkbox
+                  class="tedi-select__multiselect-checkbox"
+                  [inputId]="'option-' + option.value()"
+                  [checked]="isOptionSelected(option.value())"
+                >
+                  @if (option.templateRef(); as optionTemplate) {
+                    <span class="tedi-select__dropdown-item--custom-content">
+                      <ng-container [ngTemplateOutlet]="optionTemplate" />
+                    </span>
+                    <span class="tedi-select__dropdown-item--label">
+                      {{ option.label() }}
+                    </span>
+                  } @else {
+                    {{ option.label() }}
+                  }
+                </tedi-checkbox>
+              </li>
+            }
+          }
+        } @else {
+          <li tedi-dropdown-item class="tedi-select__no-options">
+            {{ "select.no-options" | tediTranslate }}
+          </li>
         }
       </ul>
     </tedi-card-content>

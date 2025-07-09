@@ -31,6 +31,7 @@ import {
   FeedbackTextComponent,
   IconComponent,
   LabelComponent,
+  TediTranslationPipe,
   TextComponent,
 } from "@tehik-ee/tedi-angular/tedi";
 import { CardComponent, CardContentComponent } from "../../../components/cards";
@@ -59,6 +60,7 @@ export enum specialOptionControls {
     TextComponent,
     CheckboxComponent,
     TagComponent,
+    TediTranslationPipe,
   ],
   templateUrl: "./multiselect.component.html",
   styleUrl: "./select.component.scss",
