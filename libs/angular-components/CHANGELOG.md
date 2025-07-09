@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-angular-v2.2.0-rc.9](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.2.0-rc.8...angular-2.2.0-rc.9) (2025-07-09)
+
+
+### Features
+
+* **community-multiselect:** Fix rc8 not building [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) ([d8c7cc2](https://github.com/TEHIK-EE/tedi-design-system/commit/d8c7cc279b2062cc273e9699e06245304b68dabd))
+
 # [@tehik-ee/tedi-angular-v2.2.0-rc.8](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.2.0-rc.7...angular-2.2.0-rc.8) (2025-07-08)
 
 
