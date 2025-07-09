@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-angular-v2.2.0-rc.10](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.2.0-rc.9...angular-2.2.0-rc.10) (2025-07-09)
+
+
+### Features
+
+* **community-multiselect:** Translate select-all and add no-options case [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) ([ef8064d](https://github.com/TEHIK-EE/tedi-design-system/commit/ef8064d6dcca8b9785cb29e9be2024e50f9ed91e))
+
 # [@tehik-ee/tedi-angular-v2.2.0-rc.9](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.2.0-rc.8...angular-2.2.0-rc.9) (2025-07-09)
 
 
