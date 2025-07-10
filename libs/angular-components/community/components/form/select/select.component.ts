@@ -1,56 +1,66 @@
+import { CdkOverlayOrigin, OverlayModule } from "@angular/cdk/overlay";
+import { CdkListbox, CdkListboxModule } from "@angular/cdk/listbox";
 import {
+  AfterContentChecked,
+  ChangeDetectionStrategy,
   Component,
-  signal,
-  forwardRef,
-  input,
+  contentChildren,
+  effect,
   ElementRef,
   HostListener,
   inject,
+  input,
+  signal,
+  viewChild,
   ViewEncapsulation,
-  ChangeDetectionStrategy,
-  contentChildren,
-  AfterContentChecked,
-  OnInit,
+  forwardRef,
   computed,
 } from "@angular/core";
-import { CommonModule } from "@angular/common";
-import { CdkMenuModule } from "@angular/cdk/menu";
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from "@angular/forms";
-import { SelectOptionComponent } from "./select-option.component";
 import {
   InputComponent,
   InputSize,
   InputState,
 } from "../input/input.component";
-import { CardComponent, CardContentComponent } from "../../cards/card";
+import { DropdownItemComponent } from "../../../components/overlay";
+import { SelectOptionComponent } from "./select-option.component";
+import { CommonModule } from "@angular/common";
 import {
+  ClosingButtonComponent,
   ComponentInputs,
   FeedbackTextComponent,
   IconComponent,
   LabelComponent,
-  ClosingButtonComponent,
+  TediTranslationPipe,
+  TextComponent,
 } from "@tehik-ee/tedi-angular/tedi";
-import { DropdownItemComponent } from "../../overlay/dropdown-item/dropdown-item.component";
+import { CardComponent, CardContentComponent } from "../../../components/cards";
 
 @Component({
   selector: "tedi-select",
-  standalone: true,
   imports: [
     CommonModule,
-    CdkMenuModule,
+    OverlayModule,
+    CdkListboxModule,
     InputComponent,
     CardComponent,
     CardContentComponent,
-    IconComponent,
     DropdownItemComponent,
     ClosingButtonComponent,
+    IconComponent,
     LabelComponent,
     FeedbackTextComponent,
+    TextComponent,
+    TediTranslationPipe,
   ],
-  encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: "./select.component.html",
   styleUrl: "./select.component.scss",
+  standalone: true,
+  encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  host: {
+    class: "tedi-select",
+  },
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
@@ -58,22 +68,20 @@ import { DropdownItemComponent } from "../../overlay/dropdown-item/dropdown-item
       multi: true,
     },
   ],
-  host: {
-    "[class.tedi-select]": "true",
-  },
 })
 export class SelectComponent
-  implements ControlValueAccessor, OnInit, AfterContentChecked {
-  /**
-   * The label for the select input.
-   * @default ""
-   */
-  label = input<string>();
+  implements AfterContentChecked, ControlValueAccessor
+{
   /**
    * The id of the select input (for label association).
    * @default ""
    */
   inputId = input.required<string>();
+  /**
+   * The label for the select input.
+   * @default ""
+   */
+  label = input<string>();
   /**
    * Should show label as required?
    * @default false
@@ -84,11 +92,6 @@ export class SelectComponent
    * @default ""
    */
   placeholder = input<string>("");
-  /**
-   * Is the select disabled?
-   * @default false
-   */
-  disabled = input<boolean>(false);
   /**
    * The state of the input.
    * @default "default"
@@ -101,50 +104,29 @@ export class SelectComponent
   size = input<InputSize>("default");
   feedbackText = input<ComponentInputs<FeedbackTextComponent>>();
 
-  // Internal state
-  _selectedValue = signal<string | null>(null);
-  _disabled = signal<boolean>(false);
-  _width = signal<number>(0);
-  _options = contentChildren(SelectOptionComponent);
+  isOpen = signal(false);
+  selectedOptions = signal<readonly string[]>([]);
+  listboxRef = viewChild(CdkListbox, { read: ElementRef });
+  triggerRef = viewChild(CdkOverlayOrigin, { read: ElementRef });
+  hostRef = inject(ElementRef);
+  options = contentChildren(SelectOptionComponent);
+  dropdownWidth = signal(0);
+  disabled = signal(false);
 
-  private selectRef = inject(ElementRef);
+  optionGroups = computed(() => {
+    const groups: { label: string; options: SelectOptionComponent[] }[] = [];
+    this.options().forEach((option) => {
+      const group = groups.find((g) => g.label === option.group());
+      if (group) {
+        group.options.push(option);
+      } else {
+        groups.push({ label: option.group() ?? "", options: [option] });
+      }
+    });
+    return groups;
+  });
 
-  // ControlValueAccessor methods
-  private onChange: (value: string | null) => void = () => {};
-  private onTouched: () => void = () => {};
-
-  writeValue(value: string | null): void {
-    if (value === null || value === undefined) {
-      this._selectedValue.set(null);
-      return;
-    }
-
-    if (Array.isArray(value)) {
-      // Take the first value if array is provided
-      this._selectedValue.set(value.length > 0 ? value[0] : null);
-    } else {
-      this._selectedValue.set(value);
-    }
-  }
-
-  registerOnChange(fn: (value: string | null) => void): void {
-    this.onChange = fn;
-  }
-
-  registerOnTouched(fn: () => void): void {
-    this.onTouched = fn;
-  }
-
-  setDisabledState(isDisabled: boolean): void {
-    this._disabled.set(isDisabled);
-  }
-
-  // Lifecycle hooks
-  ngOnInit() {
-    if (this.disabled()) this.setDisabledState(this.disabled());
-  }
-
-  ngAfterContentChecked() {
+  ngAfterContentChecked(): void {
     this.setDropdownWidth();
   }
 
@@ -153,47 +135,73 @@ export class SelectComponent
     this.setDropdownWidth();
   }
 
-  // Event handlers
-  select(value: string) {
-    this._selectedValue.set(value);
-    this.onChange(this._selectedValue());
+  toggleIsOpen(value?: boolean): void {
+    if (this.disabled()) return;
+
+    if (value === undefined) {
+      this.isOpen.update((previousValue) => !previousValue);
+    } else if (value === false) {
+      this.isOpen.set(value);
+      this.focusTrigger();
+    }
+  }
+
+  handleValueChange(event: { value: readonly string[] }): void {
+    this.selectedOptions.set(event.value);
+    this.onChange(event.value);
+    this.onTouched();
+    this.toggleIsOpen(false);
+  }
+
+  clear(event: Event): void {
+    event.preventDefault();
+    event.stopPropagation();
+    this.selectedOptions.set([]);
+    this.onChange([]);
     this.onTouched();
   }
 
-  clear() {
-    this._selectedValue.set(null);
-    this.onChange(null);
-    this.onTouched();
-  }
-
-  touch() {
-    this.onTouched();
-  }
-
-  selectedLabel = computed(() => {
-    const value = this._selectedValue();
-    if (!value) return null;
-
-    return this._options()
-      .find((option) => option.value() === value)
-      ?.label();
+  focusListboxWhenVisible = effect(() => {
+    if (this.listboxRef()) this.listboxRef()?.nativeElement.focus();
   });
 
-  private setDropdownWidth() {
+  focusTrigger(): void {
+    this.triggerRef()?.nativeElement.focus();
+  }
+
+  isOptionSelected(option: string): boolean {
+    return this.selectedOptions().includes(option);
+  }
+
+  selectedLabels = computed(() => {
+    return this.options()
+      .filter((option) => this.isOptionSelected(option.value()))
+      .map((option) => option.label());
+  });
+
+  private setDropdownWidth(): void {
     const computedWidth =
-      this.selectRef?.nativeElement?.getBoundingClientRect()?.width ?? 0;
-    this._width.set(computedWidth);
+      this.hostRef?.nativeElement?.getBoundingClientRect()?.width ?? 0;
+    this.dropdownWidth.set(computedWidth);
   }
 
-  isOptionSelected(value: string): boolean {
-    return this._selectedValue() === value;
+  // ControlValueAccessor implementation
+  onChange: (value: readonly string[]) => void = () => {};
+  onTouched: () => void = () => {};
+
+  writeValue(value: readonly string[]): void {
+    this.selectedOptions.set(value || []);
   }
 
-  getOptionLabel(value: string): string | null {
-    return (
-      this._options()
-        .find((option) => option.value() === value)
-        ?.label() || value
-    );
+  registerOnChange(fn: (value: readonly string[]) => void): void {
+    this.onChange = fn;
+  }
+
+  registerOnTouched(fn: () => void): void {
+    this.onTouched = fn;
+  }
+
+  setDisabledState(isDisabled: boolean): void {
+    this.disabled.set(isDisabled);
   }
 }
