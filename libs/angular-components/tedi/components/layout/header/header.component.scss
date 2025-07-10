@@ -1,0 +1,12 @@
+@use "@tehik-ee/tedi-core/mixins";
+
+.tedi-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--header-background);
+    box-shadow: 0px 1px 5px 0px var(--alpha-20, rgba(0, 0, 0, 0.20));
+
+    @include mixins.responsive-styles(min-height, layout-header-min-height);
+    @include mixins.responsive-styles(padding, layout-header-padding-y layout-header-padding-right layout-header-padding-y layout-header-padding-left);
+}

@@ -1,0 +1,16 @@
+@use "@tehik-ee/tedi-core/mixins";
+
+.tedi-header-language {
+    display: flex;
+    flex-direction: column;
+}
+
+.tedi-header-button {
+    display: inline-flex;
+    align-items: center;
+    background-color: transparent;
+    border: 0;
+    padding: 0;
+
+    @include mixins.responsive-styles(font-size, body-regular-size, $exclude: tablet);
+}

@@ -1,0 +1,58 @@
+@if (role() || description()) {
+    <div class="tedi-header-role__role">
+        @if (role()) {
+            <span tedi-text color="secondary" [modifiers]="['small', 'bold']">{{ role() }}</span>
+        }
+
+        @if (role() && description()) {
+            <div class="tedi-header-separator"></div>
+        }
+
+        @if (description()) {
+            <span tedi-text color="secondary" modifiers="small">{{ description() }}</span>
+        }
+    </div>
+}
+
+<ng-container *ngIf="representatives().length > 1; else normalText">
+    <tedi-popover>
+        <tedi-popover-trigger>
+            <button tedi-link [underline]="false" class="tedi-header-button">
+                {{ currentRepresentative().name }}
+                <tedi-icon name="expand_more" />
+            </button>
+        </tedi-popover-trigger>
+        <tedi-popover-content position="bottom" maxWidth="small" [withBorder]="true" class="tedi-header-representative">
+            @if (showInput()) {
+                <div>
+                    <label for="representative-input">Otsi isikut</label>
+                    <input id="representative-input" class="tedi-header-input" [value]="inputValue()" (input)="handleInputChange($event)" />
+                </div>
+            }
+            <button 
+                *ngFor="let r of filteredRepresentatives();"
+                [class]="{ 
+                    'tedi-header-representative__button': true, 
+                    'tedi-header-representative__button--selected': r.name === currentRepresentative().name && r.description === currentRepresentative().description 
+                }" 
+                (click)="handleSelectRepresentative(r)"
+            >
+                @if (r.icon) {
+                    <tedi-icon [name]="r.icon" />
+                }
+                <div>
+                    <div>{{ r.name }}</div>
+                    @if (r.description) {
+                        <div>
+                            {{ r.description }}
+                        </div>
+                    }
+                </div>
+            </button>
+        </tedi-popover-content>
+    </tedi-popover>
+</ng-container>
+
+<ng-template #normalText>
+    <div>{{ currentRepresentative().name }}</div>
+</ng-template>

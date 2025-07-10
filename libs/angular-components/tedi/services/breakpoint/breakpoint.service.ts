@@ -100,4 +100,17 @@ export class BreakpointService {
       return currentIndex < targetIndex;
     });
   }
+
+  isAboveBreakpoint(breakpoint: Breakpoint) {
+    return computed(() => {
+      const current = this._currentBreakpoint();
+
+      if (!current) return true;
+
+      const currentIndex = breakpointsOrder.indexOf(current);
+      const targetIndex = breakpointsOrder.indexOf(breakpoint);
+
+      return currentIndex >= targetIndex;
+    });
+  }
 }

@@ -106,6 +106,13 @@ export const translationsMap = {
     en: "Log in",
     ru: "авторизоваться",
   },
+  "header.login-mobile": {
+    description: "Label for login button in mobile view",
+    components: ["Header"],
+    et: "Sisene",
+    en: "Log in",
+    ru: "авторизоваться",
+  },
   "header.logout": {
     description: "Label for logout button",
     components: ["Header"],
