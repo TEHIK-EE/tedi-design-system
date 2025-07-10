@@ -163,6 +163,7 @@ export const Default: SearchStory = {
     placeholder: "Search...",
     autocompleteFrom: 3,
     inputId: "search-input",
+    loading: false,
   },
   render: (args) => ({
     props: {
@@ -193,7 +194,7 @@ export const Sizes: SearchStory = {
     template: `
       <b>Large</b>
       <tedi-row cols="1" gap="3">
-        <tedi-search inputId="search-1" size="large" [autocompleteOptions]="mockOptions" [loading]="true">
+        <tedi-search inputId="search-1" size="large" [autocompleteOptions]="mockOptions">
           <p>Footer goes here</p>
         </tedi-search>
         <tedi-search inputId="search-2" size="large" [withButton]="true" [autocompleteOptions]="mockOptions"/>
