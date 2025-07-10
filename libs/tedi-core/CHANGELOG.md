@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-core-v1.15.1](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.15.0...core-1.15.1) (2025-07-10)
+
+
+### Bug Fixes
+
+* **header:** fix header css variable and add example logo [#931](https://github.com/TEHIK-EE/tedi-design-system/issues/931) ([#932](https://github.com/TEHIK-EE/tedi-design-system/issues/932)) ([047f568](https://github.com/TEHIK-EE/tedi-design-system/commit/047f5684e44d9aec927ee0568342eee388c0c30d))
+
 # [@tehik-ee/tedi-core-v1.15.0](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.14.1...core-1.15.0) (2025-06-26)
 
 
