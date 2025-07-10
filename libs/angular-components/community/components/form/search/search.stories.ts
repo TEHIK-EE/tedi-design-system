@@ -136,6 +136,16 @@ export default {
         defaultValue: { summary: "[]" },
       },
     },
+    loading: {
+      description: "Should the search input show a loading spinner",
+      control: "radio",
+      options: [true, false],
+      table: {
+        category: "inputs",
+        type: { summary: "boolean", detail: "boolean" },
+        defaultValue: { summary: "false" },
+      },
+    },
   },
 } as Meta<SearchComponent>;
 
@@ -183,7 +193,7 @@ export const Sizes: SearchStory = {
     template: `
       <b>Large</b>
       <tedi-row cols="1" gap="3">
-        <tedi-search inputId="search-1" size="large" [autocompleteOptions]="mockOptions">
+        <tedi-search inputId="search-1" size="large" [autocompleteOptions]="mockOptions" [loading]="true">
           <p>Footer goes here</p>
         </tedi-search>
         <tedi-search inputId="search-2" size="large" [withButton]="true" [autocompleteOptions]="mockOptions"/>
