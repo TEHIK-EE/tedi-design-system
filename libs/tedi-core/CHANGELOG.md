@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-core-v1.15.2](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.15.1...core-1.15.2) (2025-07-10)
+
+
+### Bug Fixes
+
+* **header:** fix tedi-core variable [#931](https://github.com/TEHIK-EE/tedi-design-system/issues/931) ([64af455](https://github.com/TEHIK-EE/tedi-design-system/commit/64af45525ab9c1d9043c3678a1551586f365827e))
+
 # [@tehik-ee/tedi-core-v1.15.1](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.15.0...core-1.15.1) (2025-07-10)
 
 
