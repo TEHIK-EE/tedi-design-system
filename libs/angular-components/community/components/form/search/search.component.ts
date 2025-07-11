@@ -18,6 +18,7 @@ import {
   IconComponent,
   ButtonComponent,
   ClosingButtonComponent,
+  SpinnerComponent,
 } from "@tehik-ee/tedi-angular/tedi";
 import { FormsModule } from "@angular/forms";
 import { CdkOverlayOrigin, OverlayModule } from "@angular/cdk/overlay";
@@ -48,6 +49,7 @@ export type AutocompleteOption = {
     DropdownItemComponent,
     ClosingButtonComponent,
     A11yModule,
+    SpinnerComponent,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
@@ -69,7 +71,8 @@ export type AutocompleteOption = {
   ],
 })
 export class SearchComponent
-  implements AfterContentChecked, ControlValueAccessor {
+  implements AfterContentChecked, ControlValueAccessor
+{
   /**
    * Search input ID for accessibility
    */
@@ -119,6 +122,11 @@ export class SearchComponent
    * @default ""
    */
   placeholder = input<string>("");
+  /**
+   * Should the search input show a loading spinner
+   * @default false
+   */
+  loading = input<boolean>(false);
 
   // Emitted event
   searchEvent = output<AutocompleteOption | string>();
@@ -147,11 +155,7 @@ export class SearchComponent
     const selected = this._selectedOption();
 
     // Logic to show/hide the autocomplete dropdown
-    if (
-      inputValue &&
-      inputValue.length >= this.autocompleteFrom() &&
-      !this._selectedOption()
-    ) {
+    if (inputValue.length >= this.autocompleteFrom() && !selected) {
       this._isVisible.set(true);
     } else {
       this._isVisible.set(false);

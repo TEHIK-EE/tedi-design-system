@@ -41,7 +41,7 @@
     @include mixins.responsive-styles(line-height, body-regular-line-height);
   }
 
-  &__trigger.tedi-btn {
+  &__trigger.tedi-button {
     border-radius: var(--_border-radius);
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
@@ -89,27 +89,20 @@
   }
 
   &--large {
-    .tedi-search__trigger.tedi-btn {
-      padding-left: 15px;
-      padding-right: 15px;
+    &.tedi-search--with-button:not(.tedi-search--with-button-text) {
+      .tedi-search__trigger.tedi-button {
+        height: 100%;
+        width: 56px; // not sure how to get the button width from the theme
+
+        // .material-symbols is overriding this
+        // and the icon is size "normal" instead 24
+        .tedi-icon--size-24 {
+          font-size: var(--icon-05-desktop);
+        }
+      }
     }
 
     @include mixins.responsive-styles(--_padding, form-field-padding-y-lg);
-  }
-
-  &--with-button:not(.tedi-search--with-button-text) {
-    &.tedi-search--small {
-      .tedi-search__trigger.tedi-btn {
-        padding-left: 6px;
-        padding-right: 6px;
-      }
-    }
-    &.tedi-search--default {
-      .tedi-search__trigger.tedi-btn {
-        padding-left: 10px;
-        padding-right: 10px;
-      }
-    }
   }
 
   &--disabled {

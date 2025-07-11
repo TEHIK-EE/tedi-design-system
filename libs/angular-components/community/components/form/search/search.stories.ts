@@ -136,6 +136,16 @@ export default {
         defaultValue: { summary: "[]" },
       },
     },
+    loading: {
+      description: "Should the search input show a loading spinner",
+      control: "radio",
+      options: [true, false],
+      table: {
+        category: "inputs",
+        type: { summary: "boolean", detail: "boolean" },
+        defaultValue: { summary: "false" },
+      },
+    },
   },
 } as Meta<SearchComponent>;
 
@@ -153,6 +163,7 @@ export const Default: SearchStory = {
     placeholder: "Search...",
     autocompleteFrom: 3,
     inputId: "search-input",
+    loading: false,
   },
   render: (args) => ({
     props: {

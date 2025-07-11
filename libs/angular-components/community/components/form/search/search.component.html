@@ -17,7 +17,8 @@
     <button
       type="reset"
       tedi-closing-button
-      [size]="size() === 'large' ? 'large' : 'medium'"
+      [size]="size() === 'large' ? 'default' : 'small'"
+      [iconSize]="size() === 'large' ? 24 : 18"
       (click)="$event.stopPropagation(); clearResult()"
     ></button>
     @if (!withButton()) {
@@ -25,12 +26,16 @@
     }
   }
   @if (!withButton()) {
-    <tedi-icon
-      class="tedi-search__search-icon"
-      name="search"
-      color="secondary"
-      [size]="iconSize()"
-    />
+    @if (!loading()) {
+      <tedi-icon
+        class="tedi-search__search-icon"
+        name="search"
+        color="secondary"
+        [size]="iconSize()"
+      />
+    } @else {
+      <tedi-spinner />
+    }
   }
 </div>
 
@@ -57,7 +62,11 @@
   #searchPanel
 >
   <tedi-card class="tedi-search__panel" [style.width.px]="_width()">
-    @if (_foundOptions().length) {
+    @if (loading()) {
+      <tedi-card-content padding="md" [hasSeparator]="true">
+        <tedi-spinner />
+      </tedi-card-content>
+    } @else if (_foundOptions().length) {
       <tedi-card-content padding="none" [hasSeparator]="true" cdkMenu>
         @for (option of _foundOptions(); track option.value) {
           <button
