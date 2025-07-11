@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-angular-v2.2.0-rc.11](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.2.0-rc.10...angular-2.2.0-rc.11) (2025-07-11)
+
+
+### Bug Fixes
+
+* **community-search:** Fixed buttons and added loader + index [#766](https://github.com/TEHIK-EE/tedi-design-system/issues/766) ([#933](https://github.com/TEHIK-EE/tedi-design-system/issues/933)) ([18132f9](https://github.com/TEHIK-EE/tedi-design-system/commit/18132f980fb146aa24d301c803bfbc50fa4ce57d)), closes [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640)
+
 # [@tehik-ee/tedi-angular-v2.2.0-rc.10](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.2.0-rc.9...angular-2.2.0-rc.10) (2025-07-09)
 
 
