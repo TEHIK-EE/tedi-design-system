@@ -1,0 +1,28 @@
+@use "@tehik-ee/tedi-core/mixins";
+
+tedi-header-content {
+    display: flex;
+    align-items: center;
+    
+    @include mixins.responsive-styles(gap, layout-header-items-center-gutter-x);
+
+    a, .tedi-link {
+        color: var(--general-text-primary);
+        text-decoration: none;
+
+        &:hover {
+            color: var(--general-text-secondary);
+            text-decoration-line: underline;
+        }
+
+        &:active {
+            color: var(--general-text-tertiary);
+            text-decoration-line: underline;
+        }
+
+        &:focus-visible {
+            outline: var(--borders-02) solid var(--primary-500);
+            outline-offset: var(--borders-01);
+        }
+    }
+}

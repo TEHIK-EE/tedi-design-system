@@ -70,8 +70,7 @@ import { CardComponent, CardContentComponent } from "../../../components/cards";
   ],
 })
 export class SelectComponent
-  implements AfterContentChecked, ControlValueAccessor
-{
+  implements AfterContentChecked, ControlValueAccessor {
   /**
    * The id of the select input (for label association).
    * @default ""

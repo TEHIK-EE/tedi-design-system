@@ -1,0 +1,81 @@
+@use "@tehik-ee/tedi-core/mixins";
+
+tedi-header-profile {
+    align-content: center;
+    
+    .tedi-header-profile--mobile {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 0;
+        border: 0;
+        border-radius: 0;
+        font-size: 12px;
+        line-height: 16px;
+
+        @include mixins.responsive-styles(min-width, layout-header-mobile-button-size);
+        @include mixins.responsive-styles(min-height, layout-header-mobile-button-size);
+        @include mixins.responsive-styles(padding, layout-grid-gutters-08);
+
+        &:focus-visible {
+            outline: var(--borders-02) solid var(--primary-500);
+            outline-offset: calc(-1 * var(--borders-02));
+        }
+        
+        tedi-icon {
+            @include mixins.responsive-styles(font-size, icon-05);
+        }
+
+        &[data-open="true"] {
+            background: var(--button-main-neutral-icon-only-background-active);
+        }
+    }
+
+    .tedi-header-profile__overlay {
+        position: fixed;
+        left: 0;
+        width: 100%;
+        min-height: 100dvh;
+        background: rgb(0 0 0 / 25%);
+        z-index: calc(var(--z-index-header) - 1);
+
+        @include mixins.responsive-styles(top, layout-header-min-height);
+    }
+
+    .tedi-header-profile__modal {
+        min-height: 100dvh;
+        position: fixed;
+        right: 0;
+        display: flex;
+        flex-direction: column;
+        background: var(--general-surface-primary);
+        z-index: var(--z-index-header);
+
+        @include mixins.responsive-styles(width, side-navigation-item-width-default);
+        @include mixins.responsive-styles(top, layout-header-min-height);
+
+        > * {
+            @include mixins.responsive-styles(padding, layout-header-modal-item-padding);
+
+            &:not(:last-child) {
+                border-bottom: var(--borders-01) solid var(--general-border-primary);
+            }
+
+            &:has(.tedi-header-role__head) {
+                border-bottom: var(--borders-04) solid var(--general-border-brand);
+            }
+        }
+
+        .tedi-header-logout--mobile {
+            flex-direction: row;
+            justify-content: flex-start;
+
+            @include mixins.responsive-styles(font-size, body-regular-size);
+            @include mixins.responsive-styles(gap, link-inner-spacing-x);
+
+            tedi-icon {
+                font-size: inherit !important;
+            }
+        }
+    }
+}

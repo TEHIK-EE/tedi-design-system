@@ -1,0 +1,10 @@
+<button 
+    tedi-button 
+    [variant]="isMobile() ? 'neutral' : 'primary'" 
+    [class]="{ 'tedi-header-login__button': true, 'tedi-header-login__button--mobile': isMobile() }"
+>
+    @if (isMobile()) {
+        <tedi-icon name="login" />
+    }
+    {{ text() }}
+</button>

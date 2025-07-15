@@ -49,7 +49,7 @@ describe("Link Component", () => {
   it("should wrap text nodes in a span", () => {
     linkElement.textContent = "Click me";
     fixture.detectChanges();
-    fixture.componentInstance.ngAfterContentInit();
+    fixture.componentInstance.ngAfterContentChecked();
   
     const span = linkElement.querySelector("span");
     expect(span).toBeTruthy();
