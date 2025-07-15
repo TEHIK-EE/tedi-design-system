@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-angular-v2.2.0-rc.12](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.2.0-rc.11...angular-2.2.0-rc.12) (2025-07-15)
+
+
+### Features
+
+* **header:** Community header [#883](https://github.com/TEHIK-EE/tedi-design-system/issues/883) ([#939](https://github.com/TEHIK-EE/tedi-design-system/issues/939)) ([2b0e1b7](https://github.com/TEHIK-EE/tedi-design-system/commit/2b0e1b720523ef1762bbc5e94ebe06ddacc8c3ca)), closes [#933](https://github.com/TEHIK-EE/tedi-design-system/issues/933)
+
 # [@tehik-ee/tedi-angular-v2.2.0-rc.11](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.2.0-rc.10...angular-2.2.0-rc.11) (2025-07-11)
 
 
