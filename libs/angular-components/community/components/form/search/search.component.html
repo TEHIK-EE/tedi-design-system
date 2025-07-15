@@ -6,6 +6,7 @@
   [(ngModel)]="_inputValue"
   [placeholder]="placeholder()"
   [disabled]="disabled()"
+  (focus)="focusInput()"
   (keydown.enter)="focusDropdown($event)"
   (keydown.arrowDown)="focusDropdown($event)"
   (ngModelChange)="inputChanged($event)"
