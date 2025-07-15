@@ -9,6 +9,7 @@ describe("SideNavComponent", () => {
   let sidenavService: {
     items: ReturnType<typeof signal>,
     isCollapsed: ReturnType<typeof signal>,
+    desktopBreakpoint: ReturnType<typeof signal>,
     isMobile: ReturnType<typeof signal>,
     isMobileItemOpen: ReturnType<typeof signal>,
     isMobileOpen: ReturnType<typeof signal>,
@@ -23,6 +24,7 @@ describe("SideNavComponent", () => {
     sidenavService = {
         items: signal([]),
         isCollapsed: signal(false),
+        desktopBreakpoint: signal("lg"),
         isMobile: signal(false),
         isMobileItemOpen: signal(false),
         isMobileOpen: signal(false),
