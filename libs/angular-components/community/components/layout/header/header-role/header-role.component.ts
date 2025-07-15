@@ -3,7 +3,7 @@ import { ChangeDetectionStrategy, Component, computed, inject, input, model, sig
 import { PopoverComponent } from '../../../overlay/popover/popover.component';
 import { PopoverTriggerComponent } from '../../../overlay/popover/popover-trigger.component';
 import { PopoverContentComponent } from '../../../overlay/popover/popover-content.component';
-import { IconComponent, LinkComponent, TextComponent, ShowAtDirective, HideAtDirective, ButtonComponent, TediTranslationService } from "@tehik-ee/tedi-angular/tedi";
+import { IconComponent, TextComponent, ShowAtDirective, HideAtDirective, ButtonComponent, TediTranslationService } from "@tehik-ee/tedi-angular/tedi";
 
 export type Representative = {
   name: string;
@@ -22,7 +22,6 @@ export type Representative = {
     PopoverTriggerComponent, 
     PopoverContentComponent, 
     IconComponent, 
-    LinkComponent, 
     ButtonComponent, 
     TextComponent, 
     ShowAtDirective, 

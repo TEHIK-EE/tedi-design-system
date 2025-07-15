@@ -92,7 +92,7 @@ export class BreakpointService {
     return computed(() => {
       const current = this._currentBreakpoint();
 
-      if (!current) return true;
+      if (!current) return false;
 
       const bp = typeof breakpoint === "function" ? breakpoint() : breakpoint;
 
@@ -107,7 +107,7 @@ export class BreakpointService {
     return computed(() => {
       const current = this._currentBreakpoint();
 
-      if (!current) return true;
+      if (!current) return false;
 
       const bp = typeof breakpoint === "function" ? breakpoint() : breakpoint;
 

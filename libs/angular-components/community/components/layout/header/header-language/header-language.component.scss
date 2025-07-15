@@ -1,4 +1,5 @@
 @use "@tehik-ee/tedi-core/mixins";
+@use "@tehik-ee/tedi-core/bootstrap-utility/breakpoints";
 
 :root {
     --_header-language-transition-duration: 300ms;
@@ -19,6 +20,14 @@
             tedi-icon {
                 transform: rotate(180deg);
             }
+        }
+    }
+
+    &__label {
+        display: none;
+
+        @include breakpoints.media-breakpoint-up(sm) {
+            display: block;
         }
     }
 }

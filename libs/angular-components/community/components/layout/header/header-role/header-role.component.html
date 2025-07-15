@@ -38,8 +38,8 @@
     <ng-container *ngIf="representatives().length > 1; else normalText">
         <tedi-popover>
             <tedi-popover-trigger>
-                <button tedi-link [underline]="false" class="tedi-header__link-button">
-                    {{ currentRepresentative().name }}
+                <button class="tedi-link tedi-header__link-button">
+                    <span>{{ currentRepresentative().name }}</span>
                     <tedi-icon name="expand_more" />
                 </button>
             </tedi-popover-trigger>

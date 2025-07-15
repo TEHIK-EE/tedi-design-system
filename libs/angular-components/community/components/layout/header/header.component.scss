@@ -23,5 +23,15 @@
         padding: 0;
 
         @include mixins.responsive-styles(font-size, body-regular-size, $exclude: tablet);
+
+        &:hover {
+            span {
+                text-decoration: underline !important;
+            }
+        }
+        
+        span {
+            text-decoration: none !important;
+        }
     }
 }

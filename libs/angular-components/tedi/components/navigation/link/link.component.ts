@@ -1,5 +1,5 @@
 import {
-  AfterContentInit,
+  AfterContentChecked,
   ChangeDetectionStrategy,
   Component,
   computed,
@@ -10,7 +10,6 @@ import {
   ViewEncapsulation,
 } from "@angular/core";
 import { BreakpointInputs, BreakpointService } from "../../../services/breakpoint/breakpoint.service";
-import { IconComponent } from "../../base/icon/icon.component";
 
 export type LinkVariant = "default" | "inverted";
 export type LinkSize = "default" | "small";
@@ -38,14 +37,13 @@ export type LinkInputs = {
   templateUrl: "./link.component.html",
   styleUrl: "./link.component.scss",
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [IconComponent],
   encapsulation: ViewEncapsulation.None,
   host: {
     "[class]": "classes()",
     "[attr.tabIndex]": "0",
   },
 })
-export class LinkComponent implements BreakpointInputs<LinkInputs>, AfterContentInit {
+export class LinkComponent implements BreakpointInputs<LinkInputs>, AfterContentChecked {
   variant = input<LinkVariant>("default");
   size = input<LinkSize>("default");
   underline = input<boolean>(true);
@@ -60,7 +58,7 @@ export class LinkComponent implements BreakpointInputs<LinkInputs>, AfterContent
   private host = inject(ElementRef);
   private renderer = inject(Renderer2);
 
-  ngAfterContentInit(): void {
+  ngAfterContentChecked(): void {
     const childNodes: ChildNode[] = Array.from(this.host.nativeElement.childNodes);
     
     for (const node of childNodes) {

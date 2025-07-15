@@ -1,9 +1,9 @@
 import { NgFor } from '@angular/common';
-import { ChangeDetectionStrategy, Component, input, model, ViewEncapsulation } from '@angular/core';
-import { PopoverComponent } from '../../../overlay/popover/popover.component';
-import { PopoverTriggerComponent } from '../../../overlay/popover/popover-trigger.component';
-import { PopoverContentComponent } from '../../../overlay/popover/popover-content.component';
-import { IconComponent, LinkComponent, TextComponent, ShowAtDirective } from "@tehik-ee/tedi-angular/tedi";
+import { ChangeDetectionStrategy, Component, input, model, signal, ViewEncapsulation } from '@angular/core';
+import { IconComponent, TextComponent } from "@tehik-ee/tedi-angular/tedi";
+import { PopoverComponent } from "../../../overlay/popover/popover.component";
+import { PopoverTriggerComponent } from "../../../overlay/popover/popover-trigger.component";
+import { PopoverContentComponent } from "../../../overlay/popover/popover-content.component";
 
 export type HeaderLanguage = {
   name: string;
@@ -13,7 +13,7 @@ export type HeaderLanguage = {
 @Component({
   selector: 'tedi-header-language',
   standalone: true,
-  imports: [NgFor, PopoverComponent, PopoverTriggerComponent, PopoverContentComponent, IconComponent, LinkComponent, TextComponent, ShowAtDirective],
+  imports: [NgFor, IconComponent, TextComponent, PopoverComponent, PopoverTriggerComponent, PopoverContentComponent],
   templateUrl: './header-language.component.html',
   styleUrl: './header-language.component.scss',
   encapsulation: ViewEncapsulation.None,
@@ -29,4 +29,14 @@ export class HeaderLanguageComponent {
    * This is current selected language and event emitter (currentLanguageChange)
    */
   currentLanguage = model.required<HeaderLanguage>();
+
+  open = signal(false);
+
+  handleOpen() {
+    this.open.update(prev => !prev);
+  }
+
+  handleChangeLang(lang: HeaderLanguage) {
+    this.currentLanguage.set(lang);
+  }
 }
