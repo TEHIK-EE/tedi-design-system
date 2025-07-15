@@ -1,5 +1,5 @@
 import { computed, effect, inject, Injectable, signal } from "@angular/core";
-import { BreakpointService } from "../breakpoint/breakpoint.service";
+import { Breakpoint, BreakpointService } from "../breakpoint/breakpoint.service";
 import { SideNavItemComponent } from "../../components/layout/sidenav/sidenav-item/sidenav-item.component";
 
 @Injectable({ providedIn: "root" })
@@ -7,7 +7,8 @@ export class SideNavService {
   private readonly breakpointService = inject(BreakpointService);
 
   items = signal<SideNavItemComponent[]>([]);
-  isMobile = this.breakpointService.isBelowBreakpoint("lg");
+  desktopBreakpoint = signal<Breakpoint>("lg");
+  isMobile = this.breakpointService.isBelowBreakpoint(this.desktopBreakpoint);
   isMobileOpen = signal(false);
   isCollapsed = signal(false);
 

@@ -76,6 +76,16 @@ export default {
         defaultValue: { summary: "false" },
       },
     },
+    desktopBreakpoint: {
+      description: "Breakpoint when to show desktop navigation",
+      control: "radio",
+      options: ["xs", "sm", "md", "lg", "xl", "xxl"],
+      table: {
+        category: "sidenav",
+        type: { summary: "Breakpoint", detail: "xs \nsm \nmd \nlg \nxl \nxxl" },
+        defaultValue: { summary: "lg" },
+      },
+    },
     itemSelected: {
       name: "selected",
       description: "Is navigation item selected",
@@ -152,6 +162,7 @@ export const Default: StoryObj<SideNavComponent> = {
     dividers: true,
     size: "large",
     collapsible: false,
+    desktopBreakpoint: "lg",
   },
   render: (args) => ({
     props: args,

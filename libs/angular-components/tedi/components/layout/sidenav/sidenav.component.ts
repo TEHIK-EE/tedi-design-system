@@ -2,7 +2,7 @@ import {
   ChangeDetectionStrategy,
   Component,
   computed,
-  inject,
+  effect,
   input,
   ViewEncapsulation,
 } from "@angular/core";
@@ -10,6 +10,7 @@ import {
 import { IconComponent } from "../../base/icon/icon.component";
 import { TediTranslationPipe } from "../../../services/translation/translation.pipe";
 import { SideNavService } from "../../../services/sidenav/sidenav.service";
+import { Breakpoint } from "../../../services/breakpoint/breakpoint.service";
 
 export type SideNavItemSize = "small" | "medium" | "large";
 
@@ -41,8 +42,16 @@ export class SideNavComponent {
    * @default false
    */
   collapsible = input<boolean>(false);
+  /** Breakpoint when to show desktop navigation
+   * @default lg
+   */
+  desktopBreakpoint = input<Breakpoint>("lg");
 
-  sidenavService = inject(SideNavService);
+  constructor(public sidenavService: SideNavService) {
+    effect(() => {
+      this.sidenavService.desktopBreakpoint.set(this.desktopBreakpoint())
+    })
+  }
 
   classes = computed(() => {
     const classList = ["tedi-sidenav", `tedi-sidenav--${this.size()}`];

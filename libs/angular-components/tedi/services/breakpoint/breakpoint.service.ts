@@ -1,4 +1,4 @@
-import { computed, Injectable, InputSignal, signal } from "@angular/core";
+import { computed, Injectable, InputSignal, Signal, signal } from "@angular/core";
 import { BreakpointObserver } from "@angular/cdk/layout";
 
 export const BREAKPOINTS = {
@@ -88,27 +88,31 @@ export class BreakpointService {
     return resolvedInputs as TInputs;
   }
 
-  isBelowBreakpoint(breakpoint: Breakpoint) {
+  isBelowBreakpoint(breakpoint: Breakpoint | Signal<Breakpoint>) {
     return computed(() => {
       const current = this._currentBreakpoint();
 
       if (!current) return true;
 
+      const bp = typeof breakpoint === "function" ? breakpoint() : breakpoint;
+
       const currentIndex = breakpointsOrder.indexOf(current);
-      const targetIndex = breakpointsOrder.indexOf(breakpoint);
+      const targetIndex = breakpointsOrder.indexOf(bp);
 
       return currentIndex < targetIndex;
     });
   }
 
-  isAboveBreakpoint(breakpoint: Breakpoint) {
+  isAboveBreakpoint(breakpoint: Breakpoint | Signal<Breakpoint>) {
     return computed(() => {
       const current = this._currentBreakpoint();
 
       if (!current) return true;
 
+      const bp = typeof breakpoint === "function" ? breakpoint() : breakpoint;
+
       const currentIndex = breakpointsOrder.indexOf(current);
-      const targetIndex = breakpointsOrder.indexOf(breakpoint);
+      const targetIndex = breakpointsOrder.indexOf(bp);
 
       return currentIndex >= targetIndex;
     });

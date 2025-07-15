@@ -1,0 +1,52 @@
+@if (showDropdown(); as dropdown) {
+    <ng-container *hideAt="dropdown">
+        <ng-container *ngTemplateOutlet="button"></ng-container>
+        <ng-container *ngTemplateOutlet="modal"></ng-container>
+    </ng-container>
+    
+    <ng-container *showAt="dropdown">
+        <tedi-popover>
+            <tedi-popover-trigger>
+                <ng-container *ngTemplateOutlet="button"></ng-container>
+            </tedi-popover-trigger>
+            <tedi-popover-content position="bottom" maxWidth="small" [withBorder]="true">
+                <ng-container *ngTemplateOutlet="content"></ng-container>
+            </tedi-popover-content>
+        </tedi-popover>
+    </ng-container>
+} @else {
+    <ng-container *ngTemplateOutlet="button"></ng-container>
+    <ng-container *ngTemplateOutlet="modal"></ng-container>
+}
+
+<ng-template #button>
+    <ng-container *hideAt="'sm'">
+        <button tedi-button variant="neutral" class="tedi-header-profile--mobile" [attr.data-open]="modalOpen()" (click)="handleModalOpen()">
+            <tedi-icon [name]="modalOpen() ? 'close' : 'account_circle'" color="brand" />
+            Profile
+        </button>
+    </ng-container>
+
+    <ng-container *showAt="'sm'">
+        <button tedi-button [variant]="name() ? 'secondary' : 'neutral'" (click)="handleModalOpen()">
+            <tedi-icon name="account_circle" color="brand" [style]="{ 'font-size': name() ? '18px' : '36px' }" />
+            {{ name() }}
+            @if (name()) {
+                <tedi-icon name="expand_more" style="font-size: 18px;" />
+            }
+        </button>
+    </ng-container>
+</ng-template>
+
+<ng-template #modal>
+    @if (modalOpen()) {
+        <div class="tedi-header-profile__overlay" (click)="handleModalOpen()"></div>
+        <div class="tedi-header-profile__modal">
+            <ng-container *ngTemplateOutlet="content"></ng-container>
+        </div>
+    }
+</ng-template>
+
+<ng-template #content>
+    <ng-content></ng-content>
+</ng-template>

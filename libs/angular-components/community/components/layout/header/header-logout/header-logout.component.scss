@@ -1,0 +1,50 @@
+@use "@tehik-ee/tedi-core/mixins";
+
+.tedi-header-logout {
+    display: flex;
+    align-items: center;
+    background: transparent;
+    padding: 0;
+    border: 0;
+
+    @include mixins.responsive-styles(font-size, body-regular-size);
+    @include mixins.responsive-styles(gap, link-inner-spacing-x);
+
+    &:hover {
+        span {
+            text-decoration: underline !important;
+        }
+    }
+
+    &--mobile {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 0;
+        border: 0;
+        border-radius: 0;
+        font-size: 12px;
+        line-height: 16px;
+
+        @include mixins.responsive-styles(min-width, layout-header-mobile-button-size);
+        @include mixins.responsive-styles(min-height, layout-header-mobile-button-size);
+        @include mixins.responsive-styles(padding, layout-grid-gutters-08);
+
+        &:focus-visible {
+            outline: var(--borders-02) solid var(--primary-500);
+            outline-offset: calc(-1 * var(--borders-02));
+        }
+        
+        tedi-icon {
+            font-size: var(--_header-logout-icon-size) !important;
+            margin: 0 !important;
+            margin-bottom: 4px !important;
+
+            @include mixins.responsive-styles(--_header-logout-icon-size, icon-05);
+        }
+    }
+
+    span {
+        text-decoration: none !important;
+    }
+}

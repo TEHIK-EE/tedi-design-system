@@ -40,7 +40,6 @@ import { TooltipTriggerComponent } from "../../../overlay/tooltip/tooltip-trigge
     TooltipComponent,
     TooltipTriggerComponent,
     TooltipContentComponent,
-    forwardRef(() => SideNavDropdownComponent),
   ],
   host: {
     "[class]": "classes()",

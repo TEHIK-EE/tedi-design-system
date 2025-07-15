@@ -1,6 +1,7 @@
 import {
   ChangeDetectionStrategy,
   Component,
+  computed,
   HostListener,
   inject,
   ViewEncapsulation,
@@ -18,7 +19,7 @@ import { TediTranslationService } from "../../../../services/translation/transla
   encapsulation: ViewEncapsulation.None,
   imports: [IconComponent],
   host: {
-    class: "tedi-sidenav-toggle",
+    "[class]": "classes()",
     "[attr.aria-label]": "ariaLabel()",
   },
 })
@@ -33,4 +34,14 @@ export class SideNavToggleComponent {
   }
 
   ariaLabel = this.translationService.track("sidenav.toggle");
+
+  classes = computed(() => {
+    const classList = ["tedi-sidenav-toggle"];
+
+    if (!this.sidenavService.isMobile()) {
+      classList.push("tedi-sidenav-toggle--hidden");
+    }
+
+    return classList.join(" ");
+  })
 }

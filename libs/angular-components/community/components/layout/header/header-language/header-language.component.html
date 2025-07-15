@@ -1,0 +1,14 @@
+<span tedi-text color="secondary" modifiers="small" *showAt="'sm'">Keel:</span>
+<tedi-popover>
+    <tedi-popover-trigger>
+        <button tedi-link [underline]="false" class="tedi-header__link-button">
+            {{ currentLanguage().label }}
+            <tedi-icon name="expand_more" />
+        </button>
+    </tedi-popover-trigger>
+    <tedi-popover-content position="bottom" maxWidth="none" [withBorder]="true">
+        <button tedi-link [underline]="false" *ngFor="let language of languages();" class="tedi-header__link-button">
+            {{ language.label }}
+        </button>
+    </tedi-popover-content>
+</tedi-popover>
