@@ -1,3 +1,13 @@
+# [@tehik-ee/tedi-angular-v2.2.0-rc.13](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.2.0-rc.12...angular-2.2.0-rc.13) (2025-07-16)
+
+
+### Bug Fixes
+
+* **community-search:** Add label/feedbackText + form states [#766](https://github.com/TEHIK-EE/tedi-design-system/issues/766) ([9f18656](https://github.com/TEHIK-EE/tedi-design-system/commit/9f18656e0ac825f050d05e6d748e92af65eea957))
+* **community-search:** Added loader for search with button [#766](https://github.com/TEHIK-EE/tedi-design-system/issues/766) ([f14046b](https://github.com/TEHIK-EE/tedi-design-system/commit/f14046b1d4a4e75fd6fc072a254ba6c390732664))
+* **community-search:** Handle overlay open + clearevent + bind inputChange [#766](https://github.com/TEHIK-EE/tedi-design-system/issues/766) ([ae29e10](https://github.com/TEHIK-EE/tedi-design-system/commit/ae29e10d2831619b16f7b584d9357ceb4e71812e))
+* **community-search:** Small css fix, removed doubled align [#766](https://github.com/TEHIK-EE/tedi-design-system/issues/766) ([a006f30](https://github.com/TEHIK-EE/tedi-design-system/commit/a006f30e6fb331584e9306d27bce02948316ea5c))
+
 # [@tehik-ee/tedi-angular-v2.2.0-rc.12](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.2.0-rc.11...angular-2.2.0-rc.12) (2025-07-15)
 
 
