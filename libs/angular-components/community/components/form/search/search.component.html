@@ -1,55 +1,75 @@
-<input
-  cdkOverlayOrigin
-  [id]="inputId()"
-  class="tedi-search__input"
-  type="text"
-  [(ngModel)]="_inputValue"
-  [placeholder]="placeholder()"
-  [disabled]="disabled()"
-  (keydown.enter)="focusDropdown($event)"
-  (keydown.arrowDown)="focusDropdown($event)"
-  (ngModelChange)="inputChanged($event)"
-  #trigger="cdkOverlayOrigin"
-/>
+@if (label()) {
+  <label tedi-label [for]="inputId()">
+    {{ label() }}
+  </label>
+}
 
-<div class="tedi-search__suffix">
-  @if (clearable() && _inputValue()) {
-    <button
-      type="reset"
-      tedi-closing-button
-      [size]="size() === 'large' ? 'default' : 'small'"
-      [iconSize]="size() === 'large' ? 24 : 18"
-      (click)="$event.stopPropagation(); clearResult()"
-    ></button>
-    @if (!withButton()) {
-      <div class="tedi-search__suffix-separator"></div>
+<div class="tedi-search__container">
+  <input
+    cdkOverlayOrigin
+    [id]="inputId()"
+    class="tedi-search__input"
+    type="text"
+    [(ngModel)]="_inputValue"
+    [placeholder]="placeholder()"
+    [disabled]="disabled()"
+    (focus)="focusInput()"
+    (keydown.enter)="focusDropdown($event)"
+    (keydown.arrowDown)="focusDropdown($event)"
+    (ngModelChange)="inputChanged($event)"
+    #trigger="cdkOverlayOrigin"
+  />
+
+  <div class="tedi-search__suffix">
+    @if (clearable() && _inputValue()) {
+      <button
+        type="reset"
+        tedi-closing-button
+        [size]="size() === 'large' ? 'default' : 'small'"
+        [iconSize]="size() === 'large' ? 24 : 18"
+        (click)="$event.stopPropagation(); clearResult()"
+      ></button>
+      @if (!withButton()) {
+        <div class="tedi-search__suffix-separator"></div>
+      }
     }
-  }
-  @if (!withButton()) {
-    @if (!loading()) {
-      <tedi-icon
-        class="tedi-search__search-icon"
-        name="search"
-        color="secondary"
-        [size]="iconSize()"
-      />
-    } @else {
+    @if (!withButton()) {
+      @if (!loading()) {
+        <tedi-icon
+          class="tedi-search__search-icon"
+          name="search"
+          color="secondary"
+          [size]="iconSize()"
+        />
+      } @else {
+        <tedi-spinner />
+      }
+    }
+  </div>
+
+  @if (withButton()) {
+    @if (loading()) {
       <tedi-spinner />
     }
+    <button
+      tedi-button
+      class="tedi-search__trigger"
+      [size]="buttonSize()"
+      (click)="searchButtonClick()"
+      [disabled]="disabled()"
+    >
+      <tedi-icon name="search" color="white" [size]="iconSize()" />
+      {{ buttonText() }}
+    </button>
   }
 </div>
 
-@if (withButton()) {
-  <button
-    tedi-button
-    class="tedi-search__trigger"
-    [size]="buttonSize()"
-    (click)="searchButtonClick()"
-    [disabled]="disabled()"
-  >
-    <tedi-icon name="search" color="white" [size]="iconSize()" />
-    {{ buttonText() }}
-  </button>
+@if (feedbackText(); as feedback) {
+  <tedi-feedback-text
+    [text]="feedback.text"
+    [type]="feedback.type"
+    [position]="feedback.position"
+  />
 }
 
 <ng-template

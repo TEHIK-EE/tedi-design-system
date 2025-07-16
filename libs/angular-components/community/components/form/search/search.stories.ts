@@ -6,6 +6,8 @@ import {
 } from "@storybook/angular";
 import { SearchComponent, AutocompleteOption } from "./search.component";
 import { RowComponent } from "@tehik-ee/tedi-angular/tedi";
+import { FormControl, FormGroup, ReactiveFormsModule } from "@angular/forms";
+import { JsonPipe } from "@angular/common";
 
 const mockOptions: AutocompleteOption[] = [
   {
@@ -30,7 +32,7 @@ export default {
   component: SearchComponent,
   decorators: [
     moduleMetadata({
-      imports: [SearchComponent, RowComponent],
+      imports: [SearchComponent, RowComponent, ReactiveFormsModule, JsonPipe],
     }),
   ],
   parameters: {
@@ -111,7 +113,7 @@ export default {
       control: { type: "number", min: 1 },
       table: {
         category: "inputs",
-        type: { summary: "number", detail: "number" },
+        type: { summary: "number | undefined", detail: "number | undefined" },
         defaultValue: { summary: "3" },
       },
     },
@@ -146,6 +148,37 @@ export default {
         defaultValue: { summary: "false" },
       },
     },
+    label: {
+      description: "Label for the search input",
+      control: "text",
+      table: {
+        category: "inputs",
+        type: { summary: "string", detail: "string" },
+        defaultValue: { summary: "undefined" },
+      },
+    },
+    feedbackText: {
+      description: "Feedback text for the search input",
+      control: "object",
+      table: {
+        category: "inputs",
+        type: {
+          summary: "ComponentInputs<FeedbackTextComponent>",
+          detail: "ComponentInputs<FeedbackTextComponent>",
+        },
+        defaultValue: { summary: "undefined" },
+      },
+    },
+    state: {
+      description: "Input state for validation",
+      control: "radio",
+      options: ["default", "error", "valid"],
+      table: {
+        category: "inputs",
+        type: { summary: "SearchState", detail: "default \nerror \nvalid" },
+        defaultValue: { summary: "default" },
+      },
+    },
   },
 } as Meta<SearchComponent>;
 
@@ -164,70 +197,90 @@ export const Default: SearchStory = {
     autocompleteFrom: 3,
     inputId: "search-input",
     loading: false,
-  },
-  render: (args) => ({
-    props: {
-      ...args,
-      mockOptions,
-      selectedItem: undefined,
-      onItemSelect: function (item: AutocompleteOption) {
-        console.log("Selected item:", item);
-        this["selectedItem"] = item;
-      },
+    label: "Search",
+    feedbackText: {
+      text: "Hint",
+      type: "hint",
+      position: "left",
     },
-    template: `
-        <tedi-search ${argsToTemplate(args)} (onSelect)="onItemSelect($event)">
-          <p>Footer goes here</p>
-        </tedi-search>
+    state: "default",
+  },
+  render: (args) => {
+    const form = new FormGroup({
+      search: new FormControl(""),
+    });
 
-<pre>{{ selectedItem | json }}</pre>
-    `,
-  }),
+    return {
+      props: {
+        ...args,
+        form,
+        mockOptions,
+        onItemSelect: function (item: AutocompleteOption | string) {
+          this["selectedItem"] = item;
+          console.log("Search event:", item);
+        },
+        onClear: function () {
+          console.log("cleared");
+        },
+      },
+      template: `
+        <form [formGroup]="form">
+          <tedi-search
+            formControlName="search"
+            ${argsToTemplate(args)}
+            (searchEvent)="onItemSelect($event)"
+            (clearEvent)="onClear()"
+          >
+            <p>Footer goes here</p>
+          </tedi-search>
+        </form>
+
+        <pre>FormControl value: {{ form.controls.search.value | json }}</pre>
+        <pre>searchEvent: {{ selectedItem | json }}</pre>
+      `,
+    };
+  },
 };
 
 export const Sizes: SearchStory = {
   render: (args) => ({
     props: {
       ...args,
+      autocompleteFrom: 0,
       mockOptions,
     },
     template: `
       <b>Large</b>
       <tedi-row cols="1" gap="3">
-        <tedi-search inputId="search-1" size="large" [autocompleteOptions]="mockOptions">
+        <tedi-search inputId="search-1" size="large" [autocompleteFrom]="autocompleteFrom" [autocompleteOptions]="mockOptions">
           <p>Footer goes here</p>
         </tedi-search>
-        <tedi-search inputId="search-2" size="large" [withButton]="true" [autocompleteOptions]="mockOptions"/>
-        <tedi-search inputId="search-3" size="large" [withButton]="true" buttonText="Otsi" [autocompleteOptions]="mockOptions"/>
+        <tedi-search inputId="search-2" size="large" [autocompleteFrom]="autocompleteFrom" [withButton]="true" [autocompleteOptions]="mockOptions"/>
+        <tedi-search inputId="search-3" size="large" [autocompleteFrom]="autocompleteFrom" [withButton]="true" buttonText="Otsi" [autocompleteOptions]="mockOptions"/>
       </tedi-row>
 
       <br />
 
       <b>Default</b>
       <tedi-row cols="1" gap="3">
-        <tedi-search inputId="search-4" size="default" [autocompleteOptions]="mockOptions"/>
-        <tedi-search inputId="search-5" size="default" [withButton]="true" [autocompleteOptions]="mockOptions"/>
-        <tedi-search inputId="search-6" size="default" [withButton]="true" buttonText="Otsi" [autocompleteOptions]="mockOptions"/>
+        <tedi-search inputId="search-4" size="default" [autocompleteFrom]="autocompleteFrom" [autocompleteOptions]="mockOptions"/>
+        <tedi-search inputId="search-5" size="default" [autocompleteFrom]="autocompleteFrom" [withButton]="true" [autocompleteOptions]="mockOptions"/>
+        <tedi-search inputId="search-6" size="default" [autocompleteFrom]="autocompleteFrom" [withButton]="true" buttonText="Otsi" [autocompleteOptions]="mockOptions"/>
       </tedi-row>
 
       <br />
 
       <b>Small</b>
       <tedi-row cols="1" gap="3">
-        <tedi-search inputId="search-7" size="small" [autocompleteOptions]="mockOptions"/>
-        <tedi-search inputId="search-8" size="small" [withButton]="true" [autocompleteOptions]="mockOptions"/>
-        <tedi-search inputId="search-9" size="small" [withButton]="true" buttonText="Otsi" [autocompleteOptions]="mockOptions"/>
+        <tedi-search inputId="search-7" size="small" [autocompleteFrom]="autocompleteFrom" [autocompleteOptions]="mockOptions"/>
+        <tedi-search inputId="search-8" size="small" [autocompleteFrom]="autocompleteFrom" [withButton]="true" [autocompleteOptions]="mockOptions"/>
+        <tedi-search inputId="search-9" size="small" [autocompleteFrom]="autocompleteFrom" [withButton]="true" buttonText="Otsi" [autocompleteOptions]="mockOptions"/>
       </tedi-row>
     `,
   }),
 };
 
 export const Disabled: SearchStory = {
-  args: {
-    size: "default",
-    disabled: true,
-    autocompleteOptions: mockOptions,
-  },
   render: () => ({
     template: `<tedi-search inputId="search-10" [disabled]="true" />`,
   }),
