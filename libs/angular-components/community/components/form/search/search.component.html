@@ -48,6 +48,9 @@
   </div>
 
   @if (withButton()) {
+    @if (loading()) {
+      <tedi-spinner />
+    }
     <button
       tedi-button
       class="tedi-search__trigger"
