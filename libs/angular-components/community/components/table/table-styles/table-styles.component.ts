@@ -1,3 +1,4 @@
+import { CdkScrollable } from "@angular/cdk/scrolling";
 import {
   booleanAttribute,
   ChangeDetectionStrategy,
@@ -10,7 +11,7 @@ export type TableSize = "default" | "small";
 
 @Component({
   selector: "tedi-table-styles",
-  imports: [],
+  imports: [CdkScrollable],
   templateUrl: "./table-styles.component.html",
   styleUrl: "./table-styles.component.scss",
   host: {
