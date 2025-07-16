@@ -148,6 +148,37 @@ export default {
         defaultValue: { summary: "false" },
       },
     },
+    label: {
+      description: "Label for the search input",
+      control: "text",
+      table: {
+        category: "inputs",
+        type: { summary: "string", detail: "string" },
+        defaultValue: { summary: "undefined" },
+      },
+    },
+    feedbackText: {
+      description: "Feedback text for the search input",
+      control: "object",
+      table: {
+        category: "inputs",
+        type: {
+          summary: "ComponentInputs<FeedbackTextComponent>",
+          detail: "ComponentInputs<FeedbackTextComponent>",
+        },
+        defaultValue: { summary: "undefined" },
+      },
+    },
+    state: {
+      description: "Input state for validation",
+      control: "radio",
+      options: ["default", "error", "valid"],
+      table: {
+        category: "inputs",
+        type: { summary: "SearchState", detail: "default \nerror \nvalid" },
+        defaultValue: { summary: "default" },
+      },
+    },
   },
 } as Meta<SearchComponent>;
 
@@ -166,6 +197,13 @@ export const Default: SearchStory = {
     autocompleteFrom: 3,
     inputId: "search-input",
     loading: false,
+    label: "Search",
+    feedbackText: {
+      text: "Hint",
+      type: "hint",
+      position: "left",
+    },
+    state: "default",
   },
   render: (args) => {
     const form = new FormGroup({

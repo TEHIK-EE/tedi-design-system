@@ -19,6 +19,9 @@ import {
   ButtonComponent,
   ClosingButtonComponent,
   SpinnerComponent,
+  ComponentInputs,
+  FeedbackTextComponent,
+  LabelComponent,
 } from "@tehik-ee/tedi-angular/tedi";
 import { FormsModule } from "@angular/forms";
 import { CdkOverlayOrigin, OverlayModule } from "@angular/cdk/overlay";
@@ -34,6 +37,7 @@ export type AutocompleteOption = {
   label: string;
   description?: string;
 };
+export type SearchState = "valid" | "error" | "default";
 
 @Component({
   selector: "tedi-search",
@@ -50,6 +54,8 @@ export type AutocompleteOption = {
     ClosingButtonComponent,
     A11yModule,
     SpinnerComponent,
+    FeedbackTextComponent,
+    LabelComponent,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
@@ -93,6 +99,11 @@ export class SearchComponent
    */
   size = input<SearchSize>("default");
   /**
+   * Input state for validation
+   * @default "default"
+   */
+  state = input<SearchState>("default");
+  /**
    * Should the search button be shown
    * @default false
    */
@@ -127,6 +138,16 @@ export class SearchComponent
    * @default false
    */
   loading = input<boolean>(false);
+  /**
+   * Label for the search input
+   * @default undefined
+   */
+  label = input<string>();
+  /**
+   * Feedback text component for displaying messages
+   * @default undefined
+   */
+  feedbackText = input<ComponentInputs<FeedbackTextComponent>>();
 
   // Emitted events
   searchEvent = output<AutocompleteOption | string>();
@@ -144,6 +165,7 @@ export class SearchComponent
   modifierClasses = computed(() => {
     const modifiers = [];
     if (this.size()) modifiers.push(`tedi-search--${this.size()}`);
+    if (this.state()) modifiers.push(`tedi-search--${this.state()}`);
 
     return modifiers.join(" ");
   });
