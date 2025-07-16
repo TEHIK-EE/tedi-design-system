@@ -1,0 +1,121 @@
+@use "@tehik-ee/tedi-core/mixins";
+
+.tedi-table-styles {
+  --_table-bg: var(--table-default);
+  --_table-border: var(--table-border);
+  --_table-contrast-border: var(--table-border-th);
+  --_table-stripe: var(--table-striped);
+  --_table-hover: var(--table-hover);
+  --_table-color: var(--general-text-primary);
+  --_table-header-color: var(--general-text-tertiary);
+
+  display: block;
+  background: var(--_table-bg);
+  border-radius: var(--_table-radius);
+  border: 1px solid var(--_table-border);
+  overflow: hidden;
+
+  @include mixins.responsive-styles(--_table-radius, table-radius);
+  @include mixins.responsive-styles(
+    --_table-header-padding-y,
+    table-header-padding-y
+  );
+  @include mixins.responsive-styles(
+    --_table-header-padding-x,
+    table-header-padding-x
+  );
+  @include mixins.responsive-styles(
+    --_table-data-padding-y,
+    table-data-padding-y
+  );
+  @include mixins.responsive-styles(
+    --_table-data-padding-x,
+    table-data-padding-x
+  );
+
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    vertical-align: middle;
+    width: 100%;
+    position: relative;
+  }
+
+  th,
+  td {
+    text-align: left;
+
+    @include mixins.responsive-styles(font-family, family-primary);
+    @include mixins.responsive-styles(font-weight, body-regular-weight);
+    @include mixins.responsive-styles(font-size, body-regular-size);
+    @include mixins.responsive-styles(line-height, body-regular-line-height);
+  }
+
+  th {
+    padding: var(--_table-header-padding-y) var(--_table-header-padding-x);
+    border-bottom: 1px solid var(--_table-contrast-border);
+    color: var(--_table-header-color);
+  }
+
+  td {
+    padding: var(--_table-data-padding-y) var(--_table-data-padding-x);
+    border-bottom: 1px solid var(--_table-border);
+    color: var(--_table-color);
+  }
+
+  tr:last-child td {
+    border-bottom: none;
+  }
+
+  .tedi-cell {
+    &--align-center {
+      text-align: center;
+    }
+
+    &--align-right {
+      text-align: right;
+    }
+  }
+
+  .tedi-row {
+    &--secondary {
+      background-color: var(--_table-stripe);
+    }
+  }
+
+  .tedi-table-scroll {
+    overflow-x: auto;
+  }
+
+  &--striped tbody tr:nth-child(even) {
+    background-color: var(--_table-stripe);
+  }
+
+  &--clickable tbody tr:hover {
+    cursor: pointer;
+    background-color: var(--_table-hover);
+  }
+
+  &--vertical-borders :is(th, td):not(:last-child) {
+    border-right: 1px solid var(--_table-border);
+  }
+
+  &--sm {
+    @include mixins.responsive-styles(
+      --_table-header-padding-y,
+      table-header-padding-y-sm
+    );
+    @include mixins.responsive-styles(
+      --_table-header-padding-x,
+      table-header-padding-x-sm
+    );
+    @include mixins.responsive-styles(
+      --_table-data-padding-y,
+      table-data-padding-y-sm
+    );
+    @include mixins.responsive-styles(
+      --_table-data-padding-x,
+      table-data-padding-x-sm
+    );
+  }
+}

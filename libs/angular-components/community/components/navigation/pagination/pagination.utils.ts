@@ -1,5 +1,5 @@
 export const getPagesToDisplay = (currentPage: number, lastPage: number) => {
-  const pages = new Set([1, currentPage, lastPage]);
+  const pages = new Set([1, currentPage, lastPage].filter((nr) => Boolean(nr)));
 
   let pagesAdded = pages.size;
   for (
