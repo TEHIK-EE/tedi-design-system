@@ -1,3 +1,11 @@
+# [@tehik-ee/tedi-angular-v2.2.0-rc.14](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.2.0-rc.13...angular-2.2.0-rc.14) (2025-07-16)
+
+
+### Features
+
+* **table:** add cdkScrollable to table scroll [#775](https://github.com/TEHIK-EE/tedi-design-system/issues/775) ([a6a0df7](https://github.com/TEHIK-EE/tedi-design-system/commit/a6a0df78343f3ae92222ae947fe68a9e4568295b))
+* **table:** create table styles provider [#775](https://github.com/TEHIK-EE/tedi-design-system/issues/775) ([cc1dac3](https://github.com/TEHIK-EE/tedi-design-system/commit/cc1dac3c4007ea169bbce2e94f2b6a2e702bcaac))
+
 # [@tehik-ee/tedi-angular-v2.2.0-rc.13](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.2.0-rc.12...angular-2.2.0-rc.13) (2025-07-16)
 
 
