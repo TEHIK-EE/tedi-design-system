@@ -1,3 +1,13 @@
+# [@tehik-ee/tedi-angular-v2.2.0-rc.15](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.2.0-rc.14...angular-2.2.0-rc.15) (2025-07-21)
+
+
+### Features
+
+* **community-select:** change CVA value from string[] (cdkListbox) to string [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) ([8e6a9a0](https://github.com/TEHIK-EE/tedi-design-system/commit/8e6a9a0911af35880f03b37480cc7fb75664f3ea))
+* **community-select:** Separated single and multiselect stories + "clearable" input  [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) ([7bb4b17](https://github.com/TEHIK-EE/tedi-design-system/commit/7bb4b1786624542a49be9409bbdf761eca073f45))
+* **community-select:** Show controlValueAccessor value on single- and multiselect  [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) ([ad4f386](https://github.com/TEHIK-EE/tedi-design-system/commit/ad4f38630c98bdb9bed355b353d07f9d1e95dfd2))
+* **community-select:** Single select empty value NULL  [#640](https://github.com/TEHIK-EE/tedi-design-system/issues/640) ([7672341](https://github.com/TEHIK-EE/tedi-design-system/commit/7672341456581f84205c09be82ce32001427b419))
+
 # [@tehik-ee/tedi-angular-v2.2.0-rc.14](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.2.0-rc.13...angular-2.2.0-rc.14) (2025-07-16)
 
 
