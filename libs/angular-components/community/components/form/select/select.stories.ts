@@ -127,7 +127,9 @@ export const WithPreselected: Story = {
           <tedi-select-option [value]="'option3'" [label]="'Option 3'">Option 3</tedi-select-option>
         </tedi-select>
       </form>
-      (FormControl value): {{ form.get('selectedOption').value }}
+
+      <br />
+      <strong>controlValueAccessor value:</strong> {{ form.get('selectedOption').value }}
     `,
     props: {
       ...args,
@@ -313,6 +315,41 @@ export const Multiselect: Story = {
       ...args,
     },
   }),
+};
+
+export const multiselectPreselectedOptions: Story = {
+  render: (args) => {
+    const form = new FormGroup({
+      selectedOptions: new FormControl(["option2", "option4"]),
+    });
+    return {
+      props: {
+        ...args,
+        form,
+      },
+      template: `
+        <form [formGroup]="form">
+          <tedi-multiselect
+            inputId="multiselect-1"
+            [placeholder]="placeholder"
+            [label]="label"
+            [feedbackText]="feedbackText"
+            [required]="required"
+            formControlName="selectedOptions"
+          >
+            <tedi-select-option value="option1" label="Option 1" />
+            <tedi-select-option value="option2" label="Option 2" />
+            <tedi-select-option value="option3" label="Option 3" />
+            <tedi-select-option value="option4" label="Option 4" />
+            <tedi-select-option value="option5" label="Option 5" />
+          </tedi-multiselect>
+        </form>
+
+        <br />
+        <strong>controlValueAccessor value:</strong> {{ form.controls.selectedOptions.value | json }}
+      `,
+    };
+  },
 };
 
 export const MultiselectWithCustomOptions: Story = {
