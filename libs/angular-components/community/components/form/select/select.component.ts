@@ -70,7 +70,8 @@ import { CardComponent, CardContentComponent } from "../../../components/cards";
   ],
 })
 export class SelectComponent
-  implements AfterContentChecked, ControlValueAccessor {
+  implements AfterContentChecked, ControlValueAccessor
+{
   /**
    * The id of the select input (for label association).
    * @default ""
@@ -146,8 +147,9 @@ export class SelectComponent
   }
 
   handleValueChange(event: { value: readonly string[] }): void {
-    this.selectedOptions.set(event.value);
-    this.onChange(event.value);
+    const selected = event.value[0] ?? "";
+    this.selectedOptions.set(selected ? [selected] : []);
+    this.onChange(selected);
     this.onTouched();
     this.toggleIsOpen(false);
   }
@@ -156,7 +158,7 @@ export class SelectComponent
     event.preventDefault();
     event.stopPropagation();
     this.selectedOptions.set([]);
-    this.onChange([]);
+    this.onChange("");
     this.onTouched();
   }
 
@@ -185,14 +187,14 @@ export class SelectComponent
   }
 
   // ControlValueAccessor implementation
-  onChange: (value: readonly string[]) => void = () => {};
+  onChange: (value: string) => void = () => {};
   onTouched: () => void = () => {};
 
-  writeValue(value: readonly string[]): void {
-    this.selectedOptions.set(value || []);
+  writeValue(value: string): void {
+    this.selectedOptions.set(value ? [value] : []);
   }
 
-  registerOnChange(fn: (value: readonly string[]) => void): void {
+  registerOnChange(fn: (value: string) => void): void {
     this.onChange = fn;
   }
 
