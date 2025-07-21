@@ -102,6 +102,11 @@ export class SelectComponent
    * @default "default"
    */
   size = input<InputSize>("default");
+  /**
+   * Whether the clear button will be shown when an option is selected.
+   * @default false
+   */
+  clearable = input<boolean>(true);
   feedbackText = input<ComponentInputs<FeedbackTextComponent>>();
 
   isOpen = signal(false);

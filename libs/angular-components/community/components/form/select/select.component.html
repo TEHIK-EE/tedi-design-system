@@ -43,7 +43,7 @@
     }
   </span>
 
-  @if (selectedOptions().length) {
+  @if (clearable() && selectedOptions().length) {
     <button
       class="tedi-select__clear"
       tedi-closing-button
