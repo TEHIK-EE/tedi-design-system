@@ -152,7 +152,7 @@ export class SelectComponent
   }
 
   handleValueChange(event: { value: readonly string[] }): void {
-    const selected = event.value[0] ?? "";
+    const selected = event.value[0] ?? null;
     this.selectedOptions.set(selected ? [selected] : []);
     this.onChange(selected);
     this.onTouched();
@@ -163,7 +163,7 @@ export class SelectComponent
     event.preventDefault();
     event.stopPropagation();
     this.selectedOptions.set([]);
-    this.onChange("");
+    this.onChange(null);
     this.onTouched();
   }
 
@@ -192,14 +192,14 @@ export class SelectComponent
   }
 
   // ControlValueAccessor implementation
-  onChange: (value: string) => void = () => {};
+  onChange: (value: string | null) => void = () => {};
   onTouched: () => void = () => {};
 
   writeValue(value: string): void {
     this.selectedOptions.set(value ? [value] : []);
   }
 
-  registerOnChange(fn: (value: string) => void): void {
+  registerOnChange(fn: (value: string | null) => void): void {
     this.onChange = fn;
   }
 
