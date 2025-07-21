@@ -79,7 +79,8 @@ export enum specialOptionControls {
   ],
 })
 export class MultiselectComponent
-  implements AfterContentChecked, ControlValueAccessor {
+  implements AfterContentChecked, ControlValueAccessor
+{
   /**
    * The id of the select input (for label association).
    * @default ""
@@ -130,6 +131,11 @@ export class MultiselectComponent
    * @default false
    */
   selectableGroups = input<boolean>(false);
+  /**
+   * Whether the clear button will be shown when an option is selected.
+   * @default true
+   */
+  clearable = input<boolean>(true);
   feedbackText = input<ComponentInputs<FeedbackTextComponent>>();
 
   readonly specialOptionControls = specialOptionControls;
