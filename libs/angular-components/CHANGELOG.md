@@ -1,3 +1,11 @@
+# [@tehik-ee/tedi-angular-v2.2.0-rc.17](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.2.0-rc.16...angular-2.2.0-rc.17) (2025-07-28)
+
+
+### Bug Fixes
+
+* **community-search:** Fix large search with button without text height [#766](https://github.com/TEHIK-EE/tedi-design-system/issues/766) ([ccd71d6](https://github.com/TEHIK-EE/tedi-design-system/commit/ccd71d6f9e53320669c03ac7fcd5e3ec4cea2925))
+* **community-search:** set CVA disabled state  [#766](https://github.com/TEHIK-EE/tedi-design-system/issues/766) ([f9bfa4f](https://github.com/TEHIK-EE/tedi-design-system/commit/f9bfa4f3ebadba4508f8da47fc8564e070ac5b58))
+
 # [@tehik-ee/tedi-angular-v2.2.0-rc.16](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.2.0-rc.15...angular-2.2.0-rc.16) (2025-07-28)
 
 
