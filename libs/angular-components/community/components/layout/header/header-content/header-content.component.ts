@@ -3,7 +3,7 @@ import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/
 @Component({
   selector: 'tedi-header-content',
   standalone: true,
-  templateUrl: './header-content.component.html',
+  template: "<ng-content />",
   styleUrl: './header-content.component.scss',
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
