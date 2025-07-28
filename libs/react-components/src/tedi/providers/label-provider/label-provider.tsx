@@ -7,7 +7,8 @@ import isSameOrBefore from 'dayjs/plugin/isSameOrBefore';
 import updateLocale from 'dayjs/plugin/updateLocale';
 import React, { useCallback, useMemo } from 'react';
 
-import { TediLabelRecord, TediLanguage } from './label-types';
+import { DeepPartial } from '../../types/commonTypes';
+import { TediLabelEntry, TediLabelRecord, TediLanguage } from './label-types';
 import { labelsMap, TediLabels } from './labels-map';
 
 import 'dayjs/locale/et';
@@ -50,7 +51,7 @@ export interface LabelProviderProps {
    * Global labels that are use in components. If omitted then default labels are used based on `locale` prop.
    * If both props are omitted then English translations are used by default
    */
-  labels?: TediLabelRecord;
+  labels?: DeepPartial<TediLabels>;
   /**
    * Currently used locale. Supported languages are:<br />
    * et - Estonian<br />
@@ -67,7 +68,26 @@ export interface LabelProviderProps {
 
 export const LabelProvider = (props: LabelProviderProps): JSX.Element => {
   const { labels = {}, children, locale = 'en' } = props;
-  const mergedLabels: TediLabelRecord = useMemo(() => ({ ...labelsMap, ...labels }), [labels]);
+
+  const mergedLabels: TediLabelRecord = useMemo(() => {
+    const result = {} as TediLabelRecord;
+    const allKeys = new Set<string>([...Object.keys(labelsMap), ...Object.keys(labels)]);
+
+    for (const key of allKeys) {
+      const defaultEntry = labelsMap[key as keyof typeof labelsMap];
+      const newEntry = labels[key as keyof typeof labels];
+
+      if (defaultEntry && newEntry) {
+        result[key] = { ...defaultEntry, ...newEntry } as TediLabelEntry;
+      } else if (defaultEntry) {
+        result[key] = defaultEntry;
+      } else if (newEntry) {
+        result[key] = newEntry;
+      }
+    }
+
+    return result;
+  }, [labels]);
 
   dayjs.locale(locale);
 
@@ -86,10 +106,15 @@ export const LabelProvider = (props: LabelProviderProps): JSX.Element => {
       const label = mergedLabels[key];
 
       if (!label || !(locale in label)) {
+        console.error(`Label missing for key "${key}".`);
         return key;
       }
 
       const value = label[locale];
+
+      if (!value) {
+        return key;
+      }
 
       if (typeof value === 'function') {
         return value(...args);
