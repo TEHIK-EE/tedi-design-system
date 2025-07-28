@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-angular-v2.2.0-rc.16](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.2.0-rc.15...angular-2.2.0-rc.16) (2025-07-28)
+
+
+### Bug Fixes
+
+* **header:** fix header-language component [#945](https://github.com/TEHIK-EE/tedi-design-system/issues/945) ([#946](https://github.com/TEHIK-EE/tedi-design-system/issues/946)) ([99d8309](https://github.com/TEHIK-EE/tedi-design-system/commit/99d830987a673977f4ecd7e4d423f558fe6bc512))
+
 # [@tehik-ee/tedi-angular-v2.2.0-rc.15](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.2.0-rc.14...angular-2.2.0-rc.15) (2025-07-21)
 
 
