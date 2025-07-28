@@ -1,19 +1,18 @@
 import { NgFor } from '@angular/common';
-import { ChangeDetectionStrategy, Component, input, model, signal, ViewEncapsulation } from '@angular/core';
-import { IconComponent, TextComponent } from "@tehik-ee/tedi-angular/tedi";
+import { ChangeDetectionStrategy, Component, computed, forwardRef, inject, input, output, ViewChild, ViewEncapsulation } from '@angular/core';
+import { IconComponent, Language, TediTranslationPipe, TediTranslationService, TextComponent } from "@tehik-ee/tedi-angular/tedi";
 import { PopoverComponent } from "../../../overlay/popover/popover.component";
 import { PopoverTriggerComponent } from "../../../overlay/popover/popover-trigger.component";
 import { PopoverContentComponent } from "../../../overlay/popover/popover-content.component";
 
 export type HeaderLanguage = {
-  name: string;
-  label: string;
+  [L in Language]?: string;
 }
 
 @Component({
   selector: 'tedi-header-language',
   standalone: true,
-  imports: [NgFor, IconComponent, TextComponent, PopoverComponent, PopoverTriggerComponent, PopoverContentComponent],
+  imports: [NgFor, IconComponent, TextComponent, PopoverComponent, PopoverTriggerComponent, PopoverContentComponent, TediTranslationPipe],
   templateUrl: './header-language.component.html',
   styleUrl: './header-language.component.scss',
   encapsulation: ViewEncapsulation.None,
@@ -23,20 +22,26 @@ export type HeaderLanguage = {
   }
 })
 export class HeaderLanguageComponent {
-  /** List of languages */
-  languages = input.required<HeaderLanguage[]>();
+  /** 
+   * Languages object.
+   * Key is value in 'Language' type.
+   * Value should be text shown in the UI.
+  */
+  languages = input.required<HeaderLanguage>();
   /**
-   * This is current selected language and event emitter (currentLanguageChange)
+   * This is event emitter for changing language
    */
-  currentLanguage = model.required<HeaderLanguage>();
+  languageChange = output<Language>();
 
-  open = signal(false);
+  @ViewChild(forwardRef(() => PopoverComponent)) popover?: PopoverComponent;
 
-  handleOpen() {
-    this.open.update(prev => !prev);
-  }
+  translationService = inject(TediTranslationService);
 
-  handleChangeLang(lang: HeaderLanguage) {
-    this.currentLanguage.set(lang);
+  languageKeys = computed(() => Object.keys(this.languages()) as Language[]);
+
+  handleChangeLang(lang: Language) {
+    this.languageChange.emit(lang);
+    this.translationService.setLanguage(lang);
+    this.popover?.closePopover();
   }
 }

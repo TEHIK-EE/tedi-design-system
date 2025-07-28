@@ -1,18 +1,18 @@
-<span tedi-text color="secondary" modifiers="small" class="tedi-header-language__label">Keel:</span>
+<span tedi-text color="secondary" modifiers="small" class="tedi-header-language__label">{{ "header.select-lang" | tediTranslate }}</span>
 <tedi-popover>
     <tedi-popover-trigger>
-        <button class="tedi-link tedi-header__link-button" (click)="handleOpen()">
-            <span>{{ currentLanguage().label }}</span>
+        <button class="tedi-link tedi-header__link-button">
+            <span>{{ languages()[translationService.getLanguage()] }}</span>
             <tedi-icon name="expand_more" />
         </button>
     </tedi-popover-trigger>
     <tedi-popover-content position="bottom" maxWidth="none" [withBorder]="true">
         <button 
-            *ngFor="let language of languages();" 
+            *ngFor="let language of languageKeys();" 
             class="tedi-link tedi-header__link-button"
             (click)="handleChangeLang(language)"
         >
-            <span>{{ language.label }}</span>
+            <span>{{ languages()[language] }}</span>
         </button>
     </tedi-popover-content>
 </tedi-popover>

@@ -130,14 +130,7 @@ export default {
       },
     },
     languages: {
-      description: "List of languages",
-      table: {
-        category: "header-language",
-        type: { summary: "HeaderLanguage[]" },
-      },
-    },
-    currentLanguage: {
-      description: "Current language",
+      description: "Languages object. <br />Key is value in 'Language' type. <br />Value should be text shown in the UI.",
       table: {
         category: "header-language",
         type: { summary: "HeaderLanguage" },
@@ -168,8 +161,8 @@ export const Default: StoryObj<HeaderComponent> = {
         </tedi-header-content>
         <tedi-header-actions>
           <tedi-header-language 
-            [languages]="[{ name: 'Estonian', label: 'EST' }, { name: 'English', label: 'ENG' }]" 
-            [currentLanguage]="{ name: 'Estonian', label: 'EST' }" 
+            [languages]="{ et: 'EST', en: 'ENG', ru: 'RUS' }" 
+            currentLanguage="et"
           />
           <tedi-header-login />
         </tedi-header-actions>
@@ -216,10 +209,7 @@ export const LoggedIn1: StoryObj<HeaderComponent> = {
               [currentRepresentative]="{ icon: 'person', name: 'Juulia Sarapuu', description: '62004122984' }"
               *showAt="'lg'"
             />
-            <tedi-header-language 
-              [languages]="[{ name: 'Estonian', label: 'EST' }, { name: 'English', label: 'ENG' }]" 
-              [currentLanguage]="{ name: 'Estonian', label: 'EST' }" 
-            />
+            <tedi-header-language [languages]="{ et: 'EST', en: 'ENG', ru: 'RUS' }" />
             <tedi-header-profile showDropdown="lg">
               <tedi-header-role 
                 role="Roll:"
@@ -276,10 +266,7 @@ export const LoggedIn2: StoryObj<HeaderComponent> = {
               [currentRepresentative]="{ icon: 'person', name: 'Juulia Sarapuu', description: '62004122984' }"
               *showAt="'lg'"
             />
-            <tedi-header-language 
-              [languages]="[{ name: 'Estonian', label: 'EST' }, { name: 'English', label: 'ENG' }]" 
-              [currentLanguage]="{ name: 'Estonian', label: 'EST' }" 
-            />
+            <tedi-header-language [languages]="{ et: 'EST', en: 'ENG', ru: 'RUS' }" />
             <button tedi-header-logout>
               Logi välja
             </button>
@@ -319,10 +306,7 @@ export const LoggedIn3: StoryObj<HeaderComponent> = {
               [currentRepresentative]="{ icon: 'person', name: 'Juulia Sarapuu', description: '62004122984' }"
               *showAt="'lg'"
             />
-            <tedi-header-language 
-              [languages]="[{ name: 'Estonian', label: 'EST' }, { name: 'English', label: 'ENG' }]" 
-              [currentLanguage]="{ name: 'Estonian', label: 'EST' }" 
-            />
+            <tedi-header-language [languages]="{ et: 'EST', en: 'ENG', ru: 'RUS' }" />
             <tedi-header-profile name="Juulia Sarapuu" showDropdown="lg">
               <tedi-header-role 
                 role="Roll:"
@@ -366,10 +350,7 @@ export const LoggedOut: StoryObj<HeaderComponent> = {
       <header tedi-header ${argsToTemplate(args)}>
         <img src="header-logo.svg" alt="Logo" />
         <tedi-header-actions>
-          <tedi-header-language 
-            [languages]="[{ name: 'Estonian', label: 'EST' }, { name: 'English', label: 'ENG' }]" 
-            [currentLanguage]="{ name: 'Estonian', label: 'EST' }" 
-          />
+          <tedi-header-language [languages]="{ et: 'EST', en: 'ENG', ru: 'RUS' }" />
           <tedi-header-login />
         </tedi-header-actions>
       </header>
@@ -412,10 +393,7 @@ export const WithOrganization: StoryObj<HeaderComponent> = {
               [currentRepresentative]="{ icon: 'person', name: 'Juulia Sarapuu', description: '62004122984' }"
               *showAt="'lg'"
             />
-            <tedi-header-language 
-              [languages]="[{ name: 'Estonian', label: 'EST' }, { name: 'English', label: 'ENG' }]" 
-              [currentLanguage]="{ name: 'Estonian', label: 'EST' }" 
-            />
+            <tedi-header-language [languages]="{ et: 'EST', en: 'ENG', ru: 'RUS' }" />
             <tedi-header-profile>
               <tedi-header-role 
                 role="Asutus:" 
