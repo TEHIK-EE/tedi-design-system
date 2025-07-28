@@ -65,7 +65,7 @@ export type SearchState = "valid" | "error" | "default";
     "[class.tedi-search]": "true",
     "[class.tedi-search--with-button]": "withButton()",
     "[class.tedi-search--with-button-text]": "!!buttonText()",
-    "[class.tedi-search--disabled]": "disabled()",
+    "[class.tedi-search--disabled]": "_disabled()",
     "[class]": "modifierClasses()",
   },
   providers: [

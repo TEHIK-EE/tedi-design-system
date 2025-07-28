@@ -161,6 +161,9 @@
     .tedi-search__container {
       background-color: var(--form-input-background-disabled);
       border-color: var(--form-input-border-disabled);
+    }
+    .tedi-search__input {
+      background-color: var(--form-input-background-disabled);
       pointer-events: none;
     }
   }

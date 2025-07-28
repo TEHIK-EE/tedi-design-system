@@ -281,7 +281,32 @@ export const Sizes: SearchStory = {
 };
 
 export const Disabled: SearchStory = {
-  render: () => ({
-    template: `<tedi-search inputId="search-10" [disabled]="true" />`,
-  }),
+  render: () => {
+    const form = new FormGroup({
+      search: new FormControl({
+        value: { value: "option1", label: "Option 1 example" },
+        disabled: true,
+      }),
+    });
+
+    return {
+      props: {
+        form,
+        mockOptions,
+      },
+      template: `
+        <form [formGroup]="form">
+          <tedi-search
+            inputId="search-10"
+            formControlName="search"
+            [autocompleteOptions]="mockOptions"
+            placeholder="This search is disabled"
+          />
+        </form>
+
+        <pre>Form disabled state: {{ form.controls.search.disabled }}</pre>
+        <pre>Form control value: {{ form.controls.search.value | json }}</pre>
+      `,
+    };
+  },
 };
