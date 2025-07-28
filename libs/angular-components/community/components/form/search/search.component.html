@@ -12,7 +12,7 @@
     type="text"
     [(ngModel)]="_inputValue"
     [placeholder]="placeholder()"
-    [disabled]="disabled()"
+    [disabled]="_disabled()"
     (focus)="focusInput()"
     (keydown.enter)="focusDropdown($event)"
     (keydown.arrowDown)="focusDropdown($event)"
@@ -56,7 +56,7 @@
       class="tedi-search__trigger"
       [size]="buttonSize()"
       (click)="searchButtonClick()"
-      [disabled]="disabled()"
+      [disabled]="_disabled()"
     >
       <tedi-icon name="search" color="white" [size]="iconSize()" />
       {{ buttonText() }}
