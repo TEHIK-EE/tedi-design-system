@@ -141,7 +141,7 @@
   &--large {
     &.tedi-search--with-button:not(.tedi-search--with-button-text) {
       .tedi-search__trigger.tedi-button {
-        height: 100%;
+        height: auto;
         width: 56px; // not sure how to get the button width from the theme
 
         // .material-symbols is overriding this
