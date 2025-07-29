@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-angular-v2.2.0-rc.18](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.2.0-rc.17...angular-2.2.0-rc.18) (2025-07-29)
+
+
+### Bug Fixes
+
+* **community-search:** Add ontouched event on input blur [#766](https://github.com/TEHIK-EE/tedi-design-system/issues/766) ([4772ba1](https://github.com/TEHIK-EE/tedi-design-system/commit/4772ba1b830235eceebc95e9cad2bc127cee6e73))
+
 # [@tehik-ee/tedi-angular-v2.2.0-rc.17](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.2.0-rc.16...angular-2.2.0-rc.17) (2025-07-28)
 
 
