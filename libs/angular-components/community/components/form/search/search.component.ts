@@ -247,7 +247,7 @@ export class SearchComponent
 
   // ControlValueAccessor methods
   private onChange: (value: string | AutocompleteOption) => void = () => {};
-  private onTouched: () => void = () => {};
+  onTouched: () => void = () => {};
 
   writeValue(value: string | AutocompleteOption): void {
     if (typeof value === "string") {
