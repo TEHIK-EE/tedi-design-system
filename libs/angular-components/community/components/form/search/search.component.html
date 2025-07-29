@@ -17,6 +17,7 @@
     (keydown.enter)="focusDropdown($event)"
     (keydown.arrowDown)="focusDropdown($event)"
     (ngModelChange)="inputChanged($event)"
+    (blur)="onTouched()"
     #trigger="cdkOverlayOrigin"
   />
 
