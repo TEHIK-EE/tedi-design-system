@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-core-v1.15.3](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.15.2...core-1.15.3) (2025-07-30)
+
+
+### Bug Fixes
+
+* **missing-var:** add missing css variable in tedi-core to fix icon aligment issue [#860](https://github.com/TEHIK-EE/tedi-design-system/issues/860) ([79c2c9d](https://github.com/TEHIK-EE/tedi-design-system/commit/79c2c9d7d582a0e880f816eadfd2b5e178a36d59))
+
 # [@tehik-ee/tedi-core-v1.15.2](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.15.1...core-1.15.2) (2025-07-10)
 
 
