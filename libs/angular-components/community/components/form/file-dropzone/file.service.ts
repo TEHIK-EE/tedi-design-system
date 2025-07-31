@@ -5,7 +5,7 @@ import {
   FileInputMode,
   ValidationState,
 } from "./types";
-import { TediTranslationService } from "tedi/services";
+import { TediTranslationService } from "@tehik-ee/tedi-angular/tedi";
 
 @Injectable({
   providedIn: "root",
