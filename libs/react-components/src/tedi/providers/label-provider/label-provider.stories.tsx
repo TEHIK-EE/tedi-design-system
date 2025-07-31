@@ -22,7 +22,6 @@ export default {
 
 const Template: StoryFn<LabelProviderProps> = () => {
   const { getLabel } = useLabels();
-  const pluralLabel = getLabel('pagination.results');
 
   return (
     <>
@@ -32,8 +31,8 @@ const Template: StoryFn<LabelProviderProps> = () => {
           (Custom label provided by Application)
         </Text>
       </p>
-      <p>1 {typeof pluralLabel === 'string' ? pluralLabel : pluralLabel(1)}</p>
-      <p>4 {typeof pluralLabel === 'string' ? pluralLabel : pluralLabel(4)}</p>
+      <p>1 {getLabel('pagination.results', 1)}</p>
+      <p>4 {getLabel('pagination.results', 4)}</p>
       <p>
         {/* Intentional missing label to showcase error in console */}
         {getLabel('missing.label' as UnknownType)} -{' '}
@@ -51,7 +50,9 @@ export const Default = {
   args: {
     locale: 'en',
     labels: {
-      close: 'Close this',
+      close: {
+        en: 'Close this',
+      },
     },
   },
 

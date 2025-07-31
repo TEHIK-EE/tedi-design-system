@@ -14,10 +14,10 @@ export interface PaginationPageButtonProps {
 const PaginationPageButton = ({ item }: PaginationPageButtonProps) => {
   const { table } = React.useContext(TableContext);
   const { getLabel } = useLabels();
-  const pageLabel = getLabel('pagination.page');
+  const pageNumber = item.page || 0;
+  const pageLabel = getLabel('pagination.page', pageNumber, item.selected);
 
   const { setPageIndex, toggleAllRowsExpanded } = table as TableType<unknown>;
-  const pageNumber = item.page || 0;
 
   return (
     <li>
@@ -27,7 +27,7 @@ const PaginationPageButton = ({ item }: PaginationPageButtonProps) => {
         className={cn(styles['pagination__page'], {
           [styles['pagination__page--current']]: item.selected,
         })}
-        aria-label={typeof pageLabel === 'string' ? pageLabel : pageLabel(pageNumber, item.selected)}
+        aria-label={pageLabel}
         onClick={() => {
           setPageIndex(pageNumber - 1);
           toggleAllRowsExpanded(false);
