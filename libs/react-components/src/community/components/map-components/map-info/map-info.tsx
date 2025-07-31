@@ -15,7 +15,7 @@ export interface MapInfoProps {
   children: React.ReactNode | React.ReactNode[];
 }
 
-const MapInfo = (props: MapInfoProps): JSX.Element => {
+export const MapInfo = (props: MapInfoProps): JSX.Element => {
   const { children, popover } = props;
   const [open, setOpen] = useState(false);
 

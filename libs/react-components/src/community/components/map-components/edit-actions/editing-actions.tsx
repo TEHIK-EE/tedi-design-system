@@ -6,7 +6,7 @@ interface EditingActionsProps {
   children?: React.ReactNode | React.ReactNode[];
 }
 
-const EditingActions = (props: EditingActionsProps): JSX.Element => {
+export const EditingActions = (props: EditingActionsProps): JSX.Element => {
   const { children } = props;
   return <div className={styles['tedi-editing-actions']}>{children}</div>;
 };

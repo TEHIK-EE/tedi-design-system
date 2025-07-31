@@ -45,7 +45,7 @@ export interface MapPreviewProps {
   renderOpenState?: (toggle: () => void) => React.ReactNode;
 }
 
-const MapPreview = (props: MapPreviewProps): JSX.Element => {
+export const MapPreview = (props: MapPreviewProps): JSX.Element => {
   const { children, isOpen: controlledIsOpen, onToggle, renderClosedState, renderOpenState } = props;
   const { getLabel } = useLabels();
   const [uncontrolledIsOpen, setUncontrolledIsOpen] = useState(true);

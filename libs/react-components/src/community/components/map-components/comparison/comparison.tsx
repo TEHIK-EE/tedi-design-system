@@ -42,7 +42,7 @@ export interface ComparisonProps {
   onClose?: () => void;
 }
 
-const Comparison = (props: ComparisonProps): JSX.Element => {
+export const Comparison = (props: ComparisonProps): JSX.Element => {
   const { left, right, primary, width, height, position = 'relative', onClose } = props;
   const containerRef = useRef<HTMLDivElement>(null);
   const currentBreakpoint = useBreakpoint();
