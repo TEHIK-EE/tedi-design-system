@@ -10,6 +10,7 @@ export const translationsMap = {
       "FileUpload",
       "Dropdown",
       "Tooltip",
+      "HeaderRole"
     ],
     et: "Sulge",
     en: "Close",
@@ -99,16 +100,44 @@ export const translationsMap = {
     en: "I represent:",
     ru: "я представляю:",
   },
+  "header.role-switch": {
+    description: "Label for role switch button",
+    components: ["HeaderRole"],
+    et: "Vaheta rolli",
+    en: "Switch role",
+    ru: "Сменить роль",
+  },
+  "header.role-search": {
+    description: "Label for role search input",
+    components: ["HeaderRole"],
+    et: "Otsi esindatavat",
+    en: "Search representative",
+    ru: "Найти представителя",
+  },
+  "header.role-no-representatives": {
+    description: "Label for empty representatives search result",
+    components: ["HeaderRole"],
+    et: "Esindatavaid ei leitud!",
+    en: "No representatives found!",
+    ru: "Представители не найдены!",
+  },
   "header.login": {
     description: "Label for login button",
-    components: ["Header"],
+    components: ["HeaderLogin"],
     et: "Sisene portaali",
+    en: "Log in",
+    ru: "авторизоваться",
+  },
+  "header.login-mobile": {
+    description: "Label for login button in mobile view",
+    components: ["HeaderLogin"],
+    et: "Sisene",
     en: "Log in",
     ru: "авторизоваться",
   },
   "header.logout": {
     description: "Label for logout button",
-    components: ["Header"],
+    components: ["HeaderLogout"],
     et: "Logi välja",
     en: "Log out",
     ru: "Выйти",
@@ -148,6 +177,23 @@ export const translationsMap = {
     en: (files: string) => `File(s) ${files} are too large`,
     ru: (files: string) => `Файл(ы) ${files} слишком велики`,
   },
+  "file-upload.size-rejected-extended": {
+    description: "Error label for rejected size",
+    components: ["FileUpload"],
+    et: (files: string, maxSize: string) =>
+      `Fail ${files} on liiga suur. Maksimaalne suurus: ${maxSize}`,
+    en: (files: string, maxSize: string) =>
+      `File ${files} is too large. Maximum size: ${maxSize}`,
+    ru: (files: string, maxSize: string) =>
+      `Файл ${files} слишком велик. Максимальный размер: ${maxSize}`,
+  },
+  "file-upload.drag-and-drop": {
+    description: "Text shown when dragging files over the dropzone",
+    components: ["FileUpload"],
+    et: "Fail(id) tuvastatud, lohista üleslaadimiseks",
+    en: "File detected, drop to upload",
+    ru: "Файл обнаружен, отпустите для загрузки",
+  },
   "file-upload.extension-rejected": {
     description: "Error label for rejected extension",
     components: ["FileUpload"],
@@ -155,12 +201,29 @@ export const translationsMap = {
     en: (files: string) => `File(s) ${files} have the wrong extension`,
     ru: (files: string) => `Файл(ы) ${files} имеют неправильное расширение`,
   },
+  "file-upload.extension-rejected-extended": {
+    description: "Error label for rejected extension",
+    components: ["FileUpload"],
+    et: (files: string, validTypes: string) =>
+      `Fail(id) ${files} on vale laiendiga. Lubatud laiendid: ${validTypes}`,
+    en: (files: string, validTypes: string) =>
+      `File(s) ${files} have the wrong extension. Allowed extensions: ${validTypes}`,
+    ru: (files: string, validTypes: string) =>
+      `Файл(ы) ${files} имеют неправильное расширение. Разрешенные расширения: ${validTypes}`,
+  },
   "file-dropzone.label": {
     description: "Default label for dropzone",
     components: ["FileDropzone"],
     et: "Lohista failid siia või klõpsa, et sirvida",
     en: "Drop files here, or click to browse",
     ru: "Перетащите файлы сюда или нажмите, чтобы выбрать",
+  },
+  "file-dropzone.error": {
+    description: "Error label for dropzone",
+    components: ["FileDropzone"],
+    et: "Faili üleslaadimisel tekkis viga",
+    en: "An error occurred while uploading the file",
+    ru: "Произошла ошибка при загрузке файла",
   },
   "modal.close": {
     description: "Label for modals close button",
@@ -484,6 +547,20 @@ export const translationsMap = {
     et: (count: string | number) => `Uuendatud. Uus väärtus ${count}`,
     en: (count: string | number) => `Updated. New value ${count}`,
     ru: (count: string | number) => `Ууэндатуд. Уус вяэртус ${count}`,
+  },
+  "sidenav.backToMainMenu": {
+    description: "Side navigation label",
+    components: ["Sidenav"],
+    et: "Tagasi peamenüüsse",
+    en: "Back to main menu",
+    ru: "Назад в главное меню",
+  },
+  "sidenav.toggle": {
+    description: "Label for sidenav toggle on mobile",
+    components: ["Sidenav"],
+    et: (isOpen: boolean) => (isOpen ? "Sulge menüü" : "Ava menüü"),
+    en: (isOpen: boolean) => (isOpen ? "Close menu" : "Open menu"),
+    ru: (isOpen: boolean) => (isOpen ? "Закрыть меню" : "Открыть меню"),
   },
 };
 

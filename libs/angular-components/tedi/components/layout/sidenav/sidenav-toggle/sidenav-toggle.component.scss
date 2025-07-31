@@ -1,0 +1,30 @@
+.tedi-sidenav-toggle {
+  position: relative;
+  width: 3.5rem;
+  height: 3.5rem;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--button-main-primary-background-default);
+  border: 0;
+  border-radius: 0;
+  cursor: pointer;
+  z-index: var(--z-index-sidenav);
+
+  &--hidden {
+    display: none;
+  }
+
+  &:hover {
+    background: var(--button-main-primary-background-hover);
+  }
+
+  &:active {
+    background: var(--button-main-primary-background-active);
+  }
+
+  &:focus-visible {
+    outline: var(--borders-02) solid var(--primary-500);
+    outline-offset: var(--borders-01);
+  }
+}

@@ -1,3 +1,24 @@
+# [@tehik-ee/tedi-core-v1.15.3](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.15.2...core-1.15.3) (2025-07-30)
+
+
+### Bug Fixes
+
+* **missing-var:** add missing css variable in tedi-core to fix icon aligment issue [#860](https://github.com/TEHIK-EE/tedi-design-system/issues/860) ([79c2c9d](https://github.com/TEHIK-EE/tedi-design-system/commit/79c2c9d7d582a0e880f816eadfd2b5e178a36d59))
+
+# [@tehik-ee/tedi-core-v1.15.2](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.15.1...core-1.15.2) (2025-07-10)
+
+
+### Bug Fixes
+
+* **header:** fix tedi-core variable [#931](https://github.com/TEHIK-EE/tedi-design-system/issues/931) ([64af455](https://github.com/TEHIK-EE/tedi-design-system/commit/64af45525ab9c1d9043c3678a1551586f365827e))
+
+# [@tehik-ee/tedi-core-v1.15.1](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.15.0...core-1.15.1) (2025-07-10)
+
+
+### Bug Fixes
+
+* **header:** fix header css variable and add example logo [#931](https://github.com/TEHIK-EE/tedi-design-system/issues/931) ([#932](https://github.com/TEHIK-EE/tedi-design-system/issues/932)) ([047f568](https://github.com/TEHIK-EE/tedi-design-system/commit/047f5684e44d9aec927ee0568342eee388c0c30d))
+
 # [@tehik-ee/tedi-core-v1.15.0](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.14.1...core-1.15.0) (2025-06-26)
 
 

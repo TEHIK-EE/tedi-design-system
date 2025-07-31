@@ -58,10 +58,14 @@ $neutral-variants: "neutral", "neutral-inverted", "danger-neutral";
 
 @mixin neutral-button-padding-overrides {
   &:where(.tedi-button--small) {
-    @include mixins.responsive-styles(--_btn-padding, button-sm-neutral-padding-y button-sm-neutral-padding-x);
+    @include mixins.responsive-styles(--_btn-padding-y, button-sm-neutral-padding-y);
+    @include mixins.responsive-styles(--_btn-padding-x, button-sm-neutral-padding-x);
+    // @include mixins.responsive-styles(--_btn-padding, button-sm-neutral-padding-y button-sm-neutral-padding-x);
   }
   &:where(.tedi-button--default) {
-    @include mixins.responsive-styles(--_btn-padding, button-md-neutral-padding-y button-md-neutral-padding-x);
+    @include mixins.responsive-styles(--_btn-padding-y, button-md-neutral-padding-y);
+    @include mixins.responsive-styles(--_btn-padding-x, button-md-neutral-padding-x);
+    // @include mixins.responsive-styles(--_btn-padding, button-md-neutral-padding-y button-md-neutral-padding-x);
   }
 }
 
@@ -156,14 +160,16 @@ $neutral-variants: "neutral", "neutral-inverted", "danger-neutral";
       @include mixins.responsive-styles(padding, button-sm-icon-padding);
     }
   }
-  
-  &:not(.tedi-button--neutral):not(.tedi-button--danger-neutral):not(.tedi-button--neutral-inverted) {
-    > :first-child:not(tedi-icon) {
-      padding-left: var(--_btn-inner-spacing);
-    }
 
-    > :last-child:not(tedi-icon) {
-      padding-right: var(--_btn-inner-spacing);
+  &--pl {
+    &:not(.tedi-button--neutral):not(.tedi-button--danger-neutral):not(.tedi-button--neutral-inverted) {
+      padding-left: calc(var(--_btn-padding-x) + var(--_btn-inner-spacing) - 1px);
+    }
+  }
+
+  &--pr {
+    &:not(.tedi-button--neutral):not(.tedi-button--danger-neutral):not(.tedi-button--neutral-inverted) {
+      padding-right: calc(var(--_btn-padding-x) + var(--_btn-inner-spacing) - 1px);
     }
   }
 

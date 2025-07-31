@@ -44,7 +44,7 @@ interface RightPanelProps {
   renderToggleButton?: boolean;
 }
 
-const RightPanel = (props: RightPanelProps): JSX.Element => {
+export const RightPanel = (props: RightPanelProps): JSX.Element => {
   const { items, defaultOpenItem = [], expanderTitle = 'Toimingu aknad', renderToggleButton } = props;
   const isSingleItem = items.length === 1;
 

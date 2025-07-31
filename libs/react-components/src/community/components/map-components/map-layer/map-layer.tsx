@@ -48,7 +48,7 @@ export type MapLayerProps = {
   selectAllLabel?: string;
 };
 
-const MapLayer = (props: MapLayerProps): JSX.Element => {
+export const MapLayer = (props: MapLayerProps): JSX.Element => {
   const { items, selectAllLabel = 'Kõik kihid' } = props;
   const [checkedState, setCheckedState] = useState<Record<string, boolean>>({});
   const [selectValues, setSelectValues] = useState<Record<string, UnknownType>>({});

@@ -75,13 +75,9 @@ export class FooterSectionComponent {
     return this.collapse() && this.mobileLayout();
   });
 
-  hideIcon = computed(() => {
-    return !this.breakpointService.isBelowBreakpoint("lg");
-  });
+  hideIcon = this.breakpointService.isBelowBreakpoint("lg");
 
-  mobileLayout = computed(() => {
-    return this.breakpointService.isBelowBreakpoint("sm");
-  });
+  mobileLayout = this.breakpointService.isBelowBreakpoint("sm");
 
   toggleCollapse() {
     if (this.collapse()) {

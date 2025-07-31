@@ -1,7 +1,6 @@
 import {
   ChangeDetectionStrategy,
   Component,
-  computed,
   ContentChildren,
   ElementRef,
   inject,
@@ -44,7 +43,7 @@ export class FooterBottomComponent implements AfterContentInit {
   @ContentChildren(LinkComponent, { descendants: true, read: ElementRef })
   links!: QueryList<ElementRef>;
 
-  mobileLayout = computed(() => this.breakpointService.isBelowBreakpoint("sm"));
+  mobileLayout = this.breakpointService.isBelowBreakpoint("sm");
 
   ngAfterContentInit(): void {
     runInInjectionContext(this.injector, () => {

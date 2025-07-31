@@ -1,7 +1,6 @@
 import {
   ChangeDetectionStrategy,
   Component,
-  computed,
   inject,
   ViewEncapsulation,
 } from "@angular/core";
@@ -18,7 +17,5 @@ import { BreakpointService } from "../../../services/breakpoint/breakpoint.servi
 export class FooterComponent {
   breakpointService = inject(BreakpointService);
 
-  mobileLayout = computed(() => {
-    return this.breakpointService.isBelowBreakpoint("sm");
-  });
+  mobileLayout = this.breakpointService.isBelowBreakpoint("sm");
 }

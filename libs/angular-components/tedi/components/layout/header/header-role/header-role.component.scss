@@ -1,0 +1,207 @@
+@use "@tehik-ee/tedi-core/mixins";
+@use "@tehik-ee/tedi-core/bootstrap-utility/breakpoints";
+
+:root {
+    --_header-role-transition-duration: 300ms;
+}
+
+.tedi-header-role {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+    &__head {
+        width: 100%;
+        display: flex; 
+        justify-content: space-between; 
+        align-items: center;
+        gap: 4px;
+
+        @include breakpoints.media-breakpoint-up(lg) {
+            justify-content: flex-start;
+        }
+
+        .tedi-header-role__info {
+            display: flex;
+            flex-direction: row;
+            gap: var(--_header-role-info-gap);
+            
+            @include mixins.responsive-styles(--_header-role-info-gap, layout-grid-gutters-16);
+
+            &[data-multiple="true"] {
+                flex-direction: column;
+                gap: 0px;
+
+                .tedi-header-role__description {
+                    &::before {
+                        display: none;
+                    }
+                }
+            }
+
+            .tedi-header-role__description {
+                position: relative;
+
+                &::before {
+                    content: "";
+                    height: 1rem;
+                    width: 1px;
+                    position: absolute;
+                    top: 50%;
+                    left: calc(-1 * var(--_header-role-info-gap) / 2);
+                    transform: translateY(-50%);
+                    background: var(--general-border-secondary);
+                }
+            }
+        }
+
+        button {
+            tedi-icon {
+                transition: transform var(--_header-role-transition-duration) ease;
+
+                &[data-open="true"] {
+                    transform: rotate(180deg);
+                }
+            }
+        }
+    }
+
+    tedi-popover-trigger {
+        tedi-icon {
+            transition: transform var(--_header-role-transition-duration) ease;
+        }
+
+        &[data-open="true"] {
+            tedi-icon {
+                transform: rotate(180deg);
+            }
+        }
+    }
+
+    &__dropdown {
+        display: flex;
+        flex-direction: column;
+        gap: var(--_header-role-dropdown-gap) !important;
+
+        @include mixins.responsive-styles(--_header-role-dropdown-gap, layout-grid-gutters-16);
+
+        > * {
+            &:not(:first-child) {
+                position: relative;
+                
+                &::after {
+                    content: "";
+                    position: absolute;
+                    top: calc(-1 * (var(--_header-role-dropdown-gap) / 2 + 1px));
+                    left: 0;
+                    width: 100%;
+                    height: 1px;
+                    background-color: var(--general-border-primary);
+                }
+            }
+        }
+    }
+
+    &__representative {
+        width: 100%;
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        text-align: start;
+        cursor: pointer;
+        color: var(--general-text-secondary);
+        background: transparent;
+        border: 0;
+
+        @include mixins.responsive-styles(font-size, body-regular-size, $exclude: tablet);
+        @include mixins.responsive-styles(border-radius, card-radius-rounded);
+        @include mixins.responsive-styles(padding, card-padding-xs);
+
+        &:not([data-selected="true"]):hover {
+            background: var(--header-popover-item-hover);
+            color: var(--general-text-primary);
+        }
+
+        &:not([data-selected="true"]):active {
+            background: var(--header-popover-item-active);
+            color: var(--general-text-white);
+        }
+
+        &:focus-visible {
+            outline: var(--borders-02) solid var(--primary-500);
+            outline-offset: var(--borders-01);
+        }
+
+        &[data-selected="true"] {
+            background: var(--header-popover-item-selected);
+            color: var(--general-text-white);
+        }
+
+        tedi-icon {
+            color: inherit;
+        }
+    }
+
+    &__input {
+        width: 100%;
+        border: var(--borders-01) solid var(--form-input-border-default);
+        background: var(--form-input-background-default);
+
+        @include mixins.responsive-styles(padding, form-field-padding-y-md-default form-field-padding-x-md-default);
+        @include mixins.responsive-styles(border-radius, form-field-radius);
+        @include mixins.responsive-styles(gap, form-field-inner-spacing);
+    }
+
+    &__no-results {
+        color: var(--general-text-secondary);
+        text-align: center;
+
+        @include mixins.responsive-styles(padding-top, layout-grid-gutters-08);
+    }
+
+    &__collapse {
+        width: 100%;
+        display: grid;
+        grid-template-rows: 0fr;
+        overflow: hidden;
+        visibility: hidden;
+        transition: grid-template-rows var(--_header-role-transition-duration) ease;
+
+        &[data-open="true"] {
+            visibility: visible;
+            grid-template-rows: 1fr;
+
+            .tedi-header-role__collapse__items {
+                visibility: visible;
+            }
+        }
+
+        &__items {
+            min-height: 0;
+            display: flex;
+            flex-direction: column;
+            gap: var(--_header-role-collapse-gap);
+            transition: visibility var(--_header-role-transition-duration) ease;
+            visibility: hidden;
+
+            @include mixins.responsive-styles(--_header-role-collapse-gap, layout-grid-gutters-16);
+
+            > * {
+                &:not(:first-child) {
+                    position: relative;
+                    
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        top: calc(-1 * (var(--_header-role-collapse-gap) / 2 + 1px));
+                        left: 0;
+                        width: 100%;
+                        height: 1px;
+                        background-color: var(--general-border-primary);
+                    }
+                }
+            }
+        }
+    }
+}

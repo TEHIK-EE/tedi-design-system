@@ -47,7 +47,7 @@ interface ResizerProps {
   showIndicator?: boolean;
 }
 
-const Resizer = (props: ResizerProps): JSX.Element => {
+export const Resizer = (props: ResizerProps): JSX.Element => {
   const {
     children,
     minWidth = 300,

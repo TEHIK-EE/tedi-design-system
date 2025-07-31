@@ -18,6 +18,10 @@ import {
   IconComponent,
   ButtonComponent,
   ClosingButtonComponent,
+  SpinnerComponent,
+  ComponentInputs,
+  FeedbackTextComponent,
+  LabelComponent,
 } from "@tehik-ee/tedi-angular/tedi";
 import { FormsModule } from "@angular/forms";
 import { CdkOverlayOrigin, OverlayModule } from "@angular/cdk/overlay";
@@ -33,6 +37,7 @@ export type AutocompleteOption = {
   label: string;
   description?: string;
 };
+export type SearchState = "valid" | "error" | "default";
 
 @Component({
   selector: "tedi-search",
@@ -48,6 +53,9 @@ export type AutocompleteOption = {
     DropdownItemComponent,
     ClosingButtonComponent,
     A11yModule,
+    SpinnerComponent,
+    FeedbackTextComponent,
+    LabelComponent,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
@@ -57,7 +65,7 @@ export type AutocompleteOption = {
     "[class.tedi-search]": "true",
     "[class.tedi-search--with-button]": "withButton()",
     "[class.tedi-search--with-button-text]": "!!buttonText()",
-    "[class.tedi-search--disabled]": "disabled()",
+    "[class.tedi-search--disabled]": "_disabled()",
     "[class]": "modifierClasses()",
   },
   providers: [
@@ -69,7 +77,8 @@ export type AutocompleteOption = {
   ],
 })
 export class SearchComponent
-  implements AfterContentChecked, ControlValueAccessor {
+  implements AfterContentChecked, ControlValueAccessor
+{
   /**
    * Search input ID for accessibility
    */
@@ -83,12 +92,17 @@ export class SearchComponent
    * Minimum number of characters to trigger autocomplete
    * @default 3
    */
-  autocompleteFrom = input<number>(3);
+  autocompleteFrom = input<number | undefined>();
   /**
    * Size of the search component
    * @default "default"
    */
   size = input<SearchSize>("default");
+  /**
+   * Input state for validation
+   * @default "default"
+   */
+  state = input<SearchState>("default");
   /**
    * Should the search button be shown
    * @default false
@@ -119,9 +133,25 @@ export class SearchComponent
    * @default ""
    */
   placeholder = input<string>("");
+  /**
+   * Should the search input show a loading spinner
+   * @default false
+   */
+  loading = input<boolean>(false);
+  /**
+   * Label for the search input
+   * @default undefined
+   */
+  label = input<string>();
+  /**
+   * Feedback text component for displaying messages
+   * @default undefined
+   */
+  feedbackText = input<ComponentInputs<FeedbackTextComponent>>();
 
-  // Emitted event
+  // Emitted events
   searchEvent = output<AutocompleteOption | string>();
+  clearEvent = output<void>();
 
   _inputValue = model<string>();
   _selectedOption = model<AutocompleteOption>();
@@ -135,6 +165,7 @@ export class SearchComponent
   modifierClasses = computed(() => {
     const modifiers = [];
     if (this.size()) modifiers.push(`tedi-search--${this.size()}`);
+    if (this.state()) modifiers.push(`tedi-search--${this.state()}`);
 
     return modifiers.join(" ");
   });
@@ -146,20 +177,32 @@ export class SearchComponent
   inputChanged(inputValue: string) {
     const selected = this._selectedOption();
 
-    // Logic to show/hide the autocomplete dropdown
-    if (
-      inputValue &&
-      inputValue.length >= this.autocompleteFrom() &&
-      !this._selectedOption()
-    ) {
-      this._isVisible.set(true);
-    } else {
-      this._isVisible.set(false);
-    }
-
     // Clear selected option if input value is changed and is not matching the selected option
     if (selected && inputValue !== selected.label) {
       this._selectedOption.set(undefined);
+    }
+
+    this.handleOverlayOpen();
+    this.onChange(inputValue);
+  }
+
+  focusInput() {
+    this.handleOverlayOpen();
+  }
+
+  // Logic to show/hide the autocomplete dropdown
+  handleOverlayOpen(): void {
+    const inputValue = this._inputValue();
+    const autocompleteFrom = this.autocompleteFrom();
+
+    const baseRules = !this.withButton() && !this._selectedOption();
+    const showAutocompleteIfLength =
+      autocompleteFrom && inputValue && inputValue.length >= autocompleteFrom;
+
+    if (baseRules && (showAutocompleteIfLength || autocompleteFrom === 0)) {
+      this._isVisible.set(true);
+    } else {
+      this._isVisible.set(false);
     }
   }
 
@@ -204,7 +247,7 @@ export class SearchComponent
 
   // ControlValueAccessor methods
   private onChange: (value: string | AutocompleteOption) => void = () => {};
-  private onTouched: () => void = () => {};
+  onTouched: () => void = () => {};
 
   writeValue(value: string | AutocompleteOption): void {
     if (typeof value === "string") {
@@ -254,6 +297,7 @@ export class SearchComponent
     this.searchEvent.emit("");
     this.onChange("");
     this.onTouched();
+    this.clearEvent.emit();
   }
 
   focusDropdown(event?: Event) {

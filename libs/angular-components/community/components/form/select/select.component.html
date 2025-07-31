@@ -1,72 +1,62 @@
+@let listboxId = inputId() + "-listbox";
+@let labelId = inputId() + "-label";
+
 @if (label()) {
-  <label tedi-label [for]="inputId()" [required]="required()" [size]="size()">
+  <label
+    [id]="labelId"
+    tedi-label
+    [for]="inputId()"
+    [required]="required()"
+    [size]="size()"
+  >
     {{ label() }}
   </label>
 }
-<button
+<div
+  [id]="inputId()"
+  class="tedi-select__trigger"
+  [class.tedi-input--disabled]="disabled()"
   tedi-input
-  type="button"
+  cdkOverlayOrigin
+  #trigger="cdkOverlayOrigin"
+  role="combobox"
+  aria-haspopup="listbox"
+  [attr.aria-expanded]="isOpen()"
+  [attr.aria-controls]="listboxId"
+  [attr.aria-labelledby]="labelId"
+  [tabindex]="disabled() ? -1 : 0"
   [state]="state()"
   [size]="size()"
-  [cdkMenuTriggerFor]="selectDropdown"
-  [disabled]="_disabled()"
-  (click)="touch()"
-  class="tedi-select__trigger"
+  (click)="toggleIsOpen()"
+  (keydown.enter)="toggleIsOpen()"
+  (keydown.space)="$event.preventDefault(); toggleIsOpen()"
+  (keydown.arrowdown)="$event.preventDefault(); toggleIsOpen()"
+  (blur)="onTouched()"
 >
-  <span
-    class="tedi-select__label"
-    [class.tedi-select__label--placeholder]="!_selectedValue()"
-  >
-    @if (selectedLabel()) {
-      {{ selectedLabel() }}
+  <span class="tedi-select__label">
+    @if (selectedLabels().length) {
+      {{ selectedLabels() }}
     } @else {
-      {{ placeholder() }}
+      <span class="tedi-select__label--placeholder">
+        {{ placeholder() }}
+      </span>
     }
   </span>
 
-  @if (_selectedValue()) {
-    <div
-      tedi-closing-button
+  @if (clearable() && selectedOptions().length) {
+    <button
       class="tedi-select__clear"
+      tedi-closing-button
+      type="button"
+      size="small"
+      [iconSize]="18"
       title="Clear"
-      [attr.aria-label]="'Clear'"
-      tabindex="0"
-      (click)="$event.stopPropagation(); clear()"
-    ></div>
+      (click)="clear($event)"
+    ></button>
   }
-  <tedi-icon class="tedi-select__arrow" name="arrow_drop_down" />
-</button>
 
-<ng-template #selectDropdown>
-  <tedi-card
-    cdkMenu
-    class="tedi-select__dropdown"
-    spacing="none"
-    [style.width.px]="_width()"
-  >
-    <tedi-card-content class="tedi-select__dropdown-content">
-      @for (option of _options(); track option.value()) {
-        <button
-          type="button"
-          cdkMenuItem
-          tedi-dropdown-item
-          (cdkMenuItemTriggered)="select(option.value())"
-          [selected]="isOptionSelected(option.value())"
-          [disabled]="option.isDisabled()"
-        >
-          @if (option.templateRef(); as optionTemplate) {
-            <div class="tedi-select__dropdown-item--custom-content">
-              <ng-container [ngTemplateOutlet]="optionTemplate" />
-            </div>
-            <span class="tedi-select__dropdown-item--label">
-              {{ option.label() }}
-            </span>
-          }
-        </button>
-      }
-    </tedi-card-content>
-  </tedi-card>
-</ng-template>
+  <tedi-icon class="tedi-select__arrow" name="arrow_drop_down" />
+</div>
 @if (feedbackText(); as feedback) {
   <tedi-feedback-text
     [text]="feedback.text"
@@ -74,3 +64,65 @@
     [position]="feedback.position"
   />
 }
+
+<ng-template
+  cdkConnectedOverlay
+  [cdkConnectedOverlayOrigin]="trigger"
+  [cdkConnectedOverlayOpen]="isOpen()"
+  [cdkConnectedOverlayHasBackdrop]="true"
+  cdkConnectedOverlayBackdropClass="cdk-overlay-transparent-backdrop"
+  (backdropClick)="toggleIsOpen(false)"
+  (detach)="toggleIsOpen(false)"
+>
+  <tedi-card
+    class="tedi-select__dropdown"
+    spacing="none"
+    [style.width.px]="dropdownWidth()"
+  >
+    <tedi-card-content>
+      <ul
+        [id]="listboxId"
+        class="tedi-select__options"
+        cdkListbox
+        cdkListboxUseActiveDescendant
+        [cdkListboxValue]="selectedOptions()"
+        (cdkListboxValueChange)="handleValueChange($event)"
+      >
+        @if (options().length) {
+          @for (group of optionGroups(); track $index) {
+            @if (group.label.length > 0) {
+              <li class="tedi-select__group-name" role="presentation">
+                <span tedi-text color="tertiary">
+                  {{ group.label }}
+                </span>
+              </li>
+            }
+
+            @for (option of group.options; track option.value()) {
+              <li
+                tedi-dropdown-item
+                [selected]="isOptionSelected(option.value())"
+                [cdkOption]="option.value()"
+                [cdkOptionDisabled]="option.disabled()"
+                [disabled]="option.disabled()"
+              >
+                @if (option.templateRef(); as optionNgContent) {
+                  <div class="tedi-select__dropdown-item--custom-content">
+                    <ng-container [ngTemplateOutlet]="optionNgContent" />
+                  </div>
+                  <span class="tedi-select__dropdown-item--label">
+                    {{ option.label() }}
+                  </span>
+                }
+              </li>
+            }
+          }
+        } @else {
+          <li tedi-dropdown-item class="tedi-select__no-options">
+            {{ "select.no-options" | tediTranslate }}
+          </li>
+        }
+      </ul>
+    </tedi-card-content>
+  </tedi-card>
+</ng-template>

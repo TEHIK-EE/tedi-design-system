@@ -1,11 +1,10 @@
-import { ComponentFixture, TestBed } from "@angular/core/testing";
+import { TestBed } from "@angular/core/testing";
 import { FooterComponent } from "./footer.component";
 import { BreakpointService } from "../../../services/breakpoint/breakpoint.service";
+import { signal } from "@angular/core";
 
 describe("FooterComponent", () => {
   let mockBreakpointService: jest.Mocked<BreakpointService>;
-  let component: FooterComponent;
-  let fixture: ComponentFixture<FooterComponent>;
 
   beforeEach(async () => {
     mockBreakpointService = {
@@ -18,30 +17,35 @@ describe("FooterComponent", () => {
         { provide: BreakpointService, useValue: mockBreakpointService },
       ],
     }).compileComponents();
-
-    fixture = TestBed.createComponent(FooterComponent);
-    component = fixture.componentInstance;
   });
 
   it("should create component", () => {
+    mockBreakpointService.isBelowBreakpoint.mockReturnValue(signal(true));
+    const fixture = TestBed.createComponent(FooterComponent);
+    const component = fixture.componentInstance;
     fixture.detectChanges();
     expect(component).toBeTruthy();
   });
 
   it("should return true for mobileLayout when isBelowBreakpoint returns true", () => {
-    mockBreakpointService.isBelowBreakpoint.mockReturnValue(true);
+    mockBreakpointService.isBelowBreakpoint.mockReturnValue(signal(true));
+    const fixture = TestBed.createComponent(FooterComponent);
+    const component = fixture.componentInstance;
     fixture.detectChanges();
     expect(component.mobileLayout()).toBe(true);
   });
 
   it("should return false for mobileLayout when isBelowBreakpoint returns false", () => {
-    mockBreakpointService.isBelowBreakpoint.mockReturnValue(false);
+    mockBreakpointService.isBelowBreakpoint.mockReturnValue(signal(false));
+    const fixture = TestBed.createComponent(FooterComponent);
+    const component = fixture.componentInstance;
     fixture.detectChanges();
     expect(component.mobileLayout()).toBe(false);
   });
 
   it("should add mobile class to container when isBelowBreakpoint returns true", () => {
-    mockBreakpointService.isBelowBreakpoint.mockReturnValue(true);
+    mockBreakpointService.isBelowBreakpoint.mockReturnValue(signal(true));
+    const fixture = TestBed.createComponent(FooterComponent);
     fixture.detectChanges();
     const containerElement = fixture.nativeElement.querySelector(
       ".tedi-footer__container",

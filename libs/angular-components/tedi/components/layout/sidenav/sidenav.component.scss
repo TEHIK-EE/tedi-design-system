@@ -1,0 +1,435 @@
+@use "@tehik-ee/tedi-core/mixins";
+
+:root {
+  --_sidenav-tree-container: 24px;
+  --_sidenav-tree-trunk-width: 2px;
+  --_sidenav-tree-branch-width: 10px;
+  --_sidenav-tree-bullet-size: 8px;
+  --_sidenav-tree-left-padding: (
+      var(--_sidenav-tree-container) - var(--_sidenav-tree-trunk-width)
+    ) /
+    2;
+
+  --_sidenav-dropdown-collapsed-min-width: 16.5rem;
+  --_sidenav-dropdown-collapsed-left: 4px;
+  --_sidenav-dropdown-item-large-height: 48px;
+  --_sidenav-dropdown-item-medium-height: 44px;
+  --_sidenav-dropdown-item-small-height: 36px;
+  --_sidenav-dropdown-item-collapsed-height: 40px;
+
+  --_sidenav-collapsed-text-width: 4.5rem;
+  --_sidenav-transition-duration: 300ms;
+}
+
+.tedi-sidenav {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  min-height: 100%;
+  background-color: var(--side-navigation-item-background-default);
+  transition: all var(--_sidenav-transition-duration) ease;
+  z-index: var(--z-index-sidenav);
+
+  @include mixins.responsive-styles(width, side-navigation-item-width-default);
+
+  &__collapse {
+    position: absolute;
+    right: 0;
+    transform: translateX(50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: var(--borders-01) solid
+      var(--button-floating-secondary-border-default);
+    background: var(--button-floating-secondary-background-default);
+    z-index: var(--z-index-sidenav);
+    cursor: pointer;
+
+    @include mixins.responsive-styles(top, side-navigation-item-padding-y);
+    @include mixins.responsive-styles(width, button-sm-height);
+    @include mixins.responsive-styles(height, button-sm-height);
+    @include mixins.responsive-styles(padding, button-md-icon-padding);
+    @include mixins.responsive-styles(border-radius, button-radius-default);
+
+    &:hover {
+      color: var(--button-floating-secondary-text-hover);
+      border: var(--borders-01) solid
+        var(--button-floating-secondary-border-hover);
+      background: var(--button-floating-secondary-background-hover);
+    }
+
+    &:active {
+      color: var(--button-floating-secondary-text-active);
+      border: var(--borders-01) solid
+        var(--button-floating-secondary-border-active);
+      background: var(--button-floating-secondary-background-active);
+    }
+
+    &:focus-visible {
+      outline: var(--borders-02) solid var(--primary-500);
+      outline-offset: var(--borders-01);
+    }
+  }
+
+  &--hidden {
+    display: none;
+  }
+
+  &--large {
+    --_sidenav-dropdown-item-height: var(--_sidenav-dropdown-item-large-height);
+
+    @include mixins.responsive-styles(
+      --_sidenav-item-min-height,
+      side-navigation-item-min-height
+    );
+    @include mixins.responsive-styles(
+      --_sidenav-item-font-size,
+      side-navigation-text-size
+    );
+    @include mixins.responsive-styles(
+      --_sidenav-item-line-height,
+      body-regular-line-height,
+      $exclude: tablet
+    );
+    @include mixins.responsive-styles(
+      --_sidenav-item-padding-y,
+      side-navigation-item-padding-y
+    );
+    @include mixins.responsive-styles(
+      --_sidenav-item-padding-right,
+      side-navigation-item-padding-right
+    );
+    @include mixins.responsive-styles(
+      --_sidenav-item-padding-left,
+      side-navigation-item-padding-left-level-1
+    );
+    @include mixins.responsive-styles(
+      --_sidenav-item-icon-size,
+      side-navigation-item-icon
+    );
+    @include mixins.responsive-styles(
+      --_sidenav-item-caret-size,
+      side-navigation-item-icon
+    );
+  }
+
+  &--medium {
+    --_sidenav-dropdown-item-height: var(
+      --_sidenav-dropdown-item-medium-height
+    );
+
+    @include mixins.responsive-styles(
+      --_sidenav-item-min-height,
+      side-navigation-item-min-height-medium
+    );
+    @include mixins.responsive-styles(
+      --_sidenav-item-font-size,
+      side-navigation-text-size-sm
+    );
+    @include mixins.responsive-styles(
+      --_sidenav-item-line-height,
+      body-small-regular-line-height,
+      $exclude: tablet
+    );
+    @include mixins.responsive-styles(
+      --_sidenav-item-padding-y,
+      side-navigation-item-padding-y-md
+    );
+    @include mixins.responsive-styles(
+      --_sidenav-item-padding-right,
+      side-navigation-item-padding-right
+    );
+    @include mixins.responsive-styles(
+      --_sidenav-item-padding-left,
+      side-navigation-item-padding-left-level-1
+    );
+    @include mixins.responsive-styles(
+      --_sidenav-item-icon-size,
+      side-navigation-item-icon-md
+    );
+    @include mixins.responsive-styles(
+      --_sidenav-item-caret-size,
+      side-navigation-item-icon-md
+    );
+  }
+
+  &--small {
+    --_sidenav-dropdown-item-height: var(--_sidenav-dropdown-item-small-height);
+
+    @include mixins.responsive-styles(
+      --_sidenav-item-min-height,
+      side-navigation-item-min-height-small
+    );
+    @include mixins.responsive-styles(
+      --_sidenav-item-font-size,
+      side-navigation-text-size-sm
+    );
+    @include mixins.responsive-styles(
+      --_sidenav-item-line-height,
+      body-small-regular-line-height,
+      $exclude: tablet
+    );
+    @include mixins.responsive-styles(
+      --_sidenav-item-padding-y,
+      side-navigation-item-padding-y-sm
+    );
+    @include mixins.responsive-styles(
+      --_sidenav-item-padding-right,
+      side-navigation-item-padding-right
+    );
+    @include mixins.responsive-styles(
+      --_sidenav-item-padding-left,
+      side-navigation-item-padding-left-level-1
+    );
+    @include mixins.responsive-styles(
+      --_sidenav-item-icon-size,
+      side-navigation-item-icon-sm
+    );
+    @include mixins.responsive-styles(
+      --_sidenav-item-caret-size,
+      side-navigation-item-icon-sm
+    );
+  }
+
+  &--dividers {
+    .tedi-sidenav-item {
+      border-bottom: var(--borders-01) solid var(--side-navigation-item-border);
+
+      &:last-of-type {
+        border-bottom: 0;
+      }
+    }
+  }
+
+  &--mobile {
+    .tedi-sidenav-item {
+      .tedi-sidenav-dropdown {
+        transition: none;
+      }
+
+      .tedi-sidenav-item__text {
+        white-space: wrap;
+        animation: none;
+      }
+    }
+
+    &-item-open {
+      .tedi-sidenav-group-title {
+        display: none;
+      }
+
+      .tedi-sidenav-item {
+        border-bottom: 0;
+
+        .tedi-sidenav-group-title {
+          display: block;
+        }
+      }
+    }
+  }
+
+  &--collapsed {
+    --_sidenav-dropdown-item-height: var(--_sidenav-dropdown-item-collapsed-height);
+
+    @include mixins.responsive-styles(
+      --_sidenav-item-icon-size,
+      side-navigation-item-icon
+    );
+    @include mixins.responsive-styles(
+      --_sidenav-item-caret-size,
+      side-navigation-item-icon-sm
+    );
+
+    @include mixins.responsive-styles(
+      width,
+      side-navigation-item-width-collapsed
+    );
+
+    .tedi-sidenav-item {
+      @include mixins.responsive-styles(
+        --_sidenav-item-font-size,
+        side-navigation-text-size-sm
+      );
+
+      .tedi-sidenav-item__title {
+        flex-direction: column;
+        text-align: center;
+
+        @include mixins.responsive-styles(
+          min-height,
+          side-navigation-item-min-height-large
+        );
+
+        @include mixins.responsive-styles(
+          padding,
+          side-navigation-item-padding-y side-navigation-item-padding-x-sm
+        );
+      }
+
+      .tedi-sidenav-item__caret {
+        position: absolute;
+        top: var(--_sidenav-item-padding-y);
+        right: var(--_sidenav-item-padding-right);
+        font-size: var(--size-03);
+
+        &[data-open="true"] {
+          transform: rotate(-90deg);
+        }
+      }
+
+      .tedi-sidenav-item__text {
+        white-space: nowrap;
+        max-width: var(--_sidenav-collapsed-text-width);
+        animation: none;
+      }
+    }
+
+    .tedi-sidenav-group-title {
+      border-bottom: var(--borders-01) solid
+        var(--side-navigation-group-title-text);
+
+      .tedi-sidenav-group-title__text {
+        display: none;
+      }
+    }
+
+    .tedi-sidenav-dropdown {
+      min-width: var(--_sidenav-dropdown-collapsed-min-width);
+      position: absolute;
+      top: 0;
+      left: calc(100% + var(--_sidenav-dropdown-collapsed-left));
+      background: var(--dropdown-item-default-background);
+      border: var(--borders-01) solid var(--card-border-primary);
+      box-shadow: 0px 1px 5px 0px var(--alpha-20);
+      transition: none;
+      visibility: hidden;
+
+      @include mixins.responsive-styles(border-radius, form-select-area-radius);
+
+      &--open {
+        visibility: visible;
+      }
+
+      .tedi-sidenav-group-title {
+        border: 0;
+
+        .tedi-sidenav-group-title__text {
+          display: block;
+          color: var(--general-text-tertiary);
+          font-size: 14px;
+          line-height: 20px;
+
+          @include mixins.responsive-styles(
+            padding,
+            dropdown-group-label-padding-y dropdown-group-label-padding-x
+              layout-grid-gutters-04 dropdown-group-label-padding-x
+          );
+        }
+      }
+    }
+
+    .tedi-sidenav-dropdown-item {
+      color: var(--dropdown-item-default-text);
+
+      @include mixins.responsive-styles(padding-top, dropdown-item-padding-y);
+      @include mixins.responsive-styles(padding-bottom, dropdown-item-padding-y);
+      @include mixins.responsive-styles(padding-right, dropdown-item-padding-x);
+      @include mixins.responsive-styles(padding-left, dropdown-item-padding-x);
+      @include mixins.responsive-styles(--_gap, dropdown-item-inner-spacing);
+      @include mixins.responsive-styles(
+        font-size,
+        body-regular-size,
+        $exclude: tablet
+      );
+
+      &.tedi-sidenav-dropdown-item--selected,
+      &:hover {
+        color: var(--dropdown-item-hover-text);
+        background-color: var(--dropdown-item-hover-background);
+      }
+
+      &::before,
+      &::after {
+        height: 0;
+        width: 0;
+      }
+    }
+
+    .tedi-sidenav-dropdown-group {
+      .tedi-sidenav-dropdown-item {
+        padding-left: calc(
+          var(--_padding-left) + var(--_sidenav-tree-container) + var(--_gap)
+        );
+
+        @include mixins.responsive-styles(
+          --_padding-left,
+          dropdown-item-padding-x
+        );
+
+        &::after {
+          width: var(--_sidenav-tree-branch-width);
+          height: var(--_sidenav-tree-trunk-width);
+          top: 50%;
+          transform: translateY(-50%);
+          background-color: var(--side-navigation-tree-neutral-default);
+        }
+
+        &::before {
+          height: 100%;
+          width: var(--_sidenav-tree-trunk-width);
+          background-color: var(--side-navigation-tree-neutral-default);
+        }
+
+        &:first-of-type {
+          @include mixins.responsive-styles(
+            padding-left,
+            dropdown-item-padding-x
+          );
+
+          &::after {
+            width: 0;
+            height: 0;
+          }
+
+          &:not(:only-child) {
+            &::after,
+            &::before {
+              width: 0;
+              height: 0;
+            }
+          }
+        }
+
+        &:last-of-type {
+          &::before {
+            height: 50%;
+          }
+        }
+      }
+    }
+  }
+
+  .tedi-sidenav-back {
+    min-height: var(--_sidenav-item-min-height);
+    font-size: var(--_sidenav-item-font-size);
+    line-height: var(--_sidenav-item-line-height);
+    padding: var(--_sidenav-item-padding-y) var(--_sidenav-item-padding-right)
+      var(--_sidenav-item-padding-y) var(--_sidenav-item-padding-left);
+    color: var(--side-navigation-item-text);
+    text-align: start;
+    border: 0;
+    border-bottom: var(--borders-01) solid var(--side-navigation-item-border);
+    background: transparent;
+    font-size: inherit;
+    cursor: pointer;
+
+    &:hover {
+      background: var(--side-navigation-item-background-hover);
+    }
+
+    tedi-icon {
+      font-size: var(--_sidenav-item-icon-size);
+    }
+  }
+}

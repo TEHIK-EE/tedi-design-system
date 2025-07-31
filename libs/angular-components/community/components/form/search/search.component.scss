@@ -1,27 +1,77 @@
 @use "@tehik-ee/tedi-core/mixins";
 
-.tedi-search {
-  display: flex;
-  align-items: start;
-  border: 1px solid;
-  align-items: center;
-  border-color: var(--form-input-border-default);
-  border-radius: var(--_border-radius);
+@mixin textfield-focus($border-color: null) {
+  @if $border-color {
+    &:focus,
+    &:active {
+      border-color: $border-color;
+      box-shadow: inset 0 0 0 1px $border-color;
+    }
+  } @else {
+    &:focus,
+    &:active {
+      box-shadow: none;
+    }
+  }
+}
 
-  @include mixins.responsive-styles(--_border-radius, form-field-radius);
-  @include mixins.responsive-styles(gap, form-field-inner-spacing);
+.tedi-search {
+  --_border-color: var(--form-input-border-default);
+
   @include mixins.responsive-styles(
-    --_padding,
-    form-field-padding-y-md-default
+    --_form-field-outer-gap,
+    form-field-outer-spacing
   );
 
-  &:hover {
-    border-color: var(--form-input-border-hover);
-  }
+  &__container {
+    display: flex;
+    border: 1px solid;
+    align-items: center;
+    border-color: var(--_border-color);
+    border-radius: var(--_border-radius);
+    margin-bottom: var(--_form-field-outer-gap);
 
-  &:focus-within {
-    border-color: var(--form-input-border-active);
-    box-shadow: 0 0 0 1px var(--form-input-border-active);
+    @include mixins.responsive-styles(--_border-radius, form-field-radius);
+    @include mixins.responsive-styles(gap, form-field-inner-spacing);
+    @include mixins.responsive-styles(
+      --_padding,
+      form-field-padding-y-md-default
+    );
+
+    &:hover {
+      --_border-color: var(--form-input-border-hover);
+    }
+
+    &:focus-within {
+      --_border-color: var(--form-input-border-active);
+      box-shadow: 0 0 0 1px var(--form-input-border-active);
+    }
+
+    .tedi-search--error:not(.tedi-search--disabled) & {
+      --_border-color: var(--form-general-feedback-error-border);
+      @include textfield-focus(var(--form-general-feedback-error-border));
+
+      &:hover {
+        --_border-color: var(--form-general-feedback-error-border);
+      }
+      &:focus-within {
+        --_border-color: var(--form-general-feedback-error-border);
+        box-shadow: 0 0 0 1px var(--form-general-feedback-error-border);
+      }
+    }
+
+    .tedi-search--valid:not(.tedi-search--disabled) & {
+      --_border-color: var(--form-general-feedback-success-border);
+      @include textfield-focus(var(--form-general-feedback-success-border));
+
+      &:hover {
+        border-color: var(--form-general-feedback-success-border);
+      }
+      &:focus-within {
+        border-color: var(--form-general-feedback-success-border);
+        box-shadow: 0 0 0 1px var(--form-general-feedback-success-border);
+      }
+    }
   }
 
   &__input {
@@ -41,7 +91,7 @@
     @include mixins.responsive-styles(line-height, body-regular-line-height);
   }
 
-  &__trigger.tedi-btn {
+  &__trigger.tedi-button {
     border-radius: var(--_border-radius);
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
@@ -84,37 +134,37 @@
     display: none;
   }
 
-  &--small {
+  &--small .tedi-search__container {
     @include mixins.responsive-styles(--_padding, form-field-padding-y-sm);
   }
 
   &--large {
-    .tedi-search__trigger.tedi-btn {
-      padding-left: 15px;
-      padding-right: 15px;
-    }
+    &.tedi-search--with-button:not(.tedi-search--with-button-text) {
+      .tedi-search__trigger.tedi-button {
+        height: auto;
+        width: 56px; // not sure how to get the button width from the theme
 
-    @include mixins.responsive-styles(--_padding, form-field-padding-y-lg);
-  }
-
-  &--with-button:not(.tedi-search--with-button-text) {
-    &.tedi-search--small {
-      .tedi-search__trigger.tedi-btn {
-        padding-left: 6px;
-        padding-right: 6px;
+        // .material-symbols is overriding this
+        // and the icon is size "normal" instead 24
+        .tedi-icon--size-24 {
+          font-size: var(--icon-05-desktop);
+        }
       }
     }
-    &.tedi-search--default {
-      .tedi-search__trigger.tedi-btn {
-        padding-left: 10px;
-        padding-right: 10px;
-      }
+
+    & .tedi-search__container {
+      @include mixins.responsive-styles(--_padding, form-field-padding-y-lg);
     }
   }
 
   &--disabled {
-    background-color: var(--form-input-background-disabled);
-    border-color: var(--form-input-border-disabled);
-    pointer-events: none;
+    .tedi-search__container {
+      background-color: var(--form-input-background-disabled);
+      border-color: var(--form-input-border-disabled);
+    }
+    .tedi-search__input {
+      background-color: var(--form-input-background-disabled);
+      pointer-events: none;
+    }
   }
 }

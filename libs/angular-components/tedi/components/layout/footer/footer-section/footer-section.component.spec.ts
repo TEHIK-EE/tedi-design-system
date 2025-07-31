@@ -11,7 +11,11 @@ describe("FooterSectionComponent", () => {
 
   beforeEach(async () => {
     mockBreakpointService = {
-      isBelowBreakpoint: jest.fn().mockReturnValue(false),
+      isBelowBreakpoint: jest.fn((breakpoint) => {
+        if (breakpoint === "lg") return signal(false);
+        if (breakpoint === "sm") return signal(false);
+        return signal(false);
+      }),
     };
 
     await TestBed.configureTestingModule({
@@ -64,7 +68,13 @@ describe("FooterSectionComponent", () => {
 
   it("should hide icon when below large breakpoint", () => {
     fixture.componentRef.setInput("icon", "test-icon");
-    mockBreakpointService.isBelowBreakpoint.mockReturnValue(true);
+    mockBreakpointService.isBelowBreakpoint.mockImplementation((breakpoint) => {
+      if (breakpoint === "lg") return signal(true);
+      if (breakpoint === "sm") return signal(false);
+      return signal(false);
+    });
+    fixture = TestBed.createComponent(FooterSectionComponent);
+    component = fixture.componentInstance;
     fixture.detectChanges();
 
     const iconElement = fixture.nativeElement.querySelector(

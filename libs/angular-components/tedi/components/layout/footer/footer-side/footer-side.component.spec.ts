@@ -5,6 +5,7 @@ import {
   type FooterSidePosition,
 } from "./footer-side.component";
 import { BreakpointService } from "../../../../services/breakpoint/breakpoint.service";
+import { signal } from "@angular/core";
 
 type TestCase = {
   attribute: string;
@@ -30,7 +31,7 @@ const positionCases: PositionTestCase[] = [
 class BreakpointServiceMock {
   isMobile = false;
   isBelowBreakpoint() {
-    return this.isMobile;
+    return signal(this.isMobile);
   }
 }
 
