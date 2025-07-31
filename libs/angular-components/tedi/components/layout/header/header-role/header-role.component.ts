@@ -1,9 +1,14 @@
 import { NgFor, NgIf, NgTemplateOutlet } from '@angular/common';
 import { ChangeDetectionStrategy, Component, computed, inject, input, model, signal, ViewEncapsulation } from '@angular/core';
-import { 
-  IconComponent, TextComponent, ShowAtDirective, HideAtDirective, ButtonComponent, 
-  TediTranslationService, PopoverComponent, PopoverTriggerComponent, PopoverContentComponent 
-} from "@tehik-ee/tedi-angular/tedi";
+import { IconComponent } from '../../../base/icon/icon.component';
+import { TextComponent } from '../../../base/text/text.component';
+import { ShowAtDirective } from '../../../../directives/show-at/show-at.directive';
+import { HideAtDirective } from '../../../../directives/hide-at/hide-at.directive';
+import { ButtonComponent } from '../../../buttons/button/button.component';
+import { TediTranslationService } from '../../../../services/translation/translation.service';
+import { PopoverComponent } from '../../../overlay/popover/popover.component';
+import { PopoverTriggerComponent } from '../../../overlay/popover/popover-trigger/popover-trigger.component';
+import { PopoverContentComponent } from '../../../overlay/popover/popover-content/popover-content.component';
 
 export type Representative = {
   name: string;

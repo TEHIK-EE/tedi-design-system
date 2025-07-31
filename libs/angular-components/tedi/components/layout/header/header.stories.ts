@@ -12,17 +12,15 @@ import { HeaderLanguageComponent } from "./header-language/header-language.compo
 import { HeaderProfileComponent } from "./header-profile/header-profile.component";
 import { HeaderLoginComponent } from "./header-login/header-login.component";
 import { HeaderLogoutComponent } from "./header-logout/header-logout.component";
-import { 
-  LinkComponent,
-  IconComponent, 
-  ButtonComponent, 
-  ShowAtDirective, 
-  HideAtDirective, 
-  SideNavToggleComponent, 
-  SideNavComponent, 
-  SideNavItemComponent, 
-  SideNavOverlayComponent 
-} from "@tehik-ee/tedi-angular/tedi";
+import { LinkComponent } from "../../navigation/link/link.component";
+import { IconComponent } from "../../base/icon/icon.component";
+import { ButtonComponent } from "../../buttons/button/button.component";
+import { ShowAtDirective } from "../../../directives/show-at/show-at.directive";
+import { HideAtDirective } from "../../../directives/hide-at/hide-at.directive";
+import { SideNavToggleComponent } from "../sidenav/sidenav-toggle/sidenav-toggle.component";
+import { SideNavComponent } from "../sidenav/sidenav.component";
+import { SideNavItemComponent } from "../sidenav/sidenav-item/sidenav-item.component";
+import { SideNavOverlayComponent } from "../sidenav/sidenav-overlay/sidenav-overlay.component";
 
 /**
  * <a href="https://www.figma.com/design/jWiRIXhHRxwVdMSimKX2FF/TEDI-READY-2.13.19?node-id=2137-19318&m=dev&focus-id=6380-53060" target="_BLANK">Figma ↗</a><br/>
@@ -43,7 +41,7 @@ import {
  */
 
 export default {
-  title: "Community Angular/Layout/Header",
+  title: "TEDI-Ready Angular/Layout/Header",
   component: HeaderComponent,
   decorators: [
       moduleMetadata({
