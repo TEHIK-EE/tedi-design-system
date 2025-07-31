@@ -10,7 +10,7 @@ interface ScaleBarProps {
   zoomLevel: number;
 }
 
-const ScaleBar: React.FC<ScaleBarProps> = ({ zoomLevel }) => {
+export const ScaleBar: React.FC<ScaleBarProps> = ({ zoomLevel }) => {
   const [scaleInfo, setScaleInfo] = useState({
     km: 0,
     widthPx: 100,

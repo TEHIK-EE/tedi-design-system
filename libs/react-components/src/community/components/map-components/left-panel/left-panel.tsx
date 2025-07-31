@@ -12,7 +12,7 @@ export interface LeftPanelProps {
   children?: React.ReactNode | React.ReactNode[];
 }
 
-const LeftPanel = (props: LeftPanelProps): JSX.Element => {
+export const LeftPanel = (props: LeftPanelProps): JSX.Element => {
   return (
     <Resizer minWidth={350} initialWidth={350} maxWidth={600}>
       <div className={styles['tedi-left-panel']}>
