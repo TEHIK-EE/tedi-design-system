@@ -1,3 +1,15 @@
+# [@tehik-ee/tedi-angular-v2.2.0-rc.19](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.2.0-rc.18...angular-2.2.0-rc.19) (2025-07-31)
+
+
+### Bug Fixes
+
+* **file-dropzone:** change import of translate service [#860](https://github.com/TEHIK-EE/tedi-design-system/issues/860) ([215ac0e](https://github.com/TEHIK-EE/tedi-design-system/commit/215ac0ed508337e203e467ef6601e970f59dc59e))
+
+
+### Features
+
+* **file-dropzone:** add file dropzone & edit .eslintrc to fix eslint/prettier conflict [#860](https://github.com/TEHIK-EE/tedi-design-system/issues/860) ([fdd353f](https://github.com/TEHIK-EE/tedi-design-system/commit/fdd353fca0c9b02c2fb2e2db952a4989ca34e502))
+
 # [@tehik-ee/tedi-angular-v2.2.0-rc.18](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.2.0-rc.17...angular-2.2.0-rc.18) (2025-07-29)
 
 
