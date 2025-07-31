@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-angular-v2.2.0-rc.21](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.2.0-rc.20...angular-2.2.0-rc.21) (2025-07-31)
+
+
+### Features
+
+* **separator:** add TEDI-Ready separator [#949](https://github.com/TEHIK-EE/tedi-design-system/issues/949) ([#954](https://github.com/TEHIK-EE/tedi-design-system/issues/954)) ([c3fb31f](https://github.com/TEHIK-EE/tedi-design-system/commit/c3fb31fd981cab085950e04b65ab6dba4ef41c32))
+
 # [@tehik-ee/tedi-angular-v2.2.0-rc.20](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.2.0-rc.19...angular-2.2.0-rc.20) (2025-07-31)
 
 
