@@ -1,9 +1,6 @@
 import { AfterContentInit, ChangeDetectionStrategy, Component, ElementRef, inject, input, Renderer2, signal, ViewEncapsulation } from '@angular/core';
-import { PopoverComponent } from '../../../overlay/popover/popover.component';
-import { PopoverTriggerComponent } from '../../../overlay/popover/popover-trigger.component';
-import { PopoverContentComponent } from '../../../overlay/popover/popover-content.component';
 import { NgTemplateOutlet } from '@angular/common';
-import { IconComponent, ButtonComponent, ShowAtDirective, HideAtDirective, Breakpoint } from "@tehik-ee/tedi-angular/tedi";
+import { IconComponent, ButtonComponent, ShowAtDirective, HideAtDirective, Breakpoint, PopoverComponent, PopoverTriggerComponent, PopoverContentComponent } from "@tehik-ee/tedi-angular/tedi";
 
 @Component({
   selector: 'tedi-header-profile',

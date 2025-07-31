@@ -1,9 +1,6 @@
 import { NgFor } from '@angular/common';
 import { ChangeDetectionStrategy, Component, computed, forwardRef, inject, input, output, ViewChild, ViewEncapsulation } from '@angular/core';
-import { IconComponent, Language, TediTranslationPipe, TediTranslationService, TextComponent } from "@tehik-ee/tedi-angular/tedi";
-import { PopoverComponent } from "../../../overlay/popover/popover.component";
-import { PopoverTriggerComponent } from "../../../overlay/popover/popover-trigger.component";
-import { PopoverContentComponent } from "../../../overlay/popover/popover-content.component";
+import { IconComponent, Language, TediTranslationPipe, TediTranslationService, TextComponent, PopoverComponent, PopoverTriggerComponent, PopoverContentComponent } from "@tehik-ee/tedi-angular/tedi";
 
 export type HeaderLanguage = {
   [L in Language]?: string;

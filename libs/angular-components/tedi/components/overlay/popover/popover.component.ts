@@ -19,8 +19,8 @@ import {
   Overlay
 } from "@angular/cdk/overlay";
 import { CdkPortal, PortalModule } from "@angular/cdk/portal";
-import { PopoverTriggerComponent } from "./popover-trigger.component";
-import { PopoverContentComponent } from "./popover-content.component";
+import { PopoverTriggerComponent } from "./popover-trigger/popover-trigger.component";
+import { PopoverContentComponent } from "./popover-content/popover-content.component";
 
 export const POPOVER_ARROW_OFFSET = 18;
 export const POPOVER_TIMEOUT_MS = 150;
@@ -95,7 +95,7 @@ export class PopoverComponent implements AfterContentInit, OnDestroy {
   @ContentChild(PopoverContentComponent) content?: PopoverContentComponent;
   @ViewChild(CdkPortal, { static: true }) portal!: CdkPortal;
 
-  private overlayRef?: OverlayRef;
+  overlayRef?: OverlayRef;
   private readonly overlay = inject(Overlay);
   private readonly renderer = inject(Renderer2);
   private readonly eventListeners: (() => void)[] = [];
@@ -176,6 +176,7 @@ export class PopoverComponent implements AfterContentInit, OnDestroy {
 
     if (this.trigger?.host.nativeElement) {
       this.renderer.setAttribute(this.trigger.host.nativeElement, 'data-open', 'true');
+      this.renderer.setAttribute(this.trigger.host.nativeElement, 'aria-expanded', 'true');
     }
   }
 
@@ -184,6 +185,7 @@ export class PopoverComponent implements AfterContentInit, OnDestroy {
 
     if (this.trigger?.host.nativeElement) {
       this.renderer.removeAttribute(this.trigger.host.nativeElement, 'data-open');
+      this.renderer.setAttribute(this.trigger.host.nativeElement, 'aria-expanded', 'false');
     }
   }
 

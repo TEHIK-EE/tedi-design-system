@@ -1,0 +1,23 @@
+@if (title() && showClose()) {
+    <div class="tedi-popover-content__head">
+        <h4 class="tedi-popover-content__title" [id]="titleId">{{ title() }}</h4>
+        <button tedi-closing-button (click)="handleClose()"></button>
+    </div>
+    <ng-container *ngTemplateOutlet="content"></ng-container>
+} @else if (showClose()) {
+    <div class="tedi-popover-content__head">
+        <div>
+            <ng-container *ngTemplateOutlet="content"></ng-container>
+        </div>
+        <button tedi-closing-button size="small" (click)="handleClose()"></button>
+    </div>
+} @else if (title()) {
+    <h4 [id]="titleId">{{ title() }}</h4>
+    <ng-container *ngTemplateOutlet="content"></ng-container>
+} @else {
+    <ng-container *ngTemplateOutlet="content"></ng-container>
+}
+
+<ng-template #content>
+    <ng-content></ng-content>
+</ng-template>

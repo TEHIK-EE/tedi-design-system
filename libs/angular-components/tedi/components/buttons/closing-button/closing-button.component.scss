@@ -3,6 +3,7 @@
 .tedi-closing-button {
   --general-icon-primary: var(--button-close-text-default);
 
+  flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
