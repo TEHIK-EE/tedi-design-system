@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-angular-v2.2.0-rc.20](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.2.0-rc.19...angular-2.2.0-rc.20) (2025-07-31)
+
+
+### Features
+
+* **popover:** add TEDI-Ready component [#925](https://github.com/TEHIK-EE/tedi-design-system/issues/925) ([#953](https://github.com/TEHIK-EE/tedi-design-system/issues/953)) ([89a2eaf](https://github.com/TEHIK-EE/tedi-design-system/commit/89a2eaf7f17306e640d8bc37ff775abff47f12e0))
+
 # [@tehik-ee/tedi-angular-v2.2.0-rc.19](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.2.0-rc.18...angular-2.2.0-rc.19) (2025-07-31)
 
 
