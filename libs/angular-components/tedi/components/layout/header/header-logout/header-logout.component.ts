@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, computed, inject, ViewEncapsulation } from '@angular/core';
-import { IconComponent, BreakpointService } from "@tehik-ee/tedi-angular/tedi";
+import { IconComponent } from '../../../base/icon/icon.component';
+import { BreakpointService } from "../../../../services/breakpoint/breakpoint.service";
 
 @Component({
   selector: 'button[tedi-header-logout]',

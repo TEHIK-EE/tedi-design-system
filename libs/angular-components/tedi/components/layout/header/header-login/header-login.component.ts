@@ -1,5 +1,8 @@
 import { ChangeDetectionStrategy, Component, computed, inject, ViewEncapsulation } from '@angular/core';
-import { IconComponent, ButtonComponent, TediTranslationService, BreakpointService } from "@tehik-ee/tedi-angular/tedi";
+import { IconComponent } from '../../../base/icon/icon.component';
+import { ButtonComponent } from '../../../buttons/button/button.component';
+import { BreakpointService } from "../../../../services/breakpoint/breakpoint.service";
+import { TediTranslationService } from '../../../../services/translation/translation.service';
 
 @Component({
   selector: 'tedi-header-login',

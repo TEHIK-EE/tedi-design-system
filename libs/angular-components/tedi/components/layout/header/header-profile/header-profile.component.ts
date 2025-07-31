@@ -1,6 +1,13 @@
-import { AfterContentInit, ChangeDetectionStrategy, Component, ElementRef, inject, input, Renderer2, signal, ViewEncapsulation } from '@angular/core';
-import { NgTemplateOutlet } from '@angular/common';
-import { IconComponent, ButtonComponent, ShowAtDirective, HideAtDirective, Breakpoint, PopoverComponent, PopoverTriggerComponent, PopoverContentComponent } from "@tehik-ee/tedi-angular/tedi";
+import { AfterContentInit, ChangeDetectionStrategy, Component, effect, ElementRef, inject, input, Renderer2, signal, ViewEncapsulation } from '@angular/core';
+import { DOCUMENT, NgTemplateOutlet } from '@angular/common';
+import { IconComponent } from '../../../base/icon/icon.component';
+import { ShowAtDirective } from '../../../../directives/show-at/show-at.directive';
+import { HideAtDirective } from '../../../../directives/hide-at/hide-at.directive';
+import { ButtonComponent } from '../../../buttons/button/button.component';
+import { PopoverComponent } from '../../../overlay/popover/popover.component';
+import { PopoverTriggerComponent } from '../../../overlay/popover/popover-trigger/popover-trigger.component';
+import { PopoverContentComponent } from '../../../overlay/popover/popover-content/popover-content.component';
+import { Breakpoint } from "../../../../services/breakpoint/breakpoint.service";
 
 @Component({
   selector: 'tedi-header-profile',
@@ -26,10 +33,22 @@ export class HeaderProfileComponent implements AfterContentInit {
   /** Breakpoint at which we show dropdown instead of modal */
   showDropdown = input<Breakpoint>();
 
+  private readonly document = inject(DOCUMENT);
   private readonly host = inject(ElementRef);
   private readonly renderer = inject(Renderer2);
   private readonly eventListeners: (() => void)[] = [];
   
+  constructor() {
+    effect(() => {
+      if (this.modalOpen()) {
+        this.renderer.setStyle(this.document.body, 'overflow', 'hidden');
+        this.document.defaultView?.scrollTo({ top: 0, left: 0 });
+      } else {
+        this.renderer.removeStyle(this.document.body, 'overflow');
+      }
+    })
+  }
+
   modalOpen = signal(false);
 
   ngAfterContentInit(): void {
