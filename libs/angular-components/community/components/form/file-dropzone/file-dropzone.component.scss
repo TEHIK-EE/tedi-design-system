@@ -1,0 +1,19 @@
+.tedi-file-dropzone {
+  width: 100%;
+
+  &__label-wrapper {
+    // prevent the wrapper from interfering with drag events
+    pointer-events: none;
+  }
+}
+
+.tedi-file-dropzone__card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  --_card-border: transparent;
+}
+
+.tedi-file-dropzone__tooltip--error .tedi-info-button {
+  --button-main-neutral-text-default: var(--red-700);
+}

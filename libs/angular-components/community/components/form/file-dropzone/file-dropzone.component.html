@@ -1,0 +1,72 @@
+<input
+  #fileInput
+  class="tedi-file-dropzone__input"
+  type="file"
+  [multiple]="multiple()"
+  [id]="inputId()"
+  [attr.webkitdirectory]="uploadFolder() ? '' : null"
+  [accept]="accept()"
+  [multiple]="multiple()"
+  (change)="selectionChange($event)"
+/>
+<button [className]="classes()" (click)="onContainerClick()">
+  <div class="tedi-file-dropzone__label-wrapper">
+    <tedi-icon
+      [name]="isDragActive() ? 'file_upload' : 'attach_file'"
+      [color]="disabled() ? 'tertiary' : 'secondary'"
+    />
+    <label tedi-label class="tedi-file-dropzone__label">{{
+      (isDragActive() ? "file-upload.drag-and-drop" : label()) | tediTranslate
+    }}</label>
+  </div>
+</button>
+
+@if (helperText(); as message) {
+  <tedi-feedback-text
+    [text]="message.text"
+    [type]="message.type || 'hint'"
+    [position]="message.position || 'left'"
+  />
+}
+@for (file of files(); track file.name) {
+  <div class="tedi-file-dropzone__file-list" [tediVerticalSpacing]="0.5">
+    <tedi-card
+      [className]="fileClasses(file)"
+      padding="none"
+      [background]="
+        file.fileStatus && file.fileStatus == 'invalid'
+          ? 'danger-primary'
+          : 'tertiary'
+      "
+    >
+      <tedi-card-content class="tedi-file-dropzone__card" padding="xs">
+        <div class="tedi-file-dropzone__file-name">
+          {{ file.name }}
+
+          @if (file && validateIndividually() && file.helper; as helper) {
+            <tedi-tooltip [className]="tooltipClasses(file)">
+              <tedi-tooltip-trigger>
+                <button tedi-info-button></button>
+              </tedi-tooltip-trigger>
+
+              <tedi-tooltip-content [position]="helper?.position || 'top'">
+                {{ helper.text }}
+              </tedi-tooltip-content>
+            </tedi-tooltip>
+          }
+        </div>
+        <button
+          tedi-closing-button
+          [title]="'clear' | tediTranslate"
+          [iconSize]="18"
+          (click)="removeFile(file)"
+          size="small"
+        ></button>
+      </tedi-card-content>
+    </tedi-card>
+  </div>
+}
+
+@if (this.uploadError(); as message) {
+  <tedi-feedback-text [text]="message" type="error" position="left" />
+}
