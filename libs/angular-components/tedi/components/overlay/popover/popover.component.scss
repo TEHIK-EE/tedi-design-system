@@ -12,7 +12,7 @@ tedi-popover {
 }
 
 tedi-popover-trigger {
-  display: block;
+  display: inline-flex;
   cursor: pointer;
 }
 
@@ -39,8 +39,8 @@ tedi-popover-trigger {
   &::after {
     content: "";
     position: absolute;
-    width: 14px;
-    height: 14px;
+    width: 24px;
+    height: 24px;
     background: var(--popover-background);
     z-index: 0;
     filter: drop-shadow(0 0 5px var(--alpha-20));
@@ -60,12 +60,32 @@ tedi-popover-trigger {
     }
   }
 
+  &__head {
+    display: flex;
+    justify-content: space-between;
+
+    @include mixins.responsive-styles(gap, layout-grid-gutters-08);
+
+    > div {
+      display: flex;
+      flex-direction: column;
+      flex: 1 1 0;
+      min-width: 0;
+
+      @include mixins.responsive-styles(gap, layout-grid-gutters-08);
+    }
+  }
+
+  &__title {
+    align-self: center;
+  }
+
   &__arrow--top {
     .tedi-popover-content {
       &::after {
         transform: rotate(45deg);
-        top: calc(100% - 4px);
-        left: calc(50% - 4px);
+        top: calc(100% - 12px);
+        left: calc(50% - 12px);
       }
     }
 
@@ -73,6 +93,10 @@ tedi-popover-trigger {
       border-bottom: 4px solid var(--header-popover-border-top);
       border-bottom-left-radius: 0px;
       border-bottom-right-radius: 0px;
+
+      &::after {
+        top: calc(100% - 9px);
+      }
     }
   }
 
@@ -80,8 +104,8 @@ tedi-popover-trigger {
     .tedi-popover-content {
       &::after {
         transform: rotate(225deg);
-        bottom: calc(100% - 4px);
-        left: calc(50% - 4px);
+        bottom: calc(100% - 12px);
+        left: calc(50% - 12px);
       }
     }
 
@@ -89,6 +113,10 @@ tedi-popover-trigger {
       border-top: 4px solid var(--header-popover-border-top);
       border-top-left-radius: 0px;
       border-top-right-radius: 0px;
+
+      &::after {
+        bottom: calc(100% - 9px);
+      }
     }
   }
 
@@ -96,8 +124,8 @@ tedi-popover-trigger {
     .tedi-popover-content {
       &::after {
         transform: rotate(135deg);
-        top: calc(50% - 4px);
-        right: calc(100% - 4px);
+        top: calc(50% - 12px);
+        right: calc(100% - 12px);
       }
     }
 
@@ -105,6 +133,10 @@ tedi-popover-trigger {
       border-left: 4px solid var(--header-popover-border-top);
       border-top-left-radius: 0px;
       border-bottom-left-radius: 0px;
+
+      &::after {
+        right: calc(100% - 9px);
+      }
     }
   }
 
@@ -112,8 +144,8 @@ tedi-popover-trigger {
     .tedi-popover-content {
       &::after {
         transform: rotate(-45deg);
-        top: calc(50% - 4px);
-        left: calc(100% - 4px);
+        top: calc(50% - 12px);
+        left: calc(100% - 12px);
       }
     }
 
@@ -121,6 +153,10 @@ tedi-popover-trigger {
       border-right: 4px solid var(--header-popover-border-top);
       border-top-right-radius: 0px;
       border-bottom-right-radius: 0px;
+
+      &::after {
+        left: calc(100% - 9px);
+      }
     }
   }
 }
