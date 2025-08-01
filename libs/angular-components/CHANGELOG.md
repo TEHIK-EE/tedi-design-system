@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-angular-v2.2.1-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.2.0...angular-2.2.1-rc.1) (2025-08-01)
+
+
+### Bug Fixes
+
+* **form-card-error:** with extra specificty, fix card error style [#860](https://github.com/TEHIK-EE/tedi-design-system/issues/860) ([7a5c72c](https://github.com/TEHIK-EE/tedi-design-system/commit/7a5c72cdf63ab5bf5d26b9dbef27360746dfcef8))
+
 # [@tehik-ee/tedi-angular-v2.2.0](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.1.1...angular-2.2.0) (2025-07-31)
 
 
