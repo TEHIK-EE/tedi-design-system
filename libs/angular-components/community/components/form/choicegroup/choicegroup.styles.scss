@@ -1,6 +1,13 @@
 @use "@tehik-ee/tedi-core/mixins";
 @use "./choicegroup-card-mixins";
 
+@mixin choicegroup-card-error-variables {
+  :is(.tedi-radio--error, .tedi-checkbox--error) {
+    --_choicegroup-card-bg: var(--form-checkbox-radio-default-background-error);
+    --_choicegroup-card-border: var(--form-general-feedback-error-border);
+  }
+}
+
 .tedi-choicegroup {
   .tedi-radio,
   .tedi-checkbox {
@@ -23,6 +30,7 @@
       "primary",
       "border-separate"
     );
+    @include choicegroup-card-error-variables();
 
     :is(.tedi-radio, .tedi-checkbox):has(input:checked) {
       --_radio-bg: transparent;
@@ -49,6 +57,7 @@
   &--secondary {
     @include choicegroup-card-mixins.color-variables("secondary");
     @include choicegroup-card-mixins.border-colors("secondary", "border");
+    @include choicegroup-card-error-variables();
 
     :is(.tedi-radio, .tedi-checkbox):has(input:checked) {
       outline: 1px solid var(--_choicegroup-card-border);
