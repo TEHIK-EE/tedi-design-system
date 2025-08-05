@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-angular-v2.3.0-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.2.1-rc.1...angular-2.3.0-rc.1) (2025-08-05)
+
+
+### Features
+
+* **choice-group-variant-export:** export ChoicegroupVariant type from the directive ([09053cb](https://github.com/TEHIK-EE/tedi-design-system/commit/09053cb041e615b440fd744c1ab93334be9da0a8))
+
 # [@tehik-ee/tedi-angular-v2.2.1-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.2.0...angular-2.2.1-rc.1) (2025-08-01)
 
 
