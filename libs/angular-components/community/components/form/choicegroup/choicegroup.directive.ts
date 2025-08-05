@@ -1,6 +1,6 @@
 import { computed, Directive, input } from "@angular/core";
 
-type ChoicegroupVariant = "primary" | "secondary";
+export type ChoicegroupVariant = "primary" | "secondary";
 
 @Directive({
   standalone: true,
