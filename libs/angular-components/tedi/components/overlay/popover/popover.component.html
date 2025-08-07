@@ -1,4 +1,19 @@
-<ng-content select="tedi-popover-trigger" />
-<ng-template cdkPortal>
-  <ng-content select="tedi-popover-content" />
-</ng-template>
+<div
+    [floatUiLoose]="floatUiComponent"
+    [loosePlacement]="position()"
+    [looseTrigger]="openWith()"
+    [hideOnClickOutside]="dismissible()"
+    [hideOnScroll]="hideOnScroll()"
+    [applyClass]="withBorder() ? 'float-ui-container--border' : ''"
+    [disableAnimation]="true"
+    appendTo="body"
+    aria-haspopup="dialog"
+    style="display: inline-flex;"
+    (onHidden)="onHide()"
+    (onShown)="onOpen()"
+>
+    <ng-content select="tedi-popover-trigger" />
+</div>
+<float-ui-content #floatUiComponent>
+    <ng-content select="tedi-popover-content" />
+</float-ui-content>
