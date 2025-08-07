@@ -45,6 +45,6 @@ export class HeaderLanguageComponent {
   handleChangeLang(lang: Language) {
     this.languageChange.emit(lang);
     this.translationService.setLanguage(lang);
-    this.popover?.closePopover();
+    this.popover?.floatUiComponent.hide();
   }
 }

@@ -21,6 +21,7 @@ import { SideNavToggleComponent } from "../sidenav/sidenav-toggle/sidenav-toggle
 import { SideNavComponent } from "../sidenav/sidenav.component";
 import { SideNavItemComponent } from "../sidenav/sidenav-item/sidenav-item.component";
 import { SideNavOverlayComponent } from "../sidenav/sidenav-overlay/sidenav-overlay.component";
+import { SeparatorComponent } from "../../helpers/separator/separator.component";
 
 /**
  * <a href="https://www.figma.com/design/jWiRIXhHRxwVdMSimKX2FF/TEDI-READY-2.13.19?node-id=2137-19318&m=dev&focus-id=6380-53060" target="_BLANK">Figma ↗</a><br/>
@@ -54,6 +55,7 @@ export default {
           HeaderProfileComponent,
           HeaderLoginComponent,
           HeaderLogoutComponent,
+          SeparatorComponent,
           LinkComponent,
           IconComponent,
           ButtonComponent,
@@ -224,6 +226,7 @@ export const LoggedIn1: StoryObj<HeaderComponent> = {
               <a tedi-link href="#" [underline]="false">Minu andmed</a>
               <a tedi-link href="#" [underline]="false">Esindatavad</a>
               <a tedi-link href="#" [underline]="false">Kontaktid</a>
+              <tedi-separator *showAt="'lg'" />
               <button tedi-header-logout>
                 Logi välja
               </button>
@@ -321,6 +324,7 @@ export const LoggedIn3: StoryObj<HeaderComponent> = {
               <a tedi-link href="#" [underline]="false">Minu andmed</a>
               <a tedi-link href="#" [underline]="false">Esindatavad</a>
               <a tedi-link href="#" [underline]="false">Kontaktid</a>
+              <tedi-separator *showAt="'lg'" />
               <button tedi-header-logout>
                 Logi välja
               </button>
@@ -392,7 +396,7 @@ export const WithOrganization: StoryObj<HeaderComponent> = {
               *showAt="'lg'"
             />
             <tedi-header-language [languages]="{ et: 'EST', en: 'ENG', ru: 'RUS' }" />
-            <tedi-header-profile>
+            <tedi-header-profile showDropdown="lg">
               <tedi-header-role 
                 role="Asutus:" 
                 [showInput]="true"
@@ -423,6 +427,7 @@ export const WithOrganization: StoryObj<HeaderComponent> = {
               <a tedi-link [underline]="false">Minu andmed</a>
               <a tedi-link [underline]="false">Esindatavad</a>
               <a tedi-link [underline]="false">Kontaktid</a>
+              <tedi-separator *showAt="'lg'" />
               <button tedi-header-logout>
                 Logi välja
               </button>
