@@ -19,7 +19,7 @@ export interface PaginationProps {
 const Pagination = <TData extends DefaultTData<TData>>(props: PaginationProps): JSX.Element | null => {
   const { getLabel } = useLabels();
   const { table, id } = React.useContext(TableContext);
-  const resultsLabel = getLabel('pagination.results');
+  const resultsLabel = getLabel('pagination.results', props.totalRows);
 
   const { setPageSize, getState, getPageCount } = table as TableType<TData>;
   const { pageIndex, pageSize } = getState().pagination;
@@ -67,7 +67,7 @@ const Pagination = <TData extends DefaultTData<TData>>(props: PaginationProps): 
   return (
     <div className={styles['pagination__wrapper']}>
       <Text color="muted" modifiers="small">
-        {props.totalRows} {typeof resultsLabel === 'string' ? resultsLabel : resultsLabel(props.totalRows)}
+        {props.totalRows} {resultsLabel}
       </Text>
       {getPageCount() > 1 && (
         <nav role="navigation" aria-label={getLabel('pagination.title')} className={styles['pagination']}>

@@ -107,11 +107,8 @@ const getUploadErrorHelperText = (rejectedFiles: RejectedFile[], getLabel: ILabe
     .filter(([_, names]) => names.length)
     .map(([type, names]) => {
       const joinedNames = names.map((name) => `'${name}'`).join(', ');
-      const label = getLabel(`file-upload.${type as FileRejectionType}-rejected`);
-      if (typeof label === 'string') {
-        return label;
-      }
-      return label(joinedNames);
+      const label = getLabel(`file-upload.${type as FileRejectionType}-rejected`, joinedNames);
+      return label;
     })
     .join('. ');
 };

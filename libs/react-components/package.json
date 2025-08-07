@@ -49,9 +49,9 @@
     "yup": "^1.4.0"
   },
   "peerDependencies": {
-    "dayjs": "^1.11.10",
     "react": "18.3.1",
-    "react-dom": "18.3.1"
+    "react-dom": "18.3.1",
+    "dayjs": "^1.11.10"
   },
   "devDependencies": {
     "@avalane/storybook-addon-status": "^5.0.1",

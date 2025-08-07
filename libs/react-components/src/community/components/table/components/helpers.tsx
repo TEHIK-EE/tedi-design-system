@@ -18,8 +18,7 @@ export function getExpandColumn<TData>(id = 'expander', showExpandAll?: boolean)
           <span className="visually-hidden">
             <LabelContext.Consumer>
               {({ getLabel }) => {
-                const toggleLabel = getLabel('table.toggle-sub-row');
-                return typeof toggleLabel === 'string' ? toggleLabel : toggleLabel(row.getIsExpanded());
+                return getLabel('table.toggle-sub-row', row.getIsExpanded());
               }}
             </LabelContext.Consumer>
           </span>
@@ -42,14 +41,12 @@ export function getRowSelectionColumn<TData>(id = 'row-selection', showSelectAll
       showSelectAll ? (
         <LabelContext.Consumer>
           {({ getLabel }) => {
-            const toggleLabel = getLabel('table.select-all');
-            const finalLabel =
-              typeof toggleLabel === 'string' ? toggleLabel : toggleLabel(table.getIsAllRowsSelected());
+            const toggleLabel = getLabel('table.select-all', table.getIsAllRowsSelected());
 
             return (
               <Check
                 id={`${id}-header`}
-                label={finalLabel}
+                label={toggleLabel}
                 hideLabel
                 value="row-expander-header"
                 name={`${id}-header`}
@@ -65,8 +62,7 @@ export function getRowSelectionColumn<TData>(id = 'row-selection', showSelectAll
       return (
         <LabelContext.Consumer>
           {({ getLabel }) => {
-            const toggleLabel = getLabel('table.select-row');
-            const finalLabel = typeof toggleLabel === 'string' ? toggleLabel : toggleLabel(row.getIsSelected());
+            const toggleLabel = getLabel('table.select-row', row.getIsSelected());
 
             if (!row.getCanSelect()) {
               return null;
@@ -76,7 +72,7 @@ export function getRowSelectionColumn<TData>(id = 'row-selection', showSelectAll
               <Check
                 id={`${id}-${row.id}`}
                 name={`${id}-${row.id}`}
-                label={finalLabel}
+                label={toggleLabel}
                 hideLabel
                 value={`${id}-${row.id}`}
                 checked={row.getIsSelected()}
