@@ -53,7 +53,7 @@ export const LabelContext = React.createContext<ILabelContext>({
   },
 });
 
-export interface LabelProviderProps<TRecord extends TediLabelEntryRecord<TRecord>> {
+export interface LabelProviderProps<TRecord extends TediLabelEntryRecord<TRecord> = Record<string, never>> {
   /**
    * Global labels that are use in components. If omitted then default labels are used based on `locale` prop.
    * If both props are omitted then English translations are used by default
