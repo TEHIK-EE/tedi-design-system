@@ -1,10 +1,68 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import type { CalendarPickerView, ClockPickerView } from '@mui/x-date-pickers';
 import type { MuiPickersAdapter } from '@mui/x-date-pickers/internals/models';
 
 import type { DatepickerValue, TimePickerValue } from '../../../../src/community/components/form/pickers';
-import { TediValidatedLabels } from './label-types';
 
-export const validateLabels = <TRecord extends TediValidatedLabels<TRecord>>(map: TRecord): TRecord => map;
+type LabelBaseEntry = {
+  description?: string;
+  components?: string[];
+};
+
+type LabelStringEntry = LabelBaseEntry & {
+  [TLang in TediLanguage]: string;
+};
+
+type LabelFunctionEntry<TArgs extends unknown[]> = LabelBaseEntry & {
+  [TLang in TediLanguage]: LabelFunctionValue<TArgs>;
+};
+
+type ExtractLabelArgs<TArgs> = TArgs extends { [TLang in TediLanguage]: (...args: infer Args) => string }
+  ? Args
+  : never;
+
+type HasConsistentArgs<TArgs> = TArgs extends { [TLang in TediLanguage]: (...args: any[]) => string }
+  ? TArgs extends {
+      et: (...args: infer ArgsEt) => string;
+      en: (...args: infer ArgsEn) => string;
+      ru: (...args: infer ArgsRu) => string;
+    }
+    ? ArgsEt extends ArgsEn
+      ? ArgsEn extends ArgsRu
+        ? ArgsRu extends ArgsEt
+          ? true
+          : false
+        : false
+      : false
+    : false
+  : true;
+
+type TediValidatedLabels<TRecord> = {
+  [TKey in keyof TRecord]: HasConsistentArgs<TRecord[TKey]> extends true
+    ? TRecord[TKey] extends { [TLang in TediLanguage]: string }
+      ? LabelStringEntry
+      : TRecord[TKey] extends { [TLang in TediLanguage]: (...args: any[]) => string }
+      ? LabelFunctionEntry<ExtractLabelArgs<TRecord[TKey]>>
+      : never
+    : never;
+};
+
+export type LabelFunctionValue<TArgs extends any[]> = (...args: TArgs) => string;
+export type TediLanguage = 'et' | 'en' | 'ru';
+
+export type TediLabelEntryRecord<TRecord> = {
+  [TKey in keyof DefaultLabels]?: Partial<DefaultLabels[TKey]>;
+} & TediValidatedLabels<TRecord>;
+
+export type TediLabelValuesRecord = {
+  [TKey in keyof DefaultLabels]?: DefaultLabels[TKey]['et'];
+} & {
+  [TKey: string]: string | LabelFunctionValue<any[]>;
+};
+
+const validateDefaultLabels = <TRecord extends TediValidatedLabels<TRecord>>(map: TRecord): TRecord => map;
+export const validateLabelRecord = <TRecord extends TediLabelEntryRecord<TRecord>>(map: TRecord): TRecord => map;
+export const validateLabelValues = <TRecord extends TediLabelValuesRecord>(map: TRecord): TRecord => map;
 
 const muiTranslationsUrl =
   'https://github.com/mui/mui-x/blob/HEAD/packages/x-date-pickers/src/locales/utils/pickersLocaleTextApi.ts';
@@ -13,7 +71,7 @@ const muiTranslationsUrl =
  * Creates a map of default translations.
  * et, en and ru values must be of same type
  */
-export const labelsMap = validateLabels({
+export const labelsMap = validateDefaultLabels({
   close: {
     description: 'Used for closing',
     components: ['CloseButton', 'Collapse', 'Notification', 'FileUpload', 'Dropdown', 'Tooltip'],

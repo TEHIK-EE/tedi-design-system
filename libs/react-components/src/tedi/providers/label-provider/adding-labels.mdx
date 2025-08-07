@@ -4,20 +4,51 @@ import { Meta } from '@storybook/blocks';
 
 # Adding labels
 
-If you are building a wrapper library or just want to add custom labels that you can use in your components, you can follow this example.
+We recommend to use validation utilities just to make sure you follow the same structure as before.
+For an example, overriding function label **"numberField.decrement"** with different arguments or as a string label will give error.
 
-## Create your own custom labels
+## There are 2 ways of adding new labels to your application:
+- You can add current language labels directly, assuming something takes care of locale (i18n)
+- You can add labels with record of objects with each language and/or description and components information
+
+### **Define labels with i18n**
 
 ```tsx
-import React from 'react';
-import { validateLabels, LabelProvider } from '@tehik-ee/tedi-react/tedi';
+import { validateLabelValues } from '@tehik-ee/tedi-react/tedi';
+
+const customLabels = (t: TFunction) => validateLabelValues({
+  "header.login": t("header.login"),
+  "numberField.decrement": (count) => t("numberField.decrement", { value: count }),
+});
+
+type CustomLabels = ReturnType<typeof customLabels>;
+
+declare module '@tehik-ee/tedi-react/tedi' {
+  interface TediLabels extends CustomLabels {}
+}
+
+export default function Providers({ children }: { children: ReactNode | ReactNode[] }) {
+  const { t, i18n } = useTranslation();
+
+  return (
+    <LabelProvider locale={i18n.language as TediLanguage} labels={customLabels(t)}>
+      {children}
+    </LabelProvider>
+  );
+}
+```
+
+### **Define labels with object structure**
+
+```tsx
+import { validateLabelRecord, TediLanguage } from '@tehik-ee/tedi-react/tedi';
 
 /**
  * Description and components keys are optional.
- * Language values (et, en, ru etc...) values must be of the same type.
+ * Language values (et, en, ru) values must be of the same type.
  * When overriding existing labels, you must use same type as before.
  */
-export const customLabels = validateLabels({
+export const customLabels = validateLabelRecord({
   'string.example': {
     description: 'Example translations with string.',
     components: ['Tooltip'],
@@ -36,18 +67,15 @@ export const customLabels = validateLabels({
 
 type CustomLabels = typeof customLabels;
 
-// Use module augmentation
-// This way `getLabel` function will have correct types for our custom labels
 declare module '@tehik-ee/tedi-react/tedi' {
   interface TediLabels extends CustomLabels {}
 }
 
-// This will override existing labels and add new labels
-export const Providers = ({ children }: { children: React.ReactNode }) => {
+export default function Providers({ children, locale }: { children: ReactNode | ReactNode[]; locale: TediLanguage }) {
   return (
-    <LabelProvider labels={customLabels}>
+    <LabelProvider locale={locale} labels={customLabels}>
       {children}
     </LabelProvider>
   );
-};
+}
 ```

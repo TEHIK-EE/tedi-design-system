@@ -7,9 +7,14 @@ import isSameOrBefore from 'dayjs/plugin/isSameOrBefore';
 import updateLocale from 'dayjs/plugin/updateLocale';
 import React, { useCallback, useMemo } from 'react';
 
-import { DeepPartial } from '../../types/commonTypes';
-import { TediLabelEntry, TediLabelRecord, TediLanguage } from './label-types';
-import { labelsMap, TediLabels } from './labels-map';
+import {
+  LabelFunctionValue,
+  labelsMap,
+  TediLabelEntryRecord,
+  TediLabels,
+  TediLabelValuesRecord,
+  TediLanguage,
+} from './labels-map';
 
 import 'dayjs/locale/et';
 import 'dayjs/locale/ru';
@@ -30,6 +35,8 @@ export interface ILabelContext {
       ? FuncType extends (...args: infer P) => string
         ? P
         : []
+      : TediLabels[TKey] extends (...args: infer P) => string
+      ? P
       : []
   >(
     key: TKey,
@@ -38,7 +45,7 @@ export interface ILabelContext {
 }
 
 export const LabelContext = React.createContext<ILabelContext>({
-  getLabel: (key) => {
+  getLabel: (key, ..._args) => {
     if (!isTestEnvironment) {
       console.error('LabelProvider missing! Application must be wrapped with <LabelProvider>');
     }
@@ -46,12 +53,12 @@ export const LabelContext = React.createContext<ILabelContext>({
   },
 });
 
-export interface LabelProviderProps {
+export interface LabelProviderProps<TRecord extends TediLabelEntryRecord<TRecord>> {
   /**
    * Global labels that are use in components. If omitted then default labels are used based on `locale` prop.
    * If both props are omitted then English translations are used by default
    */
-  labels?: DeepPartial<TediLabels>;
+  labels?: TRecord | TediLabelValuesRecord;
   /**
    * Currently used locale. Supported languages are:<br />
    * et - Estonian<br />
@@ -66,28 +73,38 @@ export interface LabelProviderProps {
   children: React.ReactNode;
 }
 
-export const LabelProvider = (props: LabelProviderProps): JSX.Element => {
+export const LabelProvider = <TRecord extends TediLabelEntryRecord<TRecord>>(
+  props: LabelProviderProps<TRecord>
+): JSX.Element => {
   const { labels = {}, children, locale = 'en' } = props;
 
-  const mergedLabels: TediLabelRecord = useMemo(() => {
-    const result = {} as TediLabelRecord;
+  const mergedLabels = useMemo(() => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const result = {} as Record<string, string | LabelFunctionValue<any>>;
     const allKeys = new Set<string>([...Object.keys(labelsMap), ...Object.keys(labels)]);
 
-    for (const key of allKeys) {
-      const defaultEntry = labelsMap[key as keyof typeof labelsMap];
-      const newEntry = labels[key as keyof typeof labels];
+    for (const k of allKeys) {
+      const key = k as keyof TediLabels;
+      const defaultEntry = labelsMap[key] ? labelsMap[key][locale] : undefined;
+      const customEntry = labels[key] ?? undefined;
 
-      if (defaultEntry && newEntry) {
-        result[key] = { ...defaultEntry, ...newEntry } as TediLabelEntry;
-      } else if (defaultEntry) {
-        result[key] = defaultEntry;
-      } else if (newEntry) {
-        result[key] = newEntry;
+      let newEntry;
+
+      if (customEntry) {
+        if (typeof customEntry === 'object') {
+          newEntry = customEntry[locale];
+        } else {
+          newEntry = customEntry;
+        }
+      } else {
+        newEntry = undefined;
       }
+
+      result[key] = newEntry ?? defaultEntry ?? key;
     }
 
     return result;
-  }, [labels]);
+  }, [labels, locale]);
 
   dayjs.locale(locale);
 
@@ -98,6 +115,8 @@ export const LabelProvider = (props: LabelProviderProps): JSX.Element => {
         ? FuncType extends (...args: infer P) => string
           ? P
           : []
+        : TediLabels[TKey] extends (...args: infer P) => string
+        ? P
         : []
     >(
       key: TKey,
@@ -105,24 +124,18 @@ export const LabelProvider = (props: LabelProviderProps): JSX.Element => {
     ): string => {
       const label = mergedLabels[key];
 
-      if (!label || !(locale in label)) {
+      if (!label) {
         console.error(`Label missing for key "${key}".`);
         return key;
       }
 
-      const value = label[locale];
-
-      if (!value) {
-        return key;
+      if (typeof label === 'function') {
+        return label(...args);
       }
 
-      if (typeof value === 'function') {
-        return value(...args);
-      }
-
-      return value;
+      return label;
     },
-    [locale, mergedLabels]
+    [mergedLabels]
   );
 
   // find all labels that we need to pass into LocalizationProvider

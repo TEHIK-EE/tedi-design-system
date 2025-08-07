@@ -2,15 +2,6 @@ export const DEVICE_SIZES = ['xxl', 'xl', 'lg', 'md', 'sm', 'xs'] as const;
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type UnknownType = any;
-export type DeepPartial<T> =
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  T extends (...args: any[]) => any
-    ? T
-    : T extends Array<infer U>
-    ? Array<DeepPartial<U>>
-    : T extends object
-    ? { [K in keyof T]?: DeepPartial<T[K]> }
-    : T;
 
 export type ColorsPrimary =
   | 'primary-main'
