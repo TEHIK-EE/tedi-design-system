@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-angular-v2.3.0-rc.2](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.3.0-rc.1...angular-2.3.0-rc.2) (2025-08-07)
+
+
+### Bug Fixes
+
+* **header-profile:** use ngx-float-ui library instead of cdk, change popover [#965](https://github.com/TEHIK-EE/tedi-design-system/issues/965) ([#966](https://github.com/TEHIK-EE/tedi-design-system/issues/966)) ([f80f7a9](https://github.com/TEHIK-EE/tedi-design-system/commit/f80f7a9577bffdf246460078280d1913545f56de))
+
 # [@tehik-ee/tedi-angular-v2.3.0-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.2.1-rc.1...angular-2.3.0-rc.1) (2025-08-05)
 
 
