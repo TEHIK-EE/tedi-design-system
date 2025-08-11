@@ -211,11 +211,15 @@ export class SearchComponent
     const inputValue = this._inputValue();
     if (!inputValue) return this.autocompleteOptions();
 
-    return this.autocompleteOptions().filter(
-      (option) =>
-        option.label.toLowerCase().includes(inputValue.toLowerCase()) ||
-        option.description?.toLowerCase().includes(inputValue.toLowerCase()),
-    );
+    return this.autocompleteOptions().filter((option) => {
+      const searchString = inputValue.toLowerCase().split(" ");
+
+      return searchString.every(
+        (searchTerm) =>
+          option.label.toLowerCase().includes(searchTerm) ||
+          option.description?.toLowerCase().includes(searchTerm),
+      );
+    });
   });
 
   iconSize = computed(() => {
