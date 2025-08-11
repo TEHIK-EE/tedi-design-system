@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-angular-v2.3.0-rc.3](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.3.0-rc.2...angular-2.3.0-rc.3) (2025-08-11)
+
+
+### Bug Fixes
+
+* **community-search:** Split search string by space and search all substrings [#766](https://github.com/TEHIK-EE/tedi-design-system/issues/766) ([2ae9604](https://github.com/TEHIK-EE/tedi-design-system/commit/2ae96044ba2189cfccef87d21df1a0438e65fee3))
+
 # [@tehik-ee/tedi-angular-v2.3.0-rc.2](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.3.0-rc.1...angular-2.3.0-rc.2) (2025-08-07)
 
 
