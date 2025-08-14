@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-angular-v2.3.0-rc.4](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.3.0-rc.3...angular-2.3.0-rc.4) (2025-08-14)
+
+
+### Bug Fixes
+
+* **alert:** add open input and output, hide alert when closed [#969](https://github.com/TEHIK-EE/tedi-design-system/issues/969) ([#970](https://github.com/TEHIK-EE/tedi-design-system/issues/970)) ([7907557](https://github.com/TEHIK-EE/tedi-design-system/commit/79075573d73c58ca8adea28bf6f2a4e2db9e0e37))
+
 # [@tehik-ee/tedi-angular-v2.3.0-rc.3](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.3.0-rc.2...angular-2.3.0-rc.3) (2025-08-11)
 
 
