@@ -7,6 +7,7 @@ import {
   Renderer2,
   ViewChild,
   AfterViewInit,
+  model,
 } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { IconComponent } from "../../base/icon/icon.component";
@@ -31,6 +32,9 @@ export type AlertVariant = "default" | "global" | "noSideBorders";
   imports: [CommonModule, IconComponent, ClosingButtonComponent],
   templateUrl: "./alert.component.html",
   styleUrls: ["./alert.component.scss"],
+  host: {
+    "[style.display]": "open() ? 'block' : 'none'",
+  },
 })
 export class AlertComponent implements AfterViewInit {
   /**
@@ -88,6 +92,11 @@ export class AlertComponent implements AfterViewInit {
    * @default h2
    */
   titleElement = input<AlertTitleType>("h2");
+  /**
+   * Is alert open?
+   * @default true
+   */
+  open = model(true);
 
   @ViewChild("alertTitle", { static: true })
   headingAnchor!: ElementRef<HTMLElement>;
@@ -143,4 +152,8 @@ export class AlertComponent implements AfterViewInit {
       "tedi-alert--no-side-borders": this.variant() === "noSideBorders",
     };
   });
+
+  handleClose() {
+    this.open.set(false);
+  }
 }

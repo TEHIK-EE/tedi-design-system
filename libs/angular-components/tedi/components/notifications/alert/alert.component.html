@@ -17,6 +17,7 @@
       tedi-closing-button
       *ngIf="showClose()"
       class="tedi-alert__close"
+      (click)="handleClose()"
     ></button>
     <div class="tedi-alert__title__container" #alertTitle></div>
   </div>
