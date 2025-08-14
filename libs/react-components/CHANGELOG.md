@@ -10,6 +10,18 @@
 
 * **labelprovider:** getLabel function
 
+# [@tehik-ee/tedi-react-v13.0.0-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/react-12.2.1...react-13.0.0-rc.1) (2025-08-14)
+
+
+### Features
+
+* **labelprovider:** refactor [#921](https://github.com/TEHIK-EE/tedi-design-system/issues/921) ([#922](https://github.com/TEHIK-EE/tedi-design-system/issues/922)) ([613f62d](https://github.com/TEHIK-EE/tedi-design-system/commit/613f62dc1b542f6761fd29e0d84e5bf8488bdea2))
+
+
+### BREAKING CHANGES
+
+* **labelprovider:** getLabel function
+
 # [@tehik-ee/tedi-react-v12.2.1](https://github.com/TEHIK-EE/tedi-design-system/compare/react-12.2.0...react-12.2.1) (2025-07-31)
 
 
