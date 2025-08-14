@@ -219,4 +219,17 @@ describe("AlertComponent", () => {
 
     expect(iconElement).toBeNull();
   });
+
+  it("should close alert if close button is clicked", () => {
+    fixture.componentRef.setInput("showClose", true);
+    fixture.detectChanges();
+
+    const closeButton = fixture.debugElement.query(By.css(".tedi-alert__close"))
+      .nativeElement as HTMLButtonElement;
+
+    closeButton.click();
+    fixture.detectChanges();
+
+    expect((fixture.nativeElement as HTMLElement).style.display).toBe("none");
+  });
 });
