@@ -129,10 +129,9 @@ export const NumberField = (props: NumberFieldProps) => {
   };
 
   const updateValueUpdatedLabel = (newValue: number) => {
-    const valueUpdated = getLabel('numberField.quantityUpdated');
-    const valueUpdatedLabel = typeof valueUpdated === 'string' ? valueUpdated : valueUpdated(newValue);
+    const valueUpdated = getLabel('numberField.quantityUpdated', newValue);
 
-    setInputUpdated(valueUpdatedLabel);
+    setInputUpdated(valueUpdated);
     setTimeout(() => {
       setInputUpdated('');
     }, 5000);
@@ -175,12 +174,11 @@ export const NumberField = (props: NumberFieldProps) => {
       [styles['tedi-number-field__button--disabled']]: isOnOrOutOfBounds || disabled,
     });
 
-    const changeValue = getLabel(`numberField.${direction}`);
-    const ariaLabel = typeof changeValue === 'string' ? changeValue : changeValue(step);
+    const changeValue = getLabel(`numberField.${direction}`, step);
 
     return (
       <Button
-        aria-label={ariaLabel}
+        aria-label={changeValue}
         onClick={() => handleButtonClick(direction)}
         disabled={isOnOrOutOfBounds || disabled}
         visualType="secondary"

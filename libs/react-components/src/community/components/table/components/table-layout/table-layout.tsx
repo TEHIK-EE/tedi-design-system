@@ -36,9 +36,9 @@ const TableLayout = <TData extends DefaultTData<TData>>(): JSX.Element | null =>
   }
 
   const { getHeaderGroups, getFooterGroups, getRowModel } = table;
-  const sortingLabel = getLabel('table.sort');
 
   const getSortIcon = (sortingDirection: false | SortDirection, cb?: (event: unknown) => void): JSX.Element => {
+    const sortingLabel = getLabel('table.sort', sortingDirection);
     const SortIconBEM = cn(styles['sort__icon'], {
       [styles['sort__icon--active']]: !!sortingDirection,
       [styles['sort__icon--desc']]: sortingDirection === 'desc',
@@ -55,9 +55,7 @@ const TableLayout = <TData extends DefaultTData<TData>>(): JSX.Element | null =>
           className={cn(styles['sort__button'])}
           onClick={cb}
         >
-          <span className="sr-only">
-            {typeof sortingLabel === 'string' ? sortingLabel : sortingLabel(sortingDirection)}
-          </span>
+          <span className="sr-only">{sortingLabel}</span>
         </Button>
       </Print>
     );
