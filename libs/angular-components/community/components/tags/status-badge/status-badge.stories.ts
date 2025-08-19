@@ -41,6 +41,7 @@ const statuses: StatusBadgeStatus[] = [
   "success",
   "warning",
   "danger",
+  "none",
 ];
 const colorToIconMap: Record<StatusBadgeColor, string> = {
   neutral: "edit",
@@ -56,6 +57,7 @@ const statusToIconMap: Record<StatusBadgeStatus, string> = {
   success: "send",
   warning: "sync",
   danger: "error",
+  none: "edit",
 };
 
 /**

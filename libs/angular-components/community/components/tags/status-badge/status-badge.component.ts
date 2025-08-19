@@ -14,7 +14,12 @@ export type StatusBadgeColor =
   | "transparent";
 export type StatusBadgeVariant = "filled" | "filled-bordered" | "bordered";
 export type StatusBadgeSize = "default" | "large";
-export type StatusBadgeStatus = "danger" | "success" | "warning" | "inactive";
+export type StatusBadgeStatus =
+  | "danger"
+  | "success"
+  | "warning"
+  | "inactive"
+  | "none";
 
 @Component({
   selector: "[tedi-status-badge]",
