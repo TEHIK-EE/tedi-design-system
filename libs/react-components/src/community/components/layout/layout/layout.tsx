@@ -62,10 +62,17 @@ export interface ILayoutProps<
   /**
    * Type of the Header
    * - System header is meant for logged in system
-   * - Public is meant for public pages where user is not yer signed in, usally also does not have sidenav on desktop
+   * - Public is meant for public pages where user is not yet signed in, usually also does not have sidenav on desktop
    * @default 'system'
    */
   headerType?: 'system' | 'public';
+  /**
+   * Custom toggle function for mobile menu
+   * If provided, SidenavToggle will be shown and this function will be called when toggled
+   * @param menuOpen - The current state of the menu (true if open, false if closed)
+   * @default undefined
+   */
+  onHeaderSidenavToggle?: (menuOpen: boolean) => void;
 }
 
 export const Layout = <
@@ -86,25 +93,29 @@ export const Layout = <
     mainLogo,
     growMainContent,
     headerType = 'system',
+    onHeaderSidenavToggle,
     ...rest
   } = props;
   const headerElement = React.useRef<HTMLElement>(null);
   const headerBottomElement = React.useRef<HTMLDivElement>(null);
   const [menuOpen, setMenuOpen] = React.useState(false);
+  const prevMenuOpenRef = React.useRef<boolean>(menuOpen);
   const { hasSidenav } = useSidenavRendered(headerType, sideNav);
+  const useFloatingInteractions = Boolean(sideNav?.navItems?.length);
   const { y, refs, context } = useFloating({
     placement: 'bottom-start',
     open: menuOpen,
-    onOpenChange: setMenuOpen,
+    onOpenChange: useFloatingInteractions ? setMenuOpen : undefined,
     whileElementsMounted: (...args) => autoUpdate(...args, { ancestorScroll: false }),
   });
   const headerBottomSize = useElementSize(headerBottomElement);
 
-  const { getReferenceProps, getFloatingProps } = useInteractions([
-    useClick(context),
-    useRole(context, { role: 'dialog' }),
-    useDismiss(context),
-  ]);
+  const click = useClick(context);
+  const role = useRole(context, { role: 'dialog' });
+  const dismiss = useDismiss(context);
+  const { getReferenceProps, getFloatingProps } = useInteractions(
+    useFloatingInteractions ? [click, role, dismiss] : []
+  );
 
   const mainBem = cn(styles['main'], {
     [styles['main--with-sidenav']]: hasSidenav,
@@ -120,6 +131,13 @@ export const Layout = <
       document.documentElement.style.removeProperty('--header-bottom-height');
     };
   }, [headerBottomSize]);
+
+  React.useEffect(() => {
+    if (prevMenuOpenRef.current !== menuOpen && onHeaderSidenavToggle) {
+      onHeaderSidenavToggle(menuOpen);
+    }
+    prevMenuOpenRef.current = menuOpen;
+  }, [menuOpen, onHeaderSidenavToggle]);
 
   return (
     <LayoutContext.Provider
@@ -137,6 +155,7 @@ export const Layout = <
         headerElement,
         headerBottomElement,
         headerBottomSize,
+        onHeaderSidenavToggle,
       }}
     >
       <AccessibilityProvider>
