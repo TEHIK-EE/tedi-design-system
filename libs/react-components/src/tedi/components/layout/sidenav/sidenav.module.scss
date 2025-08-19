@@ -47,6 +47,8 @@
     &::after {
       position: absolute;
       top: calc((var(--tree) / 3) + 2px);
+
+      // top: 50%;
       bottom: 0;
       left: calc(var(--tree) / 3);
       width: var(--tree-branch-width);
@@ -56,12 +58,10 @@
       border-radius: 0 var(--button-radius) var(--button-radius) 0;
 
       @include breakpoints.media-breakpoint-down(lg) {
-        top: calc((var(--tree) / 2.5) + 2px);
         left: calc(var(--tree) / 3);
       }
 
       @include breakpoints.media-breakpoint-down(sm) {
-        top: calc((var(--tree) / 2) + 1px);
         left: calc(var(--tree) / 2 - var(--tree-trunk-width));
       }
 

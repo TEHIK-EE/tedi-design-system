@@ -20,6 +20,10 @@ export const exampleNavCollapsibleItems: SideNavItemProps[] = [
       {
         subItems: [
           { href: '#', children: 'Vital Signs' },
+          {
+            href: '#',
+            children: 'Comprehensive Patient Care Coordination',
+          },
           { href: '#', children: 'Assessments' },
           {
             href: '#',
@@ -28,6 +32,10 @@ export const exampleNavCollapsibleItems: SideNavItemProps[] = [
           {
             href: '#',
             children: 'Documentation',
+          },
+          {
+            href: '#',
+            children: 'Care Plan Development Services',
           },
         ],
       },
@@ -63,6 +71,10 @@ export const exampleDefaultOpen: SideNavItemProps[] = [
       {
         subItems: [
           { href: '#', children: 'Vital Signs' },
+          {
+            href: '#',
+            children: 'Comprehensive Patient Care Coordination',
+          },
           { href: '#', children: 'Assessments' },
           {
             href: '#',
@@ -71,6 +83,10 @@ export const exampleDefaultOpen: SideNavItemProps[] = [
           {
             href: '#',
             children: 'Documentation',
+          },
+          {
+            href: '#',
+            children: 'Care Plan Development Services',
           },
         ],
       },
@@ -106,6 +122,10 @@ export const exampleNavCollapsibleItemsWithLinks: SideNavItemProps[] = [
     icon: 'medical_services',
     subItems: [
       { href: '#', children: 'Vital Signs' },
+      {
+        href: '#',
+        children: 'Comprehensive Patient Care Coordination',
+      },
       { href: '#', children: 'Assessments' },
       {
         href: '#',
@@ -114,6 +134,10 @@ export const exampleNavCollapsibleItemsWithLinks: SideNavItemProps[] = [
       {
         href: '#',
         children: 'Documentation',
+      },
+      {
+        href: '#',
+        children: 'Care Plan Development Services',
       },
     ],
   },
