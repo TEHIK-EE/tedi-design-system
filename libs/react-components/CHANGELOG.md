@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-react-v13.0.0-rc.4](https://github.com/TEHIK-EE/tedi-design-system/compare/react-13.0.0-rc.3...react-13.0.0-rc.4) (2025-08-21)
+
+
+### Features
+
+* **layout:** Adds to community Layout possibility to use Header Sidenav Toggle to toggle own menu ([#979](https://github.com/TEHIK-EE/tedi-design-system/issues/979)) ([e310a20](https://github.com/TEHIK-EE/tedi-design-system/commit/e310a20fdce9bb18c94c40f089db0f06ebaec6f5)), closes [#974](https://github.com/TEHIK-EE/tedi-design-system/issues/974)
+
 # [@tehik-ee/tedi-react-v13.0.0-rc.3](https://github.com/TEHIK-EE/tedi-design-system/compare/react-13.0.0-rc.2...react-13.0.0-rc.3) (2025-08-21)
 
 
