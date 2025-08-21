@@ -46,9 +46,7 @@
 
     &::after {
       position: absolute;
-      top: calc((var(--tree) / 3) + 2px);
-
-      // top: 50%;
+      top: 50%;
       bottom: 0;
       left: calc(var(--tree) / 3);
       width: var(--tree-branch-width);
