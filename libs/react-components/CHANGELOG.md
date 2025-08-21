@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-react-v13.0.0-rc.3](https://github.com/TEHIK-EE/tedi-design-system/compare/react-13.0.0-rc.2...react-13.0.0-rc.3) (2025-08-21)
+
+
+### Bug Fixes
+
+* **sidenav:** adjust sidenav item after element top position [#981](https://github.com/TEHIK-EE/tedi-design-system/issues/981) ([#982](https://github.com/TEHIK-EE/tedi-design-system/issues/982)) ([c55646c](https://github.com/TEHIK-EE/tedi-design-system/commit/c55646ce2238e658c188766970b9655b505a0bf4))
+
 # [@tehik-ee/tedi-react-v13.0.0-rc.2](https://github.com/TEHIK-EE/tedi-design-system/compare/react-13.0.0-rc.1...react-13.0.0-rc.2) (2025-08-14)
 
 
