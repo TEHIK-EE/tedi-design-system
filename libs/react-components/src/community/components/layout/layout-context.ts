@@ -10,7 +10,7 @@ export interface ILayoutContext {
   /**
    * Type of the Header
    * - System header is meant for logged in system
-   * - Public is meant for public pages where user is not yer signed in, usally also does not have sidenav on desktop
+   * - Public is meant for public pages where user is not yet signed in, usually also does not have sidenav on desktop
    * @default 'system'
    */
   headerType: 'system' | 'public';
@@ -30,6 +30,12 @@ export interface ILayoutContext {
    */
   headerBottomElement: React.RefObject<HTMLDivElement> | null;
   headerBottomSize?: DOMRect;
+  /**
+   * Custom toggle function for mobile menu
+   * @param menuOpen - The current state of the menu (true if open, false if closed)
+   * @default undefined
+   */
+  onHeaderSidenavToggle?: (menuOpen: boolean) => void;
 }
 
 export const LayoutContext = React.createContext<ILayoutContext>({
@@ -45,4 +51,5 @@ export const LayoutContext = React.createContext<ILayoutContext>({
   headerElement: null,
   headerBottomElement: null,
   headerBottomSize: undefined,
+  onHeaderSidenavToggle: undefined,
 });
