@@ -36,12 +36,15 @@ const variants: StatusBadgeVariant[] = [
   "filled-bordered",
   "bordered",
 ];
+
 const statuses: StatusBadgeStatus[] = [
   "inactive",
   "success",
   "warning",
   "danger",
+  "none",
 ];
+
 const colorToIconMap: Record<StatusBadgeColor, string> = {
   neutral: "edit",
   brand: "send",
@@ -51,11 +54,13 @@ const colorToIconMap: Record<StatusBadgeColor, string> = {
   warning: "warning",
   transparent: "edit",
 };
+
 const statusToIconMap: Record<StatusBadgeStatus, string> = {
   inactive: "edit",
   success: "send",
   warning: "sync",
   danger: "error",
+  none: "none",
 };
 
 /**

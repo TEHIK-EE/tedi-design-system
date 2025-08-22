@@ -14,7 +14,12 @@ export type StatusBadgeColor =
   | "transparent";
 export type StatusBadgeVariant = "filled" | "filled-bordered" | "bordered";
 export type StatusBadgeSize = "default" | "large";
-export type StatusBadgeStatus = "danger" | "success" | "warning" | "inactive";
+export type StatusBadgeStatus =
+  | "danger"
+  | "success"
+  | "warning"
+  | "inactive"
+  | "none";
 
 @Component({
   selector: "[tedi-status-badge]",
@@ -83,7 +88,7 @@ export class StatusBadgeComponent {
       classList.push(`tedi-status-badge--variant-${this.variant()}`);
     }
 
-    if (this.status()) {
+    if (this.status() && this.status() !== "none") {
       classList.push(
         "tedi-status-badge--status",
         `tedi-status-badge--status-${this.status()}`
