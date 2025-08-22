@@ -36,13 +36,14 @@ const variants: StatusBadgeVariant[] = [
   "filled-bordered",
   "bordered",
 ];
-const statuses: StatusBadgeStatus[] = [
-  "inactive",
-  "success",
-  "warning",
-  "danger",
-  "none",
-];
+const statuses: Record<StatusBadgeStatus, string | null> = {
+  inactive: "inactive",
+  success: "success",
+  warning: "warning",
+  danger: "danger",
+  none: null,
+};
+
 const colorToIconMap: Record<StatusBadgeColor, string> = {
   neutral: "edit",
   brand: "send",
@@ -131,7 +132,8 @@ const meta: Meta<StatusBadgeComponent> = {
     },
     status: {
       control: "radio",
-      options: statuses,
+      options: Object.keys(statuses),
+      mapping: statuses,
       description: "StatusBadge status indicator",
     },
   },
