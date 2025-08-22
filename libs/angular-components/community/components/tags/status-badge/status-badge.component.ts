@@ -88,7 +88,7 @@ export class StatusBadgeComponent {
       classList.push(`tedi-status-badge--variant-${this.variant()}`);
     }
 
-    if (this.status()) {
+    if (this.status() && this.status() !== "none") {
       classList.push(
         "tedi-status-badge--status",
         `tedi-status-badge--status-${this.status()}`
