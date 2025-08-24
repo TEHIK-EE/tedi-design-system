@@ -136,6 +136,11 @@ export class MultiselectComponent
    * @default true
    */
   clearable = input<boolean>(true);
+  /**
+   * Which icon to use to indicate the dropdown being open.
+   * @default "arrow_drop_down"
+   */
+  dropdownIcon = input<string>("arrow_drop_down");
   feedbackText = input<ComponentInputs<FeedbackTextComponent>>();
 
   readonly specialOptionControls = specialOptionControls;
@@ -160,6 +165,17 @@ export class MultiselectComponent
       }
     });
     return groups;
+  });
+
+  triggerClasses = computed(() => {
+    const classes = ["tedi-select__trigger"];
+    if (this.isOpen()) {
+      classes.push("tedi-select__trigger--open");
+    }
+    if (this.disabled()) {
+      classes.push("tedi-input--disabled");
+    }
+    return classes.join(" ");
   });
 
   @HostListener("window:resize")
@@ -258,7 +274,7 @@ export class MultiselectComponent
     return (
       enabledGroupOptions.length > 0 &&
       enabledGroupOptions.every((option) =>
-        this.selectedOptions().includes(option),
+        this.selectedOptions().includes(option)
       )
     );
   }
@@ -277,7 +293,7 @@ export class MultiselectComponent
 
     if (allGroupOptionsSelected) {
       newSelection = this.selectedOptions().filter(
-        (option) => !enabledGroupOptions.includes(option),
+        (option) => !enabledGroupOptions.includes(option)
       );
     } else {
       const currentSelected = new Set(this.selectedOptions());
@@ -296,7 +312,7 @@ export class MultiselectComponent
     if (this.disabled()) return;
 
     const newSelection = this.selectedOptions().filter(
-      (option) => option !== value,
+      (option) => option !== value
     );
     this.selectedOptions.set(newSelection);
     this.onChange(newSelection);

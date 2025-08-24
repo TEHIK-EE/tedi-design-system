@@ -14,8 +14,7 @@
 }
 <div
   [id]="inputId()"
-  class="tedi-select__trigger"
-  [class.tedi-input--disabled]="disabled()"
+  [class]="triggerClasses()"
   tedi-input
   cdkOverlayOrigin
   #trigger="cdkOverlayOrigin"
@@ -33,29 +32,34 @@
   (keydown.arrowdown)="$event.preventDefault(); toggleIsOpen()"
   (blur)="onTouched()"
 >
-  <span class="tedi-select__label">
-    @if (selectedLabels().length) {
-      {{ selectedLabels() }}
-    } @else {
-      <span class="tedi-select__label--placeholder">
-        {{ placeholder() }}
-      </span>
-    }
-  </span>
+  <ng-content select="[tedi-select-label]">
+    <span class="tedi-select__label">
+      @if (selectedLabels().length) {
+        {{ selectedLabels() }}
+      } @else {
+        <span class="tedi-select__label--placeholder">
+          {{ placeholder() }}
+        </span>
+      }
+    </span>
+  </ng-content>
 
   @if (clearable() && selectedOptions().length) {
-    <button
-      class="tedi-select__clear"
-      tedi-closing-button
-      type="button"
-      size="small"
-      [iconSize]="18"
-      title="Clear"
-      (click)="clear($event)"
-    ></button>
+    <ng-content select="[tedi-select-clear]">
+      <button
+        class="tedi-select__clear"
+        tedi-closing-button
+        type="button"
+        size="small"
+        [iconSize]="18"
+        title="Clear"
+        (click)="clear($event)"
+      ></button>
+    </ng-content>
   }
-
-  <tedi-icon class="tedi-select__arrow" name="arrow_drop_down" />
+  <ng-content select="[tedi-select-arrow]">
+    <tedi-icon class="tedi-select__arrow" [name]="dropdownIcon()" />
+  </ng-content>
 </div>
 @if (feedbackText(); as feedback) {
   <tedi-feedback-text
