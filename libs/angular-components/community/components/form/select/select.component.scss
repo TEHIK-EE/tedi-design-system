@@ -12,6 +12,10 @@
     justify-content: space-between;
     // input styles come from "tedi-input" component/directive
     // contains paddings, borders, typography, etc.
+
+    &--open .tedi-select__arrow {
+      transform: rotate(180deg);
+    }
   }
 
   &__label {
@@ -43,8 +47,8 @@
   &__arrow {
     flex-grow: 0;
     cursor: default;
+    transition: transform 300ms ease;
 
-    @include mixins.responsive-styles(padding-left, form-field-inner-spacing);
     @include mixins.responsive-styles(margin-left, form-field-inner-spacing);
   }
 
