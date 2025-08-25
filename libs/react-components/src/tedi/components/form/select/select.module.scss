@@ -95,6 +95,11 @@ div .tedi-select__menu {
 .tedi-select__menu-list-footer {
   padding: 1rem;
   border-top: 1px solid var(--form-input-border-default);
+  border-radius: 0;
+
+  &:focus-visible {
+    outline: 0;
+  }
 }
 
 .tedi-select__menu .tedi-select__option {
@@ -108,17 +113,13 @@ div .tedi-select__menu {
 
   &--focused {
     color: var(--dropdown-item-hover-text);
-    background-color: var(--form-input-background-default);
+    background-color: var(--dropdown-item-hover-background);
   }
 
   &:active:not(.tedi-select__option--disabled),
   &--selected {
     color: var(--dropdown-item-active-text);
     background-color: var(--dropdown-item-active-background);
-
-    &:hover:not(:disabled) {
-      color: var(--dropdown-item-hover-text);
-    }
   }
 
   &--selected {
@@ -127,7 +128,10 @@ div .tedi-select__menu {
       color: var(--dropdown-item-active-text);
     }
 
-    &:hover:not(:disabled) {
+    &:hover:not(.tedi-select__option--disabled) {
+      color: var(--dropdown-item-hover-text);
+      background-color: var(--dropdown-item-hover-background);
+
       p,
       span {
         color: var(--dropdown-item-hover-text);
@@ -203,15 +207,16 @@ div.tedi-select__multi-value-item {
   margin: -0.125rem -0.25rem -0.125rem 0;
 }
 
+.tedi-select__value-container .tedi-select__placeholder,
+.tedi-select__menu-portal .tedi-select__menu .tedi-select__no-options {
+  color: var(--form-input-text-placeholder);
+}
+
 :global {
   .tedi-select__value-container {
     padding: 0 !important;
 
     @include mixins.responsive-styles(gap, form-field-inner-spacing);
-
-    .tedi-select__placeholder {
-      color: var(--form-input-text-placeholder);
-    }
   }
 }
 

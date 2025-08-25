@@ -17,6 +17,6 @@ export const SelectOption = ({ multiple, showRadioButtons, renderOption, ...prop
         showRadioButtons,
         renderOption,
         ...props,
-        innerProps: { ...props.innerProps, tabIndex: 0 },
+        innerProps: { ...props.innerProps },
       });
 };

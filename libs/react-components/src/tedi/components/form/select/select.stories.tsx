@@ -2,6 +2,7 @@ import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import { OptionsOrGroups } from 'react-select';
 
 import { Text } from '../../base/typography/text/text';
+import Button from '../../buttons/button/button';
 import { Col, Row } from '../../layout/grid';
 import { VerticalSpacing } from '../../layout/vertical-spacing';
 import { AsyncSelectTemplate } from './examples/async';
@@ -30,6 +31,15 @@ const options = [
   { value: 'elva', label: 'Elva' },
   { value: 'rakvere', label: 'Rakvere' },
   { value: 'haapsalu', label: 'Haapsalu' },
+];
+
+const nameOptions = [
+  { value: 'anne', label: 'Anne' },
+  { value: 'mari', label: 'Mari' },
+  { value: 'jakob', label: 'Jakob', isDisabled: true },
+  { value: 'ants', label: 'Ants' },
+  { value: 'valdur', label: 'Valdur' },
+  { value: 'maie', label: 'Maie' },
 ];
 
 const groupedOptions: OptionsOrGroups<ISelectOption, IGroupedOptions<ISelectOption>> = [
@@ -293,5 +303,42 @@ export const SelectWithGroupedOptions: Story = {
     id: 'grouped-options-example',
     label: 'Grouped options label',
     options: groupedOptions,
+  },
+};
+
+export const WithFooter: Story = {
+  args: {
+    id: 'with-footer-example',
+    label: 'Isiku nimi või isikukood',
+    options: nameOptions,
+    menuIsOpen: true,
+    noOptionsMessage: () => 'Sisesta vähemalt 5 tähemärki',
+    renderMessageListFooter: () => (
+      <VerticalSpacing>
+        <Row justifyContent="center">
+          <Col width="auto">
+            <Button visualType="secondary">Isik teadmata</Button>
+          </Col>
+          <Col width="auto">
+            <Button visualType="secondary">Puudub Eesti isikukood</Button>
+          </Col>
+        </Row>
+        <Row justifyContent="center">
+          <Col width="auto">
+            <Text color="secondary">Rahvastikuregistri andmete päringuks sisesta isikukood täismahus.</Text>
+          </Col>
+        </Row>
+      </VerticalSpacing>
+    ),
+  },
+};
+
+export const NoOptionsCustomMessage: Story = {
+  args: {
+    id: 'no-options-message-example',
+    label: 'No options message',
+    options: [],
+    menuIsOpen: true,
+    noOptionsMessage: () => 'Custom no options message',
   },
 };

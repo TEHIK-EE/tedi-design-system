@@ -3,7 +3,7 @@ import React, { forwardRef } from 'react';
 import ReactSelect, {
   GroupBase,
   InputActionMeta,
-  MenuListProps,
+  MenuProps,
   OnChangeValue,
   OptionProps,
   OptionsOrGroups,
@@ -29,7 +29,9 @@ import { SelectMenuList } from './components/select-menu-list';
 import { SelectMenuPortal } from './components/select-menu-portal';
 import { SelectMultiValue } from './components/select-multi-value';
 import { SelectMultiValueRemove } from './components/select-multi-value-remove';
+import { SelectNoOptionsMessage } from './components/select-no-options-message';
 import { SelectOption } from './components/select-option';
+import { SelectPlaceholder } from './components/select-placeholder';
 import { SelectValueContainer } from './components/select-value-container';
 import styles from './select.module.scss';
 
@@ -66,7 +68,7 @@ export interface SelectProps extends FormLabelProps {
   renderOption?: (props: OptionProps<ISelectOption, boolean>) => JSX.Element;
   noOptionsMessage?: (obj: { inputValue: string }) => React.ReactNode;
   loadingMessage?: (obj: { inputValue: string }) => React.ReactNode;
-  renderMessageListFooter?: (props: MenuListProps<ISelectOption, boolean>) => JSX.Element;
+  renderMessageListFooter?: (props: MenuProps<ISelectOption, boolean>) => JSX.Element;
   multiple?: boolean;
   tagsDirection?: 'stack' | 'row';
   openMenuOnFocus?: boolean;
@@ -206,8 +208,8 @@ export const Select = forwardRef<SelectInstance<ISelectOption, boolean, IGrouped
         DropdownIndicator: () => SelectDropDownIndicator({ iconName }),
         IndicatorSeparator: () => null,
         MenuPortal: SelectMenuPortal,
-        Menu: SelectMenu,
-        MenuList: (props) => SelectMenuList({ renderMessageListFooter, ...props }),
+        Menu: (props) => SelectMenu({ renderMessageListFooter, ...props }),
+        MenuList: SelectMenuList,
         Option: (props) => SelectOption({ renderOption, multiple, showRadioButtons, ...props }),
         Control: SelectControl,
         Input: SelectInput,
@@ -218,6 +220,8 @@ export const Select = forwardRef<SelectInstance<ISelectOption, boolean, IGrouped
         IndicatorsContainer: SelectIndicatorsContainer,
         ValueContainer: SelectValueContainer,
         LoadingIndicator: SelectLoadingIndicator,
+        Placeholder: SelectPlaceholder,
+        NoOptionsMessage: SelectNoOptionsMessage,
       };
 
       const ReactSelectElement = async ? AsyncSelect : ReactSelect;
