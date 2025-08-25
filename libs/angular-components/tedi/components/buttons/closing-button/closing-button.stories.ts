@@ -10,11 +10,10 @@ import {
   ColComponent,
   IconComponent,
   RowComponent,
-  TextComponent,
   VerticalSpacingDirective,
 } from "@tehik-ee/tedi-angular/tedi";
 
-const PSEUDO_STATE = ["Button", "Hover", "Active", "Focus"];
+const PSEUDO_STATE = ["Default", "Hover", "Active", "Focus"];
 
 /**
  * <a href="https://www.figma.com/design/jWiRIXhHRxwVdMSimKX2FF/TEDI-READY-(work-in-progress)?node-id=4514-63815&m=dev" target="_BLANK">Figma ↗</a><br/>
@@ -32,7 +31,6 @@ export default {
         IconComponent,
         RowComponent,
         ColComponent,
-        TextComponent,
       ],
     }),
   ],
@@ -88,18 +86,18 @@ export const Size: Story = {
   render: (args) => ({
     props: args,
     template: `
-      <div style="width: 230px" tediVerticalSpacing="1">
-        <tedi-row [cols]="2" gap="6" gapY="3">
+      <div class="example-list" tediVerticalSpacing="1">
+        <tedi-row class="padding-14-16 border-bottom" [gap]="3">
           <tedi-col>
-            <p tedi-text>Default</p>
+            Default
           </tedi-col>
           <tedi-col>
             <button tedi-closing-button></button>
           </tedi-col>
         </tedi-row>
-        <tedi-row [cols]="2" gap="2" gapY="3">
-          <tedi-col >
-            <p tedi-text>Small</p>
+        <tedi-row class="padding-14-16" [gap]="3">
+          <tedi-col>
+            Small
           </tedi-col>
           <tedi-col>
             <button tedi-closing-button size="small"></button>
@@ -117,16 +115,18 @@ export const IconSize: Story = {
   render: (args) => ({
     props: args,
     template: `
-      <div style="width: 230px" tediVerticalSpacing="1">
-        <tedi-row [cols]="2" gap="6" gapY="3">
+      <div class="example-list" tediVerticalSpacing="1">
+        <tedi-row class="padding-14-16 border-bottom" [gap]="3">
           <tedi-col>
-            <p tedi-text>18px</p>
+            18px
           </tedi-col>
           <tedi-col>
             <button tedi-closing-button size="small" iconSize="18"></button>
           </tedi-col>
+        </tedi-row>
+        <tedi-row class="padding-14-16" [gap]="3">
           <tedi-col>
-            <p tedi-text>24px</p>
+            24px
           </tedi-col>
           <tedi-col style="display: flex; align-items: center; gap: 1rem">
             <button tedi-closing-button></button>
@@ -138,7 +138,7 @@ export const IconSize: Story = {
   }),
 };
 
-export const Effects: Story = {
+export const States: Story = {
   parameters: {
     pseudo: {
       hover: "#Hover",
@@ -149,22 +149,12 @@ export const Effects: Story = {
   render: (args) => ({
     props: { args, PSEUDO_STATE },
     template: `
-      <div style="width: 120px">
-        <tedi-row [cols]="2" [gap]="3">
-          <ng-template ngFor let-state [ngForOf]="PSEUDO_STATE">
-            <tedi-col justifySelf="end">
-              <p tedi-text>{{state}}</p>
-            </tedi-col>
-            <tedi-col>
-              <button
-                tedi-closing-button
-                ${argsToTemplate(args)}
-                [id]="state"
-              ></button>
-            </tedi-col>
-          </ng-template>
-        </tedi-row>
-      </div>
+      <tedi-row [cols]="1" [gapY]="3">
+        <tedi-col *ngFor="let state of PSEUDO_STATE;" style="max-width: 200px; display: grid; grid-template-columns: repeat(2, 1fr); align-items: center;">
+          <b>{{ state }}</b>
+          <button tedi-closing-button ${argsToTemplate(args)} [id]="state"></button>
+        </tedi-col>
+      </tedi-row>
     `,
   }),
 };
