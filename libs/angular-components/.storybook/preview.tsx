@@ -1,4 +1,12 @@
 import { Preview } from "@storybook/angular";
+import {
+  Controls,
+  Description,
+  Primary,
+  Stories,
+  Subtitle,
+  Title,
+} from "@storybook/blocks";
 
 const preview: Preview = {
   parameters: {
@@ -8,6 +16,16 @@ const preview: Preview = {
     },
     docs: {
       toc: true,
+      page: () => (
+        <>
+          <Title />
+          <Subtitle />
+          <Description />
+          <Primary />
+          <Controls />
+          <Stories includePrimary={false} />
+        </>
+      ),
     },
     status: {
       statuses: {
