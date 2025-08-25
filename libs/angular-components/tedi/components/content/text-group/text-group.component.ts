@@ -1,4 +1,11 @@
-import { Component, computed, inject, input } from "@angular/core";
+import {
+  ChangeDetectionStrategy,
+  Component,
+  computed,
+  inject,
+  input,
+  ViewEncapsulation,
+} from "@angular/core";
 import {
   BreakpointInputs,
   BreakpointService,
@@ -14,7 +21,6 @@ export type TextGroupInputs = {
   type: TextGroupType;
   /**
    * Width for the label (e.g., '200px', '30%', etc.)
-   * @default auto
    */
   labelWidth: string | undefined;
 };
@@ -23,6 +29,8 @@ export type TextGroupInputs = {
   selector: "tedi-text-group",
   templateUrl: "./text-group.component.html",
   styleUrl: "./text-group.component.scss",
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.None,
 })
 export class TextGroupComponent implements BreakpointInputs<TextGroupInputs> {
   type = input<TextGroupType>("horizontal");
@@ -51,8 +59,7 @@ export class TextGroupComponent implements BreakpointInputs<TextGroupInputs> {
   });
 
   classes = computed(() => {
-    const classList = ["tedi-text-group"];
-    classList.push(`tedi-text-group--${this.breakpointInputs().type}`);
+    const classList = [`tedi-text-group--${this.breakpointInputs().type}`];
     return classList.join(" ");
   });
 }
