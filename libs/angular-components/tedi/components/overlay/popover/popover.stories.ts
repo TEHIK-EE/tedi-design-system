@@ -1,20 +1,36 @@
-import {
-  type Meta,
-  type StoryObj,
-  moduleMetadata,
-} from "@storybook/angular";
+import { type Meta, type StoryObj, moduleMetadata } from "@storybook/angular";
 import { PopoverComponent, PopoverPosition } from "./popover.component";
 import { PopoverTriggerComponent } from "./popover-trigger/popover-trigger.component";
-import { PopoverContentComponent, PopoverWidth } from "./popover-content/popover-content.component";
+import {
+  PopoverContentComponent,
+  PopoverWidth,
+} from "./popover-content/popover-content.component";
 import { ButtonComponent } from "../../buttons/button/button.component";
 import { RowComponent } from "../../layout/grid/row/row.component";
 import { ColComponent } from "../../layout/grid/col/col.component";
 import { LinkComponent } from "../../navigation/link/link.component";
 import { IconComponent } from "../../base/icon/icon.component";
+import { InfoButtonComponent } from "../../buttons/info-button/info-button.component";
 
 const MAXWIDTH = ["none", "small", "medium", "large"];
 const OPENWITH = ["click", "hover", "mousedown", "none"];
-const POSITIONS: PopoverPosition[] = ["auto", "auto-start", "auto-end", "top", "top-start", "top-end", "bottom", "bottom-start", "bottom-end", "right", "right-start", "right-end", "left", "left-start", "left-end"];
+const POSITIONS: PopoverPosition[] = [
+  "auto",
+  "auto-start",
+  "auto-end",
+  "top",
+  "top-start",
+  "top-end",
+  "bottom",
+  "bottom-start",
+  "bottom-end",
+  "right",
+  "right-start",
+  "right-end",
+  "left",
+  "left-start",
+  "left-end",
+];
 
 export default {
   title: "TEDI-Ready Angular/Overlay/Popover",
@@ -30,6 +46,7 @@ export default {
         IconComponent,
         RowComponent,
         ColComponent,
+        InfoButtonComponent,
       ],
     }),
   ],
@@ -45,24 +62,25 @@ export default {
           detail: OPENWITH.join("\n"),
         },
         defaultValue: {
-          summary: "click"
-        }
+          summary: "click",
+        },
       },
     },
     position: {
       control: "select",
-      description: "The position of the popover relative to the trigger element.",
+      description:
+        "The position of the popover relative to the trigger element.",
       options: POSITIONS,
       table: {
         category: "popover inputs",
         type: {
-          summary: "PopoverPosition", 
-          detail: POSITIONS.join("\n")
+          summary: "PopoverPosition",
+          detail: POSITIONS.join("\n"),
         },
         defaultValue: {
           summary: "top",
         },
-      }
+      },
     },
     dismissible: {
       control: "boolean",
@@ -74,7 +92,7 @@ export default {
         category: "popover inputs",
         type: {
           summary: "boolean",
-        }
+        },
       },
     },
     hideOnScroll: {
@@ -87,7 +105,7 @@ export default {
         category: "popover inputs",
         type: {
           summary: "boolean",
-        }
+        },
       },
     },
     withBorder: {
@@ -100,7 +118,7 @@ export default {
         category: "popover inputs",
         type: {
           summary: "boolean",
-        }
+        },
       },
     },
     lockScroll: {
@@ -113,7 +131,7 @@ export default {
         category: "popover inputs",
         type: {
           summary: "boolean",
-        }
+        },
       },
     },
     maxWidth: {
@@ -137,8 +155,8 @@ export default {
       table: {
         category: "popover-content inputs",
         type: {
-            summary: "string"
-        }
+          summary: "string",
+        },
       },
     },
     showClose: {
@@ -151,33 +169,35 @@ export default {
         category: "popover-content inputs",
         type: {
           summary: "boolean",
-        }
+        },
       },
     },
   },
 } as Meta<PopoverComponent>;
 
-type Story = StoryObj<PopoverComponent & { 
-  maxWidth: PopoverWidth;
-  title: string;
-  showClose: boolean;
-}>;
+type Story = StoryObj<
+  PopoverComponent & {
+    maxWidth: PopoverWidth;
+    title: string;
+    showClose: boolean;
+  }
+>;
 
 export const Default: Story = {
-    args: {
-        openWith: "click",
-        position: "top",
-        dismissible: true,
-        hideOnScroll: false,
-        withBorder: false,
-        lockScroll: false,
-        maxWidth: "small",
-        title: "Heading",
-        showClose: true,
-    },
-    render: (args) => ({
-        props: args,
-        template: `
+  args: {
+    openWith: "click",
+    position: "top",
+    dismissible: true,
+    hideOnScroll: false,
+    withBorder: false,
+    lockScroll: false,
+    maxWidth: "small",
+    title: "Heading",
+    showClose: true,
+  },
+  render: (args) => ({
+    props: args,
+    template: `
         <tedi-popover [openWith]="openWith" [position]="position" [dismissible]="dismissible" [hideOnScroll]="hideOnScroll" [withBorder]="withBorder" [lockScroll]="lockScroll">
             <tedi-popover-trigger>
                 <button tedi-button>
@@ -189,7 +209,7 @@ export const Default: Story = {
             </tedi-popover-content>
         </tedi-popover>
         `,
-    }),
+  }),
 };
 
 export const ContentExamples: Story = {
@@ -336,7 +356,49 @@ export const Heading: Story = {
   }),
 };
 
-export const Position: Story = {
+export const Trigger: Story = {
+  render: (args) => ({
+    props: args,
+    template: `
+      <tedi-row [gap]="3">
+        <tedi-col>
+          <tedi-popover>
+            <tedi-popover-trigger>
+              <button tedi-button variant="secondary">
+                Button Trigger
+              </button>
+            </tedi-popover-trigger>
+            <tedi-popover-content>
+              This popover is triggered by button.
+            </tedi-popover-content>
+          </tedi-popover>
+        </tedi-col>
+        <tedi-col>
+          <tedi-popover>
+            <tedi-popover-trigger>
+              <button tedi-info-button></button>
+            </tedi-popover-trigger>
+            <tedi-popover-content>
+              This popover is triggered by info button.
+            </tedi-popover-content>
+          </tedi-popover>
+        </tedi-col>
+        <tedi-col>
+          <tedi-popover>
+            <tedi-popover-trigger>
+              Text Trigger
+            </tedi-popover-trigger>
+            <tedi-popover-content>
+              This popover is triggered by text. By default text has dashed underline.
+            </tedi-popover-content>
+          </tedi-popover>
+        </tedi-col>
+      </tedi-row>
+    `,
+  }),
+};
+
+export const ArrowPosition: Story = {
   render: (args) => ({
     props: {
       ...args,
