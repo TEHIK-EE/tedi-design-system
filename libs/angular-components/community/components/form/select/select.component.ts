@@ -107,11 +107,6 @@ export class SelectComponent
    * @default false
    */
   clearable = input<boolean>(true);
-  /**
-   * Which icon to use to indicate the dropdown being open.
-   * @default "arrow_drop_down"
-   */
-  dropdownIcon = input<string>("arrow_drop_down");
   feedbackText = input<ComponentInputs<FeedbackTextComponent>>();
 
   isOpen = signal(false);
