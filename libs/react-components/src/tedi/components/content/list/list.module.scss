@@ -86,18 +86,8 @@ $bullet-colors: (
       content: counters(item, '.') '. ';
     }
 
-    ol.tedi-list--ordered {
-      counter-reset: subitem;
-
-      @include mixins.responsive-styles(padding-left, list-padding-left-level-1);
-    }
-
-    ol.tedi-list--ordered .tedi-list__item {
-      counter-increment: subitem;
-
-      &::before {
-        content: counters(item, '.') '.' counters(subitem, '.') '. ';
-      }
+    ol {
+      counter-reset: item;
     }
   }
 }
