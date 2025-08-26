@@ -1,18 +1,11 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
 import { By } from "@angular/platform-browser";
-import { AlertComponent, AlertRole } from "./alert.component";
-
-const roleToLiveMap: Record<AlertRole, string> = {
-  alert: "assertive",
-  status: "polite",
-  none: "off",
-};
-
-const roles: AlertRole[] = ["alert", "status", "none"];
+import { AlertComponent, AlertRole, AlertType } from "./alert.component";
 
 describe("AlertComponent", () => {
   let component: AlertComponent;
   let fixture: ComponentFixture<AlertComponent>;
+  let element: HTMLElement;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -21,6 +14,7 @@ describe("AlertComponent", () => {
 
     fixture = TestBed.createComponent(AlertComponent);
     component = fixture.componentInstance;
+    element = fixture.nativeElement;
     fixture.detectChanges();
   });
 
@@ -28,45 +22,15 @@ describe("AlertComponent", () => {
     expect(component).toBeTruthy();
   });
 
-  describe("Role attribute tests", () => {
-    roles.forEach((role) => {
-      it(`should ${role === "none" ? "not set" : "set"} role attribute when role="${role}"`, () => {
-        fixture.componentRef.setInput("role", role);
-        fixture.detectChanges();
-
-        const alertElement = fixture.debugElement.query(By.css("div"));
-
-        if (role === "none") {
-          expect(alertElement.attributes["role"]).toBeUndefined();
-        } else {
-          expect(alertElement.attributes["role"]).toBe(role);
-        }
-      });
-    });
-  });
-
-  describe("aria-live attribute tests", () => {
-    (Object.keys(roleToLiveMap) as AlertRole[]).forEach((role) => {
-      it(`should set aria-live="${roleToLiveMap[role]}" when role="${role}"`, () => {
-        fixture.componentRef.setInput("role", role);
-        fixture.detectChanges();
-
-        const alertElement = fixture.debugElement.query(By.css("div"));
-        const expectedLive = roleToLiveMap[role];
-        expect(alertElement.attributes["aria-live"]).toBe(expectedLive);
-      });
-    });
-  });
-
   it("should apply the correct type class based on the type input", () => {
-    fixture.componentRef.setInput("type", "success");
-    fixture.detectChanges();
+    const types: AlertType[] = ["danger", "info", "success", "warning"];
 
-    const alertElement = fixture.debugElement.query(By.css(".tedi-alert"));
+    for (const type of types) {
+      fixture.componentRef.setInput("type", type);
+      fixture.detectChanges();
 
-    expect(alertElement.nativeElement.classList).toContain(
-      "tedi-alert--success",
-    );
+      expect(element.classList).toContain(`tedi-alert--${type}`);
+    }
   });
 
   it("should display the close button when showClose is true", () => {
@@ -92,62 +56,43 @@ describe("AlertComponent", () => {
   });
 
   it("should set the correct ARIA role based on the role input", () => {
-    fixture.componentRef.setInput("role", "status");
-    fixture.detectChanges();
+    const roles: AlertRole[] = ["alert", "none", "status"];
 
-    const alertElement = fixture.debugElement.query(By.css("div"));
+    for (const role of roles) {
+      fixture.componentRef.setInput("role", role);
+      fixture.detectChanges();
 
-    expect(alertElement.attributes["role"]).toBe("status");
+      if (role === "none") {
+        expect(element.getAttribute("role")).toBe(null);
+      } else {
+        expect(element.getAttribute("role")).toBe(role);
+      }
+    }
   });
 
   it("should set the correct aria-live attribute based on the role input", () => {
-    fixture.componentRef.setInput("role", "alert");
-    fixture.detectChanges();
+    const roles: AlertRole[] = ["alert", "none", "status"];
 
-    const alertElement = fixture.debugElement.query(By.css("div"));
+    for (const role of roles) {
+      fixture.componentRef.setInput("role", role);
+      fixture.detectChanges();
 
-    expect(alertElement.attributes["aria-live"]).toBe("assertive");
+      const ariaLive =
+        role === "alert" ? "assertive" : role === "status" ? "polite" : "off";
+      expect(element.getAttribute("aria-live")).toBe(ariaLive);
+    }
   });
 
   it("should apply the global variant class when variant is set to global", () => {
     fixture.componentRef.setInput("variant", "global");
     fixture.detectChanges();
-
-    const alertElement = fixture.debugElement.query(By.css(".tedi-alert"));
-
-    expect(alertElement.nativeElement.classList).toContain(
-      "tedi-alert--global",
-    );
+    expect(element.classList).toContain("tedi-alert--global");
   });
 
   it("should apply the no-side-borders variant class when variant is set to noSideBorders", () => {
     fixture.componentRef.setInput("variant", "noSideBorders");
     fixture.detectChanges();
-
-    const alertElement = fixture.debugElement.query(By.css(".tedi-alert"));
-
-    expect(alertElement.nativeElement.classList).toContain(
-      "tedi-alert--no-side-borders",
-    );
-  });
-
-  it("should display the correct icon when icon input is provided", () => {
-    fixture.componentRef.setInput("icon", "info-icon");
-    fixture.detectChanges();
-
-    const iconElement = fixture.debugElement.query(By.css(".tedi-alert__icon"));
-
-    expect(iconElement).toBeTruthy();
-    expect(iconElement.nativeElement.textContent.trim()).toBe("info-icon");
-  });
-
-  it("should not display an icon when icon input is empty", () => {
-    fixture.componentRef.setInput("icon", "");
-    fixture.detectChanges();
-
-    const iconElement = fixture.debugElement.query(By.css(".tedi-alert__icon"));
-
-    expect(iconElement).toBeNull();
+    expect(element.classList).toContain("tedi-alert--no-side-borders");
   });
 
   it("should close alert if close button is clicked", () => {
