@@ -42,7 +42,6 @@ const statuses: StatusBadgeStatus[] = [
   "success",
   "warning",
   "danger",
-  "none",
 ];
 
 const colorToIconMap: Record<StatusBadgeColor, string> = {
@@ -55,12 +54,11 @@ const colorToIconMap: Record<StatusBadgeColor, string> = {
   transparent: "edit",
 };
 
-const statusToIconMap: Record<StatusBadgeStatus, string> = {
+const statusToIconMap: Partial<Record<StatusBadgeStatus, string>> = {
   inactive: "edit",
   success: "send",
   warning: "sync",
   danger: "error",
-  none: "none",
 };
 
 /**
@@ -190,6 +188,9 @@ const TemplateAllCombos = (args: ComponentInputs<StatusBadgeComponent>) => {
 };
 
 export const Colors: Story = {
+  args: {
+    status: "none",
+  },
   render: (args) => {
     const { color: _color, variant: _variant, ...rest } = args;
     return {
