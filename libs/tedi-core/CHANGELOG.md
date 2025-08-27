@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-core-v1.15.5](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.15.4...core-1.15.5) (2025-08-27)
+
+
+### Bug Fixes
+
+* **storybook:** fix stories [#1031](https://github.com/TEHIK-EE/tedi-design-system/issues/1031) ([#1033](https://github.com/TEHIK-EE/tedi-design-system/issues/1033)) ([97f4b8f](https://github.com/TEHIK-EE/tedi-design-system/commit/97f4b8f3f5c2369b41c4407b57b777aee251bd25))
+
 # [@tehik-ee/tedi-core-v1.15.4](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.15.3...core-1.15.4) (2025-08-27)
 
 
