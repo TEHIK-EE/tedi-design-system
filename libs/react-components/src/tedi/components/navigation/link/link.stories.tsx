@@ -32,7 +32,7 @@ const meta: Meta<typeof Link> = {
 export default meta;
 type Story = StoryObj<typeof Link>;
 
-const linkStateArray = ['Default', 'Hover', 'Active'];
+const linkStateArray = ['Default', 'Hover', 'Active', 'Focus'];
 const Template: StoryFn<LinkProps<ElementType>> = (args) => <Link href="#" {...args} />;
 
 export const Default = {
@@ -48,6 +48,68 @@ export const Default = {
   args: {
     children: 'Link',
   },
+};
+
+const sizeArray = ['default', 'small'];
+
+const SizeTemplate: StoryFn = () => {
+  return (
+    <div className="example-list">
+      {sizeArray.map((size, key) => (
+        <Row className={`${key === sizeArray.length - 1 ? '' : 'border-bottom'} padding-14-16`} key={key}>
+          <Col className="display-flex w-50">
+            <b>{size.charAt(0).toUpperCase() + size.slice(1)}</b>
+          </Col>
+          <Col className="display-flex">
+            <Link size={size as LinkProps['size']} href="#">
+              View result
+            </Link>
+          </Col>
+        </Row>
+      ))}
+    </div>
+  );
+};
+
+export const Sizes = {
+  render: SizeTemplate,
+};
+
+const ColorTemplate: StoryFn = () => {
+  return (
+    <Row gap={3}>
+      <Link href="#">
+        Rebane on väikese koera suurune ja pika koheva sabaga. Joostes hoiab ta saba horisontaalselt. Tema selja karvad
+        on oranžid. Eestis eelistab ta elupaigana metsatukkasid.
+      </Link>
+      <Link href="#" underline={false}>
+        Rebane on väikese koera suurune ja pika koheva sabaga. Joostes hoiab ta saba horisontaalselt. Tema selja karvad
+        on oranžid. Eestis eelistab ta elupaigana metsatukkasid.
+      </Link>
+      <Row
+        gap={3}
+        style={{
+          background: 'var(--general-icon-background-brand-primary)',
+          borderRadius: '4px',
+          padding: '1rem',
+          margin: '0px',
+        }}
+      >
+        <Link href="#" color="inverted">
+          Rebane on väikese koera suurune ja pika koheva sabaga. Joostes hoiab ta saba horisontaalselt. Tema selja
+          karvad on oranžid. Eestis eelistab ta elupaigana metsatukkasid.
+        </Link>
+        <Link href="#" color="inverted" underline={false}>
+          Rebane on väikese koera suurune ja pika koheva sabaga. Joostes hoiab ta saba horisontaalselt. Tema selja
+          karvad on oranžid. Eestis eelistab ta elupaigana metsatukkasid.
+        </Link>
+      </Row>
+    </Row>
+  );
+};
+
+export const Colors = {
+  render: ColorTemplate,
 };
 
 type TemplateMultipleProps<Type = typeof linkStateArray> = LinkProps<'a'> & {
@@ -119,12 +181,12 @@ export const DefaultUnderlined: StoryObj<TemplateMultipleProps> = {
     pseudo: {
       hover: '#Hover',
       active: '#Active',
-      focus: '#Focus',
+      focusVisible: '#Focus',
     },
   },
 };
 
-export const NoUnderline: StoryObj<TemplateMultipleProps> = {
+export const DefaultNoUnderline: StoryObj<TemplateMultipleProps> = {
   render: TemplateColumn,
   args: {
     array: linkStateArray,
@@ -134,12 +196,12 @@ export const NoUnderline: StoryObj<TemplateMultipleProps> = {
     pseudo: {
       hover: '#Hover',
       active: '#Active',
-      focus: '#Focus',
+      focusVisible: '#Focus',
     },
   },
 };
 
-export const DefaultInverted: StoryObj<TemplateMultipleProps> = {
+export const InvertedUnderline: StoryObj<TemplateMultipleProps> = {
   render: TemplateColumn,
   args: {
     array: linkStateArray,
@@ -150,13 +212,13 @@ export const DefaultInverted: StoryObj<TemplateMultipleProps> = {
     pseudo: {
       hover: '#Hover',
       active: '#Active',
-      focus: '#Focus',
+      focusVisible: '#Focus',
     },
     backgrounds: { default: 'brand' },
   },
 };
 
-export const NoUnderlineInverted: StoryObj<TemplateMultipleProps> = {
+export const InvertedNoUnderline: StoryObj<TemplateMultipleProps> = {
   render: TemplateColumn,
   args: {
     array: linkStateArray,
@@ -168,7 +230,7 @@ export const NoUnderlineInverted: StoryObj<TemplateMultipleProps> = {
     pseudo: {
       hover: '#Hover',
       active: '#Active',
-      focus: '#Focus',
+      focusVisible: '#Focus',
     },
     backgrounds: { default: 'brand' },
   },
@@ -185,7 +247,7 @@ export const AsPrimaryButton: StoryObj<TemplateMultipleProps> = {
     pseudo: {
       hover: '#Hover',
       active: '#Active',
-      focus: '#Focus',
+      focusVisible: '#Focus',
     },
   },
 };

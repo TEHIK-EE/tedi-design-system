@@ -36,7 +36,7 @@ const alertTypes: { type: AlertProps['type']; icon: string }[] = [
   { type: 'danger', icon: 'error' },
 ];
 
-const ColorsTemplate: StoryFn<AlertProps> = (args) => (
+const TypesTemplate: StoryFn<AlertProps> = (args) => (
   <VerticalSpacing size={1}>
     {alertTypes.map(({ type, icon }) => (
       <Alert key={type} type={type} icon={icon} {...args}>
@@ -108,8 +108,8 @@ export const WithCloseButton: Story = {
   },
 };
 
-export const AlertColors: Story = {
-  render: ColorsTemplate,
+export const AlertTypes: Story = {
+  render: TypesTemplate,
   args: {
     children: 'Content description',
     onClose: () => null,

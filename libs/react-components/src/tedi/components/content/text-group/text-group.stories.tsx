@@ -128,11 +128,20 @@ const TemplateWithTypes: StoryFn<TextGroupProps> = (args) => {
               </>
             }
           />
-          <TextGroup {...args} type="vertical" value={<Text>Visible to doctor and representative</Text>} />
           <TextGroup
             {...args}
             type="vertical"
             value={<Text modifiers="bold">Visible to doctor and representative</Text>}
+          />
+          <TextGroup
+            label="Patient"
+            value={
+              <>
+                <Icon name="person" size={18} color="tertiary" />
+                <Text>Mari Maasikas</Text>
+              </>
+            }
+            type="horizontal"
           />
         </VerticalSpacing>
       </Col>
@@ -164,14 +173,14 @@ export const PositionType: Story = {
   },
 };
 
-export const MultipleItemsWithLabelWidth: Story = {
+export const HorizontalLabelLength: Story = {
   render: MultipleTextGroupsTemplate,
   args: {
     type: 'horizontal',
   },
 };
 
-export const LongValueText: Story = {
+export const LongTextValues: Story = {
   render: TemplateWithLayouts,
   args: {
     label: 'Accessibility',

@@ -55,11 +55,11 @@ a {
   }
 
   &-success {
-    background-color: var(--general-status-success-text);
+    background-color: var(--general-status-success-background-secondary);
   }
 
   &-danger {
-    background-color: var(--general-status-danger-text);
+    background-color: var(--general-status-danger-background-secondary);
   }
 
   &-warning {
