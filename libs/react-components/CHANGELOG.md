@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-react-v13.0.0-rc.6](https://github.com/TEHIK-EE/tedi-design-system/compare/react-13.0.0-rc.5...react-13.0.0-rc.6) (2025-08-27)
+
+
+### Bug Fixes
+
+* **button:** consolidate loading spinner position for accessibility [#997](https://github.com/TEHIK-EE/tedi-design-system/issues/997) ([#1025](https://github.com/TEHIK-EE/tedi-design-system/issues/1025)) ([2cfd9cd](https://github.com/TEHIK-EE/tedi-design-system/commit/2cfd9cd544fc274b4e13bbf7d63ce629c043a844))
+
 # [@tehik-ee/tedi-react-v13.0.0-rc.5](https://github.com/TEHIK-EE/tedi-design-system/compare/react-13.0.0-rc.4...react-13.0.0-rc.5) (2025-08-27)
 
 
