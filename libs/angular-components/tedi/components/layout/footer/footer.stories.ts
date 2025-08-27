@@ -28,7 +28,7 @@ import { LinkComponent } from "@tehik-ee/tedi-angular/tedi";
  *
  */
 export default {
-  title: "TEDI-Ready Angular/Layout/Footer",
+  title: "TEDI-Ready/Layout/Footer",
   component: FooterComponent,
   decorators: [
     applicationConfig({

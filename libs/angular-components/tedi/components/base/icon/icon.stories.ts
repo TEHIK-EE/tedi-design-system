@@ -37,7 +37,7 @@ const BACKGROUNDS = [
  */
 
 export default {
-  title: "TEDI-Ready Angular/Base/Icon",
+  title: "TEDI-Ready/Base/Icon",
   component: IconComponent,
   decorators: [
     moduleMetadata({

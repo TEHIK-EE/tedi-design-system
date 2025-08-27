@@ -15,7 +15,7 @@ import { ColComponent } from "../../layout/grid/col/col.component";
  */
 
 export default {
-  title: "TEDI-Ready Angular/Base/Typography/Text",
+  title: "TEDI-Ready/Base/Typography/Text",
   component: TextComponent,
   decorators: [
     moduleMetadata({

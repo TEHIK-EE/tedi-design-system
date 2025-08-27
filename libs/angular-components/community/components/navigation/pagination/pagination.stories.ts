@@ -2,7 +2,7 @@ import { argsToTemplate, Meta, StoryObj } from "@storybook/angular";
 import { PaginationComponent } from "./pagination.component";
 
 export default {
-  title: "Community Angular/Navigation/Pagination",
+  title: "Community/Navigation/Pagination",
   component: PaginationComponent,
   args: {
     page: 1,

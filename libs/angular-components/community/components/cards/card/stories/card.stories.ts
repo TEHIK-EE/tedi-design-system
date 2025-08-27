@@ -19,13 +19,10 @@ import { CardRowComponent } from "../card-row/card-row.component";
 import { CardHeaderComponent } from "../card-header/card-header.component";
 import { CardContentComponent } from "../card-content/card-content.component";
 import { CardComponent } from "../card.component";
-import {
-  IconComponent,
-  TextComponent,
-} from "@tehik-ee/tedi-angular/tedi";
+import { IconComponent, TextComponent } from "@tehik-ee/tedi-angular/tedi";
 
 export default {
-  title: "Community Angular/Cards/Card",
+  title: "Community/Cards/Card",
   component: CardComponent,
   subcomponents: {
     CardRowComponent,

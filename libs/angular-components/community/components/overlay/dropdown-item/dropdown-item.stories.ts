@@ -3,7 +3,7 @@ import { DropdownItemComponent } from "./dropdown-item.component";
 import { IconComponent } from "@tehik-ee/tedi-angular/tedi";
 
 const meta: Meta<DropdownItemComponent> = {
-  title: "Community Angular/Overlay/Dropdown Item",
+  title: "Community/Overlay/Dropdown Item",
   component: DropdownItemComponent,
   decorators: [
     moduleMetadata({

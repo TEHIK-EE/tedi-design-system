@@ -42,7 +42,7 @@ import { SeparatorComponent } from "../../helpers/separator/separator.component"
  */
 
 export default {
-  title: "TEDI-Ready Angular/Layout/Header",
+  title: "TEDI-Ready/Layout/Header",
   component: HeaderComponent,
   decorators: [
     moduleMetadata({

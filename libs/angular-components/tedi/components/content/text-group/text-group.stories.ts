@@ -21,7 +21,7 @@ import { createBreakpointArgTypes } from "../../../../dev-tools/createBreakpoint
  */
 
 export default {
-  title: "TEDI-Ready Angular/Content/TextGroup",
+  title: "TEDI-Ready/Content/TextGroup",
   component: TextGroupComponent,
   args: {
     type: "horizontal",

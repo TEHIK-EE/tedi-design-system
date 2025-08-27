@@ -16,7 +16,7 @@ import { FeedbackTextComponent } from "../feedback-text/feedback-text.component"
  */
 
 export default {
-  title: "TEDI-Ready Angular/Form/NumberField",
+  title: "TEDI-Ready/Components/Form/NumberField",
   component: NumberFieldComponent,
   decorators: [
     moduleMetadata({

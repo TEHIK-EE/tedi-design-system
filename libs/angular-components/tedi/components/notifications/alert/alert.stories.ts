@@ -9,7 +9,7 @@ import { AlertComponent } from "./alert.component";
 import { RowComponent } from "../../layout/grid/row/row.component";
 
 export default {
-  title: "TEDI-Ready Angular/Notifications/Alert",
+  title: "TEDI-Ready/Components/Notifications/Alert",
   component: AlertComponent,
   decorators: [
     moduleMetadata({

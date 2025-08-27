@@ -33,7 +33,7 @@ const POSITIONS: PopoverPosition[] = [
 ];
 
 export default {
-  title: "TEDI-Ready Angular/Overlay/Popover",
+  title: "TEDI-Ready/Components/Overlay/Popover",
   component: PopoverComponent,
   decorators: [
     moduleMetadata({

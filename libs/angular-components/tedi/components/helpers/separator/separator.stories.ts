@@ -4,7 +4,7 @@ import { ColComponent } from "../../layout/grid/col/col.component";
 import { RowComponent } from "../../layout/grid/row/row.component";
 
 export default {
-  title: "TEDI-Ready Angular/Helpers/Separator",
+  title: "TEDI-Ready/Components/Helpers/Separator",
   component: SeparatorComponent,
   decorators: [
     moduleMetadata({

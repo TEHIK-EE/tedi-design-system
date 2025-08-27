@@ -1,4 +1,10 @@
-import { Meta, StoryFn, StoryObj, argsToTemplate, moduleMetadata } from "@storybook/angular";
+import {
+  Meta,
+  StoryFn,
+  StoryObj,
+  argsToTemplate,
+  moduleMetadata,
+} from "@storybook/angular";
 import { ToggleComponent } from "./toggle.component";
 import { ColComponent } from "../../layout/grid/col/col.component";
 import { RowComponent } from "../../layout/grid/row/row.component";
@@ -12,7 +18,7 @@ const PSEUDO_STATE = ["Default", "Hover", "Active", "Focus"];
  */
 
 export default {
-  title: "TEDI-Ready Angular/Form/Toggle",
+  title: "TEDI-Ready/Components/Form/Toggle",
   component: ToggleComponent,
   decorators: [
     moduleMetadata({
@@ -21,7 +27,8 @@ export default {
   ],
   argTypes: {
     id: {
-      description: "The unique identifier for the input element that is associated with label.",
+      description:
+        "The unique identifier for the input element that is associated with label.",
       control: {
         type: "text",
       },
@@ -31,7 +38,8 @@ export default {
       },
     },
     checked: {
-      description: "Is toggle checked? Supports two-way binding, use with form controls.",
+      description:
+        "Is toggle checked? Supports two-way binding, use with form controls.",
       control: {
         type: "boolean",
       },
@@ -100,7 +108,8 @@ export default {
       },
     },
     icon: {
-      description: "Should the toggle show lock icon. Works only with large toggle.",
+      description:
+        "Should the toggle show lock icon. Works only with large toggle.",
       control: {
         type: "boolean",
       },
@@ -110,7 +119,7 @@ export default {
         defaultValue: { summary: "false" },
       },
     },
-  }
+  },
 } as Meta<ToggleComponent>;
 
 export const Default: StoryObj<ToggleComponent> = {
@@ -137,7 +146,7 @@ export const Size: StoryObj<ToggleComponent> = {
         <tedi-toggle id="example-toggle-2.2" size="large" />
       </tedi-row>
     `,
-  })
+  }),
 };
 
 export const LabelPosition: StoryObj<ToggleComponent> = {
@@ -155,7 +164,7 @@ export const LabelPosition: StoryObj<ToggleComponent> = {
         </div>
       </tedi-row>
     `,
-  })
+  }),
 };
 
 const Template: StoryFn<ToggleComponent> = (args) => ({
@@ -193,7 +202,7 @@ export const PrimaryFilled: StoryObj<ToggleComponent> = {
   },
   args: {
     type: "filled",
-    variant: "primary"
+    variant: "primary",
   },
   render: Template,
 };
@@ -208,7 +217,7 @@ export const PrimaryOutlined: StoryObj<ToggleComponent> = {
   },
   args: {
     type: "outlined",
-    variant: "primary"
+    variant: "primary",
   },
   render: Template,
 };
@@ -223,7 +232,7 @@ export const ColoredFilled: StoryObj<ToggleComponent> = {
   },
   args: {
     type: "filled",
-    variant: "colored"
+    variant: "colored",
   },
   render: Template,
 };
@@ -238,7 +247,7 @@ export const ColoredOutlined: StoryObj<ToggleComponent> = {
   },
   args: {
     type: "outlined",
-    variant: "colored"
+    variant: "colored",
   },
   render: Template,
 };

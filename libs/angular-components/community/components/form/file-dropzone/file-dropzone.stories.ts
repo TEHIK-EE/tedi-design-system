@@ -12,7 +12,7 @@ import { validateFileSize, validateFileType } from "./utils";
 
 const meta: Meta<FileDropzoneComponent> = {
   component: FileDropzoneComponent,
-  title: "Community Angular/Form/FileDropzone",
+  title: "Community/Form/FileDropzone",
   args: {
     accept: "",
     maxSize: 0,

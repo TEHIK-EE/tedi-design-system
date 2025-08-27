@@ -1,7 +1,11 @@
 import { Meta, moduleMetadata, StoryObj } from "@storybook/angular";
 
 import { CommonModule } from "@angular/common";
-import { IconComponent, TextComponent, ButtonComponent } from "@tehik-ee/tedi-angular/tedi";
+import {
+  IconComponent,
+  TextComponent,
+  ButtonComponent,
+} from "@tehik-ee/tedi-angular/tedi";
 import { AccordionIconComponent } from "./accordion-icon/accordion-icon.component";
 import { AccordionItemContentComponent } from "./accordion-item-content/accordion-item-content.component";
 import { AccordionItemHeaderComponent } from "./accordion-item-header/accordion-item-header.component";
@@ -10,7 +14,7 @@ import { AccordionComponent } from "./accordion/accordion.component";
 import { CheckboxComponent } from "../../form/checkbox/checkbox/checkbox.component";
 
 export default {
-  title: "Community Angular/Cards/Accordion",
+  title: "Community/Cards/Accordion",
   component: AccordionComponent,
   subcomponents: {
     AccordionIconComponent,

@@ -10,7 +10,7 @@ export class Weekdays extends VerticalSpacingDirective {
  **/
 
 export default {
-  title: "Tedi-Ready Angular/Helpers/VerticalSpacing/VerticalSpacing",
+  title: "Tedi-Ready/Components/Helpers/VerticalSpacing/VerticalSpacing",
   component: VerticalSpacingDirective,
   parameters: {
     status: {
@@ -45,8 +45,8 @@ export const Default: StoryObj<VerticalSpacingDirective> = {
     template: `
       <div [tediVerticalSpacing]="tediVerticalSpacing">
         <h1>Vertical spacing </h1>
-        <p>The <i>VerticalSpacingDirective</i> is a custom Angular directive designed to add vertical 
-        spacing (margin-bottom) between child elements of a container. It is particularly useful for 
+        <p>The <i>VerticalSpacingDirective</i> is a custom Angular directive designed to add vertical
+        spacing (margin-bottom) between child elements of a container. It is particularly useful for
         maintaining consistent spacing in layouts without manually applying styles to each child element.</p>
         <p>Apply the directive to a container element using the  <b>[tediVerticalSpacing]</b> attribute.</p>
         <p>Set the value of  <i>tediVerticalSpacing</i> to define the spacing size in  <b>em</b> units.</p>

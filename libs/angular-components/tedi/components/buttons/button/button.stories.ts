@@ -1,4 +1,10 @@
-import { argsToTemplate, Meta, moduleMetadata, StoryFn, StoryObj } from "@storybook/angular";
+import {
+  argsToTemplate,
+  Meta,
+  moduleMetadata,
+  StoryFn,
+  StoryObj,
+} from "@storybook/angular";
 import { ButtonComponent } from "./button.component";
 import { TextColor, TextComponent } from "../../base/text/text.component";
 import { RowComponent } from "../../layout/grid/row/row.component";
@@ -13,13 +19,19 @@ const PSEUDO_STATE = ["Default", "Hover", "Active", "Focus", "Disabled"];
  */
 
 export default {
-  title: "TEDI-Ready Angular/Buttons/Button",
+  title: "TEDI-Ready/Components/Buttons/Button",
   component: ButtonComponent,
   decorators: [
-      moduleMetadata({
-        imports: [ButtonComponent, RowComponent, ColComponent, TextComponent, IconComponent],
-      }),
-    ],
+    moduleMetadata({
+      imports: [
+        ButtonComponent,
+        RowComponent,
+        ColComponent,
+        TextComponent,
+        IconComponent,
+      ],
+    }),
+  ],
   args: {
     size: "default",
     variant: "primary",
@@ -40,13 +52,15 @@ export default {
         "danger",
         "danger-neutral",
       ],
-      description: "Specifies the color theme of the button. The color should meet accessibility standards for color contrast.",
+      description:
+        "Specifies the color theme of the button. The color should meet accessibility standards for color contrast.",
       table: {
         category: "inputs",
         defaultValue: { summary: "primary" },
         type: {
           summary: "ButtonVariant",
-          detail: "primary \nsecondary \nneutral \nsuccess \ndanger \ndanger-neutral \nprimary-inverted \nsecondary-inverted \nneutral-inverted",
+          detail:
+            "primary \nsecondary \nneutral \nsuccess \ndanger \ndanger-neutral \nprimary-inverted \nsecondary-inverted \nneutral-inverted",
         },
       },
     },
@@ -59,7 +73,7 @@ export default {
         defaultValue: { summary: "default" },
         type: {
           summary: "ButtonSize",
-          detail: "default \nsmall"
+          detail: "default \nsmall",
         },
       },
     },
