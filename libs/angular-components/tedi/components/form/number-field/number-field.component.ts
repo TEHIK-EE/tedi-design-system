@@ -34,15 +34,15 @@ export type NumberFieldSize = "default" | "small";
     IconComponent,
     TextComponent,
     FeedbackTextComponent,
-    TediTranslationPipe
+    TediTranslationPipe,
   ],
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
       useExisting: forwardRef(() => NumberFieldComponent),
-      multi: true
-    }
-  ]
+      multi: true,
+    },
+  ],
 })
 export class NumberFieldComponent implements ControlValueAccessor {
   /**
@@ -98,9 +98,14 @@ export class NumberFieldComponent implements ControlValueAccessor {
    * FeedbackText component inputs.
    */
   feedbackText = input<ComponentInputs<FeedbackTextComponent>>();
+  /**
+   * Is input full width?
+   * @default false
+   */
+  fullWidth = input(false);
 
-  @ViewChild('inputElement') inputRef!: ElementRef<HTMLInputElement>;
-  
+  @ViewChild("inputElement") inputRef!: ElementRef<HTMLInputElement>;
+
   private formDisabled = signal(false);
   private onChange: (value: number) => void = () => {};
   private onTouched: () => void = () => {};

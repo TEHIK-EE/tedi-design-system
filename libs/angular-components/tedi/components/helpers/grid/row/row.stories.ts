@@ -14,7 +14,7 @@ import { createBreakpointArgTypes } from "../../../../../dev-tools/createBreakpo
  */
 
 export default {
-  title: "TEDI-Ready Angular/Layout/Grid/Row",
+  title: "TEDI-Ready/Components/Helpers/Grid/Row",
   component: RowComponent,
   decorators: [
     moduleMetadata({

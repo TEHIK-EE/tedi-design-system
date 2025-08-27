@@ -12,7 +12,7 @@ import { ListComponent } from "./list.component";
  */
 
 export default {
-  title: "TEDI-Ready Angular/Content/List",
+  title: "TEDI-Ready/Content/List",
   component: ListComponent,
   decorators: [
     moduleMetadata({

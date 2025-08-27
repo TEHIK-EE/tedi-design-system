@@ -21,7 +21,7 @@ import { IconComponent } from "@tehik-ee/tedi-angular/tedi";
  */
 
 const meta: Meta<SelectComponent> = {
-  title: "Community Angular/Form/Select/Single Select",
+  title: "Community/Form/Select/Single Select",
   component: SelectComponent,
   decorators: [
     moduleMetadata({

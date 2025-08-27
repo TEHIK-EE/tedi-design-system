@@ -81,7 +81,7 @@ const meta: Meta<StatusBadgeComponent> = {
     }),
   ],
 
-  title: "Community Angular/Tags/StatusBadge",
+  title: "Community/Tags/StatusBadge",
   args: {
     className: "",
     title: "",

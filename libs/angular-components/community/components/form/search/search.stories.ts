@@ -28,7 +28,7 @@ const mockOptions: AutocompleteOption[] = [
 ];
 
 export default {
-  title: "Community Angular/Form/Search",
+  title: "Community/Form/Search",
   component: SearchComponent,
   decorators: [
     moduleMetadata({

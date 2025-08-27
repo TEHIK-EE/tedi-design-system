@@ -19,10 +19,23 @@ interface ColorStoryData {
 @Component({
   imports: [NgFor, NgStyle, NgIf],
   selector: "app-color-story",
+  styles: `
+    code {
+      font-size: 13px;
+      padding: 3px 5px;
+      color: rgba(46, 52, 56, 0.9);
+      background-color: rgb(247, 250, 252);
+      border: 1px solid rgb(236, 244, 249);
+      border-radius: 3px;
+    }
+  `,
   template: `
     <div *ngFor="let group of groupedColorsArray">
       <div style="margin-bottom: 20px;">
-        <h3 class="text-capitalize" style="margin-bottom: 10px;">
+        <h3
+          class="text-capitalize"
+          style="margin-bottom: 10px; font-weight: 700; font-size: 20px;"
+        >
           {{ group.key }}
         </h3>
         <div class="display-flex flex-wrap align-items-start gap-4">

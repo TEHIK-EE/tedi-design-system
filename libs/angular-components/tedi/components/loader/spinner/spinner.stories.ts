@@ -10,7 +10,7 @@ const COLORS = ["primary", "secondary"];
  */
 
 export default {
-  title: "TEDI-Ready Angular/Loader/Spinner",
+  title: "TEDI-Ready/Components/Loader/Spinner",
   component: SpinnerComponent,
   argTypes: {
     size: {
@@ -71,8 +71,8 @@ export const Size: StoryObj<SpinnerComponent> = {
     },
     template: `
       <div class="example-list">
-        <div 
-          *ngFor="let size of sizes; let last = last" 
+        <div
+          *ngFor="let size of sizes; let last = last"
           class="padding-14-16"
           [ngClass]="{ 'border-bottom': !last }"
           style="display: grid; grid-template-columns: repeat(2, 1fr); align-items: center;"
@@ -95,29 +95,29 @@ export const Color: StoryObj<SpinnerComponent> = {
     template: `
       <div class="flex align-items-center gap-4">
         <tedi-spinner ${argsToTemplate(args)} color="primary" />
-        <div 
-          [ngStyle]="{ 
-            'background': 'var(--general-surface-brand-primary)', 
-            'borderRadius': '4px', 
-            'padding': '24px' 
+        <div
+          [ngStyle]="{
+            'background': 'var(--general-surface-brand-primary)',
+            'borderRadius': '4px',
+            'padding': '24px'
           }"
         >
           <tedi-spinner ${argsToTemplate(args)} color="secondary" />
         </div>
-        <div 
-          [ngStyle]="{ 
-            'background': 'var(--general-status-danger-background-secondary)', 
-            'borderRadius': '4px', 
-            'padding': '24px' 
+        <div
+          [ngStyle]="{
+            'background': 'var(--general-status-danger-background-secondary)',
+            'borderRadius': '4px',
+            'padding': '24px'
           }"
         >
           <tedi-spinner ${argsToTemplate(args)} color="secondary" />
         </div>
-        <div 
-          [ngStyle]="{ 
-            'background': 'var(--general-status-success-background-secondary)', 
-            'borderRadius': '4px', 
-            'padding': '24px' 
+        <div
+          [ngStyle]="{
+            'background': 'var(--general-status-success-background-secondary)',
+            'borderRadius': '4px',
+            'padding': '24px'
           }"
         >
           <tedi-spinner ${argsToTemplate(args)} color="secondary" />

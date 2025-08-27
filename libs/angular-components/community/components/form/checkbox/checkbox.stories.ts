@@ -12,7 +12,7 @@ import { CheckboxGroupComponent } from "./checkbox-group/checkbox-group.componen
 import { CheckboxCardGroupComponent } from "./checkbox-card-group/checkbox-card-group.component";
 
 export default {
-  title: "Community Angular/Form/Checkbox",
+  title: "Community/Form/Checkbox",
   component: CheckboxComponent,
   args: {
     size: "default",

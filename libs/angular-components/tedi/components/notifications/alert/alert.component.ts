@@ -1,42 +1,37 @@
 import {
   Component,
   computed,
-  ElementRef,
-  inject,
   input,
-  Renderer2,
-  ViewChild,
-  AfterViewInit,
   model,
+  ChangeDetectionStrategy,
+  ViewEncapsulation,
 } from "@angular/core";
-import { CommonModule } from "@angular/common";
 import { IconComponent } from "../../base/icon/icon.component";
 import { ClosingButtonComponent } from "../../buttons/closing-button/closing-button.component";
+import { NgTemplateOutlet } from "@angular/common";
 
 export type AlertRole = "alert" | "status" | "none";
 export type AlertType = "info" | "success" | "warning" | "danger";
-export type AlertTitleType =
-  | "h1"
-  | "h2"
-  | "h3"
-  | "h4"
-  | "h5"
-  | "h6"
-  | "div"
-  | "strong";
+export type AlertTitleType = "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "div";
 export type AlertVariant = "default" | "global" | "noSideBorders";
 
 @Component({
   standalone: true,
   selector: "tedi-alert",
-  imports: [CommonModule, IconComponent, ClosingButtonComponent],
+  imports: [IconComponent, ClosingButtonComponent, NgTemplateOutlet],
   templateUrl: "./alert.component.html",
   styleUrls: ["./alert.component.scss"],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.None,
   host: {
-    "[style.display]": "open() ? 'block' : 'none'",
+    "[style.display]": "open() ? 'flex' : 'none'",
+    "[attr.aria-live]": "getAriaLive()",
+    "[attr.aria-label]": "getAriaLabel()",
+    "[class]": "classes()",
+    "[attr.role]": "role() === 'none' ? null : role()",
   },
 })
-export class AlertComponent implements AfterViewInit {
+export class AlertComponent {
   /**
    * An optional title for the alert, typically used to summarize the message's purpose.
    * If provided, it appears prominently at the top of the alert.
@@ -51,7 +46,6 @@ export class AlertComponent implements AfterViewInit {
   type = input<AlertType>("info");
   /**
    * Specifies an optional icon to display in the alert, providing quick visual context.
-   * Can be a string (icon name) or an object with additional `IconProps` to further customize the icon.
    */
   icon = input<string>("");
   /**
@@ -69,24 +63,10 @@ export class AlertComponent implements AfterViewInit {
    */
   role = input<AlertRole>("alert");
   /**
-   * Indicates that the alert is intended to span the full width of the page,
-   * typically for critical or prominent messages.
-   * @default false
-   */
-  isGlobal = input<boolean>();
-  /**
-   * Removes the side borders from the alert for a cleaner appearance.
-   * This also sets the border radius to 0.
-   * @default false
-   */
-  noSideBorders = input<boolean>();
-
-  /**
    * Variant for the alert, which can be used to apply specific styles.
    * For example, 'global' for full-width alerts or 'noSideBorders' for alerts without side borders.
    */
   variant = input<AlertVariant>("default");
-
   /**
    * The HTML tag to be used for the alert title.
    * @default h2
@@ -98,28 +78,6 @@ export class AlertComponent implements AfterViewInit {
    */
   open = model(true);
 
-  @ViewChild("alertTitle", { static: true })
-  headingAnchor!: ElementRef<HTMLElement>;
-  renderer = inject(Renderer2);
-
-  ngAfterViewInit() {
-    if (this.title()) {
-      const headingTag = this.titleElement();
-      const headingElement = this.renderer.createElement(headingTag);
-
-      this.renderer.setAttribute(headingElement, "tedi-text", "");
-      this.renderer.addClass(headingElement, "tedi-alert__title__text");
-
-      const text = this.renderer.createText(this.title()!);
-
-      this.renderer.appendChild(headingElement, text);
-      this.renderer.appendChild(
-        this.headingAnchor.nativeElement,
-        headingElement,
-      );
-    }
-  }
-
   getAriaLive = computed(() => {
     switch (this.role()) {
       case "alert":
@@ -127,8 +85,6 @@ export class AlertComponent implements AfterViewInit {
       case "status":
         return "polite";
       case "none":
-        return "off";
-      default:
         return "off";
     }
   });
@@ -140,11 +96,7 @@ export class AlertComponent implements AfterViewInit {
     return `${this.type()} alert`;
   });
 
-  getRole = computed(() => {
-    return this.role() === "none" ? null : this.role();
-  });
-
-  getClasses = computed(() => {
+  classes = computed(() => {
     return {
       "tedi-alert": true,
       [`tedi-alert--${this.type()}`]: !!this.type(),

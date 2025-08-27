@@ -28,7 +28,7 @@ import { LinkComponent } from "@tehik-ee/tedi-angular/tedi";
  *
  */
 export default {
-  title: "TEDI-Ready Angular/Layout/Footer",
+  title: "TEDI-Ready/Layout/Footer",
   component: FooterComponent,
   decorators: [
     applicationConfig({
@@ -191,56 +191,6 @@ export const MobileCollapse: Story = {
           <a tedi-link variant="inverted" href="#">Link</a>
         </tedi-footer-bottom>
       </tedi-footer>
-    `,
-  }),
-};
-
-export const LogoPositions: Story = {
-  render: () => ({
-    props: {
-      logoPositions: ["start", "center", "end"],
-    },
-    template: `
-    <ng-template ngFor let-position [ngForOf]="logoPositions">
-    <br>
-    <h4 tedi-text>Logo position: {{ position }}</h4>
-      <tedi-footer>
-        <tedi-footer-side position="{{ position }}" tedi-footer-start>
-          <picture>
-            <source
-              srcset="SF-horizontal.png"
-              alt="Logo"
-              media="(max-width: 576px)"
-            />
-            <img src="SF-vertical.png" alt="Logo" />
-          </picture>
-        </tedi-footer-side>
-        <tedi-footer-body>
-          <tedi-footer-section heading="Heading" icon="account_circle">
-            <a tedi-link variant="inverted" href="#">Link</a>
-            <a tedi-link variant="inverted" href="#">Link</a>
-            <a tedi-link variant="inverted" href="#">Link</a>
-            <a tedi-link variant="inverted" href="#">Link</a>
-          </tedi-footer-section>
-          <tedi-footer-section heading="Heading" icon="account_circle">
-            <a tedi-link variant="inverted" href="#">Link</a>
-            <a tedi-link variant="inverted" href="#">Link</a>
-            <a tedi-link variant="inverted" href="#">Link</a>
-            <a tedi-link variant="inverted" href="#">Link</a>
-          </tedi-footer-section>
-        </tedi-footer-body>
-        <tedi-footer-side position="{{ position }}" tedi-footer-end>
-          <picture>
-            <source
-              srcset="SF-horizontal.png"
-              alt="Logo"
-              media="(max-width: 576px)"
-            />
-            <img src="SF-vertical.png" alt="Logo" />
-          </picture>
-        </tedi-footer-side>
-      </tedi-footer>
-      <ng-template>
     `,
   }),
 };
