@@ -7,16 +7,23 @@ $btn-height-small: 2.5rem;
 $btn-height-large: 3rem;
 
 .tedi-floating-button {
-  box-shadow: 0 4px 10px 0 rgb(0 0 0 / 14%);
+  box-sizing: border-box;
+  text-wrap: wrap;
+  box-shadow: 0 4px 10px 0 var(--alpha-14);
 
   &--horizontal {
     @include mixins.responsive-styles(border-radius, button-radius-default);
   }
 
   &--vertical {
+    min-width: max-content;
+    white-space: nowrap;
+    border-radius: 0;
     transform: rotate(-90deg);
+    transform-origin: center;
 
-    @include mixins.responsive-styles(border-radius, button-radius-sm);
+    @include mixins.responsive-styles(border-top-right-radius, button-radius-sm);
+    @include mixins.responsive-styles(border-top-left-radius, button-radius-sm);
   }
 
   &.tedi-floating-button--primary {
@@ -52,10 +59,11 @@ $btn-height-large: 3rem;
   }
 
   &--medium {
-    height: $btn-height;
+    height: auto;
+    min-height: $btn-height;
 
     @include breakpoints.media-breakpoint-up(md) {
-      height: $btn-height-small;
+      min-height: $btn-height-small;
     }
 
     @include mixins.responsive-styles(padding, button-md-padding-y button-md-padding-x);
@@ -68,7 +76,8 @@ $btn-height-large: 3rem;
   }
 
   &--large {
-    height: $btn-height-large;
+    height: auto;
+    min-height: $btn-height-large;
 
     @include mixins.responsive-styles(padding, button-xl-padding-y button-xl-padding-x);
 
