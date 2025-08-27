@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-core-v1.15.4](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.15.3...core-1.15.4) (2025-08-27)
+
+
+### Bug Fixes
+
+* **header:** fix header height variable [#1034](https://github.com/TEHIK-EE/tedi-design-system/issues/1034) ([#1035](https://github.com/TEHIK-EE/tedi-design-system/issues/1035)) ([147db2c](https://github.com/TEHIK-EE/tedi-design-system/commit/147db2c246c71edf99b555921e6a6dea3d8a8c0e))
+
 # [@tehik-ee/tedi-core-v1.15.3](https://github.com/TEHIK-EE/tedi-design-system/compare/core-1.15.2...core-1.15.3) (2025-07-30)
 
 
