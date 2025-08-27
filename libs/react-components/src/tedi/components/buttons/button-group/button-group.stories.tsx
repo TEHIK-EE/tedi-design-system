@@ -27,7 +27,7 @@ type Story = StoryObj<typeof ButtonGroup>;
 const buttonStates = ['Default', 'Hover', 'Active', 'Disabled'];
 
 const Template: StoryFn<ButtonGroupProps> = (args) => (
-  <ButtonGroup {...args}>
+  <ButtonGroup {...args} ariaLabel="Button group example">
     <Button id="1">Text</Button>
     <Button id="2" isActive>
       Text
@@ -39,7 +39,7 @@ const Template: StoryFn<ButtonGroupProps> = (args) => (
 const TemplateTypes: StoryFn<typeof Button> = (args) => {
   return (
     <VerticalSpacing>
-      <ButtonGroup type="primary" stretch={false}>
+      <ButtonGroup type="primary" stretch={false} ariaLabel="Button group example">
         <Button id="1" {...args}>
           Text
         </Button>
@@ -98,7 +98,7 @@ const TemplateColumn: StoryFn<{ states: string[]; type: 'primary' | 'secondary' 
             <strong>{state}</strong>
           </Col>
           <Col lg={6} md={10} sm={10}>
-            <ButtonGroup type={args.type} onSelectionChange={setSelectedId}>
+            <ButtonGroup type={args.type} onSelectionChange={setSelectedId} ariaLabel="Button group example">
               <Button
                 id={`${state}-${args.type}`}
                 isActive={state === 'Active' || selectedId === `${state}-1-${args.type}`}
@@ -156,7 +156,7 @@ export const DifferentWidthButtons: Story = {
     return (
       <Row>
         <Col md={12}>
-          <ButtonGroup {...args} stretch={false} onSelectionChange={setSelectedId}>
+          <ButtonGroup {...args} stretch={false} onSelectionChange={setSelectedId} ariaLabel="Button group example">
             <Button id="1" isActive={selectedId === '1'} onClick={() => setSelectedId('1')}>
               Text
             </Button>

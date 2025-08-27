@@ -4,7 +4,6 @@
 .tedi-button-group {
   display: flex;
   gap: 0;
-  overflow: hidden;
 
   &--primary,
   &--secondary {
@@ -37,6 +36,10 @@
       &:last-child {
         @include mixins.responsive-styles(border-top-right-radius, button-radius-sm);
         @include mixins.responsive-styles(border-bottom-right-radius, button-radius-sm);
+      }
+
+      &:focus-visible {
+        z-index: 1;
       }
 
       @include breakpoints.media-breakpoint-down(md) {
