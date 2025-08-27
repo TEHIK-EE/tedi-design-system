@@ -134,18 +134,24 @@ export const Collapse = (props: CollapseProps): JSX.Element => {
         type="button"
         data-name="collapse-trigger"
         className={styles['tedi-collapse__title']}
+        aria-labelledby={`${id}-collapse-label`}
         aria-expanded={isOpen}
         aria-controls={id}
         onKeyDown={handleKeyDown}
         onClick={handleClick}
       >
         <Row justifyContent="between" alignItems="center" wrap="nowrap" {...titleRowProps} element="span">
-          {title && <Col>{title}</Col>}
+          {title && <Col aria-hidden="true">{title}</Col>}
           <Col width="auto">
             <Row element="span" alignItems="center" gutter={1}>
               <Print visibility="hide">
                 <Col width="auto" className={cn({ 'visually-hidden': hideCollapseText })}>
-                  <Text element="span" color="brand" className={cn(styles['tedi-collapse__text'])}>
+                  <Text
+                    element="span"
+                    color="brand"
+                    className={cn(styles['tedi-collapse__text'])}
+                    id={`${id}-collapse-label`}
+                  >
                     {isOpen ? closeText : openText}
                   </Text>
                 </Col>
