@@ -5,8 +5,8 @@ import {
   StoryObj,
 } from "@storybook/angular";
 import { InfoButtonComponent } from "./info-button.component";
-import { RowComponent } from "../../layout/grid/row/row.component";
-import { ColComponent } from "../../layout/grid/col/col.component";
+import { RowComponent } from "../../helpers/grid/row/row.component";
+import { ColComponent } from "../../helpers/grid/col/col.component";
 
 const PSEUDO_STATE = ["Default", "Hover", "Active", "Focus"];
 

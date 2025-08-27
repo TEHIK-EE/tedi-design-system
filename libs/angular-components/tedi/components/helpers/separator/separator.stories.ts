@@ -1,7 +1,7 @@
 import { Meta, StoryObj, moduleMetadata } from "@storybook/angular";
 import { SeparatorComponent } from "./separator.component";
-import { ColComponent } from "../../layout/grid/col/col.component";
-import { RowComponent } from "../../layout/grid/row/row.component";
+import { ColComponent } from "../grid/col/col.component";
+import { RowComponent } from "../grid/row/row.component";
 
 export default {
   title: "TEDI-Ready/Components/Helpers/Separator",

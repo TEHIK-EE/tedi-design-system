@@ -6,8 +6,8 @@ import {
   StoryFn,
 } from "@storybook/angular";
 import { LinkComponent } from "./link.component";
-import { ColComponent } from "../../layout/grid/col/col.component";
-import { RowComponent } from "../../layout/grid/row/row.component";
+import { ColComponent } from "../../helpers/grid/col/col.component";
+import { RowComponent } from "../../helpers/grid/row/row.component";
 import { TextComponent, TextColor } from "../../base/text/text.component";
 import { IconComponent } from "../../base/icon/icon.component";
 import { createBreakpointArgTypes } from "../../../../dev-tools/createBreakpointArgTypes";

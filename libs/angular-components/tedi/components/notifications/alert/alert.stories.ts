@@ -6,7 +6,7 @@ import {
 } from "@storybook/angular";
 
 import { AlertComponent } from "./alert.component";
-import { RowComponent } from "../../layout/grid/row/row.component";
+import { RowComponent } from "../../helpers/grid/row/row.component";
 
 export default {
   title: "TEDI-Ready/Components/Notifications/Alert",

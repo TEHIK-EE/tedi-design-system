@@ -7,8 +7,8 @@ import {
 } from "@storybook/angular";
 import { ButtonComponent } from "./button.component";
 import { TextColor, TextComponent } from "../../base/text/text.component";
-import { RowComponent } from "../../layout/grid/row/row.component";
-import { ColComponent } from "../../layout/grid/col/col.component";
+import { RowComponent } from "../../helpers/grid/row/row.component";
+import { ColComponent } from "../../helpers/grid/col/col.component";
 import { IconComponent } from "../../base/icon/icon.component";
 
 const PSEUDO_STATE = ["Default", "Hover", "Active", "Focus", "Disabled"];

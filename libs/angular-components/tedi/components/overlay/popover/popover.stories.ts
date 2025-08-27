@@ -6,8 +6,8 @@ import {
   PopoverWidth,
 } from "./popover-content/popover-content.component";
 import { ButtonComponent } from "../../buttons/button/button.component";
-import { RowComponent } from "../../layout/grid/row/row.component";
-import { ColComponent } from "../../layout/grid/col/col.component";
+import { RowComponent } from "../../helpers/grid/row/row.component";
+import { ColComponent } from "../../helpers/grid/col/col.component";
 import { LinkComponent } from "../../navigation/link/link.component";
 import { IconComponent } from "../../base/icon/icon.component";
 import { InfoButtonComponent } from "../../buttons/info-button/info-button.component";
