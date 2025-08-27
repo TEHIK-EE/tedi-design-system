@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-react-v13.0.0-rc.7](https://github.com/TEHIK-EE/tedi-design-system/compare/react-13.0.0-rc.6...react-13.0.0-rc.7) (2025-08-27)
+
+
+### Bug Fixes
+
+* **button-group:** ensure aria-label is always announced for groups and fix focus styles [#999](https://github.com/TEHIK-EE/tedi-design-system/issues/999) ([#1027](https://github.com/TEHIK-EE/tedi-design-system/issues/1027)) ([bf1ba29](https://github.com/TEHIK-EE/tedi-design-system/commit/bf1ba29dfd29e1b7dab5ea20331ef17f52716cf4))
+
 # [@tehik-ee/tedi-react-v13.0.0-rc.6](https://github.com/TEHIK-EE/tedi-design-system/compare/react-13.0.0-rc.5...react-13.0.0-rc.6) (2025-08-27)
 
 
