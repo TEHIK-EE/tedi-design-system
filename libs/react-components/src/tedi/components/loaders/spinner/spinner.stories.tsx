@@ -92,7 +92,6 @@ export const Default: Story = {
 
 export const Size: StoryObj<TemplateMultipleProps> = {
   render: TemplateColumn,
-  name: 'Spinner size',
 
   args: {
     property: 'size',
@@ -104,5 +103,4 @@ export const Size: StoryObj<TemplateMultipleProps> = {
 
 export const Color: StoryObj<TemplateMultipleProps> = {
   render: TemplateColors,
-  name: 'Spinner colors',
 };
