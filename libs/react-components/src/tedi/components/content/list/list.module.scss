@@ -97,8 +97,6 @@ $bullet-colors: (
   list-style: none;
 
   .tedi-list__item {
-    padding: 0;
-
     &::before {
       display: none;
     }

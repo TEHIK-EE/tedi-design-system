@@ -108,17 +108,17 @@ export const NestedOrdered: Story = {
   },
 };
 
-export const NoStyleList: Story = {
-  render: Template,
-  args: {
-    style: 'none',
-  },
-};
-
 export const DifferentBulletColorList: Story = {
   render: TemplateOrderedNested,
   args: {
     color: 'danger',
     style: 'styled',
+  },
+};
+
+export const NoStyleList: Story = {
+  render: TemplateOrderedNested,
+  args: {
+    style: 'none',
   },
 };
