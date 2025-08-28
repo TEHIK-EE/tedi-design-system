@@ -62,6 +62,10 @@ export class SeparatorComponent {
    */
   dotSize = input<SeparatorDotSize>();
   /**
+   * Is dot filled? Only used when variant is "dot-only".
+   */
+  dotFilled = input(true);
+  /**
    * Thickness in pixels (ignored if variant is used).
    * @default 1
    */
@@ -80,6 +84,7 @@ export class SeparatorComponent {
    */
   size = input("100%");
 
+  // eslint-disable-next-line complexity
   classes = computed(() => {
     const classList = [
       "tedi-separator",
@@ -95,7 +100,13 @@ export class SeparatorComponent {
       classList.push(`tedi-separator--${this.variant()}-${this.dotSize()}`);
     }
 
-    if (this.thickness() && !this.variant()) {
+    if (this.variant() === "dot-only" && this.dotFilled()) {
+      classList.push(`tedi-separator--${this.variant()}-filled`);
+    } else {
+      classList.push(`tedi-separator--${this.variant()}-outlined`);
+    }
+
+    if (this.thickness()) {
       classList.push(`tedi-separator--thickness-${this.thickness()}`);
     }
 

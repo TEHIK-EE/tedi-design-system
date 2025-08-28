@@ -70,6 +70,18 @@ export default {
         },
       },
     },
+    dotFilled: {
+      description: "Is dot filled? Only used when variant is 'dot-only'.",
+      control: {
+        type: "boolean",
+      },
+      table: {
+        category: "inputs",
+        type: {
+          summary: "boolean",
+        },
+      },
+    },
     thickness: {
       description: "Thickness in pixels (ignored if variant is used).",
       control: {
@@ -319,12 +331,26 @@ export const DotOnly: StoryObj<SeparatorComponent> = {
   render: (args) => ({
     props: args,
     template: `
-      <div style="display: flex; align-items: center; gap: 1rem;">
-        <tedi-separator color="secondary" variant="dot-only" dotSize="extra-small" />
-        <tedi-separator color="secondary" variant="dot-only" dotSize="small" />
-        <tedi-separator color="secondary" variant="dot-only" dotSize="medium" />
-        <tedi-separator color="secondary" variant="dot-only" dotSize="large" />
-      </div>
+      <tedi-row [gap]="3">
+        <div style="display: flex; align-items: center; gap: 1rem;">
+          <tedi-separator color="secondary" variant="dot-only" dotSize="extra-small" />
+          <tedi-separator color="secondary" variant="dot-only" dotSize="small" />
+          <tedi-separator color="secondary" variant="dot-only" dotSize="medium" />
+          <tedi-separator color="secondary" variant="dot-only" dotSize="large" />
+        </div>
+        <div style="display: flex; align-items: center; gap: 1rem;">
+          <tedi-separator color="secondary" variant="dot-only" dotSize="extra-small" [dotFilled]="false" [thickness]="1" />
+          <tedi-separator color="secondary" variant="dot-only" dotSize="small" [dotFilled]="false" [thickness]="1" />
+          <tedi-separator color="secondary" variant="dot-only" dotSize="medium" [dotFilled]="false" [thickness]="1" />
+          <tedi-separator color="secondary" variant="dot-only" dotSize="large" [dotFilled]="false" [thickness]="1" />
+        </div>
+        <div style="display: flex; align-items: center; gap: 1rem;">
+          <tedi-separator color="secondary" variant="dot-only" dotSize="extra-small" [dotFilled]="false" [thickness]="2" />
+          <tedi-separator color="secondary" variant="dot-only" dotSize="small" [dotFilled]="false" [thickness]="2" />
+          <tedi-separator color="secondary" variant="dot-only" dotSize="medium" [dotFilled]="false" [thickness]="2" />
+          <tedi-separator color="secondary" variant="dot-only" dotSize="large" [dotFilled]="false" [thickness]="2" />
+        </div>
+      </tedi-row>
     `,
   }),
 };
