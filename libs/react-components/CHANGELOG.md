@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-react-v13.0.0-rc.10](https://github.com/TEHIK-EE/tedi-design-system/compare/react-13.0.0-rc.9...react-13.0.0-rc.10) (2025-08-28)
+
+
+### Bug Fixes
+
+* **floating-button:** prevent text overflow with text-wrap for WCAG compliance [#1001](https://github.com/TEHIK-EE/tedi-design-system/issues/1001) ([#1030](https://github.com/TEHIK-EE/tedi-design-system/issues/1030)) ([b7cb8f8](https://github.com/TEHIK-EE/tedi-design-system/commit/b7cb8f85e76379e9efe269bf07f04776cdaae177))
+
 # [@tehik-ee/tedi-react-v13.0.0-rc.9](https://github.com/TEHIK-EE/tedi-design-system/compare/react-13.0.0-rc.8...react-13.0.0-rc.9) (2025-08-28)
 
 
