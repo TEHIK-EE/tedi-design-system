@@ -155,15 +155,27 @@ const InternalButtonContent = forwardRef(
       return isLoading ? <Spinner className={iconProps.className} size={18} /> : <Icon {...iconProps} />;
     };
 
-    const renderContent = (): JSX.Element => (
-      <span className={styles['tedi-btn__inner']}>
-        {icon && getIcon('center', icon)}
-        {iconLeft && getIcon('left', iconLeft)}
-        <span className={styles['tedi-btn__text']}>{children}</span>
-        {isLoading && !hasIcon && <Spinner position="absolute" className={styles['tedi-btn__spinner']} size={18} />}
-        {iconRight && getIcon('right', iconRight)}
-      </span>
-    );
+    const renderContent = (): JSX.Element => {
+      const leftContent = isLoading ? (
+        <Spinner
+          position={!hasIcon ? 'absolute' : undefined}
+          className={cn(styles['tedi-btn__spinner'], styles['tedi-btn__spinner--left'])}
+          size={18}
+        />
+      ) : iconLeft ? (
+        getIcon('left', iconLeft)
+      ) : icon ? (
+        getIcon('center', icon)
+      ) : null;
+
+      return (
+        <span className={styles['tedi-btn__inner']}>
+          {leftContent}
+          <span className={styles['tedi-btn__text']}>{children}</span>
+          {!isLoading && iconRight && getIcon('right', iconRight)}
+        </span>
+      );
+    };
 
     const onClickHandler = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>): void => {
       if (onClick && !isLoading) onClick(event);
@@ -175,6 +187,7 @@ const InternalButtonContent = forwardRef(
           data-name="button-content"
           {...rest}
           aria-disabled={isLoading || rest['aria-disabled']}
+          aria-busy={isLoading || undefined}
           onClick={onClickHandler}
           ref={ref}
           className={BEM}

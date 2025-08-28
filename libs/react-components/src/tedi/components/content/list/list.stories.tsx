@@ -37,14 +37,31 @@ type Story = StoryObj<typeof List>;
 
 const Template: StoryFn<Omit<ListProps, 'children'>> = (args) => (
   <List {...args}>
-    <List.Item>Potato</List.Item>
     <List.Item>Caesar salad</List.Item>
-    <List.Item>Caesar salad</List.Item>
+    <List.Item>
+      Caesar salad
+      <List {...args}>
+        <List.Item>Dressing</List.Item>
+      </List>
+    </List.Item>
+    <List.Item>
+      Caesar salad
+      <List {...args}>
+        <List.Item>
+          Dressing
+          <List {...args}>
+            <List.Item>Lemon juice</List.Item>
+            <List.Item>Anchovies</List.Item>
+          </List>
+        </List.Item>
+      </List>
+    </List.Item>
   </List>
 );
 
-const TemplateUnorderedNested: StoryFn<Omit<ListProps, 'children'>> = (args) => (
+const TemplateUnorderedList: StoryFn<Omit<ListProps, 'children'>> = (args) => (
   <List {...args}>
+    <List.Item>Potato</List.Item>
     <List.Item>Caesar salad</List.Item>
     <List.Item>
       Caesar salad
@@ -64,7 +81,7 @@ const TemplateUnorderedNested: StoryFn<Omit<ListProps, 'children'>> = (args) => 
   </List>
 );
 
-const TemplateOrderedNested: StoryFn<Omit<ListProps, 'children'>> = (args) => (
+const TemplateOrderedList: StoryFn<Omit<ListProps, 'children'>> = (args) => (
   <List {...args}>
     <List.Item>School homework</List.Item>
     <List.Item>
@@ -85,6 +102,23 @@ const TemplateOrderedNested: StoryFn<Omit<ListProps, 'children'>> = (args) => (
   </List>
 );
 
+const TemplateNoStyleList: StoryFn<Omit<ListProps, 'children'>> = (args) => (
+  <List {...args}>
+    <List.Item>
+      Caesar salad
+      <List {...args}>
+        <List.Item>
+          Dressing
+          <List {...args}>
+            <List.Item>Lemon juice</List.Item>
+            <List.Item>Anchovies</List.Item>
+          </List>
+        </List.Item>
+      </List>
+    </List.Item>
+  </List>
+);
+
 export const Default: Story = {
   render: Template,
   args: {
@@ -93,31 +127,23 @@ export const Default: Story = {
   },
 };
 
-export const NestedUnordered: Story = {
-  render: TemplateUnorderedNested,
+export const UnorderedList: Story = {
+  render: TemplateUnorderedList,
   args: {
     style: 'styled',
   },
 };
 
-export const NestedOrdered: Story = {
-  render: TemplateOrderedNested,
+export const OrderedList: Story = {
+  render: TemplateOrderedList,
   args: {
     element: 'ol',
     style: 'styled',
   },
 };
 
-export const DifferentBulletColorList: Story = {
-  render: TemplateOrderedNested,
-  args: {
-    color: 'danger',
-    style: 'styled',
-  },
-};
-
 export const NoStyleList: Story = {
-  render: TemplateOrderedNested,
+  render: TemplateNoStyleList,
   args: {
     style: 'none',
   },

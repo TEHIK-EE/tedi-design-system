@@ -107,7 +107,7 @@ class StorybookModalComponent implements OnInit {
  * For convenience, you can supply args to all modal components via the `args` input in cdk dialog's `open()` function's option object.
  */
 const meta: Meta<DialogData> = {
-  title: "Community Angular/Overlay/Modal",
+  title: "Community/Overlay/Modal",
   component: ModalComponent,
   decorators: [
     moduleMetadata({

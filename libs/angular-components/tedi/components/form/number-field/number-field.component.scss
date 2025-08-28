@@ -28,15 +28,27 @@
       z-index: 2;
       margin-right: calc(-1 * var(--borders-01));
       border-radius: 0;
-      @include mixins.responsive-styles(border-top-left-radius, button-radius-sm);
-      @include mixins.responsive-styles(border-bottom-left-radius, button-radius-sm);
+      @include mixins.responsive-styles(
+        border-top-left-radius,
+        button-radius-sm
+      );
+      @include mixins.responsive-styles(
+        border-bottom-left-radius,
+        button-radius-sm
+      );
     }
 
     &--increment {
       margin-left: calc(-1 * var(--borders-01));
       border-radius: 0;
-      @include mixins.responsive-styles(border-top-right-radius, button-radius-sm);
-      @include mixins.responsive-styles(border-bottom-right-radius, button-radius-sm);
+      @include mixins.responsive-styles(
+        border-top-right-radius,
+        button-radius-sm
+      );
+      @include mixins.responsive-styles(
+        border-bottom-right-radius,
+        button-radius-sm
+      );
     }
 
     &--small {
@@ -95,8 +107,14 @@
 
   @include mixins.responsive-styles(width, form-number-input-min-width);
   @include mixins.responsive-styles(height, form-field-height);
-  @include mixins.responsive-styles(padding-left, form-field-padding-y-3-default);
-  @include mixins.responsive-styles(padding-right, form-field-padding-y-3-default);
+  @include mixins.responsive-styles(
+    padding-left,
+    form-field-padding-y-3-default
+  );
+  @include mixins.responsive-styles(
+    padding-right,
+    form-field-padding-y-3-default
+  );
   @include mixins.responsive-styles(gap, form-field-inner-spacing-sm);
 
   &:focus-within {
@@ -130,6 +148,10 @@
       text-align: left;
       user-select: none;
     }
+  }
+
+  &--full-width {
+    width: 100%;
   }
 }
 

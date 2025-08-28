@@ -1,7 +1,12 @@
-import { argsToTemplate, Meta, moduleMetadata, StoryObj } from "@storybook/angular";
+import {
+  argsToTemplate,
+  Meta,
+  moduleMetadata,
+  StoryObj,
+} from "@storybook/angular";
 import { LabelComponent } from "./label.component";
-import { RowComponent } from "../../layout/grid/row/row.component";
-import { ColComponent } from "../../layout/grid/col/col.component";
+import { RowComponent } from "../../helpers/grid/row/row.component";
+import { ColComponent } from "../../helpers/grid/col/col.component";
 import { TooltipComponent } from "../../overlay/tooltip/tooltip.component";
 import { TooltipTriggerComponent } from "../../overlay/tooltip/tooltip-trigger.component";
 import { TooltipContentComponent } from "../../overlay/tooltip/tooltip-content.component";
@@ -13,12 +18,20 @@ import { InfoButtonComponent } from "../../buttons/info-button/info-button.compo
  */
 
 export default {
-  title: "TEDI-Ready Angular/Form/Label",
+  title: "TEDI-Ready/Components/Form/Label",
   component: LabelComponent,
-    decorators: [
-      moduleMetadata({
-        imports: [LabelComponent, RowComponent, ColComponent, TooltipComponent, TooltipTriggerComponent, TooltipContentComponent, InfoButtonComponent],
-      }),
+  decorators: [
+    moduleMetadata({
+      imports: [
+        LabelComponent,
+        RowComponent,
+        ColComponent,
+        TooltipComponent,
+        TooltipTriggerComponent,
+        TooltipContentComponent,
+        InfoButtonComponent,
+      ],
+    }),
   ],
   argTypes: {
     ngContent: {

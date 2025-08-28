@@ -1,28 +1,26 @@
 @use "@tehik-ee/tedi-core/mixins";
 
 tedi-header-content {
-    display: flex;
-    align-items: center;
-    
-    @include mixins.responsive-styles(gap, layout-header-items-center-gutter-x);
+  display: flex;
+  align-items: center;
 
-    a, .tedi-link {
-        color: var(--general-text-primary);
-        text-decoration: none;
+  @include mixins.responsive-styles(gap, layout-header-items-center-gutter-x);
 
-        &:hover {
-            color: var(--general-text-secondary);
-            text-decoration-line: underline;
-        }
+  a,
+  .tedi-link {
+    color: var(--general-text-primary);
 
-        &:active {
-            color: var(--general-text-tertiary);
-            text-decoration-line: underline;
-        }
-
-        &:focus-visible {
-            outline: var(--borders-02) solid var(--primary-500);
-            outline-offset: var(--borders-01);
-        }
+    &:hover {
+      color: var(--general-text-secondary);
     }
+
+    &:active {
+      color: var(--general-text-tertiary);
+    }
+
+    &:focus-visible {
+      outline: var(--borders-02) solid var(--primary-500);
+      outline-offset: var(--borders-01);
+    }
+  }
 }

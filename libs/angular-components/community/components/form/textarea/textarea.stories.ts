@@ -2,7 +2,7 @@ import { Meta, StoryObj } from "@storybook/angular";
 import { TextareaComponent } from "./textarea.component";
 
 export default {
-  title: "Community Angular/Form/TextArea",
+  title: "Community/Form/TextArea",
   component: TextareaComponent,
   render: (props) => ({
     props,

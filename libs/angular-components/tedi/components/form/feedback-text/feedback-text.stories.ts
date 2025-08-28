@@ -12,7 +12,7 @@ import { FeedbackTextComponent } from "./feedback-text.component";
  */
 
 export default {
-  title: "TEDI-Ready Angular/Form/FeedbackText",
+  title: "TEDI-Ready/Components/Form/FeedbackText",
   component: FeedbackTextComponent,
   decorators: [
     moduleMetadata({

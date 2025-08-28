@@ -17,7 +17,7 @@
   @include mixins.responsive-styles(width, button-sm-icon-size);
   @include mixins.responsive-styles(height, button-sm-icon-size);
 
-  @each $state in hover, active, focus {
+  @each $state in hover, active {
     &:#{ $state } {
       --general-icon-primary: var(--button-close-text-#{$state});
 

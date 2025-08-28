@@ -9,8 +9,8 @@
       <p tedi-text color="brand" class="collapse__button--text">
         {{
           isOpen()
-            ? (openText() ?? ('close' | tediTranslate))
-            : (closeText() ?? ('open' | tediTranslate))
+            ? (closeText() ?? ("close" | tediTranslate))
+            : (openText() ?? ("open" | tediTranslate))
         }}
       </p>
     }

@@ -4,7 +4,7 @@ import baseColorData from "./base-color-variables.json";
 import semanticColorData from "./brand-color-variables.json";
 
 const meta: Meta<ColorStoryComponent> = {
-  title: "TEDI-Ready Angular/Base/Colors",
+  title: "TEDI-Ready/Base/Colors",
   component: ColorStoryComponent,
 };
 
@@ -19,6 +19,7 @@ export const BaseColors: StoryObj<ColorStoryComponent> = {
     data: baseColorData,
   },
   name: "Base Colors",
+  tags: ["!dev"],
 };
 
 export const BrandColors: StoryObj<ColorStoryComponent> = {
@@ -30,4 +31,5 @@ export const BrandColors: StoryObj<ColorStoryComponent> = {
     data: semanticColorData,
   },
   name: "Brand Colors",
+  tags: ["!dev"],
 };

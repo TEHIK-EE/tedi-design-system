@@ -9,10 +9,10 @@ $transition-duration: 300ms;
 .collapse__button {
   display: flex;
   align-items: center;
-  gap: 16px;
   cursor: pointer;
 
   @include mixins.button-reset;
+  @include mixins.responsive-styles(gap, link-inner-spacing-x);
 
   &--text {
     text-decoration: underline;

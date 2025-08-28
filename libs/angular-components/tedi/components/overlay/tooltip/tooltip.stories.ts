@@ -1,17 +1,17 @@
-import {
-  type Meta,
-  type StoryObj,
-  moduleMetadata,
-} from "@storybook/angular";
+import { type Meta, type StoryObj, moduleMetadata } from "@storybook/angular";
 import { TooltipComponent } from "./tooltip.component";
 import { ButtonComponent } from "../../buttons/button/button.component";
 import { InfoButtonComponent } from "../../buttons/info-button/info-button.component";
-import { RowComponent } from "../../layout/grid/row/row.component";
-import { ColComponent } from "../../layout/grid/col/col.component";
+import { RowComponent } from "../../helpers/grid/row/row.component";
+import { ColComponent } from "../../helpers/grid/col/col.component";
 import { VerticalSpacingItemDirective } from "../../../directives/vertical-spacing/vertical-spacing-item.directive";
 import { TextComponent } from "../../base/text/text.component";
 import { TooltipTriggerComponent } from "./tooltip-trigger.component";
-import { TooltipContentComponent, TooltipPosition, TooltipWidth } from "./tooltip-content.component";
+import {
+  TooltipContentComponent,
+  TooltipPosition,
+  TooltipWidth,
+} from "./tooltip-content.component";
 
 const MAXWIDTH = ["none", "small", "medium", "large"];
 
@@ -24,7 +24,7 @@ const MAXWIDTH = ["none", "small", "medium", "large"];
  */
 
 export default {
-  title: "TEDI-Ready Angular/Overlay/Tooltip",
+  title: "TEDI-Ready/Components/Overlay/Tooltip",
   component: TooltipComponent,
   decorators: [
     moduleMetadata({
@@ -53,24 +53,25 @@ export default {
           detail: "click \nhover",
         },
         defaultValue: {
-          summary: "hover"
-        }
+          summary: "hover",
+        },
       },
     },
     position: {
       control: "select",
-      description: "The position of the tooltip relative to the trigger element. ",
+      description:
+        "The position of the tooltip relative to the trigger element. ",
       options: ["top", "bottom", "left", "right"],
       table: {
         category: "tooltip-content inputs",
         type: {
-          summary: "TooltipPosition", detail: "top \nbottom \nleft \nright"
+          summary: "TooltipPosition",
+          detail: "top \nbottom \nleft \nright",
         },
         defaultValue: {
           summary: "top",
         },
-        
-      }
+      },
     },
     maxWidth: {
       control: "select",
@@ -90,10 +91,12 @@ export default {
   },
 } as Meta<TooltipComponent>;
 
-type Story = StoryObj<TooltipComponent & { 
-  position: TooltipPosition;
-  maxWidth: TooltipWidth;
-}>;
+type Story = StoryObj<
+  TooltipComponent & {
+    position: TooltipPosition;
+    maxWidth: TooltipWidth;
+  }
+>;
 
 export const Default: Story = {
   args: {
@@ -191,7 +194,7 @@ export const TextTrigger: Story = {
     props: args,
     template: `
       <p>
-        Tooltip works even inside a text. Hover over 
+        Tooltip works even inside a text. Hover over
         <tedi-tooltip>
           <tedi-tooltip-trigger>
             this
@@ -200,7 +203,7 @@ export const TextTrigger: Story = {
             If tooltip trigger is a text, it will have an underline.
           </tedi-tooltip-content>
         </tedi-tooltip>
-        text to see the tooltip. 
+        text to see the tooltip.
       </p>
     `,
   }),

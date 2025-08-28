@@ -1,24 +1,58 @@
-<div
-  [attr.aria-live]="getAriaLive()"
-  [attr.aria-label]="getAriaLabel()"
-  [class]="getClasses()"
-  [attr.role]="getRole()"
->
-  <div
-    class="tedi-alert__container"
-    [class.tedi-alert__title-layout]="title()"
-    [class.tedi-alert__icon-layout]="icon()"
-  >
-    <tedi-icon *ngIf="icon()" class="tedi-alert__icon" [name]="icon()" />
-    <div class="tedi-alert__content">
-      <ng-content />
-    </div>
-    <button
-      tedi-closing-button
-      *ngIf="showClose()"
-      class="tedi-alert__close"
-      (click)="handleClose()"
-    ></button>
-    <div class="tedi-alert__title__container" #alertTitle></div>
+@if (title()) {
+  <div class="tedi-alert__head">
+    @if (icon()) {
+      <tedi-icon [name]="icon()" [size]="18" />
+    }
+    <ng-container *ngTemplateOutlet="heading"></ng-container>
+    @if (showClose()) {
+      <button
+        tedi-closing-button
+        class="tedi-alert__close"
+        size="small"
+        [iconSize]="18"
+        (click)="handleClose()"
+      ></button>
+    }
   </div>
-</div>
+  <ng-container *ngTemplateOutlet="content"></ng-container>
+} @else {
+  <div class="tedi-alert__content">
+    @if (icon()) {
+      <tedi-icon [name]="icon()" [size]="18" class="tedi-alert__content-icon" />
+    }
+    <ng-container *ngTemplateOutlet="content"></ng-container>
+    @if (showClose()) {
+      <button
+        tedi-closing-button
+        class="tedi-alert__close"
+        size="small"
+        [iconSize]="18"
+        (click)="handleClose()"
+      ></button>
+    }
+  </div>
+}
+
+<ng-template #heading>
+  @if (titleElement() === "h1") {
+    <h1 class="tedi-alert__title">{{ title() }}</h1>
+  } @else if (titleElement() === "h2") {
+    <h2 class="tedi-alert__title">{{ title() }}</h2>
+  } @else if (titleElement() === "h3") {
+    <h3 class="tedi-alert__title">{{ title() }}</h3>
+  } @else if (titleElement() === "h4") {
+    <h4 class="tedi-alert__title">{{ title() }}</h4>
+  } @else if (titleElement() === "h5") {
+    <h5 class="tedi-alert__title">{{ title() }}</h5>
+  } @else if (titleElement() === "h6") {
+    <h6 class="tedi-alert__title">{{ title() }}</h6>
+  } @else {
+    <div class="tedi-alert__title">{{ title() }}</div>
+  }
+</ng-template>
+
+<ng-template #content>
+  <div>
+    <ng-content></ng-content>
+  </div>
+</ng-template>

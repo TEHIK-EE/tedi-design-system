@@ -13,7 +13,7 @@ import {
 } from "@tehik-ee/tedi-angular/tedi";
 
 const meta: Meta<MultiselectComponent> = {
-  title: "Community Angular/Form/Select/Multiselect",
+  title: "Community/Form/Select/Multiselect",
   component: MultiselectComponent,
   decorators: [
     moduleMetadata({

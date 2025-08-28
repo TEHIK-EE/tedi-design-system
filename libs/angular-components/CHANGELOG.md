@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-angular-v2.3.0-rc.5](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.3.0-rc.4...angular-2.3.0-rc.5) (2025-08-27)
+
+
+### Bug Fixes
+
+* **storybook:** fix storybook stories and structure [#987](https://github.com/TEHIK-EE/tedi-design-system/issues/987) ([#1029](https://github.com/TEHIK-EE/tedi-design-system/issues/1029)) ([db691f1](https://github.com/TEHIK-EE/tedi-design-system/commit/db691f1610e6d3122412539beae557122d2a84a9))
+
 # [@tehik-ee/tedi-angular-v2.3.0-rc.4](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.3.0-rc.3...angular-2.3.0-rc.4) (2025-08-14)
 
 

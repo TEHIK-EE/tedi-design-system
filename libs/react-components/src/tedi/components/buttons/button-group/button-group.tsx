@@ -61,6 +61,7 @@ export const ButtonGroup = (props: ButtonGroupProps): JSX.Element => {
               [styles['tedi-button-group__item--active']]: child.props.isActive,
               [styles['tedi-button-group__item--disabled']]: child.props.disabled,
             }),
+            noStyle: true,
             onClick: () => {
               if (!child.props.disabled) {
                 child.props.onClick?.();

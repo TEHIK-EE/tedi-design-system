@@ -6,8 +6,8 @@ import {
 } from "@storybook/angular";
 import { TextComponent } from "./text.component";
 import { VerticalSpacingDirective } from "../../../directives/vertical-spacing/vertical-spacing.directive";
-import { RowComponent } from "../../layout/grid/row/row.component";
-import { ColComponent } from "../../layout/grid/col/col.component";
+import { RowComponent } from "../../helpers/grid/row/row.component";
+import { ColComponent } from "../../helpers/grid/col/col.component";
 
 /**
  * <a href="https://www.figma.com/design/jWiRIXhHRxwVdMSimKX2FF/TEDI-Design-System-(draft)?node-id=115-11630&m=dev" target="_BLANK">Figma ↗</a><br/>
@@ -15,7 +15,7 @@ import { ColComponent } from "../../layout/grid/col/col.component";
  */
 
 export default {
-  title: "TEDI-Ready Angular/Base/Text",
+  title: "TEDI-Ready/Base/Typography/Text",
   component: TextComponent,
   decorators: [
     moduleMetadata({
@@ -35,7 +35,7 @@ export default {
       },
       table: {
         type: { summary: "string" },
-      }
+      },
     },
     modifiers: {
       description: "Single or multiple modifiers to change the text behavior",
@@ -73,10 +73,11 @@ export default {
       ],
       table: {
         category: "inputs",
-        type: { 
+        type: {
           summary: "TextModifiers[] | TextModifiers",
-          detail: "h1 \nh2 \nh3 \nh4 \nh5 \nh6 \nnormal \nsmall \nbold \nthin \nitalic \ncenter \nleft \nright \nnowrap \nbreak-all \nbreak-word \nbreak-spaces \nuppercase \nlowercase \ncapitalize \ncapitalize-first \ninline-block \ninline \nline-normal \nline-condensed \nsubtitle" 
-        }
+          detail:
+            "h1 \nh2 \nh3 \nh4 \nh5 \nh6 \nnormal \nsmall \nbold \nthin \nitalic \ncenter \nleft \nright \nnowrap \nbreak-all \nbreak-word \nbreak-spaces \nuppercase \nlowercase \ncapitalize \ncapitalize-first \ninline-block \ninline \nline-normal \nline-condensed \nsubtitle",
+        },
       },
     },
     color: {
@@ -99,9 +100,10 @@ export default {
       ],
       table: {
         category: "inputs",
-        type: { 
-          summary: "TextColor", 
-          detail: "primary \nsecondary \ntertiary \nwhite \ndisabled \nbrand \nsuccess \nwarning \ndanger \ninfo \nneutral" 
+        type: {
+          summary: "TextColor",
+          detail:
+            "primary \nsecondary \ntertiary \nwhite \ndisabled \nbrand \nsuccess \nwarning \ndanger \ninfo \nneutral",
         },
         defaultValue: { summary: "primary" },
       },
@@ -122,7 +124,8 @@ export const Default: StoryObj<TextComponent & { ngContent: string }> = {
 export const Headings: StoryObj<TextComponent> = {
   render: (args) => ({
     props: args,
-    styles: [`
+    styles: [
+      `
         h1.mobile {
           font-size: var(--heading-h1-size-mobile);
         }
@@ -142,7 +145,8 @@ export const Headings: StoryObj<TextComponent> = {
           font-size: var(--heading-h6-size-mobile);
         }
       }
-    `],
+    `,
+    ],
     template: `
       <div class="example-list">
         <tedi-row [cols]="2" [class]="'padding-14-16 border-bottom border-bottom--3x'">

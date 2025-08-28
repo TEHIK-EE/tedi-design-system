@@ -83,7 +83,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@tehik-ee/tedi-core": "^1.15.3"
+    "@tehik-ee/tedi-core": "^1.15.4"
   },
   "overrides": {
     "dayjs": "$dayjs",

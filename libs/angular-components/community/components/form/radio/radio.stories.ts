@@ -12,7 +12,7 @@ import { FormControl, ReactiveFormsModule } from "@angular/forms";
 import { RadioCardGroupComponent } from "./radio-card-group/radio-card-group.component";
 
 export default {
-  title: "Community Angular/Form/Radio",
+  title: "Community/Form/Radio",
   component: RadioGroupComponent,
   subcomponents: {
     RadioComponent,

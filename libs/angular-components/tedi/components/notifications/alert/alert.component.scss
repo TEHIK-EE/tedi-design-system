@@ -6,13 +6,10 @@
   border-color: $border;
 }
 
-:host {
-  display: block;
-}
-
 .tedi-alert {
+  display: flex;
+  flex-direction: column;
   border: 1px solid;
-  margin-bottom: 0.25rem;
 
   @include alert-variant(
     var(--alert-default-background-info),
@@ -24,65 +21,38 @@
     padding,
     alert-default-padding-y alert-default-padding-x
   );
+  @include mixins.responsive-styles(gap, layout-grid-gutters-04);
 
-  .tedi-alert__container {
-    display: grid;
-    grid-template-columns: auto 1fr auto;
+  &__head {
+    display: flex;
+    align-items: center;
+
+    @include mixins.responsive-styles(gap, layout-grid-gutters-04);
+  }
+
+  &__close {
+    margin-left: auto;
+  }
+
+  &__content {
+    display: flex;
+    align-items: flex-start;
+
     @include mixins.responsive-styles(gap, alert-default-inner-spacing-x);
 
-    .tedi-alert__icon {
-      align-self: start;
+    .tedi-alert__content-icon {
+      @include mixins.responsive-styles(line-height, body-regular-line-height);
     }
+  }
 
-    .tedi-alert__content {
-      grid-column: 1;
-      grid-row: 1;
-    }
-
-    .tedi-alert__close {
-      grid-column: 3;
-      align-self: start;
-      cursor: pointer;
-    }
-
-    .tedi-alert__title__container {
-      display: none;
-
-      .tedi-alert__title__text {
-        --heading-h5-weight-tablet: 700;
-        line-height: var(--heading-h5-line-height, 24px);
-        @include mixins.responsive-styles(font-size, heading-h5-size);
-        @include mixins.responsive-styles(font-weight, heading-h5-weight);
-      }
-    }
-
-    &.tedi-alert__icon-layout {
-      .tedi-alert__content {
-        grid-column: 2;
-        grid-row: 1;
-      }
-    }
-
-    &.tedi-alert__title-layout {
-      &.tedi-alert__icon-layout {
-        .tedi-alert__title__container {
-          grid-column: 2;
-          grid-row: 1;
-        }
-      }
-
-      .tedi-alert__title__container {
-        display: block;
-        grid-column: 1;
-        grid-row: 1;
-      }
-
-      .tedi-alert__content {
-        grid-row: 2;
-        grid-column-start: 1;
-        grid-column-end: 4;
-      }
-    }
+  &__title {
+    @include mixins.responsive-styles(font-size, heading-h5-size);
+    @include mixins.responsive-styles(font-weight, heading-h5-weight);
+    @include mixins.responsive-styles(
+      line-height,
+      heading-h5-line-height,
+      $exclude: tablet
+    );
   }
 
   &--info {

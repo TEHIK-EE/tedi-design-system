@@ -9,7 +9,10 @@ import {
   Renderer2,
   ViewEncapsulation,
 } from "@angular/core";
-import { BreakpointInputs, BreakpointService } from "../../../services/breakpoint/breakpoint.service";
+import {
+  BreakpointInputs,
+  BreakpointService,
+} from "../../../services/breakpoint/breakpoint.service";
 
 export type LinkVariant = "default" | "inverted";
 export type LinkSize = "default" | "small";
@@ -43,7 +46,9 @@ export type LinkInputs = {
     "[attr.tabIndex]": "0",
   },
 })
-export class LinkComponent implements BreakpointInputs<LinkInputs>, AfterContentChecked {
+export class LinkComponent
+  implements BreakpointInputs<LinkInputs>, AfterContentChecked
+{
   variant = input<LinkVariant>("default");
   size = input<LinkSize>("default");
   underline = input<boolean>(true);
@@ -59,16 +64,19 @@ export class LinkComponent implements BreakpointInputs<LinkInputs>, AfterContent
   private renderer = inject(Renderer2);
 
   ngAfterContentChecked(): void {
-    const childNodes: ChildNode[] = Array.from(this.host.nativeElement.childNodes);
-    
+    const childNodes: ChildNode[] = Array.from(
+      this.host.nativeElement.childNodes,
+    );
+
     for (const node of childNodes) {
       if (node.nodeType === Node.TEXT_NODE && node.textContent?.trim()) {
-        const span = this.renderer.createElement('span') as HTMLSpanElement;
+        if (node.parentNode !== this.host.nativeElement) {
+          continue;
+        }
 
-        const textNode = this.renderer.createText(node.textContent.trim());
-        this.renderer.appendChild(span, textNode);
+        const span = this.renderer.createElement("span") as HTMLSpanElement;
         this.renderer.insertBefore(this.host.nativeElement, span, node);
-        this.renderer.removeChild(this.host.nativeElement, node);
+        this.renderer.appendChild(span, node);
       }
     }
   }

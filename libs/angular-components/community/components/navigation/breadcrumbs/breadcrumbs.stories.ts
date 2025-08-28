@@ -7,11 +7,11 @@ import { createBreakpointArgTypes } from "../../../../dev-tools/createBreakpoint
 * Breadcrumbs provide users with a clear path of where they are within the application.
 * - Each item includes a **label** (display text) and a **href** (navigation link).
 * - The **final breadcrumb** indicates the current page and is displayed as **plain text**, without a link.
-* - Breadcrumbs are rendered **in the order they are passed**, representing the page hierarchy. 
+* - Breadcrumbs are rendered **in the order they are passed**, representing the page hierarchy.
 * <br>
 */
 export default {
-  title: "Community Angular/Navigation/Breadcrumbs",
+  title: "Community/Navigation/Breadcrumbs",
   component: BreadcrumbsComponent,
   render: (args) => ({
     props: args,
