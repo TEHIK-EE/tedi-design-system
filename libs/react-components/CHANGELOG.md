@@ -1,3 +1,28 @@
+# [@tehik-ee/tedi-react-v13.0.0](https://github.com/TEHIK-EE/tedi-design-system/compare/react-12.2.1...react-13.0.0) (2025-08-28)
+
+
+### Bug Fixes
+
+* **button-group:** ensure aria-label is always announced for groups and fix focus styles [#999](https://github.com/TEHIK-EE/tedi-design-system/issues/999) ([#1027](https://github.com/TEHIK-EE/tedi-design-system/issues/1027)) ([bf1ba29](https://github.com/TEHIK-EE/tedi-design-system/commit/bf1ba29dfd29e1b7dab5ea20331ef17f52716cf4))
+* **button:** consolidate loading spinner position for accessibility [#997](https://github.com/TEHIK-EE/tedi-design-system/issues/997) ([#1025](https://github.com/TEHIK-EE/tedi-design-system/issues/1025)) ([2cfd9cd](https://github.com/TEHIK-EE/tedi-design-system/commit/2cfd9cd544fc274b4e13bbf7d63ce629c043a844))
+* **changelog:** fix react changelog [#971](https://github.com/TEHIK-EE/tedi-design-system/issues/971) ([#972](https://github.com/TEHIK-EE/tedi-design-system/issues/972)) ([6fa41ef](https://github.com/TEHIK-EE/tedi-design-system/commit/6fa41eff3593d5e0b41a879601aad117527ebbc9))
+* **collapse:** prevent title from being included in button accessible name [#1002](https://github.com/TEHIK-EE/tedi-design-system/issues/1002) ([#1028](https://github.com/TEHIK-EE/tedi-design-system/issues/1028)) ([b9e4282](https://github.com/TEHIK-EE/tedi-design-system/commit/b9e4282493f01d0f03ba861280cf97f79c294b5c))
+* **floating-button:** prevent text overflow with text-wrap for WCAG compliance [#1001](https://github.com/TEHIK-EE/tedi-design-system/issues/1001) ([#1030](https://github.com/TEHIK-EE/tedi-design-system/issues/1030)) ([b7cb8f8](https://github.com/TEHIK-EE/tedi-design-system/commit/b7cb8f85e76379e9efe269bf07f04776cdaae177))
+* **list:** fix ordered list for screen readers, fix noStyle indendation [#992](https://github.com/TEHIK-EE/tedi-design-system/issues/992) ([#1024](https://github.com/TEHIK-EE/tedi-design-system/issues/1024)) ([a381e67](https://github.com/TEHIK-EE/tedi-design-system/commit/a381e67bdd1282ca019362e653f3041201594e4a))
+* **sidenav:** adjust sidenav item after element top position [#981](https://github.com/TEHIK-EE/tedi-design-system/issues/981) ([#982](https://github.com/TEHIK-EE/tedi-design-system/issues/982)) ([c55646c](https://github.com/TEHIK-EE/tedi-design-system/commit/c55646ce2238e658c188766970b9655b505a0bf4))
+* **storybook:** fix stories [#1031](https://github.com/TEHIK-EE/tedi-design-system/issues/1031) ([#1033](https://github.com/TEHIK-EE/tedi-design-system/issues/1033)) ([97f4b8f](https://github.com/TEHIK-EE/tedi-design-system/commit/97f4b8f3f5c2369b41c4407b57b777aee251bd25))
+
+
+### Features
+
+* **labelprovider:** refactor [#921](https://github.com/TEHIK-EE/tedi-design-system/issues/921) ([#922](https://github.com/TEHIK-EE/tedi-design-system/issues/922)) ([613f62d](https://github.com/TEHIK-EE/tedi-design-system/commit/613f62dc1b542f6761fd29e0d84e5bf8488bdea2))
+* **layout:** Adds to community Layout possibility to use Header Sidenav Toggle to toggle own menu ([#979](https://github.com/TEHIK-EE/tedi-design-system/issues/979)) ([e310a20](https://github.com/TEHIK-EE/tedi-design-system/commit/e310a20fdce9bb18c94c40f089db0f06ebaec6f5)), closes [#974](https://github.com/TEHIK-EE/tedi-design-system/issues/974)
+
+
+### BREAKING CHANGES
+
+* **labelprovider:** getLabel function
+
 # [@tehik-ee/tedi-react-v13.0.0-rc.10](https://github.com/TEHIK-EE/tedi-design-system/compare/react-13.0.0-rc.9...react-13.0.0-rc.10) (2025-08-28)
 
 
