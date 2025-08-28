@@ -42,6 +42,7 @@ const statuses: StatusBadgeStatus[] = [
   "success",
   "warning",
   "danger",
+  "none"
 ];
 
 const colorToIconMap: Record<StatusBadgeColor, string> = {
