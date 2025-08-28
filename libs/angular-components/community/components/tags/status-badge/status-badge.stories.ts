@@ -36,12 +36,14 @@ const variants: StatusBadgeVariant[] = [
   "filled-bordered",
   "bordered",
 ];
+
 const statuses: StatusBadgeStatus[] = [
   "inactive",
   "success",
   "warning",
   "danger",
 ];
+
 const colorToIconMap: Record<StatusBadgeColor, string> = {
   neutral: "edit",
   brand: "send",
@@ -51,7 +53,8 @@ const colorToIconMap: Record<StatusBadgeColor, string> = {
   warning: "warning",
   transparent: "edit",
 };
-const statusToIconMap: Record<StatusBadgeStatus, string> = {
+
+const statusToIconMap: Partial<Record<StatusBadgeStatus, string>> = {
   inactive: "edit",
   success: "send",
   warning: "sync",
@@ -129,7 +132,7 @@ const meta: Meta<StatusBadgeComponent> = {
     },
     status: {
       control: "radio",
-      options: statuses,
+      options: [...statuses, 'none'],
       description: "StatusBadge status indicator",
     },
   },
@@ -185,6 +188,9 @@ const TemplateAllCombos = (args: ComponentInputs<StatusBadgeComponent>) => {
 };
 
 export const Colors: Story = {
+  args: {
+    status: "none",
+  },
   render: (args) => {
     const { color: _color, variant: _variant, ...rest } = args;
     return {
