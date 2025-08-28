@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-react-v13.0.0-rc.8](https://github.com/TEHIK-EE/tedi-design-system/compare/react-13.0.0-rc.7...react-13.0.0-rc.8) (2025-08-28)
+
+
+### Bug Fixes
+
+* **collapse:** prevent title from being included in button accessible name [#1002](https://github.com/TEHIK-EE/tedi-design-system/issues/1002) ([#1028](https://github.com/TEHIK-EE/tedi-design-system/issues/1028)) ([b9e4282](https://github.com/TEHIK-EE/tedi-design-system/commit/b9e4282493f01d0f03ba861280cf97f79c294b5c))
+
 # [@tehik-ee/tedi-react-v13.0.0-rc.7](https://github.com/TEHIK-EE/tedi-design-system/compare/react-13.0.0-rc.6...react-13.0.0-rc.7) (2025-08-27)
 
 
