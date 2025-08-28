@@ -24,7 +24,7 @@ const meta: Meta<typeof InfoButton> = {
 export default meta;
 type Story = StoryObj<typeof InfoButton>;
 
-const buttonStateArray = ['Default', 'Hover', 'Active'];
+const buttonStateArray = ['Default', 'Hover', 'Active', 'Focus'];
 
 type TemplateMultipleProps = {
   array: typeof buttonStateArray;
@@ -66,7 +66,7 @@ export const InfoButtonStates: StoryObj<TemplateMultipleProps> = {
     pseudo: {
       hover: '#Hover',
       active: '#Active',
-      focus: '#Focus',
+      focusVisible: '#Focus',
     },
   },
 };

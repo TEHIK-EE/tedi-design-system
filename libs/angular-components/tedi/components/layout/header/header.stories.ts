@@ -21,6 +21,7 @@ import { SideNavToggleComponent } from "../sidenav/sidenav-toggle/sidenav-toggle
 import { SideNavComponent } from "../sidenav/sidenav.component";
 import { SideNavItemComponent } from "../sidenav/sidenav-item/sidenav-item.component";
 import { SideNavOverlayComponent } from "../sidenav/sidenav-overlay/sidenav-overlay.component";
+import { SeparatorComponent } from "../../helpers/separator/separator.component";
 
 /**
  * <a href="https://www.figma.com/design/jWiRIXhHRxwVdMSimKX2FF/TEDI-READY-2.13.19?node-id=2137-19318&m=dev&focus-id=6380-53060" target="_BLANK">Figma ↗</a><br/>
@@ -41,34 +42,35 @@ import { SideNavOverlayComponent } from "../sidenav/sidenav-overlay/sidenav-over
  */
 
 export default {
-  title: "TEDI-Ready Angular/Layout/Header",
+  title: "TEDI-Ready/Layout/Header",
   component: HeaderComponent,
   decorators: [
-      moduleMetadata({
-        imports: [
-          HeaderComponent,
-          HeaderContentComponent,
-          HeaderActionsComponent,
-          HeaderRoleComponent,
-          HeaderLanguageComponent,
-          HeaderProfileComponent,
-          HeaderLoginComponent,
-          HeaderLogoutComponent,
-          LinkComponent,
-          IconComponent,
-          ButtonComponent,
-          ShowAtDirective,
-          HideAtDirective,
-          SideNavComponent,
-          SideNavItemComponent,
-          SideNavToggleComponent,
-          SideNavOverlayComponent
-        ],
-      }),
-    ],
+    moduleMetadata({
+      imports: [
+        HeaderComponent,
+        HeaderContentComponent,
+        HeaderActionsComponent,
+        HeaderRoleComponent,
+        HeaderLanguageComponent,
+        HeaderProfileComponent,
+        HeaderLoginComponent,
+        HeaderLogoutComponent,
+        SeparatorComponent,
+        LinkComponent,
+        IconComponent,
+        ButtonComponent,
+        ShowAtDirective,
+        HideAtDirective,
+        SideNavComponent,
+        SideNavItemComponent,
+        SideNavToggleComponent,
+        SideNavOverlayComponent,
+      ],
+    }),
+  ],
   parameters: {
     layout: "fullscreen",
-    docs: { toc: false }
+    docs: { toc: false },
   },
   argTypes: {
     role: {
@@ -93,7 +95,7 @@ export default {
       table: {
         category: "header-role",
         type: { summary: "boolean" },
-        defaultValue: { summary: "false" }
+        defaultValue: { summary: "false" },
       },
     },
     representatives: {
@@ -128,19 +130,21 @@ export default {
       },
     },
     languages: {
-      description: "Languages object. <br />Key is value in 'Language' type. <br />Value should be text shown in the UI.",
+      description:
+        "Languages object. <br />Key is value in 'Language' type. <br />Value should be text shown in the UI.",
       table: {
         category: "header-language",
         type: { summary: "HeaderLanguage" },
       },
     },
-  }
+  },
 } as Meta<HeaderComponent>;
 
 export const Default: StoryObj<HeaderComponent> = {
   render: (args) => ({
     props: args,
-    styles: [`
+    styles: [
+      `
       img {
         max-height: 40px;
 
@@ -148,18 +152,19 @@ export const Default: StoryObj<HeaderComponent> = {
           max-height: 52px;
         }
       }
-    `],
+    `,
+    ],
     template: `
       <header tedi-header ${argsToTemplate(args)}>
         <button tedi-sidenav-toggle></button>
         <img src="header-logo.svg" alt="Logo" />
         <tedi-header-content *showAt="'lg'">
-          <a href="#">Link text</a>
-          <a href="#">Link text</a>
+          <a tedi-link href="#" [underline]="false">Link text</a>
+          <a tedi-link href="#" [underline]="false">Link text</a>
         </tedi-header-content>
         <tedi-header-actions>
-          <tedi-header-language 
-            [languages]="{ et: 'EST', en: 'ENG', ru: 'RUS' }" 
+          <tedi-header-language
+            [languages]="{ et: 'EST', en: 'ENG', ru: 'RUS' }"
             currentLanguage="et"
           />
           <tedi-header-login />
@@ -181,7 +186,8 @@ export const Default: StoryObj<HeaderComponent> = {
 export const LoggedIn1: StoryObj<HeaderComponent> = {
   render: (args) => ({
     props: args,
-    styles: [`
+    styles: [
+      `
       img {
         max-height: 40px;
 
@@ -189,15 +195,16 @@ export const LoggedIn1: StoryObj<HeaderComponent> = {
           max-height: 52px;
         }
       }
-    `],
+    `,
+    ],
     template: `
       <div style="height: 300px;">
         <header tedi-header ${argsToTemplate(args)}>
           <img src="header-logo.svg" alt="Logo" />
           <tedi-header-actions>
-            <tedi-header-role 
+            <tedi-header-role
               role="Roll:"
-              description="49504080934" 
+              description="49504080934"
               [showInput]="true"
               [representatives]="[
                 { icon: 'person', name: 'Juulia Sarapuu', description: '62004122984' },
@@ -209,9 +216,9 @@ export const LoggedIn1: StoryObj<HeaderComponent> = {
             />
             <tedi-header-language [languages]="{ et: 'EST', en: 'ENG', ru: 'RUS' }" />
             <tedi-header-profile showDropdown="lg">
-              <tedi-header-role 
+              <tedi-header-role
                 role="Roll:"
-                description="49504080934" 
+                description="49504080934"
                 [showInput]="true"
                 [representatives]="[
                   { icon: 'person', name: 'Juulia Sarapuu', description: '62004122984' },
@@ -224,6 +231,7 @@ export const LoggedIn1: StoryObj<HeaderComponent> = {
               <a tedi-link href="#" [underline]="false">Minu andmed</a>
               <a tedi-link href="#" [underline]="false">Esindatavad</a>
               <a tedi-link href="#" [underline]="false">Kontaktid</a>
+              <tedi-separator *showAt="'lg'" />
               <button tedi-header-logout>
                 Logi välja
               </button>
@@ -238,7 +246,8 @@ export const LoggedIn1: StoryObj<HeaderComponent> = {
 export const LoggedIn2: StoryObj<HeaderComponent> = {
   render: (args) => ({
     props: args,
-    styles: [`
+    styles: [
+      `
       img {
         max-height: 40px;
 
@@ -246,15 +255,16 @@ export const LoggedIn2: StoryObj<HeaderComponent> = {
           max-height: 52px;
         }
       }
-    `],
+    `,
+    ],
     template: `
       <div style="height: 300px;">
         <header tedi-header ${argsToTemplate(args)}>
           <img src="header-logo.svg" alt="Logo" />
           <tedi-header-actions>
-            <tedi-header-role 
+            <tedi-header-role
               role="Roll:"
-              description="49504080934" 
+              description="49504080934"
               [showInput]="true"
               [representatives]="[
                 { icon: 'person', name: 'Juulia Sarapuu', description: '62004122984' },
@@ -278,7 +288,8 @@ export const LoggedIn2: StoryObj<HeaderComponent> = {
 export const LoggedIn3: StoryObj<HeaderComponent> = {
   render: (args) => ({
     props: args,
-    styles: [`
+    styles: [
+      `
       img {
         max-height: 40px;
 
@@ -286,15 +297,16 @@ export const LoggedIn3: StoryObj<HeaderComponent> = {
           max-height: 52px;
         }
       }
-    `],
+    `,
+    ],
     template: `
       <div style="height: 300px;">
         <header tedi-header ${argsToTemplate(args)}>
           <img src="header-logo.svg" alt="Logo" />
           <tedi-header-actions>
-            <tedi-header-role 
+            <tedi-header-role
               role="Roll:"
-              description="49504080934" 
+              description="49504080934"
               [showInput]="true"
               [representatives]="[
                 { icon: 'person', name: 'Juulia Sarapuu', description: '62004122984' },
@@ -306,9 +318,9 @@ export const LoggedIn3: StoryObj<HeaderComponent> = {
             />
             <tedi-header-language [languages]="{ et: 'EST', en: 'ENG', ru: 'RUS' }" />
             <tedi-header-profile name="Juulia Sarapuu" showDropdown="lg">
-              <tedi-header-role 
+              <tedi-header-role
                 role="Roll:"
-                description="49504080934" 
+                description="49504080934"
                 [showInput]="true"
                 [representatives]="[
                   { icon: 'person', name: 'Juulia Sarapuu', description: '62004122984' },
@@ -321,6 +333,7 @@ export const LoggedIn3: StoryObj<HeaderComponent> = {
               <a tedi-link href="#" [underline]="false">Minu andmed</a>
               <a tedi-link href="#" [underline]="false">Esindatavad</a>
               <a tedi-link href="#" [underline]="false">Kontaktid</a>
+              <tedi-separator *showAt="'lg'" />
               <button tedi-header-logout>
                 Logi välja
               </button>
@@ -335,7 +348,8 @@ export const LoggedIn3: StoryObj<HeaderComponent> = {
 export const LoggedOut: StoryObj<HeaderComponent> = {
   render: (args) => ({
     props: args,
-    styles: [`
+    styles: [
+      `
       img {
         max-height: 40px;
 
@@ -343,7 +357,8 @@ export const LoggedOut: StoryObj<HeaderComponent> = {
           max-height: 52px;
         }
       }
-    `],
+    `,
+    ],
     template: `
       <header tedi-header ${argsToTemplate(args)}>
         <img src="header-logo.svg" alt="Logo" />
@@ -368,8 +383,8 @@ export const WithOrganization: StoryObj<HeaderComponent> = {
               Ligipääsetavus
               <tedi-icon name="call_made" />
             </a>
-            <tedi-header-role 
-              role="Asutus:" 
+            <tedi-header-role
+              role="Asutus:"
               [showInput]="true"
               [representatives]="[
                 { icon: 'person', name: 'Valik 1' },
@@ -379,9 +394,9 @@ export const WithOrganization: StoryObj<HeaderComponent> = {
               [currentRepresentative]="{ icon: 'person', name: 'Valik 1' }"
               *showAt="'lg'"
             />
-            <tedi-header-role 
+            <tedi-header-role
               role="Roll:"
-              description="49504080934" 
+              description="49504080934"
               [showInput]="true"
               [representatives]="[
                 { icon: 'person', name: 'Juulia Sarapuu', description: '62004122984' },
@@ -392,9 +407,9 @@ export const WithOrganization: StoryObj<HeaderComponent> = {
               *showAt="'lg'"
             />
             <tedi-header-language [languages]="{ et: 'EST', en: 'ENG', ru: 'RUS' }" />
-            <tedi-header-profile>
-              <tedi-header-role 
-                role="Asutus:" 
+            <tedi-header-profile showDropdown="lg">
+              <tedi-header-role
+                role="Asutus:"
                 [showInput]="true"
                 [representatives]="[
                   { icon: 'person', name: 'Valik 1' },
@@ -404,9 +419,9 @@ export const WithOrganization: StoryObj<HeaderComponent> = {
                 [currentRepresentative]="{ icon: 'person', name: 'Valik 1' }"
                 *hideAt="'lg'"
               />
-              <tedi-header-role 
+              <tedi-header-role
                 role="Roll:"
-                description="49504080934" 
+                description="49504080934"
                 [showInput]="true"
                 [representatives]="[
                   { icon: 'person', name: 'Juulia Sarapuu', description: '62004122984' },
@@ -423,6 +438,7 @@ export const WithOrganization: StoryObj<HeaderComponent> = {
               <a tedi-link [underline]="false">Minu andmed</a>
               <a tedi-link [underline]="false">Esindatavad</a>
               <a tedi-link [underline]="false">Kontaktid</a>
+              <tedi-separator *showAt="'lg'" />
               <button tedi-header-logout>
                 Logi välja
               </button>

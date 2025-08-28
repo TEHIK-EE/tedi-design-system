@@ -36,14 +36,14 @@
     }
 
     <ng-container *ngIf="representatives().length > 1; else normalText">
-        <tedi-popover>
+        <tedi-popover [withBorder]="true" position="bottom">
             <tedi-popover-trigger>
                 <button class="tedi-link tedi-header__link-button">
                     <span>{{ currentRepresentative().name }}</span>
                     <tedi-icon name="expand_more" />
                 </button>
             </tedi-popover-trigger>
-            <tedi-popover-content position="bottom" maxWidth="small" [withBorder]="true" class="tedi-header-role__dropdown">
+            <tedi-popover-content maxWidth="small" class="tedi-header-role__dropdown">
                 <ng-container *ngTemplateOutlet="content"></ng-container>
             </tedi-popover-content>
         </tedi-popover>

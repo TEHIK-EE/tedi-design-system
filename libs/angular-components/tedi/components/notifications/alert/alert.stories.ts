@@ -6,19 +6,16 @@ import {
 } from "@storybook/angular";
 
 import { AlertComponent } from "./alert.component";
-import { TextComponent, LinkComponent } from "@tehik-ee/tedi-angular/tedi";
+import { RowComponent } from "../../helpers/grid/row/row.component";
 
 export default {
-  title: "TEDI-Ready Angular/Notifications/Alert",
+  title: "TEDI-Ready/Components/Notifications/Alert",
   component: AlertComponent,
-  args: {
-    title: "",
-    type: "info",
-    icon: "",
-    showClose: false,
-    role: "alert",
-    titleElement: "h2",
-  },
+  decorators: [
+    moduleMetadata({
+      imports: [AlertComponent, RowComponent],
+    }),
+  ],
   argTypes: {
     title: {
       control: "text",
@@ -27,7 +24,7 @@ export default {
     },
     titleElement: {
       control: "select",
-      options: ["h1", "h2", "h3", "h4", "h5", "h6", "div", "strong"],
+      options: ["h1", "h2", "h3", "h4", "h5", "h6", "div"],
       description:
         "The HTML tag to be used for the alert title. Useful for WCAG compliance.",
       defaultValue: {
@@ -70,34 +67,44 @@ export default {
       description:
         "Defines the visual and contextual type of the alert. \n - <b>global</b> indicates that the alert is intended to span the full width of the page, typically for critical or prominent messages. \n - <b>noSideBorders</b> removes the side borders from the alert for a cleaner appearance. This also sets the border radius to 0.",
     },
+    open: {
+      control: "boolean",
+      description: "Is alert open?",
+      table: {
+        type: { summary: "boolean" },
+        defaultValue: { summary: "true" },
+      },
+    },
   },
-  decorators: [
-    moduleMetadata({
-      imports: [AlertComponent, TextComponent, LinkComponent],
-    }),
-  ],
-  render: (args) => ({
-    props: args,
-    template: `
-    <tedi-alert ${argsToTemplate(args)}>
-      <p tedi-text>This is an alert message. It provides important information to the user.</p>
-    </tedi-alert>`,
-  }),
 } as Meta<AlertComponent>;
 
 type Story = StoryObj<AlertComponent>;
 
-export const Default: Story = {};
-
-export const WithTitle: Story = {
+export const Default: Story = {
   args: {
-    title: "Alert Title",
+    title: "Title",
+    type: "info",
+    icon: "",
+    showClose: false,
+    role: "alert",
+    titleElement: "h2",
+    open: true,
   },
   render: (args) => ({
     props: args,
     template: `
     <tedi-alert ${argsToTemplate(args)}>
-      <p tedi-text>This is an alert message. It provides important information to the user.</p>
+      Content description. <a href="#">Inline link example</a>
+    </tedi-alert>`,
+  }),
+};
+
+export const Headless: Story = {
+  render: (args) => ({
+    props: args,
+    template: `
+    <tedi-alert>
+      Content description
     </tedi-alert>
     `,
   }),
@@ -107,54 +114,126 @@ export const Global: Story = {
   render: (args) => ({
     props: args,
     template: `
-    <tedi-alert title="Global Alert" variant="global">
-      <p tedi-text>This is an global alert message. It provides important information to the user. <a style="display: inline;" tedi-link>Click here to read more</a></p>
-    </tedi-alert>
-    <tedi-alert variant="global">
-      <p tedi-text>This is an global alert message. It provides important information to the user. <a style="display: inline;" tedi-link>Click here to read more</a></p>
-    </tedi-alert>
+      <tedi-row [cols]="1" [gap]="3">
+        <tedi-alert title="Title" variant="global">
+          Content description
+        </tedi-alert>
+        <tedi-alert variant="global">
+          Content description
+        </tedi-alert>
+      </tedi-row>
     `,
   }),
 };
 
-export const noSideBorders: Story = {
-  name: "No side borders",
+export const WithoutSideBorders: Story = {
   render: (args) => ({
     props: args,
     template: `
-    <tedi-alert variant="noSideBorders" title="Global Alert">
-      <p tedi-text>This is an alert message. It provides important information to the user.</p>
-    </tedi-alert>
-    <tedi-alert variant="noSideBorders">
-      <p tedi-text>This is an alert message. It provides important information to the user.</p>
-    </tedi-alert>
+      <tedi-row [cols]="1" [gap]="3">
+        <tedi-alert variant="noSideBorders" title="Title">
+          Content description
+        </tedi-alert>
+        <tedi-alert variant="noSideBorders">
+          Content description
+        </tedi-alert>
+      </tedi-row>
     `,
   }),
 };
 
-export const Colors: Story = {
-  name: "Alert colors",
-  args: {
-    icon: "info",
-    type: "info",
-    showClose: true,
-    role: "alert",
-  },
+export const WithIcon: Story = {
   render: (args) => ({
     props: args,
     template: `
-    <tedi-alert ${argsToTemplate(args)} [title]="'Info alert'" [type]="'info'">
-      <p tedi-text>This is an alert message. It provides important information to the user.</p>
-    </tedi-alert>
-    <tedi-alert ${argsToTemplate(args)} [title]="'Successful alert'" [type]="'success'">
-      <p tedi-text>This is a success alert message. It indicates a successful action.</p>
-    </tedi-alert>
-    <tedi-alert ${argsToTemplate(args)} [title]="'Warning alert'" [type]="'warning'">
-      <p tedi-text>This is a warning alert message. It indicates a potential issue.</p>
-    </tedi-alert>
-    <tedi-alert ${argsToTemplate(args)} [title]="'Danger alert'" [type]="'danger'">
-      <p tedi-text>This is an danger alert message. It indicates an error or problem.</p>
-    </tedi-alert>
+      <tedi-row [cols]="1" [gap]="3">
+        <tedi-alert title="Title" icon="check_circle">
+          Content description
+        </tedi-alert>
+        <tedi-alert icon="check_circle">
+          Content description
+        </tedi-alert>
+      </tedi-row>
+    `,
+  }),
+};
+
+export const WithCloseButton: Story = {
+  render: (args) => ({
+    props: args,
+    template: `
+      <tedi-row [cols]="1" [gap]="3">
+        <tedi-alert title="Title" [showClose]="true">
+          Content description
+        </tedi-alert>
+        <tedi-alert [showClose]="true">
+          Content description
+        </tedi-alert>
+      </tedi-row>
+    `,
+  }),
+};
+
+export const AlertTypes: Story = {
+  render: (args) => ({
+    props: args,
+    template: `
+    <tedi-row [cols]="1" [gap]="3">
+      <tedi-alert type="info" icon="info">
+        This is a info alert.
+      </tedi-alert>
+      <tedi-alert type="success" icon="check_circle">
+        This is a success alert.
+      </tedi-alert>
+      <tedi-alert type="warning" icon="warning">
+        This is a warning alert.
+      </tedi-alert>
+      <tedi-alert type="danger" icon="error">
+        This is a danger alert.
+      </tedi-alert>
+    </tedi-row>
+    `,
+  }),
+};
+
+export const WithoutTitleLongText: Story = {
+  render: (args) => ({
+    props: args,
+    template: `
+      <tedi-alert type="warning" icon="warning">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque facilisis nisi purus, quis bibendum lectus finibus in.
+        Sed sed tellus eu augue finibus efficitur sit amet a velit. Donec vitae ex et ligula commodo luctus.
+        Phasellus accumsan ligula quis nibh hendrerit, ac rutrum velit dictum. Curabitur ut vulputate justo.
+        Proin eu sapien tellus. Morbi quis dapibus felis. Quisque commodo tempus vulputate.
+      </tedi-alert>
+    `,
+  }),
+};
+
+export const WithoutTitleLongTextAndClosingButton: Story = {
+  render: (args) => ({
+    props: args,
+    template: `
+      <tedi-alert type="info" icon="info" [showClose]="true">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque facilisis nisi purus, quis bibendum lectus finibus in.
+        Sed sed tellus eu augue finibus efficitur sit amet a velit. Donec vitae ex et ligula commodo luctus.
+        Phasellus accumsan ligula quis nibh hendrerit, ac rutrum velit dictum. Curabitur ut vulputate justo.
+        Proin eu sapien tellus. Morbi quis dapibus felis. Quisque commodo tempus vulputate.
+      </tedi-alert>
+    `,
+  }),
+};
+
+export const WithTitleLongTextAndClosingButton: Story = {
+  render: (args) => ({
+    props: args,
+    template: `
+      <tedi-alert type="danger" icon="error" [showClose]="true" title="Title">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque facilisis nisi purus, quis bibendum lectus finibus in.
+        Sed sed tellus eu augue finibus efficitur sit amet a velit. Donec vitae ex et ligula commodo luctus.
+        Phasellus accumsan ligula quis nibh hendrerit, ac rutrum velit dictum. Curabitur ut vulputate justo.
+        Proin eu sapien tellus. Morbi quis dapibus felis. Quisque commodo tempus vulputate.
+      </tedi-alert>
     `,
   }),
 };

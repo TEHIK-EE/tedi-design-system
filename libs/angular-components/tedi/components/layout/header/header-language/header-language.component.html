@@ -1,12 +1,12 @@
 <span tedi-text color="secondary" modifiers="small" class="tedi-header-language__label">{{ "header.select-lang" | tediTranslate }}</span>
-<tedi-popover>
+<tedi-popover [withBorder]="true" position="bottom">
     <tedi-popover-trigger>
         <button class="tedi-link tedi-header__link-button">
             <span>{{ languages()[translationService.getLanguage()] }}</span>
             <tedi-icon name="expand_more" />
         </button>
     </tedi-popover-trigger>
-    <tedi-popover-content position="bottom" maxWidth="none" [withBorder]="true">
+    <tedi-popover-content maxWidth="none">
         <button 
             *ngFor="let language of languageKeys();" 
             class="tedi-link tedi-header__link-button"

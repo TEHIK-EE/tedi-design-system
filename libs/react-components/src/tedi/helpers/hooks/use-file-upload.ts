@@ -121,8 +121,7 @@ export const useFileUpload = (props: UseFileUploadProps) => {
       .filter(([_, names]) => names.length)
       .map(([type, names]) => {
         const joinedNames = names.map((name) => `'${name}'`).join(', ');
-        const label = getLabel(`file-upload.${type as FileRejectionType}-rejected`);
-        return typeof label === 'string' ? label : label(joinedNames);
+        return getLabel(`file-upload.${type as FileRejectionType}-rejected`, joinedNames);
       })
       .join('. ');
   };

@@ -12,7 +12,7 @@ import { FormControl, ReactiveFormsModule } from "@angular/forms";
 import { RadioCardGroupComponent } from "./radio-card-group/radio-card-group.component";
 
 export default {
-  title: "Community Angular/Form/Radio",
+  title: "Community/Form/Radio",
   component: RadioGroupComponent,
   subcomponents: {
     RadioComponent,
@@ -190,6 +190,35 @@ export const WithErrorAndFeedback: RadioGroupStory = {
           >Raadio 3</tedi-radio
         >
       </tedi-radio-group>
+      `,
+    };
+  },
+};
+
+export const CardError: RadioGroupStory = {
+  render: () => {
+    const control = new FormControl();
+    return {
+      props: { control },
+      template: `
+      <tedi-radio-card-group
+        id="radio-group-error-feedback"
+        name="radio-story-error-feedback"
+        [formControl]="control"
+        [feedbackText]="{ text: 'Error message', type: 'error' }"
+        [hasIndicator]="false"
+        [hasError]="true"
+      >
+        <tedi-radio name="test" inputId="radio-error-feedback-1" value="radio-1" [hasError]="true"
+          >Raadio 1</tedi-radio
+        >
+        <tedi-radio name="test" inputId="radio-error-feedback-2" value="radio-2" [hasError]="true"
+          >Raadio 2</tedi-radio
+        >
+        <tedi-radio name="test" inputId="radio-error-feedback-3" value="radio-3" [hasError]="true"
+          >Raadio 3</tedi-radio
+        >
+      </tedi-radio-card-group>
       `,
     };
   },

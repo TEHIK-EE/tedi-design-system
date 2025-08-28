@@ -3,10 +3,14 @@ import { FormFieldComponent } from "./form-field.component";
 import { InputComponent } from "../input/input.component";
 import { SelectComponent } from "../select/select.component";
 import { SelectOptionComponent } from "../select/select-option.component";
-import { IconComponent, LabelComponent, FeedbackTextComponent } from "@tehik-ee/tedi-angular/tedi";
+import {
+  IconComponent,
+  LabelComponent,
+  FeedbackTextComponent,
+} from "@tehik-ee/tedi-angular/tedi";
 
 export default {
-  title: "Community Angular/Form/FormField",
+  title: "Community/Form/FormField",
   component: FormFieldComponent,
   decorators: [
     moduleMetadata({
@@ -148,4 +152,3 @@ export const WithSelect: Story = {
     disabled: false,
   },
 };
-

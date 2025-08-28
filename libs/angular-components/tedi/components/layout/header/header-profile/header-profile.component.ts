@@ -7,7 +7,7 @@ import { ButtonComponent } from '../../../buttons/button/button.component';
 import { PopoverComponent } from '../../../overlay/popover/popover.component';
 import { PopoverTriggerComponent } from '../../../overlay/popover/popover-trigger/popover-trigger.component';
 import { PopoverContentComponent } from '../../../overlay/popover/popover-content/popover-content.component';
-import { Breakpoint } from "../../../../services/breakpoint/breakpoint.service";
+import { Breakpoint, BreakpointService } from "../../../../services/breakpoint/breakpoint.service";
 
 @Component({
   selector: 'tedi-header-profile',
@@ -33,6 +33,7 @@ export class HeaderProfileComponent implements AfterContentInit {
   /** Breakpoint at which we show dropdown instead of modal */
   showDropdown = input<Breakpoint>();
 
+  private breakpointService = inject(BreakpointService);
   private readonly document = inject(DOCUMENT);
   private readonly host = inject(ElementRef);
   private readonly renderer = inject(Renderer2);
@@ -42,7 +43,6 @@ export class HeaderProfileComponent implements AfterContentInit {
     effect(() => {
       if (this.modalOpen()) {
         this.renderer.setStyle(this.document.body, 'overflow', 'hidden');
-        this.document.defaultView?.scrollTo({ top: 0, left: 0 });
       } else {
         this.renderer.removeStyle(this.document.body, 'overflow');
       }
@@ -67,6 +67,10 @@ export class HeaderProfileComponent implements AfterContentInit {
   }
 
   handleModalOpen() {
-    this.modalOpen.update(prev => !prev);
+    const dropdownBreakpoint = this.showDropdown();
+
+    if (!(dropdownBreakpoint && this.breakpointService.isAboveBreakpoint(dropdownBreakpoint)())) {
+      this.modalOpen.update(prev => !prev);
+    }
   }
 }

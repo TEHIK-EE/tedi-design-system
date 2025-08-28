@@ -2,7 +2,7 @@ import { Meta, StoryObj } from "@storybook/angular";
 import { InputComponent } from "./input.component";
 
 export default {
-  title: "Community Angular/Form/TextField",
+  title: "Community/Form/TextField",
   component: InputComponent,
   render: (props) => ({
     props,

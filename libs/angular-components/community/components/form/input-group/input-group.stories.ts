@@ -33,7 +33,7 @@ type Story = StoryObj<StoryComponent>;
  */
 
 const meta: Meta<StoryComponent> = {
-  title: "Community Angular/Form/InputGroup",
+  title: "Community/Form/InputGroup",
   component: InputGroupComponent,
   argTypes: {
     label: {

@@ -31,7 +31,7 @@ import { SideNavOverlayComponent } from "./sidenav-overlay/sidenav-overlay.compo
  */
 
 export default {
-  title: "TEDI-Ready Angular/Layout/SideNav",
+  title: "TEDI-Ready/Layout/SideNav",
   component: SideNavComponent,
   decorators: [
     moduleMetadata({

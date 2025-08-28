@@ -5,11 +5,11 @@
     </ng-container>
     
     <ng-container *showAt="dropdown">
-        <tedi-popover>
+        <tedi-popover [withBorder]="true" position="bottom">
             <tedi-popover-trigger>
                 <ng-container *ngTemplateOutlet="button"></ng-container>
             </tedi-popover-trigger>
-            <tedi-popover-content position="bottom" maxWidth="small" [withBorder]="true">
+            <tedi-popover-content maxWidth="small">
                 <ng-container *ngTemplateOutlet="content"></ng-container>
             </tedi-popover-content>
         </tedi-popover>

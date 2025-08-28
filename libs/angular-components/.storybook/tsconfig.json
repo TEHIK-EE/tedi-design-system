@@ -1,9 +1,10 @@
 {
   "extends": "../tsconfig.json",
   "compilerOptions": {
+    "jsx": "react-jsx",
     "emitDecoratorMetadata": true,
     "outDir": ""
   },
   "exclude": ["main.ts"],
-  "include": ["../**/*.stories.ts", "./**/*.ts"]
+  "include": ["../**/*.stories.ts", "./**/*.ts", "preview.tsx"]
 }

@@ -1,0 +1,50 @@
+import { Meta } from '@storybook/blocks';
+import { Link } from '../../components/navigation/link/link.tsx';
+
+<Meta name="Labels" title="TEDI-Ready/Providers/LabelProvider/Migration guide" />
+
+# Migration guide
+
+Before the <Link href="https://github.com/TEHIK-EE/tedi-design-system/pull/922">LabelProvider refactor</Link> refactor pull request, the getLabels function could return either a string or a function that produced a string.
+This meant you had to check the return type, and if it was a function, call it to get the final string before rendering it (for example, inside a button).
+
+So usage in component would look similar to this:
+
+```tsx
+const quantityUpdated = getLabel('numberField.quantityUpdated');
+const quantityUpdatedLabel = typeof quantityUpdated === 'string' ? quantityUpdated : quantityUpdated(newValue);
+
+return <Button>{quantityUpdatedLabel}</Button>;
+```
+
+After the refactor, getLabel always returns a string, so there’s no need to check the return type anymore.
+However, if a label requires arguments, you now need to pass them directly to the getLabel function.
+These arguments are fully type-safe, and TypeScript will show an error if any required arguments are missing.
+
+Usage in component:
+
+```tsx
+// This shows error for missing argument
+const quantityUpdatedLabel = getLabel('numberField.quantityUpdated');
+
+// This does not show error
+const quantityUpdatedLabel = getLabel('numberField.quantityUpdated', newValue);
+
+return <Button>{quantityUpdatedLabel}</Button>;
+```
+
+## Type and function updates
+
+This pull request not only renamed some existing types but also introduced new types and helper functions.
+You may need to update your imports to reflect these changes.
+
+```tsx
+// Renamed types
+type LabelsMapType -----> type TediLabels
+type FlatLabelsMap -----> type TediLabelValuesRecord
+
+// New types and functions
+type TediLabelEntryRecord
+function validateLabelRecord
+function validateLabelValues
+```

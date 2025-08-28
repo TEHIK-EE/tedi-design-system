@@ -1,4 +1,5 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
+import { useState } from 'react';
 
 import { Section } from '../../../../tedi/components/content/section/section';
 import { VerticalSpacing } from '../../../../tedi/components/layout/vertical-spacing';
@@ -185,5 +186,29 @@ export const MainGrow: Story = {
         </StretchContent>
       </>
     ),
+  },
+};
+
+/**
+ * Layout with a custom menu. The custom menu can be toggled using the header's sidenav toggle.
+ */
+export const WithCustomMenu: Story = {
+  render: (args) => {
+    const [isMenuShown, setIsMenuShown] = useState(false);
+    return (
+      <Layout
+        {...args}
+        header={HeaderDefault.args as HeaderProps<'a'>}
+        onHeaderSidenavToggle={() => setIsMenuShown(!isMenuShown)}
+      >
+        {/* NB! This is only an example. Custom menu implementation is not included. */}
+        <div>Custom menu status: {isMenuShown ? 'Opened' : 'Closed'}</div>
+      </Layout>
+    );
+  },
+  args: {
+    ...Default.args,
+    breadcrumbsProps: undefined,
+    sideNav: undefined,
   },
 };

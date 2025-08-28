@@ -41,7 +41,7 @@ export const SidenavToggle = ({
 }: SidenavToggleProps) => {
   const { getLabel } = useLabels();
 
-  const toggleLabel = getLabel('header.toggle');
+  const toggleLabel = getLabel('header.toggle', menuOpen);
 
   const BEM = cn(styles['tedi-sidenav-toggle'], {
     [styles['tedi-sidenav-toggle--open']]: menuOpen,
@@ -66,7 +66,7 @@ export const SidenavToggle = ({
       position={variant === 'collapse' ? 'absolute' : 'static'}
       size={variant === 'collapse' ? 'small' : ''}
     >
-      {typeof toggleLabel === 'string' ? toggleLabel : toggleLabel(menuOpen)}
+      {toggleLabel}
     </Element>
   );
 };

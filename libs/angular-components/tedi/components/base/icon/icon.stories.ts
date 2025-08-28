@@ -7,7 +7,7 @@ import {
 import { IconComponent } from "./icon.component";
 import { TextComponent } from "../text/text.component";
 
-const SIZES = ["inherit", 8, 12, 16, 18, 24, 36, 48];
+const SIZES = [8, 12, 16, 18, 24, 36, 48, "inherit"];
 const SIZES_WITH_BG = [16, 24];
 const COLORS = [
   "primary",
@@ -37,7 +37,7 @@ const BACKGROUNDS = [
  */
 
 export default {
-  title: "TEDI-Ready Angular/Base/Icon",
+  title: "TEDI-Ready/Base/Icon",
   component: IconComponent,
   decorators: [
     moduleMetadata({
@@ -138,7 +138,7 @@ export const Default: StoryObj<IconComponent> = {
   }),
 };
 
-export const IconSizesWithoutBackground: StoryObj<IconComponent> = {
+export const IconSize: StoryObj<IconComponent> = {
   args: {
     name: "account_circle",
   },
@@ -149,14 +149,19 @@ export const IconSizesWithoutBackground: StoryObj<IconComponent> = {
     },
     template: `
       <div class="example-list">
-        <div 
-          *ngFor="let size of sizes; let last = last" 
+        <div
+          *ngFor="let size of sizes; let last = last"
           class="padding-14-16"
           [ngClass]="{ 'border-bottom': !last }"
           style="display: grid; grid-template-columns: repeat(2, 1fr); align-items: center;"
         >
-          <div>{{ size }}</div>
-          <div class="display-flex gap-4">
+          <div>
+            {{ size }}
+            @if (size === 24) {
+              <small tedi-text color="secondary">default</small>
+            }
+          </div>
+          <div class="display-flex" [ngStyle]="{ 'font-size': size === 'inherit' ? '60px' : ''}">
             <tedi-icon ${argsToTemplate(args)} [size]="size" />
             <tedi-icon ${argsToTemplate(args)} [size]="size" variant="filled" />
           </div>
@@ -166,9 +171,8 @@ export const IconSizesWithoutBackground: StoryObj<IconComponent> = {
   }),
 };
 
-export const IconSizesWithBackground: StoryObj<IconComponent> = {
+export const IconSizeInsideBackground: StoryObj<IconComponent> = {
   args: {
-    name: "account_circle",
     background: "brand-secondary",
     color: "brand",
   },
@@ -179,16 +183,22 @@ export const IconSizesWithBackground: StoryObj<IconComponent> = {
     },
     template: `
       <div class="example-list">
-        <div 
-          *ngFor="let size of sizes; let last = last" 
+        <div
+          *ngFor="let size of sizes; let last = last"
           class="padding-14-16"
           [ngClass]="{ 'border-bottom': !last }"
           style="display: grid; grid-template-columns: repeat(2, 1fr); align-items: center;"
         >
-          <div>{{ size }}</div>
-          <div class="display-flex gap-4">
-            <tedi-icon ${argsToTemplate(args)} [size]="size" />
-            <tedi-icon ${argsToTemplate(args)} [size]="size" variant="filled" />
+          <div>
+            {{ size }}
+            @if (size === 24) {
+              <small tedi-text color="secondary">default</small>
+            }
+          </div>
+          <div class="display-flex">
+            <tedi-icon ${argsToTemplate(args)} [name]="size === 16 ? 'info' : 'vaccines'" [size]="size" />
+            &nbsp;
+            <tedi-icon ${argsToTemplate(args)} [name]="size === 16 ? 'info' : 'vaccines'" [size]="size" variant="filled" />
           </div>
         </div>
       </div>
@@ -207,31 +217,31 @@ export const IconColors: StoryObj<IconComponent> = {
       colors: COLORS,
     },
     template: `
-      <div class="example-list">
-        <div class="flex flex-column padding-14-16 border-bottom">
+      <div>
+        <div class="flex flex-column">
           Outlined
           <div class="flex align-items-center gap-3">
-            <div 
-              *ngFor="let color of colors;" 
-              [ngStyle]="{ 
-                'background': color === 'white' ? 'var(--general-icon-background-brand-primary)' : 'none', 
-                'borderRadius': color === 'white' ? '4px' : '0px', 
-                'padding': color === 'white' ? '16px' : '0px' 
+            <div
+              *ngFor="let color of colors;"
+              [ngStyle]="{
+                'background': color === 'white' ? 'var(--general-icon-background-brand-primary)' : 'none',
+                'borderRadius': color === 'white' ? '4px' : '0px',
+                'padding': color === 'white' ? '16px' : '0px'
               }"
             >
               <tedi-icon ${argsToTemplate(args)} [color]="color" />
             </div>
           </div>
         </div>
-        <div class="flex flex-column padding-14-16">
+        <div class="flex flex-column">
           Filled
           <div class="flex align-items-center gap-3">
-            <div 
-              *ngFor="let color of colors;" 
-              [ngStyle]="{ 
-                'background': color === 'white' ? 'var(--general-icon-background-brand-primary)' : 'none', 
-                'borderRadius': color === 'white' ? '4px' : '0px', 
-                'padding': color === 'white' ? '16px' : '0px' 
+            <div
+              *ngFor="let color of colors;"
+              [ngStyle]="{
+                'background': color === 'white' ? 'var(--general-icon-background-brand-primary)' : 'none',
+                'borderRadius': color === 'white' ? '4px' : '0px',
+                'padding': color === 'white' ? '16px' : '0px'
               }"
             >
               <tedi-icon ${argsToTemplate(args)} variant="filled" [color]="color" />
@@ -243,32 +253,30 @@ export const IconColors: StoryObj<IconComponent> = {
   }),
 };
 
-export const IconBackgrounds: StoryObj<IconComponent> = {
+export const IconBackgroundColors: StoryObj<IconComponent> = {
   args: {
     name: "account_circle",
   },
   render: (args) => ({
     props: args,
     template: `
-      <div class="example-list padding-14-16">
-        <div class="flex align-items-center gap-3">
-          <tedi-icon ${argsToTemplate(args)} color="white" background="brand-primary" [size]="24" />
-          <tedi-icon ${argsToTemplate(args)} color="white" background="brand-primary" [size]="16" />
-          <tedi-icon ${argsToTemplate(args)} color="brand" background="brand-secondary" [size]="24" />
-          <tedi-icon ${argsToTemplate(args)} color="brand" background="brand-secondary" [size]="16" />
-          <div
-            class="display-flex gap-3"
-            [ngStyle]="{ 
-                'background': 'var(--general-icon-background-brand-primary)', 
-                'borderRadius': '4px', 
-                'padding': '16px' 
-            }"
-          >
-            <tedi-icon ${argsToTemplate(args)} color="brand" background="primary" [size]="24" />
-            <tedi-icon ${argsToTemplate(args)} color="brand" background="primary" [size]="16" />
-            <tedi-icon ${argsToTemplate(args)} color="white" background="secondary" [size]="24" />
-            <tedi-icon ${argsToTemplate(args)} color="white" background="secondary" [size]="16" />
-          </div>
+      <div class="flex align-items-center gap-4">
+        <tedi-icon ${argsToTemplate(args)} [name]="'vaccines'" color="white" background="brand-primary" [size]="24" />
+        <tedi-icon ${argsToTemplate(args)} [name]="'info'" color="white" background="brand-primary" [size]="16" />
+        <tedi-icon ${argsToTemplate(args)} [name]="'vaccines'" color="brand" background="brand-secondary" [size]="24" />
+        <tedi-icon ${argsToTemplate(args)} [name]="'info'" color="brand" background="brand-secondary" [size]="16" />
+        <div
+          class="display-flex gap-3"
+          [ngStyle]="{
+              'background': 'var(--general-icon-background-brand-primary)',
+              'borderRadius': '4px',
+              'padding': '16px'
+          }"
+        >
+          <tedi-icon ${argsToTemplate(args)} [name]="'vaccines'" color="brand" background="primary" [size]="24" />
+          <tedi-icon ${argsToTemplate(args)} [name]="'info'" color="brand" background="primary" [size]="16" />
+          <tedi-icon ${argsToTemplate(args)} [name]="'vaccines'" color="white" background="secondary" [size]="24" />
+          <tedi-icon ${argsToTemplate(args)} [name]="'info'" color="white" background="secondary" [size]="16" />
         </div>
       </div>
     `,
@@ -283,53 +291,53 @@ export const UsedInsideText: StoryObj<IconComponent> = {
   render: (args) => ({
     props: args,
     template: `
-      <div class="example-list padding-14-16">
+      <div class="flex flex-column gap-1">
         <h1 tedi-text class="display-flex gap-1">
           <tedi-icon ${argsToTemplate(args)} />
           This is level 1 heading with inline
-          <tedi-icon ${argsToTemplate(args)} />
+          <tedi-icon ${argsToTemplate(args)} color="brand" />
           icon
         </h1>
         <h2 tedi-text class="display-flex gap-1">
           <tedi-icon ${argsToTemplate(args)} />
           This is level 2 heading with inline
-          <tedi-icon ${argsToTemplate(args)} />
+          <tedi-icon ${argsToTemplate(args)} color="brand" />
           icon
         </h2>
         <h3 tedi-text class="display-flex gap-1">
           <tedi-icon ${argsToTemplate(args)} />
           This is level 3 heading with inline
-          <tedi-icon ${argsToTemplate(args)} />
+          <tedi-icon ${argsToTemplate(args)} color="brand" />
           icon
         </h3>
         <h4 tedi-text class="display-flex gap-1">
           <tedi-icon ${argsToTemplate(args)} />
           This is level 4 heading with inline
-          <tedi-icon ${argsToTemplate(args)} />
+          <tedi-icon ${argsToTemplate(args)} color="brand" />
           icon
         </h4>
         <h5 tedi-text class="display-flex gap-1">
           <tedi-icon ${argsToTemplate(args)} />
           This is level 5 heading with inline
-          <tedi-icon ${argsToTemplate(args)} />
+          <tedi-icon ${argsToTemplate(args)} color="brand" />
           icon
         </h5>
         <h6 tedi-text class="display-flex gap-1">
           <tedi-icon ${argsToTemplate(args)} />
           This is level 6 heading with inline
-          <tedi-icon ${argsToTemplate(args)} />
+          <tedi-icon ${argsToTemplate(args)} color="brand" />
           icon
         </h6>
         <p tedi-text class="display-flex gap-1">
           <tedi-icon ${argsToTemplate(args)} />
           This is paragraph text with inline
-          <tedi-icon ${argsToTemplate(args)} />
+          <tedi-icon ${argsToTemplate(args)} color="brand" />
           icon
         </p>
         <small class="display-flex gap-1">
           <tedi-icon ${argsToTemplate(args)} />
           This is small text with inline
-          <tedi-icon ${argsToTemplate(args)} />
+          <tedi-icon ${argsToTemplate(args)} color="brand" />
           icon
         </small>
       </div>

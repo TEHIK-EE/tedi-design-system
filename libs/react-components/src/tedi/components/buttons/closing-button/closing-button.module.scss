@@ -14,7 +14,7 @@
 
   @include mixins.responsive-styles(border-radius, button-radius-default);
 
-  @each $state in hover, active, focus {
+  @each $state in hover, active {
     &:#{ $state } {
       --general-icon-primary: var(--button-close-text-#{$state});
 

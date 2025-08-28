@@ -1,17 +1,17 @@
-@use '@tehik-ee/tedi-core/mixins';
+@use "@tehik-ee/tedi-core/mixins";
 
 $sizes: (
-  '0': 0,
-  '0-25': 0.25rem,
-  '0-5': 0.5rem,
-  '0-75': 0.75rem,
-  '1': 1rem,
-  '1-25': 1.25rem,
-  '1-5': 1.5rem,
-  '1-75': 1.75rem,
-  '2': 2rem,
-  '2-5': 2.5rem,
-  '5': 5rem,
+  "0": 0,
+  "0-25": 0.25rem,
+  "0-5": 0.5rem,
+  "0-75": 0.75rem,
+  "1": 1rem,
+  "1-25": 1.25rem,
+  "1-5": 1.5rem,
+  "1-75": 1.75rem,
+  "2": 2rem,
+  "2-5": 2.5rem,
+  "5": 5rem,
 );
 
 .tedi-separator {
@@ -55,7 +55,7 @@ $sizes: (
   &::before {
     position: absolute;
     top: 1.25rem;
-    content: '';
+    content: "";
     background-color: var(--general-border-primary);
     border-radius: 100%;
     transform: translateX(-8px);
@@ -99,7 +99,9 @@ $sizes: (
     margin-right: #{$value};
   }
 
-  .tedi-separator--horizontal.tedi-separator--spacing-#{$size}:not(.tedi-separator--dot-only) {
+  .tedi-separator--horizontal.tedi-separator--spacing-#{$size}:not(
+      .tedi-separator--dot-only
+    ) {
     margin-top: #{$value};
     margin-bottom: #{$value};
   }
@@ -112,8 +114,8 @@ $sizes: (
 }
 
 $thicknesses: (
-  '1': 1px,
-  '2': 2px,
+  "1": 1px,
+  "2": 2px,
 );
 
 @each $thickness, $value in $thicknesses {
@@ -137,7 +139,7 @@ $thicknesses: (
   &::before {
     position: relative;
     display: block;
-    content: '';
+    content: "";
     border-radius: 100%;
 
     @include mixins.print-grayscale;
@@ -165,16 +167,44 @@ $thicknesses: (
     @include mixins.responsive-styles(height, separator-dotted-dot-lg);
   }
 
-  &.tedi-separator--primary::before {
-    background-color: var(--general-border-primary);
+  &-filled {
+    &.tedi-separator--primary::before {
+      background-color: var(--general-border-primary);
+    }
+
+    &.tedi-separator--secondary::before {
+      background-color: var(--general-border-secondary);
+    }
+
+    &.tedi-separator--accent::before {
+      background-color: var(--general-border-accent);
+    }
   }
 
-  &.tedi-separator--secondary::before {
-    background-color: var(--general-border-secondary);
-  }
+  &-outlined {
+    &::before {
+      border-style: solid;
+    }
 
-  &.tedi-separator--accent::before {
-    background-color: var(--general-border-accent);
+    &.tedi-separator--primary::before {
+      border-color: var(--general-border-primary);
+    }
+
+    &.tedi-separator--secondary::before {
+      border-color: var(--general-border-secondary);
+    }
+
+    &.tedi-separator--accent::before {
+      border-color: var(--general-border-accent);
+    }
+
+    @each $thickness, $value in $thicknesses {
+      &.tedi-separator--thickness-#{$thickness} {
+        &::before {
+          border-width: #{$value};
+        }
+      }
+    }
   }
 }
 
@@ -196,6 +226,9 @@ $thicknesses: (
   &.tedi-separator--dotted-small::before {
     top: calc(var(--_top-dotted-small) / 2 * -1);
 
-    @include mixins.responsive-styles(--_top-dotted-small, separator-dotted-dot-md);
+    @include mixins.responsive-styles(
+      --_top-dotted-small,
+      separator-dotted-dot-md
+    );
   }
 }

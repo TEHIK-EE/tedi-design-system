@@ -6,7 +6,7 @@ import { VerticalSpacingItemDirective } from "./vertical-spacing-item.directive"
  **/
 
 export default {
-  title: "Tedi-Ready Angular/Helpers/VerticalSpacing/VerticalSpacingItem",
+  title: "Tedi-Ready/Components/Helpers/VerticalSpacing/VerticalSpacingItem",
   component: VerticalSpacingItemDirective,
   parameters: {
     status: {
@@ -43,8 +43,8 @@ export const Default: StoryObj<VerticalSpacingItemDirective> = {
       <h1 [tediVerticalSpacingItem]="tediVerticalSpacingItem">Vertical spacing item</h1>
       <p>
         The <i>VerticalSpacingItemDirective</i> is a custom Angular directive
-        designed to add vertical spacing to a single item. Apply the directive to a 
-        container element using the <b>[tediVerticalSpacingItem]</b> attribute. Set the value of 
+        designed to add vertical spacing to a single item. Apply the directive to a
+        container element using the <b>[tediVerticalSpacingItem]</b> attribute. Set the value of
         <i>tediVerticalSpacingItem</i> to define the spacing size in <b>em</b> units.
       </p>
     </div>

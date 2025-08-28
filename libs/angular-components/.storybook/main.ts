@@ -6,6 +6,7 @@ const config: StorybookConfig = {
     "../docs/get-started.mdx",
     "../docs/changelog.mdx",
     "../docs/badges.mdx",
+    "../docs/colors/colors.mdx",
     "../docs/**/*.stories.@(js|jsx|mjs|ts|tsx)",
     "../tedi/**/*.stories.@(js|jsx|mjs|ts|tsx)",
     "../community/**/*.stories.@(js|jsx|mjs|ts|tsx)",

@@ -15,7 +15,7 @@ import { PaginationComponent } from "../navigation";
  */
 
 export default {
-  title: "Community Angular/Table/TableStyles",
+  title: "Community/Table/TableStyles",
   component: TableStylesComponent,
   decorators: [
     moduleMetadata({
@@ -133,7 +133,7 @@ const TableStylesTemplate: StoryFn<TableStylesStoryTemplate> = ({
       </table>
       @if (pagination) {
         <tedi-pagination [length]="4" />
-      } 
+      }
     </tedi-table-styles>
   `,
 });

@@ -2,7 +2,16 @@
 
 tedi-header-profile {
     align-content: center;
+
+    @include mixins.responsive-styles(--_header-min-height, layout-header-min-height);
     
+    tedi-popover {
+        tedi-popover-trigger {
+            height: 46px;
+            align-items: center;
+        }
+    }
+
     .tedi-header-profile--mobile {
         flex-direction: column;
         justify-content: center;
@@ -32,27 +41,28 @@ tedi-header-profile {
     }
 
     .tedi-header-profile__overlay {
-        position: fixed;
+        position: absolute;
         left: 0;
+        top: var(--_header-min-height);
         width: 100%;
-        min-height: 100dvh;
+        min-height: calc(100dvh - var(--_header-min-height));
         background: rgb(0 0 0 / 25%);
         z-index: calc(var(--z-index-header) - 1);
-
-        @include mixins.responsive-styles(top, layout-header-min-height);
     }
 
     .tedi-header-profile__modal {
-        min-height: 100dvh;
-        position: fixed;
+        min-height: calc(100dvh - var(--_header-min-height));
+        max-height: 100%;
+        position: absolute;
         right: 0;
+        top: var(--_header-min-height);
+        overflow-y: auto;
         display: flex;
         flex-direction: column;
         background: var(--general-surface-primary);
         z-index: var(--z-index-header);
 
         @include mixins.responsive-styles(width, side-navigation-item-width-default);
-        @include mixins.responsive-styles(top, layout-header-min-height);
 
         > * {
             @include mixins.responsive-styles(padding, layout-header-modal-item-padding);

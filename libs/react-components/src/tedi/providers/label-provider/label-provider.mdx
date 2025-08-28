@@ -33,7 +33,12 @@ You can use the hook:
 
 ```js
 const { getLabel } = useLabels();
+
+// String label accepts only key
 const label = getLabel('someKey');
+
+// Function label accepts key and arguments
+const label = getLabel('someKey', 'Username')
 ```
 
 Or wrap your component in the context consumer:
