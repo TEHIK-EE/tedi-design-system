@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-angular-v2.3.0-rc.7](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.3.0-rc.6...angular-2.3.0-rc.7) (2025-08-28)
+
+
+### Features
+
+* **timeline:** add timeline component [#1036](https://github.com/TEHIK-EE/tedi-design-system/issues/1036) ([#1041](https://github.com/TEHIK-EE/tedi-design-system/issues/1041)) ([83c184c](https://github.com/TEHIK-EE/tedi-design-system/commit/83c184cda9cfa2834becae05cad47557f6ea4730))
+
 # [@tehik-ee/tedi-angular-v2.3.0-rc.6](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.3.0-rc.5...angular-2.3.0-rc.6) (2025-08-28)
 
 
