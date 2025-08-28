@@ -42,7 +42,6 @@ const statuses: StatusBadgeStatus[] = [
   "success",
   "warning",
   "danger",
-  "none"
 ];
 
 const colorToIconMap: Record<StatusBadgeColor, string> = {
@@ -133,7 +132,7 @@ const meta: Meta<StatusBadgeComponent> = {
     },
     status: {
       control: "radio",
-      options: statuses,
+      options: [...statuses, 'none'],
       description: "StatusBadge status indicator",
     },
   },
