@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-angular-v2.3.0-rc.6](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.3.0-rc.5...angular-2.3.0-rc.6) (2025-08-28)
+
+
+### Bug Fixes
+
+* **status-badge-no-status:** add missing support for status badge without indicator ([#980](https://github.com/TEHIK-EE/tedi-design-system/issues/980)) ([0fba146](https://github.com/TEHIK-EE/tedi-design-system/commit/0fba1461ee1e0c3417f4aaf7915e95ca315b3555)), closes [#814](https://github.com/TEHIK-EE/tedi-design-system/issues/814) [#814](https://github.com/TEHIK-EE/tedi-design-system/issues/814) [#814](https://github.com/TEHIK-EE/tedi-design-system/issues/814) [#814](https://github.com/TEHIK-EE/tedi-design-system/issues/814) [#814](https://github.com/TEHIK-EE/tedi-design-system/issues/814) [#814](https://github.com/TEHIK-EE/tedi-design-system/issues/814) [#814](https://github.com/TEHIK-EE/tedi-design-system/issues/814)
+
 # [@tehik-ee/tedi-angular-v2.3.0-rc.5](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.3.0-rc.4...angular-2.3.0-rc.5) (2025-08-27)
 
 
