@@ -1,3 +1,21 @@
+# [@tehik-ee/tedi-angular-v2.3.0](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.2.0...angular-2.3.0) (2025-08-28)
+
+
+### Bug Fixes
+
+* **alert:** add open input and output, hide alert when closed [#969](https://github.com/TEHIK-EE/tedi-design-system/issues/969) ([#970](https://github.com/TEHIK-EE/tedi-design-system/issues/970)) ([7907557](https://github.com/TEHIK-EE/tedi-design-system/commit/79075573d73c58ca8adea28bf6f2a4e2db9e0e37))
+* **community-search:** Split search string by space and search all substrings [#766](https://github.com/TEHIK-EE/tedi-design-system/issues/766) ([2ae9604](https://github.com/TEHIK-EE/tedi-design-system/commit/2ae96044ba2189cfccef87d21df1a0438e65fee3))
+* **form-card-error:** with extra specificty, fix card error style [#860](https://github.com/TEHIK-EE/tedi-design-system/issues/860) ([7a5c72c](https://github.com/TEHIK-EE/tedi-design-system/commit/7a5c72cdf63ab5bf5d26b9dbef27360746dfcef8))
+* **header-profile:** use ngx-float-ui library instead of cdk, change popover [#965](https://github.com/TEHIK-EE/tedi-design-system/issues/965) ([#966](https://github.com/TEHIK-EE/tedi-design-system/issues/966)) ([f80f7a9](https://github.com/TEHIK-EE/tedi-design-system/commit/f80f7a9577bffdf246460078280d1913545f56de))
+* **status-badge-no-status:** add missing support for status badge without indicator ([#980](https://github.com/TEHIK-EE/tedi-design-system/issues/980)) ([0fba146](https://github.com/TEHIK-EE/tedi-design-system/commit/0fba1461ee1e0c3417f4aaf7915e95ca315b3555)), closes [#814](https://github.com/TEHIK-EE/tedi-design-system/issues/814) [#814](https://github.com/TEHIK-EE/tedi-design-system/issues/814) [#814](https://github.com/TEHIK-EE/tedi-design-system/issues/814) [#814](https://github.com/TEHIK-EE/tedi-design-system/issues/814) [#814](https://github.com/TEHIK-EE/tedi-design-system/issues/814) [#814](https://github.com/TEHIK-EE/tedi-design-system/issues/814) [#814](https://github.com/TEHIK-EE/tedi-design-system/issues/814)
+* **storybook:** fix storybook stories and structure [#987](https://github.com/TEHIK-EE/tedi-design-system/issues/987) ([#1029](https://github.com/TEHIK-EE/tedi-design-system/issues/1029)) ([db691f1](https://github.com/TEHIK-EE/tedi-design-system/commit/db691f1610e6d3122412539beae557122d2a84a9))
+
+
+### Features
+
+* **choice-group-variant-export:** export ChoicegroupVariant type from the directive ([09053cb](https://github.com/TEHIK-EE/tedi-design-system/commit/09053cb041e615b440fd744c1ab93334be9da0a8))
+* **timeline:** add timeline component [#1036](https://github.com/TEHIK-EE/tedi-design-system/issues/1036) ([#1041](https://github.com/TEHIK-EE/tedi-design-system/issues/1041)) ([83c184c](https://github.com/TEHIK-EE/tedi-design-system/commit/83c184cda9cfa2834becae05cad47557f6ea4730))
+
 # [@tehik-ee/tedi-angular-v2.3.0-rc.7](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.3.0-rc.6...angular-2.3.0-rc.7) (2025-08-28)
 
 
