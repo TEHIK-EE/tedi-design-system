@@ -226,3 +226,13 @@ export const Controlled: Story = {
     );
   },
 };
+
+export const SmallDecimalStep: Story = {
+  args: {
+    id: 'example-small-decimal',
+    label: 'Label',
+    defaultValue: 0.1,
+    value: 0.1,
+    step: 0.1,
+  },
+};

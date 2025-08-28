@@ -137,26 +137,22 @@ export const NumberField = (props: NumberFieldProps) => {
     }, 5000);
   };
 
-  const roundValue = (currentValue: number) => {
-    return decimalPlaces !== undefined ? parseFloat(currentValue.toFixed(decimalPlaces)) : currentValue;
-  };
-
   const handleButtonClick = (direction: TDirection) => {
-    let returnValue = getCurrentValue;
+    const precision = decimalPlaces ?? step.toString().split('.')[1]?.length ?? 0;
+
+    let newValue = getCurrentValue;
 
     if (direction === 'increment') {
-      returnValue = returnValue + step;
-    }
-    if (direction === 'decrement') {
-      returnValue = returnValue - step;
+      newValue += step;
+    } else if (direction === 'decrement') {
+      newValue -= step;
     }
 
-    returnValue = forceToLimits(returnValue);
-    returnValue = roundValue(returnValue);
+    newValue = parseFloat(forceToLimits(newValue).toFixed(precision));
 
-    updateValueUpdatedLabel(returnValue);
-    onChange?.(returnValue);
-    setInputInnerValue(returnValue);
+    updateValueUpdatedLabel(newValue);
+    onChange?.(newValue);
+    setInputInnerValue(newValue);
   };
 
   const handleInputChange = ({ currentTarget: { value } }: ChangeEvent<HTMLInputElement>) => {

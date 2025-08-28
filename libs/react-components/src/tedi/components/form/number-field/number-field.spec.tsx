@@ -118,4 +118,14 @@ describe('NumberField component', () => {
     const container = document.querySelector('.tedi-number-field');
     expect(container).toHaveClass('tedi-number-field--small');
   });
+
+  it('increments correctly with a decimal step', () => {
+    const handleChange = jest.fn();
+    render(<NumberField {...defaultProps} onChange={handleChange} step={0.1} defaultValue={0.1} />);
+    const incrementButton = screen.getByRole('button', { name: /increment/i });
+
+    fireEvent.click(incrementButton);
+
+    expect(handleChange).toHaveBeenCalledWith(0.2);
+  });
 });
