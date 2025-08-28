@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-react-v13.0.0-rc.9](https://github.com/TEHIK-EE/tedi-design-system/compare/react-13.0.0-rc.8...react-13.0.0-rc.9) (2025-08-28)
+
+
+### Bug Fixes
+
+* **list:** fix ordered list for screen readers, fix noStyle indendation [#992](https://github.com/TEHIK-EE/tedi-design-system/issues/992) ([#1024](https://github.com/TEHIK-EE/tedi-design-system/issues/1024)) ([a381e67](https://github.com/TEHIK-EE/tedi-design-system/commit/a381e67bdd1282ca019362e653f3041201594e4a))
+
 # [@tehik-ee/tedi-react-v13.0.0-rc.8](https://github.com/TEHIK-EE/tedi-design-system/compare/react-13.0.0-rc.7...react-13.0.0-rc.8) (2025-08-28)
 
 
