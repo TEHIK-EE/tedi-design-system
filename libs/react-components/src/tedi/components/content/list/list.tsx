@@ -74,11 +74,7 @@ export const List = (props: ListProps) => {
     );
   }
 
-  return (
-    <Element className={listBEM} role="list">
-      {children}
-    </Element>
-  );
+  return <Element className={listBEM}>{children}</Element>;
 };
 
 List.Item = ListItem;
