@@ -24,7 +24,7 @@ export type StatusBadgeStatus =
 @Component({
   selector: "[tedi-status-badge]",
   templateUrl: "./status-badge.component.html",
-  styleUrls: ["./status-badge.react.scss", "./status-badge.component.scss"],
+  styleUrl: "./status-badge.component.scss",
   imports: [IconComponent],
   encapsulation: ViewEncapsulation.None,
   host: {
