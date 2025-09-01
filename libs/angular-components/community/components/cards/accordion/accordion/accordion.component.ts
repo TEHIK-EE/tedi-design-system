@@ -2,11 +2,10 @@ import {
   ChangeDetectionStrategy,
   Component,
   contentChildren,
-  inject,
-  Injector,
-  input, OnInit,
+  effect,
+  input,
+  OnInit,
 } from "@angular/core";
-import { toObservable } from "@angular/core/rxjs-interop";
 import { AccordionItemComponent } from "../accordion-item/accordion-item.component";
 
 @Component({
@@ -31,7 +30,36 @@ export class AccordionComponent implements OnInit {
   accordionItems = contentChildren(AccordionItemComponent, {
     descendants: true,
   });
-  private injector = inject(Injector);
+
+  private prevOpens: boolean[] = [];
+
+  constructor() {
+    effect(() => {
+      const single = this.singleOpen();
+      const items = this.accordionItems();
+      const opens = items.map((it) => it.opened());
+      let newlyOpenedIndex = -1;
+
+      if (single && items.length > 0) {
+        for (let i = 0; i < opens.length; i++) {
+          const prev = i < this.prevOpens.length ? this.prevOpens[i] : false;
+          if (!prev && opens[i]) {
+            newlyOpenedIndex = i;
+          }
+        }
+
+        if (newlyOpenedIndex >= 0) {
+          for (let i = 0; i < items.length; i++) {
+            if (i !== newlyOpenedIndex && items[i].opened()) {
+              items[i].close();
+            }
+          }
+        }
+      }
+
+      this.prevOpens = opens;
+    });
+  }
 
   private openDefaultOpenItems() {
     const defaultOpenItems = this.defaultOpenItems();
@@ -42,26 +70,7 @@ export class AccordionComponent implements OnInit {
     });
   }
 
-  private onSingleItemOpen() {
-    this.accordionItems().forEach((item, _, allItems) => {
-      toObservable(item.opened, {
-        injector: this.injector,
-      }).subscribe((opened) => {
-        if (opened) {
-          allItems.forEach((otherItem) => {
-            if (otherItem.id() !== item.id()) {
-              otherItem.close();
-            }
-          });
-        }
-      });
-    });
-  }
-
   ngOnInit() {
     this.openDefaultOpenItems();
-    if (this.singleOpen()) {
-      this.onSingleItemOpen();
-    }
   }
 }
