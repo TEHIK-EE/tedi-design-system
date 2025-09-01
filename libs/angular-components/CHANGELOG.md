@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-angular-v2.3.1-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.3.0...angular-2.3.1-rc.1) (2025-09-01)
+
+
+### Bug Fixes
+
+* **accordion:** fix conditionally rendered item collapse [#1040](https://github.com/TEHIK-EE/tedi-design-system/issues/1040) ([#1043](https://github.com/TEHIK-EE/tedi-design-system/issues/1043)) ([245b2d4](https://github.com/TEHIK-EE/tedi-design-system/commit/245b2d4fdd367b814b5adabf699914783d7e7bef))
+
 # [@tehik-ee/tedi-angular-v2.3.0](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.2.0...angular-2.3.0) (2025-08-28)
 
 
