@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { JSX } from 'react';
+import React, { JSX } from 'react';
 
 import { ClosingButton } from '../../../../tedi';
 import MapAccordion from '../map-accordion/map-accordion';
@@ -42,11 +42,93 @@ interface RightPanelProps {
    * Whether to render the toggle button for expanding or collapsing all items.
    */
   renderToggleButton?: boolean;
+
+  /**
+   * Optional custom close button renderer (receives the item's id).
+   * If omitted and `showCloseButton` is true, a default close button is used.
+   * If `showCloseButton` is false, this prop is ignored.
+   */
+  renderCloseButton?: (id: string) => React.ReactNode;
+
+  /**
+   * Show or hide the close button per item.
+   * If false, no close button is rendered.
+   * @default true
+   */
+  showCloseButton?: boolean;
+
+  /**
+   * Side-effect hook invoked after an item is removed (closed).
+   * Useful to notify backend or update global state.
+   */
+  onCloseItem?: (id: string) => void;
 }
 
+type DefaultCloseButtonProps = { id: string; isSingleItem: boolean; onClose: (id: string) => void };
+
+export const DefaultCloseButton = ({ id, isSingleItem, onClose }: DefaultCloseButtonProps): JSX.Element => (
+  <ClosingButton
+    className={styles['tedi-right-panel__closer']}
+    size={isSingleItem ? 'large' : 'medium'}
+    onClick={() => onClose(id)}
+    title="Sulge aken"
+  />
+);
+DefaultCloseButton.displayName = 'DefaultCloseButton';
+
+const createDefaultRenderCloseButton = (isSingleItem: boolean, onClose: (id: string) => void) => {
+  const RightPanelDefaultRenderCloseButton = (id: string) => (
+    <DefaultCloseButton id={id} isSingleItem={isSingleItem} onClose={onClose} />
+  );
+  RightPanelDefaultRenderCloseButton.displayName = 'RightPanelDefaultRenderCloseButton';
+  return RightPanelDefaultRenderCloseButton;
+};
+
 export const RightPanel = (props: RightPanelProps): JSX.Element => {
-  const { items, defaultOpenItem = [], expanderTitle = 'Toimingu aknad', renderToggleButton } = props;
-  const isSingleItem = items.length === 1;
+  const {
+    items,
+    defaultOpenItem = [],
+    expanderTitle = 'Toimingu aknad',
+    renderToggleButton,
+    renderCloseButton,
+    showCloseButton = true,
+    onCloseItem,
+  } = props;
+
+  // track which items were dismissed (removed) locally
+  const [dismissedIds, setDismissedIds] = React.useState<Set<string>>(new Set());
+
+  // prune dismissed ids if parent no longer supplies those items (keeps state tidy)
+  React.useEffect(() => {
+    setDismissedIds((prev) => {
+      const next = new Set<string>();
+      const currentIds = new Set(items.map((i) => i.id));
+      prev.forEach((id) => {
+        if (currentIds.has(id)) next.add(id);
+      });
+      return next;
+    });
+  }, [items]);
+
+  // compute visible items by filtering out dismissed ones
+  const visibleItems = React.useMemo(() => items.filter(({ id }) => !dismissedIds.has(id)), [items, dismissedIds]);
+
+  // central close handler — removes item locally and notifies parent
+  const handleClose = (id: string) => {
+    setDismissedIds((prev) => {
+      const next = new Set(prev);
+      next.add(id);
+      return next;
+    });
+    onCloseItem?.(id);
+  };
+
+  // decide which close renderer to pass into MapAccordion
+  // If showCloseButton=false -> undefined (no close button rendered at all)
+  const isSingleItem = visibleItems.length === 1;
+  const effectiveRenderCloseButton = showCloseButton
+    ? renderCloseButton ?? createDefaultRenderCloseButton(isSingleItem, handleClose)
+    : undefined;
 
   return (
     <div
@@ -60,18 +142,9 @@ export const RightPanel = (props: RightPanelProps): JSX.Element => {
         className={styles['tedi-right-panel__accordion']}
         expanderMode
         expanderTitle={expanderTitle}
-        renderCloseButton={(id) => (
-          <ClosingButton
-            className={styles['tedi-right-panel__closer']}
-            size={isSingleItem ? 'large' : 'medium'}
-            onClick={() => {
-              console.log(`Close clicked for item: ${id}`);
-            }}
-            title="Sulge aken"
-          />
-        )}
+        renderCloseButton={effectiveRenderCloseButton}
       >
-        {items.map(({ id, title, content }) => (
+        {visibleItems.map(({ id, title, content }) => (
           <MapAccordionItem key={id} id={id}>
             <MapAccordionItemHeader
               className={styles['tedi-right-panel__accordion-header']}
