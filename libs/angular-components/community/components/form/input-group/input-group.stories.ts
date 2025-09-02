@@ -140,7 +140,7 @@ type SelectStory = StoryObj<SelectComponentType>;
 const renderSelectPrefix = (showBool: boolean, slot = "prefix-slot") => {
   if (!showBool) return "";
   return `
-  <tedi-select ${slot} [placeholder]="prefixText" [disabled]="disabled">
+  <tedi-select ${slot} [placeholder]="prefixText" inputId="selectID">
     <tedi-select-option *ngFor="let option of selectOptions" [value]="option" [label]="option" />
   </tedi-select>`;
 };
