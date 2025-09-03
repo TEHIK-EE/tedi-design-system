@@ -4,7 +4,7 @@ import { FeedbackTextType, LabelComponent } from "@tehik-ee/tedi-angular/tedi";
 import { InputComponent } from "../input/input.component";
 import { SelectComponent } from "../select/select.component";
 import { SelectOptionComponent } from "../select/select-option.component";
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 let id = 0;
 
@@ -29,7 +29,7 @@ type Story = StoryObj<StoryComponent>;
  * InputGroupComponent is a component that allows you to group multiple input elements together.
  *
  * Use prefix-slot, suffix-slot and unnamed slots to add input elements to the group.
- *
+ * Has custom handling for tedi-select. Ensure when using it to surround it in containers for proper styling.
  */
 
 const meta: Meta<StoryComponent> = {
@@ -137,10 +137,10 @@ interface SelectStoryArgs extends StoryArgs {
 type SelectComponentType = InputGroupComponent & SelectStoryArgs;
 type SelectStory = StoryObj<SelectComponentType>;
 
-const renderSelectPrefix = (showBool: boolean, slot = "prefix-slot") => {
+const renderSelectPrefix = (showBool: boolean, slot = "prefix-slot", form = false) => {
   if (!showBool) return "";
   return `
-  <tedi-select ${slot} [placeholder]="prefixText" inputId="selectID">
+  <tedi-select ${slot} [placeholder]="prefixText" inputId="selectID"${form ? ` formControlName="${slot}"` : ""}>
     <tedi-select-option *ngFor="let option of selectOptions" [value]="option" [label]="option" />
   </tedi-select>`;
 };
@@ -175,11 +175,11 @@ export default meta;
 
 const disabledSelectId = uniqueId("label-id");
 
-const renderSelect = (args: SelectStoryArgs) => `
+const renderSelect = (args: SelectStoryArgs, form = false) => `
   <tedi-input-group ${currentArgs}>
-    ${renderSelectPrefix(args.showPrefix)}
+    ${renderSelectPrefix(args.showPrefix, undefined, form)}
     <input [id]="labelID" tedi-input [disabled]="disabled" />
-    ${renderSelectPrefix(args.showSuffix, "suffix-slot")}
+    ${renderSelectPrefix(args.showSuffix, "suffix-slot", form)}
   </tedi-input-group>
 `;
 
@@ -197,14 +197,58 @@ export const Disabled: SelectStory = {
   },
 
   render: (args) => {
+    const control = new FormGroup({ 'prefix-slot': new FormControl({ value: "", disabled: true }), 'suffix-slot': new FormControl({ value: "", disabled: true }) });
     const { ...rest } = args;
     rest.labelID = rest.labelID ?? disabledSelectId;
 
     return {
       props: {
+        control,
         ...rest,
       },
-      template: renderSelect(args),
+
+      template: `<form [formGroup]="control">${renderSelect(args, true)}</form>`,
     };
   },
 };
+
+const prefixOnlyId = uniqueId("label-id");
+
+
+export const PrefixOnly: SelectStory = {
+  ...Default,
+  args: {
+    labelID: prefixOnlyId,
+    showPrefix: false,
+  }
+}
+
+const suffixOnlyId = uniqueId("label-id");
+
+export const SuffixOnly: SelectStory = {
+  ...Default,
+  args: {
+    showSuffix: false,
+    labelID: suffixOnlyId
+  }
+}
+
+const PrefixOnlySelectId = uniqueId("label-id");
+
+export const PrefixOnlySelect: SelectStory = {
+  ...Select,
+  args: {
+    showPrefix: false,
+    labelID: PrefixOnlySelectId
+  }
+}
+
+const suffixOnlySelectId = uniqueId("label-id");
+
+export const SuffixOnlySelect: SelectStory = {
+  ...Select,
+  args: {
+    showSuffix: false,
+    labelID: suffixOnlySelectId
+  }
+}

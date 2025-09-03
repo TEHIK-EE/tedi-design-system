@@ -52,7 +52,7 @@
     form-field-padding-y-md-default
   );
 
-  .tedi-input {
+  input.tedi-input {
     // borders are handled by prefix/suffix
     margin: 0;
     width: 100%;
@@ -66,7 +66,7 @@
   &:has(.tedi-input-group__prefix:empty) {
     @include left-round-corners();
 
-    .tedi-input {
+    input.tedi-input {
       @include left-round-corners();
     }
   }
@@ -74,7 +74,7 @@
   &:has(.tedi-input-group__suffix:empty) {
     @include right-round-corners();
 
-    .tedi-input {
+    input.tedi-input {
       @include right-round-corners();
     }
   }
@@ -178,6 +178,12 @@
     tedi-icon {
       margin-left: 0;
       padding-left: 0;
+
+      @include mixins.responsive-styles(margin-right, form-field-inner-spacing);
+      @include mixins.responsive-styles(
+        padding-right,
+        form-field-inner-spacing
+      );
     }
   }
 }
