@@ -5,12 +5,7 @@ import { InputComponent } from "../input/input.component";
 import { SelectComponent } from "../select/select.component";
 import { SelectOptionComponent } from "../select/select-option.component";
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from "@angular/forms";
-
-let id = 0;
-
-const uniqueId = (prefix: string) => {
-  return `${prefix}-${id++}`;
-};
+import { indexId } from 'community/helpers/unique-id';
 
 interface StoryArgs {
   disabled: boolean;
@@ -113,7 +108,7 @@ export const Default: Story = {
   },
 
   render: (args) => {
-    const defaultId = uniqueId("label-id");
+    const defaultId = indexId("label-id");
 
     const { ...rest } = args;
     rest.labelID = rest.labelID ?? defaultId;
@@ -145,7 +140,7 @@ const renderSelectPrefix = (showBool: boolean, slot = "prefix-slot", form = fals
   </tedi-select>`;
 };
 
-const selectId = uniqueId("label-id");
+const selectId = indexId("label-id");
 
 export const Select: SelectStory = {
   ...Default,
@@ -173,7 +168,7 @@ export const Select: SelectStory = {
 
 export default meta;
 
-const disabledSelectId = uniqueId("label-id");
+const disabledSelectId = indexId("label-id");
 
 const renderSelect = (args: SelectStoryArgs, form = false) => `
   <tedi-input-group ${currentArgs}>
@@ -212,7 +207,7 @@ export const Disabled: SelectStory = {
   },
 };
 
-const prefixOnlyId = uniqueId("label-id");
+const prefixOnlyId = indexId("label-id");
 
 
 export const PrefixOnly: SelectStory = {
@@ -223,7 +218,7 @@ export const PrefixOnly: SelectStory = {
   }
 }
 
-const suffixOnlyId = uniqueId("label-id");
+const suffixOnlyId = indexId("label-id");
 
 export const SuffixOnly: SelectStory = {
   ...Default,
@@ -233,7 +228,7 @@ export const SuffixOnly: SelectStory = {
   }
 }
 
-const PrefixOnlySelectId = uniqueId("label-id");
+const PrefixOnlySelectId = indexId("label-id");
 
 export const PrefixOnlySelect: SelectStory = {
   ...Select,
@@ -243,7 +238,7 @@ export const PrefixOnlySelect: SelectStory = {
   }
 }
 
-const suffixOnlySelectId = uniqueId("label-id");
+const suffixOnlySelectId = indexId("label-id");
 
 export const SuffixOnlySelect: SelectStory = {
   ...Select,
