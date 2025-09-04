@@ -1,9 +1,17 @@
 import {
   ChangeDetectionStrategy,
   Component,
+  computed,
+  inject,
   input,
   ViewEncapsulation,
 } from "@angular/core";
+import { DropdownComponent } from "../dropdown/dropdown.component";
+
+const itemRole = {
+  menu: "menuitem",
+  listbox: "option",
+};
 
 @Component({
   selector: "[tedi-dropdown-item]",
@@ -15,6 +23,10 @@ import {
     "[class.tedi-dropdown-item]": "true",
     "[class.tedi-dropdown-item--active]": "this.selected()",
     "[class.tedi-dropdown-item--disabled]": "this.disabled()",
+    "[attr.role]": "ariaAttributes().role",
+    "[attr.aria-disabled]": "ariaAttributes().disabled",
+    "[attr.aria-selected]": "ariaAttributes().selected",
+    "[attr.tab-index]": "ariaAttributes().tabIndex",
   },
 })
 export class DropdownItemComponent {
@@ -26,4 +38,18 @@ export class DropdownItemComponent {
    * Applies the disabled style to the dropdown item.
    */
   disabled = input<boolean>(false);
+
+  private dropdownContext = inject(DropdownComponent, { optional: true });
+
+  ariaAttributes = computed(() => {
+    const dropdownRole = this.dropdownContext?.dropdownRole();
+    if (!dropdownRole) return {};
+    return {
+      role: itemRole[dropdownRole],
+      disabled: String(this.disabled()),
+      selected:
+        dropdownRole === "listbox" ? String(this.selected()) : undefined,
+      tabIndex: 0,
+    };
+  });
 }

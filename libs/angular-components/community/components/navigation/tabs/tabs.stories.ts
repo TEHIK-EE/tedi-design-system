@@ -1,0 +1,60 @@
+import { Meta, moduleMetadata, StoryFn, StoryObj } from "@storybook/angular";
+
+import { CommonModule } from "@angular/common";
+import { TabsComponent } from "./tabs.component";
+import { TabComponent } from "./tab/tab.component";
+import { TabContentComponent } from "./tab-content/tab-content.component";
+
+export default {
+  title: "Community/Navigation/Tabs",
+  component: TabComponent,
+  decorators: [
+    moduleMetadata({
+      declarations: [],
+      imports: [CommonModule, TabsComponent, TabComponent, TabContentComponent],
+    }),
+  ],
+} as Meta<TabComponent>;
+
+const TabsTemplate: StoryFn<TabComponent> = ({ ...args }) => ({
+  props: { ...args },
+  template: `
+    <tedi-tabs>
+      <button tedi-tab [selected]="true" tabId="tab-1">Tab 1</button>
+      <button tedi-tab disabled tabId="tab-2">Tab 2 (disabled)</button>
+      <button tedi-tab tabId="tab-3">Tab 3</button>
+      <tedi-tab-content tabId="tab-1">
+        Tab 1 content
+      </tedi-tab-content>
+      <tedi-tab-content tabId="tab-2">
+        Tab 2 content
+      </tedi-tab-content>
+      <tedi-tab-content tabId="tab-3">
+        Tab 3 content
+      </tedi-tab-content>
+    </tedi-tabs>
+  `,
+});
+
+const RoutedTabTemplate: StoryFn<TabComponent> = ({ ...args }) => ({
+  props: { ...args },
+  template: `
+    <tedi-tabs>
+      <a tedi-tab routerLink="1" tabId="tab-1">Tab 1</a>
+      <a tedi-tab routerLink="2" tabId="tab-2">Tab 2</a>
+      <a tedi-tab routerLink="3">Tab 3</a>
+      
+      router-outlet goes here
+    </tedi-tabs>
+  `,
+});
+
+type TableStylesStory = StoryObj<TabComponent>;
+
+export const Default: TableStylesStory = {
+  render: TabsTemplate,
+};
+
+export const RoutedTabs: TableStylesStory = {
+  render: RoutedTabTemplate,
+};
