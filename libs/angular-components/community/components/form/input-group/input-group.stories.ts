@@ -4,8 +4,13 @@ import { FeedbackTextType, LabelComponent } from "@tehik-ee/tedi-angular/tedi";
 import { InputComponent } from "../input/input.component";
 import { SelectComponent } from "../select/select.component";
 import { SelectOptionComponent } from "../select/select-option.component";
-import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { indexId } from 'community/helpers/unique-id';
+import {
+  FormControl,
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule,
+} from "@angular/forms";
+import { indexId } from "community/helpers/unique-id";
 
 interface StoryArgs {
   disabled: boolean;
@@ -87,6 +92,8 @@ const currentArgs = `
 const renderPrefix = (showBool: boolean, slot: string) =>
   showBool ? `<div ${slot}-slot>{{${slot}Text}}</div>` : "";
 
+const defaultId = indexId("label-id");
+
 export const Default: Story = {
   decorators: [
     moduleMetadata({
@@ -108,8 +115,6 @@ export const Default: Story = {
   },
 
   render: (args) => {
-    const defaultId = indexId("label-id");
-
     const { ...rest } = args;
     rest.labelID = rest.labelID ?? defaultId;
 
@@ -132,7 +137,11 @@ interface SelectStoryArgs extends StoryArgs {
 type SelectComponentType = InputGroupComponent & SelectStoryArgs;
 type SelectStory = StoryObj<SelectComponentType>;
 
-const renderSelectPrefix = (showBool: boolean, slot = "prefix-slot", form = false) => {
+const renderSelectPrefix = (
+  showBool: boolean,
+  slot = "prefix-slot",
+  form = false
+) => {
   if (!showBool) return "";
   return `
   <tedi-select ${slot} [placeholder]="prefixText" inputId="selectID"${form ? ` formControlName="${slot}"` : ""}>
@@ -192,7 +201,10 @@ export const Disabled: SelectStory = {
   },
 
   render: (args) => {
-    const control = new FormGroup({ 'prefix-slot': new FormControl({ value: "", disabled: true }), 'suffix-slot': new FormControl({ value: "", disabled: true }) });
+    const control = new FormGroup({
+      "prefix-slot": new FormControl({ value: "", disabled: true }),
+      "suffix-slot": new FormControl({ value: "", disabled: true }),
+    });
     const { ...rest } = args;
     rest.labelID = rest.labelID ?? disabledSelectId;
 
@@ -209,14 +221,13 @@ export const Disabled: SelectStory = {
 
 const prefixOnlyId = indexId("label-id");
 
-
 export const PrefixOnly: SelectStory = {
   ...Default,
   args: {
     labelID: prefixOnlyId,
     showPrefix: false,
-  }
-}
+  },
+};
 
 const suffixOnlyId = indexId("label-id");
 
@@ -224,9 +235,9 @@ export const SuffixOnly: SelectStory = {
   ...Default,
   args: {
     showSuffix: false,
-    labelID: suffixOnlyId
-  }
-}
+    labelID: suffixOnlyId,
+  },
+};
 
 const PrefixOnlySelectId = indexId("label-id");
 
@@ -234,9 +245,9 @@ export const PrefixOnlySelect: SelectStory = {
   ...Select,
   args: {
     showPrefix: false,
-    labelID: PrefixOnlySelectId
-  }
-}
+    labelID: PrefixOnlySelectId,
+  },
+};
 
 const suffixOnlySelectId = indexId("label-id");
 
@@ -244,6 +255,6 @@ export const SuffixOnlySelect: SelectStory = {
   ...Select,
   args: {
     showSuffix: false,
-    labelID: suffixOnlySelectId
-  }
-}
+    labelID: suffixOnlySelectId,
+  },
+};
