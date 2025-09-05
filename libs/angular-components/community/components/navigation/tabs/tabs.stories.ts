@@ -5,6 +5,12 @@ import { TabsComponent } from "./tabs.component";
 import { TabComponent } from "./tab/tab.component";
 import { TabContentComponent } from "./tab-content/tab-content.component";
 
+/**
+ * <p>Tabs allow to group content into separate chunks to be displayed one at the time.</p>
+ * <p>TEDI tabs can be used as:</p>
+ * - buttons - to separate content on one page. Use `tedi-tab-content` component to display the content.
+ * - links - to separate content between sub-routes. Use `router-outlet` to display the content.
+ */
 export default {
   title: "Community/Navigation/Tabs",
   component: TabComponent,
@@ -14,6 +20,40 @@ export default {
       imports: [CommonModule, TabsComponent, TabComponent, TabContentComponent],
     }),
   ],
+  argTypes: {
+    tabId: {
+      description: "Tab unique id",
+      table: {
+        category: "tab",
+        type: { summary: "string" },
+      },
+    },
+    selected: {
+      description:
+        "Whether tab is initially selected. Should be used only for non routed tabs",
+      table: {
+        category: "tab",
+        type: { summary: "boolean" },
+        defaultValue: { summary: "false" },
+      },
+    },
+    disabled: {
+      description: "Whether tab is disabled",
+      table: {
+        category: "tab",
+        type: { summary: "boolean" },
+        defaultValue: { summary: "false" },
+      },
+    },
+    contentTabId: {
+      name: "tabId",
+      description: "Id that matches `tabId` given to the `tedi-tab` component",
+      table: {
+        category: "tab-content",
+        type: { summary: "string" },
+      },
+    },
+  },
 } as Meta<TabComponent>;
 
 const TabsTemplate: StoryFn<TabComponent> = ({ ...args }) => ({

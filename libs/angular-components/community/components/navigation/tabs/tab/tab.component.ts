@@ -38,7 +38,6 @@ import { startWith } from "rxjs";
 })
 export class TabComponent implements OnInit {
   tabId = input.required<string>();
-  activeClasses = input<string[]>([]);
   selected = model(false);
   disabled = input(false, { transform: booleanAttribute });
   tabSelected = output<void>();
@@ -58,9 +57,6 @@ export class TabComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.routerLinkActive.routerLinkActive = [
-      "tedi-tab--active",
-      ...this.activeClasses(),
-    ]; // should be changed once hostDirectives allow default values
+    this.routerLinkActive.routerLinkActive = ["tedi-tab--active"]; // should be changed once hostDirectives allow default values
   }
 }

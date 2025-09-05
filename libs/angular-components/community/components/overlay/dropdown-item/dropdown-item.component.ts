@@ -27,6 +27,7 @@ const itemRole = {
     "[attr.aria-disabled]": "ariaAttributes().disabled",
     "[attr.aria-selected]": "ariaAttributes().selected",
     "[attr.tab-index]": "ariaAttributes().tabIndex",
+    "(click)": "dropdownContext?.close()",
   },
 })
 export class DropdownItemComponent {

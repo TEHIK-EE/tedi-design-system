@@ -40,8 +40,8 @@ import { TabComponent } from "./tab/tab.component";
 })
 export class TabsComponent {
   mobileTabsOpened = signal(false);
-  tabs = contentChildren(TabComponent);
-  tabContents = contentChildren(TabContentComponent);
+  private tabs = contentChildren(TabComponent);
+  private tabContents = contentChildren(TabContentComponent);
 
   activeTabId = computed(() =>
     this.tabs()
