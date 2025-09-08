@@ -61,9 +61,9 @@ export const Default: Story = {
       <tedi-dropdown dropdownId="dropdown-example" dropdownRole="menu">
         <button tedi-button tedi-dropdown-trigger>Trigger</button>
         <ul [style.margin]="0">
-          <li tedi-dropdown-item>Dropdown item</li>
-          <li tedi-dropdown-item>Dropdown item</li>
-          <li tedi-dropdown-item>Dropdown item</li>
+          <li tedi-dropdown-item>Dropdown item 1</li>
+          <li tedi-dropdown-item [disabled]="true">Dropdown item 2 (disabled)</li>
+          <li tedi-dropdown-item>Dropdown item 3</li>
         </ul>
       </ tedi-dropdown>
     `,

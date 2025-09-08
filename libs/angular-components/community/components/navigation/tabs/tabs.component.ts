@@ -5,6 +5,9 @@ import {
   computed,
   contentChildren,
   effect,
+  inject,
+  Injector,
+  OnInit,
   signal,
   ViewEncapsulation,
 } from "@angular/core";
@@ -19,6 +22,7 @@ import {
 } from "community/components/cards";
 import { TabContentComponent } from "./tab-content/tab-content.component";
 import { TabComponent } from "./tab/tab.component";
+import { FocusKeyManager } from "@angular/cdk/a11y";
 
 @Component({
   selector: "tedi-tabs",
@@ -36,12 +40,15 @@ import { TabComponent } from "./tab/tab.component";
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
     "[class.tedi-tabs]": "true",
+    "(keydown)": "onKeyDown($event)",
   },
 })
-export class TabsComponent {
+export class TabsComponent implements OnInit {
+  private injector = inject(Injector);
   mobileTabsOpened = signal(false);
   private tabs = contentChildren(TabComponent);
   private tabContents = contentChildren(TabContentComponent);
+  private keyManager?: FocusKeyManager<TabComponent>;
 
   activeTabId = computed(() =>
     this.tabs()
@@ -67,10 +74,18 @@ export class TabsComponent {
     });
   }
 
+  onKeyDown(event: KeyboardEvent) {
+    this.keyManager?.onKeydown(event);
+  }
+
   constructor() {
     effect(() => {
       const tabs = this.tabs();
       this.onActiveTabChanges(tabs);
     });
+  }
+
+  ngOnInit() {
+    this.keyManager = new FocusKeyManager(this.tabs, this.injector).withWrap();
   }
 }

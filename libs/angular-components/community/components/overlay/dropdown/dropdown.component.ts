@@ -9,6 +9,8 @@ import {
   input,
   model,
   ViewEncapsulation,
+  Injector,
+  OnInit,
 } from "@angular/core";
 import { DropdownTriggerDirective } from "./dropdown-trigger/dropdown-trigger.directive";
 import { OverlayModule } from "@angular/cdk/overlay";
@@ -19,6 +21,7 @@ import {
 import { DropdownItemComponent } from "../dropdown-item/dropdown-item.component";
 import { ClosingButtonComponent } from "tedi/components";
 import { BreakpointService } from "@tehik-ee/tedi-angular/tedi";
+import { FocusKeyManager } from "@angular/cdk/a11y";
 
 @Component({
   selector: "tedi-dropdown",
@@ -33,7 +36,8 @@ import { BreakpointService } from "@tehik-ee/tedi-angular/tedi";
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class DropdownComponent {
+export class DropdownComponent implements OnInit {
+  private injector = inject(Injector);
   dropdownId = input.required<string>();
   dropdownRole = input<"menu" | "listbox">();
   opened = model<boolean>(false);
@@ -41,9 +45,12 @@ export class DropdownComponent {
   private triggerDirective = contentChild.required(DropdownTriggerDirective);
   private dropdownItems = contentChildren<DropdownItemComponent>(
     forwardRef(() => DropdownItemComponent),
+    { descendants: true },
   );
 
   isMobile = inject(BreakpointService).isBelowBreakpoint("sm");
+
+  private keyManager?: FocusKeyManager<DropdownItemComponent>;
 
   overlayOrigin = computed(() => {
     return this.triggerDirective().overlayOrigin;
@@ -58,6 +65,13 @@ export class DropdownComponent {
   }
 
   onKeyDown(event: KeyboardEvent) {
-    console.log(event); // TODO: add keyboard support
+    this.keyManager?.onKeydown(event);
+  }
+
+  ngOnInit() {
+    this.keyManager = new FocusKeyManager(
+      this.dropdownItems,
+      this.injector,
+    ).withWrap();
   }
 }

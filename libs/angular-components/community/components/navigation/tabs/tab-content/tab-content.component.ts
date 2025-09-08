@@ -11,7 +11,6 @@ import {
   selector: "tedi-tab-content",
   imports: [],
   templateUrl: "./tab-content.component.html",
-  styleUrl: "./tab-content.component.scss",
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

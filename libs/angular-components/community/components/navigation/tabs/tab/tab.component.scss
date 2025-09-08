@@ -32,7 +32,8 @@
     --_tab-color: var(--tab-item-active-text);
   }
 
-  &:hover {
+  &:hover,
+  &:focus {
     --_tab-background: var(--tab-item-hover-background);
     --_tab-color: var(--tab-item-hover-text);
   }
