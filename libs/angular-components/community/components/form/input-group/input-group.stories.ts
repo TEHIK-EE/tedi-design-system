@@ -4,13 +4,13 @@ import { FeedbackTextType, LabelComponent } from "@tehik-ee/tedi-angular/tedi";
 import { InputComponent } from "../input/input.component";
 import { SelectComponent } from "../select/select.component";
 import { SelectOptionComponent } from "../select/select-option.component";
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-
-let id = 0;
-
-const uniqueId = (prefix: string) => {
-  return `${prefix}-${id++}`;
-};
+import {
+  FormControl,
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule,
+} from "@angular/forms";
+import { indexId } from "community/helpers/unique-id";
 
 interface StoryArgs {
   disabled: boolean;
@@ -29,7 +29,7 @@ type Story = StoryObj<StoryComponent>;
  * InputGroupComponent is a component that allows you to group multiple input elements together.
  *
  * Use prefix-slot, suffix-slot and unnamed slots to add input elements to the group.
- *
+ * Has custom handling for tedi-select. Ensure when using it to surround it in containers for proper styling.
  */
 
 const meta: Meta<StoryComponent> = {
@@ -92,6 +92,8 @@ const currentArgs = `
 const renderPrefix = (showBool: boolean, slot: string) =>
   showBool ? `<div ${slot}-slot>{{${slot}Text}}</div>` : "";
 
+const defaultId = indexId("label-id");
+
 export const Default: Story = {
   decorators: [
     moduleMetadata({
@@ -113,8 +115,6 @@ export const Default: Story = {
   },
 
   render: (args) => {
-    const defaultId = uniqueId("label-id");
-
     const { ...rest } = args;
     rest.labelID = rest.labelID ?? defaultId;
 
@@ -137,15 +137,19 @@ interface SelectStoryArgs extends StoryArgs {
 type SelectComponentType = InputGroupComponent & SelectStoryArgs;
 type SelectStory = StoryObj<SelectComponentType>;
 
-const renderSelectPrefix = (showBool: boolean, slot = "prefix-slot") => {
+const renderSelectPrefix = (
+  showBool: boolean,
+  slot = "prefix-slot",
+  form = false
+) => {
   if (!showBool) return "";
   return `
-  <tedi-select ${slot} [placeholder]="prefixText" [disabled]="disabled">
+  <tedi-select ${slot} [placeholder]="prefixText" inputId="selectID"${form ? ` formControlName="${slot}"` : ""}>
     <tedi-select-option *ngFor="let option of selectOptions" [value]="option" [label]="option" />
   </tedi-select>`;
 };
 
-const selectId = uniqueId("label-id");
+const selectId = indexId("label-id");
 
 export const Select: SelectStory = {
   ...Default,
@@ -173,13 +177,13 @@ export const Select: SelectStory = {
 
 export default meta;
 
-const disabledSelectId = uniqueId("label-id");
+const disabledSelectId = indexId("label-id");
 
-const renderSelect = (args: SelectStoryArgs) => `
+const renderSelect = (args: SelectStoryArgs, form = false) => `
   <tedi-input-group ${currentArgs}>
-    ${renderSelectPrefix(args.showPrefix)}
+    ${renderSelectPrefix(args.showPrefix, undefined, form)}
     <input [id]="labelID" tedi-input [disabled]="disabled" />
-    ${renderSelectPrefix(args.showSuffix, "suffix-slot")}
+    ${renderSelectPrefix(args.showSuffix, "suffix-slot", form)}
   </tedi-input-group>
 `;
 
@@ -197,14 +201,60 @@ export const Disabled: SelectStory = {
   },
 
   render: (args) => {
+    const control = new FormGroup({
+      "prefix-slot": new FormControl({ value: "", disabled: true }),
+      "suffix-slot": new FormControl({ value: "", disabled: true }),
+    });
     const { ...rest } = args;
     rest.labelID = rest.labelID ?? disabledSelectId;
 
     return {
       props: {
+        control,
         ...rest,
       },
-      template: renderSelect(args),
+
+      template: `<form [formGroup]="control">${renderSelect(args, true)}</form>`,
     };
+  },
+};
+
+const prefixOnlyId = indexId("label-id");
+
+export const PrefixOnly: SelectStory = {
+  ...Default,
+  args: {
+    labelID: prefixOnlyId,
+    showPrefix: false,
+  },
+};
+
+const suffixOnlyId = indexId("label-id");
+
+export const SuffixOnly: SelectStory = {
+  ...Default,
+  args: {
+    showSuffix: false,
+    labelID: suffixOnlyId,
+  },
+};
+
+const PrefixOnlySelectId = indexId("label-id");
+
+export const PrefixOnlySelect: SelectStory = {
+  ...Select,
+  args: {
+    showPrefix: false,
+    labelID: PrefixOnlySelectId,
+  },
+};
+
+const suffixOnlySelectId = indexId("label-id");
+
+export const SuffixOnlySelect: SelectStory = {
+  ...Select,
+  args: {
+    showSuffix: false,
+    labelID: suffixOnlySelectId,
   },
 };
