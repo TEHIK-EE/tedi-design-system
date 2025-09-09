@@ -1,3 +1,14 @@
+# [@tehik-ee/tedi-angular-v2.4.0-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.3.1-rc.1...angular-2.4.0-rc.1) (2025-09-09)
+
+
+### Features
+
+* **tabs, dropdown:** Add community tabs and dropdown [#656](https://github.com/TEHIK-EE/tedi-design-system/issues/656) [#697](https://github.com/TEHIK-EE/tedi-design-system/issues/697) ([37f9b7f](https://github.com/TEHIK-EE/tedi-design-system/commit/37f9b7f224d6450cf5b4297b3e87ffbd03113868))
+* **tabs, dropdown:** Add keyboard support for tabs and dropdown [#656](https://github.com/TEHIK-EE/tedi-design-system/issues/656) [#697](https://github.com/TEHIK-EE/tedi-design-system/issues/697) ([c430dc4](https://github.com/TEHIK-EE/tedi-design-system/commit/c430dc4a33d7a3f0e93e2a459ee6ae55117ea4b0))
+* **tabs, dropdown:** fix imports [#656](https://github.com/TEHIK-EE/tedi-design-system/issues/656) [#697](https://github.com/TEHIK-EE/tedi-design-system/issues/697) ([a2578b9](https://github.com/TEHIK-EE/tedi-design-system/commit/a2578b98975a99bd69ff6544f5e263e365342bd1))
+* **tabs, dropdown:** Update stories [#656](https://github.com/TEHIK-EE/tedi-design-system/issues/656) [#697](https://github.com/TEHIK-EE/tedi-design-system/issues/697) ([0c98dfe](https://github.com/TEHIK-EE/tedi-design-system/commit/0c98dfeca00296c0eb31596d548458b18d20eff3))
+* **tabs:** small qa feedback [#656](https://github.com/TEHIK-EE/tedi-design-system/issues/656) ([bc2375d](https://github.com/TEHIK-EE/tedi-design-system/commit/bc2375d4b799cd3b63c73eb82ae0c03ffefa29ce))
+
 # [@tehik-ee/tedi-angular-v2.3.1-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.3.0...angular-2.3.1-rc.1) (2025-09-01)
 
 
