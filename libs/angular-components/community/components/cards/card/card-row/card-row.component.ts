@@ -1,4 +1,5 @@
 import {
+  booleanAttribute,
   ChangeDetectionStrategy,
   Component,
   input,
@@ -23,5 +24,5 @@ export class CardRowComponent {
    * Whether row should have separator under it.
    * @default false
    */
-  hasSeparator = input<boolean>();
+  hasSeparator = input(false, { transform: booleanAttribute });
 }

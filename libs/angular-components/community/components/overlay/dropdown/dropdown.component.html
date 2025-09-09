@@ -1,0 +1,33 @@
+<ng-content select="[tedi-dropdown-trigger]" />
+<ng-template
+  cdkConnectedOverlay
+  [cdkConnectedOverlayOrigin]="overlayOrigin()"
+  [cdkConnectedOverlayOpen]="opened()"
+  [cdkConnectedOverlayOffsetY]="4"
+  [cdkConnectedOverlayFlexibleDimensions]="true"
+  [cdkConnectedOverlayViewportMargin]="16"
+  cdkConnectedOverlayPanelClass="tedi-dropdown__overlay-pane"
+  (overlayKeydown)="onKeyDown($event)"
+  (overlayOutsideClick)="close()"
+>
+  <tedi-card
+    padding="none"
+    class="tedi-dropdown__card"
+    [attr.role]="dropdownRole()"
+    [attr.id]="dropdownId()"
+  >
+    @if (isMobile()) {
+      <tedi-card-content hasSeparator autoWidth padding="xs">
+        <button
+          tedi-closing-button
+          (click)="close()"
+          size="small"
+          class="tedi-dropdown__close-button"
+        ></button>
+      </tedi-card-content>
+    }
+    <tedi-card-content>
+      <ng-content />
+    </tedi-card-content>
+  </tedi-card>
+</ng-template>

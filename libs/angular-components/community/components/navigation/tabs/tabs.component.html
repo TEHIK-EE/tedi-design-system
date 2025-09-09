@@ -1,0 +1,41 @@
+<ng-template #tabsList><ng-content select="[tedi-tab]" /></ng-template>
+
+<tedi-card padding="none">
+  <tedi-card-content>
+    <div role="tablist" class="tedi-tabs__tab-list">
+      @if (!mobileTabsOpened()) {
+        <ng-container *ngTemplateOutlet="tabsList" />
+      }
+      <button
+        aria-haspopup="menu"
+        (click)="mobileTabsOpened.set(true)"
+        class="tedi-tab tedi-tab--more-btn"
+      >
+        {{ "more" | tediTranslate }}
+        <tedi-icon name="expand_more" [size]="18" />
+      </button>
+    </div>
+  </tedi-card-content>
+
+  <tedi-card-content role="tabpanel" [attr.aria-labelledby]="activeTabId()">
+    @if (activeTabContent(); as activeContent) {
+      <ng-container *ngTemplateOutlet="activeContent" />
+    }
+    <ng-content></ng-content>
+  </tedi-card-content>
+</tedi-card>
+
+@if (mobileTabsOpened()) {
+  <tedi-card padding="none" class="tedi-tabs__mobile-dropdown">
+    <tedi-card-content hasSeparator autoWidth padding="xs">
+      <button
+        tedi-closing-button
+        size="small"
+        (click)="mobileTabsOpened.set(false)"
+      ></button>
+    </tedi-card-content>
+    <tedi-card-content class="tedi-tabs__mobile-list">
+      <ng-container *ngTemplateOutlet="tabsList" />
+    </tedi-card-content>
+  </tedi-card>
+}

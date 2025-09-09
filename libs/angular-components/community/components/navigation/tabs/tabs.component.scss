@@ -1,0 +1,56 @@
+@use "@tehik-ee/tedi-core/bootstrap-utility/breakpoints";
+@use "@tehik-ee/tedi-core/mixins";
+
+.tedi-tabs {
+  --_tab-list-background: var(--tab-background);
+
+  &__tab-list {
+    display: flex;
+    justify-content: start;
+    overflow: auto;
+    border-top-left-radius: var(--tab-top-radius, 4px);
+    border-top-right-radius: var(--tab-top-radius, 4px);
+    background: var(--_tab-list-background);
+
+    @include breakpoints.media-breakpoint-down(sm) {
+      .tedi-tab {
+        &:not(.tedi-tab--more-btn) {
+          flex-grow: 1;
+        }
+
+        &:not(.tedi-tab--active, .tedi-tab--selected, .tedi-tab--more-btn) {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .tedi-tab--more-btn {
+    @include breakpoints.media-breakpoint-up(sm) {
+      display: none;
+    }
+  }
+
+  &__mobile-dropdown.tedi-card {
+    position: fixed;
+    inset: 0;
+    z-index: 1050;
+  }
+
+  &__mobile-list.tedi-card-content {
+    display: flex;
+    flex-direction: column;
+
+    .tedi-tab--selected,
+    .tedi-tab--active {
+      --_tab-background: var(--dropdown-item-active-background);
+      --_tab-color: var(--dropdown-item-active-text);
+
+      @include mixins.responsive-styles(font-weight, body-regular-weight);
+
+      &::after {
+        display: none;
+      }
+    }
+  }
+}
