@@ -16,13 +16,11 @@ import {
   IconComponent,
   TediTranslationPipe,
 } from "@tehik-ee/tedi-angular/tedi";
-import {
-  CardComponent,
-  CardContentComponent,
-} from "community/components/cards";
+
 import { TabContentComponent } from "./tab-content/tab-content.component";
 import { TabComponent } from "./tab/tab.component";
 import { FocusKeyManager } from "@angular/cdk/a11y";
+import { CardComponent, CardContentComponent } from "../../cards";
 
 @Component({
   selector: "tedi-tabs",
