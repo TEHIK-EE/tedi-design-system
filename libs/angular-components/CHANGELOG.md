@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-angular-v2.4.0-rc.3](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.4.0-rc.2...angular-2.4.0-rc.3) (2025-09-09)
+
+
+### Bug Fixes
+
+* **input-group:** remove a style change moving the arrow to the right [#240](https://github.com/TEHIK-EE/tedi-design-system/issues/240) ([26e9c1f](https://github.com/TEHIK-EE/tedi-design-system/commit/26e9c1f1368cbf2b67e702aee7aacd2eb97937f3))
+
 # [@tehik-ee/tedi-angular-v2.4.0-rc.2](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.4.0-rc.1...angular-2.4.0-rc.2) (2025-09-09)
 
 
