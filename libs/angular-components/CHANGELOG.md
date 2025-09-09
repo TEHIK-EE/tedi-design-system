@@ -1,3 +1,13 @@
+# [@tehik-ee/tedi-angular-v2.4.0-rc.2](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.4.0-rc.1...angular-2.4.0-rc.2) (2025-09-09)
+
+
+### Bug Fixes
+
+* **input-group:** do not generate a new id each render [#240](https://github.com/TEHIK-EE/tedi-design-system/issues/240) ([8cbf5c7](https://github.com/TEHIK-EE/tedi-design-system/commit/8cbf5c7d108cfb95b10571a46b5251d9eedafe65))
+* **input-group:** fix incorrect edge rounding if only one suffix/affix is active [#240](https://github.com/TEHIK-EE/tedi-design-system/issues/240) ([e0ef8f9](https://github.com/TEHIK-EE/tedi-design-system/commit/e0ef8f922d487cc171a02826f65dc60b9a2b29f6))
+* **input-group:** fix select styles changing breaking [#240](https://github.com/TEHIK-EE/tedi-design-system/issues/240) ([3d5c406](https://github.com/TEHIK-EE/tedi-design-system/commit/3d5c406cc59ec5017965800af83fd6bc859d9098))
+* **input-group:** use indexId import instead [#240](https://github.com/TEHIK-EE/tedi-design-system/issues/240) ([e55fa05](https://github.com/TEHIK-EE/tedi-design-system/commit/e55fa055a35f23fed23ded9151e87be1c4863d5d))
+
 # [@tehik-ee/tedi-angular-v2.4.0-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.3.1-rc.1...angular-2.4.0-rc.1) (2025-09-09)
 
 
