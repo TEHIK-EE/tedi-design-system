@@ -168,23 +168,6 @@
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
     border-right: 0;
-    flex-direction: row-reverse;
-
-    .tedi-select__clear + .tedi-select__arrow {
-      border-left: 0;
-      border-right: 1px solid var(--general-border-primary);
-    }
-
-    tedi-icon {
-      margin-left: 0;
-      padding-left: 0;
-
-      @include mixins.responsive-styles(margin-right, form-field-inner-spacing);
-      @include mixins.responsive-styles(
-        padding-right,
-        form-field-inner-spacing
-      );
-    }
   }
 }
 
