@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-angular-v2.4.0-rc.4](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.4.0-rc.3...angular-2.4.0-rc.4) (2025-09-09)
+
+
+### Features
+
+* **tabs:** fix tabs keyboard navigation [#656](https://github.com/TEHIK-EE/tedi-design-system/issues/656) ([084d2e2](https://github.com/TEHIK-EE/tedi-design-system/commit/084d2e2082104fe9299cc2a33ae85d0e8add2ccf))
+
 # [@tehik-ee/tedi-angular-v2.4.0-rc.3](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.4.0-rc.2...angular-2.4.0-rc.3) (2025-09-09)
 
 
