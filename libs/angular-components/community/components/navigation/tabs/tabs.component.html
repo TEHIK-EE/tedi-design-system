@@ -18,8 +18,8 @@
   </tedi-card-content>
 
   <tedi-card-content role="tabpanel" [attr.aria-labelledby]="activeTabId()">
-    @if (activeTabContent()) {
-      <ng-container *ngTemplateOutlet="activeTabContent()!" />
+    @if (activeTabContent(); as activeContent) {
+      <ng-container *ngTemplateOutlet="activeContent" />
     }
     <ng-content></ng-content>
   </tedi-card-content>
