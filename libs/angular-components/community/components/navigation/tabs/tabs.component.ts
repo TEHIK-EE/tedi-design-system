@@ -84,6 +84,8 @@ export class TabsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.keyManager = new FocusKeyManager(this.tabs, this.injector).withWrap();
+    this.keyManager = new FocusKeyManager(this.tabs, this.injector)
+      .withWrap()
+      .withHorizontalOrientation("ltr");
   }
 }
