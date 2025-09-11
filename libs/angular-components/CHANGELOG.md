@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-angular-v2.4.0-rc.5](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.4.0-rc.4...angular-2.4.0-rc.5) (2025-09-11)
+
+
+### Bug Fixes
+
+* **header-profile:** add translation [#1074](https://github.com/TEHIK-EE/tedi-design-system/issues/1074) ([#1075](https://github.com/TEHIK-EE/tedi-design-system/issues/1075)) ([ce7d536](https://github.com/TEHIK-EE/tedi-design-system/commit/ce7d536a797633b12ce52324baf3cb358368bbc0))
+
 # [@tehik-ee/tedi-angular-v2.4.0-rc.4](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.4.0-rc.3...angular-2.4.0-rc.4) (2025-09-09)
 
 
