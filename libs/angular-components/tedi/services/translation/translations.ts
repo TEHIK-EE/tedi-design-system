@@ -155,6 +155,13 @@ export const translationsMap = {
     en: "Logo",
     ru: "Логотип",
   },
+  "header.profile": {
+    description: "Label for profile button",
+    components: ["HeaderProfile"],
+    et: "Profiil",
+    en: "Profile",
+    ru: "Профиль",
+  },
   "file-upload.add": {
     description: "Label for add file button",
     components: ["FileUpload"],
