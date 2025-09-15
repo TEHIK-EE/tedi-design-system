@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-react-v13.1.0-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/react-13.0.1-rc.1...react-13.1.0-rc.1) (2025-09-15)
+
+
+### Features
+
+* **right-panel:** make close button configurable and removable ([#1050](https://github.com/TEHIK-EE/tedi-design-system/issues/1050)) ([6e6b23a](https://github.com/TEHIK-EE/tedi-design-system/commit/6e6b23a5d1c5f62206b241b733b9badfd0a6b73c)), closes [#1044](https://github.com/TEHIK-EE/tedi-design-system/issues/1044)
+
 # [@tehik-ee/tedi-react-v13.0.1-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/react-13.0.0...react-13.0.1-rc.1) (2025-09-15)
 
 
