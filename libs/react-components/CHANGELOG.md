@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-react-v13.0.1-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/react-13.0.0...react-13.0.1-rc.1) (2025-09-15)
+
+
+### Bug Fixes
+
+* **sidenav:** prevent ghost-click on touch ([#1051](https://github.com/TEHIK-EE/tedi-design-system/issues/1051)) ([3f4e45a](https://github.com/TEHIK-EE/tedi-design-system/commit/3f4e45a00e59621ce51f3b886d8fe979b71e1f81)), closes [#937](https://github.com/TEHIK-EE/tedi-design-system/issues/937)
+
 # [@tehik-ee/tedi-react-v13.0.0](https://github.com/TEHIK-EE/tedi-design-system/compare/react-12.2.1...react-13.0.0) (2025-08-28)
 
 
