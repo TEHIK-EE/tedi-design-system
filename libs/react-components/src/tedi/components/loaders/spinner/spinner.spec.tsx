@@ -43,11 +43,22 @@ describe('Spinner component with breakpoint support', () => {
     expect(spinner).toHaveClass('tedi-spinner--absolute');
   });
 
-  it('applies aria-label for screen readers if label prop is provided', () => {
-    const { getByRole } = render(<Spinner label="Loading..." />);
+  it('is exposed to screen readers via accessible name', () => {
+    const { getByRole, getByText } = render(<Spinner label="Loading..." />);
     const spinner = getByRole('status');
 
-    expect(spinner).toHaveAttribute('aria-label', 'Loading...');
+    const hiddenText = getByText('Loading...');
+    expect(hiddenText).toBeInTheDocument();
+    expect(hiddenText).toHaveClass('sr-only');
+
+    expect(spinner).toHaveTextContent('Loading...');
+  });
+
+  it('falls back to default label if none provided', () => {
+    const { getByText } = render(<Spinner />);
+    const hiddenText = getByText('spinner.loading');
+    expect(hiddenText).toBeInTheDocument();
+    expect(hiddenText).toHaveClass('sr-only');
   });
 
   it('uses different size and color based on breakpoint props', () => {

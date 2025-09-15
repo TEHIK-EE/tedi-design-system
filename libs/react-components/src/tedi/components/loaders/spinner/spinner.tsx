@@ -62,10 +62,11 @@ export const Spinner = (props: SpinnerProps): JSX.Element => {
   );
 
   return (
-    <span className={spinnerBEM} role="status" aria-live="polite" aria-label={label} aria-hidden={!label}>
+    <span className={spinnerBEM} role="status" aria-live="polite" data-testid="tedi-spinner">
       <svg viewBox="22 22 44 44" aria-hidden="true">
         <circle className={styles['tedi-spinner__inner']} cx="44" cy="44" r="20" fill="none"></circle>
       </svg>
+      <span className="sr-only">{label}</span>
     </span>
   );
 };
