@@ -34,6 +34,18 @@ export interface MapAccordionItemHeaderProps {
   className?: string;
 }
 
+/** helper + props type used for cloneElement */
+type ClickableLike = {
+  onClick?: React.MouseEventHandler;
+  className?: string;
+};
+
+const mergeHandlers =
+  (a?: (e: React.MouseEvent) => void, b?: (e: React.MouseEvent) => void) => (e: React.MouseEvent) => {
+    a?.(e);
+    b?.(e);
+  };
+
 export const MapAccordionItemHeader = (props: MapAccordionItemHeaderProps): JSX.Element => {
   const {
     className,
@@ -75,6 +87,45 @@ export const MapAccordionItemHeader = (props: MapAccordionItemHeaderProps): JSX.
     className
   );
 
+  /** build a close node that always toggles the item as well, with proper typing */
+  let closeNode: React.ReactNode = null;
+  if (renderCloseButton) {
+    const raw = renderCloseButton(id);
+
+    if (React.isValidElement(raw)) {
+      // Narrow props so TS knows onClick/className exist
+      const element = raw as React.ReactElement<ClickableLike>;
+      closeNode = React.cloneElement<ClickableLike>(element, {
+        onClick: mergeHandlers(element.props.onClick, (e: React.MouseEvent) => {
+          e.stopPropagation();
+          if (!disabled) onToggle(id);
+        }),
+        className: cn(element.props.className, styles['tedi-map-accordion__item-closer']),
+      });
+    } else if (raw !== null) {
+      // Non-element (string/fragment): wrap so we can handle clicks/keyboard
+      closeNode = (
+        <span
+          className={styles['tedi-map-accordion__item-closer']}
+          onClick={(e) => {
+            e.stopPropagation();
+            if (!disabled) onToggle(id);
+          }}
+          role="button"
+          tabIndex={0}
+          onKeyDown={(e) => {
+            if ((e.key === 'Enter' || e.key === ' ') && !disabled) {
+              e.preventDefault();
+              onToggle(id);
+            }
+          }}
+        >
+          {raw}
+        </span>
+      );
+    }
+  }
+
   return (
     <div
       data-name="map-accordion-item-header"
@@ -108,7 +159,7 @@ export const MapAccordionItemHeader = (props: MapAccordionItemHeaderProps): JSX.
             <MapDropdown.Content items={dropdownContent} />
           </MapDropdown>
         )}
-        {renderCloseButton && renderCloseButton(id)}
+        {closeNode}
         {renderToggleButton && (
           <Button
             onClick={handleClick}
