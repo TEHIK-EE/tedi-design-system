@@ -289,21 +289,37 @@ describe('Select component', () => {
   });
 
   it('renders tag closing button', () => {
-    const { container } = render(<Select {...defaultProps} multiple value={[basicOptions[0], basicOptions[1]]} />);
+    const { container } = render(
+      <Select {...defaultProps} multiple value={[basicOptions[0], basicOptions[1]]} isTagRemovable />
+    );
     const tags = container.querySelectorAll('.tedi-tag__close');
     expect(tags.length).toBe(2);
   });
 
-  it('stops event propagation on mouse down', () => {
-    const stopPropagationMock = jest.fn();
+  it('renders tag closing button when tags are removable', () => {
+    const { container } = render(
+      <Select {...defaultProps} multiple value={[basicOptions[0], basicOptions[1]]} isTagRemovable />
+    );
+    const tags = container.querySelectorAll('.tedi-tag__close');
+    expect(tags.length).toBe(2);
+  });
 
-    render(<Select {...defaultProps} multiple value={[basicOptions[0]]} />);
+  it('does not render tag closing button when tags are not removable', () => {
+    const { container } = render(
+      <Select {...defaultProps} multiple value={[basicOptions[0], basicOptions[1]]} isTagRemovable={false} />
+    );
+    const tags = container.querySelectorAll('.tedi-tag__close');
+    expect(tags.length).toBe(0);
+  });
 
-    const multiValueDiv = screen.getByText('Apple').closest('.tedi-tag__close');
+  it('stops event propagation on mouse down when closing a removable tag', () => {
+    const stopPropagationSpy = jest.spyOn(Event.prototype, 'stopPropagation');
+    render(<Select {...defaultProps} multiple value={[basicOptions[0]]} isTagRemovable />);
+    const closeButton = screen.getByRole('button', { name: /close/i });
 
-    fireEvent.mouseDown(multiValueDiv as HTMLElement);
-
-    expect(stopPropagationMock).not.toHaveBeenCalled();
+    fireEvent.mouseDown(closeButton);
+    expect(stopPropagationSpy).toHaveBeenCalled();
+    stopPropagationSpy.mockRestore();
   });
 
   it('does not apply classNames when not provided', () => {

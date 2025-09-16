@@ -237,6 +237,7 @@ export const MultipleHandled: Story = {
     id: 'multiple-handled-example',
     label: 'Multiple Select',
     multiple: true,
+    isTagRemovable: true,
   },
 };
 
@@ -248,6 +249,7 @@ export const StackingTags: Story = {
     defaultValue: colourOptions.filter((option) => !option.isDisabled),
     multiple: true,
     tagsDirection: 'stack',
+    isTagRemovable: true,
   },
 };
 
