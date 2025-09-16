@@ -54,6 +54,12 @@
         cursor: unset;
       }
     }
+
+    &:has(:focus-visible) {
+      z-index: 5;
+      outline: 2px solid var(--form-checkbox-radio-default-border-selected);
+      outline-offset: 2px;
+    }
   }
 }
 
@@ -112,6 +118,12 @@
     .tedi-choice-group-item__feedback-text {
       color: var(--form-checkbox-radio-card-secondary-active-text);
     }
+  }
+
+  &:has(:focus-visible) {
+    z-index: 5;
+    outline: 2px solid var(--form-checkbox-radio-default-border-selected);
+    outline-offset: 2px;
   }
 }
 
