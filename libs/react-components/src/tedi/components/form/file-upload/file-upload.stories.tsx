@@ -1,6 +1,9 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
+import React from 'react';
 
+import { FileUploadFile } from '../../../helpers';
 import { Text } from '../../base/typography/text/text';
+import Button from '../../buttons/button/button';
 import { Col, Row } from '../../layout/grid';
 import { MultipleHandledTemplate } from './examples/multiple-handled';
 import FileUpload, { FileUploadProps } from './file-upload';
@@ -233,5 +236,33 @@ export const ExtensionAndSizeLimit: Story = {
     maxSize: 0.001,
     accept: '.pdf,.txt',
     multiple: true,
+  },
+};
+
+export const ControlledClearing: Story = {
+  render: (args) => {
+    const [files, setFiles] = React.useState<FileUploadFile[]>([
+      { name: 'report.pdf' },
+      { name: 'report_1.pdf' },
+      { name: 'report_2.pdf' },
+    ]);
+
+    return (
+      <>
+        <FileUpload {...args} files={files} onChange={(f) => setFiles(f)} multiple />
+
+        <div style={{ marginTop: '12px' }}>
+          <Button onClick={() => setFiles([])}>Save & Clear files</Button>
+
+          <pre>Files: {JSON.stringify(files, null, 2)}</pre>
+        </div>
+      </>
+    );
+  },
+  args: {
+    id: 'file-upload-clear-controlled',
+    name: 'file-upload-clear-controlled',
+    label: 'Upload file',
+    hasClearButton: true,
   },
 };

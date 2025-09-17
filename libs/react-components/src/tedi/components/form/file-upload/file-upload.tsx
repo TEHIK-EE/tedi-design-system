@@ -121,6 +121,7 @@ export const FileUpload = (props: FileUploadProps): JSX.Element => {
     defaultFiles,
     onChange,
     onDelete,
+    files,
   });
 
   const currentBreakpoint = useBreakpoint();
