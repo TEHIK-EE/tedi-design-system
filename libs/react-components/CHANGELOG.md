@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-react-v13.1.0-rc.5](https://github.com/TEHIK-EE/tedi-design-system/compare/react-13.1.0-rc.4...react-13.1.0-rc.5) (2025-09-17)
+
+
+### Bug Fixes
+
+* **numberfield:** fix wcag 9.4.1.2 and 9.4.1.3 criterias [#1012](https://github.com/TEHIK-EE/tedi-design-system/issues/1012) ([#1082](https://github.com/TEHIK-EE/tedi-design-system/issues/1082)) ([0fe7758](https://github.com/TEHIK-EE/tedi-design-system/commit/0fe775823ea82be1039f8f53bd9d5f284417f845))
+
 # [@tehik-ee/tedi-react-v13.1.0-rc.4](https://github.com/TEHIK-EE/tedi-design-system/compare/react-13.1.0-rc.3...react-13.1.0-rc.4) (2025-09-17)
 
 
