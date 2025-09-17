@@ -113,7 +113,7 @@ export const NumberField = (props: NumberFieldProps) => {
     [onChange, value, inputInnerValue]
   );
 
-  const helperId = helper ? helper?.id ?? `${id}-helper` : undefined;
+  const helperId = helper ? `${id}-helper` : undefined;
 
   const isInvalid = useCallback(
     (currentValue: number): boolean => {
@@ -206,7 +206,7 @@ export const NumberField = (props: NumberFieldProps) => {
           ref={inputRef}
           id={id}
           aria-describedby={helperId}
-          aria-invalid={invalid}
+          aria-invalid={isInvalid(getCurrentValue) ? 'true' : 'false'}
           type="number"
           inputMode={inputMode}
           value={getCurrentValue}
@@ -245,9 +245,11 @@ export const NumberField = (props: NumberFieldProps) => {
         {renderButton('increment')}
       </div>
       {helper && <FeedbackText {...helper} id={helperId} />}
-      <div aria-live="polite" className="visually-hidden">
-        {inputUpdated}
-      </div>
+      {inputUpdated && (
+        <div aria-live="polite" className="sr-only">
+          {inputUpdated}
+        </div>
+      )}
     </div>
   );
 };
