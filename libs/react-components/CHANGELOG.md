@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-react-v13.1.0-rc.3](https://github.com/TEHIK-EE/tedi-design-system/compare/react-13.1.0-rc.2...react-13.1.0-rc.3) (2025-09-17)
+
+
+### Bug Fixes
+
+* **skeleton:** screen reader wcag fixes [#1004](https://github.com/TEHIK-EE/tedi-design-system/issues/1004) ([#1080](https://github.com/TEHIK-EE/tedi-design-system/issues/1080)) ([1fba7c9](https://github.com/TEHIK-EE/tedi-design-system/commit/1fba7c9a29ad4cbe5af92ba52a7727b2381349f1))
+
 # [@tehik-ee/tedi-react-v13.1.0-rc.2](https://github.com/TEHIK-EE/tedi-design-system/compare/react-13.1.0-rc.1...react-13.1.0-rc.2) (2025-09-17)
 
 
