@@ -169,6 +169,7 @@ const SideNavComponent: <C extends React.ElementType = 'a'>(props: SideNavProps<
         isOpen={isMenuOpen}
         onClose={() => setMenuOpen(false)}
         showOverlay={showMobileOverlay}
+        className={className}
         {...rest}
       />
     );
