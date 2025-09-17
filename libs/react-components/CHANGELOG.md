@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-react-v13.1.0-rc.2](https://github.com/TEHIK-EE/tedi-design-system/compare/react-13.1.0-rc.1...react-13.1.0-rc.2) (2025-09-17)
+
+
+### Bug Fixes
+
+* **spinner:** fix screen reader announcements, fix tests for spinner and tag [#1003](https://github.com/TEHIK-EE/tedi-design-system/issues/1003) ([#1079](https://github.com/TEHIK-EE/tedi-design-system/issues/1079)) ([1d674a3](https://github.com/TEHIK-EE/tedi-design-system/commit/1d674a32bfcf78513e0484bef530cfd6992dce2b))
+
 # [@tehik-ee/tedi-react-v13.1.0-rc.1](https://github.com/TEHIK-EE/tedi-design-system/compare/react-13.0.1-rc.1...react-13.1.0-rc.1) (2025-09-15)
 
 
