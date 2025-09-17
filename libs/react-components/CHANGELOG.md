@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-react-v13.1.0-rc.4](https://github.com/TEHIK-EE/tedi-design-system/compare/react-13.1.0-rc.3...react-13.1.0-rc.4) (2025-09-17)
+
+
+### Bug Fixes
+
+* **textfield:** wcag disabled and label fixes [#1010](https://github.com/TEHIK-EE/tedi-design-system/issues/1010) ([#1081](https://github.com/TEHIK-EE/tedi-design-system/issues/1081)) ([a6b43da](https://github.com/TEHIK-EE/tedi-design-system/commit/a6b43daf4762325df0152031e865bfd37d151810))
+
 # [@tehik-ee/tedi-react-v13.1.0-rc.3](https://github.com/TEHIK-EE/tedi-design-system/compare/react-13.1.0-rc.2...react-13.1.0-rc.3) (2025-09-17)
 
 
