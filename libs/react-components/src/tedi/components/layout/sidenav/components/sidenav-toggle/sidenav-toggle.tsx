@@ -50,6 +50,13 @@ export const SidenavToggle = ({
 
   const Element = variant === 'collapse' ? FloatingButton : Button;
 
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      toggleMenu(!menuOpen);
+    }
+  };
+
   return (
     <Element
       {...getReferenceProps()}
@@ -62,7 +69,8 @@ export const SidenavToggle = ({
       }}
       visualType={variant === 'collapse' ? 'secondary' : 'primary'}
       className={BEM}
-      onClick={toggleMenu}
+      onClick={() => toggleMenu(!menuOpen)}
+      onKeyDown={handleKeyDown}
       position={variant === 'collapse' ? 'absolute' : 'static'}
       size={variant === 'collapse' ? 'small' : ''}
     >

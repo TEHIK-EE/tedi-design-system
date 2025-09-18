@@ -33,7 +33,6 @@
 
 .tedi-sidenav-dropdown__link {
   display: block;
-  justify-content: flex-start;
   color: var(--dropdown-item-default-text);
   cursor: pointer;
   border-radius: 0;
@@ -46,6 +45,11 @@
   &:hover {
     color: var(--dropdown-item-hover-text);
     background-color: var(--dropdown-item-hover-background);
+  }
+
+  &:focus-visible {
+    z-index: var(--z-index-header);
+    outline-offset: -2px;
   }
 }
 

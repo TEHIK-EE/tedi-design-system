@@ -460,3 +460,8 @@ button.tedi-sidenav__link.tedi-sidenav__back-button {
     margin-left: auto;
   }
 }
+
+.tedi-sidenav__toggle-icon,
+.tedi-sidenav__bullet {
+  flex-shrink: 0;
+}

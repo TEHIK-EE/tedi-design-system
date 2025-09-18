@@ -112,7 +112,19 @@ export const SideNavItem = <C extends React.ElementType = 'a'>(
     setIsCollapsedInternal(isOpen);
   };
 
+  const handleTitleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      setIsCollapsedInternal((v) => {
+        const next = !v;
+        handleCollapseToggle(next);
+        return next;
+      });
+    }
+  };
+
   const isLinkedParent = hasChildren && (rest.href || rest.to);
+
   const linkProps = {
     ...rest,
     as,
@@ -122,6 +134,13 @@ export const SideNavItem = <C extends React.ElementType = 'a'>(
     role: 'menuitem',
     'aria-current': isActive ? 'page' : undefined,
     'aria-label': isCollapsed && typeof children === 'string' ? children : undefined,
+    ...(hasChildren
+      ? {
+          'aria-haspopup': 'true',
+          'aria-expanded': isCollapsedInternal,
+          'aria-controls': collapseId,
+        }
+      : {}),
   } as unknown as LinkProps<C>;
 
   const renderChildren = () =>
@@ -129,7 +148,7 @@ export const SideNavItem = <C extends React.ElementType = 'a'>(
     groupsToRender?.map((group, index) => (
       <div key={index}>
         {group?.subHeading && <div className={styles['tedi-sidenav__subheading']}>{group.subHeading}</div>}
-        <ul className={styles['tedi-sidenav__list']} role="menubar">
+        <ul className={styles['tedi-sidenav__list']} role="menu">
           {group.subItems?.map((item, key) => (
             <SideNavItem
               as={as}
@@ -146,7 +165,7 @@ export const SideNavItem = <C extends React.ElementType = 'a'>(
     ));
 
   const content = (
-    <li data-name="sidenav-item" className={SideNavItemBEM} role="presentation">
+    <li data-name="sidenav-item" className={SideNavItemBEM}>
       {hasChildren && isCollapsed ? (
         <SideNavDropdown
           trigger={
@@ -201,7 +220,11 @@ export const SideNavItem = <C extends React.ElementType = 'a'>(
                   isCollapsedInternal && styles['tedi-sidenav__link--active']
                 )}
                 role="menuitem"
+                tabIndex={0}
+                aria-expanded={isCollapsedInternal}
+                aria-controls={collapseId}
                 aria-current={isActive ? 'page' : undefined}
+                onKeyDown={handleTitleKeyDown}
               >
                 {icon && getIcon(icon)}
                 <span className={styles['tedi-sidenav__title']}>{children}</span>
