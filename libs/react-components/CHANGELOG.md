@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-react-v13.1.0-rc.6](https://github.com/TEHIK-EE/tedi-design-system/compare/react-13.1.0-rc.5...react-13.1.0-rc.6) (2025-09-19)
+
+
+### Bug Fixes
+
+* **select:** prevent backspace from deleting non-removable tags [#1078](https://github.com/TEHIK-EE/tedi-design-system/issues/1078) ([#1083](https://github.com/TEHIK-EE/tedi-design-system/issues/1083)) ([33dfc54](https://github.com/TEHIK-EE/tedi-design-system/commit/33dfc5453ec01311a3c8e39f9d29ba53903ac5c2))
+
 # [@tehik-ee/tedi-react-v13.1.0-rc.5](https://github.com/TEHIK-EE/tedi-design-system/compare/react-13.1.0-rc.4...react-13.1.0-rc.5) (2025-09-17)
 
 
