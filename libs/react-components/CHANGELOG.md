@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-react-v13.1.0-rc.7](https://github.com/TEHIK-EE/tedi-design-system/compare/react-13.1.0-rc.6...react-13.1.0-rc.7) (2025-09-19)
+
+
+### Bug Fixes
+
+* **tooltip,popover:** fix focus trap on tab targeting [#964](https://github.com/TEHIK-EE/tedi-design-system/issues/964) ([#1089](https://github.com/TEHIK-EE/tedi-design-system/issues/1089)) ([d91584d](https://github.com/TEHIK-EE/tedi-design-system/commit/d91584d2faa87003bc332a1579eb7dd25b0fdd10))
+
 # [@tehik-ee/tedi-react-v13.1.0-rc.6](https://github.com/TEHIK-EE/tedi-design-system/compare/react-13.1.0-rc.5...react-13.1.0-rc.6) (2025-09-19)
 
 
