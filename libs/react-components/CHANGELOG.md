@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-react-v13.1.0-rc.9](https://github.com/TEHIK-EE/tedi-design-system/compare/react-13.1.0-rc.8...react-13.1.0-rc.9) (2025-09-19)
+
+
+### Bug Fixes
+
+* **sidenav:** add classname support to sidenav-mobile component [#936](https://github.com/TEHIK-EE/tedi-design-system/issues/936) ([#1091](https://github.com/TEHIK-EE/tedi-design-system/issues/1091)) ([d2b9d3b](https://github.com/TEHIK-EE/tedi-design-system/commit/d2b9d3b2c7d2f2c9820ca5490048f60ea655541c))
+
 # [@tehik-ee/tedi-react-v13.1.0-rc.8](https://github.com/TEHIK-EE/tedi-design-system/compare/react-13.1.0-rc.7...react-13.1.0-rc.8) (2025-09-19)
 
 
