@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-react-v13.1.0-rc.8](https://github.com/TEHIK-EE/tedi-design-system/compare/react-13.1.0-rc.7...react-13.1.0-rc.8) (2025-09-19)
+
+
+### Bug Fixes
+
+* **choice-group:** improve focus-visible, fix broken interractions [#877](https://github.com/TEHIK-EE/tedi-design-system/issues/877) ([#1085](https://github.com/TEHIK-EE/tedi-design-system/issues/1085)) ([db901b7](https://github.com/TEHIK-EE/tedi-design-system/commit/db901b7777df34c873ca5ad1829dbdf68480a162))
+
 # [@tehik-ee/tedi-react-v13.1.0-rc.7](https://github.com/TEHIK-EE/tedi-design-system/compare/react-13.1.0-rc.6...react-13.1.0-rc.7) (2025-09-19)
 
 
