@@ -54,7 +54,7 @@ export const OverlayContent = (props: OverlayContentProps) => {
 
   return (
     <FloatingPortal>
-      <FloatingFocusManager {...focusManager} context={context}>
+      <FloatingFocusManager modal={focusManager?.modal || false} {...focusManager} context={context}>
         <div
           {...getFloatingProps({
             ref: floating,
