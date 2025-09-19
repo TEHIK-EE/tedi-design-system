@@ -201,6 +201,8 @@ export const ChoiceGroup = (props: ChoiceGroupProps): React.ReactElement => {
                   }
                   {...rowProps}
                   className={CheckGroupBEM}
+                  role={inputType === 'radio' ? 'radiogroup' : undefined}
+                  aria-labelledby={inputType === 'radio' ? id : undefined}
                 >
                   {items.map((item) => (
                     <ChoiceGroupItem

@@ -86,7 +86,7 @@ export const ChoiceGroupItem = (props: ExtendedChoiceGroupItemProps): React.Reac
   const handleClick = (e: React.MouseEvent) => {
     if ((e.target as HTMLElement).tagName === 'LABEL') return;
     if (!disabled && variant === 'card') {
-      document.getElementById(id)?.click();
+      onChangeHandler(value, !isChecked);
     }
   };
 
@@ -112,6 +112,7 @@ export const ChoiceGroupItem = (props: ExtendedChoiceGroupItemProps): React.Reac
             }
             tooltip={tooltip}
             data-testid="choice-group-item-indicator"
+            aria-checked={isChecked}
           />
         ) : (
           <>
@@ -125,6 +126,8 @@ export const ChoiceGroupItem = (props: ExtendedChoiceGroupItemProps): React.Reac
               defaultChecked={currentValue === undefined ? props.defaultChecked : undefined}
               onChange={(e) => onChangeHandler(value, e.target.checked)}
               className={styles['tedi-choice-group-item__input']}
+              role={type === 'radio' ? 'radio' : undefined}
+              aria-checked={isChecked}
             />
             <label htmlFor={id} className={styles['tedi-choice-group-item__label']}>
               {label}
