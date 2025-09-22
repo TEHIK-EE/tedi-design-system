@@ -17,10 +17,7 @@ export interface StepItemProps {
 
   /** Shows the current step */
   isSelected?: boolean;
-  isCompact?: boolean;
   hasNumber?: boolean;
-  /** Can be used to overwrite default numbering with hasNumber prop */
-  number?: string | number;
   /** Descriptive text under step's title */
   description?: string;
   /**Step title text */
@@ -58,7 +55,7 @@ export const StepItem = ({
         {children ? (
           <Collapse
             hideCollapseText
-            id="collapse-1"
+            id="vertical-stepper-collapse"
             title={
               <a href="#" className={styles['stepper-link']}>
                 {title}
