@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-react-v13.1.0-rc.11](https://github.com/TEHIK-EE/tedi-design-system/compare/react-13.1.0-rc.10...react-13.1.0-rc.11) (2025-09-22)
+
+
+### Features
+
+* **vertical-stepper:** export stepitem and subitem from vertical-stepper [#512](https://github.com/TEHIK-EE/tedi-design-system/issues/512) ([02c72a7](https://github.com/TEHIK-EE/tedi-design-system/commit/02c72a7b912a04e92d8a92ce76efcaed42184339))
+
 # [@tehik-ee/tedi-react-v13.1.0-rc.10](https://github.com/TEHIK-EE/tedi-design-system/compare/react-13.1.0-rc.9...react-13.1.0-rc.10) (2025-09-22)
 
 
