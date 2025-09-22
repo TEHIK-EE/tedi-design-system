@@ -1,3 +1,13 @@
+# [@tehik-ee/tedi-react-v13.1.0-rc.10](https://github.com/TEHIK-EE/tedi-design-system/compare/react-13.1.0-rc.9...react-13.1.0-rc.10) (2025-09-22)
+
+
+### Features
+
+* **stepper:** add vertical stepper component [#512](https://github.com/TEHIK-EE/tedi-design-system/issues/512) ([c50b6ca](https://github.com/TEHIK-EE/tedi-design-system/commit/c50b6cacf39bee15feb9cf8cdb6f3913803aca1d))
+* **stepper:** add vertical stepper component [#512](https://github.com/TEHIK-EE/tedi-design-system/issues/512) ([f86acdc](https://github.com/TEHIK-EE/tedi-design-system/commit/f86acdc4779bb57c11bb8b7977e10edcc500ae78))
+* **vertical-stepper:** add desktop comment [#512](https://github.com/TEHIK-EE/tedi-design-system/issues/512) ([6a2b542](https://github.com/TEHIK-EE/tedi-design-system/commit/6a2b5428390d6d480bdc147b8a438826e66c687e))
+* **vertical-stepper:** review changes [#512](https://github.com/TEHIK-EE/tedi-design-system/issues/512) ([ee3ab3a](https://github.com/TEHIK-EE/tedi-design-system/commit/ee3ab3ad03900c6a114de4480cd785d26c7595b2))
+
 # [@tehik-ee/tedi-react-v13.1.0-rc.9](https://github.com/TEHIK-EE/tedi-design-system/compare/react-13.1.0-rc.8...react-13.1.0-rc.9) (2025-09-19)
 
 
