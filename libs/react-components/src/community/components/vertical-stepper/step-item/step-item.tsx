@@ -23,8 +23,6 @@ export interface StepItemProps {
   /**Step title text */
   title: string | React.ReactNode;
   href?: string;
-  /** display item as regular link */
-  noStyle?: boolean;
   /** */
   state?: 'default' | 'completed' | 'error' | 'disabled';
   hasIcon?: boolean;
@@ -57,7 +55,7 @@ export const StepItem = ({
             hideCollapseText
             id="vertical-stepper-collapse"
             title={
-              <a href="#" className={styles['stepper-link']}>
+              <span className={styles['stepper-link']}>
                 {title}
                 {hasIcon && state === 'error' && (
                   <Icon
@@ -78,7 +76,7 @@ export const StepItem = ({
                     className={styles['radio__tooltip-icon']}
                   />
                 )}
-              </a>
+              </span>
             }
           >
             {children && <ul className={styles['sub-item-list']}>{children}</ul>}

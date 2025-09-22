@@ -21,9 +21,11 @@ export const VerticalStepper = (props: VerticalStepperProps): JSX.Element => {
   const StepperBEM = cn(styles['stepper'], className, { [styles['stepper--compact']]: isCompact });
 
   return (
-    <ol role="tree" className={StepperBEM}>
-      {children}
-    </ol>
+    <nav>
+      <ol role="tree" className={StepperBEM}>
+        {children}
+      </ol>
+    </nav>
   );
 };
 
