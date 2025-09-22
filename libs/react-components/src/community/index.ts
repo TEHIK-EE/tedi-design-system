@@ -32,6 +32,8 @@ export * from './components/toggle-open/toggle-open';
 export * from './components/modal';
 export * from './components/placeholder/placeholder';
 export * from './components/vertical-stepper/vertical-stepper';
+export * from './components/vertical-stepper/step-item/step-item';
+export * from './components/vertical-stepper/sub-item/sub-item';
 
 export * from './helpers';
 
