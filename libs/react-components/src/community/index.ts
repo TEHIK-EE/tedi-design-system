@@ -33,6 +33,7 @@ export * from './components/accordion';
 export * from './components/toggle-open/toggle-open';
 export * from './components/modal';
 export * from './components/placeholder/placeholder';
+export * from './components/vertical-stepper/vertical-stepper';
 
 export * from './helpers';
 
