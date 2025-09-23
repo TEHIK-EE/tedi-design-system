@@ -69,6 +69,7 @@
   &.selected {
     .stepper-counter,
     .stepper-link {
+      cursor: pointer;
       transition: all 0.2s ease;
     }
   }
@@ -506,6 +507,7 @@
 
 .stepper--compact .stepper-link {
   padding-top: 0;
+  cursor: pointer;
 }
 
 .stepper--compact .stepper-link-container {
