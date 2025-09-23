@@ -11,8 +11,13 @@ import {
   effect,
   OnInit,
   output,
+  forwardRef,
 } from "@angular/core";
-import { ControlValueAccessor, ReactiveFormsModule } from "@angular/forms";
+import {
+  ControlValueAccessor,
+  NG_VALUE_ACCESSOR,
+  ReactiveFormsModule,
+} from "@angular/forms";
 import {
   ClosingButtonComponent,
   FeedbackTextComponent,
@@ -58,7 +63,14 @@ import { FileService } from "./file.service";
     VerticalSpacingDirective,
     TediTranslationPipe,
   ],
-  providers: [FileService],
+  providers: [
+    FileService,
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => FileDropzoneComponent),
+      multi: true,
+    },
+  ],
 })
 export class FileDropzoneComponent implements ControlValueAccessor, OnInit {
   /**
