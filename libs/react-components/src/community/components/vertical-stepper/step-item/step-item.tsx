@@ -82,9 +82,16 @@ export const StepItem = ({
             {children && <ul className={styles['sub-item-list']}>{children}</ul>}
           </Collapse>
         ) : (
-          <a href={href} className={styles['stepper-link']}>
-            {title}
-          </a>
+          <div className={styles['stepper-link-container']}>
+            <a href={href} className={styles['stepper-link']}>
+              {title}
+            </a>
+            <span className={styles['stepper-link-icon']}>
+              {hasIcon && state === 'error' && <Icon name="error" color="danger" size={16} display="inline" />}
+
+              {hasIcon && state === 'completed' && <Icon name="check" color="success" size={16} display="inline" />}
+            </span>
+          </div>
         )}
       </div>
       <div className={styles['stepper-line']}></div>
