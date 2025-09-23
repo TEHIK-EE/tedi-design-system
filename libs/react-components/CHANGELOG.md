@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-react-v13.1.0-rc.12](https://github.com/TEHIK-EE/tedi-design-system/compare/react-13.1.0-rc.11...react-13.1.0-rc.12) (2025-09-23)
+
+
+### Features
+
+* **vertical-stepper:** add container for icons and link [#512](https://github.com/TEHIK-EE/tedi-design-system/issues/512) ([#1102](https://github.com/TEHIK-EE/tedi-design-system/issues/1102)) ([12ccd3c](https://github.com/TEHIK-EE/tedi-design-system/commit/12ccd3cb0143cd82b60a5251e2a86011bba269e2))
+
 # [@tehik-ee/tedi-react-v13.1.0-rc.11](https://github.com/TEHIK-EE/tedi-design-system/compare/react-13.1.0-rc.10...react-13.1.0-rc.11) (2025-09-22)
 
 
