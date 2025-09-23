@@ -26,6 +26,7 @@ export interface StepItemProps {
   /** */
   state?: 'default' | 'completed' | 'error' | 'disabled';
   hasIcon?: boolean;
+  onClick?: () => void;
 }
 
 export const StepItem = ({
@@ -35,6 +36,7 @@ export const StepItem = ({
   hasIcon,
   title,
   href,
+  onClick,
   state = 'default',
 }: StepItemProps): JSX.Element => {
   const stepItemClassName = cn(
@@ -83,7 +85,16 @@ export const StepItem = ({
           </Collapse>
         ) : (
           <div className={styles['stepper-link-container']}>
-            <a href={href} className={styles['stepper-link']}>
+            <a
+              href={href}
+              onClick={(e) => {
+                e.preventDefault();
+                if (onClick) {
+                  onClick();
+                }
+              }}
+              className={styles['stepper-link']}
+            >
               {title}
             </a>
             <span className={styles['stepper-link-icon']}>
