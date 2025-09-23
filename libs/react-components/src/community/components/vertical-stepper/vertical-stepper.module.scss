@@ -44,7 +44,6 @@
     position: absolute;
     top: 0;
     left: 12px;
-    z-index: -1;
     width: 1px;
     height: 100%;
     content: ' ';
@@ -70,6 +69,7 @@
   &.selected {
     .stepper-counter,
     .stepper-link {
+      cursor: pointer;
       transition: all 0.2s ease;
     }
   }
@@ -419,6 +419,10 @@
   left: -32px;
 }
 
+.stepper--compact .stepper-content {
+  margin-top: -4px;
+}
+
 .stepper--compact .stepper-item .sub-item {
   padding: 3px 0;
 }
@@ -503,4 +507,14 @@
 
 .stepper--compact .stepper-link {
   padding-top: 0;
+  cursor: pointer;
+}
+
+.stepper--compact .stepper-link-container {
+  display: flex;
+  align-items: center;
+
+  & .stepper-link-icon {
+    margin-left: 6px;
+  }
 }
