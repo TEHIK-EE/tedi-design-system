@@ -1,7 +1,13 @@
 import { ComponentInputs } from "tedi/types";
 import { FileDropzoneComponent } from "./file-dropzone.component";
-import { argsToTemplate, Meta, StoryObj } from "@storybook/angular";
+import {
+  argsToTemplate,
+  Meta,
+  moduleMetadata,
+  StoryObj,
+} from "@storybook/angular";
 import { validateFileSize, validateFileType } from "./utils";
+import { FormControl, ReactiveFormsModule } from "@angular/forms";
 
 /**
  * FileDropzoneComponent is a component that allows users to drag and drop files or select them through a file input.
@@ -12,6 +18,12 @@ import { validateFileSize, validateFileType } from "./utils";
 
 const meta: Meta<FileDropzoneComponent> = {
   component: FileDropzoneComponent,
+  // import formcontrol module to enable usage inside forms
+  decorators: [
+    moduleMetadata({
+      imports: [ReactiveFormsModule],
+    }),
+  ],
   title: "Community/Form/FileDropzone",
   args: {
     accept: "",
@@ -27,7 +39,6 @@ const meta: Meta<FileDropzoneComponent> = {
     name: "file-dropzone",
     uploadFolder: false,
     validators: [validateFileSize, validateFileType],
-    uploadError: "",
   },
   argTypes: {
     accept: {
@@ -72,7 +83,7 @@ const meta: Meta<FileDropzoneComponent> = {
         Options are:
         - "append": Adds new files to the end of the list, keeping existing files
 
-        - "replace": Replaces existing files with new files of the same name"`,
+        - "replace": Replaces existing files with new files of the same name`,
     },
     uploadFolder: {
       description: ` If true, allows uploading folders instead of just files. This enables the user to select a folder and upload all its contents. Default file browser behaviour will prevent upload of files in this state.`,
@@ -82,10 +93,6 @@ const meta: Meta<FileDropzoneComponent> = {
       description:
         "Validation functions that can be used to validate files. Each function should return a string error message if validation fails, or undefined if it passes.",
     },
-    uploadError: {
-      description:
-        "An error message that can be set to indicate a problem with the file upload process. Displays a error like the validateIndividually validation error on false.",
-    },
   },
 };
 
@@ -93,24 +100,36 @@ export default meta;
 type Story = StoryObj<FileDropzoneComponent>;
 type StoryArgs = ComponentInputs<FileDropzoneComponent>;
 
-/** Replaces any same-name files, when usually it indexes them. */
-export const Replace: Story = {
-  render: (args) => ({
-    template: `<tedi-file-dropzone ${argsToTemplate(args)} />`,
-    props: args,
-  }),
-  args: {
-    mode: "replace",
-  },
-};
-
 const Template = (args: StoryArgs) => `
   <div>
     <div>
       <tedi-file-dropzone ${argsToTemplate(args)} />
     </div>
   </div>
-  `;
+`;
+
+/** Form-bound example, should work inside a reactive form. */
+export const Form: Story = {
+  render: (args) => {
+    const control = new FormControl(null);
+    return {
+      template: Template(args),
+      props: { ...args, control },
+    };
+  },
+  args: {
+    inputId: "file-dropzone-form-control",
+    name: "file-form-control",
+  },
+};
+
+/** Replaces any same-name files, when usually it indexes them. */
+export const Replace: Story = {
+  render: (args) => ({ template: Template(args), props: args }),
+  args: {
+    mode: "replace",
+  },
+};
 
 /** Custom un-translated label text. */
 export const WithHint: Story = {

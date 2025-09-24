@@ -20,13 +20,16 @@
   </div>
 </button>
 
-@if (helperText(); as message) {
-  <tedi-feedback-text
-    [text]="message.text"
-    [type]="message.type || 'hint'"
-    [position]="message.position || 'left'"
-  />
-}
+<ng-content select="[helper-text]">
+  @if (helperText(); as message) {
+    <tedi-feedback-text
+      [text]="message.text"
+      [type]="message.type || 'hint'"
+      [position]="message.position || 'left'"
+    />
+  }
+</ng-content>
+
 @for (file of files(); track file.name) {
   <div class="tedi-file-dropzone__file-list" [tediVerticalSpacing]="0.5">
     <tedi-card
@@ -40,12 +43,12 @@
     >
       <tedi-card-content class="tedi-file-dropzone__card" padding="xs">
         <div class="tedi-file-dropzone__file-name">
-          {{ file.name }}
+          {{ file.label ?? file.name }}
 
           @if (file && validateIndividually() && file.helper; as helper) {
             <tedi-tooltip [className]="tooltipClasses(file)">
               <tedi-tooltip-trigger>
-                <button tedi-info-button></button>
+                <button tedi-info-button [disabled]="file.disabled"></button>
               </tedi-tooltip-trigger>
 
               <tedi-tooltip-content [position]="helper?.position || 'top'">
@@ -66,6 +69,8 @@
   </div>
 }
 
-@if (this.uploadError(); as message) {
-  <tedi-feedback-text [text]="message" type="error" position="left" />
-}
+<ng-content select="[error-text]">
+  @if (this.uploadError(); as message) {
+    <tedi-feedback-text [text]="message" type="error" position="left" />
+  }
+</ng-content>

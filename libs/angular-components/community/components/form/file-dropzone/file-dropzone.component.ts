@@ -88,6 +88,8 @@ export class FileDropzoneComponent implements ControlValueAccessor, OnInit {
   maxSize = input<number>(0);
   /**
    * Determines if multiple files can be uploaded at once via the file picker.
+   *
+   * https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/multiple
    * @default false
    **/
   multiple = input<boolean>(false);
@@ -126,7 +128,6 @@ export class FileDropzoneComponent implements ControlValueAccessor, OnInit {
    *  @default "append"
    */
   mode = input<FileInputMode>("append");
-
   /**
    * If true, allows uploading folders instead of just files.
    * This enables the user to select a folder and upload all its contents.
@@ -147,16 +148,6 @@ export class FileDropzoneComponent implements ControlValueAccessor, OnInit {
    * @default false
    */
   disabled = model<boolean>(false);
-  /**
-   * Provides helper text or feedback (such as an error or instruction message) to guide the user.
-   */
-  uploadError = model<string>();
-  /**
-   * Provides helper text or feedback (such as an error or instruction message) to guide the user.
-   * By default this is automatically generated based on the `accept` and `maxSize` inputs.
-   */
-  helperText = model<FeedbackTextProps>();
-
   /**
    * Output event triggered when files are added or changed.
    **/
@@ -202,6 +193,18 @@ export class FileDropzoneComponent implements ControlValueAccessor, OnInit {
     return classList.join(" ");
   });
 
+  uploadError = signal<string | null>(null);
+
+  helperText = computed<FeedbackTextProps>(() => ({
+    text: getDefaultHelpers(
+      this.accept(),
+      this.maxSize(),
+      this._translationService.translate.bind(this._translationService)
+    ),
+    type: "hint",
+    position: "left",
+  }));
+
   constructor() {
     effect(() => {
       this._fileService.maxSize = this.maxSize();
@@ -240,17 +243,6 @@ export class FileDropzoneComponent implements ControlValueAccessor, OnInit {
 
   ngOnInit(): void {
     this.addFiles(this.defaultFiles());
-    if (!this.helperText()) {
-      this.helperText.set({
-        text: getDefaultHelpers(
-          this.accept(),
-          this.maxSize(),
-          this._translationService.translate.bind(this._translationService)
-        ),
-        type: "hint",
-        position: "left",
-      });
-    }
   }
 
   selectionChange = (event: Event) => {
