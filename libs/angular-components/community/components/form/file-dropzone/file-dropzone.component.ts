@@ -6,7 +6,6 @@ import {
   input,
   signal,
   viewChild,
-  model,
   ElementRef,
   effect,
   OnInit,
@@ -147,7 +146,6 @@ export class FileDropzoneComponent implements ControlValueAccessor, OnInit {
    * Disables the file dropzone, preventing user interaction.
    * @default false
    */
-  disabled = model<boolean>(false);
   /**
    * Output event triggered when files are added or changed.
    **/
@@ -162,9 +160,7 @@ export class FileDropzoneComponent implements ControlValueAccessor, OnInit {
 
   formatBytes = (bytes: number): string => formatBytes(bytes);
 
-  private _uploadState = computed(
-    () => this._fileService?.uploadState() || "none"
-  );
+  private _uploadState = computed(() => this._fileService.uploadState());
 
   private _onChange = (_: FileDropzone[]) => {};
   private _onTouched = () => {};
@@ -173,6 +169,7 @@ export class FileDropzoneComponent implements ControlValueAccessor, OnInit {
   private _fileService = inject(FileService);
 
   isDragActive = signal<boolean>(false);
+  disabled = signal<boolean>(false);
 
   classes = computed(() => {
     const classList = ["tedi-file-dropzone"];
@@ -304,7 +301,7 @@ export class FileDropzoneComponent implements ControlValueAccessor, OnInit {
 
     this._updateErrorState(error);
 
-    this._onChange(normalizedFiles);
+    this._onChange(this._fileService.files());
     this.fileChange.emit(normalizedFiles);
   }
 
@@ -312,6 +309,7 @@ export class FileDropzoneComponent implements ControlValueAccessor, OnInit {
     const error = this._fileService.removeFiles([file]);
     this._updateErrorState(error);
 
+    this._onChange(this._fileService.files());
     this.fileDelete.emit(file);
   }
 

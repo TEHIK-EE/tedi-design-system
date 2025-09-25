@@ -7,7 +7,8 @@ import {
   StoryObj,
 } from "@storybook/angular";
 import { validateFileSize, validateFileType } from "./utils";
-import { FormControl, ReactiveFormsModule } from "@angular/forms";
+import { FormControl, FormGroup, ReactiveFormsModule } from "@angular/forms";
+import { ButtonComponent } from "tedi/components";
 
 /**
  * FileDropzoneComponent is a component that allows users to drag and drop files or select them through a file input.
@@ -21,8 +22,23 @@ const meta: Meta<FileDropzoneComponent> = {
   // import formcontrol module to enable usage inside forms
   decorators: [
     moduleMetadata({
-      imports: [ReactiveFormsModule],
+      imports: [ReactiveFormsModule, ButtonComponent],
     }),
+    (storyFn, _context) => {
+      const story = storyFn();
+      if (story.props && story.props["form"]) {
+        return story;
+      }
+
+      const form = new FormGroup({
+        files: new FormControl(new File([], "controlFile.txt")),
+      });
+
+      return {
+        ...story,
+        props: { ...story.props, form },
+      };
+    },
   ],
   title: "Community/Form/FileDropzone",
   args: {
@@ -34,7 +50,6 @@ const meta: Meta<FileDropzoneComponent> = {
     inputId: "file-dropzone",
     className: "",
     label: undefined,
-    disabled: false,
     mode: "append",
     name: "file-dropzone",
     uploadFolder: false,
@@ -101,20 +116,28 @@ type Story = StoryObj<FileDropzoneComponent>;
 type StoryArgs = ComponentInputs<FileDropzoneComponent>;
 
 const Template = (args: StoryArgs) => `
+<form [formGroup]="form">
   <div>
     <div>
-      <tedi-file-dropzone ${argsToTemplate(args)} />
+      <tedi-file-dropzone formControlName="files" ${argsToTemplate(args)} />
     </div>
   </div>
+</form>
 `;
 
 /** Form-bound example, should work inside a reactive form. */
-export const Form: Story = {
+export const Default: Story = {
   render: (args) => {
-    const control = new FormControl(null);
+    const form = new FormGroup({
+      files: new FormControl(null),
+    });
+
+    const logValue = () => {
+      console.log(form.get("files")?.value);
+    };
     return {
-      template: Template(args),
-      props: { ...args, control },
+      template: `${Template(args)} <button tedi-button (click)="logValue()">Log Form Value</button>`,
+      props: { ...args, form, logValue },
     };
   },
   args: {
@@ -140,13 +163,18 @@ export const WithHint: Story = {
   },
 };
 
-/** Disabled state, non-interactive. */
+/** Disabled state, non-interactive. Has to be disabled via a form control */
 export const Disabled: Story = {
-  render: (args) => ({ template: Template(args), props: args }),
+  render: (args) => {
+    const form = new FormGroup({
+      files: new FormControl({ value: null, disabled: true }),
+    });
+
+    return { template: Template(args), props: { ...args, form } };
+  },
   args: {
     inputId: "file-dropzone-disabled",
     name: "file-loading",
-    disabled: true,
   },
 };
 
