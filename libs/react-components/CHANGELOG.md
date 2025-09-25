@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-react-v13.1.0-rc.16](https://github.com/TEHIK-EE/tedi-design-system/compare/react-13.1.0-rc.15...react-13.1.0-rc.16) (2025-09-25)
+
+
+### Bug Fixes
+
+* **select:** fix placeholder placement on single value input [#695](https://github.com/TEHIK-EE/tedi-design-system/issues/695) ([#1092](https://github.com/TEHIK-EE/tedi-design-system/issues/1092)) ([0f7cc51](https://github.com/TEHIK-EE/tedi-design-system/commit/0f7cc5106f6919e9741d9daa3d3f4128f4778e0c))
+
 # [@tehik-ee/tedi-react-v13.1.0-rc.15](https://github.com/TEHIK-EE/tedi-design-system/compare/react-13.1.0-rc.14...react-13.1.0-rc.15) (2025-09-25)
 
 
