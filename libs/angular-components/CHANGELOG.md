@@ -1,3 +1,31 @@
+# [@tehik-ee/tedi-angular-v2.4.0](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.3.0...angular-2.4.0) (2025-09-25)
+
+
+### Bug Fixes
+
+* **accordion:** fix conditionally rendered item collapse [#1040](https://github.com/TEHIK-EE/tedi-design-system/issues/1040) ([#1043](https://github.com/TEHIK-EE/tedi-design-system/issues/1043)) ([245b2d4](https://github.com/TEHIK-EE/tedi-design-system/commit/245b2d4fdd367b814b5adabf699914783d7e7bef))
+* **file-dropzone:** add missing value accessor provider [#860](https://github.com/TEHIK-EE/tedi-design-system/issues/860) ([2565eab](https://github.com/TEHIK-EE/tedi-design-system/commit/2565eab749127c3da0b4af9df8f69c23c40b54cb))
+* **file-dropzone:** add variable to override error behaviour [#860](https://github.com/TEHIK-EE/tedi-design-system/issues/860) ([40dc163](https://github.com/TEHIK-EE/tedi-design-system/commit/40dc163ac7dcc2f257eeab5c3e08620ec817aede))
+* **file-dropzone:** fix controls on file-dropzone, fix first file validation display [#860](https://github.com/TEHIK-EE/tedi-design-system/issues/860) ([d86a5d4](https://github.com/TEHIK-EE/tedi-design-system/commit/d86a5d40bf9cf0e5448210b78ca599722c65efeb))
+* **file-dropzone:** remove duplicate multiple input [#860](https://github.com/TEHIK-EE/tedi-design-system/issues/860) ([#1106](https://github.com/TEHIK-EE/tedi-design-system/issues/1106)) ([c7fbaad](https://github.com/TEHIK-EE/tedi-design-system/commit/c7fbaadecddeb79a9c40420ee5fb7818e8126ef5))
+* **header-profile:** add translation [#1074](https://github.com/TEHIK-EE/tedi-design-system/issues/1074) ([#1075](https://github.com/TEHIK-EE/tedi-design-system/issues/1075)) ([ce7d536](https://github.com/TEHIK-EE/tedi-design-system/commit/ce7d536a797633b12ce52324baf3cb358368bbc0))
+* **input-group:** do not generate a new id each render [#240](https://github.com/TEHIK-EE/tedi-design-system/issues/240) ([8cbf5c7](https://github.com/TEHIK-EE/tedi-design-system/commit/8cbf5c7d108cfb95b10571a46b5251d9eedafe65))
+* **input-group:** fix incorrect edge rounding if only one suffix/affix is active [#240](https://github.com/TEHIK-EE/tedi-design-system/issues/240) ([e0ef8f9](https://github.com/TEHIK-EE/tedi-design-system/commit/e0ef8f922d487cc171a02826f65dc60b9a2b29f6))
+* **input-group:** fix select styles changing breaking [#240](https://github.com/TEHIK-EE/tedi-design-system/issues/240) ([3d5c406](https://github.com/TEHIK-EE/tedi-design-system/commit/3d5c406cc59ec5017965800af83fd6bc859d9098))
+* **input-group:** remove a style change moving the arrow to the right [#240](https://github.com/TEHIK-EE/tedi-design-system/issues/240) ([26e9c1f](https://github.com/TEHIK-EE/tedi-design-system/commit/26e9c1f1368cbf2b67e702aee7aacd2eb97937f3))
+* **input-group:** use indexId import instead [#240](https://github.com/TEHIK-EE/tedi-design-system/issues/240) ([e55fa05](https://github.com/TEHIK-EE/tedi-design-system/commit/e55fa055a35f23fed23ded9151e87be1c4863d5d))
+
+
+### Features
+
+* **file-dropzone:** add slots for feedback, change around inputs, new story [#860](https://github.com/TEHIK-EE/tedi-design-system/issues/860) ([5c920a1](https://github.com/TEHIK-EE/tedi-design-system/commit/5c920a1bd32dda4bb2f9898742db70dda2b5414c))
+* **tabs, dropdown:** Add community tabs and dropdown [#656](https://github.com/TEHIK-EE/tedi-design-system/issues/656) [#697](https://github.com/TEHIK-EE/tedi-design-system/issues/697) ([37f9b7f](https://github.com/TEHIK-EE/tedi-design-system/commit/37f9b7f224d6450cf5b4297b3e87ffbd03113868))
+* **tabs, dropdown:** Add keyboard support for tabs and dropdown [#656](https://github.com/TEHIK-EE/tedi-design-system/issues/656) [#697](https://github.com/TEHIK-EE/tedi-design-system/issues/697) ([c430dc4](https://github.com/TEHIK-EE/tedi-design-system/commit/c430dc4a33d7a3f0e93e2a459ee6ae55117ea4b0))
+* **tabs, dropdown:** fix imports [#656](https://github.com/TEHIK-EE/tedi-design-system/issues/656) [#697](https://github.com/TEHIK-EE/tedi-design-system/issues/697) ([a2578b9](https://github.com/TEHIK-EE/tedi-design-system/commit/a2578b98975a99bd69ff6544f5e263e365342bd1))
+* **tabs, dropdown:** Update stories [#656](https://github.com/TEHIK-EE/tedi-design-system/issues/656) [#697](https://github.com/TEHIK-EE/tedi-design-system/issues/697) ([0c98dfe](https://github.com/TEHIK-EE/tedi-design-system/commit/0c98dfeca00296c0eb31596d548458b18d20eff3))
+* **tabs:** fix tabs keyboard navigation [#656](https://github.com/TEHIK-EE/tedi-design-system/issues/656) ([084d2e2](https://github.com/TEHIK-EE/tedi-design-system/commit/084d2e2082104fe9299cc2a33ae85d0e8add2ccf))
+* **tabs:** small qa feedback [#656](https://github.com/TEHIK-EE/tedi-design-system/issues/656) ([bc2375d](https://github.com/TEHIK-EE/tedi-design-system/commit/bc2375d4b799cd3b63c73eb82ae0c03ffefa29ce))
+
 # [@tehik-ee/tedi-angular-v2.4.0-rc.8](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.4.0-rc.7...angular-2.4.0-rc.8) (2025-09-25)
 
 
