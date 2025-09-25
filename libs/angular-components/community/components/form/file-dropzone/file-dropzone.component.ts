@@ -143,9 +143,11 @@ export class FileDropzoneComponent implements ControlValueAccessor, OnInit {
     validateFileType,
   ]);
   /**
-   * Disables the file dropzone, preventing user interaction.
+   * If true, shows the file dropzone as in a erroring state with red border.
+   * Overrides default validation state.
    * @default false
-   */
+   **/
+  hasError = input<boolean>(false);
   /**
    * Output event triggered when files are added or changed.
    **/
@@ -177,7 +179,9 @@ export class FileDropzoneComponent implements ControlValueAccessor, OnInit {
     if (this.disabled()) {
       classList.push("tedi-file-dropzone--disabled");
     }
-    if (this._uploadState() !== "none") {
+    if (this.hasError()) {
+      classList.push("tedi-file-dropzone--invalid");
+    } else if (this._uploadState() !== "none") {
       classList.push(`tedi-file-dropzone--${this._uploadState()}`);
     }
     if (this.isDragActive()) {

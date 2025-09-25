@@ -54,6 +54,7 @@ const meta: Meta<FileDropzoneComponent> = {
     name: "file-dropzone",
     uploadFolder: false,
     validators: [validateFileSize, validateFileType],
+    hasError: false,
   },
   argTypes: {
     accept: {
@@ -86,9 +87,6 @@ const meta: Meta<FileDropzoneComponent> = {
     className: {
       description: `Additional CSS class names to apply to the dropzone for custom styling, which are added to the main containing button element.`,
     },
-    disabled: {
-      description: `Disables the file dropzone, preventing user interaction.`,
-    },
     mode: {
       control: {
         type: "radio",
@@ -107,6 +105,10 @@ const meta: Meta<FileDropzoneComponent> = {
       control: false,
       description:
         "Validation functions that can be used to validate files. Each function should return a string error message if validation fails, or undefined if it passes.",
+    },
+    hasError: {
+      description: `If true, shows the file dropzone as in a erroring state with red border.
+        Overrides default validation state.`,
     },
   },
 };
