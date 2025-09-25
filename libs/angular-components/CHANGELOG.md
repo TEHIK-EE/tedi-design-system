@@ -1,3 +1,17 @@
+# [@tehik-ee/tedi-angular-v2.4.0-rc.7](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.4.0-rc.6...angular-2.4.0-rc.7) (2025-09-23)
+
+
+### Bug Fixes
+
+* **file-dropzone:** add missing value accessor provider [#860](https://github.com/TEHIK-EE/tedi-design-system/issues/860) ([2565eab](https://github.com/TEHIK-EE/tedi-design-system/commit/2565eab749127c3da0b4af9df8f69c23c40b54cb))
+
+# [@tehik-ee/tedi-angular-v2.4.0-rc.6](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.4.0-rc.5...angular-2.4.0-rc.6) (2025-09-23)
+
+
+### Bug Fixes
+
+* **file-dropzone:** remove duplicate multiple input [#860](https://github.com/TEHIK-EE/tedi-design-system/issues/860) ([#1106](https://github.com/TEHIK-EE/tedi-design-system/issues/1106)) ([c7fbaad](https://github.com/TEHIK-EE/tedi-design-system/commit/c7fbaadecddeb79a9c40420ee5fb7818e8126ef5))
+
 # [@tehik-ee/tedi-angular-v2.4.0-rc.5](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.4.0-rc.4...angular-2.4.0-rc.5) (2025-09-11)
 
 

@@ -6,7 +6,6 @@
   [id]="inputId()"
   [attr.webkitdirectory]="uploadFolder() ? '' : null"
   [accept]="accept()"
-  [multiple]="multiple()"
   (change)="selectionChange($event)"
 />
 <button [className]="classes()" (click)="onContainerClick()">

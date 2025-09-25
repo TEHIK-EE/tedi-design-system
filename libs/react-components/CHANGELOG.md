@@ -1,3 +1,55 @@
+# [@tehik-ee/tedi-react-v13.1.0-rc.12](https://github.com/TEHIK-EE/tedi-design-system/compare/react-13.1.0-rc.11...react-13.1.0-rc.12) (2025-09-23)
+
+
+### Features
+
+* **vertical-stepper:** add container for icons and link [#512](https://github.com/TEHIK-EE/tedi-design-system/issues/512) ([#1102](https://github.com/TEHIK-EE/tedi-design-system/issues/1102)) ([12ccd3c](https://github.com/TEHIK-EE/tedi-design-system/commit/12ccd3cb0143cd82b60a5251e2a86011bba269e2))
+
+# [@tehik-ee/tedi-react-v13.1.0-rc.11](https://github.com/TEHIK-EE/tedi-design-system/compare/react-13.1.0-rc.10...react-13.1.0-rc.11) (2025-09-22)
+
+
+### Features
+
+* **vertical-stepper:** export stepitem and subitem from vertical-stepper [#512](https://github.com/TEHIK-EE/tedi-design-system/issues/512) ([02c72a7](https://github.com/TEHIK-EE/tedi-design-system/commit/02c72a7b912a04e92d8a92ce76efcaed42184339))
+
+# [@tehik-ee/tedi-react-v13.1.0-rc.10](https://github.com/TEHIK-EE/tedi-design-system/compare/react-13.1.0-rc.9...react-13.1.0-rc.10) (2025-09-22)
+
+
+### Features
+
+* **stepper:** add vertical stepper component [#512](https://github.com/TEHIK-EE/tedi-design-system/issues/512) ([c50b6ca](https://github.com/TEHIK-EE/tedi-design-system/commit/c50b6cacf39bee15feb9cf8cdb6f3913803aca1d))
+* **stepper:** add vertical stepper component [#512](https://github.com/TEHIK-EE/tedi-design-system/issues/512) ([f86acdc](https://github.com/TEHIK-EE/tedi-design-system/commit/f86acdc4779bb57c11bb8b7977e10edcc500ae78))
+* **vertical-stepper:** add desktop comment [#512](https://github.com/TEHIK-EE/tedi-design-system/issues/512) ([6a2b542](https://github.com/TEHIK-EE/tedi-design-system/commit/6a2b5428390d6d480bdc147b8a438826e66c687e))
+* **vertical-stepper:** review changes [#512](https://github.com/TEHIK-EE/tedi-design-system/issues/512) ([ee3ab3a](https://github.com/TEHIK-EE/tedi-design-system/commit/ee3ab3ad03900c6a114de4480cd785d26c7595b2))
+
+# [@tehik-ee/tedi-react-v13.1.0-rc.9](https://github.com/TEHIK-EE/tedi-design-system/compare/react-13.1.0-rc.8...react-13.1.0-rc.9) (2025-09-19)
+
+
+### Bug Fixes
+
+* **sidenav:** add classname support to sidenav-mobile component [#936](https://github.com/TEHIK-EE/tedi-design-system/issues/936) ([#1091](https://github.com/TEHIK-EE/tedi-design-system/issues/1091)) ([d2b9d3b](https://github.com/TEHIK-EE/tedi-design-system/commit/d2b9d3b2c7d2f2c9820ca5490048f60ea655541c))
+
+# [@tehik-ee/tedi-react-v13.1.0-rc.8](https://github.com/TEHIK-EE/tedi-design-system/compare/react-13.1.0-rc.7...react-13.1.0-rc.8) (2025-09-19)
+
+
+### Bug Fixes
+
+* **choice-group:** improve focus-visible, fix broken interractions [#877](https://github.com/TEHIK-EE/tedi-design-system/issues/877) ([#1085](https://github.com/TEHIK-EE/tedi-design-system/issues/1085)) ([db901b7](https://github.com/TEHIK-EE/tedi-design-system/commit/db901b7777df34c873ca5ad1829dbdf68480a162))
+
+# [@tehik-ee/tedi-react-v13.1.0-rc.7](https://github.com/TEHIK-EE/tedi-design-system/compare/react-13.1.0-rc.6...react-13.1.0-rc.7) (2025-09-19)
+
+
+### Bug Fixes
+
+* **tooltip,popover:** fix focus trap on tab targeting [#964](https://github.com/TEHIK-EE/tedi-design-system/issues/964) ([#1089](https://github.com/TEHIK-EE/tedi-design-system/issues/1089)) ([d91584d](https://github.com/TEHIK-EE/tedi-design-system/commit/d91584d2faa87003bc332a1579eb7dd25b0fdd10))
+
+# [@tehik-ee/tedi-react-v13.1.0-rc.6](https://github.com/TEHIK-EE/tedi-design-system/compare/react-13.1.0-rc.5...react-13.1.0-rc.6) (2025-09-19)
+
+
+### Bug Fixes
+
+* **select:** prevent backspace from deleting non-removable tags [#1078](https://github.com/TEHIK-EE/tedi-design-system/issues/1078) ([#1083](https://github.com/TEHIK-EE/tedi-design-system/issues/1083)) ([33dfc54](https://github.com/TEHIK-EE/tedi-design-system/commit/33dfc5453ec01311a3c8e39f9d29ba53903ac5c2))
+
 # [@tehik-ee/tedi-react-v13.1.0-rc.5](https://github.com/TEHIK-EE/tedi-design-system/compare/react-13.1.0-rc.4...react-13.1.0-rc.5) (2025-09-17)
 
 
