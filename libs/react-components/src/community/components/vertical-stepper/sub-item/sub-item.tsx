@@ -5,9 +5,9 @@ import styles from '../vertical-stepper.module.scss';
 
 export interface SubItemProps {
   /**
-   * text
+   * Additional info components like StatusBadge, Button, Link or Text.
    */
-  children: React.ReactNode;
+  children?: React.ReactNode;
   /**
    * Custom class name.
    */
@@ -15,9 +15,21 @@ export interface SubItemProps {
   isSelected?: boolean;
   state?: 'default' | 'completed' | 'error' | 'disabled' | 'informative';
   hasIcon?: boolean;
+  title: string | React.ReactNode;
+  href?: string;
+  onClick?: () => void;
 }
 
-export const SubItem = ({ children, className, state = 'default', isSelected, hasIcon }: SubItemProps): JSX.Element => {
+export const SubItem = ({
+  children,
+  className,
+  state = 'default',
+  isSelected,
+  hasIcon,
+  title,
+  href,
+  onClick,
+}: SubItemProps): JSX.Element => {
   const subItemClassName = cn(
     styles['sub-item'],
     {
@@ -28,21 +40,36 @@ export const SubItem = ({ children, className, state = 'default', isSelected, ha
   );
 
   return (
-    <li role="treeitem" className={subItemClassName} aria-selected={isSelected}>
-      <span className={styles['sub-item-dot-container']}>
-        <span className={styles['sub-item-dot']}></span>
-      </span>
+    <>
+      <li role="treeitem" className={subItemClassName} aria-selected={isSelected}>
+        <span className={styles['sub-item-dot-container']}>
+          <span className={styles['sub-item-dot']}></span>
+        </span>
 
-      <span className={styles['sub-item-text']}>
-        {children}
-        {hasIcon && state === 'error' && (
-          <Icon name="error" color="danger" size={16} display="inline" className={styles['radio__tooltip-icon']} />
-        )}
+        <span className={styles['sub-item-text']}>
+          <a
+            href={href}
+            onClick={(e) => {
+              e.preventDefault();
+              if (onClick) {
+                onClick();
+              }
+            }}
+            className={styles['sub-item-link']}
+          >
+            {title}
+          </a>
 
-        {hasIcon && state === 'completed' && (
-          <Icon name="check" color="success" size={16} display="inline" className={styles['radio__tooltip-icon']} />
-        )}
-      </span>
-    </li>
+          {hasIcon && state === 'error' && (
+            <Icon name="error" color="danger" size={16} display="inline" className={styles['radio__tooltip-icon']} />
+          )}
+
+          {hasIcon && state === 'completed' && (
+            <Icon name="check" color="success" size={16} display="inline" className={styles['radio__tooltip-icon']} />
+          )}
+        </span>
+      </li>
+      <div>{children}</div>
+    </>
   );
 };

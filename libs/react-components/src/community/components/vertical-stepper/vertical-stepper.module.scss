@@ -4,9 +4,7 @@
 .stepper {
   display: flex;
   flex-direction: column;
-  padding: 1rem;
   counter-reset: stepper;
-  border-radius: 10px;
 }
 
 // ==================
@@ -47,7 +45,7 @@
     width: 1px;
     height: 100%;
     content: ' ';
-    background-color: var(--neutral-400);
+    background-color: var(--general-border-secondary);
     transform-origin: 50% -100%;
   }
 
@@ -124,7 +122,7 @@
     .stepper-counter {
       color: var(--color-text-disabled);
       background-color: var(--color-bg-disabled);
-      border: 2px solid var(--color-border-default);
+      border: 1px solid var(--general-border-secondary);
     }
 
     .stepper-link {
@@ -137,7 +135,7 @@
     .stepper-counter {
       color: var(--color-text-muted);
       background-color: var(--color-white);
-      border: 1px solid var(--neutral-400);
+      border: 1px solid var(--general-border-secondary);
     }
 
     .stepper-link {
@@ -225,7 +223,7 @@
   }
 
   &:hover span {
-    border-color: var(--neutral-400);
+    border-color: var(--general-border-secondary);
   }
 }
 
@@ -243,8 +241,13 @@
   margin: 0;
   list-style: none;
 
-  & p {
-    margin-left: 20px;
+  > :not(.sub-item, .sub-item-children, .sub-item-dot) {
+    width: fit-content;
+    margin-left: 16px;
+  }
+
+  .sub-item-children {
+    margin-left: 18px;
   }
 }
 
@@ -269,7 +272,7 @@
     width: 100%;
     height: 100%;
     background-color: var(--color-white);
-    border: 1px solid var(--neutral-400);
+    border: 1px solid var(--general-border-secondary);
     border-radius: 50%;
   }
 
@@ -285,11 +288,12 @@
   .sub-item-text a {
     font-size: 16px;
     color: var(--color-text-default);
+    text-decoration: none;
   }
 
   &:hover {
     .sub-item-dot {
-      border-color: var(--color-primary-main);
+      border-color: var(--color-primary-active);
     }
 
     .sub-item-text a {
@@ -328,7 +332,7 @@
     .sub-item-dot {
       color: var(--color-text-disabled);
       background-color: var(--color-bg-disabled);
-      border-color: var(--color-border-default);
+      border-color: var(--general-border-secondary);
     }
 
     .sub-item-text a {
@@ -345,15 +349,19 @@
     .sub-item-dot {
       color: var(--color-text-muted);
       background-color: var(--color-white);
-      border-color: var(--neutral-400);
+      border-color: var(--general-border-secondary);
     }
+  }
+
+  &.default:hover .sub-item-dot {
+    border-color: var(--color-primary-active);
   }
 
   &.selected {
     .sub-item-dot {
       color: var(--color-primary-active);
       background-color: var(--color-white);
-      border: 4px solid var(--color-primary-active);
+      border: 2px solid var(--color-primary-active);
     }
 
     .sub-item-text a {
@@ -363,6 +371,10 @@
 
     &:hover .sub-item-dot {
       border-color: var(--blue-800);
+    }
+
+    &:hover .sub-item-text a {
+      color: var(--blue-800);
     }
   }
 }
@@ -394,7 +406,7 @@
 .stepper--compact .stepper-item.selected .stepper-counter {
   color: var(--color-primary-active);
   background-color: var(--color-white);
-  border: 4px solid var(--color-primary-active);
+  border: 2px solid var(--color-primary-active);
 }
 
 .stepper--compact .stepper-item .stepper-counter {
@@ -436,10 +448,10 @@
 .stepper--compact .stepper-item .sub-item .sub-item-dot {
   width: 100%;
   height: 100%;
-}
 
-.stepper--compact .stepper-item .sub-item:hover .sub-item-dot {
-  border-color: var(--color-primary-main);
+  &:hover {
+    border-color: var(--color-primary-main);
+  }
 }
 
 .stepper--compact .stepper-item .sub-item:hover .sub-item-text a {
@@ -472,7 +484,11 @@
 .stepper--compact .stepper-item .sub-item.disabled .sub-item-dot {
   color: var(--color-text-disabled);
   background-color: var(--color-bg-disabled);
-  border-color: var(--color-border-default);
+  border-color: var(--general-border-secondary);
+}
+
+.stepper--compact .stepper-item.disabled .stepper-counter {
+  border: 1px solid var(--general-border-secondary);
 }
 
 .stepper--compact .stepper-item .sub-item.disabled .sub-item-text a {
@@ -487,13 +503,21 @@
 .stepper--compact .stepper-item .sub-item.default .sub-item-dot {
   color: var(--color-text-muted);
   background-color: var(--color-white);
-  border-color: var(--neutral-400);
+  border-color: var(--general-border-secondary);
+
+  &:hover {
+    border-color: var(--color-primary-main);
+  }
+}
+
+.stepper--compact .stepper-item .sub-item.default:hover .sub-item-dot {
+  border-color: var(--color-primary-main);
 }
 
 .stepper--compact .stepper-item .sub-item.selected .sub-item-dot {
   color: var(--color-primary-active);
   background-color: var(--color-white);
-  border: 4px solid var(--color-primary-active);
+  border: 2px solid var(--color-primary-active);
 }
 
 .stepper--compact .stepper-item .sub-item.selected .sub-item-text a {
@@ -502,7 +526,7 @@
 }
 
 .stepper--compact .stepper-item .sub-item.selected:hover .sub-item-dot {
-  border-color: var(--blue-800);
+  border-color: var(--color-primary-active);
 }
 
 .stepper--compact .stepper-link {

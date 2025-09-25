@@ -7,7 +7,7 @@ import styles from '../vertical-stepper.module.scss';
 
 export interface StepItemProps {
   /**
-   * SubItems and/or Text for description
+   * SubItems and additional info components like StatusBadge, Button, Link or Text.
    */
   children?: React.ReactNode;
   /**
@@ -18,8 +18,6 @@ export interface StepItemProps {
   /** Shows the current step */
   isSelected?: boolean;
   hasNumber?: boolean;
-  /** Descriptive text under step's title */
-  description?: string;
   /**Step title text */
   title: string | React.ReactNode;
   href?: string;
