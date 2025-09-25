@@ -61,6 +61,13 @@ export interface UseFileUploadProps {
    * Callback function triggered when a file is removed.
    */
   onDelete?: (file: FileUploadFile) => void;
+  /*
+   * An optional array of files to be used in controlled mode.
+   When provided, the hook uses this array as the source of truth for the file list instead of its internal state. 
+   The parent component is responsible for updating this prop in response to the `onChange` callback. 
+   If not provided, the hook operates in uncontrolled mode, managing its own internal file state via `defaultFiles` and user interactions.
+   */
+  files?: FileUploadFile[];
 }
 
 const getDefaultHelpers = (
@@ -79,6 +86,8 @@ const getDefaultHelpers = (
   return text.length ? { text } : undefined;
 };
 
+const generateId = () => `${Date.now()}-${Math.random().toString(36).slice(2)}`;
+
 export const useFileUpload = (props: UseFileUploadProps) => {
   const { getLabel } = useLabels();
   const {
@@ -89,9 +98,13 @@ export const useFileUpload = (props: UseFileUploadProps) => {
     defaultFiles = [],
     onChange,
     onDelete,
+    files,
   } = props;
 
+  const isControlled = files !== undefined;
   const [innerFiles, setInnerFiles] = React.useState<FileUploadFile[]>(defaultFiles);
+  const actualFiles = isControlled ? files : innerFiles;
+
   const [uploadErrorHelper, setUploadErrorHelper] = React.useState<FeedbackTextProps | undefined>(
     getDefaultHelpers({ accept, maxSize }, getLabel)
   );
@@ -128,9 +141,9 @@ export const useFileUpload = (props: UseFileUploadProps) => {
 
   const onFileChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     if (event.target.files) {
-      const files = Array.from(event.target.files);
+      const filesArray = Array.from(event.target.files);
       const rejectedFiles: RejectedFile[] = [];
-      const uploadedFiles = files.map((file) => {
+      const uploadedFiles = filesArray.map((file) => {
         const isValidExtension = validFileType(file);
         const isValidSize = !maxSize || file.size <= maxSize * 1024 ** 2;
 
@@ -143,46 +156,38 @@ export const useFileUpload = (props: UseFileUploadProps) => {
         });
 
         return Object.assign(enhancedFile, {
+          id: generateId(),
           isLoading: false,
           isValid: isValidExtension && isValidSize,
         });
       });
 
+      let newFiles: FileUploadFile[] = [];
+
       if (!multiple && uploadedFiles.length > 0) {
-        const newFiles = [uploadedFiles[0]];
-        setInnerFiles(newFiles);
-        onChange?.(newFiles);
-
-        if (rejectedFiles.length) {
-          setUploadErrorHelper({ type: 'error', text: getUploadErrorHelperText(rejectedFiles) });
-        } else {
-          setUploadErrorHelper(getDefaultHelpers({ accept, maxSize }, getLabel));
+        if (uploadedFiles[0].isValid) {
+          newFiles = [uploadedFiles[0]];
         }
+      } else if (validateIndividually) {
+        newFiles = [...actualFiles, ...uploadedFiles];
       } else {
-        if (validateIndividually) {
-          const newFiles = [...innerFiles, ...uploadedFiles];
-          setInnerFiles(newFiles);
-          onChange?.(newFiles);
-
-          if (rejectedFiles.length) {
-            setUploadErrorHelper({ type: 'error', text: getUploadErrorHelperText(rejectedFiles) });
-          } else {
-            setUploadErrorHelper(getDefaultHelpers({ accept, maxSize }, getLabel));
-          }
-        } else {
-          const validFiles = uploadedFiles.filter((file) => file.isValid);
-          if (validFiles.length > 0) {
-            const newFiles = [...innerFiles, ...validFiles];
-            setInnerFiles(newFiles);
-            onChange?.(newFiles);
-          }
-
-          if (rejectedFiles.length) {
-            setUploadErrorHelper({ type: 'error', text: getUploadErrorHelperText(rejectedFiles) });
-          } else {
-            setUploadErrorHelper(getDefaultHelpers({ accept, maxSize }, getLabel));
-          }
+        const validFiles = uploadedFiles.filter((file) => file.isValid);
+        if (validFiles.length > 0) {
+          newFiles = [...actualFiles, ...validFiles];
         }
+      }
+
+      if (newFiles.length > 0) {
+        if (!isControlled) {
+          setInnerFiles(newFiles);
+        }
+        onChange?.(newFiles);
+      }
+
+      if (rejectedFiles.length) {
+        setUploadErrorHelper({ type: 'error', text: getUploadErrorHelperText(rejectedFiles) });
+      } else {
+        setUploadErrorHelper(getDefaultHelpers({ accept, maxSize }, getLabel));
       }
 
       if (fileInputRef.current) {
@@ -192,11 +197,17 @@ export const useFileUpload = (props: UseFileUploadProps) => {
   };
 
   const onFileRemove = (file: FileUploadFile): void => {
-    const newFiles = innerFiles.filter((f) => f !== file);
+    const newFiles = actualFiles.filter((f) => f !== file);
 
-    setInnerFiles(newFiles);
+    if (!isControlled) {
+      setInnerFiles(newFiles);
+    }
     onDelete?.(file);
     onChange?.(newFiles);
+
+    if (newFiles.length === 0) {
+      setUploadErrorHelper(getDefaultHelpers({ accept, maxSize }, getLabel));
+    }
 
     if (fileInputRef.current) {
       fileInputRef.current.value = '';
@@ -204,9 +215,12 @@ export const useFileUpload = (props: UseFileUploadProps) => {
   };
 
   const handleClear = (): FileUploadFile[] => {
-    const deletedFiles = [...innerFiles];
+    const deletedFiles = [...actualFiles];
     deletedFiles.forEach((file) => onDelete?.(file));
-    setInnerFiles([]);
+
+    if (!isControlled) {
+      setInnerFiles([]);
+    }
     onChange?.([]);
     setUploadErrorHelper(getDefaultHelpers({ accept, maxSize }, getLabel));
 
@@ -218,7 +232,7 @@ export const useFileUpload = (props: UseFileUploadProps) => {
   };
 
   return {
-    innerFiles,
+    innerFiles: actualFiles,
     uploadErrorHelper,
     onFileChange,
     onFileRemove,
