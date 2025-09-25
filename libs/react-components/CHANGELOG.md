@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-react-v13.1.0-rc.13](https://github.com/TEHIK-EE/tedi-design-system/compare/react-13.1.0-rc.12...react-13.1.0-rc.13) (2025-09-25)
+
+
+### Bug Fixes
+
+* **sidenav:** pass id to sidenav-mobile [#935](https://github.com/TEHIK-EE/tedi-design-system/issues/935) ([#1090](https://github.com/TEHIK-EE/tedi-design-system/issues/1090)) ([20faf2b](https://github.com/TEHIK-EE/tedi-design-system/commit/20faf2b695ea575e9d5cc5d7c22954bc6e97af12))
+
 # [@tehik-ee/tedi-react-v13.1.0-rc.12](https://github.com/TEHIK-EE/tedi-design-system/compare/react-13.1.0-rc.11...react-13.1.0-rc.12) (2025-09-23)
 
 
