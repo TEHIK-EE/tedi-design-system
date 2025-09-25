@@ -18,6 +18,7 @@ export interface SubItemProps {
   title: string | React.ReactNode;
   href?: string;
   onClick?: () => void;
+  as?: 'a' | 'button';
 }
 
 export const SubItem = ({
@@ -28,8 +29,11 @@ export const SubItem = ({
   hasIcon,
   title,
   href,
+  as = 'a',
   onClick,
 }: SubItemProps): JSX.Element => {
+  const Element = as;
+
   const subItemClassName = cn(
     styles['sub-item'],
     {
@@ -47,7 +51,7 @@ export const SubItem = ({
         </span>
 
         <span className={styles['sub-item-text']}>
-          <a
+          <Element
             href={href}
             onClick={(e) => {
               e.preventDefault();
@@ -58,7 +62,7 @@ export const SubItem = ({
             className={styles['sub-item-link']}
           >
             {title}
-          </a>
+          </Element>
 
           {hasIcon && state === 'error' && (
             <Icon name="error" color="danger" size={16} display="inline" className={styles['radio__tooltip-icon']} />

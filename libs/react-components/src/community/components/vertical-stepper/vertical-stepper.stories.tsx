@@ -26,7 +26,7 @@ const Template: StoryFn<typeof VerticalStepper> = ({ isCompact = false }) => (
       <VerticalStepper isCompact={isCompact}>
         <StepItem title="Suhtlemine" isSelected hasIcon>
           <Button size="small">Button</Button>
-          <SubItem title="Sotsiaalsed suhted" state="completed">
+          <SubItem title="Sotsiaalsed suhted" state="completed" as="button">
             <StatusBadge color="warning" variant="filled">
               Mõõdukas probleem
             </StatusBadge>
@@ -63,7 +63,7 @@ const Template: StoryFn<typeof VerticalStepper> = ({ isCompact = false }) => (
           <SubItem title="Abi perekonnalt" state="completed"></SubItem>
           <SubItem title="Abi sõpradelt ja tuttavatelt" state="error"></SubItem>
           <SubItem title="Tervisevaldkonna teenused"></SubItem>
-          <SubItem title="Haridusvaldkonna teenused" isSelected></SubItem>
+          <SubItem as="button" title="Haridusvaldkonna teenused" isSelected></SubItem>
 
           <SubItem title="Tööhõive valdkonna teenused" state="disabled"></SubItem>
           <SubItem title="Muu abi" state="informative"></SubItem>
