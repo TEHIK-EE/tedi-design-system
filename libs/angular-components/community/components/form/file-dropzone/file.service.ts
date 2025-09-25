@@ -7,9 +7,7 @@ import {
 } from "./types";
 import { TediTranslationService } from "@tehik-ee/tedi-angular/tedi";
 
-@Injectable({
-  providedIn: "root",
-})
+@Injectable()
 export class FileService {
   maxSize = 0;
   accept = "";
@@ -22,8 +20,9 @@ export class FileService {
   private _translateService = inject(TediTranslationService);
 
   get files(): Signal<FileDropzone[]> {
-    return this._files;
+    return this._files.asReadonly();
   }
+
   public async addFiles(files: FileDropzone[] | File[]): Promise<string[]> {
     let newFiles = this.normalizeFiles(files);
     const currentFiles = this.files();
@@ -57,8 +56,8 @@ export class FileService {
       newFiles = newFiles.filter((file) => file.fileStatus !== "invalid");
     }
     const error = this._checkErrorState(newFiles);
-    this.uploadState.set(this._getNewState(!!error.length));
     this._files.set(newFiles);
+    this.uploadState.set(this._getNewState(!!error.length));
     return error;
   }
 
