@@ -21,6 +21,7 @@ type SideNavMobileProps<C extends React.ElementType = 'a'> = {
   isOpen: boolean;
   onClose: () => void;
   showOverlay?: boolean;
+  id?: string;
   className?: string;
 };
 
@@ -31,6 +32,7 @@ export const SideNavMobile = <C extends React.ElementType = 'a'>({
   isOpen,
   onClose,
   showOverlay = true,
+  id,
   className,
 }: SideNavMobileProps<C>) => {
   const { getLabel } = useLabels();
@@ -147,6 +149,7 @@ export const SideNavMobile = <C extends React.ElementType = 'a'>({
       data-name="mobile-sidenav"
       className={classNames(styles['tedi-sidenav'], styles['tedi-sidenav--mobile'], className)}
       aria-label={ariaLabel}
+      id={id}
     >
       <div className={styles['tedi-sidenav__list']}>
         {!isRootLevel && (
