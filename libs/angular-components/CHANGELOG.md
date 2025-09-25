@@ -1,3 +1,16 @@
+# [@tehik-ee/tedi-angular-v2.4.0-rc.8](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.4.0-rc.7...angular-2.4.0-rc.8) (2025-09-25)
+
+
+### Bug Fixes
+
+* **file-dropzone:** add variable to override error behaviour [#860](https://github.com/TEHIK-EE/tedi-design-system/issues/860) ([40dc163](https://github.com/TEHIK-EE/tedi-design-system/commit/40dc163ac7dcc2f257eeab5c3e08620ec817aede))
+* **file-dropzone:** fix controls on file-dropzone, fix first file validation display [#860](https://github.com/TEHIK-EE/tedi-design-system/issues/860) ([d86a5d4](https://github.com/TEHIK-EE/tedi-design-system/commit/d86a5d40bf9cf0e5448210b78ca599722c65efeb))
+
+
+### Features
+
+* **file-dropzone:** add slots for feedback, change around inputs, new story [#860](https://github.com/TEHIK-EE/tedi-design-system/issues/860) ([5c920a1](https://github.com/TEHIK-EE/tedi-design-system/commit/5c920a1bd32dda4bb2f9898742db70dda2b5414c))
+
 # [@tehik-ee/tedi-angular-v2.4.0-rc.7](https://github.com/TEHIK-EE/tedi-design-system/compare/angular-2.4.0-rc.6...angular-2.4.0-rc.7) (2025-09-23)
 
 
