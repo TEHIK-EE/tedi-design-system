@@ -442,3 +442,57 @@ export const ScrollLocked: Story = {
     scrollLock: true,
   },
 };
+
+export const FocusLocked: Story = {
+  render: (args) => {
+    const [open, setOpen] = useState(false);
+    return (
+      <Popover
+        {...args}
+        open={open}
+        onToggle={setOpen}
+        focusManager={{
+          modal: true,
+          initialFocus: 0,
+        }}
+      >
+        <Popover.Trigger>
+          <Button>Modal Popover</Button>
+        </Popover.Trigger>
+        <Popover.Content title="Modal Dialog" width="medium" close>
+          The polar bear (Ursus maritimus) is a large bear native to the Arctic.
+          <div className="display-flex justify-content-end gap-2">
+            <Button visualType="secondary" onClick={() => setOpen(false)} id="cancelButton">
+              Cancel
+            </Button>
+            <Button
+              onClick={() => {
+                alert('Submitted!');
+                setOpen(false);
+              }}
+              id="submitButton"
+            >
+              Submit
+            </Button>
+          </div>
+        </Popover.Content>
+      </Popover>
+    );
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: `
+  This story demonstrates a Popover with a “locked” focus behavior, where keyboard navigation (Tab) is confined 
+  to the Popover content until the user clicks an action like "Cancel" or "Submit".
+
+  Key points:
+  - Keyboard focus is restricted inside the Popover until it is closed.
+  - \`focusManager.modal\` ensures focus stays within the Popover content.
+  - \`initialFocus\` sets the first element to receive focus when opening.
+  - This setup covers mostly edge cases; the default focus trap is false.
+`,
+      },
+    },
+  },
+};

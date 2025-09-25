@@ -1,5 +1,7 @@
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import React from 'react';
 
+import { FileUploadFile } from '../../../helpers';
 import FileUpload, { FileUploadProps } from './file-upload';
 
 import '@testing-library/jest-dom';
@@ -312,5 +314,41 @@ describe('FileUpload component', () => {
     fireEvent.click(addButton);
 
     expect(clickSpy).toHaveBeenCalled();
+  });
+
+  it('handles controlled files prop correctly', () => {
+    const files = [{ name: 'controlled.jpg', id: '1', isValid: true }];
+    render(<FileUpload {...defaultProps} files={files} onChange={jest.fn()} />);
+
+    expect(screen.getByText('controlled.jpg')).toBeInTheDocument();
+  });
+
+  it('handles controlled mode with file uploads and rejections', async () => {
+    const ControlledWrapper = ({ initialFiles }: { initialFiles: FileUploadFile[] }) => {
+      const [files, setFiles] = React.useState(initialFiles);
+      return <FileUpload {...defaultProps} files={files} onChange={setFiles} />;
+    };
+
+    const initialFiles = [{ name: 'initial.jpg', id: '1', isValid: true }];
+    render(<ControlledWrapper initialFiles={initialFiles} />);
+
+    expect(screen.getByText('initial.jpg')).toBeInTheDocument();
+
+    const input = screen.getByLabelText(/Upload files/i);
+    const validFile = new File(['dummy content'], 'new.jpg', { type: 'image/jpeg' });
+    const invalidFile = new File(['dummy content'], 'test.txt', { type: 'text/plain' });
+    fireEvent.change(input, { target: { files: [validFile, invalidFile] } });
+
+    await waitFor(() => {
+      expect(screen.getByText('new.jpg')).toBeInTheDocument();
+      expect(screen.getByText(/file-upload.extension-rejected/i)).toBeInTheDocument();
+    });
+
+    const clearButton = screen.getByRole('button', { name: /clear/i });
+    fireEvent.click(clearButton);
+    await waitFor(() => {
+      expect(screen.queryByText('initial.jpg')).not.toBeInTheDocument();
+      expect(screen.queryByText('new.jpg')).not.toBeInTheDocument();
+    });
   });
 });

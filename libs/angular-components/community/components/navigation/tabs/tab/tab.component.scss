@@ -1,0 +1,61 @@
+@use "@tehik-ee/tedi-core/mixins";
+
+.tedi-tab {
+  --_tab-background: var(--tab-item-default-background);
+  --_tab-color: var(--tab-item-default-text);
+  --_tab-padding: var(--_tab-padding-y) var(--_tab-padding-x);
+  --_tab-selected-border: var(--tab-item-selected-border);
+
+  padding: var(--_tab-padding);
+  background: var(--_tab-background);
+  color: var(--_tab-color);
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--_tab-inner-spacing);
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+
+  @include mixins.responsive-styles(--_tab-padding-y, tab-spacing-y);
+  @include mixins.responsive-styles(--_tab-padding-x, tab-spacing-x);
+  @include mixins.responsive-styles(--_tab-inner-spacing, tab-inner-spacing);
+  @include mixins.responsive-styles(
+    font-size,
+    body-regular-size,
+    $exclude: tablet
+  );
+
+  &:active {
+    --_tab-background: var(--tab-item-active-background);
+    --_tab-color: var(--tab-item-active-text);
+  }
+
+  &:hover,
+  &:focus {
+    --_tab-background: var(--tab-item-hover-background);
+    --_tab-color: var(--tab-item-hover-text);
+  }
+
+  &--selected,
+  &--active {
+    --_tab-background: var(--tab-item-selected-background);
+    --_tab-color: var(--tab-item-selected-text);
+
+    @include mixins.responsive-styles(font-weight, body-bold-weight);
+
+    &::after {
+      content: "";
+      position: absolute;
+      border-top: 3px solid var(--_tab-selected-border);
+      top: 0;
+      left: 0;
+      right: 0;
+    }
+  }
+
+  &--disabled {
+    pointer-events: none;
+  }
+}

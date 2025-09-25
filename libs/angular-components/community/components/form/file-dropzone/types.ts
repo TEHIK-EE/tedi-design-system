@@ -22,11 +22,11 @@ export class FileDropzone {
    */
   label?: string;
   /*
-   * Provides helper text or feedback (such as an error or instruction message) to guide the user.
+   * Provides a tooltip (such as an error or instruction message) to guide the user.
    */
   helper?: FeedbackTextProps;
   /*
-   * Disables the file button, preventing user interaction.
+   * Disables the file delete button, preventing user interaction.
    */
   disabled?: boolean;
   /*
@@ -37,7 +37,6 @@ export class FileDropzone {
    * Possible additional properties for the file, such as metadata.
    */
   metaData?: Record<string, unknown>;
-
   /*
    * The actual file object being uploaded.
    */

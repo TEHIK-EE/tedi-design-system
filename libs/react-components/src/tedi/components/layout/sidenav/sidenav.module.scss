@@ -277,11 +277,6 @@
     @include mixins.responsive-styles(line-height, body-small-regular-line-height);
   }
 
-  .tedi-sidenav__bullet,
-  .tedi-sidenav__sub-item::after {
-    top: calc(var(--medium-sidenav-item-height) / 2);
-  }
-
   .tedi-sidenav__icon {
     font-size: var(--size-05);
   }
@@ -302,11 +297,6 @@
   .tedi-sidenav__sub-item .tedi-sidenav__link {
     @include mixins.responsive-styles(padding-top, side-navigation-item-padding-y-sm);
     @include mixins.responsive-styles(padding-bottom, side-navigation-item-padding-y-sm);
-  }
-
-  .tedi-sidenav__bullet,
-  .tedi-sidenav__sub-item::after {
-    top: calc(var(--small-sidenav-item-height) / 2);
   }
 
   .tedi-sidenav__icon {

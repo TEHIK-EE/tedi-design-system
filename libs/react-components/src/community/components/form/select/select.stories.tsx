@@ -197,3 +197,23 @@ export const SelectWithStyledGroupedOptions: Story = {
     options: groupedOptions2,
   },
 };
+
+export const PlaceholderForSingleValue: Story = {
+  args: {
+    id: 'example-1',
+    label: 'Label',
+    placeholder: 'Placeholder',
+    options: options,
+    multiple: false,
+  },
+};
+
+export const PlaceholderForMultiValue: Story = {
+  args: {
+    id: 'example-1',
+    label: 'Label',
+    placeholder: 'Placeholder',
+    options: options,
+    multiple: true,
+  },
+};

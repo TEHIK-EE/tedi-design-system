@@ -10,7 +10,7 @@ export const translationsMap = {
       "FileUpload",
       "Dropdown",
       "Tooltip",
-      "HeaderRole"
+      "HeaderRole",
     ],
     et: "Sulge",
     en: "Close",
@@ -64,6 +64,12 @@ export const translationsMap = {
     et: "Jäljerida",
     en: "Breadcrumbs",
     ru: "Навигационная цепочка",
+  },
+  more: {
+    components: ["Tabs"],
+    et: "Veel",
+    en: "More",
+    ru: "Более",
   },
   "anchor.new-tab": {
     description: "Label for when anchor opens in new tab",
@@ -148,6 +154,13 @@ export const translationsMap = {
     et: "Logo",
     en: "Logo",
     ru: "Логотип",
+  },
+  "header.profile": {
+    description: "Label for profile button",
+    components: ["HeaderProfile"],
+    et: "Profiil",
+    en: "Profile",
+    ru: "Профиль",
   },
   "file-upload.add": {
     description: "Label for add file button",

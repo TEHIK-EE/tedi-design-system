@@ -6,13 +6,17 @@ import {
   input,
   signal,
   viewChild,
-  model,
   ElementRef,
   effect,
   OnInit,
   output,
+  forwardRef,
 } from "@angular/core";
-import { ControlValueAccessor, ReactiveFormsModule } from "@angular/forms";
+import {
+  ControlValueAccessor,
+  NG_VALUE_ACCESSOR,
+  ReactiveFormsModule,
+} from "@angular/forms";
 import {
   ClosingButtonComponent,
   FeedbackTextComponent,
@@ -58,7 +62,14 @@ import { FileService } from "./file.service";
     VerticalSpacingDirective,
     TediTranslationPipe,
   ],
-  providers: [FileService],
+  providers: [
+    FileService,
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => FileDropzoneComponent),
+      multi: true,
+    },
+  ],
 })
 export class FileDropzoneComponent implements ControlValueAccessor, OnInit {
   /**
@@ -76,6 +87,8 @@ export class FileDropzoneComponent implements ControlValueAccessor, OnInit {
   maxSize = input<number>(0);
   /**
    * Determines if multiple files can be uploaded at once via the file picker.
+   *
+   * https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/multiple
    * @default false
    **/
   multiple = input<boolean>(false);
@@ -114,7 +127,6 @@ export class FileDropzoneComponent implements ControlValueAccessor, OnInit {
    *  @default "append"
    */
   mode = input<FileInputMode>("append");
-
   /**
    * If true, allows uploading folders instead of just files.
    * This enables the user to select a folder and upload all its contents.
@@ -131,20 +143,11 @@ export class FileDropzoneComponent implements ControlValueAccessor, OnInit {
     validateFileType,
   ]);
   /**
-   * Disables the file dropzone, preventing user interaction.
+   * If true, shows the file dropzone as in a erroring state with red border.
+   * Overrides default validation state.
    * @default false
-   */
-  disabled = model<boolean>(false);
-  /**
-   * Provides helper text or feedback (such as an error or instruction message) to guide the user.
-   */
-  uploadError = model<string>();
-  /**
-   * Provides helper text or feedback (such as an error or instruction message) to guide the user.
-   * By default this is automatically generated based on the `accept` and `maxSize` inputs.
-   */
-  helperText = model<FeedbackTextProps>();
-
+   **/
+  hasError = input<boolean>(false);
   /**
    * Output event triggered when files are added or changed.
    **/
@@ -159,9 +162,7 @@ export class FileDropzoneComponent implements ControlValueAccessor, OnInit {
 
   formatBytes = (bytes: number): string => formatBytes(bytes);
 
-  private _uploadState = computed(
-    () => this._fileService?.uploadState() || "none"
-  );
+  private _uploadState = computed(() => this._fileService.uploadState());
 
   private _onChange = (_: FileDropzone[]) => {};
   private _onTouched = () => {};
@@ -170,6 +171,7 @@ export class FileDropzoneComponent implements ControlValueAccessor, OnInit {
   private _fileService = inject(FileService);
 
   isDragActive = signal<boolean>(false);
+  disabled = signal<boolean>(false);
 
   classes = computed(() => {
     const classList = ["tedi-file-dropzone"];
@@ -177,7 +179,9 @@ export class FileDropzoneComponent implements ControlValueAccessor, OnInit {
     if (this.disabled()) {
       classList.push("tedi-file-dropzone--disabled");
     }
-    if (this._uploadState() !== "none") {
+    if (this.hasError()) {
+      classList.push("tedi-file-dropzone--invalid");
+    } else if (this._uploadState() !== "none") {
       classList.push(`tedi-file-dropzone--${this._uploadState()}`);
     }
     if (this.isDragActive()) {
@@ -189,6 +193,18 @@ export class FileDropzoneComponent implements ControlValueAccessor, OnInit {
 
     return classList.join(" ");
   });
+
+  uploadError = signal<string | null>(null);
+
+  helperText = computed<FeedbackTextProps>(() => ({
+    text: getDefaultHelpers(
+      this.accept(),
+      this.maxSize(),
+      this._translationService.translate.bind(this._translationService)
+    ),
+    type: "hint",
+    position: "left",
+  }));
 
   constructor() {
     effect(() => {
@@ -228,17 +244,6 @@ export class FileDropzoneComponent implements ControlValueAccessor, OnInit {
 
   ngOnInit(): void {
     this.addFiles(this.defaultFiles());
-    if (!this.helperText()) {
-      this.helperText.set({
-        text: getDefaultHelpers(
-          this.accept(),
-          this.maxSize(),
-          this._translationService.translate.bind(this._translationService)
-        ),
-        type: "hint",
-        position: "left",
-      });
-    }
   }
 
   selectionChange = (event: Event) => {
@@ -300,7 +305,7 @@ export class FileDropzoneComponent implements ControlValueAccessor, OnInit {
 
     this._updateErrorState(error);
 
-    this._onChange(normalizedFiles);
+    this._onChange(this._fileService.files());
     this.fileChange.emit(normalizedFiles);
   }
 
@@ -308,6 +313,7 @@ export class FileDropzoneComponent implements ControlValueAccessor, OnInit {
     const error = this._fileService.removeFiles([file]);
     this._updateErrorState(error);
 
+    this._onChange(this._fileService.files());
     this.fileDelete.emit(file);
   }
 

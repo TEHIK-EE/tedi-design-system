@@ -66,7 +66,7 @@
   &:has(.tedi-input-group__prefix:empty) {
     @include left-round-corners();
 
-    .tedi-input {
+    input.tedi-input {
       @include left-round-corners();
     }
   }
@@ -74,13 +74,13 @@
   &:has(.tedi-input-group__suffix:empty) {
     @include right-round-corners();
 
-    .tedi-input {
+    input.tedi-input {
       @include right-round-corners();
     }
   }
 
   // handle focusable inputs being able to share borders
-  .tedi-input-group__prefix tedi-select button {
+  .tedi-input-group__prefix tedi-select .tedi-select__trigger {
     &:focus,
     &:hover {
       border-right: var(--_input-group-border-width) solid
@@ -88,7 +88,7 @@
     }
   }
 
-  .tedi-input-group__suffix tedi-select button {
+  .tedi-input-group__suffix tedi-select .tedi-select__trigger {
     &:focus,
     &:hover {
       border-left: var(--_input-group-border-width) solid
@@ -97,8 +97,8 @@
   }
 
   &:has(
-      .tedi-input-group__prefix tedi-select button:focus,
-      .tedi-input-group__prefix tedi-select button:hover
+      .tedi-input-group__prefix tedi-select .tedi-select__trigger:focus,
+      .tedi-input-group__prefix tedi-select .tedi-select__trigger:hover
     ) {
     .tedi-input-group__center .tedi-input {
       border-left: var(--_input-group-share-border-size);
@@ -106,8 +106,8 @@
   }
 
   &:has(
-      .tedi-input-group__suffix tedi-select button:focus,
-      .tedi-input-group__suffix tedi-select button:hover
+      .tedi-input-group__suffix tedi-select .tedi-select__trigger:focus,
+      .tedi-input-group__suffix tedi-select .tedi-select__trigger:hover
     ) {
     .tedi-input-group__center .tedi-input {
       border-right: var(--_input-group-share-border-size);
@@ -148,7 +148,7 @@
     background-color: transparent;
   }
 
-  tedi-select button {
+  tedi-select .tedi-select__trigger {
     background: var(--_input-group-side-background-color);
     height: 100%;
     margin: 0;
@@ -164,7 +164,7 @@
 
   @include left-round-corners();
 
-  tedi-select button {
+  tedi-select .tedi-select__trigger {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
     border-right: 0;
@@ -176,7 +176,7 @@
 
   @include right-round-corners();
 
-  tedi-select button {
+  tedi-select .tedi-select__trigger {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
     border-left: 0;

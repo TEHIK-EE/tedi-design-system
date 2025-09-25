@@ -76,7 +76,10 @@ export type SideNavItem<C extends React.ElementType = 'a'> = AnchorProps<C> & {
   subItems?: SideNavItem<C>[];
 };
 
-export function SideNav<C extends React.ElementType = 'a'>(props: SideNavProps<C>) {
+// tiny helper to defer closing to the next frame (prevents ghost click on touch)
+const defer = (fn: () => void) => requestAnimationFrame(fn);
+
+export const SideNav = <C extends React.ElementType = 'a'>(props: SideNavProps<C>) => {
   const {
     navItems,
     ariaLabel,
@@ -134,11 +137,15 @@ export function SideNav<C extends React.ElementType = 'a'>(props: SideNavProps<C
       </FloatingFocusManager>
     </FloatingOverlay>
   ) : null;
-}
+};
 
-function SideNavItem<C extends React.ElementType = 'a'>(props: SideNavItem<C>) {
+const SideNavItem = <C extends React.ElementType = 'a'>(props: SideNavItem<C>) => {
   const { icon, children, isActive, onClick, subItems, as, ...rest } = props;
-  const { toggleMenu } = React.useContext(LayoutContext);
+
+  // we need access to onHeaderSidenavToggle to infer external control
+  const { toggleMenu, onHeaderSidenavToggle } = React.useContext(LayoutContext);
+  const isSmallLayout = useLayout(['mobile', 'tablet']);
+
   const SideNavItemBEM = cn(styles['sidenav__item'], { [styles['sidenav__item--current']]: isActive });
   const collapseId = React.useId();
 
@@ -153,9 +160,24 @@ function SideNavItem<C extends React.ElementType = 'a'>(props: SideNavItem<C>) {
     return <Icon {...iconProps} />;
   };
 
+  // robust click handler
+  // - calls consumer onClick (e.g., React Router navigate)
+  // - stops propagation so overlay/outside handlers don't see this
+  // - if we own the menu state (no external toggle callback), close the menu
+  //   and DEFER the close on small layouts so the synthetic click can't "escape"
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     onClick?.(e);
-    toggleMenu();
+    e.stopPropagation();
+
+    const isExternallyControlled = typeof onHeaderSidenavToggle === 'function'; // ADDED
+
+    if (!isExternallyControlled) {
+      if (isSmallLayout) {
+        defer(() => toggleMenu());
+      } else {
+        toggleMenu();
+      }
+    }
   };
 
   return (
@@ -203,6 +225,6 @@ function SideNavItem<C extends React.ElementType = 'a'>(props: SideNavItem<C>) {
       )}
     </li>
   );
-}
+};
 
 export default SideNav;

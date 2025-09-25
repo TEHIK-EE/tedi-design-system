@@ -230,8 +230,9 @@ export const TextField = forwardRef<TextFieldForwardRef, TextFieldProps>((props,
         <WrapperElement
           className={styles['tedi-textfield__icon-wrapper']}
           type={onIconClick ? 'button' : undefined}
-          onClick={onIconClick}
+          onClick={disabled ? undefined : onIconClick}
           disabled={disabled}
+          tabIndex={disabled ? -1 : 0}
         >
           {iconComponent}
         </WrapperElement>
@@ -278,22 +279,23 @@ export const TextField = forwardRef<TextFieldForwardRef, TextFieldProps>((props,
 
   const renderInputElement = React.useMemo((): JSX.Element | null => {
     const sharedProps = {
-      'aria-describedby': helperId,
-      ...input,
       id,
+      name,
+      ...(hideLabel ? { 'aria-label': label } : {}),
+      'aria-describedby': helperId,
+      'aria-disabled': disabled || undefined,
       className: cn(styles['tedi-textfield__input'], inputClassName, {
         [styles['tedi-textfield__input--hidden-arrows']]: isArrowsHidden,
       }),
       disabled,
       required,
-      'aria-invalid': isInvalid,
+      'aria-invalid': isInvalid || undefined,
       placeholder,
       readOnly,
       onChange: onChangeHandler,
       value,
       onBlur,
       onFocus,
-      name,
     };
 
     if (isTextAreaRef(props, inputRef)) {
@@ -320,17 +322,20 @@ export const TextField = forwardRef<TextFieldForwardRef, TextFieldProps>((props,
     onChangeHandler,
     onFocus,
     placeholder,
-    props,
     readOnly,
     required,
     value,
+    hideLabel,
+    label,
   ]);
 
   const renderClearButton = React.useMemo(() => {
     const clearButtonProps = {
       size: (size === 'large' ? 'large' : 'medium') as 'medium' | 'large',
-      onClick: clearInput,
-      title: `${getLabel('clear')} ${label}`,
+      onClick: disabled ? () => {} : clearInput,
+      disabled,
+      'aria-disabled': disabled || undefined,
+      title: `${getLabel('clear')}`,
       className: cn(styles['tedi-textfield__clear-button']),
     };
 
@@ -382,8 +387,8 @@ export const TextField = forwardRef<TextFieldForwardRef, TextFieldProps>((props,
         className={styles['tedi-textfield__inner']}
         onKeyDown={onKeyDown}
         onKeyUp={onKeyUp}
-        onKeyPress={onKeyPress}
         onClick={onClick}
+        tabIndex={disabled ? -1 : 0}
         ref={innerRef}
       >
         {renderInputElement}

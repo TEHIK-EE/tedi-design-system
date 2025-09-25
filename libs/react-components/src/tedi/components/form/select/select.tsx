@@ -175,7 +175,7 @@ export const Select = forwardRef<SelectInstance<ISelectOption, boolean, IGrouped
       onMenuOpen,
       onBlur,
       inputIsHidden,
-      isTagRemovable = true,
+      isTagRemovable = false,
       optionGroupHeadingText = { modifiers: 'small', color: 'tertiary' },
       cacheOptions = true,
       showRadioButtons = false,
@@ -260,7 +260,7 @@ export const Select = forwardRef<SelectInstance<ISelectOption, boolean, IGrouped
           onMenuOpen={onMenuOpen}
           placeholder={placeholder || ''}
           isClearable={isClearable}
-          backspaceRemovesValue={true}
+          backspaceRemovesValue={isTagRemovable}
           menuShouldScrollIntoView={true}
           isMulti={multiple}
           hideSelectedOptions={false}

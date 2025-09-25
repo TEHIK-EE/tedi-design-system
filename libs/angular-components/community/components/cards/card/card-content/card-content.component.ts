@@ -1,4 +1,5 @@
 import {
+  booleanAttribute,
   ChangeDetectionStrategy,
   Component,
   input,
@@ -38,16 +39,16 @@ export class CardContentComponent {
    * Inside card the separator is created under the content, inside card row the separator is created to the right of content.
    * @default false
    */
-  hasSeparator = input<boolean>();
+  hasSeparator = input(false, { transform: booleanAttribute });
   /**
    * Whether content block should take minimal space inside of row.
    * Sets flex-grow to 0.
    * @default false
    */
-  autoWidth = input<boolean>();
+  autoWidth = input(false, { transform: booleanAttribute });
   /**
    * Creates a timeline line next to the content block.
    * @default false
    */
-  timeline = input<boolean>();
+  timeline = input(false, { transform: booleanAttribute });
 }

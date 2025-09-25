@@ -1,4 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react';
+import { useState } from 'react';
 
 import { Icon } from '../../base/icon/icon';
 import { Text } from '../../base/typography/text/text';
@@ -6,6 +7,7 @@ import { Col, ColProps, Row } from '../../layout/grid';
 import { VerticalSpacing } from '../../layout/vertical-spacing';
 import Separator from '../../misc/separator/separator';
 import ChoiceGroup from './choice-group';
+import { ChoiceGroupValue } from './choice-group.types';
 import { ExtendedChoiceGroupItemProps } from './components/choice-group-item/choice-group-item';
 
 /**
@@ -221,15 +223,53 @@ export const RadioCardSeparated = () => <VerticalSpacing>{renderChoiceGroups('ra
 export const CheckboxCard = () => <VerticalSpacing>{renderChoiceGroups('checkbox', 'separated')}</VerticalSpacing>;
 
 export const WithError: Story = {
+  render: function Render(args) {
+    const [selectedValues, setSelectedValues] = useState<ChoiceGroupValue>([]);
+    const hasError = Array.isArray(selectedValues) && selectedValues.length === 0;
+
+    const handleChange = (value: ChoiceGroupValue) => {
+      setSelectedValues(value);
+    };
+
+    return (
+      <ChoiceGroup
+        {...args}
+        value={selectedValues}
+        onChange={handleChange}
+        helper={
+          hasError
+            ? {
+                text: 'Please select at least one option to continue.',
+                type: 'error',
+                id: 'error-helper',
+              }
+            : undefined
+        }
+      />
+    );
+  },
   args: {
-    ...Checkbox.args,
-    label: 'I have an error:',
-    items: generateItems({ index: 12 }),
-    helper: {
-      text: 'Oh no, an error!',
-      type: 'error',
-      id: 'test',
-    },
+    label: 'Select at least one option:',
+    id: 'example-with-error',
+    inputType: 'checkbox',
+    name: 'with-error',
+    items: [
+      {
+        id: 'error-option-1',
+        label: 'Option 1',
+        value: 'option-1',
+      },
+      {
+        id: 'error-option-2',
+        label: 'Option 2',
+        value: 'option-2',
+      },
+      {
+        id: 'error-option-3',
+        label: 'Option 3',
+        value: 'option-3',
+      },
+    ],
   },
 };
 
@@ -253,17 +293,37 @@ export const WithIndeterminate: Story = {
 
 export const WithExtraContent: Story = {
   args: {
-    ...Checkbox.args,
     inputType: 'checkbox',
     label: 'I have extra content after each option:',
-    items: generateItems({ index: 15, withHelper: true }),
+    id: 'example-extra-content',
+    name: 'extra-content',
+    items: [
+      {
+        id: 'extra-content-1',
+        label: 'Basic plan',
+        value: 'basic',
+        helper: { text: 'Includes 5GB storage and basic support' },
+      },
+      {
+        id: 'extra-content-2',
+        label: 'Pro plan',
+        value: 'pro',
+        helper: { text: 'Includes 20GB storage and priority support' },
+      },
+      {
+        id: 'extra-content-3',
+        label: 'Enterprise plan',
+        value: 'enterprise',
+        helper: { text: 'Includes unlimited storage and 24/7 support' },
+      },
+    ],
   },
 };
 
 export const Responsive: Story = {
   args: {
     inputType: 'radio',
-    label: 'Custom label:',
+    label: 'Choose an option:',
     variant: 'card',
     showIndicator: true,
     layout: 'separated',
@@ -299,7 +359,6 @@ export const Responsive: Story = {
 
 export const CustomLabel: Story = {
   args: {
-    ...Checkbox.args,
     inputType: 'checkbox',
     direction: 'row',
     label: (
@@ -307,6 +366,8 @@ export const CustomLabel: Story = {
         Custom label
       </Text>
     ),
+    id: 'custom-label',
+    name: 'custom-label',
     items: generateItems({ index: 16 }),
   },
 };
@@ -315,6 +376,8 @@ export const CustomItemLabels: Story = {
   args: {
     inputType: 'radio',
     label: 'Custom item labels:',
+    id: 'custom-item-labels',
+    name: 'custom-item-labels',
     items: [
       {
         id: 'radio-custom-item-labels-1',
@@ -329,6 +392,7 @@ export const CustomItemLabels: Story = {
               dotSize="small"
               spacing={0.5}
               variant="dot-only"
+              aria-hidden="true"
             />
             consectetur adipisicing elit.
           </Text>
@@ -339,8 +403,8 @@ export const CustomItemLabels: Story = {
         id: 'radio-custom-item-labels-2',
         label: (
           <Text>
-            <Icon display="inline" name="error" color="danger" /> Lorem ipsum dolor sit amet, consectetur adipisicing
-            elit.
+            <Icon display="inline" name="error" color="danger" aria-hidden="true" />
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
           </Text>
         ),
         value: 'radio-custom-item-labels-2',
@@ -350,8 +414,8 @@ export const CustomItemLabels: Story = {
         id: 'radio-custom-item-labels-3',
         label: (
           <Text>
-            <Icon display="inline" name="check" color="success" /> Lorem ipsum dolor sit amet, consectetur adipisicing
-            elit.
+            <Icon display="inline" name="check" color="success" aria-hidden="true" />
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
           </Text>
         ),
         value: 'radio-custom-item-labels-3',
@@ -369,6 +433,8 @@ export const CustomItemHTMLLabels: Story = {
   args: {
     inputType: 'checkbox',
     label: 'Custom item HTML labels:',
+    id: 'custom-item-html-labels',
+    name: 'custom-item-html-labels',
     items: [
       {
         id: 'checkbox-custom-item-labels-1',
@@ -390,7 +456,8 @@ export const CustomItemHTMLLabels: Story = {
         id: 'checkbox-custom-item-labels-2',
         label: (
           <div className="display-flex">
-            <Icon name="check" color="success" /> Lorem ipsum 2
+            <Icon name="check" color="success" aria-hidden="true" />
+            <Text>Lorem ipsum 2</Text>
           </div>
         ),
         value: 'checkbox-custom-item-labels-2',
@@ -398,12 +465,12 @@ export const CustomItemHTMLLabels: Story = {
       },
       {
         id: 'checkbox-custom-item-labels-3',
-        label: <div>Lorem ipsum 3</div>,
+        label: 'Lorem ipsum 3',
         value: 'checkbox-custom-item-labels-3',
       },
       {
         id: 'checkbox-custom-item-labels-4',
-        label: <div>Lorem ipsum 4</div>,
+        label: 'Lorem ipsum 4',
         value: 'checkbox-custom-item-labels-4',
       },
     ],

@@ -50,14 +50,13 @@ describe('Tag component', () => {
   it('renders with loading state', () => {
     render(<Tag isLoading>Loading Tag</Tag>);
 
-    const tag = screen.getByRole('status', { name: '' });
-    expect(tag).toHaveAttribute('aria-live', 'polite');
-
-    const spinner = screen.getByRole('status', { name: 'spinner.loading' });
+    const spinner = screen.getByTestId('tedi-spinner');
     expect(spinner).toBeInTheDocument();
     expect(spinner).toHaveClass('tedi-spinner tedi-tag__loader');
     expect(spinner).toHaveClass('tedi-spinner--size-16');
     expect(spinner).toHaveClass('tedi-spinner--color-primary');
+    expect(spinner).toHaveAttribute('aria-live', 'polite');
+    expect(spinner).toHaveAttribute('role', 'status');
   });
 
   it('does not render close button when onClose prop is not provided', () => {
