@@ -1,3 +1,10 @@
+# [@tehik-ee/tedi-react-v13.1.0-rc.14](https://github.com/TEHIK-EE/tedi-design-system/compare/react-13.1.0-rc.13...react-13.1.0-rc.14) (2025-09-25)
+
+
+### Bug Fixes
+
+* **file-upload:** enhance useFileUpload hook with controlled state management [#1021](https://github.com/TEHIK-EE/tedi-design-system/issues/1021) ([#1088](https://github.com/TEHIK-EE/tedi-design-system/issues/1088)) ([9d14a3d](https://github.com/TEHIK-EE/tedi-design-system/commit/9d14a3dd70526eeac26dbdf00a571fd3bca0a356))
+
 # [@tehik-ee/tedi-react-v13.1.0-rc.13](https://github.com/TEHIK-EE/tedi-design-system/compare/react-13.1.0-rc.12...react-13.1.0-rc.13) (2025-09-25)
 
 
