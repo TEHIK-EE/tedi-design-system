@@ -1,7 +1,6 @@
 import { Meta, StoryFn } from '@storybook/react';
-import React from 'react';
 
-import { Text } from '../../../tedi';
+import { Button, StatusBadge, Text, VerticalSpacing } from '../../../tedi';
 import Separator from '../../../tedi/components/misc/separator/separator';
 import { StepItem, VerticalStepper } from '.';
 import { SubItem } from './sub-item/sub-item';
@@ -23,67 +22,55 @@ export default meta;
 
 const Template: StoryFn<typeof VerticalStepper> = ({ isCompact = false }) => (
   <div style={{ width: 350 }}>
-    <VerticalStepper isCompact={isCompact}>
-      <StepItem title="Suhtlemine" isSelected hasIcon>
-        <Text color="tertiary">Täidab ametnik</Text>
-        <SubItem state="completed">
-          <a href="#">Sotsiaalsed suhted</a>
-        </SubItem>
-        <SubItem state="error" hasIcon>
-          <a>Ametlikud suhted</a>
-        </SubItem>
-        <SubItem state="informative">
-          <a>Kognitiivne võimekus</a>
-        </SubItem>
-        <SubItem isSelected>
-          <a>Psüühiline seisund</a>
-        </SubItem>
-        <SubItem state="disabled">
-          <a>Riskivaldkonnad</a>
-        </SubItem>
-        <SubItem state="informative">
-          <a>Tervise eest hoolitsemine</a>
-        </SubItem>
-      </StepItem>
-      <StepItem title="Vaimne tervis" state="completed" hasIcon>
-        <SubItem>
-          <a>Riskivaldkonnad</a>
-        </SubItem>
-      </StepItem>
-      <Separator spacing={1} />
-      <StepItem title="Elukeskkond" state="completed">
-        <SubItem>
-          <a>Sobiva eluaseme leidmine</a>
-        </SubItem>
-      </StepItem>
-      <StepItem title="Hõivatus" state="error" hasIcon>
-        <SubItem>
-          <a>Rakenduse leidmine ja säiilitamine</a>
-        </SubItem>
-      </StepItem>
-      <StepItem title="Vaba aeg ja huvitegevus" state="default"></StepItem>
-      <StepItem title="Igapäevaelu toimingud" state="disabled"></StepItem>
-      <StepItem title="Mitteametlik abi">
-        <SubItem state="completed">
-          <a>Abi perekonnalt</a>
-        </SubItem>
-        <SubItem state="error">
-          <a>Abi sõpradelt ja tuttavatelt</a>
-        </SubItem>
-        <SubItem>
-          <a>Tervisevaldkonna teenused</a>
-        </SubItem>
-        <SubItem isSelected>
-          <a>Haridusvaldkonna teenused</a>
-        </SubItem>
-        <SubItem state="disabled">
-          <a>Tööhõive valdkonna teenused</a>
-        </SubItem>
-        <SubItem state="informative">
-          <a>Muu abi</a>
-        </SubItem>
-      </StepItem>
-    </VerticalStepper>
+    <VerticalSpacing size={4}>
+      <VerticalStepper isCompact={isCompact}>
+        <StepItem title="Suhtlemine" isSelected hasIcon>
+          <Button size="small">Button</Button>
+          <SubItem title="Sotsiaalsed suhted" state="completed" as="button">
+            <StatusBadge color="warning" variant="filled">
+              Mõõdukas probleem
+            </StatusBadge>
+          </SubItem>
+          <SubItem title="Ametlikud suhted" state="error" hasIcon>
+            <StatusBadge color="neutral" variant="filled">
+              Probleem puudub
+            </StatusBadge>
+          </SubItem>
+          <SubItem title="Kognitiivne võimekus" state="informative"></SubItem>
+          <SubItem title="Psüühiline seisund" isSelected>
+            <Text color="tertiary">Täidab ametnik</Text>
+          </SubItem>
+          <SubItem title="Riskivaldkonnad" state="disabled"></SubItem>
+          <SubItem title="Tervise eest hoolitsemine" state="informative"></SubItem>
+        </StepItem>
+        <StepItem title="Vaimne tervis" state="completed" hasIcon>
+          <StatusBadge color="warning" variant="filled">
+            Mõõdukas probleem
+          </StatusBadge>
+
+          <SubItem title="Riskivaldkonnad"></SubItem>
+        </StepItem>
+        <Separator spacing={1} />
+        <StepItem title="Elukeskkond" state="completed">
+          <SubItem title="Sobiva eluaseme leidmine"></SubItem>
+        </StepItem>
+        <StepItem title="Hõivatus" state="error" hasIcon>
+          <SubItem title="Rakenduse leidmine ja säiilitamine"></SubItem>
+        </StepItem>
+        <StepItem title="Vaba aeg ja huvitegevus" state="default"></StepItem>
+        <StepItem title="Igapäevaelu toimingud" state="disabled"></StepItem>
+        <StepItem title="Mitteametlik abi">
+          <SubItem title="Abi perekonnalt" state="completed"></SubItem>
+          <SubItem title="Abi sõpradelt ja tuttavatelt" state="error"></SubItem>
+          <SubItem title="Tervisevaldkonna teenused"></SubItem>
+          <SubItem as="button" title="Haridusvaldkonna teenused" isSelected></SubItem>
+
+          <SubItem title="Tööhõive valdkonna teenused" state="disabled"></SubItem>
+          <SubItem title="Muu abi" state="informative"></SubItem>
+          <SubItem title="Muu abi 2"></SubItem>
+        </StepItem>
+      </VerticalStepper>
+    </VerticalSpacing>
   </div>
 );
 
