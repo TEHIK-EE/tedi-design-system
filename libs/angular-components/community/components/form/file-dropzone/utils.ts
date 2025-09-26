@@ -18,7 +18,7 @@ export function formatBytes(
       MB = SIFileSize.MB;
       break;
     default:
-      throw new Error(`Unknown standard: ${standard}`);
+      throw new Error(`Unknown filesize display standard: ${standard}`);
   }
   if (bytes >= MB) {
     const mbString = standard === "SI" ? "MB" : "MiB";
@@ -28,7 +28,7 @@ export function formatBytes(
     const bytesString = standard === "SI" ? "kB" : "KiB";
     return `${roundNumber(bytes / kB)} ${bytesString}`;
   }
-  return `${roundNumber(bytes)} B`;
+  return `${bytes} B`;
 }
 
 export function roundNumber(num: number, decimals = 2): string {
