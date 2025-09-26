@@ -9,10 +9,10 @@ import {
   ViewEncapsulation,
 } from "@angular/core";
 import {
-  SeparatorColor,
   SeparatorComponent,
-  TextComponent,
-} from "@tehik-ee/tedi-angular/tedi";
+  SeparatorColor,
+} from "../../separator/separator.component";
+import { TextComponent } from "../../../base/text/text.component";
 import { TimelineComponent } from "../timeline.component";
 import { NgClass } from "@angular/common";
 

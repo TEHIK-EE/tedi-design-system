@@ -4,15 +4,11 @@ import { TimelineComponent } from "./timeline.component";
 import { TimelineItemComponent } from "./timeline-item/timeline-item.component";
 import { TimelineTitleComponent } from "./timeline-title/timeline-title.component";
 import { TimelineDescriptionComponent } from "./timeline-description/timeline-description.component";
-import {
-  CollapseComponent,
-  TextComponent,
-  RowComponent,
-  ButtonComponent,
-  InfoButtonComponent,
-  IconComponent,
-} from "@tehik-ee/tedi-angular/tedi";
-import { StatusBadgeComponent } from "../../tags/status-badge/status-badge.component";
+import { CollapseComponent } from "../../buttons/collapse/collapse.component";
+import { TextComponent } from "../../base/text/text.component";
+import { ButtonComponent } from "../../buttons/button/button.component";
+import { InfoButtonComponent } from "../../buttons/info-button/info-button.component";
+import { IconComponent } from "../../base/icon/icon.component";
 
 /**
  * <a href="https://www.figma.com/design/jWiRIXhHRxwVdMSimKX2FF/TEDI-READY-2.17.25?node-id=136-14995&m=dev&focus-id=25945-119670" target="_BLANK">Figma ↗</a><br/>
@@ -28,7 +24,7 @@ import { StatusBadgeComponent } from "../../tags/status-badge/status-badge.compo
  */
 
 export default {
-  title: "Community/Cards/Timeline",
+  title: "TEDI-Ready/Components/Helpers/Timeline",
   component: TimelineComponent,
   decorators: [
     moduleMetadata({
@@ -39,11 +35,9 @@ export default {
         TimelineDescriptionComponent,
         CollapseComponent,
         TextComponent,
-        RowComponent,
         ButtonComponent,
         InfoButtonComponent,
         IconComponent,
-        StatusBadgeComponent,
       ],
     }),
   ],
@@ -239,19 +233,6 @@ export const WithAction: Story = {
           <tedi-collapse openText="Näita rohkem" closeText="Näita vähem">
             <small tedi-text color="tertiary">Pärast otsuse teatavaks tegemist saab seda vajadusel vaidlustada.</small>
           </tedi-collapse>
-        </tedi-timeline-item>
-        <tedi-timeline-item>
-          <tedi-timeline-title>Lõpetamine</tedi-timeline-title>
-          <tedi-timeline-description>Kui otsus on tehtud ja vaidlustamise tähtaeg möödunud, loetakse menetlus lõpetatuks.</tedi-timeline-description>
-          <abr
-            tedi-status-badge
-            color="success"
-            variant="filled-bordered"
-            status="none"
-            style="width: fit-content;"
-          >
-            Lõpetatud
-          </abr>
         </tedi-timeline-item>
       </tedi-timeline>
     `,
