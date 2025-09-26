@@ -2,12 +2,14 @@
   #fileInput
   class="tedi-file-dropzone__input"
   type="file"
+  [disabled]="disabled()"
   [multiple]="multiple()"
   [id]="inputId()"
   [attr.webkitdirectory]="uploadFolder() ? '' : null"
   [accept]="accept()"
   (change)="selectionChange($event)"
 />
+
 <button [className]="classes()" (click)="onContainerClick()">
   <div class="tedi-file-dropzone__label-wrapper">
     <tedi-icon

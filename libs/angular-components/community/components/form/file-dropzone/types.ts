@@ -67,5 +67,8 @@ export type DropzoneValidatorFunction = (
   maxSize: number,
   acceptFileTypes: string,
   file: FileDropzone,
+  standard: SizeDisplayStandard,
   translate: (key: string, ...args: unknown[]) => string
 ) => string | undefined;
+
+export type SizeDisplayStandard = "SI" | "IEC";
