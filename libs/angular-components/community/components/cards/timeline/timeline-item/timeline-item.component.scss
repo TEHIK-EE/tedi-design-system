@@ -1,18 +1,114 @@
+@use "@tehik-ee/tedi-core/bootstrap-utility/breakpoints";
+@use "@tehik-ee/tedi-core/mixins" as mixins;
+
+:root {
+  --timeline-padding-y: 8px;
+  --timeline-text-min-height: 24px;
+}
+
 tedi-timeline-item {
   display: contents;
 
+  .tedi-timeline__timings {
+    grid-column: 2;
+    grid-row: auto;
+    display: flex;
+    align-items: center;
+
+    @include mixins.responsive-styles(gap, layout-grid-gutters-04);
+
+    @include breakpoints.media-breakpoint-up(lg) {
+      grid-column: 1;
+      flex-direction: column;
+      align-items: end;
+      gap: 0;
+      padding-bottom: var(--timeline-padding-y);
+    }
+
+    .tedi-timeline__time {
+      position: relative;
+      display: flex;
+      align-items: center;
+
+      @include mixins.responsive-styles(
+        font-size,
+        body-small-regular-size,
+        $exclude: tablet
+      );
+
+      @include breakpoints.media-breakpoint-up(lg) {
+        min-height: var(--timeline-text-min-height);
+
+        &:first-child {
+          @include mixins.responsive-styles(
+            font-size,
+            body-regular-size,
+            $exclude: tablet
+          );
+        }
+      }
+
+      @include breakpoints.media-breakpoint-down(lg) {
+        &::before {
+          content: "";
+          display: none;
+          width: 4px;
+          height: 4px;
+          border-radius: 50%;
+          background-color: currentColor;
+
+          @include mixins.responsive-styles(
+            margin-inline,
+            layout-grid-gutters-04
+          );
+        }
+
+        &:not(:first-child)::before {
+          display: inline-block;
+        }
+      }
+    }
+  }
+
   .tedi-timeline__marker {
+    grid-column: 1;
+    grid-row: span 2;
+    align-self: stretch;
+    padding-top: 6px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 4px;
-    padding-top: 6px;
+
+    &:not(:last-child) {
+      margin-bottom: -6px;
+    }
+
+    @include breakpoints.media-breakpoint-up(lg) {
+      grid-column: 2;
+      grid-row: auto;
+    }
+
+    &--large {
+      padding-top: 3px;
+    }
+  }
+
+  .tedi-timeline__info {
+    grid-column: 2;
+    grid-row: auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--timeline-padding-y);
+    padding-bottom: var(--timeline-padding-y);
+
+    @include breakpoints.media-breakpoint-up(lg) {
+      grid-column: 3;
+    }
   }
 
   .tedi-timeline__content {
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    padding-bottom: 8px;
+    gap: var(--timeline-padding-y);
   }
 }

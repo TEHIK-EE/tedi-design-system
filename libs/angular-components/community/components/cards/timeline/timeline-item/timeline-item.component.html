@@ -1,7 +1,14 @@
-<div tedi-text color="tertiary">
-  {{ time() }}
+<div class="tedi-timeline__timings">
+  @for (timing of timings(); track timing; let index = $index) {
+    <div tedi-text color="tertiary" class="tedi-timeline__time">
+      {{ timing }}
+    </div>
+  }
 </div>
-<div class="tedi-timeline__marker">
+<div
+  class="tedi-timeline__marker"
+  [ngClass]="{ 'tedi-timeline__marker--large': state() === 'current' }"
+>
   <tedi-separator
     [color]="color()"
     variant="dot-only"
@@ -15,9 +22,12 @@
     />
   }
 </div>
-<div class="tedi-timeline__content">
+<div class="tedi-timeline__info">
   <div>
-    <b tedi-text color="secondary">{{ title() }}</b>
+    <ng-content select="tedi-timeline-title" />
+    <ng-content select="tedi-timeline-description" />
   </div>
-  <ng-content />
+  <div class="tedi-timeline__content">
+    <ng-content />
+  </div>
 </div>

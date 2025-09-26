@@ -2,11 +2,30 @@ import { moduleMetadata, type Meta, type StoryObj } from "@storybook/angular";
 
 import { TimelineComponent } from "./timeline.component";
 import { TimelineItemComponent } from "./timeline-item/timeline-item.component";
+import { TimelineTitleComponent } from "./timeline-title/timeline-title.component";
+import { TimelineDescriptionComponent } from "./timeline-description/timeline-description.component";
 import {
   CollapseComponent,
   TextComponent,
   RowComponent,
+  ButtonComponent,
+  InfoButtonComponent,
+  IconComponent,
 } from "@tehik-ee/tedi-angular/tedi";
+import { StatusBadgeComponent } from "../../tags/status-badge/status-badge.component";
+
+/**
+ * <a href="https://www.figma.com/design/jWiRIXhHRxwVdMSimKX2FF/TEDI-READY-2.17.25?node-id=136-14995&m=dev&focus-id=25945-119670" target="_BLANK">Figma ↗</a><br/>
+ * <a href="" target="_BLANK">Zeroheight ↗</a>
+ * <hr />
+ * This component is responsive and adapts to mobile layout when below LG (992px) breakpoint.<br />
+ * Timeline consists of several sub-components:
+ * - `TimelineItemComponent`: Used for showing single item in timeline. Item timings are not required. First timing is showed with 16px, rest 14px.
+ * - `TimelineTitleComponent`: Used for showing title in timeline item. If you want to use heading element for title, put it inside title component, wrapping your text.
+ * - `TimelineDescriptionComponent`: Used for showing description in timeline item.
+ *
+ * TimelineItemComponent can also contain any other content, it will be rendered under description.
+ */
 
 export default {
   title: "Community/Cards/Timeline",
@@ -16,9 +35,15 @@ export default {
       imports: [
         TimelineComponent,
         TimelineItemComponent,
+        TimelineTitleComponent,
+        TimelineDescriptionComponent,
         CollapseComponent,
         TextComponent,
         RowComponent,
+        ButtonComponent,
+        InfoButtonComponent,
+        IconComponent,
+        StatusBadgeComponent,
       ],
     }),
   ],
@@ -31,20 +56,12 @@ export default {
         type: { summary: "number" },
       },
     },
-    title: {
-      description: "Item title",
-      control: "text",
+    timings: {
+      description: "Item timings",
+      control: "object",
       table: {
         category: "timeline-item",
-        type: { summary: "string" },
-      },
-    },
-    time: {
-      description: "Item time",
-      control: "text",
-      table: {
-        category: "timeline-item",
-        type: { summary: "string" },
+        type: { summary: "string[]" },
       },
     },
   },
@@ -59,60 +76,232 @@ export const Default: Story = {
   render: (args) => ({
     props: args,
     template: `
-      <tedi-timeline [activeIndex]="activeIndex" style="max-width: 400px;">
-        <tedi-timeline-item time="2022" title="Staaži kogumise algus (I sammas)">
-          <p tedi-text color="tertiary">Praeguse seisuga on sul kogutud 2 aastat pensionistaaži</p>
+      <tedi-timeline [activeIndex]="activeIndex">
+        <tedi-timeline-item [timings]="['1990', '14. detsember']">
+          <tedi-timeline-title>Staaži kogumise algus (I sammas)</tedi-timeline-title>
+        </tedi-timeline-item>
+        <tedi-timeline-item [timings]="['2002', '04. oktoober']">
+          <tedi-timeline-title>II sambaga liitumine</tedi-timeline-title>
+          <tedi-timeline-description>Aktiivne fond: LHV XL (loositud)</tedi-timeline-description>
+        </tedi-timeline-item>
+        <tedi-timeline-item [timings]="['2007', '07. aprill']">
+          <tedi-timeline-title>Minimaalse staaži täitumine (I sammas)</tedi-timeline-title>
+        </tedi-timeline-item>
+        <tedi-timeline-item [timings]="['2021', '13. mai']">
+          <tedi-timeline-title>III sambaga liitumine</tedi-timeline-title>
+        </tedi-timeline-item>
+        <tedi-timeline-item [timings]="['2022', '14. juuni']">
+          <tedi-timeline-title>II sambast lahkumine</tedi-timeline-title>
+        </tedi-timeline-item>
+        <tedi-timeline-item [timings]="['2024', '16. detsember']">
+          <tedi-timeline-title>Taotluse esitamine</tedi-timeline-title>
+          <tedi-timeline-description>Menetlemine võib võtta kuni 30 p</tedi-timeline-description>
+          <button tedi-button size="small" style="width: fit-content;">Alusta taotlust</button>
+        </tedi-timeline-item>
+        <tedi-timeline-item [timings]="['2032']">
+          <tedi-timeline-title>II sambaga uuesti liitumise võimalus</tedi-timeline-title>
+        </tedi-timeline-item>
+        <tedi-timeline-item [timings]="['2035']">
+          <tedi-timeline-title>Vanaduspensioniiga</tedi-timeline-title>
+        </tedi-timeline-item>
+      </tedi-timeline>
+    `,
+  }),
+};
+
+export const TitleOnly: Story = {
+  args: {
+    activeIndex: 1,
+  },
+  render: (args) => ({
+    props: args,
+    template: `
+      <tedi-timeline [activeIndex]="activeIndex">
+        <tedi-timeline-item>
+          <tedi-timeline-title>Taotluse esitamine</tedi-timeline-title>
+        </tedi-timeline-item>
+        <tedi-timeline-item>
+          <tedi-timeline-title>Menetlemine</tedi-timeline-title>
+        </tedi-timeline-item>
+        <tedi-timeline-item>
+          <tedi-timeline-title>Otsus</tedi-timeline-title>
+        </tedi-timeline-item>
+      </tedi-timeline>
+    `,
+  }),
+};
+
+export const WithDescription: Story = {
+  args: {
+    activeIndex: 1,
+  },
+  render: (args) => ({
+    props: args,
+    template: `
+      <tedi-timeline [activeIndex]="activeIndex">
+        <tedi-timeline-item>
+          <tedi-timeline-title>Taotluse esitamine</tedi-timeline-title>
+          <tedi-timeline-description>Pärast taotluse esitamist võetakse see menetlusse.</tedi-timeline-description>
+        </tedi-timeline-item>
+        <tedi-timeline-item>
+          <tedi-timeline-title>Menetlemine</tedi-timeline-title>
+          <tedi-timeline-description>Menetlemine võib võtta kuni 30 päeva.</tedi-timeline-description>
+        </tedi-timeline-item>
+        <tedi-timeline-item>
+          <tedi-timeline-title>Otsus</tedi-timeline-title>
+          <tedi-timeline-description>Otsus tehakse teatavaks.</tedi-timeline-description>
+        </tedi-timeline-item>
+      </tedi-timeline>
+    `,
+  }),
+};
+
+export const WithInfoButton: Story = {
+  args: {
+    activeIndex: 1,
+  },
+  render: (args) => ({
+    props: args,
+    template: `
+      <tedi-timeline [activeIndex]="activeIndex">
+        <tedi-timeline-item>
+          <tedi-timeline-title>
+            Taotluse esitamine
+            <button tedi-info-button></button>
+          </tedi-timeline-title>
+          <tedi-timeline-description>Pärast taotluse esitamist võetakse see menetlusse.</tedi-timeline-description>
+        </tedi-timeline-item>
+        <tedi-timeline-item>
+          <tedi-timeline-title>
+            Menetlemine
+            <button tedi-info-button></button>
+          </tedi-timeline-title>
+          <tedi-timeline-description>Menetlemine võib võtta kuni 30 päeva.</tedi-timeline-description>
+        </tedi-timeline-item>
+        <tedi-timeline-item>
+          <tedi-timeline-title>
+            Otsus
+            <button tedi-info-button></button>
+          </tedi-timeline-title>
+          <tedi-timeline-description>Otsus tehakse teatavaks.</tedi-timeline-description>
+        </tedi-timeline-item>
+      </tedi-timeline>
+    `,
+  }),
+};
+
+export const WithoutTitle: Story = {
+  args: {
+    activeIndex: 1,
+  },
+  render: (args) => ({
+    props: args,
+    template: `
+      <tedi-timeline [activeIndex]="activeIndex">
+        <tedi-timeline-item>
+          <tedi-timeline-description>Pärast taotluse esitamist võetakse see menetlusse.</tedi-timeline-description>
+        </tedi-timeline-item>
+        <tedi-timeline-item>
+          <tedi-timeline-description>Menetlemine võib võtta kuni 30 päeva.</tedi-timeline-description>
+        </tedi-timeline-item>
+        <tedi-timeline-item>
+          <tedi-timeline-description>Otsus tehakse teatavaks.</tedi-timeline-description>
+        </tedi-timeline-item>
+      </tedi-timeline>
+    `,
+  }),
+};
+
+export const WithAction: Story = {
+  args: {
+    activeIndex: 3,
+  },
+  render: (args) => ({
+    props: args,
+    template: `
+      <tedi-timeline [activeIndex]="activeIndex">
+        <tedi-timeline-item>
+          <tedi-timeline-title>Taotluse esitamine</tedi-timeline-title>
+          <tedi-timeline-description>Pärast taotluse esitamist võetakse see menetlusse.</tedi-timeline-description>
+          <button tedi-button size="small" variant="secondary" style="width: fit-content;">
+            <tedi-icon name="add" />
+            Lisa kaastaotleja
+          </button>
+        </tedi-timeline-item>
+        <tedi-timeline-item>
+          <tedi-timeline-title>Menetlemine</tedi-timeline-title>
+          <tedi-timeline-description>Menetlemine võib võtta kuni 30 päeva.</tedi-timeline-description>
+          <button tedi-button size="small" style="width: fit-content;">Vaata menetlust</button>
+        </tedi-timeline-item>
+        <tedi-timeline-item>
+          <tedi-timeline-title>Otsus</tedi-timeline-title>
+          <tedi-timeline-description>Otsus tehakse teatavaks.</tedi-timeline-description>
           <tedi-collapse openText="Näita rohkem" closeText="Näita vähem">
-            <tedi-row [cols]="1" [gap]="3">
-              <p tedi-text color="tertiary">Pensioniarvestust mõjutab pensioniõiguslik staaž (PÕS) ja individuaalne sotsiaalmaks (ISM).</p>
-              <p tedi-text color="tertiary"><b>PÕS</b> näitab, kui kaua oled töötanud ja kas sul on õigus vanaduspensionile.</p>
-              <p tedi-text color="tertiary"><b>ISM</b> mõjutab pensioni suurust - mida rohkem on makstud sotsiaalmaksu, seda suurem on tulevane pension.</p>
-            </tedi-row>
+            <small tedi-text color="tertiary">Pärast otsuse teatavaks tegemist saab seda vajadusel vaidlustada.</small>
           </tedi-collapse>
         </tedi-timeline-item>
-        <tedi-timeline-item time="2022" title="II sambaga liitumine">
-          <p tedi-text color="tertiary">LHV S (loositud)</p>
-          <tedi-collapse openText="Näita rohkem" closeText="Näita vähem">
-            <p tedi-text color="tertiary">
-              II sambaga liitudes hakkasid koguma raha oma tuleviku jaoks.
-              Sinu sissemaksed ja riigi panus suunatakse pensionifondi, kus need ajas kasvavad.
-              Mida varem alustad, seda rohkem koguneb. Võrdle <a href="#">II samba fondide tootlikkust.</a>
-            </p>
-          </tedi-collapse>
+        <tedi-timeline-item>
+          <tedi-timeline-title>Lõpetamine</tedi-timeline-title>
+          <tedi-timeline-description>Kui otsus on tehtud ja vaidlustamise tähtaeg möödunud, loetakse menetlus lõpetatuks.</tedi-timeline-description>
+          <abr
+            tedi-status-badge
+            color="success"
+            variant="filled-bordered"
+            status="none"
+            style="width: fit-content;"
+          >
+            Lõpetatud
+          </abr>
         </tedi-timeline-item>
-        <tedi-timeline-item time="2025" title="Praegune hetk">
-          <tedi-collapse openText="Näita rohkem" closeText="Näita vähem">
-            <p tedi-text color="tertiary">
-              Sinu pensionifondid koguvad väärtust ja iga otsus, mida täna teed, võib mõjutada sinu tulevast pensioni.
-              Vaata <a href="#">erinevate sammaste tootlikkust,</a> et leida endale sobiv lahendus.
-            </p>
-          </tedi-collapse>
+      </tedi-timeline>
+    `,
+  }),
+};
+
+export const WithSingleDate: Story = {
+  args: {
+    activeIndex: 1,
+  },
+  render: (args) => ({
+    props: args,
+    template: `
+      <tedi-timeline [activeIndex]="activeIndex">
+        <tedi-timeline-item [timings]="['1990']">
+          <tedi-timeline-title>Taotluse esitamine</tedi-timeline-title>
+          <tedi-timeline-description>Pärast taotluse esitamist võetakse see menetlusse.</tedi-timeline-description>
         </tedi-timeline-item>
-        <tedi-timeline-item title="III sambaga liitumine">
-          <tedi-collapse openText="Näita rohkem" closeText="Näita vähem">
-            <p tedi-text color="tertiary">
-              Sul on võimalus hakata pensioniks koguma ka III sambasse.
-              See on vabatahtlik ja paindlik viis oma tulevikku kindlustada.
-              Iga sissemakse toob kaasa tulumaksutagastuse ning aitab pensionipõlve sissetulekut suurendada.
-              Võrdle <a href="#">III samba fondide tootlikkust.</a>
-            </p>
-          </tedi-collapse>
+        <tedi-timeline-item [timings]="['1990']">
+          <tedi-timeline-title>Menetlemine</tedi-timeline-title>
+          <tedi-timeline-description>Menetlemine võib võtta kuni 30 päeva.</tedi-timeline-description>
         </tedi-timeline-item>
-        <tedi-timeline-item title="Minimaalse staaži täitumine (I sammas)">
-          <tedi-collapse openText="Näita rohkem" closeText="Näita vähem">
-            <p tedi-text color="tertiary">
-              Vanaduspensioni saamiseks peab sul olema kogunenud vähemalt 15 aastat pensionistaaži.
-            </p>
-          </tedi-collapse>
+        <tedi-timeline-item [timings]="['1991']">
+          <tedi-timeline-title>Otsus</tedi-timeline-title>
+          <tedi-timeline-description>Otsus tehakse teatavaks.</tedi-timeline-description>
         </tedi-timeline-item>
-        <tedi-timeline-item title="Vanaduspensioniiga">
-          <tedi-collapse openText="Näita rohkem" closeText="Näita vähem">
-            <p tedi-text color="tertiary">
-              Vanaduspension sõltub sissetulekutest ja valitud pensionisammastest.
-              Pensioni saamiseks esita taotlus siin.
-              Enne otsustamist tutvu ka võimalustega, nagu osaline või edasilükatud pension.
-            </p>
-          </tedi-collapse>
+      </tedi-timeline>
+    `,
+  }),
+};
+
+export const WithMultipleDates: Story = {
+  args: {
+    activeIndex: 1,
+  },
+  render: (args) => ({
+    props: args,
+    template: `
+      <tedi-timeline [activeIndex]="activeIndex">
+        <tedi-timeline-item [timings]="['1990', '14. detsember']">
+          <tedi-timeline-title>Taotluse esitamine</tedi-timeline-title>
+          <tedi-timeline-description>Pärast taotluse esitamist võetakse see menetlusse.</tedi-timeline-description>
+        </tedi-timeline-item>
+        <tedi-timeline-item [timings]="['1990', '15. detsember']">
+          <tedi-timeline-title>Menetlemine</tedi-timeline-title>
+          <tedi-timeline-description>Menetlemine võib võtta kuni 30 päeva.</tedi-timeline-description>
+        </tedi-timeline-item>
+        <tedi-timeline-item [timings]="['1991', '15. jaanuar']">
+          <tedi-timeline-title>Otsus</tedi-timeline-title>
+          <tedi-timeline-description>Otsus tehakse teatavaks.</tedi-timeline-description>
         </tedi-timeline-item>
       </tedi-timeline>
     `,
