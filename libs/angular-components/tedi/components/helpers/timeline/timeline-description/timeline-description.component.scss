@@ -1,0 +1,31 @@
+@use "@tehik-ee/tedi-core/mixins" as mixins;
+
+tedi-timeline-description {
+  display: flex;
+  align-items: center;
+  color: var(--general-text-tertiary);
+  min-height: var(--timeline-text-min-height);
+
+  @include mixins.responsive-styles(gap, layout-grid-gutters-04);
+  @include mixins.responsive-styles(
+    font-size,
+    body-small-regular-size,
+    $exclude: tablet
+  );
+  @include mixins.responsive-styles(
+    font-weight,
+    body-small-regular-weight,
+    $exclude: tablet
+  );
+  @include mixins.responsive-styles(
+    line-height,
+    body-small-regular-line-height,
+    $exclude: tablet
+  );
+
+  > * {
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+  }
+}

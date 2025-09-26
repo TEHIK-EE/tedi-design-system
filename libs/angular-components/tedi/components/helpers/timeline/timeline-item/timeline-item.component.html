@@ -1,0 +1,33 @@
+<div class="tedi-timeline__timings">
+  @for (timing of timings(); track timing; let index = $index) {
+    <div tedi-text color="tertiary" class="tedi-timeline__time">
+      {{ timing }}
+    </div>
+  }
+</div>
+<div
+  class="tedi-timeline__marker"
+  [ngClass]="{ 'tedi-timeline__marker--large': state() === 'current' }"
+>
+  <tedi-separator
+    [color]="color()"
+    variant="dot-only"
+    [dotSize]="state() === 'current' ? 'large' : 'medium'"
+    [dotFilled]="state() !== 'future'"
+  />
+  @if (!isLast()) {
+    <tedi-separator
+      axis="vertical"
+      [color]="state() === 'past' ? 'accent' : 'secondary'"
+    />
+  }
+</div>
+<div class="tedi-timeline__info">
+  <div>
+    <ng-content select="tedi-timeline-title" />
+    <ng-content select="tedi-timeline-description" />
+  </div>
+  <div class="tedi-timeline__content">
+    <ng-content />
+  </div>
+</div>

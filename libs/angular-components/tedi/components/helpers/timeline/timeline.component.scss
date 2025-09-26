@@ -1,0 +1,17 @@
+@use "@tehik-ee/tedi-core/bootstrap-utility/breakpoints";
+@use "@tehik-ee/tedi-core/mixins" as mixins;
+
+tedi-timeline {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  grid-auto-flow: row dense;
+  grid-auto-rows: auto;
+
+  @include mixins.responsive-styles(column-gap, layout-grid-gutters-12);
+
+  @include breakpoints.media-breakpoint-up(lg) {
+    grid-template-columns: max-content max-content 1fr;
+    row-gap: 0;
+    grid-auto-flow: row;
+  }
+}

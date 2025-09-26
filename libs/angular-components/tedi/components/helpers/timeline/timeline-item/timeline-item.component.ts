@@ -9,28 +9,27 @@ import {
   ViewEncapsulation,
 } from "@angular/core";
 import {
-  SeparatorColor,
   SeparatorComponent,
-  TextComponent,
-} from "@tehik-ee/tedi-angular/tedi";
+  SeparatorColor,
+} from "../../separator/separator.component";
+import { TextComponent } from "../../../base/text/text.component";
 import { TimelineComponent } from "../timeline.component";
+import { NgClass } from "@angular/common";
 
 type TimelineItemState = "current" | "past" | "future";
 
 @Component({
   standalone: true,
   selector: "tedi-timeline-item",
-  imports: [SeparatorComponent, TextComponent],
+  imports: [SeparatorComponent, TextComponent, NgClass],
   templateUrl: "./timeline-item.component.html",
   styleUrl: "./timeline-item.component.scss",
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TimelineItemComponent implements OnInit, OnDestroy {
-  /** Item title */
-  title = input.required<string>();
-  /** Item time */
-  time = input<string>();
+  /** Item timings */
+  timings = input<string[]>([]);
 
   timeline = inject(TimelineComponent, { optional: true });
 
