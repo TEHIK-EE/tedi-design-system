@@ -1,21 +1,45 @@
-import { FileDropzone } from "./types";
+import { IECFileSize, SIFileSize } from "./constants";
+import { FileDropzone, SizeDisplayStandard } from "./types";
 
-/** SI Standard https://wiki.ubuntu.com/UnitsPolicy */
-export function formatBytes(bytes: number): string {
-  const MB = 100000;
-  const kB = 1000;
-  if (bytes > MB) {
-    return `${bytes / MB} MB`;
+export function formatBytes(
+  bytes: number,
+  standard: SizeDisplayStandard
+): string {
+  let kB: number = 0;
+  let MB: number = 0;
+
+  switch (standard) {
+    case "IEC":
+      kB = IECFileSize.kB;
+      MB = IECFileSize.MB;
+      break;
+    case "SI":
+      kB = SIFileSize.kB;
+      MB = SIFileSize.MB;
+      break;
+    default:
+      throw new Error(`Unknown filesize display standard: ${standard}`);
   }
-  if (bytes > kB) {
-    return `${bytes / kB} kB`;
+  if (bytes >= MB) {
+    const mbString = standard === "SI" ? "MB" : "MiB";
+    return `${roundNumber(bytes / MB)} ${mbString}`;
+  }
+  if (bytes >= kB) {
+    const bytesString = standard === "SI" ? "kB" : "KiB";
+    return `${roundNumber(bytes / kB)} ${bytesString}`;
   }
   return `${bytes} B`;
+}
+
+export function roundNumber(num: number, decimals = 2): string {
+  const rounded = num.toFixed(decimals);
+  return rounded.includes(".") ? rounded.replace(/\.?0+$/, "") : rounded;
 }
 
 export function getDefaultHelpers(
   accept: string,
   maxSize: number,
+  standard: SizeDisplayStandard,
   translate?: (key: string, ...args: unknown[]) => string
 ): string {
   if (!translate)
@@ -30,7 +54,7 @@ export function getDefaultHelpers(
   }
   if (maxSize) {
     textArray.push(
-      `${translate("file-upload.max-size")} ${formatBytes(maxSize)}`
+      `${translate("file-upload.max-size")} ${formatBytes(maxSize, standard)}`
     );
   }
   return textArray.filter(Boolean).join(". ");
@@ -40,10 +64,11 @@ export function validateFileSize(
   maxSize: number,
   acceptFileTypes: string,
   file: FileDropzone,
+  standard: SizeDisplayStandard,
   translate: (key: string, ...args: unknown[]) => string
 ) {
   if (maxSize && file.size > maxSize) {
-    const maxSizeMB = formatBytes(maxSize);
+    const maxSizeMB = formatBytes(maxSize, standard);
     return translate(
       `file-upload.size-rejected-extended`,
       file.name,
@@ -57,6 +82,7 @@ export function validateFileType(
   maxSize: number,
   acceptFileTypes: string,
   file: FileDropzone,
+  standard: SizeDisplayStandard,
   translate: (key: string, ...args: unknown[]) => string
 ) {
   if (acceptFileTypes) {

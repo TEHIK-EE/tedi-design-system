@@ -19,7 +19,6 @@ import { ButtonComponent } from "tedi/components";
 
 const meta: Meta<FileDropzoneComponent> = {
   component: FileDropzoneComponent,
-  // import formcontrol module to enable usage inside forms
   decorators: [
     moduleMetadata({
       imports: [ReactiveFormsModule, ButtonComponent],
@@ -44,6 +43,7 @@ const meta: Meta<FileDropzoneComponent> = {
   args: {
     accept: "",
     maxSize: 0,
+    sizeDisplayStandard: "IEC",
     multiple: false,
     validateIndividually: false,
     defaultFiles: [],
@@ -65,12 +65,23 @@ const meta: Meta<FileDropzoneComponent> = {
     maxSize: {
       description: `The maximum file size allowed for upload, in bytes.`,
     },
+    sizeDisplayStandard: {
+      control: {
+        type: "radio",
+      },
+      options: ["SI", "IEC"],
+      description: `Specifies the standard to use when displaying file sizes or maximum file size.
+        Options are "SI" (base 10) or "IEC" (base 2).
+        \nSI units are in multiples of 1000 (e.g., 1 kB = 1000 bytes).
+        \nIEC units are in multiples of 1024 (e.g., 1 KiB = 1024 bytes).
+        https://wiki.ubuntu.com/UnitsPolicy`,
+    },
     multiple: {
       description: `Determines if multiple files can be uploaded at once via the file picker.`,
     },
     validateIndividually: {
       description: `If true, each file will be validated individually. If false, all files will be validated together.
-      Decides on what kind of UI elements are used to display validation errors.`,
+        Decides on what kind of UI elements are used to display validation errors.`,
     },
     defaultFiles: {
       description: `An array of default files that are preloaded in the upload list when the component is loaded.`,
@@ -94,9 +105,8 @@ const meta: Meta<FileDropzoneComponent> = {
       options: ["append", "replace"],
       description: `Specifies how to handle file name conflicts when multiple file of the same name are added.
         Options are:
-        - "append": Adds new files to the end of the list, keeping existing files
-
-        - "replace": Replaces existing files with new files of the same name`,
+        \n"append": Adds new files to the end of the list, keeping existing files
+        \n"replace": Replaces existing files with new files of the same name`,
     },
     uploadFolder: {
       description: ` If true, allows uploading folders instead of just files. This enables the user to select a folder and upload all its contents. Default file browser behaviour will prevent upload of files in this state.`,

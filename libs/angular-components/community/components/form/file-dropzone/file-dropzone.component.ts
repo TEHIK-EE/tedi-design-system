@@ -7,7 +7,6 @@ import {
   signal,
   viewChild,
   ElementRef,
-  effect,
   OnInit,
   output,
   forwardRef,
@@ -35,6 +34,7 @@ import {
   FeedbackTextProps,
   FileDropzone,
   FileInputMode,
+  SizeDisplayStandard,
 } from "./types";
 import {
   formatBytes,
@@ -85,6 +85,18 @@ export class FileDropzoneComponent implements ControlValueAccessor, OnInit {
    * @default 0 (no limit)
    **/
   maxSize = input<number>(0);
+  /**
+   * Specifies the standard to use when displaying file sizes or maximum file size.
+   * Options are "SI" (base 10) or "IEC" (base 2).
+   *
+   * SI units are in multiples of 1000 (e.g., 1 kB = 1000 bytes).
+   *
+   * IEC units are in multiples of 1024 (e.g., 1 KiB = 1024 bytes).
+   * @default "IEC"
+   *
+   * https://wiki.ubuntu.com/UnitsPolicy
+   */
+  sizeDisplayStandard = input<SizeDisplayStandard>("IEC");
   /**
    * Determines if multiple files can be uploaded at once via the file picker.
    *
@@ -149,7 +161,7 @@ export class FileDropzoneComponent implements ControlValueAccessor, OnInit {
    **/
   hasError = input<boolean>(false);
   /**
-   * Output event triggered when files are added or changed.
+   * Output event triggered when files are added.
    **/
   fileChange = output<FileDropzone[]>();
   /**
@@ -160,7 +172,8 @@ export class FileDropzoneComponent implements ControlValueAccessor, OnInit {
   fileInputElement =
     viewChild.required<ElementRef<HTMLInputElement>>("fileInput");
 
-  formatBytes = (bytes: number): string => formatBytes(bytes);
+  formatBytes = (bytes: number): string =>
+    formatBytes(bytes, this.sizeDisplayStandard());
 
   private _uploadState = computed(() => this._fileService.uploadState());
 
@@ -172,6 +185,9 @@ export class FileDropzoneComponent implements ControlValueAccessor, OnInit {
 
   isDragActive = signal<boolean>(false);
   disabled = signal<boolean>(false);
+
+  uploadError = signal<string | null>(null);
+  files = this._fileService.files;
 
   classes = computed(() => {
     const classList = ["tedi-file-dropzone"];
@@ -194,57 +210,42 @@ export class FileDropzoneComponent implements ControlValueAccessor, OnInit {
     return classList.join(" ");
   });
 
-  uploadError = signal<string | null>(null);
-
   helperText = computed<FeedbackTextProps>(() => ({
     text: getDefaultHelpers(
       this.accept(),
       this.maxSize(),
+      this.sizeDisplayStandard(),
       this._translationService.translate.bind(this._translationService)
     ),
     type: "hint",
     position: "left",
   }));
 
-  constructor() {
-    effect(() => {
-      this._fileService.maxSize = this.maxSize();
-      this._fileService.accept = this.accept();
-      this._fileService.mode = this.mode();
-      this._fileService.validators = this.validators();
-    });
+  ngOnInit(): void {
+    this.addFiles(this.defaultFiles());
+    this._fileService.maxSize = this.maxSize;
+    this._fileService.accept = this.accept;
+    this._fileService.mode = this.mode;
+    this._fileService.validators = this.validators;
+    this._fileService.sizeDisplayStandard = this.sizeDisplayStandard;
   }
 
   fileClasses = (file: FileDropzone): string => {
     const classList = ["tedi-file-dropzone__file-item"];
-
     if (file.className) {
       classList.push(...file.className);
     }
-
     if (file.fileStatus != "none") {
       classList.push(`tedi-file-dropzone__file-item--${file.fileStatus}`);
     }
-
     return classList.join(" ");
   };
 
   tooltipClasses = (file: FileDropzone): string => {
     const classes = ["tedi-file-dropzone__tooltip"];
-    if (file.helper?.type) {
-      classes.push(
-        "tedi-file-dropzone__tooltip--" + file.helper.type || "hint"
-      );
-    }
-
+    classes.push(`tedi-file-dropzone__tooltip--${file.helper?.type || "hint"}`);
     return classes.join(" ");
   };
-
-  files = this._fileService.files;
-
-  ngOnInit(): void {
-    this.addFiles(this.defaultFiles());
-  }
 
   selectionChange = (event: Event) => {
     const fileList = (event.target as HTMLInputElement).files;

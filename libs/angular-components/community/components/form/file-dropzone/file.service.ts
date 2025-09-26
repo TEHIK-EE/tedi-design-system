@@ -3,17 +3,20 @@ import {
   DropzoneValidatorFunction,
   FileDropzone,
   FileInputMode,
+  SizeDisplayStandard,
   ValidationState,
 } from "./types";
 import { TediTranslationService } from "@tehik-ee/tedi-angular/tedi";
 
 @Injectable()
 export class FileService {
-  maxSize = 0;
-  accept = "";
-  mode: FileInputMode = "append";
+  maxSize = signal(0).asReadonly();
+  accept = signal("").asReadonly();
+  mode = signal<FileInputMode>("append").asReadonly();
+  validators = signal<DropzoneValidatorFunction[]>([]).asReadonly();
+  sizeDisplayStandard = signal<SizeDisplayStandard>("IEC").asReadonly();
+
   uploadState = signal<ValidationState>("none");
-  validators: DropzoneValidatorFunction[] = [];
 
   protected _files = signal<FileDropzone[]>([]);
 
@@ -27,7 +30,7 @@ export class FileService {
     let newFiles = this.normalizeFiles(files);
     const currentFiles = this.files();
 
-    switch (this.mode) {
+    switch (this.mode()) {
       case "append": {
         // index any duplicate name file
         newFiles = await this._renameDuplicates(currentFiles, newFiles);
@@ -110,12 +113,13 @@ export class FileService {
     const errors: string[] = [];
     for (const file of files) {
       file.helper = undefined;
-      const error = this.validators
+      const error = this.validators()
         .map((validator) =>
           validator(
-            this.maxSize,
-            this.accept,
+            this.maxSize(),
+            this.accept(),
             file,
+            this.sizeDisplayStandard(),
             this._translateService.translate.bind(this._translateService)
           )
         )
