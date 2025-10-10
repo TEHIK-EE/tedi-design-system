@@ -1,3 +1,20 @@
+# TEDI Design System (Archived Monorepo)
+
+This was the **main TEDI Design System monorepo** containing all component libraries (React, Angular, Core, and shared documentation).
+
+As of **October 2025**, the project was reorganized into separate repositories:
+
+| Area | New Repository | Description |
+|------|----------------|-------------|
+| React components | [TEDI-Design-System/react](https://github.com/TEDI-Design-System/react) | Active development for React |
+| Angular components | [TEDI-Design-System/angular](https://github.com/TEDI-Design-System/angular) | Active development for Angular |
+| Core styles (SCSS variables) | [TEDI-Design-System/core](https://github.com/TEDI-Design-System/core) | Shared design tokens and mixins |
+| General docs & pipelines | [TEDI-Design-System/general](https://github.com/TEDI-Design-System/general) | CI/CD, docs, and shared assets |
+
+> This repo is archived and kept only for historical context.  
+> Please use the new repositories for all future work.
+---
+
 # TEDI Design System
 
 [![codecov](https://codecov.io/gh/TEHIK-EE/tedi-design-system/graph/badge.svg?token=NKNNJSG19D)](https://codecov.io/gh/TEHIK-EE/tedi-design-system)
